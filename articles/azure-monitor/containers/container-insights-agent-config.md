@@ -1,13 +1,13 @@
 ---
-title: Configure Azure Monitor for containers agent data collection | Microsoft Docs
-description: This article describes how you can configure the Azure Monitor for containers agent to control stdout/stderr and environment variables log collection.
+title: Configure Container insights agent data collection | Microsoft Docs
+description: This article describes how you can configure the Container insights agent to control stdout/stderr and environment variables log collection.
 ms.topic: conceptual
 ms.date: 10/09/2020
 ---
 
-# Configure agent data collection for Azure Monitor for containers
+# Configure agent data collection for Container insights
 
-Azure Monitor for containers collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters from the containerized agent. You can configure agent data collection settings by creating a custom Kubernetes ConfigMaps to control this experience. 
+Container insights collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters from the containerized agent. You can configure agent data collection settings by creating a custom Kubernetes ConfigMaps to control this experience. 
 
 This article demonstrates how to create ConfigMap and configure data collection based on your requirements.
 
@@ -137,8 +137,8 @@ The output will show similar to the following with the annotation schema-version
 
 ## Next steps
 
-- Azure Monitor for containers does not include a predefined set of alerts. Review the [Create performance alerts with Azure Monitor for containers](./container-insights-log-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
+- Container insights does not include a predefined set of alerts. Review the [Create performance alerts with Container insights](./container-insights-log-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
 
-- With monitoring enabled to collect health and resource utilization of your AKS or hybrid cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
+- With monitoring enabled to collect health and resource utilization of your AKS or hybrid cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
 
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.

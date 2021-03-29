@@ -53,8 +53,8 @@ To manage such applications successfully you should monitor them proactively and
   * [Your issue arises from using the storage emulator for development or test]
   * [You are encountering problems installing the Azure SDK for .NET]
   * [You have a different issue with a storage service]
-  * [Troubleshooting VHDs on Windows virtual machines](../../virtual-machines/troubleshooting/index.yml)   
-  * [Troubleshooting VHDs on Linux virtual machines](../../virtual-machines/troubleshooting/index.yml)
+  * [Troubleshooting VHDs on Windows virtual machines](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)   
+  * [Troubleshooting VHDs on Linux virtual machines](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
   * [Troubleshooting Azure Files issues with Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Troubleshooting Azure Files issues with Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Appendices]
@@ -784,7 +784,7 @@ You can find more information at [What is Application Insights](../../azure-moni
 
 For more information about analytics in Azure Storage, see these resources:
 
-* [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md)
+* [Monitor a storage account in the Azure portal](./manage-storage-analytics-logs.md)
 * [Storage analytics](storage-analytics.md)
 * [Storage analytics metrics](storage-analytics-metrics.md)
 * [Storage analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema)

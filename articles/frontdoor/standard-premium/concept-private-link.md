@@ -25,13 +25,16 @@ ms.custom: references_regions
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Front Door Premium SKU can connect to your origin behind Web App and Storage Account using the Private Link service, removing the need for your origin to be publically accessible.
+Azure Front Door Premium SKU can connect to your origin via private link service. Your applications can be hosted in your private VNet or behind a PaaS service such as Web App and Storage Account, removing the need for your origin to be publically accessible.
 
 :::image type="content" source="../media/concept-private-link/front-door-private-endpoint-architecture.png" alt-text="Front Door Private Endpoints architecture":::
 
 When you enable Private Link to your origin in Azure Front Door Premium configuration, Front Door creates a private endpoint on your behalf from Front Door's regional private network. This endpoint is managed by Azure Front Door. You'll receive an Azure Front Door private endpoint request for approval message at your origin. After you approve the request, a private IP address gets assigned from Front Door's virtual network, traffic between Azure Front Door and your origin traverses the established private link with Azure network backbone. Incoming traffic to your origin is now secured when coming from your Azure Front Door.
 
 :::image type="content" source="../media/concept-private-link/enable-private-endpoint.png" alt-text="Enable Private Endpoint":::
+
+> [!NOTE]
+> Once you enable a Private Link origin and approve the private endpoint conenction, it takes a few minutes for the connection to be established. During this time, requests to the origin will receive a Front Door error message. The error message will go away once the connection is established.
 
 ## Limitations
 

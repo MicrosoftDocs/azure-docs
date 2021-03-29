@@ -100,13 +100,13 @@ landingContent:
       - linkListType: reference
         links:
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/face/
+            url: /rest/api/face/
           - text: .NET SDK
-            url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+            url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
           - text: Python SDK
-            url: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
+            url: /python/api/azure-cognitiveservices-vision-face/
           - text: Java SDK
-            url: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/faceapi
           - text: Node.js SDK
             url: /javascript/api/@azure/cognitiveservices-face
           - text: Go SDK
@@ -114,7 +114,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: /cli/azure/cognitiveservices?view=azure-cli-latest
+            url: /cli/azure/cognitiveservices
   
   - title: Help and feedback
     linkLists:

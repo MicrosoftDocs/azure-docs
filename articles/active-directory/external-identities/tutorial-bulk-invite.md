@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 05/07/2020
+ms.date: 03/17/2021
 
 ms.author: mimart
 author: msmimart
@@ -42,7 +42,7 @@ The rows in a downloaded CSV template are as follows:
 
 - **Version number**: The first row containing the version number must be included in the upload CSV.
 - **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Email address to invite [inviteeEmail] Required`. Some older versions of the template might have slight variations.
-- **Examples row**: We have included in the template a row of examples of acceptable values for each column. You must remove the examples row and replace it with your own entries.
+- **Examples row**: We have included in the template a row of examples of values for each column. You must remove the examples row and replace it with your own entries.
 
 ### Additional guidance
 
@@ -57,18 +57,22 @@ You need two or more test email accounts that you can send the invitations to. T
 
 ## Invite guest users in bulk
 
-1. Sign in to the Azure portal with an account that is a User administrator in the organization.
+1. Sign in to the Azure portal with an account that is a global administrator in the organization.
 2. In the navigation pane, select **Azure Active Directory**.
-3. Under **Manage**, select **Users** > **Bulk invite**.
+3. Under **Manage**, select **All Users**.
+4. Select **Bulk operations** > **Bulk invite**.
+
+    ![Bulk invite button](media/tutorial-bulk-invite/bulk-invite-button.png)
+
 4. On the **Bulk invite users** page, select **Download** to get a valid .csv template with invitation properties.
 
-    ![Bulk invite download button](media/tutorial-bulk-invite/bulk-invite-button.png)
+     ![Download the CSV file](media/tutorial-bulk-invite/download-button.png)
 
-5. Open the .csv template and add a line for each guest user. Required values are:
+1. Open the .csv template and add a line for each guest user. Required values are:
 
    * **Email address to invite** - the user who will receive an invitation
 
-   * **Redirection url** - the URL to which the invited user is forwarded after accepting the invitation
+   * **Redirection url** - the URL to which the invited user is forwarded after accepting the invitation. If you want to forward the user to the My Apps page, you must change this value to https://myapps.microsoft.com or https://myapplications.microsoft.com.
 
     ![Example of a CSV file with guest users entered](media/tutorial-bulk-invite/bulk-invite-csv.png)
 

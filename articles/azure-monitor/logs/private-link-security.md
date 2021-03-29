@@ -5,7 +5,6 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.subservice: 
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Monitor
@@ -47,7 +46,7 @@ Some Azure Monitor services use global endpoints, meaning they serve requests ta
 When you set up a Private Link connection, your DNS is updated to map Azure Monitor endpoints to private IP addresses from your VNet's IP range. This change overrides any previous mapping of these endpoints, which can have meaningful implications, reviewed below. 
 
 ### Azure Monitor Private Link applies to all Azure Monitor resources - it's All or Nothing
-Since some Azure Monitor endpoints are global, it's impossible to create a Private Link connection for a specific component or workspace. Instead, when you set up a Private Link to a single Application Insights component, your DNS records are updated for **all** Application Insights component. Any attempt to ingest or query a component will go through the Private Link, and possibly fail. Similarly, setting up a Private Link to a single workspace will cause all Log Analytics queries to go through the Private Link query endpoint (but not ingestion requests, which have workspace-specific endpoints).
+Since some Azure Monitor endpoints are global, it's impossible to create a Private Link connection for a specific component or workspace. Instead, when you set up a Private Link to a single Application Insights component or Log Analytics workspace, your DNS records are updated for **all** Application Insights components. Any attempt to ingest or query a component will go through the Private Link, and possibly fail. With regard to Log Analytics, ingestion and configuration endpoints are workspace-specific, meaning the Private-link setup will only apply for the specified workspaces. Ingestion and configuration of other workspaces will be directed to the default public Log Analytics endpoints.
 
 ![Diagram of DNS overrides in a single VNet](./media/private-link-security/dns-overrides-single-vnet.png)
 
@@ -55,7 +54,9 @@ That's true not only for a specific VNet, but for all VNets that share the same 
 
 > [!NOTE]
 > To conclude: 
-> Once your setup a Private Link connection to a single resource, it applies to all Azure Monitor resources in your network - it's All or Nothing. That effectively means you should add all Azure Monitor resources in your network to your AMPLS, or none of them.
+> Once your setup a Private Link connection to a single resource, it applies to Azure Monitor resources across your network. For Application Insights resources, that's 'All or Nothing'. That effectively means you should add all Application Insights resources in your network to your AMPLS, or none of them.
+> 
+> To handle data exfiltration risks, our recommendation is to add all Application Insights and Log Analytics resources to your AMPLS, and block your networks egress traffic as much as possible.
 
 ### Azure Monitor Private Link applies to your entire network
 Some networks are composed of multiple VNets. If the VNets use the same DNS server, they will override each other's DNS mappings and possibly break each other's communication with Azure Monitor (see [The issue of DNS overrides](#the-issue-of-dns-overrides)). Ultimately, only the last VNet will be able to communicate with Azure Monitor, since the DNS will map Azure Monitor endpoints to private IPs from this VNets range (which may not be reachable from other VNets).
@@ -170,7 +171,8 @@ The Private Endpoint you created should now have an four DNS zones configured:
 * privatelink-ods-opinsights-azure-com
 * privatelink-agentsvc-azure-automation-net
 
-Each of these zones maps specific Azure Monitor endpoints to private IPs from the pool of IPs of the Private Endpoint's VNet.
+> [!NOTE]
+> Each of these zones maps specific Azure Monitor endpoints to private IPs from the VNet's pool of IPs. The IP addresses showns in the below images are only examples. Your configuration should instead show private IPs from your own network.
 
 #### Privatelink-monitor-azure-com
 This zone covers the global endpoints used by Azure Monitor, meaning these endpoints serve requests considering all resources, not a specific one. This zone should have endpoints mapped for:
@@ -217,7 +219,7 @@ The settings on the bottom part of this page control access from public networks
 
 ### Exceptions
 Restricting access as explained above doesn't apply to the Azure Resource Manager and therefore has the following limitations:
-* Access to data - while blocking/allowing queries from public networks applies to most Log Analytics experiences, some experiences query data through Azure Resource Manager and therefore won't be able to query data unless Private Link settings are applied to the Resource Manager as well (feature coming up soon). This includes, for example, Azure Monitor solutions, Workbooks and Insights, and the LogicApp connector.
+* Access to data - while blocking/allowing queries from public networks applies to most Log Analytics experiences, some experiences query data through Azure Resource Manager and therefore won't be able to query data unless Private Link settings are applied to the Resource Manager as well (feature coming up soon). Examples are Azure Monitor solutions, Workbooks and Insights, and the LogicApp connector.
 * Workspace management - Workspace setting and configuration changes (including turning these access settings on or off) are managed by Azure Resource Manager. Restrict access to workspace management using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md).
 
 > [!NOTE]
@@ -247,28 +249,28 @@ Second, you can control how this resource can be reached from outside of the pri
 > [!NOTE]
 > Non-portal consumption experiences must also run on the private-linked VNET that includes the monitored workloads.
 
-You’ll need to add resources hosting the monitored workloads to the private link. Here’s [documentation](../../app-service/networking/private-endpoint.md) for how to do this for App Services.
+You’ll need to add resources hosting the monitored workloads to the private link. For example, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).
 
 Restricting access in this manner only applies to data in the Application Insights resource. However, configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. So, you should restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md).
 
 > [!NOTE]
 > To fully secure workspace-based Application Insights, you need to lock down both access to Application Insights resource as well as the underlying Log Analytics workspace.
 >
-> Code-level diagnostics (profiler/debugger) need you to provide your own storage account to support private link. Here's [documentation](../app/profiler-bring-your-own-storage.md) for how to do this.
+> Code-level diagnostics (profiler/debugger) need you to [provide your own storage account](../app/profiler-bring-your-own-storage.md) to support private link.
 
 ### Handling the All-or-Nothing nature of Private Links
-As explained in [Planning your Private Link setup](#planning-your-private-link-setup), setting up a Private Link even for a single resource affects all Azure Monitor resources in that networks, and in other networks that share the same DNS. This can make your onboarding process challenging. Consider the following options:
+As explained in [Planning your Private Link setup](#planning-your-private-link-setup), setting up a Private Link even for a single resource affects all Azure Monitor resources in that networks, and in other networks that share the same DNS. This behavior can make your onboarding process challenging. Consider the following options:
 
 * All in - the simplest and most secure approach is to add all of your Application Insights components to the AMPLS. For components that you wish to still access from other networks as well, leave the “Allow public internet access for ingestion/query” flags set to Yes (the default).
-* Isolate networks - if you are (or can align with) using spoke vnets, follow the guidance in [Hub-spoke network topology in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Then, setup separate private link settings in the relevant spoke VNets. Make sure to separate DNS zones as well, since sharing DNS zones with other spoke networks will cause [DNS overrides](#the-issue-of-dns-overrides).
+* Isolate networks - if you are (or can align with) using spoke vnets, follow the guidance in [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Then, setup separate private link settings in the relevant spoke VNets. Make sure to separate DNS zones as well, since sharing DNS zones with other spoke networks will cause [DNS overrides](#the-issue-of-dns-overrides).
 * Use custom DNS zones for specific apps - this solution allows you to access select Application Insights components over a Private Link, while keeping all other traffic over the public routes.
-    - Set up a [custom private DNS zone](https://docs.microsoft.com/azure/private-link/private-endpoint-dns), and give it a unique name, such as internal.monitor.azure.com
+    - Set up a [custom private DNS zone](../../private-link/private-endpoint-dns.md), and give it a unique name, such as internal.monitor.azure.com
     - Create an AMPLS and a Private Endpoint, and choose **not** to auto-integrate with private DNS
     - Go to Private Endpoint -> DNS Configuration and review the suggested mapping of FQDNs.
     - Choose to Add Configuration and pick the internal.monitor.azure.com zone you just created
     - Add records for the above
     ![Screenshot of configured DNS zone](./media/private-link-security/private-endpoint-global-dns-zone.png)
-    - Go to your Application Insights component and copy its [Connection String](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string).
+    - Go to your Application Insights component and copy its [Connection String](../app/sdk-connection-string.md).
     - Apps or scripts that wish to call this component over a Private Link should use the connection string with the EndpointSuffix=internal.monitor.azure.com
 * Map endpoints through hosts files instead of DNS - to have a Private Link access only from a specific machine/VM in your network:
     - Set up an AMPLS and a Private Endpoint, and choose **not** to auto-integrate with private DNS 
@@ -323,7 +325,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 To use Azure Monitor portal experiences such as Application Insights and Log Analytics, you need to allow the Azure portal and Azure Monitor extensions to be accessible on the private networks. Add **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty**, and **AzureFrontdoor.Frontend** [service tags](../../firewall/service-tags.md) to your Network Security Group.
 
 ### Querying data
-The [`externaldata` operator](https://docs.microsoft.com/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor) isn't supported over a Private Link, as it reads data from storage accounts but doesn't guarantee the storage is accessed privately.
+The [`externaldata` operator](/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor) isn't supported over a Private Link, as it reads data from storage accounts but doesn't guarantee the storage is accessed privately.
 
 ### Programmatic access
 

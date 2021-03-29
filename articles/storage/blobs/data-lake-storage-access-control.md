@@ -35,6 +35,7 @@ To set file and directory level permissions, see any of the following articles:
 |.NET |[Use .NET to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
 |Java|[Use Java to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
 |Python|[Use Python to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
+|JavaScript (Node.js)|[Use the JavaScript SDK in Node.js to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
 |PowerShell|[Use PowerShell to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
 |Azure CLI|[Use Azure CLI to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
 |REST API |[Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update)|
@@ -280,7 +281,7 @@ Azure role assignments do inherit. Assignments flow from subscription, resource 
 
 ### Does Data Lake Storage Gen2 support inheritance of ACLs?
 
-Default ACLs can be used to set ACLs for new child subdirectories and files created under the parent directory. To update ACLs for existing child items, you will need to add, update, or remove ACLs recursively for the desired directory hierarchy. For more information, see [Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2](recursive-access-control-lists.md). 
+Default ACLs can be used to set ACLs for new child subdirectories and files created under the parent directory. To update ACLs for existing child items, you will need to add, update, or remove ACLs recursively for the desired directory hierarchy. For guidance, see the [How to set ACLs](#set-access-control-lists) section of this article. 
 
 ### Which permissions are required to recursively delete a directory and its contents?
 

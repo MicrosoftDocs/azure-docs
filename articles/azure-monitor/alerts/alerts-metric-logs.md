@@ -4,8 +4,7 @@ description: Tutorial on creating near-real time metric alerts on popular log an
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.subservice: alerts
+ms.date: 02/14/2021
 ---
 
 # Create Metric Alerts for Logs in Azure Monitor
@@ -13,8 +12,6 @@ ms.subservice: alerts
 ## Overview
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Azure Monitor supports [metric alert type](./alerts-metric-near-real-time.md) which has benefits over the [classic alerts](./alerts-classic-portal.md). Metrics are available for [large list of Azure services](../platform/metrics-supported.md). This article explains usage of a subset (that is) for resource - `Microsoft.OperationalInsights/workspaces`.
 
 You can use metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs including resources in Azure or on-premises. The supported Log Analytics solutions are listed below:
 
@@ -34,10 +31,10 @@ There are many benefits for using **Metric Alerts for Logs** over query based [L
 
 ## Metrics and dimensions supported for logs
 
- Metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. The full list of metrics supported for Logs from [Log Analytics workspaces](../platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) is listed; across supported solutions.
+ Metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. The full list of metrics supported for Logs from [Log Analytics workspaces](../essentials/metrics-supported.md#microsoftoperationalinsightsworkspaces) is listed; across supported solutions.
 
 > [!NOTE]
-> To view a supported metric extracted from a Log Analytics workspace via [Azure Monitor - Metrics](../platform/metrics-charts.md), a metric alert for log must be created on that specific metric. The dimensions chosen in the metric alert for logs - will only appear for exploration via Azure Monitor - Metrics.
+> To view a supported metric extracted from a Log Analytics workspace via [Azure Monitor - Metrics](../essentials/metrics-charts.md), a metric alert for log must be created on that specific metric. The dimensions chosen in the metric alert for logs - will only appear for exploration via Azure Monitor - Metrics.
 
 ## Creating metric alert for Log Analytics
 
@@ -48,10 +45,10 @@ Listed below are the means of crafting a metric alert for logs.
 
 Before Metric for Logs gathered on Log Analytics data works, the following must be set up and available:
 
-1. **Active Log Analytics Workspace**: A valid and active Log Analytics workspace must be present. For more information, see [Create a Log Analytics Workspace in Azure portal](../learn/quick-create-workspace.md).
+1. **Active Log Analytics Workspace**: A valid and active Log Analytics workspace must be present. For more information, see [Create a Log Analytics Workspace in Azure portal](../logs/quick-create-workspace.md).
 2. **Agent is configured for Log Analytics Workspace**: Agent needs to be configured for Azure VMs (and/or) on-premises VMs to send data into the Log Analytics Workspace used in earlier step. For more information, see [Log Analytics - Agent Overview](./../agents/agents-overview.md).
 3. **Supported Log Analytics Solutions is installed**: Log Analytics solution should be configured and sending data into Log Analytics workspace - supported solutions are [Performance counters for Windows & Linux](./../agents/data-sources-performance-counters.md), [Heartbeat records for Agent Health](../insights/solution-agenthealth.md), [Update management](../../automation/update-management/overview.md), and [Event data](./../agents/data-sources-windows-events.md).
-4. **Log Analytics solutions configured to send logs**: Log Analytics solution should have the required logs/data corresponding to [metrics supported for Log Analytics workspaces](../platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) enabled. For example, for *% Available Memory* counter of it must be configured in [Performance counters](./../agents/data-sources-performance-counters.md) solution first.
+4. **Log Analytics solutions configured to send logs**: Log Analytics solution should have the required logs/data corresponding to [metrics supported for Log Analytics workspaces](../essentials/metrics-supported.md#microsoftoperationalinsightsworkspaces) enabled. For example, for *% Available Memory* counter of it must be configured in [Performance counters](./../agents/data-sources-performance-counters.md) solution first.
 
 ## Configuring Metric Alert for Logs
 
@@ -352,7 +349,7 @@ Say the above JSON is saved as metricfromLogsAlertStatic.json - then it can be c
 
 Assuming the above parameter file is saved as metricfromLogsAlertStatic.parameters.json; then one can create metric alert for logs using [Resource Template for creation in Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
 
-Alternatively, one can use the Azure Powershell command below as well:
+Alternatively, one can use the Azure PowerShell command below as well:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
@@ -668,7 +665,7 @@ Say the above JSON is saved as metricfromLogsAlertDynamic.json - then it can be 
 
 Assuming the above parameter file is saved as metricfromLogsAlertDynamic.parameters.json; then one can create metric alert for logs using [Resource Template for creation in Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
 
-Alternatively, one can use the Azure Powershell command below as well:
+Alternatively, one can use the Azure PowerShell command below as well:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
@@ -684,4 +681,4 @@ az deployment group create --resource-group myRG --template-file metricfromLogsA
 
 - Learn more about the [metric alerts](../alerts/alerts-metric.md).
 - Learn about [log alerts in Azure](./alerts-unified-log.md).
-- Learn about [alerts in Azure](../platform/alerts-overview.md).
+- Learn about [alerts in Azure](./alerts-overview.md).

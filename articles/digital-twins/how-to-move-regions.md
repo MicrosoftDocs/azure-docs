@@ -53,18 +53,18 @@ Here are some questions to consider:
     - Azure IoT Hub Device Provisioning Service
 * What other *personal or company apps* do I have that connect to my instance?
 
-You can gather this information by using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), [Azure Digital Twins CLI commands](how-to-use-cli.md), or the [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
+You can gather this information by using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), [Azure Digital Twins CLI commands](how-to-use-cli.md), or the [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
 
 ## Prepare
 
-In this section, you'll prepare to re-create your instance by downloading your original models, twins, and graph from your original instance. This article uses the [ADT Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample for this task.
+In this section, you'll prepare to re-create your instance by downloading your original models, twins, and graph from your original instance. This article uses the [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample for this task.
 
 >[!NOTE]
 >You might already have files that contain the models or the graph in your instance. If so, you don't need to download everything again—just the pieces you're missing or things that might have changed since you originally uploaded these files. For example, you might have twins that were updated with new data.
 
-### Limitations of ADT Explorer
+### Limitations of Azure Digital Twins Explorer
 
-The [ADT Explorer sample](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) is a client app sample that supports a visual representation of your graph and provides visual interaction with your instance. This article shows how to use it to download, and later reupload, your models, twins, and graphs.
+The [Azure Digital Twins Explorer sample](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) is a client app sample that supports a visual representation of your graph and provides visual interaction with your instance. This article shows how to use it to download, and later reupload, your models, twins, and graphs.
 
 This sample isn't a complete tool. It hasn't been stress tested and wasn't built to handle graphs of a large size. Consequently, keep in mind the following out-of-the-box sample limitations:
 
@@ -78,27 +78,27 @@ If the sample isn't able to handle the size of your graph, you can export and im
 * [Azure Digital Twins CLI commands](how-to-use-cli.md)
 * [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
 
-### Set up the ADT Explorer application
+### Set up the Azure Digital Twins Explorer application
 
-To proceed with ADT Explorer, first download the sample application code and set it up to run on your machine.
+To proceed with Azure Digital Twins Explorer, first download the sample application code and set it up to run on your machine.
 
-To get the sample, see [ADT Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Download ZIP** button to download a .zip file of this sample code to your machine as **Azure_Digital_Twins__ADT__explorer.zip**. Unzip the file.
+To get the sample, see [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Download ZIP** button to download a .zip file of this sample code to your machine as **Azure_Digital_Twins__ADT__explorer.zip**. Unzip the file.
 
-Next, set up and configure permissions for ADT Explorer. Follow the instructions in the [Set up Azure Digital Twins and ADT Explorer](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) section of the Azure Digital Twins quickstart. This section walks you through the following steps:
+Next, set up and configure permissions for Azure Digital Twins Explorer. Follow the instructions in the [Set up Azure Digital Twins and Azure Digital Twins Explorer](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) section of the Azure Digital Twins quickstart. This section walks you through the following steps:
 
 1. Set up an Azure Digital Twins instance. You can skip this part because you already have an instance.
 1. Set up local Azure credentials to provide access to your instance.
-1. Run ADT Explorer and configure it to connect to your instance. You'll use the *host name* of your original Azure Digital Twins instance that you're moving.
+1. Run Azure Digital Twins Explorer and configure it to connect to your instance. You'll use the *host name* of your original Azure Digital Twins instance that you're moving.
 
-Now you should have the ADT Explorer sample app running in a browser on your machine. The sample should be connected to your original Azure Digital Twins instance.
+Now you should have the Azure Digital Twins Explorer sample app running in a browser on your machine. The sample should be connected to your original Azure Digital Twins instance.
 
-:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called ADT Explorer and contains boxes for Query Explorer, Model View, Graph View, and Property Explorer. There's no onscreen data yet." lightbox="media/how-to-move-regions/explorer-blank.png":::
+:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called Azure Digital Twins Explorer and contains boxes for Query Explorer, Model View, Graph View, and Property Explorer. There's no onscreen data yet." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
 To verify the connection, select the **Run Query** button to run the default query that displays all twins and relationships in the graph in the **GRAPH EXPLORER** box.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="A button reading Run Query in the upper-right corner of the window is highlighted." lightbox="media/how-to-move-regions/run-query.png":::
 
-You can leave ADT Explorer running because you'll use it again later in this article to reupload these items to your new instance in the target region.
+You can leave Azure Digital Twins Explorer running because you'll use it again later in this article to reupload these items to your new instance in the target region.
 
 ### Download models, twins, and graph
 
@@ -132,17 +132,17 @@ After this step is complete, you'll need the host name of your new instance to c
 
 Next, you'll set up the new instance so that it's a copy of the original.
 
-#### Upload the original models, twins, and graph by using ADT Explorer
+#### Upload the original models, twins, and graph by using Azure Digital Twins Explorer
 
 In this section, you can reupload your models, twins, and graph to the new instance. If you don't have any models, twins, or graph in your original instance or you don't want to move them to the new instance, you can skip to the [next section](#re-create-endpoints-and-routes).
 
-Otherwise, return to the browser window running ADT Explorer and follow these steps.
+Otherwise, return to the browser window running Azure Digital Twins Explorer and follow these steps.
 
 ##### Connect to the new instance
 
-Currently, ADT Explorer is connected to your original Azure Digital Twins instance. Switch the connection to point to your new instance by selecting the **Sign In** button in the upper-right corner of the window.
+Currently, Azure Digital Twins Explorer is connected to your original Azure Digital Twins instance. Switch the connection to point to your new instance by selecting the **Sign In** button in the upper-right corner of the window.
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="ADT Explorer highlighting the Sign In icon in the upper-right corner of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Azure Digital Twins Explorer highlighting the Sign In icon in the upper-right corner of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/how-to-move-regions/sign-in.png":::
 
 Replace the **ADT URL** to reflect your new instance. Change this value so that it reads *https://{new instance host name}*.
 
@@ -158,7 +158,7 @@ To upload your models, twins, and graph, select the **Import Graph** icon in the
 
 In the file selector box, go to your downloaded graph. Select the graph **.json** file, and select **Open**.
 
-After a few seconds, ADT Explorer opens an **Import** view that shows a preview of the graph to be loaded.
+After a few seconds, Azure Digital Twins Explorer opens an **Import** view that shows a preview of the graph to be loaded.
 
 To confirm the graph upload, select the **Save** icon in the upper-right corner of the **GRAPH VIEW** box.
 
@@ -170,7 +170,7 @@ To confirm the graph upload, select the **Save** icon in the upper-right corner 
     :::column-end:::
 :::row-end:::
 
-ADT Explorer now uploads your models and graph (including the twins and relationships) to your new Azure Digital Twins instance. You should see a success message noting how many models, twins, and relationships were uploaded.
+Azure Digital Twins Explorer now uploads your models and graph (including the twins and relationships) to your new Azure Digital Twins instance. You should see a success message noting how many models, twins, and relationships were uploaded.
 
 :::row:::
     :::column:::
@@ -188,7 +188,7 @@ To verify everything was uploaded successfully, select the **Run Query** button 
 
 You should see your graph with all its twins and relationships displayed in the **GRAPH EXPLORER** box. You should also see your models listed in the **MODEL VIEW** box.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="A view of ADT Explorer showing two models highlighted in the Model View box and a graph highlighted in the Graph Explorer box." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="A view of Azure Digital Twins Explorer showing two models highlighted in the Model View box and a graph highlighted in the Graph Explorer box." lightbox="media/how-to-move-regions/post-upload.png":::
 
 These views confirm that your models, twins, and graph were re-uploaded to the new instance in the target region.
 
@@ -229,7 +229,7 @@ To verify that your new instance was set up correctly, use the following tools:
 
 * [Azure portal](https://portal.azure.com). The portal is good for verifying that your new instance exists and is in the correct target region. It's also good for verifying endpoints and routes and connections to other Azure services.
 * [Azure Digital Twins CLI commands](how-to-use-cli.md). These commands are good for verifying that your new instance exists and is in the correct target region. They also can be used to verify instance data.
-* [ADT Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer is good for verifying instance data like models, twins, and graphs.
+* [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Azure Digital Twins Explorer is good for verifying instance data like models, twins, and graphs.
 * [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md). These resources are good for verifying instance data like models, twins, and graphs. They're also good for verifying endpoints and routes.
 
 You can also try running any custom apps or end-to-end flows that you had running with your original instance to help you verify that they're working correctly with the new instance.

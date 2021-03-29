@@ -15,6 +15,10 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-t
 
 In this quickstart, you incorporate Azure Cache for Redis into a Node.js app to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
+## Skip to the code on GitHub
+
+If you want to skip straight to the code, see the [Node.js quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/nodejs) on GitHub.
+
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)

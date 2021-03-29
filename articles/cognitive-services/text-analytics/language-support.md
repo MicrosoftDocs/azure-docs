@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 02/23/2021
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
@@ -223,6 +223,7 @@ If you have content expressed in a less frequently used language, you can try La
 |Tibetan|`bo`|✓|2021-01-05|
 |Tigrinya|`ti`|✓|2021-01-05|
 |Tongan|`to`|✓|2020-09-01|
+|Turkish|`tr`|✓|2021-01-05|
 |Turkmen|`tk`|✓|2021-01-05|
 |Xhosa|`xh`|✓|2021-01-05|
 |Yoruba|`yo`|✓|2021-01-05|

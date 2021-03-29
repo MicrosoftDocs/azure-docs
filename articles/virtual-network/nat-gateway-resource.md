@@ -222,7 +222,7 @@ While the scenario will appear to work, its health model and failure mode is und
 >The zones property of a NAT gateway resource isn't mutable.  Redeploy NAT gateway resource with the intended regional or zone preference.
 
 >[!NOTE] 
->IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](../load-balancer/load-balancer-standard-availability-zones.md#frontend) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.  Only regional or zone-isolation is supported.
+>IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](../load-balancer/load-balancer-standard-availability-zones.md) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.  Only regional or zone-isolation is supported.
 
 ## Performance
 
@@ -348,20 +348,3 @@ We want to know how we can improve the service. Are missing a capability? Make y
 * Learn about [virtual network NAT](nat-overview.md).
 * Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
-* Tutorial for validating NAT Gateway
-  - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
-  - [PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
-  - [Portal](tutorial-create-validate-nat-gateway-portal.md)
-* Quickstart for deploying a NAT gateway resource
-  - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
-  - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
-  - [Portal](./quickstart-create-nat-gateway-portal.md)
-  - [Template](./quickstart-create-nat-gateway-template.md)
-* Learn about NAT gateway resource API
-  - [REST API](/rest/api/virtualnetwork/natgateways)
-  - [Azure CLI](/cli/azure/network/nat/gateway)
-  - [PowerShell](/powershell/module/az.network/new-aznatgateway)
-* Learn about [availability zones](../availability-zones/az-overview.md).
-* Learn about [standard load balancer](../load-balancer/load-balancer-overview.md).
-* Learn about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
-* [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).

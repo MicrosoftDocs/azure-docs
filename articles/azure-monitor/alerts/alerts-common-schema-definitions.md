@@ -3,7 +3,6 @@ title: Alert schema definitions in Azure Monitor
 description: Understanding the common alert schema definitions for Azure Monitor
 author: ofirmanor
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 09/22/2020
 
 ---

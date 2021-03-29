@@ -61,7 +61,7 @@ virtualNetworkName="vnet-fog-eastus"
 virtualNetwork=$(az network vnet show -g $resourceGroup -n $virtualNetworkName --query "id" -otsv)
 ```
 
-Use Azure CLI command [az resource invoke-action](/cli/azure/resource?view=azure-cli-latest#az_resource_invoke_action) to synchronize DNS servers configuration for all the virtual clusters in the subnet.
+Use Azure CLI command [az resource invoke-action](/cli/azure/resource#az_resource_invoke_action) to synchronize DNS servers configuration for all the virtual clusters in the subnet.
 
 ```Azure CLI
 az sql virtual-cluster list --query "[? contains(subnetId,'$virtualNetwork')].id" -o tsv \

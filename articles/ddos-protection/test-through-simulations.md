@@ -25,6 +25,9 @@ We have partnered with [BreakingPoint Cloud](https://www.ixiacom.com/products/br
 - Document DDoS compliance.
 - Train your network security teams.
 
+> [!NOTE]
+> BreakingPoint Cloud is only available for the Public cloud.
+
 ## Prerequisites
 
 - Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection.md) with protected public IP addresses.

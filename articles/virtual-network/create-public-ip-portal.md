@@ -47,7 +47,7 @@ Use the following steps to create a standard zone-redundant public IP address na
 
 > [!NOTE]
 > These selections are valid in regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones). </br>
-You can select a specific zone in these regions, though it won't be resilient to zonal failure. </br> For more information on availability zones, see [Availability zones overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
+You can select a specific zone in these regions, though it won't be resilient to zonal failure. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
 \* = Tier relates to the [Cross-region load balancer](../load-balancer/cross-region-overview.md) functionality, currently in Preview.
 
@@ -69,7 +69,6 @@ In this section, create a basic public IP address named **myBasicPublicIP**.
     | IP Version              | Select IPv4                 |    
     | SKU                     | Select **Basic**         |
     | Name                    | Enter *myBasicPublicIP*          |
-    | Routing Preference      | Leave the default of **Microsoft network**. </br> For more information on routing preference, see [What is routing preference (preview)?](./routing-preference-overview.md). |
     | IP address assignment   | Select **Static** (see note below)                                     |
     | Idle Timeout (minutes)  | Leave the default of **4**.       |
     | DNS name label          | Leave the value blank    |
@@ -77,7 +76,7 @@ In this section, create a basic public IP address named **myBasicPublicIP**.
     | Resource group          | Select **Create new**, enter **myResourceGroup**. </br> Select **OK**. |
     | Location                | Select **East US 2**      |
 
-:::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Create standard IP address in Azure portal" border="false":::
+:::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Create standard IP address in Azure portal" border="false":::
 
 If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected.
 

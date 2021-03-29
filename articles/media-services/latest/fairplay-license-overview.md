@@ -81,7 +81,7 @@ You can use Media Services API to configure FairPlay licenses. When the player t
 > [!NOTE]
 > Usually, you would want to configure FairPlay policy options only once, because you will only have one set of a certification and an ASK.
 
-The following example uses [Media Services .NET SDK](/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) to configure the license.
+The following example uses [Media Services .NET SDK](/dotnet/api/microsoft.azure.management.media.models) to configure the license.
 
 ```csharp
 private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOptions()

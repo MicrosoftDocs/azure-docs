@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/17/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -48,6 +48,8 @@ By default Conditional Access requires all selected controls.
 ### Require multi-factor authentication
 
 Selecting this checkbox will require users to perform Azure AD Multi-Factor Authentication. More information about deploying Azure AD Multi-Factor Authentication can be found in the article [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+
+[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfies the requirement for multi-factor authentication in Conditional Access policies. 
 
 ### Require device to be marked as compliant
 

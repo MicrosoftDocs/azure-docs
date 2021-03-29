@@ -6,7 +6,6 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.subservice: metrics
 ---
 
 # Azure Monitor Metrics metrics aggregation and display explained
@@ -96,7 +95,7 @@ Metrics are captured for each individual resource. However, the level at which t
 
 When you chart a metric in metric explorer, you have the option to "split" the chart by a dimension.  Splitting a chart means that you are looking into the underlying data for more detail and seeing that data charted or filtered in metric explorer.
 
-For example, [Microsoft.ApiManagement/service](../platform/metrics-supported.md#microsoftapimanagementservice) has *Location* as a dimension for many metrics. 
+For example, [Microsoft.ApiManagement/service](./metrics-supported.md#microsoftapimanagementservice) has *Location* as a dimension for many metrics. 
 
 - **Capacity** is one such metric. Having the *Location* dimension implies that the underlying system is storing a metric record for the capacity of each location, rather than just one for the aggregate amount. You can then retrieve or split out that information in a metric chart.  
 
@@ -104,7 +103,7 @@ For example, [Microsoft.ApiManagement/service](../platform/metrics-supported.md#
 
 - One of the more flexible metrics, **Requests**, has 7 different dimensions. 
  
-Check the Azure Monitor [metrics supported](../platform/metrics-supported.md) article for details on each metric and the dimensions available. In addition, the documentation for each resource provider and type may provide additional information on the dimensions and what they measure.
+Check the Azure Monitor [metrics supported](./metrics-supported.md) article for details on each metric and the dimensions available. In addition, the documentation for each resource provider and type may provide additional information on the dimensions and what they measure.
 
 You can use splitting and filtering together to dig into a problem. Below is an example of a graphic showing the *Avg Disk Write Bytes* for a group of VMs in a resource group. We have a rollup of all the VMs with this metric, but we may want to dig into see which are actually responsible for the peaks around 6AM. Are they the same machine? How many machines are involved?  
 
