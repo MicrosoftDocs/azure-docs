@@ -1,6 +1,6 @@
 ---
 title: How to stop monitoring your hybrid Kubernetes cluster | Microsoft Docs
-description: This article describes how you can stop monitoring of your hybrid Kubernetes cluster with Azure Monitor for containers.
+description: This article describes how you can stop monitoring of your hybrid Kubernetes cluster with Container insights.
 ms.topic: conceptual
 ms.date: 06/16/2020
 
@@ -8,7 +8,7 @@ ms.date: 06/16/2020
 
 # How to stop monitoring your hybrid cluster
 
-After you enable monitoring of your Kubernetes cluster, you can stop monitoring the cluster with Azure Monitor for containers if you decide you no longer want to monitor it. This article shows how to accomplish this for the following environments:
+After you enable monitoring of your Kubernetes cluster, you can stop monitoring the cluster with Container insights if you decide you no longer want to monitor it. This article shows how to accomplish this for the following environments:
 
 - AKS Engine on Azure and Azure Stack
 - OpenShift version 4 and higher
@@ -21,7 +21,7 @@ The following steps apply to the following environments:
 - AKS Engine on Azure and Azure Stack
 - OpenShift version 4 and higher
 
-1. To first identify the Azure Monitor for containers helm chart release installed on your cluster, run the following helm command.
+1. To first identify the Container insights helm chart release installed on your cluster, run the following helm command.
 
     ```
     helm list
@@ -34,7 +34,7 @@ The following steps apply to the following environments:
     azmon-containers-release-1      default         3               2020-04-21 15:27:24.1201959 -0700 PDT   deployed        azuremonitor-containers-2.7.0   7.0.0-1
     ```
 
-    *azmon-containers-release-1* represents the helm chart release for Azure Monitor for containers.
+    *azmon-containers-release-1* represents the helm chart release for Container insights.
 
 2. To delete the chart release, run the following helm command.
 

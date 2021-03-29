@@ -25,7 +25,7 @@ Data integration and ETL tools can push lineage in to Azure Purview at execution
 
 | Data processing system | Supported scope |
 | ---------------------- | ------------|
-| Azure Data Factory | [Copy activity](how-to-link-azure-data-factory.md#data-factory-copy-data-support) <br> [Data flow activity](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Execute SSIS package activity](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
+| Azure Data Factory | [Copy activity](how-to-link-azure-data-factory.md#data-factory-copy-activity-support) <br> [Data flow activity](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Execute SSIS package activity](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
 | Azure Data Share | [Share snapshot](how-to-link-azure-data-share.md) |
  
 ### Data storage systems
@@ -43,6 +43,8 @@ Data systems like Azure ML and Power BI report lineage into Azure Purview. These
 | Power BI | [Datasets, Dataflows, Reports & Dashboards](register-scan-power-bi-tenant.md)
 
 ## Get started with lineage
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWxTAK]
 
 Lineage in Purview includes datasets and processes. Datasets are also referred to as nodes while processes can be also called edges:
 

@@ -244,5 +244,5 @@ namespace ConsoleApp1
 
 ## See also
 
-* [.NET reference](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true)
+* [.NET reference](/dotnet/api/overview/azure/mediaservices/management)
 * For more code examples, see the [.NET SDK samples](https://github.com/Azure-Samples/media-services-v3-dotnet) repo.

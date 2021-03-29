@@ -4,7 +4,7 @@ description: Learn how to use Fortanix Confidential Computing Manager to convert
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020

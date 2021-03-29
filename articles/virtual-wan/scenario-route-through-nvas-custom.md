@@ -171,7 +171,7 @@ To set up routing via NVA, consider the following steps:
    >
    > * Portal users must enable ‘Propagate to default route’ on connections (VPN/ER/P2S/VNet) for the 0.0.0.0/0 route to take effect.
    > * PS/CLI/REST users must set flag ‘enableinternetsecurity’ to true for the 0.0.0.0/0 route to take effect.
-   >
+   > * Virtual Network Connection does not support ‘multiple/unique’ next hop IP to the ‘same’ network virtual appliance in a SPOKE VNet 'if' one of the routes with next hop IP is indicated to be public IP address or 0.0.0.0/0 (internet)
 
 ## Next steps
 

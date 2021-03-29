@@ -5,7 +5,6 @@ author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
-ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor alerts
 
@@ -16,7 +15,7 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 If you have a problem with an alert firing or not firing when expected, refer to the articles below. You can see "fired" alerts in the Azure portal.
 
 - [Troubleshooting Azure Monitor Metric Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)  
-- [Troubleshooting Azure Monitor Log Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)
+- [Troubleshooting Azure Monitor Log Alerts in Microsoft Azure](alerts-troubleshoot-log.md)
 
 If the alert fires as intended according to the Azure portal but the proper notifications do not occur, use the information in the rest of this article to troubleshoot that problem.
 
@@ -239,7 +238,7 @@ If you received an error while trying to create, update or delete an [action rul
 
 1. **Did you verify the action rule parameters?**  
 
-    Check the [action rule documentation](../alerts/alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) command. 
+    Check the [action rule documentation](../alerts/alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) command. 
 
 
 ## Next steps

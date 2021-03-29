@@ -4,7 +4,6 @@ description: Query Azure Data Explorer data through Azure Log Analytics tools vi
 author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 06/12/2020
 ---

@@ -17,7 +17,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](distribute-data-globally.md), [automatic sharding](partitioning-overview.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
 > [!NOTE]
-> This article is for Azure Cosmos DB's API for MongoDB 3.6. For MongoDB 4.0 version, see [MongoDB 4.0 supported features and syntax](mongodb-feature-support-40.md).
+> Version 3.6 of the Cosmos DB API for MongoDB has no current plans for end-of-life (EOL). The minimum notice for a future EOL is three years.
 
 ## Protocol Support
 
@@ -137,7 +137,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $limit | Yes |
 | $listLocalSessions | No |
 | $listSessions | No |
-| $lookup | Yes |
+| $lookup | Partial |
 | $match | Yes |
 | $out | Yes |
 | $project | Yes |
@@ -149,6 +149,9 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $sort | Yes |
 | $sortByCount | Yes |
 | $unwind | Yes |
+
+> [!NOTE]
+> `$lookup` does not yet support the [uncorrelated subqueries](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) feature introduced in server version 3.6. You will receive an error with a message containing `let is not supported` if you attempt to use the `$lookup` operator with `let` and `pipeline` fields.
 
 ### Boolean expressions
 

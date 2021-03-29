@@ -12,7 +12,7 @@ ms.author: dech
 # Publish notebooks to the Azure Cosmos DB notebook gallery
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into your Azure Cosmos DB accounts in the Azure portal. Using these notebooks, you can analyze and visualize your data from the Azure portal. Built-in notebooks for Azure Cosmos DB are currently available in [29 regions](#supported-regions). To use notebooks, [create a new Cosmos account](#create-a-new-cosmos-account) or [enable notebooks on an existing account](#enable-notebooks-in-an-existing-cosmos-account) in one of these regions.
+Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into your Azure Cosmos DB accounts in the Azure portal. Using these notebooks, you can analyze and visualize your data from the Azure portal. Built-in notebooks for Azure Cosmos DB are currently available in [many regions](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). To use notebooks, [create a new Cosmos account](create-cosmosdb-resources-portal.md) or [enable notebooks on an existing account](enable-notebooks.md) in one of these regions.
 
 The notebook environment in the Azure portal has some samples published by the Azure Cosmos DB team. It also has a public gallery where you can publish and share your own notebooks. After a notebook is published to the gallery, it's available for all the Azure Cosmos DB users to view and use. In this article, you will learn how to use notebooks from the public gallery and publish your notebook to the gallery.
 
@@ -48,7 +48,7 @@ Use the following steps to publish a notebook:
 
    You can also find the **Publish to gallery** option by selecting the **…** button next to the notebook name:
 
-   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Choose a notebook to publish to the gallery.":::
+   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Another approach to choose a notebook to publish to the gallery.":::
 
 1. Fill the **Publish to gallery** form with the following details:
 
@@ -56,11 +56,10 @@ Use the following steps to publish a notebook:
    * **Description:**  A short description of what your notebook does.
    * **Tags:** Tags are optional and are used to filter results when searched by a keyword.
    * **Cover image:** An image that’s used on the cover page when the notebook is published. You can choose one of the following options:
-
-     * **Custom image** - You can upload an image from your computer. Choose an image file with aspect ratio 256x144.
-     * **URL** - Provide a publicly accessible URL where the image is located.
-     * **Take screenshot** - A screenshot of your open notebook is automatically taken and uploaded to the preview.
-     * **Use first display output** - Output of the first cell that has a display output. Cells that only display markdown/text don't count as a display output.
+   * **Custom image** - You can upload an image from your computer. Choose an image file with aspect ratio 256x144.
+   * **URL** - Provide a publicly accessible URL where the image is located.
+   * **Take screenshot** - A screenshot of your open notebook is automatically taken and uploaded to the preview.
+   * **Use first display output** - Output of the first cell that has a display output. Cells that only display markdown/text don't count as a display output.
 
    :::image type="content" source="./media/publish-notebook-gallery/publish-notebook.png" alt-text="Fill out the publish to gallery form.":::
 

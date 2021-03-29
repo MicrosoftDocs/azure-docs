@@ -28,7 +28,7 @@ The following table defines and summarizes the benefits of datastores and datase
 
 To understand where datastores and datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
-For a code first experience, see the following articles to use the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) to:
+For a code first experience, see the following articles to use the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/) to:
 * [Connect to Azure storage services with datastores](how-to-access-data.md). 
 * [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). 
 

@@ -3,7 +3,7 @@ title: "Overview of Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/19/2021
+ms.date: 03/03/2021
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
@@ -62,4 +62,6 @@ Azure Arc enabled Kubernetes is currently supported in these regions:
 
 ## Next steps
 
-* [Connect a cluster to Azure Arc](./quickstart-connect-cluster.md)
+Learn how to connect a cluster to Azure Arc.
+> [!div class="nextstepaction"]
+> [Connect a cluster to Azure Arc](./quickstart-connect-cluster.md)

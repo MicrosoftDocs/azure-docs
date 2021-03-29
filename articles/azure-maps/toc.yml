@@ -238,12 +238,16 @@
         href: spatial-io-supported-data-format-details.md
     - name: Web SDK supported browsers
       href: supported-browsers.md
+    - name: Best practices
+      href: web-sdk-best-practices.md
   - name: Develop with the Android SDK
     items:
     - name: Getting started with Android map control
       href: how-to-use-android-map-control-library.md
     - name: Change the style of the map
       href: set-android-map-styles.md
+    - name: Add controls to the map
+      href: map-add-controls-android.md
     - name: Create a data source
       href: create-data-source-android-sdk.md
     - name: Add a symbol layer
@@ -256,8 +260,12 @@
       href: android-map-add-line-layer.md
     - name: Add a polygon layer
       href: how-to-add-shapes-to-android-map.md
+    - name: Add a polygon extrusion layer
+      href: map-extruded-polygon-android.md
     - name: Add heat map layer
       href: map-add-heat-map-layer-android.md
+    - name: Add an image layer
+      href: map-add-image-layer-android.md
     - name: Add a tile layer
       href: how-to-add-tile-layer-android-map.md
     - name: Show traffic data 
@@ -363,7 +371,7 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub
