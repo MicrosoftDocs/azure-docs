@@ -92,9 +92,9 @@ Life-cycle notification message:
 
 The following sections go into more detail about the different types of notifications emitted by IoT Hub and Azure Digital Twins (or other Azure IoT services). You will read about the things that trigger each notification type, and the set of fields included with each type of notification body.
 
-## Digital twin life-cycle notifications
+## Digital twin lifecycle notifications
 
-All [digital twins](concepts-twins-graph.md) emit notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not. This is because of **life-cycle notifications**, which are about the digital twin itself.
+All [digital twins](concepts-twins-graph.md) emit notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not. This is because of **lifecycle notifications**, which are about the digital twin itself.
 
 Life-cycle notifications are triggered when:
 * A digital twin is created
