@@ -279,6 +279,8 @@
         href: database/service-tiers-dtu.md
       - name: Hyperscale
         href: database/service-tier-hyperscale.md
+      - name: Hyperscale Replicas
+        href: database/service-tier-hyperscale-replicas.md
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
     - name: Plan and manage costs 
