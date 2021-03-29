@@ -257,10 +257,12 @@
       - name: Add technical details
         href: create-new-saas-offer-technical.md  
       - name: Create plans
-        href: create-new-saas-offer-plans.md        
+        href: create-new-saas-offer-plans.md
+      - name: Create a test offer
+        href: create-saas-dev-test-offer.md
       - name: Test and publish a SaaS offer
         href: test-publish-saas-offer.md
-    - name: Market your SaaS offer
+    - name: Sell your SaaS offer
       href: create-new-saas-offer-marketing.md 
   - name: Review and publish offers
     href: review-publish-offer.md

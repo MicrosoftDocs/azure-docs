@@ -39,7 +39,7 @@ Azure Migrate: Server Migration | N/A | Migrate [VMware VMs](tutorial-migrate-vm
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Assess VMware VMs, Hyper-V VMs, physical servers,and other cloud workloads. | N/A
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Assess VMware VMs, Hyper-V VMs, physical server sand other cloud workloads. |  Migrate VMware VMs, Hyper-V VMs, physical servers, public cloud workloads.
 [Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Assess VMware VMs, Hyper-V VMs, physical servers and other cloud workloads.| N/A
-[DMA](/sql/dma/dma-overview?view=sql-server-2017) | Assess SQL Server databases. | N/A
+[DMA](/sql/dma/dma-overview) | Assess SQL Server databases. | N/A
 [DMS](../dms/dms-overview.md) | N/A | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess virtual desktop infrastructure (VDI) | N/A
 [Movere](https://www.movere.io/) | Assess VMware VMs, Hyper-V VMs, Xen VMs, physical servers, workstations (including VDI) and other cloud workloads. | N/A

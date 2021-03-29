@@ -50,7 +50,7 @@ The certification team uses the following hardware to validate images on differe
 #### Steps
 
 1. Ensure devices/VM created can be accessed through Putty.
-1. Download [IoT Edge Runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge) onto the device.
+1. Download [IoT Edge Runtime](../iot-edge/how-to-install-iot-edge.md) onto the device.
 1. Update the connection string copied in step 5 to the config.yaml file.
 1. Restart the Edge Module with `sudo systemctl restart iotedge`.
 1. Check if the module is deployed on device with `sudo iotedge list`; it should be in running state.
@@ -73,6 +73,6 @@ Verify the following:
 
 ## Next steps
 
-- [Deploy modules from the commercial marketplace](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal#deploy-from-azure-marketplace)
-- [Publish the Edge Module in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation)
-- [Deploy IoT Edge Module](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)  
+- [Deploy modules from the commercial marketplace](../iot-edge/how-to-deploy-modules-portal.md#deploy-from-azure-marketplace)
+- [Publish the Edge Module in Partner Center](./partner-center-portal/azure-iot-edge-module-creation.md)
+- [Deploy IoT Edge Module](../iot-edge/quickstart-linux.md)

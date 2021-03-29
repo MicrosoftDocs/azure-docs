@@ -140,7 +140,7 @@ A value of `1` for `is_distributed_network_name` indicates the listener is a dis
 
 ## Update connection string
 
-Update connection strings for applications so that they connect to the DNN listener. To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client supports it.
+Update connection strings for applications so that they connect to the DNN listener. Connection strings for DNN listeners must provide the DNN port number. To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client supports it.
 
 ## Test failover
 

@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
-ms.date: 07/23/2020
+ms.date: 03/23/2021
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
@@ -211,6 +211,18 @@ tasks = table_service.query_entities(
     'tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
 for task in tasks:
     print(task.description)
+```
+
+## Query for an entity without partition and row keys
+
+You can also query for entities within a table without using the partition and row keys. Use the `table_service.query_entities` method without the "filter" and "select" parameters as show in the following example:
+
+```python
+print("Get the first item from the table")
+tasks = table_service.query_entities(
+    'tasktable')
+lst = list(tasks)
+print(lst[0])
 ```
 
 ## Delete an entity
