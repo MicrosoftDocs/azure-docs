@@ -27,20 +27,20 @@ You can use the security partners to filter Internet traffic in following scenar
 
 - Virtual Network (VNet) to Internet
 
-   Leverage advanced user-aware Internet protection for your cloud workloads running on Azure.
+   Use advanced user-aware Internet protection for your cloud workloads running on Azure.
 
 - Branch to Internet
 
-   Leverage your Azure connectivity and global distribution to easily add third-party NSaaS filtering for branch to Internet scenarios. You can build your global transit network and security edge using Azure Virtual WAN.
+   Use your Azure connectivity and global distribution to easily add third-party NSaaS filtering for branch to Internet scenarios. You can build your global transit network and security edge using Azure Virtual WAN.
 
 The following scenarios are supported:
 - Two security providers in the hub
 
-   VNet/Branch to Internet via a security partner provider and the other traffic (spoke to spoke, spoke to branch, branch to spoke) via Azure Firewall.
+   VNet/Branch to Internet via a security partner provider and the other traffic (spoke-to-spoke, spoke-to-branch, branch-to-spoke) via Azure Firewall.
 - Single provider in the hub
 
-   - All traffic (spoke to spoke, spoke to branch, branch to spoke, VNet/Branch to Internet) secured by Azure Firewal
-   - VNet/Branch to Internet via security partner provider
+   - All traffic (spoke-to-spoke, spoke-to-branch, branch-to-spoke, VNet/Branch-to-Internet) secured by Azure Firewall
+   - VNet/Branch-to-Internet via security partner provider
 
 ## Best practices for Internet traffic filtering in secured virtual hubs
 
