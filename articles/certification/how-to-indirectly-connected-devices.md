@@ -7,7 +7,7 @@ author: cbroad
 ms.author: cbroad # Microsoft employees only
 ms.date: 02/23/2021
 ms.topic: how-to
-ms.service: iot-pnp
+ms.service: certification
 
 
 # Optional fields. Don't forget to remove # if you need a field.

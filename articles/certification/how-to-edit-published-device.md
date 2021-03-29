@@ -3,7 +3,7 @@ title: How to edit your published Azure Certified Device
 description: A guide to edit you device information after you have certified and published your device through the Azure Certified Device program.
 author: nikuntjo
 ms.author: nikuntjo
-ms.service: iot-pnp
+ms.service: certification
 ms.topic: how-to 
 ms.date: 03/03/2021
 ms.custom: template-how-to 

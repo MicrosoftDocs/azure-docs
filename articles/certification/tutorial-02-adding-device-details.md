@@ -3,7 +3,7 @@ title: Azure Certified Device program - Tutorial - Adding device details
 description: A step-by-step guide to add device details to your project on the Azure Certified Device portal 
 author: nikuntjo
 ms.author: nikuntjo
-ms.service: iot-pnp
+ms.service: certification
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial 

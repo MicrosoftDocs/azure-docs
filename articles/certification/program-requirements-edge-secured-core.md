@@ -6,7 +6,7 @@ ms.author: cbroad
 ms.topic: conceptual 
 ms.date: 03/15/2021
 ms.custom: Edge Secured-core Certification Requirements
-ms.service: iot-pnp
+ms.service: certification
 ---
 
 # Azure Certified Device - Edge Secured-core (Preview) #

@@ -3,7 +3,7 @@ title: Azure Certified Device program - Tutorial - Creating your project
 description: Guide to create a project on the Azure Certified Device portal 
 author: nikuntjo
 ms.author: nikuntjo
-ms.service: iot-pnp
+ms.service: certification
 ms.topic: tutorial
 ms.date: 03/01/2021
 ms.custom: template-tutorial 

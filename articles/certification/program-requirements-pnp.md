@@ -6,7 +6,7 @@ ms.author: cbroad
 ms.topic: conceptual 
 ms.date: 03/15/2021
 ms.custom: IoT Plug and Play Certification Requirements
-ms.service: iot-pnp
+ms.service: certification
 ---
 
 # IoT Plug and Play Certification Requirements

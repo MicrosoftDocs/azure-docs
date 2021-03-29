@@ -3,7 +3,7 @@ title: Azure Certified Device program glossary
 description: A list of common terms used in the Azure Certified Device program
 author: nikuntjo
 ms.author: nikuntjo
-ms.service: iot-pnp
+ms.service: certification
 ms.topic: conceptual 
 ms.date: 03/03/2021
 ms.custom: template-concept
