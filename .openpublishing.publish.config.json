@@ -330,6 +330,11 @@
       "branch": "sdk-codetest"
     },
     {
+      "path_to_root": "azureml-examples-main",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "main"
+    },
+    {
       "path_to_root": "samples-qnamaker-nodejs",
       "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs",
       "branch": "master"
