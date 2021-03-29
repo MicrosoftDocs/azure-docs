@@ -320,8 +320,8 @@
     href: https://azure.microsoft.com/updates/?product=app-service
   - name: Kudu service
     href: resources-kudu.md
-  - name: Migration Assistant guides
-    href: https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs
+  - name: Migration Assistant
+    href: app-service-migration-assistant.md
   - name: Best practices
     href: app-service-best-practices.md
   - name: Samples
