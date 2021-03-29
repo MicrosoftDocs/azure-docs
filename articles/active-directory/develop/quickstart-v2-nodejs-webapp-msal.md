@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Add Authentication to a Node web app with MSAL Node | Azure"
+title: "Quickstart: Add authentication to a Node.js web app with MSAL Node | Azure"
 titleSuffix: Microsoft identity platform
 description: In this quickstart, you learn how to implement authentication with a Node.js web app and the Microsoft Authentication Library (MSAL) for Node.js.
 services: active-directory
@@ -18,7 +18,7 @@ ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
 
 # Quickstart: Sign in users and get an access token in a Node web app using the auth code flow
 
-In this quickstart, you download and run a code sample that demonstrates how a Node.js web app can sign in users using the authorization code flow. The code sample also demonstrates how to get an access token to call Microsoft Graph API.
+In this quickstart, you'll download and run a code sample that demonstrates how a Node.js web app can sign in users using the authorization code flow. The code sample also demonstrates how to get an access token to call Microsoft Graph API.
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
@@ -26,7 +26,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 
 ## Prerequisites
 
-* Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* An Azure subscription. [Create an Azure subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
 
@@ -36,7 +36,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > #### Step 1: Register your application
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com/).
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: to select the tenant in which you want to register an application.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
@@ -48,7 +48,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure the application in Azure portal
-> For the code sample for this quickstart to work, you need to create a client secret and add a reply URL as `http://localhost:3000/redirect`.
+> For the code sample for this quickstart to work, you need to create a client secret and add the following reply URL: `http://localhost:3000/redirect`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -61,7 +61,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/ms-identity-node/archive/main.zip).
 
 > [!div renderon="portal" class="sxs-lookup"]
-> Run the project with a web server by using Node.js
+> Run the project with a web server by using Node.js.
 
 > [!div renderon="portal" class="sxs-lookup" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-node/archive/main.zip).
@@ -70,8 +70,8 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > #### Step 3: Configure your Node app
 >
 > Extract the project, open the *ms-identity-node-main* folder, and then open the *index.js* file.
-> Set the `clientID` with the **Application (client) ID**.
-> Set the `clientSecret` with the **Value** of the **Client secret**.
+>
+> Set the `clientID` with the **Application (client) ID**, and then set the `clientSecret` with the **Value** of the **Client secret**.
 >
 >```javascript
 >const config = {
@@ -135,7 +135,7 @@ Run the project by using Node.js.
 
 ### How the sample works
 
-The sample, when run, hosts a web server on localhost, port 3000. When a web browser accesses this site, the sample immediately redirects the user to a Microsoft authentication page. Because of this, the sample does not contain any HTML or display elements. Authentication success displays the message, "OK".
+The sample hosts a web server on localhost, port 3000. When a web browser accesses this site, the sample immediately redirects the user to a Microsoft authentication page. Because of this, the sample does not contain any HTML or display elements. Authentication success displays the message, "OK".
 
 ### MSAL Node
 
