@@ -242,7 +242,7 @@
         },
         {
             "source_path_from_root": "/articles/media-services/cli-reset-account-credentials.md",
-            "redirect_url": "account-reset-credentials-cli",
+            "redirect_url": "asset-reset-account-credentials",
             "redirect_document_id": false
         }
     ]
