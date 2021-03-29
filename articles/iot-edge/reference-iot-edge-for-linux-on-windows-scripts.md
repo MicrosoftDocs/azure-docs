@@ -41,12 +41,15 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | vmSizeDefintion | No longer than 30 characters | Definition of the number of cores and available RAM for the virtual machine. **Default value**: Standard_K8S_v1. |
 | vmDiskSize | Between 8 GB and 256 GB | Maximum disk size of the dynamically expanding virtual hard disk. **Default value**: 16 GB. |
 | vmUser | No longer than 30 characters | Username for logging on to the virtual machine. |
-| vnetType | **Transparent** or **ICS** | The type of virtual switch. **Default value**: Transparent. |
+| vnetType | **Transparent** or **ICS** | The type of virtual switch. **Default value**: Transparent. Transparent refers to an external switch, while ICS refers to an internal switch. |
 | vnetName | No longer than 64 characters | The name of the virtual switch. **Default value**: External. |
 | enableVtpm | None | **Switch parameter**. Create the virtual machine with TPM enabled or disabled. |
 | mobyPackageVersion | No longer than 30 characters |  Version of Moby package to be verified or installed on the virtual machine.  **Default value:** 19.03.11. |
 | iotedgePackageVersion | No longer than 30 characters | Version of IoT Edge package to be verified or installed on the virtual machine. **Default value:** 1.1.0. |
 | installPackages | None | **Switch parameter**. When toggled, the script will attempt to install the Moby and IoT Edge packages rather than only verifying the packages are present. |
+
+>[!NOTE]
+>By default, if the process cannot find an external switch with the name `External`, it will search for any existing external switch through which to obtain an IP address. If there is no external switch available, it will search for an internal switch. If there is no internal switch available, it will attempt to create the default switch through which to obtain an IP address.
 
 ## Verify-EflowVm
 
