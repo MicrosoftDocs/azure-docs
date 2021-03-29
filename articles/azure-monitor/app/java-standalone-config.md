@@ -299,6 +299,11 @@ Starting from version 3.0.2, specific auto-collected telemetry can be suppressed
 }
 ```
 
+> NOTE
+> If you are looking for more fine-grained control, e.g. to suppress some redis calls but not all redis calls,
+> see [sampling overrides](./java-standalone-sampling-overrides.md).
+
+
 ## Heartbeat
 
 By default, Application Insights Java 3.0 sends a heartbeat metric once every 15 minutes. If you are using the heartbeat metric to trigger alerts, you can increase the frequency of this heartbeat:

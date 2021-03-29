@@ -137,7 +137,7 @@
   - name: Computer Vision REST API v1.0
     href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
   - name: .NET
-    href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
+    href: /dotnet/api/overview/azure/cognitiveservices/client/computervision
   - name: Node.js
     href: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
   - name: Python
@@ -147,7 +147,7 @@
   - name: Java
     href: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
   - name: Azure CLI
-    href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    href: /cli/azure/cognitiveservices#az_cognitiveservices_list
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cognitiveservices/
 - name: Resources
