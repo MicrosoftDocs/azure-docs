@@ -18,7 +18,7 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 
 # Quickstart: Call an ASP.NET web API that's protected by Microsoft identity platform
 
-In this quickstart, you download and run a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
+In this quickstart, you'll download and run a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
 
 The article also uses a Windows Presentation Foundation (WPF) app to demonstrate how you can request an access token to access a web API.
 
@@ -110,18 +110,19 @@ To register the TodoListClient app, do the following:
 
    > [!NOTE]
    > In the TodoListClient project *app.config* file, the default value of `ida:Tenant` is set to `common`. The possible values are:
+   >
    > - `common`: You can sign in by using a work or school account or a personal Microsoft account (because you selected **Accounts in any organizational directory** in a previous step).
    > - `organizations`: You can sign in by using a work or school account.
    > - `consumers`: You can sign in only by using a Microsoft personal account.
 
-1. On the app **Overview** page, select **Authentication**, and then do the following:
+1. On the app **Overview** page, select **Authentication**, and then complete these steps to add a platform:
 
     1. Under **Platform configurations**, select the **Add a platform** button.
     1. For **Mobile and desktop applications**, select **Mobile and desktop applications**.
     1. For **Redirect URIs**, select the `https://login.microsoftonline.com/common/oauth2/nativeclient` check box.
     1. Select **Configure**.
 
-1. Select **API permissions**, and then do the following:
+1. Select **API permissions**, and then complete these steps to add permissions:
 
     1. Select the **Add a permission** button.
     1. Select the **My APIs** tab.
@@ -131,7 +132,7 @@ To register the TodoListClient app, do the following:
 
 ### Configure your project
 
-To configure your TodoListClient project, do the following:
+Configure your TodoListClient project by adding the Application ID to the *app.config* file.
 
 1. In the **App registrations** portal, on the **Overview** page, copy the value of the **Application (client) ID**.
 
@@ -139,7 +140,7 @@ To configure your TodoListClient project, do the following:
 
 ## Run your TodoListClient project
 
-To run your TodoListClient project, do the following:
+Sign in to run your TodoListClient project.
 
 1. Press F5 to open your TodoListClient project. The project page opens.
 
@@ -151,7 +152,7 @@ To run your TodoListClient project, do the following:
 
 ## Pre-authorize your client application
 
-One way you can allow users from other directories to access your web API is to pre-authorize the client application to access your web API. You do this by adding the Application ID from the client app to the list of pre-authorized applications for your web API. By adding a pre-authorized client, you're allowing users to access your web API without having to provide consent. To pre-authorize your client app, do the following:
+You can allow users from other directories to access your web API by pre-authorizing the client application to access your web API. You do this by adding the Application ID from the client app to the list of pre-authorized applications for your web API. By adding a pre-authorized client, you're allowing users to access your web API without having to provide consent.
 
 1. In the **App registrations** portal, open the properties of your TodoListService app.
 1. In the **Expose an API** section, under **Authorized client applications**, select **Add a client application**.
@@ -162,11 +163,11 @@ One way you can allow users from other directories to access your web API is to 
 ### Run your project
 
 1. Press <kbd>F5</kbd> to run your project. Your TodoListClient app opens.
-1. At the upper right, select **Sign in**, and then sign in by using a personal Microsoft account, such as live.com or hotmail.com, or a work or school account.
+1. At the upper right, select **Sign in**, and then sign in by using a personal Microsoft account, such as a *live.com* or *hotmail.com* account, or a work or school account.
 
 ## Optional: Limit sign-in access to certain users
 
-By default, when you've followed the preceding steps, any personal accounts, such as outlook.com or live.com, or work or school accounts from organizations that are integrated with Azure AD can request tokens and access your web API.
+By default, any personal accounts, such as *outlook.com* or *live.com* accounts, or work or school accounts from organizations that are integrated with Azure AD can request tokens and access your web API.
 
 To specify who can sign in to your application, use one of the following options:
 
@@ -184,6 +185,7 @@ You can implement a custom method to validate issuers by using the `IssuerValida
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
+
 Learn more about the protected web API scenario that the Microsoft identity platform supports.
 > [!div class="nextstepaction"]
 > [Protected web API scenario](scenario-protected-web-api-overview.md)
