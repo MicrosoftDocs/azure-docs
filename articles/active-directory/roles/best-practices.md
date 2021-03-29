@@ -39,7 +39,7 @@ Follow these steps to help you find the right role.
 
 ## 2. Use Privileged Identity Management to grant just-in-time access
 
-One of the principles of least privilege is that access should be granted only for a specific period of time. [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) lets you grant just-in-time access to your administrators. Microsoft recommends that you enable PIM in Azure AD. Using PIM, a user can be made an eligible member of an Azure AD role. She can then activate her role for a limited timeframe every time she needs to use it. Privileged access is automatically removed when the timeframe expires. You can also [configure PIM settings](../privileged-identity-management/pim-how-to-change-default-settings.md) to require approval or receive notification emails when someone activates her role assignment. Notifications provide an alert when new users are added to highly privileged roles. 
+One of the principles of least privilege is that access should be granted only for a specific period of time. [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) lets you grant just-in-time access to your administrators. Microsoft recommends that you enable PIM in Azure AD. Using PIM, a user can be made an eligible member of an Azure AD role. The can then activate their role for a limited timeframe every time the needs to use it. Privileged access is automatically removed when the timeframe expires. You can also [configure PIM settings](../privileged-identity-management/pim-how-to-change-default-settings.md) to require approval or receive notification emails when someone activates their role assignment. Notifications provide an alert when new users are added to highly privileged roles. 
 
 ## 3. Turn on multi-factor authentication for all your administrator accounts
 
@@ -51,7 +51,7 @@ You can enable MFA on Azure AD roles using two methods:
 
 ## 4. Configure recurring access reviews to revoke unneeded permissions over time
 
-Access reviews enable organizations to review administrator's access on a regular basis to make sure only the right people have continued access. Regular auditing your administrators is crucial because of following reasons:
+Access reviews enable organizations to review administrator's access regularly to make sure only the right people have continued access. Regular auditing your administrators is crucial because of following reasons:
 - A malicious actor can compromise an account.
 - People move teams within a company. If there is no auditing, they can amass unnecessary access over time.
  
@@ -67,15 +67,15 @@ Microsoft recommends that you keep two break glass accounts that are permanently
 
 ## 6. Use groups for Azure AD role assignments and delegate the role assignment
 
-If you have an external governance system that takes advantage of groups, then you should consider leveraging the functionality of assigning roles to Azure AD groups, instead of individual users. You can also manage role-assignable groups in PIM to ensure that there are no standing owners or members in these privileged groups. For more information, see [Management capabilities for privileged access Azure AD groups](../privileged-identity-management/groups-features.md).
+If you have an external governance system that takes advantage of groups, then you should consider assigning roles to Azure AD groups, instead of individual users. You can also manage role-assignable groups in PIM to ensure that there are no standing owners or members in these privileged groups. For more information, see [Management capabilities for privileged access Azure AD groups](../privileged-identity-management/groups-features.md).
 
 You can assign an owner to role-assignable groups. That owner decides who is added to or removed from the group, so indirectly, decides who gets the role assignment. In this way, a Global Administrator or Privileged Role Administrator can delegate role management on a per-role basis by using groups. For more information, see [Use cloud groups to manage role assignments in Azure Active Directory](groups-concept.md).
 
 ## 7. Activate multiple roles at once using privileged access groups
 
-It may be the case that an individual has 5 or 6 eligible assignments to Azure AD roles through PIM. She will have to activate each role individually, which can reduce productivity. Worse still, she can also have tens or hundreds of Azure resources assigned to her. This aggravates the problem even more.
+It may be the case that an individual has five or six eligible assignments to Azure AD roles through PIM. They will have to activate each role individually, which can reduce productivity. Worse still, they can also have tens or hundreds of Azure resources assigned to them, which aggravates the problem.
  
-In this case, you should leverage [privileged access groups](../privileged-identity-management/groups-features.md). Create a privileged access group and grant it permanent access to multiple roles (Azure AD and/or Azure). Make that user an eligible member or owner of this group. With just one activation, she will have access to all the linked resources.
+In this case, you should use [privileged access groups](../privileged-identity-management/groups-features.md). Create a privileged access group and grant it permanent access to multiple roles (Azure AD and/or Azure). Make that user an eligible member or owner of this group. With just one activation, they will have access to all the linked resources.
 
 ![Privileged access group diagram showing activating multiple roles at once](./media/best-practices/privileged-access-group.png)
 
