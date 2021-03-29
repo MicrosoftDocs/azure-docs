@@ -28,7 +28,7 @@ This article lists some of the most common Microsoft Azure Media Services limits
 
 | Resource | Default Limit |
 | --- | --- |
-| [Media Services accounts](media-services-account-concept.md) in a single subscription | 100 (fixed) |
+| [Media Services accounts](account-move-account-how-to.md) in a single subscription | 100 (fixed) |
 
 ## Asset limits
 

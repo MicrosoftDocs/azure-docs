@@ -58,19 +58,19 @@ For the usage with [Speech SDK](speech-sdk.md) and/or [Speech-to-text REST API f
 ### Text-to-Speech Quotas and limits per Speech resource
 In the table below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
 
-| Quota | Free (F0)<sup>3</sup> | Standard (S0) |
-|--|--|--|
-| **Max number of Transactions per Second (TPS) for Standard and Neural voices** | 200<sup>4</sup> | 200<sup>4</sup> |  |
-| **Concurrent Request limit for Custom voice** |  |  |
-| Default value | 10 | 10 |
-| Adjustable | No<sup>5</sup> | Yes<sup>5</sup> |
-| **HTTP-specific quotas** |  |
-| Max Audio length produced per request | 10 min | 10 min |
-| Max number of distinct `<voice>` tags in SSML | 50 | 50 |
-| **Websocket specific quotas** |  |  |
-|Max Audio length produced per turn | 10 min | 10 min |
-|Max SSML Message size per turn |64 KB |64 KB |
-| **REST API limit** | 20 requests per minute | 300 requests per minute |
+| Quota                                                                          | Free (F0)<sup>3</sup>  | Standard (S0)   |
+|--------------------------------------------------------------------------------|------------------------|-----------------|
+| **Max number of Transactions per Second (TPS) for Standard and Neural voices** | 200<sup>4</sup>        | 200<sup>4</sup> |
+| **Concurrent Request limit for Custom voice**                                  |                        |                 |
+| Default value                                                                  | 10                     | 10              |
+| Adjustable                                                                     | No<sup>5</sup>         | Yes<sup>5</sup> |
+| **HTTP-specific quotas**                                                       |                        |                 |
+| Max Audio length produced per request                                          | 10 min                 | 10 min          |
+| Max number of distinct `<voice>` tags in SSML                                  | 50                     | 50              |
+| **Websocket specific quotas**                                                  |                        |                 |
+| Max Audio length produced per turn                                             | 10 min                 | 10 min          |
+| Max SSML Message size per turn                                                 | 64 KB                  | 64 KB           |
+| **REST API limit**                                                             | 20 requests per minute | 300 requests per minute |
 
 
 <sup>3</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
