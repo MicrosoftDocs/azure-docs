@@ -73,7 +73,7 @@ Now that you've registered your application, you must select which API permissio
 
 1. After the client secret string is created, copy its **Value** and **ID**, and store them in a secure location of your choice.
 
-   ![Client secret string](media/how-to-aad/client-secret-string-password.png) 
+   :::image type="content" source="media/how-to-aad/client-secret-string-password.png" alt-text="Client secret string."::: 
 
 > [!NOTE]
 >The client secret string is visible only once in the Azure portal. When you navigate away from the Certificates & secrets web page and then return back to it, the Value string becomes masked. It's important to make a copy your client secret string immediately after it is generated. If you don't have a backup copy of your client secret, you must repeat the above steps to regenerate it.
