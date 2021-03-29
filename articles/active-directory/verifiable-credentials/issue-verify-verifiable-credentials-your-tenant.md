@@ -162,11 +162,11 @@ Now when a user is presented with the "sign in" to get issued your verifiable cr
 
 ## Before we continue
 
-We created a new verifiable credential using your identity provider. There are some values that we need before we can continue. We will need these values in the next section to make the sample code use your own keys stored in key vault.
+We need to put a few values together before we can make the necessary code changes. We use these values in the next section to make the sample code use your own keys stored in your vault. So far we should have the following values ready.
 
-- Contract URI (Issue Credential URL)
-- Application Client ID (We got this when we registered the Node app)
-- Client secret.
+- **Contract URI** from the credential that we just created(Issue Credential URL)
+- **Application Client ID** We got this when we registered the Node app.
+- **Client secret** We created this earlier when we granted your app access to key vault.
 
 There are a few other values we need to get in order to make the changes one time in our Sample app. Let's get those now!
 
