@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 03/29/2021
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I want to save time and avoid Support calls during deployment of Azure Stack Edge devices by verifying network settings in advance.
@@ -97,14 +97,14 @@ To run a network readiness check, do these steps:
 
 1. Open PowerShell 7.0 on a client computer running on the network where you'll deploy the Azure Stack Edge device.<!--PowerShell version to be verified.-->
 
-1.  Run a network readiness check by entering the following command:<!--Let's discuss "Required" vs. "Optional". Most of the parameters are optional, but the introduction should discuss what is required to get meaningful Network Readiness Checker results that finds key issues in the network setup.-->
+1.  Run a network readiness check by entering the following command:
 
     ```powershell
     Invoke-AzsNetworkValidation -DnsServer <string[]> -DeviceFqdn <string> [-TimeServer <string[]>] [-Proxy <uri>] [-WindowsUpdateServer <uri[]>] [-SkipTests {LinkLayer | IPConfig | DnsServer | TimeServer | DuplicateIP | AzureEndpoint] |
     WindowsUpdateServer | DnsRegistration}] [-OutputPath <string>]
     ```
     
-    You'll enter the following parameters:
+    Enter the following parameters. This set of parameters (all but `-SkipTests`) is needed to get meaningful Network Readiness Checker results that find key issues in your network setup>
 
     |Parameter|Description|
     |---------|-----------|
@@ -119,7 +119,9 @@ To run a network readiness check, do these steps:
 
 ## Sample output: Success
 
-The following sample is the output from a successful run of the Azure Stack Network Readiness Check tool. The script completed, but the WindowsUpdateServer test and DnsRegistration test turned up issues in the network configuration.
+The following sample is the output from a successful run of the Azure Stack Network Readiness Checker tool, with this command:
+
+   `Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'aseclient.contoso.com' -TimeServer 'pool.ntp.org' -Proxy 'http://10.57.48.80:8080' -SkipTests DuplicateIP -WindowsUpdateServer "http://ase-prod.contoso.com" -OutputPath C:\ase-network-tests`
 
 ```powershell
 PS C:\Users\Administrator> Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'aseclient.contoso.com' -TimeServer 'pool.ntp.org' -Proxy 'http://10.57.48.80:8080' -SkipTests DuplicateIP -WindowsUpdateServer "http://ase-prod.contoso.com" -OutputPath C:\ase-network-tests
@@ -139,55 +141,35 @@ Validating Azure Stack Edge Network Readiness
         Azure Graph Endpoint: OK
         Azure Login Endpoint: OK
         Azure ManagementService Endpoint: OK
-        Windows Update Server ase-prod.contoso.com port 80: Fail
+        Windows Update Server ase-prod.contoso.com port 80: OK
         DNS Registration for aseclient.contoso.com: OK
-        DNS Registration for login.aseclient.contoso.com: Fail
-        DNS Registration for management.aseclient.contoso.com: Fail
-        DNS Registration for *.blob.aseclient.contoso.com: Fail
-        DNS Registration for compute.aseclient.contoso.com: Fail
+        DNS Registration for login.aseclient.contoso.com: OK
+        DNS Registration for management.aseclient.contoso.com: OK
+        DNS Registration for *.blob.aseclient.contoso.com: OK
+        DNS Registration for compute.aseclient.contoso.com: OK
 
 Log location (contains PII): C:\ase-network-tests\AzsReadinessChecker.log
 Report location (contains PII): C:\ase-network-tests\AzsReadinessCheckerReport.json
 Invoke-AzsNetworkValidation Completed
 ```
 
-#### Troubleshooting errors
+## Sample output: Failed test
 
-<!--Vibha: Can we make available more comprehensive troubleshooting for the most common errors in all of the tests?-->
-
-The Invoke-AzsNetworkValidation script completed, but two of the tests failed to complete successfully:
-
-- The Windows Update Server test failed.
-- DNS Registration failed for all but the client computer that's being tested. There were DNS registration failures for the Windows Update server, Azure Resource Manager login, Azure Resource Manager, Blob storage, and XXX<!--What does "compute.aseclient.contoso.com" represent? Thanks.-->.
-
-To get more information, you can look for errors in the log file, at C:\ase-network-tests\AzsReadinessChecker.log,as shown below.<!--I will add a snippet that demonstrates what an error looks like in the log after we settle on an exemplary failure to use in this sample.-->
-
-```typescript
-<logfile>
-SNIPPET TO COME
-```
-
-The Readiness Checker report, at C:\ase-network-tests\AzsReadinessCheckerReport.json, offers additional detail.<!--Vibha: What type of additional info would they look for in the report?Thanks.-->  
-
-## Sample output: Failure
-
-The following sample is output from a Network Readiness Checker run that failed at the initial LinkLayer test. No network connection could be made, so all other tests did not run. The test status, on the final line, is `Failed`.
+If a test fails, the Network Readiness Checker returns information to help you resolve the isssue, as shown in the sample output below. 
 
 ```powershell
-PS C:\Users\Administrator> Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'aseclient.contoso.com' -TimeServer 'pool.ntp.org' -Proxy 'http://10.57.48.80:8080' -WindowsUpdateServer "http://ase-prod.contoso.com" -SkipTests DuplicateIP -OutputPath C:\ase-network-tests
-Invoke-AzsNetworkValidation v1.2100.1396.426 started.
-The following tests will be executed: LinkLayer, IPConfig, DnsServer, TimeServer, AzureEndpoint, WindowsUpdateServer, DnsRegistration, Proxy
-Validating input parameters
-Validating Azure Stack Edge Network Readiness
-        Link Layer: Fail
-Test failed with error: No network connection
-
-Log location (contains PII): C:\ase-network-tests\AzsReadinessChecker.log
-Report location (contains PII): C:\ase-network-tests\AzsReadinessCheckerReport.json
-Invoke-AzsNetworkValidation Completed
-
+   TBD
 ```
- 
+
+For more information, you can review the log file that the tool saves to the output path. The following sample is the log file entry for the error that the sample command returned.<!--Assuming one exemplary error in the sample above. Will adjust code type in formatting.-->
+
+```powershell
+   TBD
+```
+
+And there's a report file that WHAT PURPOSE DOES THIS FILE SERVE? WHAT ADDITIONAL INFO? FORMAT DOES NOT LEND ITSELF TO A BRIEF EXCERPT, SO I WILL JUST BRIEFLY DESCRIBE.-->
+
+
 ## Next steps
 
 - Learn how to [Connect to an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-connect.md).
