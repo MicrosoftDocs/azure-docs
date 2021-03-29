@@ -51,9 +51,9 @@ The following table compares essential details about each method for creating cu
 
 If your data source delivers events in files, we recommend that you use the Azure Monitor Log Analytics agent to create your custom connector.
 
-- For more information, see [Collecting custom logs in Azure Monitor](/azure/azure-monitor/platform/data-sources-custom-logs).
+- For more information, see [Collecting custom logs in Azure Monitor](../azure-monitor/agents/data-sources-custom-logs.md).
 
-- For an example of this method, see [Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor](/azure/azure-monitor/platform/data-sources-json).
+- For an example of this method, see [Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor](../azure-monitor/agents/data-sources-json.md).
 
 ## Connect with Logstash
 
@@ -79,7 +79,7 @@ For examples of useful Logstash plugins, see:
 
 ## Connect with Logic Apps
 
-Use an [Azure Logic App](/azure/logic-apps/) to create a serverless, custom connector for Azure Sentinel.
+Use an [Azure Logic App](../logic-apps/index.yml) to create a serverless, custom connector for Azure Sentinel.
 
 > [!NOTE]
 > While creating serverless connectors using Logic Apps may be convenient, using Logic Apps for your connectors may be costly for large volumes of data.
@@ -91,9 +91,9 @@ Use an [Azure Logic App](/azure/logic-apps/) to create a serverless, custom conn
 
     |Trigger  |Description  |
     |---------|---------|
-    |**A recurring task**     |   For example, schedule your Logic App to retrieve data regularly from specific files, databases, or external APIs. <br>For more information, see [Create, schedule, and run recurring tasks and workflows in Azure Logic Apps](/azure/connectors/connectors-native-recurrence).      |
-    |**On-demand triggering**     | Run your Logic App on-demand for manual data collection and testing. <br>For more information, see  [Call, trigger, or nest logic apps using HTTPS endpoints](/azure/logic-apps/logic-apps-http-endpoint).        |
-    |**HTTP/S endpoint**     |  Recommended for streaming, and if the source system can start the data transfer. <br>For more information, see [Call service endpoints over HTTP or HTTPs](/azure/connectors/connectors-native-http).       |
+    |**A recurring task**     |   For example, schedule your Logic App to retrieve data regularly from specific files, databases, or external APIs. <br>For more information, see [Create, schedule, and run recurring tasks and workflows in Azure Logic Apps](../connectors/connectors-native-recurrence.md).      |
+    |**On-demand triggering**     | Run your Logic App on-demand for manual data collection and testing. <br>For more information, see  [Call, trigger, or nest logic apps using HTTPS endpoints](../logic-apps/logic-apps-http-endpoint.md).        |
+    |**HTTP/S endpoint**     |  Recommended for streaming, and if the source system can start the data transfer. <br>For more information, see [Call service endpoints over HTTP or HTTPs](../connectors/connectors-native-http.md).       |
     |     |         |
 
 1. **Use any of the Logic App connectors that read information to get your events**. For example:
@@ -108,9 +108,9 @@ Use an [Azure Logic App](/azure/logic-apps/) to create a serverless, custom conn
 
 1. **Prepare the information you want to retrieve**.
 
-    For example, use the [parse JSON action](/azure/logic-apps/logic-apps-perform-data-operations#parse-json-action) to access properties in JSON content, enabling you to select those properties from the dynamic content list when you specify inputs for your Logic App.
+    For example, use the [parse JSON action](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) to access properties in JSON content, enabling you to select those properties from the dynamic content list when you specify inputs for your Logic App.
 
-    For more information, see [Perform data operations in Azure Logic Apps](/azure/logic-apps/logic-apps-perform-data-operations).
+    For more information, see [Perform data operations in Azure Logic Apps](../logic-apps/logic-apps-perform-data-operations.md).
 
 1. **Write the data to Log Analytics**.
 
@@ -170,14 +170,14 @@ You can stream events to Azure Sentinel by using the Log Analytics Data Collecto
 
 While calling a RESTful endpoint directly requires more programming, it also provides more flexibility.
 
-For more information, see the [Log Analytics Data collector API](/azure/azure-monitor/platform/data-collector-api), especially the following examples:
+For more information, see the [Log Analytics Data collector API](../azure-monitor/logs/data-collector-api.md), especially the following examples:
 
-- [C#](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api#c-sample)
-- [Python 2](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api#python-2-sample)
+- [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
+- [Python 2](../azure-monitor/logs/data-collector-api.md#python-2-sample)
 
 ## Connect with Azure Functions
 
-Use Azure Functions together with a RESTful API and various coding languages, such as [PowerShell](/azure/azure-functions/functions-reference-powershell), to create a serverless custom connector.
+Use Azure Functions together with a RESTful API and various coding languages, such as [PowerShell](../azure-functions/functions-reference-powershell.md), to create a serverless custom connector.
 
 For examples of this method, see:
 
@@ -185,7 +185,7 @@ For examples of this method, see:
 - [Connect your Okta Single Sign-On to Azure Sentinel with Azure Function](connect-okta-single-sign-on.md)
 - [Connect your Proofpoint TAP to Azure Sentinel with Azure Function](connect-proofpoint-tap.md)
 - [Connect your Qualys VM to Azure Sentinel with Azure Function](connect-qualys-vm.md)
-- [Ingesting XML, CSV, or other formats of data](/azure/azure-monitor/platform/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
+- [Ingesting XML, CSV, or other formats of data](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
 - [Monitoring Zoom with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
 - [Deploy a Function App for getting Office 365 Management API data into Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (Azure Sentinel GitHub community)
 

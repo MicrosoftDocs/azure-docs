@@ -49,7 +49,7 @@ To edit your template, go to the **Work Items** tab under *Configure* and select
 
 :::image type="content" source="./media/work-item-integration/edit-template.png" alt-text=" Screenshot of work item tab with the edit pencil icon selected.":::
 
-Select edit ![edit icon](./media/work-item-integration/edit-icon.png) at the top to begin editing the template. Work Item templates are based on [Azure Monitor Workbooks](../platform/workbooks-overview.md). The work item information is generated using the keyword query language. You can modify the queries to add more context essential to your team. When you are done editing, save the workbook by selecting the save icon ![save icon](./media/work-item-integration/save-icon.png) in the top toolbar.
+Select edit ![edit icon](./media/work-item-integration/edit-icon.png) at the top to begin editing the template. Work Item templates are based on [Azure Monitor Workbooks](../visualize/workbooks-overview.md). The work item information is generated using the keyword query language. You can modify the queries to add more context essential to your team. When you are done editing, save the workbook by selecting the save icon ![save icon](./media/work-item-integration/save-icon.png) in the top toolbar.
 
 :::image type="content" source="./media/work-item-integration/edit-workbook.png" alt-text=" Screenshot of the work item template workbook in edit mode." lightbox="./media/work-item-integration/edit-workbook.png":::
 

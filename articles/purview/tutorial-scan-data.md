@@ -50,7 +50,7 @@ In this section, you run the starter kit scripts to create a simulated data esta
 
 Follow these steps to set up the starter kit client software on your Windows machine:
 
-1. [Download the starter kit](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip), and extract its contents to the location of your choice.
+1. [Download the starter kit](https://github.com/Azure/Purview-Samples/blob/master/PurviewStarterKitV4.zip), and extract its contents to the location of your choice.
 
 
 1. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.

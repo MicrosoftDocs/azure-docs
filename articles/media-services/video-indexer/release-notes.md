@@ -26,6 +26,12 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+## March 2021
+
+Audio analysis is available now in additional new bundle of audio features at different price point. The new **Basic Audio** analysis preset provides a low-cost option to only extract speech transcription, translation and format output captions and subtitles. The **Basic Audio** preset will produce two separate meters on your bill, including a line for transcription and a separate line for caption and subtitle formatting. More information on the pricing, see the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.
+
+The newly added bundle is available when indexing or re-indexing your file by choosing the **Advanced option** -> **Basic Audio** preset (under the **Video + audio indexing** drop-down box).
+
 ## February 2021
 
 ### Multiple account owners 
@@ -43,7 +49,7 @@ The newly added audio affects feature is available when indexing your file by ch
 
 The **clapping** event type that was included in the previous audio effects model, is now extracted a part of the **crowd reaction** event type.
 
-When you choose to see **Insites** of your video on the [Video Indexer](https://www.videoindexer.ai/) website, the Audio Effects show up on the page.
+When you choose to see **Insights** of your video on the [Video Indexer](https://www.videoindexer.ai/) website, the Audio Effects show up on the page.
 
 :::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Audio event detection":::
 

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
-ms.date: 02/11/2021
+ms.date: 02/17/2021
 ms.author: v-doeris
 #Customer intent: As an application developer, I want to learn how my Node.js Electron desktop application can get an access token and call an API that's protected by a Microsoft identity platform endpoint.
 ---
@@ -26,11 +26,11 @@ This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Nod
 * [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
 
 > [!div renderon="docs"]
-> ## Register and download your quickstart application
-> 
+> ## Register and download the sample application
+>
 > Follow the steps below to get started.
-> 
-> #### Step 1: Register your application
+>
+> #### Step 1: Register the application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
@@ -45,7 +45,7 @@ This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Nod
 > 1. Select **Configure**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### Step 1: Configure your application in Azure portal
+> #### Step 1: Configure the application in Azure portal
 > For the code sample for this quickstart to work, you need to add a reply URL as **msal://redirect**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
@@ -53,7 +53,7 @@ This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Nod
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
 
-#### Step 2: Download your Electron project
+#### Step 2: Download the Electron sample project
 
 > [!div renderon="docs"]
 > [Download the code sample](https://github.com/azure-samples/ms-identity-javascript-nodejs-desktop/archive/main.zip)
@@ -66,7 +66,7 @@ This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Nod
 > > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
-> #### Step 3: Configure your Electron project
+> #### Step 3: Configure the Electron sample project
 >
 > 1. Extract the zip file to a local folder close to the root of the disk, for example, *C:/Azure-Samples*.
 > 1. Edit *.env* and replace the values of the fields `TENANT_ID` and `CLIENT_ID` with the following snippet:
@@ -167,7 +167,7 @@ async function getTokenInteractive(authWindow, tokenRequest) {
 
     /**
      * Proof Key for Code Exchange (PKCE) Setup
-     * 
+     *
      * MSAL enables PKCE in the Authorization Code Grant Flow by including the codeChallenge and codeChallengeMethod
      * parameters in the request passed into getAuthCodeUrl() API, as well as the codeVerifier parameter in the
      * second leg (acquireTokenByCode() API).
@@ -178,11 +178,11 @@ async function getTokenInteractive(authWindow, tokenRequest) {
     pkceCodes.verifier = verifier;
     pkceCodes.challenge = challenge;
 
-    const authCodeUrlParams = { 
-        redirectUri: redirectUri 
+    const authCodeUrlParams = {
+        redirectUri: redirectUri
         scopes: tokenRequest.scopes,
         codeChallenge: pkceCodes.challenge, // PKCE Code Challenge
-        codeChallengeMethod: pkceCodes.challengeMethod // PKCE Code Challenge Method 
+        codeChallengeMethod: pkceCodes.challengeMethod // PKCE Code Challenge Method
     };
 
     const authCodeUrl = await pca.getAuthCodeUrl(authCodeUrlParams);
@@ -194,14 +194,14 @@ async function getTokenInteractive(authWindow, tokenRequest) {
     });
 
     const authCode = await listenForAuthCode(authCodeUrl, authWindow); // see below
-    
-    const authResponse = await pca.acquireTokenByCode({ 
-        redirectUri: redirectUri, 
-        scopes: tokenRequest.scopes, 
+
+    const authResponse = await pca.acquireTokenByCode({
+        redirectUri: redirectUri,
+        scopes: tokenRequest.scopes,
         code: authCode,
-        codeVerifier: pkceCodes.verifier // PKCE Code Verifier 
+        codeVerifier: pkceCodes.verifier // PKCE Code Verifier
     });
-    
+
     return authResponse;
 }
 
@@ -211,7 +211,7 @@ async function getTokenInteractive(authWindow, tokenRequest) {
  * @param {object} authWindow: Electron window object
  */
 async function listenForAuthCode(navigateUrl, authWindow) {
-    
+
     authWindow.loadURL(navigateUrl);
 
     return new Promise((resolve, reject) => {

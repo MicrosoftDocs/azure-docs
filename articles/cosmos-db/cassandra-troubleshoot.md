@@ -5,7 +5,7 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
-ms.date: 12/01/2020
+ms.date: 03/02/2021
 ms.author: thvankra
 
 ---
@@ -28,7 +28,7 @@ Some popular causes and solutions are as follows:
 You may see this error: `Cannot connect to any host, scheduling retry in 600000 milliseconds`. 
 
 ### Solution
-This could be SNAT exhaustion on the client-side. Please follow the steps at [SNAT for outbound connections](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) to rule out this issue. This may also be an idle timeout issue where the Azure load balancer has 4 minutes of idle timeout by default. See documentation at [Load balancer idle timeout](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). Enable tcp-keep alive from the driver settings (see [below](#enable-keep-alive-for-java-driver)) and set the `keepAlive` interval on the operating system to less than 4 minutes.
+This could be SNAT exhaustion on the client-side. Please follow the steps at [SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections.md) to rule out this issue. This may also be an idle timeout issue where the Azure load balancer has 4 minutes of idle timeout by default. See documentation at [Load balancer idle timeout](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). Enable tcp-keep alive from the driver settings (see [below](#enable-keep-alive-for-java-driver)) and set the `keepAlive` interval on the operating system to less than 4 minutes.
 
  
 

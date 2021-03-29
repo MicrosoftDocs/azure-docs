@@ -9,17 +9,12 @@ ms.date: 02/18/2021
 ms.author: yuajia
 ---
 
-# Configure a Rule Set
+# Configure a Rule Set with Azure Front Door Standard/Premium (Preview)
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-This tutorial shows how to create a Rule Set and your first set of rules in the Azure portal. 
-
-In this tutorial, you learn how to:
-> [!div class="checklist"]
-> - Configure Rule Set using the portal.
-> - Delete Rule Set from your AFD profile using the portal
+This article shows how to create a Rule Set and your first set of rules in the Azure portal. You'll then learn how to associate the Rule Set to a route from the Rule Set page or from Endpoint Manager.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -28,7 +23,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Before you can complete the steps in this tutorial, you must first create an Azure Front Door Standard/Premium. For more information, see [Quickstart: Create an Azure Front Door Standard/Premium profile](create-front-door-portal.md).
+* Before you can configure a Rule Set, you must first create an Azure Front Door Standard/Premium. For more information, see [Quickstart: Create an Azure Front Door Standard/Premium profile](create-front-door-portal.md).
 
 ## Configure Rule Set in Azure portal
 
@@ -60,11 +55,11 @@ In this tutorial, you learn how to:
     1. Select the *Unassociated* link.
      
 
-    1. Then in the **Associate a route** blade, select the endpoint and route you want to associate with the Rule Set. 
+    1. Then in the **Associate a route** page, select the endpoint and route you want to associate with the Rule Set. 
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set.png" alt-text="Screenshot of create a route page.":::    
         
-    1. Click *Next* to change rule set orders if there are multiple rule sets under selected route. Rule set will be executed from top to down. You can change orders by selecting the rule set and move it up or down.Then select *Associate*.
+    1. Select *Next* to change rule set orders if there are multiple rule sets under selected route. Rule set will be executed from top to down. You can change orders by selecting the rule set and move it up or down. Then select *Associate*.
     
         > [!Note]
         > You can only associate one rule set with a single route on this page. To associate a Rule Set with multiple routes, please use Endpoint Manager.
@@ -81,15 +76,15 @@ In this tutorial, you learn how to:
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-1.png" alt-text="Screenshot of selecting endpoint in Endpoint Manager." lightbox="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-1-expanded.png":::
 
-    1. Click *Edit endpoint*  
+    1. Select *Edit endpoint*.  
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-2.png" alt-text="Screenshot of selecting edit endpoint in Endpoint Manager." lightbox="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-2-expanded.png":::
 
-    1. Click on the Route. 
+    1. Select the Route. 
     
          :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-3.png" alt-text="Screenshot of selecting a route.":::
     
-    1. In the *Update route* blade, in *Rules*, select the Rule Sets you want to associate with the route from the dropdown. Then you can change orders by moving rule set up and down. 
+    1. On the *Update route* page, in *Rules*, select the Rule Sets you want to associate with the route from the dropdown. Then you can change orders by moving rule set up and down. 
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-4.png" alt-text="Screenshot of update a route page.":::
     
@@ -101,7 +96,7 @@ In the preceding steps, you configured and associated a Rule Set to your Route. 
 
 1. Go to the **Rule Set page** under **Settings** to disassociate the Rule Set from all associated routes.
 
-1. Expand to the Route, click on the three dots select *Edit the route*.
+1. Expand the Route, select the three dots. Then select *Edit the route*.
 
    :::image type="content" source="../media/how-to-configure-rule-set/front-door-disassociate-rule-set-1.png" alt-text="Screenshot of route expanded in rule set.":::
 
@@ -121,13 +116,4 @@ In the preceding steps, you configured and associated a Rule Set to your Route. 
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-* Create a Rule set
-* Associate a rule set to your AFD route.
-* Delete a rule set from your AFD profile
-
-To learn how to add security headers with Rule Set, continue to the next tutorial.
-
-> [!div class="nextstepaction"]
-> [Security headers with Rules Set]()
+Learn how to add [Security headers with Rules Set](how-to-add-security-headers.md).

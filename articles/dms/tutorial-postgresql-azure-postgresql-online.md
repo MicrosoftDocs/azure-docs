@@ -57,7 +57,7 @@ To complete this tutorial, you need to:
 * Configure your [Windows Firewall for database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Open your Windows firewall to allow Azure Database Migration Service to access the source PostgreSQL Server, which by default is TCP port 5432.
 * When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration.
-* Create a server-level [firewall rule](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules) for Azure Database for PostgreSQL to allow Azure Database Migration Service to access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
+* Create a server-level [firewall rule](../postgresql/concepts-firewall-rules.md) for Azure Database for PostgreSQL to allow Azure Database Migration Service to access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
 * There are two methods for invoking the CLI:
 
   * In the upper-right corner of the Azure portal, select the Cloud Shell button:
@@ -66,7 +66,7 @@ To complete this tutorial, you need to:
 
   * Install and run the CLI locally. CLI 2.0 is the command-line tool for managing Azure resources.
 
-       To download the CLI, follow the instructions in the article [Install Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest). The article also lists the platforms that support CLI 2.0.
+       To download the CLI, follow the instructions in the article [Install Azure CLI 2.0](/cli/azure/install-azure-cli). The article also lists the platforms that support CLI 2.0.
 
        To set up Windows Subsystem for Linux (WSL), follow the instructions in the [Windows 10 Installation Guide](/windows/wsl/install-win10)
 

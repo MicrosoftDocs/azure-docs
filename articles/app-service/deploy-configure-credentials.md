@@ -15,6 +15,9 @@ and [FTP/S deployment](deploy-ftp.md). These credentials are not the same as you
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
+> [!NOTE]
+> The **Development Center (Classic)** page in the Azure portal, which is the old deployment experience, will be deprecated in March, 2021. This change will not affect any existing deployment settings in your app, and you can continue to manage app deployment in the **Deployment Center** page.
+
 ## <a name="userscope"></a>Configure user-scope credentials
 
 # [Azure CLI](#tab/cli)

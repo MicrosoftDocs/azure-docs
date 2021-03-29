@@ -1,7 +1,6 @@
 ---
 title: FAQs - Network Performance Monitor solution in Azure | Microsoft Docs
 description: This article captures the frequently asked questions about Network Performance Monitor in Azure. Network Performance Monitor (NPM) helps you monitor the performance of your networks in near real time and detect and locate network performance bottlenecks.
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
@@ -14,7 +13,7 @@ ms.date: 10/12/2018
 ![Network Performance Monitor symbol](media/network-performance-monitor-faq/npm-symbol.png)
 
 > [!IMPORTANT]
-> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher before 29 February 2024.
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher before 29 February 2024.
 
 This article captures the frequently asked questions (FAQs) about Network Performance Monitor (NPM) in Azure
 

@@ -2,12 +2,12 @@
 title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 03/16/2021
 ---
 
 # Resource providers for Azure services
 
-This article shows how resource provider namespaces map to Azure services.
+This article shows how resource provider namespaces map to Azure services. If you don't know the resource provider, see [Find resource provider](#find-resource-provider).
 
 ## Match resource provider to service
 
@@ -23,14 +23,14 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
 | Microsoft.ApiManagement | [API Management](../../api-management/index.yml) |
 | Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
-| Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
+| Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/overview.md) |
 | Microsoft.Attestation | Azure Attestation Service |
 | Microsoft.Authorization - [registered](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
 | Microsoft.AutonomousSystems | [Autonomous Systems](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
-| Microsoft.AzureArcData | Azure Arc enabled data services registry |
+| Microsoft.AzureArcData | Azure Arc enabled data services |
 | Microsoft.AzureData | SQL Server registry |
 | Microsoft.AzureStack | core |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
@@ -93,7 +93,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.HanaOnAzure | [SAP HANA on Azure Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
-| Microsoft.HealthcareApis | [Azure API for FHIR](../../healthcare-apis/index.yml) |
+| Microsoft.HealthcareApis | [Azure API for FHIR](../../healthcare-apis/fhir/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.HybridNetwork  | [Private Edge Zones](../../networking/edge-zones-overview.md) |
@@ -120,7 +120,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.MarketplaceApps | core |
 | Microsoft.MarketplaceOrdering - [registered](#registration) | core |
 | Microsoft.Media | [Media Services](../../media-services/index.yml) |
-| Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
+| Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/overview.md) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
@@ -150,7 +150,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft.Security | [Security Center](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
-| Microsoft.SerialConsole - [registered](#registration) | [Azure Serial Console for Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft.SerialConsole - [registered](#registration) | [Azure Serial Console for Windows](/troubleshoot/azure/virtual-machines/serial-console-windows) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
@@ -187,6 +187,42 @@ The resources providers above that are marked with **- registered** are register
 
 > [!IMPORTANT]
 > Only register a resource provider when you're ready to use it. The registration step enables you to maintain least privileges within your subscription. A malicious user can't use resource providers that aren't registered.
+
+## Find resource provider
+
+If you have existing infrastructure in Azure, but aren't sure which resource provider is used, you can use either Azure CLI or PowerShell to find the resource provider. Specify the name of the resource group that contains the resources to find.
+
+The following example uses Azure CLI:
+
+```azurecli-interactive
+az resource list -g examplegroup
+```
+
+The results include the resource type. The resource provider namespace is the first part of the resource type. The following example shows the **Microsoft.KeyVault** resource provider.
+
+```json
+[
+  {
+    ...
+    "type": "Microsoft.KeyVault/vaults"
+  }
+]
+```
+
+The following example uses PowerShell:
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName examplegroup
+```
+
+The results include the resource type. The resource provider namespace is the first part of the resource type. The following example shows the **Microsoft.KeyVault** resource provider.
+
+```azurepowershell
+Name              : examplekey
+ResourceGroupName : examplegroup
+ResourceType      : Microsoft.KeyVault/vaults
+...
+```
 
 ## Next steps
 

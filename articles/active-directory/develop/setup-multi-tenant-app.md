@@ -25,4 +25,4 @@ Here is a list of recommended topics to learn more about multi-tenant applicatio
 - For more depth, learn [how a multi-tenant application is configured and coded end-to-end](./howto-convert-app-to-be-multi-tenant.md), including how to register, use the "common" endpoint, implement "user" and "admin" consent, how to implement more advanced multi-tier scenarios
 
 ## Next steps
-[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

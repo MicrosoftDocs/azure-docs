@@ -49,7 +49,7 @@ To use a service principal (SP), you must first create the SP and grant it acces
 >
 > The reason for granting the least access is that a service principal uses a password to authenticate, and the password may be stored as part of an automation script. If the password is leaked, having the minimum access required for a specific tasks minimizes the malicious use of the SP.
 
-The easiest way to create an SP and grant access to your workspace is by using the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). To create a service principal and grant it access to your workspace, use the following steps:
+The easiest way to create an SP and grant access to your workspace is by using the [Azure CLI](/cli/azure/install-azure-cli). To create a service principal and grant it access to your workspace, use the following steps:
 
 > [!NOTE]
 > You must be an admin on the subscription to perform all of these steps.
@@ -62,9 +62,9 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
     If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser and follow the instructions on the command line. The instructions involve browsing to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and entering an authorization code.
 
-    If you have multiple Azure subscriptions, you can use the `az account set -s <subscription name or ID>` command to set the subscription. For more information, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    If you have multiple Azure subscriptions, you can use the `az account set -s <subscription name or ID>` command to set the subscription. For more information, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
 
-    For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
+    For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 1. Install the Azure Machine Learning extension:
 
@@ -231,7 +231,7 @@ ws.get_details()
 
 ### Use a service principal from the Azure CLI
 
-You can use a service principal for Azure CLI commands. For more information, see [Sign in using a service principal](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal).
+You can use a service principal for Azure CLI commands. For more information, see [Sign in using a service principal](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal).
 
 ### Use a service principal with the REST API (preview)
 

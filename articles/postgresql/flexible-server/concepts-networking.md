@@ -5,7 +5,7 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/21/2021
 ---
 
 # Networking overview - Azure Database for PostgreSQL - Flexible Server
@@ -58,6 +58,8 @@ Here are some concepts to be familiar with when using virtual networks with Post
    A virtual network contains subnets (sub-networks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network. 
 
    Your PostgreSQL flexible server must be in a subnet that is **delegated** for PostgreSQL flexible server use only. This delegation means that only Azure Database for PostgreSQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as Microsoft.DBforPostgreSQL/flexibleServers.
+
+   Add `Microsoft.Storage` to the service end point for the subnet delegated to Flexible servers. 
 
 * **Network security groups (NSG)**
    Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. Review the [network security group overview](../../virtual-network/network-security-groups-overview.md) for more information.

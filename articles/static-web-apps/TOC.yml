@@ -18,6 +18,9 @@
           href: get-started-cli.md
 - name: Concepts
   items:
+    - name: Configuration
+      href: configuration.md
+      displayName: Routing
     - name: API support with Azure Functions
       href: apis.md
     - name: Routes
@@ -42,6 +45,8 @@
       href: application-settings.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
+    - name: Reset deployment tokens
+      href: deployment-token-management.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator
@@ -62,6 +67,8 @@
           href: deploy-nextjs.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
+    - name: Publish with Azure DevOps
+      href: publish-devops.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn

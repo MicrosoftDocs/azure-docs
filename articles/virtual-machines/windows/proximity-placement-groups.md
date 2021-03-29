@@ -1,16 +1,17 @@
 ---
-title: "PowerShell: Use proximity placement groups"
+title: Create a proximity placement group using Azure PowerShell
 description: Learn about creating and using proximity placement groups using Azure PowerShell. 
 services: virtual-machines
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/27/2020
+ms.date: 3/8/2021
 ms.author: cynthn
 ms.reviewer: zivr
 ---
 
-# Deploy VMs to proximity placement groups using PowerShell
+# Deploy VMs to proximity placement groups using Azure PowerShell
 
 
 To get VMs as close as possible, achieving the lowest possible latency, you should deploy them within a [proximity placement group](../co-location.md#proximity-placement-groups).

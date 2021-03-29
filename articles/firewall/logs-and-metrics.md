@@ -55,10 +55,6 @@ Metrics are lightweight and can support near real-time scenarios making them use
      }
    }
    ```
-   
-  > [!NOTE]
-  > When you receive a Deny response for HTTP requests under `default action`, you won't find the logs under the Log Analytics Workspace with standard protocol or port queries.
-  > The `Protocol` field will have a space in it and will match against `"HTTP "`, or you can filter using the `msg_s` field's content.
 
 * **Network rule log**
 

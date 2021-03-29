@@ -6,7 +6,8 @@ ms.author: danis
 ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ---
 
 # Azure Image Builder Service networking options

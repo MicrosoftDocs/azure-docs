@@ -5,7 +5,7 @@
   - name: About AKS
     href: intro-kubernetes.md
   - name: Solution architectures
-    href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
+    href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json?WT.mc_id=AKSDOCSTOC
 - name: Quickstarts
   expanded: true
   items:
@@ -136,8 +136,10 @@
     items:
     - name: Scale an AKS cluster
       href: scale-cluster.md
-    - name: Stop an AKS cluster (preview)
+    - name: Stop an AKS cluster
       href: start-stop-cluster.md
+    - name: Use planned maintenance (preview)
+      href: planned-maintenance.md  
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
     - name: Use Uptime SLA
@@ -262,13 +264,13 @@
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies
       href: use-network-policies.md
-    - name: Secure pods with Azure Policy
-      href: use-pod-security-on-azure-policy.md
+    - name: Use Azure Policy
+      href: use-azure-policy.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
     - name: Define API server authorized IP ranges
       href: api-server-authorized-ip-ranges.md
-    - name: Control deployments with Azure Policy (preview)
+    - name: Control deployments with Azure Policy
       href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
     - name: Update cluster credentials
       href: update-credentials.md
@@ -294,14 +296,14 @@
   - name: Monitoring and logging
     items:
     - name: Azure Monitor for containers
-      href: ../azure-monitor/insights/container-insights-overview.md
+      href: ../azure-monitor/containers/container-insights-overview.md
       maintainContext: true
     - name: View the control plane component logs
       href: view-control-plane-logs.md
     - name: View the kubelet logs
       href: kubelet-logs.md
     - name: View container data real-time
-      href: ../azure-monitor/insights/container-insights-livedata-overview.md
+      href: ../azure-monitor/containers/container-insights-livedata-overview.md
       maintainContext: true
   - name: Use Windows Server containers
     items:

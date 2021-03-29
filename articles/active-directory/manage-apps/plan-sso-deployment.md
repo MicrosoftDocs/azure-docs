@@ -287,17 +287,12 @@ The following links present troubleshooting scenarios. You may want to create a 
 
 - [Problem signing into a Microsoft application](./application-sign-in-problem-first-party-microsoft.md)
 
-#### SSO issues for applications listed in the Azure Application Gallery
+#### SSO issues for applications
 
-- [Problem with password SSO for applications listed in the Azure Application Gallery](./troubleshoot-password-based-sso.md) 
+- [Problem with password SSO for applications](./troubleshoot-password-based-sso.md) 
 
-- [Problem with federated SSO for applications listed in the Azure Application Gallery](./application-sign-in-problem-federated-sso-gallery.md)   
+- [Problems signing in to SAML-based single sign-on configured apps](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)   
 
-#### SSO issues for applications NOT listed in the Azure Application Gallery
-
-- [Problem with password SSO for applications NOT listed in the Azure Application Gallery](./troubleshoot-password-based-sso.md) 
-
-- [Problem with federated SSO for applications NOT listed in the Azure Application Gallery](./application-sign-in-problem-federated-sso-gallery.md)
 
 ## Next steps
 

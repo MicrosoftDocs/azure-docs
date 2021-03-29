@@ -2,7 +2,8 @@
 title: Disable or remove the provisioning agent
 description: Learn how to disable or remove the provisioning agent in Linux VMs and images.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure

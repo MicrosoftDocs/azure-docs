@@ -200,7 +200,7 @@ If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob
 2. Allow the next sync cycle to attempt synchronization. This time synchronization will be successful and it will update the UserPrincipalName of Bob to bob@fabrikam.com as expected.
 
 #### Related Articles
-* [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](/azure/active-directory/hybrid/howto-troubleshoot-upn-changes)
+* [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](./howto-troubleshoot-upn-changes.md)
 
 ## LargeObject
 ### Description

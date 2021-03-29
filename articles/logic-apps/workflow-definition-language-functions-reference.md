@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 01/13/2021
+ms.date: 03/12/2021
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -295,7 +295,7 @@ For the full reference about each function, see the
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Return an action's output at runtime. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your workflow definition. |
-| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Return the inputs and outputs from all the actions inside the specified scoped action, such as `For_each`, `Until`, and `Scope`. |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Return the inputs and outputs from the top-level actions inside the specified scoped action, such as `For_each`, `Until`, and `Scope`. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Return a trigger's output at runtime, or from other JSON name-and-value pairs. See also [triggerOutputs](#triggerOutputs) and [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Return a trigger's `body` output at runtime. See [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Return a single value matching a key name in *form-data* or *form-encoded* trigger outputs. |
@@ -724,10 +724,10 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Object | The updated JSON object with the specified property |
 ||||
 
-To add a child property to an existing property, use this syntax:
+To add a parent property to an existing property, use the `setProperty()` function, not the `addProperty()` function. Otherwise, the function returns only the child object as output.
 
 ```
-addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+setProperty(<object>['<parent-property>'], '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 ```
 
 | Parameter | Required | Type | Description |
@@ -775,7 +775,7 @@ Here's the updated JSON object:
 This example adds the `middleName` child property to the existing `customerName` property in a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function. The function assigns the specified value to the new property and returns the updated object:
 
 ```
-addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne'))
 ```
 
 Here's the current JSON object:
@@ -3554,7 +3554,12 @@ Here's the updated JSON object:
 
 ### result
 
-Return the inputs and outputs from all the actions that are inside the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. This function is useful returning the results from a failed action so that you can diagnose and handle exceptions. For more information, see [Get context and results for failures](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+Return the results from the top-level actions in the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. The `result()` function accepts a single parameter, which is the scope's name, and returns an array that contains information from the first-level actions in that scope. These action objects include the same attributes as those returned by the `actions()` function, such as the action's start time, end time, status, inputs, correlation IDs, and outputs.
+
+> [!NOTE]
+> This function returns information *only* from the first-level actions in the scoped action and not from deeper nested actions such as switch or condition actions.
+
+For example, you can use this function to get the results from failed actions so that you can diagnose and handle exceptions. For more information, see [Get context and results for failures](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
 
 ```
 result('<scopedActionName>')
@@ -3562,17 +3567,17 @@ result('<scopedActionName>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*scopedActionName*> | Yes | String | The name of the scoped action from which to return the inputs and outputs from all the inner actions |
+| <*scopedActionName*> | Yes | String | The name of the scoped action where you want the inputs and outputs from the top-level actions inside that scope |
 ||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*array-object*> | Array object | An array that contains arrays of inputs and outputs from each action that appears inside the specified scoped action |
+| <*array-object*> | Array object | An array that contains arrays of inputs and outputs from each top-level action inside the specified scope |
 ||||
 
 *Example*
 
-This example returns the inputs and outputs from each iteration of an HTTP action inside that's inside a `For_each` loop by using the `result()` function in the `Compose` action:
+This example returns the inputs and outputs from each iteration of an HTTP action inside that's in a `For_each` loop by using the `result()` function in the `Compose` action:
 
 ```json
 {
@@ -4838,16 +4843,22 @@ workflow().<property>
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | No | String | The name for the workflow property whose value you want <p>A workflow object has these properties: **name**, **type**, **id**, **location**, and **run**. The **run** property value is also an object that has these properties: **name**, **type**, and **id**. |
+| <*property*> | No | String | The name for the workflow property whose value you want <p><p>By default, a workflow object has these properties: `name`, `type`, `id`, `location`, `run`, and `tags`. <p><p>- The `run` property value is a JSON object that includes these properties: `name`, `type`, and `id`. <p><p>- The `tags` property is a JSON object that includes [tags that are associated with your logic app in Azure Logic Apps or flow in Power Automate](../azure-resource-manager/management/tag-resources.md) and the values for those tags. For more information about tags in Azure resources, review [Tag resources, resource groups, and subscriptions for logical organization in Azure](../azure-resource-manager/management/tag-resources.md). <p><p>**Note**: By default, a logic app has no tags, but a Power Automate flow has the `flowDisplayName` and `environmentName` tags. |
 |||||
 
-*Example*
+*Example 1*
 
 This example returns the name for a workflow's current run:
 
-```
-workflow().run.name
-```
+`workflow().run.name`
+
+*Example 2*
+
+If you use Power Automate, you can create a `@workflow()` expression that uses the `tags` output property to get the values from your flow's `flowDisplayName` or `environmentName` property.
+
+For example, you can send custom email notifications from the flow itself that link back to your flow. These notifications can include an HTML link that contains the flow's display name in the email title and follows this syntax:
+
+`<a href=https://flow.microsoft.com/manage/environments/@{workflow()['tags']['environmentName']}/flows/@{workflow()['name']}/details>Open flow @{workflow()['tags']['flowDisplayName']}</a>`
 
 <a name="xml"></a>
 

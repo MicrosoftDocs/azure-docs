@@ -2,7 +2,7 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 12/04/2020 
+ms.date: 03/15/2021 
 ms.custom: devx-track-azurecli
 ---
 
@@ -27,7 +27,9 @@ For a list that maps resource providers to Azure services, see [Resource provide
 
 ## Register resource provider
 
-Before using a resource provider, your Azure subscription must be registered for the resource provider. Registration configures your subscription to work with the resource provider. Some resource providers are registered by default. Other resource providers are registered automatically when you take certain actions. For example, when you create a resource through the portal, the resource provider is typically registered for you. For other scenarios, you may need to manually register a resource provider. For a list of resource providers registered by default, see [Resource providers for Azure services](azure-services-resource-providers.md).
+Before using a resource provider, your Azure subscription must be registered for the resource provider. Registration configures your subscription to work with the resource provider. Some resource providers are registered by default. For a list of resource providers registered by default, see [Resource providers for Azure services](azure-services-resource-providers.md).
+
+Other resource providers are registered automatically when you take certain actions. When you deploy an Azure Resource Manager template, all required resource providers are automatically registered. When you create a resource through the portal, the resource provider is typically registered for you. For other scenarios, you may need to manually register a resource provider. 
 
 This article shows you how to check the registration status of a resource provider, and register it as needed. You must have permission to do the `/register/action` operation for the resource provider. The permission is included in the Contributor and Owner roles.
 

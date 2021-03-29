@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 03/05/2021
 ms.author: pafarley
 ---
 
@@ -17,8 +17,15 @@ ms.author: pafarley
 
 The Azure Face service is updated on an ongoing basis. Use this article to stay up to date with feature enhancements, fixes, and documentation updates.
 
+## February 2021
+
+* New Face API detection model: The new detection 03 model is the most accurate detection model currently available. If you're a new a customer, we recommend using this model. Detection 03 improves both recall and precision on smaller faces found within images (64x64 pixels). Additional improvements include an overall reduction in false positives and improved detection on rotated face orientations. Combining detection 03 with the new recognition 04 will provide improved recognition accuracy as well. See [Specify a face detection model](./face-api-how-to-topics/specify-detection-model.md) for more details.
+* Face mask attribute: The face mask attribute is available with the latest detection 03 model, along with the additional attribute `"noseAndMouthCovered"` which detects whether the face mask is worn as intended, covering both the nose and mouth. To use the latest mask detection capability, users need to specify the detection model in the API request: assign the model version with the _detectionModel_ parameter to `detection_03`. See [Specify a face detection model](./face-api-how-to-topics/specify-detection-model.md) for more details.
+* New Face API Recognition Model: The new recognition 04 model is the most accurate recognition model currently available. If you're a new customer, we recommend using this model for verification and identification. It improves upon the accuracy of recognition 03, including improved recognition for enrolled users wearing face covers (surgical masks, N95 masks, cloth masks). Now customers can build safe and seamless user experiences that detect whether an enrolled user is wearing a face cover with the latest detection 03 model, and recognize who they are with the latest recognition 04 model. See [Specify a face recognition model](./face-api-how-to-topics/specify-recognition-model.md) for more details.
+
+
 ## January 2021
-* Mitigate latency when using the Face API: The Face team published a new article detailing potential causes of latency when using the service and possible mitigation strategies. See [Mitigate latency when using the Face service](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/how-to-mitigate-latency).
+* Mitigate latency when using the Face API: The Face team published a new article detailing potential causes of latency when using the service and possible mitigation strategies. See [Mitigate latency when using the Face service](./face-api-how-to-topics/how-to-mitigate-latency.md).
 
 ## December 2020
 * Customer configuration for Face ID storage: While the Face Service does not store customer images, the extracted face feature(s) will be stored on server. The Face ID is an identifier of the face feature and will be used in [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), and [Face - Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237). The stored face features will expire and be deleted 24 hours after the original detection call. Customers can now determine the length of time these Face IDs are cached. The maximum value is still up to 24 hours, but a minimum value of 60 seconds can now be set. The new time ranges for Face IDs being cached is any value between 60 seconds and 24 hours. More details can be found in the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API reference (the *faceIdTimeToLive* parameter).
@@ -27,10 +34,10 @@ The Azure Face service is updated on an ongoing basis. Use this article to stay 
 * Published a sample face enrollment app to demonstrate best practices for establishing meaningful consent and creating high-accuracy face recognition systems through high-quality enrollments. The open-source sample can be found in the [Build an enrollment app](build-enrollment-app.md) guide and on [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample), ready for developers to deploy or customize. 
 
 ## August 2020
-* Customer-managed encryption of data at rest: The Face service automatically encrypts your data when persisting it to the cloud. The Face service encryption protects your data to help you meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. There is also a new option to manage your subscription with your own keys called customer-managed keys (CMK). More details can be found at [Customer-managed keys](https://docs.microsoft.com/azure/cognitive-services/face/face-encryption-of-data-at-rest).
+* Customer-managed encryption of data at rest: The Face service automatically encrypts your data when persisting it to the cloud. The Face service encryption protects your data to help you meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. There is also a new option to manage your subscription with your own keys called customer-managed keys (CMK). More details can be found at [Customer-managed keys](./encrypt-data-at-rest.md).
 
 ## April 2020
-* New Face API Recognition Model: The new recognition 03 model is the most accurate model currently available. If you're a new customer, we recommend using this model. Recognition 03 will provide improved accuracy for both similarity comparisons and person-matching comparisons. More details can be found at [Specify a face recognition model](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model).
+* New Face API Recognition Model: The new recognition 03 model is the most accurate model currently available. If you're a new customer, we recommend using this model. Recognition 03 will provide improved accuracy for both similarity comparisons and person-matching comparisons. More details can be found at [Specify a face recognition model](./face-api-how-to-topics/specify-recognition-model.md).
 
 ## June 2019
 

@@ -4,7 +4,7 @@ description: Overview on the App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 03/02/2021
 ms.author: ccompy
 ms.custom: seodec18
 ---
@@ -49,7 +49,7 @@ The App Service Environment has many use cases including:
 There are a number of networking features that enable apps in the multi-tenant App Service to reach network isolated resources or become network isolated themselves. These features are enabled at the application level.  With an ASE, there's no additional configuration on the apps for them to be in the VNet. The apps are deployed into a network isolated environment that is already in a VNet. On top of the ASE hosting network isolated apps, it's also a single-tenant system. There are no other customers using the ASE. If you really need a complete isolation story, you can also get your ASE deployed onto dedicated hardware. Between network isolated application hosting, single tenancy, and the ability 
 
 ## Dedicated environment
-An ASE is dedicated exclusively to a single subscription and can host 200 App Service Plan instances. The range can span 100 instances in a single App Service plan to 100 single-instance App Service plans, and everything in between.
+An ASE is dedicated exclusively to a single subscription and can host 200 total App Service Plan instances across multiple App Service plans. The word "instance" refers to App Service plan horizontal scaling. Each instances is the equivalent to a worker role. While an ASE can have 200 total instances, a single Isolated v2 App Service plan can hold 100 instances. The ASE can hold two App Service plans with 100 instances in each, 200 single-instance App Service plans, or everything in between.
 
 An ASE is composed of front ends and workers. Front ends are responsible for HTTP/HTTPS termination and automatic load balancing of app requests within an ASE. Front ends are automatically added as the App Service plans in the ASE are scaled out.
 
@@ -73,7 +73,7 @@ Apps also frequently need to access corporate resources such as internal databas
 ## Preview
 The App Service Environment v3 is in public preview.  Some features are being added during the preview progression. The current limitations of ASEv3 include:
 
-- Inability to scale an App Service plan beyond five instances
+- Inability to scale an App Service plan beyond 50 instances
 - Inability to get a container from a private registry
 - Inability for currently unsupported App Service features to go through customer VNet
 - No external deployment model with an internet accessible endpoint

@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/01/2021
+ms.date: 02/25/2021
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL by using Azure Data Factory
@@ -24,6 +24,8 @@ This Azure Database for PostgreSQL connector is supported for the following acti
 - [Copy activity](copy-activity-overview.md) with a [supported source/sink matrix](copy-activity-overview.md)
 - [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
+
+Currently, data flow supports Azure database for PostgreSQL Single Server but not Flexible Server or Hyperscale (Citus).
 
 ## Getting started
 

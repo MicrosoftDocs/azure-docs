@@ -109,16 +109,16 @@ The following sample shows the contents of `appRoles`, where the value of `id` c
 
 ```json
 "appRoles": [
-	{
-	"allowedMemberTypes": [ "Application" ],
-	"description": "Accesses the TodoListService-Cert as an application.",
-	"displayName": "access_as_application",
-	"id": "ccf784a6-fd0c-45f2-9c08-2f9d162a0628",
-	"isEnabled": true,
-	"lang": null,
-	"origin": "Application",
-	"value": "access_as_application"
-	}
+  {
+    "allowedMemberTypes": [ "Application" ],
+    "description": "Accesses the TodoListService-Cert as an application.",
+    "displayName": "access_as_application",
+    "id": "ccf784a6-fd0c-45f2-9c08-2f9d162a0628",
+    "isEnabled": true,
+    "lang": null,
+    "origin": "Application",
+    "value": "access_as_application"
+  }
 ],
 ```
 

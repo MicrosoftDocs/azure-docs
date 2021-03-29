@@ -59,6 +59,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Blobs backup
+            url: blob-backup-overview.md
           - text: Azure Disk Backup
             url: disk-backup-overview.md
           - text: Backup Center
@@ -89,7 +91,7 @@ landingContent:
           - text: Manage Azure VM backups
             url: backup-azure-manage-vms.md
   # Card
-  - title: Back up Azure Managed Disks (in preview)
+  - title: Back up Azure Managed Disks
     linkLists:
       - linkListType: concept
         links:

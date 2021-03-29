@@ -141,7 +141,7 @@ Alternatively, you can send data produced by Security Center to Azure Sentinel o
 
 - [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
-- [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Azure Security Center monitoring**: Not applicable
 

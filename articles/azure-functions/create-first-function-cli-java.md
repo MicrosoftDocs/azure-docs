@@ -4,6 +4,10 @@ description: Learn how to create a Java function from the command line, then pub
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: [devx-track-java, devx-track-azurecli]
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-cli-java-uiex
 ---
 
 # Quickstart: Create a Java function in Azure from the command line

@@ -19,7 +19,7 @@ After moving VMs across regions, there are a number of resources created by Reso
 
 Manually delete the move collection, and Site Recovery resources created for the VM move.
 
-1. Review the resources in resource group ```ResourceMoverRG-<sourceregion>-<target-region>```.
+1. Review the resources in resource group ```ResourceMoverRG-<sourceregion>-<target-region>-<metadataRegionShortName>```.
 2. Check that the VM and all other source resources in the move collection have been moved/deleted. This ensures that there are no pending resources using them.
 2. Delete these resources.
 

@@ -1,7 +1,6 @@
 ---
 title: Collect Linux application performance in Azure Monitor | Microsoft Docs
 description: This article provides details for configuring the Log Analytics agent for Linux to collect performance counters for MySQL and Apache HTTP Server.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -163,4 +162,4 @@ Once you configure the Log Analytics agent for Linux to send data to Azure Monit
 
 ## Next steps
 * [Collect performance counters](data-sources-performance-counters.md) from Linux agents.
-* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log queries](../logs/log-query-overview.md) to analyze the data collected from data sources and solutions.

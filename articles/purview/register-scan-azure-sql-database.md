@@ -96,7 +96,7 @@ The service principal or managed identity must have permission to get metadata f
     ```
 
     > [!Note]
-    > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
+    > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
     
 ##### Add service principal to key vault and Purview's credential
 
@@ -145,9 +145,7 @@ To register a new Azure SQL Database in your data catalog, do the following:
 On the **Register sources (Azure SQL Database)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
-1. Choose how you want to point to your desired storage account:
-   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop-down box and the appropriate server from the **Server name** drop-down box.
-   1. Or, you can select **Enter manually** and enter a **Server name**.
+1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop-down box and the appropriate server from the **Server name** drop-down box.
 1. **Finish** to register the data source.
 
 :::image type="content" source="media/register-scan-azure-sql-database/add-azure-sql-database.png" alt-text="register sources options" border="true":::
@@ -155,7 +153,8 @@ On the **Register sources (Azure SQL Database)** screen, do the following:
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
 > [!NOTE]
-> Deleting your scan does not delete your assets from previous Azure SQL Database scans.
+> * Deleting your scan does not delete your assets from previous Azure SQL Database scans.
+> * The asset will no longer be updated with schema changes if your source table be changed and rescan the source table after editing the description in the schema tab of Purview.
 
 ## Next steps
 
