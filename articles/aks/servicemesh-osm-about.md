@@ -184,8 +184,8 @@ Output of the OSM configmap should look like the following:
 
 Notice the **permissive_traffic_policy_mode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
 
-> [!NOTE]
-> Please verify that your permissive traffic policy mode is set to true, if not please change it to **true** using the command below
+> [!WARNING]
+> Before proceeding please verify that your permissive traffic policy mode is set to true, if not please change it to **true** using the command below
 
 ```OSM Permissive Mode to True
 kubectl patch ConfigMap -n kube-system osm-config --type merge --patch '{"data":{"permissive_traffic_policy_mode":"true"}}'
