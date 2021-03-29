@@ -16,7 +16,7 @@ This article describes troubleshooting steps that you can take when you have iss
 ## Upgrade available message is still displayed after upgrading guest health 
 
 - Verify that VM is running in public Azure Cloud. Arc enabled servers are not yet supported.
-- Verify that the virtual machine's region and operating system version are supported as described in [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable).
+- Verify that the virtual machine's region and operating system version are supported as described in [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md).
 - Verify that guest health extension installed successfully with 0 exit code.
 - Verify that Azure Monitor agent extension is installed successfully.
 - Verify that system-assigned managed identity is enabled for the virtual machine.
@@ -29,7 +29,7 @@ This article describes troubleshooting steps that you can take when you have iss
 - Verify the Azure Monitor agent has network connectivity. 
   - From the virtual machine, attempt to ping _<region>.handler.control.monitor.azure.com_. For example, for a virtual machine in westeurope, attempt to ping _westeurope.handler.control.monitor.azure.com:443_.
 - Verify that virtual machine has an association with a data collection rule in the same region as the Log Analytics workspace.
-  -  Refer to **Create data collection rule (DCR)** in [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable) to ensure structure of the DCR is correct. Pay particular attention to presence of *performanceCounters* data source section set up to samples three counters and presence of *inputDataSources* section in health extension configuration to send counters to the extension.
+  -  Refer to **Create data collection rule (DCR)** in [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md) to ensure structure of the DCR is correct. Pay particular attention to presence of *performanceCounters* data source section set up to samples three counters and presence of *inputDataSources* section in health extension configuration to send counters to the extension.
 -  Check the virtual machine for guest health extension errors.
    -  For Linux: Check logs at _/var/log/azure/Microsoft.Azure.Monitor.VirtualMachines.GuestHealthLinuxAgent/*.log_.
    -  For Windows: Check logs at _C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitor.VirtualMachines.GuestHealthWindowsAgent\{extension version}\*.log_.
@@ -72,7 +72,7 @@ This error indicates that the **Microsoft.WorkloadMonitor** resource provider wa
 
 ## Health shows as "unknown" after guest health is enabled.
 
-## Verify that performance counters on Windows nodes are working correctly 
+### Verify that performance counters on Windows nodes are working correctly 
 Guest health relies on the agent being able to collect performance counters from the node. he base set of performance counter libraries may become corrupted and may need to be rebuilt. Follow the instructions at [Manually rebuild performance counter library values](/troubleshoot/windows-server/performance/rebuild-performance-counter-library-values) to rebuild the performance counters.
 
 
