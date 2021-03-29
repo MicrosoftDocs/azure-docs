@@ -16,7 +16,7 @@ This article explains different compute environments that you can use to process
 
 The following table provides a list of compute environments supported by Data Factory and the activities that can run on them. 
 
-| Compute environment                                          | activities                                                   |
+| Compute environment                                          | Activities                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
@@ -432,6 +432,7 @@ You create an Azure Machine Learning linked service to connect an Azure Machine 
 ```
 
 ### Properties
+
 | Property               | Description                              | Required                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | The type property should be set to: **AzureMLService**. | Yes                                      |

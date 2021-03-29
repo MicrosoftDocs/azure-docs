@@ -99,13 +99,13 @@ Each section has its own advanced settings, which are accessible via the setting
 
 ![Screenshot of the Advanced Settings dialog in the Virtual Machines Workbook section of Azure Monitor. The icon that opens the dialog is highlighted.](media/vminsights-workbooks/007-settings-expanded.png)
 
-|         |          |
+| Setting | Description |
 | ---------------- |:-----|
-| **Custom width**    | Makes an item an arbitrary size, so you can fit many items on a single line allowing you to better organize your charts and tables into rich interactive reports.  |
-| **Conditionally visible** | Specify to hide steps based on a parameter when in reading mode. |
-| **Export a parameter**| Allow a selected row in the grid or chart to cause later steps to change values or become visible.  |
-| **Show query when not editing** | Displays the query above the chart or table even when in reading mode.
-| **Show open in analytics button when not editing** | Adds the blue Analytics icon to the right-hand corner of the chart to allow one-click access.|
+| Custom width    | Makes an item an arbitrary size, so you can fit many items on a single line allowing you to better organize your charts and tables into rich interactive reports.  |
+| Conditionally visible | Specify to hide steps based on a parameter when in reading mode. |
+| Export a parameter| Allow a selected row in the grid or chart to cause later steps to change values or become visible.  |
+| Show query when not editing | Displays the query above the chart or table even when in reading mode.
+| Show open in analytics button when not editing | Adds the blue Analytics icon to the right-hand corner of the chart to allow one-click access.|
 
 Most of these settings are fairly intuitive, but to understand **Export a parameter** it is better to examine a workbook that makes use of this functionality.
 
@@ -148,12 +148,12 @@ Parameters are linear, starting from the top of a workbook and flowing down to l
  
 There are four different types of parameters, which are currently supported:
 
-|                  |      |
+| Parameter | Description |
 | ---------------- |:-----|
-| **Text**    | Allows the user to edit a text box, and you can optionally supply a query to fill in the default value. |
-| **Drop down** | Allows the user to choose from a set of values. |
-| **Time range picker**| Allows the user to choose from a predefined set of time range values, or pick from a custom time range.|
-| **Resource picker** | Allows the user to choose from the resources selected for the workbook.|
+| Text    | Allows the user to edit a text box, and you can optionally supply a query to fill in the default value. |
+| Drop down | Allows the user to choose from a set of values. |
+| Time range picker| Allows the user to choose from a predefined set of time range values, or pick from a custom time range.|
+| Resource picker | Allows the user to choose from the resources selected for the workbook.|
 
 ### Using a text parameter
 

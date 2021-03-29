@@ -179,6 +179,71 @@
             "source_path_from_root": "/articles/media-services/latest/job-state-events-cli-how-to.md",
             "redirect_url": "monitoring/job-state-events-cli-how-to",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/media-services-account-concept.md",
+            "redirect_url": "account-create-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/analyze-videos-tutorial-with-api.md",
+            "redirect_url": "analyze-videos-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/analyzing-video-audio-files-concept.md",
+            "redirect_url": "analyze-video-audio-files-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/architectures-concept.md",
+            "redirect_url": "architecture-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/design-multi-drm-system-with-access-control.md",
+            "redirect_url": "architecture-design-multi-drm-system",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/media-services-high-availability-encoding.md",
+            "redirect_url": "architecture-high-availability-encoding-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/cli-publish-asset.md",
+            "redirect_url": "asset-publish-cli-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/how-to-create-asset.md",
+            "redirect_url": "asset-create-asset-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/how-to-upload-media.md",
+            "redirect_url": "asset-create-asset-upload-portal-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/manage-assets-quickstart.md",
+            "redirect_url": "asset-upload-media-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/azure-ad-content-protection.md",
+            "redirect_url": "architecture-azure-ad-content-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/create-account-howto.md",
+            "redirect_url": "account-create-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/cli-reset-account-credentials.md",
+            "redirect_url": "asset-reset-account-credentials",
+            "redirect_document_id": false
         }
     ]
 }
