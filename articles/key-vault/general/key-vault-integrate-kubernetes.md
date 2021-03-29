@@ -12,9 +12,9 @@ ms.date: 09/25/2020
 # Tutorial: Configure and run the Azure Key Vault provider for the Secrets Store CSI driver on Kubernetes
 
 > [!IMPORTANT]
-> Secrets Store CSI Driver is an open source project that is not supported by Azure technical support. Please report all feedback and issues related to CSI Driver Key Vault integration on the github link at the bottom of the page. This tool is provided for users to self-install into clusters and gather feedback from our community.
+> Secrets Store CSI Driver is an open source project that is not supported by Azure technical support. Please report all feedback and issues related to CSI Driver Key Vault integration on the CSI driver [github](https://github.com/kubernetes-sigs/secrets-store-csi-driver). This tool is provided for users to self-install into clusters and gather feedback from our community.
 
-In this tutorial, you access and retrieve secrets from your Azure key vault by using the Secrets Store Container Storage Interface (CSI) driver to mount the secrets into Kubernetes pods.
+In this tutorial, you access and retrieve secrets from your Azure key vault by using the Secrets Store Container Storage Interface (CSI) driver to mount the secrets into Kubernetes pods as a volume.
 
 In this tutorial, you learn how to:
 
@@ -30,9 +30,9 @@ In this tutorial, you learn how to:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+* Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure-cli-windows).
 
-This tutorial assumes you running Azure Kubernetes Service on Linux nodes.
+This tutorial assumes you're running Azure Kubernetes Service on Linux nodes.
 
 ## Use managed identities
 
@@ -103,7 +103,7 @@ To create your own key vault and set your secrets, follow the instructions in [S
 
 ## Create your own SecretProviderClass object
 
-To create your own custom SecretProviderClass object with provider-specific parameters for the Secrets Store CSI driver, [use this template](https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/examples/pod-identity/v1alpha1_secretproviderclass_pod_identity.yaml). This object will provide identity access to your key vault.
+To create your own custom SecretProviderClass object with provider-specific parameters for the Secrets Store CSI driver, [use this template](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/service-principal/v1alpha1_secretproviderclass_service_principal.yaml). This object will provide identity access to your key vault.
 
 In the sample SecretProviderClass YAML file, fill in the missing parameters. The following parameters are required:
 

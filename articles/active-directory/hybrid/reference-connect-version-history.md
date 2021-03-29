@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 08/07/2020
+ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -51,6 +51,88 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 >Please refer to [this article](./how-to-upgrade-previous-version.md) to learn more about how to upgrade Azure AD Connect to the latest version.
 >
 >For version history information on retired versions, see [Azure AD Connect version release history archive](reference-connect-version-history-archive.md)
+
+
+## 1.6.2.4
+
+>[!NOTE]
+> - This release will be made available for download only.
+> - The upgrade to this release will require a full synchronization due to sync rule changes.
+> - This release defaults the AADConnect server to the new V2 end point. Note that this end point is not supported in the German national cloud, the Chinese national cloud and the US government cloud and if you need to deploy this version in these clouds you need to follow [these instructions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) to switch back to the V1 end point. Failure to do so will result in errors in synchronization.
+
+### Release status
+3/19/2021: Released for download
+
+### Functional changes
+
+ - Updated default sync rules to limit membership in written back groups to 50k members.
+   - Added new default sync rules for limiting membership count in group writeback (Out to AD - Group Writeback Member Limit) and group sync to Azure Active Directory (Out to AAD - Group Writeup Member Limit) groups.
+   - Added member attribute to the 'Out to AD - Group SOAInAAD - Exchange' rule to limit members in written back groups to 50k
+ - Updated Sync Rules to support Group Writeback v2
+   -If the “In from AAD - Group SOAInAAD” rule is cloned and AADConnect is upgraded.
+     -The updated rule will be disabled by default and so the targetWritebackType will be null.
+     - AADConnect will writeback all Cloud Groups (including Azure Active Directory Security Groups enabled for writeback) as Distribution Groups.
+   -If the “Out to AD - Group SOAInAAD” rule is cloned and AADConnect is upgraded.
+     - The updated rule will be disabled by default. However, a new sync rule “Out to AD - Group SOAInAAD - Exchange” which is added will be enabled.
+     - Depending on the Cloned Custom Sync Rule's precedence, AADConnect will flow the Mail and Exchange attributes.
+     - If the Cloned Custom Sync Rule does not flow some Mail and Exchange attributes, then new Exchange Sync Rule will add those attributes.
+ - Added support for [Selective Password hash Synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization)
+ - Added the new [Single Object Sync cmdlet](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-single-object-sync). Use this cmdlet to troubleshoot your Azure AD Connect sync configuration. 
+ -  Azure AD Connect now supports the Hybrid Identity Administrator role for configuring the service.
+ - Updated AADConnectHealth agent to 3.1.83.0
+ - New version of the [ADSyncTools PowerShell module](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adsynctools), which has several new or improved cmdlets. 
+ 
+   - Clear-ADSyncToolsMsDsConsistencyGuid
+   - ConvertFrom-ADSyncToolsAadDistinguishedName
+   - ConvertFrom-ADSyncToolsImmutableID
+   - ConvertTo-ADSyncToolsAadDistinguishedName
+   - ConvertTo-ADSyncToolsCloudAnchor
+   - ConvertTo-ADSyncToolsImmutableID
+   - Export-ADSyncToolsAadDisconnectors
+   - Export-ADSyncToolsObjects
+   - Export-ADSyncToolsRunHistory
+   - Get-ADSyncToolsAadObject
+   - Get-ADSyncToolsMsDsConsistencyGuid
+   - Import-ADSyncToolsObjects
+   - Import-ADSyncToolsRunHistory
+   - Remove-ADSyncToolsAadObject
+   - Search-ADSyncToolsADobject
+   - Set-ADSyncToolsMsDsConsistencyGuid
+   - Trace-ADSyncToolsADImport
+   - Trace-ADSyncToolsLdapQuery
+
+ - Updated error logging for token acquisition failures.
+ - Updated 'Learn more' links on the configuration page to give more detail on the linked information.
+ - Removed Explicit column from CS Search page in the Old Sync UI
+ - Additional UI has been added to the Group Writeback flow to prompt the user for credentials or to configure their own permissions using the ADSyncConfig module if credentials have not already been provided in an earlier step.
+ - Auto-create MSA for ADSync Service Account on a DC. 
+ - 	Added ability to set and get Azure Active Directory DirSync feature Group Writeback V2 in the existing cmdlets:
+    - Set-ADSyncAADCompanyFeature
+    - Get-ADSyncAADCompanyFeature
+ - Added 2 cmdlets to read AWS API version
+    - Get-ADSyncAADConnectorImportApiVersion - to get import AWS API version
+    - Get-ADSyncAADConnectorExportApiVersion - to get export AWS API version
+
+ - Changes made to synchronization rules are now tracked to assist troubleshooting changes in the service. The cmdlet "Get-ADSyncRuleAudit" will retrieve tracked changes.
+ - Updated the Add-ADSyncADDSConnectorAccount cmdlet in the the [ADSyncConfig PowerShell module](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account#using-the-adsyncconfig-powershell-module) to allow a user in ADSyncAdmin group to change the AD DS Connector account. 
+
+### Bug fixes
+ - Updated disabled foreground color to satisfy luminosity requirements on a white background. Added additional conditions for navigation tree to set foreground text color to white when a disabled page is selected to satisfy luminosity requirements.
+ - Increase granularity for Set-ADSyncPasswordHashSyncPermissions cmdlet - Updated PHS permissions script (Set-ADSyncPasswordHashSyncPermissions) to include an optional "ADobjectDN" parameter. 
+ - Accessibility bug fix. The screen reader would now describe the UX element that holds the list of forests as "**Forests list**" instead of "**Forest List list**"
+ - Updated screen reader output for some items in the Azure AD Connect wizard. Updated button hover color to satisfy contrast requirements. Updated Synchronization Service Manager title color to satisfy contrast requirements.
+ - Fixed an issue with installing AADConnect from exported configuration having custom extension attributes - Added a condition to skip checking for extension attributes in the target schema while applying the sync rule.
+ - Appropriate permissions are added on install if the Group Writeback feature is enabled.
+ - Fix duplicate default sync rule precedence on import
+ - Fixed an issue that caused a staging error during V2 API delta import for a conflicting object that was repaired via the health portal.
+ - Fixed an issue in the sync engine that caused CS objects to have an inconsistent link state
+ - Added import counters to Get-ADSyncConnectorStatistics output.
+ - Fixed unreachable domain de-selection(selected previously) issue in some corner cases during pass2 wizard.
+ - Modified policy import and export to fail if custom rule has duplicate precedence 
+ - Fixed a bug in the domain selection logic.
+ - Fixes an issue with build 1.5.18.0 if you use mS-DS-ConsistencyGuid as the source anchor and have clone the In from AD - Group Join rule.
+ - Fresh AADConnect installs will use the Export Deletion Threshold stored in the cloud if there is one available and there is not a different one passed in.
+ - Fixed issue where AADConnect does not read AD displayName changes of hybrid-joined devices
 
 ## 1.5.45.0
 

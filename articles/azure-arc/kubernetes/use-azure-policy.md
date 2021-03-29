@@ -3,7 +3,7 @@ title: "Use Azure Policy to apply cluster configurations at scale"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -12,8 +12,6 @@ keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
 # Use Azure Policy to apply cluster configurations at scale
-
-## Overview
 
 You can use Azure Policy to apply configurations (`Microsoft.KubernetesConfiguration/sourceControlConfigurations` resource type) at scale on Azure Arc enabled Kubernetes clusters (`Microsoft.Kubernetes/connectedclusters`).
 
@@ -65,4 +63,4 @@ For existing clusters, you'll need to manually run a remediation task. This task
 
 ## Next steps
 
-* [Set up Azure Monitor for Containers with Arc enabled Kubernetes clusters](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md)
+[Set up Azure Monitor for Containers with Azure Arc enabled Kubernetes clusters](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md).

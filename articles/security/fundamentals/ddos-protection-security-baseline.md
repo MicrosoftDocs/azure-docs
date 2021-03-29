@@ -96,9 +96,9 @@ Additionally, Azure Active Directory (AD) has built-in roles that must be explic
 
 - [Understand permissions in Azure DDoS protection](../../ddos-protection/manage-permissions.md)
 
-- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center monitoring**: Yes
 
@@ -292,7 +292,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -384,7 +384,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Define and implement standard security configurations for Azure DDoS Protection with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the configuration of your Recovery Services vaults.
 
-- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -408,9 +408,9 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index)
 
 **Azure Security Center monitoring**: Not applicable
 

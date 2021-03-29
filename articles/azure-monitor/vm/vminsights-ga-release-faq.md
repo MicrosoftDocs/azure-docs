@@ -1,7 +1,6 @@
 ---
 title: VM insights (GA) frequently asked questions | Microsoft Docs
 description: VM insights is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions about the GA release.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -16,15 +15,15 @@ This General Availability FAQ covers changes that were made in Q4 2019 and Q1 20
 We released a new version of VM insights in January 2020 ahead of our GA announcement. Customers enabling VM insights will now receive the GA version, but existing customers using the version of VM insights from Q4 2019 and earlier will be prompted to upgrade. This FAQ offers guidance to perform an upgrade at scale if you have large deployments across multiple workspaces.
 
 
-With this upgrade, VM insights performance data are stored in the same *InsightsMetrics* table as [Azure Monitor for containers](../containers/container-insights-overview.md), which makes it easier for you to query the two data sets. Also, you are able to store more diverse data sets that we could not store in the table previously used. 
+With this upgrade, VM insights performance data is stored in the same *InsightsMetrics* table as [Container insights](../containers/container-insights-overview.md), which makes it easier for you to query the two data sets. Also, you are able to store more diverse data sets that we could not store in the table previously used. 
 
 Our performance views are now using the data we store in the *InsightsMetrics* table.  If you have not yet upgraded to use the latest VMInsights solution on your workspace, your charts will no longer display information.  You can upgrade from our **Get Started** page as described below.
 
 
 ## What is changing?
-We have released a new solution, named VMInsights, that includes additional capabilities for data collection along with a new location for storing this data in your Log Analytics workspace. 
+We have released a new solution, named VMInsights, that includes more capabilities for data collection along with a new location for storing this data in your Log Analytics workspace. 
 
-In the past, we enabled the ServiceMap solution on your workspace and setup performance counters in your Log Analytics workspace to send the data to the *Perf* table. This new solution sends the data to a table named *InsightsMetrics* that is also used by Azure Monitor for containers. This table schema allows us to store additional metrics and service data sets that are not compatible with the *Perf* table format.
+In the past, we enabled the ServiceMap solution on your workspace and setup performance counters in your Log Analytics workspace to send the data to the *Perf* table. This new solution sends the data to a table named *InsightsMetrics* that is also used by Container insights. This table schema allows us to store more metrics and service data sets that are not compatible with the *Perf* table format.
 
 We have updated our Performance charts to use the data we store in the *InsightsMetrics* table. You can upgrade to use the *InsightsMetrics* table from our **Get Started** page as described below.
 
@@ -54,7 +53,7 @@ If you have created [Log alerts](../alerts/alerts-unified-log.md) that query the
 
 We will update this FAQ and our documentation to include example log search alert rules for the data sets we collect.
 
-## How will this affect my bill?
+## How will this change affect my bill?
 
 Billing is still based on data ingested and retained in your Log Analytics workspace.
 
@@ -74,19 +73,19 @@ If you chose to not upgrade to the **VMInsights** solution, we will continue to 
 
 The data sets will not be duplicated if you use both solutions. Both offerings share the data sets that will be stored in `VMComputer` (formerly ServiceMapComputer_CL), `VMProcess` (formerly ServiceMapProcess_CL), `VMConnection`, and `VMBoundPort` tables to store the map data sets that we collect.  
 
-The `InsightsMetrics` table will store VM, process, and service data sets that we collect and will only be populated if you are using VM insights and the VM Insights solution. The Service Map solution will not collect or or store data in the `InsightsMetrics` table.
+The `InsightsMetrics` table will store VM, process, and service data sets that we collect and will only be populated if you are using VM insights and the VM Insights solution. The Service Map solution will not collect or store data in the `InsightsMetrics` table.
 
 ## Will I be double charged if I have the Service Map and VMInsights solutions in my workspace?
 
 No, the two solutions share the map data sets that we store in `VMComputer` (formerly ServiceMapComputer_CL), `VMProcess` (formerly ServiceMapProcess_CL), `VMConnection`, and `VMBoundPort`. You will not be double charged for this data if you have both solutions in your workspace.
 
-## If I remove either the Service Map or VMInsights solution will it remove my data?
+## If I remove either the Service Map or VMInsights solution, will it remove my data?
 
 No, the two solutions share the map data sets that we store in `VMComputer` (formerly ServiceMapComputer_CL), `VMProcess` (formerly ServiceMapProcess_CL), `VMConnection`, and `VMBoundPort`. If you remove one of the solutions, these data sets notice that there is still a solution in place that uses the data and it remains in the Log Analytics workspace. You need to remove both solutions from your workspace in order for the data to be removed from it.
 
 ## Health feature is in limited public preview
 
-We have received a lot of great feedback from customers about our VM Health feature set. There is a lot of interest around this feature and excitement over its potential for supporting monitoring workflows. We are planning to make a series of changes to add functionality and address the feedback we have received. 
+We have received a lot of great feedback from customers about our VM Health feature set. There is asignificant interest around this feature and excitement over its potential for supporting monitoring workflows. We are planning to make a series of changes to add functionality and address the feedback we have received. 
 
 To minimize impact of these changes to new customers, we have moved this feature into a **limited public preview**. This update happened in October 2019.
 
@@ -104,7 +103,7 @@ As an existing customer, you can continue to use the Health feature on VMs that 
 
 ## I use VM Health now with one environment and would like to deploy it to a new one
 
-If you are an existing customer that is using the Health feature and want to use it for a new roll-out, please contact us at vminsights@microsoft.com to request instructions.
+If you are an existing customer that is using the Health feature and want to use it for a new roll-out, contact us at vminsights@microsoft.com to request instructions.
 
 ## Next steps
 

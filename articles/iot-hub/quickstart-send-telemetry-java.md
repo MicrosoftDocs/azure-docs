@@ -23,7 +23,7 @@ In this quickstart, you send telemetry to Azure IoT Hub and read it with a Java 
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?view=azure-java-stable&preserve-view=true), under **Long-term support**, select **Java 8**.
+* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/), under **Long-term support**, select **Java 8**.
 
     You can verify the current version of Java on your development machine using the following command:
 

@@ -94,24 +94,30 @@ There are a few exceptions and limitations to choosing a VM size:
 
 See the following table to learn more about supported series and restrictions.
 
-| **Supported VM series**  | **Restrictions** |
-|------------|------------|
-| D | None. |
-| Dv2 | None. |  
-| Dv3 | None.|
-| DSv2 | None. | 
-| DSv3 | None.|
-| FSv2 | None. | 
-| HBv2 | Requires approval. |  
-| HCS | Requires approval. |  
-| M | Requires approval. |
-| NC | None. |    
-| NCsv2 | Requires approval. |
-| NCsv3 | Requires approval. |  
-| NDs | Requires approval. |
-| NDv2 | Requires approval. |
-| NV | None. |
-| NVv3 | Requires approval. | 
+| **Supported VM series**  | **Restrictions** | **Category** | **Supported by** |
+|------------|------------|------------|------------|
+| D | None. | General purpose | Compute clusters and instance |
+| DDSv4 | None. | General purpose | Compute clusters and instance |
+| Dv2 | None. | General purpose | Compute clusters and instance |
+| Dv3 | None.| General purpose | Compute clusters and instance |
+| DSv2 | None. | General purpose | Compute clusters and instance |
+| DSv3 | None.| General purpose | Compute clusters and instance |
+| EAv4 | None. | Memory optimized | Compute clusters and instance |
+| Ev3 | None. | Memory optimized | Compute clusters and instance |
+| FSv2 | None. | Compute optimized | Compute clusters and instance |
+| H | None. | High performance compute | Compute clusters and instance |
+| HB | Requires approval. | High performance compute | Compute clusters and instance |
+| HBv2 | Requires approval. |  High performance compute | Compute clusters and instance |
+| HCS | Requires approval. |  High performance compute | Compute clusters and instance |
+| M | Requires approval. | Memory optimized | Compute clusters and instance |
+| NC | None. |  GPU | Compute clusters and instance |
+| NC Promo | None. | GPU | Compute clusters and instance |
+| NCsv2 | Requires approval. | GPU | Compute clusters and instance |
+| NCsv3 | Requires approval. | GPU | Compute clusters and instance |  
+| NDs | Requires approval. | GPU | Compute clusters and instance | 
+| NDv2 | Requires approval. | GPU | Compute clusters and instance | 
+| NV | None. | GPU | Compute clusters and instance | 
+| NVv3 | Requires approval. | GPU | Compute clusters and instance | 
 
 
 While Azure Machine Learning supports these VM series, they might not be available in all Azure regions. To check whether VM series are available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
@@ -119,7 +125,7 @@ While Azure Machine Learning supports these VM series, they might not be availab
 > [!NOTE]
 > Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes, use one of the following methods:
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
 >
 
 ### Compute isolation

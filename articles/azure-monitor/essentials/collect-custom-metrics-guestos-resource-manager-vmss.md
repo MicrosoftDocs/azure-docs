@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
-ms.subservice: metrics
 ---
 # Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine scale set
 

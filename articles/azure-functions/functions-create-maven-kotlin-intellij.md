@@ -76,7 +76,7 @@ Maven creates the project files in a new folder with the same name as the _Artif
 
 ## Deploy the project to Azure
 
-1. Before you can deploy your project to a function app in Azure, you must [log in by using the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. Before you can deploy your project to a function app in Azure, you must [log in by using the Azure CLI](/cli/azure/authenticate-azure-cli).
 
    ``` azurecli
    az login

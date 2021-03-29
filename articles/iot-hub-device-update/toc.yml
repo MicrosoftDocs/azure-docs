@@ -12,6 +12,8 @@
     href: device-update-simulator.md
   - name: Package update on Ubuntu Server 18.04 x64
     href: device-update-ubuntu-agent.md
+  - name: Device Update for Azure Real-time-operating-system
+    href: device-update-azure-real-time-operating-system.md
 - name: Concepts
   items:
   - name: Device update account and instance
@@ -32,7 +34,7 @@
     href: device-update-agent-overview.md
   - name: Device update configuration file
     href: device-update-configuration-file.md
-  - name: Device update manifest
+  - name: Update manifest
     href: update-manifest.md
   - name: How device update is secured
     href: device-update-security.md
@@ -40,6 +42,10 @@
     href: connected-cache-disconnected-device-update.md
   - name: Configure Microsoft Connected Cache for Device Update for IoT Hub
     href: connected-cache-configure.md
+  - name: Device update importing
+    href: import-concepts.md
+  - name: Import-related schema
+    href: import-schema.md
 
 - name: How-to guides
   items:
@@ -51,8 +57,6 @@
     href: import-update.md
   - name: Create a device update group
     href: create-update-group.md
-  - name: Deploy a device update
-    href: deploy-update.md
   - name: Deploy a device update
     href: deploy-update.md
   - name: Single level Microsoft Connected Cache
@@ -72,7 +76,7 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub-device-update/toc.json&bc=/azure/iot-hub-device-update/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub

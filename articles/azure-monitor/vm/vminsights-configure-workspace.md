@@ -1,7 +1,6 @@
 ---
 title: Configure Log Analytics workspace for VM insights
 description: Describes how to create and configure the Log Analytics workspace used by VM insights.
-ms.subservice:
 ms.topic: conceptual
 ms.custom: references_regions
 author: bwren

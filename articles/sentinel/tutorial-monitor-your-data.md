@@ -73,6 +73,17 @@ This tutorial helps you visualize your data in Azure Sentinel.
    ![Switch workbooks](./media/tutorial-monitor-data/switch-workbooks.png)
 
 
+## Print a workbook or save as PDF
+
+To print a workbook, or save it as a PDF, use the options menu to the right of the workbook title.
+
+1. Select options > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Print content**. 
+2. In the print screen, adjust your print settings as needed or select **Save as PDF** to save it locally.
+
+For example:
+
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Print your workbook or save as PDF.":::
+
 ## How to delete workbooks
 
 To delete a saved workbook (either a saved template or a customized workbook), in the Workbooks page, select the saved workbook that you want to delete and select **Delete**. This will remove the saved workbook.

@@ -30,20 +30,46 @@ Supported clients:
 
 - The capability is provided using PowerShell
 
+>[!NOTE]
+>Archive Tier Support for Azure VMs and SQL Server in Azure VMs is in limited public preview with limited signups. To sign up for archive support use this [link](https://aka.ms/ArchivePreviewInterestForm).
+
 ## Get started with PowerShell
 
-1. Download the [latest PowerShell module](https://github.com/Azure/azure-powershell/tree/Az.RecoveryServices-preview) (preview).
-1. Connect to Azure using the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
+1. Run the following command in PowerShell:
+  
+    ```azurepowershell
+    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
+    ```
+
+1. Connect to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 1. Sign into your subscription:
 
    `Set-AzContext -Subscription "SubscriptionName"`
+
+1. Get the vault:
+
+    `$vault =  Get-AzRecoveryServicesVault -ResourceGroupName "rgName" -Name "vaultName"`
+
+1. Get the list of backup items:
+
+    `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM/AzureWorkload" -WorkloadType "AzureVM/MSSQL"`
+
+1. Get the backup item.
+
+    - For Azure virtual machines:
+
+        `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<vmName>'}`
+
+    - For SQL Server in Azure virtual machines:
+
+        `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
 
 ## Use PowerShell
 
 ### Check archivable recovery points
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -StartDate (Get-Date).AddDays(-180).ToUniversalTime() -EndDate (Get-Date).AddDays(0).ToUniversalTime() -VaultId $vault.ID -Item $bckItm  -IsReadyForMove $true -TargetTier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm  -IsReadyForMove $true -TargetTier VaultArchive
 ```
 
 This will list all the recovery points associated with a particular backup item that are ready to be moved to archive.
@@ -51,7 +77,7 @@ This will list all the recovery points associated with a particular backup item 
 ### Check why a recovery point cannot be moved to archive
 
 ```azurepowershell
-$rp.RecoveryPointMoveReadinessInfo["ArchivedRP"]
+$rp[0].RecoveryPointMoveReadinessInfo["ArchivedRP"]
 ```
 
 Where `$rp[0]` is the recovery point for which you want to check why it's not archivable.
@@ -74,13 +100,13 @@ So Azure Backup has come up with a recommended set of recovery points that might
 >The cost savings depends on a variety of reasons and might not be the same for any two instances.
 
 ```azurepowershell
-$recommendedRPs = SGet-AzRecoveryServicesRecommendedArchivableRPGroup -Item $BackupItem -StartDate $Startdate.ToUniversalTime() -EndDate $Enddate.ToUniversalTime() -VaultId $vault.ID 
+$RecommendedRecoveryPointList = Get-AzRecoveryServicesBackupRecommendedArchivableRPGroup -Item $bckItm -VaultId $vault.ID
 ```
 
 ### Move to archive
 
 ```azurepowershell
-Move-AzRecoveryServicesRecoveryPoint -VaultId $vault.ID - RecoveryPoint $RecoveryPoint[10] -SourceTier VaultStandard -DestinationTier VaultArchive 
+Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[2] -SourceTier VaultStandard -DestinationTier VaultArchive
 ```
 
 This command moves an archivable recovery point to archive. It returns a job that can be used to track the move operation both from portal and with PowerShell.
@@ -90,14 +116,14 @@ This command moves an archivable recovery point to archive. It returns a job tha
 This command returns all the archived recovery points.
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -StartDate (Get-Date).AddDays(-180).ToUniversalTime() -EndDate (Get-Date).AddDays(0).ToUniversalTime() -VaultId $vault.ID -Item $bckItm -Tier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive
 ```
 
 ### Restore with PowerShell
 
 For recovery points in archive, Azure Backup provides an integrated restore methodology.
 
-The integrated restore is a two-step process. The first step involves rehydrating the recovery points stored in archive and temporarily storing it in the vault-standard tier for a duration (also known as the rehydration duration) ranging from a period of 10 to 30 days. The default is 15 days. There are two different priorities of rehydration – Standard and High priority. Learn more about [rehydration priority](https://docs.microsoft.com/azure/storage/blobs/storage-blob-rehydration#rehydrate-an-archived-blob-to-an-online-tier).
+The integrated restore is a two-step process. The first step involves rehydrating the recovery points stored in archive and temporarily storing it in the vault-standard tier for a duration (also known as the rehydration duration) ranging from a period of 10 to 30 days. The default is 15 days. There are two different priorities of rehydration – Standard and High priority. Learn more about [rehydration priority](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).
 
 >[!NOTE]
 >
@@ -117,7 +143,7 @@ To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#resto
 To view the move and restore jobs, use the following PowerShell cmdlet:
 
 ```azurepowershell
-Get-AzRecoveryservicesBackupJob -VaultId $targetVault.ID
+Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 ```
 
 ## Use the portal

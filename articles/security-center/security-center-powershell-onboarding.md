@@ -1,16 +1,10 @@
 ---
 title: Onboard to Azure Security Center with PowerShell
 description: This document walks you through the process of enabling Azure Security Center with PowerShell cmdlets.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
 

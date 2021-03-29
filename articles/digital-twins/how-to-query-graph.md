@@ -37,8 +37,10 @@ Get digital twins by **properties** (including ID and metadata):
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!NOTE]
-> The ID of a digital twin is queried using the metadata field `$dtId`.
+As shown in the query above, the ID of a digital twin is queried using the metadata field `$dtId`.
+
+>[!TIP]
+> If you are using Cloud Shell to run a query with metadata fields that begin with `$`, you should escape the `$` with a backtick to let Cloud Shell know it's not a variable and should be consumed as a literal in the query text.
 
 You can also get twins based on **whether a certain property is defined**. Here is a query that gets twins that have a defined *Location* property:
 
@@ -221,11 +223,11 @@ Once you have decided on a query string, you execute it by making a call to the 
 
 You can call the API directly, or use one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) available for Azure Digital Twins.
 
-The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) call from a client app:
+The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) call from a client app:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-The query used in this call returns a list of digital twins, which the above example represents with [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) objects. The return type of your data for each query will depend on what terms you specify with the `SELECT` statement:
+The query used in this call returns a list of digital twins, which the above example represents with [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin) objects. The return type of your data for each query will depend on what terms you specify with the `SELECT` statement:
 * Queries that begin with `SELECT * FROM ...` will return a list of digital twins (which can be serialized as `BasicDigitalTwin` objects, or other custom digital twin types that you may have created).
 * Queries that begin in the format `SELECT <A>, <B>, <C> FROM ...` will return a dictionary with keys `<A>`, `<B>`, and `<C>`.
 * Other formats of `SELECT` statements can be crafted to return custom data. You might consider creating your own classes to handle very customized result sets. 

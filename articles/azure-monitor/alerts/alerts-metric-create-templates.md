@@ -6,7 +6,6 @@ ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/7/2020
-ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
 

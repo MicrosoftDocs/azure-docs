@@ -19,12 +19,16 @@ landingContent:
         links:
           - text: What is Azure Functions?
             url: functions-overview.md
-          - text: Compare serverless options
-            url: functions-compare-logic-apps-ms-flow-webjobs.md  
+      - linkListType: get-started
+        links:
+          - text: Getting started
+            url: functions-get-started.md
       - linkListType: concept
         links:
           - text: Hosting options
             url: functions-scale.md
+          - text: Compare serverless options
+            url: functions-compare-logic-apps-ms-flow-webjobs.md 
       - linkListType: learn
         links:
           - text: Choose a serverless compute option

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -30,7 +30,7 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for an AD FS user account by using [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C). You enable sign-in by adding a [SAML identity provider technical profile](saml-identity-provider-technical-profile.md) to a custom policy.
+This article shows you how to enable sign-in for an AD FS user account by using [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C). You enable sign-in by adding a [SAML identity provider](identity-provider-generic-saml.md) to a custom policy.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ You need to store your certificate in your Azure AD B2C tenant.
 
 If you want users to sign in using an AD FS account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
-You can define an AD FS account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy. For more information, see [define a SAML identity provider technical profile](saml-identity-provider-technical-profile.md).
+You can define an AD FS account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy. For more information, see [define a SAML identity provider](identity-provider-generic-saml.md).
 
 1. Open the *TrustFrameworkExtensions.xml*.
 1. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
@@ -67,10 +67,10 @@ You can define an AD FS account as a claims provider by adding it to the **Claim
     ```xml
     <ClaimsProvider>
       <Domain>contoso.com</Domain>
-      <DisplayName>Contoso AD FS</DisplayName>
+      <DisplayName>Contoso</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="Contoso-SAML2">
-          <DisplayName>Contoso AD FS</DisplayName>
+          <DisplayName>Contoso</DisplayName>
           <Description>Login with your AD FS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
@@ -152,9 +152,16 @@ To use AD FS as an identity provider in Azure AD B2C, you need to create an AD F
 https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
+When using a [custom domain](custom-domain.md), use the following format:
+
+```
+https://your-domain-name/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
+```
+
 Replace the following values:
 
-- **your-tenant** with your tenant name, such as your-tenant.onmicrosoft.com.
+- **your-tenant-name** with your tenant name, such as your-tenant.onmicrosoft.com.
+- **your-domain-name** with your custom domain name, such as login.contoso.com.
 - **your-policy** with your policy name. For example, B2C_1A_signup_signin_adfs.
 - **your-technical-profile** with the name of your SAML identity provider technical profile. For example, Contoso-SAML2.
 
@@ -195,8 +202,10 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
 1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **Contoso AD FS** to sign in with Contoso AD FS identity provider.
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+
 ## Troubleshooting AD FS service  
 
 AD FS is configured to use the Windows application log. If you experience challenges setting up AD FS as a SAML identity provider using custom policies in Azure AD B2C, you may want to check the AD FS event log:
@@ -213,7 +222,7 @@ This error indicates that the SAML request sent by Azure AD B2C is not signed wi
 
 #### Option 1: Set the signature algorithm in Azure AD B2C  
 
-You can configure how to sign the SAML request in Azure AD B2C. The [XmlSignatureAlgorithm](saml-identity-provider-technical-profile.md#metadata) metadata controls the value of the `SigAlg` parameter (query string or post parameter) in the SAML request. The following example configures Azure AD B2C to use the `rsa-sha256` signature algorithm.
+You can configure how to sign the SAML request in Azure AD B2C. The [XmlSignatureAlgorithm](identity-provider-generic-saml.md) metadata controls the value of the `SigAlg` parameter (query string or post parameter) in the SAML request. The following example configures Azure AD B2C to use the `rsa-sha256` signature algorithm.
 
 ```xml
 <Metadata>

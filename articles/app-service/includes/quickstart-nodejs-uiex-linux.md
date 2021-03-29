@@ -62,10 +62,14 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 1. Once the deployment completes, select **Browse Website** in the prompt to view your freshly deployed web app.
 
-<br>
+<br/>
 <details>
-<summary>Troubleshooting</summary>
+<summary><strong>Troubleshooting</strong></summary>
+
+Check the following if you couldn't complete these steps:
+
 * Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
+
 * If you see the error **"You do not have permission to view this directory or page."**, then the application probably failed to start correctly. Review the log output to find and fix the error. 
 
 </details>
@@ -75,7 +79,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 [Report a problem](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&prepare-your-environment)
 
 
-<br>
+<br/>
 <hr/>
 
 

@@ -1,7 +1,6 @@
 ---
 title: Configure monitoring in VM insights guest health using data collection rules (preview)
 description: Describes how to modify default monitoring in VM insights guest health at scale using Resource Manager templates.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

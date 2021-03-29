@@ -4,6 +4,7 @@ description: Learn about the Azure Automanage for virtual machines best practice
 author: deanwe
 ms.service: virtual-machines
 ms.subservice: automanage
+ms.collection: linux
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
@@ -22,9 +23,9 @@ For all of these services, we will auto-onboard, auto-configure, monitor for dri
 Automanage supports the following Linux distributions and versions:
 
 - CentOS 7.3+
-- RHEL 7.4-7.8
+- RHEL 7.4+
 - Ubuntu 16.04 and 18.04
-- SLES 12 (all service packs)
+- SLES 12 (SP3-SP5 only)
 
 ## Participating services
 

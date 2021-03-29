@@ -355,10 +355,10 @@ additionalContent:
     - items:
       - title: Azure PowerShell commands for Azure networking
         summary: Learn about the Azure network Cmdlets. 
-        url: /powershell/module/az.network/?view=azps-3.5.0#networking
+        url: /powershell/module/az.network/#networking
       - title: Azure CLI commands for Azure networking
         summary: Find the Azure network commands in the CLI reference.
-        url: /cli/azure/network?view=azure-cli-latest
+        url: /cli/azure/network
       - title: Azure networking blogs
         summary: View the latest blogs in Azure networking.
         url: https://azure.microsoft.com/blog/topics/networking/

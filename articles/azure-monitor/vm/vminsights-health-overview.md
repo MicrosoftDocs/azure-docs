@@ -1,7 +1,6 @@
 ---
 title: VM insights guest health (preview)
 description: Overview of the health feature in VM insights including how you can view the health of your virtual machines and receive alerts when a virtual machine becomes unhealthy.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

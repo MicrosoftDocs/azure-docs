@@ -270,11 +270,11 @@ For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf
 [anf-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all
 [anf-waitlist]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[az-netappfiles-account-create]: /cli/azure/netappfiles/account?view=azure-cli-latest#az-netappfiles-account-create
-[az-netappfiles-pool-create]: /cli/azure/netappfiles/pool?view=azure-cli-latest#az-netappfiles-pool-create
-[az-netappfiles-volume-create]: /cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-create
-[az-netappfiles-volume-show]: /cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-show
-[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create
+[az-netappfiles-account-create]: /cli/azure/netappfiles/account#az-netappfiles-account-create
+[az-netappfiles-pool-create]: /cli/azure/netappfiles/pool#az-netappfiles-pool-create
+[az-netappfiles-volume-create]: /cli/azure/netappfiles/volume#az-netappfiles-volume-create
+[az-netappfiles-volume-show]: /cli/azure/netappfiles/volume#az-netappfiles-volume-show
+[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
 [install-azure-cli]: /cli/azure/install-azure-cli
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

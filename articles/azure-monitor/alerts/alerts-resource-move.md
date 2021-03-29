@@ -6,7 +6,6 @@ ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 02/14/2021
-ms.subservice: alerts
 ---
 # How to update alert rules or action rules when their target resource moves to a different Azure region
 
