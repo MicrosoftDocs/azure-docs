@@ -168,7 +168,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 3. Under Certificate management type, select **Use my own certificate**. 
 
-    ![Configure your certificate](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-configure-your-certificate.png" alt-text="Screenshot of how to configure certificate for cdn endpoint.":::
 
 4. Select a key vault, Certificate/Secret, and Certificate/Secret version.
 
