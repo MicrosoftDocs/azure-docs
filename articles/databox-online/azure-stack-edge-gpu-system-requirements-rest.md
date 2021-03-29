@@ -65,7 +65,7 @@ To install the PHP client via Composer:
 
 ## Endpoint declaration
 
-In the Azure Stack Edge Blob storage SDK, the endpoint suffix - `<device serial number>.microsoftdatabox.com` - identifies the Azure Stack Edge domain. For more information on the blob service endpoint, go to [Transfer data via storage accounts with Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+In the Azure Stack Edge Blob storage SDK, the endpoint suffix - `<device serial number>.microsoftdatabox.com` - identifies the Azure Stack Edge domain. For more information on the blob service endpoint, go to [Transfer data via storage accounts with Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
 
 ## Examples

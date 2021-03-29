@@ -1,18 +1,18 @@
 ## Add managed identity to your Communication Services solution (Java)
 
-### Install the client library packages
+### Install the SDK packages
 In the pom.xml file, add the following dependency elements to the group of dependencies.
 
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0-beta.6</version>
+    <version>1.0.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0-beta.4</version>
+    <version>1.0.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
@@ -21,9 +21,9 @@ In the pom.xml file, add the following dependency elements to the group of depen
 </dependency>
 ```
 
-### Use the client library packages
+### Use the SDK packages
 
-Add the following `import` directives to your code to use the Azure Identity and Azure Communication client libraries.
+Add the following `import` directives to your code to use the Azure Identity and Azure Communication SDKs.
 
 ```java
 import com.azure.communication.common.*;
@@ -39,7 +39,7 @@ import java.io.IOException;
 import java.util.*;
 ```
 
-The examples below are using the [DefaultAzureCredential](/java/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
+The examples below are using the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
 
 `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object. To create a registered application in the development environment and set up environment variables, see [Authorize access with managed identity](../managed-identity-from-cli.md).
 

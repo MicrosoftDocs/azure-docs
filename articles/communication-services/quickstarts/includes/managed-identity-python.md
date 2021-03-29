@@ -1,6 +1,6 @@
 ## Add managed identity to your Communication Services solution
 
-### Install the client library packages
+### Install the SDK packages
 
 ```console
 pip install azure-identity
@@ -8,7 +8,7 @@ pip install azure-communication-identity
 pip install azure-communication-sms
 ```
 
-### Use the client library packages
+### Use the SDK packages
 
 Add the following `import` to your code to use the Azure Identity.
 
@@ -16,7 +16,7 @@ Add the following `import` to your code to use the Azure Identity.
 from azure.identity import DefaultAzureCredential
 ```
 
-The examples below are using the [DefaultAzureCredential](/python/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
+The examples below are using the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
 
 To register application in the development environment and set up environment variables, see [Authorize access with managed identity](../managed-identity-from-cli.md)
 

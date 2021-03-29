@@ -88,7 +88,7 @@ No, Cloud Service (extended support) deployments are tied to a cluster like Clou
 ### When do I need to migrate? 
 Estimating the time required and complexity migration depends on a range of variables. Planning is the most effective step to understand the scope of work, blockers and complexity of migration.
 
-## Networking
+## Networking 
 
 ###	Why can’t I create a deployment without virtual network?
 Virtual networks are a required resource for any deployment on Azure Resource Manager. Cloud Services (extended support) deployment must live inside a virtual network. 
@@ -107,6 +107,9 @@ Customers are billed for IP Address use on Cloud Services (extended support) jus
 
 ### Can I use a DNS name with Cloud Services (extended support)? 
 Yes. Cloud Services (extended support) can also be given a DNS name. With Azure Resource Manager, the DNS label is an optional property of the public IP address that is assigned to the Cloud Service. The format of the DNS name for Azure Resource Manager based deployments is `<userlabel>.<region>.cloudapp.azure.com`
+
+### Can I update or change the virtual network reference for an existing cloud service (extended support)? 
+No. Virtual network reference is mandatory during the creation of a cloud service. For an existing cloud  service, the virtual network reference cannot be changed. The virtual network address space itself can be  modified using VNet APIs. 
 
 ## Certificates & Key Vault
 
