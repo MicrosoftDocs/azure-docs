@@ -80,7 +80,7 @@ Maximum values allowed for various components of dedicated SQL pool in Azure Syn
 
 ## Metadata
 
-DMV's will reset when a dedicated SQL pool is paused.
+DMV's will reset when a dedicated SQL pool is paused and when it is scaled.
 
 | System view | Maximum rows |
 |:--- |:--- |
