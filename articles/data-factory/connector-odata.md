@@ -352,7 +352,7 @@ To copy data from Project Online, you can use the OData connector and an access 
     - **Auth headers**:
         - **Property name**: Choose **Authorization**.
         - **Value**: Enter the **access token** copied from step1.
-    - Test the linked service.
+     - Test the linked service.
 
     ![Create OData linked service](./media/connector-odata/odata-project-online-linked-service.png)
 
