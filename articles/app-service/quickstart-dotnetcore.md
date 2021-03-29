@@ -104,11 +104,10 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
-- <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">
+<a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">
     Install the latest .NET 5.0 SDK.
-</a>
-- <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48" target="_blank">
-    Install the .NET Framework 4.8 Developer Pack.
+</a> and <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48" target="_blank">
+    the .NET Framework 4.8 Developer Pack.
 </a>
 
 > [!NOTE]
