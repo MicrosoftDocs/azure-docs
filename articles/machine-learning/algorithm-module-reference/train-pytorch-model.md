@@ -53,9 +53,23 @@ Currently, **Train Pytorch Model** module supports both single node and distribu
 
 In distributed training the workload to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. Currently the designer support distributed training for **Train Pytorch Model** module.
 
+### Training times
+Distributed training makes it possible to train on a large dataset like ImageNet (1000 classes, 1.2 million images) in just several hours by **Train PyTorch Model**. The following table shows training time and performance during training 50 epochs of Resnet50 on ImageNet from scratch based on different devices.
+
+| Devices       | Training Time  | Training Throughput  | Top-1 Validation Accuracy | Top-5 Validation Accuracy |
+| ------------- | -------------- | -------------------- | ------------------------- | ------------------------- |
+| 16 V100 GPUs  | 6h22min        | ~3200 Images/Sec     | 68.83%                    | 88.84%                    | 
+| 8 V100 GPUs   | 12h21min       | ~1670 Images/Sec     | 68.84%                    | 88.74%                    |
+
+Click on this module 'Metrics' tab and see training metric graphs, such as 'Train images per second' and 'Top 1 accuracy'.
+
+![Screenshot showing training metrics](./media/module/train-pytorch-model-train-metrics.png)
+
 ### How to enable distributed training
 
 To enable distributed training for **Train Pytorch Model** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)** is supported for distributed training.
+
+
 
 1. Select the module and open the right panel. Expand the **Run settings** section.
 
