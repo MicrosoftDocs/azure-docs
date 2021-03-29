@@ -60,6 +60,20 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 
 See [examples of the charts](../essentials/metric-chart-samples.md) that have filtering and splitting applied. The article shows the steps were used to configure the charts.
 
+## Share your metric chart
+There are currently two ways to share your metric chart. Below are the instructions on how to share information from your metrics charts through Excel and a link.
+ 
+### Download to Excel
+Click "Share" and select "Download to Excel". Your download should start immediately.
+
+![screenshot on how to share metric chart via excel](./media/metrics-getting-started/share-excel.png)
+
+### Share a link
+Click "Share" and select "Copy link". You should get a notification that the link was copied successfully.
+
+![screenshot on how to share metric chart via link](./media/metrics-getting-started/share-link.png)
+
+
 ## Advanced chart settings
 
 You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. Follow [product documentation](../essentials/metrics-charts.md) to learn about these and other advanced features of Azure Monitor metrics explorer.

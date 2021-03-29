@@ -596,4 +596,4 @@ configured them.
 ## Next steps
 
 - [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)
-- [Troubleshoot Azure Windows VM activation problems](../troubleshooting/troubleshoot-activation-problems.md)
+- [Troubleshoot Azure Windows VM activation problems](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)

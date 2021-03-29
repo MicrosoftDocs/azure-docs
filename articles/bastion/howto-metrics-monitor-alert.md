@@ -7,7 +7,7 @@ author: mialdrid
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/12/2021
 ms.author: mialdrid
 
 ---
@@ -68,7 +68,7 @@ You can view memory utilization across each bastion instance, split across each 
 
 #### Session count
 
-You can view the count of active sessions per bastion instance, aggregated across each session type (RDP and SSH). Each Azure Bastion can support a range of active RDP and SSH sessions. Monitoring this metric will help you to understand if you need to adjust the number of instances running the bastion service. For more information about the session count Azure Bastion can support, refer to the [Azure Bastion FAQ](bastion-faq.md). For more information about which Bastion SKUs support instance scaling, refer to [About Bastion SKUs](bastion-connect-vm-scale-set.md).
+You can view the count of active sessions per bastion instance, aggregated across each session type (RDP and SSH). Each Azure Bastion can support a range of active RDP and SSH sessions. Monitoring this metric will help you to understand if you need to adjust the number of instances running the bastion service. For more information about the session count Azure Bastion can support, refer to the [Azure Bastion FAQ](bastion-faq.md).
 
 :::image type="content" source="./media/metrics-monitor-alert/session-count.png" alt-text="Screenshot showing session count.":::
 

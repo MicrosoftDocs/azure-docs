@@ -4,13 +4,13 @@ summary: Azure Percept is an end-to-end solution for building and deploying perc
 
 metadata:
   title: Azure Percept documentation
-  description: Azure Percept is an end-to-end edge AI platform.
+  description: Azure Percept is an end-to-end edge AI platform and development kit.
   services: azure-percept
   ms.service: azure-percept
   ms.topic: landing-page 
-  author: elqu20 
-  ms.author: v-elqu 
-  ms.date: 02/11/2021 
+  author: mimcco
+  ms.author: mimcco 
+  ms.date: 03/25/2021 
 
 landingContent:
   - title: What is Azure Percept?
@@ -27,6 +27,8 @@ landingContent:
             url: overview-azure-percept-studio.md
           - text: Azure Percept security overview
             url: overview-percept-security.md
+          - text: 80/20 integration
+            url: overview-8020-integration.md
 
 
   - title: Get started with Azure Percept DK

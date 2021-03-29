@@ -154,14 +154,10 @@
       href: service-bus-to-event-grid-integration-concept.md
 - name: How-to guides
   items:
-  - name: Move across regions
-    href: move-across-regions.md
-  - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
-    href: deprecate-service-bus-management.md
-  - name: Create a namespace
-    href: service-bus-create-namespace-portal.md
   - name: Develop
     items:
+    - name: Create a namespace
+      href: service-bus-create-namespace-portal.md
     - name: Set subscription filters and actions
       href: service-bus-filter-examples.md    
     - name: Message handling
@@ -224,6 +220,8 @@
     items:
     - name: Migrate from ActiveMQ to Azure Service Bus
       href: migrate-jms-activemq-to-servicebus.md
+    - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
+      href: deprecate-service-bus-management.md
   - name: Monitor
     items:
     - name: End-to-end tracing and diagnostics
@@ -238,6 +236,8 @@
       href: service-bus-integrate-with-rabbitmq.md
   - name: Manage
     items:
+    - name: Move across regions
+      href: move-across-regions.md
     - name: Automatically update messaging units 
       href: automate-update-messaging-units.md
     - name: Use Azure PowerShell to provision entities

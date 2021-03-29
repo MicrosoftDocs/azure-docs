@@ -14,7 +14,7 @@ ms.author: duau
 # What is Azure Front Door?
 
 > [!IMPORTANT]
-> This documentation is for Azure Front Door. Looking for information on Azure Front Door Standard/Premium (Preview)? View [here](/standard-premium/overview.md).
+> This documentation is for Azure Front Door. Looking for information on Azure Front Door Standard/Premium (Preview)? View [here](standard-premium/overview.md).
 
 Azure Front Door is a global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. With Front Door, you can transform your global consumer and enterprise applications into robust, high-performing personalized modern applications with contents that reach a global audience through Azure.
 

@@ -52,6 +52,6 @@ Site Recovery can manage replication for:
 - On-premises VMs, Azure Stack VMs, and physical servers.
 
 ## Next steps
-- [Create a virtual machine in an availability zone](/linux/create-cli-availability-zone.md)
-- [Create a virtual machine in an availability set](/linux/tutorial-availability.md)
+- [Create a virtual machine in an availability zone](/azure/virtual-machines/linux/create-cli-availability-zone)
+- [Create a virtual machine in an availability set](/azure/virtual-machines/linux/tutorial-availability-sets)
 - [Create a virtual machine scale set](../virtual-machine-scale-sets/quick-create-portal.md)
