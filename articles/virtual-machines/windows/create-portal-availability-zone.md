@@ -1,17 +1,17 @@
 ---
-title: Create a zoned Windows VM with the Azure portal 
+title: Create a zoned VM with the Azure portal 
 description: Create a Windows VM in an availability zone with the Azure portal
 documentationcenter: virtual-machines
-author: cynthn
-ms.service: virtual-machines-windows
+author: mimckitt
+ms.service: virtual-machines
 ms.topic: conceptual
-ms.workload: infrastructure
-ms.date: 03/27/2018
-ms.author: cynthn
+ms.date: 3/8/2021
+ms.author: mimckitt
+ms.reviewer: cynthn
 ms.custom: 
 ---
 
-# Create a Windows virtual machine in an availability zone with the Azure portal
+# Create a virtual machine in an availability zone using the Azure portal
 
 This article steps through using the Azure portal to create a virtual machine in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 

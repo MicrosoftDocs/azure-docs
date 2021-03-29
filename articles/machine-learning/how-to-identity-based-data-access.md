@@ -18,9 +18,9 @@ ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
 # Connect to storage with identity-based data access (preview)
 
 >[!IMPORTANT]
-> The functionalities presented in this article are in preview, and should be considered [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview features that may change at any time.
+> The functionalities presented in this article are in preview, and should be considered [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features that may change at any time.
 
-In this article, you learn how to connect to storage services on Azure with identity-based data access and Azure Machine Learning datastores via the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).  
+In this article, you learn how to connect to storage services on Azure with identity-based data access and Azure Machine Learning datastores via the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  
 
 Typically, datastores use credential-based data access to confirm you have permission to access the storage service. They keep connection information, like your subscription ID and token authorization, in your [Key Vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace. When you create a datastore that uses identity-based data access, your Azure login ([Azure Active Directory token](../active-directory/fundamentals/active-directory-whatis.md)) is used to confirm you have permission to access the storage service. In this scenario, no authentication credentials are saved, and only the storage account information is stored in the datastore. 
 
@@ -64,7 +64,7 @@ Certain machine learning scenarios involve training models with private data. In
     - [Azure Data Lake Gen 2](../storage/blobs/data-lake-storage-introduction.md)
     - [Azure SQL database](../azure-sql/database/sql-database-paas-overview.md)
 
-- The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+- The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install).
 
 - An Azure Machine Learning workspace.
   
@@ -102,7 +102,7 @@ In the following code, notice the absence of authentication parameters, like `sa
 
 ### Azure blob container
 
-To register an Azure blob container as a datastore, use [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
+To register an Azure blob container as a datastore, use [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
 
 The following code creates and registers the `credentialless_blob` datastore to the `ws` workspace and assigns it to the variable, `blob_datastore`. This datastore accesses the `my_container_name` blob container on the `my-account-name` storage account.
 
@@ -116,7 +116,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ### Azure Data Lake Storage Generation 1
 
-For an Azure Data Lake Storage Generation 1 (ADLS Gen 1) datastore, use [register_azure_data_lake()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-workspace--datastore-name--store-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--subscription-id-none--resource-group-none--overwrite-false--grant-workspace-access-false-) to register a datastore that connects to an Azure DataLake Generation 1 storage.
+For an Azure Data Lake Storage Generation 1 (ADLS Gen 1) datastore, use [register_azure_data_lake()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-workspace--datastore-name--store-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--subscription-id-none--resource-group-none--overwrite-false--grant-workspace-access-false-) to register a datastore that connects to an Azure DataLake Generation 1 storage.
 
 The following code creates and registers the `credentialless_adls1` datastore to the `workspace` workspace and assigns it to the variable, `adls_dstore`. This datastore accesses the `adls_storage` Azure Data Lake Store storage account.
 
@@ -130,7 +130,7 @@ adls_dstore = Datastore.register_azure_data_lake(workspace = workspace,
 
 ### Azure Data Lake Storage Generation 2
 
-For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a datastore that connects to an Azure DataLake Gen 2 storage.
+For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a datastore that connects to an Azure DataLake Gen 2 storage.
 
 The following code creates and registers the `credentialless_adls2` datastore to the `ws` workspace and assigns it to the variable, `adls2_dstore`. This datastore accesses the file system `tabular` in the `myadls2` storage account.  
 

@@ -238,7 +238,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
     > [!TIP]
     > The `az ml folder attach` command creates a `.azureml` subdirectory, which contains two example runconfig files. 
     >
-    > If you have a Python script that creates a run configuration object programmatically, you can use [RunConfig.save()](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) to save it as a runconfig file.
+    > If you have a Python script that creates a run configuration object programmatically, you can use [RunConfig.save()](/python/api/azureml-core/azureml.core.runconfiguration#save-path-none--name-none--separate-environment-yaml-false-) to save it as a runconfig file.
     >
     > The full runconfig schema can be found in this [JSON file](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). The schema is self-documenting through the `description` key of each object. Additionally, there are enums for possible values, and a template snippet at the end.
 
@@ -358,7 +358,7 @@ The following commands demonstrate how to create, register, and list Azure Machi
 
 ### Environment configuration schema
 
-If you used the `az ml environment scaffold` command, it generates a template `azureml_environment.json` file that can be modified and used to create custom environment configurations with the CLI. The top level object loosely maps to the [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) class in the Python SDK. 
+If you used the `az ml environment scaffold` command, it generates a template `azureml_environment.json` file that can be modified and used to create custom environment configurations with the CLI. The top level object loosely maps to the [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29) class in the Python SDK. 
 
 ```json
 {
@@ -402,17 +402,17 @@ If you used the `az ml environment scaffold` command, it generates a template `a
 }
 ```
 
-The following table details each top-level field in the JSON file, it's type, and a description. If an object type is linked to a class from the Python SDK, there is a loose 1:1 match between each JSON field and the public variable name in the Python class. In some cases the field may map to a constructor argument rather than a class variable. For example, the `environmentVariables` field maps to the `environment_variables` variable in the [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) class.
+The following table details each top-level field in the JSON file, it's type, and a description. If an object type is linked to a class from the Python SDK, there is a loose 1:1 match between each JSON field and the public variable name in the Python class. In some cases the field may map to a constructor argument rather than a class variable. For example, the `environmentVariables` field maps to the `environment_variables` variable in the [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29) class.
 
 | JSON field | Type | Description |
 |---|---|---|
 | `name` | `string` | Name of the environment. Do not start name with **Microsoft** or **AzureML**. |
 | `version` | `string` | Version of the environment. |
 | `environmentVariables` | `{string: string}` | A hash-map of environment variable names and values. |
-| `python` | [`PythonSection`](/python/api/azureml-core/azureml.core.environment.pythonsection?preserve-view=true&view=azure-ml-py)hat defines the Python environment and interpreter to use on target compute resource. |
-| `docker` | [`DockerSection`](/python/api/azureml-core/azureml.core.environment.dockersection?preserve-view=true&view=azure-ml-py) | Defines settings to customize the Docker image built to the environment's specifications. |
-| `spark` | [`SparkSection`](/python/api/azureml-core/azureml.core.environment.sparksection?preserve-view=true&view=azure-ml-py) | The section configures Spark settings. It is only used when framework is set to PySpark. |
-| `databricks` | [`DatabricksSection`](/python/api/azureml-core/azureml.core.databricks.databrickssection?preserve-view=true&view=azure-ml-py) | Configures Databricks library dependencies. |
+| `python` | [`PythonSection`](/python/api/azureml-core/azureml.core.environment.pythonsection)hat defines the Python environment and interpreter to use on target compute resource. |
+| `docker` | [`DockerSection`](/python/api/azureml-core/azureml.core.environment.dockersection) | Defines settings to customize the Docker image built to the environment's specifications. |
+| `spark` | [`SparkSection`](/python/api/azureml-core/azureml.core.environment.sparksection) | The section configures Spark settings. It is only used when framework is set to PySpark. |
+| `databricks` | [`DatabricksSection`](/python/api/azureml-core/azureml.core.databricks.databrickssection) | Configures Databricks library dependencies. |
 | `inferencingStackVersion` | `string` | Specifies the inferencing stack version added to the image. To avoid adding an inferencing stack, leave this field `null`. Valid value: "latest". |
 
 ## ML pipeline management

@@ -270,7 +270,7 @@ The following example configuration demonstrates how to override an error code.
         },
         {
             "route": "/.auth/login/twitter",
-            "statusCode": 404,
+            "statusCode": 404
         },
         {
             "route": "/logout",
@@ -310,7 +310,7 @@ The following example configuration demonstrates how to override an error code.
     },
     "mimeTypes": {
         ".json": "text/json"
-    },
+    }
 }
 ```
 

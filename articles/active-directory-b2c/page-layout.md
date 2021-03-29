@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -17,6 +17,16 @@ ms.subservice: B2C
 # Page layout versions
 
 Page layout packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
+
+## jQuery version
+
+Azure AD B2C page layout uses the following version of the [jQuery library](https://jquery.com/):
+
+|From page layout version  |jQuery version  |
+|---------|---------|
+|2.1.4 | 3.5.1 |
+|1.2.0 | 3.4.1 |
+|1.1.0 | 1.10.2 |
 
 ## Self-asserted page (selfasserted)
 
@@ -69,6 +79,9 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Initial release
 
 ## Unified sign-in sign-up page with password reset link (unifiedssp)
+
+> [!TIP]
+> If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
 **2.1.2**
 - Fixed the localization encoding issue for languages such as Spanish and French.
