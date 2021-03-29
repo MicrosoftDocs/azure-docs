@@ -9,7 +9,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 03/29/2021
 ms.author: inhenkel
 ---
 
@@ -42,4 +42,4 @@ If a Media Services account or an associated Azure Storage account become "disco
 
 ## Next steps
 
-[Create an account](./create-account-howto.md)
+[Create an account](./account-create-how-to.md)
