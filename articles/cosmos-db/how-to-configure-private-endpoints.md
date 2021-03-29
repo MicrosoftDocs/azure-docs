@@ -74,6 +74,8 @@ Use the following steps to create a private endpoint for an existing Azure Cosmo
 
 When you have approved Private Link for an Azure Cosmos account, in the Azure portal, the **All networks** option in the **Firewall and virtual networks** pane is unavailable.
 
+## <a id="private-zone-name-mapping"></a>API types and private zone names
+
 The following table shows the mapping between different Azure Cosmos account API types, supported sub-resources, and the corresponding private zone names. You can also access the Gremlin and Table API accounts through the SQL API, so there are two entries for these APIs.
 
 |Azure Cosmos account API type  |Supported sub-resources (or group IDs) |Private zone name  |
@@ -140,6 +142,8 @@ After you create the private endpoint, you can integrate it with a private DNS z
 
 ```azurepowershell-interactive
 Import-Module Az.PrivateDns
+
+# Zone name is differs based on the API type and group ID you are using. 
 $zoneName = "privatelink.documents.azure.com"
 $zone = New-AzPrivateDnsZone -ResourceGroupName $ResourceGroupName `
   -Name $zoneName
@@ -237,6 +241,7 @@ az network private-endpoint create \
 After you create the private endpoint, you can integrate it with a private DNS zone by using the following Azure CLI script:
 
 ```azurecli-interactive
+#Zone name is differs based on the API type and group ID you are using. 
 zoneName="privatelink.documents.azure.com"
 
 az network private-dns zone create --resource-group $ResourceGroupName \
@@ -409,7 +414,7 @@ After the template is deployed successfully, you can see an output similar to wh
 
 After the template is deployed, the private IP addresses are reserved within the subnet. The firewall rule of the Azure Cosmos account is configured to accept connections from the private endpoint only.
 
-### Integrate the private private DNS zone
+### Integrate the private endpoint with a Private DNS zone
 
 Use the following code to create a Resource Manager template named "PrivateZone_template.json." This template creates a private DNS zone for an existing Azure Cosmos SQL API account in an existing virtual network.
 
@@ -482,7 +487,7 @@ Use the following code to create a Resource Manager template named "PrivateZoneG
         "privateZoneName": {
             "type": "string"
         },
-        "PrivateEndPointDNSGroupName": {
+        "PrivateEndpointDnsGroupName": {
             "value": "string"
         },
         "privateEndpointName":{
@@ -493,7 +498,7 @@ Use the following code to create a Resource Manager template named "PrivateZoneG
         {
             "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
             "apiVersion": "2020-06-01",
-            "name": "[parameters('PrivateEndPointDNSGroupName')]",
+            "name": "[parameters('PrivateEndpointDnsGroupName')]",
             "location": "global",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateZoneName'))]",
@@ -526,7 +531,7 @@ Create the following two parameters file for the template. Create the "PrivateZo
         "privateZoneName": {
             "value": ""
         },
-        "PrivateEndPointDNSGroupName": {
+        "PrivateEndpointDnsGroupName": {
             "value": ""
         },
         "privateEndpointName":{
@@ -564,7 +569,7 @@ $PrivateZoneName = "myPrivateZone.documents.azure.com"
 $PrivateEndpointName = "myPrivateEndpoint"
 
 # Name of the DNS zone group to create
-$PrivateEndpointDNSGroupName = "myPrivateDNSZoneGroup"
+$PrivateEndpointDnsGroupName = "myPrivateDNSZoneGroup"
 
 $cosmosDbResourceId = "/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.DocumentDB/databaseAccounts/$($CosmosDbAccountName)"
 $VNetResourceId = "/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($VNetName)"
@@ -612,7 +617,7 @@ New-AzResourceGroupDeployment -Name "PrivateZoneGroupDeployment" `
     -TemplateParameterFile $PrivateZoneGroupParametersFilePath `
     -PrivateZoneName $PrivateZoneName `
     -PrivateEndpointName $PrivateEndpointName`
-    -PrivateEndPointDNSGroupName $PrivateEndpointDNSGroupName
+    -PrivateEndpointDnsGroupName $PrivateEndpointDnsGroupName
 
 ```
 
