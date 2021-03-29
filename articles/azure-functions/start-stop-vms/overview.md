@@ -52,9 +52,9 @@ Each Start/Stop action supports assignment of one or more subscriptions, resourc
 
 An Azure Storage account, which is required by Functions, is also used by Start/Stop VMs v2 (preview) for two purposes:
 
-    * Uses Azure Table Storage to store the execution operation metadata (that is, the start/stop VM action).
+   - Uses Azure Table Storage to store the execution operation metadata (that is, the start/stop VM action).
 
-    * Uses Azure Queue Storage to support the Azure Functions queue-based triggers.
+   - Uses Azure Queue Storage to support the Azure Functions queue-based triggers.
 
 All telemetry data, that is trace logs from the function app execution, is sent to your connected Application Insights instance. You can view the telemetry data stored in Application Insights from a set of pre-defined visualizations presented in a shared [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
 
