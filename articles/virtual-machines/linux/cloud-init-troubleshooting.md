@@ -52,11 +52,11 @@ When the VM fails to provision, Azure will show 'creating' status, for 20 minute
 
 While the VM is running, you will need the logs from the VM to understand why provisioning failed.  To understand why VM provisioning failed, do not stop the VM. Keep the VM running. You will need to keep the failed VM in a running state in order to collect logs. To collect the logs, use one of the following methods:
 
-- [Serial Console](../troubleshooting/serial-console-grub-single-user-mode.md)
+- [Serial Console](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode)
 
 - [Enable Boot Diagnostics](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) before creating the VM and then [View](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) them during the boot.
 
-- [Run AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) to attach and mount the OS disk, which will allow you to collect these logs:
+- [Run AZ VM Repair](/troubleshoot/azure/virtual-machines/repair-linux-vm-using-azure-virtual-machine-repair-commands) to attach and mount the OS disk, which will allow you to collect these logs:
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -104,7 +104,7 @@ Once you have found an error or warning, read backwards in the cloud-init log to
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-If you have access to the [Serial Console](../troubleshooting/serial-console-grub-single-user-mode.md), you can try to rerun the command that cloud-init was trying to run.
+If you have access to the [Serial Console](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode), you can try to rerun the command that cloud-init was trying to run.
 
 The logging for `/var/log/cloud-init.log` can also be reconfigured within /etc/cloud/cloud.cfg.d/05_logging.cfg. For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 

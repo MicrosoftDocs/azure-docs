@@ -25,9 +25,9 @@ This article assumes that you have an Azure account and Speech service subscript
 
 Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, use the following instructions:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=linux&pivots=programming-language-cpp" target="_blank">Linux </a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=macos&pivots=programming-language-cpp" target="_blank">macOS </a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=windows&pivots=programming-language-cpp" target="_blank">Windows </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-cpp&tabs=linux" target="_blank">Linux </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-cpp&tabs=macos" target="_blank">macOS </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-cpp&tabs=windows" target="_blank">Windows </a>
 
 ## Import dependencies
 
@@ -73,8 +73,8 @@ int wmain()
     }
     return 0;
 }
-    
-void synthesizeSpeech() 
+
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 }
@@ -87,7 +87,7 @@ Next, you create a [`SpeechSynthesizer`](/cpp/cognitive-services/speech/speechsy
 To start, create an `AudioConfig` to automatically write the output to a `.wav` file, using the `FromWavFileOutput()` function.
 
 ```cpp
-void synthesizeSpeech() 
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     auto audioConfig = AudioConfig::FromWavFileOutput("path/to/write/file.wav");
@@ -97,7 +97,7 @@ void synthesizeSpeech()
 Next, instantiate a `SpeechSynthesizer`, passing your `config` object and the `audioConfig` object as params. Then, executing speech synthesis and writing to a file is as simple as running `SpeakTextAsync()` with a string of text.
 
 ```cpp
-void synthesizeSpeech() 
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     auto audioConfig = AudioConfig::FromWavFileOutput("path/to/write/file.wav");
@@ -110,10 +110,10 @@ Run the program, and a synthesized `.wav` file is written to the location you sp
 
 ## Synthesize to speaker output
 
-In some cases, you may want to directly output synthesized speech directly to a speaker. To do this, simply omit the `AudioConfig` param when creating the `SpeechSynthesizer` in the example above. This outputs to the current active output device.
+In some cases, you may want to directly output synthesized speech directly to a speaker. To do this,  omit the `AudioConfig` parameter when creating the `SpeechSynthesizer` in the example above. This synthesizes to the current active output device.
 
 ```cpp
-void synthesizeSpeech() 
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     auto synthesizer = SpeechSynthesizer::FromConfig(config);
@@ -129,7 +129,7 @@ For many scenarios in speech application development, you likely need the result
 * Integrate the result with other API's or services.
 * Modify the audio data, write custom `.wav` headers, etc.
 
-It's simple to make this change from the previous example. First, remove the `AudioConfig`, as you will manage the output behavior manually from this point onward for increased control. Then pass `NULL` for the `AudioConfig` in the `SpeechSynthesizer` constructor. 
+It's simple to make this change from the previous example. First, remove the `AudioConfig`, as you will manage the output behavior manually from this point onward for increased control. Then pass `NULL` for the `AudioConfig` in the `SpeechSynthesizer` constructor.
 
 > [!NOTE]
 > Passing `NULL` for the `AudioConfig`, rather than omitting it like in the speaker output example above, will not play the audio by default on the current active output device.
@@ -137,11 +137,11 @@ It's simple to make this change from the previous example. First, remove the `Au
 This time, you save the result to a [`SpeechSynthesisResult`](/cpp/cognitive-services/speech/speechsynthesisresult) variable. The `GetAudioData` getter returns a `byte []` of the output data. You can work with this `byte []` manually, or you can use the [`AudioDataStream`](/cpp/cognitive-services/speech/audiodatastream) class to manage the in-memory stream. In this example you use the `AudioDataStream.FromResult()` static function to get a stream from the result.
 
 ```cpp
-void synthesizeSpeech() 
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     auto synthesizer = SpeechSynthesizer::FromConfig(config, NULL);
-    
+
     auto result = synthesizer->SpeakTextAsync("Getting the response as an in-memory stream.").get();
     auto stream = AudioDataStream::FromResult(result);
 }
@@ -168,14 +168,14 @@ There are various options for different file types depending on your requirement
 In this example, you specify a high-fidelity RIFF format `Riff24Khz16BitMonoPcm` by setting the `SpeechSynthesisOutputFormat` on the `SpeechConfig` object. Similar to the example in the previous section, you use [`AudioDataStream`](/cpp/cognitive-services/speech/audiodatastream) to get an in-memory stream of the result, and then write it to a file.
 
 ```cpp
-void synthesizeSpeech() 
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     config->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 
     auto synthesizer = SpeechSynthesizer::FromConfig(config, NULL);
     auto result = synthesizer->SpeakTextAsync("A simple test to write to a file.").get();
-    
+
     auto stream = AudioDataStream::FromResult(result);
     stream->SaveToWavFileAsync("path/to/write/file.wav").get();
 }
@@ -201,11 +201,11 @@ First, create a new XML file for the SSML config in your root project directory,
 Next, you need to change the speech synthesis request to reference your XML file. The request is mostly the same, but instead of using the `SpeakTextAsync()` function, you use `SpeakSsmlAsync()`. This function expects an XML string, so you first load your SSML config as a string. From here, the result object is exactly the same as previous examples.
 
 ```cpp
-void synthesizeSpeech() 
+void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     auto synthesizer = SpeechSynthesizer::FromConfig(config, NULL);
-    
+
     std::ifstream file("./ssml.xml");
     std::string ssml, line;
     while (std::getline(file, line))
@@ -214,7 +214,7 @@ void synthesizeSpeech()
         ssml.push_back('\n');
     }
     auto result = synthesizer->SpeakSsmlAsync(ssml).get();
-    
+
     auto stream = AudioDataStream::FromResult(result);
     stream->SaveToWavFileAsync("path/to/write/file.wav").get();
 }
@@ -250,3 +250,11 @@ To switch to a neural voice, change the `name` to one of the [neural voice optio
   </voice>
 </speak>
 ```
+
+## Get facial pose events
+
+Speech can be a good way to drive the animation of facial expressions.
+Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme.
+You can subscribe the viseme event in Speech SDK.
+Then, you can apply viseme events to animate the face of a character as speech audio plays.
+Learn [how to get viseme events](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

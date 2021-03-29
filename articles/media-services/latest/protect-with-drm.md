@@ -11,7 +11,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: seodec18
 ---
@@ -97,7 +97,7 @@ In this tutorial, we create the job's input based on a file that's ingested dire
 
 ## Wait for the Job to complete
 
-The job takes some time to complete. When it does, you want to be notified. The code sample below shows how to poll the service for the status of the **Job**. Polling isn't a recommended best practice for production apps because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid. See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
+The job takes some time to complete. When it does, you want to be notified. The code sample below shows how to poll the service for the status of the **Job**. Polling isn't a recommended best practice for production apps because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid. See [Route events to a custom web endpoint](monitoring/job-state-events-cli-how-to.md).
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has come across an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it's done.
 

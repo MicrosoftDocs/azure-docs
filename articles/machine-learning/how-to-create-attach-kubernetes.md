@@ -10,7 +10,7 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 10/02/2020
+ms.date: 03/11/2021
 ---
 
 # Create and attach an Azure Kubernetes Service cluster
@@ -288,14 +288,14 @@ Following example shows how to enable TLS termination with automatic TLS certifi
    # Enable TLS termination when you create an AKS cluster by using provisioning_config object enable_ssl method
 
    # Leaf domain label generates a name using the formula
-   # "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+   # "<leaf-domain-label>######.<azure-region>.cloudapp.azure.com"
    # where "######" is a random series of characters
    provisioning_config.enable_ssl(leaf_domain_label = "contoso")
    
    # Enable TLS termination when you attach an AKS cluster by using attach_config object enable_ssl method
 
    # Leaf domain label generates a name using the formula
-   # "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+   # "<leaf-domain-label>######.<azure-region>.cloudapp.azure.com"
    # where "######" is a random series of characters
    attach_config.enable_ssl(leaf_domain_label = "contoso")
 

@@ -54,23 +54,23 @@ This high-level diagram shows the architecture of the sample provided to get you
 
 ### Regions
 
-* [Create](/azure/media-services/latest/create-account-cli-how-to) two (or more) Azure Media Services accounts. The two accounts need to be in different regions. For more information, see [Regions in which the Azure Media Services service is deployed](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
-* Upload your media to the same region from which you are planning to submit the job. For more information about how to start encoding, see [Create a job input from an HTTPS URL](/azure/media-services/latest/job-input-from-http-how-to) or [Create a job input from a local file](/azure/media-services/latest/job-input-from-local-file-how-to).
-* If you then need to resubmit the [job](/azure/media-services/latest/transforms-jobs-concept) to another region, you can use `JobInputHttp` or use `Copy-Blob` to copy the data from the source Asset container to an Asset container in the alternate region.
+* [Create](./create-account-howto.md) two (or more) Azure Media Services accounts. The two accounts need to be in different regions. For more information, see [Regions in which the Azure Media Services service is deployed](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
+* Upload your media to the same region from which you are planning to submit the job. For more information about how to start encoding, see [Create a job input from an HTTPS URL](./job-input-from-http-how-to.md) or [Create a job input from a local file](./job-input-from-local-file-how-to.md).
+* If you then need to resubmit the [job](./transforms-jobs-concept.md) to another region, you can use `JobInputHttp` or use `Copy-Blob` to copy the data from the source Asset container to an Asset container in the alternate region.
 
 ### Monitoring
 
 * Subscribe for `JobStateChange` messages in each account via Azure Event Grid.
-    * [Register for events](/azure/media-services/latest/reacting-to-media-services-events) via the Azure portal or the CLI (you can also do it with the Event Grid Management SDK)
+    * [Register for events](./reacting-to-media-services-events.md) via the Azure portal or the CLI (you can also do it with the Event Grid Management SDK)
     * Use the [Microsoft.Azure.EventGrid SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (which supports Media Services events natively).
     * You can also consume Event Grid events via Azure Functions.
 
     For more information:
 
-    * See the [Audio Analytics sample](/azure/media-services/latest/transforms-jobs-concept) which shows how to monitor a job with Azure Event Grid including adding a fallback in case the Azure Event Grid messages are delayed for some reason.
-    * Take a look at the [Azure Event Grid schemas for Media Services events](/azure/media-services/latest/media-services-event-schemas).
+    * See the [Audio Analytics sample](./transforms-jobs-concept.md) which shows how to monitor a job with Azure Event Grid including adding a fallback in case the Azure Event Grid messages are delayed for some reason.
+    * Take a look at the [Azure Event Grid schemas for Media Services events](./media-services-event-schemas.md).
 
-* When you create a [job](/azure/media-services/latest/transforms-jobs-concept):
+* When you create a [job](./transforms-jobs-concept.md):
     * Randomly select an account from the list of currently used accounts (this list will normally contain both accounts but if issues are detected it may contain only one account). If the list is empty, raise an alert so an operator can investigate.
     * Create a record to keep track of each inflight job and the region/account used.
 * When your `JobStateChange` handler gets a notification that a job has reached the scheduled state, record the time it enters the scheduled state and the region/account used.

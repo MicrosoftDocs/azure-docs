@@ -1,6 +1,6 @@
 ## Add managed identity to your Communication Services solution (Java)
 
-### Install the client library packages
+### Install the SDK packages
 In the pom.xml file, add the following dependency elements to the group of dependencies.
 
 ```xml
@@ -21,18 +21,25 @@ In the pom.xml file, add the following dependency elements to the group of depen
 </dependency>
 ```
 
-### Use the client library packages
+### Use the SDK packages
 
-Add the following `import` directives to your code to use the Azure Identity and Azure Communication client libraries.
+Add the following `import` directives to your code to use the Azure Identity and Azure Communication SDKs.
 
 ```java
-import com.azure.identity.*;
-import com.azure.communication.sms.*;
-import com.azure.communication.identity.*;
 import com.azure.communication.common.*;
+import com.azure.communication.identity.*;
+import com.azure.communication.identity.models.*;
+import com.azure.communication.sms.*;
+import com.azure.core.credential.*;
+import com.azure.core.http.*;
+import com.azure.core.http.netty.*;
+import com.azure.identity.*;
+
+import java.io.IOException;
+import java.util.*;
 ```
 
-The examples below are using the [DefaultAzureCredential](/java/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
+The examples below are using the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
 
 `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object. To create a registered application in the development environment and set up environment variables, see [Authorize access with managed identity](../managed-identity-from-cli.md).
 
@@ -45,7 +52,7 @@ Then, use the client to issue a token for a new user:
      public AccessToken createIdentityAndGetTokenAsync() {
           // You can find your endpoint and access key from your resource in the Azure portal
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-          
+
           HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
           TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 
@@ -69,7 +76,7 @@ The following code example shows how to create a service client object with mana
      public SendSmsResponse sendSms() {
           // You can find your endpoint and access key from your resource in the Azure portal
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-    
+
           HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
           TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 

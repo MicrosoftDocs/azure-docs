@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 03/25/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -187,11 +187,9 @@ The volume size reported by the SMB client is the maximum size the Azure NetApp 
 
 As a best practice, set the maximum tolerance for computer clock synchronization to five minutes. For more information, see [Maximum tolerance for computer clock synchronization](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
 
-<!--
-### Does Azure NetApp Files support LDAP signing? 
+### How can I obtain the IP address of an SMB volume via the portal?
 
-Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
---> 
+Use the **JSON View** link on the volume overview pane, and look for the **startIp** identifier under **properties** -> **mountTargets**.
 
 ## Capacity management FAQs
 
@@ -205,9 +203,9 @@ No. Azure NetApp Files is not supported by Azure Storage Explorer.
 
 ### How do I determine if a directory is approaching the limit size?
 
-You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).
+You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).   
 
-For a 320 MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  
+For a 320-MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  This number translates to approximately 4 million files maximum for a 320-MB directory. However, the actual number of maximum files might be lower, depending on factors such as the number of files containing non-ASCII characters in the directory. As such, you should use the `stat` command as follows to determine whether your directory is approaching its limit.  
 
 Examples:
 

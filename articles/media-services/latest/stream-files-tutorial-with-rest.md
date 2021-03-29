@@ -10,7 +10,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/12/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ---
 
@@ -254,7 +254,7 @@ In this example, the job's input is based on an HTTPS URL ("https:\//nimbuscdn-n
         }
         ```
 
-The job takes some time to complete and when it does you want to be notified. To see the progress of the job, we recommend using Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
+The job takes some time to complete and when it does you want to be notified. To see the progress of the job, we recommend using Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](monitoring/job-state-events-cli-how-to.md).
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 

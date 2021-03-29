@@ -12,6 +12,8 @@
     href: device-update-simulator.md
   - name: Package update on Ubuntu Server 18.04 x64
     href: device-update-ubuntu-agent.md
+  - name: Device Update for Azure Real-time-operating-system
+    href: device-update-azure-real-time-operating-system.md
 - name: Concepts
   items:
   - name: Device update account and instance
@@ -55,8 +57,6 @@
     href: import-update.md
   - name: Create a device update group
     href: create-update-group.md
-  - name: Deploy a device update
-    href: deploy-update.md
   - name: Deploy a device update
     href: deploy-update.md
   - name: Single level Microsoft Connected Cache

@@ -2,7 +2,7 @@
 title: Tutorial - Deploy and configure VMware HCX
 description: Learn how to deploy and configure a VMware HCX solution for your Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 03/13/2021
 ---
 
 # Deploy and configure VMware HCX
@@ -152,7 +152,7 @@ After you deploy the VMware HCX Connector OVA on-premises and start the applianc
    > [!NOTE]
    > Typically, it's the same as your vCenter FQDN or IP address.
 
-1. Verify that the information entered is correct, and select **Restart**.
+1. Verify that the information entered is correct and select **Restart**.
     
    > [!NOTE]
    > You'll experience a delay after restarting before being prompted for the next step.
@@ -178,7 +178,7 @@ You can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution wi
 
 1. Under **Infrastructure**, select **Site Pairing**, and then select the **Connect To Remote Site** option (in the middle of the screen). 
 
-1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9`, the Azure VMware Solution cloudadmin@vsphere.local username, and the password. Then select **Connect**.
+1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9`, the Azure VMware Solution cloudadmin\@vsphere.local username, and the password. Then select **Connect**.
 
    > [!NOTE]
    > To successfully establish a site pair:
@@ -260,7 +260,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
 1. From **Select Distributed Switches for Network Extensions**, select the switches that contain the virtual machines to be migrated to Azure VMware Solution on a layer-2 extended network. Then select **Continue**.
 
    > [!NOTE]
-   > If you are not migrating virtual machines on layer-2 extended networks, you can skip this step.
+   > If you are not migrating virtual machines on layer-2 (L2) extended networks, you can skip this step.
    
    :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Screenshot that shows the selection of distributed virtual switches and the Continue button." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
@@ -371,3 +371,4 @@ For more information on using HCX, go to the VMware technical documentation:
 * [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html)
 * [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
 * [HCX required ports](https://ports.vmware.com/home/VMware-HCX)
+* [Set up an HCX proxy server before you approve the license key](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-920242B3-71A3-4B24-9ACF-B20345244AB2.html?hWord=N4IghgNiBcIA4CcD2APAngAgBIGEAaIAvkA)

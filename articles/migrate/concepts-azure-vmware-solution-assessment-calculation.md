@@ -12,7 +12,7 @@ ms.date: 06/25/2020
 
 [Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads. It also tracks your private and public cloud instances to Azure. The hub offers Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
-Server Assessment is a tool in Azure Migrate that assesses on-premises servers for migration to Azure IaaS virtual machines and Azure VMware Solution (AVS). This article provides information about how Azure VMware Solution (AVS) assessments are calculated.
+Discovery and assessment tool in Azure Migrate assesses on-premises servers for migration to Azure virtual machines and Azure VMware Solution (AVS). This article provides information about how Azure VMware Solution (AVS) assessments are calculated.
 
 > [!NOTE]
 > Azure VMware Solution (AVS) assessment can be created for VMware VMs only.
@@ -21,10 +21,11 @@ Server Assessment is a tool in Azure Migrate that assesses on-premises servers f
 
 Assessments you create with Azure Migrate are a point-in-time snapshot of data. There are two types of assessments you can create using Azure Migrate:
 
-| **Assessment Type** | **Details** |
-| - | - |
-| **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. You can assess on-premises servers running in your[VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type.[Learn more](concepts-assessment-calculation.md) |
-| **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises VMware VM's or servers to[ Azure VMware Solution (AVS)](../azure-vmware/introduction.md).  You can assess your on-premises servers running in your [VMware](how-to-set-up-appliance-vmware.md) environment for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md) |
+**Assessment Type** | **Details**
+--- | --- 
+**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. You can assess your on-premises servers in [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
+**Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Azure VMware Solution (AVS) assessment provides two sizing criteria options:
 
@@ -37,18 +38,18 @@ Azure VMware Solution (AVS) assessment provides two sizing criteria options:
 
 There are a couple of ways to run an assessment.
 
-- Assess machines by using server metadata collected by a lightweight Azure Migrate appliance. The appliance discovers on-premises machines. It then sends machine metadata and performance data to Azure Migrate. This allows for more precision.
-- Assess machines by using server metadata that's imported in a comma-separated values (CSV) format.
+- Assess servers by using server metadata collected by a lightweight Azure Migrate appliance. The appliance discovers on-premises servers. It then sends server metadata and performance data to Azure Migrate. This allows for more precision.
+- Assess servers by using server metadata that's imported in a comma-separated values (CSV) format.
 
 ## How do I assess with the appliance?
 
 If you're deploying an Azure Migrate appliance to discover on-premises servers, do the following steps:
 
 1. Set up Azure and your on-premises environment to work with Azure Migrate.
-2. For your first assessment, create an Azure project and add the Server Assessment tool to it.
-3. Deploy a lightweight Azure Migrate appliance. The appliance continuously discovers on-premises machines and sends machine metadata and performance data to Azure Migrate. Deploy the appliance as a VM. You don't need to install anything on machines that you want to assess.
+2. For your first assessment, create an Azure project and add the Discovery and assessment tool to it.
+3. Deploy a lightweight Azure Migrate appliance. The appliance continuously discovers on-premises servers and sends server metadata and performance data to Azure Migrate. Deploy the appliance as a VM. You don't need to install anything on servers that you want to assess.
 
-After the appliance begins machine discovery, you can gather machines you want to assess into a group and run an assessment for the group with assessment type **Azure VMware Solution (AVS)**.
+After the appliance begins server discovery, you can gather servers you want to assess into a group and run an assessment for the group with assessment type **Azure VMware Solution (AVS)**.
 
 Create your first Azure VMware Solution (AVS) assessment by following the steps [here](how-to-create-azure-vmware-solution-assessment.md).
 
@@ -57,7 +58,7 @@ Create your first Azure VMware Solution (AVS) assessment by following the steps 
 If you're assessing servers by using a CSV file, you don't need an appliance. Instead, do the following steps:
 
 1. Set up Azure to work with Azure Migrate.
-2. For your first assessment, create an Azure project and add the Server Assessment tool to it.
+2. For your first assessment, create an Azure project and add the Discovery and assessment tool to it.
 3. Download a CSV template and add server data to it.
 4. Import the template into Azure Migrate.
 5. Discover servers added with the import, gather them into a group, and run an assessment for the group with assessment type**Azure VMware Solution (AVS)**.
@@ -92,7 +93,7 @@ The following performance data is collected but not used in sizing recommendatio
 
 ## How are AVS assessments calculated?
 
-AVS assessment uses the on-premises machines' metadata and performance data to calculate assessments. If you deploy the Azure Migrate appliance, assessment uses the data the appliance collects. But if you run an assessment imported using a CSV file, you provide the metadata for the calculation.
+AVS assessment uses the on-premises servers' metadata and performance data to calculate assessments. If you deploy the Azure Migrate appliance, assessment uses the data the appliance collects. But if you run an assessment imported using a CSV file, you provide the metadata for the calculation.
 
 Calculations occur in these three stages:
 
@@ -100,7 +101,7 @@ Calculations occur in these three stages:
 2. **Calculate number of AVS nodes and Utilization across nodes**: Estimated number of AVS nodes required to run the VMware VMs and projected CPU, memory, and storage utilization across all nodes.
 3. **Monthly cost estimation**: The estimated monthly costs for all Azure VMware Solution (AVS) nodes running the on-premises VMs.
 
-Calculations are in the preceding order. A machine server moves to a later stage only if it passes the previous one. For example, if a server fails the AVS readiness stage, it's marked as unsuitable for Azure. Sizing and cost calculations aren't done for that server
+Calculations are in the preceding order. A server moves to a later stage only if it passes the previous one. For example, if a server fails the AVS readiness stage, it's marked as unsuitable for Azure. Sizing and cost calculations aren't done for that server
 
 ## What's in an Azure VMware Solution (AVS) assessment?
 
@@ -114,9 +115,9 @@ Here's what's included in an AVS assessment:
 | **Node type** | Specifies the [AVS Node type](../azure-vmware/concepts-private-clouds-clusters.md) used to be used in Azure. The default node type is AV36. More node types might be available in future.  Azure Migrate will recommend a required number of nodes for the VMs to be migrated to AVS. |
 | **FTT Setting, RAID Level** | Specifies the valid combination of Failures to Tolerate and Raid combinations. The selected FTT option combined with RAID level and the on-premises VM disk requirement will determine the total vSAN storage required in AVS. Total available storage after calculations also includes a) space reserved for management objects such as vCenter and b) 25% storage slack required for vSAN operations. |
 | **Sizing criterion** | Sets the criteria to be used to determine memory, cpu and storage requirements for AVS nodes. You can opt for*performance-based* sizing or *as on-premises* without considering the performance history. To simply lift and shift choose as on-premises. To obtain usage based sizing choose performance based. |
-| **Performance history** | Sets the duration to consider in evaluating the performance data of machines. This property is applicable only when the sizing criteria is*performance-based*. |
+| **Performance history** | Sets the duration to consider in evaluating the performance data of servers. This property is applicable only when the sizing criteria is*performance-based*. |
 | **Percentile utilization** | Specifies the percentile value of the performance sample set to be considered for right-sizing. This property is applicable only when the sizing is performance-based. |
-| **Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory and disk). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage. For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. |
+| **Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of server utilization data for VMs (CPU, memory and disk). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage. For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. |
 | **Offer** | Displays the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in. Azure Migrate estimates the cost accordingly. |
 | **Currency** | Shows the billing currency for your account. |
 | **Discount (%)** | Lists any subscription-specific discount you receive on top of the Azure offer. The default setting is 0%. |
@@ -127,39 +128,39 @@ Here's what's included in an AVS assessment:
 
 ## Azure VMware Solution (AVS) suitability analysis
 
-AVS assessments assess each on-premises VMs for its suitability for AVS by reviewing the machine properties. It also assigns each assessed machine to one of the following suitability categories:
+AVS assessments assess each on-premises VMs for its suitability for AVS by reviewing the server properties. It also assigns each assessed server to one of the following suitability categories:
 
-- **Ready for AVS**: The machine can be migrated as-is to Azure (AVS) without any changes. It will start in AVS with full AVS support.
+- **Ready for AVS**: The server can be migrated as-is to Azure (AVS) without any changes. It will start in AVS with full AVS support.
 - **Ready with conditions**: The VM might have compatibility issues with the current vSphere version as well as requiring possibly VMware tools and or other settings before full functionality from the VM can be achieved in AVS.
 - **Not ready for AVS**: The VM will not start in AVS. For example, if the on-premises VMware VM has an external device attached such as a cd-rom the VMware VMotion operation will fail (if using VMware VMotion).
-- **Readiness unknown**: Azure Migrate couldn't determine the readiness of the machine because of insufficient metadata collected from the on-premises environment.
+- **Readiness unknown**: Azure Migrate couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
 
-The assessment reviews the machine properties to determine the Azure readiness of the on-premises machine.
+The assessment reviews the server properties to determine the Azure readiness of the on-premises server.
 
-### Machine properties
+### Server properties
 
 The assessment reviews the following property of the on-premises VM to determine whether it can run on Azure VMware Solution (AVS).
 
 | **Property** | **Details** | **AVS readiness status** |
 | - | - | - |
-| **Internet Protocol** | Azure currently does not support end to end IPv6 internet addressing. Contact your local MSFT AVS GBB team for guidance on remediation guidance if your machine is detected with IPv6. | Conditionally Ready Internet Protocol |
+| **Internet Protocol** | Azure currently does not support end to end IPv6 internet addressing. Contact your local MSFT AVS GBB team for guidance on remediation guidance if your server is detected with IPv6. | Conditionally Ready Internet Protocol |
 
 ### Guest operating system
 
 Currently, AVS assessments do not review operating system as part of the suitability analysis. All operating systems running on on-premises VMs are likely to run on Azure VMware Solution (AVS).
 
-Along with VM properties, the assessment looks at the guest operating system of the machines to determine whether it can run on Azure.
+Along with VM properties, the assessment looks at the guest operating system of the servers to determine whether it can run on Azure.
 
 ## Sizing
 
-After a machine is marked as ready for AVS, AVS Assessment makes node sizing recommendations, which involve identifying the appropriate on-premises VM requirements and finding the total number of AVS nodes required. These recommendations vary, depending on the assessment properties specified.
+After a server is marked as ready for AVS, AVS Assessment makes node sizing recommendations, which involve identifying the appropriate on-premises VM requirements and finding the total number of AVS nodes required. These recommendations vary, depending on the assessment properties specified.
 
-- If the assessment uses*performance-based sizing*, Azure Migrate considers the performance history of the machine to make the appropriate sizing recommendation for AVS. This method is especially helpful if you've over-allocated the on-premises VM, but utilization is low and you want to right-size the VM in AVS to save costs. This method will help you optimize the sizes during migration.
-- If you don't want to consider the performance data for VM sizing and want to take the on-premises machines as-is to AVS, you can set the sizing criteria to* as on-premises*. Then, the assessment will size the VMs based on the on-premises configuration without considering the utilization data.
+- If the assessment uses*performance-based sizing*, Azure Migrate considers the performance history of the server to make the appropriate sizing recommendation for AVS. This method is especially helpful if you've over-allocated the on-premises VM, but utilization is low and you want to right-size the VM in AVS to save costs. This method will help you optimize the sizes during migration.
+- If you don't want to consider the performance data for VM sizing and want to take the on-premises servers as-is to AVS, you can set the sizing criteria to* as on-premises*. Then, the assessment will size the VMs based on the on-premises configuration without considering the utilization data.
 
 ### FTT Sizing Parameters
 
-The storage engine used in AVS is vSAN. vSAN storage policies define storage requirements for your virtual machines. These policies guarantee the required level of service for your VMs because they determine how storage is allocated to the VM. The available FTT-Raid Combinations are:
+The storage engine used in AVS is vSAN. vSAN storage policies define storage requirements for your servers. These policies guarantee the required level of service for your VMs because they determine how storage is allocated to the VM. The available FTT-Raid Combinations are:
 
 | **Failures to Tolerate (FTT)** | **RAID Configuration** | **Minimum Hosts Required** | **Sizing consideration** |
 | - | - | - | - |
@@ -276,8 +277,8 @@ As the pricing for Azure VMware Solution (AVS) is per node, the total cost does 
 
 In the Azure readiness report for Azure VMware Solution (AVS) assessment, you can see the following suggested tools:
 
-- **VMware HCX or Enterprise**: For VMware machines, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
-- **Unknown**: For machines imported via a CSV file, the default migration tool is unknown. Though for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution.
+- **VMware HCX or Enterprise**: For VMware servers, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+- **Unknown**: For servers imported via a CSV file, the default migration tool is unknown. Though for VMware servers, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution.
 
 ## Next steps
 

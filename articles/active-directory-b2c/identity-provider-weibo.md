@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -48,7 +48,7 @@ To enable sign-in for users with a Weibo account in Azure Active Directory B2C (
 1. Select **保存以上信息** (save).
 1. Select **高级信息** (advanced information).
 1. Select **编辑** (edit) next to the field for OAuth2.0 **授权设置** (redirect URL).
-1. Enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` for OAuth2.0 **授权设置** (redirect URL). For example, if your tenant name is contoso, set the URL to be `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+1. For the OAuth2.0 **授权设置** (redirect URL), enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain.
 1. Select **提交** (submit).
 
 ::: zone pivot="b2c-user-flow"

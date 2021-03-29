@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/15/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -54,7 +54,7 @@ Perform the following steps to prepare the drives.
 
    * If you have added data to a drive that was encrypted by WAImportExport tool, use the following command to unlock the drive:
 
-        `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`
+        `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`
 
 5. Open a PowerShell or command-line window with administrative privileges. To change directory to the unzipped folder, run the following command:
 
