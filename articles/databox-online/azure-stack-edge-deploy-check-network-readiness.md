@@ -155,7 +155,7 @@ Invoke-AzsNetworkValidation Completed
 
 ## Sample output: Failed test
 
-If a test fails, the Network Readiness Checker returns information to help you resolve the isssue, as shown in the sample output below. 
+If a test fails, the Network Readiness Checker returns information to help you resolve the issue, as shown in the sample output below. 
 
 ```powershell
    TBD
