@@ -1,2 +1,0 @@
-{:allowed-branchname-matches ["^master$" "^release..*"]
- :allowed-filename-matches ["articles" "includes"]}
