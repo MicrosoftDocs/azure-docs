@@ -16,7 +16,7 @@ Cache usage models let you customize how your Azure HPC Cache stores files to sp
 
 File caching is how Azure HPC Cache expedites client requests. It uses these basic practices:
 
-* **Read caching** - Azure HPC Cache keeps a copy of files that clients request from the storage system. The next time a client requests the same file, HPC cache can provide the version in its cache instead of having to fetch it from the back-end storage system again.
+* **Read caching** - Azure HPC Cache keeps a copy of files that clients request from the storage system. The next time a client requests the same file, HPC Cache can provide the version in its cache instead of having to fetch it from the back-end storage system again.
 
 * **Write caching** - Optionally, Azure HPC Cache can store a copy of any changed files sent from the client machines. If multiple clients make changes to the same file over a short period, the cache can collect all the changes in the cache instead of having to write each change individually to the back-end storage system.
 
@@ -36,7 +36,7 @@ The usage models built into Azure HPC Cache have different values for these sett
 
 You must choose a usage model for each NFS-mounted storage target that you use. Azure Blob storage targets have a built-in usage model that can't be customized.
 
-HPC cache usage models let you choose how to balance fast response with the risk of getting stale data. If you want to optimize speed for reading files, you might not care whether the files in the cache are checked against the back-end files. On the other hand, if you want to make sure your files are always up to date with the remote storage, choose a model that checks frequently.
+HPC Cache usage models let you choose how to balance fast response with the risk of getting stale data. If you want to optimize speed for reading files, you might not care whether the files in the cache are checked against the back-end files. On the other hand, if you want to make sure your files are always up to date with the remote storage, choose a model that checks frequently.
 
 These are the usage model options:
 
@@ -72,6 +72,18 @@ This table summarizes the usage model differences:
 [!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
 
 If you have questions about the best usage model for your Azure HPC Cache workflow, talk to your Azure representative or open a support request for help.
+
+## Know when to remount clients
+
+If you change a storage target from one usage model to another, you might need to remount its clients to make sure that its file lock state is correct. This is needed only if your client application uses the NFS Network Lock Manager (NLM) protocol.
+
+This step is needed because HPC Cache sits between clients and the storage system and acts as a middleman for read and write requests. In some situations, the cache itself acknowledges the NLM request and returns a value to the client.
+
+The small risk of conflict happens when you change from an NLM lock that is managed by HPC Cache to a lock managed by the back-end storage system. HPC cache can't transfer its current NLM state to the other storage system, so the client's lock status is no longer accurate.
+
+**In Azure HPC Cache, if you switch a storage target from the usage model *Read-heavy, infrequent writes* to any other usage model, you should remount all of the storage target's clients.**
+
+Also, if your clients send a NLM request when the usage model does not support it, they will receive an error. You can disable NLM when clients mount the cluster by using the option ``-o nolock`` in the ``mount`` command.
 
 ## Next steps
 

@@ -47,13 +47,15 @@ Your cache uses the Azure-based time server time.microsoft.com by default. If yo
 ## Set a custom DNS configuration
 
 > [!CAUTION]
-> Do not change your cache DNS configuration if you don't need to. Configuration mistakes can have dire consequences. If your configuration can't resolve Azure service names, the HPC cache instance will become permanently unreachable.
+> Do not change your cache DNS configuration if you don't need to. Configuration mistakes can have dire consequences. If your configuration can't resolve Azure service names, the HPC Cache instance will become permanently unreachable.
+>
+> Check with your Azure representatives before attempting to set up a custom DNS configuration.
 
 Azure HPC Cache is automatically configured to use the secure and convenient Azure DNS system. However, a few unusual configurations require the cache to use a separate, on-premises DNS system instead of the Azure system. The **DNS configuration** section of the **Networking** page is used to specify this kind of system.
 
 Check with your Azure representatives or consult Microsoft Service and Support to determine whether or not you need to use a custom cache DNS configuration.
 
-If you configure your own on-premises DNS system for the Azure HPC Cache to use, you must make sure that the configuration can resolve Azure endpoint names for Azure services. You must configure your custom DNS environment to forward certain name resolution requests to Azure DNS or to another server as needed.
+If you configure your own on-premises DNS system for the Azure HPC Cache to use, you must make sure that your local DNS server is able to directly resolve Azure service endpoint names. HPC Cache will not function if your DNS server is restricted from public name resolution.
 
 Check that your DNS configuration can successfully resolve these items before using it for an Azure HPC Cache:
 

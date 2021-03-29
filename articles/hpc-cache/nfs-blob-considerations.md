@@ -4,7 +4,7 @@ description: Describes procedures and limitations when using ADLS-NFS blob stora
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 03/29/2021
 ms.author: v-erkel
 ---
 
@@ -27,7 +27,7 @@ You should also read the NFS blob documentation, especially these sections that 
 
 ## Understand consistency requirements
 
-HPC cache requires strong consistency for ADLS-NFS storage targets. By default, NFS-enabled blob storage does not strictly update file metadata, which prevents HPC cache from accurately comparing file versions.
+HPC Cache requires strong consistency for ADLS-NFS storage targets. By default, NFS-enabled blob storage does not strictly update file metadata, which prevents HPC Cache from accurately comparing file versions.
 
 To work around this difference, Azure HPC Cache automatically disables NFS attribute caching on any NFS-enabled blob container used as a storage target.
 
@@ -35,11 +35,11 @@ This setting persists for the lifetime of the container, even if you remove it f
 
 ## Preload data with NFS protocol
 
-On an NFS-enabled blob container, *a file can only be edited by the same protocol used when it was created*. That is, if you use the Azure REST API to populate a container, you cannot use NFS to update those files. This means that Azure HPC Cache can't edit the files directly, since HPC cache only uses NFS.
+On an NFS-enabled blob container, *a file can only be edited by the same protocol used when it was created*. That is, if you use the Azure REST API to populate a container, you cannot use NFS to update those files. Because Azure HPC Cache only uses NFS, it can't edit any files that were created with the Azure REST API.
 
 It's not a problem for the cache if your container is empty, or if the files were created by using NFS.
 
-However, if the files in your container were created with Azure Blob's REST API instead of NFS, Azure HPC Cache is restricted to these actions on the original files:
+If the files in your container were created with Azure Blob's REST API instead of NFS, Azure HPC Cache is restricted to these actions on the original files:
 
 * List the file in a directory.
 * Read the file (and hold it in the cache for subsequent reads).
@@ -101,7 +101,21 @@ A read caching workflow can still involve file changes, as long as these are not
 
 -->
 
-## Streamline writes to NFS-enabled containers with HPC cache
+## Recognize Network Lock Manager (NLM) limitations
+
+NFS-enabled blob containers do not support Network Lock Manager (NLM), which is a commonly used NFS protocol to protect files from conflicts.
+
+If your NFS workflow was originally written for hardware storage systems, your client applications might include NLM requests. To work around this limitation when moving your process to NFS-enabled blob storage, make sure that your clients disable NLM when they mount the cache.
+
+To disable NLM, use the option ``-o nolock`` in your clients' ``mount`` command. This option prevents the clients from requesting NLM locks and receiving errors in response.
+
+In a few situations, Azure HPC Cache itself acknowledges NLM requests from the client. The cache usage model named **Read heavy, infrequent writes** acknowledges NLM requests on behalf of its back-end storage. This system prevents errors on the client, but it does not actually create a lock on the ADLS-NFS container.
+
+If you switch an ADLS-NFS storage target's usage model to or from **Read heavy, infrequent writes**, you must remount all clients using the ``nolock`` option.
+
+More information about NLM, HPC Cache, and usage models is included in [Understand cache usage models](cache-usage-models.md#know-when-to-remount-clients).
+
+## Streamline writes to NFS-enabled containers with HPC Cache
 
 Azure HPC Cache can help improve performance in a workload that includes writing changes to an ADLS-NFS storage target.
 
