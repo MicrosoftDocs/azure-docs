@@ -25,18 +25,18 @@ The supported security partners are **Zscaler**, **[Check Point](check-point-ove
 
 You can use the security partners to filter Internet traffic in following scenarios:
 
-- Virtual Network (VNet) to Internet
+- Virtual Network (VNet)-to-Internet
 
    Use advanced user-aware Internet protection for your cloud workloads running on Azure.
 
-- Branch to Internet
+- Branch-to-Internet
 
    Use your Azure connectivity and global distribution to easily add third-party NSaaS filtering for branch to Internet scenarios. You can build your global transit network and security edge using Azure Virtual WAN.
 
 The following scenarios are supported:
 - Two security providers in the hub
 
-   VNet/Branch to Internet via a security partner provider and the other traffic (spoke-to-spoke, spoke-to-branch, branch-to-spoke) via Azure Firewall.
+   VNet/Branch-to-Internet via a security partner provider and the other traffic (spoke-to-spoke, spoke-to-branch, branch-to-spoke) via Azure Firewall.
 - Single provider in the hub
 
    - All traffic (spoke-to-spoke, spoke-to-branch, branch-to-spoke, VNet/Branch-to-Internet) secured by Azure Firewall
