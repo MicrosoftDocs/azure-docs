@@ -48,7 +48,7 @@ The following snapshot shows volume capacity reporting in Linux:
 
 ![Screenshot that shows volume capacity reporting in Linux.](../media/azure-netapp-files/monitor-volume-properties-linux-command.png) 
 
-The *available space* is accurate using the `dir` command. However, the *consumed/used space* will be an estimate when snapshots are generated on the volume. The [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) counts towards the total consumed space on the volume. To get the absolute volume consumption, including the capacity used by snapshots, use the [Azure NetApp Metrics](azure-netapp-files-metrics.md#volumes) in the Azure portal. 
+The *available space* is accurate using the `df` command. However, the *consumed/used space* will be an estimate when snapshots are generated on the volume. The [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) counts towards the total consumed space on the volume. To get the absolute volume consumption, including the capacity used by snapshots, use the [Azure NetApp Metrics](azure-netapp-files-metrics.md#volumes) in the Azure portal. 
 
 ## Using Azure portal
 Azure NetApp Files leverages the standard [Azure Monitor](/azure/azure-monitor/overview) functionality. As such, you can use Azure Monitor to monitor Azure NetApp Files volumes.  
