@@ -12,7 +12,7 @@ adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
 ---
 
-<!--
+<!-- NOTES:
 
 I'm a .NET developer who wants to deploy my web app to App Service. I may develop apps with
 Visual Studio, Visual Studio for Mac, Visual Studio Code, or the .NET SDK/CLI. This article
@@ -441,13 +441,13 @@ az webapp up --sku F1 --name <app-name> --os-type <os>
 - Replace `<os>` with either `linux` or `windows`. You must use `windows` when targeting *ASP.NET Framework 4.8*.
 - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
 
-The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan and hosting app, configuring logging, then performing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
+The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan and hosting app, configuring logging, then performing ZIP deployment. It then outputs a message with the app's URL:
 
-Browse to the deployed application using your web browser.
-
-```bash
-http://<app_name>.azurewebsites.net
+```azurecli
+You can launch the app at http://<app-name>.azurewebsites.net
 ```
+
+Open a web browser and navigate to the URL:
 
 ### [.NET Core 3.1](#tab/netcore31)
 
@@ -477,7 +477,7 @@ Follow these steps to update and redeploy your web app:
 
 :::zone target="docs" pivot="development-environment-vs"
 
-1. In **Solution Explorer**, under your project, open **Index.cshtml**.
+1. In **Solution Explorer**, under your project, open *Index.cshtml*.
 1. Replace the first `<div>` element with the following code:
 
     ```razor
@@ -518,7 +518,7 @@ Follow these steps to update and redeploy your web app:
 
 :::zone target="docs" pivot="development-environment-vscode"
 
-1. Open **Index.cshtml**.
+1. Open *Index.cshtml*.
 1. Replace the first `<div>` element with the following code:
 
     ```razor
