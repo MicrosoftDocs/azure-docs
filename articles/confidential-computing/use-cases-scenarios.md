@@ -1,12 +1,13 @@
 ---
- title: Common Azure confidential computing scenarios and use cases
- description: Understand how to use confidential computing in your scenario.
- services: virtual-machines
- author: JBCook
- ms.service: virtual-machines
- ms.topic: overview
- ms.date: 9/22/2020
- ms.author: jencook
+title: Common Azure confidential computing scenarios and use cases
+description: Understand how to use confidential computing in your scenario.
+services: virtual-machines
+author: JBCook
+ms.service: virtual-machines
+ms.subservice: confidential-computing
+ms.topic: overview
+ms.date: 9/22/2020
+ms.author: jencook
 ---
 
 # Common scenarios for Azure confidential computing

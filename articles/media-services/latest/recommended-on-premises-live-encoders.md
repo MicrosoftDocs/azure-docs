@@ -1,6 +1,5 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Live streaming encoders recommended by Media Services -  Azure | Microsoft Docs 
+title: Live streaming encoders recommended by Media Services
 description: Learn about live streaming on-premises encoders recommended by Media Services
 services: media-services
 keywords: encoding;encoders;media
@@ -9,14 +8,11 @@ manager: johndeu
 ms.author: johndeu
 ms.date: 11/10/2020
 ms.topic: conceptual
-# Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
-
-# Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
 # ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+# ms.tgt_pltfrm: 
+# ms.reviewer: 
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
  

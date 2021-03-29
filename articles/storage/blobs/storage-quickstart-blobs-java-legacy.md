@@ -5,7 +5,7 @@ author: mhopkins-msft
 
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -197,5 +197,5 @@ sourceFile.deleteOnExit();
 In this article, you learned how to transfer files between a local disk and Azure Blob storage using Java. To learn more about working with Java, continue to our GitHub source code repository.
 
 > [!div class="nextstepaction"]
-> [Java API Reference](/java/api/overview/azure/storage?view=azure-java-legacy)
+> [Java API Reference](/java/api/overview/azure/storage?view=azure-java-legacy&preserve-view=true)
 > [Code Samples for Java](../common/storage-samples-java.md)

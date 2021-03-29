@@ -173,10 +173,6 @@ After the new sync group members are created and deployed, **Configure sync grou
 
 ## FAQ
 
-**How frequently can Data Sync synchronize my data?**
-
-The minimal duration between synchronizations is five minutes.
-
 **Does SQL Data Sync fully create tables?**
 
 If sync schema tables are missing in the destination database, SQL Data Sync creates them with the columns you selected. However, this doesn't result in a full-fidelity schema for the following reasons:

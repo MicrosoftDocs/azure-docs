@@ -15,8 +15,6 @@ adobe-target-content: ./quickstart-python-1
 
 In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
 
-For **definitions of common terms**, see [Azure Terminology In Brief](/azure/developer/python/cloud-azure-terminology?toc=/azure/app-service/toc.json).
-
 > [!TIP]
 > If you prefer using Visual Studio Code instead, follow our **[Visual Studio Code App Service quickstart](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
 
@@ -227,7 +225,7 @@ Having issues? Refer first to the [Troubleshooting guide](configure-language-pyt
 
 You can access the console logs generated from inside the app and the container in which it runs. Logs include any output generated using `print` statements.
 
-To stream logs, run the [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az_webapp_log_tail) command:
+To stream logs, run the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command:
 
 ```azurecli
 az webapp log tail
@@ -241,7 +239,7 @@ You can also inspect the log files from the browser at `https://<app-name>.scm.a
 
 To stop log streaming at any time, press **Ctrl**+**C** in the terminal.
 
-Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Manage the Azure app
 

@@ -1,7 +1,7 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed, get a list of the properties that changed, and evaluate the diffs.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: how-to
 ---
 # Get resource changes
@@ -27,7 +27,7 @@ Change detection and details are valuable for the following example scenarios:
 This article shows how to gather this information through Resource Graph's SDK. To see this
 information in the Azure portal, see Azure Policy's
 [Change history](../../policy/how-to/determine-non-compliance.md#change-history) or Azure Activity
-Log [Change history](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). For
+Log [Change history](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). For
 details about changes to your applications from the infrastructure layer all the way to application
 deployment, see
 [Use Application Change Analysis (preview)](../../../azure-monitor/app/change-analysis.md) in Azure

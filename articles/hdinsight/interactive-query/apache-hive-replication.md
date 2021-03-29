@@ -1,9 +1,6 @@
 ---
 title: How to use Apache Hive replication in Azure HDInsight clusters
 description: Learn how to use Hive replication in HDInsight clusters to replicate the Hive metastore and the Azure Data Lake Storage Gen 2 data lake.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
@@ -15,9 +12,9 @@ In the context of databases and warehouses, replication is the process of duplic
 
 Hive Replication has evolved over the years with newer versions providing better functionality and being faster and less resource intensive. In this article, we discuss Hive Replication (Replv2) which is supported in both HDInsight 3.6 and HDInsight 4.0 cluster types.
 
-## Advantages of Replv2
+## Advantages of replv2
 
-[Hive ReplicationV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) or (Replv2) has the following advantages over the first version of Hive replication that used Hive [IMPORT-EXPORT](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport):
+[Hive ReplicationV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) (also called Replv2) has the following advantages over the first version of Hive replication that used Hive [IMPORT-EXPORT](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport):
 
 - Event-based incremental replication
 - Point-in-time replication  

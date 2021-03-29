@@ -1,6 +1,5 @@
 ---
 title: Filter your manifests using Dynamic Packager
-titleSuffix: Azure Media Services
 description: Learn how to create filters using Dynamic Packager to filter and selectively stream your manifests.
 services: media-services
 documentationcenter: ''

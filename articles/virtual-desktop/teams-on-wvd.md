@@ -114,7 +114,7 @@ After installing the WebSocket Service and the Teams desktop app, follow these s
 
 3. Select **Version**.
 
-      If media optimizations loaded, the banner will show you **WVD Media optimized**. If the banner shows you **WVD Media not connected**, quit the Teams app and try again.
+      If media optimizations loaded, the banner will show you **Windows Virtual Desktop Media optimized**. If the banner shows you **Windows Virtual Desktop Media not connected**, quit the Teams app and try again.
 
 4. Select your user profile image, then select **Settings**.
 
@@ -140,6 +140,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 - Teams on Windows Virtual Desktop only supports one incoming video input at a time. This means that whenever someone tries to share their screen, their screen will appear instead of the meeting leader's screen.
 - Due to WebRTC limitations, incoming and outgoing video stream resolution is limited to 720p.
 - The Teams app doesn't support HID buttons or LED controls with other devices.
+- New Meeting Experience (NME) is not currently supported in VDI environments.
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues)
 

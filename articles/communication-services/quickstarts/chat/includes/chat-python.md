@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -15,7 +15,7 @@ ms.author: mikben
 ## Prerequisites
 Before you get started, make sure to:
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Python](https://www.python.org/downloads/)
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart
 - A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
@@ -34,16 +34,17 @@ Use a text editor to create a file called **start-chat.py** in the project root 
 
 ```python
 import os
-# Add required client library components from quickstart here
+# Add required SDK components from quickstart here
 
 try:
+    print('Azure Communication Services - Chat Quickstart')
     # Quickstart code goes here
 except Exception as ex:
     print('Exception:')
     print(ex)
 ```
 
-### Install client library
+### Install SDK
 
 ```console
 
@@ -53,7 +54,7 @@ pip install azure-communication-chat
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for Python.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for Python.
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -64,15 +65,17 @@ The following classes and interfaces handle some of the major features of the Az
 
 To create a chat client, you'll use Communications Service endpoint and the `Access Token` that was generated as part of pre-requisite steps. Learn more about [User Access Tokens](../../access-tokens.md).
 
+This quickstart does not cover creating a service tier to manage tokens for your chat application, although it is recommended. See the following documentation for more detail [Chat Architecture](../../../concepts/chat/concepts.md)
+
 ```console
-pip install azure-communication-administration
+pip install azure-communication-identity
 ```
 
 ```python
-from azure.communication.chat import ChatClient, CommunicationUserCredential
+from azure.communication.chat import ChatClient, CommunicationTokenCredential
 
 endpoint = "https://<RESOURCE_NAME>.communication.azure.com"
-chat_client = ChatClient(endpoint, CommunicationUserCredential(<Access Token>))
+chat_client = ChatClient(endpoint, CommunicationTokenCredential("<Access Token>"))
 ```
 
 ## Start a chat thread
@@ -80,106 +83,191 @@ chat_client = ChatClient(endpoint, CommunicationUserCredential(<Access Token>))
 Use the `create_chat_thread` method to create a chat thread.
 
 - Use `topic` to give a thread topic; Topic can be updated after the chat thread is created using the `update_thread` function.
-- Use `members` to list the `ChatThreadMember` to be added to the chat thread, the `ChatThreadMember` takes `CommunicationUser` type as `user`, which is what you got after you
+- Use `thread_participants` to list the `ChatThreadParticipant` to be added to the chat thread, the `ChatThreadParticipant` takes `CommunicationUserIdentifier` type as `user`, which is what you got after you
 created by [Create a user](../../access-tokens.md#create-an-identity)
 
-The response `chat_thread_client` is used to perform operations on the newly created chat thread like adding members to the chat thread, send message, delete message, etc. It contains a `thread_id` property which is the unique ID of the chat thread.
+`CreateChatThreadResult` is the result returned from creating a thread, you can use it to fetch the `id` of 
+the chat thread that got created. This `id` can then be used to fetch a `ChatThreadClient` object using 
+the `get_chat_thread_client` method. `ChatThreadClient` can be used to perform other chat operations to this chat thread.
 
 ```python
-from datetime import datetime
-from azure.communication.chat import ChatThreadMember
+from azure.communication.chat import ChatThreadParticipant
 
 topic="test topic"
-thread_members=[ChatThreadMember(
-    user=user,
-    display_name='name',
-    share_history_time=datetime.utcnow()
-)]
-chat_thread_client = chat_client.create_chat_thread(topic, thread_members)
+
+create_chat_thread_result = chat_client.create_chat_thread(topic)
+chat_thread_client = chat_client.get_chat_thread_client(create_chat_thread_result.chat_thread.id)
 ```
 
 ## Get a chat thread client
-The get_chat_thread_client method returns a thread client for a thread that already exists. It can be used for performing operations on the created thread: add members, send message, etc. thread_id is the unique ID of the existing chat thread.
+The `get_chat_thread_client` method returns a thread client for a thread that already exists. It can be used for performing operations on the created thread: add participants, send message, etc. thread_id is the unique ID of the existing chat thread.
+
+`ChatThreadClient` can be used to perform other chat operations to this chat thread.
 
 ```python
-thread_id = 'id'
+thread_id = create_chat_thread_result.chat_thread.id
 chat_thread_client = chat_client.get_chat_thread_client(thread_id)
 ```
 
-## Send a message to a chat thread
 
-Use `send_message` method to send a message to a chat thread you just created, identified by threadId.
+## List all chat threads
+The `list_chat_threads` method returns a iterator of type `ChatThreadItem`. It can be used for listing all chat threads.
 
-- Use `content` to provide the chat message content;
-- Use `priority` to specify the message priority level, such as 'Normal' or 'High' ; this property can be used to have UI indicator for the recipient user in your app to bring attention to the message or execute custom business logic.
-- Use `senderDisplayName` to specify the display name of the sender;
+- Use `start_time` to specify the earliest point in time to get chat threads up to.
+- Use `results_per_page` to specify the maximum number of chat threads returned per page.
 
-The response `SendChatMessageResult` contains an "id", which is the unique ID of that message.
+An iterator of `[ChatThreadItem]` is the response returned from listing threads
 
 ```python
-from azure.communication.chat import ChatMessagePriority
+from datetime import datetime, timedelta
+
+start_time = datetime.utcnow() - timedelta(days=2)
+
+chat_threads = chat_client.list_chat_threads(results_per_page=5, start_time=start_time)
+for chat_thread_item_page in chat_threads.by_page():
+    for chat_thread_item in chat_thread_item_page:
+        print(chat_thread_item)
+        print('Chat Thread Id: ', chat_thread_item.id)
+```
+
+
+## Send a message to a chat thread
+
+Use `send_message` method to send a message to a chat thread you just created, identified by thread_id.
+
+- Use `content` to provide the chat message content;
+- Use `chat_message_type` to specify the message content type. Possible values are 'text' and 'html'; if not specified default value of 'text' is assigned.
+- Use `sender_display_name` to specify the display name of the sender;
+
+`SendChatMessageResult` is the response returned from sending a message, it contains an ID, which is the unique ID of the message.
+
+```python
+from azure.communication.chat import ChatMessageType
+
+topic = "test topic"
+create_chat_thread_result = chat_client.create_chat_thread(topic)
+thread_id = create_chat_thread_result.chat_thread.id
+chat_thread_client = chat_client.get_chat_thread_client(create_chat_thread_result.chat_thread.id)
+
 
 content='hello world'
-priority=ChatMessagePriority.NORMAL
 sender_display_name='sender name'
 
-send_message_result = chat_thread_client.send_message(content, priority=priority, sender_display_name=sender_display_name)
+# specify chat message type with pre-built enumerations
+send_message_result_w_enum = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name, chat_message_type=ChatMessageType.TEXT)
+print("Message sent: id: ", send_message_result_w_enum.id)
 ```
+
 
 ## Receive chat messages from a chat thread
 
 You can retrieve chat messages by polling the `list_messages` method at specified intervals.
 
+- Use `results_per_page` to specify the maximum number of messages to be returned per page.
+- Use `start_time` to specify the earliest point in time to get messages up to.
+
+An iterator of `[ChatMessage]` is the response returned from listing messages
+
 ```python
-chat_messages = chat_thread_client.list_messages()
+from datetime import datetime, timedelta
+
+start_time = datetime.utcnow() - timedelta(days=1)
+
+chat_messages = chat_thread_client.list_messages(results_per_page=1, start_time=start_time)
+for chat_message_page in chat_messages.by_page():
+    for chat_message in chat_message_page:
+        print("ChatMessage: Id=", chat_message.id, "; Content=", chat_message.content.message)
 ```
+
 `list_messages` returns the latest version of the message, including any edits or deletes that happened to the message using `update_message` and `delete_message`. For deleted messages `ChatMessage.deleted_on` returns a datetime value indicating when that message was deleted. For edited messages, `ChatMessage.edited_on` returns a datetime indicating when the message was edited. The original time of message creation can be accessed using `ChatMessage.created_on` which can be used for ordering the messages.
 
-`list_messages` returns different types of messages which can be identified by `ChatMessage.type`. These types are:
+`list_messages` returns different types of messages which can be identified by `ChatMessage.type`. 
 
-- `Text`: Regular chat message sent by a thread member.
+Read more about Message Types here: [Message Types](../../../concepts/chat/concepts.md#message-types).
 
-- `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
+## Send read receipt
+The `send_read_receipt` method can be used to posts a read receipt event to a thread, on behalf of a user.
 
-- `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
-
-- `ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread.
-
-For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
-
-## Add a user as member to the chat thread
-
-Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the chat thread, and add/remove other members. Before calling `add_members` method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
-
-Use `add_members` method to add thread members to the thread identified by threadId.
-
-- Use `members` to list the members to be added to the chat thread;
-- `user`, required, is the `CommunicationUser` you created by `CommunicationIdentityClient` at [create a user](../../access-tokens.md#create-an-identity)
-- `display_name`, optional, is the display name for the thread member.
-- `share_history_time`, optional, is the time from which the chat history is shared with the member. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the member was added, set it to the current date. To share partial history, set it to an intermediary date.
+- Use `message_id` to specify the ID of the latest message read by current user.
 
 ```python
-new_user = identity_client.create_user()
+content='hello world'
 
-from azure.communication.chat import ChatThreadMember
-from datetime import datetime
-member = ChatThreadMember(
-    user=new_user,
-    display_name='name',
-    share_history_time=datetime.utcnow())
-thread_members = [member]
-chat_thread_client.add_members(thread_members)
+send_message_result = chat_thread_client.send_message(content)
+chat_thread_client.send_read_receipt(message_id=send_message_result.id)
 ```
 
-## Remove user from a chat thread
 
-Similar to adding a member, you can also remove members from a thread. In order to remove, you'll need to track the IDs of the members you have added.
+## Add a user as a participant to the chat thread
 
-Use `remove_member` method to remove thread member from the thread identified by threadId.
-- `user` is the CommunicationUser to be removed from the thread.
+Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the chat thread, and add/remove other participants. Before calling `add_participants` method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
+
+One or more users can be added to the chat thread using the `add_participants` method, provided new access token and identify is available for all users.
+
+A `list(tuple(ChatThreadParticipant, CommunicationError))` is returned. When participant is successfully added,
+an empty list is expected. In case of an error encountered while adding participant, the list is populated
+with the failed participants along with the error that was encountered.
 
 ```python
-chat_thread_client.remove_member(user)
+from azure.communication.identity import CommunicationIdentityClient
+from azure.communication.chat import ChatThreadParticipant
+from datetime import datetime
+
+# create 2 users
+identity_client = CommunicationIdentityClient.from_connection_string('<connection_string>')
+new_users = [identity_client.create_user() for i in range(2)]
+
+# # conversely, you can also add an existing user to a chat thread; provided the user_id is known
+# from azure.communication.identity import CommunicationUserIdentifier
+#
+# user_id = 'some user id'
+# user_display_name = "Wilma Flinstone"
+# new_user = CommunicationUserIdentifier(user_id)
+# participant = ChatThreadParticipant(
+#     user=new_user,
+#     display_name=user_display_name,
+#     share_history_time=datetime.utcnow())
+
+participants = []
+for _user in new_users:
+  chat_thread_participant = ChatThreadParticipant(
+    user=_user,
+    display_name='Fred Flinstone',
+    share_history_time=datetime.utcnow()
+  ) 
+  participants.append(chat_thread_participant) 
+
+response = chat_thread_client.add_participants(participants)
+
+def decide_to_retry(error, **kwargs):
+    """
+    Insert some custom logic to decide if retry is applicable based on error
+    """
+    return True
+
+# verify if all users has been successfully added or not
+# in case of partial failures, you can retry to add all the failed participants 
+retry = [p for p, e in response if decide_to_retry(e)]
+if retry:
+    chat_thread_client.add_participants(retry)
+```
+
+
+## List thread participants in a chat thread
+
+Similar to adding a participant, you can also list participants from a thread.
+
+Use `list_participants` to retrieve the participants of the thread.
+- Use `results_per_page`, optional, The maximum number of participants to be returned per page.
+- Use `skip`, optional, to skips participants up to a specified position in response.
+
+An iterator of `[ChatThreadParticipant]` is the response returned from listing participants
+
+```python
+chat_thread_participants = chat_thread_client.list_participants()
+for chat_thread_participant_page in chat_thread_participants.by_page():
+    for chat_thread_participant in chat_thread_participant_page:
+        print("ChatThreadParticipant: ", chat_thread_participant)
 ```
 
 ## Run the code

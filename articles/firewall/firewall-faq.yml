@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 01/08/2021
+  ms.date: 03/26/2021
   ms.author: victorh
     
 title: Azure Firewall FAQ
@@ -113,6 +113,7 @@ sections:
         answer: |
           Azure Firewall doesn't SNAT when the destination IP address is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
           
+          In addition, traffic processed by application rules are always SNAT-ed. If you want to see the original source IP address in your logs for FQDN traffic, you can use network rules with the destination FQDN.
       - question: Is forced tunneling/chaining to a Network Virtual Appliance supported?
         answer: |
           Forced tunneling is supported when you create a new firewall. You can't configure an existing firewall for forced tunneling. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
@@ -128,11 +129,32 @@ sections:
         answer: |
           No. NAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
           
-      - question: How do wildcards work in an application rule target FQDN?
+      - question: How do wildcards work in target URLs (preview) and target FQDNs?
         answer: |
-          Wildcards currently can only be used on the left side of the FQDN. For example, ***.contoso.com** and ***contoso.com**.
-          
-          If you configure ***.contoso.com**, it allows *anyvalue*.contoso.com, but not contoso.com (the domain apex). If you want to allow the domain apex, you must explicitly configure it as a target FQDN.
+         - **URL** (preview) - Asterisks work when placed on the right-most or left-most side. If it is on the left, it can't be part of the FQDN.
+         - **FQDN** - Asterisks work when placed on the left-most side.
+
+         Examples:
+
+
+           |Type  |Rule  |Supported?  |Positive examples  |
+           |---------|---------|---------|---------|
+           |TargetURL  |`www.contoso.com` |Yes|`www.contoso.com`<br>`www.contoso.com/`|
+           |TargetURL  |`*.contoso.com` |Yes|`www.contoso.com`<br>`any.contoso.com/`|
+           |TargetURL  |`*contoso.com`|Yes         |`example.anycontoso.com`<br>`contoso.com`|
+           |TargetURL  |`www.contoso.com/test`|Yes|`www.contoso.com/test`<br>`www.contoso.com/test/`<br>`www.contoso.com/test?with_query=1`|
+           |TargetURL  |`www.contoso.com/test/*`|Yes|`www.contoso.com/test/anything`<br>Note - `www.contoso.com/test` will **not** match (last slash)|
+           |TargetURL  |`www.contoso.*/test/*`|No|         |
+           |TargetURL  |`www.contoso.com/test?example=1`|No|         |
+           |TargetURL  |`www.contoso.*`|No|         |
+           |TargetURL  |`www.*contoso.com`|No|         |
+           |TargetURL   |`www.contoso.com:8080`|No|         |
+           |TargetURL   |`*.contoso.*`|No|         |
+           |TargetFQDN    |`www.contoso.com`|Yes|`www.contoso.com`|
+           |TargetFQDN    |`*.contoso.com`|Yes|`www.contoso.com`<br>`any.contoso.com`|
+           |TargetFQDN    |`*contoso.com`|Yes|`example.anycontoso.com`<br>`contoso.com`|
+           |TargetFQDN    |`www.contoso.*`|No|         |
+           |TargetFQDN    |`*.contoso.*`|No|         |
           
       - question: |
           What does *Provisioning state: Failed* mean?
@@ -199,7 +221,7 @@ sections:
 
       - question: What is the TCP Idle Timeout for Azure Firewall?
         answer: |
-          A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't configurable. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive?view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+          A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't configurable. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
           
       - question: Can I deploy Azure Firewall without a public IP address?
         answer: No, currently you must deploy Azure Firewall with a public IP address.

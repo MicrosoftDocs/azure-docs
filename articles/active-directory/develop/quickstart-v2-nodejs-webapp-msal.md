@@ -24,9 +24,6 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node) with the authorization code flow.
 
-> [!IMPORTANT]
-> MSAL Node [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
-
 ## Prerequisites
 
 * Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -38,7 +35,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 >
 > #### Step 1: Register your application
 >
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
@@ -48,6 +45,15 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
 > 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.  Leave the description blank and default expiration, and then select **Add**.
 > 1. Note the **Value** of the **Client Secret** for later use.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 1: Configure the application in Azure portal
+> For the code sample for this quickstart to work, you need to create a client secret and add a reply URL as **http://localhost:3000/redirect**.
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Make this change for me]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
 
 #### Step 2: Download the project
 
@@ -91,16 +97,17 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > Modify the values in the `config` section as described here:
 >
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
+>
+>    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
 > - `Enter_the_Client_Secret_Here` is the **Value** of the **Client secret** for the application you registered.
+>
+>    To retrieve or generate a new **Client secret**, under **Manage**, select **Certificates & secrets**.
 >
 > The default `authority` value represents the main (global) Azure cloud:
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
 > ```
->
-> > [!TIP]
-> > To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal. Go under **Certificates & secrets** to retrieve or generate a new **Client secret**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run

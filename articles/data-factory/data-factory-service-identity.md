@@ -1,16 +1,10 @@
 ---
 title: Managed identity for Data Factory 
 description: Learn about managed identity for Azure Data Factory. 
-services: data-factory
 author: linda33wj
-manager: shwang
-editor: ''
-
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 03/25/2021
 ms.author: jingwang
 ---
 
@@ -18,7 +12,7 @@ ms.author: jingwang
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article helps you understand what is managed identity for Data Factory (formerly known as Managed Service Identity/MSI) and how it works.
+This article helps you understand what a managed identity is for Data Factory (formerly known as Managed Service Identity/MSI) and how it works.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,8 +23,7 @@ When creating a data factory, a managed identity can be created along with facto
 Managed identity for Data Factory benefits the following features:
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case data factory managed identity is used for Azure Key Vault authentication.
-- Connectors including [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md), and [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md).
-- [Web activity](control-flow-web-activity.md).
+- Access data stores or computes using managed identity authentication, including Azure Blob storage, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, Databricks activity, Web activity, and more. Check the connector and activity articles for details.
 
 ## Generate managed identity
 
@@ -126,8 +119,8 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
         "type": "Microsoft.DataFactory/factories",
         "location": "<region>",
         "identity": {
-			"type": "SystemAssigned"
-		}
+            "type": "SystemAssigned"
+        }
     }]
 }
 ```
@@ -158,11 +151,10 @@ You can find the managed identity information from Azure portal -> your data fac
 
 - Managed Identity Object ID
 - Managed Identity Tenant
-- Managed Identity Application ID
 
 The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-When granting permission, use object ID or data factory name (as managed identity name) to find this identity.
+When granting permission, in Azure resource's Access Control (IAM) tab -> Add role assignment -> Assign access to -> select Data Factory under System assigned managed identity -> select by factory name; or in general, you can use object ID or data factory name (as managed identity name) to find this identity. If you need to get managed identity's application ID, you can use PowerShell.
 
 ### Retrieve managed identity using PowerShell
 

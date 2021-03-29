@@ -87,7 +87,7 @@ microservices_sfpkg.close()
 ```
 
 ## Azure Virtual Machine Operating System Automatic Upgrade Configuration 
-Upgrading your virtual machines is a user initiated operation, and it is recommended that you use [Virtual Machine Scale Set Automatic Operating System upgrade](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) for Azure Service Fabric clusters host patch management; Patch Orchestration Application is an alternative solution that is intended for when hosted outside of Azure, although POA can be used in Azure, with overhead of hosting POA in Azure being a common reason to prefer Virtual Machine Operating System Automatic Upgrade over POA. The following are the Compute Virtual Machine Scale Set Resource Manager template properties to enable Auto OS upgrade:
+Upgrading your virtual machines is a user initiated operation, and it is recommended that you use [Virtual Machine Scale Set Automatic Operating System upgrade](service-fabric-patch-orchestration-application.md) for Azure Service Fabric clusters host patch management; Patch Orchestration Application is an alternative solution that is intended for when hosted outside of Azure, although POA can be used in Azure, with overhead of hosting POA in Azure being a common reason to prefer Virtual Machine Operating System Automatic Upgrade over POA. The following are the Compute Virtual Machine Scale Set Resource Manager template properties to enable Auto OS upgrade:
 
 ```json
 "upgradePolicy": {

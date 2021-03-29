@@ -1,25 +1,15 @@
 ---
 title: Service overview
 description: Learn more about Defender for IoT features and services, and understand how Defender for IoT provides comprehensive IoT security.
-services: defender-for-iot
-ms.service: azure
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: overview
 ms.date: 12/09/2020
-
 ---
 
 # Welcome to Azure Defender for IoT
 
 Operational technology (OT) networks power many of the most critical aspects of our society. But many of these technologies were not designed with security in mind and can't be protected with traditional IT security controls. Meanwhile, the Internet of Things (IoT) is enabling a new wave of innovation with billions of connected devices, increasing the attack surface and risk.  
 
-Azure Defender for IoT is a unified security solution for identifying IoT/OT assets, vulnerabilities, and threats. It enables you to secure your entire IoT/OT environment, whether you need to protect existing IoT/OT devices or build security into new IoT innovations.  
+Azure Defender for IoT is a unified security solution for identifying IoT/OT devices, vulnerabilities, and threats. It enables you to secure your entire IoT/OT environment, whether you need to protect existing IoT/OT devices or build security into new IoT innovations.  
 
 Azure Defender for IoT offers two sets of capabilities to fit your environment's needs.
 
@@ -43,7 +33,7 @@ The agentless monitoring capabilities in Azure Defender for IoT give you visibil
 
 ### Automatic device discovery  
 
-Use passive, agentless network monitoring to gain a complete inventory of all your IoT/OT assets, their details, and how they communicate, with zero impact on the IoT/OT network.  
+Use passive, agentless network monitoring to gain a complete inventory of all your IoT/OT devices, their details, and how they communicate, with zero impact on the IoT/OT network.  
 
 ### Proactive visibility into risk and vulnerabilities
  

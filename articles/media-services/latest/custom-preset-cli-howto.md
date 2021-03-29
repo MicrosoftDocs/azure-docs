@@ -1,5 +1,5 @@
 ---
-title: Encode custom transform using Media Services v3 Azure CLI | Microsoft Docs
+title: Encode a custom transform CLI
 description: This topic shows how to use Azure Media Services v3 to encode a custom transform using Azure CLI.
 services: media-services
 documentationcenter: ''
@@ -12,7 +12,6 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
-
 ---
 
 # How to encode with a custom transform - Azure CLI
@@ -33,8 +32,6 @@ When creating custom presets, the following considerations apply:
 [Create a Media Services account](./create-account-howto.md).
 
 Make sure to remember the resource group name and the Media Services account name.
-
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## Define a custom preset
 

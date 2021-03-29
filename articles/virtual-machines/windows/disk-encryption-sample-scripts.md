@@ -1,9 +1,10 @@
 ---
-title: Azure Disk Encryption sample scripts
+title: Azure Disk Encryption sample scripts for Windows VMs
 description: This article is the appendix for Microsoft Azure Disk Encryption for Windows VMs.
 author: msmbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019

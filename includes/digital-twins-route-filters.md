@@ -18,10 +18,6 @@ ms.author: baanders
 | Spec version | The version of the event schema you are using | `specversion = '<version>'` | The version must be `1.0`. This indicates the CloudEvents schema version 1.0 |
 | Notification body | Reference any property in the `data` field of a notification | `$body.<property>` | See [*How-to: Understand event data*](../articles/digital-twins/how-to-interpret-event-data.md) for examples of notifications. Any property in the `data` field can be referenced using `$body`
 
-Note that you can add multiple filters to a request like this: 
-
-:::code language="json" source="~/digital-twins-docs-samples/api-requests/filter-multiple.json":::
-
 The following data types are supported as values returned by references to the data above:
 
 | Data type | Example |

@@ -1,7 +1,6 @@
 ---
 title: FAQs - Network Performance Monitor solution in Azure | Microsoft Docs
 description: This article captures the frequently asked questions about Network Performance Monitor in Azure. Network Performance Monitor (NPM) helps you monitor the performance of your networks in near real time and detect and locate network performance bottlenecks.
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
@@ -12,6 +11,9 @@ ms.date: 10/12/2018
 # Network Performance Monitor solution FAQ
 
 ![Network Performance Monitor symbol](media/network-performance-monitor-faq/npm-symbol.png)
+
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher before 29 February 2024.
 
 This article captures the frequently asked questions (FAQs) about Network Performance Monitor (NPM) in Azure
 
@@ -30,13 +32,13 @@ Listed below are the platform requirements for NPM's various capabilities:
 - NPM's ExpressRoute Monitor capability supports only Windows server (2008 SP1 or later) operating system.
 
 ### Can I use Linux machines as monitoring nodes in NPM?
-The capability to monitor networks using Linux-based nodes is now generally available. Acccess the agent [here](../../virtual-machines/extensions/oms-linux.md). Linux agents provide monitoring capability only for NPM's Performance Monitor capability, and are not available for the Service Connectivity Monitor and ExpressRoute Monitor capabilities
+The capability to monitor networks using Linux-based nodes is now generally available. Access the agent [here](../../virtual-machines/extensions/oms-linux.md). 
 
 ### What are the size requirements of the nodes to be used for monitoring by NPM?
 For running the NPM solution on node VMs to monitor networks, the nodes should have at least 500-MB memory and one core. You don't need to use separate nodes for running NPM. The solution can run on nodes that have other workloads running on it. The solution has the capability to stop the monitoring process if it uses more than 5% CPU.
 
 ### To use NPM, should I connect my nodes as Direct agent or through System Center Operations Manager?
-Both the Performance Monitor and the Service Connectivity Monitor capabilities support nodes [connected as Direct Agents](../platform/agent-windows.md) and [connected through Operations Manager](../platform/om-agents.md).
+Both the Performance Monitor and the Service Connectivity Monitor capabilities support nodes [connected as Direct Agents](../agents/agent-windows.md) and [connected through Operations Manager](../agents/om-agents.md).
 
 For ExpressRoute Monitor capability, the Azure nodes should be connected as Direct Agents only. Azure nodes, which are connected through Operations Manager are not supported. For on-premises nodes, the nodes connected as Direct Agents and through Operations Manager are supported for monitoring an ExpressRoute circuit.
 
@@ -50,7 +52,7 @@ You can get more details on the relative advantages of each protocol [here](./ne
 ### How can I configure a node to support monitoring using TCP protocol?
 For the node to support monitoring using TCP protocol: 
 * Ensure that the node platform is Windows Server (2008 SP1 or later).
-* Run [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell script on the node. See [instructions](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) for more details.
+* Run [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script on the node. See [instructions](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) for more details.
 
 
 ### How can I change the TCP port being used by NPM for monitoring?
@@ -91,7 +93,7 @@ If a hop is red, it signifies that it is part of at-least one unhealthy path. NP
 NPM uses a probabilistic mechanism to assign fault-probabilities to each network path, network segment, and the constituent network hops based on the number of unhealthy paths they are a part of. As the network segments and hops become part of more number of unhealthy paths, the fault-probability associated with them increases. This algorithm works best when you have many nodes with NPM agent connected to each other as this increases the data points for calculating the fault-probabilities.
 
 ### How can I create alerts in NPM?
-Currently, creating alerts from the NPM UI is failing due to a known issue. Please [create alerts manually](../platform/alerts-log.md).
+Currently, creating alerts from the NPM UI is failing due to a known issue. Please [create alerts manually](../alerts/alerts-log.md).
 
 ### What are the default Log Analytics queries for alerts
 Performance monitor query
@@ -244,7 +246,7 @@ This can happen if either the host firewall or the intermediate firewall (networ
 As the network paths between A to B can be different from the network paths between B to A, different values for loss and latency can be observed.
 
 ### Why are all my ExpressRoute circuits and peering connections not being discovered?
-NPM now discovers ExpressRoute circuits and peering connections in all subscriptions to which the user has access. Choose all the subscriptions where your Express Route resources are linked and enable monitoring for each discovered resource. NPM looks for connection objects when discovering a private peering, so please check if a VNET is associated with your peering. NPM does not detect circuits and peering that are in a diffrent tenant from the Log Analytics workspace.
+NPM now discovers ExpressRoute circuits and peering connections in all subscriptions to which the user has access. Choose all the subscriptions where your Express Route resources are linked and enable monitoring for each discovered resource. NPM looks for connection objects when discovering a private peering, so please check if a VNET is associated with your peering. NPM does not detect circuits and peering that are in a different tenant from the Log Analytics workspace.
 
 ### The ER Monitor capability has a diagnostic message "Traffic is not passing through ANY circuit". What does that mean?
 
@@ -257,10 +259,10 @@ This can happen if:
 * The on-premises and Azure nodes chosen for monitoring the ExpressRoute circuit in the monitoring configuration, do not have connectivity to each other over the intended ExpressRoute circuit. Ensure that you have chosen correct nodes that have connectivity to each other over the ExpressRoute circuit you intend to monitor.
 
 ### Why does ExpressRoute Monitor report my circuit/peering as unhealthy when it is available and passing data.
-ExpressRoute Monitor compares the network performance values (loss, latency and bandwidth utilisation) reported by the agents/service with the thresholds set during Configuration. For a circuit, if the bandwidth utilisation reported is greater than the threshold set in Configuration, the circuit is marked as unhealthy. For peerings, if the loss, latency or bandwidth utilisation reported is greater than the threshold set in the Configuration, the peering is marked as unhealthy. NPM does not utilise metrics or any other form of data to deicde health state.
+ExpressRoute Monitor compares the network performance values (loss, latency and bandwidth utilization) reported by the agents/service with the thresholds set during Configuration. For a circuit, if the bandwidth utilization reported is greater than the threshold set in Configuration, the circuit is marked as unhealthy. For peerings, if the loss, latency or bandwidth utilization reported is greater than the threshold set in the Configuration, the peering is marked as unhealthy. NPM does not utilize metrics or any other form of data to decide health state.
 
-### Why does ExpressRoute Monitor'bandwidth utilisation report a value differrent from metrics bits in/out
-For ExpressRoute Monitor, bandwidth utiliation is the average of incoming and outgoing bandwidth over the last 20 mins It is expressed in Bits/sec. For Express Route metrics, bit in/out are per minute data points.Internally the dataset used for both is the same, but the aggregation valies between NPM and ER metrics. For granular, minute by minute monitoring and fast alerts, we recommend setting alerts directly on ER metrics
+### Why does ExpressRoute Monitor'bandwidth utilization report a value different from metrics bits in/out
+For ExpressRoute Monitor, bandwidth utilization is the average of incoming and outgoing bandwidth over the last 20 mins It is expressed in Bits/sec. For Express Route metrics, bit in/out are per minute data points.Internally the dataset used for both is the same, but the aggregation varies between NPM and ER metrics. For granular, minute by minute monitoring and fast alerts, we recommend setting alerts directly on ER metrics
 
 ### While configuring monitoring of my ExpressRoute circuit, the Azure nodes are not being detected.
 This can happen if the Azure nodes are connected through Operations Manager. The ExpressRoute Monitor capability supports only those Azure nodes that are connected as Direct Agents.
@@ -291,7 +293,7 @@ This can happen if the target service is not a web application but the test is c
 NPM process is configured to stop if it utilizes more than 5% of the host CPU resources. This is to ensure that you can keep using the nodes for their usual workloads without impacting performance.
 
 ### Does NPM edit firewall rules for monitoring?
-NPM only creates a local Windows Firewall rule on the nodes on which the EnableRules.ps1 Powershell script is run to allow the agents to create TCP connections with each other on the specified port. The solution does not modify any network firewall or Network Security Group (NSG) rules.
+NPM only creates a local Windows Firewall rule on the nodes on which the EnableRules.ps1 PowerShell script is run to allow the agents to create TCP connections with each other on the specified port. The solution does not modify any network firewall or Network Security Group (NSG) rules.
 
 ### How can I check the health of the nodes being used for monitoring?
 You can view the health status of the nodes being used for monitoring from the following view: Network Performance Monitor -> Configuration -> Nodes. If a node is unhealthy, you can view the error details and take the suggested action.
@@ -302,4 +304,3 @@ NPM rounds the latency numbers in the UI and in milliseconds. The same data is s
 ## Next steps
 
 - Learn more about Network Performance Monitor by referring to [Network Performance Monitor solution in Azure](./network-performance-monitor.md).
-

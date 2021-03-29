@@ -48,9 +48,11 @@
   items:
   - name: Basic concepts
     href: basic-concepts.md
+  - name: Best practices
+    href: best-practices.md
   - name: Security
     items:
-    - name: Security overview
+    - name: Overview
       href: security-overview.md
     - name: Secure access to a key vault
       href: secure-your-key-vault.md
@@ -100,10 +102,12 @@
         href: assign-access-policy-powershell.md
       - name: Portal
         href: assign-access-policy-portal.md
-    - name: Use an Azure RBAC for managing access to keys, secrets, and certificates (preview)
-      href: rbac-guide.md
-    - name: Vault access policies to Azure RBAC migration guide
-      href: rbac-migration.md  
+    - name: Azure RBAC permission model
+      items:
+      - name: Use an Azure RBAC for managing access to keys, secrets, and certificates
+        href: rbac-guide.md
+      - name: Vault access policies to Azure RBAC migration guide
+        href: rbac-migration.md  
     - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md
   - name: Develop
@@ -165,17 +169,17 @@
   - name: Key vault versions 
     href: versions.md
   - name: Azure PowerShell
-    href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
+    href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    href: /dotnet/api/overview/azure/key-vault
   - name: Java
-    href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    href: /java/api/overview/azure/keyvault
   - name: Node.js
-    href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+    href: /javascript/api/overview/azure/key-vault-index
   - name: Python
-    href: /python/api/overview/azure/key-vault-index?view=azure-python
+    href: /python/api/overview/azure/key-vault-index
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template

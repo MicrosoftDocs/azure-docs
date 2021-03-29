@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 02/11/2021
 tags: connectors
 ---
 
@@ -14,7 +14,7 @@ tags: connectors
 > [!NOTE]
 > In November 2020, Common Data Service was renamed to Microsoft Dataverse.
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Common Data Service connector](/connectors/commondataservice/), you can build automated workflows that manage records in your [Common Data Service, now Microsoft Dataverse](/powerapps/maker/common-data-service/data-platform-intro) database. These workflows can create records, update records, and perform other operations. You can also get information from your Common Data Service database and make the output available for other actions to use in your logic app. For example, when a record is updated in your Common Data Service database, you can send an email by using the Office 365 Outlook connector.
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Common Data Service connector](/connectors/commondataservice/), you can build automated workflows that manage records in your [Common Data Service, now Microsoft Dataverse](/powerapps/maker/common-data-service/data-platform-intro) database. These workflows can create records, update records, and perform other operations. You can also get information from your Dataverse database and make the output available for other actions to use in your logic app. For example, when a record is updated in your Dataverse database, you can send an email by using the Office 365 Outlook connector.
 
 This article shows how you can build a logic app that creates a task record whenever a new lead record is created.
 
@@ -27,7 +27,7 @@ This article shows how you can build a logic app that creates a task record when
   * [Learn: Get started with Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
   * [Power Platform - Environments overview](/power-platform/admin/environments-overview)
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) and the logic app from where you want to access the records in your Common Data Service database. To start your logic app with a Common Data Service trigger, you need a blank logic app. If you're new to Azure Logic Apps, review [Quickstart: Create your first workflow by using Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) and the logic app from where you want to access the records in your Dataverse database. To start your logic app with a Common Data Service trigger, you need a blank logic app. If you're new to Azure Logic Apps, review [Quickstart: Create your first workflow by using Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Add Common Data Service trigger
 
@@ -165,6 +165,65 @@ This example shows how the **Create a new record** action creates a new "Tasks" 
 ## Connector reference
 
 For technical information based on the connector's Swagger description, such as triggers, actions, limits, and other details, see the [connector's reference page](/connectors/commondataservice/).
+
+## Troubleshooting problems
+
+### Calls from multiple environments
+
+Both connectors, Common Data Service and Common Data Service (current environment), store information about the logic app workflows that need and get notifications about entity changes by using the `callbackregistrations` entity in your Microsoft Dataverse. If you copy a Dataverse organization, any webhooks are copied too. If you copy your organization before you disable workflows that are mapped to your organization, any copied webhooks also point at the same logic apps, which then get notifications from multiple organizations.
+
+To stop unwanted notifications, delete the callback registration from the organization that sends those notifications by following these steps:
+
+1. Identify the Dataverse organization from where you want to remove notifications, and sign in to that organization.
+
+1. In the Chrome browser, find the callback registration that you want to delete by following these steps:
+
+   1. Review the generic list for all the callback registrations at the following OData URI so that you can view the data inside the `callbackregistrations` entity:
+
+      `https://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations`:
+
+      > [!NOTE]
+      > If no values are returned, you might not have permissions to view this entity type, 
+      > or you might not be signed in to the correct organization.
+
+   1. Filter on the triggering entity's logical name `entityname` and the notification event that matches your logic app workflow (message). Each event type is mapped to the message integer as follows:
+
+      | Event type | Message integer |
+      |------------|-----------------|
+      | Create | 1 |
+      | Delete | 2 |
+      | Update | 3 |
+      | CreateOrUpdate | 4 |
+      | CreateOrDelete | 5 |
+      | UpdateOrDelete | 6 |
+      | CreateOrUpdateOrDelete | 7 |
+      |||
+
+      This example shows how you can filter for `Create` notifications on an entity named `nov_validation` by using the following OData URI for a sample organization:
+
+      `https://fabrikam-preprod.crm1.dynamics.com/api/data/v9.0/callbackregistrations?$filter=entityname eq 'nov_validation' and message eq 1`
+
+      ![Screenshot that shows browser window and OData URI in the address bar.](./media/connect-common-data-service/find-callback-registrations.png)
+
+      > [!TIP]
+      > If multiple triggers exist for the same entity or event, you can filter the list by using additional filters such as 
+      > the `createdon` and `_owninguser_value` attributes. The owner user's name appears under `/api/data/v9.0/systemusers({id})`.
+
+   1. After you find the ID for the callback registration that you want to delete, follow these steps:
+   
+      1. In your Chrome browser, open the Chrome Developer Tools (Keyboard: F12).
+
+      1. In the window, at the top, select the **Console** tab.
+
+      1. On the command-line prompt, enter this command, which sends a request to delete the specified callback registration:
+
+         `fetch('http://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations({ID-to-delete})', { method: 'DELETE'})`
+
+         > [!IMPORTANT]
+         > Make sure that you make the request from a non-Unified Client Interface (UCI) page, for example, from the 
+         > OData or API response page itself. Otherwise, logic in the app.js file might interfere with this operation.
+
+   1. To confirm that the callback registration no longer exists, check the callback registrations list.
 
 ## Next steps
 

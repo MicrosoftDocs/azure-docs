@@ -57,7 +57,7 @@ All virtual machines (VMs) in a host pool that uses MSIX app attach must have re
 
 ## Can I use MSIX app attach for HTTP or HTTPs?
 
-All VMs that are part of a host pool that uses MSIX app attach must have read permissions on the file share where MSIX images are stored. If Azure Files is being used both RBAC and NTFS permissions must be granted.
+Using MSIX app attach over HTTP or HTTPs is currently not supported.
 
 ## Can I restage the same MSIX application?
 
@@ -65,7 +65,7 @@ Yes. You can restage applications you've already restaged, and this shouldn't ca
 
 ## Does MSIX app attach support self-signed certificates?
 
-Using MSIX app attach over HTTP or HTTPs is currently not supported.
+Yes. You need to install the self-signed certificate on all the session host VMs where MSIX app attach is used to host the self-signed application.
 
 
 ## Next steps

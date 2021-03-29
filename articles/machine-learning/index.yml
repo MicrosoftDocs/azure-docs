@@ -28,14 +28,12 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Get started tutorial (Python)
+          - text: Get started with Python scripts
             url: tutorial-1st-experiment-sdk-setup-local.md
-          - text: Use Jupyter Notebooks tutorial
+          - text: Get started with Jupyter notebooks (Python)
             url: tutorial-1st-experiment-sdk-setup.md
           - text: Batch inference with ML pipelines (Python)
             url: tutorial-pipeline-batch-scoring-classification.md            
-          - text: Get started with R
-            url: tutorial-1st-r-experiment.md
 
 # GET STARTED
   - title: 'Get started: Low or no code'
@@ -83,11 +81,11 @@ landingContent:
       - linkListType: reference
         links:
           - text: Python SDK
-            url: /python/api/overview/azure/ml/?view=azure-ml-py
+            url: /python/api/overview/azure/ml/
           - text: REST API
             url: /rest/api/azureml/
           - text: Machine learning CLI
-            url: /cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+            url: /cli/azure/ext/azure-cli-ml/ml
 
   # Studio (classic) catchall
   - title: 'Looking for Studio (classic)'

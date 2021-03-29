@@ -8,12 +8,11 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: 'SAP, Azure, ANF, HANA, Azure NetApp Files, snapshot'
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2021
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -58,7 +57,13 @@ Important to understand is the performance relationship the size and that there 
 
 The table below demonstrates that it could make sense to create a large “Standard” volume to store backups and that it does not make sense to create a “Ultra” volume larger than 12 TB because the physical bandwidth capacity of a single LIF would be exceeded. 
 
-The maximum throughput for a LIF and a single Linux session is between 1.2 and 1.4 GB/s. 
+The maximum throughput for a LIF and a single Linux session is between 1.2 and 1.4 GB/s. If you require more throughput for /hana/data, you can use SAP HANA data volume partitioning to stripe the I/O activity during data reload or HANA savepoints across multiple HANA data files that are located on multiple NFS shares. For more details on HANA data volume striping read these articles:
+
+- [The HANA Administrator's Guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog about SAP HANA – Partitioning Data Volumes](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [SAP Note #2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [SAP Note #2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
 
 | Size  | Throughput Standard | Throughput Premium | Throughput Ultra |
 | --- | --- | --- | --- |

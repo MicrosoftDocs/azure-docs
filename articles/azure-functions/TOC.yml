@@ -55,6 +55,10 @@
         - name: ARM template
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
+    - name: Connect to a database
+      items:
+        - name: Visual Studio Code
+          href: functions-add-output-binding-cosmos-db-vs-code.md
     - name: Connect to storage
       items:
         - name: Visual Studio Code
@@ -71,10 +75,15 @@
       href: /azure/python/tutorial-vs-code-serverless-python-01
     - name: OpenAPI definition for serverless APIs
       href: functions-openapi-definition.md
-    - name: Connect to a Virtual Network
-      href: functions-create-vnet.md
-    - name: Establish private site access
-      href: functions-create-private-site-access.md
+    - name: Networking
+      items:  
+        - name: Connect to a Virtual Network
+          href: functions-create-vnet.md
+          displayName: vnet 
+        - name: Establish private site access
+          href: functions-create-private-site-access.md
+        - name: Use an outbound NAT gateway
+          href: functions-how-to-use-nat-gateway.md  
     - name: Image resize with Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Create a serverless web app
@@ -138,6 +147,23 @@
               href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Concepts
   items:
+    - name: Best practices
+      items:
+        - name: Performance and reliability
+          href: functions-best-practices.md
+          displayName: best practices
+        - name: Manage connections
+          href: manage-connections.md
+          displayName: best practices
+        - name: Storage considerations
+          href: storage-considerations.md
+          displayName: encryption, keys, mount, files
+        - name: Error handling and function retries
+          href: functions-bindings-error-pages.md
+          displayName: best practices
+        - name: Security
+          href: security-concepts.md
+          displayName: best practices
     - name: Compare runtime versions
       href: functions-versions.md
       displayName: migrate, migration, v3
@@ -180,6 +206,9 @@
           href: supported-languages.md
         - name: C# (class library)
           href: functions-dotnet-class-library.md
+        - name: C# (isolated process)
+          displayName: .NET isolated, .NET 5
+          href: dotnet-isolated-process-guide.md  
         - name: C# script (.csx)
           href: functions-reference-csharp.md
         - name: F#
@@ -212,12 +241,7 @@
       href: functions-diagnostics.md
     - name: Consumption plan costs
       href: functions-consumption-costs.md
-    - name: Performance considerations
-      href: functions-best-practices.md
       displayName: best practice
-    - name: Storage considerations
-      href: storage-considerations.md
-      displayName: encryption, keys, mount, files
     - name: Functions Proxies
       href: functions-proxies.md
     - name: Networking options
@@ -255,6 +279,8 @@
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
                   href: ./create-first-function-vs-code-csharp.md
+                - name: C# isolated (.NET 5)
+                  href: dotnet-isolated-process-developer-howtos.md  
                 - name: Java using Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Java using Eclipse
@@ -281,9 +307,10 @@
               href: functions-create-storage-queue-triggered-function.md
             - name: Timer trigger
               href: functions-create-scheduled-function.md
-        - name: Add bindings
+        - name: Connect to services
           items:
-            - name: How to add a binding
+            - name: How to connect to services
+              displayName: bindings,integrate
               href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -347,6 +374,8 @@
           href: set-runtime-version.md
         - name: Disable a function
           href: disable-function.md
+        - name: Networking
+          href: configure-networking-how-to.md
         - name: Geo-disaster recovery
           href: functions-geo-disaster-recovery.md
     - name: Monitor
@@ -395,7 +424,7 @@
           href: configure-encrypt-at-rest-using-cmk.md
     - name: Integrate
       items:
-        - name: Add bindings
+        - name: Connect to services
           items:
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -413,8 +442,6 @@
           href: ./functions-create-vnet.md
         - name: Create an Open API 2.0 definition
           href: ./functions-openapi-definition.md
-        - name: Export to PowerApps and Microsoft Flow
-          href: app-service-export-api-to-powerapps-and-flow.md
         - name: Use a managed identity
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Customize HTTP function endpoint
@@ -440,9 +467,9 @@
         - name: Azure PowerShell
           href: /powershell/module/az.functions
         - name: Java
-          href: /java/api/overview/azure/functions/runtime?view=azure-java-stable
+          href: /java/api/overview/azure/functions/runtime
         - name: Python
-          href: /python/api/azure-functions/azure.functions?view=azure-python
+          href: /python/api/azure-functions/azure.functions
     - name: App settings reference
       href: functions-app-settings.md
     - name: Triggers and bindings
