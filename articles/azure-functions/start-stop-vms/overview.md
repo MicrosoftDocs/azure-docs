@@ -17,21 +17,21 @@ This new version of Start/Stop VMs v2 (preview) provides a decentralized low-cos
 
 Start/Stop VMs v2 (preview) is redesigned and it doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [previous version](../../automation/automation-solution-vm-management.md). This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
 
-A managed identity from Azure Active Directory (Azure AD) for this Azure Functions application is created and allows Start/Stop VMs to easily access other Azure AD-protected resources, such as the logic apps and Azure VMs. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+A managed identity is created in Azure Active Directory (Azure AD) for this Azure Functions application and allows Start/Stop VMs v2 (preview) to easily access other Azure AD-protected resources, such as the logic apps and Azure VMs. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 An HTTP trigger endpoint function is created to support the schedule and sequence scenarios included with the feature, as shown in the following table.
 
 |Name |Trigger |Description |
 |-----|--------|------------|
-|AlertAvailabilityTest |Timer |This function used to perform the availability test to make sure the primary function (AutoStopVM) is available at all times.|
-|AutoStop |HTTP |This function covers the AutoStop scenario, which is the entry point function that gets called from Logic App.|
-|AutoStopAvailabilityTest |Timer |This function used to perform the availability test to make sure the primary function (AutoStop) is available at all times.|
-|AutoStopVM |HTTP |This function gets triggered automatically by the VM alert when the alert condition is true.|
-|CreateAutoStopAlertExecutor |Queue |This function gets the payload information from the AutoStop function to create the alert on the VM.|
-|Scheduled |HTTP |This function covers for both scheduled and sequenced scenario (differentiated by the payload schema). This is the entry point function that gets called from the Logic App and takes the payload to process the VM start or stop operation. |
-|ScheduledAvailabilityTest |Timer |This function used to perform the availability test to make sure the primary function (Scheduled) is available at all times.|
+|AlertAvailabilityTest |Timer |This function is performs the availability test to make sure the primary function **AutoStopVM** is always available.|
+|AutoStop |HTTP |This function supports the **AutoStop** scenario, which is the entry point function that is called from Logic App.|
+|AutoStopAvailabilityTest |Timer |This function performs the availability test to make sure the primary function **AutoStop** is always available.|
+|AutoStopVM |HTTP |This function is triggered automatically by the VM alert when the alert condition is true.|
+|CreateAutoStopAlertExecutor |Queue |This function gets the payload information from the **AutoStop** function to create the alert on the VM.|
+|Scheduled |HTTP |This function is for both scheduled and sequenced scenario (differentiated by the payload schema). It is the entry point function called from the Logic App and takes the payload to process the VM start or stop operation. |
+|ScheduledAvailabilityTest |Timer |This function performs the availability test to make sure the primary function **Scheduled** is always available.|
 |VirtualMachineRequestExecutor |Queue |This function performs the actual start and stop operation on the VM.|
-|VirtualMachineRequestOrchestrator |Queue |This function gets the payload information from the Scheduled function and orchestrates the VM start and stop requests.|
+|VirtualMachineRequestOrchestrator |Queue |This function gets the payload information from the **Scheduled** function and orchestrates the VM start and stop requests.|
 
 For example, **Scheduled** HTTP trigger function is used to handle schedule and sequence scenarios. Similarly, **AutoStop** HTTP trigger function handles the auto stop scenario.
 
