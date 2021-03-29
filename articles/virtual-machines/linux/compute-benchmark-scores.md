@@ -15,10 +15,10 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Type | Families | 
 | ---- | -------- | 
 |  | [A0-7](#a0-7-standard-general-compute) [Lv2](#lv2---storage-optimized)  | 
-| Compute optimized | [Fsv2](#fsv2---compute---storage-optimized)  | 
-| General purpose | [Av2](#av2---general-compute) [B](#b---burstable) [DSv3](#dsv3---general-compute---premium-storage) [Dv3](#dv3---general-compute) [Dasv4](#dasv4) [Dav4](#dav4) [DCS](#dcs---confidential-compute-series) [DCsv2](#dcsv2) [DCv2](#dcv2) [DDSv4](#ddsv4) [DDv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4)  | 
-| High performance compute | [H](#h---high-performance-compute--hpc-) [HBrsv2](#hbrsv2) [HBS](#hbs---memory-bandwidth--amd-epyc-) [HCS](#hcs---dense-computation--intel-xeon-platinum-8168-)  | 
-| Memory optimized | [DSv2](#dsv2---storage-optimized) [Dv2](#dv2---general-compute) [Esv3](#esv3---memory-optimized---premium-storage) [Ev3](#ev3---memory-optimized) [Easv4](#easv4) [Eav4](#eav4) [EDSv4](#edsv4) [EDv4](#edv4) [Esv4](#esv4) [Ev4](#ev4) [Msv2](#msv2---memory-optimized) [Msv2s](#msv2-small---memory-optimized) [M](#m---memory-optimized)  | 
+| Compute optimized | [Fsv2](#fsv2---compute--storage-optimized)  | 
+| General purpose | [Av2](#av2---general-compute) [B](#b---burstable) [DSv3](#dsv3---general-compute--premium-storage) [Dv3](#dv3---general-compute) [Dasv4](#dasv4) [Dav4](#dav4) [DCS](#dcs---confidential-compute-series) [DCsv2](#dcsv2) [DCv2](#dcv2) [DDSv4](#ddsv4) [DDv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4)  | 
+| High performance compute | [H](#h---high-performance-compute-hpc) [HBrsv2](#hbrsv2) [HBS](#hbs---memory-bandwidth--amd-epyc) [HCS](#hcs---dense-computation--intel-xeon-platinum-8168)  | 
+| Memory optimized | [DSv2](#dsv2---storage-optimized) [Dv2](#dv2---general-compute) [Esv3](#esv3---memory-optimized--premium-storage) [Ev3](#ev3---memory-optimized) [Easv4](#easv4) [Eav4](#eav4) [EDSv4](#edsv4) [EDv4](#edv4) [Esv4](#esv4) [Ev4](#ev4) [Msv2](#msv2---memory-optimized) [Msv2s](#msv2-small---memory-optimized) [M](#m---memory-optimized)  | 
 
 
 ## A0-7 Standard General Compute
@@ -938,7 +938,8 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 
 
 ## About CoreMark
-Linux numbers were computed by running [CoreMark](https://www.eembc.org/coremark/faq.php) on Ubuntu. CoreMark was configured with the number of threads set to the number of virtual CPUs, and concurrency set to PThreads. The target number of iterations was adjusted based on expected performance to provide a runtime of at least 20 seconds (typically much longer). The final score represents the number of iterations completed divided by the number of seconds it took to run the test. Each test was run at least seven times on each VM. Test run dates shown above. Tests run on multiple VMs across Azure public regions the VM was supported in on the
+
+Linux numbers were computed by running [CoreMark](https://www.eembc.org/coremark/faq.php) on Ubuntu 18.04. CoreMark was configured with the number of threads set to the number of virtual CPUs, and concurrency set to `PThreads`. The target number of iterations was adjusted based on expected performance to provide a runtime of at least 20 seconds (typically much longer). The final score represents the number of iterations completed divided by the number of seconds it took to run the test. Each test was run at least seven times on each VM. Test run dates shown above. Tests run on multiple VMs across Azure public regions the VM was supported in on the
 date run. Basic A and B (Burstable) series not shown because performance is variable. N series not shown as they are GPU centric and Coremark doesn't measure GPU performance.
 
 ## Next steps
