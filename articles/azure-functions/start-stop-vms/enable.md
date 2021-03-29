@@ -1,19 +1,22 @@
 ---
-title: Enable Start/Stop VMs (preview)
-description: This article tells how to enable the Start/Stop VMs (preview) feature for your Azure VMs.
+title: Deploy Start/Stop VMs v2 (preview)
+description: This article tells how to deploy the Start/Stop VMs v2 (preview) feature for your Azure VMs in your Azure subscription.
 services: azure-functions
 ms.subservice: 
-ms.date: 03/16/2021
+ms.date: 03/29/2021
 ms.topic: conceptual
 ---
 
-# Enable Start/Stop VMs (preview)
+# Deploy Start/Stop VMs v2 (preview)
 
-Perform the steps in this topic in sequence to enable the Start/Stop VMs (preview) feature. After completing the setup process, configure the schedules to customize the feature.
+Perform the steps in this topic in sequence to install the Start/Stop VMs v2 (preview) feature. After completing the setup process, configure the schedules to customize the feature.
 
 ## Deploy feature
 
-The deployment is initiated from the Start/Stop VMs GitHub organization [here](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md). While this feature is intended to manage all of your VMs in your subscription across all resource groups from a single deployment within the subscription, you can install another instance of it based on the operations model or requirements of your organization. It also can be configured to centrally manage VMs across multiple subscriptions.  
+The deployment is initiated from the Start/Stop VMs v2 GitHub organization [here](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md). While this feature is intended to manage all of your VMs in your subscription across all resource groups from a single deployment within the subscription, you can install another instance of it based on the operations model or requirements of your organization. It also can be configured to centrally manage VMs across multiple subscriptions.
+
+> [!NOTE]
+> Currently this preview does not support specifying an existing Storage account or Application Insights resource.
 
 1. Select the deployment option based on the Azure cloud environment your Azure VMs are created in. This will open the custom Azure Resource Manager deployment page in the Azure portal.
 1. If prompted, sign in to the [Azure portal](https://portal.azure.com).
@@ -74,13 +77,13 @@ If you need additional schedules, you can duplicate one of the Logic Apps provid
 
 ## Scheduled start and stop scenario
 
-Perform the following steps to configure the scheduled start and stop action for VMs in a subscription, one or more resource groups, or VM list. For example, you can configure the **ststv2_vms_Scheduled_start** schedule to start them in the morning when you are in the office, and stop all VMs across a subscription when you leave work in the evening based on the **ststv2_vms_Scheduled_stop** schedule.
+Perform the following steps to configure the scheduled start and stop action for Azure Resource Manager and classic VMs. For example, you can configure the **ststv2_vms_Scheduled_start** schedule to start them in the morning when you are in the office, and stop all VMs across a subscription when you leave work in the evening based on the **ststv2_vms_Scheduled_stop** schedule.
 
 Configuring the logic app to just start the VMs is supported.
 
-You can enable either targeting the action against a subscription, single or multiple resource groups, and specify one or more VMs. You cannot specify them together in the same logic app.
+For each scenario, you can target the action against one or more subscriptions, single or multiple resource groups, and specify one or more VMs in an inclusion or exclusion list. You cannot specify them together in the same logic app.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and then navigate to **Logic apps**. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and then navigate to **Logic apps**.
 
 1. From the list of Logic apps, to configure scheduled start, select **ststv2_vms_Scheduled_start**. To configure scheduled stop, select **ststv2_vms_Scheduled_stop**.
 
@@ -105,9 +108,18 @@ You can enable either targeting the action against a subscription, single or mul
     }
     ```
 
-    In the request body, if you want to manage VMs for specific resource groups, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one resource group if required.
+    Specify multiple subscriptions in the `subscriptions` array with each value separated by a comma as in the following example.
 
-    This example also demonstrates excluding a virtual machine.
+    ```json
+    "Subscriptions": [
+          "/subscriptions/12345678-1234-5678-1234-123456781234/",
+          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+        ]
+    ```
+
+    In the request body, if you want to manage VMs for specific resource groups, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one resource group or more if required.
+
+    This example also demonstrates excluding a virtual machine. You can exclude the VM by specifying the VMs resource path or by wildcard.
 
     ```json
     {
@@ -116,10 +128,27 @@ You can enable either targeting the action against a subscription, single or mul
       "RequestScopes": {
         "ResourceGroups": [
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg2/"
+          "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/"
         ],
         "ExcludedVMLists": [
          "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
+        ]
+      }
+    }
+    ```
+
+    Here the action will be performed on all the VMs except on the VM name starts with Az and Bz in both subscriptions.
+
+    ```json
+    {
+      "Action": "start",
+      "EnableClassic": false,
+      "RequestScopes": {
+        "ExcludedVMLists": [“Az*”,“Bz*”],
+       "Subscriptions": [
+          "/subscriptions/12345678-1234-5678-1234-123456781234/",
+          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+    
         ]
       }
     }
@@ -135,15 +164,16 @@ You can enable either targeting the action against a subscription, single or mul
         "ExcludedVMLists": [],
         "VMLists": [
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm2",
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg3/providers/Microsoft.Compute/virtualMachines/vm3"
+          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg3/providers/Microsoft.Compute/virtualMachines/vm2",
+          "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm30"
+          
         ]
     }
     ```
 
 ## Sequenced start and stop scenario
 
-In an environment that includes two or more components on multiple VMs supporting a distributed workload, supporting the sequence in which components are started and stopped in order is important.
+In an environment that includes two or more components on multiple Azure Resource Manager VMs in a distributed application architecture, supporting the sequence in which components are started and stopped in order is important.
 
 1. From the list of Logic apps, to configure sequenced start, select **ststv2_vms_Sequenced_start**. To configure sequenced stop, select **ststv2_vms_Sequenced_stop**.
 
@@ -169,9 +199,18 @@ In an environment that includes two or more components on multiple VMs supportin
     }
     ```
 
+    Specify multiple subscriptions in the `subscriptions` array with each value separated by a comma as in the following example.
+
+    ```json
+    "Subscriptions": [
+          "/subscriptions/12345678-1234-5678-1234-123456781234/",
+          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+        ]
+    ```
+
     In the request body, if you want to manage VMs for specific resource groups, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one resource group if required.
 
-    This example also demonstrates excluding a virtual machine.
+    This example also demonstrates excluding a virtual machine by its resource path compared to the example for scheduled start/stop, which used wildcards.
 
     ```json
     {
@@ -180,7 +219,7 @@ In an environment that includes two or more components on multiple VMs supportin
       "RequestScopes": {
         "ResourceGroups": [
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg2/"
+          "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/"
         ],
         "ExcludedVMLists": [
          "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
@@ -190,7 +229,7 @@ In an environment that includes two or more components on multiple VMs supportin
     }
     ```
 
-    In the request body, if you want to manage a specific set of VMs within the subscription, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one VM if required.
+    In the request body, if you want to manage a specific set of VMs within a subscription, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one VM if required.
 
     ```json
     {
@@ -201,7 +240,7 @@ In an environment that includes two or more components on multiple VMs supportin
         "VMLists": [
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm2",
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg3/providers/Microsoft.Compute/virtualMachines/vm3"
+          "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm30"
         ]
       },
        "Sequenced": true
@@ -211,6 +250,20 @@ In an environment that includes two or more components on multiple VMs supportin
 ## Auto stop scenario
 
 Start/Stop VMs can help manage the cost of running Azure Resource Manager and classic VMs in your subscription by evaluating machines that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
+
+The following metric alert properties in the request body support customization:
+
+- AutoStop_MetricName
+- AutoStop_Condition
+- AutoStop_Threshold
+- AutoStop_Description
+- AutoStop_Frequency
+- AutoStop_Severity
+- AutoStop_Threshold
+- AutoStop_TimeAggregationOperator
+- AutoStop_TimeWindow
+
+To learn more about how Azure Monitor metric alerts work and how to configure them see [Metric alerts in Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md).
 
 1. From the list of Logic apps, to configure auto stop, select **ststv2_vms_AutoStop**.
 
