@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/23/2021
+ms.date: 03/29/2021
 ms.author: barclayn
 ms.reviewer: 
 
@@ -33,19 +33,19 @@ In this article you:
 > * Set up your Verifiable Credentials Issuer service to use Azure Key Vault
 > * Update Sample Code with your tenant's information.
 
-Our sample code requires users to authenticate to an IdP before Ninja Verifiable Credential can be issued. Not all Verifiable Credentials issuers require authentication before issuing credentials.
+Our sample code requires users to authenticate to an identity provider, specifically Azure AD B2C, before Ninja Verifiable Credentials can be issued. Not all verifiable credentials issuers require authentication before issuing credentials.
 
-Authenticating ID Tokens allows users to prove who they are before receiving their credential. When users successfully log in, the identity provider returns a security token containing claims about the user. The issuer service then transforms these security tokens and their claims into a verifiable credentials. The verifiable credential is signed with the issuer's DID.
+Authenticating ID Tokens allows users to prove who they are before receiving their credential. When users successfully log in, the identity provider returns a security token containing claims about the user. The issuer service then transforms these security tokens and their claims into a verifiable credential. The verifiable credential is signed with the issuer's DID.
 
 Any identity provider that supports the OpenID Connect protocol is supported. Examples of supported identity providers include [Azure Active Directory](../fundamentals/active-directory-whatis.md), and [Azure AD B2C](../../active-directory-b2c/overview.md). In this tutorial we are using AAD.
 
 ## Prerequisites
 
-This tutorial assumes you've already completed the steps in the [previous tutorial](create-sample-card-your-issuer.md) and have access to the environment you used.
+This tutorial assumes you've already completed the steps in the [previous tutorial](enable-your-tenant-verifiable-credentials.md) and have access to the environment you used.
 
 ## Register an App to enable DID Wallets to sign in users
 
-To issue a verifiable credential, you need to register an app so Authenticator or any other verifiable credential wallet is allowed to sign in users.  
+To issue a verifiable credential, you need to register an app so Authenticator, or any other verifiable credential wallet, is allowed to sign in users.  
 
 Register an application called 'VC Wallet App' in Azure Active Directory (AAD) and obtain a client ID.
 
@@ -65,9 +65,38 @@ Register an application called 'VC Wallet App' in Azure Active Directory (AAD) a
 
    ![issuer endpoints](media/tutorial-sample-app-your-IdP/application-endpoints.png)
 
+## Set up your node app with access to Key Vault
+
+To authenticate a user's credential issuance request, the issuer website uses your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website needs a client ID and client secret that can be used to authenticate to Azure Key Vault.
+
+1. While viewing the VC wallet app overview page select **Certificates & secrets**.
+    ![application client id](media/tutorial-sample-app-your-IdP/vc-wallet-app-certs-secrets.png)
+1. In the **Client secrets** section choose **New client secret**
+    1. Add a description like "Node VC client secret"
+    1. Expires: in one year.
+  ![application client id](media/tutorial-sample-app-your-IdP/add-client-secret.png)
+1. Copy down the SECRET. You need this information to update your sample node app.
+
+>[!WARNING]
+> You have one chance to copy down the secret. The secret is one way hashed after this. Do not copy the ID. 
+
+After creating your application and client secret in Azure AD, you need to grant the application the necessary permissions to perform operations on your Key Vault. Making these permission changes is required to enable the website to access and use the private keys stored there.
+
+1. Go to Key Vault.
+2. Select the key vault we are using for these tutorials.
+3. Choose **Access Policies** on left nav
+4. Choose **+Add Access Policy**.
+5. In the **Key permissions** section choose **Get**, and **Sign**.
+6. Select **Principal** and use the application ID to search for the application we registered earlier. Select it.
+7. Select **Add**.
+8. Choose **SAVE**.
+
+For more information about Key Vault permissions and access control read the [key vault rbac guide](../../key-vault/general/rbac-guide.md)
+
+![assign key vault permissions](media/tutorial-sample-app-your-IdP/key-vault-permissions.png)
 ## Make changes to match your environment
 
-So far, we have been working with our sample app. The app uses [Azure Active Directory B2C](../../active-directory-b2c/overview.md) and we are now switching to use AAD so we need to make some changes not just to match your environment but we also need to make changes to support additional claims that were not used with the sample app.
+So far, we have been working with our sample app. The app uses [Azure Active Directory B2C](../../active-directory-b2c/overview.md) and we are now switching to use AAD so we need to make some changes not just to match your environment but also to support additional claims that were not used before.
 
 1. Copy the rules file below and save it to **modified-ninjaRules.json**. 
 
@@ -123,92 +152,40 @@ So far, we have been working with our sample app. The app uses [Azure Active Dir
 
      ![add permissions for optional claims](media/tutorial-sample-app-your-IdP/add-optional-claim-permissions.png)
 
-Now when a user is presented with the "sign in" to get issued your Verifiable Credential, the VC Wallet App knows to include the specific claims to be written in to the Verifiable Credential.
-
-## Set up your node app with access to Key Vault
-
-### Register node app
-
-To authenticate a user's credential issuance request, the issuer website uses your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website needs a client ID and client secret that can be used to authenticate to Azure Key Vault.
-
-![Register node app](media/tutorial-sample-app-your-IdP/cvkoirk.png)
-
-Copy down your Application (client) ID as you will need this later to update your Sample Node app.
-
-```
-622d0251-9735-4ce2-b9cd-c09f69c2ff00
-```
-
-![application client id](media/tutorial-sample-app-your-IdP/jq6a7lv.png)
-
-
-### Generate a client secret
-
-1. Select **Certificates & secrets**.
-2. In the **Client secrets** section choose **New client secret**
-    1. Add a description like "Node VC client secret"
-    1. Expires: in one year.
-  ![application client id](media/tutorial-sample-app-your-IdP/add-client-secret.png)
-3. Copy down the SECRET. You need this information to update your sample node app.
-
->[!WARNING]
-> You have one chance to copy down the secret. The secret is one way hashed after this. Do not copy the ID. 
-
-![Certificates and secrets](media/tutorial-sample-app-your-IdP/nfskid8.png)
-
-After creating your application and client secret in Azure AD, you need to grant the application the necessary permissions to perform operations on your Key Vault. Making these permission changes is required to enable the website to access and use the private keys stored there.
-
-1. Go to Key Vault.
-2. Select the key vault we are using for these tutorials.
-3. Choose **Access Policies** on left nav
-4. Choose **+Add Access Policy**.
-5. In the **Key permissions** section choose **Get**, and **Sign**.
-6. Select **Principal** and use the application ID to search for the application we registered earlier. Select it.
-7. Select **Add**.
-8. Choose **SAVE**.
-
-For more information about Key Vault permissions and access control read the [key vault rbac guide](../../key-vault/general/rbac-guide.md)
-
-![assign key vault permissions](media/tutorial-sample-app-your-IdP/key-vault-permissions.png)
+Now when a user is presented with the "sign in" to get issued your verifiable credential, the VC Wallet App knows to include the specific claims to be written in to the Verifiable Credential.
 
 ## Create new VC with this rules file and the old display file
 
-Follow the steps we followed earlier. Once that you have a new vc get the contract URL.
-
 1. Upload the new rules file to our container
 1. From the verifiable credentials page create a new credential called **ninjaCatModified** using the old display file and the new rules file (**modified_ninjaRules.json**).
-1. Save the contract URL, we will need it in the next section. 
-
+1. After the credential creation process completes from the **Overview** page copy the **Issue Credential URL** and save it because we need it in the next section.
 
 ## Before we continue
 
-We created a new verifiable credential using your identity provider. There are some values  and that has your own IdP and copied the contract URL. You should have also generated a Client ID for the node app along with a client secret. We will need these values in the next section to turn your sample code to start using your own keys from key vault.
+We created a new verifiable credential using your identity provider. There are some values that we need before we can continue. We will need these values in the next section to make the sample code use your own keys stored in key vault.
 
-- Contract URI
+- Contract URI (Issue Credential URL)
 - Application Client ID (We got this when we registered the Node app)
 - Client secret.
 
 There are a few other values we need to get in order to make the changes one time in our Sample app. Let's get those now!
 
-## Verifiable Credentials Settings
+### Verifiable Credentials Settings
 
-Navigate to the Verifiable Credentials Settings and copy down the following values:
+1. Navigate to the Verifiable Credentials page and choose **Settings**.  
+1. Copy down the following values:
 
-- Tenant identifier 
-- Issuer identifier (your DID)
-- Key vault (uri)
+    - Tenant identifier 
+    - Issuer identifier (your DID)
+    - Key vault (uri)
 
-Under the Signing key identifier, there is a URI but we only need a portion of it. Copy from the part that says issuerSigningKeyION. 
+1. Under the Signing key identifier, there is a URI but we only need a portion of it. Copy from the part that says **issuerSigningKeyION** as highlighted by the red rectangle in the image below.
 
-Here is an example:
+   ![add permissions for optional claims](media/tutorial-sample-app-your-IdP/issuer-signing-key-ion.png)
 
-```
-issuerSigningKeyIon-25e48331-508a-b026-55ee-ca87dc173104/aee901a18c814dcab1a6d202ac35a3f3
-```
+### DID Document 
 
-## DID Document 
-
-1. Open notepad and paste ```https://beta.discover.did.microsoft.com/1.0/identifiers/``` and append your did to the url. Like what is shown below:
+1. Open notepad and paste ```https://beta.discover.did.microsoft.com/1.0/identifiers/``` and append your did to the url. As shown below:
 
     ```http
     https://beta.discover.did.microsoft.com/1.0/identifiers/did:ion:EiD3DvRok3n5OwN5hXy2gmzzbzyuxNSjPm9UwnI3sL3Ssg:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJzaWdfOTk0ZWMwYWIiLCJwdWJsaWNLZXlKd2siOnsiY3J2Ijoic2VjcDI1NmsxIiwia3R5IjoiRUMiLCJ4IjoiRXFXS3g0NlRrMXgzUHpnanRMVzlMMThrbEhwZjJ3Y0xIWkFYSU5ORFF0MCIsInkiOiJ6TmVWbmZsN2xUZWJDOGNXc3VyR1l3VURCWGViWEUzeWljREZTRTFobGRjskkdlkdlslole:LoKIJNML
