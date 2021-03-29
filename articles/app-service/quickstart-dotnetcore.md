@@ -60,20 +60,20 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 ### [.NET Core 3.1](#tab/netcore31)
 
 <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">
-    Install the latest .NET Core 3.1 SDK
-</a>.
+    Install the latest .NET Core 3.1 SDK.
+</a>
 
 ### [.NET 5.0](#tab/net50)
 
 <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">
-    Install the latest .NET 5.0 SDK
-</a>.
+    Install the latest .NET 5.0 SDK.
+</a>
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
 <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48" target="_blank">
-    Install the .NET Framework 4.8 Developer Pack
-</a>.
+    Install the .NET Framework 4.8 Developer Pack.
+</a>
 
 > [!NOTE]
 > Visual Studio Code is cross-platform, however; .NET Framework is not. If you're developing .NET Framework apps with Visual Studio Code, consider using a Windows machine to satisfy the build dependencies.
@@ -88,24 +88,28 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - The <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>.
+- The .NET SDK (includes runtime and CLI).
 
 ### [.NET Core 3.1](#tab/netcore31)
 
 <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">
-    Install the latest .NET Core 3.1 SDK
-</a>.
+    Install the latest .NET Core 3.1 SDK.
+</a>
 
 ### [.NET 5.0](#tab/net50)
 
 <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">
-    Install the latest .NET 5.0 SDK
-</a>.
+    Install the latest .NET 5.0 SDK.
+</a>
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
-<a href="https://dotnet.microsoft.com/download/dotnet-framework/net48" target="_blank">
-    Install the .NET Framework 4.8 Developer Pack
-</a>.
+- <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">
+    Install the latest .NET 5.0 SDK.
+</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48" target="_blank">
+    Install the .NET Framework 4.8 Developer Pack.
+</a>
 
 > [!NOTE]
 > The [.NET CLI](/dotnet/core/tools) is cross-platform, however; .NET Framework is not. If you're developing .NET Framework apps with the .NET CLI, consider using a Windows machine to satisfy the build dependencies.
@@ -429,12 +433,13 @@ To deploy your web app using the Visual Studio Azure Tools extension:
 Deploy the code in your local *MyFirstAzureWebApp* directory using the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
 
 ```azurecli
-az webapp up --sku F1 --name <app-name>
+az webapp up --sku F1 --name <app-name> --os-type <os>
 ```
 
 - If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Prerequisites](#prerequisites).
 - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
 - The `--sku F1` argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.
+- Replace `<os>` with either `linux` or `windows`. You must use `windows` when targeting *ASP.NET Framework 4.8*.
 - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
 
 The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan and hosting app, configuring logging, then performing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
@@ -474,7 +479,7 @@ Follow these steps to update and redeploy your web app:
 :::zone target="docs" pivot="development-environment-vs"
 
 1. In **Solution Explorer**, under your project, open **Index.cshtml**.
-1. Replace the entire first `<div>` tag with the following code:
+1. Replace the first `<div>` element with the following code:
 
     ```razor
     <div class="jumbotron">
@@ -515,7 +520,7 @@ Follow these steps to update and redeploy your web app:
 :::zone target="docs" pivot="development-environment-vscode"
 
 1. Open **Index.cshtml**.
-1. Replace the entire first `<div>` tag with the following code:
+1. Replace the first `<div>` element with the following code:
 
     ```razor
     <div class="jumbotron">
@@ -558,7 +563,7 @@ Follow these steps to update and redeploy your web app:
 :::zone target="docs" pivot="development-environment-cli"
 <!-- markdownlint-enable MD044 -->
 
-In the local directory, open the *Index.cshtml* file. Replace the entire first `<div>` tag:
+In the local directory, open the *Index.cshtml* file. Replace the first `<div>` element:
 
 ```razor
 <div class="jumbotron">
@@ -569,9 +574,34 @@ In the local directory, open the *Index.cshtml* file. Replace the entire first `
 
 Save your changes, then redeploy the app using the `az webapp up` command again:
 
+### [.NET Core 3.1](#tab/netcore31)
+
+ASP.NET Core 3.1 is cross-platform, based on your previous deployment replace `<os>` with either `linux` or `windows`.
+
 ```azurecli
-az webapp up --os-type linux
+az webapp up --os-type <os>
 ```
+
+### [.NET 5.0](#tab/net50)
+
+ASP.NET Core 5.0 is cross-platform, based on your previous deployment replace `<os>` with either `linux` or `windows`.
+
+```azurecli
+az webapp up --os-type <os>
+```
+
+### [.NET Framework 4.8](#tab/netframework48)
+
+ASP.NET Framework 4.8 has framework dependencies, and must be hosted on Windows.
+
+```azurecli
+az webapp up --os-type windows
+```
+
+> [!TIP]
+> If you're interested in hosting your .NET apps on Linux, considering migrating from [ASP.NET Framework to ASP.NET Core](/aspnet/core/migration/proper-to-2x).
+
+---
 
 This command uses values that are cached locally in the *.azure/config* file, including the app name, resource group, and App Service plan.
 
