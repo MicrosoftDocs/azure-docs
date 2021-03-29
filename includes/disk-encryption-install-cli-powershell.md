@@ -55,7 +55,7 @@ Set-AzContext -Subscription -Subscription <SubscriptionId>
 
 Running the [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext) cmdlet will verify that the correct subscription has been selected.
 
-To confirm the Azure Disk Encryption cmdlets are installed, use the [Get-command](/powershell/module/microsoft.powershell.core/get-command?view=powershell-6) cmdlet:
+To confirm the Azure Disk Encryption cmdlets are installed, use the [Get-command](/powershell/module/microsoft.powershell.core/get-command) cmdlet:
      
 ```powershell
 Get-command *diskencryption*
