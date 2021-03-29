@@ -16,6 +16,7 @@ VM insights guest health allows you to view the health of a virtual machine as d
 VM insights guest health has the following limitations in public preview:
 
 - Only Azure virtual machines are currently supported. Azure Arc for servers is not currently supported.
+- Network proxies aren't currently supported.
 
 
 ## Supported operating systems
