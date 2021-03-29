@@ -927,6 +927,172 @@ EOF
 
 Please visit the [SMI](https://smi-spec.io/) site for more detailed information on the specification.
 
+## Tutorial: Utilize the TCPRoute resource provided by Service Mesh Interface (SMI) to connect to TCP endpoints in Open Service Mesh (OSM)
+
+In earlier examples shown in the documentation, OSM was used to secure, via mTLS, service-to-service communications within the service mesh. Those services have been based on HTTP/HTTPS communications in the cluster. In many applications, not all applications and endpoints rely on the HTTP/HTTPS protocol. An example of this would be if you were storing state for an application. Databases and other state store applications typically listen on TCP ports, such as port 1433 for Microsoft SQL, port 33060 for MySQL, and port 6379 for Redis to name a few.
+
+To continue to provide the befefits of a service mesh, delivering secured communications to all endpoints in the mesh, the [SMI](https://smi-spec.io/) provides a **TCPRoute** resource to bring TCP endpoints into the authorized mesh communications. This tutorial will show you how to configure the TCPRoute resource for an application.
+
+In this tutorial, you will:
+
+> [!div class="checklist"]
+>
+> - Deploy an application that contains a TCP endpoint
+> - Managed the application's namespace with OSM
+> - Configure the TCPRoute resource for mesh communications to the TCP endpoint
+
+Before you begin
+
+The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.19+` and above, with Kubernetes RBAC enabled), have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
+
+You must have the following resources installed:
+
+- The Azure CLI, version 2.20.0 or later
+- The `aks-preview` extension version 0.5.5 or later
+- OSM version v0.8.0 or later
+- apt-get install jq
+
+### Deploy and run the application
+
+A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run.
+
+In this tutorial, you will use a manifest to create all objects needed to run the [Azure Vote application][azure-vote-app]. This manifest includes two [Kubernetes deployments][kubernetes-deployment]:
+
+- The sample Azure Vote Python applications.
+- A Redis instance.
+
+Create a namespaces called `azure-vote`
+
+```azurecli-interactive
+kubectl create namespace azure-vote
+```
+
+```Output
+namespace/azure-vote created
+```
+
+Next deploy the following azure vote app manifest to the cluster.
+
+```azurecli-interactive
+kubectl apply -f - <<EOF
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-vote-back
+  namespace: azure-vote
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-back
+  template:
+    metadata:
+      labels:
+        app: azure-vote-back
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: azure-vote-back
+        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 6379
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-back
+  namespace: azure-vote
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: azure-vote-back
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-vote-front
+  namespace: azure-vote
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-front
+  template:
+    metadata:
+      labels:
+        app: azure-vote-front
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: azure-vote-front
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 80
+        env:
+        - name: REDIS
+          value: "azure-vote-back"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+  namespace: azure-vote
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+EOF
+```
+
+```Output
+deployment.apps/azure-vote-back created
+service/azure-vote-back created
+deployment.apps/azure-vote-front created
+service/azure-vote-front created
+```
+
+Since this deployment includes a service for the `azure-vote-front` that creates an external Azure loadbalancer IP, you should be able to view the azure-vote-front service from a browser using the external IP given. To get the external public IP run the following:
+
+```azurecli-interactive
+kubectl get svc -n azure-vote
+```
+
+You should see the following output with an extenral public IP for the `azure-vote-front` service. Open up your browser to the external IP address (http://EXTERNAL-IP).
+
+```Output
+NAME               TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
+azure-vote-back    ClusterIP      10.0.65.249   <none>          6379/TCP       69s
+azure-vote-front   LoadBalancer   10.0.236.21   <EXTERNAL-IP>   80:31927/TCP   68s
+```
+
+Your browser should show the following Azure Voting App.
+
+![OSM Azure Voting App View 1 UI image](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
+
 ## Tutorial: Deploy an application managed by Open Service Mesh (OSM) with NGINX ingress
 
 Open Service Mesh (OSM) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
@@ -2177,7 +2343,7 @@ service/jaeger created
 Next we will need to enable tracing for the OSM add-on.
 
 > [!NOTE]
-> As of now the `"tracing_enable"` property is not visable in the osm-config configmap. This will be made visable in a new release of the OSM AKS add-on.
+> As of now the tracing properties are not visable in the osm-config configmap at this time. This will be made visable in a new release of the OSM AKS add-on.
 
 Run the following command to enable tracing for the OSM add-on:
 
