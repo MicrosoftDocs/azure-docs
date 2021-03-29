@@ -11,7 +11,11 @@ ms.custom: seodec18
 ---
 # Migrate to Azure App Service
 
-Using [App Service Migration Assistant](https://azure.microsoft.com/services/app-service/migration-assistant/) you can migrate your on-premise app onto Azure App Service. App Service Migration Assistant is designed to simplify your journey to the cloud through a free, simple, and fast solution to migrate applications from on-premises to the cloud. You can quickly:
+Suppose your company has ASP.NET web applications that you want to move to Azure App Service. The first step is to assess whether the apps have dependencies on features that are unsupported on Azure App Service. You can then start a costly and time-consuming series of assessment projects. After you complete the assessment, you need to set up Azure App Service accounts, move files, and apply settings.
+
+A better option is to use the Azure App Service Migration Assistant. Using [App Service Migration Assistant](https://azure.microsoft.com/services/app-service/migration-assistant/) you can migrate your on-premise app onto Azure App Service. App Service Migration Assistant is designed to simplify your journey to the cloud through a free, simple, and fast solution to migrate applications from on-premises to the cloud.
+
+With Azure App Service Migration Assistant, you can quickly:
 
 - Scan your app URL to assess whether it's a good candidate for migration
 - Download the Migration Assistant to begin your migration.
