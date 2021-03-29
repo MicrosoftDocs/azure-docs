@@ -6,13 +6,13 @@
 - name: Account management
   items:
   - name: Create a new Partner Center account
-    href: partner-center-portal/create-account.md
+    href: create-account.md
   - name: Manage your account
-    href: partner-center-portal/manage-account.md
+    href: manage-account.md
   - name: Find or create a company work account
-    href: partner-center-portal/company-work-accounts.md  
+    href: company-work-accounts.md  
   - name: Account migration from CPP to Partner Center
-    href: partner-center-portal/account-migration-from-cpp-to-pc.md 
+    href: account-migration-from-cpp-to-pc.md 
   - name: Notifying Microsoft
     href: submit-legal-notice.md 
 - name: Concepts
