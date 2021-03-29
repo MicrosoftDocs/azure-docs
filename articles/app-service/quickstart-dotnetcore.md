@@ -3,7 +3,7 @@ title: "Quickstart: Deploy an ASP.NET web app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 03/26/2021
+ms.date: 03/29/2021
 ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1"
 zone_pivot_groups: app-service-ide
 adobe-target: true
@@ -32,14 +32,14 @@ target cross-platform with .NET Core 3.1 or .NET 5.0.
 
 # Quickstart: Deploy an ASP.NET web app
 
-In this quickstart, you'll learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
+In this quickstart, you'll learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
 > [!TIP]
 > The current LTS release of .NET is .NET Core 3.1. For more information, see [.NET support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 ## Prerequisites
 
-::: zone pivot="development-environment-vs"
+:::zone target="docs" pivot="development-environment-vs"
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2019</a> with the **ASP.NET and web development** workload.
@@ -49,9 +49,9 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
   - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
   - Add the workload by selecting **Tools** > **Get Tools and Features**.
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="development-environment-vscode"
+:::zone target="docs" pivot="development-environment-vscode"
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio Code</a>.
@@ -80,9 +80,9 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 
 ---
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="development-environment-cli"
+:::zone target="docs" pivot="development-environment-cli"
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - The <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>.
@@ -107,13 +107,13 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 
 ---
 
-::: zone-end
+:::zone-end
 
 [Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 ## Create an ASP.NET web app
 
-::: zone pivot="development-environment-vs"
+:::zone target="docs" pivot="development-environment-vs"
 
 ### [.NET Core 3.1](#tab/netcore31)
 
@@ -168,9 +168,9 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 
 ---
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="development-environment-vscode"
+:::zone target="docs" pivot="development-environment-vscode"
 
 Create a new folder named _MyFirstAzureWebApp_, and open it in Visual Studio Code. Open the <a href="https://code.visualstudio.com/docs/editor/integrated-terminal" target="_blank">Terminal</a> window, and create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command.
 
@@ -226,9 +226,9 @@ You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
 
 ---
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="development-environment-cli"
+:::zone target="docs" pivot="development-environment-cli"
 
 Open a terminal window on your machine to a working directory. Create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command, and then change directories into the newly created app.
 
@@ -286,7 +286,7 @@ You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
 
 [Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
-::: zone-end
+:::zone-end
 
 ## Publish your web app
 
@@ -299,7 +299,7 @@ As part of setting up the App Service, you'll create:
 
 Follow these steps to create your App Service and publish your web app:
 
-::: zone pivot="development-environment-vs"
+:::zone target="docs" pivot="development-environment-vs"
 
 1. In **Solution Explorer**, right-click the **MyFirstAzureWebApp** project and select **Publish**.
 1. In **Publish**, select **Azure** and then **Next**.
@@ -342,9 +342,9 @@ Follow these steps to create your App Service and publish your web app:
 1. Select **Finish** to close the wizard.
 1. In the **Publish** page, click **Publish**. Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="development-environment-vscode"
+:::zone target="docs" pivot="development-environment-vscode"
 
 To deploy your web app using the Visual Studio Azure Tools extension:
 
@@ -377,9 +377,9 @@ To deploy your web app using the Visual Studio Azure Tools extension:
    <!-- TODO: update this with an image-->
    > Pretend this is a screenshot depicting the notification when it's done publishing
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="development-environment-cli"
+:::zone target="docs" pivot="development-environment-cli"
 
 Deploy the code in your local *MyFirstAzureWebApp* directory using the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
 
@@ -404,13 +404,13 @@ The .NET Core sample code is running in App Service on Linux with a built-in ima
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-::: zone-end
+:::zone-end
 
 ## Update the app and redeploy
 
 Follow these steps to update and redeploy your web app:
 
-::: zone pivot="development-environment-vs"
+:::zone target="docs" pivot="development-environment-vs"
 
 1. In **Solution Explorer**, under your project, open **Index.cshtml**.
 1. Replace the entire `<div>` tag with the following code:
@@ -421,9 +421,9 @@ Follow these steps to update and redeploy your web app:
        <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
-    
-   Save your changes.  
-    
+
+   Save your changes.
+
 1. To redeploy to Azure, right-click the **MyFirstAzureWebApp** project in **Solution Explorer** and select **Publish**.
 1. In the **Publish** summary page, select **Publish**.
 
@@ -431,9 +431,9 @@ Follow these steps to update and redeploy your web app:
     <!-- TODO: update this image -->
     ![Updated ASP.NET web app running in Azure](./media/quickstart-dotnetcore/updated-web-app-running-live.png)
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="development-environment-vscode"
+:::zone target="docs" pivot="development-environment-vscode"
 
 1. Open **Index.cshtml**.
 1. Replace the entire `<div>` tag with the following code:
@@ -445,7 +445,7 @@ Follow these steps to update and redeploy your web app:
    </div>
    ```
 
-   Save your changes. 
+   Save your changes.
 
 1. Open the Visual Studio Code **Side Bar**, select the **Azure** icon to expand its options.
 1. Select the **Deploy to Web App...** button on the **App Service** panel.
@@ -460,9 +460,9 @@ Follow these steps to update and redeploy your web app:
    <!-- TODO: update this image -->
    ![Updated ASP.NET web app running in Azure](./media/quickstart-dotnetcore/updated-web-app-running-live.png)
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="development-environment-cli"
+:::zone target="docs" pivot="development-environment-cli"
 
 In the local directory, open the Index.cshtml_ file. Replace the entire `<div>` tag:
 
@@ -487,7 +487,7 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 [Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
-::: zone-end
+:::zone-end
 
 ## Manage the Azure app
 
@@ -526,17 +526,17 @@ For more information, see [Introduction to the App Service Environments](environ
 <!--
 ## Clean up resources - H2 added from the next three includes
 -->
-::: zone pivot="development-environment-vs"
+:::zone target="docs" pivot="development-environment-vs"
 [!INCLUDE [Clean-up Portal web app resources](../../includes/clean-up-section-portal-web-app.md)]
-::: zone-end
+:::zone-end
 
-::: zone pivot="development-environment-vscode"
+:::zone target="docs" pivot="development-environment-vscode"
 [!INCLUDE [Clean-up Portal web app resources](../../includes/clean-up-section-portal-web-app.md)]
-::: zone-end
+:::zone-end
 
-::: zone pivot="development-environment-cli"
+:::zone target="docs" pivot="development-environment-cli"
 [!INCLUDE [Clean-up CLI resources](../../includes/cli-samples-clean-up.md)]
-::: zone-end
+:::zone-end
 
 ## Next steps
 
