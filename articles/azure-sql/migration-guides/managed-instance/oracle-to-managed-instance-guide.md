@@ -105,16 +105,16 @@ To convert the schema:
 After you've completed assessing your databases and addressing any discrepancies, the next step is to run the migration process. Migration involves two steps: publishing the schema and migrating the data.
 
 To publish your schema and migrate your data:
-
-1. Publish the schema by right-clicking the schema or object you want to migrate in **Oracle Metadata Explorer** and selecting **Migrate Data**. Alternatively, you can select the **Migrate Data** tab. To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check boxes next to the tables. To omit data from individual tables, clear the check boxes.
+1. Publish the schema by right-clicking the database from the **Databases** node in **Azure SQL Managed Instance Metadata Explorer** and selecting **Synchronize with Database**.
 
    ![Screenshot that shows Synchronize with Database.](./media/oracle-to-managed-instance-guide/synchronize-with-database.png)
+   
 
 1. Review the mapping between your source project and your target.
 
    ![Screenshot that shows Synchronize with the Database review.](./media/oracle-to-managed-instance-guide/synchronize-with-database-review.png)
 
-1. Migrate the data by right-clicking the schema from **Oracle Metadata Explorer** and selecting **Migrate Data**.
+1. Migrate the data by right-clicking the schema or object you want to migrate in **Oracle Metadata Explorer** and selecting **Migrate Data**. Alternatively, you can select the **Migrate Data** tab. To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check boxes next to the tables. To omit data from individual tables, clear the check boxes.
 
    ![Screenshot that shows Migrate Data.](./media/oracle-to-managed-instance-guide/migrate-data.png)
 
