@@ -126,7 +126,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 ### [.NET Core 3.1](#tab/netcore31)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find and choose **ASP.NET Web Core App**, then select **Next**.
+1. In **Create a new project**, find, and choose **ASP.NET Web Core App**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Configure ASP.NET Core 3.1 web app" border="true":::
@@ -143,7 +143,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 ### [.NET 5.0](#tab/net50)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find and choose **ASP.NET Web Core App**, then select **Next**.
+1. In **Create a new project**, find, and choose **ASP.NET Web Core App**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Configure ASP.NET 5.0 web app" border="true":::
@@ -160,7 +160,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 ### [.NET Framework 4.8](#tab/netframework48)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find and choose **ASP.NET Web Application (.NET Framework)**, then select **Next**.
+1. In **Create a new project**, find, and choose **ASP.NET Web Application (.NET Framework)**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Create**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-netframework48.png" alt-text="Configure ASP.NET Framework 4.8 web app" border="true":::
@@ -349,7 +349,7 @@ Follow these steps to create your App Service and publish your web app:
    Once the wizard completes, the Azure resources are created for you and you are ready to publish.
 
 1. Select **Finish** to close the wizard.
-1. In the **Publish** page, click **Publish**. Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
+1. In the **Publish** page, select **Publish**. Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
 
     ### [.NET Core 3.1](#tab/netcore31)
 
@@ -383,7 +383,7 @@ To deploy your web app using the Visual Studio Azure Tools extension:
 
     - Select *MyFirstAzureWebApp* as the folder to deploy.
     - Select **Add Config** when prompted.
-    - If prompted, sign-in to your existing Azure account.
+    - If prompted, sign in to your existing Azure account.
 
     :::image type="content" source="media/quickstart-dotnet/vscode-sign-in-to-Azure.png" alt-text="Visual Studio Code - Sign in to Azure" border="true":::
 
@@ -397,7 +397,7 @@ To deploy your web app using the Visual Studio Azure Tools extension:
       - For *.NET Framework 4.8*, select **ASP.NET V4.8**
     - Select an operating system (Windows or Linux).
         - For *.NET Framework 4.8*, Windows will be selected implicitly.
-    - Select **Create a new App Service plan**, provide a name and select the **F1 Free** pricing tier.
+    - Select **Create a new App Service plan**, provide a name, and select the **F1 Free** pricing tier.
     - Select **Skip for now** for the Application Insights resource.
     - Select a location near you.
 
@@ -441,7 +441,7 @@ az webapp up --sku F1 --name <app-name> --os-type <os>
 - Replace `<os>` with either `linux` or `windows`. You must use `windows` when targeting *ASP.NET Framework 4.8*.
 - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
 
-The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan and hosting app, configuring logging, then performing ZIP deployment. It then outputs a message with the app's URL:
+The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. It then outputs a message with the app's URL:
 
 ```azurecli
 You can launch the app at http://<app-name>.azurewebsites.net
