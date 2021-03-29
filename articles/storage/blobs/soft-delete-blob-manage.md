@@ -1,7 +1,7 @@
 ---
 title: Manage and restore soft-deleted blobs
 titleSuffix: Azure Storage 
-description: Manage and restore soft-deleted blobs.
+description: Manage and restore soft-deleted blobs and snapshots with the Azure portal or with the Azure Storage client libraries.
 services: storage
 author: tamram
 
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs 
-ms.custom: "devx-track-azurecli, devx-track-csharp"
+ms.custom: "devx-track-csharp"
 ---
 
 # Manage and restore soft-deleted blobs
@@ -21,7 +21,7 @@ Blob soft delete is part of a comprehensive data protection strategy for blob da
 
 ## Manage soft-deleted blobs with the Azure portal
 
-You can use the Azure portal to view soft-deleted blobs and snapshots, and to restore them.
+You can use the Azure portal to view and restore soft-deleted blobs and snapshots.
 
 ### View deleted blobs
 
@@ -35,7 +35,7 @@ Next, select the deleted blob from the list of blobs to display its properties. 
 
 ### View deleted snapshots
 
-Deleting a blob also deletes any snapshots that blob has. If a soft-deleted blob has snapshots, the deleted snapshots can also be listed in the portal. Display the soft-deleted blob's properties, then navigate to the **Snapshots** tab, and toggle **Show deleted snapshots**.
+Deleting a blob also deletes any snapshots associated with the blob. If a soft-deleted blob has snapshots, the deleted snapshots can also be displayed in the portal. Display the soft-deleted blob's properties, then navigate to the **Snapshots** tab, and toggle **Show deleted snapshots**.
 
 :::image type="content" source="media/soft-delete-blob-manage/soft-deleted-blob-snapshots-portal.png" alt-text="Screenshot showing ":::
 
@@ -71,27 +71,29 @@ To recover to a specific blob version, first call Undelete on a blob, then copy 
 
 # [.NET v11](#tab/dotnet11)
 
-To recover deleted blobs when versioning is not enabled, call **Undelete Blob** on those blobs. Remember that calling **Undelete Blob**, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls **Undelete Blob** on all soft-deleted and active blobs in a container:
+To restore deleted blobs when versioning is not enabled, call the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation on those blobs. The **Undelete Blob** operation restores soft-deleted blobs and any deleted snapshots associated with those blobs.
+
+Calling **Undelete Blob** on a blob that has not been deleted has no effect. The following example calls **Undelete Blob** on all blobs in a container, and restores the soft-deleted blobs and their snapshots:
 
 ```csharp
-// Recover all blobs in a container
+// Restore all blobs in a container.
 foreach (CloudBlob blob in container.ListBlobs(useFlatBlobListing: true, blobListingDetails: BlobListingDetails.Deleted))
 {
        await blob.UndeleteAsync();
 }
 ```
 
-To recover a specific snapshot, first call the **Undelete Blob** operation, then copy the desired snapshot over the blob. The following example recovers a block blob to its most recently generated snapshot:
+To restore a specific snapshot, first call the **Undelete Blob** operation, then copy the desired snapshot to the base blob. The following example restores a block blob to its most recently generated snapshot:
 
 ```csharp
-// Undelete
+// Restore the block blob.
 await blockBlob.UndeleteAsync();
 
-// List all blobs and snapshots in the container, prefixed by the blob name
+// List all blobs and snapshots in the container, prefixed by the blob name.
 IEnumerable<IListBlobItem> allBlobSnapshots = container.ListBlobs(
     prefix: blockBlob.Name, useFlatBlobListing: true, blobListingDetails: BlobListingDetails.Snapshots);
 
-// Copy the most recently generated snapshot to the base blob
+// Copy the most recently generated snapshot to the base blob.
 CloudBlockBlob copySource = allBlobSnapshots.First(snapshot => ((CloudBlockBlob)version).IsSnapshot &&
     ((CloudBlockBlob)snapshot).Name == blockBlob.Name) as CloudBlockBlob;
 blockBlob.StartCopy(copySource);
@@ -109,7 +111,7 @@ To restore a soft-deleted blob when versioning is enabled, copy a previous versi
 
 # [.NET v11](#tab/dotnet11)
 
-Not applicable. Blob versioning is supported only in the Azure Storage client libraries version 12.x and higher. 
+Not applicable. Blob versioning is supported only in the Azure Storage client libraries version 12.x and higher.
 
 ---
 
