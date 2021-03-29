@@ -58,7 +58,7 @@ An Azure Storage account, which is required by Functions, is also used by Start/
 
 All telemetry data, that is trace logs from the function app execution, is sent to your connected Application Insights instance. You can view the telemetry data stored in Application Insights from a set of pre-defined visualizations presented in a shared [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
 
-:::image type="content" source="media/overview/shared-dashboard-example.png" alt-text="Start/Stop VMs shared status dashboard":::
+:::image type="content" source="media/overview/shared-dashboard-sml.png" alt-text="Start/Stop VMs shared status dashboard" lightbox="media/overview/shared-dashboard-lrg.png":::
 
 Email notifications are also sent as a result of the actions performed on the VMs.
 
