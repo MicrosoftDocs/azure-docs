@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 03/29/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -182,6 +182,10 @@ The volume size reported by the SMB client is the maximum size the Azure NetApp 
 ### I’m having issues connecting to my SMB share. What should I do?
 
 As a best practice, set the maximum tolerance for computer clock synchronization to five minutes. For more information, see [Maximum tolerance for computer clock synchronization](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
+
+### Can I manage `SMB Shares`, `Sessions`, and `Open Files` through Computer Management Console (MMC)?
+
+Management of `SMB Shares`, `Sessions`, and `Open Files` through Computer Management Console (MMC) is currently not supported.
 
 ### How can I obtain the IP address of an SMB volume via the portal?
 

@@ -39,7 +39,7 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-- [Create a Media Services account](./create-account-howto.md).
+- [Create a Media Services account](./account-create-how-to.md).
 
     Make sure to remember the values that you used for the resource group name and Media Services account name
 
@@ -408,4 +408,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 Now that you know how to upload, encode, and stream your video, see the following article: 
 
 > [!div class="nextstepaction"]
-> [Analyze videos](analyze-videos-tutorial-with-api.md)
+> [Analyze videos](analyze-videos-tutorial.md)

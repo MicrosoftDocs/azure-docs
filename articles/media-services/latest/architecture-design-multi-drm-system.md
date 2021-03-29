@@ -76,7 +76,7 @@ A DRM subsystem can contain the following components:
 
 The following diagram illustrates the high-level interaction among the components in a DRM subsystem:
 
-![DRM subsystem with CENC](./media/design-multi-drm-system-with-access-control/media-services-generic-drm-subsystem-with-cenc.png)
+![DRM subsystem with CENC](./media/architecture-design-multi-drm-system/media-services-generic-drm-subsystem-with-cenc.png)
 
 The design has three basic layers:
 
@@ -142,7 +142,7 @@ In other words, both IDP and STS are provided by Azure AD. The [Azure Media Play
 
 The following diagram shows the overall structure and flow with the previous technology mapping:
 
-![CENC on Media Services](./media/design-multi-drm-system-with-access-control/media-services-cenc-subsystem-on-AMS-platform.png)
+![CENC on Media Services](./media/architecture-design-multi-drm-system/media-services-cenc-subsystem-on-AMS-platform.png)
 
 To set up DRM content protection, the content management tool uses the following inputs:
 
@@ -225,11 +225,11 @@ Use the following troubleshooting information for help with implementation issue
 
     In the [JWT Decoder](http://jwt.calebb.net/), you see **aud** and **iss**, as shown in the JWT:
 
-    ![JWT](./media/design-multi-drm-system-with-access-control/media-services-1st-gotcha.png)
+    ![JWT](./media/architecture-design-multi-drm-system/media-services-1st-gotcha.png)
 
 * Add permissions to the application in Azure AD on the **Configure** tab of the application. Permissions are required for each application, both local and deployed versions.
 
-    ![Permissions](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
+    ![Permissions](./media/architecture-design-multi-drm-system/media-services-perms-to-other-apps.png)
 
 * Use the correct issuer when you set up dynamic CENC protection.
 
@@ -290,27 +290,27 @@ The following screenshots show different sign-in pages used by different domain 
 
 **Custom Azure AD tenant domain account**: The customized sign-in page of the custom Azure AD tenant domain.
 
-![Custom Azure AD tenant domain account one](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
+![Custom Azure AD tenant domain account one](./media/architecture-design-multi-drm-system/media-services-ad-tenant-domain1.png)
 
 **Microsoft domain account with smart card**: The sign-in page customized by Microsoft corporate IT with two-factor authentication.
 
-![Custom Azure AD tenant domain account two](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
+![Custom Azure AD tenant domain account two](./media/architecture-design-multi-drm-system/media-services-ad-tenant-domain2.png)
 
 **Microsoft account**: The sign-in page of the Microsoft account for consumers.
 
-![Custom Azure AD tenant domain account three](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
+![Custom Azure AD tenant domain account three](./media/architecture-design-multi-drm-system/media-services-ad-tenant-domain3.png)
 
 ### Use Encrypted Media Extensions for PlayReady
 
 On a modern browser with Encrypted Media Extensions (EME) for PlayReady support, such as Internet Explorer 11 on Windows 8.1 or later and Microsoft Edge browser on Windows 10, PlayReady is the underlying DRM for EME.
 
-![Use EME for PlayReady](./media/design-multi-drm-system-with-access-control/media-services-eme-for-playready1.png)
+![Use EME for PlayReady](./media/architecture-design-multi-drm-system/media-services-eme-for-playready1.png)
 
 The dark player area is because PlayReady protection prevents you from making a screen capture of protected video.
 
 The following screenshot shows the player plug-ins and Microsoft Security Essentials (MSE)/EME support:
 
-![Player plug-ins for PlayReady](./media/design-multi-drm-system-with-access-control/media-services-eme-for-playready2.png)
+![Player plug-ins for PlayReady](./media/architecture-design-multi-drm-system/media-services-eme-for-playready2.png)
 
 EME in Microsoft Edge and Internet Explorer 11 on Windows 10 allows [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/) to be invoked on Windows 10 devices that support it. PlayReady SL3000 unlocks the flow of enhanced premium content (4K, HDR) and new content delivery models (for enhanced content).
 
@@ -320,11 +320,11 @@ To focus on the Windows devices, PlayReady is the only DRM in the hardware avail
 
 On a modern browser with EME/Widevine support, such as Chrome 41+ on Windows 10, Windows 8.1, Mac OSX Yosemite, and Chrome on Android 4.4.4, Google Widevine is the DRM behind EME.
 
-![Use EME for Widevine](./media/design-multi-drm-system-with-access-control/media-services-eme-for-widevine1.png)
+![Use EME for Widevine](./media/architecture-design-multi-drm-system/media-services-eme-for-widevine1.png)
 
 Widevine doesn't prevent you from making a screen capture of protected video.
 
-![Player plug-ins for Widevine](./media/design-multi-drm-system-with-access-control/media-services-eme-for-widevine2.png)
+![Player plug-ins for Widevine](./media/architecture-design-multi-drm-system/media-services-eme-for-widevine2.png)
 
 #### Use EME for FairPlay
 
@@ -336,7 +336,7 @@ Make sure you put "FairPlay" as protectionInfo.type and put in the right URL for
 
 If a user isn't a member of the "Entitled Users" group, the user doesn't pass the entitlement check. The multi-DRM license service then refuses to issue the requested license as shown. The detailed description is "License acquire failed," which is as designed.
 
-![Unentitled users](./media/design-multi-drm-system-with-access-control/media-services-unentitledusers.png)
+![Unentitled users](./media/architecture-design-multi-drm-system/media-services-unentitledusers.png)
 
 ### Run a custom security token service
 
@@ -344,10 +344,10 @@ If you run a custom STS, the JWT is issued by the custom STS by using either a s
 
 The following screenshot shows a scenario that uses a symmetric key (using Chrome):
 
-![Custom STS with a symmetric key](./media/design-multi-drm-system-with-access-control/media-services-running-sts1.png)
+![Custom STS with a symmetric key](./media/architecture-design-multi-drm-system/media-services-running-sts1.png)
 
 The following screenshot shows a scenario that uses an asymmetric key via an X509 certificate (using a Microsoft modern browser):
 
-![Custom STS with an asymmetric key](./media/design-multi-drm-system-with-access-control/media-services-running-sts2.png)
+![Custom STS with an asymmetric key](./media/architecture-design-multi-drm-system/media-services-running-sts2.png)
 
 In both of the previous cases, user authentication stays the same. It takes place through Azure AD. The only difference is that JWTs are issued by the custom STS instead of Azure AD. When you configure dynamic CENC protection, the license delivery service restriction specifies the type of JWT, either a symmetric or an asymmetric key.
