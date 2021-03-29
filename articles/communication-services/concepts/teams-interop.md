@@ -25,7 +25,7 @@ Teams interoperability allows you to create custom applications that connect use
 1. Meeting details are shared with external users through your custom application.
    * **Using Graph API** Your custom Communication Services application uses the Microsoft Graph APIs to access meeting details to be shared. 
    * **Using other options** For example, your meeting link can be copied from your calendar in Microsoft Teams.
-1. External users use your custom application to join the Teams meeting (via the Communication Services Calling and Chat client libraries)
+1. External users use your custom application to join the Teams meeting (via the Communication Services Calling and Chat SDKs)
 
 The high-level architecture for this use-case looks like this: 
 
@@ -33,7 +33,7 @@ The high-level architecture for this use-case looks like this:
 
 While certain Teams meeting features such as raised hand, together mode, and breakout rooms will only be available for Teams users, your custom application will have access to the meeting's core audio, video, chat, and screen sharing capabilities. Meeting chat will be accessible to your custom application user while they're in the call. They won't be able to send or receive messages before joining or after leaving the call. 
 
-When a Communication Services user joins the Teams meeting, the display name provided through the Calling client library will be shown to Teams users. The Communication Services user will otherwise be treated like an anonymous user in Teams.  Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
+When a Communication Services user joins the Teams meeting, the display name provided through the Calling SDK will be shown to Teams users. The Communication Services user will otherwise be treated like an anonymous user in Teams.  Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
 
 Communication Services Teams Interop is currently in private preview. When generally available, Communication Services users will be treated like "External access users". Learn more about external access in [Call, chat, and collaborate with people outside your organization in Microsoft Teams](/microsoftteams/communicate-with-users-from-other-organizations).
 

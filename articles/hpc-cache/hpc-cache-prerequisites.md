@@ -152,13 +152,6 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
   * Check firewall settings to be sure that they allow traffic on all of these required ports. Be sure to check firewalls used in Azure as well as on-premises firewalls in your data center.
 
-* **Directory access:** Enable the `showmount` command on the storage system. Azure HPC Cache uses this command to check that your storage target configuration points to a valid export, and also to make sure that multiple mounts don't access the same subdirectories (a risk for file collision).
-
-  > [!NOTE]
-  > If your NFS storage system uses NetApp's ONTAP 9.2 operating system, **do not enable `showmount`**. [Contact Microsoft Service and Support](hpc-cache-support-ticket.md) for help.
-
-  Learn more about directory listing access in the NFS storage target [troubleshooting article](troubleshoot-nas.md#enable-export-listing).
-
 * **Root access** (read/write): The cache connects to the back-end system as user ID 0. Check these settings on your storage system:
   
   * Enable `no_root_squash`. This option ensures that the remote root user can access files owned by root.

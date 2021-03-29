@@ -2,6 +2,8 @@
 title: Mainframe workloads supported on Azure | Microsoft Docs
 description: Use a mainframe emulator and other services from Microsoft partners to rehost your mainframe workloads such as IBM Z-based systems using Microsoft Azure.
 services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter:
 author: njray
 manager: edprice
@@ -9,7 +11,6 @@ editor: edprice
 ms.author: larryme
 ms.date: 05/09/2020
 ms.topic: article
-ms.service: multiple
 ---
 
 # Mainframe workloads supported on Azure

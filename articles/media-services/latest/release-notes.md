@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ---
 
@@ -81,11 +81,11 @@ Version 3 provides:
  
 - 24x7 live event support
 - ARM REST APIs, client SDKs for .NET core, Node.js, Python, Java, Go and Ruby.
-- Customer managed keys, trusted storage integration, private link support, and [more](https://review.docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Customer managed keys, trusted storage integration, private link support, and [more](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
 #### Action Required
 
-To minimize disruption to your workloads, review the [migration guide](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) to transition your code from the version 2 API and SDKs to version 3 API and SDK before 29 February 2024.
+To minimize disruption to your workloads, review the [migration guide](./migrate-v-2-v-3-migration-introduction.md) to transition your code from the version 2 API and SDKs to version 3 API and SDK before 29 February 2024.
 **After 29 February 2024**, Azure Media Services will no longer accept traffic on the version 2 REST API, the ARM account management API version 2015-10-01, or from the version 2 .NET client SDKs. This includes any 3rd party open-source client SDKS that may call the version 2 API.  
 
 See the official [Azure Updates announcement](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
@@ -121,7 +121,6 @@ Please update to the latest client SDKs in your code bases using your package ma
 
 - **[Managed Identities](concept-managed-identities.md)**: Customers may enable a System Assigned Managed Identity for a Media Services account to provide access to Key Vaults (for Customer Managed Keys) and storage accounts (for Trusted Storage).
 
-
 ### Updated Typescript Node.js Samples using isomorphic SDK for JavaScript
 
 The Node.js samples have been updated to use the latest isomorphic SDK. The samples now show use of Typescript. In addition, a new live streaming sample was added for Node.js/Typescript.
@@ -132,7 +131,7 @@ See the latest samples in the **[media-services-v3-node-tutorials](https://githu
 
 Live Events now support a lower-cost billing mode for "stand-by". This allows customers to pre-allocate Live Events at a lower cost for the creation of "hot pools". Customers can then use the stand-by live events to transition to the Running state faster than starting from cold on creation.  This reduces the time to start the channel significantly and allows for fast hot-pool allocation of machines running in a lower price mode.
 See the latest pricing details [here](https://azure.microsoft.com/pricing/details/media-services).
-For more information on the StandBy state and the other states of Live Events see the article - [Live event states and billing.](https://docs.microsoft.com/azure/media-services/latest/live-event-states-billing)
+For more information on the StandBy state and the other states of Live Events see the article - [Live event states and billing.](./live-event-states-billing.md)
 
 ## December 2020
 
@@ -370,7 +369,7 @@ You can now specify a list of asset or account filters, which would apply to you
 
 Media Services v3 is now supported in Azure national clouds. Not all features are available in all clouds yet. For details, see [Clouds and regions in which Azure Media Services v3 exists](azure-clouds-regions.md).
 
-[Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) event was added to the Azure Event Grid schemas for Media Services.
+[Microsoft.Media.JobOutputProgress](monitoring/media-services-event-schemas.md#monitoring-job-output-progress) event was added to the Azure Event Grid schemas for Media Services.
 
 ## January 2019
 
