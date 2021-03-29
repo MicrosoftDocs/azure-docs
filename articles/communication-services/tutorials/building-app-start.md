@@ -12,8 +12,6 @@ ms.service: azure-communication-services
 
 # Tutorial: Prepare a web app for Azure Communication Services (Node.js)
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 You can use Azure Communication Services to add real-time communications to your applications. In this tutorial, you'll learn how to set up a web application that supports Azure Communication Services. This is an introductory tutorial for new developers who want to get started with real-time communications.
 
 By the end of this tutorial, you'll have a baseline web application that's configured with Azure Communication Services SDKs. You can then use that application to begin building your real-time communications solution.

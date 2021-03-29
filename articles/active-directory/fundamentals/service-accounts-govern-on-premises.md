@@ -55,7 +55,7 @@ Use the following criteria when creating a new service account.
 
 Use the following settings with user accounts used as service accounts:
 
-* [**Account Expiry**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): set the service account to automatically expire a set time after its review period unless it's determined that it should continue
+* [**Account Expiry**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true): set the service account to automatically expire a set time after its review period unless it's determined that it should continue
 
 *  **LogonWorkstations**: restrict permissions for where the service account can sign in. If it runs locally on a machine and accesses only resources on that machine, restrict it from logging on anywhere else.
 
@@ -77,7 +77,7 @@ Use the following process for lifecycle management of service accounts:
 
 ### Collect usage information for the service account
 
-Collect the relevant business information for each service account. The below table shows minimum information to be collected, but you should collect everything necessary to make the business case for the accounts’ existence.
+Collect the relevant business information for each service account. The below table shows minimum information to be collected, but you should collect everything necessary to make the business case for the accounts' existence.
 
 | Data| Details |
 | - | - |
@@ -144,9 +144,9 @@ The risk assessment, once conducted and documented, may have impact on:
 
 Create service account only after relevant information is documented in your CMDB and you perform a risk assessment. Account restrictions should be aligned to risk assessment. Consider the following restrictions when relevant to you assessment.:
 
-* [Account Expiry](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Account Expiry](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true)
 
-   * For all user accounts used as service accounts, define a realistic and definite end-date for use. Set this using the “Account Expires” flag. For more details, refer to[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
+   * For all user accounts used as service accounts, define a realistic and definite end-date for use. Set this using the "Account Expires" flag. For more details, refer to[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
 
 * Log On To ([LogonWorkstation](/powershell/module/addsadministration/set-aduser))
 
@@ -188,7 +188,7 @@ After removing all permissions, use this process for removing the account.
 
 3. Delete the service account after the remain disabled policy is fulfilled. 
 
-   * For MSAs, you can [uninstall it](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) using PowerShell or delete manually from the managed service account container.
+   * For MSAs, you can [uninstall it](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true) using PowerShell or delete manually from the managed service account container.
 
    * For computer or user accounts, you can manually delete the account from in Active Directory.
 

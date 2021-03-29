@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/27/2021
 ms.author: alexeyo
 ---
 
@@ -34,7 +34,7 @@ For the usage with [Speech SDK](speech-sdk.md) and/or [Speech-to-text REST API f
 #### Batch Transcription
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| REST API limit | Batch transcription is not available for F0 | 300 requests per minute |
+| [Speech-to-text REST API V2.0 and v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) limit | Batch transcription is not available for F0 | 300 requests per minute |
 | Max audio input file size | N/A | 1 GB |
 | Max input blob size (may contain more than one file, for example, in a zip archive; ensure to note the file size limit above) | N/A | 2.5 GB |
 | Max blob container size | N/A | 5 GB |

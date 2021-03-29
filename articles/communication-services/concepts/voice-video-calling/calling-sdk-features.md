@@ -13,9 +13,6 @@ ms.service: azure-communication-services
 ---
 # Calling SDK overview
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
 There are two separate families of Calling SDKs, for *clients* and *services.* Currently available SDKs are intended for end-user experiences: websites and native apps.
 
 The Service SDKs are not yet available, and provide access to the raw voice and video data planes, suitable for integration with bots and other services.

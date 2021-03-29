@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/12/2021
+ms.date: 3/28/2021
 ms.author: gunnarc
 ---
 
@@ -19,33 +19,30 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## March 2021 Guest OS
 
->[!NOTE] 
-
->The March Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the March Guest OS. This list is subject to change. 
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 21-03 |  [5000822]  |  Latest Cumulative Update(LCU) | 6.29 | Mar 9, 2021 |
-|  Rel 21-03 |  [4580325]  |  Flash update | 3.95, 4.88, 5.53, 6.29 | Oct 13, 2020 |
-|  Rel 21-03 |  [5000800]  |  IE Cumulative Updates | 2.108, 3.95, 4.88 | Mar 9, 2021 |
-|  Rel 21-03 |  [5000803]  |  Latest Cumulative Update(LCU) | 5.53 | Mar 9, 2021 |
-|  Rel 21-03 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | 2.108 | Oct 13, 2020 |
-|  Rel 21-03 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup  | 2.108 | Oct 13, 2020 |
-|  Rel 21-03 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup  | 4.88 | Oct 13, 2020 |
-|  Rel 21-03 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup  | 4.88 | Oct 13, 2020 |
-|  Rel 21-03 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup  | 3.95 | Oct 13, 2020 |
-|  Rel 21-03 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup  | 3.95 | Oct 13, 2020 |
-|  Rel 21-03 |  [4601060]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update  | 6.29 | Feb 9, 2021 |
-|  Rel 21-03 |  [5000841]  |  Monthly Rollup  | 2.108 | Mar 9, 2021 |
-|  Rel 21-03 |  [5000847]  |  Monthly Rollup  | 3.95 | Mar 9, 2021 |
-|  Rel 21-03 |  [5000848]  |  Monthly Rollup  | 4.88 | Mar 9, 2021 |
-|  Rel 21-03 |  [4566426]  |  Servicing Stack update  | 3.95 | July 14, 2020 |
-|  Rel 21-03 |  [4566425]  |  Servicing Stack update  | 4.88 | July 14, 2020 |
-|  Rel 21-03 OOB |  [4578013]  |  Standalone Security Update  | 4.88 | Aug 19, 2020 |
-|  Rel 21-03 |  [4592510]  |  Servicing Stack update  | 2.108 | Dec 8, 2020 |
-|  Rel 21-03 |  [5000859]  |  Servicing Stack update  | 6.29 | Mar 9, 2021 |
-|  Rel 21-03 |  [4494175]  |  Microcode  | 5.53 | Sep 1, 2020 |
-|  Rel 21-03 |  [4494174]  |  Microcode  | 6.29 | Sep 1, 2020 |
+|  Rel 21-03 |  [5000822]  |  Latest Cumulative Update(LCU) | [6.29] | Mar 9, 2021 |
+|  Rel 21-03 |  [4580325]  |  Flash update | [3.95], [4.88], [5.53], [6.29] | Oct 13, 2020 |
+|  Rel 21-03 |  [5000800]  |  IE Cumulative Updates | [2.108], [3.95], [4.88] | Mar 9, 2021 |
+|  Rel 21-03 |  [5000803]  |  Latest Cumulative Update(LCU) | [5.53] | Mar 9, 2021 |
+|  Rel 21-03 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | [2.108] | Oct 13, 2020 |
+|  Rel 21-03 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup  | [2.108] | Oct 13, 2020 |
+|  Rel 21-03 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup  | [4.88] | Oct 13, 2020 |
+|  Rel 21-03 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup  | [4.88] | Oct 13, 2020 |
+|  Rel 21-03 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup  | [3.95] | Oct 13, 2020 |
+|  Rel 21-03 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup  | [3.95] | Oct 13, 2020 |
+|  Rel 21-03 |  [4601060]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update  | [6.29] | Feb 9, 2021 |
+|  Rel 21-03 |  [5000841]  |  Monthly Rollup  | [2.108] | Mar 9, 2021 |
+|  Rel 21-03 |  [5000847]  |  Monthly Rollup  | [3.95] | Mar 9, 2021 |
+|  Rel 21-03 |  [5000848]  |  Monthly Rollup  | [4.88] | Mar 9, 2021 |
+|  Rel 21-03 |  [4566426]  |  Servicing Stack update  | [3.95] | July 14, 2020 |
+|  Rel 21-03 |  [4566425]  |  Servicing Stack update  | [4.88] | July 14, 2020 |
+|  Rel 21-03 OOB |  [4578013]  |  Standalone Security Update  | [4.88] | Aug 19, 2020 |
+|  Rel 21-03 |  [4592510]  |  Servicing Stack update  | [2.108] | Dec 8, 2020 |
+|  Rel 21-03 |  [5000859]  |  Servicing Stack update  | [6.29] | Mar 9, 2021 |
+|  Rel 21-03 |  [4494175]  |  Microcode  | [5.53] | Sep 1, 2020 |
+|  Rel 21-03 |  [4494174]  |  Microcode  | [6.29] | Sep 1, 2020 |
 
 [5000822]: https://support.microsoft.com/kb/5000822
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -68,7 +65,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5000859]: https://support.microsoft.com/kb/5000859
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-
+[2.108]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.95]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.88]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.53]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.29]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## February 2021 Guest OS
 
