@@ -124,7 +124,7 @@ Use Azure Media Services APIs for configuring license/key delivery and encryptin
 For more information, see:
 
 - [Content protection overview](content-protection-overview.md)
-- [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
+- [Design of a multi-DRM content protection system with access control](architecture-design-multi-drm-system.md)
 
 ### Should I use HTTP or HTTPS?
 The ASP.NET MVC player application must support the following:

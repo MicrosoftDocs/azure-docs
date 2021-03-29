@@ -205,7 +205,7 @@
       href: content-protection-overview.md  
     - name: Design of multi-DRM system 
       displayName: drm, access control
-      href: design-multi-drm-system-with-access-control.md  
+      href: architecture-design-multi-drm-system.md  
     - name: DRM licenses
       items:
       - name: PlayReady license template
