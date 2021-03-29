@@ -51,7 +51,7 @@ Additional languages for video transcription and subtitling are available now in
 * Thai, ‘th-TH’
 * Turkish, ‘tr-TR’
 
-See the latest available languages in the [Analyzing Video And Audio Files concept article.](analyzing-video-audio-files-concept.md)
+See the latest available languages in the [Analyzing Video And Audio Files concept article.](analyze-video-audio-files-concept.md)
 
 ## February 2021
 
@@ -85,7 +85,7 @@ Version 3 provides:
 
 #### Action Required
 
-To minimize disruption to your workloads, review the [migration guide](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) to transition your code from the version 2 API and SDKs to version 3 API and SDK before 29 February 2024.
+To minimize disruption to your workloads, review the [migration guide](./migrate-v-2-v-3-migration-introduction.md) to transition your code from the version 2 API and SDKs to version 3 API and SDK before 29 February 2024.
 **After 29 February 2024**, Azure Media Services will no longer accept traffic on the version 2 REST API, the ARM account management API version 2015-10-01, or from the version 2 .NET client SDKs. This includes any 3rd party open-source client SDKS that may call the version 2 API.  
 
 See the official [Azure Updates announcement](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
@@ -131,7 +131,7 @@ See the latest samples in the **[media-services-v3-node-tutorials](https://githu
 
 Live Events now support a lower-cost billing mode for "stand-by". This allows customers to pre-allocate Live Events at a lower cost for the creation of "hot pools". Customers can then use the stand-by live events to transition to the Running state faster than starting from cold on creation.  This reduces the time to start the channel significantly and allows for fast hot-pool allocation of machines running in a lower price mode.
 See the latest pricing details [here](https://azure.microsoft.com/pricing/details/media-services).
-For more information on the StandBy state and the other states of Live Events see the article - [Live event states and billing.](https://docs.microsoft.com/azure/media-services/latest/live-event-states-billing)
+For more information on the StandBy state and the other states of Live Events see the article - [Live event states and billing.](./live-event-states-billing.md)
 
 ## December 2020
 
@@ -143,11 +143,11 @@ Azure Media Services is now available in the Norway East region in the Azure por
 
 ### Basic Audio Analysis
 
-The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic Audio Analyzer mode provides a low-cost option to extract speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyzing-video-audio-files-concept.md#built-in-presets)
+The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic Audio Analyzer mode provides a low-cost option to extract speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyze-video-audio-files-concept.md#built-in-presets)
 
 Customers using Indexer v1 and Indexer v2 should migrate to the Basic Audio Analysis preset.
 
-For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyzing-video-audio-files-concept.md).  To learn to use the Basic Audio Analyzer mode with the REST API, see [How to Create a Basic Audio Transform](how-to-create-basic-audio-transform.md).
+For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyze-video-audio-files-concept.md).  To learn to use the Basic Audio Analyzer mode with the REST API, see [How to Create a Basic Audio Transform](how-to-create-basic-audio-transform.md).
 
 ### Live Events
 
@@ -184,11 +184,11 @@ Live Transcriptions now supports 19 languages and 8 regions.
 
 ### Protecting your content with Media Services and Azure AD
 
-We published a tutorial called [End-to-End content protection using Azure AD](./azure-ad-content-protection.md).
+We published a tutorial called [End-to-End content protection using Azure AD](./architecture-azure-ad-content-protection.md).
 
 ### High availability
 
-We published a High Availability with Media Services and Video on Demand (VOD) [overview](./media-services-high-availability-encoding.md) and [sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
+We published a High Availability with Media Services and Video on Demand (VOD) [overview](./architecture-high-availability-encoding-concept.md) and [sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
 
 ## June 2020
 
@@ -515,7 +515,7 @@ If you created Assets or Account Filters between 09/28 and 10/12 with Media Serv
 
 The following features are present in the .NET SDK:
 
-* **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial-with-api.md).
+* **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial.md).
 * **Streaming Locators** for publishing and streaming content to end-user devices
 * **Streaming Policies** and **Content Key Policies** to configure key delivery and content protection (DRM) when delivering content.
 * **Live Events** and **Live Outputs** to configure the ingest and archiving of live streaming content.

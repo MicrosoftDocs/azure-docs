@@ -9,20 +9,19 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 
 ms.author: justinha
-author: inbarckms
+author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 
 ms.collection: M365-identity-device-management
 ---
-
 # Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods (Preview)
 
 Passwordless authentication methods, such as FIDO2 and Passwordless Phone Sign-in through the Microsoft Authenticator app, enable users to sign in securely without a password. 
 Users can bootstrap Passwordless methods in one of two ways:
 
-- Using existing Azure AD multi-factor authentication methods 
-- Using a Temporary Access Pass 
+- Using existing Azure AD Multi-Factor Authentication methods 
+- Using a Temporary Access Pass (TAP) 
 
 A Temporary Access Pass is a time-limited passcode issued by an admin that satisfies strong authentication requirements and can be used to onboard other authentication methods, including Passwordless ones. 
 A Temporary Access Pass also makes recovery easier when a user has lost or forgotten their strong authentication factor like a FIDO2 security key or Microsoft Authenticator app, but needs to sign in to register new strong authentication methods.
@@ -51,13 +50,13 @@ To configure the Temporary Access Pass authentication method policy:
    The default value and the range of allowed values are described in the following table.
 
 
-   | Setting          | Default values | Allowed values               | Comments                                                                                                                                                                                                                                                                 |   |
-   |------------------|----------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    Minimum lifetime | 1 hour         | 10 – 43200 Minutes (30 days) | Minimum number of minutes that the Temporary Access Pass is valid.                                                                                                                                                                                                                         |   |
-   | Maximum lifetime | 24 hours       | 10 – 43200 Minutes (30 days) | Maximum number of minutes that the Temporary Access Pass is valid.                                                                                                                                                                                                                         |   |
-   | Default lifetime | 1 hour         | 10 – 43200 Minutes (30 days) | Default values can be override by the individual passes, within the minimum and maximum lifetime configured by the policy                                                                                                                                                |   |
-   | One-time use     | False          | True / False                 | When the policy is set to false, passes in the tenant can be used either once or more than once during its validity (maximum lifetime). By enforcing one-time use in the Temporary Access Pass policy, all passes created in the tenant will be created as one-time use. |   |
-   | Length           | 8              | 8-48 characters              | Defines the length of the passcode.                                                                                                                                                                                                                                      |   |
+   | Setting | Default values | Allowed values | Comments |
+   |---|---|---|---|
+   | Minimum lifetime | 1 hour | 10 – 43200 Minutes (30 days) | Minimum number of minutes that the Temporary Access Pass is valid. |
+   | Maximum lifetime | 24 hours | 10 – 43200 Minutes (30 days) | Maximum number of minutes that the Temporary Access Pass is valid. |
+   | Default lifetime | 1 hour | 10 – 43200 Minutes (30 days) | Default values can be override by the individual passes, within the minimum and maximum lifetime configured by the policy. |
+   | One-time use | False | True / False | When the policy is set to false, passes in the tenant can be used either once or more than once during its validity (maximum lifetime). By enforcing one-time use in the Temporary Access Pass policy, all passes created in the tenant will be created as one-time use. |
+   | Length | 8 | 8-48 characters | Defines the length of the passcode. |
 
 ## Create a Temporary Access Pass in the Azure AD Portal
 

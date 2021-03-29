@@ -48,9 +48,9 @@ This tutorial shows you how to:
 The following items are required to complete the tutorial:
 
 * Review the [Content protection overview](content-protection-overview.md) article.
-* Review the [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md).
+* Review the [Design multi-DRM content protection system with access control](architecture-design-multi-drm-system.md).
 * Install Visual Studio Code or Visual Studio.
-* Create a new Azure Media Services account, as described in [this quickstart](./create-account-howto.md).
+* Create a new Azure Media Services account, as described in [this quickstart](./account-create-how-to.md).
 * Get credentials needed to use Media Services APIs by following [Access APIs](./access-api-howto.md)
 * Set the appropriate values in the app configuration file (appsettings.json).
 
