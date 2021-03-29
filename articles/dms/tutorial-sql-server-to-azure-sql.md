@@ -242,7 +242,7 @@ Select either all databases or specific databases that you want to migrate to Az
    ![Select target](media/tutorial-sql-server-to-azure-sql/select-target.png)
    
    > [!NOTE]
-   > Currently SQL Authentication is the only supported Authentication type
+   > Currently, SQL authentication is the only supported authentication type.
 
 1. Select **Next: Map to target databases** screen, map the source and the target database for migration.
 
