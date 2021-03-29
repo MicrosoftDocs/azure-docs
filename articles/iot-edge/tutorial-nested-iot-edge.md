@@ -200,7 +200,8 @@ Complete the steps below and restart the IoT Edge service to configure your devi
 1. On each device, apply the configuration bundle to the device:
 
    ```bash
-   ./<PATH_TO_UNZIPPED_BUNDLE>/install.sh
+   cd <PATH_TO_UNZIPPED_BUNDLE>
+   sudo ./install.sh
    ```
 
    You will receive prompts to enter the device address and the parent device's address in the form of an IP or FQDN. You can use either, but be consistent in your choice across devices. Leave the parent device address empty for the **top layer device**.
