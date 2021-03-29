@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/29/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -127,6 +127,7 @@ The following client apps have been confirmed to support this setting:
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
+- Microsoft Lists (iOS)
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
