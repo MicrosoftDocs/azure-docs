@@ -19,7 +19,7 @@ ms.author: janutter
 
 # Quickstart: Sign in users and get an access token in an Angular single-page application
 
-In this quickstart, you download and run a code sample that demonstrates how an Angular single-page application (SPA) can sign in users and call Microsoft Graph. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
+In this quickstart, you'll download and run a code sample that demonstrates how an Angular single-page application (SPA) can sign in users and call Microsoft Graph. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
 
 ## Prerequisites
 
@@ -37,23 +37,23 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >
 > 1. Go to the [Azure portal - app registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) quickstart experience.
 > 1. Enter a name for your application, and then select **Register**.
-> 1. Go to the quickstart pane and find the Angular quickstart. Follow the instructions to download and automatically configure your new application.
+> 1. On the quickstart pane, find the Angular quickstart. Follow the instructions to download and automatically configure your new application.
 >
 > ### Option 2 (manual): Register and manually configure the application and code sample
 >
 > #### Step 1: Register the application
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com/).
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: to select the tenant in which you want to register an application.
 > 1. Follow the instructions to [register a single-page application](./scenario-spa-app-registration.md) in the Azure portal.
 > 1. Add a new platform on the **Authentication** pane of your app registration and register the redirect URI: `http://localhost:4200/`.
-> 1. This quickstart uses the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). In the **Implicit grant and hybrid flows** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app signs in users and calls an API.
+> 1. This quickstart uses the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). In the **Implicit grant and hybrid flows** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app signs users in and calls an API.
 
 > [!div class="sxs-lookup" renderon="portal"]
 >
 > #### Step 1: Configure the application in the Azure portal
 >
-> For the code sample in this quickstart to work, you need to add a redirect URI as **http://localhost:4200/** and enable **Implicit grant**.
+> For the code sample in this quickstart to work, you need to add a redirect URI to `http://localhost:4200/` and enable **Implicit grant**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -126,10 +126,8 @@ If you're using Node.js:
    ```
 
 1. Go to `http://localhost:4200/`.
-1. Select **Login**.
-1. Select **Profile** to call Microsoft Graph.
-
-After the application starts, select **Login**. The first time you sign in, you're prompted to allow the application to access your profile and sign you in. After you sign in successfully, select **Profile**. Your user profile information is displayed on the page.
+1. Select **Login**. The first time you sign in, you're prompted to allow the application to access your profile and sign you in automatically.
+1. Select **Profile** to call Microsoft Graph. Your user profile information is displayed on the page.
 
 ## How the sample works
 
