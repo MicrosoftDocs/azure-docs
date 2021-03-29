@@ -15,7 +15,7 @@ This article describes troubleshooting steps that you can take when you have iss
 
 ## Upgrade available message is still displayed after upgrading guest health 
 
-- Verify that VM is running in public Azure. Arc enabled servers are not yet supported.
+- Verify that VM is running in global Azure. Arc enabled servers are not yet supported.
 - Verify that the virtual machine's region and operating system version are supported as described in [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md).
 - Verify that guest health extension installed successfully with 0 exit code.
 - Verify that Azure Monitor agent extension is installed successfully.
