@@ -34,4 +34,46 @@ ms.custom: devx-track-java
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
-[!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db-feature/sdk/cosmos/azure-cosmos-spark_3-1_2-12/README.md)]
+**Azure Cosmos DB OLTP Spark v3 connector preview** provides Apache Spark v3 support for Azure Cosmos DB using 
+the [SQL API][sql_api_query].
+[Azure Cosmos DB][cosmos_introduction] is a globally-distributed database service which allows 
+developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
+
+**NOTE this is a Preview build.
+This build has not been load or performance tested yet - and at this point is not recommended
+being used in production scenarios.**
+
+If you have any feedback or ideas on how to improve your experience please let us know here:
+https://github.com/Azure/azure-sdk-for-java/issues/new
+
+## Documentation
+
+- [Getting started](https://github.com/Azure/azure-sdk-for-java/blob/feature/cosmos/spark30/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/quick-start.md)
+- [Catalog API](https://github.com/Azure/azure-sdk-for-java/blob/feature/cosmos/spark30/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/catalog-api.md)
+- [Configuration Parameter Reference](https://github.com/Azure/azure-sdk-for-java/blob/feature/cosmos/spark30/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md)
+
+## Version Compatibility
+
+| Connector     | Spark         | Minimum Java Version | Supported Scala Versions |
+| ------------- | ------------- | -------------------- | -----------------------  |
+| 4.0.0-beta.1  | 3.1.1         |        8             | 2.12                     |
+
+## Download
+
+You can use the maven coordinate of the jar to auto install the Spark Connector to your Databricks Runtime 8 from Maven:
+`com.azure.cosmos.spark:azure-cosmos-spark_3-1_2-12:4.0.0-beta.1`
+
+You can also integrate against Cosmos DB Spark Connector in your SBT project:
+```scala
+libraryDependencies += "com.azure.cosmos.spark" % "azure-cosmos-spark_3-1_2-12" % "4.0.0-beta.1"
+```
+
+Cosmos DB Spark Connector is available on [Maven Central Repo](https://search.maven.org/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-1_2-12/4.0.0-beta.1/jar).
+
+### General
+
+If you encounter any bug, please file an issue [here](https://github.com/Azure/azure-sdk-for-java/issues/new).
+
+To suggest a new feature or changes that could be made, file an issue the same way you would for a bug.
+
+[!INCLUDE[Changelog](~/azure-sdk-for-java-cosmos-db-feature/sdk/cosmos/azure-cosmos-spark_3-1_2-12/CHANGELOG.md)]
