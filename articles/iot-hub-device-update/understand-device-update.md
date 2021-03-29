@@ -105,7 +105,7 @@ REST API](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-
 them, and makes them available for distribution to IoT devices.
 
 For sensitive content, protect the download using a shared access signature (SAS), such as an ad-hoc SAS for Azure Blob Storage. [Learn more about
-SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+SAS](../storage/common/storage-sas-overview.md)
 
 :::image type="content" source="media/understand-device-update/import-update.png" alt-text="Diagram of Device Update for IoT Hub importing workflow." lightbox="media/understand-device-update/import-update.png":::
 
