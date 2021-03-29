@@ -11,7 +11,7 @@ ms.date: 03/18/2021
 
 # Troubleshoot mapping data flows in Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article explores common troubleshooting methods for mapping data flows in Azure Data Factory.
 
@@ -297,7 +297,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Error code: DF-Excel-InvalidRange
 - **Message**: Invalid range is provided.
-- **Recommendation**: Check the parameter value and specify the valid range by the following reference: [Excel format in Azure Data Factory-Dataset properties](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **Recommendation**: Check the parameter value and specify the valid range by the following reference: [Excel format in Azure Data Factory-Dataset properties](./format-excel.md#dataset-properties).
 
 ### Error code: DF-Excel-WorksheetNotExist
 - **Message**: Excel worksheet does not exist.
@@ -312,24 +312,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 ### Error code: DF-Excel-InvalidFile
 - **Message**: Invalid excel file is provided while only .xlsx and .xls are supported.
 
-### Error code: DF-AdobeIntegration-InvalidMapToFilter
-- **Message**: Custom resource can only have one Key/Id mapped to filter.
-
-### Error code: DF-AdobeIntegration-InvalidPartitionConfiguration
-- **Message**: Only single partition is supported. Partition schema may be RoundRobin or Hash.
-- **Recommendation**: In AdobeIntegration settings, confirm you only have single partitions. The partition schema may be RoundRobin or Hash.
-
-### Error code: DF-AdobeIntegration-KeyColumnMissed
-- **Message**: Key must be specified for non-insertable operations.
-- **Recommendation**: Specify your key columns in AdobeIntegration settings for non-insertable operations.
-
-### Error code: DF-AdobeIntegration-InvalidPartitionType
-- **Message**: Partition type has to be roundRobin.
-- **Recommendation**: Confirm the partition type is roundRobin in AdobeIntegration settings.
-
-### Error code: DF-AdobeIntegration-InvalidPrivacyRegulation
-- **Message**: Only privacy regulation supported currently is gdpr.
-- **Recommendation**: Confirm the privacy regulation in AdobeIntegration settings is **'GDPR'**.
 
 ## Miscellaneous troubleshooting tips
 - **Issue**: Unexpected exception occurred and execution failed.
@@ -364,4 +346,3 @@ For more help with troubleshooting, see these resources:
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-

@@ -181,5 +181,5 @@ As with all the cognitive services, developers using the Form Recognizer service
 
 Try our online tool and quickstart to learn more about the Form Recognizer service.
 
-* [**Form Recognizer tool**](https://fott-preview.microsoft.com/)
+* [**Form Recognizer tool**](https://fott-preview.azurewebsites.net/)
 * [**Client library and REST API quickstart**](quickstarts/client-library.md)
