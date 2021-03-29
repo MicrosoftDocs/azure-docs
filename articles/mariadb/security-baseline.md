@@ -98,7 +98,7 @@ Enable DDoS Protection Standard on the virtual networks associated with your Azu
 
 **Guidance**: For resources that need access to your Azure Database for MariaDB instances, use virtual network service tags to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., SQL.WestUs) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-Note: Azure Database for MariaDB uses the "Microsoft.Sql" service tag.
+Azure Database for MariaDB uses the "Microsoft.Sql" service tag.
 
 - [For more information about using service tags](../virtual-network/service-tags-overview.md)
 
