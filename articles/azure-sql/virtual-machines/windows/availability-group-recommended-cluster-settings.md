@@ -24,11 +24,11 @@ ms.author: mathoma
 
 If above actions don't result in improved performance such in the scenario where you're unable to move to a VM or disks with higher limit because of financial or other constraints, you can opt for relaxed monitoring of the SQL Always On AG/FCI. It will mask the underlying problem only and these are only temporary solutions and reduces (not eliminates) the likelihood of a failure. You might need to do trial and error to find the best values for your environment.
 
-## Always On Parameters for relaxed monitoring    
+## Always on parameters for relaxed monitoring    
 
 Modify the Always on AG/FCI parameters to achieve relaxed monitoring: 
 
-|    AG/FCI Parameters                           |
+|    AG/FCI parameters                           |
 |------------------------------------------------|
 |**Lease timeout**                               |
 |Prevents split-brain.                           |
@@ -66,14 +66,14 @@ Lease timeout prevents split brain scenario. On an Azure VM this can happen if t
 | 35201 | A connection timeout has occurred while attempting to establish a connection to availability replica 'replicaname' with id [availability_group_id]. Either a networking or firewall issue exists, or the endpoint address provided for the replica isn't the database mirroring endpoint of the host server instance. |
 | 35206 | A connection timeout has occurred on a previously established connection to availability replica 'replicaname' with id [availability_group_id]. Either a networking or a firewall issue exists, or the availability replica has transitioned to the resolving role. |
 
- ## How to Relax lease timeout   
+ ## How to relax lease timeout
 
 The lease mechanism is controlled by a single value specific to each AG in a WSFC cluster. To navigate to this value in Failover Cluster Manager:
 1. In the roles tab, find the target AG role. Select on the target AG role.
 2. Right-click the AG resource at the bottom of the window and select Properties.
 3. In the popup window, navigate to the properties tab and there will be a list of values specific to this AG. Select the LeaseTimeout value to change it.
    
-## Health-Check Timeout Threshold
+## Health-check timeout threshold
 
 * WSFC resource DLL of the availability group does a health check of the primary replica by calling the sp_server_diagnostics stored procedure on the instance of SQL Server that hosts the primary replica.
 
@@ -85,13 +85,13 @@ The lease mechanism is controlled by a single value specific to each AG in a WSF
  If sp_server_diagnostics is slow or isn't returning information, the resource DLL will wait for the full interval of the health-check timeout threshold before determining that the primary replica is unresponsive. 
 
 If the primary replica is unresponsive, an automatic failover is initiated, if currently supported.
-## Relax Health-Check Timeout
+## Relax health-check timeout
 
 In order to Relax Health-Check Timeout to 60,000-millisecond following command can be used
 ```sql
 ALTER AVAILABILITY GROUP AG1 SET (HEALTH_CHECK_TIMEOUT =60000);
 ```
-##Failure-Condition Level 
+## Failure-condition level 
 The failure-condition level specifies what failure conditions trigger an automatic failover. There are five failure-condition levels, which range from the least restrictive (level 1) to the most restrictive (level 5). A given level encompasses the less restrictive levels. Thus, the strictest level, five, includes the four less restrictive conditions, and so forth. You can set the FAILURE_CONDITION_LEVEL to less restrictive value from default of 3 when you can't resolve the underlying issue easily. Following command sets failure condition to the least restrictive level of 1 for the availability group named AG1.
 ```sql  
 ALTER AVAILABILITY GROUP AG1 SET (FAILURE_CONDITION_LEVEL = 1);
