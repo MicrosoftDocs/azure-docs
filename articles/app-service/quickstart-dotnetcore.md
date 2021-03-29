@@ -75,8 +75,8 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
     Install the .NET Framework 4.8 Developer Pack
 </a>.
 
-> [!TIP]
-> If you're using Visual Studio, the .NET Framework 4.8 Developer Pack is only needed when not installed through Visual Studio. To ensure that the *.NET Framework 4.8 SDK* is installed, verify it is checked in **Tools** > **Get Tools and Features** > **Individual components**.
+> [!NOTE]
+> Visual Studio Code is cross-platform, however; .NET Framework is not. If you're developing .NET Framework apps with Visual Studio Code, consider using a Windows machine to satisfy the build dependencies.
 
 ---
 
@@ -106,6 +106,9 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48" target="_blank">
     Install the .NET Framework 4.8 Developer Pack
 </a>.
+
+> [!NOTE]
+> The [.NET CLI](/dotnet/core/tools) is cross-platform, however; .NET Framework is not. If you're developing .NET Framework apps with the .NET CLI, consider using a Windows machine to satisfy the build dependencies.
 
 ---
 
@@ -212,19 +215,19 @@ Open a web browser, and navigate to the app at `https://localhost:5001`.
 
 You'll see the template ASP.NET Core 3.1 web app displayed in the page.
 
-:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="VS Code - run .NET Core 3.1 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
+:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio Code - run .NET Core 3.1 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
 
 ### [.NET 5.0](#tab/net50)
 
 You'll see the template ASP.NET Core 5.0 web app displayed in the page.
 
-:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="VS Code - run .NET 5.0 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
+:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio Code - run .NET 5.0 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
 You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
 
-:::image type="content" source="media/quickstart-dotnet/local-webapp-net48.png" alt-text="VS Code - run .NET 4.8 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
+:::image type="content" source="media/quickstart-dotnet/local-webapp-net48.png" alt-text="Visual Studio Code - run .NET 4.8 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
 
 ---
 
@@ -271,19 +274,19 @@ Open a web browser, and navigate to the app at `https://localhost:5001`.
 
 You'll see the template ASP.NET Core 3.1 web app displayed in the page.
 
-:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="VS Code - run .NET Core 3.1 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
+:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio Code - ASP.NET Core 3.1 in local browser" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
 
 ### [.NET 5.0](#tab/net50)
 
 You'll see the template ASP.NET Core 5.0 web app displayed in the page.
 
-:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="VS Code - run .NET 5.0 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
+:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio Code - ASP.NET Core 5.0 in local browser" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
 You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
 
-:::image type="content" source="media/quickstart-dotnet/local-webapp-net48.png" alt-text="VS Code - run .NET 4.8 in browser locally" lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
+:::image type="content" source="media/quickstart-dotnet/local-webapp-net48.png" alt-text="Visual Studio Code - ASP.NET Framework 4.8 in local browser" lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
 
 ---
 
@@ -578,19 +581,19 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 You'll see the updated ASP.NET Core 3.1 web app displayed in the page.
 
-:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="CLI - Updated ASP.NET Core 3.1 web app in Azure":::
+:::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="CLI - Updated ASP.NET Core 3.1 web app in Azure":::
 
 ### [.NET 5.0](#tab/net50)
 
 You'll see the updated ASP.NET Core 5.0 web app displayed in the page.
 
-:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="CLI - Updated ASP.NET Core 5.0 web app in Azure":::
+:::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="CLI - Updated ASP.NET Core 5.0 web app in Azure":::
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
 You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
-:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net48.png" border="true" alt-text="CLI - Updated ASP.NET Framework 4.8 web app in Azure":::
+:::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net48.png" border="true" alt-text="CLI - Updated ASP.NET Framework 4.8 web app in Azure":::
 
 ---
 
