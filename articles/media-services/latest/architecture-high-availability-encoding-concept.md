@@ -54,7 +54,7 @@ This high-level diagram shows the architecture of the sample provided to get you
 
 ### Regions
 
-* [Create](./create-account-howto.md) two (or more) Azure Media Services accounts. The two accounts need to be in different regions. For more information, see [Regions in which the Azure Media Services service is deployed](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
+* [Create](./account-create-how-to.md) two (or more) Azure Media Services accounts. The two accounts need to be in different regions. For more information, see [Regions in which the Azure Media Services service is deployed](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
 * Upload your media to the same region from which you are planning to submit the job. For more information about how to start encoding, see [Create a job input from an HTTPS URL](./job-input-from-http-how-to.md) or [Create a job input from a local file](./job-input-from-local-file-how-to.md).
 * If you then need to resubmit the [job](./transforms-jobs-concept.md) to another region, you can use `JobInputHttp` or use `Copy-Blob` to copy the data from the source Asset container to an Asset container in the alternate region.
 

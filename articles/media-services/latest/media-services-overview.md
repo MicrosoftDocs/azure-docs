@@ -90,7 +90,7 @@ Use [this samples browser](/samples/browse/?products=azure-media-services) to br
 
 How-to guides contain code samples that demonstrate how to complete a task. In this section, you'll find many examples. Here are a few of them:
 
-* [Create an account - CLI](./create-account-howto.md)
+* [Create an account - CLI](./account-create-how-to.md)
 * [Access APIs - CLI](./access-api-howto.md)
 * [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
 * [Monitor events - Portal](monitoring/monitor-events-portal-how-to.md)

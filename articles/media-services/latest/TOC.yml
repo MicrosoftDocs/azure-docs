@@ -19,7 +19,7 @@
     - name: Find your Azure subscription
       href: how-to-set-azure-subscription.md
     - name: Create a Media Services account
-      href: create-account-howto.md
+      href: account-create-how-to.md
     - name: Access the API
       href: access-api-howto.md
     - name: Set up Azure Cloud Shell

@@ -50,7 +50,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create an account
-            url: ./create-account-howto.md
+            url: ./account-create-how-to.md
           - text: Access API
             url: ./access-api-howto.md
       - linkListType: download

@@ -45,7 +45,7 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[Create a Media Services account](create-account-howto.md)
+[Create a Media Services account](account-create-how-to.md)
 
 ## Upload
 
