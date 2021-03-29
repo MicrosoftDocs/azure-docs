@@ -100,7 +100,7 @@ As an administrator in Azure Active Directory, open PowerShell, run ``Connect-Az
 
 - Deploy an automated provisioning and deprovisioning solution. Deprovisioning users from applications is an effective way of revoking access, especially for applications that use sessions tokens. Develop a process to deprovision users to apps that don’t support automatic provisioning and deprovisioning. Ensure applications revoke their own session tokens and stop accepting Azure AD access tokens even if they’re still valid.
 
-  - Use [Azure AD SaaS App Provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning#:~:text=In%20Azure%20Active%20Directory%20(Azure%20AD),%20the%20term,of%20user%20identities%20as%20status%20or%20roles%20change.). Azure AD SaaS App Provisioning typically runs automatically every 20-40 minutes. [Configure Azure AD provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) to deprovision or deactivate disabled users in applications.
+  - Use [Azure AD SaaS App Provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning). Azure AD SaaS App Provisioning typically runs automatically every 20-40 minutes. [Configure Azure AD provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) to deprovision or deactivate disabled users in applications.
   
   - For applications that don’t use Azure AD SaaS App Provisioning, use [Identity Manager (MIM)](https://docs.microsoft.com/microsoft-identity-manager/mim-how-provision-users-adds) or a 3rd party solution to automate the deprovisioning of users.  
   - Identify and develop a process for applications that requires manual deprovisioning. Ensure admins can quickly run the required manual tasks to deprovision the user from these apps when needed.
@@ -124,5 +124,5 @@ Once admins have taken the above steps, the user can't gain new tokens for any a
 
 ## Next steps
 
-- [Secure access practices for Azure AD administrators](directory-admin-roles-secure.md)
+- [Secure access practices for Azure AD administrators](https://docs.microsoft.com/azure/active-directory/roles/security-planning)
 - [Add or update user profile information](../fundamentals/active-directory-users-profile-azure-portal.md)
