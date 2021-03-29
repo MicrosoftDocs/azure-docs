@@ -283,7 +283,7 @@ In online (minimal-downtime) migrations, the migration source continues to chang
 
 During the *Data sync* phase, ensure that all changes in the source are captured and applied to the target in near real time. After you verify that all changes are applied, you can cutover from the source to the target environment.
 
-To do an online migration, [contact us](AskAzureDBforPostgreSQL@service.microsoft.com) for support.
+To do an online migration, contact AskAzureDBforPostgreSQL@service.microsoft.com for support.
 
 In a *delta/incremental* migration that uses ora2pg, for each table, use a query that filters (*cuts*) by date, time, or another parameter. Then finish the migration by using a second query that migrates the remaining data.
 
