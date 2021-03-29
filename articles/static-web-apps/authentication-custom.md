@@ -49,7 +49,7 @@ Authentication providers will likely need a URL to redirect to when login or log
 
 ## Configuring a custom OpenID Connect provider
 
-This section shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect specification](https://openid.net/connect/). You can configure your app to use one or more OIDC providers. Each must be given a unique name in the configuration, and only one can serve as the default redirect target. For full details on how to use OIDC with Easy Auth refer to [Configure an OpenID Connect provider](../app-service/configure-authentication-provider-openid-connect.md).
+This section shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect specification](https://openid.net/connect/). You can configure your app to use one or more OIDC providers. Each must be given a unique name in the configuration, and only one can serve as the default redirect target.
 
 ### Register your application with the identity provider
 
