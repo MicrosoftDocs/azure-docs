@@ -25,6 +25,8 @@ This chart shows the different notification types:
 
 [!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
 
+## Notification structure
+
 In general, notifications are made up of two parts: the header and the body. 
 
 ### Event notification headers
@@ -88,11 +90,9 @@ Life-cycle notification message:
 }
 ```
 
-## Message-format detail for different event types
+The following sections go into more detail about the different types of notifications emitted by IoT Hub and Azure Digital Twins (or other Azure IoT services). You will read about the things that trigger each notification type, and the set of fields included with each type of notification body.
 
-This section goes into more detail about the different types of notifications emitted by IoT Hub and Azure Digital Twins (or other Azure IoT services). You will read about the things that trigger each notification type, and the set of fields included with each type of notification body.
-
-### Digital twin life-cycle notifications
+## Digital twin life-cycle notifications
 
 All [digital twins](concepts-twins-graph.md) emit notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not. This is because of **life-cycle notifications**, which are about the digital twin itself.
 
@@ -100,7 +100,7 @@ Life-cycle notifications are triggered when:
 * A digital twin is created
 * A digital twin is deleted
 
-#### Properties
+### Properties
 
 Here are the fields in the body of a life-cycle notification.
 
@@ -115,7 +115,7 @@ Here are the fields in the body of a life-cycle notification.
 | `time` | Timestamp for when the operation occurred on the twin |
 | `traceparent` | A W3C trace context for the event |
 
-#### Body details
+### Body details
 
 The body is the affected digital twin, represented in JSON format. The schema for this is *Digital Twins Resource 7.1*.
 
@@ -182,11 +182,11 @@ Here is another example of a digital twin. This one is based on a [model](concep
 }
 ```
 
-### Digital twin relationship change notifications
+## Digital twin relationship change notifications
 
 **Relationship change notifications** are triggered when any relationship of a digital twin is created, updated, or deleted. 
 
-#### Properties
+### Properties
 
 Here are the fields in the body of an edge change notification.
 
@@ -201,7 +201,7 @@ Here are the fields in the body of an edge change notification.
 | `time` | Timestamp for when the operation occurred on the relationship |
 | `traceparent` | A W3C trace context for the event |
 
-#### Body details
+### Body details
 
 The body is the payload of a relationship, also in JSON format. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](/rest/api/digital-twins/dataplane/twins). 
 
@@ -236,13 +236,13 @@ Here is an example of a create or delete relationship notification:
 }
 ```
 
-### Digital twin change notifications
+## Digital twin change notifications
 
 **Digital twin change notifications** are triggered when a digital twin is being updated, like:
 * When property values or metadata changes.
 * When digital twin or component metadata changes. An example of this scenario is changing the model of a digital twin.
 
-#### Properties
+### Properties
 
 Here are the fields in the body of a digital twin change notification.
 
@@ -257,7 +257,7 @@ Here are the fields in the body of a digital twin change notification.
 | `time` | Timestamp for when the operation occurred on the digital twin |
 | `traceparent` | A W3C trace context for the event |
 
-#### Body details
+### Body details
 
 The body for the `Twin.Update` notification is a JSON Patch document containing the update to the digital twin.
 
