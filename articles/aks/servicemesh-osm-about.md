@@ -174,7 +174,7 @@ Output of the OSM configmap should look like the following:
   "enable_debug_server": "true",
   "enable_privileged_init_container": "false",
   "envoy_log_level": "error",
-  "outbound_ip_range_exclusion_list": "169.254.169.254,168.63.129.16,20.193.57.43",
+  "outbound_ip_range_exclusion_list": "169.254.169.254/32,168.63.129.16/32,<YOUR_API_SERVER_PUBLIC_IP>/32",
   "permissive_traffic_policy_mode": "true",
   "prometheus_scraping": "false",
   "service_cert_validity_duration": "24h",
@@ -183,6 +183,13 @@ Output of the OSM configmap should look like the following:
 ```
 
 Notice the **permissive_traffic_policy_mode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
+
+> [!NOTE]
+> Please verify that your permissive traffic policy mode is set to true, if not please change it to **true** using the command below
+
+```OSM Permissive Mode to True
+kubectl patch ConfigMap -n kube-system osm-config --type merge --patch '{"data":{"permissive_traffic_policy_mode":"true"}}'
+```
 
 ## Deploy a new application to be managed by the Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on
 
@@ -376,7 +383,7 @@ kubectl apply -f - <<EOF
 apiVersion: access.smi-spec.io/v1alpha3
 kind: TrafficTarget
 metadata:
-  name: bookbuyer-access-bookstore-v1
+  name: bookbuyer-access-bookstore
   namespace: bookstore
 spec:
   destination:
@@ -535,7 +542,7 @@ spec:
 kind: TrafficTarget
 apiVersion: access.smi-spec.io/v1alpha3
 metadata:
-  name: bookstore-v2
+  name: bookbuyer-access-bookstore-v2
   namespace: bookstore
 spec:
   destination:
@@ -927,171 +934,33 @@ EOF
 
 Please visit the [SMI](https://smi-spec.io/) site for more detailed information on the specification.
 
-## Tutorial: Utilize the TCPRoute resource provided by Service Mesh Interface (SMI) to connect to TCP endpoints in Open Service Mesh (OSM)
+### Manage the application's namespace with OSM
 
-In earlier examples shown in the documentation, OSM was used to secure, via mTLS, service-to-service communications within the service mesh. Those services have been based on HTTP/HTTPS communications in the cluster. In many applications, not all applications and endpoints rely on the HTTP/HTTPS protocol. An example of this would be if you were storing state for an application. Databases and other state store applications typically listen on TCP ports, such as port 1433 for Microsoft SQL, port 33060 for MySQL, and port 6379 for Redis to name a few.
+Next we will configure OSM to manage the namespace and restart the deployments to get the Envoy sidecar proxy injected with the application.
 
-To continue to provide the befefits of a service mesh, delivering secured communications to all endpoints in the mesh, the [SMI](https://smi-spec.io/) provides a **TCPRoute** resource to bring TCP endpoints into the authorized mesh communications. This tutorial will show you how to configure the TCPRoute resource for an application.
-
-In this tutorial, you will:
-
-> [!div class="checklist"]
->
-> - Deploy an application that contains a TCP endpoint
-> - Managed the application's namespace with OSM
-> - Configure the TCPRoute resource for mesh communications to the TCP endpoint
-
-Before you begin
-
-The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.19+` and above, with Kubernetes RBAC enabled), have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
-
-You must have the following resources installed:
-
-- The Azure CLI, version 2.20.0 or later
-- The `aks-preview` extension version 0.5.5 or later
-- OSM version v0.8.0 or later
-- apt-get install jq
-
-### Deploy and run the application
-
-A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run.
-
-In this tutorial, you will use a manifest to create all objects needed to run the [Azure Vote application][azure-vote-app]. This manifest includes two [Kubernetes deployments][kubernetes-deployment]:
-
-- The sample Azure Vote Python applications.
-- A Redis instance.
-
-Create a namespaces called `azure-vote`
+Run the following command to configure the `azure-vote` namespace to be managed my OSM.
 
 ```azurecli-interactive
-kubectl create namespace azure-vote
+osm namespace add azure-vote
 ```
 
 ```Output
-namespace/azure-vote created
+Namespace [azure-vote] successfully added to mesh [osm]
 ```
 
-Next deploy the following azure vote app manifest to the cluster.
+Next restart both the `azure-vote-front` and `azure-vote-back` deployments with the following commands.
 
 ```azurecli-interactive
-kubectl apply -f - <<EOF
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-vote-back
-  namespace: azure-vote
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-back
-  template:
-    metadata:
-      labels:
-        app: azure-vote-back
-    spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
-      containers:
-      - name: azure-vote-back
-        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
-        env:
-        - name: ALLOW_EMPTY_PASSWORD
-          value: "yes"
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 6379
-          name: redis
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-back
-  namespace: azure-vote
-spec:
-  ports:
-  - port: 6379
-  selector:
-    app: azure-vote-back
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-vote-front
-  namespace: azure-vote
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-front
-  template:
-    metadata:
-      labels:
-        app: azure-vote-front
-    spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
-      containers:
-      - name: azure-vote-front
-        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 80
-        env:
-        - name: REDIS
-          value: "azure-vote-back"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-front
-  namespace: azure-vote
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: azure-vote-front
-EOF
+kubectl rollout restart deployment azure-vote-front -n azure-vote
+kubectl rollout restart deployment azure-vote-back -n azure-vote
 ```
 
 ```Output
-deployment.apps/azure-vote-back created
-service/azure-vote-back created
-deployment.apps/azure-vote-front created
-service/azure-vote-front created
+deployment.apps/azure-vote-front restarted
+deployment.apps/azure-vote-back restarted
 ```
 
-Since this deployment includes a service for the `azure-vote-front` that creates an external Azure loadbalancer IP, you should be able to view the azure-vote-front service from a browser using the external IP given. To get the external public IP run the following:
-
-```azurecli-interactive
-kubectl get svc -n azure-vote
-```
-
-You should see the following output with an extenral public IP for the `azure-vote-front` service. Open up your browser to the external IP address (http://EXTERNAL-IP).
-
-```Output
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
-azure-vote-back    ClusterIP      10.0.65.249   <none>          6379/TCP       69s
-azure-vote-front   LoadBalancer   10.0.236.21   <EXTERNAL-IP>   80:31927/TCP   68s
-```
-
-Your browser should show the following Azure Voting App.
-
-![OSM Azure Voting App View 1 UI image](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
+If we view the pods for the `azure-vote` namespace, we will see the **READY** stage of both the `azure-vote-front` adn `azure-vote-back` as 2/2, meaning the Envoy sidecar proxy has been injected alongside the application.
 
 ## Tutorial: Deploy an application managed by Open Service Mesh (OSM) with NGINX ingress
 
