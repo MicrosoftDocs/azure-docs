@@ -132,12 +132,14 @@ To use the `iotedge-config-cli` tool to create and configure your hierarchy, fol
 1. Open the script configuration and edit it with your information:
 
    ```bash
-   nano hierarchy-tutorial.txt
+   nano iotedge_config_cli.yaml
    ```
 
    In the **iothub** section, populate the `iothub_hostname` and `iothub_name` fields with your information.
 
    In the optional **certificates** section, you can populate the fields with the absolute paths to your certificate and key. If you leave these fields blank, the script will automatically generate self-signed test certificates for your use.
+
+   In the **configuration** section, the `template_config_path` fields dictates ..., and the `default_edge_agent` field determines what Edge Agent image lower layer devices will pull and from where.
 
    In the **edgedevices** section, for a production scenario, you could edit the hierarchy tree to reflect your desired structure. For the purposes of this tutorial, accept the default tree.
 
@@ -207,26 +209,6 @@ Complete the steps below and restart the IoT Edge service to configure your devi
    You will receive prompts to enter the device address and the parent device's address in the form of an IP or FQDN. You can use either, but be consistent in your choice across devices. Leave the parent device address empty for the **top layer device**.
 
   ![Installing the configuration bundles will update the config.toml files on your device and restart all IoT Edge services automatically](./media/tutorial-nested-iot-edge/configuration-install-output.png)
-
-1. On your **lower layer device**, there is one change to the `config.toml` that must be applied manually. On **lower layer device**, open the `config.toml`:
-
-   ```bash
-   nano ~/config.toml
-   ```
-
-1. Edit the bootstrapping Edge Agent version to `$upstream:8000/azureiotedge-agent:1.2.0-rc4`, pictured below.
-
-   <!-- picture from config.toml here -->
-
-1. Save and close the file:
-
-   `CTRL + X`, `Y`, `Enter`
-
-1. Manually apply the configuration file:
-
-   ```bash
-   sudo iotedge config apply -c ~/config.toml
-   ```
 
 If you completed the above steps correctly, you can check your devices are configured correctly.
 
@@ -335,14 +317,7 @@ To deploy modules to your top layer device, you can use the Azure CLI.
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
-                           "env": {
-                               "experimentalFeatures__enabled": {
-                                   "value": "true"
-                               },
-                               "experimentalFeatures__nestedEdgeEnabled": {
-                                   "value": "true"
-                               }
-                           },
+                           "env": {},
                            "status": "running",
                            "restartPolicy": "always"
                        }
@@ -428,14 +403,7 @@ To deploy modules to your lower layer devices, you can use the Azure CLI.
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
-                           "env": {
-                               "experimentalFeatures__enabled": {
-                                   "value": "true"
-                               },
-                               "experimentalFeatures__nestedEdgeEnabled": {
-                                   "value": "true"
-                               }
-                           },
+                           "env": {},
                            "status": "running",
                            "restartPolicy": "always"
                        }
