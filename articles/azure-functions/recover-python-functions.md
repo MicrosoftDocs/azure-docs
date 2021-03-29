@@ -180,7 +180,7 @@ If your Python interpreter version does not meet our expectation, please downloa
 
 ## Troubleshoot Python Exited With Code 137
 
-This section helps you troubleshoot out-of-memory issues in your Python function app. These errors typically result in the following Azure Functions error message:
+Code 137 errors are typically caused by out-of-memory issues in your Python function app. As a result, you get the following Azure Functions error message:
 
 > `Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 137`
 
