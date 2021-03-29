@@ -130,6 +130,7 @@ This quickstart uses MSAL.js v2 with the authorization code flow. For a similar 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
+>
 > We have configured your project with values of your app's properties.
 
 > [!div renderon="docs"]
@@ -192,7 +193,7 @@ The MSAL.js library signs in users and requests the tokens that are used to acce
 "sha384-r7Qxfs6PYHyfoBR6zG62DGzptfLBxnREThAlcJyEfzJ4dq5rqExc1Xj3TPFE/9TH" crossorigin="anonymous"></script>
 ```
 
-If you have Node.js installed, you can download the latest version by using the Node.js package manager (npm):
+If you have Node.js installed, you can download the latest version by using the Node.js Package Manager (npm):
 
 ```console
 npm install @azure/msal-browser
