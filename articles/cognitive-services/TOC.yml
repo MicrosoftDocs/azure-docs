@@ -103,7 +103,7 @@
   - name: REST API
     href: /rest/api/cognitiveservices/accountmanagement/accounts
   - name: .NET
-    href: /dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet
+    href: /dotnet/api/overview/azure/cognitiveservices/management
   - name: Node.js
     href: /javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest
   - name: Python
