@@ -68,7 +68,7 @@ Telemetry message:
 }
 ```
 
-Life-cycle notification message:
+Lifecycle notification message:
 
 ```json
 {
@@ -92,17 +92,66 @@ Life-cycle notification message:
 
 The following sections go into more detail about the different types of notifications emitted by IoT Hub and Azure Digital Twins (or other Azure IoT services). You will read about the things that trigger each notification type, and the set of fields included with each type of notification body.
 
+## Digital twin change notifications
+
+**Digital twin change notifications** are triggered when a digital twin is being updated, like:
+* When property values or metadata changes.
+* When digital twin or component metadata changes. An example of this scenario is changing the model of a digital twin.
+
+### Properties
+
+Here are the fields in the body of a digital twin change notification.
+
+| Name    | Value |
+| --- | --- |
+| `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
+| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net*
+| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
+| `type` | `Microsoft.DigitalTwins.Twin.Update` |
+| `datacontenttype` | `application/json` |
+| `subject` | ID of the digital twin |
+| `time` | Timestamp for when the operation occurred on the digital twin |
+| `traceparent` | A W3C trace context for the event |
+
+### Body details
+
+The body for the `Twin.Update` notification is a JSON Patch document containing the update to the digital twin.
+
+For example, say that a digital twin was updated using the following patch.
+
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
+
+The corresponding notification (if synchronously executed by the service, such as Azure Digital Twins updating a digital twin) would have a body like:
+
+```json
+{
+    "modelId": "dtmi:example:com:floor4;2",
+    "patch": [
+      {
+        "value": 40,
+        "path": "/Temperature",
+        "op": "replace"
+      },
+      {
+        "value": 30,
+        "path": "/comp1/prop1",
+        "op": "add"
+      }
+    ]
+  }
+```
+
 ## Digital twin lifecycle notifications
 
 All [digital twins](concepts-twins-graph.md) emit notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not. This is because of **lifecycle notifications**, which are about the digital twin itself.
 
-Life-cycle notifications are triggered when:
+Lifecycle notifications are triggered when:
 * A digital twin is created
 * A digital twin is deleted
 
 ### Properties
 
-Here are the fields in the body of a life-cycle notification.
+Here are the fields in the body of a lifecycle notification.
 
 | Name | Value |
 | --- | --- |
@@ -234,55 +283,6 @@ Here is an example of a create or delete relationship notification:
     "$targetId": "device2",
     "connectionType": "WIFI"
 }
-```
-
-## Digital twin change notifications
-
-**Digital twin change notifications** are triggered when a digital twin is being updated, like:
-* When property values or metadata changes.
-* When digital twin or component metadata changes. An example of this scenario is changing the model of a digital twin.
-
-### Properties
-
-Here are the fields in the body of a digital twin change notification.
-
-| Name    | Value |
-| --- | --- |
-| `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
-| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net*
-| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
-| `type` | `Microsoft.DigitalTwins.Twin.Update` |
-| `datacontenttype` | `application/json` |
-| `subject` | ID of the digital twin |
-| `time` | Timestamp for when the operation occurred on the digital twin |
-| `traceparent` | A W3C trace context for the event |
-
-### Body details
-
-The body for the `Twin.Update` notification is a JSON Patch document containing the update to the digital twin.
-
-For example, say that a digital twin was updated using the following patch.
-
-:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
-
-The corresponding notification (if synchronously executed by the service, such as Azure Digital Twins updating a digital twin) would have a body like:
-
-```json
-{
-    "modelId": "dtmi:example:com:floor4;2",
-    "patch": [
-      {
-        "value": 40,
-        "path": "/Temperature",
-        "op": "replace"
-      },
-      {
-        "value": 30,
-        "path": "/comp1/prop1",
-        "op": "add"
-      }
-    ]
-  }
 ```
 
 ## Next steps
