@@ -164,7 +164,7 @@ Once the live event is created, you can get ingest URLs that you'll provide to t
     |---|---|---|
     |REST|[properties.useStaticHostname](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.useStaticHostname](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--use-static-hostname](/cli/azure/ams/live-event#az-ams-live-event-create)|[--access-token](/cli/azure/ams/live-event#optional-parameters)|
-    |.NET|[LiveEvent.useStaticHostname](/dotnet/api/microsoft.azure.management.media.models.liveevent.usestatichostname?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_UseStaticHostname)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |.NET|[LiveEvent.useStaticHostname](/dotnet/api/microsoft.azure.management.media.models.liveevent.usestatichostname?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Management_Media_Models_LiveEvent_UseStaticHostname)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### Live ingest URL naming rules
 
@@ -219,14 +219,6 @@ Once you have the stream flowing into the live event, you can begin the streamin
 
 For detailed information about live outputs, see [Using a cloud DVR](live-event-cloud-dvr.md).
 
-## Frequently asked questions
+## Live event output questions
 
-See the [Frequently asked questions](frequently-asked-questions.md#live-streaming) article.
-
-## Ask questions and get updates
-
-Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
-
-## Next steps
-
-[Live streaming tutorial](stream-live-tutorial-with-api.md)
+See the [live event output questions](questions-collection.md#live-streaming) article.

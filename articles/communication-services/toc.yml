@@ -26,8 +26,10 @@
         href: quickstarts/chat/meeting-interop.md
   - name: Telephony and SMS
     items:
-      - name: Manage telephone numbers
+      - name: Get a telephone number
         href: quickstarts/telephony-sms/get-phone-number.md
+      - name: Port a telephone number into Azure
+        href: quickstarts/telephony-sms/port-phone-number.md
       - name: Add telephone calling to your app
         href: quickstarts/voice-video-calling/pstn-call.md
       - name: Send an SMS message
@@ -86,6 +88,10 @@
         href: concepts/telephony-sms/plan-solution.md
       - name: SIP Interface infrastructure requirements
         href: concepts/telephony-sms/sip-interface-infrastructure.md
+      - name: SMS FAQ
+        href: concepts/telephony-sms/sms-faq.md
+      - name: Messaging policy
+        href: concepts/telephony-sms/messaging-policy.md
   - name: Voice and video calling
     items:
       - name: Calling SDK overview

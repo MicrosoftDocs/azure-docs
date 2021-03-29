@@ -172,7 +172,7 @@
       displayName: connections, Purdue, zoom, delete device 
     - name: Work with alerts detected by a sensor
       items:
-      - name: About sensor alerts
+      - name: Understand sensor alerts
         href: how-to-work-with-alerts-on-your-sensor.md
       - name: Filter and manage alerts from the Alerts page 
         href: how-to-view-alerts.md
@@ -181,11 +181,11 @@
         displayName: PCAP, metadata, alerts, link, device map, 
       - name: Alert types and descriptions
         href: alert-engine-messages.md
-        displayName: alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational
-      - name: Manage the alert event
+        displayName: alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational, severity, minor, major, critical, warning, alerts list, security alerts, 
+      - name: Manage alert events
         href: how-to-manage-the-alert-event.md
         displayName: PCAP, acknowledge, learn, mute, policy
-      - name: Accelerate alert incident response
+      - name: Accelerate alert workflows
         href: how-to-accelerate-alert-incident-response.md
         displayName: custom, alerts, comments, groups
       - name: Forward alert information
