@@ -249,7 +249,7 @@ In an environment that includes two or more components on multiple Azure Resourc
 
 ## Auto stop scenario
 
-Start/Stop VMs can help manage the cost of running Azure Resource Manager and classic VMs in your subscription by evaluating machines that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
+Start/Stop VMs v2 (preview) can help manage the cost of running Azure Resource Manager and classic VMs in your subscription by evaluating machines that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
 
 The following metric alert properties in the request body support customization:
 
