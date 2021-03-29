@@ -136,6 +136,8 @@
         href: event-schema-azure-maps.md
       - name: Azure Media Services
         href: event-schema-media-services.md
+      - name: Azure Policy
+        href: ./event-schema-policy.md
       - name: Azure resource groups
         href: event-schema-resource-groups.md        
       - name: Azure Service Bus

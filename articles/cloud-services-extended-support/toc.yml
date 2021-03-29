@@ -102,7 +102,7 @@
   - name: REST
     href: /rest/api/compute/cloudservices
   - name: .NET
-    href: /dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet-preview
+    href: /dotnet/api/overview/azure/virtualmachines/management
   - name: SDK
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview
 - name: Resources
