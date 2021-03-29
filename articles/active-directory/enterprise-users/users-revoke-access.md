@@ -95,6 +95,13 @@ As an administrator in Azure Active Directory, open PowerShell, run ``Connect-Az
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
     ```
+## When access is revoked
+
+Once admins have taken the above steps, the user can't gain new tokens for any application tied to Azure Active Directory. The elapsed time between revocation and the user losing their access depends on how the application is granting access:
+
+- For **applications using access tokens**, the user loses access when the access token expires.
+
+- For **applications that use session tokens**, the existing sessions end as soon as the token expires. If the disabled state of the user is synchronized to the application, the application can automatically revoke the user’s existing sessions if it's configured to do so.  The time it takes depends on the frequency of synchronization between the application and Azure AD.
 
 ## Best practices
 
@@ -113,14 +120,6 @@ As an administrator in Azure Active Directory, open PowerShell, run ``Connect-Az
 - Use [Microsoft Cloud App Security (MCAS) to block data download](https://docs.microsoft.com/cloud-app-security/use-case-proxy-block-session-aad) when appropriate. If the data can only be accessed online, organizations can monitor sessions and achieve real-time policy enforcement.
 
 - Enable [Continuous Access Evaluation (CAE) in Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation). CAE allows admins to revoke the session tokens and access tokens for applications that are CAE capable.  
-
-## When access is revoked
-
-Once admins have taken the above steps, the user can't gain new tokens for any application tied to Azure Active Directory. The elapsed time between revocation and the user losing their access depends on how the application is granting access:
-
-- For **applications using access tokens**, the user loses access when the access token expires.
-
-- For **applications that use session tokens**, the existing sessions end as soon as the token expires. If the disabled state of the user is synchronized to the application, the application can automatically revoke the user’s existing sessions if it's configured to do so.  The time it takes depends on the frequency of synchronization between the application and Azure AD.
 
 ## Next steps
 
