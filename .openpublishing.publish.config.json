@@ -398,6 +398,11 @@
       "branch": "master"
     },    
     {
+      "path_to_root": "azure-sdk-for-java-cosmos-db-feature",
+      "url": "https://github.com/Azure/azure-sdk-for-java/",
+      "branch": "feature/cosmos/spark30"
+    },     
+    {
       "path_to_root": "azure-sdk-for-java-script-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-js/",
       "branch": "master"
