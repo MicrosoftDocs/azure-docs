@@ -762,7 +762,7 @@ This administrator manages federation between Azure AD organizations and externa
 Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. Furthermore, Global Administrators can [elevate their access](../../role-based-access-control/elevate-access-global-admin.md) to manage all Azure subscriptions and management groups. This allows Global Administrators to get full access to all Azure resources using the respective Azure AD Tenant. The person who signs up for the Azure AD organization becomes a Global Administrator. There can be more than one Global Administrator at your company. Global Administrators can reset the password for any user and all other administrators.
 
 > [!NOTE]
-> As a best practice, Microsoft recommends that you assign this role to fewer than five people in your organization. For more information, see [Best practices for Azure AD roles](best-practices.md).
+> As a best practice, Microsoft recommends that you assign the Global Administrator role to fewer than five people in your organization. For more information, see [Best practices for Azure AD roles](best-practices.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
