@@ -86,6 +86,8 @@
           href: automation-role-based-access-control.md
         - name: Move Automation account to another subscription
           href: how-to/move-account.md
+        - name: Delete Automation account
+          href: delete-account.md
         - name: Migrate from Orchestrator to Azure Automation (Beta)
           href: automation-orchestrator-migration.md
     - name: Shared resources

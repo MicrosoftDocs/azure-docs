@@ -80,12 +80,12 @@ On the **Device mapping** page, add the following script to the JSON editor and 
       "templateType": "IotJsonPathContent",
       "template": {
         "typeName": "heartrate",
-        "typeMatchExpression": "$..[?(@Body.HeartRate)]",
-        "patientIdExpression": "$.SystemProperties.iothub-connection-device-id",
+        "typeMatchExpression": "$..[?(@Body.telemetry.HeartRate)]",
+        "patientIdExpression": "$.Properties.iotcentral-device-id",
         "values": [
           {
             "required": "true",
-            "valueExpression": "$.Body.HeartRate",
+            "valueExpression": "$.Body.telemetry.HeartRate",
             "valueName": "hr"
           }
         ]
