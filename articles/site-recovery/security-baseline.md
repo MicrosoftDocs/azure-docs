@@ -4,7 +4,7 @@ description: The Site Recovery security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 03/29/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -14,19 +14,19 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Site Recovery
 
-This security baseline applies guidance from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview-v1) to SiteRecovery. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to SiteRecovery. **Controls** not applicable to SiteRecovery, or for which the responsibility is Microsoft's, have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview-v1.md) to SiteRecovery. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to SiteRecovery. **Controls** not applicable to SiteRecovery, or for which the responsibility is Microsoft's, have been excluded.
 
 To see how SiteRecovery completely maps to the Azure Security Benchmark, see the [full SiteRecovery security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Network Security
 
-*For more information, see the [Azure Security Benchmark: Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network Security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
 **Guidance**: Microsoft Azure Site Recovery does not support deployment into an Azure Virtual Network. Configure Site Recovery service with an Azure Private Endpoint to enforce secure communications over your network.
 
-- [Azure Site Recovery Private Link Support](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints)
+- [Azure Site Recovery Private Link Support](azure-to-azure-how-to-enable-replication-private-endpoints.md)
 
 **Responsibility**: Customer
 
@@ -50,11 +50,11 @@ Incorporate any of the built-in Azure Policy definitions related to tagging, suc
 
 You can use Azure PowerShell or Azure CLI to look up or perform actions on resources based on their tags. 
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-- [How to create an Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) 
+- [How to create an Azure Virtual Network](../virtual-network/quick-create-portal.md) 
 
-- [How to filter network traffic with network security group rules](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [How to filter network traffic with network security group rules](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Responsibility**: Customer
 
@@ -66,7 +66,7 @@ You can use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 - [View and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
-- [Create, view, and manage activity log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-activity-log)
+- [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -74,7 +74,7 @@ You can use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 ## Logging and Monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and Monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see the [Azure Security Benchmark: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.2: Configure central security log management
 
@@ -84,11 +84,11 @@ Use Azure Activity Log data to determine the "what, who, and when" for any write
 
 Ingest Site Recovery logs in Azure Monitor to aggregate generated security data. Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term or archival storage. Also, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM) solution.
 
-- [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
-- [Monitor Site Recovery with Azure Monitor Logs](https://docs.microsoft.com/azure/site-recovery/monitor-log-analytics)
+- [Monitor Site Recovery with Azure Monitor Logs](monitor-log-analytics.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Responsibility**: Customer
 
@@ -102,11 +102,11 @@ Use Azure Activity Log data to determine the "what, who, and when" for any write
 
 Ingest Site Recovery logs with Azure Monitor to aggregate generated security data. Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage. Enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM) solution.
 
-- [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
-- [Monitor Site Recovery with Azure Monitor Logs](https://docs.microsoft.com/azure/site-recovery/monitor-log-analytics)
+- [Monitor Site Recovery with Azure Monitor Logs](monitor-log-analytics.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Responsibility**: Customer
 
@@ -128,11 +128,11 @@ Ingest Site Recovery logs with Azure Monitor to aggregate generated security dat
 
 Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and insights on the Activity Log Data collected from Recovery Services Vaults.
 
-- [Monitor Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot)
+- [Monitor Site Recovery](site-recovery-monitor-and-troubleshoot.md)
 
-- [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
-- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log)
+- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Responsibility**: Customer
 
@@ -144,11 +144,11 @@ Perform queries in Log Analytics to search terms, identify trends, analyze patte
 
 Visualize and query log results, and configure alerts to take actions based on monitored data. Set up alerts on a Log Analytics workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for automated solutions, like playbooks to be created and used to remediate security issues. Create custom log alerts in your Log Analytics workspace using Azure Monitor. 
 
-- [Monitor Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot)
+- [Monitor Site Recovery](site-recovery-monitor-and-troubleshoot.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Create, view, and manage log alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log)
+- [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Responsibility**: Customer
 
@@ -156,15 +156,15 @@ Visualize and query log results, and configure alerts to take actions based on m
 
 ## Identity and Access Control
 
-*For more information, see the [Azure Security Benchmark: Identity and Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see the [Azure Security Benchmark: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
 **Guidance**: No roles are assigned by default. They need to be explicitly assigned based on business need. Any role assignments can be checked with PowerShell CLI or Azure Active Directory (Azure AD) to discover accounts that are members of administrative groups.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Responsibility**: Customer
 
@@ -183,9 +183,9 @@ Additionally, to help you keep track of dedicated administrative accounts, use r
 
 Create a process to track identity and access control for administrative accounts and review it periodically.
 
-- [How to use Azure Security Center to monitor identity and access](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [How to use Azure Security Center to monitor identity and access](../security-center/security-center-identity-access.md)
 
-- [How to use Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to use Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Responsibility**: Customer
 
@@ -195,11 +195,11 @@ Create a process to track identity and access control for administrative account
 
 **Guidance**: Use Azure app registration with a Service Principal to retrieve a token to be used to interact with your Recovery Services vaults through API calls.
 
-- [How to call Azure REST APIs](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+- [How to call Azure REST APIs](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
-- [How to register your client application (service principal) with Azure Active Directory (Azure AD)](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad)
+- [How to register your client application (service principal) with Azure Active Directory (Azure AD)](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-- [Azure Recovery Services API information](https://docs.microsoft.com/rest/api/recoveryservices)
+- [Azure Recovery Services API information](/rest/api/recoveryservices)
 
 **Responsibility**: Customer
 
@@ -209,9 +209,9 @@ Create a process to track identity and access control for administrative account
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Security Center's Identity and Access recommendations.
 
-- [Plan an Azure Active Directory Multi-Factor Authentication deployment](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Plan an Azure Active Directory Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Monitor identity and access](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Monitor identity and access](../security-center/security-center-identity-access.md)
 
 **Responsibility**: Customer
 
@@ -223,7 +223,7 @@ Create a process to track identity and access control for administrative account
 
 - [Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Planning a cloud-based Azure Active Directory Multi-Factor Authentication deployment](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Planning a cloud-based Azure Active Directory Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsibility**: Customer
 
@@ -235,9 +235,9 @@ Create a process to track identity and access control for administrative account
 
 View alerts and reports on risky user behavior with Azure AD risk detection feature.
 
-- [How to deploy Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Understand Azure AD risk detections](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+- [Understand Azure AD risk detections](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Responsibility**: Customer
 
@@ -246,7 +246,7 @@ View alerts and reports on risky user behavior with Azure AD risk detection feat
 ### 3.8: Manage Azure resources only from approved locations
 
 **Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges, regions, or countries.
-- [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Responsibility**: Customer
 
@@ -256,7 +256,7 @@ View alerts and reports on risky user behavior with Azure AD risk detection feat
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for Site Recovery. Azure AD protects data by using strong encryption for data at rest, in transit and also salts, hashes, and securely stores user credentials.
 
-- [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Responsibility**: Customer
 
@@ -270,9 +270,9 @@ Efficiently manage group memberships, access to enterprise applications and role
 
 Create a process to review user access on a regular basis to ensure only users with completed access reviews have continued access.
 
-- [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
 
-- [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
 **Responsibility**: Customer
 
@@ -286,9 +286,9 @@ You have access to Azure AD sign-in activity, audit, and risk event log sources,
 
 Further streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit and sign-in logs to a Log Analytics workspace. You can configure desired alerts within a Log Analytics workspace.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-- [How to on-board Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Responsibility**: Customer
 
@@ -300,11 +300,11 @@ Further streamline this process by creating diagnostic settings for Azure AD use
 
 Employ Azure AD's Identity Protection features for account login behavior detection and to configure automated responses to detected suspicious actions, as related to user identities. Also ingest data into Azure Sentinel for further investigation.
 
-- [How to view Azure AD risky sign-in](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+- [How to view Azure AD risky sign-in](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Responsibility**: Customer
 
@@ -312,13 +312,13 @@ Employ Azure AD's Identity Protection features for account login behavior detect
 
 ## Data Protection
 
-*For more information, see the [Azure Security Benchmark: Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -330,11 +330,11 @@ Employ Azure AD's Identity Protection features for account login behavior detect
 
 Turn off virtual machines, which store or process sensitive data, when not in use. Implement policy and procedures to make this a recurring process. 
 
-- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create-management-group-portal)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [Overview of Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
+- [Overview of Site Recovery](site-recovery-overview.md)
 
 **Responsibility**: Customer
 
@@ -346,11 +346,11 @@ Turn off virtual machines, which store or process sensitive data, when not in us
 
 Microsoft manages the underlying platform used by Site Recovery and treats all customer content as sensitive and guard against customer data loss and exposure. Microsoft has implemented and maintains a suite of robust data protection controls and capabilities to ensure customer data within Azure remains secure. 
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-- [Replicate virtual machines with Azure Private Endpoints](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints)
+- [Replicate virtual machines with Azure Private Endpoints](azure-to-azure-how-to-enable-replication-private-endpoints.md)
 
-- [Replicate virtual machines with Azure Site Recovery Service Tags](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking)
+- [Replicate virtual machines with Azure Site Recovery Service Tags](azure-to-azure-about-networking.md)
 
 **Responsibility**: Shared
 
@@ -362,7 +362,7 @@ Microsoft manages the underlying platform used by Site Recovery and treats all c
 
 Current TLS versions supported for Site Recovery are TLS 1.0, TLS 1.1, TLS 1.2 in regions, which were live by the end of 2019. TLS1.2 is the only supported TLS version for any new regions.
 
-- [Understanding encryption in transit for Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/physical-azure-set-up-source)
+- [Understanding encryption in transit for Azure Site Recovery](physical-azure-set-up-source.md)
 
 **Responsibility**: Shared
 
@@ -376,7 +376,7 @@ Implement a third-party solution, as necessary, for compliance purposes.
 
 Microsoft manages the underlying platform used by Site Recovery and treats all customer content as sensitive and guards against customer data loss and exposure. It has implemented and maintains a suite of robust data protection controls and capabilities to ensure customer data within Azure remains secure. 
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Responsibility**: Customer
 
@@ -388,9 +388,9 @@ Microsoft manages the underlying platform used by Site Recovery and treats all c
 
 Separate work duties with Azure RBAC and grant appropriate access required for them. Use the built-in Site Recovery roles to control Site Recovery management operations.
 
-- [How to configure Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Use Role-Based Access Control to manage Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control)
+- [Use Role-Based Access Control to manage Azure Site Recovery](site-recovery-role-based-linked-access-control.md)
 
 **Responsibility**: Customer
 
@@ -404,7 +404,7 @@ Site Recovery supports encryption at-rest for data. For Azure IaaS workloads, da
 
 Only the customer has access to the encryption key while using a Recovery Services vault encrypted with a customer-managed key. Microsoft never maintains a copy, does not have access to the key, and does not decrypt the data transferred from primary to Disaster Recovery location at any point. 
 
-- [Customer-Managed Keys Support for Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks)
+- [Customer-Managed Keys Support for Azure Site Recovery](azure-to-azure-how-to-enable-replication-cmk-disks.md)
 
 **Responsibility**: Shared
 
@@ -413,7 +413,7 @@ Only the customer has access to the encryption key while using a Recovery Servic
 ### 4.9: Log and alert on changes to critical Azure resources
 
 **Guidance**: Use Azure Monitor with Azure Activity Logs to create alerts when changes take place to critical resources. These resources could include production instances of Recovery Services Vaults, resources of Site Recovery service and related resources.
-- [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -421,7 +421,7 @@ Only the customer has access to the encryption key while using a Recovery Servic
 
 ## Inventory and Asset Management
 
-*For more information, see the [Azure Security Benchmark: Inventory and Asset Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see the [Azure Security Benchmark: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -429,11 +429,11 @@ Only the customer has access to the encryption key while using a Recovery Servic
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
-- [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
-- [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Understand Azure RBAC](../role-based-access-control/overview.md)
 
 **Responsibility**: Customer
 
@@ -442,7 +442,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 ### 6.2: Maintain asset metadata
 
 **Guidance**: Apply tags to Recovery Services vaults and other related resources, used by Site Recovery with metadata, to logically organize them into a taxonomy.
-- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -459,11 +459,11 @@ In addition, use Azure Policy to put restrictions on the type of resources that 
 
 Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create-management-group-portal)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -486,9 +486,9 @@ Reconcile inventory on a regular basis and ensure unauthorized resources are del
 
 Use Azure Resource Graph to query for and discover resources within the subscriptions.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Responsibility**: Customer
 
@@ -503,9 +503,9 @@ Use Azure Resource Graph to query for and discover resources within the subscrip
 
 Understanding how to create and manage policies in Azure is important for staying compliant with your corporate standards and service level agreements.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples)
+- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples)
 
 **Responsibility**: Customer
 
@@ -515,7 +515,7 @@ Understanding how to create and manage policies in Azure is important for stayin
 
 **Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App. This can prevent the creation and changes to resources within a high security environment.
 
-- [How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Responsibility**: Customer
 
@@ -523,16 +523,16 @@ Understanding how to create and manage policies in Azure is important for stayin
 
 ## Secure Configuration
 
-*For more information, see the [Azure Security Benchmark: Secure Configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see the [Azure Security Benchmark: Secure Configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
 **Guidance**: Define and implement standard security configurations for your Recovery Services vault with Azure Policy. 
 
 Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create custom policies to audit, or enforce the configuration of the Recovery Services vault resources of Site Recovery service.
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Responsibility**: Customer
 
@@ -541,9 +541,9 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 ### 7.3: Maintain secure Azure resource configurations
 
 **Guidance**: Use Azure Policy [deny] and [deploy if not exist] effects to enforce secure settings across your Azure resources.
-- [Understand Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Understand Azure Policy Effects](../governance/policy/concepts/effects.md)
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Responsibility**: Customer
 
@@ -553,9 +553,9 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 
 **Guidance**: Choose Azure Repos to securely store and manage your code if you're using custom Azure Policy definitions for your Recovery Services Vaults and related resources.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/)
+- [Azure Repos Documentation](/azure/devops/repos/)
 
 **Responsibility**: Customer
 
@@ -567,7 +567,7 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 
 Additionally, develop a process and pipeline for managing policy exceptions.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Responsibility**: Customer
 
@@ -578,7 +578,7 @@ Additionally, develop a process and pipeline for managing policy exceptions.
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create custom policies to alert, audit, and enforce system configurations. 
 
 Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatically enforce configurations for your Azure resources.
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Responsibility**: Customer
 
@@ -588,13 +588,13 @@ Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatic
 
 **Guidance**: Customer should manage Site Recovery secrets integrated with Azure Key vault, while enabling Disaster Recovery for Azure Disk Encryption-enabled virtual machines. 
 
-- [How to create a Key vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+- [How to create a Key vault](../key-vault/general/quick-create-portal.md)
 
-- [How to authenticate to Key vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+- [How to authenticate to Key vault](../key-vault/general/authentication.md)
 
-- [How to assign a Key vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+- [How to assign a Key vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
-- [How to enable DR for Azure Disk Encryption-enabled virtual machines using Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-ade-vms)
+- [How to enable DR for Azure Disk Encryption-enabled virtual machines using Site Recovery](azure-to-azure-how-to-enable-replication-ade-vms.md)
 
 **Responsibility**: Customer
 
@@ -628,7 +628,7 @@ Managed identities allow you to authenticate to any service that supports Azure 
 
 ## Malware Defense
 
-*For more information, see the [Azure Security Benchmark: Malware Defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see the [Azure Security Benchmark: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
@@ -636,9 +636,9 @@ Managed identities allow you to authenticate to any service that supports Azure 
 
 Use Security Center's Threat detection for data services to detect malware uploaded to storage accounts.
 
-- [Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+- [Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md)
 
-- [Understand Azure Security Center's Threat detection for data services](https://docs.microsoft.com/azure/security-center/azure-defender)
+- [Understand Azure Security Center's Threat detection for data services](../security-center/azure-defender.md)
 
 **Responsibility**: Customer
 
@@ -646,7 +646,7 @@ Use Security Center's Threat detection for data services to detect malware uploa
 
 ## Data Recovery
 
-*For more information, see the [Azure Security Benchmark: Data Recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see the [Azure Security Benchmark: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.2: Perform complete system backups and backup any customer-managed keys
 
@@ -656,7 +656,7 @@ All the storage resources used by Site Recovery services metadata with configura
 
 This is out of customer scope and Site Recovery team takes care of it internally. Customer can back up Key Vault keys in Azure.
 
-- [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey)
+- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
 **Responsibility**: Customer
 
@@ -670,7 +670,7 @@ This is out of customer scope and Site Recovery team takes care of it internally
 
 **Guidance**: Periodically test restores of backed-up customer-managed keys.
 
-- [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey)
+- [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Responsibility**: Customer
 
@@ -688,7 +688,7 @@ This is out of customer scope and Site Recovery team takes care of it internally
 
 ## Incident Response
 
-*For more information, see the [Azure Security Benchmark: Incident Response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident Response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -696,7 +696,7 @@ This is out of customer scope and Site Recovery team takes care of it internally
 
 Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling or management from detection to post-incident review.
 
-- [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [How to configure Workflow Automations within Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
 - [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process)
 
@@ -714,9 +714,9 @@ Ensure that there are written incident response plans that define all roles of p
 
 Mark subscriptions clearly (for example, production, non-production) and create a naming system to clearly identify and categorize Azure resources.
 
-- [Security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview) 
+- [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md) 
 
-- [Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -738,7 +738,7 @@ Mark subscriptions clearly (for example, production, non-production) and create 
 
 Create a process to review incidents, post occurrence, to ensure that issues are resolved.
 
-- [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Responsibility**: Customer
 
@@ -749,9 +749,9 @@ Create a process to review incidents, post occurrence, to ensure that issues are
 **Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. 
 
 Use the Security Center data connector to stream the alerts to Azure Sentinel, as needed.
-- [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [How to configure continuous export](../security-center/continuous-export.md)
 
-- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Responsibility**: Customer
 
@@ -760,7 +760,7 @@ Use the Security Center data connector to stream the alerts to Azure Sentinel, a
 ### 10.6: Automate the response to security alerts
 
 **Guidance**: Use the Workflow Automation feature in Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
-- [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
 **Responsibility**: Customer
 
@@ -768,7 +768,7 @@ Use the Security Center data connector to stream the alerts to Azure Sentinel, a
 
 ## Penetration Tests and Red Team Exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration Tests and Red Team Exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see the [Azure Security Benchmark: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
