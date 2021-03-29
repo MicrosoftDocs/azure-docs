@@ -55,7 +55,7 @@ The following are required to complete the tutorial.
 
 * Review the [Content protection overview](content-protection-overview.md) article.
 * Install Visual Studio Code or Visual Studio.
-* [Create a Media Services account](./create-account-howto.md).
+* [Create a Media Services account](./account-create-how-to.md).
 * Get credentials needed to use Media Services APIs by following [Access APIs](./access-api-howto.md).
 
 ## Download code
