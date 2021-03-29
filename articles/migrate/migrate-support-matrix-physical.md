@@ -33,8 +33,12 @@ To assess physical servers, you create a project, and add the Azure Migrate: Dis
 
 **Permissions:**
 
-- For Windows servers, use a domain account for domain-joined servers, and a local account for servers that are not domain-joined. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
-- For Linux servers, you need a root account on the Linux servers that you want to discover. Alternately, you can set a non-root account with the required capabilities using the following commands:
+- For Windows servers:
+  - use a domain account for domain-joined servers, and a local account for servers that are not domain-joined.
+  - The user account should be added to these groups: _Remote Management Users_, _Performance Monitor Users_, and _Performance Log Users_ on each of the clients you're collecting data from.
+  - The validation and discovery process runs as the user account and will need permission to run WinRM commands from the appliance server; add the account(s) to the appliance server's local _Remote Management Users_ to prevent a "forbidden access on the server."
+
+- For Linux servers, you need a root account on the Linux servers that you want to discover. Alternately, you can set a non-root account with the required capabilities using the following commands
 
 **Command** | **Purpose**
 --- | --- |
