@@ -260,7 +260,7 @@
       href: architecture-high-availability-encoding-concept.md
   - name: Media Services architectures
     displayName: architectures
-    href: architectures-concept.md
+    href: architecture-concept.md
   - name: Troubleshooting
     items:
     - name: Question Collection
@@ -329,7 +329,7 @@
   - name: Create assets and upload media
     items:
     - name: Create an asset
-      href: asset-create-how-to.md
+      href: asset-create-asset-how-to.md
     - name: Upload media
       href: asset-upload-media-how-to.md
     - name: Manage multiple storage accounts
