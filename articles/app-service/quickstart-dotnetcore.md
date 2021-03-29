@@ -82,7 +82,9 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 
 :::zone-end
 
+<!-- markdownlint-disable MD044 -->
 :::zone target="docs" pivot="development-environment-cli"
+<!-- markdownlint-enable MD044 -->
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - The <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>.
@@ -228,7 +230,9 @@ You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
 
 :::zone-end
 
+<!-- markdownlint-disable MD044 -->
 :::zone target="docs" pivot="development-environment-cli"
+<!-- markdownlint-enable MD044 -->
 
 Open a terminal window on your machine to a working directory. Create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command, and then change directories into the newly created app.
 
@@ -304,7 +308,9 @@ Follow these steps to create your App Service and publish your web app:
 1. In **Solution Explorer**, right-click the **MyFirstAzureWebApp** project and select **Publish**.
 1. In **Publish**, select **Azure** and then **Next**.
 
+<!-- markdownlint-disable MD044 -->
    :::image type="content" source="media/quickstart-dotnet/vs-publish-target-azure.png" alt-text="Publish - target Azure" border="true":::
+<!-- markdownlint-enable MD044 -->
 
 1. Your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
 
@@ -356,7 +362,7 @@ To deploy your web app using the Visual Studio Azure Tools extension:
     - Select **Add Config** when prompted.
     - If prompted, sign-in to your existing Azure account.
 
-    :::image type="content" source="media/quickstart-dotnet/vscode-sign-in-to-azure.png" alt-text="Visual Studio Code - Sign in to Azure" border="true":::
+    :::image type="content" source="media/quickstart-dotnet/vscode-sign-in-to-Azure.png" alt-text="Visual Studio Code - Sign in to Azure" border="true":::
 
     - Select your **Subscription**.
     - Select **Create new Web App...**. Don't select the "Advanced" option.
@@ -379,7 +385,9 @@ To deploy your web app using the Visual Studio Azure Tools extension:
 
 :::zone-end
 
+<!-- markdownlint-disable MD044 -->
 :::zone target="docs" pivot="development-environment-cli"
+<!-- markdownlint-enable MD044 -->
 
 Deploy the code in your local *MyFirstAzureWebApp* directory using the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
 
@@ -462,7 +470,9 @@ Follow these steps to update and redeploy your web app:
 
 :::zone-end
 
+<!-- markdownlint-disable MD044 -->
 :::zone target="docs" pivot="development-environment-cli"
+<!-- markdownlint-enable MD044 -->
 
 In the local directory, open the Index.cshtml_ file. Replace the entire `<div>` tag:
 
@@ -534,7 +544,9 @@ For more information, see [Introduction to the App Service Environments](environ
 [!INCLUDE [Clean-up Portal web app resources](../../includes/clean-up-section-portal-web-app.md)]
 :::zone-end
 
+<!-- markdownlint-disable MD044 -->
 :::zone target="docs" pivot="development-environment-cli"
+<!-- markdownlint-enable MD044 -->
 [!INCLUDE [Clean-up CLI resources](../../includes/cli-samples-clean-up.md)]
 :::zone-end
 
