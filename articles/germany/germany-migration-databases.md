@@ -132,7 +132,17 @@ Migrating a database with geo-replication or BACPAC file does not copy over the 
 
 1. Target database where you are copying the LTR backups, in global Azure must exist before you start the copying the backups. It is recommended that you first migrate the source database using [active geo-replication](#Migrate-SQL-Database-using-active-geo-replication) and then initiate the LTR backup copy. This will ensure that the database backups are copied to the correct destination database. This step is not required, if you are copying over LTR backups of a dropped database. When copying LTR backups of a dropped database, a dummy DatabaseID will be created in the target region. 
 2. Install this [PowerShell Az Module](https://www.powershellgallery.com/packages/Az.Sql/3.0.0-preview)
-3. Before you begin, ensure that required [Azure RBAC roles](https://docs.microsoft.com/azure/azure-sql/database/long-term-backup-retention-configure#azure-roles-to-manage-long-term-retention) are granted at either **subscription** or **resource group** scope. Note: To access LTR backups that belong to a dropped server, the permission must be granted in the subscription scope of that server. . 
+3. Before you begin, ensure that required [Azure RBAC roles](../azure-sql/database/long-term-backup-retention-configure#azure-roles-to-manage-long-term-retention) are granted at either **subscription** or **resource group** scope. Note: To access LTR backups that belong to a dropped server, the permission must be granted in the subscription scope of that server. . 
+
+
+### Limitations  
+
+- Failover Groups are not supported. This means that customers migrating Azure Germany database(s) will need to manage connection strings themselves during failover.
+- No support for Azure portal, Azure Resource Manager APIs, PowerShell, or CLI. This means that each Azure Germany migration will need to manage active geo-replication setup and failover through T-SQL.
+- Customers cannot create multiple geo-secondaries in global Azure for databases in Azure Germany.
+- Creation of a geo secondary must be initiated from the Azure Germany region.
+- Customers can migrate databases out of Azure Germany only to global Azure. Currently no other cross-cloud migration is supported. 
+- Azure AD users in Azure Germany user databases are migrated but are not available in the new Azure AD tenant where the migrated database resides. To enable these users, they must be manually dropped and recreated using the current Azure AD users available in the new Azure AD tenant where the newly migrated database resides.  
 
 
 ### Copy long-term retention backups using PowerShell
@@ -226,12 +236,6 @@ Stop-AzSqlDatabaseActivity
 
 ### Limitations  
 
-- Failover Groups are not supported. This means that customers migrating Azure Germany database(s) will need to manage connection strings themselves during failover.
-- No support for Azure portal, Azure Resource Manager APIs, PowerShell, or CLI. This means that each Azure Germany migration will need to manage active geo-replication setup and failover through T-SQL.
-- Customers cannot create multiple geo-secondaries in global Azure for databases in Azure Germany.
-- Creation of a geo secondary must be initiated from the Azure Germany region.
-- Customers can migrate databases out of Azure Germany only to global Azure. Currently no other cross-cloud migration is supported. 
-- Azure AD users in Azure Germany user databases are migrated but are not available in the new Azure AD tenant where the migrated database resides. To enable these users, they must be manually dropped and recreated using the current Azure AD users available in the new Azure AD tenant where the newly migrated database resides.  
 - [Point-in-time restore (PITR)](../azure-sql/database/recovery-using-backups.md#point-in-time-restore) backups are only taken on the primary database, this is by design. When migrating databases from Azure Germany using Geo-DR, PITR backups will start happening on the new primary after failover. However, the existing PITR backups (on the previous primary in Azure Germany) will not be migrated. If you need PITR backups to support any point-in-time restore scenarios, you need to restore the database from PITR backups in Azure Germany and then migrate the recovered database to global Azure. 
 - Long-term retention policies are not migrated with the database. If you have a [long-term retention (LTR)](../azure-sql/database/long-term-retention-overview.md) policy on your database in Azure Germany, you need to manually copy and recreate the LTR policy on the new database after migrating. 
 
