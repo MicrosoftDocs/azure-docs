@@ -4,11 +4,12 @@
   items:
   - name: About Media Services
     href: media-services-overview.md
-  - name: What's new in Media Services
-    displayName: release notes
+  - name: Release notes
     href: release-notes.md
   - name: Media Services compliance
     href: concept-compliance.md
+  - name: Frequently asked questions
+    href: frequently-asked-questions.yml
 - name: Quickstarts
   items:
   - name: Set up your environment
@@ -262,9 +263,8 @@
     href: architectures-concept.md
   - name: Troubleshooting
     items:
-    - name: Frequently asked questions
-      displayName: faqs
-      href: frequently-asked-questions.md      
+    - name: Question Collection
+      href: questions-collection.md      
     - name: Error codes
       items:
       - name: Streaming endpoint error codes  
@@ -346,7 +346,7 @@
       href: how-to-create-copyallbitratenoninterleaved-transform.md
     - name: Copy videos without encoding with REST
       href: how-to-create-copy-video-audio-transform.md
-    - name: Create jobs with .NET
+    - name: Create jobs with CLI
       href: cli-create-jobs.md
     - name: Create job input with a local file and .NET
       displayName: upload

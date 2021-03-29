@@ -312,24 +312,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 ### Error code: DF-Excel-InvalidFile
 - **Message**: Invalid excel file is provided while only .xlsx and .xls are supported.
 
-### Error code: DF-AdobeIntegration-InvalidMapToFilter
-- **Message**: Custom resource can only have one Key/Id mapped to filter.
-
-### Error code: DF-AdobeIntegration-InvalidPartitionConfiguration
-- **Message**: Only single partition is supported. Partition schema may be RoundRobin or Hash.
-- **Recommendation**: In AdobeIntegration settings, confirm you only have single partitions. The partition schema may be RoundRobin or Hash.
-
-### Error code: DF-AdobeIntegration-KeyColumnMissed
-- **Message**: Key must be specified for non-insertable operations.
-- **Recommendation**: Specify your key columns in AdobeIntegration settings for non-insertable operations.
-
-### Error code: DF-AdobeIntegration-InvalidPartitionType
-- **Message**: Partition type has to be roundRobin.
-- **Recommendation**: Confirm the partition type is roundRobin in AdobeIntegration settings.
-
-### Error code: DF-AdobeIntegration-InvalidPrivacyRegulation
-- **Message**: Only privacy regulation supported currently is gdpr.
-- **Recommendation**: Confirm the privacy regulation in AdobeIntegration settings is **'GDPR'**.
 
 ## Miscellaneous troubleshooting tips
 - **Issue**: Unexpected exception occurred and execution failed.

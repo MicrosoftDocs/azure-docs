@@ -29,7 +29,7 @@ Azure Media Services support offline download/playback with DRM protection. This
 > [!NOTE]
 > Offline DRM is only billed for making a single request for a license when you download the content. Any errors are not billed.
 
-## Overview
+## Background on offline mode playback
 
 This section gives some background on offline mode playback, especially why:
 
@@ -56,12 +56,12 @@ You can use two types of PlayReady license delivery:
 
 Below are two sets of test assets, the first one using PlayReady license delivery in AMS while the second one using my PlayReady license server hosted on an Azure VM:
 
-Asset #1:
+## Asset #1
 
 * Progressive download URL: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL (AMS): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
 
-Asset #2:
+## Asset #2
 
 * Progressive download URL: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL (on premises): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
@@ -119,7 +119,3 @@ In summary, we have achieved offline mode on Azure Media Services:
 * Content can be hosted in Azure Media Services or Azure Storage for progressive download;
 * PlayReady license delivery can be from Azure Media Services or elsewhere;
 * The prepared smooth streaming content can still be used for online streaming via DASH or smooth with PlayReady as the DRM.
-
-## Next steps
-
-[Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
