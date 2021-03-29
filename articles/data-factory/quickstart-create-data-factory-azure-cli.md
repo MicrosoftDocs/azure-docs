@@ -72,17 +72,17 @@ To create an Azure data factory, run the [az datafactory factory create](/cli/az
 
 ```azurecli
 az datafactory factory create --resource-group ADFQuickStartRG \
-    --factory-name <data factory name>
+    --factory-name ADFTutorialFactory
 ```
 
 > [!IMPORTANT]
-> Replace `<data factory name>` with a globally unique data factory name, for example, ADFTutorialFactorySP1127.
+> Replace `ADFTutorialFactory` with a globally unique data factory name, for example, ADFTutorialFactorySP1127.
 
 You can see the data factory that you created by using the [az datafactory factory show](/cli/azure/ext/datafactory/datafactory/factory#ext_datafactory_az_datafactory_factory_show) command:
 
 ```azurecli
 az datafactory factory show --resource-group ADFQuickStartRG \
-    --factory-name <data factory name>
+    --factory-name ADFTutorialFactory
 ```
 
 ## Create a linked service and datasets
@@ -114,7 +114,7 @@ Next, create a linked service and two datasets.
 
    ```azurecli
    az datafactory linked-service create --resource-group ADFQuickStartRG \
-       --factory-name <data factory name> --linked-service-name AzureStorageLinkedService \
+       --factory-name ADFTutorialFactory --linked-service-name AzureStorageLinkedService \
        --properties @AzureStorageLinkedService.json
    ```
 
@@ -242,7 +242,7 @@ Finally, create and run the pipeline.
 
    ```azurecli
    az datafactory pipeline create --resource-group ADFQuickStartRG \
-       --factory-name <data factory name> --name Adfv2QuickStartPipeline \
+       --factory-name ADFTutorialFactory --name Adfv2QuickStartPipeline \
        --pipeline @Adfv2QuickStartPipeline.json
    ```
 
@@ -250,7 +250,7 @@ Finally, create and run the pipeline.
 
    ```azurecli
    az datafactory pipeline create-run --resource-group ADFQuickStartRG \
-       --name Adfv2QuickStartPipeline --factory-name <data factory name>
+       --name Adfv2QuickStartPipeline --factory-name ADFTutorialFactory
    ```
 
    This command returns a run ID. Copy it for use in the next command.
@@ -259,7 +259,7 @@ Finally, create and run the pipeline.
 
    ```azurecli
    az datafactory pipeline-run show --resource-group ADFQuickStartRG \
-       --factory-name <data factory name> --run-id <run ID>
+       --factory-name ADFTutorialFactory --run-id 00000000-0000-0000-0000-000000000000
    ```
 
 You can also verify that your pipeline ran as expected by using the [Azure portal](https://portal.azure.com/). For more information, see [Review deployed resources](quickstart-create-data-factory-powershell.md#review-deployed-resources).
