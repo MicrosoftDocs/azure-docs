@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Computer Vision client library for Go"
+title: "Quickstart: Image Analysis client library for Go"
 titleSuffix: Azure Cognitive Services
 description: Get started with the Computer Vision client library for Go with this quickstart.
 services: cognitive-services
@@ -14,7 +14,7 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
-Use the OCR client library to read printed and handwritten text from images.
+Use the Image Analysis client library to analyze an image for tags, text description, faces, adult content, and more.
 
 [Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [Package](https://github.com/Azure/azure-sdk-for-go)
 
@@ -89,14 +89,15 @@ The following classes and interfaces handle some of the major features of the Co
 |Name|Description|
 |---|---|
 | [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | This class is needed for all Computer Vision functionality, such as image analysis and text reading. You instantiate it with your subscription information, and you use it to do most image operations.|
-|[ReadOperationResult](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ReadOperationResult)| This type contains the results of a Batch Read operation. |
+|[ImageAnalysis](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| This type contains the results of an **AnalyzeImage** function call. There are similar types for each of the category-specific functions.|
+|[VisualFeatureTypes](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#VisualFeatureTypes)| This type defines the different kinds of image analysis that can be done in a standard Analyze operation. You specify a set of VisualFeatureTypes values depending on your needs. |
 
 ## Code examples
 
 These code snippets show you how to do the following tasks with the Computer Vision client library for Go:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Read printed and handwritten text](#read-printed-and-handwritten-text)
+* [Analyze an image](#analyze-an-image)
 
 ## Authenticate the client
 
@@ -110,39 +111,100 @@ Create a `main` function and add the following code to it to instantiate a clien
 > [!div class="nextstepaction"]
 > [I authenticated the client](?success=authenticate-client#analyze-an-image) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=authenticate-client)
 
+## Analyze an image
 
+The following code uses the client object to analyze a remote image and print the results to the console. You can get a text description, categorization, list of tags, detected objects, detected brands, detected faces, adult content flags, main colors, and image type.
 
-## Read printed and handwritten text
+### Set up test image
 
-Computer Vision can read visible text in an image and convert it to a character stream. The code in this section defines a function, `RecognizeTextReadAPIRemoteImage`, which uses the client object to detect and extract printed or handwritten text in the image.
+First save a reference to the URL of the image you want to analyze. Put this inside your `main` function.
 
-Add the sample image reference and function call in your `main` function.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_readinmain)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_url)]
 
 > [!TIP]
-> You can also extract text from a local image. See the [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) methods, such as **BatchReadFileInStream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) for scenarios involving local images.
+> You can also analyze a local image. See the [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) methods, such as **DescribeImageInStream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) for scenarios involving local images.
 
-### Call the Read API
+### Specify visual features
 
-Define the new function for reading text, `RecognizeTextReadAPIRemoteImage`. Add the code below, which calls the **BatchReadFile** method for the given image. This method returns an operation ID and starts an asynchronous process to read the content of the image.
+The following function calls extract different visual features from the sample image. You'll define these functions in the following sections.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_call)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze)]
 
-### Get Read results
+### Get image description
 
-Next, get the operation ID returned from the **BatchReadFile** call, and use it with the **GetReadOperationResult** method to query the service for operation results. The following code checks the operation at one-second intervals until the results are returned. It then prints the extracted text data to the console.
+The following function gets the list of generated captions for the image. For more information about image description, see [Describe images](../../concept-describing-images.md).
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_response)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_describe)]
 
-### Display Read results
+### Get image category
 
-Add the following code to parse and display the retrieved text data, and finish the function definition.
+The following function gets the detected category of the image. For more information, see [Categorize images](../../concept-categorizing-images.md).
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_categorize)]
+
+### Get image tags
+
+The following function gets the set of detected tags in the image. For more information, see [Content tags](../../concept-tagging-images.md).
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_tags)]
+
+### Detect objects
+
+The following function detects common objects in the image and prints them to the console. For more information, see [Object detection](../../concept-object-detection.md).
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_objects)]
+
+### Detect brands
+
+The following code detects corporate brands and logos in the image and prints them to the console. For more information, [Brand detection](../../concept-brand-detection.md).
+
+First, declare a reference to a new image within your `main` function.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_brand_url)]
+
+The following code defines the brand detection function.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_brands)]
+
+### Detect faces
+
+The following function returns the detected faces in the image with their rectangle coordinates and certain face attributes. For more information, see [Face detection](../../concept-detecting-faces.md).
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_faces)]
+
+### Detect adult, racy, or gory content
+
+The following function prints the detected presence of adult content in the image. For more information, see [Adult, racy, gory content](../../concept-detecting-adult-content.md).
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_adult)]
+
+### Get image color scheme
+
+The following function prints the detected color attributes in the image, like the dominant colors and accent color. For more information, see [Color schemes](../../concept-detecting-color-schemes.md).
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_color)]
+
+### Get domain-specific content
+
+Computer Vision can use specialized models to do further analysis on images. For more information, see [Domain-specific content](../../concept-detecting-domain-content.md). 
+
+The following code parses data about detected celebrities in the image.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_celebs)]
+
+The following code parses data about detected landmarks in the image.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_landmarks)]
+
+### Get the image type
+
+The following function prints information about the type of image&mdash;whether it's clip art or a line drawing.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
 
 > [!div class="nextstepaction"]
-> [I read text](?success=read-printed-handwritten-text#run-the-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=read-printed-handwritten-text)
+> [I analyzed an image](?success=analyze-image#read-printed-and-handwritten-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=analyze-image)
+
 
 ## Run the application
 
