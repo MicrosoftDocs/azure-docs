@@ -22,12 +22,6 @@ In Azure Active Directory (Azure AD), if another administrator or non-administra
 
 This article lists the Azure AD built-in roles you can assign to allow management of Azure AD resources. For information about how to assign roles, see [Assign Azure AD roles to users](manage-roles-portal.md).
 
-## Limit use of Global Administrator
-
-Users who are assigned to the Global Administrator role can read and modify every administrative setting in your Azure AD organization. By default, when a user signs up for a Microsoft cloud service, an Azure AD tenant is created and the user is made a member of the Global Administrators role. When you add a subscription to an existing tenant, you aren't assigned to the Global Administrator role. Only Global Administrators and Privileged Role administrators can delegate administrator roles. To reduce the risk to your business, we recommend that you assign this role to the fewest possible people in your organization.
-
-As a best practice, we recommend that you assign this role to fewer than five people in your organization. If you have more than five admins assigned to the Global Administrator role in your organization, here are some ways to reduce its use.
-
 ## All roles
 
 > [!div class="mx-tableFixed"]
@@ -766,6 +760,9 @@ This administrator manages federation between Azure AD organizations and externa
 ## Global Administrator
 
 Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. Furthermore, Global Administrators can [elevate their access](../../role-based-access-control/elevate-access-global-admin.md) to manage all Azure subscriptions and management groups. This allows Global Administrators to get full access to all Azure resources using the respective Azure AD Tenant. The person who signs up for the Azure AD organization becomes a Global Administrator. There can be more than one Global Administrator at your company. Global Administrators can reset the password for any user and all other administrators.
+
+> [!NOTE]
+> As a best practice, Microsoft recommends that you assign this role to fewer than five people in your organization. For more information, see [Best practices for Azure AD roles](best-practices.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1836,6 +1833,26 @@ Users with this role can create users, and manage all aspects of users with some
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+
+## How to understand role permissions
+
+The schema for permissions loosely follows the REST format of Microsoft Graph:
+
+`<namespace>/<entity>/<propertyset>/<action>`
+
+For example:
+
+`microsoft.directory/applications/credentials/update`
+
+| Permission element | Description |
+| --- | --- |
+| namespace | Product or service that exposes the task and is prepended with `microsoft`. For example, all tasks in Azure AD use the `microsoft.directory` namespace. |
+| entity | Logical feature or component exposed by the service in Microsoft Graph. For example, Azure AD exposes User and Groups, OneNote exposes Notes, and Exchange exposes Mailboxes and Calendars. There is a special `allEntities` keyword for specifying all entities in a namespace. This is often used in roles that grant access to an entire product. |
+| propertyset | Specific properties or aspects of the entity for which access is being granted. For example, `microsoft.directory/applications/authentication/read` grants the ability to read the reply URL, logout URL, and implicit flow property on the application object in Azure AD. |
+|  | `allProperties` designates all properties of the entity, including privileged properties. |
+|  | `standard` designates common properties, but excludes privileged ones related to `read` action. For example, `microsoft.directory/user/standard/read` includes the ability to read standard properties like public phone number and email address, but not the private secondary phone number or email address used for multi-factor authentication. |
+|  | `basic` designates common properties, but excludes privileged ones related to the ‘update’ action. The set of properties that you can read may be different from what you can update. That’s why there are ‘standard’ and ‘basic’ keywords to reflect that. |
+| action | Operation being granted, most typically create, read, update, or delete (CRUD). There is a special `allTasks` keyword for specifying all of the above abilities (create, read, update, and delete). |
 
 ## Deprecated roles
 
