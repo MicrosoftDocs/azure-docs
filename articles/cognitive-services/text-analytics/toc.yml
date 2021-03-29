@@ -97,8 +97,8 @@
     items:
     - name: Unicode encodings and text offsets
       href: concepts/text-offsets.md
-    - name: Data limits
-      href: concepts/data-limits.md
+  - name: Data limits
+    href: concepts/data-limits.md
   - name: Model versioning
     href: concepts/model-versioning.md
 - name: Tutorials
