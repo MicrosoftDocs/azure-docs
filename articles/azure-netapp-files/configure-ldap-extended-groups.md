@@ -32,11 +32,7 @@ This article explains the considerations and steps for enabling LDAP with extend
 
 ## Steps
 
-1.	Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create an NFS volume. During the volume creation process, under the **Protocol** tab, enable the **LDAP** option.   
-
-    ![Screenshot that shows Create a Volume page with LDAP option.](../media/azure-netapp-files/create-nfs-ldap.png)  
-
-2. The LDAP with extended groups feature is currently in preview. Before using this feature for the first time, you need to register the feature:  
+1. The LDAP with extended groups feature is currently in preview. Before using this feature for the first time, you need to register the feature:  
 
     1. Register the feature:   
 
@@ -55,15 +51,19 @@ This article explains the considerations and steps for enabling LDAP with extend
         
     You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-3. LDAP volumes require an Active Directory configuration for LDAP server settings. Follow instructions in [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections) and [Create an Active Directory connection](create-active-directory-connections.md#create-an-active-directory-connection) to configure Active Directory connections on the Azure portal.  
+2. LDAP volumes require an Active Directory configuration for LDAP server settings. Follow instructions in [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections) and [Create an Active Directory connection](create-active-directory-connections.md#create-an-active-directory-connection) to configure Active Directory connections on the Azure portal.  
 
-4. Ensure that the Active Directory LDAP server is up and running on the Active Directory. You can do so by installing and configuring the [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) role on the AD machine.
+3. Ensure that the Active Directory LDAP server is up and running on the Active Directory. You can do so by installing and configuring the [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) role on the AD machine.
 
-5. LDAP NFS users need to have certain POSIX attributes on the LDAP server. Follow [Manage LDAP POSIX Attributes](create-volumes-dual-protocol.md#manage-ldap-posix-attributes) to set the required attributes.  
+4. LDAP NFS users need to have certain POSIX attributes on the LDAP server. Follow [Manage LDAP POSIX Attributes](create-volumes-dual-protocol.md#manage-ldap-posix-attributes) to set the required attributes.  
 
-6. If you want to configure an LDAP-integrated Linux client, see [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md).
+5. If you want to configure an LDAP-integrated Linux client, see [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md).
 
-7. You can enable local NFS client users not present on the Windows LDAP server to access an NFS volume that has LDAP with extended groups enabled. To do so, enable the **Allow local NFS users with LDAP** option as follows:
+6.	Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create an NFS volume. During the volume creation process, under the **Protocol** tab, enable the **LDAP** option.   
+
+    ![Screenshot that shows Create a Volume page with LDAP option.](../media/azure-netapp-files/create-nfs-ldap.png)  
+
+7. Optional - You can enable local NFS client users not present on the Windows LDAP server to access an NFS volume that has LDAP with extended groups enabled. To do so, enable the **Allow local NFS users with LDAP** option as follows:
     1. Click **Active Directory connections**.  On an existing Active Directory connection, click the context menu (the three dots `…`), and select **Edit**.  
     2. On the **Edit Active Directory settings** window that appears, select the **Allow local NFS users with LDAP** option.  
 
