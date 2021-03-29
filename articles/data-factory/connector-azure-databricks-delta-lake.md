@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
+ms.date: 03/29/2021
 ---
 
 # Copy data to and from Azure Databricks Delta Lake by using Azure Data Factory
