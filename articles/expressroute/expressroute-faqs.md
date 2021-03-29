@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/29/2021
 ms.author: duau
 
 ---
@@ -261,7 +261,7 @@ Yes. ExpressRoute can coexist with site-to-site VPNs. See [Configure ExpressRout
 
 ### How do I enable routing between my site-to-site VPN connection and my ExpressRoute?
 
-If you want to enable routing between your branch connected to Expressoute and your branch connected to a site-to-site VPN connection, you'll need to set up [Azure Route Server](../route-server/expressroute-vpn-support.md).
+If you want to enable routing between your branch connected to ExpressRoute and your branch connected to a site-to-site VPN connection, you'll need to set up [Azure Route Server](../route-server/expressroute-vpn-support.md).
 
 ### Why is there a public IP address associated with the ExpressRoute gateway on a virtual network?
 

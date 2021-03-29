@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 ---
 # Call flow basics
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include-phone-numbers.md)]
 
 The section below gives an overview of the call flows in Azure Communication Services. Signaling and media flows depend on the types of calls your users are making. Examples of call types include one-to-one VoIP, one-to-one PSTN, and group calls containing a combination of VoIP and PSTN-connected participants. Review [Call types](./voice-video-calling/about-call-types.md).
 
