@@ -166,8 +166,6 @@
     href: fslogix-containers-azure-files.md
   - name: Storage options for FSLogix profile containers
     href: store-fslogix-profile.md
-  - name: Partner integrations
-    href: partners.md
   - name: Windows Virtual Desktop FAQ
     href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
@@ -216,6 +214,8 @@
     href: security-guide.md
   - name: Linux support
     href: linux-overview.md
+  - name: Estimate Azure Monitor costs
+    href: azure-monitor-costs.md
   - name: Supported RDP file settings
     href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
   - name: Virtual machine sizing guidance

@@ -59,7 +59,7 @@ See Live events concepts, tutorials and how to guides below for specific steps.
 
 - [Tutorial: Stream live with Media Services](stream-live-tutorial-with-api.md)
 - [Create an Azure Media Services live stream with OBS](live-events-obs-quickstart.md)
-- [Quickstart: Upload, encode, and stream content with portal](manage-assets-quickstart.md)
+- [Quickstart: Upload, encode, and stream content with portal](asset-create-asset-upload-portal-quickstart.md)
 - [Quickstart: Create an Azure Media Services live stream with Wirecast](live-events-wirecast-quickstart.md)
 
 ## Samples
