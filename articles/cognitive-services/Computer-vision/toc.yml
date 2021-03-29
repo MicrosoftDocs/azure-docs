@@ -147,7 +147,7 @@
   - name: Java
     href: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
   - name: Azure CLI
-    href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    href: /cli/azure/cognitiveservices#az_cognitiveservices_list
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cognitiveservices/
 - name: Resources
