@@ -33,13 +33,13 @@ ms.custom: seodec18
 #### New features
 
 - **C++/C#/Java/Python**: Moved to the latest version of GStreamer (1.18.3) to add support for transcribing _any_ media format on Windows, Linux and Android. See documentation [here](/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). Previously, the SDK only supported a subset of GStreamer supported formats. This gives you the flexibility to use the audio format that is right for your use case.
-- **C++/C#/Java/Objective-C/Python**: Added support to decode compressed TTS/synthesized audio with the SDK. If you set output audio format to PCM and GStreamer is available on your system, the SDK will automatically request compressed audio from the service to save bandwidth and decode the audio on the client. This can lower the bandwidth needed for your use case. You can set `SpeechServiceConnection_SynthEnableCompressedAudioTransmission` to `false` to disable this feature. Details for [C++](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#propertyid), [C#](/dotnet/api/microsoft.cognitiveservices.speech.propertyid), [Java](/java/api/com.microsoft.cognitiveservices.speech.propertyid), [Objective-C](/objectivec/cognitive-services/speech/spxpropertyid), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.propertyid?preserve-view=true&view=azure-python).
+- **C++/C#/Java/Objective-C/Python**: Added support to decode compressed TTS/synthesized audio with the SDK. If you set output audio format to PCM and GStreamer is available on your system, the SDK will automatically request compressed audio from the service to save bandwidth and decode the audio on the client. This can lower the bandwidth needed for your use case. You can set `SpeechServiceConnection_SynthEnableCompressedAudioTransmission` to `false` to disable this feature. Details for [C++](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#propertyid), [C#](/dotnet/api/microsoft.cognitiveservices.speech.propertyid), [Java](/java/api/com.microsoft.cognitiveservices.speech.propertyid), [Objective-C](/objectivec/cognitive-services/speech/spxpropertyid), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.propertyid).
 - **JavaScript**: Node.js users can now use the [`AudioConfig.fromWavFileInput` API](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig#fromWavFileInput_File_), allowing customers to send the path on disk to a wav file to the SDK which the SDK will then recognize. This addresses [GitHub issue #252](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/252).
-- **C++/C#/Java/Objective-C/Python**: Added `GetVoicesAsync()` method for TTS to return all available synthesis voices programmatically. This allows you to list available voices in your application, or programmatically choose from different voices. Details for [C++](/cpp/cognitive-services/speech/speechsynthesizer#getvoicesasync), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer#methods), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer#methods), [Objective-C](/objectivec/cognitive-services/speech/spxspeechsynthesizer#getvoices), and [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer?preserve-view=true&view=azure-python#methods).
+- **C++/C#/Java/Objective-C/Python**: Added `GetVoicesAsync()` method for TTS to return all available synthesis voices programmatically. This allows you to list available voices in your application, or programmatically choose from different voices. Details for [C++](/cpp/cognitive-services/speech/speechsynthesizer#getvoicesasync), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer#methods), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer#methods), [Objective-C](/objectivec/cognitive-services/speech/spxspeechsynthesizer#getvoices), and [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#methods).
 - **C++/C#/Java/JavaScript/Objective-C/Python**: Added `VisemeReceived` event for TTS/speech synthesis to return synchronous viseme animation. Visemes enable you to create more natural news broadcast assistants, more interactive gaming and cartoon characters, and more intuitive language teaching videos. People with hearing impairment can also pick up sounds visually and "lip-read" any speech content. See documentation [here](/azure/cognitive-services/speech-service/how-to-speech-synthesis-viseme).
 - **C++/C#/Java/JavaScript/Objective-C/Python**: Added `BookmarkReached` event for TTS. You can set bookmarks in the input SSML and get the audio offsets for each bookmark. You might use this in your application to take an action when certain words are spoken by text-to-speech. See documentation [here](/azure/cognitive-services/speech-service/speech-synthesis-markup#bookmark-element).
 - **Java**: Added support for speaker recognition APIs, allowing you to use speaker recognition from Java. Details [here](/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer).
-- **C++/C#/Java/JavaScript/Objective-C/Python**: Added two new output audio formats with WebM container for TTS (Webm16Khz16BitMonoOpus and Webm24Khz16BitMonoOpus). These are better formats for streaming audio with the Opus codec. Details for [C++](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat), [Objective-C](/objectivec/cognitive-services/speech/spxspeechsynthesisoutputformat), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat?preserve-view=true&view=azure-python).
+- **C++/C#/Java/JavaScript/Objective-C/Python**: Added two new output audio formats with WebM container for TTS (Webm16Khz16BitMonoOpus and Webm24Khz16BitMonoOpus). These are better formats for streaming audio with the Opus codec. Details for [C++](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat), [Objective-C](/objectivec/cognitive-services/speech/spxspeechsynthesisoutputformat), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat).
 - **C++/C#/Java/Python**: Added support on Linux to allow connections to succeed in environments where network access to Certificate Revocation Lists has been blocked. This enables scenarios where you choose to let the client machine only connect to the Azure Speech service. See documentation [here](/azure/cognitive-services/speech-service/how-to-configure-openssl-linux).
 - **C++/C#/Java**: Added support for retrieving voice profile for speaker recognition scenario so that an app can compare speaker data to an existing voice profile. Details for [C++](/cpp/cognitive-services/speech/speakerrecognizer), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speakerrecognizer), and [Java](/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer). This addresses [GitHub issue #808](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/808).
 - **Objective-C/Swift**: Added support for module framework with umbrella header. This allows to import Speech SDK as a module in iOS/Mac Objective-C/Swift apps. This addresses [GitHub issue #452](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/452).
@@ -791,12 +791,12 @@ This is a bug fix release and only affecting the native/managed SDK. It is not a
 **New Features**
 
 - The Speech SDK supports selection of the input microphone through the `AudioConfig` class. This allows you to stream audio data to the Speech service from a non-default microphone. For more information, see the documentation describing [audio input device selection](how-to-select-audio-input-devices.md). This feature is not yet available from JavaScript.
-- The Speech SDK now supports Unity in a beta version. Provide feedback through the issue section in the [GitHub sample repository](https://aka.ms/csspeech/samples). This release supports Unity on Windows x86 and x64 (desktop or Universal Windows Platform applications), and Android (ARM32/64, x86). More information is available in our [Unity quickstart](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=unity).
+- The Speech SDK now supports Unity in a beta version. Provide feedback through the issue section in the [GitHub sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk). This release supports Unity on Windows x86 and x64 (desktop or Universal Windows Platform applications), and Android (ARM32/64, x86). More information is available in our [Unity quickstart](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=unity).
 - The file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (shipped in previous releases) isn't needed anymore. The functionality is now integrated into the core SDK.
 
 **Samples**
 
-The following new content is available in our [sample repository](https://aka.ms/csspeech/samples):
+The following new content is available in our [sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk):
 
 - Additional samples for `AudioConfig.FromMicrophoneInput`.
 - Additional Python samples for intent recognition and translation.
@@ -880,7 +880,7 @@ This is a JavaScript-only release. No features have been added. The following fi
 **Samples**
 
 - Updated and fixed several samples (for example output voices for translation, etc.).
-- Added Node.js samples in the [sample repository](https://aka.ms/csspeech/samples).
+- Added Node.js samples in the [sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
 
 ## Speech SDK 1.1.0
 
@@ -911,7 +911,7 @@ This is a JavaScript-only release. No features have been added. The following fi
 
 **Samples**
 
-- Added C++ and C# samples for pull and push stream usage in the [sample repository](https://aka.ms/csspeech/samples).
+- Added C++ and C# samples for pull and push stream usage in the [sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
 
 ## Speech SDK 1.0.1
 
@@ -925,7 +925,7 @@ Reliability improvements and bug fixes:
 - JavaScript: Fixed regarding events and their payloads.
 - Documentation improvements.
 
-In our [sample repository](https://aka.ms/csspeech/samples), a new sample for JavaScript was added.
+In our [sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk), a new sample for JavaScript was added.
 
 ## Cognitive Services Speech SDK 1.0.0: 2018-September release
 
@@ -1029,7 +1029,7 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 - On Windows, C# .NET assemblies now are strong named.
 - Documentation fix: `Region` is required information to create a recognizer.
 
-More samples have been added and are constantly being updated. For the latest set of samples, see the [Speech SDK samples GitHub repository](https://aka.ms/csspeech/samples).
+More samples have been added and are constantly being updated. For the latest set of samples, see the [Speech SDK samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
 
 ## Cognitive Services Speech SDK 0.2.12733: 2018-May release
 
