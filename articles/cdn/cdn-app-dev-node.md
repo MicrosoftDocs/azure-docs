@@ -28,10 +28,6 @@ You can use the [Azure CDN SDK for JavaScript](https://www.npmjs.com/package/@az
 
 To complete this tutorial, you should already have [Node.js](https://www.nodejs.org) **6.x.x** or higher installed and configured.  You can use any text editor you want to create your Node.js application.  To write this tutorial, I used [Visual Studio Code](https://code.visualstudio.com).  
 
-> [!TIP]
-> The [completed project from this tutorial](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) is available for download on MSDN.
-> 
-> 
 
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -84,7 +80,7 @@ With *app.js* open in our editor, let's get the basic structure of our program w
    
     ``` javascript
     var msRestAzure = require('@azure/ms-rest-nodeauth');
-    var cdnManagementClient = require('@azure/arm-cdn');
+    var CdnManagementClient = require('@azure/arm-cdn').CdnManagementClient;
     ```
 2. We need to define some constants our methods will use.  Add the following.  Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.
    
@@ -103,23 +99,8 @@ With *app.js* open in our editor, let's get the basic structure of our program w
    
     ``` javascript
     var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
-    var cdnClient = new cdnManagementClient.CdnManagementClient(credentials, subscriptionId);
+    var cdnClient = new CdnManagementClient(credentials, subscriptionId);
     ```
-   
-    If you are using individual user authentication, these two lines will look slightly different.
-   
-   > [!IMPORTANT]
-   > Only use this code sample if you are choosing to have individual user authentication instead of a service principal.  Be careful to guard your individual user credentials and keep them secret.
-   > 
-   > 
-   
-    ``` javascript
-    var credentials = new msRestAzure.UserTokenCredentials(clientId, 
-        tenantId, '<username>', '<password>');
-    var cdnClient = new cdnManagementClient.CdnManagementClient(credentials, subscriptionId);
-    ```
-   
-    Be sure to replace the items in **&lt;angle brackets&gt;** with the correct information.  
 
 4. Our Node.js console application is going to take some command-line parameters.  Let's validate that at least one parameter was passed.
    
