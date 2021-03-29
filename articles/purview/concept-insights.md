@@ -23,7 +23,7 @@ The report provides broad insights through graphs and KPIs and later deep dive i
 
 ## Scan Insights
 
-The report enables administrators to understand overall health of the scans - how many succeeded, how many failed, how many canceled. This report gives a status update on scans that have been executed in the Purview account within a time period of last seven days or last 30 days.
+The report enables administrators to understand overall health of the scans - how many succeeded, how many failed, how many cancelled. This report gives a status update on scans that have been executed in the Purview account within a time period of last seven days or last 30 days.
 
 The report also allows administrators to deep dive and explore which scans failed and on what specific source types. To further enable users to investigate, the report helps them navigate into the scan history page within the "Sources" experience.
 
