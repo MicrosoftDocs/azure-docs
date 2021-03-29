@@ -274,7 +274,7 @@
       - name: Job error codes
         href: job-error-codes.md
     - name: Reset account credentials
-      href: account-reset-credentials-cli.md       
+      href: account-reset-account-credentials.md       
   - name: Migration guide
     displayName: migration
     items:
