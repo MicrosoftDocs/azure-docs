@@ -128,7 +128,7 @@ By default, a new volume has the **Everyone / Full Control** share permissions. 
 1. Map the share to a drive.  
 2. Right-click the drive, select **Properties**, then go to the **Security** tab.
 
-![Set share permissions](../media/azure-netapp-files/set-share-permissions.png) 
+[ ![Set share permissions](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
 
 ### NTFS file and folder permissions  
 
