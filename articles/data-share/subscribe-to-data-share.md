@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2020
+ms.date: 03/24/2021
 ---
 # Tutorial: Accept and receive data using Azure Data Share  
 
@@ -36,23 +36,10 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, below is the list of prerequisites. 
 
 #### Prerequisites for receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)
-You can follow the [step by step demo](https://youtu.be/aeGISgK1xro) to configure prerequisites.
 
 * An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW).
 * Permission to write to databases on the SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role. 
-* Permission for the Data Share resource's managed identity to access the Azure SQL Database or Azure Synapse Analytics. This can be done through the following steps: 
-    1. In Azure portal, navigate to the SQL server and set yourself as the **Azure Active Directory Admin**.
-    1. Connect to the Azure SQL Database/Data Warehouse using [Query Editor](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) or SQL Server Management Studio with Azure Active Directory authentication. 
-    1. Execute the following script to add the Data Share Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'. You must connect using Active Directory and not SQL Server authentication. 
-
-        ```sql
-        create user "<share_acc_name>" from external provider; 
-        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
-        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
-        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
-        ```      
-        Note that the *<share_acc_name>* is the name of your Data Share resource. If you have not created a Data Share resource as yet, you can come back to this pre-requisite later.         
-
+* **Azure Active Directory Admin** of the SQL server
 * SQL Server Firewall access. This can be done through the following steps: 
     1. In SQL server in Azure portal, navigate to *Firewalls and virtual networks*
     1. Click **Yes** for *Allow Azure services and resources to access this server*.
@@ -86,7 +73,6 @@ You can follow the [step by step demo](https://youtu.be/aeGISgK1xro) to configur
 
 * An Azure Data Explorer cluster in the same Azure data center as the data provider's Data Explorer cluster: If you don't already have one, you can create an [Azure Data Explorer cluster](/azure/data-explorer/create-cluster-database-portal). If you don't know the Azure data center of the data provider's cluster, you can create the cluster later in the process.
 * Permission to write to the Azure Data Explorer cluster, which is present in *Microsoft.Kusto/clusters/write*. This permission exists in the Contributor role. 
-* Permission to add role assignment to the Azure Data Explorer cluster, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role. 
 
 ## Sign in to the Azure portal
 
@@ -169,13 +155,13 @@ Follow the steps below to configure where you want to receive data.
 
    ![Map to target](./media/dataset-map-target.png "Map to target") 
 
-1. Select a target data store type that you'd like the data to land in. Any data files or tables in the target data store with the same path and name will be overwritten. 
+1. Select a target data store type that you'd like the data to land in. Any data files or tables in the target data store with the same path and name will be overwritten. If you are receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
 
    For in-place sharing, select a data store in the Location specified. The Location is the Azure data center where data provider's source data store is located at. Once dataset is mapped, you can follow the link in the Target Path to access the data.
 
    ![Target storage account](./media/dataset-map-target-sql.png "Target storage") 
 
-1. For snapshot-based sharing, if the data provider has created a snapshot schedule to provide regular update to the data, you can also enable snapshot schedule by selecting the **Snapshot Schedule** tab. Check the box next to the snapshot schedule and select **+ Enable**.
+1. For snapshot-based sharing, if the data provider has created a snapshot schedule to provide regular update to the data, you can also enable snapshot schedule by selecting the **Snapshot Schedule** tab. Check the box next to the snapshot schedule and select **+ Enable**. Note that the first scheduled snapshot will start within one minute of the schedule time and subsequent snapshots will start within seconds of the scheduled time.
 
    ![Enable snapshot schedule](./media/enable-snapshot-schedule.png "Enable snapshot schedule")
 
