@@ -14,7 +14,6 @@ ms.date: 3/29/2021
 # Hyperscale Secondary Replicas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-
 As described in Distributed functions architecture, Azure SQL Database Hyperscale has two different types of compute nodes, also referred to as “replicas”.
 - Primary: serves read and write operations
 - Secondary: provides read scale-out, high availability and geo-replication
@@ -76,7 +75,7 @@ New-AzSqlDatabaseSecondary -ResourceGroupName "SampleResourceGroup" -ServerName 
 ```azurecli
 az sql db replica create -g SampleResourceGroup -n WideWorldImporters -s WideWorldImporterServer --secondary-type named --partner-database WideWorldImporters01 --partner-server WideWorldImporterServer
 ```
-
+---
 As there is no data movement involved, creation will usually take only up to a minute. Once the named replica is available it will be visible from the portal or any command line tool like AZ CLI or PowerShell. A named replica is usable as a regular database, with the exception that it is read-only. 
 
 ### Connecting to a named replica
@@ -88,14 +87,17 @@ Just like for HA replicas, even though the primary, HA, and named replicas share
 
 You can define the service level objective of a named replica when you create it, via the ALTER DATABASE command or in any other supported way. If you need to change the service level objective after the named replica has been created, you can do it using the regular ALTER DATABASE…MODIFY command on the named replica itself. For example, if “WideWorldImporters01” is the named replica of “WideWorldImporters” database, you can do it as shown below (it will take up to a minute max).
 
-
+# [T-SQL](#tab/tsql)
 ```tsql
 ALTER DATABASE [WideWorldImporters01] MODIFY (SERVICE_OBJECTIVE = ‘HS_Gen5_8’)
 ```
+# [PowerShell](#tab/azure-powershell)
 ```azurepowershell
 ```
+# [Azure CLI](#tab/azure-cli)
 ```azurecli
 ```
+---
 
 ### Removing a named replica
 
