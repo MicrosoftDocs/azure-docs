@@ -17,8 +17,10 @@ ms.reviewer: cynthn
 In Azure there are multiple ways to connect a custom domain to your VM or resource. For any resource with a public IP (Virtual Machine, Load Balancer, Application Gateway) the most straight-forward way is to create an A record set in your corresponding domain registrar. 
 
 ## Prerequisites 
-- Virtual Machine or resource must be accessible to the web (Port 80, or 443 Open Ports). Note – It is not typically best practice to publicly expose your VM IP Address publicly. For a more secure deployment place your VM behind a Load Balancer or Application Gateway first. Create a public Load Balancer
-- Have an existing domain and access to DNS settings. Buy a custom domain for Azure App Service
+
+- The VM must be accessible to the web (open port 80, or 443 ). For a more secure deployment place your VM behind a load balancer or Application Gateway first. For more information, see [Quickstart: Load Balancer](/load-balancer/quickstart-load-balancer-standard-public-portal?tabs=option-1-create-load-balancer-standard).
+
+- Have an existing domain and access to DNS settings. For more information, see [Buy a custom domain for Azure App Service](/app-service/manage-custom-dns-buy-domain).
 
 
 ## Add custom domain to VM public IP address
