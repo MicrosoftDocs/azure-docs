@@ -4,7 +4,7 @@ description: Learn how to copy data from OData sources to supported sink data st
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 03/30/2021
 ms.author: jingwang
 ---
 # Copy data from an OData source by using Azure Data Factory
@@ -344,21 +344,21 @@ To copy data from Project Online, you can use the OData connector and an access 
    1. You will be asked to login with your username and password.
    1. Once you get your access token, please copy and save it for the next step.
    
-    [![Use Postman to get the access token](./media/connector-odata/odata-project-online-postman-accesstoken-inline.png)](./media/connector-odata/odata-project-online-postman-accesstoken-expanded.png#lightbox)
+    [![Use Postman to get the access token](./media/connector-odata/odata-project-online-postman-access-token-inline.png)](./media/connector-odata/odata-project-online-postman-access-token-expanded.png#lightbox)
 
-2. Create the OData linked service:
+1. Create the OData linked service:
     - **Service URL**: Enter `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Replace `<your tenant name>` with your own tenant name. 
     - **Authentication type**: Select **Anonymous**.
     - **Auth headers**:
         - **Property name**: Choose **Authorization**.
-        - **Value**: Enter the **access token** copied from step1.
-     - Test the linked service.
+        - **Value**: Enter the **access token** copied from step 1.
+    - Test the linked service.
 
     ![Create OData linked service](./media/connector-odata/odata-project-online-linked-service.png)
 
-3. Create the OData dataset:
-     - Create the dataset with the OData linked service created in step2.
-     - Preview data.
+1. Create the OData dataset:
+    1. Create the dataset with the OData linked service created in step 2.
+    1. Preview data.
  
     ![Preview data](./media/connector-odata/odata-project-online-preview-data.png)
  
