@@ -90,9 +90,11 @@ To create a hierarchy of IoT Edge devices, you will need:
   For more information, see [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md).
 
 >[!TIP]
->If you would like an automated look at setting up a hierarchy of IoT Edge devices, you can follow the scripted [Azure IoT Edge for Industrial IoT sample](https://aka.ms/iotedge-nested-sample). This scripted scenario deploys Azure virtual machines as preconfigured devices to simulate a factory environment.
+>This tutorial includes a mixture of manual and automated steps to provide a showcase of Nested IoT Edge features.
 >
->If you would like to proceed though the creation of the sample hierarchy step-by-step, continue with the tutorial steps below.
+>If you would like an entirely automated look at setting up a hierarchy of IoT Edge devices, you can follow the scripted [Azure IoT Edge for Industrial IoT sample](https://aka.ms/iotedge-nested-sample). This scripted scenario deploys Azure virtual machines as preconfigured devices to simulate a factory environment.
+>
+>If you would like an in-depth look at the manual steps take to create and manage a hierarchy of IoT Edge devices, see [the how-to guide on IoT Edge device gateway hierarchies](how-to-connect-downstream-iot-edge-device.md).
 
 ## Configure your IoT Edge device hierarchy
 
@@ -142,11 +144,16 @@ To use the `iotedge-config-cli` tool to create and configure your hierarchy, fol
 
    In the **iothub** section, populate the `iothub_hostname` and `iothub_name` fields with your information.
 
-   In the optional **certificates** section, you can populate the fields with the absolute paths to your certificate and key. If you leave these fields blank, the script will automatically generate self-signed test certificates for your use.
+   In the optional **certificates** section, you can populate the fields with the absolute paths to your certificate and key. If you leave these fields blank, the script will automatically generate self-signed test certificates for your use. If you're unfamiliar with how certificates are used in a gateway scenario, check out [the how-to guide's certificate section](how-to-connect-downstream-iot-edge-device.md#prepare-certificates).
 
    In the **configuration** section, the `template_config_path` is the path to the `device_config.toml` template used to create your device configurations. The `default_edge_agent` field determines what Edge Agent image lower layer devices will pull and from where.
 
    In the **edgedevices** section, for a production scenario, you could edit the hierarchy tree to reflect your desired structure. For the purposes of this tutorial, accept the default tree. For each device, there is a `device_id` field, where you can name your devices. There is also the `deployment` field, which specifies the path to the deployment JSON for that device.
+
+   [!TIP]
+   >You can manually register IoT Edge devices in your IoT Hub through the Azure portal or Azure Cloud Shell. To learn how, see [the guide on how to regist an IoT Edge device](how-to-register-device.md).
+   >
+   >You can define the parent-child relationships manually as well. See the [creating a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy) section of the how-to guide to learn more.
 
    ![The edgedevices section of the configuration file allows you to define your hierarchy](./media/tutorial-nested-iot-edge/hierarchy-config-sample.png)
 
@@ -221,6 +228,9 @@ Complete the steps below and restart the IoT Edge service to configure your devi
 
    On the **top layer device**, you will receive a prompt to enter the hostname. On the **lower layer device**, it will ask for the hostname and parent's hostname. Supply the appropriate IP or FQDN for each prompt. You can use either, but be consistent in your choice across devices.
 
+   [!TIP]
+   >If you want a closer look at what modifications are being made to your device's configuration file, see [the configure IoT Edge on devices section of the how-to guide](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
+
   ![Installing the configuration bundles will update the config.toml files on your device and restart all IoT Edge services automatically](./media/tutorial-nested-iot-edge/configuration-install-output.png)
 
 If you completed the above steps correctly, you can check your devices are configured correctly.
@@ -241,7 +251,7 @@ Once you are satisfied your configurations are correct on each device, you are r
 
 ## Deploy modules to your devices
 
-The module deployments to your devices were automatically generated when the devices were created. The `iotedge-config-cli` tool fed deployment JSONs for the **top and lower layer devices** after they were created, and the module deployment were pending while you configured the IoT Edge runtime on each device. Once you configured the runtime, the deployments to the **top layer device** began. After those deployments completed, the **lower layer device** could use the **IoT Edge API Proxy** module to pull its necessary images.
+The module deployments to your devices were automatically generated when the devices were created. The `iotedge-config-cli` tool fed deployment JSONs for the **top and lower layer devices** after they were created. The module deployment were pending while you configured the IoT Edge runtime on each device. Once you configured the runtime, the deployments to the **top layer device** began. After those deployments completed, the **lower layer device** could use the **IoT Edge API Proxy** module to pull its necessary images.
 
 In the [Azure Cloud Shell](https://shell.azure.com/), you can take a look at the **top layer device's** deployment JSON to understand what modules were deployed to your device:
 
@@ -253,7 +263,9 @@ In addition the runtime modules **IoT Edge Agent** and **IoT Edge Hub**, the **t
 
 The **Docker registry** module points to an existing Azure Container Registry. In this case, `REGISTRY_PROXY_REMOTEURL` points to the Microsoft Container Registry. In the `createOptions`, you can see it communicates on port 5000.
 
-The **IoT Edge API Proxy** module routes communication across your modules securely. It communicates on port 8000. In its environment variables, Docker requests route to port 5000, your **Docker registry** module's port. Also, any blob storage upload requests route to AzureBlobStorageonIoTEdge:11002.
+The **IoT Edge API Proxy** module routes communication across your modules securely. It communicates on port 8000. In its environment variables, Docker requests route to port 5000, your **Docker registry** module's port. Also, any blob storage upload requests route to AzureBlobStorageonIoTEdge:11002. For more information about the **IoT Edge API Proxy** module and how to configure it, see the module's [how-to guide](how-to-configure-api-proxy-module.md).
+
+If you'd like a look at how to create a deployment like this through the Azure portal or Azure Cloud Shell, see [top layer device section of the how-to guide](how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-top-layer-devices).
 
 In the [Azure Cloud Shell](https://shell.azure.com/), you can take a look at the **lower layer device's** deployment JSON to understand what modules were deployed to your device:
 
@@ -262,6 +274,8 @@ In the [Azure Cloud Shell](https://shell.azure.com/), you can take a look at the
    ```
 
 You can see under `systemModules` that the **lower layer device's** runtime modules are set to pull from `$upstream:8000`, instead of `mcr.microsoft.com`, as the **top layer device** did. The **lower layer device** sends Docker image requests the **IoT Edge API Proxy** module on port 8000, as it cannot directly pull the images from the cloud. The other module deployed to the **lower layer device**, the **Simulated Temperature Sensor** module, also makes its image request to `$upstream:8000`.
+
+If you'd like a look at how to create a deployment like this through the Azure portal or Azure Cloud Shell, see [lower layer device section of the how-to guide](how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-lower-layer-devices).
 
 You can also see the status of your modules on the [Azure portal]((https://ms.portal.azure.com/). Navigate to the **IoT Edge** section of your IoT Hub to see your devices and modules.
 

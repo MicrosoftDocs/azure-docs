@@ -244,6 +244,8 @@ The IoT Edge device at the top layer of a gateway hierarchy has a set of require
 
 The API proxy module was designed to be customized to handle most common gateway scenarios. This article provides and example to set up the modules in a basic configuration. Refer to [Configure the API proxy module for your gateway hierarchy scenario](how-to-configure-api-proxy-module.md) for more detailed information and examples.
 
+# [Portal](#tab/azure-portal)
+
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 1. Select **IoT Edge** from the navigation menu.
 1. Select the top layer device that you're configuring from the list of **IoT Edge devices**.
@@ -329,6 +331,103 @@ The API proxy module was designed to be customized to handle most common gateway
     1. **Value**: `FROM /messages/* INTO $upstream`
 1. Select **Review + create** to go to the final step.
 1. Select **Create** to deploy to your device.
+
+# [Azure CLI](#tab/azure-cli)
+
+1. In the [Azure Cloud Shell](https://shell.azure.com/), create a deployment JSON file. For example:
+
+   ```json
+   {
+       "modulesContent": {
+           "$edgeAgent": {
+               "properties.desired": {
+                   "modules": {
+                       "dockerContainerRegistry": {
+                           "settings": {
+                               "image": "registry:latest",
+                               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5000/tcp\":[{\"HostPort\":\"5000\"}]}}}"
+                           },
+                           "type": "docker",
+                           "version": "1.0",
+                           "env": {
+                               "REGISTRY_PROXY_REMOTEURL": {
+                                   "value": "The URL for the container registry you want this registry module to map to. For example, https://myregistry.azurecr"
+                               },
+                               "REGISTRY_PROXY_USERNAME": {
+                                   "value": "Username to authenticate to the container registry."
+                               },
+                               "REGISTRY_PROXY_PASSWORD": {
+                                   "value": "Password to authenticate to the container registry."
+                               }
+                           },
+                           "status": "running",
+                           "restartPolicy": "always"
+                       },
+                       "IoTEdgeAPIProxy": {
+                           "settings": {
+                               "image": "mcr.microsoft.com/azureiotedge-api-proxy",
+                               "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"443/tcp\": [{\"HostPort\":\"443\"}]}}}"
+                           },
+                           "type": "docker",
+                           "env": {
+                               "NGINX_DEFAULT_PORT": {
+                                   "value": "443"
+                               },
+                               "DOCKER_REQUEST_ROUTE_ADDRESS": {
+                                   "value": "registry:5000"
+                               }
+                           },
+                           "status": "running",
+                           "restartPolicy": "always",
+                           "version": "1.0"
+                       }
+                   },
+                   "runtime": {
+                       "settings": {
+                           "minDockerVersion": "v1.25"
+                       },
+                       "type": "docker"
+                   },
+                   "schemaVersion": "1.1",
+                   "systemModules": {
+                       "edgeAgent": {
+                           "settings": {
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4",
+                               "createOptions": ""
+                           },
+                           "type": "docker"
+                       },
+                       "edgeHub": {
+                           "settings": {
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4",
+                               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+                           },
+                           "type": "docker",
+                           "env": {},
+                           "status": "running",
+                           "restartPolicy": "always"
+                       }
+                   }
+               }
+           },
+           "$edgeHub": {
+               "properties.desired": {
+                   "routes": {
+                       "route": "FROM /messages/* INTO $upstream"
+                   },
+                   "schemaVersion": "1.1",
+                   "storeAndForwardConfiguration": {
+                       "timeToLiveSecs": 7200
+                   }
+               }
+           }
+       }
+   }
+   ```
+
+   This deployment file configures the API proxy module to listen on port 443. To prevent port binding collisions, the file configures the edgeHub module to not listen on port 443. Instead, the API proxy module will route any edgeHub traffic on port 443.
+
+---
 
 ### Deploy modules to lower layer devices
 
