@@ -39,7 +39,7 @@ See the following guidance for information on troubleshooting no-code vision sol
 
 1. Your device modules will be listed under the **Modules** tab.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/vision-device-modules-inline.png" alt-text="Iot Edge page for selected device showing the modules tab contents." lightbox= "./media/vision-solution-troubleshooting/vision-device-modules.png":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/vision-device-modules-inline.png" alt-text="IoT Edge page for selected device showing the modules tab contents." lightbox= "./media/vision-solution-troubleshooting/vision-device-modules.png":::
 
 ## Delete a device
 
@@ -51,7 +51,7 @@ See the following guidance for information on troubleshooting no-code vision sol
 
 1. Select **IoT Edge** and check the box next to your target device ID. Click the trash can icon to delete your device.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/vision-delete-device.png" alt-text="Delete icon highlighted in Iot Edge homepage.":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/vision-delete-device.png" alt-text="Delete icon highlighted in IoT Edge homepage.":::
 
 ## Eye module troubleshooting tips
 
@@ -71,13 +71,13 @@ If you encounter the following count limitation error, the TelemetryInterval val
 
 |Error Message|
 |------|
-|Total number of messages on IotHub 'xxxxxxxxx' exceeded the allocated quota. Max allowed message count : '8000', current message count : 'xxxx'. Send and Receive operations are blocked for this hub until the next UTC day. Consider increasing the units for this hub to increase the quota.|
+|Total number of messages on IotHub 'xxxxxxxxx' exceeded the allocated quota. Max allowed message count: '8000', current message count: 'xxxx'. Send and Receive operations are blocked for this hub until the next UTC day. Consider increasing the units for this hub to increase the quota.|
 
 TelemetryInterval determines how often to send messages (in milliseconds) from the neural network. Azure subscriptions have a limited number of messages per day, depending on your subscription tier. If you find yourself locked out due to having sent too many messages, increase this to a higher number. 12000 (meaning once every 12 seconds) will give you a nice round 7200 messages per day, which is under the 8000 message limit for the free subscription.
 
-To updated your TelemetryInterval value, follow these steps:
+To update your TelemetryInterval value, follow these steps:
 
-1. Log in to the [Azure Portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home) and open **All resources**.
+1. Log in to the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home) and open **All resources**.
 
 1. On the **All resources** page, click on the name of the IoT Hub that was provisioned to your devkit during the setup experience.
 
@@ -89,7 +89,7 @@ To updated your TelemetryInterval value, follow these steps:
 
     :::image type="content" source="./media/vision-solution-troubleshooting/module-page-inline.png" alt-text="Screenshot of module page." lightbox= "./media/vision-solution-troubleshooting/module-page.png":::
 
-1. Scroll down to **properties**. Please note that the properties "Running" and "Logging" are not active at this time.
+1. Scroll down to **properties**. Note that the properties "Running" and "Logging" are not active at this time.
 
     :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline.png" alt-text="Screenshot of module twin properties." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
 
