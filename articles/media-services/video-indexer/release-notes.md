@@ -11,6 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
+ms.custom: references_regions
 ms.date: 02/16/2021
 ms.author: juliako
 ---
