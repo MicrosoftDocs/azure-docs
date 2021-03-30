@@ -13,6 +13,7 @@
   - name: Restrict network access
     href: ../../virtual-network/tutorial-restrict-network-access-to-resources.md?toc=/azure/networking/fundamentals/toc.json
 - name: Concepts
+  expanded: true
   items:
   - name: Architecture
     href: architecture-guides.md
