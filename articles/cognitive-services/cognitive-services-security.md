@@ -24,13 +24,13 @@ All of the Cognitive Services endpoints exposed over HTTP enforce TLS 1.2. With 
 * The language (and platform) used to make the HTTP call need to specify TLS 1.2 as part of the request
   * Depending on the language and platform, specifying TLS is done either implicitly or explicitly
 
-For .NET users, consider the <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">Transport Layer Security best practices </a>.
+For .NET users, consider the <a href="/dotnet/framework/network-programming/tls" target="_blank">Transport Layer Security best practices </a>.
 
 ## Authentication
 
 When discussing authentication, there are several common misconceptions. Authentication and authorization are often confused for one another. Identity is also a major component in security. An identity is a collection of information about a <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal </a>. Identity providers (IdP) provide identities to authentication services. Authentication is the act of verifying a user's identity. Authorization is the specification of access rights and privileges to resources for a given identity. Several of the Cognitive Services offerings, include Azure role-based access control (Azure RBAC). Azure RBAC could be used to simplify some of the ceremony involved with manually managing principals. For more details, see [Azure role-based access control for Azure resources](../role-based-access-control/overview.md).
 
-For more information on authentication with subscription keys, access tokens and Azure Active Directory (AAD), see <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">authenticate requests to Azure Cognitive Services</a>.
+For more information on authentication with subscription keys, access tokens and Azure Active Directory (AAD), see <a href="/azure/cognitive-services/authentication" target="_blank">authenticate requests to Azure Cognitive Services</a>.
 
 ## Environment variables and application configuration
 
@@ -108,7 +108,7 @@ To get an environment variable, it must be read into memory. Depending on the la
 
 # [C#](#tab/csharp)
 
-For more information, see <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` </a>.
+For more information, see <a href="/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` </a>.
 
 ```csharp
 using static System.Environment;
@@ -127,7 +127,7 @@ class Program
 
 # [C++](#tab/cpp)
 
-For more information, see <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` </a>.
+For more information, see <a href="/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` </a>.
 
 ```cpp
 #include <stdlib.h>

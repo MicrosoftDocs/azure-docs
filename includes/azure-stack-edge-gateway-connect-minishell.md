@@ -16,7 +16,7 @@ Depending on the operating system of client, the procedures to remotely connect 
 Before you begin, make sure that:
 
 - Your Windows client is running Windows PowerShell 5.0 or later.
-- Your Windows client has the signing chain (root certificate) corresponding to the node certificate installed on the device. For detailed instructions, see [Install certificate on your Windows client](../articles/databox-online/azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Your Windows client has the signing chain (root certificate) corresponding to the node certificate installed on the device. For detailed instructions, see [Install certificate on your Windows client](../articles/databox-online/azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 - The `hosts` file located at `C:\Windows\System32\drivers\etc` for your Windows client has an entry corresponding to the node certificate in the following format:
 
     `<Device IP>    <Node serial number>.<DNS domain of the device>`
@@ -90,7 +90,7 @@ Follow these steps to remotely connect from an NFS client.
  
 2. For connecting using the remote client, type:
 
-    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser -UseSSL`
+    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
 
     When prompted, provide the password used to sign into your device.
  

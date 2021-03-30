@@ -10,7 +10,7 @@ ms.date: 03/18/2021
 
 # Support matrix for Hyper-V assessment
 
-This article summarizes prerequisites and support requirements when you discover and assess on-premises servers running in a Hyper-V environment for migration to Azure, using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. If you want to migrate servers running on Hyper-V to Azure, review the [migration support matrix](migrate-support-matrix-hyper-v-migration.md).
+This article summarizes prerequisites and support requirements when you discover and assess on-premises servers running in a Hyper-V environment for migration to Azure, using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. If you want to migrate servers running on Hyper-V to Azure, review the [migration support matrix](migrate-support-matrix-hyper-v-migration.md).
 
 To set up discovery and assessment of servers running on Hyper-V, you create a project, and add the Azure Migrate: Discovery and assessment tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises servers, and sends server metadata and performance data to Azure. After discovery is complete, you gather discovered servers into groups, and run an assessment for a group.
 
@@ -18,7 +18,7 @@ To set up discovery and assessment of servers running on Hyper-V, you create a p
 
 **Support** | **Details**
 --- | ---
-**Assessment limits** | You can discover and assess up to 35,000 servers in a single [project](migrate-support-matrix.md#azure-migrate-projects).
+**Assessment limits** | You can discover and assess up to 35,000 servers in a single [project](migrate-support-matrix.md#project).
 **Project limits** | You can create multiple projects in an Azure subscription. In addition to servers on Hyper-V, a project can include servers on VMware and physical servers, up to the assessment limits for each.
 **Discovery** | The Azure Migrate appliance can discover up to 5000 servers running on Hyper-V.<br/><br/> The appliance can connect to up to 300 Hyper-V hosts.
 **Assessment** | You can add up to 35,000 servers in a single group.<br/><br/> You can assess up to 35,000 servers in a single assessment for a group.
