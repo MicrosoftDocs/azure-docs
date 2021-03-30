@@ -43,7 +43,7 @@ In this tutorial, the following network layers are defined:
 
 * **Lower layers**: IoT Edge devices at layers below the top layer cannot connect directly to the cloud. They need to go through one or more intermediary IoT Edge devices to send and receive data.
 
-This tutorial uses a two device hierarchy for simplicity, pictured below. One device, the **top layer device**, represents a device at the top layer of the hierarchy, which can connect directly to the cloud. This device will also be referred to as the **parent device**. The other device, the **lower layer device**, represents a device at the lower layer of the hierarchy, which cannot connect directly to the cloud. You can add additional lower layer devices to represent your production environment, as needed. Devices at lower layers will also be referred to as **child devices**. The configuration of any additional lower layer devices will follow the **lower layer device**'s configuration.
+This tutorial uses a two device hierarchy for simplicity, pictured below. One device, the **top layer device**, represents a device at the top layer of the hierarchy, which can connect directly to the cloud. This device will also be referred to as the **parent device**. The other device, the **lower layer device**, represents a device at the lower layer of the hierarchy, which cannot connect directly to the cloud. You can add more lower layer devices to represent your production environment, as needed. Devices at lower layers will also be referred to as **child devices**. The configuration of any extra lower layer devices will follow the **lower layer device**'s configuration.
 
 ![Structure of the tutorial hierarchy, containing two devices: the top layer device and the lower layer device](./media/tutorial-nested-iot-edge/tutorial-hierarchy-diagram.png)
 
@@ -66,7 +66,7 @@ To create a hierarchy of IoT Edge devices, you will need:
     --parameters dnsLabelPrefix='<REPLACE_WITH_UNIQUE_DNS_FOR_VIRTUAL_MACHINE' \
     --parameters adminUsername='azureuser' \
     --parameters authenticationType='sshPublicKey' \
-    --parameters adminPasswordOrKey="$(< ~/.ssh/id_rsa.pub)
+    --parameters adminPasswordOrKey="$(< ~/.ssh/id_rsa.pub)"
    ```
 
     The virtual machine using SSH keys for authenticating users. If you are unfamiliar with creating and using SSH keys, you can follow [the instructions for SSH public-private key pairs for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
@@ -136,7 +136,7 @@ To use the `iotedge-config-cli` tool to create and configure your hierarchy, fol
    tar -xvf templates.tar
    ```
 
-   In the `templates` directory, the template file used to create your device hierarchy is the `iotedge_config_cli.yaml` file found in `~/nestedIotEdgeTutorial/templates/tutorial`. In the same directory, `deploymentLowerLayer.json` is a JSON deployment file containing instructions for which modules to deploy to your **lower layer device**. The `deploymentTopLayer.json` file is the same, but for your **top layer device**, as the modules deployed to each device are not the same. The `device_config.toml` file is a template for IoT Edge device configurations and will be used to automatically generate the the configuration bundles for the devices in your hierarchy.
+   In the `templates` directory, the template file used to create your device hierarchy is the `iotedge_config_cli.yaml` file found in `~/nestedIotEdgeTutorial/templates/tutorial`. In the same directory, `deploymentLowerLayer.json` is a JSON deployment file containing instructions for which modules to deploy to your **lower layer device**. The `deploymentTopLayer.json` file is the same, but for your **top layer device**, as the modules deployed to each device are not the same. The `device_config.toml` file is a template for IoT Edge device configurations and will be used to automatically generate the configuration bundles for the devices in your hierarchy.
 
 1. Open the tutorial configuration template and edit it with your information:
 
@@ -194,7 +194,7 @@ Complete the steps below and restart the IoT Edge service to configure your devi
 
 1. Acquire the IP address or FQDN of each of your virtual machines.
 
-   If want to find the IP addresses, you can use the Azure CLI or Azure portal. In the portal, navigate to each of your virtual machines and look for the **Public IP address** field. In the Azure CLI, run the following command from the Azure CLI once for each virtual machine:
+   If you want to find the IP addresses, you can use the Azure CLI or Azure portal. In the portal, navigate to each of your virtual machines and look for the **Public IP address** field. In the Azure CLI, run the following command from the Azure CLI once for each virtual machine:
 
    ```azurecli-interactive
    az vm show --show-details --resource-group <REPLACE_WITH_RESOURCE_GROUP> --name <REPLACE_WITH_UNIQUE_NAMES_FOR_EACH_VM> --query publicIps -o tsv
@@ -212,7 +212,7 @@ Complete the steps below and restart the IoT Edge service to configure your devi
 
    The `:~` means that the configuration folder will be placed in the home directory on the virtual machine.
 
-1. You need to be logged on to your virtual machine to apply the configuration bundle to the device:
+1. Log on to your virtual machine to apply the configuration bundle to the device:
 
    ```bash
    ssh <USER>@<VM_IP_OR_FQDN>
@@ -251,7 +251,7 @@ A sample output of the `iotedge check` for the **top layer device** is shown bel
 
 [Sample configuration and connectivity results](./media/tutorial-nested-iot-edge/configuration-and-connectivity-check-results.png)
 
-On a **lower layer device**, expect to see an output similar to the top layer device, but with an additional warning indicating the EdgeAgent module cannot be pulled from upstream. This is acceptable, as the IoT Edge API Proxy module and Docker Container Registry module, which lower layer devices will pull images through, are not yet deployed to the **top layer device**.
+On a **lower layer device**, expect to see an output similar to the top layer device, but with an additional warning indicating the EdgeAgent module cannot be pulled from upstream. This result is acceptable, as the IoT Edge API Proxy module and Docker Container Registry module are not yet deployed to the **top layer device**. These modules will allow the lower layer device to pull images.
 
 <!-- A sample output of the `iotedge check` for a **lower layer device** is shown below: -->
 
@@ -261,7 +261,7 @@ Once you are satisfied your configurations are correct on each device, you are r
 
 ## Deploy modules to your devices
 
-The module deployments to your devices were automatically generated when the devices were created. The `iotedge-config-cli` tool fed deployment JSONs for the **top and lower layer devices** after they were created, and the module deployment were pending while you configured the IoT Edge runtime on each device. Once the runtime was configured, the deployments to the **top layer device** began, and once those were completed, the **lower layer device** could use the **IoT Edge API Proxy** module to pull its necessary images.
+The module deployments to your devices were automatically generated when the devices were created. The `iotedge-config-cli` tool fed deployment JSONs for the **top and lower layer devices** after they were created, and the module deployment were pending while you configured the IoT Edge runtime on each device. Once you configured the runtime, the deployments to the **top layer device** began. After those deployments completed, the **lower layer device** could use the **IoT Edge API Proxy** module to pull its necessary images.
 
 In the [Azure Cloud Shell](https://shell.azure.com/), you can take a look at the **top layer device's** deployment JSON to understand what modules were deployed to your device:
 
@@ -269,11 +269,11 @@ In the [Azure Cloud Shell](https://shell.azure.com/), you can take a look at the
    cat ~/nestedIotEdgeTutorial/templates/tutorial/deploymentTopLayer.json
    ```
 
-In addition the **IoT Edge Agent** and **IoT Edge Hub**, which comprise the runtime, the **top layer device** receives the **Docker registry** module and **IoT Edge API Proxy** module.
+In addition the runtime modules **IoT Edge Agent** and **IoT Edge Hub**, the **top layer device** receives the **Docker registry** module and **IoT Edge API Proxy** module.
 
-The **Docker registry** module points to an exists Azure Container Registry. In this case, `REGISTRY_PROXY_REMOTEURL` points to the Microsoft Container Registry. In the `createOptions`, you can see it communicates on port 5000.
+The **Docker registry** module points to an existing Azure Container Registry. In this case, `REGISTRY_PROXY_REMOTEURL` points to the Microsoft Container Registry. In the `createOptions`, you can see it communicates on port 5000.
 
-The **IoT Edge API Proxy** module routes communication across your modules securely. It communicates on port 8000. In its environment variables, it is set to route Docker requests to port 5000, your **Docker registry** module's port, and it is set to route any blob storage upload requests to AzureBlobStorageonIoTEdge:11002.
+The **IoT Edge API Proxy** module routes communication across your modules securely. It communicates on port 8000. In its environment variables, Docker requests route to port 5000, your **Docker registry** module's port. Also, any blob storage upload requests route to AzureBlobStorageonIoTEdge:11002.
 
 In the [Azure Cloud Shell](https://shell.azure.com/), you can take a look at the **lower layer device's** deployment JSON to understand what modules were deployed to your device:
 
@@ -283,7 +283,7 @@ In the [Azure Cloud Shell](https://shell.azure.com/), you can take a look at the
 
 You can see under `systemModules` that the **lower layer device's** runtime modules are set to pull from `$upstream:8000`, instead of `mcr.microsoft.com`, as the **top layer device** did. The **lower layer device** sends Docker image requests the **IoT Edge API Proxy** module on port 8000, as it cannot directly pull the images from the cloud. The other module deployed to the **lower layer device**, the **Simulated Temperature Sensor** module, also makes its image request to `$upstream:8000`.
 
-You can also see the status of your modules in the **IoT Edge** section of your IoT Hub on the [Azure portal]((https://ms.portal.azure.com/).
+You can also see the status of your modules on the [Azure portal]((https://ms.portal.azure.com/). Navigate to the **IoT Edge** section of your IoT Hub to see your devices and modules.
 
 Once you are satisfied with your module deployments, you are ready to proceed.
 
