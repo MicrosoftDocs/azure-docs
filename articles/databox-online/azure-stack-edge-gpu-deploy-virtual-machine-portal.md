@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/30/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
 ---
@@ -123,7 +123,7 @@ Follow these steps to create a VM after you have created a VM image.
     |Parameter |Description  |
     |---------|---------|
     |Virtual machine name     |         |
-    |Edge resource group     | Select from an existing resource group available on the device.        |
+    |Edge resource group     | Create a new resource group for all the resources associated with the VM.        |
     |Image     | Select from the VM images available on the device.        |
     |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
     |Username     | Use the default username *azureuser* for the admin to sign into the VM.        |

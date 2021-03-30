@@ -140,6 +140,10 @@ Follow these steps to attach an existing disk to the virtual machine deployed on
 
 Follow these steps to detach or remove a data disk associated with a virtual machine deployed on your device.
 
+> [!NOTE]
+> - You can remove a data disk while the VM is running. Make sure that nothing is actively using the disk before detaching it from the VM.
+> - If you detach a disk, it is not automatically deleted.
+
 1. Go to the virtual machine from which you wish to detach a data disk and go to the **Overview** page. Select **Disks**.
 
     ![Select Disks](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/list-data-disks-1.png)
