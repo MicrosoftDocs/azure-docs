@@ -50,24 +50,7 @@ Extension attributes on headers will be added as properties on the Event Grid sc
 
 The bodies of notification messages are described here in JSON. Depending on the serialization desired for the message body (such as with JSON, CBOR, Protobuf, etc.), the message body may be serialized differently.
 
-The set of fields that the body contains vary with different notification types. Here are two sample message bodies, to get an idea of what they generally look like and may include.
-
-Telemetry message:
-
-```json
-{
-  "specversion": "1.0",
-  "id": "df5a5992-817b-4e8a-b12c-e0b18d4bf8fb",
-  "type": "microsoft.iot.telemetry",
-  "source": "contoso-adt.api.wus2.digitaltwins.azure.net/digitaltwins/room1",
-  "data": {
-    "Temperature": 10
-  },
-  "dataschema": "dtmi:example:com:floor4;2",
-  "datacontenttype": "application/json",
-  "traceparent": "00-7e3081c6d3edfb4eaf7d3244b2036baa-23d762f4d9f81741-01"
-}
-```
+The set of fields that the body contains vary with different notification types. Here is a sample message body, to get an idea of what they generally look like and may include.
 
 Lifecycle notification message:
 
@@ -238,14 +221,14 @@ Here is another example of a digital twin. This one is based on a [model](concep
 
 ### Properties
 
-Here are the fields in the body of an edge change notification.
+Here are the fields in the body of an relationship change notification.
 
 | Name    | Value |
 | --- | --- |
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
 | `source` | Name of the Azure Digital Twins instance, like *mydigitaltwins.westus2.azuredigitaltwins.net* |
 | `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
-| `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
+| `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete` |
 |`datacontenttype`| `application/json` |
 | `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipID>` |
 | `time` | Timestamp for when the operation occurred on the relationship |
@@ -283,6 +266,46 @@ Here is an example of a create or delete relationship notification:
     "$relationshipName": "Connected",
     "$targetId": "device2",
     "connectionType": "WIFI"
+}
+```
+
+## Digital twin telemetry messages
+
+**Telemetry messages** are received in Azure Digital Twins from connected devices that collect and send measurements.
+
+### Properties
+
+Here are the fields in the body of a telemetry message.
+
+| Name    | Value |
+| --- | --- |
+| `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event. |
+| `source` | Fully qualified name of the twin that the telemetry event was sent to. Uses the following format: `<yourDigitalTwinInstance>.api.<yourRegion>.digitaltwins.azure.net/<twinId>`. |
+| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
+| `type` | `microsoft.iot.telemetry` |
+|`data`| The telemetry message that has been sent to twins. The payload is unmodified and may not align with the schema of the twin that has been sent the telemetry. |
+|`dataschema`| The data schema is the model ID of the twin or the component that emits the telemetry. For example, `dtmi:example:com:floor4;2`. |
+|`datacontenttype`| `application/json` |
+| `traceparent` | A W3C trace context for the event. |
+
+### Body details
+
+The body contains the telemetry measurement along with some contextual information about the device.
+
+Here is an example telemetry body: 
+
+```json
+{
+  "specversion": "1.0",
+  "id": "df5a5992-817b-4e8a-b12c-e0b18d4bf8fb",
+  "type": "microsoft.iot.telemetry",
+  "source": "contoso-adt.api.wus2.digitaltwins.azure.net/digitaltwins/room1",
+  "data": {
+    "Temperature": 10
+  },
+  "dataschema": "dtmi:example:com:floor4;2",
+  "datacontenttype": "application/json",
+  "traceparent": "00-7e3081c6d3edfb4eaf7d3244b2036baa-23d762f4d9f81741-01"
 }
 ```
 
