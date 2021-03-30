@@ -17,6 +17,7 @@ ms.reviewer: cynthn
 In Azure there are multiple ways to connect a custom domain to your VM or resource. For any resource with a public IP (Virtual Machine, Load Balancer, Application Gateway) the most straight-forward way is to create an A record set in your corresponding domain registrar. 
 
 ## Prerequisites 
+- You need a VM with a web server running. You can use the [Quickstart](./linux/quick-create-cli.md) to create a VM and add NGINX.
 
 - The VM must be accessible to the web (open port 80, or 443 ). For a more secure deployment place your VM behind a load balancer or Application Gateway first. For more information, see [Quickstart: Load Balancer](/load-balancer/quickstart-load-balancer-standard-public-portal?tabs=option-1-create-load-balancer-standard).
 
@@ -65,6 +66,6 @@ After the record is created it usually takes aboout an hour for DNS propogate, b
 
  
 ## Next steps
-To learn how to enable HTTPS for your custom domain, see [XXX](xxx.md).
+[Quickstart: Load Balancer](/load-balancer/quickstart-load-balancer-standard-public-portal?tabs=option-1-create-load-balancer-standard).
 
  
