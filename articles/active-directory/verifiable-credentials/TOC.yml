@@ -3,8 +3,8 @@
 - name: Overview
   expanded: true
   items:
-  - name: What are Verifiable Credentials
-    href: verifiable-credentials-overview.md
+  - name: Introduction to Azure Active Directory Verifiable Credentials
+    href: decentralized-identifier-overview.md
 - name: Tutorials
   expanded: true
   items:
