@@ -262,8 +262,6 @@
           href: use-azure-ad-pod-identity.md
         - name: Limit access to cluster configuration file
           href: control-kubeconfig-access.md
-        - name: Open Service Mesh (preview)
-          href: servicemesh-osm-about.md
         - name: Secure pod traffic with network policies
           href: use-network-policies.md
         - name: Use Azure Policy
@@ -335,6 +333,8 @@
       items:
         - name: About Service Meshes
           href: servicemesh-about.md
+        - name: Open Service Mesh (OSM) AKS add-on (preview)
+          href: servicemesh-osm-about.md
         - name: Use Istio
           items:
             - name: About Istio

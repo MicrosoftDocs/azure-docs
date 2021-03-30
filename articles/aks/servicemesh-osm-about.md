@@ -49,14 +49,7 @@ OSM can assist your AKS deployments with the following scenarios:
 
 ## OSM Service Quotas and Limits (Preview)
 
-As noted prior, the OSM add-on for AKS is in a preview state and will undergo additional enhancements prior to general availability (GA). During the preview phase it is recommended to not surpass the limits shown in the following table:
-
-| Resource                                           | Limit |
-| -------------------------------------------------- | :---- |
-| Kubernetes Cluster Version                         | 1.19+ |
-| Maximum OSM controllers per cluster                | 1     |
-| Maximum pods per OSM controller                    | 500   |
-| Maximum Kubernetes service accounts managed by OSM | 50    |
+OSM preview limitations for service quotas and limits can be found on the AKS [Quotas and regional limits page](https://docs.microsoft.com/azure/aks/quotas-skus-regions).
 
 ::: zone pivot="client-operating-system-linux"
 
