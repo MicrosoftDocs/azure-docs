@@ -3,6 +3,7 @@ title: Migrate from the bulk executor library to the bulk support in Azure Cosmo
 description: Learn how to migrate your application from using the bulk executor library to the bulk support in Azure Cosmos DB SDK V3
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran

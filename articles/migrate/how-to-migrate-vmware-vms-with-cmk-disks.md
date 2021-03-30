@@ -1,12 +1,12 @@
 ---
 title: Migrate VMware virtual machines to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using Azure Migrate Server Migration
 description: Learn how to migrate VMware VMs to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using Azure Migrate Server Migration 
-author: bsiva
-ms.service: azure-migrate
-ms.manager: carmonm
-ms.topic: article
+author: anvar-ms 
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 03/12/2020
-ms.author: raynew
+
 ---
 
 
@@ -19,12 +19,12 @@ The Azure Migrate Server Migration portal experience lets you [migrate VMware VM
 
 The examples in this article use [Azure PowerShell](/powershell/azure/new-azureps-module-az) to perform the tasks needed to create and deploy the Resource Manager template.
 
-[Learn more](../virtual-machines/windows/disk-encryption.md) about server-side encryption (SSE) with customer managed keys(CMK) for managed disks.
+[Learn more](../virtual-machines/disk-encryption.md) about server-side encryption (SSE) with customer managed keys(CMK) for managed disks.
 
 ## Prerequisites
 
 - [Review the tutorial](tutorial-migrate-vmware.md) on migration of VMware VMs to Azure with agentless replication to understand tool requirements.
-- [Follow these instructions](how-to-add-tool-first-time.md) to create an Azure Migrate project and add the **Azure Migrate: Server Migration** tool to the project.
+- [Follow these instructions](./create-manage-projects.md) to create an Azure Migrate project and add the **Azure Migrate: Server Migration** tool to the project.
 - [Follow these instructions](how-to-set-up-appliance-vmware.md) to set up the Azure Migrate appliance for VMware in your on-premises environment and complete discovery.
 
 ## Prepare for replication

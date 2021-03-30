@@ -9,7 +9,7 @@ ms.author: tomfitz
 ---
 # CreateUiDefinition elements
 
-This article describes the schema and properties for all supported elements of a CreateUiDefinition. 
+This article describes the schema and properties for all supported elements of a CreateUiDefinition.
 
 ## Schema
 
@@ -51,6 +51,7 @@ The documentation for each element contains a UI sample, schema, remarks on the 
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)
 - [Microsoft.Common.PasswordBox](microsoft-common-passwordbox.md)
 - [Microsoft.Common.Section](microsoft-common-section.md)
+- [Microsoft.Common.ServicePrincipalSelector](microsoft-common-serviceprincipalselector.md)
 - [Microsoft.Common.Slider](microsoft-common-slider.md)
 - [Microsoft.Common.TagsByResource](microsoft-common-tagsbyresource.md)
 - [Microsoft.Common.TextBlock](microsoft-common-textblock.md)

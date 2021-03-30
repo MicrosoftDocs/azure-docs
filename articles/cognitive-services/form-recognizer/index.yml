@@ -10,8 +10,8 @@ metadata:
   ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: forms-recognizer
   ms.topic: landing-page # Required
-  author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
-  ms.author: pafarley #Required; microsoft alias of author; optional team alias.
+  author: laujan #Required; your GitHub user alias, with correct capitalization.
+  ms.author: lajanuar #Required; microsoft alias of author; optional team alias.
   ms.date: 09/05/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -48,7 +48,11 @@ landingContent:
           - text: Using the JavaScript SDK
             url: quickstarts/client-library.md?pivots=programming-language-javascript
           - text: Using the REST API (cURL)
-            url: quickstarts/curl-train-extract.md
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api
+      - linkListType: tutorial
+        links:
+          - text: Extract form data in bulk
+            url: tutorial-bulk-processing.md
 
   - title: Build a training data set
     linkLists:
@@ -67,8 +71,7 @@ landingContent:
         links:
             - text: Train using the sample labeling tool
               url: quickstarts/label-tool.md
-            - text: Train with labels using the REST API and Python
-              url: quickstarts/python-labeled-data.md
+
 
   - title: Extract data from receipts
     linkLists:
@@ -83,26 +86,13 @@ landingContent:
           - text: Using the JavaScript SDK
             url: quickstarts/client-library.md?pivots=programming-language-javascript
           - text: Using the REST API (cURL)
-            url: quickstarts/curl-train-extract.md
-          - text: Using the REST API (cURL)
-            url: quickstarts/curl-receipts.md
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api
       - linkListType: concept
         links:
           - text: Receipt concepts
             url: concept-receipts.md?
 
   - title: Extract data from business cards
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Using the REST API
-            url: quickstarts/python-business-cards.md?
-      - linkListType: concept
-        links:
-          - text: Business card concepts
-            url: concept-business-cards.md?
-
-  - title: Get text layout information
     linkLists:
       - linkListType: quickstart
         links:
@@ -115,9 +105,31 @@ landingContent:
           - text: Using the JavaScript SDK
             url: quickstarts/client-library.md?pivots=programming-language-javascript
           - text: Using the REST API (cURL)
-            url: quickstarts/curl-train-extract.md
-          - text: Using the REST API (Python)
-            url: quickstarts/python-layout.md
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api
+      - linkListType: concept
+        links:
+          - text: Business card concepts
+            url: concept-business-cards.md?
+
+  - title: Get text layout information
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Layout concepts
+            url: concept-layout.md?
+      - linkListType: quickstart
+        links:
+          - text: Using the .NET SDK
+            url: quickstarts/client-library.md?pivots=programming-language-csharp
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript
+          - text: Using the REST API (cURL)
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api
+
 
   - title: Use containers
     linkLists:
@@ -132,18 +144,18 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Use container instances
-            url: deploy-form-recognizer-on-container-instances.md
+            url: ../containers/azure-container-instance-recipe.md
 
   - title: Reference
     linkLists:
       - linkListType: reference
         links:
-          - text: Form Recognizer API v2.0
-            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
+          - text: Form Recognizer API v2.1 preview.3
+            url: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm
           - text: .NET SDK
             url: /dotnet/api/overview/azure/ai.formrecognizer-readme
           - text: Python SDK
-            url: /python/api/azure-ai-formrecognizer/?view=azure-python
+            url: /python/api/azure-ai-formrecognizer/
           - text: Java SDK
             url: /java/api/overview/azure/ai-formrecognizer-readme
           - text: JavaScript SDK

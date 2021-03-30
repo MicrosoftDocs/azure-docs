@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 03/23/2021
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Tutorial: Enable users to unlock their account or reset passwords using Azure Active Directory self-service password reset
 
-Azure Active Directory (Azure AD) self-service password reset (SSPR) gives users the ability to change or reset their password, with no administrator or help desk involvement. If a user's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work. This ability reduces help desk calls and loss of productivity when a user can't sign in to their device or an application.
+Azure Active Directory (Azure AD) self-service password reset (SSPR) gives users the ability to change or reset their password, with no administrator or help desk involvement. If a user's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work. This ability reduces help desk calls and loss of productivity when a user can't sign in to their device or an application. Here's a video on [How to configure and enable self-service password reset in your tenant](https://www.youtube.com/watch?v=rA8TvhNcCvQ) (**Recommended**). We also have a video for IT administrators on [resolving the six most common end-user error messages with SSPR](https://www.youtube.com/watch?v=9RPrNVLzT8I).
 
 > [!IMPORTANT]
 > This tutorial shows an administrator how to enable self-service password reset. If you're an end user already registered for self-service password reset and need to get back into your account, go to https://aka.ms/sspr.
@@ -138,6 +138,22 @@ If you no longer want to use the SSPR functionality you have configured as part 
 1. From the **Properties** page, under the option *Self service password reset enabled*, choose **None**.
 1. To apply the SSPR change, select **Save**.
 
+## FAQs
+
+This section explains common questions from administrators and end-users who try SSPR:
+
+- Why do federated users wait up to 2 minutes after they see **Your password has been reset** before they can use passwords that are synchronized from on-premises?
+
+  For federated users whose passwords are synchronized, the source of authority for the passwords is on-premises. As a result, SSPR updates only the on-premises passwords. Password hash synchronization back to Azure AD is scheduled for every 2 minutes.
+
+- When a newly created user who is pre-populated with SSPR data such as phone and email visits the SSPR registration page, **Don’t lose access to your account!** appears as the title of the page. Why don't other users who have SSPR data pre-populated see the message?
+
+  A user who sees **Don’t lose access to your account!** is a member of SSPR/combined registration groups that are configured for the tenant. Users who don’t see **Don’t lose access to your account!** were not part of the SSPR/combined registration groups.
+
+- When some users go through SSPR process and reset their password, why don't they see the password strength indicator?
+
+  Users who don’t see weak/strong password strength have synchronized password writeback enabled. Since SSPR can’t determine the password policy of the customer’s on-premises environment, it cannot validate password strength or weakness. 
+
 ## Next steps
 
 In this tutorial, you enabled Azure AD self-service password reset for a selected group of users. You learned how to:
@@ -148,4 +164,4 @@ In this tutorial, you enabled Azure AD self-service password reset for a selecte
 > * Test the SSPR process as a user
 
 > [!div class="nextstepaction"]
-> [Enable Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)
+> [Enable Azure AD Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

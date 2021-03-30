@@ -1,19 +1,17 @@
 ---
-title: Encode custom transform using Media Services v3 REST - Azure | Microsoft Docs
+title: Encode a custom transform REST
 description: This topic shows how to use Azure Media Services v3 to encode a custom transform using REST.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
 ms.custom: 
 ms.date: 08/31/2020
 ms.author: inhenkel
-
 ---
 
 # How to encode with a custom transform - REST
@@ -31,7 +29,7 @@ When creating custom presets, the following considerations apply:
 
 ## Prerequisites 
 
-- [Create a Media Services account](./create-account-howto.md). <br/>Make sure to remember the resource group name and the Media Services account name. 
+- [Create a Media Services account](./account-create-how-to.md). <br/>Make sure to remember the resource group name and the Media Services account name. 
 - [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).<br/>Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## Define a custom preset

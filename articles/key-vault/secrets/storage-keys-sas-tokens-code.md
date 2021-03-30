@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp
 You can manage your storage account with shared access signature (SAS) tokens stored in your key vault. For more information, see [Grant limited access to Azure Storage resources using SAS](../../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
-> We recommend using [Role-Based Access Control (RBAC)](../../storage/common/storage-auth-aad.md) to secure your storage account for superior security and ease of use over Shared Key authorization.
+> We recommend using [Azure role-based access control (Azure RBAC)](../../storage/common/storage-auth-aad.md) to secure your storage account for superior security and ease of use over Shared Key authorization.
 
 This article provides samples of .NET code that creates a SAS definition and fetches SAS tokens. See our [ShareLink](/samples/azure/azure-sdk-for-net/share-link/) sample for full details including the generated client for Key Vault-managed storage accounts. For information on how to create and store SAS tokens, see [Manage storage account keys with Key Vault and the Azure CLI](overview-storage-keys.md) or [Manage storage account keys with Key Vault and Azure PowerShell](overview-storage-keys-powershell.md).
 

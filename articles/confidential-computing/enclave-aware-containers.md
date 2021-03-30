@@ -1,11 +1,12 @@
 ---
- title: Enclave aware containers on Azure
- description: enclave ready application containers support on Azure Kubernetes Service (AKS)
- author: agowdamsft
- ms.service: container-service
- ms.topic: overview
- ms.date: 9/22/2020
- ms.author: amgowda
+title: Enclave aware containers on Azure
+description: enclave ready application containers support on Azure Kubernetes Service (AKS)
+author: agowdamsft
+ms.service: container-service
+ms.subservice: confidential-computing
+ms.topic: overview
+ms.date: 9/22/2020
+ms.author: amgowda
 ---
 
 # Enclave Aware Containers
@@ -60,5 +61,5 @@ Edgeless RT is an open-source project that builds upon the Open Enclave SDK. It 
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine](/azure/confidential-computing/virtual-machine-solutions)
-[Confidential Containers](/azure/confidential-computing/confidential-containers)
+[DC Virtual Machine](./virtual-machine-solutions.md)
+[Confidential Containers](./confidential-containers.md)

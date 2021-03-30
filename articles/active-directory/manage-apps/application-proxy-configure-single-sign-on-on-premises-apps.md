@@ -4,7 +4,7 @@ description: Learn how to provide single sign-on for on-premises applications th
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -93,5 +93,5 @@ When you've completed all these steps, your app should be up and running. To tes
 
 ## Next steps
 
-- [How does Azure AD Application Proxy provide single sign-on?](application-proxy-single-sign-on.md)
+- [How does Azure AD Application Proxy provide single sign-on?](./what-is-single-sign-on.md)
 - [Troubleshoot Application Proxy](application-proxy-troubleshoot.md)

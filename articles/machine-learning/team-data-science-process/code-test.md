@@ -75,11 +75,11 @@ Use the following steps to set up and run code testing and an automated build by
 
 1. After you've done the data processing and feature engineering work, and you've trained a good model, make sure that the model you trained can score new datasets correctly. You can use the following two tests to check the prediction levels and distribution of label values:
 
-	* Check prediction levels:
-	
-	  ![Code for checking prediction levels](./media/code-test/check_prediction_levels.PNG)
+    * Check prediction levels:
+    
+      ![Code for checking prediction levels](./media/code-test/check_prediction_levels.PNG)
 
-	* Check the distribution of prediction values:
+    * Check the distribution of prediction values:
 
       ![Code for checking prediction values](./media/code-test/check_prediction_values.PNG)
 
@@ -118,7 +118,7 @@ Use the following steps to set up and run code testing and an automated build by
 
     ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-    d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to complete the build process. For more information about setting agents, see [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to complete the build process. For more information about setting agents, see [Build and release agents](/azure/devops/pipelines/agents/agents).
 	
     ![Build and agent selections](./media/code-test/select_agent.PNG)
 
@@ -149,7 +149,7 @@ If alerts are set up correctly, you'll be notified in email when the build is fi
 * Follow the preceding outline and examples from the UCI income prediction scenario in your own data science projects.
 
 ## References
-* [Team Data Science Process](https://aka.ms/tdsp)
+* [Team Data Science Process](./index.yml)
 * [Visual Studio Testing Tools](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Azure DevOps Testing Resources](https://www.visualstudio.com/team-services/)
 * [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

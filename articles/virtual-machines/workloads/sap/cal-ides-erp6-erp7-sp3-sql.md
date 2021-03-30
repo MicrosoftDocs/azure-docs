@@ -2,11 +2,10 @@
 title: Deploy SAP IDES EHP7 SP3 for SAP ERP 6.0 on Azure | Microsoft Docs
 description: Deploy SAP IDES EHP7 SP3 for SAP ERP 6.0 on Azure
 author: hermanndms
-ms.service: virtual-machines
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.reviewer: cynthn
 
 ---
 # Deploy SAP IDES EHP7 SP3 for SAP ERP 6.0 on Azure

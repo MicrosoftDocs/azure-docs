@@ -1,12 +1,12 @@
 ---
-title: Azure IoT Hub device streams C quickstart for SSH and RDP
+title: 'Quickstart - Azure IoT Hub device streams C quickstart for SSH and RDP'
 description: In this quickstart, you run a sample C application that acts as a proxy to enable SSH and RDP scenarios over IoT Hub device streams.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
 ---
@@ -20,6 +20,22 @@ Azure IoT Hub currently supports device streams as a [preview feature](https://a
 [IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. For an overview of the setup, see [the Local Proxy Sample page](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 This quickstart describes the setup for tunneling Secure Shell (SSH) traffic (using port 22) through device streams. The setup for Remote Desktop Protocol (RDP) traffic is similar and requires a simple configuration change. Because device streams are application- and protocol-agnostic, you can modify this quickstart to accommodate other types of application traffic.
+
+## Prerequisites
+
+* The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
+
+  * Central US
+  * Central US EUAP
+  * North Europe
+  * Southeast Asia
+
+* Install [Visual Studio 2019](https://www.visualstudio.com/vs/) with the [Desktop development with C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
+* Install the latest version of [Git](https://git-scm.com/download/).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## How it works
 
@@ -41,29 +57,7 @@ The following figure illustrates how the device- and service-local proxy program
 > [!NOTE]
 > SSH traffic that's sent over a device stream is tunneled through the IoT hub's streaming endpoint rather than sent directly between service and device. For more information, see the [benefits of using Iot Hub device streams](iot-hub-device-streams-overview.md#benefits). Furthermore, the figure illustrates the SSH daemon that's running on the same device (or machine) as the device-local proxy. In this quickstart, providing the SSH daemon IP address allows the device-local proxy and the daemon to run on different machines as well.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Prerequisites
-
-* The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
-
-  * Central US
-  * Central US EUAP
-  * North Europe
-  * Southeast Asia
-
-* Install [Visual Studio 2019](https://www.visualstudio.com/vs/) with the [Desktop development with C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
-* Install the latest version of [Git](https://git-scm.com/download/).
-
-* Run the following command to add the Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prepare the development environment
 
@@ -121,7 +115,7 @@ For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk
 
 ## Register a device
 
-A device must be registered with your IoT hub before it can connect. In this section, you use Azure Cloud Shell with the [IoT extension](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) to register a simulated device.
+A device must be registered with your IoT hub before it can connect. In this section, you use Azure Cloud Shell with the [IoT extension](/cli/azure/ext/azure-iot/iot) to register a simulated device.
 
 1. To create the device identity, run the following command in Cloud Shell:
 
@@ -139,7 +133,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
    > Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Note the returned device connection string for later use in this quickstart. It looks like the following example:

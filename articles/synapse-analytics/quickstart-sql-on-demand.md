@@ -1,19 +1,19 @@
 ---
-title: 'Quickstart: Use SQL on-demand'
-description: In this quickstart, you'll see and learn how easy is to query various types of files using SQL on-demand (preview).
+title: 'Quickstart: Use serverless SQL pool'
+description: In this quickstart, you'll see and learn how easy is to query various types of files using serverless SQL pool.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Use SQL on-demand
+# Quickstart: Use serverless SQL pool
 
-Synapse SQL on-demand  (preview) is a serverless query service that enables you to run SQL queries on files placed in Azure Storage. In this quickstart, you'll learn how to query various types of files using SQL on-demand. Supported formats are listed in [OPENROWSET](sql/develop-openrowset.md).
+Synapse serverless SQL pool is a serverless query service that enables you to run SQL queries on files placed in Azure Storage. In this quickstart, you'll learn how to query various types of files using serverless SQL pool. Supported formats are listed in [OPENROWSET](sql/develop-openrowset.md).
 
 This quickstart shows querying: CSV, Apache Parquet, and JSON files.
 
@@ -21,7 +21,7 @@ This quickstart shows querying: CSV, Apache Parquet, and JSON files.
 
 Choose a SQL client to issue queries:
 
-- [Azure Synapse Studio](quickstart-synapse-studio.md) is a web tool that you can use to browse files in storage and create SQL queries.
+- [Azure Synapse Studio](./get-started-create-workspace.md) is a web tool that you can use to browse files in storage and create SQL queries.
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) is a client tool that enables you to run SQL queries and notebooks on your On-demand database.
 - [SQL Server Management Studio](sql/get-started-ssms.md) is a client tool that enables you to run SQL queries on your On-demand database.
 
@@ -29,8 +29,8 @@ Parameters for this quickstart:
 
 | Parameter                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| SQL on-demand service endpoint address    | Used as server name                                   |
-| SQL on-demand service endpoint region     | Used to determine what storage will we use in samples |
+| serverless SQL pool service endpoint address    | Used as server name                                   |
+| serverless SQL pool service endpoint region     | Used to determine what storage will we use in samples |
 | Username and password for endpoint access | Used to access endpoint                               |
 | The database used to create views         | Database used as starting point in samples       |
 
@@ -39,7 +39,7 @@ Parameters for this quickstart:
 Before using the samples:
 
 - Create database for your views (in case you want to use views)
-- Create credentials to be used by SQL on-demand to access files in storage
+- Create credentials to be used by serverless SQL pool to access files in storage
 
 ### Create database
 
@@ -57,7 +57,7 @@ CREATE DATABASE mydbname
 
 ### Create data source
 
-To run queries using SQL on-demand, create data source that SQL on-demand can use use to access files in storage.
+To run queries using serverless SQL pool, create data source that serverless SQL pool can use use to access files in storage.
 Execute the following code snippet to create data source used in samples in this section:
 
 ```sql
@@ -110,7 +110,7 @@ For more examples, see how to [query CSV file](sql/query-single-csv-file.md).
 The following sample shows the automatic schema inference capabilities for querying Parquet files. It returns the number of rows in September of 2017 without specifying schema.
 
 > [!NOTE]
-> You do not have to specify columns in `OPENROWSET WITH` clause when reading Parquet files. In that case, SQL on-demand utilizes metadata in the Parquet file and binds columns by name.
+> You do not have to specify columns in `OPENROWSET WITH` clause when reading Parquet files. In that case, serverless SQL pool utilizes metadata in the Parquet file and binds columns by name.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -148,7 +148,7 @@ Files are stored in *json* container, folder *books*, and contain single book en
 
 ### Query JSON files
 
-The following query shows how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve scalar values (title, publisher) from a book with the title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+The following query shows how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) to retrieve scalar values (title, publisher) from a book with the title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```sql
 SELECT

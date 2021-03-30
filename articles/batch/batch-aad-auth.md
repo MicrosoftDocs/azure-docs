@@ -36,7 +36,7 @@ To authenticate with Azure AD, you use this endpoint together with the tenant ID
 >
 > The tenant-specific endpoint is optional when you authenticate using integrated authentication, but recommended. However, you can also use the Azure AD common endpoint. The common endpoint provides a generic credential gathering interface when a specific tenant is not provided. The common endpoint is `https://login.microsoftonline.com/common`.
 
-For more information about Azure AD endpoints, see [Authentication vs. authorization]()../active-directory/develop/authentication-vs-authorization.md).
+For more information about Azure AD endpoints, see [Authentication vs. authorization](../active-directory/develop/authentication-vs-authorization.md).
 
 ### Batch resource endpoint
 
@@ -139,7 +139,7 @@ You can use a custom role to grant permissions to an Azure AD user, group, or se
 - Microsoft.Batch/batchAccounts/read (for any read operation)
 - Microsoft.Batch/batchAccounts/listKeys/action (for any operation)
 
-Custom roles are for users authenticated by Azure AD, not the Batch account credentials (shared key). Note that the Batch account credentials give full permission to the Batch account. Also note that jobs using autopool require pool-level permissions.
+Custom roles are for users authenticated by Azure AD, not the Batch account credentials (shared key). Note that the Batch account credentials give full permission to the Batch account. Also note that jobs using [autopool](nodes-and-pools.md#autopools) require pool-level permissions.
 
 > [!NOTE]
 > Certain role assignments need to be specified in the Action field, whereas others need to be specified in the DataAction field. For more information, see [Azure resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftbatch).
@@ -263,13 +263,13 @@ public static async Task<string> GetAuthenticationTokenAsync()
 Construct a **BatchTokenCredentials** object that takes the delegate as a parameter. Use those credentials to open a **BatchClient** object. You can use that **BatchClient** object for subsequent operations against the Batch service:
 
 ```csharp
-public static async Task PerformBatchOperations()
+public static void PerformBatchOperations()
 {
     Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+    using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
     {
-        await client.JobOperations.ListJobs().ToListAsync();
+        client.JobOperations.ListJobs();
     }
 }
 ```
@@ -331,13 +331,13 @@ public static async Task<string> GetAuthenticationTokenAsync()
 Construct a **BatchTokenCredentials** object that takes the delegate as a parameter. Use those credentials to open a **BatchClient** object. Then use that **BatchClient** object for subsequent operations against the Batch service:
 
 ```csharp
-public static async Task PerformBatchOperations()
+public static void PerformBatchOperations()
 {
     Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+    using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
     {
-        await client.JobOperations.ListJobs().ToListAsync();
+        client.JobOperations.ListJobs();
     }
 }
 ```

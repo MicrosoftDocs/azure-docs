@@ -47,8 +47,8 @@ ADF offers a serverless architecture that allows parallelism at different levels
 
 This architecture allows you to develop pipelines that maximize data movement throughput for your environment. These pipelines fully utilize the following resources:
 
-* Network bandwidth
-* Storage input/output operations per second (IOPS) and bandwidth
+* Network bandwidth between the source and destination data stores
+* Source or destination data store input/output operations per second (IOPS) and bandwidth
 
 This full utilization means you can estimate the overall throughput by measuring the minimum throughput available with the following resources:
 
@@ -56,7 +56,7 @@ This full utilization means you can estimate the overall throughput by measuring
 * Destination data store
 * Network bandwidth in between the source and destination data stores
 
-The table below calculates the copy duration. The duration is based on data size and the bandwidth limit for your environment.
+The table below calculates the copy duration. The duration is based on data size and the network/data store bandwidth limit for your environment.
 
 &nbsp;
 

@@ -183,7 +183,7 @@ Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to 
 
 ### If I replicate to Azure, what kind of storage account or managed disk do I need?
 
-You need an LRS or GRS storage. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. The account must be in the same region as the Recovery Services vault. Premium storage is supported for VMware VM, Hyper-V VM, and physical server replication, when you deploy Site Recovery in the Azure portal. Managed disks only support LRS.
+Using storage accounts as target storage is not supported by Azure Site Recovery. It is recommended to rather use managed disks as the target storage for your machines. Managed disks only support LRS type for data resiliency.
 
 ### How often can I replicate data?
 * **Hyper-V:** Hyper-V VMs can be replicated every 30 seconds (except for premium storage), five minutes or 15 minutes.
@@ -268,6 +268,9 @@ Application-consistent recovery points are created from application-consistent s
 
 Because of their extra content, application-consistent snapshots are the most involved and take the longest. We recommend application-consistent recovery points for database operating systems and applications such as SQL Server.
 
+>[!Note]
+>Creation of application-consistent recovery points fails on Windows machine, if it has more than 64 volumes.
+
 ### What is the impact of application-consistent recovery points on application performance?
 
 Application-consistent recovery points capture all the data in memory and in process. Because recovery points capture that data, they require framework like Volume Shadow Copy Service on Windows to quiesce the application. If the capturing process is frequent, it can affect performance when the workload is already busy. We don't recommend that you use low frequency for app-consistent recovery points for non-database workloads. Even for database workload, 1 hour is enough.
@@ -336,6 +339,14 @@ Yes, you can use the alternate location recovery to failback to a different host
 
 * [For VMware virtual machines](concepts-types-of-failback.md#alternate-location-recovery-alr)
 * [For Hyper-V virtual machines](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
+
+### What is the difference between Complete Migration, Commit and Disable Replication?
+
+Once a machine from source location has been failed over to the target location then there are three options available for you to choose from. All three serve different purposes -
+
+1.	**Complete Migration** means that you will not go back to the source location anymore. You migrated over to the target region and now you're done. Clicking on Complete Migration triggers Commit and then Disable Replication, internally. 
+2.	**Commit** means that this is not the end of your replication process. The replication item along with all the configuration will remain, and you can hit **Re-protect** at a later point in time to enable the replication of your machines back to the source region. 
+3.	**Disable Replication** will disable the replication and remove all the related configuration. It won’t affect the already existing machine in the target region.
 
 ## Automation
 

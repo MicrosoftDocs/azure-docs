@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 4 blueprint sample overview
 description: Overview of the DoD Impact Level 4 sample. This blueprint sample helps customers assess specific DoD Impact Level 4 controls.
-ms.date: 10/26/2020
+ms.date: 01/08/2021
 ms.topic: sample
 ---
 # Overview of the DoD Impact Level 4 blueprint sample

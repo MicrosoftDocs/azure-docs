@@ -11,6 +11,11 @@ ms.custom: mvc, devcenter
 
 # Quickstart: Create and deploy a web app to Azure Service Fabric Mesh
 
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking.
 
 In this quickstart you'll create a new Service Fabric Mesh application consisting of an ASP.NET Core web app, run it on the local development cluster, and then publish it to run on Azure.

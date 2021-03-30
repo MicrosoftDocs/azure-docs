@@ -27,4 +27,4 @@ You should receive a response like the following one.
 
 :::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speech-to-text.sh" id="response":::
 
-For more information see the [speech-to-text REST API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text).
+For more information see the [speech-to-text REST API reference](../../../rest-speech-to-text.md).

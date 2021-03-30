@@ -160,6 +160,7 @@ For example, an Azure Queue storage trigger supports the following properties:
 These metadata values are accessible in *function.json* file properties. For example, suppose you use a queue trigger and the queue message contains the name of a blob you want to read. In the *function.json* file, you can use `queueTrigger` metadata property in the blob `path` property, as shown in the following example:
 
 ```json
+{
   "bindings": [
     {
       "name": "myQueueItem",
@@ -175,6 +176,7 @@ These metadata values are accessible in *function.json* file properties. For exa
       "connection": "MyStorageConnection"
     }
   ]
+}
 ```
 
 Details of metadata properties for each trigger are described in the corresponding reference article. For an example, see [queue trigger metadata](functions-bindings-storage-queue-trigger.md#message-metadata). Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  

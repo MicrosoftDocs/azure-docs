@@ -52,11 +52,11 @@ Use Security Center's threat protection features to detect communications with k
 
 Apply Security Center's Adaptive Network Hardening recommendations for network security group configurations that limit ports and source IPs based on actual traffic and threat intelligence. 
 
-- [Manage Azure DDoS Protection Standard using the Azure portal](manage-ddos-protection.md)
+- [Manage Azure DDoS Protection Standard using the Azure portal](../ddos-protection/manage-ddos-protection.md)
 
 - [Azure Firewall threat intelligence-based filtering](../firewall/threat-intel.md)
 
-- [Threat protection in Security Center](/azure/security-center/threat-protection)
+- [Threat protection in Security Center](../security-center/azure-defender.md)
 
 - [Adaptive Network Hardening in Azure Security Center](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -106,7 +106,7 @@ Use Application Security Groups to help simplify complex security configuration.
 
 - [Understand and use Service tags](service-tags-overview.md)
 
-- [Understand and use Application Security Groups](/azure/virtual-network/security-overview#application-security-groups)
+- [Understand and use Application Security Groups](./network-security-groups-overview.md#application-security-groups)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -139,7 +139,7 @@ Use any of the built-in Azure Policy definitions related to tagging, such as "Re
 
 Choose Azure PowerShell or Azure CLI to look up or perform actions on resources based on their tags.
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 - [How to create a Virtual Network](quick-create-portal.md)
 
@@ -154,9 +154,9 @@ Choose Azure PowerShell or Azure CLI to look up or perform actions on resources 
 **Guidance**: 
 Use Azure Activity Log to monitor resource configurations and detect changes to your virtual network. Create alerts within Azure Monitor which will trigger when changes to critical resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -173,9 +173,9 @@ Use Azure Activity Log to monitor resource configurations and detect changes to 
 In Azure Monitor, use Log Analytics Workspaces to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage.
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [View and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log-view)
+- [View and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -187,9 +187,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [View and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log-view)
+- [View and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Azure Security Center monitoring**: Yes
 
@@ -200,9 +200,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 **Guidance**: Within Azure Monitor, set your Log Analytics Workspace retention period
 according to your organization's compliance regulations. Use Azure Storage accounts for long-term/archival storage of security log storage retention.
 
-- [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -214,9 +214,9 @@ according to your organization's compliance regulations. Use Azure Storage accou
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [Understand Log Analytics Workspace](../azure-monitor/log-query/get-started-portal.md)
+- [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -234,7 +234,7 @@ Alternatively, you may enable and onboard data to Azure Sentinel or a third-part
 
 - [How to manage alerts in Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -260,9 +260,9 @@ Alternatively, you may enable and onboard data to Azure Sentinel or a third-part
 
 Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -274,7 +274,7 @@ Use the Azure AD PowerShell module to perform ad hoc queries to discover account
 
 Enable Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services and Azure Resource Manager. 
 
-- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Learn more about Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center monitoring**: Yes
 
@@ -308,7 +308,7 @@ Enable Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity M
 
 **Guidance**: Use Privileged Access Workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and access Azure network resources.
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations) 
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -322,11 +322,11 @@ Enable Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity M
 
 Ingest Security Center Risk Detection alerts into Azure Monitor and configure custom alerting/notifications using Action Groups.
 
-- [Understanding Security Center risk detections (suspicious activity)](/azure/active-directory/reports-monitoring/concept-risk-events) 
+- [Understanding Security Center risk detections (suspicious activity)](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
-- [How to configure action groups for custom alerting and notification](../azure-monitor/platform/action-groups.md)
+- [How to configure action groups for custom alerting and notification](../azure-monitor/alerts/action-groups.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -358,7 +358,7 @@ Ingest Security Center Risk Detection alerts into Azure Monitor and configure cu
 
 Azure Identity Access Reviews can be performed to efficiently manage group memberships, access to enterprise applications, and role assignments. User access should be reviewed on a regular basis to make sure only the active users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -382,7 +382,7 @@ Streamline this process by creating Diagnostic Settings for Azure Active Directo
 
 **Guidance**: Use Azure Active Directory's  (Azure AD) Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities for your Virtual network. Ingest data into Azure Sentinel for any further investigations.
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -432,7 +432,7 @@ Choose built-in roles like Owner, Contributor, or Network contributor and assign
 
 - [Diagnostic logging for a network security group](virtual-network-nsg-manage-log.md)
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -448,7 +448,7 @@ Choose built-in roles like Owner, Contributor, or Network contributor and assign
 
 - [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md) 
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0) 
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0) 
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -460,7 +460,7 @@ Choose built-in roles like Owner, Contributor, or Network contributor and assign
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -470,11 +470,11 @@ Choose built-in roles like Owner, Contributor, or Network contributor and assign
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Virtual network and related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription) 
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md) 
 
-- [How to create Management Groups](/azure/governance/management-groups/create) 
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md) 
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -501,7 +501,7 @@ Query or discover resources within the subscriptions with Azure Resource Graph i
 
 - [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Azure policy sample built-ins for virtual network](/azure/virtual-network/policy-samples)
+- [Azure policy sample built-ins for virtual network](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -526,9 +526,9 @@ Query or discover resources within the subscriptions with Azure Resource Graph i
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
-- [Azure policy sample built-ins for virtual network](/azure/virtual-network/policy-samples)
+- [Azure policy sample built-ins for virtual network](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -556,11 +556,11 @@ Export any of your build templates with Azure Resource Manager in JavaScript Obj
 
 Implement recommendations from Security Center as a secure configuration baseline for your Azure resources.
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure policy sample built-ins for virtual network](/azure/virtual-network/policy-samples)
+- [Azure policy sample built-ins for virtual network](./policy-reference.md)
 
 - [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -584,7 +584,7 @@ Use Azure Policy [deny] and [deploy if not exist] effects to enforce secure sett
 
 - [Azure Resource Manager template samples for virtual network](template-samples.md)
 
-- [Azure policy sample built-ins for virtual network](/azure/virtual-network/policy-samples)
+- [Azure policy sample built-ins for virtual network](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -596,7 +596,7 @@ Use Azure Policy [deny] and [deploy if not exist] effects to enforce secure sett
 
 You must have permissions to access the resources you wish to manage in Azure DevOps, such as your code, builds, and work tracking. Most permissions are granted through built-in security groups. You can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with Team Foundation Server.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops) 
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops) 
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -612,7 +612,7 @@ You must have permissions to access the resources you wish to manage in Azure De
 
 - [How to use Aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
-- [Azure policy sample built-ins for virtual network](/azure/virtual-network/policy-samples)
+- [Azure policy sample built-ins for virtual network](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -626,7 +626,7 @@ You must have permissions to access the resources you wish to manage in Azure De
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure policy sample built-ins for virtual network](/azure/virtual-network/policy-samples)
+- [Azure policy sample built-ins for virtual network](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -638,9 +638,9 @@ You must have permissions to access the resources you wish to manage in Azure De
 
 - [How to integrate with Azure Managed Identities](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md) 
 
-- [How to create a Key Vault](/azure/key-vault/quick-create-portal) 
+- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md) 
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to provide Key Vault authentication with a managed identity](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -692,7 +692,7 @@ You must have permissions to access the resources you wish to manage in Azure De
 
 - [Introduction to Azure Automation](../automation/automation-intro.md)
 
-- [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -718,13 +718,13 @@ Use Azure role-based access control (Azure RBAC) to protect customer-managed key
 
 Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion.  
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-- [How to enable Soft-Delete and Purge protection in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) 
+- [How to enable Soft-Delete and Purge protection in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal) 
 
-- [Soft delete for Azure Storage blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Soft delete for Azure Storage blobs](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -756,7 +756,7 @@ Clearly mark subscriptions (for example, production or non-production) using tag
 
 - [Security alerts in Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -824,5 +824,5 @@ You can also use the Security Center data connector to stream the alerts to Azur
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

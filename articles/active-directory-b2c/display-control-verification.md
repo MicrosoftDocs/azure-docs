@@ -30,8 +30,6 @@ The verification display control consists of two steps (actions):
 
     ![Example page for verify code action](media/display-control-verification/display-control-verification-email-action-02.png)
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## VerificationControl required elements
 
 The **VerificationControl** must contain following elements:

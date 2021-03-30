@@ -6,7 +6,7 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 03/18/2021
 ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support']
 ---
 
@@ -61,7 +61,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 
    Finally, if your payload size is between 156KB and 160 KB, you'll be able to make only 1 call per second per unit in your hub before hitting the limit of 160 KB/sec/unit.
 
-*  For *Jobs device operations (update twin, invoke direct method)* for tier S2, 50/sec/unit only applies to when you invoke methods using jobs. If you invoke direct methods directly, the original throttling limit of 24 MB/sec/unit (for S2) applies.
+*  For *Jobs device operations (update twin, invoke direct method)* for tier S3, 50/sec/unit only applies to when you invoke methods using jobs. If you invoke direct methods directly, the original throttling limit of 24 MB/sec/unit (for S3) applies.
 
 *  **Quota** is the aggregate number of messages you can send in your hub *per day*. You can find your hub's quota limit under the column **Total number of messages /day** on the [IoT Hub pricing page](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -78,6 +78,8 @@ For example, you use a simulated device to send 200 device-to-cloud messages per
 ### Identity registry operations throttle
 
 Device identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating a large number of device identities is supported through [import and export jobs](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+
+When initiating identity operations through [bulk registry update operations](https://docs.microsoft.com/rest/api/iothub/service/bulkregistry/updateregistry) (*not* bulk import and export jobs), the same throttle limits apply. For example, if you want to submit bulk operation to create 50 devices, and you have a S1 IoT Hub with 1 unit, only two of these bulk requests are accepted per minute. This because the identity operation throttle for for an S1 IoT Hub with 1 unit is 100/min/unit. Also in this case, a third request (and beyond) in the same minute would be rejected because the limit had already been reached. 
 
 ### Device connections throttle
 

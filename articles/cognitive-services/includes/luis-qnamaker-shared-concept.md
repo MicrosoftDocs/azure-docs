@@ -66,7 +66,7 @@ You can present this third-party answer to the user for validation. Once you hav
 
 If your chat bot needs more information than either service provides, to continue through a decision tree, use both services and process both responses in the client application.
 
-Use the Bot framework **[Dispatch CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** tool to help build a process to work with both services. This tool builds a top LUIS app of intents that dispatches between LUIS and QnA Maker as child apps. [Learn more](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs) about integrating with LUIS, QnA Maker, and Bot framework.
+Use the Bot framework **[Dispatch CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** tool to help build a process to work with both services. This tool builds a top LUIS app of intents that dispatches between LUIS and QnA Maker as child apps. [Learn more](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs) about integrating with LUIS, QnA Maker, and Bot framework.
 
 Use the Bot builder sample, **NLP with dispatch**, in [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) or [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), to implement this type of chat bot.
 
@@ -83,6 +83,6 @@ Implement best practices for each service:
 * [QnA Maker](../qnamaker/overview/overview.md)
 * [Dispatch CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Bot framework samples](https://github.com/Microsoft/BotBuilder-Samples)
-* [Azure bot service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
+* [Azure bot service](/azure/bot-service/bot-service-overview-introduction)
 * [Azure bot emulator](https://github.com/Microsoft/BotFramework-Emulator)
 * [Bot framework web chat](https://github.com/microsoft/BotFramework-WebChat)

@@ -27,7 +27,7 @@ landingContent:
           - text: What is Azure Table storage?
             url: table-storage-overview.md
           - text: Choose Table storage or Table API
-            url: ../../cosmos-db/table-support.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json
+            url: ../../cosmos-db/table-support.md?toc=%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json
   # Card
   - title: Table design guidance
     linkLists:

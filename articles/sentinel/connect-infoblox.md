@@ -31,7 +31,7 @@ This article explains how to connect your [Infoblox Network Identity Operating S
 
 ## Forward Infoblox logs to the Syslog agent  
 
-Configure Infoblox to forward Syslog messages to your Azure workspace via the Syslog agent.
+Configure Infoblox to forward Syslog messages to your Azure Sentinel workspace via the Syslog agent.
 
 1. In the Azure Sentinel portal, click **Data connectors** and select **Infoblox NIOS** connector.
 
@@ -45,7 +45,7 @@ After a successful connection is established, the data appears in Log Analytics 
 
 ## Validate connectivity
 
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
+It may take up to 20 minutes until your logs start to appear in Log Analytics. 
 
 ## Next steps
 

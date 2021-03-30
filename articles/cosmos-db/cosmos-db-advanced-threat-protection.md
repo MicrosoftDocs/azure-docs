@@ -2,6 +2,7 @@
 title: 'Advanced Threat Protection for Azure Cosmos DB'
 description: Learn how Azure Cosmos DB provides encryption of data at rest and how it's implemented.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: seodec18
@@ -62,9 +63,9 @@ Use Rest API commands to create, update, or get the Advanced Threat Protection s
 
 Use the following PowerShell cmdlets:
 
-* [Enable Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Get Advanced Threat Protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Disable Advanced Threat Protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Enable Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+* [Get Advanced Threat Protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+* [Disable Advanced Threat Protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ### [ARM template](#tab/arm-template)
 

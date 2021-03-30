@@ -2,20 +2,21 @@
 title: Attach a data disk to a Linux VM 
 description: Use the portal to attach new or existing data disk to a Linux VM.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
+ms.collection: linux
 
 ---
 # Use the portal to attach a data disk to a Linux VM 
-This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](../windows/attach-managed-disk-portal.md). 
 
 Before you attach disks to your VM, review these tips:
 
-* The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Disks attached to virtual machines are actually .vhd files stored in Azure. For details, see our [Introduction to managed disks](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json).
+* The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](../sizes.md).
+* Disks attached to virtual machines are actually .vhd files stored in Azure. For details, see our [Introduction to managed disks](../managed-disks-overview.md).
 * After attaching the disk, you need to [connect to the Linux VM to mount the new disk](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 
@@ -75,7 +76,7 @@ In this example, the disk that I added is `sdc`. It is a LUN 0 and is 4GB.
 
 For a more complex example, here is what multiple data disks looks like in the portal:
 
-:::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Review disk settings.":::
+:::image type="content" source="./media/attach-disk-portal/find-disk.png" alt-text="Screenshot of multiple disks shown in the portal.":::
 
 In the image, you can see that there are 3 data disks: 4 GB on LUN 0, 16GB at LUN 1, and 32G at LUN 2.
 
@@ -220,4 +221,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     ```
 
 ## Next steps
+
+For more information, and to help troubleshoot disk issues, see [Troubleshoot Linux VM device name changes](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems).
+
 You can also [attach a data disk](add-disk.md) using the Azure CLI.

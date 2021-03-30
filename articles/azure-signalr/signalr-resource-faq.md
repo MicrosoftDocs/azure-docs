@@ -49,7 +49,7 @@ You can configure client-side transports as documented in [ASP.NET Core SignalR 
 You can find details about we calculate these metrics in [Messages and connections in Azure SignalR Service](signalr-concept-messages-and-connections.md).
 
 On the overview pane of Azure SignalR Service resources, we've already chosen the appropriate aggregation type for you. If you go to the metrics pane, you can
-take the aggregation type to [Messages and connections in Azure SignalR Service](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
+take the aggregation type to [Messages and connections in Azure SignalR Service](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
 
 ## What is the meaning of the `Default`, `Serverless`, and `Classic` service modes? How can I choose?
 

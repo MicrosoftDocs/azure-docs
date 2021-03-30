@@ -1,19 +1,17 @@
 ---
-title: Get a signing key from a policy using Azure Media Services v3 .NET
+title: Get a signing key from a policy  .NET
 description: This topic shows how to get a signing key from the existing policy using Media Services v3 .NET SDK.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-
 ---
 
 # Get a signing key from the existing policy
@@ -42,4 +40,4 @@ To get to the key, use **GetPolicyPropertiesWithSecretsAsync**, as shown in the 
 
 ## Next steps
 
-[Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md) 
+[Design of a multi-DRM content protection system with access control](architecture-design-multi-drm-system.md) 

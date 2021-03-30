@@ -1,12 +1,11 @@
 ---
-title: Subclip a video when encoding with Azure Media Services 
+title: Subclip a video when encoding with Media Services
 description: This topic describes how to subclip a video when encoding with Azure Media Services using .NET SDK
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,7 +14,6 @@ ms.topic: how-to
 ms.date: 06/09/2019
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Subclip a video when encoding with Media Services - .NET
 
@@ -27,7 +25,7 @@ The following C# example creates a job that trims a video in an Asset as it subm
 
 To complete the steps described in this topic, you have to:
 
-- [Create an Azure Media Services account](./create-account-howto.md)
+- [Create an Azure Media Services account](./account-create-how-to.md)
 - Create a Transform and an input and output Assets. You can see how to create a Transform and input and output Assets in the [Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md) tutorial.
 - Review the [Encoding concept](encoding-concept.md) topic.
 

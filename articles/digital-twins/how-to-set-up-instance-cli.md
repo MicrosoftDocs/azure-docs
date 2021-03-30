@@ -36,12 +36,13 @@ This version of this article goes through these steps manually, one by one, usin
 ## Create the Azure Digital Twins instance
 
 In this section, you will **create a new instance of Azure Digital Twins** using the Cloud Shell command. You'll need to provide:
-* A resource group to deploy it in. If you don't already have an existing resource group in mind, you can create one now with this command:
+* A resource group where the instance will be deployed. If you don't already have an existing resource group in mind, you can create one now with this command:
     ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * A region for the deployment. To see what regions support Azure Digital Twins, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* A name for your instance. The name of the new instance must be unique within the region for your subscription (meaning that if your subscription has another Azure Digital Twins instance in the region that's already using the name you choose, you'll be asked to pick a different name).
+* A name for your instance. If your subscription has another Azure Digital Twins instance in the region that's
+  already using the specified name, you'll be asked to pick a different name.
 
 Use these values in the following command to create the instance:
 
@@ -55,7 +56,7 @@ If the instance was created successfully, the result in Cloud Shell looks someth
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Command window with successful creation of resource group and Azure Digital Twins instance":::
 
-Note the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup* from the output. These are all important values that you may need as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources. If other users will be programming against the instance, you should share these values with them.
+Note the Azure Digital Twins instance's **hostName**, **name**, and **resourceGroup** from the output. These are all important values that you may need as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources. If other users will be programming against the instance, you should share these values with them.
 
 > [!TIP]
 > You can see these properties, along with all the properties of your instance, at any time by running `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
@@ -94,7 +95,7 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
+* [az dt reference](/cli/azure/ext/azure-iot/dt)
 * [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:

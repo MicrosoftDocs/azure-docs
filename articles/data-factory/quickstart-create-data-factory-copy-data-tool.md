@@ -1,16 +1,11 @@
 ---
 title: Copy data by using the Azure Copy Data tool 
-description: Create an Azure data factory and then use the Copy Data tool to copy data from one location in Azure Blob storage to another location.
-services: data-factory
-documentationcenter: ''
+description: Create an Azure Data Factory and then use the Copy Data tool to copy data from one location in Azure Blob storage to another location.
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: quickstart
-ms.date: 06/10/2020 
+ms.date: 11/09/2020 
 ---
 
 # Quickstart: Use the Copy Data tool to copy data
@@ -32,13 +27,13 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Go to the [Azure portal](https://portal.azure.com). 
-1. From the Azure portal menu, select **Create a resource** > **Analytics** > **Data Factory**:
+1. From the Azure portal menu, select **Create a resource** > **Integration** > **Data Factory**:
 
     ![New data factory creation](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. On the **New data factory** page, enter **ADFTutorialDataFactory** for **Name**. 
  
-   The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **&lt;yourname&gt;ADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
+   The name of the Azure Data Factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **&lt;yourname&gt;ADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
   
    ![Error when a name is not available](./media/doc-common-process/name-not-available-error.png)
 1. For **Subscription**, select your Azure subscription in which you want to create the data factory. 
@@ -57,7 +52,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
    
-   ![Home page for the data factory, with the "Author & Monitor" tile](./media/doc-common-process/data-factory-home-page.png)
+:::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
 
 ## Start the Copy Data tool
 

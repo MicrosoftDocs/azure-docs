@@ -38,6 +38,9 @@
   - name: Create a shared query - Azure CLI
     displayName: extension, docker, queries
     href: ./shared-query-azure-cli.md
+  - name: Create a shared query - Azure PowerShell
+    displayName: powershell, queries, Az.ResourceGraph
+    href: ./shared-query-azure-powershell.md
   - name: Deploy a shared query - ARM template
     displayName: resource manager, queries
     href: ./shared-query-template.md
@@ -89,7 +92,7 @@
     - name: Azure CLI
       href: /cli/azure/ext/resource-graph/graph
     - name: Azure PowerShell
-      href: /powershell/module/az.resourcegraph/
+      href: /powershell/module/az.resourcegraph/#resourcegraph
     - name: Azure SDK for .NET
       href: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
     - name: Azure SDK for .NET (NuGet)

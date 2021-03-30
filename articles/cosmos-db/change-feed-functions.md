@@ -4,6 +4,7 @@ description: Use Azure Functions to connect to Azure Cosmos DB change feed. Late
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun

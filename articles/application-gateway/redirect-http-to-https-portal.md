@@ -11,7 +11,7 @@ ms.author: victorh
 ---
 # Create an application gateway with HTTP to HTTPS redirection using the Azure portal
 
-You can use the Azure portal to create an [application gateway](overview.md) with a certificate for TLS termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
+You can use the Azure portal to create an [application gateway](overview.md) with a certificate for TLS termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
 
 In this article, you learn how to:
 
@@ -29,7 +29,7 @@ This tutorial requires the Azure PowerShell module version 1.0.0 or later to cre
 
 ## Create a self-signed certificate
 
-For production use, you should import a valid certificate signed by a trusted provider. For this tutorial, you create a self-signed certificate using [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). You can use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
+For production use, you should import a valid certificate signed by a trusted provider. For this tutorial, you create a self-signed certificate using [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). You can use [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
 
 ```powershell
 New-SelfSignedCertificate `

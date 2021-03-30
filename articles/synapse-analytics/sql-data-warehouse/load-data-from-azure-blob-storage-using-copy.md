@@ -2,26 +2,23 @@
 title: 'Tutorial: Load New York Taxicab data'
 description: Tutorial uses Azure portal and SQL Server Management Studio to load New York Taxicab data from an Azure blob for Synapse SQL.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 05/31/2020
-ms.author: kevin
+ms.date: 11/23/2020
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
 # Tutorial: Load the New York Taxicab dataset
 
-This tutorial uses the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) to load New York Taxicab dataset from an Azure blob storage account. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) to:
+This tutorial uses the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) to load New York Taxicab dataset from an Azure Blob Storage account. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS) to:
 
 > [!div class="checklist"]
 >
-> * Create a SQL pool in the Azure portal
-> * Set up a server-level firewall rule in the Azure portal
-> * Connect to the data warehouse with SSMS
 > * Create a user designated for loading data
 > * Create the tables for the sample dataset 
 > * Use the COPY T-SQL statement to load data into your data warehouse
@@ -31,128 +28,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Before you begin
 
-Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
+Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).  
 
-## Log in to the Azure portal
-
-Log in to the [Azure portal](https://portal.azure.com/).
-
-## Create a blank database
-
-A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and in a [logical SQL server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
-Follow these steps to create a blank database.
-
-1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
-
-2. Select **Databases** from the **New** page, and select **Azure Synapse Analytics** under **Featured** on the **New** page.
-
-    ![Screenshot shows SQL Data Warehouse selected from Databases in the Azure portal.](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
-
-3. Fill out the form with the following information:
-
-   | Setting            | Suggested value       | Description                                                  |
-   | ------------------ | --------------------- | ------------------------------------------------------------ |
-   | *Name**            | mySampleDataWarehouse | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
-   | **Subscription**   | Your subscription     | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | myResourceGroup       | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-   | **Select source**  | Blank database        | Specifies to create a blank database. Note, a data warehouse is one type of database. |
-
-    ![Screenshot shows the SQL Data Warehouse pane where you can enter these values.](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
-
-4. Select **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information:
-
-    | Setting                | Suggested value          | Description                                                  |
-    | ---------------------- | ------------------------ | ------------------------------------------------------------ |
-    | **Server name**        | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-    | **Server admin login** | Any valid name           | For valid login names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
-    | **Password**           | Any valid password       | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
-    | **Location**           | Any valid location       | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
-
-    ![create server](./media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
-
-5. Select **Select**.
-
-6. Select **Performance level** to specify whether the data warehouse is Gen1 or Gen2, and the number of data warehouse units.
-
-7. For this tutorial, select SQL pool **Gen2**. The slider is set to **DW1000c** by default.  Try moving it up and down to see how it works.
-
-    ![configure performance](./media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
-
-8. Select **Apply**.
-9. In the provisioning blade, select a **collation** for the blank database. For this tutorial, use the default value. For more information about collations, see [Collations](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-
-10. Now that you have completed the form, select **Create** to provision the database. Provisioning takes a few minutes.
-
-11. On the toolbar, select **Notifications** to monitor the deployment process.
-  
-     ![Screenshot shows the Azure portal with the Notifications pane open with Deployment in progress.](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
-
-## Create a server-level firewall rule
-
-A firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses.  Follow these steps to create a [server-level firewall rule](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) for your client's IP address.
-
-> [!NOTE]
-> Azure Synapse Analytics communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your server unless your IT department opens port 1433.
-
-1. After the deployment completes, select **SQL databases** from the left-hand menu and then select **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20180430.database.windows.net**) and provides options for further configuration.
-
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. Then select the server name to open server settings.
-
-    ![find server name](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
-
-3. Select the server name to open server settings.
-
-    ![server settings](./media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
-
-4. Select **Show firewall settings**. The **Firewall settings** page for the server opens.
-
-    ![server firewall rule](./media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
-
-5. Select **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
-
-6. Select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the server.
-
-7. Select **OK** and then close the **Firewall settings** page.
-
-You can now connect to the server and its data warehouses using this IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the ServerAdmin account you created previously.  
-
-> [!IMPORTANT]
-> By default, access through the SQL Database firewall is enabled for all Azure services. Select **OFF** on this page and then select **Save** to disable the firewall for all Azure services.
-
-## Get the fully qualified server name
-
-Get the fully qualified server name for your server in the Azure portal. Later you will use the fully qualified name when connecting to the server.
-
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **Azure Synapse Analytics** from the left-hand menu, and select your database on the **Azure Synapse Analytics** page.
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20180430.database.windows.net.
-
-    ![connection information](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
-
-## Connect to the server as server admin
-
-This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) to establish a connection to your server.
-
-1. Open SQL Server Management Studio.
-
-2. In the **Connect to Server** dialog box, enter the following information:
-
-    | Setting        | Suggested value                            | Description                                                  |
-    | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
-    | Server type    | Database engine                            | This value is required                                       |
-    | Server name    | The fully qualified server name            | The name should be something like this: **mynewserver-20180430.database.windows.net**. |
-    | Authentication | SQL Server Authentication                  | SQL Authentication is the only authentication type that we have configured in this tutorial. |
-    | Login          | The server admin account                   | This is the account that you specified when you created the server. |
-    | Password       | The password for your server admin account | This is the password that you specified when you created the server. |
-
-    ![connect to server](./media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
-
-3. Select **Connect**. The Object Explorer window opens in SSMS.
-
-4. In Object Explorer, expand **Databases**. Then expand **System databases** and **master** to view the objects in the master database.  Expand **mySampleDatabase** to view the objects in your new database.
-
-    ![database objects](./media/load-data-from-azure-blob-storage-using-polybase/connected.png)
+This tutorial assumes you have already created a SQL dedicated pool from the following [tutorial](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin).
 
 ## Create a user for loading data
 
@@ -160,7 +38,7 @@ The server admin account is meant to perform management operations, and is not s
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
-Since you are currently connected as the server admin, you can create logins and users. Use these steps to create a login and user called **LoaderRC20**. Then assign the user to the **staticrc20** resource class.
+Connect as the server admin so  you can create logins and users. Use these steps to create a login and user called **LoaderRC20**. Then assign the user to the **staticrc20** resource class.
 
 1. In SSMS, right-select **master** to show a drop-down menu, and choose **New Query**. A new query window opens.
 
@@ -207,7 +85,7 @@ The first step toward loading data is to login as LoaderRC20.
 
 ## Create tables for the sample data
 
-You are ready to begin the process of loading data into your new data warehouse. This part of the tutorial shows you how to use the COPY statement to load the New York City taxi cab dataset from an Azure Storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source, see the [loading overview](design-elt-data-loading.md).
+You are ready to begin the process of loading data into your new data warehouse. This part of the tutorial shows you how to use the COPY statement to load the New York City taxi cab dataset from an Azure Storage blob. For future reference, to learn how to get your data to Azure Blob Storage or to load it directly from your source, see the [loading overview](design-elt-data-loading.md).
 
 Run the following SQL scripts and specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data.
 
@@ -368,7 +246,7 @@ Run the following SQL scripts and specify information about the data you wish to
 
 ## Load the data into your data warehouse
 
-This section uses the [COPY statement to load](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) the sample data from Azure Storage Blob.  
+This section uses the [COPY statement to load](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) the sample data from Azure Storage Blob.  
 
 > [!NOTE]
 > This tutorial loads the data directly into the final table. You would typically load into a staging table for your production workloads. While data is in the staging table you can perform any necessary transformations. 
@@ -510,7 +388,7 @@ Follow these steps to clean up resources as you desire.
 
 ## Next steps
 
-In this tutorial, you learned how to create a data warehouse and create a user for loading data. You used the simple [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) to load data into your data warehouse.
+In this tutorial, you learned how to create a data warehouse and create a user for loading data. You used the simple [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples) to load data into your data warehouse.
 
 You did these things:
 > [!div class="checklist"]
@@ -530,6 +408,6 @@ Advance to the development overview to learn how to migrate an existing database
 
 For more loading examples and references, view the following documentation:
 
-- [COPY statement reference documentation](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
-- [COPY examples for each authentication method](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples)
-- [COPY quickstart for a single table](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql)
+- [COPY statement reference documentation](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
+- [COPY examples for each authentication method](./quickstart-bulk-load-copy-tsql-examples.md)
+- [COPY quickstart for a single table](./quickstart-bulk-load-copy-tsql.md)

@@ -43,13 +43,6 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 | **Possible causes**    | Azure Backup for SAP HANA doesn't support incremental backup and actions performed on SAP HANA native clients (Studio/ Cockpit/ DBA Cockpit) |
 | **Recommended action** | For more information, refer [here](./sap-hana-backup-support-matrix.md#scenario-support). |
 
-### UserErrorHANAPODoesNotSupportBackupType
-
-| Error Message      | <span style="font-weight:normal">This SAP HANA database doesn't support the requested backup type</span>  |
-| ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | Azure Backup doesn't support incremental backup and backup using snapshots |
-| **Recommended action** | For more information, refer [here](./sap-hana-backup-support-matrix.md#scenario-support). |
-
 ### UserErrorHANALSNValidationFailure
 
 | Error Message      | <span style="font-weight:normal">Backup log chain is broken</span>                                    |
@@ -148,7 +141,7 @@ Upgrades to the OS, SDC version change, or MDC version change that don't cause a
 - Ensure that the new OS version, SDC, or MDC version are currently [supported by Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
 - [Stop protection with retain data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) for the database
 - Perform the upgrade or update
-- Rerun the pre-registration script. Usually, the upgrade process removes the necessary roles. Running the pre-registration script will help verify all the required roles
+- Rerun the pre-registration script. Often, the upgrade process may remove [the necessary roles](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does). Running the pre-registration script will help verify all the required roles.
 - Resume protection for the database again
 
 ## SDC to MDC upgrade with no change in SID

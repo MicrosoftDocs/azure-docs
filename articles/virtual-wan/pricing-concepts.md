@@ -7,7 +7,7 @@ author: reyandap
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
 
@@ -19,8 +19,7 @@ Azure Virtual WAN brings multiple network and security services together in a un
 Each service in Virtual WAN is priced. Therefore, suggesting a single price is not applicable to Virtual WAN. The [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) provides a mechanism to derive the cost, which is based on the services provisioned in a Virtual WAN. This article discusses commonly asked questions about Virtual WAN pricing.
 
 >[!NOTE]
->For current pricing information, see [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/).
->
+>For current pricing information, see [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/). Inter-hub  (hub to hub) charges do not show in the Virtual WAN pricing page as it is subject to Inter-Region (Intra/Inter-continental) charges [Azure data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## <a name="questions"></a>Common pricing questions
 
@@ -34,7 +33,7 @@ A **scale unit** provides the unit for aggregate capacity of Site-to-site (S2S),
 
 ### <a name="connection-unit"></a>What is a connection unit?
 
-A **connection unit** applies to any on-premises/non-Microsoft endpoint connecting to Azure gateways. For Site-to-site VPN, this implies branches. For User VPN (Point-to-site), this implies remote users. For ExpressRoute, this implies ExpressRoute circuit connections.<br>For example:
+A **connection unit** applies to any on-premises/non-Microsoft endpoint connecting to Azure gateways. For Site-to-site VPN, this value implies branches. For User VPN (Point-to-site), this value implies remote users. For ExpressRoute, this value implies ExpressRoute circuit connections.<br>For example:
 
 * One branch connection connecting to Azure VPN in a virtual hub costs $0.05/hr. Therefore 100 branch connections connecting to an Azure virtual hub would cost $0.05*100/hr.
 
@@ -46,33 +45,7 @@ A **connection unit** applies to any on-premises/non-Microsoft endpoint connecti
 
 * Any traffic entering Azure is not charged. Traffic leaving Azure (via VPN, ExpressRoute, or Point-to-site User VPN connections) is subject to the standard [Azure data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-* For data transfer charges between a Virtual WAN  hub, and a remote Virtual WAN hub or VNet in a different region than the source hub, data transfer charges apply for traffic leaving a hub. Example: Traffic leaving an East US hub will be charged $0.02/GB going to a West US hub. There is no charge for traffic entering the West US hub. The following tables show the charges.
-
-The tables below use the following abbreviations:
-{NAM: North America}, {EU: Europe}, {MEA: Middle East Africa}, {OC: Oceania (Australia Central and Australia Central 2)}, {LATAM: Latin America} 
-
-**Intra-Continent pricing(*)**
-
-| Intra-Continent| Price ($/GB)|
-|---|---|
-| NAM to NAM|$0.02 |
-| EU to EU |$0.02 |
-| ASIA-ASIA (Excluding China)|$0.10 |
-| MEA to MEA|$0.16 |
-| LATAM-LATAM |$0.16 |
-| OC-OC|$0.12 |
-
-**Inter-Continental pricing(*)**
-
-| Inter-Continental| Price ($/GB)|
-|---|---|
-| FROM NAM to EU or EU to NAM |$0.07 |
-| FROM LATAM to anywhere |$0.17 |
-| FROM MEA to anywhere |$0.17 |
-| FROM OCEANIA to anywhere |$0.12 |
-| FROM ASIA (except CHINA) to anywhere |$0.12 |
-
-(*) Some charges may apply starting August 1, 2020.
+* For data transfer charges between a Virtual WAN  hub, and a remote Virtual WAN hub or VNet in a different region than the source hub, data transfer charges apply for traffic leaving a hub. Example: Traffic leaving an East US hub will be charged $0.02/GB going to a West US hub. There is no charge for traffic entering the West US hub. All hub to hub traffic is subject to Inter-Region (Intra/Inter-continental) charges [Azure data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ### <a name="fee"></a>What is the difference between a Standard hub fee and a Standard hub processing fee?
 

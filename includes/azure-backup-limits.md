@@ -11,4 +11,4 @@ ms.custom: "include file"
 ---
 
 
-For a summary of Azure Backup support settings and limitations, see [Azure Backup Support Matrices](https://docs.microsoft.com/azure/backup/backup-support-matrix).
+For a summary of Azure Backup support settings and limitations, see [Azure Backup Support Matrices](../articles/backup/backup-support-matrix.md).

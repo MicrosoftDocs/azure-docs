@@ -1,9 +1,6 @@
 ---
 title: Use the extended features in the Apache Spark History Server to debug apps - Azure HDInsight
 description: Use the extended features in the Apache Spark History Server to debug and diagnose Spark applications - Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -23,7 +20,7 @@ The Spark History Server is the web UI for completed and running Spark applicati
 1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. From **Cluster dashboards**, select  **Spark history server**. When prompted, enter the admin credentials for the Spark cluster.
 
-    ![Launch the Spark History Server from the Azure portal.](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Spark History Server")
+    :::image type="content" source="./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png " alt-text="Launch the Spark History Server from the Azure portal." border="true":::the Azure portal." border="true":::
 
 ### Open the Spark History Server web UI by URL
 
@@ -31,7 +28,7 @@ Open the Spark History Server by browsing to `https://CLUSTERNAME.azurehdinsight
 
 The Spark History Server web UI may look similar to this image:
 
-![The Spark History Server page.](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
+:::image type="content" source="./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png" alt-text="The Spark History Server page." border="true":::
 
 ## Use the Data tab in the Spark History Server
 
@@ -39,57 +36,57 @@ Select the job ID, and then select **Data** on the tool menu to see the data vie
 
 + Review **Inputs**, **Outputs**, and **Table Operations** by selecting the individual tabs.
 
-    ![Data tabs on the Data for Spark Application page.](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-data-tabs.png" alt-text="Data tabs on the Data for Spark Application page." border="true":::
 
 + Copy all rows by selecting the **Copy** button.
 
-    ![Copy data on the Spark application page.](./media/apache-azure-spark-history-server/apache-spark-data-copy.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-data-copy.png" alt-text="Copy data on the Spark application page." border="true":::
 
 + Save all the data as a .CSV file by selecting the **csv** button.
 
-    ![Save data as a .CSV file from the Data for Spark Application page.](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-data-save.png" alt-text="Save data as a .CSV file from the Data for Spark Application page." border="true":::
 
 + Search the data by entering keywords in the **Search** field. The search results will display immediately.
 
-    ![Search data on the Data for Spark Application page.](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-data-search.png" alt-text="Search data on the Data for Spark Application page." border="true":::
 
 + Select the column header to sort the table. Select the plus sign to expand a row to show more details. Select the minus sign to collapse a row.
 
-    ![The data table on the Data for Spark Application page.](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-data-table.png" alt-text="The data table on the Data for Spark Application page." border="true":::
 
 + Download a single file by selecting the **Partial Download** button on the right. The selected file will download locally. If the file doesn't exist anymore, this will open a new tab to show the error messages.
 
-    ![The data download row on the Data for Spark Application page.](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-data-download-row.png" alt-text="The data download row on the Data for Spark Application page." border="true":::
 
 + Copy a full path or a relative path by selecting either the **Copy Full Path** or **Copy Relative Path** option, which expand from the download menu. For Azure Data Lake Storage files, select **Open in Azure Storage Explorer** to launch Azure Storage Explorer and locate the folder after sign-in.
 
-    ![Copy Full Path and Copy Relative Path options on the Data for Spark Application page.](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-data-copy-path.png" alt-text="Copy Full Path and Copy Relative Path options on the Data for Spark Application page." border="true":::
 
 + If there are too many rows to display on a single page, select the page numbers at the bottom of the table to navigate.
 
-    ![Page numbers on the Data for Spark Application page.](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-data-page.png" alt-text="Page numbers on the Data for Spark Application page." border="true":::
 
 + For more information, hover over or select the question mark next to **Data for Spark Application** to show the tooltip.
 
-    ![Get more information from the Data for Spark Application page.](./media/apache-azure-spark-history-server/sparkui-data-more-info.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-data-more-info.png" alt-text="Get more information from the Data for Spark Application page." border="true":::
 
 +  To send feedback on issues, select **Provide us feedback**.
 
-    ![Provide feedback from the Data for Spark Application page.](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-feedback.png" alt-text="Provide feedback from the Data for Spark Application page." border="true":::
 
 ## Use the Graph tab in the Spark History Server
 
 + Select the job ID, and then select **Graph** on the tool menu to see the job graph. By default, the graph will show all of the jobs. Filter the results by using the **Job ID** drop-down menu.
 
-    ![The Job ID drop-down menu on the Spark Application & Job Graph page.](./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png" alt-text="The Job ID drop-down menu on the Spark Application & Job Graph page." border="true":::
 
 + **Progress** is selected by default. Check the data flow by selecting **Read** or **Written** in the **Display** drop-down menu.
 
-    ![Check the data flow on the Spark Application & Job Graph page.](./media/apache-azure-spark-history-server/sparkui-graph-display.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-display.png" alt-text="Check the data flow on the Spark Application & Job Graph page." border="true":::
 
 + The background color of each task corresponds to a heat map.
 
-   ![The heat map on the Spark Application & Job Graph page.](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
+   :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png" alt-text="The heat map on the Spark Application & Job Graph page." border="true":::
 
 
     |Color |Description |
@@ -100,29 +97,29 @@ Select the job ID, and then select **Data** on the tool menu to see the data vie
     |White|The task is waiting to run, or the stage has skipped.|
     |Red|The task has failed.|
 
-     ![Running a task on the Spark Application & Job Graph page.](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
+     :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-color-running.png" alt-text="Running a task on the Spark Application & Job Graph page." border="true":::
 
      The skipped stages display in white.
-    ![A skipped task on the Spark Application & Job Graph page.](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png" alt-text="A skipped task on the Spark Application & Job Graph page." border="true":::
 
-    ![A failed task on the Spark Application & Job Graph page.](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png" alt-text="A failed task on the Spark Application & Job Graph page." border="true":::
 
      > [!NOTE]  
      > Playback is available for completed jobs. Select the **Playback** button to play the job back. Stop the job at any time by selecting the stop button. When a job is played back, each task will display its status by color. Playback is not supported for incomplete jobs.
 
 + Scroll to zoom in or out on the job graph, or select **Zoom to fit** to make it fit to the screen.
 
-    ![Select Zoom to fit on the Spark Application & Job Graph page.](./media/apache-azure-spark-history-server/sparkui-graph-zoom2fit.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-zoom2fit.png" alt-text="Select Zoom to fit on the Spark Application & Job Graph page." border="true":::
 
 + When tasks fail, hover over the graph node to see the tooltip, and then select the stage to open it in a new page.
 
-    ![View the tooltip on the Spark Application & Job Graph page.](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png" alt-text="View the tooltip on the Spark Application & Job Graph page." border="true":::
 
 + On the Spark Application & Job Graph page, the stages will display tooltips and small icons if the tasks meet these conditions:
   + Data skew: Data read size > average data read size of all tasks inside this stage * 2 *and* data read size > 10 MB.
   + Time skew: Execution time > average execution time of all tasks inside this stage * 2 *and* execution time > 2 mins.
 
-    ![The skewed task icon on the Spark Application & Job Graph page.](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png" alt-text="The skewed task icon on the Spark Application & Job Graph page." border="true":::
 
 + The job graph node will display the following information about each stage:
   + ID
@@ -142,7 +139,7 @@ Select the job ID, and then select **Data** on the tool menu to see the data vie
 
 + Send feedback about issues by selecting **Provide us feedback**.
 
-    ![The feedback option on the Spark Application & Job Graph page.](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-feedback.png" alt-text="The feedback option on the Spark Application & Job Graph page." border="true":::
 
 ## Use the Diagnosis tab in the Spark History Server
 
@@ -150,7 +147,7 @@ Select the job ID, and then select **Diagnosis** on the tool menu to see the job
 
 + Review **Data Skew**, **Time Skew**, and **Executor Usage Analysis** by selecting the tabs respectively.
 
-    ![The Data Skew tab within the Diagnosis tab.](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png" alt-text="The Data Skew tab within the Diagnosis tab." border="true":::
 
 ### Data Skew
 
@@ -164,13 +161,13 @@ The **Specify Parameters** section displays the parameters, which are used to de
 
 The **Skewed Stage** section displays stages that have skewed tasks meeting the specified criteria. If there's more than one skewed task in a stage, the **Skewed Stage** section displays only the most skewed task (that is, the largest data for data skew).
 
-![Larger view of the Data Skew tab within the Diagnosis tab.](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+:::image type="content" source="./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png" alt-text="Larger view of the Data Skew tab within the Diagnosis tab." border="true":::
 
 ##### Skew Chart
 
 When you select a row in the **Skew Stage** table, the **Skew Chart** displays more task distribution details based on data read and execution time. The skewed tasks are marked in red, and the normal tasks are marked in blue. For performance consideration, the chart displays up to 100 sample tasks. The task details are displayed in the lower-right panel.
 
-![The Skew Chart for Stage 10 in the Spark UI.](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+:::image type="content" source="./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png" alt-text="The Skew Chart for Stage 10 in the Spark UI." border="true":::
 
 ### Time Skew
 
@@ -182,7 +179,7 @@ The **Specify Parameters** section displays the parameters, which are used to de
 
 When you select **Time Skew**, the filtered result displays in the **Skewed Stage** section, according to the parameters set in the **Specify Parameters** section. When you select one item in the **Skewed Stage** section, the corresponding chart is drafted in the third section, and the task details display in the lower-right panel.
 
-![The Time skew tab within the Diagnosis tab.](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+:::image type="content" source="./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png" alt-text="The Time skew tab within the Diagnosis tab." border="true":::
 
 ### Executor Usage Analysis graphs
 
@@ -190,11 +187,11 @@ The **Executor Usage Graph** displays the job's actual executor allocation and r
 
 When you select **Executor Usage Analysis**, four different curves about executor usage are drafted: **Allocated Executors**, **Running Executors**, **idle Executors**, and **Max Executor Instances**. Each **Executor added** or **Executor removed** event will increase or decrease the allocated executors. You can check **Event Timeline** in the **Jobs** tab for more comparisons.
 
-![The Executor Usage Analysis tab within the Diagnosis tab.](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
+:::image type="content" source="./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png" alt-text="The Executor Usage Analysis tab within the Diagnosis tab." border="true":::
 
 Select the color icon to select or unselect the corresponding content in all drafts.
 
- ![Select the chart in the Executor Usage Analysis tab.](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
+ :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png" alt-text="Select the chart in the Executor Usage Analysis tab." border="true":::
 
 ## FAQ
 
@@ -210,15 +207,15 @@ To revert to the community version, do the following steps.
 1. The property sets to **false** now.
 1. Select **Save** to save the configuration.
 
-    ![Turn off a feature in Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-turn-off.png" alt-text="Turn off a feature in Apache Ambari." border="true":::
 
 1. Select **Spark2** in the left panel. Then, on the **Summary** tab, select **Spark2 History Server**.
 
-    ![The summary view in Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-restart1.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-restart1.png" alt-text="The summary view in Apache Ambari." border="true":::
 
 1. To restart the Spark History Server, select the **Started** button to the right of **Spark2 History Server**, and then select **Restart** from the drop-down menu.
 
-    ![Restart the Spark History Server in Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-restart2.png" alt-text="Restart the Spark History Server in Apache Ambari." border="true":::  
 
 1. Refresh the Spark History Server web UI. It will revert to the community version.
 
@@ -228,15 +225,15 @@ If you run into an error in Spark History Server, do the following steps to repo
 
 1. Download the event by selecting **Download** in the Spark History Server web UI.
 
-    ![Download the event in the Spark History Server UI.](./media/apache-azure-spark-history-server/sparkui-download-event.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-download-event.png" alt-text="Download the event in the Spark History Server UI." border="true":::
 
 2. Select **Provide us feedback** from the **Spark Application & Job Graph** page.
 
-    ![Provide feedback on the Spark Application & Job Graph page](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-feedback.png" alt-text="Provide feedback on the Spark Application & Job Graph page" border="true":::
 
 3. Provide the title and a description of the error. Then, drag the .zip file to the edit field and select **Submit new issue**.
 
-    ![Upload and submit a new issue.](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-file-issue.png" alt-text="Upload and submit a new issue." border="true":::
 
 ### How do I upgrade a .jar file in a hotfix scenario?
 
@@ -310,7 +307,7 @@ If you want to upgrade with a hotfix, use the following script, which will upgra
     |Node type(s)|Head, Worker|
     |Parameters|`https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`|
 
-     ![Azure portal submit script action](./media/apache-azure-spark-history-server/apache-spark-upload1.png)
+     :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-upload1.png" alt-text="Azure portal submit script action" border="true":::
 
 ## Known issues
 

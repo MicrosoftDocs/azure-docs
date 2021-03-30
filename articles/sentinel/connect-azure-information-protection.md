@@ -21,7 +21,7 @@ ms.author: yelevin
 
 You can stream logging information from [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) into Azure Sentinel by configuring the Azure Information Protection data connector. Azure Information Protection helps you control and secure your sensitive data, whether it’s stored in the cloud or on-premises.
 
-If [central reporting for Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) is already configured so that logging information from this service is stored in the same Log Analytics workspace as you've currently selected for Azure Sentinel, you can skip the configuration of this data connector. The logging information from Azure Information Protection is already available to Azure Sentinel.
+If [central reporting for Azure Information Protection](/azure/information-protection/reports-aip) is already configured so that logging information from this service is stored in the same Log Analytics workspace as you've currently selected for Azure Sentinel, you can skip the configuration of this data connector. The logging information from Azure Information Protection is already available to Azure Sentinel.
 
 However, if logging information from Azure Information Protection is going to a different Log Analytics workspace than the one you've currently selected for Azure Sentinel, do one of the following:
 
@@ -47,7 +47,7 @@ However, if logging information from Azure Information Protection is going to a 
 
 - Permissions to read and write to the Log Analytics workspace you're using for Azure Sentinel and Azure Information Protection.
 
-- Azure Information Protection has been added to the Azure portal. If you need help with this step, see [Add Azure Information Protection to the Azure portal](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
+- Azure Information Protection has been added to the Azure portal. If you need help with this step, see [Add Azure Information Protection to the Azure portal](/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
 
 ## Connect to Azure Information Protection
 
@@ -65,7 +65,7 @@ Use the following instructions if you haven't configured a Log Analytics workspa
 
 6. The reporting data from Azure Information Protection is stored in the **InformationProtectionLogs_CL** table in the selected workspace. 
     
-    To use the relevant schema in Azure Monitor for this reporting data, search for **InformationProtectionEvents**. For information about these event functions, see the [Friendly schema reference for event functions](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) section from the Azure Information Protection documentation.
+    To use the relevant schema in Azure Monitor for this reporting data, search for **InformationProtectionEvents**. For information about these event functions, see the [Friendly schema reference for event functions](/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) section from the Azure Information Protection documentation.
 
 ## Next steps
 

@@ -13,12 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 03/29/2020
 ms.author: b-juche
 ---
 # Configure an NFS client for Azure NetApp Files
 
 The NFS client configuration described in this article is part of the setup when you [configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md) or [create a dual-protocol volume](create-volumes-dual-protocol.md). A wide variety of Linux distributions are available to use with Azure NetApp Files. This article describes configurations for two of the more commonly used environments: RHEL 8 and Ubuntu 18.04. 
+
+## Requirements and considerations   
 
 Regardless of the Linux flavor you use, the following configurations are required:
 * Configure an NTP client to avoid issues with time skew.
@@ -27,6 +29,10 @@ Regardless of the Linux flavor you use, the following configurations are require
 * For domain join, create a computer account for the Linux client in the target Active Directory (which is created during the realm join command). 
     > [!NOTE] 
     > The `$SERVICEACCOUNT` variable used in the commands below should be a user account with permissions or delegation to create a computer account in the targeted Organizational Unit.
+* For best performance with the NFSv3 protocol, add the following settings to the `/etc/sysctl.conf` file, and then update `sysctl` by running the `sysctl -a` command to apply the settings:   
+
+    `sunrpc.tcp_max_slot_table_entries=128`   
+    `sunrpc.tcp_slot_table_entries=128`
 
 ## RHEL 8 configuration 
 
@@ -70,7 +76,10 @@ The examples in this section use the following domain name and IP address:
     For example: 
 
     `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
-
+    
+    Ensure that `default_realm` is set to the provided realm in `/etc/krb5.conf`.  If not, add it under the `[libdefaults]` section in the file as shown in the following example:
+    
+    `default_realm = CONTOSO.COM`
 
 7. Restart all NFS services:  
  
@@ -194,7 +203,7 @@ The examples in this section use the following domain name and IP address:
 
 5. Ubuntu 18.04 uses chrony by default. Following the configuration guidelines in [Ubuntu Bionic: Using chrony to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
 
-6. Join the Active Directory Domain:   
+6. Join the Active Directory domain:   
  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou="OU=$YOUROU"`
  

@@ -1,12 +1,11 @@
 ---
-title: Create a streaming locator and build URLs - Azure Media Services 
+title: Create a streaming locator and build URLs
 description: This article demonstrates how to create a streaming locator and build URLs.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
@@ -23,7 +22,7 @@ In Azure Media Services, to build a streaming URL, you need to first create a [S
 
 This article demonstrates how to create a streaming locator and build a streaming URL using Java and .NET SDKs.
 
-## Prerequisite 
+## Prerequisite
 
 Preview [Dynamic packaging](dynamic-packaging-overview.md)
 

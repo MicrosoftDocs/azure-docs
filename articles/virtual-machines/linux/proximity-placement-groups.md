@@ -1,18 +1,19 @@
 ---
-title: Use proximity placement groups 
+title: Create a proximity placement group using the Azure CLI
 description: Learn about creating and using proximity placement groups for virtual machines in Azure. 
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 10/30/2019
+ms.date: 3/8/2021
 ms.author: cynthn
 
 ---
 
 # Deploy VMs to proximity placement groups using Azure CLI
 
-To get VMs as close as possible, achieving the lowest possible latency, you should deploy them within a [proximity placement group](co-location.md#proximity-placement-groups).
+To get VMs as close as possible, achieving the lowest possible latency, you should deploy them within a [proximity placement group](../co-location.md#proximity-placement-groups).
 
 A proximity placement group is a logical grouping used to make sure that Azure compute resources are physically located close to each other. Proximity placement groups are useful for workloads where low latency is a requirement.
 
@@ -63,7 +64,7 @@ You can also create an  availability set in your proximity placement group. Use 
 
 ## Scale sets
 
-You can also create a scale set in your proximity placement group. Use the same `--ppg` parameter with [az vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) to create a scale set and all of the instances will be created in the same proximity placement group.
+You can also create a scale set in your proximity placement group. Use the same `--ppg` parameter with [az vmss create](/cli/azure/vmss#az_vmss_create) to create a scale set and all of the instances will be created in the same proximity placement group.
 
 ## Next steps
 

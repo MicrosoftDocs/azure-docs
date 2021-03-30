@@ -1,17 +1,13 @@
 ---
 title: 'Quickstart: Create an Azure Data Factory using Python'
 description: Use a data factory to copy data from one location in Azure Blob storage to another location.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 01/15/2021
 ms.custom: seo-python-october2019, devx-track-python
 ---
 
@@ -27,13 +23,13 @@ In this quickstart, you create a data factory by using Python. The pipeline in t
 
 Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows, called pipelines.
 
-Pipelines can ingest data from disparate data stores. Pipelines process or transform data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning. Pipelines publish output data to data stores such as Azure Synapse Analytics (formerly SQL Data Warehouse) for business intelligence (BI) applications.
+Pipelines can ingest data from disparate data stores. Pipelines process or transform data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning. Pipelines publish output data to data stores such as Azure Synapse Analytics for business intelligence (BI) applications.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.4+](https://www.python.org/downloads/).
+* [Python 3.6+](https://www.python.org/downloads/).
 
 * [An Azure Storage account](../storage/common/storage-account-create.md).
 
@@ -65,14 +61,22 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
     pip install azure-mgmt-datafactory
     ```
 
-    The [Python SDK for Data Factory](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5, 3.6 and 3.7.
+    The [Python SDK for Data Factory](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7 and 3.6+.
 
+4. To install the Python package for Azure Identity authentication, run the following command:
+
+    ```python
+    pip install azure-identity
+    ```
+    > [!NOTE] 
+    > The "azure-identity" package might have conflicts with "azure-cli" on some common dependencies. If you meet any authentication issue, remove "azure-cli" and its dependencies, or use a clean machine without installing "azure-cli" package to make it work.
+    
 ## Create a data factory client
 
 1. Create a file named **datafactory.py**. Add the following statements to add references to namespaces.
 
     ```python
-    from azure.common.credentials import ServicePrincipalCredentials
+    from azure.identity import ClientSecretCredential 
     from azure.mgmt.resource import ResourceManagementClient
     from azure.mgmt.datafactory import DataFactoryManagementClient
     from azure.mgmt.datafactory.models import *
@@ -117,21 +121,21 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
     def main():
 
         # Azure subscription ID
-        subscription_id = '<Specify your Azure Subscription ID>'
+        subscription_id = '<subscription ID>'
 
         # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
-        rg_name = 'ADFTutorialResourceGroup'
+        rg_name = '<resource group>'
 
         # The data factory name. It must be globally unique.
-        df_name = '<Specify a name for the data factory. It must be globally unique>'
+        df_name = '<factory name>'
 
         # Specify your Active Directory client ID, client secret, and tenant ID
-        credentials = ServicePrincipalCredentials(client_id='<Active Directory application/client ID>', secret='<client secret>', tenant='<Active Directory tenant ID>')
+        credentials = ClientSecretCredential(client_id='<service principal ID>', client_secret='<service principal key>', tenant_id='<tenant ID>') 
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
 
-        rg_params = {'location':'eastus'}
-        df_params = {'location':'eastus'}
+        rg_params = {'location':'westus'}
+        df_params = {'location':'westus'}
     ```
 
 ## Create a data factory
@@ -144,7 +148,7 @@ Add the following code to the **Main** method that creates a **data factory**. I
     resource_client.resource_groups.create_or_update(rg_name, rg_params)
 
     #Create a data factory
-    df_resource = Factory(location='eastus')
+    df_resource = Factory(location='westus')
     df = adf_client.factories.create_or_update(rg_name, df_name, df_resource)
     print_item(df)
     while df.provisioning_state != 'Succeeded':
@@ -160,12 +164,12 @@ You create linked services in a data factory to link your data stores and comput
 
 ```python
     # Create an Azure Storage linked service
-    ls_name = 'storageLinkedService'
+    ls_name = 'storageLinkedService001'
 
     # IMPORTANT: specify the name and key of your Azure Storage account.
-    storage_string = SecureString(value='DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<storageaccountkey>')
+    storage_string = SecureString(value='DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;EndpointSuffix=<suffix>')
 
-    ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
+    ls_azure_storage = LinkedServiceResource(properties=AzureStorageLinkedService(connection_string=storage_string)) 
     ls = adf_client.linked_services.create_or_update(rg_name, df_name, ls_name, ls_azure_storage)
     print_item(ls)
 ```
@@ -183,10 +187,12 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
     ds_ls = LinkedServiceReference(reference_name=ls_name)
-    blob_path= 'adfv2tutorial/input'
-    blob_filename = 'input.txt'
-    ds_azure_blob= AzureBlobDataset(linked_service_name=ds_ls, folder_path=blob_path, file_name = blob_filename)
-    ds = adf_client.datasets.create_or_update(rg_name, df_name, ds_name, ds_azure_blob)
+    blob_path = '<container>/<folder path>'
+    blob_filename = '<file name>'
+    ds_azure_blob = DatasetResource(properties=AzureBlobDataset(
+        linked_service_name=ds_ls, folder_path=blob_path, file_name=blob_filename)) 
+    ds = adf_client.datasets.create_or_update(
+        rg_name, df_name, ds_name, ds_azure_blob)
     print_item(ds)
 ```
 
@@ -199,9 +205,10 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
 ```python
     # Create an Azure blob dataset (output)
     dsOut_name = 'ds_out'
-    output_blobpath = 'adfv2tutorial/output'
-    dsOut_azure_blob = AzureBlobDataset(linked_service_name=ds_ls, folder_path=output_blobpath)
-    dsOut = adf_client.datasets.create_or_update(rg_name, df_name, dsOut_name, dsOut_azure_blob)
+    output_blobpath = '<container>/<folder path>'
+    dsOut_azure_blob = DatasetResource(properties=AzureBlobDataset(linked_service_name=ds_ls, folder_path=output_blobpath))
+    dsOut = adf_client.datasets.create_or_update(
+        rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 ```
 
@@ -231,7 +238,7 @@ Add the following code to the **Main** method that creates a **pipeline with a c
 Add the following code to the **Main** method that **triggers a pipeline run**.
 
 ```python
-    #Create a pipeline run.
+    # Create a pipeline run
     run_response = adf_client.pipelines.create_run(rg_name, df_name, p_name, parameters={})
 ```
 
@@ -240,9 +247,10 @@ Add the following code to the **Main** method that **triggers a pipeline run**.
 To monitor the pipeline run, add the following code the **Main** method:
 
 ```python
-    #Monitor the pipeline run
+    # Monitor the pipeline run
     time.sleep(30)
-    pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
+    pipeline_run = adf_client.pipeline_runs.get(
+        rg_name, df_name, run_response.run_id)
     print("\n\tPipeline run status: {}".format(pipeline_run.status))
     filter_params = RunFilterParameters(
         last_updated_after=datetime.now() - timedelta(1), last_updated_before=datetime.now() + timedelta(1))
@@ -264,13 +272,12 @@ main()
 Here is the full Python code:
 
 ```python
-from azure.common.credentials import ServicePrincipalCredentials
+from azure.identity import ClientSecretCredential 
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.datafactory import DataFactoryManagementClient
 from azure.mgmt.datafactory.models import *
 from datetime import datetime, timedelta
 import time
-
 
 def print_item(group):
     """Print an Azure object instance."""
@@ -282,28 +289,22 @@ def print_item(group):
         print("\tTags: {}".format(group.tags))
     if hasattr(group, 'properties'):
         print_properties(group.properties)
-    print("\n")
-
 
 def print_properties(props):
     """Print a ResourceGroup properties instance."""
     if props and hasattr(props, 'provisioning_state') and props.provisioning_state:
         print("\tProperties:")
         print("\t\tProvisioning State: {}".format(props.provisioning_state))
-    print("\n")
-
+    print("\n\n")
 
 def print_activity_run_details(activity_run):
     """Print activity run details."""
     print("\n\tActivity run details\n")
     print("\tActivity run status: {}".format(activity_run.status))
     if activity_run.status == 'Succeeded':
-        print("\tNumber of bytes read: {}".format(
-            activity_run.output['dataRead']))
-        print("\tNumber of bytes written: {}".format(
-            activity_run.output['dataWritten']))
-        print("\tCopy duration: {}".format(
-            activity_run.output['copyDuration']))
+        print("\tNumber of bytes read: {}".format(activity_run.output['dataRead']))
+        print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))
+        print("\tCopy duration: {}".format(activity_run.output['copyDuration']))
     else:
         print("\tErrors: {}".format(activity_run.error['message']))
 
@@ -311,29 +312,28 @@ def print_activity_run_details(activity_run):
 def main():
 
     # Azure subscription ID
-    subscription_id = '<your Azure subscription ID>'
+    subscription_id = '<subscription ID>'
 
     # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
-    rg_name = '<Azure resource group name>'
+    rg_name = '<resource group>'
 
     # The data factory name. It must be globally unique.
-    df_name = '<Your data factory name>'
+    df_name = '<factory name>'
 
     # Specify your Active Directory client ID, client secret, and tenant ID
-    credentials = ServicePrincipalCredentials(
-        client_id='<Active Directory client ID>', secret='<client secret>', tenant='<tenant ID>')
+    credentials = ClientSecretCredential(client_id='<service principal ID>', client_secret='<service principal key>', tenant_id='<tenant ID>') 
     resource_client = ResourceManagementClient(credentials, subscription_id)
     adf_client = DataFactoryManagementClient(credentials, subscription_id)
 
-    rg_params = {'location': 'eastus'}
-    df_params = {'location': 'eastus'}
-
+    rg_params = {'location':'westus'}
+    df_params = {'location':'westus'}
+ 
     # create the resource group
     # comment out if the resource group already exits
     resource_client.resource_groups.create_or_update(rg_name, rg_params)
 
     # Create a data factory
-    df_resource = Factory(location='eastus')
+    df_resource = Factory(location='westus')
     df = adf_client.factories.create_or_update(rg_name, df_name, df_resource)
     print_item(df)
     while df.provisioning_state != 'Succeeded':
@@ -341,33 +341,30 @@ def main():
         time.sleep(1)
 
     # Create an Azure Storage linked service
-    ls_name = 'storageLinkedService'
+    ls_name = 'storageLinkedService001'
 
-    # Specify the name and key of your Azure Storage account
-    storage_string = SecureString(
-        value='DefaultEndpointsProtocol=https;AccountName=<storage account name>;AccountKey=<storage account key>')
+    # IMPORTANT: specify the name and key of your Azure Storage account.
+    storage_string = SecureString(value='DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;EndpointSuffix=<suffix>')
 
-    ls_azure_storage = AzureStorageLinkedService(
-        connection_string=storage_string)
-    ls = adf_client.linked_services.create_or_update(
-        rg_name, df_name, ls_name, ls_azure_storage)
+    ls_azure_storage = LinkedServiceResource(properties=AzureStorageLinkedService(connection_string=storage_string)) 
+    ls = adf_client.linked_services.create_or_update(rg_name, df_name, ls_name, ls_azure_storage)
     print_item(ls)
 
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
     ds_ls = LinkedServiceReference(reference_name=ls_name)
-    blob_path = 'adfv2tutorial/input'
-    blob_filename = 'input.txt'
-    ds_azure_blob = AzureBlobDataset(
-        linked_service_name=ds_ls, folder_path=blob_path, file_name=blob_filename)
+    blob_path = '<container>/<folder path>'
+    blob_filename = '<file name>'
+    ds_azure_blob = DatasetResource(properties=AzureBlobDataset(
+        linked_service_name=ds_ls, folder_path=blob_path, file_name=blob_filename))
     ds = adf_client.datasets.create_or_update(
         rg_name, df_name, ds_name, ds_azure_blob)
     print_item(ds)
 
     # Create an Azure blob dataset (output)
     dsOut_name = 'ds_out'
-    output_blobpath = 'adfv2tutorial/output'
-    dsOut_azure_blob = AzureBlobDataset(linked_service_name=ds_ls, folder_path=output_blobpath)
+    output_blobpath = '<container>/<folder path>'
+    dsOut_azure_blob = DatasetResource(properties=AzureBlobDataset(linked_service_name=ds_ls, folder_path=output_blobpath))
     dsOut = adf_client.datasets.create_or_update(
         rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
@@ -416,7 +413,7 @@ The console prints the progress of creating data factory, linked service, datase
 
 Here is the sample output:
 
-```json
+```console
 Name: <data factory name>
 Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>
 Location: eastus

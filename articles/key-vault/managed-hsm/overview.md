@@ -5,6 +5,7 @@ services: key-vault
 tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: managed-hsm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/15/2020

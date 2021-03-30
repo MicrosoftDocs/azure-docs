@@ -4,10 +4,10 @@ description: How to make updates to an existing commercial marketplace offer or 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/27/2020
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Update existing offers in the commercial marketplace
@@ -26,6 +26,10 @@ Use these steps to update an offer that's been successfully published to Preview
     - **Unpublished changes**: The section has been updated and is complete. All required data has been provided and there were no errors introduced in the updates.
     - **Incomplete**: The updates made to the section introduced errors that need to be fixed or requires more information to be provided.
 2. Select **Publish** to submit the updated offer for publishing. Your offer will then go through the standard [validation and publishing steps](../review-publish-offer.md#validation-and-publishing-steps).
+
+## Changing offer type
+
+[!INCLUDE [change-offer-type](../includes/change-offer-type.md)]
 
 > [!IMPORTANT]
 > You must review your offer preview once it's available and select **Go-live** to publish your updated offer to your intended audience (public or private).

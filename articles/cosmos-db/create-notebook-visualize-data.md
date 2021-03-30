@@ -4,6 +4,7 @@ description: 'Tutorial: Learn how to use built-in Jupyter notebooks to import da
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
@@ -16,7 +17,7 @@ This article describes how to use built-in Jupyter notebooks to import sample re
 
 ## Prerequisites
 
-* [Enable notebooks support while creating the Azure Cosmos account](enable-notebooks.md)
+* [Enable notebooks on an Azure Cosmos account](enable-notebooks.md)
 
 ## Create the resources and import data
  

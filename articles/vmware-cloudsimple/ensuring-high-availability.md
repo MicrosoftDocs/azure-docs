@@ -1,8 +1,8 @@
 --- 
 title: Ensure application high availability when running in VMware on Azure 
 description: Describes CloudSimple high availability features to address common application failure scenarios for applications running in a CloudSimple Private Cloud
-author: sharaths-cs 
-ms.author: b-shsury 
+author: Ajayan1008 
+ms.author: v-hborys 
 ms.date: 08/20/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

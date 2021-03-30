@@ -14,7 +14,7 @@ As a lab owner, you can use a managed identity to deploy environments in a lab. 
 
 ## Prerequisites
 
-- [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+- [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
     
     Make sure your managed identity was created in the same region and subscription as your lab. The managed identity does not need to be in the same resource group.
 

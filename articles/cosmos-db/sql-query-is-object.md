@@ -3,6 +3,7 @@ title: IS_OBJECT in Azure Cosmos DB query language
 description: Learn about SQL system function IS_OBJECT in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins

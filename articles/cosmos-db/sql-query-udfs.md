@@ -3,6 +3,7 @@ title: User-defined functions (UDFs) in Azure Cosmos DB
 description: Learn about User-defined functions in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
@@ -138,4 +139,4 @@ As the preceding examples show, UDFs integrate the power of JavaScript language 
 
 - [Introduction to Azure Cosmos DB](introduction.md)
 - [System functions](sql-query-system-functions.md)
-- [Aggregates](sql-query-aggregates.md)
+- [Aggregates](sql-query-aggregate-functions.md)

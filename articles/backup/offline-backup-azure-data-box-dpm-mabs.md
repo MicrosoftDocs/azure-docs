@@ -224,7 +224,7 @@ Check if you see the following error message in the DPM/MABS console at the time
 
 To resolve this issue, do the following steps and retry the policy configuration.
 
-1. Sign into the Azure sign-in page that appears on the DPM/MABS server UI using a different account with admin access on the subscription that will have the import export job created.
+1. Sign into the Azure sign-in page that appears on the DPM/MABS server UI using a different account with admin access on the subscription that will have the Data Box job created.
 2. If no other server has offline seeding configured and no other server is dependent on the `AzureOfflineBackup_<Azure User Id>` application, then delete this application from **Azure portal > Azure Active Directory > App registrations**.
 
    > [!NOTE]

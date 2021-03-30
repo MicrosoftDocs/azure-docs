@@ -4,7 +4,7 @@ description: Learn how to redirect hard-coded links for apps published with Azur
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -42,14 +42,14 @@ These three features keep your links working no matter where your users are. Whe
 > [!NOTE]
 > The last option is only for tenants that, for whatever reason, can't use custom domains to have the same  internal and external URLs for their apps. Before you enable this feature, see if [custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md) can work for you. 
 > 
-> Or, if the application you need to configure with link translation is SharePoint, see [Configure alternate access mappings for SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) for another approach to mapping links. 
+> Or, if the application you need to configure with link translation is SharePoint, see [Configure alternate access mappings for SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings) for another approach to mapping links. 
 
  
 ### Option 1: Microsoft Edge Integration 
 
 You can use Microsoft Edge to further protect your application and content. To use this solution, you need to require/recommend users access the application through Microsoft Edge. All internal URLs published with Application Proxy will be recognized by Edge and redirected to the corresponding external URL. This ensures that all the hard-coded internal URLs work, and if a user goes to the browser and directly types the internal URL, it works even if the user is remote.  
 
-To learn more, including how to configure this option, please see the [Manage web access by using Edge for iOS and Android with Microsoft Intune](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge) documentation.  
+To learn more, including how to configure this option, please see the [Manage web access by using Edge for iOS and Android with Microsoft Intune](/mem/intune/apps/manage-microsoft-edge) documentation.  
 
 ### Option 2: MyApps Browser Extension 
 
@@ -57,7 +57,10 @@ With the MyApps Browser Extension, all internal URLs published with Application 
 
 To use this feature, the user needs to download the extension and be logged in. There is no other configuration needed for admins or the users. 
 
-To learn more, including how to configure this option, please see the [MyApps Browser Extension](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) documentation.
+To learn more, including how to configure this option, please see the [MyApps Browser Extension](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) documentation.
+
+> [!NOTE]
+> The MyApps Browser Extension does not support link translation for wildcard URLs.
 
 ### Option 3: Link Translation Setting 
 
@@ -81,28 +84,28 @@ There are two common types of internal links in on-premises applications:
 - **Relative internal links** that point to a shared resource in a local file structure like `/claims/claims.html`. These links automatically work in apps that are published through Application Proxy, and continue to work with or without link translation. 
 - **Hard-coded internal links** to other on-premises apps like `http://expenses` or published files like `http://expenses/logo.jpg`. The link translation feature works on hard-coded internal links, and changes them to point to the external URLs that remote users need to go through.
 
-The complete list of HTML code tags that Application Proxy supports link translation for include:
-* a
-* audio
-* base
-* button
-* div
-* embed
-* form
-* frame
-* head
-* html
-* iframe
-* img
-* input
-* link
-* menuitem
-* meta
-* object
-* script
-* source
-* track
-* video
+The complete list of attributes in HTML code tags that Application Proxy supports link translation for include:
+* a (href)
+* audio (src)
+* base (href)
+* button (formaction)
+* div (data-background, style, data-src)
+* embed (src)
+* form (action)
+* frame (src)
+* head (profile)
+* html (manifest)
+* iframe (longdesc, src)
+* img (longdesc, src)
+* input (formaction, src, value)
+* link (href)
+* menuitem (icon)
+* meta (content)
+* object (archive, data, codebase)
+* script (src)
+* source (src)
+* track (src)
+* video (src, poster)
 
 Additionally, within CSS the URL attribute is also translated.
 
@@ -147,4 +150,4 @@ We want your help to make this feature work for all your apps. We search over 30
 ## Next steps
 [Use custom domains with Azure AD Application Proxy](application-proxy-configure-custom-domain.md) to have the same internal and external URL
 
-[Configure alternate access mappings for SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
+[Configure alternate access mappings for SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings)

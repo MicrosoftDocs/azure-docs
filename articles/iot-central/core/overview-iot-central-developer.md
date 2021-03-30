@@ -4,17 +4,17 @@ description: Azure IoT Central is an IoT application platform that simplifies th
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/05/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: [mvc, device-developer]
 ---
 
-# IoT Central device development overview
+# IoT Central device development guide
 
 *This article applies to device developers.*
 
-An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This overview is intended for device developers who implement code to run on devices that connect to IoT Central.
+An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is intended for device developers who implement code to run on devices that connect to IoT Central.
 
 Devices interact with an IoT Central application using the following primitives:
 
@@ -61,11 +61,11 @@ Using DPS enables:
 - You to use your own device IDs to register devices in IoT Central. Using your own device IDs simplifies integration with existing back-office systems.
 - A single, consistent way to connect devices to IoT Central.
 
-To learn more, see [Get connected to Azure IoT Central](./concepts-get-connected.md).
+To learn more, see [Get connected to Azure IoT Central](./concepts-get-connected.md) and [Best practices](concepts-best-practices.md).
 
 ### Security
 
-The connection between a device and your IoT Central application is secured using either [shared access signatures](./concepts-get-connected.md#connect-devices-at-scale-using-sas) or industry-standard [X.509 certificates](./concepts-get-connected.md#connect-devices-using-x509-certificates).
+The connection between a device and your IoT Central application is secured using either [shared access signatures](./concepts-get-connected.md#sas-group-enrollment) or industry-standard [X.509 certificates](./concepts-get-connected.md#x509-group-enrollment).
 
 ### Communication protocols
 
@@ -73,16 +73,62 @@ Communication protocols that a device can use to connect to IoT Central include 
 
 ## Implement the device
 
+An IoT Central device template includes a _model_ that specifies the behaviors a device of that type should implement. Behaviors include telemetry, properties, and commands.
+
+> [!TIP]
+> You can export the model from IoT Central as a [Digital Twins Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl) JSON file.
+
+Each model has a unique _device twin model identifier_ (DTMI), such as `dtmi:com:example:Thermostat;1`. When a device connects to IoT Central, it sends the DTMI of the model it implements. IoT Central can then associate the correct device template with the device.
+
+[IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) defines a set of conventions that a device should follow when it implements a DTDL model.
+
+The [Azure IoT device SDKs](#languages-and-sdks) include support for the IoT Plug and Play conventions.
+
+### Device model
+
+A device model is defined using the [DTDL](https://github.com/Azure/opendigitaltwins-dtdl). This language lets you define:
+
+- The telemetry the device sends. The definition includes the name and data type of the telemetry. For example, a device sends temperature telemetry as a double.
+- The properties the device reports to IoT Central. A property definition includes its name and data type. For example, a device reports the state of a valve as a Boolean.
+- The properties the device can receive from IoT Central. Optionally, you can mark a property as writable. For example, IoT Central sends a target temperature as a double to a device.
+- The commands a device responds to. The definition includes the name of the command, and the names and data types of any parameters. For example, a device responds to a reboot command that specifies how many seconds to wait before rebooting.
+
+A DTDL model can be a _no-component_ or a _multi-component_ model:
+
+- No-component model: A simple model doesn't use embedded or cascaded components. All the telemetry, properties, and commands are defined a single _default component_. For an example, see the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) model.
+- Multi-component model. A more complex model that includes two or more components. These components include a single default component, and one or more additional nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
+
+To learn more, see [IoT Plug and Play modeling guide](../../iot-pnp/concepts-modeling-guide.md)
+
+### Conventions
+
+A device should follow the IoT Plug and Play conventions when it exchanges data with IoT Central. The conventions include:
+
+- Send the DTMI when it connects to IoT Central.
+- Send correctly formatted JSON payloads and metadata to IoT Central.
+- Correctly respond to writable properties and commands from IoT Central.
+- Follow the naming conventions for component commands.
+
+> [!NOTE]
+> Currently, IoT Central does not fully support the DTDL **Array** and **Geospatial** data types.
+
+To learn more about the format of the JSON messages that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
+
+To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play conventions](../../iot-pnp/concepts-convention.md).
+
+### Device SDKs
+
 Use one of the [Azure IoT device SDKs](#languages-and-sdks) to implement the behavior of your device. The code should:
 
 - Register the device with DPS and use the information from DPS to connect to the internal IoT hub in your IoT Central application.
-- Send telemetry in the format that the device template in IoT Central specifies. IoT Central uses the device template to determine how to use the telemetry for visualizations and analysis.
-- Synchronize property values between the device and IoT Central. The device template specifies the property names and data types so that IoT Central can display the information.
-- Implement command handlers for the commands specifies in the device template. The device template specifies the command names and parameters that the device should use.
+- Announce the DTMI of the model the device implements.
+- Send telemetry in the format that the device model specifies. IoT Central uses the model in the device template to determine how to use the telemetry for visualizations and analysis.
+- Synchronize property values between the device and IoT Central. The model specifies the property names and data types so that IoT Central can display the information.
+- Implement command handlers for the commands specified in the model. The model specifies the command names and parameters that the device should use.
 
 For more information about the role of device templates, see [What are device templates?](./concepts-device-templates.md).
 
-For some sample code, see [Create and connect a Node.js client application](./tutorial-connect-device-nodejs.md) or [Create and connect a Python client application](./tutorial-connect-device-python.md).
+For some sample code, see [Create and connect a client application](./tutorial-connect-device.md).
 
 ### Languages and SDKs
 
@@ -90,6 +136,6 @@ For more information about the supported languages and SDKs, see [Understand and
 
 ## Next steps
 
-If you're a device developer and want to dive into some code, the suggested next step is to [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device-nodejs.md).
+If you're a device developer and want to dive into some code, the suggested next step is to [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md).
 
 If you want to learn more about using IoT Central, the suggested next steps are to try the quickstarts, beginning with [Create an Azure IoT Central application](./quick-deploy-iot-central.md).

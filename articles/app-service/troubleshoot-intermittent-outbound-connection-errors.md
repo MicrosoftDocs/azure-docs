@@ -5,7 +5,7 @@ author: v-miegge
 manager: barbkess
 
 ms.topic: troubleshooting
-ms.date: 07/24/2020
+ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
 
@@ -26,18 +26,29 @@ Applications and Functions hosted on Azure App service may exhibit one or more o
 
 ## Cause
 
-A major cause of these symptoms is that the application instance is not able to open a new connection to the external endpoint because it has reached one of the following limits:
+The major cause for intermittent connection issues is hitting a limit while making new outbound connections. The limits you can hit include:
 
-* TCP Connections: There is a limit on the number of outbound connections that can be made. This is associated with the size of the worker used.
-* SNAT ports: As discussed in [Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md), Azure uses source network address translation (SNAT) and a Load Balancer (not exposed to customers) to communicate with end points outside Azure in the public IP address space, as well as end points internal to Azure that are not taking advantage of service/private end points. Each instance on Azure App service is initially given a pre-allocated number of **128** SNAT ports. That limit affects opening connections to the same host and port combination. If your app creates connections to a mix of address and port combinations, you will not use up your SNAT ports. The SNAT ports are used up when you have repeated calls to the same address and port combination. Once a port has been released, the port is available for reuse as needed. The Azure Network load balancer reclaims SNAT port from closed connections only after waiting for 4 minutes.
+* TCP Connections: There is a limit on the number of outbound connections that can be made. The limit on outbound connections is associated with the size of the worker used.
+* SNAT ports: [Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md) describes SNAT port restrictions and how they affect outbound connections. Azure uses source network address translation (SNAT) and Load Balancers (not exposed to customers) to communicate with public IP addresses. Each instance on Azure App service is initially given a pre-allocated number of **128** SNAT ports. The SNAT port limit affects opening connections to the same address and port combination. If your app creates connections to a mix of address and port combinations, you will not use up your SNAT ports. The SNAT ports are used up when you have repeated calls to the same address and port combination. Once a port has been released, the port is available for reuse as needed. The Azure Network load balancer reclaims SNAT port from closed connections only after waiting for 4 minutes.
 
-When applications or functions rapidly open a new connection, they can quickly exhaust their pre-allocated quota of the 128 ports. They are then blocked until a new SNAT port becomes available, either through dynamically allocating additional SNAT ports, or through reuse of a reclaimed SNAT port. Applications or functions that are blocked because of this inability to create new connections will begin experiencing one or more of the issues described in the **Symptoms** section of this article.
+When applications or functions rapidly open a new connection, they can quickly exhaust their pre-allocated quota of the 128 ports. They are then blocked until a new SNAT port becomes available, either through dynamically allocating additional SNAT ports, or through reuse of a reclaimed SNAT port. If your app runs out of SNAT ports, it will have intermittent outbound connectivity issues. 
 
 ## Avoiding the problem
 
+There are a few solutions that let you avoid SNAT port limitations. They include:
+
+* connection pools: By pooling your connections, you avoid opening new network connections for calls to the same address and port.
+* service endpoints: You don't have a SNAT port restriction to the services secured with service endpoints.
+* private endpoints: You don't have a SNAT port restriction to services secured with private endpoints.
+* NAT Gateway: With a NAT Gateway, you have 64k outbound SNAT ports that are usable by the resources sending traffic through it.
+
+Avoiding the SNAT port problem means avoiding the creation of new connections repetitively to the same host and port. Connection pools are one of the more obvious ways to solve that problem.
+
 If your destination is an Azure service that supports service endpoints, you can avoid SNAT port exhaustion issues by using [regional VNet Integration](./web-sites-integrate-with-vnet.md) and service endpoints or private endpoints. When you use regional VNet Integration and place service endpoints on the integration subnet, your app outbound traffic to those services will not have outbound SNAT port restrictions. Likewise, if you use regional VNet Integration and private endpoints, you will not have any outbound SNAT port issues to that destination. 
 
-Avoiding the SNAT port problem means avoiding the creation of new connections repetitively to the same host and port.
+If your destination is an external endpoint outside of Azure, using a NAT Gateway gives you 64k outbound SNAT ports. It also gives you a dedicated outbound address that you don't share with anybody. 
+
+If possible, improve your code to use connection pools and avoid the entire situation. It isn't always possible to change code fast enough to mitigate this situation. For the cases where you can't change your code in time, take advantage of the other solutions. The best solution to the problem is to combine all of the solutions as best you can. Try to use service endpoints and private endpoints to Azure services and the NAT Gateway for the rest. 
 
 General strategies for mitigating SNAT port exhaustion are discussed in the [Problem-solving section](../load-balancer/load-balancer-outbound-connections.md) of the **Outbound connections of Azure** documentation. Of these strategies, the following are applicable to apps and functions hosted on Azure App service.
 
@@ -75,8 +86,8 @@ JDBC Connection Pooling.
 
 HTTP Connection Pooling
 
-* [Apache Connection Management](https://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html)
-* [Class PoolingHttpClientConnectionManager](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/impl/conn/PoolingHttpClientConnectionManager.html)
+* [Apache Connection Management](https://hc.apache.org/httpcomponents-client-5.0.x/)
+* [Class PoolingHttpClientConnectionManager](https://hc.apache.org/httpcomponents-client-5.0.x/)
 
 #### PHP
 
@@ -108,7 +119,7 @@ Although PHP does not support connection pooling, you can try using persistent d
 * A [load test](/azure/devops/test/load-test/app-service-web-app-performance-test) should simulate real world data in a steady feeding speed. Testing apps and functions under real world stress can identify and resolve SNAT port exhaustion issues ahead of time.
 * Ensure that the back-end services can return responses quickly. For troubleshooting performance issues with Azure SQL Database, review [Troubleshoot Azure SQL Database performance issues with Intelligent Insights](../azure-sql/database/intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow).
 * Scale out the App Service plan to more instances. For more information on scaling, see [Scale an app in Azure App Service](./manage-scale-up.md). Each worker instance in an app service plan is allocated a number of SNAT ports. If you spread your usage across more instances, you might get the SNAT port usage per instance below the recommended limit of 100 outbound connections, per unique remote endpoint.
-* Consider moving to [App Service Environment (ASE)](./environment/using-an-ase.md), where you are allotted a single outbound IP address, and the limits for connections and SNAT ports are much higher. In an ASE the number of SNAT ports per instance is based on the [Azure load balancer preallocation table](../load-balancer/load-balancer-outbound-connections.md#snatporttable) - so for example an ASE with 1-50 worker instances has 1024 preallocated ports per instance, while an ASE with 51-100 worker instances has 512 preallocated ports per instance.
+* Consider moving to [App Service Environment (ASE)](./environment/using-an-ase.md), where you are allotted a single outbound IP address, and the limits for connections and SNAT ports are much higher. In an ASE, the number of SNAT ports per instance is based on the [Azure load balancer preallocation table](../load-balancer/load-balancer-outbound-connections.md#snatporttable) - so for example an ASE with 1-50 worker instances has 1024 preallocated ports per instance, while an ASE with 51-100 worker instances has 512 preallocated ports per instance.
 
 Avoiding the outbound TCP limits is easier to solve, as the limits are set by the size of your worker. You can see the limits in [Sandbox Cross VM Numerical Limits - TCP Connections](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
@@ -133,7 +144,7 @@ You can use [App Service Diagnostics](./overview-diagnostics.md) to find SNAT po
 3. Select SNAT Port Exhaustion tile in the list of available tiles under the category. The practice is to keep it below 128.
 If you do need it, you can still open a support ticket and the support engineer will get the metric from back-end for you.
 
-Note that since SNAT port usage is not available as a metric, it is not possible to either autoscale based on SNAT port usage, or to configure auto scale based on SNAT ports allocation metric.
+Since SNAT port usage is not available as a metric, it is not possible to either autoscale based on SNAT port usage, or to configure auto scale based on SNAT ports allocation metric.
 
 ### TCP Connections and SNAT Ports
 

@@ -137,4 +137,4 @@ In this quickstart, you learned how to provision a Hyperscale (Citus) server gro
 - Follow a tutorial to [build scalable multi-tenant
   applications](./tutorial-design-database-hyperscale-multi-tenant.md)
 - Determine the best [initial
-  size](howto-hyperscale-scaling.md#picking-initial-size) for your server group
+  size](howto-hyperscale-scale-initial.md) for your server group

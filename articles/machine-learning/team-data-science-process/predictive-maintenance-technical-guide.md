@@ -71,7 +71,7 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 service.
 
 ### HDInsight custom aggregation
-Run [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
+Run [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
 scripts (orchestrated by Azure Data Factory) using HDInsight to provide aggregations on
 the raw events archived using the Azure Stream Analytics
 resource.
@@ -148,7 +148,7 @@ The Azure Stream Analytics query can be found by:
 
 Information about Azure Stream Analytics query construction can be found
 in the [Stream Analytics Query
-Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+Reference](/stream-analytics-query/stream-analytics-query-language-reference)
 on MSDN.
 
 In this solution, the queries output three datasets with near real-time
@@ -180,7 +180,7 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/). Here
 ![Azure Data Factory](./media/predictive-maintenance-technical-guide/azure-data-factory.png)
 
 Two of the pipelines of this factory contain
-[Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
+[Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
 scripts used to partition and aggregate the data. When noted,
 the scripts are located in the [Azure
 Storage](https://azure.microsoft.com/services/storage/) account
@@ -190,7 +190,7 @@ name].blob.core.windows.net/maintenancesascript).
 
 Similar to [Azure Stream Analytics](#azure-stream-analytics-1)
 queries, the
-[Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
+[Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
 scripts have implicit knowledge about the incoming data format and must be altered based on your data format.
 
 #### *AggregateFlightInfoPipeline*
@@ -199,9 +199,9 @@ This
 contains a single activity - an
 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md)
 activity using a
-[HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
+[HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100))
 that runs a
-[Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
+[Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
 script to partition the data put in [Azure
 Storage](https://azure.microsoft.com/services/storage/) during the
 [Azure Stream
@@ -209,7 +209,7 @@ Analytics](https://azure.microsoft.com/services/stream-analytics/)
 job.
 
 The
-[Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
+[Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
 script for this partitioning task is ***AggregateFlightInfo.hql***
 
 #### *MLScoringPipeline*
@@ -224,23 +224,23 @@ Activities included are:
 
 * [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md)
   activity using an
-  [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
+  [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100))
   that runs a
-  [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
+  [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
   script to perform aggregations and feature engineering necessary for
   the [Azure Machine
   Learning](https://azure.microsoft.com/services/machine-learning/) experiment.
   The
-  [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
+  [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start)
   script for this partitioning task is ***PrepareMLInput.hql***.
-* [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx)
+* [Copy](/previous-versions/azure/dn835035(v=azure.100))
   activity that moves the results from the
   [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md)
   activity to a single [Azure
   Storage](https://azure.microsoft.com/services/storage/) blob
   accessed by the
-  [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activity.
-* [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx)
+  [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) activity.
+* [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100))
   activity calls the [Azure Machine
   Learning](https://azure.microsoft.com/services/machine-learning/)
   experiment, with results put in a single [Azure
@@ -250,7 +250,7 @@ Activities included are:
 This
 [pipeline](../../data-factory/concepts-pipelines-activities.md)
 contains a single activity - a
-[Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx)
+[Copy](/previous-versions/azure/dn835035(v=azure.100))
 activity that moves the results of the [Azure Machine
 Learning](#azure-machine-learning) experiment from the
 ***MLScoringPipeline*** to the [Azure SQL
@@ -293,7 +293,7 @@ prediction results are stored.
 Note: 
 1.    On deploying your solution, a prediction will appear in the database within 3 hours. The pbix file that came with the Generator download contains some seed data so that you may create the Power BI dashboard right away. 
 2.    In this step, the prerequisite is to download and install the free software [Power BI
-desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-get-the-desktop).
+desktop](/power-bi/fundamentals/desktop-get-the-desktop).
 
 The following steps guide you on how to connect the pbix file to
 the SQL Database that was spun up at the time of solution deployment
@@ -432,4 +432,3 @@ Solution Template in your subscription:
   Tool (online)](https://azure.microsoft.com/pricing/calculator/)
 * [Microsoft Azure Cost Estimator
   Tool (desktop)](https://www.microsoft.com/download/details.aspx?id=43376)
-

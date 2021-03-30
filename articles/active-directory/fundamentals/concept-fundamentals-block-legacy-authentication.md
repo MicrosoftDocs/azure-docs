@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 01/26/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -34,6 +34,7 @@ Before you can block legacy authentication in your directory, you need to first 
 1. Filter by **Client App** > check all the **Legacy Authentication Clients** options presented.
 1. Filter by **Status** > **Success**. 
 1. Expand your date range if necessary using the **Date** filter.
+1. If you have activated the [new sign-in activity reports preview](../reports-monitoring/concept-all-sign-ins.md), repeat the above steps also on the **User sign-ins (non-interactive)** tab.
 
 Filtering will only show you successful sign-in attempts that were made by the selected legacy authentication protocols. Clicking on each individual sign-in attempt will show you additional details. The Client App column or the Client App field under the Basic Info tab after selecting an individual row of data will indicate which legacy authentication protocol was used. 
 These logs will indicate which users are still depending on legacy authentication and which applications are using legacy protocols to make authentication requests. For users that do not appear in these logs and are confirmed to not be using legacy authentication, implement a Conditional Access policy or enable the Baseline policy: block legacy authentication for these users only.

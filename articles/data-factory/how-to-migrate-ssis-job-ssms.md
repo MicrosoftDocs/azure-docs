@@ -1,15 +1,9 @@
 ---
 title: Migrate on-premises SQL Server Integration Services (SSIS) jobs to Azure Data Factory  
 description: This article describes how to migrate SQL Server Integration Services (SSIS) jobs to Azure Data Factory pipelines/activities/triggers by using SQL Server Management Studio.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: 
-manager: 
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: conceptual
 ms.date: 4/7/2020
 ---
@@ -36,7 +30,7 @@ In general, for selected SQL agent jobs with applicable job step types, **SSIS J
 
 ## Prerequisites
 
-The feature described in this article requires SQL Server Management Studio version 18.5 or higher. To get the latest version of SSMS, see [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
+The feature described in this article requires SQL Server Management Studio version 18.5 or higher. To get the latest version of SSMS, see [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## Migrate SSIS jobs to ADF
 

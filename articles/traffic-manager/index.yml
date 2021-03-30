@@ -33,7 +33,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Enhance your service availability and data locality
-            url: https://docs.microsoft.com/learn/modules/distribute-load-with-traffic-manager/
+            url: /learn/modules/distribute-load-with-traffic-manager/
           
          
 
@@ -98,6 +98,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.trafficmanager/?view=azps-2.5.0
+            url: /powershell/module/az.trafficmanager/
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/network/traffic-manager?view=azure-cli-latest
+            url: https://docs.microsoft.com/cli/azure/network/traffic-manager

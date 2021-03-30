@@ -11,8 +11,9 @@ metadata:
   ms.custom: sqldbrb=2
   ms.topic: landing-page # Required
   ms.collection: performance # Optional; Remove if no collection is used.
-  author: stevestein #Required; your GitHub user alias, with correct capitalization.
-  ms.author: sstein #Required; microsoft alias of author; optional team alias.
+  author: WilliamDAssafMSFT #Required; your GitHub user alias, with correct capitalization.
+  ms.author: wiassaf #Required; microsoft alias of author; optional team alias.
+  ms.reviewer: sstein
   ms.date: 03/10/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

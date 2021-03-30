@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 Familiarize yourself with these articles:
 
-- [Tutorial: Collect and analyze resource logs from an Azure resource](../../azure-monitor/learn/tutorial-resource-logs.md)
+- [Tutorial: Collect and analyze resource logs from an Azure resource](../../azure-monitor/essentials/tutorial-resource-logs.md)
 
 - [How to integrate activity logs with Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -48,7 +48,7 @@ Familiarize yourself with these articles:
 
 - [KQL quick reference](/azure/data-explorer/kql-quick-reference)
 
-- [Azure Monitor Workbooks](../../azure-monitor/platform/workbooks-overview.md)
+- [Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md)
 
 
 
@@ -171,7 +171,7 @@ Pivot the results on operation name
 
 Merge together Audit and Sign in Logs using an inner join:
 
-`AuditLogs |where OperationName contains "Add User" |extend UserPrincipalName = tostring(TargetResources[0].userPrincipalName) | |project TimeGenerated , UserPrincipalName |join kind = inner (SigninLogs) on UserPrincipalName |summarize arg_min(TimeGenerated, *) by UserPrincipalName |extend SigninDate = TimeGenerated` 
+`AuditLogs |where OperationName contains "Add User" |extend UserPrincipalName = tostring(TargetResources[0].userPrincipalName) | |project TimeGenerated, UserPrincipalName |join kind = inner (SigninLogs) on UserPrincipalName |summarize arg_min(TimeGenerated, *) by UserPrincipalName |extend SigninDate = TimeGenerated` 
 
 
 View number of signs ins by client app type:

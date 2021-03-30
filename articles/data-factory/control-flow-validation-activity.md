@@ -1,14 +1,10 @@
 ---
 title: Validation activity in Azure Data Factory 
 description: The Validation activity does not continue execution of the pipeline until it validates the attached dataset with certain criteria the user specifies.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ---

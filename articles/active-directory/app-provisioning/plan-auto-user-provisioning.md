@@ -3,12 +3,12 @@ title: Plan an automatic user provisioning deployment for Azure Active Directory
 description: Guidance for planning and executing automatic user provisioning
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/17/2019
+ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 #customer intent: As an admin, I want to automate user provisioning to SaaS apps
@@ -153,7 +153,7 @@ The actual steps required to enable and configure automatic provisioning vary de
 
 If not, follow the steps below:
 
-1. [Create a request](../azuread-dev/howto-app-gallery-listing.md) for a pre-integrated user provisioning connector. Our team will work with you and the application developer to onboard your application to our platform if it supports SCIM.
+1. [Create a request](../develop/v2-howto-app-gallery-listing.md) for a pre-integrated user provisioning connector. Our team will work with you and the application developer to onboard your application to our platform if it supports SCIM.
 
 1. Use the [BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) generic user provisioning support for the app. This is a requirement for Azure AD to provision users to the app without a pre-integrated provisioning connector.
 
@@ -296,11 +296,11 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
-* [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
+* [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](./user-provisioning.md)
 
 * [No users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
-* [Wrong set of users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
+* [Wrong set of users are being provisioned to an Azure AD Gallery application](../manage-apps/add-application-portal-assign-users.md)
 
 ### Helpful documentation
 
@@ -318,7 +318,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Keep up to date on what's new with Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Stack overflow Azure AD forum](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Microsoft Q&A Azure AD forum](/answers/topics/azure-active-directory.html)
 
 ## Next steps
 * [Configure Automatic User Provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)

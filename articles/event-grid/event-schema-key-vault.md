@@ -2,16 +2,15 @@
 title: Azure Key Vault as Event Grid source
 description: Describes the properties and schema provided for Azure Key Vault events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 02/11/2021
 ---
 
 # Azure Key Vault as Event Grid source
 
 This article provides the properties and schema for events in [Azure Key Vault](../key-vault/index.yml). For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
-## Event Grid event schema
 
-### Available event types
+## Available event types
 
 An Azure Key Vault account generates the following event types:
 
@@ -26,9 +25,11 @@ An Azure Key Vault account generates the following event types:
 | Microsoft.KeyVault.SecretNewVersionCreated | Secret New Version Created | Triggered when a new secret or new secret version is created. |
 | Microsoft.KeyVault.SecretNearExpiry | Secret Near Expiry | Triggered when the current version of a secret is about to expire. (The event is triggered  30 days before the expiration date.) |
 | Microsoft.KeyVault.SecretExpired | Secret Expired | Triggered when a secret is expired. |
-| Microsoft.KeyVault.VaultAccessPolicyChanged | Vault Access Policy Changed | Triggered when an access policy on Key Vault changed. It includes a scenario when Key Vault permission model is changed to/from Azure RBAC  |
+| Microsoft.KeyVault.VaultAccessPolicyChanged | Vault Access Policy Changed | Triggered when an access policy on Key Vault changed. It includes a scenario when Key Vault permission model is changed to/from Azure role-based access control.   |
 
-### Event examples
+## Event examples
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
 
 The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
 
@@ -55,19 +56,79 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
 ]
 ```
 
+# [Cloud event schema](#tab/cloud-event-schema)
+
+The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
+
+```JSON
+[
+   {
+      "id":"00eccf70-95a7-4e7c-8299-2eb17ee9ad64",
+      "source":"/subscriptions/{subscription-id}/resourceGroups/sample-rg/providers/Microsoft.KeyVault/vaults/sample-kv",
+      "subject":"newsecret",
+      "type":"Microsoft.KeyVault.SecretNewVersionCreated",
+      "time":"2019-07-25T01:08:33.1036736Z",
+      "data":{
+         "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
+         "vaultName":"sample-kv",
+         "objectType":"Secret",
+         "objectName ":"newsecret",
+         "version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "nbf":"1559081980",
+         "exp":"1559082102"
+      },
+      "specversion":"1.0"
+   }
+]
+```
+
+---
+
 ### Event properties
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+An event has the following top-level data:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `eventType` | string | One of the registered event types for this event source. |
+| `eventTime` | string | The time the event is generated based on the provider's UTC time. |
+| `id` | string | Unique identifier for the event. |
+| `data` | object | App Configuration event data. |
+| `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
+| `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
+
+
+# [Cloud event schema](#tab/cloud-event-schema)
 
 An event has the following top-level data:
 
 | Property | Type | Description |
+| -------- | ---- | ----------- |
+| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `type` | string | One of the registered event types for this event source. |
+| `time` | string | The time the event is generated based on the provider's UTC time. |
+| `id` | string | Unique identifier for the event. |
+| `data` | object | App Configuration event data. |
+| `specversion` | string | CloudEvents schema specification version. |
+
+---
+ 
+
+The data object has the following properties:
+
+| Property | Type | Description |
 | ---------- | ----------- |---|
-| id | string | The ID of the object that triggered this event |
-| vaultName | string | The key vault name of the object that triggered this event |
-| objectType | string | The type of the object that triggered this event |
-| objectName | string | The name of the object that triggered this event |
-| version | string | The version of the object that triggered this event |
-| nbf | number | The not-before date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
-| exp | number | The expiration date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
+| `id` | string | The ID of the object that triggered this event |
+| `vaultName` | string | The key vault name of the object that triggered this event |
+| `objectType` | string | The type of the object that triggered this event |
+| `objectName` | string | The name of the object that triggered this event |
+| `version` | string | The version of the object that triggered this event |
+| `nbf` | number | The not-before date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
+| `exp` | number | The expiration date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
 
 ## Tutorials and how-tos
 |Title  |Description  |
@@ -80,5 +141,5 @@ An event has the following top-level data:
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md).
 * For more information about how to create an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
-* For more information about Key VAult, see [What is Azure Key Vault?](../key-vault/general/overview.md)
+* For more information about Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 

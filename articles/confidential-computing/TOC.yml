@@ -41,7 +41,7 @@
   - name: Container Compute
     expanded: true
     items:  
-    - name: Confidential containers (lift & shift)
+    - name: Confidential containers
       items:
       - name: Getting started
         href: confidential-containers.md
@@ -55,11 +55,13 @@
     href: application-development.md
 - name: How To
   items:
+  - name: Fortanix Confidential Computing Manager
+    href: how-to-fortanix-confidential-computing-manager.md
   - name: Fortanix Enclave Manager
     href: how-to-fortanix-enclave-manager.md
 - name: References
   items:
-  - name: SGX Quote Helper Feature
+  - name: SGX Quote helper feature
     href: confidential-nodes-out-of-proc-attestation.md
 - name: Resources
   items:
@@ -72,7 +74,7 @@
   - name: Confidential Computing Consortium
     href: https://confidentialcomputing.io/
   - name: Virtual Machines on Azure
-    href: https://docs.microsoft.com/azure/virtual-machines/
+    href: ../virtual-machines/index.yml
   - name: Pricing
     href: https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
   - name: Regions

@@ -28,7 +28,7 @@ ms.custom: "include file"
 
     - **Create a new data store**: If you’re going to create a data store, use the following quickstart:
 
-        [Quickstart: Getting started with single databases in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-quickstart-guide)
+        [Quickstart: Getting started with single databases in Azure SQL Database](../articles/azure-sql/database/quickstart-content-reference-guide.md)
 
     - **Existing data source**: Follow the instructions below if you want to use an existing database connection
 
@@ -41,7 +41,7 @@ ms.custom: "include file"
             **{your_username}** User name to access your database.
             **{your_password}** Password to access your database.
 
-            [Learn more about SQL Connection String format](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax#sqlclient-connection-strings)
+            [Learn more about SQL Connection String format](/dotnet/framework/data/adonet/connection-string-syntax#sqlclient-connection-strings)
 
         2. Add the connection string to your **mobile app**
             In App Service, you can manage connection strings for your application by using the **Configuration** option in the menu.
@@ -80,10 +80,10 @@ ms.custom: "include file"
 
         2. Build the .NET server project locally in Visual Studio.
 
-        3. In Visual Studio, open Solution Explorer, right-click on `ZUMOAPPNAMEService` project, click **Publish**, you will see a `Publish to App Service` window. If you are working on Mac, check out other ways to deploy the app [here](https://docs.microsoft.com/azure/app-service/deploy-local-git).
+        3. In Visual Studio, open Solution Explorer, right-click on `ZUMOAPPNAMEService` project, click **Publish**, you will see a `Publish to App Service` window. If you are working on Mac, check out other ways to deploy the app [here](../articles/app-service/deploy-local-git.md).
         
            ![Visual studio publishing](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
 
         4. Select **App Service** as publish target, then click **Select Existing**, then click the **Publish** button at the bottom of the window.
 
-        5. You will need to log into Visual Studio with your Azure subscription first. Select the `Subscription`, `Resource Group`, and then select the name of your app. When you are ready, click **OK**, this will deploy the .NET server project that you have locally into the App Service backend. When deployment finishes, you will be redirected to `http://{zumoappname}.azurewebsites.net/` in the browser.                   
+        5. You will need to log into Visual Studio with your Azure subscription first. Select the `Subscription`, `Resource Group`, and then select the name of your app. When you are ready, click **OK**, this will deploy the .NET server project that you have locally into the App Service backend. When deployment finishes, you will be redirected to `http://{zumoappname}.azurewebsites.net/` in the browser.

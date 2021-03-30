@@ -54,7 +54,7 @@ In case you are unable to successfully create the service principal:
 
 ### Create a Key Vault resource
 
-Create an Azure Key Vault using [Azure portal](../key-vault/secrets/quick-create-portal.md#create-a-vault), [CLI](../key-vault/secrets/quick-create-cli.md), or [PowerShell](../key-vault/secrets/quick-create-powershell.md). 
+Create an Azure Key Vault using [Azure portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 For the properties of your key vault, use the following guidelines: 
 * Name: A unique name is required. 

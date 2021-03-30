@@ -1,12 +1,11 @@
 ---
-title: Configure Postman for Azure Media Services v3 REST API calls
+title: Configure Postman for Azure Media Services v3 REST API
 description: This article shows you how to configure Postman so it can be used to call Azure Media Services (AMS) REST APIs.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,7 +13,6 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-
 ---
 # Configure Postman for Media Services v3 REST API calls
 
@@ -26,7 +24,7 @@ Before you start developing, review [Developing with Media Services v3 APIs](med
 
 ## Prerequisites
 
-- [Create a Media Services account](./create-account-howto.md). Make sure to remember the resource group name and the Media Services account name. 
+- [Create a Media Services account](./account-create-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
 - Get information needed to [access APIs](./access-api-howto.md)
 - Install the [Postman](https://www.getpostman.com/) REST client to execute the REST APIs shown in some of the AMS REST tutorials. 
 

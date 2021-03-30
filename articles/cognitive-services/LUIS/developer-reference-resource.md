@@ -4,7 +4,7 @@ description: SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/19/2020
+ms.date: 01/12/2021
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -18,9 +18,9 @@ Use the Azure Cognitive Services Management layer to create, edit, list, and del
 
 Find reference documentation based on the tool:
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list)
+* [Azure CLI](/cli/azure/cognitiveservices#az-cognitiveservices-list)
 
-* [Azure RM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
+* [Azure RM PowerShell](/powershell/module/azurerm.cognitiveservices/#cognitive_services)
 
 
 ## Language Understanding authoring and prediction requests
@@ -83,11 +83,11 @@ The [app schema](app-schema-definition.md) is imported and exported in a `.json`
 
 |Language |Reference documentation|Package|Quickstarts|
 |--|--|--|--|
-|C#|[Authoring](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Prediction](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet authoring](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Authoring](azure-sdk-quickstart.md?pivots=programming-language-csharp)<br>[Query prediction](azure-sdk-quickstart.md?pivots=programming-language-csharp)|
+|C#|[Authoring](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring)</br>[Prediction](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime)|[NuGet authoring](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Authoring](./client-libraries-rest-api.md?pivots=rest-api)<br>[Query prediction](./client-libraries-rest-api.md?pivots=rest-api)|
 |Go|[Authoring and prediction](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||
-|Java|[Authoring and prediction](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven authoring](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven prediction](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
-|JavaScript|[Authoring](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Prediction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM authoring](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM prediction](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Authoring](azure-sdk-quickstart.md?pivots=programming-language-javascript)<br>[Prediction](azure-sdk-quickstart.md?pivots=programming-language-javascript)|
-|Python|[Authoring and prediction](azure-sdk-quickstart.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Authoring](azure-sdk-quickstart.md?pivots=programming-language-python)<br>[Prediction](azure-sdk-quickstart.md?pivots=programming-language-python)|
+|Java|[Authoring and prediction](/java/api/overview/azure/cognitiveservices/client/languageunderstanding)|[Maven authoring](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven prediction](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
+|JavaScript|[Authoring](/javascript/api/@azure/cognitiveservices-luis-authoring/)<br>[Prediction](/javascript/api/@azure/cognitiveservices-luis-runtime/)|[NPM authoring](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM prediction](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Authoring](./client-libraries-rest-api.md?pivots=rest-api)<br>[Prediction](./client-libraries-rest-api.md?pivots=rest-api)|
+|Python|[Authoring and prediction](./client-libraries-rest-api.md?pivots=rest-api)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Authoring](./client-libraries-rest-api.md?pivots=rest-api)<br>[Prediction](./client-libraries-rest-api.md?pivots=rest-api)|
 
 
 ### Containers
@@ -114,18 +114,14 @@ Importing and exporting these formats is available from the APIs and from the LU
 The bot framework is available as [an SDK](https://github.com/Microsoft/botframework) in a variety of languages and as a service using [Azure Bot Service](https://dev.botframework.com/).
 
 Bot framework provides [several tools](https://github.com/microsoft/botbuilder-tools) to help with Language Understanding, including:
-
-* [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown) - Build LUIS language understanding models using markdown files
-* [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) - Create and manage your LUIS.ai applications
-* [Dispatch](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)- manage parent and child apps
-* [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto generate backing C#/Typescript classes for your LUIS intents and entities.
 * [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) - a desktop application that allows bot developers to test and debug bots built using the Bot Framework SDK
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) - an integrated development tool for developers and multi-disciplinary teams to build bots and conversational experiences with the Microsoft Bot Framework
 * [Bot Framework Samples](https://github.com/microsoft/botbuilder-samples) - in #C, JavaScript, TypeScript, and Python
+
 ## Next steps
 
 * Learn about the common [HTTP error codes](luis-reference-response-codes.md)
-* [Reference documentation](https://docs.microsoft.com/azure/index) for all APIs and SDKs
+* [Reference documentation](../../index.yml) for all APIs and SDKs
 * [Bot framework](https://github.com/Microsoft/botbuilder-dotnet) and [Azure Bot Service](https://dev.botframework.com/)
 * [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)
 * [Cognitive Containers](../cognitive-services-container-support.md)

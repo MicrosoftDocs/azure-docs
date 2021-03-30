@@ -1,9 +1,8 @@
 ---
 title: Read input in any format using .NET custom deserializers in Azure Stream Analytics
 description: This article explains the serialization format and the interfaces that define custom .NET deserializers for Azure Stream Analytics cloud and edge jobs.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
@@ -196,7 +195,7 @@ namespace ExampleCustomCode.Serialization
 
 ## Serialization format for REST APIs
 
-Every Stream Analytics input has a **serialization format**. For more information on input options, see the [Input REST API](./stream-analytics-define-inputs.md) documentation.
+Every Stream Analytics input has a **serialization format**. For more information on input options, see the [Input REST API](/rest/api/streamanalytics/2016-03-01/inputs) documentation.
 
 The following Javascript code is an example of the .NET deserializer serialization format when using the REST API:
 
@@ -244,9 +243,9 @@ This functionality is not supported. If you need this capability, you can vote f
 
 Once you have implemented your deserializer, you can help others by sharing it with the community. Submit your code to the [Azure Stream Analytics GitHub repo](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
-### What are the other limitation of using custom deserializers in Stream Analytics?
+### What are the other limitations of using custom deserializers in Stream Analytics?
 
-If your input is of Protobuf format with schema containing MapField type, you will not be able to implement a custom deserializer. We are working on supporting this type going forward.
+If your input is of Protobuf format with a schema containing `MapField` type, you will not be able to implement a custom deserializer. Also, custom deserializers do not support sample data or preview data. 
 
 ## Next Steps
 

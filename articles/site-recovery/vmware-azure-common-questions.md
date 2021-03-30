@@ -141,6 +141,10 @@ Replication is continuous when replicating VMware VMs to Azure.
 
 Extended or chained replication isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
+### How can I track progress of initial replication/synchronization?
+
+This capability has been recently to Site Recovery services. Update your Site Recovery infrastructure (configuration servers, scale-out process servers) and mobility agent to versions 9.36 or higher to get accurate details. Learn more on how to track the progress [here](vmware-azure-enable-replication.md#monitor-initial-replication).
+
 ### Can I do an offline initial replication?
 
 Offline replication isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
@@ -170,7 +174,7 @@ For VMware replication to Azure, you can modify disk size of source VMs. If you 
 
 ### Can I migrate on-premises machines to a new vCenter Server without impacting ongoing replication?
 
-No. A change of VMware Vcenter or migration will impact ongoing replication. Set up Site Recovery with the new vCenter Server and enable replication for machines again.
+Refer to our [guidance](vmware-azure-manage-vcenter.md#migrate-all-vms-to-a-new-server) to migrate machines to a new vCenter
 
 ### Can I replicate to a cache or target storage account that has a virtual network (with Azure Firewalls) configured on it?
 
