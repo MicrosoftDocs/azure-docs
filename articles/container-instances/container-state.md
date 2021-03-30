@@ -1,6 +1,8 @@
 ---
 title: Azure Container Instances states
 description: Learn about the states of Azure Container Instances provisioning operations, containers, and container groups.
+ms.author: nickoman
+author: nickomang
 ms.topic: article
 ms.date: 03/25/2021
 ---
