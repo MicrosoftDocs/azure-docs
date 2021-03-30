@@ -82,7 +82,7 @@ In this article, you'll create two event hubs and configure them.
 Before creating the event hubs, you'll first create an event hub namespace that will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](../event-hubs/event-hubs-create.md). To see what regions support Event Hubs, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
 
 ```azurecli-interactive
-az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region>
+az eventhubs namespace create --name <specify-name-for-your-Event-Hubs-namespace> --resource-group <your-resource-group> -l <region>
 ```
 
 > [!Note]
@@ -97,30 +97,30 @@ You'll now create an event hub within the event hubs namespace you created earli
 Create an event hub with the following CLI command. Specify a name for the event hub.
 
 ```azurecli-interactive
-az eventhubs eventhub create --name <name for your Twins Hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
+az eventhubs eventhub create --name <specify-name-for-your-Twins-Hub> --resource-group <your-resource-group> --namespace-name <your-Event-Hubs-namespace-from-above>
 ```
 
-### Create an authorization rule
+### Create Twins Hub authorization rule
 
 Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions. Specify a name for the rule.
 
 ```azurecli-interactive
-az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <name for your Twins Hub from above> --name <name for your Twins auth rule>
+az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <your-resource-group> --namespace-name <your-Event-Hubs-namespace-from-earlier> --eventhub-name <name-of-your-Twins-Hub-from-above> --name <specify-name-for-your Twins-Hub-auth-rule>
 ```
 
-### Create an endpoint
+### Create Twins Hub endpoint
 
-Create an Azure Digital Twins [endpoint](concepts-route-events.md#create-an-endpoint) that links your event hub to your Azure Digital Twins instance.
+Create an Azure Digital Twins [endpoint](concepts-route-events.md#create-an-endpoint) that links your event hub to your Azure Digital Twins instance. Specify a name for your Twins Hub endpoint.
 
 ```azurecli-interactive
-az dt endpoint create eventhub -n <your Azure Digital Twins instance name> --endpoint-name <name for your Twins Hub endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above>
+az dt endpoint create eventhub -n <your-Azure-Digital-Twins-instance-name> --eventhub-resource-group <your-resource-group> --eventhub-namespace <your-Event-Hubs-namespace-from-earlier> --eventhub <name-of-your-Twins-Hub-from-above> --eventhub-policy <name-of-your-Twins-Hub-auth-rule-from-earlier> --endpoint-name <specify-name-for-your-Twins-Hub-endpoint>
 ```
 
-### Create an event route
+### Create Twins Hub event route
 
 Azure Digital Twins instances can emit [twin update events](how-to-interpret-event-data.md) whenever a twin's state is updated. In this section, you'll create an Azure Digital Twins **event route** that will direct these update events to Azure [Event Hubs](../event-hubs/event-hubs-about.md) for further processing.
 
-Create a [route](concepts-route-events.md#create-an-event-route) in Azure Digital Twins to send twin update events to your endpoint. The filter in this route will only allow twin update messages to be passed to your endpoint.
+Create a [route](concepts-route-events.md#create-an-event-route) in Azure Digital Twins to send twin update events to your endpoint. The filter in this route will only allow twin update messages to be passed to your endpoint. Specify a name for Twins Hub event route.
 
 >[!NOTE]
 >There is currently a **known issue** in Cloud Shell affecting these command groups: `az dt route`, `az dt model`, `az dt twin`.
@@ -128,7 +128,7 @@ Create a [route](concepts-route-events.md#create-an-event-route) in Azure Digita
 >To resolve, either run `az login` in Cloud Shell prior to running the command, or use the [local CLI](/cli/azure/install-azure-cli) instead of Cloud Shell. For more detail on this, see [*Troubleshooting: Known issues in Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
 ```azurecli-interactive
-az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <Event Hub endpoint from above> --route-name <name for your route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
+az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <name-of-your-Twins-Hub-endpoint-from-above> --route-name <specify-name-for-your-Twins-Hub-event-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
 ```
 
 ### Set connection string
@@ -136,37 +136,37 @@ az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <
 1. Get the Twins [event hub connection string](../event-hubs/event-hubs-get-connection-string.md), using the authorization rules you created above for the Twins hub.
 
     ```azurecli-interactive
-    az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <Twins event hub name from earlier> --name <Twins auth rule from earlier>
+    az eventhubs eventhub authorization-rule keys list --resource-group <your-resource-group> --namespace-name <your-Event-Hubs-namespace-from-earlier> --eventhub-name <name-of-your-Twins-Hub-from-above> --name <name-of-your-Twins-Hub-auth-rule-from-earlier>
     ```
 
-2. Use the *primaryConnectionString* value from the result to create an app setting in your function app that contains your connection string:
+2. Use the **primaryConnectionString** value from the result to create an app setting in your function app that contains your connection string:
 
     ```azurecli-interactive
-    az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string>" -g <resource group> -n <your App Service (function app) name>
+    az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<primaryConnectionString-value-from-above>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
     ```
 
 Before moving on, take note of your *Event Hubs namespace* and *resource group*, as you will use them again to create event hub to receive time series insights.
 
-## Event hub to receive Time Series Insights
+## Time Series Hub - Event hub to receive Time Series Insights
 
 You'll now create a second event hub, and configure your function to stream its output to that event hub. This event hub will then be connected to Time Series Insights.
 
-### Create Time Series Insights event hub
+### Create Time Series Hub
 
 To create the second event hub, you can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](../event-hubs/event-hubs-create.md). You'll use your *Event Hubs namespace* and *resource group* name from earlier in this article.
 
-Create a new event hub. Specify a name for the time series insights event hub.
+Create Time Series Hub using the following command. Specify a name for the Time Series Hub.
 
 ```azurecli-interactive
- az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
+ az eventhubs eventhub create --name <specify-name-for-your-Time-Series-Hub> --resource-group <your-resource-group> --namespace-name <your-Event-Hubs-namespace-from-earlier>
 ```
 
 ### Create an authorization rule
 
-Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions. Specify a name for the rule.
+Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions. Specify a name for Time Series Hub auth rule.
 
 ```azurecli-interactive
-az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
+az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <your-resource-group> --namespace-name <your-Event-Hubs-namespace-from-earlier> --eventhub-name <your-Time-Series-Hub-name-from-above> --name <specify-name-for-Time-Series-Hub-auth-rule>
 ```
 
 ### Set connection string
@@ -176,13 +176,13 @@ You'll need to set environment variables in your function app from earlier, cont
 1. Get the TSI [event hub connection string](../event-hubs/event-hubs-get-connection-string.md), using the authorization rules you created above for the Time Series Insights hub:
 
     ```azurecli-interactive
-    az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
+    az eventhubs eventhub authorization-rule keys list --resource-group <your-resource-group> --namespace-name <your-Event-Hubs-namespace-from-earlier> --eventhub-name <your-Time Series Hub-name-from-earlier> --name <name-of-Time-Series-Hub-auth-rule>
     ```
 
-2. Use the *primaryConnectionString* value from the result to create an app setting in your function app that contains your connection string:
+2. Use the **primaryConnectionString** value from the result to create an app setting in your function app that contains your connection string:
 
     ```azurecli-interactive
-    az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string>" -g <resource group> -n <your App Service (function app) name>
+    az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<primaryConnectionString-from above>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
     ```
 
 ## Create and connect a Time Series Insights instance
