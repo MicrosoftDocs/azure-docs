@@ -280,7 +280,7 @@ For more information,
 
 ## Collect logs with dotnet-trace
 
-Alternatively, customers can also use a cross-platform .NET Core tool, [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace) for collecting logs that can help further help in troubleshooting. This may be particularly helpful for linux-based environments.
+Alternatively, customers can also use a cross-platform .NET Core tool, [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace) for collecting logs that can further help in troubleshooting. This may be particularly helpful for linux-based environments.
 
 After installation of [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace), execute the command below in bash
 
@@ -294,4 +294,3 @@ Learn how to remove Application Insights in Visual Studio by following the steps
 
 ## Still not working...
 * [Microsoft Q&A question page for Application Insights](/answers/topics/azure-monitor.html)
-
