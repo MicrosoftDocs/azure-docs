@@ -63,8 +63,6 @@ You can run the steps from within Visual Studio Code or any command line availab
 
 When you run the sample website, your device needs to communicate with the Node server running on your local machine. We recommend using [ngrok](https://ngrok.com/) as an easy way to make your local development server available over the internet.
 
-1. After you download and extract **ngrok**, we need to run:
-
 1.  After you download and extract **ngrok**, we need to run:
 
     ```terminal
@@ -84,7 +82,7 @@ Now that your local port is exposed to the internet using ngrok, the sample site
 
 1. Install Authenticator on your mobile device. Microsoft Authenticator is used to receive, store, and present your verifiable credentials to interested parties.
 
-2. Next, issue yourself a verifiable credential. **Click** the **Get Credential** button. When you click the **Get Credential** button, the sample website displays a QR code, that you can be scan using Authenticator. If you view the site from the browser on your mobile device. Clicking the Get Credential button triggers a deep link that opens the authenticator app and does not require the scanning of a QR code.
+2. Next, issue yourself a verifiable credential. **Click** the **Get Credential** button. When you click the **Get Credential** button, the sample website displays a QR code, that you can be scan using Authenticator. If you view the site from the browser on your mobile device, clicking the **Get Credential** button triggers a deep link that opens the authenticator app and does not require the scanning of a QR code.
 
    ![Get credential button](media/get-started-verifiable-credentials/ninjacard-credential.png)
 
@@ -142,7 +140,7 @@ Now that you have completed the issuance portion of the tutorial and you have a 
    ![scan qr code to verify credential](media/get-started-verifiable-credentials/scan-verify.png)
 
   > [!IMPORTANT]
-  > On iOS, it is the top right and on Android it is the bottom right. Scan the QR code and choose.
+  > On iOS, it is the top right and on Android it is the bottom right. Scan the QR code.
 
 6. Choose **Allow** on the new permission request screen in Authenticator. By pressing allow, you are signing a verifiable presentation with your DID (Decentralized Identifier) to prove you in fact control this Verifiable Credential.
 
@@ -150,16 +148,16 @@ Now that you have completed the issuance portion of the tutorial and you have a 
 
     After a successful presentation three things should have been updated:
 
-   - The webpage should now display the attributes of your name "is a Verified Credential Ninja".
+   1. The webpage should now display "Your name" + is a Verified Credential Ninja".
    
     ![congratulations, verify again](media/get-started-verifiable-credentials/congratulations.png)
 
 
-   - Your verifier app terminal should also display the same message from the logs.
+   2. Your verifier app terminal should also display the same message from the logs.
    
     ![application activity in the command prompt](media/get-started-verifiable-credentials/cmd-verified-ninja.png)
 
-   - In Authenticator, there should be an entry for recent activity of this presentation.
+   3. In Authenticator, there should be an entry for recent activity of this presentation.
 
     ![Activity in Authenticator](media/get-started-verifiable-credentials/recent-activity.png)
 

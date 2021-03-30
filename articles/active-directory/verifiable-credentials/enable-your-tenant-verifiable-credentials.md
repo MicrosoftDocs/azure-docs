@@ -17,18 +17,21 @@ ms.reviewer:
 
 # Tutorial: Configure your Azure Active Directory to issue verifiable credentials (Preview)
 
-In this tutorial, we build on the work done as part of the [get started](get-started-verifiable-credentials.md) article and we get your Azure Active Directory (AAD) set up with its own [distributed identifier](https://www.microsoft.com/security/business/identity-access-management/decentralized-identity-blockchain?rtc=1#:~:text=Decentralized%20identity%20is%20a%20trust,protect%20privacy%20and%20secure%20transactions.) (DID). We issue a verifiable credential using the sample app and your issuer. In this tutorial, we still use the sample Azure B2C tenant for authentication.  
+In this tutorial, we build on the work done as part of the [get started](get-started-verifiable-credentials.md) article and set up your Azure Active Directory (AAD) with its own [decentralized identifier](https://www.microsoft.com/security/business/identity-access-management/decentralized-identity-blockchain?rtc=1#:~:text=Decentralized%20identity%20is%20a%20trust,protect%20privacy%20and%20secure%20transactions.) (DID). We use the decentralized identifier to issue a verifiable credential using the sample app and your issuer; however, in this tutorial, we still use the sample Azure B2C tenant for authentication.  In our next tutorial, we will take additional steps to get the app configured to work with your AAD.
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article:
 
 > [!div class="checklist"]
 > * You create the necessary services to onboard your Azure Active Directory (AAD) for verifiable credentials 
+> * We are creating your DID
+> * We are customizing the Rules and Display files
 > * Configure verifiable credentials in AAD.
+
 
 ## Prerequisites
 
@@ -132,7 +135,7 @@ Save this change.
  >[!NOTE]
    > We are not changing the **"configuration"** or the **"client_id"** at this point in the tutorial. We still use the Microsoft B2C tenant we used in the [Get started](get-started-verifiable-credentials.md). We will use your Azure AD in the next tutorial.
 
-3. Open up the MyFirstVC-display.json file in your code editor. 
+3. Open up the MyFirstVC-display.json file in your code editor.
 
 ```json
 {
@@ -224,7 +227,7 @@ Before creating the credential, we need to first give the signed in user the cor
   >[!IMPORTANT]
   >By default, container creators get the **Owner** role assigned. The **Owner** role is not enough on its own. Your account needs  the **Storage Blob Data Reader** role. For more information review [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md)
 
-## Set up verifiable credentials Preview
+## Set up verifiable credentials (Preview)
 
 Now we need to take the last step to set up your tenant for verifiable credentials.
 
@@ -234,7 +237,7 @@ Now we need to take the last step to set up your tenant for verifiable credentia
 4. We need to set up your organization and provide the organization name, domain, and key vault. Let's look at each one of the values.
 
       - **organization name**: This name is how you reference your business within the Verifiable Credential service. This value is not customer facing.
-      - **Domain:** The domain entered is added to a service endpoint in your DID document. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) and other wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet is unable to verify the DID, it informs the user that the credential was issued by an organization it could not validate. The domain is what binds your DID to something tangible that the user may know about your business.
+      - **Domain:** The domain entered is added to a service endpoint in your DID document. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) and other wallets use this information to validate that your DID is [linked to your domain](how-to-dnsbind.md). If the wallet can verify the DID, it displays a verified symbol. If the wallet is unable to verify the DID, it informs the user that the credential was issued by an organization it could not validate. The domain is what binds your DID to something tangible that the user may know about your business.
       - **Key vault:** Provide the name of the Key Vault that we created earlier.
  
    >[!IMPORTANT]
@@ -287,13 +290,13 @@ Now we make modifications to the sample app's issuer code to update it with your
 4. Open a command prompt and open the issuer folder.
 5. Run the updated node app.
 
-    ```cmd
-    node ./app.js
+    ```terminal
+    node app.js
     ```
 
 6. Using a different command prompt run ngrok to set up a URL on 8081
 
-    ```cmd
+    ```terminal
     ngrok http 8081
     ```
     
@@ -334,10 +337,10 @@ We have now issued a verifiable credential using our tenant to generate our vc w
 
 ## Test verifying the VC using the sample app
 
-Now that we've issued the verifiable credential from our own tenant, let's verify it using our Sample app.
+Now that we've issued the verifiable credential from our own tenant, let's verify it using our sample app.
 
 >[!IMPORTANT]
-> When testing, use the same email and password that you used during the [get started](get-started-verifiable-credentials.md) article. You need that information because while you are issuing the vc authentication is still handled by the same B2C tenant that handled authentication while completing the first tutorial.
+> When testing, use the same email and password that you used during the [get started](get-started-verifiable-credentials.md) article. While your tenant is issuing the vc, the input is coming from an id token issued by the Microsoft B2C tenant. In tutorial two, we are switching token issuance to your tenant
 
 1. Open up **Settings** in the verifiable credentials blade in the Azure portal. Copy the Issuer identifier.
 
@@ -345,9 +348,9 @@ Now that we've issued the verifiable credential from our own tenant, let's verif
 
 2. Now open verifier folder part of the sample app files. We need to update the app.js file in the verifier sample code and make the following changes:
 
-    - credential: change to your credential URL
-    - credentialType: 'MyFirstVC'
-    - issuerDid: Copy this value from Azure portal>Verifiable credentials (Preview)>Settings>Decentralized identifier (DID)
+    - **credential**: change to your credential URL
+    - **credentialType**: 'MyFirstVC'
+    - **issuerDid**: Copy this value from Azure portal>Verifiable credentials (Preview)>Settings>Decentralized identifier (DID)
     
    ![update the constant issuerDid to match your issuer identifier](media/enable-your-tenant-verifiable-credentials/editing-verifier.png)
 
@@ -373,15 +376,15 @@ Now that we've issued the verifiable credential from our own tenant, let's verif
 
 6. Open the ngrok url in your browser and scan the QR code using Authenticator in your mobile device.
 7. On your mobile device, choose **Allow** at the **New permission request** screen.
-    ![new permission request](media/enable-your-tenant-verifiable-credentials/new-permission-request.png)
-1. You have no successfully verified your credential.
 
->[!NOTE]
-The Verifier DID is still from the Microsoft Sample App tenant. Since Microsoft's DID has been linked to a domain we own, you do not see the warning like we experienced during the issuance flow. This will be updated in the next section. 
+    >[!NOTE]
+    > The DID signing this VC is still the Microsoft B2C. The Verifier DID is still from the Microsoft Sample App tenant. Since Microsoft's DID has been linked to a domain we own, you do not see the warning like we experienced during the issuance flow. This will be updated in the next section.
+    ![new permission request](media/enable-your-tenant-verifiable-credentials/new-permission-request.png)
+8. You have no successfully verified your credential.
 
 ## Next steps
 
-Now that you have the sample code issuing a VC from your issuer, lets continue to the next section where you use your own identity provider to authenticate users trying to get verifiable credentials.
+Now that you have the sample code issuing a VC from your issuer, lets continue to the next section where you use your own identity provider to authenticate users trying to get verifiable credential and use your DID to sign presentation requests.
 
 > [!div class="nextstepaction"]
 > [Tutorial - Configure your identity provider using the verifiable credentials sample app](tutorial-03-sample-app-your-idp.md)
