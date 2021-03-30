@@ -21,7 +21,7 @@ To onboard a subscription:
 
 1. Select **Onboard subscription**.
 
-1. In the **Onboard subscription** window select your subscription, and the number of committed devices from the drop down menus. 
+1. In the **Onboard subscription** window select your subscription, and the number of committed devices from the drop-down menus. 
 
    :::image type="content" source="media/how-to-manage-subscriptions/onboard-subscription.png" alt-text="select your  subscription and the number of committed devices.":::
 

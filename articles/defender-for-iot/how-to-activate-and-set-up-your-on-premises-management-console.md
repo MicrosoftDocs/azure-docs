@@ -40,7 +40,7 @@ To activate the on-premises management console:
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/take-action.png" alt-text="Select the Take Action link from the alert on the top of the screen.":::
 
-1. In the **Activation** popup screen select the **Azure Portal** link.
+1. In the Activation popup screen, select the **Azure portal** link.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/azure-portal.png" alt-text="Select the Azure portal link from the popup message.":::
  
@@ -110,15 +110,15 @@ After connecting, you must set up a site with these sensors.
 
 You can connect sensors to the on-premises management console from the sensor console:
 
-1. On the on-premises management console select **System Settings**.
+1. On the on-premises management console, select **System Settings**.
 
 1. Copy the **Copy Connection String**.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/connection-string.png" alt-text="Copy the connection string for the sensor.":::
 
-1. On the sensor navigate to **System Settings** and select **Connection to Management Console** :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/connection-to-management-console.png" border="false":::
+1. On the sensor, navigate to **System Settings** and select **Connection to Management Console** :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/connection-to-management-console.png" border="false":::
 
-2. Paste the copied connection string from the on-premises management console into the the **Connection string** field.
+2. Paste the copied connection string from the on-premises management console into the **Connection string** field.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/paste-connection-string.png" alt-text="Paste the copied connection string into the connection string field.":::
 
