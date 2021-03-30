@@ -59,6 +59,10 @@ The following steps enable Azure Firewall to filter traffic using FQDN in networ
 > [!NOTE]
 > These steps only work when the clients and private endpoints are deployed in different virtual networks connected to the same secured virtual hub and for on premises clients. If the clients and private endpoints are deployed in the same virtual network a UDR with /32 routes for the private endpoints must be created. Configure these routes with *Next hop tye* **Virtual appliance** and *Nex hop address* set to the private IP address of the Azure Firewall deployed in the secured virtual hub. *Propagate gateway routes* must be set to **Yes**.
 
+The following diagram illustrates the DNS and data traffic flows for the different clients to connect to a private endpoint deployed in Azure virtual WAN:
+
+:::image type="content" source="./media/private-link-inspection-secure-vhub/privatelink-vwan.png" alt-text="Traffic Flows" border="true":::
+
 ## Troubleshooting
 
 If you are having issues connecting to the private endpoints or there are no log entries in Azure Firewall for the network or application rules configured for the private endpoints, which is an indication that Azure Firewall is being bypassed, it usually is because one of the following:
