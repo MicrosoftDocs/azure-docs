@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 
-# As an IoT solution builder, I want to historize and analyze data from my IoT Plug and Play devices by routing to Time Series Insights.
+# Customer intent: As an IoT solution builder, I want to historize and analyze data from my IoT Plug and Play devices by routing to Time Series Insights.
 ---
 
 # Tutorial: Create and configure a Time Series Insights Gen2 environment
