@@ -32,7 +32,7 @@ The following metrics are visible through Azure Monitor Metrics.
 ## Configure an alert rule
 1. From your Azure VMware Solution private cloud, select **Monitoring** > **Alerts**, and then **New alert rule**.
  
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-new-alert-rule.png" alt-text="Screenshot that shows where to configure an alert rule in your Azure VMware Solution private cloud.":::
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-new-alert-rule.png" alt-text="Screenshot that shows where to configure an alert rule in your Azure VMware Solution private cloud." lightbox="media/configure-alerts-for-azure-vmware-solution/create-new-alert-rule.png":::
 
    A new configuration screen opens where you'll:
    - Define the Scope
@@ -40,7 +40,7 @@ The following metrics are visible through Azure Monitor Metrics.
    - Set up the Action Group
    - Define the Alert rule details
     
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-alert-rule-details.png" alt-text="Screenshot that shows the Create alert rule window.":::
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-alert-rule-details.png" alt-text="Screenshot that shows the Create alert rule window." lightbox="media/configure-alerts-for-azure-vmware-solution/create-alert-rule-details.png":::
 
 1. Under **Scope**, select the target resource you want to monitor. By default, the Azure VMware Solution private cloud from where you opened the Alerts menu has been defined.
 
@@ -56,7 +56,7 @@ The following metrics are visible through Azure Monitor Metrics.
    
    :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/define-alert-logic-threshold.png" alt-text="Screenshot that shows the information for the selected signal logic."::: 
 
-1. Under **Actions**, select **Add action groups**. The action group defines *how* the notification is received and *who* receives it.   You can receive notifications by email, SMS, [Azure Mobile App Push Notification](https://azure.microsoft.com/en-us/features/azure-portal/mobile-app/) or voice message.
+1. Under **Actions**, select **Add action groups**. The action group defines *how* the notification is received and *who* receives it.   You can receive notifications by email, SMS, [Azure Mobile App Push Notification](https://azure.microsoft.com/features/azure-portal/mobile-app/) or voice message.
  
    :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-action-group.png" alt-text="Screenshot that shows the existing action groups and where to create a new action group.":::
 
@@ -76,7 +76,7 @@ The following metrics are visible through Azure Monitor Metrics.
 
    Our example is based on email notification.
 
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-action-group-notification-settings.png" alt-text="Screenshot that shows the email, SMS message, push, and voice settings for the alert.":::     
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-action-group-notification-settings.png" alt-text="Screenshot that shows the email, SMS message, push, and voice settings for the alert." lightbox="media/configure-alerts-for-azure-vmware-solution/create-action-group-notification-settings.png":::     
 
 1. (Optional) Configure the **Actions** if you want to take proactive actions and receive notification on the event. Select an available **Action type** and then select **Review + create**. 
    - Automation Runbooks
@@ -91,20 +91,18 @@ The following metrics are visible through Azure Monitor Metrics.
    
    :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/alert-rule-details.png" alt-text="Screenshot that shows the details for the alert rule."::: 
  
-   The Alert Rule is visible and can be managed from the Azure portal.
+   The alert rule is visible and can be managed from the Azure portal.
 
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/existing-alert-rule.png" alt-text="Screenshot that shows the new alert rule in the Rules window.":::     
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/existing-alert-rule.png" alt-text="Screenshot that shows the new alert rule in the Rules window." lightbox="media/configure-alerts-for-azure-vmware-solution/existing-alert-rule.png":::     
 
    As soon as a metric reaches the threshold as defined in an alert rule, the **Alerts** menu is updated and made visible.
 
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/threshold-alert.png" alt-text="Screenshot that shows the alert after reaching the threshold defined.":::     
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/threshold-alert.png" alt-text="Screenshot that shows the alert after reaching the threshold defined." lightbox="media/configure-alerts-for-azure-vmware-solution/threshold-alert.png":::     
 
    Depending on the configured Action Group, you'll receive a notification through the configured medium. In our example, we've configured email.
     
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/alert-notification.png" alt-text="Screenshot of an Azure Monitor Alert with the error string, and the date and time event was triggered." lightbox="media/configure-alerts-for-azure-vmware-solution/alert-notification.png"::: 
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/alert-notification.png" alt-text="Screenshot of an Azure Monitor Alert with the error string, and the date and time event was triggered."::: 
 
-
- 
 ## Work with metrics
 
 1. From your Azure VMware Solution private cloud, select **Monitoring** > **Metrics**. Then select the metric you want from the drop-down.
