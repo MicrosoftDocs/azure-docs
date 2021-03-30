@@ -59,30 +59,3 @@ The public key infrastructure required to verify Verifiable Credentials is provi
  ![jwt decoded for readability](media/verifiable-credentials-overview/ecosystem-detailed.png)
 
 Each issuer, subject, and verifier creates a unique identifier, and associates a set of public keys to their identifier. The issuer's public keys are made publicly available, so that any verifier can validate Verifiable Credentials produced by the issuer.
-
-
-
-
-
-
-
-
-
-What are the components of a verifiable credentials?
-- Verifiable Credential Issuer and verifier service
-- 
-- VC SDK
-- Authenticator (iOS and Android)
-- ION
-
-What is a verifiable credential?
-What is a DID?
-
-"decentralized identifier = A portable URL-based identifier, also known as a DID, associated with an entity. These identifiers are most often used in a verifiable credential and are associated with subjects such that a verifiable credential itself can be easily ported from one repository to another without the need to reissue the credential. An example of a DID is did:example:123456abcdef." From https://www.w3.org/TR/vc-data-model/#:~:text=A%20portable%20URL%2Dbased%20identifier,need%20to%20reissue%20the%20credential. 
-
-How do verifiable credentials work?
-What makes up the overall ‘solution’? 
-What are the use cases and requirements?
-What is the problem that this is trying to solve?
-How do you make PII available to entities when needed while remaining in control of it? (medical, educational, employment?)
-What are the overall benefits? security benefits? Privacy benefits?
