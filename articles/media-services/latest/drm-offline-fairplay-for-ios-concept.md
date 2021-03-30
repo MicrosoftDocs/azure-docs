@@ -41,8 +41,8 @@ Before you implement offline DRM for FairPlay on an iOS 10+ device:
 
 * Review online content protection for FairPlay: 
 
-    - [Apple FairPlay license requirements and configuration](fairplay-license-overview.md)
-    - [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)
+    - [Apple FairPlay license requirements and configuration](drm-fairplay-license-overview.md)
+    - [Use DRM dynamic encryption and license delivery service](drm-protect-with-drm-tutorial.md)
     - A .NET sample that includes configuration of online FPS streaming: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
 * Obtain the FPS SDK from the Apple Developer Network. The FPS SDK contains two components:
 
@@ -178,7 +178,7 @@ For the final integrated test, both the video URL and the application certificat
 
 In HLSCatalog\Shared\Resources\Streams.plist, add your test video URL. For the content key ID, use the FairPlay license acquisition URL with the skd protocol as the unique value.
 
-![Offline FairPlay iOS App Streams](media/offline-fairplay-for-ios/offline-fairplay-ios-app-streams.png)
+![Offline FairPlay iOS App Streams](media/drm-offline-fairplay-for-ios-concept/offline-fairplay-ios-app-streams.png)
 
 Use your own test video URL, FairPlay license acquisition URL, and application certificate URL, if you have them set up. Or you can continue to the next section, which contains test samples.
 
