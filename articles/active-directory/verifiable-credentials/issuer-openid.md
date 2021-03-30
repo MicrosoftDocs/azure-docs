@@ -15,20 +15,14 @@ ms.author: barclayn
 
 # Issuer service communication examples
 
-Updated: June 23, 2020
-
-
-The Verifiable Credential issuer service transforms security tokens output by your organization's OpenID compliant identity provider. This article instructs you on how to set up your identity provider to communicate with the issuer service.
+The Verifiable Credential issuer service can issue Verifiable Credentials by retrieving claims from an ID token output by your organization's OpenID compliant identity provider. This article instructs you on how to set up your identity provider so Authenticator can communicate with the identity provider and retrieve the correct ID Token to pass to the issuing service. 
 
 > [!IMPORTANT]
 > Azure Verifiable Credentials is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 
-To issue a Verifiable Credential, you must allow the verifiable credential issuer service to federate with your identity provider using the OpenID Connect protocol. The claims in the resulting ID token are used to populate the contents of your Verifiable Credential.
-
-When a request to issue a credential is received, the issuer service will federate to your identity provider to authenticate the user using the OpenID Connect authorization code flow. Your OpenID provider must support the following OpenID Connect features:
+To issue a Verifiable Credential, Authenticator is instructed through downloading the contract to gather input from the user and send that information to the issuing service. If you need to use an ID Token, you have to setup your identity provider to allow Authenticator to sign in a user using the OpenID Connect protocol. The claims in the resulting ID token are used to populate the contents of your Verifiable Credential. Authenticator authenticate the user using the OpenID Connect authorization code flow. Your OpenID provider must support the following OpenID Connect features: 
 
 | Feature | Description |
 | ------- | ----------- |
@@ -36,23 +30,25 @@ When a request to issue a credential is received, the issuer service will federa
 | Token format | Must produce unencrypted compact JWTs. |
 | Signature algorithm | Must produce JWTs signed using RSA 256. |
 | Configuration document | Must support OpenID Connect configuration document and `jwks_uri`. | 
-| Client registration | Must support public client registration using a `redirect_uri` value of `portableidentity://verify`. | 
+| Client registration | Must support public client registration using a `redirect_uri` value of `vclient://openid/`. | 
 | PKCE | Recommended for security reasons, but not required. |
 
 Examples of the HTTP requests sent to your identity provider are provided below. Your identity provider must accept and respond to these requests in accordance with the OpenID Connect authentication standard.
 
 ## Client registration
 
-To receive the Verifiable Credential, your users will need to sign into your IDP from the Microsoft Authenticator app and accept permissions for the Verifiable Credential service.
+To receive the Verifiable Credential, your users will need to sign into your IDP from the Microsoft Authenticator app. 
 
-To enable this exchange, register the Verifiable Credential service with your identity provider as a client application. If you are using Azure AD, you can find the instructions [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Use the following values when registering.
+To enable this exchange, register an application with your identity provider. If you are using Azure AD, you can find the instructions [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Use the following values when registering.
 
 | Setting | Value |
 | ------- | ----- |
 | Application name | `<Issuer Name> Verifiable Credential Service` |
-| Redirect URI | `portableidentity://verify` |
+| Redirect URI | `vcclient://openid/ ` |
 
-Record the client ID for the application you register with your identity provider. You'll use it in the section that follows.
+Record the client ID for the application you register with your identity provider. You will use it in the section that follows. You also need to write down the URL to the well-known endpoint for the OIDC compatible identity provider. The Issuing Service will use this to download the public keys to be able to validate the ID token once it’s sent by Authenticator. 
+
+The configured redirect URI is used by Authenticator so it knows when the sign in is completed and it can retrieve the ID token. 
 
 ## Authorization request
 
@@ -67,17 +63,19 @@ Connection: Keep-Alive
 | Parameter | Value |
 | ------- | ----------- |
 | `client_id` | The client ID obtained during the application registration process. |
-| `redirect_uri` | Must use `portableidentity://verify`. |
+| `redirect_uri` | Must use `vcclient://openid/`. |
 | `response_mode` | Must support `query`. |
 | `response_type` | Must support `code`. |
 | `scope` | Must support `openid`. |
 | `state` | Must be returned to the client according to the OpenID Connect standard. |
 | `nonce` | Must be returned as a claim in the ID token according to the OpenID Connect standard. |
 
-When it receives an authorization request, your identity provider should authenticate the user and perform any steps that must occur before a verifiable credential is issued. You may customize the credential issuance process to meet your needs. You may ask the user to provide additional information, accept terms of service, pay for their credential, and more. Once all steps have been completed, respond to the authorization request by redirecting to the redirect URI as follows.
+When it receives an authorization request, your identity provider should authenticate the user and take any steps that must occur to sign in (like MFA etc). 
+
+You may customize the sign in process to meet your needs. You may ask the user to provide additional information, accept terms of service, pay for their credential, and more. Once all steps have been completed, respond to the authorization request by redirecting to the redirect URI as follows. 
 
 ```HTTP
-portableidentity://verify?code=nbafhjbh1ub1yhbj1h4jr1&state=12345
+vcclient://openid/?code=nbafhjbh1ub1yhbj1h4jr1&state=12345
 ```
 
 | Parameter | Value |
@@ -95,13 +93,13 @@ Host: www.contoso.com
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 291
 
-client_id=<client-id>&redirect_uri=portableidentity%3A%2F%2Fverify&grant_type=authorization_code&code=nbafhjbh1ub1yhbj1h4jr1&scope=openid
+client_id=<client-id>&redirect_uri=vcclient%3A%2F%2Fopenid%2F&grant_type=authorization_code&code=nbafhjbh1ub1yhbj1h4jr1&scope=openid
 ```
 
 | Parameter | Value |
 | ------- | ----------- |
 | `client_id` | The client ID obtained during the application registration process. |
-| `redirect_uri` | Must use `portableidentity://verify`. |
+| `redirect_uri` | Must use `vcclient://openid/`. |
 | `scope` | Must support `openid`. |
 | `grant_type` | Must support `authorization_code`. |
 | `code` | The authorization code returned by your identity provider. |
