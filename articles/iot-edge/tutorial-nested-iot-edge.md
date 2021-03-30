@@ -235,7 +235,7 @@ On your **top layer device**, expect to see an output with several passing evalu
 
 A sample output of the `iotedge check` is shown below:
 
-[Sample configuration and connectivity results](./media/tutorial-nested-iot-edge/configuration-and-connectivity-check-results.png)
+![Sample configuration and connectivity results](./media/tutorial-nested-iot-edge/configuration-and-connectivity-check-results.png)
 
 Once you are satisfied your configurations are correct on each device, you are ready to proceed.
 
