@@ -36,8 +36,8 @@ ms.reviewer:
 | MAXDOP | Behavior | 
 |--|--|
 | = 1 | The database engine does not execute queries using multiple concurrent threads. | 
-| > 1 | The database engine sets an upper boundary for the number of parallel threads for query execution. The database engine chooses the number of extra worker threads to use in parallel. |
-| = 0 | The database engine can use a number of parallel threads with an upper boundary based on underlying processor capability. The database engine chooses the number of parallel threads to use.| 
+| > 1 | The database engine sets an upper boundary for the number of parallel threads. The database engine chooses the number of extra worker threads to use. The total number of worker threads used to execute a query may be higher than specified MAXDOP value. |
+| = 0 | The database engine can use a number of parallel threads with an upper boundary dependent on the total number of logical processors. The database engine chooses the number of parallel threads to use.| 
 | | |
   
 ##  <a name="Considerations"></a> Considerations  
@@ -66,7 +66,7 @@ ms.reviewer:
 
   We recommend that customers avoid MAXDOP 0 even if it does not appear to cause problems currently. Excessive parallelism becomes most problematic when the CPU and worker threads are receiving more concurrent requests than can be supported by the service objective. Avoid MAXDOP 0 to reduce the risk of potential future problems due to excessive parallelism if a database is scaled up, or if future hardware generations in Azure SQL Database provide more cores for the same database service objective.
 
-### Non-default MAXDOP 
+### Modifying MAXDOP 
 
   If you determine that a different MAXDOP setting is optimal for your Azure SQL Database workload, you can use the `ALTER DATABASE SCOPED CONFIGURATION` T-SQL statement. For examples, see the [Examples using Transact-SQL](#examples) section below. Add this step to the deployment process to change MAXDOP after database creation.
 
@@ -74,7 +74,7 @@ ms.reviewer:
 
   Thoroughly test your MAXDOP configuration changes with load testing involving realistic concurrent query loads. 
 
-  The MAXDOP for the primary and secondary replicas for Azure SQL Database [read scale-out](read-scale-out.md) can be configured independently to take advantage of different optimal MAXDOP settings for read-write and read-only workloads.  
+  The MAXDOP for the primary and secondary replicas can be configured independently to take advantage of different optimal MAXDOP settings for read-write and read-only workloads. This applies to Azure SQL Database [read scale-out](read-scale-out.md), [geo-replication](active-geo-replication-overview.md), and [Azure SQL Database Hyperscale secondary replicas](service-tier-hyperscale.md). By default, all secondary replicas inherit the MAXDOP configuration of the primary replica.
 
 ## <a name="Security"></a> Security  
   
@@ -87,7 +87,7 @@ ms.reviewer:
 
 ### PowerShell
 
-#### To configure the MAXDOP database scoped configuration   
+#### MAXDOP database scoped configuration   
 
   This example shows how to use [ALTER DATABASE SCOPED CONFIGURATION](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) statement to configure the `max degree of parallelism` option to `2`. The setting takes effect immediately. The PowerShell cmdlet [Invoke-SqlCmd](/powershell/module/sqlserver/invoke-sqlcmd) executes the T-SQL queries to set and the return the MAXDOP database scoped configuration. 
 
@@ -105,16 +105,14 @@ $params = @{
     'password' = $serveradminPassword
     'outputSqlErrors' = $true
     'query' = 'ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = ' + $desiredMAXDOP + ';
-     SELECT value FROM sys.database_scoped_configurations WHERE name = ''MAXDOP'';'
+     SELECT [value] FROM sys.database_scoped_configurations WHERE [name] = ''MAXDOP'';'
   }
   Invoke-SqlCmd @params
 ```
 
-This example is for use with Azure SQL Databases with [read scale-out replicas enabled](read-scale-out.md). As an example, the primary replica is set to a different default MAXDOP as the secondary replica, anticipating that there may be differences between a read-write and a read-only workload.
+This example is for use with Azure SQL Databases with [read scale-out replicas enabled](read-scale-out.md), [geo-replication](active-geo-replication-overview.md), and [Azure SQL Database hyperscale secondary replicas](service-tier-hyperscale.md). As an example, the primary replica is set to a different default MAXDOP as the secondary replica, anticipating that there may be differences between a read-write and a read-only workload.
 
 ```powershell
-#Connect-AzAccount
-#set-azcontext -subscriptionname "SQL Content Team"
 $dbName = "sample" 
 $serverName = <server name here>
 $serveradminLogin = <login here>
@@ -130,7 +128,7 @@ $params = @{
     'outputSqlErrors' = $true
     'query' = 'ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = ' + $desiredMAXDOP + ';
     ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET MAXDOP = ' + $desiredMAXDOP_secondary_readonly + ';
-    SELECT value, value_for_secondary FROM sys.database_scoped_configurations WHERE name = ''MAXDOP'';'
+    SELECT [value], value_for_secondary FROM sys.database_scoped_configurations WHERE [name] = ''MAXDOP'';'
   }
   Invoke-SqlCmd @params
 ```
@@ -146,31 +144,29 @@ $params = @{
 3.  Copy and paste the following example into the query window and select **Execute**. 
 
 
-#### To determine the current MAXDOP database scoped configuration
+#### MAXDOP database scoped configuration
 
   This example shows how to determine the current database MAXDOP database scoped configuration using the [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql) system catalog view.
 
 ```sql
-SELECT value FROM sys.database_scoped_configurations WHERE name = 'MAXDOP';
+SELECT [value] FROM sys.database_scoped_configurations WHERE [name] = 'MAXDOP';
 ```
 
-#### To configure the MAXDOP database scoped configuration   
-
-  This example shows how to use [ALTER DATABASE SCOPED CONFIGURATION](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) statement to configure the `max degree of parallelism` option to `2`. The setting takes effect immediately.  
+  This example shows how to use [ALTER DATABASE SCOPED CONFIGURATION](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) statement to configure the `max degree of parallelism` option to `8`. The setting takes effect immediately.  
   
 ```sql  
-ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 2;
+ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 8;
 ```  
 
-This example is for use with Azure SQL Databases with [read scale-out replicas enabled](read-scale-out.md). As an example, the primary replica is set to a different default MAXDOP as the secondary replica, anticipating that there may be differences between a read-write and a read-only workload. The `value_for_secondary` column of the `sys.database_scoped_configurations` contains settings for the secondary replica.
+This example is for use with Azure SQL Databases with [read scale-out replicas enabled](read-scale-out.md), [geo-replication](active-geo-replication-overview.md), and [Azure SQL Database Hyperscale secondary replicas](service-tier-hyperscale.md). As an example, the primary replica is set to a different default MAXDOP as the secondary replica, anticipating that there may be differences between a read-write and a read-only workload. The `value_for_secondary` column of the `sys.database_scoped_configurations` contains settings for the secondary replica.
 
 ```sql
-ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 2;
+ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 8;
 ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET MAXDOP = 1;
-SELECT value, value_for_secondary FROM sys.database_scoped_configurations WHERE name = 'MAXDOP';
+SELECT [value], value_for_secondary FROM sys.database_scoped_configurations WHERE [name] = 'MAXDOP';
 ```
 
-#### To use the MAXDOP query hint
+#### MAXDOP query hint
 
   This example shows how to execute a query using the query hint to force the `max degree of parallelism` to `2`.  
 
@@ -183,9 +179,9 @@ ORDER BY ProductID, OrderQty
 OPTION (MAXDOP 2);    
 GO
 ```
-#### To use the MAXDOP index option
+#### MAXDOP index option
 
-  This example shows how to rebuild an index using the index option to force the `max degree of parallelism` to `0`.  
+  This example shows how to rebuild an index using the index option to force the `max degree of parallelism` to `12`.  
 
 ```sql 
 ALTER INDEX ALL ON SalesLT.SalesOrderDetail 
