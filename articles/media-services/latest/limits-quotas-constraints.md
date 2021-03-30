@@ -100,7 +100,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 
 | Resource | Default Limit |
 | --- | --- |
-| Options per [Content Key Policy](content-key-policy-concept.md) |30 |
+| Options per [Content Key Policy](drm-content-key-policy-concept.md) |30 |
 | Licenses per month for each of the DRM types on Media Services key delivery service per account|1,000,000|
 
 ## Support ticket

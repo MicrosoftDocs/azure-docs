@@ -26,7 +26,7 @@ When creating a **Streaming Locator**, you must specify an **Asset** name and a 
 
 * [Assets](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md)
-* [Content Key Policies](content-key-policy-concept.md)
+* [Content Key Policies](drm-content-key-policy-concept.md)
 
 You can also specify the start and end time on your Streaming Locator, which will only let your user play the content between these times (for example, between 5/1/2019 to 5/5/2019).  
 
@@ -100,7 +100,7 @@ To get Streaming Locators based on the associated Asset name, use the following 
 
 * [Assets](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md)
-* [Content Key Policies](content-key-policy-concept.md)
+* [Content Key Policies](drm-content-key-policy-concept.md)
 * [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
 
 ## Next steps

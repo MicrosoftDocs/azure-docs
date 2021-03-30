@@ -5,7 +5,7 @@ services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
 manager: kumudD
-Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
+# Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid:
 ms.service: load-balancer
 ms.devlang: azurecli

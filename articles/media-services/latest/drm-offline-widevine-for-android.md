@@ -42,7 +42,7 @@ Before implementing offline DRM for Widevine on Android devices, you should firs
 
 - Become familiar with the concepts introduced for online content protection using Widevine DRM. This is covered in detail in the following documents/samples:
     - [Design of a multi-DRM content protection system with access control](architecture-design-multi-drm-system.md)
-    - [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)
+    - [Use DRM dynamic encryption and license delivery service](drm-protect-with-drm-tutorial.md)
 - Clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git.
 
     You will need to modify the code in [Encrypt with DRM using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) to add Widevine configurations.  
@@ -86,7 +86,7 @@ In the [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media
 
 ## Enable offline mode
 
-To enable **offline** mode for Widevine licenses, you need to configure [Widevine license template](widevine-license-template-overview.md). In the **policy_overrides** object, set the **can_persist** property to **true** (default is false), as shown in [ConfigureWidevineLicenseTempate](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563). 
+To enable **offline** mode for Widevine licenses, you need to configure [Widevine license template](drm-widevine-license-template-concept.md). In the **policy_overrides** object, set the **can_persist** property to **true** (default is false), as shown in [ConfigureWidevineLicenseTempate](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563). 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#ConfigureWidevineLicenseTempate)]
 
@@ -113,7 +113,7 @@ Developers should reference the [ExoPlayer Developer Guide](https://google.githu
 
 ### Working with older Android devices
 
-For some older Android devices, you must set values for the following **policy_overrides** properties (defined in [Widevine license template](widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**, and **license_duration_seconds**. Alternatively, you can set them to zero, which means infinite/unlimited duration.  
+For some older Android devices, you must set values for the following **policy_overrides** properties (defined in [Widevine license template](drm-widevine-license-template-concept.md): **rental_duration_seconds**, **playback_duration_seconds**, and **license_duration_seconds**. Alternatively, you can set them to zero, which means infinite/unlimited duration.  
 
 The values must be set to avoid an integer overflow bug. For more explanation about the issue, see https://github.com/google/ExoPlayer/issues/3150 and https://github.com/google/ExoPlayer/issues/3112. <br/>If you do not set the values explicitly, very large values for  **PlaybackDurationRemaining** and **LicenseDurationRemaining** will be assigned, (for example, 9223372036854775807, which is the maximum positive value for a 64-bit integer). As a result, the Widevine license appears expired and hence the decryption will not happen. 
 
