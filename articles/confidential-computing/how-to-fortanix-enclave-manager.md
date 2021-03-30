@@ -29,7 +29,7 @@ This tutorial shows you how to convert your application image to a confidential 
 
 ## Prerequisites
 
-1. If you don't have a Fortanix Confidential Computing Manager account, [sign-up](https://em.fortanix.com/auth/sign-up) before you begin.
+1. If you don't have a Fortanix Confidential Computing Manager account, [sign-up](https://ccm.fortanix.com/auth/sign-up) before you begin.
 1. A private [Docker](https://docs.docker.com/) registry to push converted application images.
 1. If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin.
 
@@ -37,10 +37,10 @@ This tutorial shows you how to convert your application image to a confidential 
 > Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
 
 ## Add an application to Fortanix Confidential Computing Manager
-1. Sign in to [Fortanix Confidential Computing Manager (Fortanix EM)](https://em.fortanix.com)
+1. Sign in to [Fortanix Confidential Computing Manager (Fortanix CCM)](https://ccm.fortanix.com)
 1. Navigate to the **Accounts** page and select **ADD ACCOUNT** to create a new account.
 
-![Create an account](media/how-to-fortanix-enclave-manager/create-account.png)
+![Create an account](media/how-to-fortanix-enclave-manager/create-account-new.png)
 
 1. After your account is created, hit **SELECT** to select the newly created account. Now we can start enrolling the compute nodes and creating applications.
 1. Select the **+ APPLICATION** button to add an application. In this example, we'll be adding a Flask Server Enclave OS application.
@@ -145,7 +145,7 @@ where,
 - *fortanix-private/python-flask-sgx* is the converted app that can be found in the Images tab under the **Image Name** column in the **Images** table in the Fortanix Confidential Computing Manager Web Portal.
 
 ## Verify and monitor the running application
-1. Head back to the [Fortanix Confidential Computing Manager](https://em.fortanix.com/console)
+1. Head back to the [Fortanix Confidential Computing Manager](https://ccm.fortanix.com/console)
 1. Ensure you're working inside the **Account** where you enrolled the node
 1. Navigate to the **Management Console** by selecting the top icon on the left navigation pane.
 1. Select the **Application** tab
@@ -158,7 +158,7 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 
 Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
 
-To delete the Fortanix Confidential Computing Manager Account you created, go the [Accounts Page](https://em.fortanix.com/accounts) in the Fortanix Confidential Computing Manager. Hover over the account you wish to delete. Select the vertical black dots in the upper right-hand corner and select **Delete Account**.
+To delete the Fortanix Confidential Computing Manager Account you created, go the [Accounts Page](https://ccm.fortanix.com/accounts) in the Fortanix Confidential Computing Manager. Hover over the account you wish to delete. Select the vertical black dots in the upper right-hand corner and select **Delete Account**.
 
   ![delete](media/how-to-fortanix-enclave-manager/delete-account.png)
 
