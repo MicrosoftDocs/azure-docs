@@ -117,6 +117,17 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
     .buildClient();
 ```
 
+If you have managed identity set up, see [Use managed identities](../managed-identity.md), you may also authenticate with managed identity.
+```java
+String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+TokenCredential credential = new DefaultAzureCredentialBuilder().build();
+
+CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
+        .endpoint(endpoint)
+        .credential(credential)
+        .buildClient();
+```
+
 ## Create an identity
 
 Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.

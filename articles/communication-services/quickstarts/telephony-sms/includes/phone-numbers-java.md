@@ -24,7 +24,7 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>
-    <version>1.0.0-beta.6</version>
+    <version>1.0.0-beta.7</version>
 </dependency>
 
 <dependency>
@@ -132,14 +132,14 @@ System.out.println("Purchase phone numbers operation is: " + purchaseResponse.ge
 
 After a purchasing number, you can retrieve it from the client.
 ```java
-AcquiredPhoneNumber phoneNumber = phoneNumberClient.getPhoneNumber("+14255550123");
+PurchasedPhoneNumber phoneNumber = phoneNumberClient.getPurchasedPhoneNumber("+14255550123");
 System.out.println("Phone Number Country Code: " + phoneNumber.getCountryCode());
 ```
 
 You can also retrieve all the purchased phone numbers.
 ``` java
-PagedIterable<AcquiredPhoneNumber> phoneNumbers = createPhoneNumberClient().listPhoneNumbers(Context.NONE);
-AcquiredPhoneNumber phoneNumber = phoneNumbers.iterator().next();
+PagedIterable<PurchasedPhoneNumber> phoneNumbers = phoneNumberClient.listPurchasedPhoneNumbers(Context.NONE);
+PurchasedPhoneNumber phoneNumber = phoneNumbers.iterator().next();
 System.out.println("Phone Number Country Code: " + phoneNumber.getCountryCode());
 ```
 
@@ -147,14 +147,14 @@ System.out.println("Phone Number Country Code: " + phoneNumber.getCountryCode())
 
 With a purchased number, you can update the capabilities.
 ```java
-PhoneNumberCapabilitiesRequest capabilitiesRequest = new PhoneNumberCapabilitiesRequest();
-capabilitiesRequest
+PhoneNumberCapabilities capabilities = new PhoneNumberCapabilities();
+capabilities
     .setCalling(PhoneNumberCapabilityType.INBOUND)
-    .setSms(PhoneNumberCapabilityType.INBOUND);
-AcquiredPhoneNumber phoneNumber = phoneNumberClient.beginUpdatePhoneNumberCapabilities("+18001234567", capabilitiesRequest, Context.NONE).getFinalResult();
+    .setSms(PhoneNumberCapabilityType.INBOUND_OUTBOUND);
+PurchasedPhoneNumber phoneNumber = phoneNumberClient.beginUpdatePhoneNumberCapabilities("+14255550123", capabilities, Context.NONE).getFinalResult();
 
-System.out.println("Phone Number Calling capabilities: " + phoneNumber.getCapabilities().getCalling());
-System.out.println("Phone Number SMS capabilities: " + phoneNumber.getCapabilities().getSms());
+System.out.println("Phone Number Calling capabilities: " + phoneNumber.getCapabilities().getCalling()); //Phone Number Calling capabilities: inbound
+System.out.println("Phone Number SMS capabilities: " + phoneNumber.getCapabilities().getSms()); //Phone Number SMS capabilities: inbound+outbound
 ```
 
 ### Release Phone Number
@@ -162,7 +162,7 @@ System.out.println("Phone Number SMS capabilities: " + phoneNumber.getCapabiliti
 You can release a purchased phone number.
 ```java
 PollResponse<PhoneNumberOperation> releaseResponse =
-    phoneNumberClient.beginReleasePhoneNumber("+18001234567", Context.NONE).waitForCompletion();
+    phoneNumberClient.beginReleasePhoneNumber("+14255550123", Context.NONE).waitForCompletion();
 System.out.println("Release phone number operation is: " + releaseResponse.getStatus());
 ```
 
