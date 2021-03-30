@@ -5,13 +5,19 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.date: 03/30/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 # How to set up Azure IoT Hub to deploy over the air updates to your Azure Percept DK
 
 Keep your Azure Percept DK secure and up to date using over-the-air updates. In a few simple steps, you will be able to set up your Azure environment with Device Update for IoT Hub and deploy the latest updates to your Azure Percept DK.
+
+## Prerequisites
+
+- Azure Percept DK (devkit)
+- [Azure subscription](https://azure.microsoft.com/free/)
+- [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md): you connected your dev kit to a Wi-Fi network, created an IoT Hub, and connected your dev kit to the IoT Hub
 
 ## Create a Device Update Account
 
@@ -23,7 +29,7 @@ Keep your Azure Percept DK secure and up to date using over-the-air updates. In 
 
 1. Click the **+Add** button in the upper-left portion of the page.
 
-1. Select the Azure Subscription and Resource Group associated with your Azure Percept device and its IoT Hub.
+1. Select the **Azure Subscription** and **Resource Group** associated with your Azure Percept device and its IoT Hub.
 
 1. Specify a **Name** and **Location** for your Device Update Account.
 
@@ -32,8 +38,6 @@ Keep your Azure Percept DK secure and up to date using over-the-air updates. In 
 1. Once deployment is complete, click **Go to resource**.
 
 ## Create a Device Update Instance
-
-Now, create an instance within your Device Update for IoT Hub account.
 
 1. In your Device Update for IoT Hub resource, click **Instances** under **Instance Management**.
 
@@ -53,15 +57,15 @@ Now, create an instance within your Device Update for IoT Hub account.
 
 The final step will enable you to grant permissions to users to publish and deploy updates.
 
-1. In your Device Update for IoT Hub resource, click **Access control (IAM)**
+1. In your Device Update for IoT Hub resource, click **Access control (IAM)**.
 
-1. Click **+Add** and then select **Add role assignment**
+1. Click **+Add** and then select **Add role assignment**.
 
-1. For **Role**, select **Device Update Administrator**. For **Assign access to** select **User, group, or service principle**. For **Select** select your account or the account of the person who will be deploying updates. Then, click **Save**. 
+1. For **Role**, select **Device Update Administrator**. For **Assign access to** select **User, group, or service principle**. For **Select**, select your account or the account of the person who will be deploying updates. Click **Save**.
 
 > [!TIP]
 > If you would like to give more people in your organization access, you can repeat this step and make each of these users a **Device Update Administrator**.
 
 ## Next steps
 
-You are now set and can [update your Azure Percept dev kit over-the-air](./how-to-update-over-the-air.md) using Device Update for IoT Hub. Navigate to the Azure IoT Hub that you are using for your Azure Percept device.
+You are now ready to [update your Azure Percept dev kit over-the-air](./how-to-update-over-the-air.md) using Device Update for IoT Hub.
