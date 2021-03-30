@@ -131,7 +131,7 @@ For more information, see the [Tracking Azure customer usage with GUIDs FAQ](azu
 
 ## Create a billing profile
 
-If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](../partner-center-portal/create-new-customer-engagement-offer.md) or [Dynamics 365 for Operations](../partner-center-portal/create-new-operations-offer.md) offer, you need to complete your **billing profile**.
+If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](./partner-center-portal/create-new-customer-engagement-offer.md) or [Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md) offer, you need to complete your **billing profile**.
 
 The billing address is pre-populated from your legal entity, and you can update this address later. The TAX and VAT ID fields are optional.  The country/region name and company name cannot be edited.
 
@@ -167,7 +167,7 @@ To add users to your Partner Center account that already exist in your company's
 
 ### Create new users
 
-To create brand new user accounts, you must have an account with [**Global administrator**](azure/active-directory/roles/permissions-reference.md) permissions.
+To create brand new user accounts, you must have an account with [**Global administrator**](/azure/active-directory/roles/permissions-reference) permissions.
 
 1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Create new users**.
 1. Enter a first name, last name, and username for each new user. 

@@ -1,6 +1,6 @@
 ---
 title: Manage groups
-description: Learn how to add new publishers to the commercial marketplace program for a Microsoft commercial marketplace account in Partner Center.
+description: Learn how to manage groups in the commercial marketplace program in Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
