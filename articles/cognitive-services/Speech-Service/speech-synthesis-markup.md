@@ -313,6 +313,7 @@ Use this table to determine which speaking styles are supported for each neural 
 |                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
 
 Use this table to determine which roles are supported for each neural voice.
+
 |Role                     |	Description                |
 |-------------------------|----------------------------|
 |`role="Girl"`            |	The voice imitates to a girl. |
