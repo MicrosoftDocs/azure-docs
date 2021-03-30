@@ -312,7 +312,7 @@ Use this table to determine which speaking styles are supported for each neural 
 |                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
 |                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
 
-Use this table to determine which roles are supported for each neural voice.
+Use this table to check the supported roles and their definitions.
 
 |Role                     |	Description                |
 |-------------------------|----------------------------|
