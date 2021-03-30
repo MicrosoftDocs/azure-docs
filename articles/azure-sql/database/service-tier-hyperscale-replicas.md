@@ -51,8 +51,8 @@ A named replica, just like an HA replica, uses the same page servers as the prim
 
 The main goal of named replicas is to allow massive OLTP read scale-out scenario and to improve Hybrid Transactional and Analytical Processing (HTAP) workloads. Examples of how to create such solutions are available here:
 
-- [OLTP massive scale-out sample](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout)
-- [HTAP sample](https://github.com/Azure-Samples/azure-sql-db-named-replica-htap)
+- [OLTP scale-out sample](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout)
+- [HTAP scale-out sample](https://github.com/Azure-Samples/azure-sql-db-named-replica-htap)
 
 Aside from the main scenarios listed above, named replicas offer flexibility and elasticity to also satisfy many other use cases:
 - Access Isolation: grant a login access to a named replica only and deny it from accessing the primary replica or other named replicas.
@@ -87,7 +87,7 @@ Just like for HA replicas, even though the primary, HA, and named replicas share
 
 ### Modifying a named replica
 
-You can define the service level objective of a named replica when you create it, via the ALTER DATABASE command or in any other supported way. If you need to change the service level objective after the named replica has been created, you can do it using the regular ALTER DATABASE…MODIFY command on the named replica itself. For example, if "WideWorldImporters01" is the named replica of "WideWorldImporters" database, you can do it as shown below (it will take up to a minute max).
+You can define the service level objective of a named replica when you create it, via the `ALTER DATABASE` command or in any other supported way. If you need to change the service level objective after the named replica has been created, you can do it using the regular `ALTER DATABASE…MODIFY` command on the named replica itself. For example, if "WideWorldImporters01" is the named replica of "WideWorldImporters" database, you can do it as shown below (it will take up to a minute max).
 
 # [T-SQL](#tab/tsql)
 ```tsql
@@ -128,7 +128,7 @@ az sql db delete -g SampleResourceGroup -s WideWorldImporterServer -n WideWorldI
 No, named replicas cannot be used as failover targets. Use HA replicas for that purpose.
 
 #### How can I distribute the read-only workload across my named replicas?
-Since every named replica may have a different service level objective and thus be used for different use cases, there is no built-in way to direct read-only traffic sent to the primary to the related named replicas. For example, you may have 8 named replicas, and you may want to direct OLTP workload only to named replicas 1 to 4, while all the Power BI analytical workloads will use named replicas 5 and 6 and the data science workload will use replica 7 and 8. Depending on which tool or programming language you use, strategies to distribute such workload may vary. One example of creating a workload routing solution to allow a REST backend to scale out is here: [Link to OLTP massive scale-out sample]
+Since every named replica may have a different service level objective and thus be used for different use cases, there is no built-in way to direct read-only traffic sent to the primary to the related named replicas. For example, you may have 8 named replicas, and you may want to direct OLTP workload only to named replicas 1 to 4, while all the Power BI analytical workloads will use named replicas 5 and 6 and the data science workload will use replica 7 and 8. Depending on which tool or programming language you use, strategies to distribute such workload may vary. One example of creating a workload routing solution to allow a REST backend to scale out is here: [OLTP scale-out sample]((https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout))
 
 #### Can a named replica be a region different from the region of the primary replica?
 No, as named replicas use the same page servers of the primary replica, they must be in the same region.
