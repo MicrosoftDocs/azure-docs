@@ -34,7 +34,7 @@ For general information on how to manage your experiments, see [Start, monitor, 
 
 ## Monitor runs using the Jupyter notebook widget
 
-When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run using the [Jupyter widget](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
+When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run using the [Jupyter widget](/python/api/azureml-widgets/azureml.widgets). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
 
 View the Jupyter widget while waiting for the run to complete.
     
@@ -105,15 +105,16 @@ You can also edit the run list table to select multiple runs and display either 
 
 ![Run details in the Azure Machine Learning studio](media/how-to-track-experiments/experimentation-tab.gif)
 
-### View log files for a run 
+### View and download log files for a run 
 
 Log files are an essential resource for debugging the Azure ML workloads. Drill down to a specific run to view its logs and outputs:  
 
 1. Navigate to the **Experiments** tab.
 1. Select the runID for a specific run.
 1. Select **Outputs and logs** at the top of the page.
+2. Select **Download all** to download all your logs into a zip folder.
 
-:::image type="content" source="media/how-to-monitor-view-training-logs/view-logs.png" alt-text="Screenshot of Output and logs section of a run":::
+:::image type="content" source="media/how-to-monitor-view-training-logs/download-logs.png" alt-text="Screenshot of Output and logs section of a run.":::
 
 The tables below show the contents of the log files in the folders you'll see in this section.
 

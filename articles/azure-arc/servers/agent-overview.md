@@ -1,7 +1,7 @@
 ---
-title:  Overview of the Connected Machine Windows agent
+title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 02/18/2021
+ms.date: 03/25/2021
 ms.topic: conceptual
 ---
 
@@ -13,6 +13,8 @@ The Azure Arc enabled servers Connected Machine agent enables you to manage your
 >Starting with the general release of Azure Arc enabled servers in September 2020, all pre-release versions of the Azure Connected Machine agent (agents with versions less than 1.0) are being **deprecated** by **February 2, 2021**.  This time frame allows you to upgrade to version 1.0 or higher before the pre-released agents are no longer able to communicate with the Azure Arc enabled servers service.
 
 ## Agent component details
+
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Arc enabled servers agent overview." border="false":::
 
 The Azure Connected Machine agent package contains several logical components, which are bundled together.
 
@@ -85,9 +87,11 @@ The following versions of the Windows and Linux operating system are officially 
 
 ### Required permissions
 
-* To onboard machines, you are a member of the **Azure Connected Machine Onboarding** role.
+* To onboard machines, you are a member of the **Azure Connected Machine Onboarding** or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
-* To read, modify, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role. 
+* To read, modify, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role in the resource group.
+
+* To select a resource group from the drop-down list when using the **Generate script** method, at a minimum you are a member of the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for that resource group.
 
 ### Azure subscription and service limits
 

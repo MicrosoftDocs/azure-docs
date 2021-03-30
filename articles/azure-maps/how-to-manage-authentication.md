@@ -74,6 +74,31 @@ Request a token from the Azure AD token endpoint. In your Azure AD request, use 
 
 For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md) and view specific scenarios in the table of [Scenarios](./how-to-manage-authentication.md#determine-authentication-and-authorization).
 
+## Manage and rotate shared keys
+
+Your Azure Maps subscription keys are similar to a root password for your Azure Maps account. Always be careful to protect your subscription keys. Use Azure Key Vault to manage and rotate your keys securely. Avoid distributing access keys to other users, hard-coding them, or saving them anywhere in plain text that is accessible to others. Rotate your keys if you believe they may have been compromised.
+
+> [!NOTE]
+> Microsoft recommends using Azure Active Directory (Azure AD) to authorize requests if possible, instead of Shared Key. Azure AD provides superior security and ease of use over Shared Key.
+
+### Manually rotate subscription keys
+
+Microsoft recommends that you rotate your subscription keys periodically to help keep your Azure Maps account secure. If possible, use Azure Key Vault to manage your access keys. If you are not using Key Vault, you will need to rotate your keys manually.
+
+Two subscription keys are assigned so that you can rotate your keys. Having two keys ensures that your application maintains access to Azure Maps throughout the process.
+
+To rotate your Azure Maps subscription keys in the Azure portal:
+
+1. Update your application code to reference the secondary key for the Azure Maps account and deploy.
+2. Navigate to your Azure Maps account in the [Azure portal](https://portal.azure.com/).
+3. Under **Settings**, select **Authentication**.
+4. To regenerate the primary key for your Azure Maps account, select the **Regenerate** button next to the primary key.
+5. Update your application code to reference the new primary key and deploy.
+6. Regenerate the secondary key in the same manner.
+
+> [!WARNING]
+> Microsoft recommends using only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you will not be able to rotate your keys without some applications losing access.
+
 ## Next steps
 
 For more information, see [Azure AD and Azure Maps Web SDK](./how-to-use-map-control.md).

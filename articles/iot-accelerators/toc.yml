@@ -21,10 +21,10 @@
     href: iot-accelerators-device-simulation-overview.md
 - name: Quickstarts
   items:
-  - name: Try a connected factory solution
-    href: quickstart-connected-factory-deploy.md
   - name: Deploy the device simulation solution accelerator
     href: https://github.com/Azure/device-simulation-dotnet/blob/master/README.md
+  - name: Try a connected factory solution
+    href: quickstart-connected-factory-deploy.md
   expanded: true
 - name: Tutorials
   items:
@@ -38,9 +38,9 @@
   items:
   - name: Industrial IoT
     items:
-    - name: OPC Twin Architecture
+    - name: OPC Twin architecture
       href: overview-opc-twin-architecture.md
-    - name: OPC Vault Architecture
+    - name: OPC Vault architecture
       href: overview-opc-vault-architecture.md
 - name: How-to guides
   items:
@@ -91,7 +91,9 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub
@@ -120,8 +122,6 @@
     items:
     - name: GitHub repository
       href: https://github.com/Azure/azure-iot-connected-factory
-    - name: Connected Factory FAQ
-      href: iot-accelerators-faq-cf.md
   - name: Device simulation
     items:
     - name: Developer reference guide
@@ -134,6 +134,10 @@
     - name: Download
       href: /azure/architecture/reference-architectures/iot
   - name: FAQ
-    href: iot-accelerators-faq.md
+    items:
+    - name: Solution Accelerators FAQ
+      href: iot-accelerators-faq.md
+    - name: Connected Factory FAQ
+      href: iot-accelerators-faq-cf.md 
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite

@@ -15,7 +15,7 @@ This article provides help troubleshooting errors you might experience with the 
 If none of these steps work for you, the following support channels are also available:
 
 * Customers with Premier support benefits can open a support request with [Premier](https://premier.microsoft.com/).
-* Customers with Azure support agreements can open a support request [in the Azure portal](https://manage.windowsazure.com/?getsupport=true).
+* Customers with Azure support agreements can open a support request [in the Azure portal](https://azure.microsoft.com/support/options/).
 * Diagnose OMI Problems with the [OMI troubleshooting guide](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
 * Visit the Log Analytics Feedback page to review submitted ideas and bugs [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) or file a new one. 
@@ -79,7 +79,7 @@ We've seen that a clean re-install of the Agent will fix most issues. In fact th
 
  >[!NOTE]
  >Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [data menu Log Analytics Advanced Settings](../agents/agent-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from Log Analytics **Advanced Settings** or for a single agent run the following:  
-> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
+> `sudo /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable && sudo rm /etc/opt/omi/conf/omsconfig/configuration/Current.mof* /etc/opt/omi/conf/omsconfig/configuration/Pending.mof*`
 
 ## Installation error codes
 

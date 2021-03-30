@@ -152,7 +152,7 @@ Use Azure Conditional Access to limit users' ability to interact with Azure Reso
 
 Depending on the type of scripts, you may use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.  You can also leverage Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
-- [How to control PowerShell script execution in Windows Environments](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [How to control PowerShell script execution in Windows Environments](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 - [How to use Azure Security Center Adaptive Application Controls](../../security-center/security-center-adaptive-application.md)
 

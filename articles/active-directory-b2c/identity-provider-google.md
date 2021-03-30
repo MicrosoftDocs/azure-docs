@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -43,7 +43,9 @@ To enable sign-in for users with a Google account in Azure Active Directory B2C 
 Enter a **Name** for your application. Enter *b2clogin.com* in the **Authorized domains** section and select **Save**.
 1. Select **Credentials** in the left menu, and then select **Create credentials** > **Oauth client ID**.
 1. Under **Application type**, select **Web application**.
-1. Enter a **Name** for your application, enter `https://your-tenant-name.b2clogin.com` in **Authorized JavaScript origins**, and `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Authorized redirect URIs**. Replace `your-tenant-name` with the name of your tenant. Use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
+    1. Enter a **Name** for your application.
+    1. For the **Authorized JavaScript origins**, enter `https://your-tenant-name.b2clogin.com`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name`.
+    1. For the **Authorized redirect URIs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-domain-name` with your custom domain, and `your-tenant-name` with the name of your tenant. Use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
 1. Click **Create**.
 1. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Google as an identity provider in your tenant. **Client secret** is an important security credential.
 
@@ -61,6 +63,9 @@ Enter a **Name** for your application. Enter *b2clogin.com* in the **Authorized 
 1. Select **Save**.
 
 ## Add Google identity provider to a user flow 
+
+At this point, the Google identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Google identity provider to a user flow:
+
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Google identity provider.

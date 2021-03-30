@@ -44,7 +44,8 @@ To delete an application, be listed as an owner of the application or have admin
 1. Search and select the **Azure Active Directory**. 
 1. Under **Manage**, select **App registrations**  and select the application that you want to configure. Once you've selected the app, you'll see the application's **Overview** page.
 1. From the **Overview** page, select **Delete**.
-1. Select **Yes** to confirm that you want to delete the app.
+1. Read the deletion consequences.  Check the box if one appears at the bottom of the pane.
+1. Select **Delete** to confirm that you want to delete the app.
 
 ## Remove an application authored by another organization
 

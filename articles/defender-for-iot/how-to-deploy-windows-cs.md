@@ -1,20 +1,8 @@
 ---
 title: Install C# agent on Windows device 
 description: Learn about how to install Defender for IoT agent on 32-bit or 64-bit Windows devices.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
-ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
 ---
 
 # Deploy a Defender for IoT C#-based security agent for Windows
@@ -34,7 +22,7 @@ For other platforms and agent flavors, see [Choose the right security agent](how
 
 1. Local admin rights on the machine you wish to install on.
 
-1. [Create a security module](quickstart-create-security-twin.md) for the device.
+1. [Create a Defender-IoT-micro-agent](quickstart-create-security-twin.md) for the device.
 
 ## Installation
 

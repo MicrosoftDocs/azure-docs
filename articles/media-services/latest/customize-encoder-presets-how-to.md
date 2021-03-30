@@ -29,7 +29,7 @@ When creating custom presets, the following considerations apply:
 
 ## Prerequisites
 
-[Create a Media Services account](./create-account-howto.md)
+[Create a Media Services account](./account-create-how-to.md)
 
 ## Download the sample
 
@@ -39,7 +39,7 @@ Clone a GitHub repository that contains the full .NET Core sample to your machin
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
  ```
  
-The custom preset sample is located in the [Encoding with a custom preset using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset) folder.
+The custom preset sample is located in the [Encoding with a custom preset using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_H264) folder.
 
 ## Create a transform with a custom preset
 

@@ -171,7 +171,7 @@ This approach is useful when you're experimenting with IoT Central or testing de
 
 ## Associate a device with a device template
 
-IoT Central automatically associates a device with a device template when the device connects. A device sends a [model ID](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) when it connects. IoT Central uses the model ID to identify the device template for that specific device model. The discovery process works as follows:
+IoT Central automatically associates a device with a device template when the device connects. A device sends a [model ID](../../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json#model-id) when it connects. IoT Central uses the model ID to identify the device template for that specific device model. The discovery process works as follows:
 
 1. If the device template is already published in the IoT Central application, the device is associated with the device template.
 1. If the device template isn't already published in the IoT Central application, IoT Central looks for the device model in the [public model repository](https://github.com/Azure/iot-plugandplay-models). If IoT Central finds the model, it uses it to generate a basic device template.

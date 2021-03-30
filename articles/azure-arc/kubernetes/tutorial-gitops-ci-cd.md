@@ -31,12 +31,12 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 This tutorial assumes familiarity with Azure DevOps, Azure Repos and Pipelines, and Azure CLI.
 
 * Sign into [Azure DevOps Services](https://dev.azure.com/).
-* Complete the [previous tutorial](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) to learn how to deploy GitOps for your CI/CD environment.
-* Understand the [benefits and architecture](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-configurations) of this feature.
+* Complete the [previous tutorial](./tutorial-use-gitops-connected-cluster.md) to learn how to deploy GitOps for your CI/CD environment.
+* Understand the [benefits and architecture](./conceptual-configurations.md) of this feature.
 * Verify you have:
-  * A [connected Azure Arc enabled Kubernetes cluster](https://docs.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
-  * A connected Azure Container Registry (ACR) with either [AKS integration](https://docs.microsoft.com/azure/aks/cluster-container-registry-integration) or [non-AKS cluster authentication](https://docs.microsoft.com/azure/container-registry/container-registry-auth-kubernetes).
-  * "Build Admin" and "Project Admin" permissions for [Azure Repos](https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos) and [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-get-started).
+  * A [connected Azure Arc enabled Kubernetes cluster](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
+  * A connected Azure Container Registry (ACR) with either [AKS integration](../../aks/cluster-container-registry-integration.md) or [non-AKS cluster authentication](../../container-registry/container-registry-auth-kubernetes.md).
+  * "Build Admin" and "Project Admin" permissions for [Azure Repos](/azure/devops/repos/get-started/what-is-repos) and [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
 * Install the following Azure Arc enabled Kubernetes CLI extensions of versions >= 1.0.0:
 
   ```azurecli
@@ -61,7 +61,7 @@ Import an [application repo](https://docs.microsoft.com/azure/azure-arc/kubernet
    * URL: https://github.com/Azure/arc-cicd-demo-gitops
    * Works as a base for your cluster resources that house the Azure Vote App.
 
-Learn more about [importing Git repos](https://docs.microsoft.com/azure/devops/repos/git/import-git-repository).
+Learn more about [importing Git repos](/azure/devops/repos/git/import-git-repository).
 
 >[!NOTE]
 > Importing and using two separate repositories for application and GitOps repos can improve security and simplicity. The application and GitOps repositories' permissions and visibility can be tuned individually.
@@ -80,7 +80,7 @@ The GitOps connection that you create will automatically:
 The CI/CD workflow will populate the manifest directory with extra manifests to deploy the app.
 
 
-1. [Create a new GitOps connection](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) to your newly imported **arc-cicd-demo-gitops** repo in Azure Repos.
+1. [Create a new GitOps connection](./tutorial-use-gitops-connected-cluster.md) to your newly imported **arc-cicd-demo-gitops** repo in Azure Repos.
 
    ```azurecli
    az k8sconfiguration create \
@@ -166,7 +166,7 @@ kubectl create secret docker-registry <secret-name> \
 ## Create environment variable groups
 
 ### App repo variable group
-[Create a variable group](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups) named **az-vote-app-dev**. Set the following values:
+[Create a variable group](/azure/devops/pipelines/library/variable-groups) named **az-vote-app-dev**. Set the following values:
 
 | Variable | Value |
 | -------- | ----- |
@@ -176,13 +176,13 @@ kubectl create secret docker-registry <secret-name> \
 | ENVIRONMENT_NAME | Dev |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_REPO | The Git connection string for your GitOps repo |
-| PAT | A [created PAT token](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?#create-a-pat) with Read/Write source permissions. Save it to use later when creating the `stage` variable group. |
+| PAT | A [created PAT token](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat) with Read/Write source permissions. Save it to use later when creating the `stage` variable group. |
 | SRC_FOLDER | `azure-vote` | 
 | TARGET_CLUSTER | `arc-cicd-cluster` |
 | TARGET_NAMESPACE | `dev` |
 
 > [!IMPORTANT]
-> Mark your PAT as a secret type. In your applications, consider linking secrets from an [Azure KeyVault](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault).
+> Mark your PAT as a secret type. In your applications, consider linking secrets from an [Azure KeyVault](/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault).
 >
 ### Stage environment variable group
 
@@ -249,7 +249,7 @@ If the dev environment reveals a break after deployment, keep it from going to l
 1. Provide the approvers and an optional message.
 1. Select **Create** again to complete the addition of the manual approval check.
 
-For more details, see the [Define approval and checks](https://docs.microsoft.com/azure/devops/pipelines/process/approvals) tutorial.
+For more details, see the [Define approval and checks](/azure/devops/pipelines/process/approvals) tutorial.
 
 Next time the CD pipeline runs, the pipeline will pause after the GitOps PR creation. Verify the change has been synced properly and passes basic functionality. Approve the check from the pipeline to let the change flow to the next environment.
 
@@ -285,7 +285,7 @@ Errors found during pipeline execution appear in the test results section of the
 Once the pipeline run has finished, you have assured the quality of the application code and the template that will deploy it. You can now approve and complete the PR. The CI will run again, regenerating the templates and manifests, before triggering the CD pipeline.
 
 > [!TIP]
-> In a real environment, don't forget to set branch policies to ensure the PR passes your quality checks. For more information, see the [Set branch policies](https://docs.microsoft.com/azure/devops/repos/git/branch-policies) article.
+> In a real environment, don't forget to set branch policies to ensure the PR passes your quality checks. For more information, see the [Set branch policies](/azure/devops/repos/git/branch-policies) article.
 
 ## CD process approvals
 
