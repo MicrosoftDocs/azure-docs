@@ -123,9 +123,10 @@ Follow these steps to create a VM after you have created a VM image.
     |Parameter |Description  |
     |---------|---------|
     |Virtual machine name     |         |
+    |Edge resource group     | Select from an existing resource group available on the device.        |
     |Image     | Select from the VM images available on the device.        |
     |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
-    |Username     | Use the default username *azureuser*.        |
+    |Username     | Use the default username *azureuser* for the admin to sign into the VM.        |
     |Authentication type    | Choose from SSH public key or a user-defined password.       |
     |Password     | Enter a password to sign into the virtual machine. The password must be at least 12 characters long and meet the defined [Complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |
     |Confirm password    | Enter the password again.        |
@@ -145,11 +146,7 @@ Follow these steps to create a VM after you have created a VM image.
 
         ![Add VM 4](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-2.png)
 
-    1.  Repeat the above to process to add more disks. After the disks are created, they show up in the **Disks** tab.
-
-        ![Add VM 5](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-3.png)
-
-        Select **Next: Networking**.
+    1.  Repeat the above to process to add more disks. After the disks are created, they show up in the **Disks** tab. Select **Next: Networking**.
 
 1. In the **Networking** tab, you will configure the network connectivity for your VM.
 
@@ -163,6 +160,12 @@ Follow these steps to create a VM after you have created a VM image.
     ![Add VM 6](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-networking-1.png)
 
     Select **Next: Review + Create**.
+
+1. In the **Advanced** tab, you can specify the custom data or the cloud-init to customize your VM. 
+
+    You can use cloud-init to customize a VM on its first boot. Use the cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, no additional steps are requires to apply your configuration. For detailed information on cloud-init, see [Cloud-init overview](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
+
+    ![Add VM 7](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-1.png)    
 
 1. In the **Review + Create** tab, review the specifications for the VM and select **Create**.
 
