@@ -55,7 +55,7 @@
     href: application-development.md
 - name: How To
   items:
-  - name: Fortanix Confidential Computing Manager Node Agent
+  - name: Fortanix Confidential Computing Manager
     href: how-to-fortanix-confidential-computing-manager-node-agent.md
 - name: References
   items:
