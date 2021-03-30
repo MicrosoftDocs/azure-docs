@@ -40,71 +40,84 @@ The high-level workflow to create a generalized Windows VHD from an ISO is:
 
 ## Prerequisites 
 
-Before you can create a generalized Windows VHD from an ISO, make sure that: 
+Before you can create a generalized Windows VHD from an ISO image, make sure that: 
 
-- You have an ISO for supported version of Windows that you want to turn into a generalized VHD. Windows ISO images can be downloaded from the Microsoft Evaluation Center. 
+- You have an ISO image for the supported Windows version that you want to turn into a generalized VHD. Windows ISO images can be downloaded from the Microsoft Evaluation Center. 
 
-- You have access to a local machine with Hyper-V Manager installed. 
+- You have access to a Windows client with Hyper-V Manager installed.
 
-- You have an Azure blob storage account to store your VHD once it is finished preparing 
+- You have access to an Azure blob storage account to store your VHD after it is prepared.
 
-## Create a new fixed-size VHD in Hyper-V Manager 
+## Create a new VHD in Hyper-V Manager 
 
-1. In the Hyper-V Manager “Actions” menu, select New -> Hard Disk 
+1. Open Hyper-V Manager on your client system. On the **Action** menu, select **New** and then **Hard Disk**.<!--To get to View, they have to first select the server (?) under the Hyper-V Manager?-->
 
    ![Select New and then Hard Disk](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-01.png)
 
-1. Under **Choose Disk Format**, select **VHD**. 
+1. Under **Choose Disk Format**, select **VHD**. Then select **Next >**. 
 
    ![Choose VHD as the disk format](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-02.png)
 
-1. Under **Choose Disk Type**, select **Fixed size**.
+1. Under **Choose Disk Type**, select **Fixed size**. Then select **Next >**.
 
    ![Choose Fixed size as the disk type](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-03.png)
 
-1. Enter a name and location for your new VHD.
+1. Under **Specify Name and Location**, enter a name and location for your new VHD. Then select **Next >**.
 
-1. Under **Configure Disk**, select **Create a new blank virtual hard disk** and enter the size of disk you would like to create (generally 20 GB and above for Windows Server).
+   ![Enter the name and location for the VHD](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-04.png)
 
-   ![Settings for creating a new blank virtual hard disk and specifying the size](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-04.png)
+1. Under **Configure Disk**, select **Create a new blank virtual hard disk**, and enter the size of disk you would like to create (generally 20 GB and above for Windows Server). THen select **Next >**.
 
-1. Review your selections and click **Finish** to create the new VHD. The process will take five or more minutes depending on the size of the VHD created.
+   ![Settings for creating a new blank virtual hard disk and specifying the size](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-05.png)
 
-## Create a new Hyper-V VM using the VHD 
+1. Under **Summary**, review your selections, and click **Finish** to create the new VHD. The process will take five or more minutes depending on the size of the VHD created.
 
-1. Open Hyper-V manager on your local machine 
+   ![Summary of VHD settings](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-06.png)
 
-1. In the right menu, click **New** > **Virtual Machine**. 
 
-   ![Select New and then Virtual Machine from the menu on the right.](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-05.png)
+## Create Hyper-V VM from VHD 
+
+1. Open Hyper-V Manager on your Windows client.
+
+1. On the **Actions** pane, click **New** and then **Virtual Machine**.
+
+   ![Select New and then Virtual Machine from the menu on the right.](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-07.png)
 
 1. In the New Virtual Machine Wizard, specify the name and location of your VM.
 
-   ![New Virtual Machine wizard, Specify Name and Location](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-06.png)
+   ![New Virtual Machine wizard, Specify Name and Location](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-08.png)
 
 1. Under **Specify Generation**, select **Generation 1**. 
 
-   ![New Virtual Machine wizard, Choose the generation of virtual machine to create](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-07.png)
+   ![New Virtual Machine wizard, Choose the generation of virtual machine to create](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-09.png)
 
-1. Assign your desired memory and networking configurations. 
+1. Under **Assign Memory**, assign the desired memory to the virtual machine. 
 
-1. In the **Connect Virtual Hard Disk** menu, select **Use an existing virtual hard disk** and point to the fixed VHD you created in the previous step.
+   ![New Virtual Machine wizard, Assign Memory](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-10.png)
 
-   ![New Virtual Machine wizard, Select an existing virtual hard disk as the source](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-08.png)
+1. Under **Configure Networking**, enter your network configuration. 
 
-1. Create the VM. 
+   ![New Virtual Machine wizard, Configure Networking](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-11.png)
+
+1. Under **Connect Virtual Hard Disk**, select **Use an existing virtual hard disk** and browse to the fixed VHD you created in the previous procedure.
+
+   ![New Virtual Machine wizard, Select an existing virtual hard disk as the source](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-12.png)
+
+1. Review the summary, and select **Finish** to create the virtual machine. 
  
-## Mount the ISO image as a DVD drive on the VM
+## Mount ISO image as DVD drive on VM
 
-1. In Hyper-V Manager, select the VM you just created, and click **Settings**. 
+1. In Hyper-V Manager, select the VM you just created, and then select **Settings**.
+ 
+   ![In Hyper-V Manager, open Settings for your virtual machine](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-13.png)
 
-1. Under the **DVD Drive** menu, select **Image file** and point to your ISO image.  
+1. Under **BIOS**, ensure that **CD** is at the top of the **Startup order** list.
 
-   ![In Hyper-V Manager, select the image file for your VHD from the DVD Drive menu](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-09.png)
+   ![In BIOS settings, the first item under Startup order should be CD](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-14.png)
 
-1. Under the **BIOS** menu, ensure that **CD** is at the top of the **Startup order** list. 
+1. Under **DVD Drive**, select **Image file**, and browse to your ISO image.  
 
-   ![In the settings, the first item under Startup order should be CD](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-10.png)
+   ![In DVD drive settings, select the image file for your VHD](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-15.png)
 
 1. Click **OK** to save your VM settings.
 
