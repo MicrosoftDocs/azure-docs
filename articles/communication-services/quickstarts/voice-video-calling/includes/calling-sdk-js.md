@@ -15,7 +15,7 @@ ms.author: mikben
 ## Install the SDK
 
 > [!NOTE]
-> This document uses version 1.0.0 of the Calling SDK.
+> This document uses ACS Calling Web SDK.
 
 Use the `npm install` command to install the Azure Communication Services calling and common SDKs for JavaScript.
 
