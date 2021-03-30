@@ -37,6 +37,11 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 ## Create
 
+> [!IMPORTANT]
+> Items marked (preview) below are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 **Time estimate**: Approximately 5 minutes.
 
 Creating a compute instance is a one time process for your workspace. You can reuse the compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace.
@@ -99,6 +104,60 @@ For information on creating a compute instance in the studio, see [Create comput
 ---
 
 You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance). 
+
+### <a name="setup-script"></a> Customize the compute instance with a script (preview)
+
+Use a setup script for an automated way to customize and configure the compute instance at provisioning time. As an administrator, you can write a customization script to be used across all compute instances in the workspace to provision according to your requirements. 
+
+Some examples of what you can do in a setup script:
+
+* Install packages and tools
+* Mount data
+* Create custom conda environment and Jupyter kernels
+* Clone git repositories
+
+The setup script is a shell script which runs as *azureuser*.  Create or upload the script into your **Notebooks** files:
+
+1. Sign into the [studio](https://ml.azureml.com) and select your workspace.
+1. On the left, select **Notebooks**
+1. Use the **Add files** tool to create or upload your setup script.
+
+:::image type="content" source="media/how-to-create-manage-compute-instance/create-or-upload-file.png" alt-text="Create or upload your setup script to Notebooks file in studio":::
+
+When the script runs, the root directory will be the current working directory. The directory where the file will be located is */mnt/batch/tasks/shared/LS_root/mounts/clusters/<ciname>/code/Users/*.  
+
+Script arguments can be referred to in the script as $1, $2, etc. For example, if you execute `scriptname my-ciname` then in the script you can `cd /mnt/batch/tasks/shared/LS_root/mounts/clusters/$1/code` to navigate to the directory where the script is stored.
+
+You can retrieve the path of the script via:
+
+```sh
+#!/bin/bash 
+SCRIPT=$(readlink -f "$0") 
+SCRIPT_PATH=$(dirname "$SCRIPT") 
+```
+
+Once you store the script, refer to it when you create a compute instance:
+
+* In the studio:
+    1. Sign into the [studio](https://ml.azureml.com) and select your workspace.
+    1. On the left, select **Compute**.
+    1. Select **+New** to create a new compute instance.
+    1. [Fill out the form](how-to-create-attach-compute-studio.md).
+    1. On the second page of the form, open **Show advanced settings**
+    1. Browse to the shell script you saved.  Add command arguments as needed.
+
+* In a Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance), add `setupScripts`. For example:
+
+    ```json
+    "setupScripts":{"scripts":{"creationScript":{"scriptSource": "workspaceStorage", "scriptData":"[parameters('creationScript.location')]","scriptArguments":"[parameters('creationScript.cmdArguments')]"}}} 
+    ```
+
+You could instead provide the script inline for a Resource Manager template.  The shell command can refer to any dependencies uploaded in the notebooks file share.  For example, specify a base64 encoded command string for `scriptData`:
+
+```json
+"setupScripts":{"scripts":{"creationScript":{"scriptSource": "inline", "scriptData":"[base64(parameters('inlineCommand'))]","scriptArguments":"[parameters('creationScript.cmdArguments')]"}}}     
+```
+    
 
 ### Create on behalf of (preview)
 
