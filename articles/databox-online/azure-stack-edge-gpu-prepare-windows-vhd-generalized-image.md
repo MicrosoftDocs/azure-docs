@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/18/2021
+ms.date: 03/30/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -47,7 +47,6 @@ The high-level workflow to prepare a Windows VHD for use as a generalized image 
 1. Generalize the VHD using the *sysprep* utility. 
 1. Copy the generalized image to Blob storage.
 1. Use generalized image to deploy VMs on your device. For more information, see how to [deploy a VM via Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md) or [deploy a VM via PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
-
 
 ## Prerequisites
 
@@ -130,7 +129,6 @@ You'll use this fixed VHD for all the subsequent steps in this article.
 1. Review the **Summary** and then select **Finish** to create the virtual machine.
 
 The virtual machine takes several minutes to create.
-	 
 
 ## Connect to the Hyper-V VM
 
@@ -142,27 +140,15 @@ After you are connected to the VM, complete the Machine setup wizard and then si
 
 ## Generalize the VHD  
 
-Use the *sysprep* utility to generalize the VHD. 
-
-1. Inside the VM, open a command prompt.
-1. Run the following command to generalize the VHD. 
-
-    ```
-    c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm
-    ```
-    For details, see  [Sysprep (system preparation) overview](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
-1.  After the command is complete, the VM will shut down. **Do not restart the VM**.
+[!INCLUDE [Generalize the VHD](../../includes/azure-stack-edge-generalize-vhd.md)]
 
 ## Upload the VHD to Azure Blob storage
 
-Your VHD can now be used to create a generalized image on Azure Stack Edge. 
+Your VHD can now be used to create a generalized image on Azure Stack Edge.
 
-1. Upload the VHD to Azure blob storage. See the detailed instructions in [Upload a VHD using Azure Storage Explorer](../devtest-labs/devtest-lab-upload-vhd-using-storage-explorer.md).
-1. After the upload is complete, you can use the uploaded image to create VM images and VMs. 
+[!INCLUDE [Upload VHD to Blob storage](../../includes/azure-stack-edge-upload-vhd-to-blob-storage.md)]
 
 <!-- this should be added to deploy VM articles - If you experience any issues creating VMs from your new image, you can use VM console access to help troubleshoot. For information on console access, see [link].-->
-
-
 
 ## Next steps
 

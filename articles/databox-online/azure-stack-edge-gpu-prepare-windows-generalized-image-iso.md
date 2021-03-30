@@ -108,7 +108,6 @@ Before you can create a generalized Windows VHD from an ISO, make sure that:
 
 1. Click **OK** to save your VM settings.
 
-
 ## Connect to the Hyper-V VM 
 
 Using Hyper-V manager, connect to the new VM you created. 
@@ -117,22 +116,19 @@ Using Hyper-V manager, connect to the new VM you created.
 
 After you are connected to the VM, complete the Machine setup wizard and then sign into the VM.<!--What does this mean? Doesn't correspond to the procedures/steps that follow.-->
 
-## Generalize the VHD using the ‘sysprep’ utility  
+## Generalize the VHD  
 
-Inside the VM, open a command prompt and run the following command to generalize the VHD. The VM will shut down once the command is complete. **Do not restart it.** 
-
-   `c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm` 
-
+[!INCLUDE [Generalize the VHD](../../includes/azure-stack-edge-generalize-vhd.md)]
 
 ### Upload the VHD to Azure blob storage
 
-Your VHD can now be used to create a generalized image on Azure Stack Edge. Upload the VHD to Azure blob storage, where it can be used to create images and VMs using the following procedures. 
+## Upload the VHD to Azure Blob storage
 
-- Deploy a VM from a generalized image via Azure Portal [link] 
+Your VHD can now be used to create a generalized image on Azure Stack Edge.
 
-- Deploy a VM from a generalized image via Azure PowerShell [link] 
+[!INCLUDE [Upload VHD to Blob storage](../../includes/azure-stack-edge-upload-vhd-to-blob-storage.md)]
 
-If you experience any issues creating VMs from your new image, you can use VM console access to help troubleshoot. For information on console access, see [link].
+<!--If you experience any issues creating VMs from your new image, you can use VM console access to help troubleshoot. For information on console access, see [link].-->
 
 ## Next steps
 
