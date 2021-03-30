@@ -25,7 +25,7 @@ Use Azure Media Services to help secure your media from the time it leaves your 
 
 [!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
-In Media Services v3, a content key is associated with Streaming Locator (see [this example](protect-with-aes128.md)). If using the Media Services key delivery service, you can let Azure Media Services generate the content key for you. The content key should be generated yourself if you're using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two data centers.
+In Media Services v3, a content key is associated with Streaming Locator (see [this example](drm-playready-license-template-concept.md)). If using the Media Services key delivery service, you can let Azure Media Services generate the content key for you. The content key should be generated yourself if you're using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two data centers.
 
 When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service or the key delivery service you specified. To decide if the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
 
@@ -54,12 +54,12 @@ You can encrypt each asset with multiple encryption types (AES-128, PlayReady, W
 
 The example shows how to:
 
-1. Create and configure a [content key policy](content-key-policy-concept.md).
+1. Create and configure a [content key policy](drm-content-key-policy-concept.md).
 
    You create a content key policy to configure how the content key (which provides secure access to your assets) is delivered to end clients:  
 
    * Define license delivery authorization. Specify the logic of the authorization check based on claims in JSON Web Token (JWT).
-   * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and/or [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the DRMs.
+   * Configure [PlayReady](drm-playready-license-template-concept.md), [Widevine](drm-widevine-license-template-concept.md), and/or [FairPlay](drm-fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the DRMs.
 
      ```
      ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();

@@ -34,7 +34,7 @@ With Media Services, you can take advantage of [dynamic packaging](dynamic-packa
 
 ## Dynamic encryption
 
-Dynamic encryption enables you to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. For more information, see [dynamic encryption](content-protection-overview.md).
+Dynamic encryption enables you to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. For more information, see [dynamic encryption](drm-content-protection-concept.md).
 
 > [!NOTE]
 > Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
