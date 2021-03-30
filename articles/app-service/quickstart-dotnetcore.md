@@ -397,7 +397,7 @@ To deploy your web app using the Visual Studio Azure Tools extension:
       - For *.NET Framework 4.8*, select **ASP.NET V4.8**
     - Select an operating system (Windows or Linux).
         - For *.NET Framework 4.8*, Windows will be selected implicitly.
-    - Select **Create a new App Service plan**, provide a name, and select the **F1 Free** pricing tier.
+    - Select **Create a new App Service plan**, provide a name, and select the **F1 Free** [pricing tier][app-service-pricing-tier].
     - Select **Skip for now** for the Application Insights resource.
     - Select a location near you.
 
@@ -437,7 +437,7 @@ az webapp up --sku F1 --name <app-name> --os-type <os>
 
 - If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Prerequisites](#prerequisites).
 - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
-- The `--sku F1` argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.
+- The `--sku F1` argument creates the web app on the **Free** [pricing tier][app-service-pricing-tier]. Omit this argument to use a faster premium tier, which incurs an hourly cost.
 - Replace `<os>` with either `linux` or `windows`. You must use `windows` when targeting *ASP.NET Framework 4.8*.
 - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
 
