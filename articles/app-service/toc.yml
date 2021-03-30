@@ -11,10 +11,8 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: ASP.NET Core
-    href: quickstart-dotnetcore.md
   - name: ASP.NET
-    href: quickstart-dotnet-framework.md
+    href: quickstart-dotnetcore.md
   - name: Node.js
     href: quickstart-nodejs.md
   - name: PHP
