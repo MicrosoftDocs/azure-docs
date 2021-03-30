@@ -87,11 +87,11 @@ To updated your TelemetryInterval value, follow these steps:
 
 1. On the azureeyemodule page, open **Module Identity Twin**.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/module-page-inline.png" alt-text="Device module runtime status screen." lightbox= "./media/vision-solution-troubleshooting/module-page.png":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/module-page-inline.png" alt-text="Screenshot of module page." lightbox= "./media/vision-solution-troubleshooting/module-page.png":::
 
 1. Scroll down to **properties**. Please note that the properties "Running" and "Logging" are not active at this time.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline.png" alt-text="Device module runtime status screen." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline.png" alt-text="Screenshot of module twin properties." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
 
 1. Update the **TelemetryInterval** value as desired and click the **Save** icon.
 
