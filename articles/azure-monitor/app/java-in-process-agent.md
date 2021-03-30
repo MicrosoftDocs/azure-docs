@@ -30,11 +30,11 @@ The 3.0 agent supports Java 8 and above.
 > Please review all the [configuration options](./java-standalone-config.md) carefully,
 > as the json structure has completely changed, in addition to the file name itself which went all lowercase.
 
-Download [applicationinsights-agent-3.0.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.2/applicationinsights-agent-3.0.2.jar)
+Download [applicationinsights-agent-3.0.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.3/applicationinsights-agent-3.0.3.jar)
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.0.3.jar` to your application's JVM args
 
 Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
 
@@ -50,7 +50,7 @@ Point the agent to your Application Insights resource, either by setting an envi
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.2.jar`, with the following content:
+Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.3.jar`, with the following content:
 
 ```json
 {
