@@ -135,7 +135,7 @@ landingContent:
   # Card
   
   - title: Connect on-premises networks to virtual networks
-     linkLists:
+    linkLists:
        - linkListType: overview
          links:
            - text: VPN connections - VPN Gateway
@@ -144,8 +144,8 @@ landingContent:
              url: ../../expressroute/expressroute-introduction.md
            - text: VPN and dedicated private connections - Virtual WAN
              url: ../../virtual-wan/virtual-wan-about.md
-      - linkListType: tutorial
-        links:
+       - linkListType: tutorial
+         links:
           - text: Connect on-premises network to a virtual network - VPN encryption
             url: ../../vpn-gateway/tutorial-site-to-site-portal.md
           - text: Extend on-premises network to Azure using ExpressRoute
