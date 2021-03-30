@@ -87,7 +87,7 @@ To create a hierarchy of IoT Edge devices, you will need:
   * 443: Used between parent and child edge hubs for REST API calls.
   * 5671, 8883: Used for AMQP and MQTT.
 
-  For more information, see [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md).
+  For more information, see [how to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md).
 
 >[!TIP]
 >This tutorial includes a mixture of manual and automated steps to provide a showcase of Nested IoT Edge features.
@@ -151,9 +151,9 @@ To use the `iotedge-config-cli` tool to create and configure your hierarchy, fol
    In the **edgedevices** section, for a production scenario, you could edit the hierarchy tree to reflect your desired structure. For the purposes of this tutorial, accept the default tree. For each device, there is a `device_id` field, where you can name your devices. There is also the `deployment` field, which specifies the path to the deployment JSON for that device.
 
    [!TIP]
-   >You can manually register IoT Edge devices in your IoT Hub through the Azure portal or Azure Cloud Shell. To learn how, see [the guide on how to regist an IoT Edge device](how-to-register-device.md).
+   >You can manually register IoT Edge devices in your IoT Hub through the Azure portal or Azure Cloud Shell. To learn how, see [the guide on how to register an IoT Edge device](how-to-register-device.md).
    >
-   >You can define the parent-child relationships manually as well. See the [creating a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy) section of the how-to guide to learn more.
+   >You can define the parent-child relationships manually as well. See the [create a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy) section of the how-to guide to learn more.
 
    ![The edgedevices section of the configuration file allows you to define your hierarchy](./media/tutorial-nested-iot-edge/hierarchy-config-sample.png)
 
