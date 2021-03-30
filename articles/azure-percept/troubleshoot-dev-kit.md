@@ -5,20 +5,17 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/25/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Azure Percept DK (dev kit) troubleshooting
+# Azure Percept DK troubleshooting
 
 See the guidance below for general troubleshooting tips for the Azure Percept DK.
 
 ## General troubleshooting commands
 
-To run these commands, 
-1. Connect to the [dev kit's Wi-Fi AP](./quickstart-percept-dk-set-up.md)
-1. [SSH into the dev kit](./how-to-ssh-into-percept-dk.md)
-1. Enter the commands in the SSH terminal
+To run these commands, [SSH into the dev kit](./how-to-ssh-into-percept-dk.md) and enter the commands into the SSH client prompt.
 
 To redirect any output to a .txt file for further analysis, use the following syntax:
 
@@ -38,9 +35,9 @@ After redirecting output to a .txt file, copy the file to your host PC via SCP:
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-```[local host file path]``` refers to the location on your host PC that you would like to copy the .txt file to. ```[remote username]``` is the SSH username chosen during the [setup experience](./quickstart-percept-dk-set-up.md). If you did not set up an SSH login during the OOBE, your remote username is ```root```.
+```[local host file path]``` refers to the location on your host PC that you would like to copy the .txt file to. ```[remote username]``` is the SSH username chosen during the [setup experience](./quickstart-percept-dk-set-up.md).
 
-For additional information on the Azure IoT Edge commands, see the [Azure IoT Edge device troubleshooting documentation](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+For additional information on the Azure IoT Edge commands, see the [Azure IoT Edge device troubleshooting documentation](../iot-edge/troubleshoot.md).
 
 |Category:         |Command:                    |Function:                  |
 |------------------|----------------------------|---------------------------|
@@ -59,7 +56,7 @@ For additional information on the Azure IoT Edge commands, see the [Azure IoT Ed
 |Azure IoT Edge          |```sudo iotedge logs [container name]``` |check container logs, such as speech and vision modules |
 |Azure IoT Edge          |```sudo iotedge support-bundle --since 1h``` |collect module logs, Azure IoT Edge security manager logs, container engine logs, ```iotedge check``` JSON output, and other useful debug information from the past hour |
 |Azure IoT Edge          |```sudo journalctl -u iotedge -f``` |view the logs of the Azure IoT Edge security manager |
-|Azure IoT Edge          |```sudo systemctl restart iotedge``` |restart the Azure IoT Edge Security Daemon |
+|Azure IoT Edge          |```sudo systemctl restart iotedge``` |restart the Azure IoT Edge security daemon |
 |Azure IoT Edge          |```sudo iotedge list```           |list the deployed Azure IoT Edge modules |
 |Other             |```df [option] [file]```          |display information on available/total space in specified file system(s) |
 |Other             |`ip route get 1.1.1.1`        |display device IP and interface information |
@@ -83,11 +80,11 @@ sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u 
 |```sudo docker image prune``` |[removes all dangling images](https://docs.docker.com/engine/reference/commandline/image_prune/) |
 |```sudo watch docker ps``` <br> ```watch ifconfig [interface]``` |check docker container download status |
 
-## USB Updating
+## USB updates
 
 |Error:                                    |Solution:                                               |
 |------------------------------------------|--------------------------------------------------------|
-|LIBUSB_ERROR_XXX during USB flash via UUU |This error is the result of a USB connection failure during UUU updating. If the USB cable is not properly connected to the USB ports on the PC or the PE-10X, an error of this form will occur. Try unplugging and replugging both ends of the USB cable and jiggling the cable to ensure a secure connection. This almost always solves the issue. |
+|LIBUSB_ERROR_XXX during USB flash via UUU |This error is the result of a USB connection failure during UUU updating. If the USB cable is not properly connected to the USB ports on the PC or the Percept DK carrier board, an error of this form will occur. Try unplugging and reconnecting both ends of the USB cable and jiggling the cable to ensure a secure connection. This almost always solves the issue. |
 
 ## Azure Percept DK carrier board LED states
 
@@ -100,5 +97,3 @@ There are three small LEDs on top of the carrier board housing. A cloud icon is 
 |LED 2 (Wi-Fi)   |Fast blink |Authentication was successful, device association in progress. |
 |LED 2 (Wi-Fi)   |On (solid) |Authentication and association were successful; device is connected to a Wi-Fi network. |
 |LED 3           |NA         |LED not in use. |
-
-

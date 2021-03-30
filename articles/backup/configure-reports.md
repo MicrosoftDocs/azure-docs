@@ -142,7 +142,7 @@ There are two types of policy adherence views available:
 
 * **Policy Adherence by Time Period**: Using this view, you can identify how many items have had at least one successful backup in a given day and how many have not had a successful backup in that day. You can click on a row to see details of all backup jobs that have been triggered on the selected day. Note that if you increase the time range to a larger value, such as the last 60 days, the grid is rendered in weekly view, and displays the count of all items that have had at least one successful backup on every day in the given week. Similarly, there is a monthly view for larger time ranges.
 
-In the case of items backed up weekly, this grid helps you identify all items that have had at least one successful backup in the given week. For a larger time range, such as the last 120 days, the grid is rendered in monthly view, and displays the count of all items that have had at least one successful backup in every week in the given month. Refer [Conventions used in Backup Reports](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) for more details around daily, weekly and monthly views.
+In the case of items backed up weekly, this grid helps you identify all items that have had at least one successful backup in the given week. For a larger time range, such as the last 120 days, the grid is rendered in monthly view, and displays the count of all items that have had at least one successful backup in every week in the given month. Refer [Conventions used in Backup Reports](#conventions-used-in-backup-reports) for more details around daily, weekly and monthly views.
 
 ![Policy Adherence By Time Period](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
 
@@ -160,7 +160,7 @@ Once the logic app is created, you'll need to authorize connections to Azure Mon
 
 Backup Reports uses [system functions on Azure Monitor logs](backup-reports-system-functions.md). These functions operate on data in the raw Azure Backup tables in LA and return formatted data that helps you easily retrieve information of all your backup-related entities, using simple queries. 
 
-To create your own reporting workbooks using Backup Reports as a base, you can navigate to Backup Reports, click on **Edit** at the top of the report, and view/edit the queries being used in the reports. Refer to [Azure workbooks documentation](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) to learn more about how to create custom reports. 
+To create your own reporting workbooks using Backup Reports as a base, you can navigate to Backup Reports, click on **Edit** at the top of the report, and view/edit the queries being used in the reports. Refer to [Azure workbooks documentation](../azure-monitor/visualize/workbooks-overview.md) to learn more about how to create custom reports. 
 
 ## Export to Excel
 

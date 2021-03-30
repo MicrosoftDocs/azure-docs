@@ -39,7 +39,7 @@ Next, store the SendGrid API key in an Azure AD B2C policy key for your policies
 1. Select **Policy Keys** and then select **Add**.
 1. For **Options**, choose **Manual**.
 1. Enter a **Name** for the policy key. For example, `SendGridSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-1. In **Secret**, enter your client secret that you previously recorded.
+1. In **Secret**, enter the SendGrid API key that you previously recorded.
 1. For **Key usage**, select **Signature**.
 1. Select **Create**.
 

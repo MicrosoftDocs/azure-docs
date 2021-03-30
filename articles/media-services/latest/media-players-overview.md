@@ -16,7 +16,7 @@ You can use several media players with Media Services.
 
 Azure Media Player is a video player for a wide variety of browsers and devices. Azure Media Player uses industry standards, such as HTML5, Media Source Extensions (MSE), and Encrypted Media Extensions (EME) to provide an enriched adaptive streaming experience. When these standards aren't available on a device or in a browser, Azure Media Player uses Flash and Silverlight as fallback technology. Whatever of the playback technology used, developers have a unified JavaScript interface to access APIs. Content served by Azure Media Services can be played across a wide range of devices and browsers without any extra effort.
 
-See the [Azure Media Player documentation](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview).
+See the [Azure Media Player documentation](../azure-media-player/azure-media-player-overview.md).
 
 ## Shaka
 

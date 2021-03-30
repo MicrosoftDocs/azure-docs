@@ -50,7 +50,7 @@ The steps for this task use a VNet based on the values in the following configur
 | Gateway Public IP Name  | *gwpip* |
 
 > [!IMPORTANT]
-> IPv6 support for private peering is currently in **Public Preview**. If you would like to connect your virtual network to an ExpressRoute circuit with IPv6-based private peering configured, please make sure that your virtual network is dual stack and follows the guidelines described [here](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> IPv6 support for private peering is currently in **Public Preview**. If you would like to connect your virtual network to an ExpressRoute circuit with IPv6-based private peering configured, please make sure that your virtual network is dual stack and follows the guidelines described [here](../virtual-network/ipv6-overview.md).
 > 
 > 
 

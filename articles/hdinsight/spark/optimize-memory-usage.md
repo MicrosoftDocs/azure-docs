@@ -25,7 +25,7 @@ For your reference, the Spark memory structure and some key executor memory para
 
 If you're using Apache Hadoop YARN, then YARN controls the memory used by all containers on each Spark node.  The following diagram shows the key objects and their relationships.
 
-![YARN Spark Memory Management](./media/apache-spark-perf/apache-yarn-spark-memory.png)
+:::image type="content" source="./media/apache-spark-perf/apache-yarn-spark-memory.png" alt-text="YARN Spark Memory Management" border="false":::
 
 To address 'out of memory' messages, try:
 
