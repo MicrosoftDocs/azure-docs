@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-# As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
+#Customer intent: As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
 ---
 
 # What is an Azure Machine Learning compute instance?
