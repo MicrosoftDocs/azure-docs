@@ -28,13 +28,13 @@ Frontline worker management empowers the frontline workforce by making the follo
 
 Azure Active Directory (Azure AD) provides the ability to delegate user management to frontline managers through the [My Staff portal](../roles/my-staff-configure.md), helping save valuable time and reduce risks. By enabling simplified password resets and phone management directly from the store or factory floor, managers can grant access to employees without routing the request through the help-desk, IT, or operations.
 
-![Delegated user management in the My Staff portal](media/concept-fundamentals-flw/delegated-user-manage.png)
+![Delegated user management in the My Staff portal](media/concept-fundamentals-frontline-worker/delegated-user-management.png)
 
 ## Accelerated onboarding with simplified authentication
 
 My Staff also enables frontline managers to register their team members' phone numbers for [SMS sign-in](../authentication/howto-authentication-sms-signin.md). In many verticals, frontline workers maintain a local username and password combination, a solution that is often cumbersome, expensive, and error-prone. When IT enables authentication using SMS sign-in, frontline workers can log in with [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md) for Microsoft Teams and other apps using just their phone number and a one-time passcode (OTP) sent via SMS. This makes signing in for frontline workers simple and secure, delivering quick access to the apps they need most.
 
-![SMS sign-in](media/concept-fundamentals-flw/sms-signin.png)
+![SMS sign-in](media/concept-fundamentals-frontline-worker/sms-signin.png)
 
 Frontline managers can also use Managed Home Screen (MHS) application to allow workers to have access to a specific set of applications on their Intune-enrolled Android dedicated devices. The dedicated devices are enrolled with [Azure AD shared device mode](../develop/msal-shared-devices.md). When configured in multi-app kiosk mode in the Microsoft Endpoint Manager (MEM) console, MHS is automatically launched as the default home screen on the device and appears to the end user as the *only* home screen. To learn more, see how to [configure the Microsoft Managed Home Screen app for Android Enterprise](/mem/intune/apps/app-configuration-managed-home-screen-app).
 
@@ -42,7 +42,7 @@ Frontline managers can also use Managed Home Screen (MHS) application to allow w
 
 Many companies use shared devices so frontline workers can do inventory management and point-of-sale transactions, without the IT burden of provisioning and tracking individual devices. With shared device sign-out, it's easy for a frontline worker to securely sign out of all apps on any shared device before handing it back to a hub or passing it off to a teammate on the next shift. Microsoft Teams is one of the apps that is currently supported on shared devices and it allows frontline workers to view tasks that are assigned to them. Once a worker signs out of a shared device, Intune and Azure AD clear all of the company data so the device can safely be handed off to the next associate. You can choose to integrate this capability into all your line-of-business [iOS](../develop/msal-ios-shared-devices.md) and [Android](../develop/msal-android-shared-devices.md) apps using the [Microsoft Authentication Library](../develop/msal-overview.md).
 
-![Shared device sign-out](media/concept-fundamentals-flw/shared-device-signout.png)
+![Shared device sign-out](media/concept-fundamentals-frontline-worker/shared-device-signout.png)
 
 ## Next steps
 
