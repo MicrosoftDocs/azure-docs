@@ -64872,6 +64872,61 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway-resource.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/nat-gateway-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-metrics.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/nat-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-overview.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/nat-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-security-baseline.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/nat-security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/quickstart-create-nat-gateway-template.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/troubleshoot-nat.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/troubleshoot-nat",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-create-nat-gateway-cli.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-create-nat-gateway-portal.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-create-nat-gateway-powershell.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-public-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service/quickstart-dotnet-framework.md",
       "redirect_url": "/azure/app-service/quickstart-dotnetcore?tabs=netframework48"
     }

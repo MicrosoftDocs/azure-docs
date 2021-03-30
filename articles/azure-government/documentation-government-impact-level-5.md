@@ -600,7 +600,7 @@ Azure Traffic Manager supports Impact Level 5 workloads in Azure Government with
 
 Azure Virtual Network supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
-### [Virtual NAT](../virtual-network/nat-overview.md) 
+### [Virtual NAT](../virtual-network/nat-gateway/nat-overview.md) 
 
 Virtual NAT supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 

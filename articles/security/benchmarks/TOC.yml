@@ -227,7 +227,7 @@
   - name: Virtual Network security baseline
     href: ../../virtual-network/security-baseline.md
   - name: Virtual Network NAT security baseline
-    href: ../../virtual-network/nat-security-baseline.md
+    href: ../../virtual-network/nat-gateway/nat-security-baseline.md
   - name: Virtual WAN security baseline
     href: ../../virtual-wan/security-baseline.md
   - name: VPN Gateway security baseline
