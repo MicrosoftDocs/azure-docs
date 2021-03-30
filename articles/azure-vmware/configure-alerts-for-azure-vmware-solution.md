@@ -3,7 +3,6 @@ title: Configure alerts and work with metrics in Azure VMware Solution
 description: Learn how to use alerts to receive notifications. Also learn how to work with metrics to gain deeper insights into your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.date: 04/02/2021
-
 ---
 
 # Configure Azure Alerts in Azure VMware Solution 
@@ -12,9 +11,7 @@ This article describes how you can use alerts to get conditionally notified. It 
 
 Azure Alerts use metrics defined by the service and offer notification functionality. You can work with the metrics for near-real-time insights.
 
-You'll learn how to configure alerts and use Azure Action Groups to get notified. For a general understanding of what Microsoft Azure Alerts and Metrics are, see [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview) and [Azure Monitor Metrics
-overview](../azure-monitor/essentials/data-platform-metrics). For more about Azure Action Groups, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups).
-
+You'll learn how to configure alerts and use Azure Action Groups to get notified. For a general understanding of what Microsoft Azure Alerts and Metrics are, see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview) and [Azure Monitor Metrics overview](/azure/azure-monitor/essentials/data-platform-metrics). For more about Azure Action Groups, see [Create and manage action groups in the Azure portal](/azure/azure-monitor/alerts/action-groups).
 
 ## Supported Azure VMware Solution metrics and activities
 
@@ -38,7 +35,7 @@ The following metrics are visible through Azure Monitor metrics.
 ## Configure an alert rule
 1. From your Azure VMware Solution private cloud, select **Monitoring** > **Alerts**, and then **New alert rule**.
  
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-new-alert-rule.png" alt-text="Screenshot that shows the Configure signal logic window with predefined signal names.":::
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-new-alert-rule.png" alt-text="Screenshot that shows where to configure an alert rule in your Azure VMware Solution private cloud.":::
 
    A new configuration screen opens where you'll:
    - Define the Scope
@@ -46,7 +43,7 @@ The following metrics are visible through Azure Monitor metrics.
    - Set up the Action Group
    - Define the Alert rule details
     
-   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-alert-rule-details.png" alt-text="Screenshot that shows the information for the selected signal logic.":::
+   :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/create-alert-rule-details.png" alt-text="Screenshot that shows the Create alert rule window.":::
 
 1. Under **Scope**, select the target resource you want to monitor. By default, the Azure VMware Solution private cloud from where you opened the Alerts menu has been defined.
 
