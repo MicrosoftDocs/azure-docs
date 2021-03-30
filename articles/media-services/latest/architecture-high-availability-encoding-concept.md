@@ -48,7 +48,7 @@ The services used in this example architecture include:
 
 This high-level diagram shows the architecture of the sample provided to get you started with high availability and media services.
 
-[ ![Video on Demand (VOD) High Level Architecture Diagram](media/architecture-high-availability-encoding-concept/high-availability-architecture.svg) ](./media/architecture-high-availability-encode-concept/high-availability-architecture.svg#lightbox)
+[ ![Video on Demand (VOD) High Level Architecture Diagram](media/architecture-high-availability-encoding-concept/high-availability-architecture.svg) ](./media/architecture-high-availability-encoding-concept/high-availability-architecture.svg#lightbox)
 
 ## Best practices
 
