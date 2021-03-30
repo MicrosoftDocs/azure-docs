@@ -124,7 +124,7 @@ After the SFC scan completes, install Windows Updates and restart the computer.
 1. For VMs with legacy operating systems (Windows Server 2012 R2 or Windows 8.1 and below), make sure the latest Hyper-V Integration Component Services are installed. For more information, see [Hyper-V integration components update for Windows VM](https://support.microsoft.com/topic/hyper-v-integration-components-update-for-windows-virtual-machines-8a74ffad-576e-d5a0-5a2f-d6fb2594f990).
 
 > [!NOTE]
-> In a scenario where VMs are to be set up with a disaster recovery solution between the on-premise VMware server and Azure, the Hyper-V Integration Component Services can't be used. If that’s the case, please contact the VMWare support to migrate the VM to Azure and make it co-reside in VMware server.
+> In a scenario where VMs are to be set up with a disaster recovery solution between the on-premise VMware server and Azure, the Hyper-V Integration Component Services can't be used. If that’s the case, please contact the VMware support to migrate the VM to Azure and make it co-reside in VMware server.
 
 ## Check the Windows services
 
