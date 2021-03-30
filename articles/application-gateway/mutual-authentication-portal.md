@@ -1,11 +1,11 @@
 ---
-title: Mutual Authentication with Azure Application Gateway
+title: COnfiguring mutual authentication on Azure Application Gateway through Portal
 description: Learn how to configure an Application Gateway to have mutual authentication through Portal 
 services: application-gateway
 author: mscatyao
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 03/30/2021
 ms.author: caya
 ---
 
@@ -20,7 +20,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Before you begin
 
-To configure mutual authentication with an Application Gateway, you need a client certificate to upload to the gateway. The client certificate will be used to validate the certificate the client will present to Application Gateway.  
+To configure mutual authentication with an Application Gateway, you need a client certificate to upload to the gateway. The client certificate will be used to validate the certificate the client will present to Application Gateway. For testing purposes, you can use a self-signed certificate. However, this is not advised for production workloads, because they're harder to manage and aren't completely secure. For more info, see [create a self-signed certificate](./create-ssl-portal.md#create-a-self-signed-certificate).
 
 To learn more, especially about what kind of client certificates you can upload, see [Overview of mutual authentication with Application Gateway](./mutual-authentication-overview.md).
 
@@ -28,57 +28,50 @@ To learn more, especially about what kind of client certificates you can upload,
 
 First create a new Application Gateway as you would usually through the portal - there are no additional steps needed in the creation to enable mutual authentication. For more information on how to create an Application Gateway in portal, check out our [portal quickstart tutorial](./quick-create-portal.md).
 
-## Enable mutual authentication for an existing Application Gateway
+## Enable mutual authentication on an existing Application Gateway
 
-To configure an existing application gateway with mutual authentication, you must first enable TLS termination in the listener. This action enables TLS encryption for communication between the client and the application gateway. Then, put those certificates for back-end servers in the HTTP settings on the Safe Recipients list. This configuration enables TLS encryption for communication between the application gateway and the back-end servers. That accomplishes end-to-end TLS encryption.
+To configure an existing Application Gateway with mutual authentication, you'll need to first go to the SSL settings (Preview) tab in the Portal and create a new SSL profile. When you create an SSL profile, you'll see two tabs: **Client Authentication** and **SSL Policy**. The **Client Authentication** tab is where you'll upload your client certificate(s). The **SSL Policy** tab is to configure a listener specific SSL policy - for more information, check out [Configuring a listener specific SSL policy](./application-gateway-configure-listener-specific-ssl-policy.md).
 
-You'll need to use a listener with the HTTPS protocol and a certificate for enabling TLS termination. You can either use an existing listener that meets those conditions or create a new listener. If you choose the former option, you can ignore the following "Enable TLS termination in an existing application gateway" section and move directly to the "Add authentication/trusted root certificates for backend servers" section.
+1. Search for **Application Gateway** in portal, select **Application gateways**, and click on your existing Application Gateway.
 
-If you choose the latter option, apply the steps in the following procedure.
-### Enable TLS termination in an existing application gateway
+2. Select **SSL settings (Preview)** from the left-side menu.
 
-1. Select **All resources**, and then select **myAppGateway**.
+3. Click on the plus sign next to **SSL Profiles** at the top to create a new SSL profile.
 
-2. Select **Listeners** from the left-side menu.
+4. Enter a name under **SSL Profile Name**. In this example, we call our SSL profile *applicationGatewaySSLProfile*. 
 
-3. Select either **Basic** or **Multi-site** listener depending on your requirements.
-
-4. Under **Protocol**, select **HTTPS**. A pane for **Certificate** appears.
-
-5. Upload the PFX certificate you intend to use for TLS termination between the client and the application gateway.
+5. Upload the PEM certificate you intend to use for mutual authentication between the client and the Application Gateway using the **Upload a new certificate** button. 
 
    > [!NOTE]
-   > For testing purposes, you can use a self-signed certificate. However, this is not advised for production workloads, because they're harder to manage and aren't completely secure. For more info, see [create a self-signed certificate](./create-ssl-portal.md#create-a-self-signed-certificate).
+   > If this isn't your first SSL profile and you've uploaded other client certificates onto your Application Gateway, you can choose to reuse an existing certificate on your gateway through the dropdown menu. 
 
-6. Add other required settings for the **Listener**, depending on your requirements.
+6. Check the **Verify client certificate issuer's DN** box only if you want Application Gateway to verify the client certificate's immediate issuer Distinguished Name. 
 
-7. Select **OK** to save.
+7. Select **Add** to save.
 
-### Add authentication/trusted root certificates of back-end servers
+![Add client authentication to SSL profile](./media/mutual-authentication-portal/mutual-authentication-portal.png)
 
-1. Select **All resources**, and then select **myAppGateway**.
+## Associate the SSL profile with a listener
 
-2. Select **HTTP settings** from the left-side menu. You can either put certificates in an existing back-end HTTP setting on the Safe Recipients list or create a new HTTP setting. (In the next step, the certificate for the default HTTP setting, **appGatewayBackendHttpSettings**, is added to the Safe Recipients list.)
+Now that we've created an SSL profile with mutual authentication configured, we need to associate the SSL profile to the listener to complete the set up of mutual authentication. 
 
-3. Select **appGatewayBackendHttpSettings**.
+1. Navigate to your existing Application Gateway. If you just completed the steps above, you don't need to do anything here. 
 
-4. Under **Protocol**, select **HTTPS**. A pane for **Backend authentication certificates or Trusted root certificates** appears. 
+2. Select **Listeners** from the left-side menu. 
 
-5. Select **Create new**.
+3. Click on **Add listener** if you don't already have an HTTPS listener set up. If you already have an HTTPS listener, click on it from the list. 
 
-6. In the **Name** field, enter a suitable name.
+4. Fill out the **Listener name**, **Frontend IP**, **Port**, **Protocol**, and other **HTTPS Settings** to fit your requirements.
 
-7. Select the certificate file in the **Upload CER certificate** box.
+5. Check the **Enable SSL Profile** checkbox so that you can select which SSL Profile to associate with the listener. 
 
-   For Standard and WAF (v1) application gateways, you should upload the public key of your back-end server certificate in .cer format.
+6. Select the SSL profile you just created from the dropdown list. In this example, we choose the SSL profile we created from the earlier steps: *applicationGatewaySSLProfile*. 
 
-   ![Add certificate](./media/end-to-end-ssl-portal/addcert.png)
+7. Continue configuring the remainder of the listener to fit your requirements. 
 
-   For Standard_v2 and WAF_v2 application gateways, you should upload the root certificate of the back-end server certificate in .cer format. If the back-end certificate is issued by a well-known CA, you can select the **Use Well Known CA Certificate** check box, and then you don't have to upload a certificate.
+8. Click **Add** to save your new listener with the SSL profile associated to it. 
 
-   ![Add trusted root certificate](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
-
-8. Select **Save**.
+![Associate SSL profile to new listener](./media/mutual-authentication-portal/mutual-authentication-listener-portal.png)
 
 ## Next steps
 
