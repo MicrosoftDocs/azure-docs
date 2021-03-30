@@ -3,7 +3,7 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -103,13 +103,6 @@ If you're using a JSON file to create the custom role, the following example sho
 ## Configure the Start VM on Connect feature
 
 Now that you've assigned your subscription the role, it's time to configure the Start VM on Connect feature!
-
-There are three ways you can configure the feature:
-
-- [Use PowerShell](#use-powershell)
-- [Use REST API](#use-rest-api)
-
-Choose the method that works best for you and follow the instructions in that section to configure Start VM on Connect.
 
 ### Deployment considerations 
 

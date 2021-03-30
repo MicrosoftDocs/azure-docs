@@ -3,11 +3,16 @@ title: Windows Virtual Desktop Start VM Connect FAQ - Azure
 description: Frequently asked questions and best practices for using the Start VM on Connect feature.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
 ---
 # Start VM on Connect FAQ (preview)
+
+> [!IMPORTANT]
+> The Start VM on Connect feature is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article covers frequently asked questions about the Start VM on Connect feature for Windows Virtual Desktop host pools.
 
