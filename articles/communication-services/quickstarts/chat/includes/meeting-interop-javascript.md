@@ -2,23 +2,23 @@
 title: Quickstart - Join a Teams meeting
 author: askaur
 ms.author: askaur
-ms.date: 02/17/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
 ## Joining the meeting chat 
 
-Once Teams interoperability is enabled, a Communication Services user can join the Teams call as an external user using the calling client library. Joining the call will add them as a participant to the meeting chat as well, where they can send and receive messages with other users on the call. The user will not have access to chat messages that were sent before they joined the call. To join the meeting and start chatting, you can follow the next steps.
+Once Teams interoperability is enabled, a Communication Services user can join the Teams call as an external user using the Calling SDK. Joining the call will add them as a participant to the meeting chat as well, where they can send and receive messages with other users on the call. The user will not have access to chat messages that were sent before they joined the call. To join the meeting and start chatting, you can follow the next steps.
 
 ## Install the chat packages
 
-Use the `npm install` command to install the necessary Communication Services client libraries for JavaScript.
+Use the `npm install` command to install the necessary Communication Services SDKs for JavaScript.
 
 ```console
 npm install @azure/communication-common --save
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 npm install @azure/communication-signaling --save
 
@@ -148,7 +148,7 @@ Within the snippet, replace
 // npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 import { CallClient, CallAgent } from "@azure/communication-calling";
 import { AzureCommunicationUserCredential } from "@azure/communication-common";
-import { CommunicationIdentityClient } from "@azure/communication-administration";
+import { CommunicationIdentityClient } from "@azure/communication-identity";
 import { ChatClient } from "@azure/communication-chat";
 
 let call;

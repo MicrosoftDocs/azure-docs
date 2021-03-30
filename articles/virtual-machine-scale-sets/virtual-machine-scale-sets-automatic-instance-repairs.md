@@ -5,7 +5,7 @@ author: avirishuv
 ms.author: avverma
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: availability
+ms.subservice: instance-protection
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
@@ -273,7 +273,7 @@ az vmss set-orchestration-service-state \
 ```
 ### Azure PowerShell
 
-Use [Get-AzVmss](/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) cmdlet with parameter *InstanceView* to view the *ServiceState* for automatic instance repairs.
+Use [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet with parameter *InstanceView* to view the *ServiceState* for automatic instance repairs.
 
 ```azurepowershell-interactive
 Get-AzVmss `

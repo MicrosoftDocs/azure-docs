@@ -36,7 +36,7 @@ To use the control plane APIs:
   - [**Java**](https://search.maven.org/search?q=a:azure-mgmt-digitaltwins) ([reference [auto-generated]](/java/api/overview/azure/digitaltwins)) ([source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins))
   - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([source](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
-  - [**Go**](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
+  - [**Go**](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt) ([source](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt))
 
 You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](how-to-use-cli.md).
 
@@ -69,7 +69,7 @@ To use the data plane APIs:
    - you can find the SDK source in GitHub: [Azure Azure Digital Twins Core client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * You can use the **Python SDK**. To use the Python SDK...
    - you can view and install the package from PyPi: [Azure Azure Digital Twins Core client library for Python](https://pypi.org/project/azure-digitaltwins-core/).
-   - you can view the [SDK reference documentation](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true).
+   - you can view the [SDK reference documentation](/python/api/azure-digitaltwins-core/azure.digitaltwins.core).
    - you can find the SDK source in GitHub: [Azure Azure Digital Twins Core client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * You can generate an SDK for another language using AutoRest. Follow the instructions in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
@@ -123,18 +123,21 @@ You can also find additional samples in the [GitHub repo for the .NET (C#) SDK](
 Serialization helpers are helper functions available within the SDK for quickly creating or deserializing twin data for access to basic information. Since the core SDK methods return twin data as JSON by default, it can be helpful to use these helper classes to break the twin data down further.
 
 The available helper classes are:
-* `BasicDigitalTwin`: Represents the core data of a digital twin
-* `BasicRelationship`: Represents the core data of a relationship
-* `UpdateOperationUtility`: Represents JSON Patch information used in update calls
-* `WriteableProperty`: Represents property metadata
+* `BasicDigitalTwin`: Generically represents the core data of a digital twin
+* `BasicDigitalTwinComponent`: Generically represents a component in the `Contents` properties of a `BasicDigitalTwin`
+* `BasicRelationship`: Generically represents the core data of a relationship
+* `DigitalTwinsJsonPropertyName`: Contains the string constants for use in JSON serialization and deserialization for custom digital twin types
 
 ##### Deserialize a digital twin
 
-You can always deserialize twin data using the JSON library of your choice, like `System.Test.Json` or `Newtonsoft.Json`. For basic access to a twin, the helper classes make this a bit more convenient.
+You can always deserialize twin data using the JSON library of your choice, like `System.Text.Json` or `Newtonsoft.Json`. For basic access to a twin, the helper classes can make this more convenient.
 
 The `BasicDigitalTwin` helper class also gives you access to properties defined on the twin, through a `Dictionary<string, object>`. To list properties of the twin, you can use:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+
+> [!NOTE]
+> `BasicDigitalTwin` uses `System.Text.Json` attributes. In order to use `BasicDigitalTwin` with your [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true), you must either initialize the client with the default constructor, or, if you want to customize the serializer option, use the [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true).
 
 ##### Create a digital twin
 

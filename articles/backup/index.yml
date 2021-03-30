@@ -91,7 +91,7 @@ landingContent:
           - text: Manage Azure VM backups
             url: backup-azure-manage-vms.md
   # Card
-  - title: Back up Azure Managed Disks (in preview)
+  - title: Back up Azure Managed Disks
     linkLists:
       - linkListType: concept
         links:

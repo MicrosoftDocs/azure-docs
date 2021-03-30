@@ -38,7 +38,7 @@ The following are the [Regulatory Compliance](../concepts/regulatory-compliance.
 - [CMMC Level 3](./cmmc-l3.md)
 - [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md)
 - [ISO 27001:2013](./iso-27001.md)
-- [New Zealand Information Security Manual](./new-zealand-ism.md)
+- [New Zealand ISM Restricted](./new-zealand-ism.md)
 - [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
 

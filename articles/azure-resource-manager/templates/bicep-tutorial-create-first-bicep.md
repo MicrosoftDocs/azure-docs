@@ -2,7 +2,7 @@
 title: Tutorial - Create & deploy Azure Resource Manager Bicep files
 description: Create your first Bicep file for deploying Azure resources. In the tutorial, you learn about the Bicep file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 03/03/2021
+ms.date: 03/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -29,11 +29,11 @@ Let's start by making sure you have the tools you need to create and deploy Bice
 
 ### Editor
 
-To create Bicep files, you need a good editor. We recommend Visual Studio Code with the Bicep extension. If you need to install these tools, see [Quickstart: Create Bicep files with Visual Studio Code](quickstart-create-bicep-use-visual-studio-code.md).
+To create Bicep files, you need a good editor. We recommend Visual Studio Code with the Bicep extension. If you need to install these tools, see [Configure Bicep development environment](./bicep-install.md#development-environment).
 
 ### Command-line deployment
 
-You also need either the latest Azure PowerShell or the latest Azure CLI to deploy the Bicep file. For the installation instructions, see:
+You can deploy Bicep files by using Azure CLI or Azure PowerShell. For Azure CLI, you need version 2.20.0 or later; for Azure PowerShell, you need version 5.6.0 or later. For the installation instructions, see:
 
 - [Install Azure PowerShell](/powershell/azure/install-az-ps)
 - [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
@@ -74,7 +74,7 @@ Okay, you're ready to start learning about Bicep.
     The resource declaration has four components:
 
     - **resource**: keyword.
-    - **symbolic name** (stg): A symbolic name is an identifier for referencing the resource throughout your bicep file. It is not what the name of the resource will be when it's deployed. The name of the resource is defined by the **name** property.  See the fourth component in this list. To make the tutorials easy to follow, **stg** is used as the symbolic name for the storage account resource in this tutorial series.
+    - **symbolic name** (stg): A symbolic name is an identifier for referencing the resource throughout your bicep file. It is not what the name of the resource will be when it's deployed. The name of the resource is defined by the **name** property.  See the fourth component in this list. To make the tutorials easy to follow, **stg** is used as the symbolic name for the storage account resource in this tutorial series. To see how to use the symbolic name to get a full list of the object properties, see [Add outputs](./bicep-tutorial-add-outputs.md).
     - **resource type** (Microsoft.Storage/storageAccounts@2019-06-01): It is composed of the resource provider (Microsoft.Storage), resource type (storageAccounts), and apiVersion (2019-06-01). Each resource provider publishes its own API versions, so this value is specific to the type. You can find more types and apiVersions for various Azure resources from [ARM template reference](/azure/templates/).
     - **properties** (everything inside = {...}): These are the specific properties you would like to specify for the given resource type. These are exactly the same properties available to you in an ARM Template. Every resource has a `name` property. Most resources also have a `location` property, which sets the region where the resource is deployed. The other properties vary by resource type and API version. It's important to understand the connection between the API version and the available properties, so let's jump into more detail.
 

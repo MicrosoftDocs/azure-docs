@@ -48,6 +48,8 @@ The following are required to use this feature:
 
 - An Azure Storage account that is [configured to your Stream Analytics job](azure-synapse-analytics-output.md).
 
+- Note: Stream Analytics account storage MSI integrated with Synapse SQL MSI is currently unavailable.
+
 ---
 
 ## Create a managed identity
@@ -166,7 +168,7 @@ Alternatively, you can right-click on your Azure SQL or Azure Synapse database i
 To look at all the permissions you have added to your *ASA_JOB_NAME* user, run the following command in SSMS under the pertaining DB: 
 
 ```sql
-SELECT dprin.name, dbprin.type_desc, dbperm.permission_name, dbperm.state_desc, dbperm.class_desc, object_name(dbperm.major_id) 
+SELECT dbprin.name, dbprin.type_desc, dbperm.permission_name, dbperm.state_desc, dbperm.class_desc, object_name(dbperm.major_id) 
 FROM sys.database_principals dbprin 
 LEFT JOIN sys.database_permissions dbperm 
 ON dbperm.grantee_principal_id = dbprin.principal_id 

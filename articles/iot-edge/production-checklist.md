@@ -13,6 +13,8 @@ ms.custom:  [amqp, mqtt]
 
 # Prepare to deploy your IoT Edge solution in production
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 When you're ready to take your IoT Edge solution from development into production, make sure that it's configured for ongoing performance.
 
 The information provided in this article isn't all equal. To help you prioritize, each section starts with lists that divide the work into two sections: **important** to complete before going to production, or **helpful** for you to know.
@@ -169,7 +171,13 @@ A tag is a docker concept that you can use to distinguish between versions of do
 
 Tags also help you to enforce updates on your IoT Edge devices. When you push an updated version of a module to your container registry, increment the tag. Then, push a new deployment to your devices with the tag incremented. The container engine will recognize the incremented tag as a new version and will pull the latest module version down to your device.
 
-For an example of a tag convention, see [Update the IoT Edge runtime](how-to-update-iot-edge.md#understand-iot-edge-tags) to learn how IoT Edge uses rolling tags and specific tags to track versions.
+#### Tags for the IoT Edge runtime
+
+The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version that they are associated with. There are two different ways to use tags with the runtime images:
+
+* **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.1 is updated whenever there's a new release to point to the latest 1.1.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. Deployments from the Azure portal default to rolling tags. *This approach is suggested for development purposes.*
+
+* **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.1.0 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. *This approach is suggested for production purposes.*
 
 ### Store runtime containers in your private registry
 

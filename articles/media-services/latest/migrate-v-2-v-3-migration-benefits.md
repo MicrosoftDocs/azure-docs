@@ -7,7 +7,7 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -18,6 +18,8 @@ ms.author: inhenkel
 <hr color="#5ea0ef" size="10">
 
 ![migration steps 2](./media/migration-guide/steps-1.svg)
+
+## Use the latest API
 
 We encourage you to start using version 2020-05-01 of the Azure Media Services V3 API now to gain the benefits because new features, functionality, and performance optimizations are only available in the current V3 API.
 
@@ -53,9 +55,5 @@ There have been significant improvements to Media Services with V3.
 |**Content protection** ||
 | [Content protection](content-key-policy-concept.md) supports multi-key features. | Customers can now use multiple content encryption keys on their Streaming locators. |
 | **Monitoring** | |
-| [Azure EventGrid](reacting-to-media-services-events.md) notification support | EventGrid notifications are more feature rich. There are more types of notifications, broader SDK support for receiving the notifications in your own application, and more existing Azure services that can act as event handlers. |
-| [Azure Monitor support and integration in the Azure portal](monitor-events-portal-how-to.md) | This allows customers to visualize Media Services account quota usage, real-time statistics of streaming endpoints, and ingest and archive statistics for live events. Customers are now able to set alerts and perform necessary actions based on real-time metric data. |
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]
+| [Azure EventGrid](monitoring/reacting-to-media-services-events.md) notification support | EventGrid notifications are more feature rich. There are more types of notifications, broader SDK support for receiving the notifications in your own application, and more existing Azure services that can act as event handlers. |
+| [Azure Monitor support and integration in the Azure portal](monitoring/monitor-events-portal-how-to.md) | This allows customers to visualize Media Services account quota usage, real-time statistics of streaming endpoints, and ingest and archive statistics for live events. Customers are now able to set alerts and perform necessary actions based on real-time metric data. |

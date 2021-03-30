@@ -15,11 +15,11 @@ ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 
-# Use the AD FS application activity report (preview) to migrate applications to Azure AD
+# Use the AD FS application activity report to migrate applications to Azure AD
 
 Many organizations use Active Directory Federation Services (AD FS) to provide single sign-on to cloud applications. There are significant benefits to moving your AD FS applications to Azure AD for authentication, especially in terms of cost management, risk management, productivity, compliance, and governance. But understanding which applications are compatible with Azure AD and identifying specific migration steps can be time consuming.
 
-The AD FS application activity report (preview) in the Azure portal lets you quickly identify which of your applications are capable of being migrated to Azure AD. It assesses all AD FS applications for compatibility with Azure AD, checks for any issues, and gives guidance on preparing individual applications for migration. With the AD FS application activity report, you can:
+The AD FS application activity report in the Azure portal lets you quickly identify which of your applications are capable of being migrated to Azure AD. It assesses all AD FS applications for compatibility with Azure AD, checks for any issues, and gives guidance on preparing individual applications for migration. With the AD FS application activity report, you can:
 
 * **Discover AD FS applications and scope your migration.** The AD FS application activity report lists all AD FS applications in your organization that have had an active user login in the last 30 days. The report indicates an apps readiness for migration to Azure AD. The report doesn't display Microsoft related relying parties in AD FS such as Office 365. For example, relying parties with name 'urn:federation:MicrosoftOnline'.
 
@@ -47,7 +47,7 @@ The AD FS application activity report is available in the Azure portal under Azu
 
 2. Select **Azure Active Directory**, and then select **Enterprise applications**.
 
-3. Under **Activity**, select **Usage & Insights (Preview)**, and then select **AD FS application activity** to open a list of all AD FS applications in your organization.
+3. Under **Activity**, select **Usage & Insights**, and then select **AD FS application activity** to open a list of all AD FS applications in your organization.
 
    ![AD FS application activity](media/migrate-adfs-application-activity/adfs-application-activity.png)
 

@@ -12,6 +12,8 @@ services: iot-edge
 
 # Troubleshoot your IoT Edge device
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and diagnostics.
 
 ## Run the 'check' command

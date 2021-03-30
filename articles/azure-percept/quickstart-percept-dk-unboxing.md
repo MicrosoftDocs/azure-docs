@@ -27,7 +27,7 @@ Once you have received your Azure Percept DK, reference this guide for informati
 1. Connect the devkit components.
 
     > [!NOTE]
-    > The power adapter port is located on the right side of the carrier board. The remaining ports (2x USB-A, 1x USB-C, 1x HDMI, and 1x Ethernet) and the reset button are located on the left side of the carrier board.
+    > The power adapter port is located on the right side of the carrier board. The remaining ports (2x USB-A, 1x USB-C, and 1x Ethernet) and the power button are located on the left side of the carrier board.
 
     1. Hand screw both Wi-Fi antennas into the carrier board.
 
@@ -39,11 +39,17 @@ Once you have received your Azure Percept DK, reference this guide for informati
 
     1. Connect the power adapter/cable to the carrier board and a wall outlet. To fully secure the power cable connector to the carrier board, use a P7 screwdriver (not included in the devkit) to tighten the connector screws.
 
-    1. After plugging the power cable into a wall outlet, the device will automatically power on. The reset button on the left side of the carrier board will be illuminated. Please allow some time for the device to boot up.
+    1. After plugging the power cable into a wall outlet, the device will automatically power on. The power button on the left side of the carrier board will be illuminated. Please allow some time for the device to boot up.
 
         > [!NOTE]
-        > The reset button is for powering off or resetting the device while connected to a power outlet. In the event of a power outage, the device will automatically reset and power back on.
+        > The power button is for powering off or restarting the device while connected to a power outlet. In the event of a power outage, the device will automatically restart.
+
+For a visual demonstration of the devkit assembly, please see 0:00 through 0:50 of the following video:
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/-dmcE2aQkDE]
 
 ## Next steps
 
-Now that your devkit is connected and powered on, please see the Azure Percept DK setup experience walkthrough to complete device setup. The setup experience allows you to connect your devkit to a Wi-Fi network, set up an SSH login, create an IoT Hub, and provision your devkit to your Azure account. Once you have completed device setup, you will be ready to start prototyping.
+Now that your devkit is connected and powered on, please see the [Azure Percept DK setup experience walkthrough](./quickstart-percept-dk-set-up.md) to complete device setup. The setup experience allows you to connect your devkit to a Wi-Fi network, set up an SSH login, create an IoT Hub, and provision your devkit to your Azure account. Once you have completed device setup, you will be ready to start prototyping.

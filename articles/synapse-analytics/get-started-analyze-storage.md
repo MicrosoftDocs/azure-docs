@@ -47,7 +47,8 @@ You can analyze the data in your workspace default ADLS Gen2 account or you can 
 
     ```py
     %%pyspark
-    df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet', format='parquet')
+    abspath = 'abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet'
+    df = spark.read.load(abspath, format='parquet')
     display(df.limit(10))
     ```
 

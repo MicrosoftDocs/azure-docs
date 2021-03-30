@@ -61,7 +61,7 @@ In this tutorial, you will:
 
 The OpenVINO™ DL Streamer - Edge AI Extension module is a microservice based on Intel’s Video Analytics Serving (VA Serving) that serves video analytics pipelines built with OpenVINO™ DL Streamer. Developers can send decoded video frames to the AI extension module which performs detection, classification, or tracking and returns the results. The AI extension module exposes gRPC APIs that are compatible with video analytics platforms like Live Video Analytics on IoT Edge from Microsoft. 
 
-In order to build complex, high-performance live video analytics solutions, the Live Video Analytics on IoT Edge module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the [Intel OpenVINO™ DL Streamer – Edge AI Extension](https://aka.ms/lva-intel-openvino-dl-streamer), an Edge module that has been designed to work with Live Video Analytics on IoT Edge. 
+In order to build complex, high-performance live video analytics solutions, the Live Video Analytics on IoT Edge module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the [Intel OpenVINO™ DL Streamer – Edge AI Extension](), an Edge module that has been designed to work with Live Video Analytics on IoT Edge. 
 
 In the initial release of this inference server, you have access to the following [models](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options):
 
@@ -126,7 +126,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     The *deployment.openvino.grpc.cpu.amd64.json* manifest file is created in the *src/edge/config* folder.
 
 > [!NOTE]
-We also included a *deployment.openvino.grpc.gpu.template.json* template that enables GPU support for the Intel OpenVINO DL Streamer - Edge AI Extension module. These templates point to Intel's Docker hub image.
+> We also included a *deployment.openvino.grpc.gpu.template.json* template that enables GPU support for the Intel OpenVINO DL Streamer - Edge AI Extension module. These templates point to Intel's Docker hub image.
 
 The above mentioned templates point to the intel Docker hub image. If you rather want to host a copy on your own Azure Container Registry you can follow step 1 and 2 below:
 1. SSH into a device with docker CLI tools installed (i.e. your edge device) and pull/tag/push the container with these steps:
