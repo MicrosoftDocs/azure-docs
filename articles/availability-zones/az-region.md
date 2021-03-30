@@ -126,7 +126,6 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | Azure Firewall Manager                          |      :large_blue_diamond:  |
 | Azure Kubernetes Service (AKS)                  |      :large_blue_diamond:  |
 | Azure Private Link                              |      :large_blue_diamond:  |
-| Azure Red Hat OpenShift                         |      :large_blue_diamond:  |
 | Azure Site Recovery                             |      :large_blue_diamond:  |
 | Azure SQL: Virtual Machine                      |      :large_blue_diamond:  |
 | Azure Search                                    |      :large_blue_diamond:  |
@@ -155,6 +154,16 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | Virtual WAN: Site-to-Site VPN Gateway           |      :large_blue_diamond:  |
 
 
+**Specialized Services**
+
+|     Products                                                    | Resiliency             |
+|-----------------------------------------------------------------|:----------------------------:|
+|     Azure Red Hat OpenShift                                     | :large_blue_diamond:  |
+|     Cognitive Services: Anomaly Detector                        | :large_blue_diamond:  |
+|     Cognitive Services: Form Recognizer                         | :large_blue_diamond:  |
+|     Storage: Ultra Disk                                         | :large_blue_diamond:  |
+
+
 **Non-regional**
 
 |     Products                                  |     Resiliency    |
@@ -172,6 +181,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     Azure   Lighthouse                        |     :globe_with_meridians:             |
 |     Azure Managed   Applications              |     :globe_with_meridians:             |
 |     Azure Maps                                |     :globe_with_meridians:             |
+|     Azure Performance Diagnostics             |     :globe_with_meridians:             |
 |     Azure Policy                              |     :globe_with_meridians:             |
 |     Azure   Resource Graph                    |     :globe_with_meridians:             |
 |     Azure Sentinel                            |     :globe_with_meridians:             |
