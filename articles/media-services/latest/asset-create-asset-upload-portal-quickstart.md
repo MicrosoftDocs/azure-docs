@@ -37,7 +37,7 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
 
     * [Streaming locators](streaming-locators-concept.md)
     * [Streaming policies](streaming-policy-concept.md)
-    * [Packaging and delivery](dynamic-packaging-overview.md)
+    * [Packaging and delivery](encode-dynamic-packaging-concept.md)
     * [Filters](filters-concept.md)
 * You can protect your content by encrypting it with Advanced Encryption Standard (AES-128) or/and any of the three major DRM systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. The [Encrypt content with the Azure portal](drm-encrypt-content-how-to.md) quickstart shows how to configure content protection.
         

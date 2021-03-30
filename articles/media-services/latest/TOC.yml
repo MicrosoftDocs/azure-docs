@@ -142,9 +142,9 @@
       displayName: containers, codecs    
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
-      href: autogen-bitrate-ladder.md       
+      href: encode-autogen-bitrate-ladder.md       
     - name: Content-aware encoding
-      href: content-aware-encoding.md
+      href: encode-content-aware-concept.md
     - name: Media reserved units
       href: concept-media-reserved-units.md          
   - name: Analyzing and Redaction 
@@ -182,9 +182,9 @@
     items:
     - name: Dynamic packaging
       displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming, audio, video 
-      href: dynamic-packaging-overview.md
+      href: encode-dynamic-packaging-concept.md
     - name: Dynamic manifests
-      href: filters-dynamic-manifest-overview.md 
+      href: filters-dynamic-manifest-concept.md 
     - name: Filters
       displayName: manifest, dynamic manifest, filter, hls, dash, m3u8, mpd,	content delivery
       href: filters-concept.md   
@@ -367,7 +367,7 @@
         displayName: encode, encoding, custom, transform
         items:
         - name: Customize encoder presets
-          href: customize-encoder-presets-how-to.md
+          href: encode-custom-presets-how-to.md
         - name: Create an overlay transform
           href: how-to-create-overlay.md
         - name: Generate thumbnails with .NET
@@ -376,10 +376,10 @@
           href: crop-howto.md
       - name: With CLI
         displayName: encode, encoding, custom, transform
-        href: custom-preset-cli-howto.md
+        href: encode-custom-preset-cli-how-to.md
       - name: With REST
         displayName: encode, encoding, custom, transform
-        href: custom-preset-rest-howto.md
+        href: encode-custom-preset-rest-how-to.md
       - name: Generate thumbnails with REST
         href: media-services-generate-thumbnails-rest.md
       - name: Scale media reserved units

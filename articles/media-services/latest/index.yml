@@ -36,7 +36,7 @@ landingContent:
           - text: Storage accounts
             url: storage-account-concept.md
           - text: Packaging
-            url: dynamic-packaging-overview.md   
+            url: encode-dynamic-packaging-concept.md   
           - text: Monitoring
             url: monitoring/reacting-to-media-services-events.md
           - text: Player clients

@@ -81,7 +81,7 @@ The following steps show a common Media Services streaming workflow where dynami
     
 The following diagram shows the on-demand streaming with dynamic packaging workflow.
 
-![Diagram of a workflow for on-demand streaming with dynamic packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Diagram of a workflow for on-demand streaming with dynamic packaging](./media/encode-dynamic-packaging-concept/media-services-dynamic-packaging.svg)
 
 The download path is present in the above image just to show you that you can download an MP4 file directly through the *streaming endpoint* (origin) (you specify the downloadable [streaming policy](streaming-policy-concept.md) on the streaming locator).<br/>The dynamic packager is not altering the file. You can optionally use the Azure blob storage APIs to access an MP4 directly for progressive downloading if you wish to bypass the *streaming endpoint* (origin) features. 
 
@@ -91,7 +91,7 @@ The following articles show examples of [how to encode a video with Media Servic
 
 * [Encode from an HTTPS URL by using built-in presets](job-input-from-http-how-to.md).
 * [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md).
-* [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md).
+* [Build a custom preset to target your specific scenario or device requirements](encode-custom-presets-how-to.md).
 
 See the list of Standard Encoder [formats and codecs](media-encoder-standard-formats.md).
 
@@ -299,7 +299,7 @@ For more information, see [How to signal audio description tracks](signal-descri
 
 ## Dynamic manifest
 
-To control the number of tracks, formats, bitrates, and presentation time windows that are sent to players, you can use dynamic filtering with the Media Services dynamic packager. For more information, see [Pre-filtering manifests with the dynamic packager](filters-dynamic-manifest-overview.md).
+To control the number of tracks, formats, bitrates, and presentation time windows that are sent to players, you can use dynamic filtering with the Media Services dynamic packager. For more information, see [Pre-filtering manifests with the dynamic packager](filters-dynamic-manifest-concept.md).
 
 ## Dynamic encryption
 

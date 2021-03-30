@@ -24,7 +24,7 @@ This article demonstrates how to create a streaming locator and build a streamin
 
 ## Prerequisite
 
-Preview [Dynamic packaging](dynamic-packaging-overview.md)
+Preview [Dynamic packaging](encode-dynamic-packaging-concept.md)
 
 ## Java
 
