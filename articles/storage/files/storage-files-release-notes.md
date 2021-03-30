@@ -71,8 +71,8 @@ The following release notes are for version 12.0.0.0 of the Azure File Sync agen
 	- Improved change detection performance to detect files that have changed in the Azure file share.
 	- Performance improvements for reconciliation sync sessions. 
 	- Sync improvements to reduce ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED and ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED errors.
-	- Files may fail to tier on Server 2019 if Data Deduplication is enabled on the volume.
-	- AFSDiag fails to compress files if a file is larger than 2GiB.
+	- Fixed a bug that can cause files to fail to tier on Server 2019 if Data Deduplication is enabled on the volume.
+	- Fixed a bug that can cause AFSDiag to fail to compress files if a file is larger than 2GiB.
 
 ### Evaluation Tool
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](./storage-sync-files-planning.md#evaluation-cmdlet) section in the planning guide. 
