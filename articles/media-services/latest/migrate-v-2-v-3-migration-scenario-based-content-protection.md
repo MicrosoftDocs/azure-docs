@@ -23,7 +23,7 @@ This article provides you with details and guidance on the migration of content 
 
 ## Protect content in v3 API
 
-Use the support for [Multi-key](design-multi-drm-system-with-access-control.md) features in the new v3 API.
+Use the support for [Multi-key](architecture-design-multi-drm-system.md) features in the new v3 API.
 
 See content protection concepts, tutorials and how to guides below for specific steps.
 
@@ -71,7 +71,7 @@ When migrating your content from v2 to v3, it is advised to install the [v2 Azur
 ### Concepts
 
 - [Protect your content with Media Services dynamic encryption](content-protection-overview.md)
-- [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
+- [Design of a multi-DRM content protection system with access control](architecture-design-multi-drm-system.md)
 - [Media Services v3 with PlayReady license template](playready-license-template-overview.md)
 - [Media Services v3 with Widevine license template overview](widevine-license-template-overview.md)
 - [Apple FairPlay license requirements and configuration](fairplay-license-overview.md)

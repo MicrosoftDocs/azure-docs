@@ -26,7 +26,7 @@ For more information about installing modules, see [Install Azure PowerShell](/p
 
 ## Install Azure CLI module
 
-To use what-if in Azure CLI, you must have Azure CLI 2.5.0 or later. If needed, [install the latest version of Azure CLI](/cli/azure/install-azure-cli).
+To use what-if in Azure CLI, you must have Azure CLI 2.14.0 or later. If needed, [install the latest version of Azure CLI](/cli/azure/install-azure-cli).
 
 ## See results
 

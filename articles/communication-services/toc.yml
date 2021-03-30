@@ -160,7 +160,7 @@
     - name: Calling (JavaScript)
       href: /javascript/api/azure-communication-services/@azure/communication-calling/
     - name: Calling (Android/Java)
-      href: /java/api/com.azure.communication.calling
+      href: /java/api/com.azure.android.communication.calling?view=communication-services-java-android
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
   - name: Chat libraries
