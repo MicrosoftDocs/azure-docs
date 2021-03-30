@@ -12,8 +12,8 @@ ms.author: inhenkel
 | Feature | Germany North (Public) | Germany West Central (Public) |
 | --- | :---: | :---: |
 | [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |![Azure EventGrid Germany North (Public) general availability](../media/azure-clouds-regions/ga.svg) |![Azure EventGrid Germany West Central (Public) general availability](../media/azure-clouds-regions/ga.svg) |
-| [VideoAnalyzerPreset](../analyze-video-audio-files-concept.md) | | ![Azure EventGrid Germany West Central (Public) general availability](../media/azure-clouds-regions/ga.svg) |
-| [AudioAnalyzerPreset](../analyze-video-audio-files-concept.md) | |![AudioAnalyzerPreset Germany West Central (Public) general availability](../media/azure-clouds-regions/ga.svg) |
+| [VideoAnalyzerPreset](../analyze-video-audio-files-concept.md) | | |
+| [AudioAnalyzerPreset](../analyze-video-audio-files-concept.md) | | |
 | [StandardEncoderPreset](../encoding-concept.md) | ![StandardEncoderPreset Germany North (Public) general availability](../media/azure-clouds-regions/ga.svg) |![StandardEncoderPreset Germany West Central (Public) general availability](../media/azure-clouds-regions/ga.svg) |
 | [LiveEvents](../live-streaming-overview.md) | ![LiveEvents Germany North (Public) general availability](../media/azure-clouds-regions/ga.svg) |![LiveEvents Germany West Central (Public) general availability](../media/azure-clouds-regions/ga.svg) |
 | [StreamingEndpoints](../streaming-endpoint-concept.md) | ![StreamingEndpoints Germany North (Public) general availability](../media/azure-clouds-regions/ga.svg) |![StreamingEndpoints Germany West Central (Public) general availability](../media/azure-clouds-regions/ga.svg) |
