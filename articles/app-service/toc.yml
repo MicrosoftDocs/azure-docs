@@ -215,8 +215,6 @@
         href: configure-authentication-provider-facebook.md
       - name: Authenticate with Google
         href: configure-authentication-provider-google.md
-      - name: Authenticate with Microsoft account
-        href: configure-authentication-provider-microsoft.md
       - name: Authenticate with Twitter
         href: configure-authentication-provider-twitter.md
       - name: Authenticate with an OpenID Connect provider (Preview)
