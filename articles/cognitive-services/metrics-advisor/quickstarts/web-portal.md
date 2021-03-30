@@ -32,22 +32,25 @@ When you provision a Metrics Advisor instance, you can use the APIs and web-base
 > * It may 10 to 30 minutes for your Metrics Advisor resource to deploy. Click **Go to resource** once it successfully deploys.
 > * If you'd like to use the REST API to interact with the service, you will need the key and endpoint from the resource you create. You can find them in the  **Keys and endpoints** tab in the created resource.
 
+* Your data should avoid duplicate rows, and the type of timestamp column can be 'Datetime' or 'String' .
+
+
 This document uses a SQL Database as an example for creating your first monitor.
 
 ## Sign in to your workspace
 
-After your resource is created, sign in to [Metrics Advisor portal](https://go.microsoft.com/fwlink/?linkid=2143774). Select your workspace to start monitoring your metrics. 
+After your resource is created, sign in to [Metrics Advisor portal](https://go.microsoft.com/fwlink/?linkid=2143774) with your Active Directory account. From the landing page, select your **Directory**, **Subscription** and **Workspace** that just created, then click **Get started**. For onboarding time series data, select **Add data feed** from the left menu.
+
  
 Currently you can create one Metrics Advisor resource at each available region. You can switch workspaces in Metrics Advisor portal at any time.
 
 
 ## Onboard time series data
 
-Metrics Advisor provides connectors for different data sources, such as SQL Database, Azure Data Explorer, and Azure Table Storage. The steps for connecting data are similar for different connectors, although some configuration parameters may vary. See [connect your data from different sources](../data-feeds-from-different-sources.md) for the required parameters for specific data sources.
+Metrics Advisor provides connectors for different data sources, such as SQL Database, Azure Data Explorer, and Azure Table Storage. The steps for connecting data are similar for different connectors, although some configuration parameters may vary. See [connect data different data feed sources](../data-feeds-from-different-sources.md) for different data connection settings.
 
 This quickstart uses a SQL Database as an example. You can also ingest your own data follow the same steps.
 
-To get started, sign into your Metrics Advisor workspace, with your Active Directory account. From the landing page, select your **Directory**, **Subscription** and **Workspace** that just created, then click **Get started**. After the main page of the workload loads, select **Add data feed** from the left menu.
 
 ### Data schema requirements and configuration
 
@@ -55,17 +58,15 @@ To get started, sign into your Metrics Advisor workspace, with your Active Direc
 
 ### Configure connection settings
 
-> [!TIP]
-> See [how to add data feeds](../how-tos/onboard-your-data.md) for details on the available parameters.
-
-Add the data feed by connecting to your time-series data source. Start by selecting the following parameters:
+[Add the data feeds](../how-tos/onboard-your-data.md) by connecting to your time series data source. Start by selecting the following parameters:
 
 * **Source Type**: The type of data source where your time series data is stored.
 * **Granularity**: The interval between consecutive data points in your time series data, for example Yearly, Monthly, Daily. The lowest interval customization supports is 60 seconds.
 * **Ingest data since (UTC)**: The start time for the first timestamp to be ingested. 
 
 
-Next, specify the **Connection string** with the credentials for your data source, and a custom **Query**. The query is used to specify the data to be ingested, and converted into the required schema.
+Next, specify the **Connection string** with the credentials for your data source, and a custom **Query**. 
+Here is something you must know: The query is aimed to return some records for each dimension combination in each granularity, so you should specify the granularity according to your data timestamps. Metrics Advisor will run this query for each timestamp to ingest your data.
 
 [!INCLUDE [query requirements](../includes/query-requirements.md)]
 
