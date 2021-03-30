@@ -47,7 +47,7 @@ Perform the following general steps when you encrypt your assets with AES by usi
 
 1. [Create an asset, and upload files into the asset](media-services-protect-with-aes128.md#create_asset).
 
-2. [Encode the asset that contains the file to the adaptive bitrate MP4 set](media-services-playready-license-template-overview.md#encode_asset).
+2. [Encode the asset that contains the file to the adaptive bitrate MP4 set](media-services-protect-with-aes128.md#encode_asset).
 
 3. [Create a content key, and associate it with the encoded asset]media-services-protect-with-aes128.md#create_contentkey). In Media Services, the content key contains the asset's encryption key.
 
