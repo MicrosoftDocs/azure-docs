@@ -295,6 +295,8 @@
       href: enable-host-encryption.md
   - name: Monitoring and logging
     items:
+    - name: View cluster metrics
+      href: view-metrics.md
     - name: Azure Monitor for containers
       href: ../azure-monitor/containers/container-insights-overview.md
       maintainContext: true
