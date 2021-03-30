@@ -9,11 +9,13 @@ ms.topic: conceptual
 
 # Deploy Start/Stop VMs v2 (preview)
 
-Perform the steps in this topic in sequence to install the Start/Stop VMs v2 (preview) feature. After completing the setup process, configure the schedules to customize the feature.
+Perform the steps in this topic in sequence to install the Start/Stop VMs v2 (preview) feature. After completing the setup process, configure the schedules to customize it to your requirements.
 
 ## Deploy feature
 
 The deployment is initiated from the Start/Stop VMs v2 GitHub organization [here](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md). While this feature is intended to manage all of your VMs in your subscription across all resource groups from a single deployment within the subscription, you can install another instance of it based on the operations model or requirements of your organization. It also can be configured to centrally manage VMs across multiple subscriptions.
+
+To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (preview) to a dedicated resource group.
 
 > [!NOTE]
 > Currently this preview does not support specifying an existing Storage account or Application Insights resource.
