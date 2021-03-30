@@ -64,7 +64,7 @@ The following changes will happen in upcoming releases.
 HDInsight will be upgrading OS version from Ubuntu 16.04 to 18.04. The upgrade will complete before April 2021.
 
 ### Basic support for HDInsight 3.6 starting July 1, 2021
-Starting July 1, 2021, Microsoft will offer [Basic support](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#support-options-for-hdinsight-versions) for certain HDInsight 3.6 cluster types. The Basic support plan will be available until 3 April 2022. You'll automatically be enrolled in Basic support starting July 1, 2021. No action is required by you to opt in. See [our documentation](https://docs.microsoft.com/azure/hdinsight/hdinsight-36-component-versioning) for which cluster types are included under Basic support. 
+Starting July 1, 2021, Microsoft will offer [Basic support](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) for certain HDInsight 3.6 cluster types. The Basic support plan will be available until 3 April 2022. You'll automatically be enrolled in Basic support starting July 1, 2021. No action is required by you to opt in. See [our documentation](hdinsight-36-component-versioning.md) for which cluster types are included under Basic support. 
 
 We don't recommend building any new solutions on HDInsight 3.6, freeze changes on existing 3.6 environments. We recommend that you [migrate your clusters to HDInsight 4.0](hdinsight-version-release.md#how-to-upgrade-to-hdinsight-40). Learn more about [what's new in HDInsight 4.0](hdinsight-version-release.md#whats-new-in-hdinsight-40).
 
