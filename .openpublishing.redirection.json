@@ -26,11 +26,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/confidential-computing/how-to-fortanix-confidential-computing-manager.md",
-      "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/confidential-computing/how-to-fortanix-enclave-manager.md",
       "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent",
       "redirect_document_id": false
