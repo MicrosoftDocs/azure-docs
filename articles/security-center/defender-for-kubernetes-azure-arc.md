@@ -53,6 +53,8 @@ You can deploy the Azure Defender extension using a range of methods. For detail
 
 ### [**Azure portal**](#tab/k8s-deploy-asc)
 
+### Use the Security Center recommendation for visibility
+
 A dedicated recommendation in Azure Security Center provides visibility about which of your clusters has the Defender for Kubernetes extension deployed.
 
 1. From Azure Security Center's recommendations page, open the **Enable Azure Defender** security control.
@@ -62,6 +64,8 @@ A dedicated recommendation in Azure Security Center provides visibility about wh
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 ### [**Azure CLI**](#tab/k8s-deploy-cli)
+
+### Use Azure CLI to deploy the Azure Defender extension
 
 1. Login to Azure:
 
@@ -94,6 +98,8 @@ A dedicated recommendation in Azure Security Center provides visibility about wh
 
 ### [**Resource Manager**](#tab/k8s-deploy-resource-manager)
 
+### Use Azure Resource Manager to deploy the Azure Defender extension
+
 To use Azure Resource Manager to deploy the Azure Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces).
 
 You can use the **azure-defender-extension-arm-template.json** Resource Manager template from Security Center's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
@@ -102,6 +108,8 @@ You can use the **azure-defender-extension-arm-template.json** Resource Manager 
 > If you're new to Resource Manager templates, start here: [What are Azure Resource Manager templates?](../azure-resource-manager/templates/overview.md)
 
 ### [**REST API**](#tab/k8s-deploy-api)
+
+### Use REST API to deploy the Azure Defender extension 
 
 To use the REST API to deploy the Azure Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces).
 
@@ -149,6 +157,7 @@ To use the REST API to deploy the Azure Defender extension, you'll need a Log An
     | logAnalytics.key         | Key of the Log Analytics resource | 
     | auditLogPath             | **Optional**. The full path to the audit log files. The default value is ``/var/log/kube-apiserver/audit.log`` |
 
+---
 
 ## Verify the deployment
 
@@ -156,7 +165,7 @@ To verify that your cluster has the Azure Defender extension installed on it, fo
 
 ### [**Azure portal - Security Center**](#tab/k8s-verify-asc)
 
-### Use the Security Center recommendation to verify the status of your extension
+### Use Security Center recommendation to verify the status of your extension
 
 1. From Azure Security Center's recommendations page, open the  **Enable Azure Defender** security control.
 
@@ -168,6 +177,8 @@ To verify that your cluster has the Azure Defender extension installed on it, fo
 
 
 ### [**Azure portal - Azure Arc**](#tab/k8s-verify-arc)
+
+### Use the Azure Arc pages to verify the status of your extension
 
 1. From the Azure portal, open **Azure Arc**.
 1. From the infrastructure list, select **Kubernetes clusters** and then select the specific cluster.
@@ -181,6 +192,8 @@ To verify that your cluster has the Azure Defender extension installed on it, fo
 
 
 ### [**Azure CLI**](#tab/k8s-verify-cli)
+
+### Use Azure CLI to verify that the extension is deployed
 
 1. Run the following command on Azure CLI:
 
@@ -201,6 +214,8 @@ To verify that your cluster has the Azure Defender extension installed on it, fo
 
 ### [**REST API**](#tab/k8s-verify-api)
 
+### Use the REST API to verify that the extension is deployed
+
 To confirm a successful deployment, or to validate the status of your extension at any time:
 
 1. Run the following GET command:
@@ -220,11 +235,15 @@ To confirm a successful deployment, or to validate the status of your extension 
     kubectl get pods -n azuredefender
     ```
 
+---
+
 ## Removing the Azure Defender for Kubernetes extension
 
 You can remove the extension using Azure portal, Azure CLI or REST API as explained in the tabs below.
 
 ### [**Azure portal - Arc**](#tab/k8s-remove-arc)
+
+### Use Azure portal to remove the extension
 
 1. From the Azure portal, open Azure Arc.
 1. From the infrastructure list, select **Kubernetes clusters** and then select the specific cluster.
@@ -234,6 +253,8 @@ You can remove the extension using Azure portal, Azure CLI or REST API as explai
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png" alt-text="Removing an extension from your Arc enabled Kubernetes cluster." lightbox="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png":::
 
 ### [**Azure CLI**](#tab/k8s-remove-cli)
+
+### Use Azure CLI to remove the Azure Defender extension
 
 1. Remove the Azure Defender for Kubernetes Arc extension with the following commands:
 
@@ -261,7 +282,7 @@ You can remove the extension using Azure portal, Azure CLI or REST API as explai
 
 ### [**REST API**](#tab/k8s-remove-api)
 
-### Use the REST API to remove the Azure Defender extension 
+### Use REST API to remove the Azure Defender extension 
 
 To remove the extension using the REST API, run the following DELETE command:
 
@@ -282,6 +303,7 @@ az account get-access-token --subscription <your-subscription-id>
 ```
 
 The request may take several minutes to complete.
+
 ---
 
 ## Next steps
