@@ -250,7 +250,7 @@
     - name: Fragmented MP4 live ingest specification
       href: ../media-services-fmp4-live-ingest-overview.md
   - name: Protect content
-    href: media-services-drm-content-protection-concept.md
+    href: media-services-content-protection-overview.md
     items:
     - name: Storage encryption
       href: media-services-rest-storage-encryption.md
@@ -265,7 +265,7 @@
     - name: Offline FairPlay for iOS
       href: media-services-protect-hls-with-offline-fairplay.md
     - name: Offline Widevine for Android
-      href: drm-offline-widevine-for-android.md
+      href: offline-widevine-for-android.md
     - name: Configure in Azure portal
       href: media-services-portal-protect-content.md
     - name: Deliver DRM licenses

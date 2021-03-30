@@ -40,7 +40,7 @@ For more information, see integration with [Axinom](media-services-axinom-integr
 
 Media Services supports multiple ways of authorizing users who make key requests. The content key authorization policy can have one or more authorization restrictions, either open or token restrictions. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the [simple web token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) (SWT) and [JSON Web Token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) (JWT) formats. 
 
-For more information, see [Configure the content key's authorization policy](media-services-drm-playready-license-template-concept.md#configure_key_auth_policy).
+For more information, see [Configure the content key's authorization policy](media-services-playready-license-template-overview.md#configure_key_auth_policy).
 
 To take advantage of dynamic encryption, you need an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. You also need to configure the delivery policies for the asset (described later in this topic). Then, based on the format specified in the streaming URL, the on-demand streaming server ensures that the stream is delivered in the protocol you selected. As a result, you store and pay for the files in only a single storage format. Media Services builds and serves the appropriate HTTP response based on each request from a client.
 
@@ -64,7 +64,7 @@ Perform the following general steps when you protect your assets with PlayReady 
 
 4. Configure the content key's authorization policy. You must configure the content key authorization policy. The client must meet the policy before the content key is delivered to the client.
 
-	When you create the content key authorization policy, you must specify the delivery method (PlayReady or Widevine) and the restrictions (open or token). You also must specify information specific to the key delivery type that defines how the key is delivered to the client ([PlayReady](media-services-drm-playready-license-template-concept.md) or [Widevine](media-services-widevine-license-template-overview.md) license template).
+	When you create the content key authorization policy, you must specify the delivery method (PlayReady or Widevine) and the restrictions (open or token). You also must specify information specific to the key delivery type that defines how the key is delivered to the client ([PlayReady](media-services-playready-license-template-overview.md) or [Widevine](media-services-widevine-license-template-overview.md) license template).
 
 5. Configure the delivery policy for an asset. The delivery policy configuration includes the delivery protocol (for example, MPEG-DASH, HLS, Smooth Streaming, or all). The configuration also includes the type of dynamic encryption (for example, common encryption) and the PlayReady or Widevine license acquisition URL.
 
@@ -76,7 +76,7 @@ You can find a complete .NET example at the end of the article.
 
 The following image demonstrates the workflow previously described. Here, the token is used for authentication.
 
-![Protect with PlayReady](media/media-services-drm-content-protection-concept/media-services-content-protection-with-drm.png)
+![Protect with PlayReady](media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
 The remainder of this article provides detailed explanations, code examples, and links to topics that show you how to achieve the tasks previously described.
 

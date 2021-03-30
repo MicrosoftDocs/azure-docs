@@ -73,7 +73,7 @@ Media Analytics is a collection of speech and vision components that makes it ea
 
 ## Protection
 
-Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. For more information, see [Protecting AMS content](media-services-drm-content-protection-concept.md).
+Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. For more information, see [Protecting AMS content](media-services-content-protection-overview.md).
 
 |Encryption|Status|Regions|
 |---|---|---| 

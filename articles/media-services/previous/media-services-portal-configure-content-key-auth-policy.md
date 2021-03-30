@@ -77,7 +77,7 @@ When you protect your content with PlayReady, one of the things you need to spec
 </PlayReadyLicenseResponseTemplate>
 ```
 
-You can select the **import policy xml** button and provide a different XML that conforms to the XML schema defined in the [Media Services PlayReady license template overview](media-services-drm-playready-license-template-concept.md).
+You can select the **import policy xml** button and provide a different XML that conforms to the XML schema defined in the [Media Services PlayReady license template overview](media-services-playready-license-template-overview.md).
 
 ## Additional notes
 

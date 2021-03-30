@@ -21,7 +21,7 @@ ms.custom: devx-track-csharp
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](media-services-drm-playready-license-template-concept.md)
+> * [.NET](media-services-playready-license-template-overview.md)
 > * [Java](https://github.com/rnrneverdies/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 >  
@@ -31,7 +31,7 @@ ms.custom: devx-track-csharp
 
 You can use Media Services to deliver HTTP Live Streaming (HLS) and Smooth Streaming encrypted with the AES by using 128-bit encryption keys. Media Services also provides the key delivery service that delivers encryption keys to authorized users. If you want Media Services to encrypt an asset, you associate an encryption key with the asset and also configure authorization policies for the key. When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES encryption. To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
-Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy can have one or more authorization restrictions, either open or token restrictions. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the [simple web token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) (SWT) and [JSON Web Token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) (JWT) formats. For more information, see [Configure the content key's authorization policy](media-services-drm-playready-license-template-concept.md#configure_key_auth_policy).
+Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy can have one or more authorization restrictions, either open or token restrictions. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the [simple web token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) (SWT) and [JSON Web Token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) (JWT) formats. For more information, see [Configure the content key's authorization policy](media-services-playready-license-template-overview.md#configure_key_auth_policy).
 
 To take advantage of dynamic encryption, you need to have an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. You also need to configure the delivery policy for the asset (described later in this article). Then, based on the format specified in the streaming URL, the on-demand streaming server ensures that the stream is delivered in the protocol you selected. As a result, you need to store and pay only for the files in single storage format. Media Services builds and serves the appropriate response based on requests from a client.
 
@@ -45,27 +45,27 @@ For an overview of how to protect your media content with AES encryption, see [t
 
 Perform the following general steps when you encrypt your assets with AES by using the Media Services key delivery service and also by using dynamic encryption:
 
-1. [Create an asset, and upload files into the asset](media-services-drm-playready-license-template-concept.md#create_asset).
+1. [Create an asset, and upload files into the asset](media-services-playready-license-template-overview.md#create_asset).
 
-2. [Encode the asset that contains the file to the adaptive bitrate MP4 set](media-services-drm-playready-license-template-concept.md#encode_asset).
+2. [Encode the asset that contains the file to the adaptive bitrate MP4 set](media-services-playready-license-template-overview.md#encode_asset).
 
-3. [Create a content key, and associate it with the encoded asset](media-services-drm-playready-license-template-concept.md#create_contentkey). In Media Services, the content key contains the asset's encryption key.
+3. [Create a content key, and associate it with the encoded asset](media-services-playready-license-template-overview.md#create_contentkey). In Media Services, the content key contains the asset's encryption key.
 
-4. [Configure the content key's authorization policy](media-services-drm-playready-license-template-concept.md#configure_key_auth_policy). You must configure the content key authorization policy. The client must meet the policy before the content key is delivered to the client.
+4. [Configure the content key's authorization policy](media-services-playready-license-template-overview.md#configure_key_auth_policy). You must configure the content key authorization policy. The client must meet the policy before the content key is delivered to the client.
 
-5. [Configure the delivery policy for an asset](media-services-drm-playready-license-template-concept.md#configure_asset_delivery_policy). The delivery policy configuration includes the key acquisition URL and an initialization vector (IV). (AES-128 requires the same IV for encryption and decryption.) The configuration also includes the delivery protocol (for example, MPEG-DASH, HLS, Smooth Streaming, or all) and the type of dynamic encryption (for example, envelope or no dynamic encryption).
+5. [Configure the delivery policy for an asset](media-services-playready-license-template-overview.md#configure_asset_delivery_policy). The delivery policy configuration includes the key acquisition URL and an initialization vector (IV). (AES-128 requires the same IV for encryption and decryption.) The configuration also includes the delivery protocol (for example, MPEG-DASH, HLS, Smooth Streaming, or all) and the type of dynamic encryption (for example, envelope or no dynamic encryption).
 
 	You can apply a different policy to each protocol on the same asset. For example, you can apply PlayReady encryption to Smooth/DASH and an AES envelope to HLS. Any protocols that aren't defined in a delivery policy are blocked from streaming. (An example is if you add a single policy that specifies only HLS as the protocol.) The exception is if you have no asset delivery policy defined at all. Then, all protocols are allowed in the clear.
 
-6. [Create an OnDemand locator](media-services-drm-playready-license-template-concept.md#create_locator) to get a streaming URL.
+6. [Create an OnDemand locator](media-services-playready-license-template-overview.md#create_locator) to get a streaming URL.
 
-The article also shows [how a client application can request a key from the key delivery service](media-services-drm-playready-license-template-concept.md#client_request).
+The article also shows [how a client application can request a key from the key delivery service](media-services-playready-license-template-overview.md#client_request).
 
-You can find a complete [.NET example](media-services-drm-playready-license-template-concept.md#example) at the end of the article.
+You can find a complete [.NET example](media-services-playready-license-template-overview.md#example) at the end of the article.
 
 The following image demonstrates the workflow previously described. Here, the token is used for authentication.
 
-![Protect with AES-128](./media/media-services-drm-content-protection-concept/media-services-content-protection-with-aes.png)
+![Protect with AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
 The remainder of this article provides explanations, code examples, and links to topics that show you how to achieve the tasks previously described.
 
