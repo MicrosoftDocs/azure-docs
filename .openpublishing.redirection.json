@@ -64870,6 +64870,10 @@
       "source_path": "articles/virtual-desktop/partners.md",
       "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?search=Windows%20virtual%20desktop&page=1",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/quickstart-dotnet-framework.md",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore?tabs=netframework48"
     }
   ]
 }
