@@ -4,7 +4,7 @@ description: To create highly available and resilient applications in Azure, Ava
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 03/30/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
@@ -45,15 +45,15 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | Americas           | Europe               | Africa              | Asia Pacific   |
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
-| Brazil South       | France Central       | South Africa North* | Japan East     |
-| Canada Central     | Germany West Central |                     | Southeast Asia |
-| Central US         | North Europe         |                     | Australia East |
-| East US            | UK South             |                     |                |
+| Brazil South       | France Central       | South Africa North* | Australia East |
+| Canada Central     | Germany West Central |                     | Japan East     |
+| Central US         | North Europe         |                     | Korea Central* |
+| East US            | UK South             |                     | Southeast Asia |
 | East US 2          | West Europe          |                     |                |
 | South   Central US |                      |                     |                |
-| US Gov Virginia     |                      |                     |                |
+| US Gov Virginia    |                      |                     |                |
 | West   US 2        |                      |                     |                |
-
+| West   US 3*       |                      |                     |                |
 
 \* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
 

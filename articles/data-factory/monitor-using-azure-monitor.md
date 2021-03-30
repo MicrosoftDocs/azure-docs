@@ -264,7 +264,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- |
 | **storageAccountId** |String | The resource ID of the storage account to which you want to send diagnostic logs. |
 | **serviceBusRuleId** |String | The service-bus rule ID of the service-bus namespace in which you want to have Event Hubs created for streaming diagnostic logs. The rule ID has the format `{service bus resource ID}/authorizationrules/{key name}`.|
-| **workspaceId** | Complex Type | An array of metric time grains and their retention policies. This property's value is empty. |
+| **workspaceId** | String | The workspace ID of the workspace where the logs will be saved. |
 |**metrics**| Parameter values of the pipeline run to be passed to the invoked pipeline| A JSON object that maps parameter names to argument values. |
 | **logs**| Complex Type| The name of a diagnostic-log category for a resource type. To get the list of diagnostic-log categories for a resource, perform a GET diagnostic-settings operation. |
 | **category**| String| An array of log categories and their retention policies. |
