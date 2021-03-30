@@ -85,22 +85,19 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
    
 2. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
 
-## Configure route settings
+## Configure security with Firewall Manager
 
 1. Browse to the Azure Firewall Manager -> Secured Hubs. 
 2. Select a hub. The Hub status should now show **Provisioned** instead of **Security Connection Pending**.
 
    Ensure the third-party provider can connect to the hub. The tunnels on the VPN gateway should be in a **Connected** state. This state is more reflective of the connection health between the hub and the third-party partner, compared to previous status.
-3. Select the hub, and navigate to **Route Settings**.
+3. Select the hub, and navigate to **Security Configurations**.
 
    When you deploy a third-party provider into the hub, it converts the hub into a *secured virtual hub*. This ensures that the third-party provider is advertising a 0.0.0.0/0 (default) route to the hub. However, VNet connections and sites connected to the hub don’t get this route unless you opt-in on which connections should get this default route.
-4. Under **Internet traffic**, select **VNet-to-Internet** or **Branch-to-Internet** or both so routes are configured send via the third party.
+4. Configure virtual WAN security by setting **Internet Traffic** via Azure Firewall and **Private Traffic** via a trusted security partner. This automatically secures individual connections in the Virtual WAN.
 
-   This only indicates which type of traffic should be routed to the hub, but it doesn’t affect the routes on VNets or branches yet. These routes are not propagated to all VNets/branches attached to the hub by default.
-5. You must select **secure connections** and select the connections on which these routes should be set. This indicates which VNets/branches can start sending Internet traffic to the third-party provider.
-6. From **Route settings**, select **Secure connections** under Internet traffic, then select the VNet or branches (*sites* in Virtual WAN) to be secured. Select **Secure Internet traffic**.
-   ![Secure Internet traffic](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. Navigate back to the hubs page. The hub’s **security partner provider** status should now be  **Secured**.
+   :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="Security configuration":::
+5. Additionally, if your organization uses public IP ranges in virtual networks and branch offices, you need to specify those IP prefixes explicitly using **Private Traffic Prefixes**. The public IP address prefixes can be specified individually or as aggregates.
 
 ## Branch or VNet Internet traffic via third-party service
 
