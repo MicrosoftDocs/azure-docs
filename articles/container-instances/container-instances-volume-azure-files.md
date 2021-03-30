@@ -14,7 +14,7 @@ By default, Azure Container Instances are stateless. If the container is restart
 
 * You can only mount Azure Files shares to Linux containers. Review more platform differences in the [overview](container-instances-overview.md#linux-and-windows-containers).
 * File share storage requires the Linux container to run as *root*.
-* Azure Files currently only supports CIFS volume mounts.
+* Azure File share volume mounts are limited to CIFS support.
 
 > [!NOTE]
 > Mounting an Azure Files share to a container instance is similar to a Docker [bind mount](https://docs.docker.com/storage/bind-mounts/). If you mount a share into a container directory in which files or directories exist, the mount obscures files or directories, making them inaccessible while the container runs.
