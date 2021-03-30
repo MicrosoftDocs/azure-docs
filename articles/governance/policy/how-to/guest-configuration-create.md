@@ -398,7 +398,7 @@ requirements are documented in the [Azure Policy Overview](../overview.md) page.
 role is **Resource Policy Contributor**.
 
 ```azurepowershell-interactive
-Publish-GuestConfigurationPolicy -Path '.\polies'
+Publish-GuestConfigurationPolicy -Path '.\policies'
 ```
 
 The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
