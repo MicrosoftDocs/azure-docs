@@ -140,11 +140,11 @@ The payload format sent by the client is in an unsupported format.
 
 For encryption articles and examples, see:
 
-- [Concept: content protection](content-protection-overview.md)
-- [Concept: Content Key Policies](content-key-policy-concept.md)
+- [Concept: content protection](drm-content-protection-concept.md)
+- [Concept: Content Key Policies](drm-content-key-policy-concept.md)
 - [Concept: Streaming Policies](streaming-policy-concept.md)
-- [Sample: protect with AES encryption](protect-with-aes128.md)
-- [Sample: protect with DRM](protect-with-drm.md)
+- [Sample: protect with AES encryption](drm-playready-license-template-concept.md)
+- [Sample: protect with DRM](drm-protect-with-drm-tutorial.md)
 
 For filter guidance, see:
 

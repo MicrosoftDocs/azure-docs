@@ -117,4 +117,4 @@ private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOpti
 
 ## Next steps
 
-Check out how to [protect with DRM](protect-with-drm.md)
+Check out how to [protect with DRM](drm-protect-with-drm-tutorial.md)
