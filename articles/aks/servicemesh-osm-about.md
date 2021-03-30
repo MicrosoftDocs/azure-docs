@@ -15,13 +15,13 @@ zone_pivot_groups: client-operating-system
 
 [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
-OSM runs an Envoy based control plane on Kubernetes, can be configured with [SMI](https://smi-spec.io/) APIs, and works by injecting an Envoy proxy as a sidecar container next to each instance of your application. The Envoy proxy contains and executes rules around access control policies, implements routing configuration, and captures metrics. The control plane continually configures proxies to ensure policies and routing rules are up to date and ensures proxies are healthy.
+OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI](https://smi-spec.io/) APIs, and works by injecting an Envoy proxy as a sidecar container next to each instance of your application. The Envoy proxy contains and executes rules around access control policies, implements routing configuration, and captures metrics. The control plane continually configures proxies to ensure policies and routing rules are up to date and ensures proxies are healthy.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Capabilities and Features
 
-OSM provides the following set of capabilities and features to provide a cloud native service mesh for your Azure Kubernetes Service (AKS) clusters :
+OSM provides the following set of capabilities and features to provide a cloud native service mesh for your Azure Kubernetes Service (AKS) clusters:
 
 - Secure service to service communication by enabling mTLS
 
@@ -29,7 +29,7 @@ OSM provides the following set of capabilities and features to provide a cloud n
 
 - Easily and transparent configurations for traffic shifting on deployments
 
-- Ability to define and execute fine grained access control polices for services
+- Ability to define and execute fine grained access control policies for services
 
 - Observability and insights into application metrics for debugging and monitoring services
 
@@ -199,7 +199,7 @@ You must have the following resources installed:
 
 ### Create namespaces for the application
 
-In this walkthrough we will be using the OSM bookstore appplication that has the following Kubernetes services:
+In this walkthrough we will be using the OSM bookstore application that has the following Kubernetes services:
 
 - bookbuyer
 - bookthief
@@ -223,7 +223,7 @@ namespace/bookwarehouse created
 
 ### Onboard the namespaces to be managed by OSM
 
-When you add the namespaces to the OSM mesh, this will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with you application. Run the following command to onboard the OSM bookstore application namespaces.
+When you add the namespaces to the OSM mesh, this will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with your application. Run the following command to onboard the OSM bookstore application namespaces.
 
 ```azurecli-interactive
 osm namespace add bookstore bookbuyer bookthief bookwarehouse
@@ -301,7 +301,7 @@ NAME                         READY   STATUS    RESTARTS   AGE
 bookbuyer-7676c7fcfb-mtnrz   2/2     Running   0          7m8s
 ```
 
-Once we have the pod's name, we can now use the port-forward command to setup a tunnel from our local system to the application inside the AKS cluster. Run the following command to setup the port forward for the local system port 8080. Again use your specice bookbuyer pod name.
+Once we have the pod's name, we can now use the port-forward command to set up a tunnel from our local system to the application inside the AKS cluster. Run the following command to set up the port forward for the local system port 8080. Again use your specice bookbuyer pod name.
 
 > [!NOTE]
 > For all port forwarding commands it is best to use an additional terminal so that you can continue to work through this walkthrough and not disconnect the tunnel. It is also best that you establish the port forward tunnel outside of the Azure Cloud Shell.
@@ -321,7 +321,7 @@ While the port forwarding session is in place, navigate to the following url fro
 
 ![OSM bookbuyer app UI image](./media/aks-osm-addon/osm-bookbuyer-service-ui.png)
 
-You will also notice that the the total books bought number continues to increment to the bookstore v1 service. The bookstore v2 service has not been deployed yet. We will deploy the bookstore v2 service when we demonstrate the SMI traffic split policies.
+You will also notice that the total books bought number continues to increment to the bookstore v1 service. The bookstore v2 service has not been deployed yet. We will deploy the bookstore v2 service when we demonstrate the SMI traffic split policies.
 
 You can also check the same for the bookthief service.
 
@@ -348,7 +348,7 @@ Navigate to the following url from a browser `http://localhost:8080`. You should
 
 ### Disable OSM Permissive Traffic Mode for the mesh
 
-As metioned earlier when viewing the OSM cluster configuration, the OSM configuration defaults to enabling permissive traffic mode policy. In this mode traffic policy enforcement is bypassed and OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
+As mentioned earlier when viewing the OSM cluster configuration, the OSM configuration defaults to enabling permissive traffic mode policy. In this mode traffic policy enforcement is bypassed and OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
 
 We will now disable the permissive traffic mode policy and OSM will need explicit [SMI](https://smi-spec.io/) policies deployed to the cluster to allow communications in the mesh from each service. To disable permissive traffic mode, run the following command to update the configmap property changing the value from `true` to `false`.
 
@@ -362,7 +362,7 @@ You should see output similar to the following. Your bookthief pod will have a u
 configmap/osm-config patched
 ```
 
-To verify permissive traffic mode has been disabled, port forward back into either the bookbuyer or bookthief pod to view their UI in the browser and see if the books bought or books stolen is no more incremnting. Ensure to refresh the browser. If the incrementing has stopped, the policy was applied correctly. You have successfuly stopped the bookthief from stealing books, but neither the bookbuyer can purchase from the bookstore nor the bookstore can retrieve books from the bookwarehouse. Next we will implement [SMI](https://smi-spec.io/) policies to allow only the services in the mesh you would like to have communicate do so.
+To verify permissive traffic mode has been disabled, port forward back into either the bookbuyer or bookthief pod to view their UI in the browser and see if the books bought or books stolen is no longer incrementing. Ensure to refresh the browser. If the incrementing has stopped, the policy was applied correctly. You have successfully stopped the bookthief from stealing books, but neither the bookbuyer can purchase from the bookstore nor the bookstore can retrieve books from the bookwarehouse. Next we will implement [SMI](https://smi-spec.io/) policies to allow only the services in the mesh you'd like to communicate to do so.
 
 ### Apply Service Mesh Interface (SMI) traffic access policies
 
@@ -464,13 +464,13 @@ traffictarget.access.smi-spec.io/bookstore-access-bookwarehouse created
 httproutegroup.specs.smi-spec.io/bookwarehouse-service-routes created
 ```
 
-You can now setup a port forwarding session on either the bookbuyer or bookstore pods and see that both the books bought and books sold metrics are back incrementing. You can also do the same for the bookthief pod to verify it is still no longer able to steal books.
+You can now set up a port forwarding session on either the bookbuyer or bookstore pods and see that both the books bought and books sold metrics are back incrementing. You can also do the same for the bookthief pod to verify it is still no longer able to steal books.
 
 ### Apply Service Mesh Interface (SMI) traffic split policies
 
-For our final demonstration, we will create an [SMI](https://smi-spec.io/) traffic split policy to configure the weight of communications from one service to multiple services as a backend. The traffic split functionality allow you to progressively move connections to one service over to another by weighting the traffic on a scale of 0 to 100.
+For our final demonstration, we will create an [SMI](https://smi-spec.io/) traffic split policy to configure the weight of communications from one service to multiple services as a backend. The traffic split functionality allows you to progressively move connections to one service over to another by weighting the traffic on a scale of 0 to 100.
 
-The below graphic is a diagram of the [SMI](https://smi-spec.io/) Traffic Split policy to be deployed. We will deploy an additonal Bookstore version 2 and then split the incoming traffic from the bookbuyer, weighting 25% of the traffic to the bookstore v1 service and 75% to the bookstore v2 service.
+The below graphic is a diagram of the [SMI](https://smi-spec.io/) Traffic Split policy to be deployed. We will deploy an additional Bookstore version 2 and then split the incoming traffic from the bookbuyer, weighting 25% of the traffic to the bookstore v1 service and 75% to the bookstore v2 service.
 
 ![OSM bookbuyer traffic split diagram](./media/aks-osm-addon/osm-bookbuyer-traffic-split-diagram.png)
 
@@ -589,7 +589,7 @@ You should see the following output.
 trafficsplit.split.smi-spec.io/bookstore-split created
 ```
 
-Setup a port forward tunnel to the bookbuyer pod and you should now see books being purchased from the bookstore v2 service. If you continue to watch the increment of purchases you should notice a faster increment of purchases happening through the bookstore v2 service.
+Set up a port forward tunnel to the bookbuyer pod and you should now see books being purchased from the bookstore v2 service. If you continue to watch the increment of purchases you should notice a faster increment of purchases happening through the bookstore v2 service.
 
 ![OSM bookbuyer books boough UI](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)
 
@@ -672,7 +672,7 @@ NAME        READY   UP-TO-DATE   AVAILABLE   AGE
 bookbuyer   1/1     1            1           23h
 ```
 
-Now we will restart the deployment to inject the Envoy sidecar proxy container with your application pod. Run the following commmand.
+Now we will restart the deployment to inject the Envoy sidecar proxy container with your application pod. Run the following command.
 
 ```azurecli-interactive
 kubectl rollout restart deployment bookbuyer -n bookbuyer
@@ -734,7 +734,7 @@ Please verify your application is still functional after the Envoy sidecar proxy
 
 ### Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as False
 
-When the OSM configuration for the permissive traffic policy is set to `false`, OSM will require explicit [SMI](https://smi-spec.io/) traffic access policies deployed for the service-to-service communication to happen within your cluster. Currently, OSM also uses Kubernetes service accounts as part of authorizing service-to-service communications as well. To ensure your existing deployed applications will communicate when managed by the OSM mesh, we will need to verify the existance of a service account to utilize, update the application deployment with the service account information, apply the [SMI](https://smi-spec.io/) traffic access policies.
+When the OSM configuration for the permissive traffic policy is set to `false`, OSM will require explicit [SMI](https://smi-spec.io/) traffic access policies deployed for the service-to-service communication to happen within your cluster. Currently, OSM also uses Kubernetes service accounts as part of authorizing service-to-service communications as well. To ensure your existing deployed applications will communicate when managed by the OSM mesh, we will need to verify the existence of a service account to utilize, update the application deployment with the service account information, apply the [SMI](https://smi-spec.io/) traffic access policies.
 
 #### Verify Kubernetes Service Accounts
 
@@ -801,7 +801,7 @@ There are several techniques to update your deployment to add a kubernetes servi
 
 #### Deploy the necessary Service Mesh Interface (SMI) Policies
 
-The last step to allowing authorized traffic to flow in the mesh is to deploy the necessary [SMI](https://smi-spec.io/) traffic access policies for your application. The amount of configuration you can achieve with [SMI](https://smi-spec.io/) traffic access policies is beyond the scope of this walkthrough, but we will detail some of the common components of the specification and show how to configure both a simple TrafficTarget and HTTPRouteGroup policy to enable service-to-service communication for you application.
+The last step to allowing authorized traffic to flow in the mesh is to deploy the necessary [SMI](https://smi-spec.io/) traffic access policies for your application. The amount of configuration you can achieve with [SMI](https://smi-spec.io/) traffic access policies is beyond the scope of this walkthrough, but we will detail some of the common components of the specification and show how to configure both a simple TrafficTarget and HTTPRouteGroup policy to enable service-to-service communication for your application.
 
 The [SMI](https://smi-spec.io/) [**Traffic Access Control**](https://github.com/servicemeshinterface/smi-spec/blob/main/apis/traffic-access/v1alpha3/traffic-access.md#traffic-access-control) specification allows users to define the access control policy for their applications. We will focus on the **TrafficTarget** and **HTTPRoutGroup** api resources.
 
@@ -830,9 +830,9 @@ spec:
     namespace: bookbuyer
 ```
 
-In the above TrafficTarget spec, the `destination` denotes the service account that is configured for the destination source service. Remember the service account that was added to the deployment earlier will be used to authorize access to the deloyment it is attached to. The `rules` section , in this partricular example, defines the type of HTTP traffic that is allowed over the connection. You can configure fine grain regex patterns for the HTTP headers to be very specific on what traffic is allowed via HTTP. The `sources` section is the service originating communications. This spec reads bookbuyer needs to communicate to the bookstore.
+In the above TrafficTarget spec, the `destination` denotes the service account that is configured for the destination source service. Remember the service account that was added to the deployment earlier will be used to authorize access to the deployment it is attached to. The `rules` section , in this partricular example, defines the type of HTTP traffic that is allowed over the connection. You can configure fine grain regex patterns for the HTTP headers to be very specific on what traffic is allowed via HTTP. The `sources` section is the service originating communications. This spec reads bookbuyer needs to communicate to the bookstore.
 
-The HTTPRouteGroup resource consists of one or an array of matches of HTTP header information and is a requirment for the TrafficTarget spec. In the example below, you can see that the HTTPRouteGroup is authorizing three HTTP actions, two GET and one POST.
+The HTTPRouteGroup resource consists of one or an array of matches of HTTP header information and is a requirement for the TrafficTarget spec. In the example below, you can see that the HTTPRouteGroup is authorizing three HTTP actions, two GET and one POST.
 
 ```HTTPRouteGroup Example Spec
 apiVersion: specs.smi-spec.io/v1alpha4
@@ -1010,7 +1010,7 @@ Notice the **permissive_traffic_policy_mode** is configured to **true**. Permiss
 
 ### Create namespaces for the application
 
-In this totorial we will be using the OSM bookstore appplication that has the following application components:
+In this totorial we will be using the OSM bookstore application that has the following application components:
 
 - bookbuyer
 - bookthief
@@ -1034,7 +1034,7 @@ namespace/bookwarehouse created
 
 ### Onboard the namespaces to be managed by OSM
 
-When you add the namespaces to the OSM mesh, this will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with you application. Run the following command to onboard the OSM bookstore application namespaces.
+When you add the namespaces to the OSM mesh, this will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with your application. Run the following command to onboard the OSM bookstore application namespaces.
 
 ```azurecli-interactive
 osm namespace add bookstore bookbuyer bookthief bookwarehouse
@@ -1126,7 +1126,7 @@ NAME                         READY   STATUS    RESTARTS   AGE
 bookbuyer-7676c7fcfb-mtnrz   2/2     Running   0          7m8s
 ```
 
-Once we have the pod's name, we can now use the port-forward command to setup a tunnel from our local system to the application inside the AKS cluster. Run the following command to setup the port forward for the local system port 8080. Again use your specice bookbuyer pod name.
+Once we have the pod's name, we can now use the port-forward command to set up a tunnel from our local system to the application inside the AKS cluster. Run the following command to set up the port forward for the local system port 8080. Again use your specice bookbuyer pod name.
 
 ```azurecli-interactive
 kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
@@ -1251,7 +1251,7 @@ nginx-ingress-ingress-nginx-controller             LoadBalancer   10.0.100.23   
 nginx-ingress-ingress-nginx-controller-admission   ClusterIP      10.0.163.98   <none>        443/TCP                      4m15s
 ```
 
-Since the host name in the ingress manifest is a psuedo name used for testing, the DNS name will not be available on the internet. We can alternatively use the curl program and past the hostname header to the NGINX public IP address and receive a 200 code succesfully connecting us to the bookbuyer service.
+Since the host name in the ingress manifest is a psuedo name used for testing, the DNS name will not be available on the internet. We can alternatively use the curl program and past the hostname header to the NGINX public IP address and receive a 200 code successfully connecting us to the bookbuyer service.
 
 ```azurecli-interactive
 curl -H 'Host: bookbuyer.contoso.com' http://EXTERNAL-IP/
@@ -1348,7 +1348,7 @@ You must have the following resources installed:
 
 ### View and verify the current OSM cluster configuration
 
-Once the OSM add-on for AKS has been enabled on the AKS cluster, you can view the current configuration parmaters in the osm-config Kubernetes ConfigMap. Run the following command to view the ConfigMap properties:
+Once the OSM add-on for AKS has been enabled on the AKS cluster, you can view the current configuration paramaters in the osm-config Kubernetes ConfigMap. Run the following command to view the ConfigMap properties:
 
 ```azurecli-interactive
 kubectl get configmap -n kube-system osm-config -o json | jq '.data'
@@ -1398,7 +1398,7 @@ namespace/bookwarehouse created
 
 ### Onboard the namespaces to be managed by OSM
 
-When you add the namespaces to the OSM mesh, this will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with you application. Run the following command to onboard the OSM bookstore application namespaces.
+When you add the namespaces to the OSM mesh, this will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with your application. Run the following command to onboard the OSM bookstore application namespaces.
 
 ```azurecli-interactive
 osm namespace add bookstore bookbuyer bookthief bookwarehouse
@@ -1490,7 +1490,7 @@ NAME                         READY   STATUS    RESTARTS   AGE
 bookbuyer-7676c7fcfb-mtnrz   2/2     Running   0          7m8s
 ```
 
-Once we have the pod's name, we can now use the port-forward command to setup a tunnel from our local system to the application inside the AKS cluster. Run the following command to setup the port forward for the local system port 8080. Again use your specific bookbuyer pod name.
+Once we have the pod's name, we can now use the port-forward command to set up a tunnel from our local system to the application inside the AKS cluster. Run the following command to set up the port forward for the local system port 8080. Again use your specific bookbuyer pod name.
 
 ```azurecli-interactive
 kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
@@ -1694,7 +1694,7 @@ OSM uses Prometheus to gather and store consistent traffic metrics and statistic
 
 Each application that is part of the mesh runs in a Pod which contains an Envoy sidecar that exposes metrics (proxy metrics) in the Prometheus format. Furthermore, every Pod that is a part of the mesh has Prometheus annotations, which makes it possible for the Prometheus server to scrape the application dynamically. This mechanism automatically enables scraping of metrics whenever a new namespace/pod/service is added to the mesh.
 
-OSM metrics can be viewed with Grafana which is an open source visualization and analytics software. It allows you to query, visualize, alert on, and explore your metrics.
+OSM metrics can be viewed with Grafana which is an open-source visualization and analytics software. It allows you to query, visualize, alert on, and explore your metrics.
 
 In this tutorial, you will:
 
@@ -1787,7 +1787,7 @@ configmap/osm-config patched
 
 #### Update the Prometheus Configmap
 
-The default installation of Prometheus will container two kubernetes configmaps. You can view the list of Prometheus configmaps with the following command.
+The default installation of Prometheus will container two Kubernetes configmaps. You can view the list of Prometheus configmaps with the following command.
 
 ```azurecli-interactive
 kubectl get configmap | grep prometheus
@@ -1798,7 +1798,7 @@ stable-prometheus-alertmanager   1      4h34m
 stable-prometheus-server         5      4h34m
 ```
 
-We will need to replace the prometheus.yml configuration located in the **stable-prometheus-server** configmap with the following OSM configuration. There are several file editing techniques to accomplish this. A simple and save way to do this will be to export the configmap, create a copy of it for backup, then edit it with an editor such as Visual Studio code.
+We will need to replace the prometheus.yml configuration located in the **stable-prometheus-server** configmap with the following OSM configuration. There are several file editing techniques to accomplish this. A simple and safe way to do this will be to export the configmap, create a copy of it for backup, then edit it with an editor such as Visual Studio code.
 
 > [!NOTE]
 > If you do not have Visual Studio Code installed you can go download and install it [here](https://code.visualstudio.com/Download).
@@ -2092,7 +2092,7 @@ kubectl get secret --namespace default osm-grafana -o jsonpath="{.data.admin-pas
 
 Make note of the Grafana password.
 
-Next we will retreive the Grafana pod to port forward to the Grafana dashboard to login.
+Next we will retrieve the Grafana pod to port forward to the Grafana dashboard to login.
 
 ```azurecli-interactive
 GRAF_POD_NAME=$(kubectl get pods -l "app.kubernetes.io/name=grafana" -o jsonpath="{.items[0].metadata.name}")
@@ -2135,7 +2135,7 @@ As soon as you click import, it will bring you automatically to your imported da
 
 ### Deploy and configure a Jaeger Operator on Kubernetes for OSM
 
-[Jaeger](https://www.jaegertracing.io/) is an open source tracing system used for monitoring and troubleshooting distributed systems. It can be deployed with OSM as a new instance or you may bring your own instance. The following instructions deploys a new instance of Jaeger to the `jaeger` namespace on the AKS cluster.
+[Jaeger](https://www.jaegertracing.io/) is an open-source tracing system used for monitoring and troubleshooting distributed systems. It can be deployed with OSM as a new instance or you may bring your own instance. The following instructions deploy a new instance of Jaeger to the `jaeger` namespace on the AKS cluster.
 
 #### Deploy Jaeger to the AKS cluster
 
@@ -2233,7 +2233,7 @@ In the browser, you should see a Service dropdown which allows you to select fro
 
 Click on any item to view it in further detail. Select multiple items to compare traces. For example, you can compare the bookbuyer's interactions with bookstore and bookstore-v2 at a particular moment in time.
 
-You can also clic on the System Architecture tab to view a graph of how the various applications have been interacting/communicating. This provides an idea of how traffic is flowing between the applications.
+You can also click on the System Architecture tab to view a graph of how the various applications have been interacting/communicating. This provides an idea of how traffic is flowing between the applications.
 
 ![OSM Jaeger System Architecture UI image](./media/aks-osm-addon/osm-jaeger-sys-arc-view-ui.png)
 
@@ -2507,7 +2507,7 @@ kubectl get ConfigMap -n kube-system osm-config -o json | jq '.data'
 | enable_debug_server              | bool   | true, false                                             | `"true"`                               | Enables a debug endpoint on the osm-controller pod to list information regarding the mesh such as proxy connections, certificates, and SMI policies.                                                                                    |
 | enable_privileged_init_container | bool   | true, false                                             | `"false"`                              | Enables privileged init containers for pods in mesh. When false, init containers only have NET_ADMIN.                                                                                                                                   |
 | envoy_log_level                  | string | trace, debug, info, warning, warn, error, critical, off | `"error"`                              | Sets the logging verbosity of Envoy proxy sidecar, only applicable to newly created pods joining the mesh. To update the log level for existing pods, restart the deployment with `kubectl rollout restart`.                            |
-| outbound_ip_range_exclusion_list | string | comma separated list of IP ranges of the form a.b.c.d/x | `-`                                    | Global list of IP address ranges to exclude from outbound traffic interception by the sidecar proxy.                                                                                                                                    |
+| outbound_ip_range_exclusion_list | string | comma-separated list of IP ranges of the form a.b.c.d/x | `-`                                    | Global list of IP address ranges to exclude from outbound traffic interception by the sidecar proxy.                                                                                                                                    |
 | permissive_traffic_policy_mode   | bool   | true, false                                             | `"false"`                              | Setting to `true`, enables allow-all mode in the mesh i.e. no traffic policy enforcement in the mesh. If set to `false`, enables deny-all traffic policy in mesh i.e. an `SMI Traffic Target` is necessary for services to communicate. |
 | prometheus_scraping              | bool   | true, false                                             | `"true"`                               | Enables Prometheus metrics scraping on sidecar proxies.                                                                                                                                                                                 |
 | service_cert_validity_duration   | string | 24h, 1h30m (any time duration)                          | `"24h"`                                | Sets the service certificate validity duration, represented as a sequence of decimal numbers each with optional fraction and a unit suffix.                                                                                             |
