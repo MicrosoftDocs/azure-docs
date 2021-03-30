@@ -7,11 +7,8 @@ ms.date: 04/02/2021
 
 # Configure Azure Alerts in Azure VMware Solution 
 
-This article describes how you can use alerts to get conditionally notified. It also describes how to work with metrics to gain deeper insights into your Azure VMware Solution private cloud.
+In this article, you'll learn how to configure [Azure Action Groups](/azure/azure-monitor/alerts/action-groups) in [Microsoft Azure Alerts](/azure/azure-monitor/alerts/alerts-overvie) to receive notifications of triggered events that you define. You'll also learn about using [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) to gain deeper insights into your Azure VMware Solution private cloud.
 
-Azure Alerts use metrics defined by the service and offer notification functionality. You can work with the metrics for near-real-time insights.
-
-You'll learn how to configure alerts and use Azure Action Groups to get notified. For a general understanding of what Microsoft Azure Alerts and Metrics are, see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview) and [Azure Monitor Metrics overview](/azure/azure-monitor/essentials/data-platform-metrics). For more about Azure Action Groups, see [Create and manage action groups in the Azure portal](/azure/azure-monitor/alerts/action-groups).
 
 ## Supported Azure VMware Solution metrics and activities
 
