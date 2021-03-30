@@ -32,7 +32,7 @@ This topic shows how to configure a filter for a Video on-Demand asset and use C
 
 ## Prerequisites
 
-- [Create a Media Services account](./create-account-howto.md). Make sure to remember the resource group name and the Media Services account name.
+- [Create a Media Services account](./account-create-how-to.md). Make sure to remember the resource group name and the Media Services account name.
 
 ## Define a filter
 
