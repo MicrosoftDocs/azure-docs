@@ -1,13 +1,15 @@
 ---
-title: Use Azure Private Link to securely connect networks to Azure Arc enabled servers
-description: Use Azure Private Link to securely connect networks to Azure Arc enabled servers
+title: Use Azure Private Link to securely connect networks to Azure Arc
+description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
 ms.date: 03/22/2021
 ---
 
-# Use Azure Private Link to securely connect networks to Azure Arc enabled servers
+# Use Azure Private Link to securely connect networks to Azure Arc
 
-[Azure Private Link](../../private-link/private-link-overview.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints. For many services, you just set up an endpoint per resource. This means you can connect your on-premises or multi-cloud servers with Azure Arc and send all traffic over an Express Route or site-to-site VPN connection instead of using public networks. Azure Arc enabled servers uses a Private Link Scope model to allow multiple servers or machines to communicate with their Azure Arc resources using a single private endpoint.
+[Azure Private Link](../../private-link/private-link-overview.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints. For many services, you just set up an endpoint per resource. This means you can connect your on-premises or multi-cloud servers with Azure Arc and send all traffic over an Express Route or site-to-site VPN connection instead of using public networks.
+
+Starting with Azure Arc enabled servers, you can use a Private Link Scope model to allow multiple servers or machines to communicate with their Azure Arc resources using a single private endpoint.
 
 This article covers when to use and how to set up an Azure Arc Private Link Scope (preview).
 
@@ -18,17 +20,17 @@ This article covers when to use and how to set up an Azure Arc Private Link Scop
 
 With Private Link you can:
 
-- Connect privately to Azure Arc enabled servers without opening up any public network access.
+- Connect privately to Azure Arc without opening up any public network access.
 - Ensure data from the Arc enabled machine or server is only accessed through authorized private networks. This also includes data from [VM extensions](manage-vm-extensions.md) installed on the machine or server that provide post-deployment management and monitoring support.
 - Prevent data exfiltration from your private networks by defining specific Azure Arc enabled servers and other Azure services resources, such as Azure Monitor, that connects through your private endpoint.
-- Securely connect your private on-premises network to Azure Arc enabled servers using ExpressRoute and Private Link.
+- Securely connect your private on-premises network to Azure Arc using ExpressRoute and Private Link.
 - Keep all traffic inside the Microsoft Azure backbone network.
 
 For more information, see  [Key Benefits of Private Link](../../private-link/private-link-overview.md#key-benefits).
 
 ## How it works
 
-Azure Arc Private Link Scope (preview) connects private endpoints (and the virtual networks they're contained in) to an Azure resource, specifically Azure Arc enabled servers. When you enable any one of the supported VM extensions, such as Azure Automation Update Management or Azure Monitor, those resources connect other Azure resources. Such as:
+Azure Arc Private Link Scope (preview) connects private endpoints (and the virtual networks they're contained in) to an Azure resource, in this case Azure Arc enabled servers. When you enable any one of the Arc enabled servers supported VM extensions, such as Azure Automation Update Management or Azure Monitor, those resources connect other Azure resources. Such as:
 
 - Log Analytics workspace, required for Azure Automation Update Management, Azure Automation Change Tracking and Inventory, Azure Monitor VM insights, and Azure Monitor log collection with Log Analytics agent.
 - Azure Automation account, required for Update Management and Change Tracking and Inventory.
@@ -40,7 +42,7 @@ Azure Arc Private Link Scope (preview) connects private endpoints (and the virtu
 Connectivity to the other Azure resources from an Arc enabled server listed earlier require configuring Private Link for each service. For more information, see the following to configure Private Link for [Azure Automation](../../automation/how-to/private-link-security.md), [Azure Monitor](../../azure-monitor/logs/private-link-security.md), [Azure Key Vault](../../key-vault/general/private-link-service.md), or [Azure Blob storage](../../private-link/tutorial-private-endpoint-storage-portal.md).
 
 > [!IMPORTANT]
-> Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. Different Azure PaaS will onboard to Azure Private Link at different schedules. See [Private Link availability](../../private-link/availability.md) for an accurate status of Azure PaaS on Private Link. For known limitations, see [Private Endpoint](../../private-link/private-endpoint-overview.md#limitations) and [Private Link Service](../../private-link/private-link-service-overview.md#limitations). 
+> Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. Different Azure PaaS will onboard to Azure Private Link at different schedules. See [Private Link availability](../../private-link/availability.md) for an accurate status of Azure PaaS on Private Link. For known limitations, see [Private Endpoint](../../private-link/private-endpoint-overview.md#limitations) and [Private Link Service](../../private-link/private-link-service-overview.md#limitations).
 
 * The Private Endpoint on your VNet allows it to reach Azure Arc enabled servers endpoints through private IPs from your network's pool, instead of using to the public IPs of these endpoints. That allows you to keep using your Azure Arc enabled servers resource without opening your VNet to outbound traffic not requested.
 
