@@ -65,14 +65,23 @@ Follow these steps to restore your flexible server using an earliest existing ba
 
 6.  Provide a new server name in the **Restore to new server** field.
 
-6.  Provide a new server name in the **Restore to new server** field. 
-   
+6.  Provide a new server name in the **Restore to new server** field.
+
     :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="view overview":::
- 
+
 7.  Click **OK**.
 
 8.  A notification will be shown that the restore operation has been initiated.
 
-## Next steps
 
-Placeholder
+## Perform post-restore tasks
+After the restore is completed, you should perform the following tasks to get your users and applications back up and running:
+
+- If the new server is meant to replace the original server, redirect clients and client applications to the new server
+- Ensure appropriate VNet rules are in place for users to connect. These rules are not copied over from the original server.
+- Ensure appropriate logins and database level permissions are in place
+- Configure alerts as appropriate for the newly restore server
+
+
+## Next steps
+Learn more about [business continuity](concepts-business-continuity.md)
