@@ -431,7 +431,7 @@ The entity in this category can have the following subcategories.
     :::column span="2":::
         **Details**
 
-        Ages. Also returned with `domain=phi`.
+        Ages. 
 
         To get this entity category, add `Age` to the `pii-categories` parameter. `Age` will be returned in the API response if detected.
       
