@@ -41,7 +41,7 @@ This tutorial shows you how to:
 ## Prerequisites
 
 - If you don't have Visual Studio installed, you can get [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Create a Media Services account](./create-account-howto.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
+- [Create a Media Services account](./account-create-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You'll need to use them to access the API.
 
 ## Download and set up the sample
@@ -211,4 +211,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 Now that you know how to upload, encode, and stream your video, see the following article: 
 
 > [!div class="nextstepaction"]
-> [Analyze videos](analyze-videos-tutorial-with-api.md)
+> [Analyze videos](analyze-videos-tutorial.md)
