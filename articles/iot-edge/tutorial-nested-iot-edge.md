@@ -60,7 +60,7 @@ To create a hierarchy of IoT Edge devices, you will need:
    az deployment group create \
     --name TestVM1 \
     --resource-group TomsNestedEdgeResources \
-    --template-uri "https://raw.githubusercontent.com/ebertrams/iotedge-vm-deploy/1.2.0-rc4-nested/edgeDeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/ebertrams/iotedge-vm-deploy/1.2.0-bugbash/edgeDeploy.json" \
     --parameters dnsLabelPrefix='nested-edge-test-vm1' \
     --parameters adminUsername='azureuser' \
     --parameters authenticationType='sshPublicKey' \
@@ -114,32 +114,39 @@ To create and configure your hierarchy of IoT Edge devices, you'll use the `iote
 
 To use the `iotedge-config-cli` tool to create and configure your hierarchy, follow the steps below in the Azure CLI:
 
-<!-- Will be updated to Git repo -->
-
-1. In the [Azure Cloud Shell](https://shell.azure.com/), [download the setup tool from OneDrive](https://microsoft-my.sharepoint.com/personal/lefitche_microsoft_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Flefitche%5Fmicrosoft%5Fcom%2FDocuments%2Fnested%5Fcli&originalPath=aHR0cHM6Ly9taWNyb3NvZnQtbXkuc2hhcmVwb2ludC5jb20vOmY6L3AvbGVmaXRjaGUvRW5HaG5FTHdfRlJBZ2diVE9lM0w3NTBCWGgwbkVWNEtvTWU0a3BBbUNJeC1kZz9ydGltZT1FU1VWcWZ2cTJFZw).
-
-   If the link above does not work, you can [download a zip folder containing the `iotedge-config-tool`](https://1drv.ms/u/s!AkzLzaBpSgoMpKB24zXv6RJXnqELJA?e=GMOQYf).
-
-1. Make the script executable by changing its permissions:
-
-   <!-- Update once repo for setup tool created -->
+1. In the [Azure Cloud Shell](https://shell.azure.com/), make a directory for your tutorial's resources:
 
    ```bash
-   cd ./iotedge-config-cli-tool
-   find -name '*.sh' -print0 | xargs -0 chmod +x
+   mkdir nestedIotEdgeTutorial
    ```
 
-1. Open the script configuration and edit it with your information:
+1. Download the release of the configuration tool:
 
    ```bash
-   nano iotedge_config_cli.yaml
+   cd ~/nestedIotEdgeTutorial
+   wget -O iotedge_config_cli "https://github.com/Azure-Samples/iotedge_config_cli/releases/download/latest/iotedge_config_cli"
+   ```
+
+1. Download the configuration file templates used in this tutorial:
+
+   ```bash
+   wget -O templates.tar "https://1dot2bugbash.blob.core.windows.net/config-cli-templates/templates.tar"
+   tar -xvf templates.tar
+   ```
+
+   In the `templates` directory, the template file used to create your device hierarchy is the `iotedge_config_cli.yaml` file found in `~/nestedIotEdgeTutorial/templates/tutorial`. In the same directory, `deploymentLowerLayer.json` is a JSON deployment file containing instructions for which modules to deploy to your **lower layer device**. The `deploymentTopLayer.json` file is the same, but for your **top layer device**, as the modules deployed to each device are not the same. The `device_config.toml` file is a template for IoT Edge device configurations and will be used to automatically generate the the configuration bundles for the devices in your hierarchy.
+
+1. Open the tutorial configuration template and edit it with your information:
+
+   ```bash
+   nano templates/tutorial/iotedge_config_cli.yaml
    ```
 
    In the **iothub** section, populate the `iothub_hostname` and `iothub_name` fields with your information.
 
    In the optional **certificates** section, you can populate the fields with the absolute paths to your certificate and key. If you leave these fields blank, the script will automatically generate self-signed test certificates for your use.
 
-   In the **configuration** section, the `template_config_path` fields dictates ..., and the `default_edge_agent` field determines what Edge Agent image lower layer devices will pull and from where.
+   In the **configuration** section, the `template_config_path` is the path to the `device_config.toml` template used to create your device configurations. The `default_edge_agent` field determines what Edge Agent image lower layer devices will pull and from where.
 
    In the **edgedevices** section, for a production scenario, you could edit the hierarchy tree to reflect your desired structure. For the purposes of this tutorial, accept the default tree.
 
@@ -149,13 +156,27 @@ To use the `iotedge-config-cli` tool to create and configure your hierarchy, fol
 
    `CTRL + X`, `Y`, `Enter`
 
-1. Run the script to create your hierarchy of IoT Edge devices:
+1. Create an outputs directory for the configuration bundles in your tutorial resources directory:
 
    ```bash
-   ./iotedge_config_cli -c ./nested_quickstart_config.yaml -o ./outputs -f
+   mkdir ~/nestedIotEdgeTutorial/outputs
    ```
 
-   Once completed, the script displays a topology of your hierarchy. The script also creates a configuration bundle for each device in your hierarchy, which will be stored in the `./outputs` folder from the above command.
+1. Make the configuration tool executable by changing its permissions:
+
+   ```bash
+   chmod +x iotedge_config_cli
+   ```
+
+1. Run the tool to create your hierarchy of IoT Edge devices:
+
+   ```bash
+   ./iotedge_config_cli --config ./templates/tutorial/iotedge_config_cli.yaml --output ./outputs -f
+   ```
+
+   As the tool runs, you will see several printouts. The tool creates a log file in the `outputs` directory you created. The tool also displays the topology of your hierarchy. Additionally, the tool checks for existing devices belonging to your IoT Hub that could interfere with the creation of your new devices, so it reports that it is deleting devices from your IoT Hub. If you did not specify certificates, it will create the certificates for each device. Finally, it will create the devices themselves.
+
+   Expect the tool to run for several minutes while it creates your devices.
 
    ![The script will display a topology of your hierarchy upon execution](./media/tutorial-nested-iot-edge/successful-setup-tool-run.png)
 
@@ -179,11 +200,15 @@ Complete the steps below and restart the IoT Edge service to configure your devi
 
    The FQDN is part of the SSH handle, as described previously when you created your virtual machines. However, you can also find the FQDN through the Azure portal. In the portal, navigate to each of your virtual machines and look for the **DNS name** field.
 
-1. Each device needs its corresponding configuration bundle. You can use a USB drive or [secure file copy](https://www.ssh.com/ssh/scp/) to move the configuration bundles to each device. Be sure to send the correct configuration bundle to each device.
+1. Each device needs its corresponding configuration bundle. You can use a USB drive or [secure file copy](https://www.ssh.com/ssh/scp/) to move the configuration bundles to each device.
+
+   Be sure to send the correct configuration bundle to each device.
 
    ```bash
-   scp <PATH_TO_CONFIGURATION_BUNDLE> <USER>@<VM_IP_OR_FQDN>
+   scp <PATH_TO_CONFIGURATION_BUNDLE> <USER>@<VM_IP_OR_FQDN>:~
    ```
+
+   The `:~` means that the configuration folder will be placed in the home directory on the virtual machine.
 
 1. You need to be logged on to your virtual machine to apply the configuration bundle to the device:
 
@@ -226,213 +251,177 @@ A sample output of the `iotedge check` for the **top layer device** is shown bel
 
 On a **lower layer device**, expect to see an output similar to the top layer device, but with an additional warning indicating the EdgeAgent module cannot be pulled from upstream. This is acceptable, as the IoT Edge API Proxy module and Docker Container Registry module, which lower layer devices will pull images through, are not yet deployed to the **top layer device**.
 
-A sample output of the `iotedge check` for a **lower layer device** is shown below:
+<!-- A sample output of the `iotedge check` for a **lower layer device** is shown below: -->
 
 <!-- Image of lower layer device iotedge check output -->
 
 Once you are satisfied your configurations are correct on each device, you are ready to proceed.
 
-## Deploy modules to the top layer device
+## Deploy modules to your devices
 
-Modules serve to complete the deployment and the IoT Edge runtime to your devices and further define the structure of your hierarchy. The IoT Edge API Proxy module securely routs HTTP traffic over a single port from your lower layer devices. The Docker Registry module allows for a repository of Docker images that your lower layer devices can access by routing image pulls to the top layer device.
+The module deployments to your devices were automatically generated when the devices were created. The `iotedge-config-cli` tool fed deployment JSONs for the **top and lower layer devices** after they were created, and the module deployment were pending while you configured the IoT Edge runtime on each device. Once the runtime was configured, the deployments to the **top layer device** began, and once those were completed, the **lower layer device** could use the **IoT Edge API Proxy** module to pull its necessary images.
 
-<!-- Give the why here -->
-
-To deploy modules to your top layer device, you can use the Azure CLI.
-
->[!NOTE]
->The remaining steps to complete the configuration of the IoT Edge runtime and deploy workloads are not done on your IoT Edge devices.
-
-1. In the [Azure Cloud Shell](https://shell.azure.com/), enter the following command to create a deployment.json file:
-
-   ```azurecli-interactive
-   code deploymentTopLayer.json
-   ```
-
-1. Copy the contents of the JSON below into your deployment.json, save it, and close it.
-
-<!-- Remove experimental variables for GA -->
+You can take a look at the **top layer device's** deployment JSON below:
 
    ```json
    {
-       "modulesContent": {
-           "$edgeAgent": {
-               "properties.desired": {
-                   "modules": {
-                       "dockerContainerRegistry": {
-                           "settings": {
-                               "image": "registry:latest",
-                               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5000/tcp\":[{\"HostPort\":\"5000\"}]}}}"
-                           },
-                           "type": "docker",
-                           "version": "1.0",
-                           "env": {
-                               "REGISTRY_PROXY_REMOTEURL": {
-                                   "value": "https://mcr.microsoft.com"
-                               } 
-                           },
-                           "status": "running",
-                           "restartPolicy": "always"
-                       },
-                       "IoTEdgeAPIProxy": {
-                           "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-api-proxy",
-                               "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"8000/tcp\": [{\"HostPort\":\"8000\"}]}}}"
-                           },
-                           "type": "docker",
-                           "env": {
-                               "NGINX_DEFAULT_PORT": {
-                                   "value": "8000"
-                               },
-                               "DOCKER_REQUEST_ROUTE_ADDRESS": {
-                                   "value": "registry:5000"
-                               },
-                               "BLOB_UPLOAD_ROUTE_ADDRESS": {
-                                   "value": "AzureBlobStorageonIoTEdge:11002"
-                               }
-                           },
-                           "status": "running",
-                           "restartPolicy": "always",
-                           "version": "1.0"
-                       }
-                   },
-                   "runtime": {
-                       "settings": {
-                           "minDockerVersion": "v1.25"
-                       },
-                       "type": "docker"
-                   },
-                   "schemaVersion": "1.1",
-                   "systemModules": {
-                       "edgeAgent": {
-                           "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4",
-                               "createOptions": ""
-                           },
-                           "type": "docker"
-                       },
-                       "edgeHub": {
-                           "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4",
-                               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
-                           },
-                           "type": "docker",
-                           "env": {},
-                           "status": "running",
-                           "restartPolicy": "always"
-                       }
-                   }
-               }
-           },
-           "$edgeHub": {
-               "properties.desired": {
-                   "routes": {
-                       "route": "FROM /messages/* INTO $upstream"
-                   },
-                   "schemaVersion": "1.1",
-                   "storeAndForwardConfiguration": {
-                       "timeToLiveSecs": 7200
-                   }
-               }
-           }
-       }
+    "modulesContent": {
+        "$edgeAgent": {
+            "properties.desired": {
+                "modules": {
+                    "registry": {
+                        "settings": {
+                            "image": "registry:latest",
+                            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5000/tcp\":[{\"HostPort\":\"5000\"}]}}}"
+                        },
+                        "type": "docker",
+                        "version": "1.0",
+                        "env": {
+                            "REGISTRY_PROXY_REMOTEURL": {
+                                "value": "https://mcr.microsoft.com"
+                            }
+                        },
+                        "status": "running",
+                        "restartPolicy": "always"
+                    },
+                    "IoTEdgeAPIProxy": {
+                        "settings": {
+                            "image": "mcr.microsoft.com/azureiotedge-api-proxy",
+                            "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"8000/tcp\": [{\"HostPort\":\"8000\"}]}}}"
+                        },
+                        "type": "docker",
+                        "env": {
+                            "NGINX_DEFAULT_PORT": {
+                                "value": "8000"
+                            },
+                            "DOCKER_REQUEST_ROUTE_ADDRESS": {
+                                "value": "registry:5000"
+                            },
+                            "BLOB_UPLOAD_ROUTE_ADDRESS": {
+                                "value": "AzureBlobStorageonIoTEdge:11002"
+                            }
+                        },
+                        "status": "running",
+                        "restartPolicy": "always",
+                        "version": "1.0"
+                    }
+                },
+                "runtime": {
+                    "settings": {
+                        "minDockerVersion": "v1.25"
+                    },
+                    "type": "docker"
+                },
+                "schemaVersion": "1.1",
+                "systemModules": {
+                    "edgeAgent": {
+                        "settings": {
+                            "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4",
+                            "createOptions": ""
+                        },
+                        "type": "docker"
+                    },
+                    "edgeHub": {
+                        "settings": {
+                            "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4",
+                            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+                        },
+                        "type": "docker",
+                        "env": {},
+                        "status": "running",
+                        "restartPolicy": "always"
+                    }
+                }
+            }
+        },
+        "$edgeHub": {
+            "properties.desired": {
+                "routes": {
+                    "route": "FROM /messages/* INTO $upstream"
+                },
+                "schemaVersion": "1.1",
+                "storeAndForwardConfiguration": {
+                    "timeToLiveSecs": 7200
+                }
+            }
+        }
+    }
    }
    ```
 
-1. Enter the following command to create a deployment to your top layer edge device:
+In addition the **IoT Edge Agent** and **IoT Edge Hub**, which comprise the runtime, the **top layer device** receives the **Docker registry** module and **IoT Edge API Proxy** module.
 
-   ```azurecli-interactive
-   az iot edge set-modules --device-id <top_layer_device_id> --hub-name <iot_hub_name> --content ./deploymentTopLayer.json
-   ```
+The **Docker registry** module points to an exists Azure Container Registry. In this case, `REGISTRY_PROXY_REMOTEURL` points to the Microsoft Container Registry. In the `createOptions`, you can see it communicates on port 5000.
 
-If you completed the above steps correctly, your **top layer device** should report the four modules in the [Azure portal](https://ms.portal.azure.com/): the IoT Edge API Proxy Module, the Docker Container Registry module, and the system modules, as **Specified in Deployment**. It may take a few minutes for the device to receive its new deployment and start the modules. Refresh the page until you see the temperature sensor module listed as **Reported by Device**. Once the modules are reported by the device, you are ready to continue.
+The **IoT Edge API Proxy** module routes communication across your modules securely. It communicates on port 8000. In its environment variables, it is set to route Docker requests to port 5000, your **Docker registry** module's port, and it is set to route any blob storage upload requests to AzureBlobStorageonIoTEdge:11002.
 
-## Deploy modules to the lower layer device
-
-Modules also serve as the workloads of your lower layer devices. The Simulated Temperature Sensor module creates sample telemetry data to provide a functional flow of data through your hierarchy of devices.
-
-<!-- Give the why here -->
-
-To deploy modules to your lower layer devices, you can use the Azure CLI.
-
-1. In the [Azure Cloud Shell](https://shell.azure.com/), enter the following command to create a deployment.json file:
-
-   ```azurecli-interactive
-   code deploymentLowerLayer.json
-   ```
-
-1. Copy the contents of the JSON below into your deployment.json, save it, and close it.
-
-<!-- Remove experimental variables for GA -->
+You can take a look at the **lower layer device's** deployment JSON below:
 
    ```json
    {
-       "modulesContent": {
-           "$edgeAgent": {
-               "properties.desired": {
-                   "modules": {
-                       "simulatedTemperatureSensor": {
-                           "settings": {
-                               "image": "$upstream:8000/azureiotedge-simulated-temperature-sensor:1.0",
-                               "createOptions": ""
-                           },
-                           "type": "docker",
-                           "status": "running",
-                           "restartPolicy": "always",
-                           "version": "1.0"
-                       }
-                   },
-                   "runtime": {
-                       "settings": {
-                           "minDockerVersion": "v1.25"
-                       },
-                       "type": "docker"
-                   },
-                   "schemaVersion": "1.1",
-                   "systemModules": {
-                       "edgeAgent": {
-                           "settings": {
-                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc4",
-                               "createOptions": ""
-                           },
-                           "type": "docker"
-                       },
-                       "edgeHub": {
-                           "settings": {
-                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc4",
-                               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
-                           },
-                           "type": "docker",
-                           "env": {},
-                           "status": "running",
-                           "restartPolicy": "always"
-                       }
-                   }
-               }
-           },
-           "$edgeHub": {
-               "properties.desired": {
-                   "routes": {
-                       "route": "FROM /messages/* INTO $upstream"
-                   },
-                   "schemaVersion": "1.1",
-                   "storeAndForwardConfiguration": {
-                       "timeToLiveSecs": 7200
-                   }
-               }
-           }
-       }
+    "modulesContent": {
+        "$edgeAgent": {
+            "properties.desired": {
+                "modules": {
+                    "simulatedTemperatureSensor": {
+                        "settings": {
+                            "image": "$upstream:8000/azureiotedge-simulated-temperature-sensor:1.0",
+                            "createOptions": ""
+                        },
+                        "type": "docker",
+                        "status": "running",
+                        "restartPolicy": "always",
+                        "version": "1.0"
+                    }
+                },
+                "runtime": {
+                    "settings": {
+                        "minDockerVersion": "v1.25"
+                    },
+                    "type": "docker"
+                },
+                "schemaVersion": "1.1",
+                "systemModules": {
+                    "edgeAgent": {
+                        "settings": {
+                            "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc4",
+                            "createOptions": ""
+                        },
+                        "type": "docker"
+                    },
+                    "edgeHub": {
+                        "settings": {
+                            "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc4",
+                            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+                        },
+                        "type": "docker",
+                        "env": {},
+                        "status": "running",
+                        "restartPolicy": "always"
+                    }
+                }
+            }
+        },
+        "$edgeHub": {
+            "properties.desired": {
+                "routes": {
+                    "route": "FROM /messages/* INTO $upstream"
+                },
+                "schemaVersion": "1.1",
+                "storeAndForwardConfiguration": {
+                    "timeToLiveSecs": 7200
+                }
+            }
+        }
+    }
    }
    ```
 
-1. Enter the following command to create a set modules deployment to your lower layer edge device:
+You can see under `systemModules` that the **lower layer device's** runtime modules are set to pull from `$upstream:8000`, instead of `mcr.microsoft.com`, as the **top layer device** did. The **lower layer device** sends Docker image requests the **IoT Edge API Proxy** module on port 8000, as it cannot directly pull the images from the cloud. The other module deployed to the **lower layer device**, the **Simulated Temperature Sensor** module, also makes its image request to `$upstream:8000`.
 
-   ```azurecli-interactive
-   az iot edge set-modules --device-id <lower_layer_device_id> --hub-name <iot_hub_name> --content ./deploymentLowerLayer.json
+You can also see the status of your modules in the **IoT Edge** section of your IoT Hub on the [Azure portal]((https://ms.portal.azure.com/).
 
-Notice that the image URI that we used for the simulated temperature sensor module pointed to `$upstream:8000` instead of to a container registry. We configured this device to not have direct connections to the cloud, because it's in a lower layer. To pull container images, this device requests the image from its parent device instead. At the top layer, the API proxy module routes this container request to the registry module, which handles the image pull.
-
-If you completed the above steps correctly, your **lower layer device** should report three modules in the [Azure portal](https://ms.portal.azure.com/): the temperature sensor module and the system modules, as **Specified in Deployment**. It may take a few minutes for the device to receive its new deployment, request the container image, and start the module. Refresh the page until you see the temperature sensor module listed as **Reported by Device**. Once the modules are reported by the device, you are ready to continue.
+Once you are satisfied with your module deployments, you are ready to proceed.
 
 ## View generated data
 
