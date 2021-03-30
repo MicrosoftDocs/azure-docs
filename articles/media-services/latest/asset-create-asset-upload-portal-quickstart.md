@@ -39,7 +39,7 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
     * [Streaming policies](streaming-policy-concept.md)
     * [Packaging and delivery](dynamic-packaging-overview.md)
     * [Filters](filters-concept.md)
-* You can protect your content by encrypting it with Advanced Encryption Standard (AES-128) or/and any of the three major DRM systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. The [Encrypt content with the Azure portal](encrypt-content-quickstart.md) quickstart shows how to configure content protection.
+* You can protect your content by encrypting it with Advanced Encryption Standard (AES-128) or/and any of the three major DRM systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. The [Encrypt content with the Azure portal](drm-encrypt-content-how-to.md) quickstart shows how to configure content protection.
         
 ## Prerequisites
 
@@ -87,7 +87,7 @@ To publish an asset, you now need to add a streaming locator to your asset.
     This publishes the asset and generates the streaming URLs.
 
     > [!NOTE]
-    > If you want for your stream to be encrypted, you need to create a content key policy and set it on the streaming locator. For details, see [Encrypt content with the Azure portal](encrypt-content-quickstart.md).
+    > If you want for your stream to be encrypted, you need to create a content key policy and set it on the streaming locator. For details, see [Encrypt content with the Azure portal](drm-encrypt-content-how-to.md).
 1. In the **Add streaming locator** window, you choose one of the predefined streaming policies. For detailed information, see [streaming policies](streaming-policy-concept.md)
 
     ![Streaming locator](./media/asset-create-asset-upload-portal-quickstart/streaming-locator.png)
@@ -107,4 +107,4 @@ If you intend to try the other quickstarts, you should hold on to the resources 
 
 ## Next steps
 
-[Use portal to encrypt content](encrypt-content-quickstart.md)
+[Use portal to encrypt content](drm-encrypt-content-how-to.md)
