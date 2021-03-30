@@ -5,7 +5,7 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-# Used by the web API tutorial articles for .NET desktop (native) and SPA
+# Used by the web API tutorial articles for .NET desktop (native) and SPA.
 ---
 Web API resources need to be registered in your tenant before they can accept and respond to protected resource requests by client applications that present an access token.
 
