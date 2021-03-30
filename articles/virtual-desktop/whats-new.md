@@ -43,6 +43,60 @@ Here's what's changed in Windows Virtual Desktop Agent:
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
 
+## March 2021
+
+Here's what changed in March 2021.
+
+### A new version of the Azure portal
+
+We've made the following updates to Windows Virtual Desktop for the Azure portal:
+
+- We've enabled new availability options (availability set and zones) for the workflows to create host pools and add VMs.
+- We've fixed an issue where a host with the "Needs assistance" status appeared as unavailable. Now the host will have a warning icon next to it.
+- We've enabled sorting for active sessions.
+- You can now send messages to or sign out specific users on the host details tab.
+- We've changed the maximum session limit field.
+- We've added an OU validation path to the workflow to create a host pool.
+- You can now use the latest version of the Windows 10 image when you create a personal host pool.
+
+### Generation 2 images and Trusted Launch
+
+The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and Windows 10 Enterprise multi-session. These images will let you use Trusted Launch VMs. Learn more about Generation 2 VMs at [Should I create a generation 1 or 2 virtual machine](../virtual-machines/generation-2.md). To learn how to provision Windows Virtual Desktop Trusted Launch VMs, see [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
+
+### FSLogix is now preinstalled on Windows 10 Enterprise multi-session images
+
+Based on customer feedback, we've set up a new version of the Windows 10 Enterprise multi-session image that has an unconfigured version of FSLogix already installed. We hope this makes your Windows VIrtual Desktop deployment easier.
+
+### Azure Monitor for Windows Virtual Desktop is now in General Availability
+
+Azure Monitor for Windows Virtual Desktop is now generally available to the public. This feature is an automated service that monitors your deployments and lets you view events, health, and troubleshooting suggestions in a single place. For more information, see [our documentation](azure-azure-monitor.md) or check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861)..
+
+### March 2021 updates for Teams on Windows Virtual Desktop
+
+We've made the following updates for Teams on Windows Virtual Desktop:
+
+- We've improved video quality performance on calls and 2x2 mode.
+- We've reduced CPU utilization by 5-10% (depending on CPU generation) by using hardware offload of video processing (XVP).
+- Older machines can now use XVP and hardware decoding to display more incoming video streams smoothly in 2x2 mode.
+- We've updated the WebRTC stack from M74 to M88 for better AV sync performance and fewer transient issues.
+- Replaced our software H264 encoder with OpenH264 (OSS used in Teams on the web) which increased the video quality of the outgoing camera
+- Along side the March 23 release of MSRDC Microsoft Teams enabled 2x2 mode for Teams on Windows VIrtual Desktop clients. 2x2 mode shows up to 4 incoming video stream simultaneously. 2x2 mode is a Teams Server configuration that Microsoft will enable starting the week of March 23 to the Insiders group and the week of March 30th to the public group
+
+### Web client now supports file transfer
+
+Beginning with web client version 1.0.24.7, users can transfer files between the
+remote session and local computer. To upload files to the remote session, simply
+click the upload icon in the top menu. To download files, search for **Remote
+Desktop Virtual Drive** in the remote session. Drop your files in the
+**Downloads** folder and the browser will begin downloading the files to your
+local computer.
+
+### Windows Virtual Desktop Speciality certification
+
+We have released in beta the AZ-140 exam enabling you to prove your expertise in
+Windows VIrtual Desktop in Azure. Further information is available in this
+[article](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107)
+
 ## February 2021
 
 Here's what changed in February 2021.
