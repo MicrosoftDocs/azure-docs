@@ -13,26 +13,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/29/2020
+ms.date: 11/09/2020
 ms.author: b-juche
 ---
 # Configure an NFS client for Azure NetApp Files
 
 The NFS client configuration described in this article is part of the setup when you [configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md) or [create a dual-protocol volume](create-volumes-dual-protocol.md). A wide variety of Linux distributions are available to use with Azure NetApp Files. This article describes configurations for two of the more commonly used environments: RHEL 8 and Ubuntu 18.04. 
 
-## Requirements and considerations   
+## Requirements and considerations  
 
 Regardless of the Linux flavor you use, the following configurations are required:
+
 * Configure an NTP client to avoid issues with time skew.
 * Configure DNS entries of the Linux client for name resolution.  
     This configuration must include the “A” (forward) record and the PTR (reverse) record . 
 * For domain join, create a computer account for the Linux client in the target Active Directory (which is created during the realm join command). 
     > [!NOTE] 
     > The `$SERVICEACCOUNT` variable used in the commands below should be a user account with permissions or delegation to create a computer account in the targeted Organizational Unit.
-* For best performance with the NFSv3 protocol, add the following settings to the `/etc/sysctl.conf` file, and then update `sysctl` by running the `sysctl -a` command to apply the settings:   
-
-    `sunrpc.tcp_max_slot_table_entries=128`   
-    `sunrpc.tcp_slot_table_entries=128`
 
 ## RHEL 8 configuration 
 
