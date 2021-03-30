@@ -15,9 +15,9 @@ The Secrets Store CSI Driver for Kubernetes allows for the integration of variou
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Before you start, install the [Azure CLI](/cli/azure/install-azure-cli-windows).
+- Before you start, install the [Azure CLI](/cli/azure/install-azure-cli-windows).
 
 ## Features
 - Mount secrets, keys, and/or certs to a pod using a CSI volume
@@ -74,7 +74,7 @@ The Secrets Store CSI Driver for AKS supports a number of Secrets Store CSI Driv
 
 ## Create and deploy your own SecretProviderClass object
 
-To use and configure the Secrets Store CSI driver with your AKS cluster, create a SecretProviderClass custom resource.
+To use and configure the Secrets Store CSI driver for your AKS cluster, create a SecretProviderClass custom resource.
 
 A SecretProviderClass custom resource has the following components at a minimum:
 
@@ -88,7 +88,7 @@ spec:
   parameters:                                 # provider-specific parameters
 ```
 
-For more details, see this [sample SecretProviderClass][sample-secret-provider-class].
+For more details, see a [sample SecretProviderClass][sample-secret-provider-class].
 
 Additional components or specific values may be required based on your provider. Be sure to follow any instructions from your provider's documentation in the [supported providers section](#supported-providers).
 
@@ -100,7 +100,7 @@ kubectl apply -f ./new-secretproviderclass.yaml
 
 ## Update your cluster's deployment YAML
 
-To ensure your cluster is using the new custom resource, update the deployment YAML. For a more comprehensive example, see the [sample deployment][sample-deployment].
+To ensure your cluster is using the new custom resource, update the deployment YAML. For a more comprehensive example, take a look at a [sample deployment][sample-deployment].
 
 Again, your provider may require additional components or specific values. Follow the instructions from your provider's documentation in the [supported providers section](#supported-providers).
 
@@ -126,10 +126,10 @@ After the pod starts, the mounted content at the volume path specified in your d
 
 ```Bash
 ## show secrets held in secrets-store
-kubectl exec secrets-store-inline -- ls /mnt/secrets-store/
+kubectl exec secrets-store-inline -- ls /mnt/secrets-store/foo
 
 ## print a test secret held in secrets-store
-kubectl exec secrets-store-inline -- cat /mnt/secrets-store/secret1
+kubectl exec secrets-store-inline -- cat /mnt/secrets-store/foo
 ```
 
 ## Next steps
