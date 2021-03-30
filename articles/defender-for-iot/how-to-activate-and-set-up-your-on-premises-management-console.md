@@ -28,15 +28,15 @@ To sign in to the management console:
 
 If you forgot your password, select the **Recover Password**  option, and see [Password recovery](how-to-manage-the-on-premises-management-console.md#password-recovery) for instructions on how to recover your password.
 
-## Get and upload an activation file
+## Activate the on-premises management console
 
 After you sign in for the first time, you will need to activate the on-premises management console by getting, and uploading an activation file. 
 
 To activate the on-premises management console:
 
-1. Sign in to on-premises management console.
+1. Sign in to the on-premises management console.
 
-1. Select the **Take Action** link in the alert notification at the top of the screen.
+1. In the alert notification at the top of the screen, select the **Take Action** link.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/take-action.png" alt-text="Select the Take Action link from the alert on the top of the screen.":::
 
@@ -44,9 +44,11 @@ To activate the on-premises management console:
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/azure-portal.png" alt-text="Select the Azure portal link from the popup message.":::
  
-1. Select a subscription to associate the on-premises management console to, and then select the **Download the activation file for the management console** tab. The activation file is downloaded.
+1. Select a subscription to associate the on-premises management console to, and then select the **Download on-premises management console activation file** button. The activation file is downloaded.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download the activation file.":::
+
+   If you have not already done so, then [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
 
 1. Navigate back to the **Activation** popup screen and select **Choose File**.
 
