@@ -93,12 +93,6 @@ Use an Azure Policy to enable Azure Defender across storage accounts under a spe
 
 ### [PowerShell](#tab/azure-powershell)
 
-Use the following PowerShell cmdlets:
-
-- [Enable advanced threat protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-- [Get advanced threat protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-- [Disable advanced threat protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
-
 To enable Azure Defender setting for a storage account with PowerShell, first make sure you have installed the [Az.Storage] module. Next, call the [Enable-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection) command. Remember to replace values in angle brackets with your own values:
 
 ```azurepowershell
@@ -131,11 +125,6 @@ az security atp storage show \
 ```
 
 ---
-
-To create, update, or retrieve the Azure Defender setting for a specific storage account with the REST API, use the following operations:
-
-- [Advanced threat protection - Create](/rest/api/securitycenter/advancedthreatprotection/create)
-- [Advanced threat protection - Get](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ## Explore security anomalies
 
