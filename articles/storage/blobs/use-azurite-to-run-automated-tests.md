@@ -1,0 +1,140 @@
+---
+title: Run automated tests by using Azurite
+titleSuffix: Azure Storage
+description: Learn how to write automated tests against private endpoints for Azure Blob Storage by using Azurite.
+services: storage
+author: ikivanc
+
+ms.service: storage
+ms.devlang: yaml
+ms.topic: how-to
+ms.date: 03/30/2021
+ms.author: ikivanc
+---
+
+# Run automated tests by using Azurite
+
+Learn how to write automated tests against private endpoints for Azure Blob Storage by using Azurite.
+
+## Run tests on your local machine
+
+1. Install the latest version of [Python](https://www.python.org/)
+
+1. Install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+
+1. Install and run Azurite:
+
+   **Option 1:** Use NPM to install, then run Azurite locally
+
+   ```bash
+   # Install Azurite
+   npm install -g azurite
+   
+   # Create an Azurite directory
+   mkdir c:/azurite
+   
+   # Launch Azurite locally
+   azurite --silent --location c:\azurite --debug c:\azurite\debug.log
+   ```
+
+   **Option 2:** Use Docker to run Azurite
+
+   ```bash
+   docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite azurite-blob --blobHost 0.0.0.0
+   ```
+
+1. In Azure Storage Explorer, select `Attach to a local emulator`
+
+    :::image type="content" source="media/use-azurite-to-run-automated-tests/blob_storage_connection.png" alt-text="Screenshot of connecting to a local emulator":::
+
+1. Provide a **Display name** and **Blobs port** number to connect Azurite and use Azure Storage Explorer to manage local blob storage.
+
+   :::image type="content" source="media/use-azurite-to-run-automated-tests/blob_storage_connection_attach.png" alt-text="attach to local":::
+
+1. Create a virtual Python environment
+
+   ```bash
+   python -m venv .venv
+   ```
+
+1. Create a container and initialize environment variables. Use a [PyTest](https://docs.pytest.org/) [conftest.py](https://docs.pytest.org/en/2.1.0/plugins.html) file to generate tests.
+
+   ```python
+   from azure.storage.blob import BlobServiceClient
+   import os
+
+   def pytest_generate_tests(metafunc):
+      os.environ['AZURE_STORAGE_CONNECTION_STRING'] = 'DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;'
+      os.environ['STORAGE_CONTAINER'] = 'test-container'
+
+      # Create a container for Azurite for the first run
+      blob_service_client = BlobServiceClient.from_connection_string(os.environ.get("AZURE_STORAGE_CONNECTION_STRING"))
+      try:
+         blob_service_client.create_container(os.environ.get("STORAGE_CONTAINER"))
+      except Exception as e:
+         print(e)
+   ```
+
+   > [!NOTE]
+   > The value shown for `AZURE_STORAGE_CONNECTION_STRING` is the default value for Azurite, it's not a private key.
+
+1. Install the dependencies  
+
+   ```bash
+   pip install -r requirements_tests.txt
+   ```
+
+1. Run tests:
+
+   ```bash
+   python -m pytest ./tests
+   ```
+
+After running tests, you can see the files in your local blob storage by using Azure Storage Explorer.
+
+:::image type="content" source="media/use-azurite-to-run-automated-tests/http_local_blob_storage.png" alt-text="https local blob":::
+
+## Run tests on Azure Pipelines
+
+After running tests locally, make sure these tests pass on Azure Pipelines, as well. Use a Docker image as hosted agent on Azure or use the npm package in the Pipeline steps. The following example uses NPM packages.
+  
+```bash
+trigger:
+- master
+
+steps:
+- task: UsePythonVersion@0
+  displayName: 'Use Python 3.7'
+  inputs:
+    versionSpec: 3.7
+
+- bash: |
+    pip install -r requirements_tests.txt
+  displayName: 'Setup requirements for tests'
+  
+- bash: |
+    sudo npm install -g azurite
+    sudo mkdir azurite
+    sudo azurite --silent --location azurite --debug azurite\debug.log &
+  displayName: 'Install and Run Azurite'
+
+- bash: |
+    python -m pytest --junit-xml=unit_tests_report.xml --cov=tests --cov-report=html --cov-report=xml ./tests
+  displayName: 'Run Tests'
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/**/htmlcov'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/*_tests_report.xml'
+    failTaskOnFailedTests: true
+```
+
+Once Azure Pipelines is set up, you should see a result similar to this:
+
+:::image type="content" source="media/use-azurite-to-run-automated-tests/azure_pipeline.png" alt-text="Screenshot of Azure Pipelines":::
