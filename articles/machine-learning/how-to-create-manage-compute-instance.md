@@ -116,6 +116,8 @@ Some examples of what you can do in a setup script:
 * Create custom conda environment and Jupyter kernels
 * Clone git repositories
 
+### Create the setup script
+
 The setup script is a shell script which runs as *azureuser*.  Create or upload the script into your **Notebooks** files:
 
 1. Sign into the [studio](https://ml.azureml.com) and select your workspace.
@@ -136,7 +138,9 @@ SCRIPT=$(readlink -f "$0")
 SCRIPT_PATH=$(dirname "$SCRIPT") 
 ```
 
-Once you store the script, refer to it when you create a compute instance:
+### Reference the setup script
+
+Once you store the script, refer to it during creation of your compute instance:
 
 * In the studio:
     1. Sign into the [studio](https://ml.azureml.com) and select your workspace.
@@ -152,17 +156,22 @@ Once you store the script, refer to it when you create a compute instance:
     "setupScripts":{"scripts":{"creationScript":{"scriptSource": "workspaceStorage", "scriptData":"[parameters('creationScript.location')]","scriptArguments":"[parameters('creationScript.cmdArguments')]"}}} 
     ```
 
-You could instead provide the script inline for a Resource Manager template.  The shell command can refer to any dependencies uploaded in the notebooks file share.  For example, specify a base64 encoded command string for `scriptData`:
+    You could instead provide the script inline for a Resource Manager template.  The shell command can refer to any dependencies uploaded into the notebooks file share.  For example, specify a base64 encoded command string for `scriptData`:
 
-```json
-"setupScripts":{"scripts":{"creationScript":{"scriptSource": "inline", "scriptData":"[base64(parameters('inlineCommand'))]","scriptArguments":"[parameters('creationScript.cmdArguments')]"}}}     
-```
-    
+    ```json
+    "setupScripts":{"scripts":{"creationScript":{"scriptSource": "inline", "scriptData":"[base64(parameters('inlineCommand'))]","scriptArguments":"[parameters('creationScript.cmdArguments')]"}}}
+    ```
+
+### Setup script logs
+
+Logs from the setup script execution appear in the logs folder in the compute instance details page. Logs are stored back to your notebooks file share under the Logs\<compute instance name> folder. Script file and command arguments for a particular compute instance are shown in the details page.
 
 ### Create on behalf of (preview)
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
+
 * [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/fhir/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
+
 * REST API
 
 The data scientist you create the compute instance for needs the following be [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) permissions: 
