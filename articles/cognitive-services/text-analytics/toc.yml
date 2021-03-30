@@ -127,6 +127,16 @@
         href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1
   - name: SDKs
     items:
+    - name: v3.1-preview
+      items:
+        - name: .NET
+          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview
+        - name: Python
+          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview
+        - name: Java
+          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview
+        - name: Node.js
+          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview
     - name: v3.0
       items:
         - name: .NET
