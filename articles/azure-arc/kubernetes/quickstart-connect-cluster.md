@@ -23,18 +23,15 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
     * A `kubeconfig` file pointing to the cluster you want to connect to Azure Arc.
     * 'Read' and 'Write' permissions for the user or service principal connecting creating the Azure Arc enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
 * Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
-* Install the following Azure Arc enabled Kubernetes CLI extensions of versions >= 1.0.0:
+* Install the `connectedk8s` Azure CLI extension of version >= 1.0.0:
   
   ```azurecli
   az extension add --name connectedk8s
-  az extension add --name k8s-configuration
   ```
-  * To update these extensions to the latest version, run the following commands:
-  
-  ```azurecli
-  az extension update --name connectedk8s
-  az extension update --name k8s-configuration
-  ```
+
+>[!TIP]
+> If the `connectedk8s` extension is already installed, you can update it to the latest version using the following command - `az extension update --name connectedk8s`
+
 
 >[!NOTE]
 >**Supported regions:**
@@ -59,7 +56,7 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
 | Endpoint (DNS) | Description |  
 | ----------------- | ------------- |  
 | `https://management.azure.com`                                                                                 | Required for the agent to connect to Azure and register the cluster.                                                        |  
-| `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com`, `https://westcentralus.dp.kubernetesconfiguration.azure.com`, `https://southcentralus.dp.kubernetesconfiguration.azure.com`, `https://southeastasia.dp.kubernetesconfiguration.azure.com`, `https://uksouth.dp.kubernetesconfiguration.azure.com`, `https://westus2.dp.kubernetesconfiguration.azure.com`, `https://australiaeast.dp.kubernetesconfiguration.azure.com`, `https://eastus2.dp.kubernetesconfiguration.azure.com`, `https://northeurope.dp.kubernetesconfiguration.azure.com` | Data plane endpoint for the agent to push status and fetch configuration information.                                      |  
+| `https://<region>.dp.kubernetesconfiguration.azure.com` | Data plane endpoint for the agent to push status and fetch configuration information.                                      |  
 | `https://login.microsoftonline.com`                                                                            | Required to fetch and update Azure Resource Manager tokens.                                                                                    |  
 | `https://mcr.microsoft.com`                                                                            | Required to pull container images for Azure Arc agents.                                                                  |  
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  Required to pull system-assigned Managed Service Identity (MSI) certificates.                                                                  |
