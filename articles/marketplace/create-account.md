@@ -158,5 +158,5 @@ After this process is completed, go to the commercial marketplace account that's
 
 ## Next steps
 
-- [What is the Microsoft commercial marketplace?](../overview.md)
+- [What is the Microsoft commercial marketplace?](overview.md)
 - [Manage your commercial marketplace account in Partner Center](manage-account.md)

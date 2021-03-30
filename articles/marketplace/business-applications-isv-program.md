@@ -21,7 +21,7 @@ To enroll and take advantage of all the technical, marketing, and sales enableme
 
 ## Set up your Microsoft Partner Center account
 
-To set up and manage your account for the ISV Connect program complete the steps from the article: [Create a commercial marketplace account in Partner Center](./partner-center-portal/create-account.md). This article provides all the steps to create a new account as well as information on adding new publishers to the commercial marketplace program.
+To set up and manage your account for the ISV Connect program complete the steps from the article: [Create a commercial marketplace account in Partner Center](create-account.md). This article provides all the steps to create a new account as well as information on adding new publishers to the commercial marketplace program.
 
 > [!NOTE]
 > This step requires an *Owner* or *Manager* role in Partner Center.

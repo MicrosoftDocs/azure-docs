@@ -186,7 +186,7 @@ This section covers transact requirements for different offer types.
 - Mandatory financial information includes payout account and tax profile.
 - The publisher must live in a [supported country or region](sell-from-countries.md).
 
-For more information on setting up these accounts, see [Manage your commercial marketplace account in Partner Center](partner-center-portal/manage-account.md).
+For more information on setting up these accounts, see [Manage your commercial marketplace account in Partner Center](manage-account.md).
 
 ### Requirements for specific offer types
 
