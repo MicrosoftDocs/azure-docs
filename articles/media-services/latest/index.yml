@@ -92,7 +92,7 @@ landingContent:
           - text: Uploading
             url: assets-concept.md
           - text: Encoding
-            url: encoding-concept.md
+            url: encode-concept.md
       - linkListType: tutorial
         links:
           - text: Encode remote file and stream

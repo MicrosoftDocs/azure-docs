@@ -72,7 +72,7 @@ Your streaming client can specify the following Smooth Streaming formats:
 
 The following steps show a common Media Services streaming workflow where dynamic packaging is used along with the Standard Encoder in Azure Media Services.
 
-1. [Upload an input file](job-input-from-http-how-to.md) such as a MP4, QuickTime/MOV, or other supported file format. This file is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Standard Encoder](media-encoder-standard-formats.md).
+1. [Upload an input file](job-input-from-http-how-to.md) such as a MP4, QuickTime/MOV, or other supported file format. This file is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Standard Encoder](encode-media-encoder-standard-formats-reference.md).
 1. [Encode](#encode-to-adaptive-bitrate-mp4s) your mezzanine file into an H.264/AAC MP4 adaptive bitrate set.
 
     If you already have encoded files and just want to copy and stream the files, use: [CopyVideo](/rest/api/media/transforms/createorupdate#copyvideo) and [CopyAudio](/rest/api/media/transforms/createorupdate#copyaudio) APIs. A new MP4 file with a streaming manifest (.ism file) will be created as a result.
@@ -93,7 +93,7 @@ The following articles show examples of [how to encode a video with Media Servic
 * [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md).
 * [Build a custom preset to target your specific scenario or device requirements](encode-custom-presets-how-to.md).
 
-See the list of Standard Encoder [formats and codecs](media-encoder-standard-formats.md).
+See the list of Standard Encoder [formats and codecs](encode-media-encoder-standard-formats-reference.md).
 
 ## Live streaming workflow
 

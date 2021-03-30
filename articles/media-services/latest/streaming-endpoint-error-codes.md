@@ -151,7 +151,7 @@ For filter guidance, see:
 - [Concept: dynamic manifests](filters-dynamic-manifest-concept.md)
 - [Concept: filters](filters-concept.md)
 - [Sample: create filters with REST APIs](filters-dynamic-manifest-rest-howto.md)
-- [Sample: create filters with .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Sample: create filters with .NET](filters-dynamic-manifest-dotnet-how-to.md)
 - [Sample: create filters with CLI](filters-dynamic-manifest-cli-howto.md)
 
 For live articles and samples, see:

@@ -140,7 +140,7 @@
       displayName: encode, encoding, presets, jobs, adaptive, bitrate, billing 
     - name: Standard Encoder formats
       displayName: containers, codecs    
-      href: media-encoder-standard-formats.md
+      href: encode-media-encoder-standard-formats-reference.md
     - name: Autogen adaptive bitrate ladder
       href: encode-autogen-bitrate-ladder.md       
     - name: Content-aware encoding
@@ -242,7 +242,7 @@
       href: media-services-apis-overview.md
       displayName: accessing, long-running, sdk, invalid character, name, naming, file name
     - name: Page, filter, order entities
-      href: entities-overview.md 
+      href: filter-order-page-entitites-how-to.md 
     - name: Azure RBAC
       href: rbac-overview.md
     - name: Error codes
@@ -399,7 +399,7 @@
     - name: Live event with portal and Wirecast
       href: live-events-wirecast-quickstart.md    
     - name: Verify your on-premises encoder 
-      href: become-on-premises-encoder-partner.md      
+      href: encode-on-premises-encoder-partner.md      
     - name: Live event error codes
       href: live-event-error-codes.md    
   - name: Use Event Grid
@@ -433,7 +433,7 @@
   - name: Create filters
     items:
     - name: With .NET
-      href: filters-dynamic-manifest-dotnet-howto.md
+      href: filters-dynamic-manifest-dotnet-how-to.md
       displayName: filters
     - name: With REST
       href: filters-dynamic-manifest-rest-howto.md

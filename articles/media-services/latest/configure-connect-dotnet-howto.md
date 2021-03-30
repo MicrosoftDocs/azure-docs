@@ -239,7 +239,7 @@ namespace ConsoleApp1
 - [Use AES-128 dynamic encryption and the key delivery service - .NET](drm-playready-license-template-concept.md)
 - [Use DRM dynamic encryption and license delivery service - .NET](drm-protect-with-drm-tutorial.md)
 - [Get a signing key from the existing policy - .NET](drm-get-content-key-policy-dotnet-how-to.md)
-- [Create filters with Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Create filters with Media Services - .NET](filters-dynamic-manifest-dotnet-how-to.md)
 - [Advanced video on-demand examples of Azure Functions v2 with Media Services v3](https://aka.ms/ams3functions)
 
 ## See also

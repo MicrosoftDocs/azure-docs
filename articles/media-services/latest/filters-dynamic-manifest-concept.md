@@ -151,7 +151,7 @@ For more information, see [this blog post](https://azure.microsoft.com/blog/azur
 The following articles show how to create filters programmatically:  
 
 - [Create filters with REST APIs](filters-dynamic-manifest-rest-howto.md)
-- [Create filters with .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Create filters with .NET](filters-dynamic-manifest-dotnet-how-to.md)
 - [Create filters with CLI](filters-dynamic-manifest-cli-howto.md)
 
 [renditions1]: ./media/filters-dynamic-manifest-concept/media-services-rendition-filter.png
