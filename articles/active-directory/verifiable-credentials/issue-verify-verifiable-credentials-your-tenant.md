@@ -55,26 +55,26 @@ Register an application called 'VC Wallet App' in Azure Active Directory (AAD) a
    - Supported account types: Accounts in this organizational directory only
    - Redirect URI: vcclient://openid/
 
-   ![register an application](media/tutorial-sample-app-your-idp/register-application.png)
+   ![register an application](media/issue-verify-verifable-credentials-your-tenant/register-application.png)
 
 2. After you register the application, write down the Application (client) ID. You need this value later.
 
-   ![application client ID](media/tutorial-sample-app-your-IdP/client-id.png)
+   ![application client ID](media/issue-verify-verifable-credentials-your-tenant/client-id.png)
 
 3. Select the **Endpoints** button and copy the OpenID Connect metadata document URI. You need this information for the next section. 
 
-   ![issuer endpoints](media/tutorial-sample-app-your-IdP/application-endpoints.png)
+   ![issuer endpoints](media/issue-verify-verifable-credentials-your-tenant/application-endpoints.png)
 
 ## Set up your node app with access to Key Vault
 
 To authenticate a user's credential issuance request, the issuer website uses your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website needs a client ID and client secret that can be used to authenticate to Azure Key Vault.
 
 1. While viewing the VC wallet app overview page select **Certificates & secrets**.
-    ![application client id](media/tutorial-sample-app-your-IdP/vc-wallet-app-certs-secrets.png)
+    ![application client id](media/issue-verify-verifable-credentials-your-tenant/vc-wallet-app-certs-secrets.png)
 1. In the **Client secrets** section choose **New client secret**
     1. Add a description like "Node VC client secret"
     1. Expires: in one year.
-  ![application client id](media/tutorial-sample-app-your-IdP/add-client-secret.png)
+  ![application client id](media/issue-verify-verifable-credentials-your-tenant/add-client-secret.png)
 1. Copy down the SECRET. You need this information to update your sample node app.
 
 >[!WARNING]
@@ -93,7 +93,7 @@ After creating your application and client secret in Azure AD, you need to grant
 
 For more information about Key Vault permissions and access control read the [key vault rbac guide](../../key-vault/general/rbac-guide.md)
 
-![assign key vault permissions](media/tutorial-sample-app-your-IdP/key-vault-permissions.png)
+![assign key vault permissions](media/issue-verify-verifable-credentials-your-tenant/key-vault-permissions.png)
 ## Make changes to match your environment
 
 So far, we have been working with our sample app. The app uses [Azure Active Directory B2C](../../active-directory-b2c/overview.md) and we are now switching to use AAD so we need to make some changes not just to match your environment but also to support additional claims that were not used before.
@@ -128,7 +128,7 @@ So far, we have been working with our sample app. The app uses [Azure Active Dir
 
 2. Open the file and replace the **client_id** and **configuration** values with the two values we copied in the previous section.
 
-    ![highlighting the two values that need to be modified as part of this step](media/tutorial-sample-app-your-IdP/rules-file.png)
+    ![highlighting the two values that need to be modified as part of this step](media/issue-verify-verifable-credentials-your-tenant/rules-file.png)
 
    The value **Configuration** is the OpenID Connect metadata document URI.
 
@@ -141,16 +141,16 @@ So far, we have been working with our sample app. The app uses [Azure Active Dir
 6. Choose **Token configuration**.
 7. Choose **+ Add optional claim**
 
-     ![under token configuration add an optional claim](media/tutorial-sample-app-your-IdP/token-configuration.png)
+     ![under token configuration add an optional claim](media/issue-verify-verifable-credentials-your-tenant/token-configuration.png)
 
 8. From **Token type** choose **ID** and from the list of available claims choose **given_name** and **family_name**
 
-     ![add optional claims](media/tutorial-sample-app-your-IdP/add-optional-claim.png)
+     ![add optional claims](media/issue-verify-verifable-credentials-your-tenant/add-optional-claim.png)
 
 9. Press **Add**.
 10. If you get a permissions warning as shown below, check the box and select **Add**.
 
-     ![add permissions for optional claims](media/tutorial-sample-app-your-IdP/add-optional-claim-permissions.png)
+     ![add permissions for optional claims](media/issue-verify-verifable-credentials-your-tenant/add-optional-claim-permissions.png)
 
 Now when a user is presented with the "sign in" to get issued your verifiable credential, the VC Wallet App knows to include the specific claims to be written in to the Verifiable Credential.
 
@@ -181,7 +181,7 @@ There are a few other values we need to get in order to make the changes one tim
 
 1. Under the Signing key identifier, there is a URI but we only need a portion of it. Copy from the part that says **issuerSigningKeyION** as highlighted by the red rectangle in the image below.
 
-   ![add permissions for optional claims](media/tutorial-sample-app-your-IdP/issuer-signing-key-ion.png)
+   ![add permissions for optional claims](media/issue-verify-verifable-credentials-your-tenant/issuer-signing-key-ion.png)
 
 ### DID Document 
 
@@ -193,7 +193,7 @@ There are a few other values we need to get in order to make the changes one tim
 
 2. Paste the URL in your browser.
 
-    ![assign key vault permissions](media/tutorial-sample-app-your-IdP/did-document.png)
+    ![assign key vault permissions](media/issue-verify-verifable-credentials-your-tenant/did-document.png)
 
 3. Copy the json in the browser and open up the following link: https://jsonformatter.org/ to format the json response. 
 4. From the formatted response find the section called **verificationMethod**
