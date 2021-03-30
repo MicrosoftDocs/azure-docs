@@ -249,7 +249,7 @@ Depending on business logic of custom STS, different claims are issued in the JW
 
 #### What is the mapping between the Widevine and Media Services DRM security levels?
 
-Google's "Widevine DRM Architecture Overview" defines three security levels. However, the [Azure Media Services documentation on the Widevine license template](widevine-license-template-overview.md) outlines
+Google's "Widevine DRM Architecture Overview" defines three security levels. However, the [Azure Media Services documentation on the Widevine license template](drm-widevine-license-template-concept.md) outlines
 five security levels (client robustness requirements for playback). This section explains how the security levels map.
 
 Both sets of security levels are defined by Google Widevine. The difference is in usage level: architecture or API. The five security levels are used in the Widevine API. The `content_key_specs` object, which

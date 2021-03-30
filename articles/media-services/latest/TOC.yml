@@ -7,7 +7,7 @@
   - name: Release notes
     href: release-notes.md
   - name: Media Services compliance
-    href: concept-compliance.md
+    href: compliance-concept.md
   - name: Frequently asked questions
     href: frequently-asked-questions.yml
 - name: Quickstarts
@@ -211,7 +211,7 @@
       - name: PlayReady license template
         href: drm-playready-license-template-concept.md
       - name: Widevine license template
-        href: widevine-license-template-overview.md
+        href: drm-widevine-license-template-concept.md
       - name: FairPlay license requirements
         href: drm-fairplay-license-overview.md  
     - name: Streaming policies 

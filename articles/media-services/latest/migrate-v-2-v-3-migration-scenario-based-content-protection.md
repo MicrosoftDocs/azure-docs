@@ -73,7 +73,7 @@ When migrating your content from v2 to v3, it is advised to install the [v2 Azur
 - [Protect your content with Media Services dynamic encryption](drm-content-protection-concept.md)
 - [Design of a multi-DRM content protection system with access control](architecture-design-multi-drm-system.md)
 - [Media Services v3 with PlayReady license template](drm-playready-license-template-concept.md)
-- [Media Services v3 with Widevine license template overview](widevine-license-template-overview.md)
+- [Media Services v3 with Widevine license template overview](drm-widevine-license-template-concept.md)
 - [Apple FairPlay license requirements and configuration](drm-fairplay-license-overview.md)
 - [Streaming Policies](streaming-policy-concept.md)
 - [Content Key Policies](drm-content-key-policy-concept.md)

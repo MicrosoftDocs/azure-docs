@@ -111,7 +111,7 @@ You need to set the requirements (restrictions) on the **Content Key Policy** th
 
 * Configuration
 
-    The [PlayReady](drm-playready-license-template-concept.md) and [Widevine](widevine-license-template-overview.md) licenses are configured so they can be delivered by the Media Services license delivery service. Even though this sample app doesn't configure the [FairPlay](drm-fairplay-license-overview.md) license, it contains a method you can use to configure FairPlay. You can add FairPlay configuration as another option.
+    The [PlayReady](drm-playready-license-template-concept.md) and [Widevine](drm-widevine-license-template-concept.md) licenses are configured so they can be delivered by the Media Services license delivery service. Even though this sample app doesn't configure the [FairPlay](drm-fairplay-license-overview.md) license, it contains a method you can use to configure FairPlay. You can add FairPlay configuration as another option.
 
 * Restriction
 

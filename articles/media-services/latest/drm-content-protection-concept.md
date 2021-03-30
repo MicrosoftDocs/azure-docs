@@ -59,7 +59,7 @@ The example shows how to:
    You create a content key policy to configure how the content key (which provides secure access to your assets) is delivered to end clients:  
 
    * Define license delivery authorization. Specify the logic of the authorization check based on claims in JSON Web Token (JWT).
-   * Configure [PlayReady](drm-playready-license-template-concept.md), [Widevine](widevine-license-template-overview.md), and/or [FairPlay](drm-fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the DRMs.
+   * Configure [PlayReady](drm-playready-license-template-concept.md), [Widevine](drm-widevine-license-template-concept.md), and/or [FairPlay](drm-fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the DRMs.
 
      ```
      ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();

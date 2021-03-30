@@ -58,4 +58,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 * [Stream live - .NET](stream-live-tutorial-with-api.md)
 * [Analyze your video - .NET](analyze-videos-tutorial.md)
 * [AES-128 dynamic encryption - .NET](drm-playready-license-template-concept.md)
-* [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md)
+* [Encrypt dynamically with multi-DRM - .NET](drm-protect-with-drm-tutorial.md)

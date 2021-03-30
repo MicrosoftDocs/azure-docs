@@ -54,7 +54,7 @@ You can choose to protect your content with Microsoft PlayReady and/or Google Wi
 
 For details about license templates, see:
 
-* [Google Widevine license template](widevine-license-template-overview.md)
+* [Google Widevine license template](drm-widevine-license-template-concept.md)
 
     > [!NOTE]
     > You can create an empty license template with no values, just "{}." Then a license template is created with defaults. The default works for most cases.
