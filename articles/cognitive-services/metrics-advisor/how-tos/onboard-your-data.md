@@ -19,6 +19,7 @@ Use this article to learn about onboarding your data to Metrics Advisor.
 ## Data schema requirements and configuration
 
 [!INCLUDE [data schema requirements](../includes/data-schema-requirements.md)]
+For more glossaries that may confuse you, refer to [Glossary](../glossary.md).
 
 ## Avoid loading partial data
 
@@ -38,21 +39,44 @@ To avoid loading partial data, we recommend two approaches:
 
     Set the **Ingestion time offset** parameter for your data feed to delay the ingestion until the data is fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. See [advanced settings](manage-data-feeds.md#advanced-settings) for details.
 
-## Add a data feed using the web-based workspace
+## Start from adding a data feed
 
 After signing into your Metrics Advisor portal and choosing your workspace, click **Get started**. Then, on the main page of the workspace, click **Add data feed** from the left menu.
 
 ### Add connection settings
 
+#### 1.Basic settings
 Next you'll input a set of parameters to connect your time-series data source. 
 * **Source Type**: The type of data source where your time series data is stored.
-* **Granularity**: The interval between consecutive data points in your time series data. Currently Metrics Advisor supports: Yearly, Monthly, Weekly, Daily, Hourly, and Custom. The lowest interval The customization option supports is 60 seconds.
+* **Granularity**: The interval between consecutive data points in your time series data. Currently Metrics Advisor supports: Yearly, Monthly, Weekly, Daily, Hourly, and Custom. The lowest interval the customization option supports is 60 seconds.
   * **Seconds**: The number of seconds when *granularityName* is set to *Customize*.
 * **Ingest data since (UTC)**: The baseline start time for data ingestion. *startOffsetInSeconds* is often used to add an offset to help with data consistency.
 
-Next, you'll need to specify the connection information for the data source, and the custom queries used to convert the data into the required schema. For details on the other fields and connecting different types of data sources, see [Add data feeds from different data sources](../data-feeds-from-different-sources.md).
+#### 2.Specify Connection String
+Next, you'll need to specify the connection information for the data source. For details on the other fields and connecting different types of data sources, see [Add data feeds from different data sources](../data-feeds-from-different-sources.md).
+
+#### 3.Specify Query for a single timestamp
+Next, you'll need to specify custom queries to convert the data into the required schema. For Metrics Advisor to ingest your data, you will need to create a query that returns the dimension combinations of your data at a single timestamp. Metrics advisor will run this query multiple times to get the data from each timestamp. 
+
+Note that the query should return at most one record for each dimension combination at a given timestamp (which means every dimension combination can only returen 1 metric value after one query execution). All records returned must have the same timestamp.
 
 [!INCLUDE [query requirements](../includes/query-requirements.md)]
+
+Take SQL query for example, for a daily metric you can create a query like this: 
+ 
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(DAY, 1, @StartTime)`
+
+As for an hourly metric: 
+
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(hour, 1, @StartTime)`
+
+Be sure to use the correct granularity for your time series. Note that these queries only return data at a single timestamp, and contain all of the dimension combinations to be ingested by Metrics Advisor. 
+
+Here is an example showing what you get after one query execution. The table on the right contains data for all dimension combinations at a single timestamp(with no duplicate records).
+
+:::image type="content" source="media/query-result.png" alt-text="A query result with one timestamp" lightbox="media/query-result.png":::
+
+For details of different types of data sources, see [Add data feeds from different data sources](../data-feeds-from-different-sources.md).
 
 ### Verify and get schema
 
@@ -75,7 +99,7 @@ If the timestamp of a data point is omitted, Metrics Advisor will use the timest
 |**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series, for example: country, language, tenant. You can select zero or more columns as dimensions. Note: be cautious when selecting a non-string column as a dimension. | Optional.        |
 |**Ignore**     | Ignore the selected column.        | Optional. See the below text.       |
 
-If you want to ignore columns, we recommend updating your query or data source to exclude those columns. You can also ignore columns using **Ignore columns** and then then **Ignore** on the specific columns. If a column should be a dimension and is mistakenly set as *Ignored*, Metrics Advisor may end up ingesting partial data. For example, assume the data from your query is as below:
+If you want to ignore columns, we recommend updating your query or data source to exclude those columns. You can also ignore columns using **Ignore columns** and then **Ignore** on the specific columns. If a column should be a dimension and is mistakenly set as *Ignored*, Metrics Advisor may end up ingesting partial data. For example, assume the data from your query is as below:
 
 | Row ID | Timestamp | Country | Language | Income |
 | --- | --- | --- | --- | --- |
@@ -85,7 +109,7 @@ If you want to ignore columns, we recommend updating your query or data source t
 | 4 | 2019/11/11 | US | EN-US | 23000 |
 | ... | ...| ... | ... | ... |
 
-If *Country* is a dimension and *Language* is set as *Ignored*, then the first and second rows will have the same dimensions. Metrics Advisor will arbitrarily use one value from the two rows. Metrics Advisor will not aggregate the rows in this case.
+If *Country* is a dimension and *Language* is set as *Ignored*, then the first and second rows will have the same dimensions for a timestamp. Metrics Advisor will arbitrarily use one value from the two rows. Metrics Advisor will not aggregate the rows in this case.
 
 ### Automatic roll up settings
 
