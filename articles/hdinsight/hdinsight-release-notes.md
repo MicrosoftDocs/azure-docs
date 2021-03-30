@@ -4,6 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 03/23/2021
 ---
 # Azure HDInsight release notes
@@ -28,18 +29,18 @@ HDInsight added [Spark 3.0.0](https://spark.apache.org/docs/3.0.0/) support to H
 HDInsight added [Kafka 2.4.1](http://kafka.apache.org/24/documentation.html) support to HDInsight 4.0 as a Preview feature.
 
 ### Eav4-series support
-HDInsight added Eav4-series support in this release. Learn more about [Dav4-series here]https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series.md). The series has been made available in below regions: 
+HDInsight added Eav4-series support in this release. Learn more about [Dav4-series here](../virtual-machines/eav4-easv4-series.md). The series has been made available in below regions: 
 
-* AUSTRALIA EAST
-* BRAZIL SOUTH
-* CENTRAL US
-* EAST ASIA
-* EAST US
-* JAPAN EAST
-* SOUTHEAST ASIA
-* UK SOUTH
-* WEST EUROPE
-* WEST US 2
+* Australia East
+* Brazil South
+* Central US
+* East Asia
+* East US
+* Japan East
+* Southeast Asia
+* UK South
+* West Europe
+* West US 2
 
 ### Moving to Azure virtual machine scale sets
 HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
@@ -64,11 +65,11 @@ The following changes will happen in upcoming releases.
 HDInsight will be upgrading OS version from Ubuntu 16.04 to 18.04. The upgrade will complete before April 2021.
 
 ### HDInsight 3.6 offers Basic support on July 2021
-Starting July 2021, Microsoft will offer [Basic support](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#support-options-for-hdinsight-versions) for certain HDInsight 3.6 cluster types. The Basic support plan will be available until 3 April 2022. You'll automatically be enrolled in Basic support starting July 2021. No action is required by you to opt in. See [our documentation](https://docs.microsoft.com/azure/hdinsight/hdinsight-36-component-versioning) for which cluster types are included under Basic support. 
+Starting July 2021, Microsoft will offer [Basic support](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) for certain HDInsight 3.6 cluster types. The Basic support plan will be available until 3 April 2022. You'll automatically be enrolled in Basic support starting July 2021. No action is required by you to opt in. See [our documentation](hdinsight-36-component-versioning.md) for which cluster types are included under Basic support. 
 
 We don't recommend building any new solutions on HDInsight 3.6, freeze changes on existing 3.6 environments.
 
-We recommend that you [migrate your clusters to HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hdinsight-version-release#how-to-upgrade-to-hdinsight-40). Learn more about [what's new in HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hdinsight-version-release#whats-new-in-hdinsight-40).
+We recommend that you [migrate your clusters to HDInsight 4.0](hdinsight-version-release.md#how-to-upgrade-to-hdinsight-40). Learn more about [what's new in HDInsight 4.0](hdinsight-version-release.md#whats-new-in-hdinsight-40).
 
 ## Bug fixes
 HDInsight continues to make cluster reliability and performance improvements. 
