@@ -54,6 +54,9 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 
 
 ## 1.6.2.4
+>[!IMPORTANT]
+> Update per March 30, 2021: we have discovered an issue in this build. After installation of this build, the Health services are not registered. We recommend not installing this build. We will release a hotfix shortly.
+> If you already installed this build, you can manually register the Health services by using the cmdlet as shown in [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#manually-register-azure-ad-connect-health-for-sync)
 
 >[!NOTE]
 > - This release will be made available for download only.
