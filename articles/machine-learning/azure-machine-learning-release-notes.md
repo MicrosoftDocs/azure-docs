@@ -11,7 +11,7 @@ author: BlackMist
 ms.date: 02/18/2021
 ---
 
-# Azure Machine Learning release note
+# Azure Machine Learning release notes
 
 In this article, learn about Azure Machine Learning releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro) reference page.
 
