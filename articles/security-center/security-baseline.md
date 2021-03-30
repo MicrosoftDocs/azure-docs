@@ -14,9 +14,9 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Security Center
 
-This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Azure Security Center. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure.The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Security Center. **Controls** not applicable to Azure Security Center, or for which the responsibility is Microsoft's, have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Azure Security Center. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Security Center. **Controls** not applicable to Azure Security Center, or for which the responsibility is Microsoft's, have been excluded.
 
-To see how Azure Security Center completely maps to the Azure Security Benchmark, see the [full Azure Security Center security baseline mappingfile](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+To see how Azure Security Center completely maps to the Azure Security Benchmark, see the [full Azure Security Center security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
@@ -108,7 +108,7 @@ To see how Azure Security Center completely maps to the Azure Security Benchmark
 
 **Azure Security Center monitoring**: None
 
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS) 
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13656).
@@ -364,7 +364,7 @@ Alternatively, you can enable and on-board data related to and produced by Azure
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Security Center is a core Azure offering and does not expose its underlying infrastructure for the installation of of anti-malware related software. The underlying infrastructure for the service is handled by Microsoft. Azure Security Center can be used to deploy Microsoft anti-malware or other endpoint protection onto virtual machines you have deployed in Azure.
+**Guidance**: Not applicable; Azure Security Center is a core Azure offering and does not expose its underlying infrastructure for the installation of anti-malware related software. The underlying infrastructure for the service is handled by Microsoft. Azure Security Center can be used to deploy Microsoft anti-malware or other endpoint protection onto virtual machines you have deployed in Azure.
 
 - [Azure Security Center's endpoint protection solutions](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
 

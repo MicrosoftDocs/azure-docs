@@ -14,9 +14,9 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Windows Virtual Machines
 
-This security baseline applies guidance from the [Azure Security Benchmark version1.0](../../security/benchmarks/overview-v1.md) to Windows Virtual Machines. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure.The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Windows Virtual Machines. **Controls** not applicable to Windows Virtual Machines, or for which the responsibility is Microsoft's, have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version1.0](../../security/benchmarks/overview-v1.md) to Windows Virtual Machines. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Windows Virtual Machines. **Controls** not applicable to Windows Virtual Machines, or for which the responsibility is Microsoft's, have been excluded.
 
-To see how Windows Virtual Machines completely maps to the Azure Security Benchmark, see the [full Windows Virtual Machines security baseline mappingfile](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+To see how Windows Virtual Machines completely maps to the Azure Security Benchmark, see the [full Windows Virtual Machines security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
@@ -624,7 +624,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/1850).
 
-**Guidance**: In cases where a third-party needs to access customer data (such as during a support request), use Customer Lockbox for Azure virtual machines to review and approve or reject customer data access requests.
+**Guidance**: In cases where a third party needs to access customer data (such as during a support request), use Customer Lockbox for Azure virtual machines to review and approve or reject customer data access requests.
 
 - [Understanding Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md)
 
@@ -951,7 +951,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 - Allowed resource types
 
-In addition, use the Azure Resource Graph to query/discover resources within the subscription(s). This can help in high security based environments, such as those with Storage accounts.
+In addition, use the Azure Resource Graph to query/discover resources within the subscription(s). This can help in high security-based environments, such as those with Storage accounts.
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -968,7 +968,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 **Guidance**: Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. Leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, customer required to enable guest-level diagnostic and bring the Windows Event logs into a Log Analytics Workspace.
 
-In addition to using Change Tracking for monitoring of software applications, adaptive application controls in Azure Security Center use machine learning to analyze the applications running on your machines and create an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to Avoid unwanted software to be used in your environment. You can configure audit mode or enforce mode. Audit mode only audits the activity on the protected VMs. Enforce mode does enforce the rules, and makes sure that applications that are not allowed to run are blocked.
+In addition to using Change Tracking for monitoring of software applications, adaptive application controls in Azure Security Center use machine learning to analyze the applications running on your machines and create an allowlist from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allowlist policies, enabling you to Avoid unwanted software to be used in your environment. You can configure audit mode or enforce mode. Audit mode only audits the activity on the protected VMs. Enforce mode does enforce the rules, and makes sure that applications that are not allowed to run are blocked.
 
 - [An introduction to Azure Automation](../../automation/automation-intro.md)
 
@@ -1083,7 +1083,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/1875).
 
-**Guidance**: Depending on the type of scripts, you may use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources. You can also leverage Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
+**Guidance**: Depending on the type of scripts, you may use operating system-specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources. You can also leverage Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
 - [How to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7&amp;preserve-view=true)
 

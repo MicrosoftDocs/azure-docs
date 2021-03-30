@@ -14,9 +14,9 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Service Fabric
 
-This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Service Fabric. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure.The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Service Fabric. **Controls** not applicable to Service Fabric, or for which the responsibility is Microsoft's, have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Service Fabric. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Service Fabric. **Controls** not applicable to Service Fabric, or for which the responsibility is Microsoft's, have been excluded.
 
-To see how Service Fabric completely maps to the Azure Security Benchmark, see the [full Service Fabric security baseline mappingfile](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+To see how Service Fabric completely maps to the Azure Security Benchmark, see the [full Service Fabric security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
@@ -30,7 +30,7 @@ To see how Service Fabric completely maps to the Azure Security Benchmark, see t
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24082).
 
-**Guidance**: Ensure that all Virtual Network subnet deployments have an network security group applied with network access controls specific to your application's trusted ports and sources. 
+**Guidance**: Ensure that all Virtual Network subnet deployments have a network security group applied with network access controls specific to your application's trusted ports and sources. 
 
 - [Deploy Azure Firewall using a template](../firewall/deploy-template.md)
 
@@ -536,7 +536,7 @@ In addition, you may use Security Center Identity and Access Management recommen
 
 **Guidance**: Use Azure Active Directory (Azure AD) Sign-in and Audit logs to monitor for attempts to access deactivated accounts; these logs can be integrated into any third-party SIEM/monitoring tool.
 
-You can streamline this process by creating Diagnostic Settings for Azure AD user accounts, sending the audit logs and sign-in logs to a Azure Log Analytics workspace. Configure desired Alerts within Azure Log Analytics workspace.
+You can streamline this process by creating Diagnostic Settings for Azure AD user accounts, sending the audit logs and sign-in logs to an Azure Log Analytics workspace. Configure desired Alerts within Azure Log Analytics workspace.
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -599,7 +599,7 @@ You can streamline this process by creating Diagnostic Settings for Azure AD use
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24117).
 
-**Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by Virtual Network or subnet, tagged appropriately, and secured by an network security groups or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated. For Virtual Machines storing or processing sensitive data, implement policy and procedures to turn them off when not in use. 
+**Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by Virtual Network or subnet, tagged appropriately, and secured by a network security groups or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated. For Virtual Machines storing or processing sensitive data, implement policy and procedures to turn them off when not in use. 
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
@@ -984,7 +984,7 @@ Use Azure Resource Graph to query/discover resources within your subscriptions. 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24141).
 
-**Guidance**: Use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
+**Guidance**: Use operating system-specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
 
 - [For example, how to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7&amp;preserve-view=true)
 
@@ -1282,7 +1282,7 @@ does not run on customer content.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/24160).
 
-**Guidance**: Enable backup restore service in your Service Fabric cluster and create backup policies to back up stateful services periodically and on-demand. Backup customer-managed keys within Azure Key Vault.
+**Guidance**: Enable backup restore service in your Service Fabric cluster and create backup policies to back up stateful services periodically and on-demand. Back up customer-managed keys within Azure Key Vault.
 
 - [Periodic backup and restore in an Azure Service Fabric cluster](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 

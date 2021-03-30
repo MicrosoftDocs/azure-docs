@@ -16,7 +16,7 @@ ms.custom: subject-security-benchmark
 
 This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Virtual Machine Scale Sets. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure.The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Virtual Machine Scale Sets. **Controls** not applicable to Virtual Machine Scale Sets, or for which the responsibility is Microsoft's, have been excluded.
 
-To see how Virtual Machine Scale Sets completely maps to the Azure Security Benchmark, see the [full Virtual Machine Scale Sets security baseline mappingfile](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+To see how Virtual Machine Scale Sets completely maps to the Azure Security Benchmark, see the [full Virtual Machine Scale Sets security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**

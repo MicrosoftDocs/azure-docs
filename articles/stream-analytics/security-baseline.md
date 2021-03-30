@@ -14,9 +14,9 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Stream Analytics
 
-This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Stream Analytics. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure.The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Stream Analytics. **Controls** not applicable to Stream Analytics, or for which the responsibility is Microsoft's, have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Stream Analytics. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Stream Analytics. **Controls** not applicable to Stream Analytics, or for which the responsibility is Microsoft's, have been excluded.
 
-To see how Stream Analytics completely maps to the Azure Security Benchmark, see the [full Stream Analytics security baseline mappingfile](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+To see how Stream Analytics completely maps to the Azure Security Benchmark, see the [full Stream Analytics security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
@@ -65,7 +65,7 @@ To see how Stream Analytics completely maps to the Azure Security Benchmark, see
 
 **Guidance**: Use Azure Security Center threat protection to detect and alert on communications with known malicious or unused Internet IP addresses.
 
-- [Threat protectionfor the Azure service layer in Azure Security Center](../security-center/azure-defender.md)
+- [Threat protection for the Azure service layer in Azure Security Center](../security-center/azure-defender.md)
 
 **Responsibility**: Customer
 
@@ -935,7 +935,7 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/2961).
 
-**Guidance**: Use Azure Repos to securely store and manage your code including custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts, user defined functions, queries. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Azure AD if integrated with TFS.
+**Guidance**: Use Azure Repos to securely store and manage your code including custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts, user-defined functions, queries. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Azure AD if integrated with TFS.
 
 - [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
@@ -1097,11 +1097,11 @@ Pre-scan any content being uploaded to Azure resources, such as App Service, Str
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/2973).
 
-**Guidance**: Based on the type of output service selected. you can perform automated backups of the output data as per recommended guidelines for your output service.  The internal data including User-defined functions, queries, data snapshots is stored in the configured storage account which you can backup on a regular basis.
+**Guidance**: Based on the type of output service selected. you can perform automated backups of the output data as per recommended guidelines for your output service.  The internal data including User-defined functions, queries, data snapshots is stored in the configured storage account which you can back up on a regular basis.
 
 The data in your Microsoft Azure storage account is always automatically replicated to ensure durability and high availability. Azure Storage copies your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. You can choose to replicate your data within the same data center, across zonal data centers within the same region, or across geographically separated regions. 
 
-You can also use lifecycle management feature to backup data to the Archive tier.  Additionally, enable soft delete for your backups stored in Storage account.
+You can also use lifecycle management feature to back up data to the Archive tier.  Additionally, enable soft delete for your backups stored in Storage account.
 
 - [Data protection in Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-protection#private-data-assets-that-are-stored)
 
@@ -1120,9 +1120,9 @@ You can also use lifecycle management feature to backup data to the Archive tier
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/2974).
 
-**Guidance**: The internal data including User-defined functions, queries, data snapshots is stored in the configured storage account which you can backup on a regular basis.
+**Guidance**: The internal data including User-defined functions, queries, data snapshots is stored in the configured storage account which you can back up on a regular basis.
 
-In order to backup data from Storage account supported services, there are multiple methods available including using azcopy or third-party tools. Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval.
+In order to back up data from Storage account supported services, there are multiple methods available including using azcopy or third-party tools. Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval.
 
 - [Data protection in Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-protection#private-data-assets-that-are-stored)
 
@@ -1154,7 +1154,7 @@ Customer-managed / provided keys can be backed within Azure Key Vault using Azur
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/2976).
 
-**Guidance**: Stream Analytics backups stored within your Azure Storage supports encryption by default and cannot be turned off.  You should treat your backups as sensitive data and apply the relevant access and data protection controls as part of this baseline.  
+**Guidance**: Stream Analytics backups stored within Azure Storage support encryption by default and cannot be turned off.  You should treat your backups as sensitive data and apply the relevant access and data protection controls as part of this baseline.  
 
 - [Data protection in Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-protection#private-data-assets-that-are-stored)
 

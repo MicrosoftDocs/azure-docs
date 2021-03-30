@@ -198,7 +198,7 @@ Apply rules and rule groups to Azure Web Application Firewall (WAF) policies bas
 
 Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
 
-Choose Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
+Choose Azure PowerShell or Azure CLI to look up or perform actions on resources based on their tags.
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -443,7 +443,8 @@ It is a good practice to create standard operating procedures around the use of 
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable to Azure Web Application Firewall (WAF). It has nothing specific to configure for SSO. 
-Wherever possible, use Azure Active Directory (Azure AD) SSO instead than configuring individual stand-alone credentials per-service. Use Security Center's Identity and Access Management recommendations.
+
+Wherever possible, use Azure Active Directory (Azure AD) SSO rather than configuring individual stand-alone credentials per-service. Use Security Center's Identity and Access Management recommendations.
 
 - [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 

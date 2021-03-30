@@ -438,7 +438,7 @@ Use the Azure AD PowerShell module to perform ad hoc queries to discover account
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Virtual Network does not have the concept of default passwords. Customers are responsible for third party applications and marketplace services which may be using default passwords.
+**Guidance**: Azure Virtual Network does not have the concept of default passwords. Customers are responsible for third-party applications and marketplace services which may be using default passwords.
 
 **Responsibility**: Not applicable
 
@@ -644,7 +644,7 @@ Streamline this process by creating Diagnostic Settings for Azure AD user accoun
 
 **Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. 
 
-Separate resources by subnets, tagged appropriately, and secured within an network security group or Azure Firewall.   
+Separate resources by subnets, tagged appropriately, and secured within a network security group or Azure Firewall.   
 
 Manage access to Azure resources via Azure role-based access control (Azure RBAC). This allows you to restrict the level of access to your Azure resources that your applications and enterprise environments demand.
 
@@ -707,7 +707,7 @@ Additionally, "encryption by default" using MACsec (an IEEE standard at the data
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Use a third party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located onsite or at a remote service provider and update the organization's sensitive information inventory.
+**Guidance**: Use a third-party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located onsite or at a remote service provider and update the organization's sensitive information inventory.
 
 **Responsibility**: Not applicable
 
@@ -754,7 +754,7 @@ Choose built-in roles like Owner, Contributor, or Network contributor and assign
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable to Virtual Network. This recommendation is intended for compute resources and resources which uses stores data.
+**Guidance**: Not applicable to Virtual Network. This recommendation is intended for compute resources and resources which use stores data.
 
 **Responsibility**: Not applicable
 
