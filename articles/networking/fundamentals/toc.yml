@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Azure Networking
-    href: networking-overview.md
+    href: ../networking-overview.md
 - name: Quickstarts
   items:
   - name: Create a virtual network
@@ -19,9 +19,9 @@
   - name: Plan and design
     items:
     - name: Azure for network engineers
-      href: ./azure-for-network-engineers.md
+      href: ../azure-for-network-engineers.md
     - name: Working remotely
-      href: ./working-remotely-support.md  
+      href: ../working-remotely-support.md  
     - name: Virtual networks
       href: ../../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=/azure/networking/fundamentals/toc.json
     - name: Cross-premises connectivity - VPN
@@ -31,9 +31,9 @@
   - name: Microsoft global network
     items:
     - name: Overview
-      href: ./microsoft-global-network.md
+      href: ../microsoft-global-network.md
     - name: Azure network latency
-      href: ./azure-network-latency.md
+      href: ../azure-network-latency.md
     - name: Internet routing preference in Azure
       href: ../../virtual-network/routing-preference-overview.md?toc=/azure/networking/fundamentals/toc.json
   - name: Cloud network connectivity
@@ -70,7 +70,7 @@
       href: ../../web-application-firewall/overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
-      href: ./security-controls-policy.md
+      href: ../security-controls-policy.md
   - name: Scalable application delivery
     items:
     - name: Load balancing options in Azure

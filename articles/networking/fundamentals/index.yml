@@ -24,11 +24,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Networking?
-            url: ./networking-overview.md
+            url: ../networking-overview.md
       - linkListType: concept
         links:
           - text: What is Microsoft global network?
-            url: microsoft-global-network.md
+            url: ../microsoft-global-network.md
       - linkListType: learn
         links:
           - text: Architect network infrastructure in Azure
