@@ -35,7 +35,6 @@ The following table shows what states are applicable to a container group based 
 |Succeeded|Yes|Yes|No|
 |Failed|Yes|No|No|
 
-
 ## Containers
 
 This value is the state of a single container in a container group. In the Azure portal, container state is shown on the Containers blade.
@@ -50,7 +49,9 @@ This value is the state of a single container in a container group. In the Azure
 
 ## Provisioning
 
-This value is the state of the last operation performed on a container group. Generally, this operation is a PUT(create), but it can also be a POST(start/stop) or DELETE (delete).
+This value is the state of the last operation performed on a container group. Generally, this operation is a PUT(create), but it can also be a POST(start/stop) or DELETE (delete). Provisioning state can be seen in the [response body of the HTTP call](https://docs.microsoft.com/rest/api/container-instances/containergroups/createorupdate#response), or in the Azure portal via the resource's JSON view.
+
+:::image type="content" source="./media/container-state/provisioning-state.png" alt-text="The Overview blade in the Azure portal is shown. The link 'JSON view' is highlighted.":::
 
 - **Pending**: The container group is waiting for infrastructure setup, such as a node assignment, virtual network provisioning, or anything else needed prior to pulling the user image.
 
