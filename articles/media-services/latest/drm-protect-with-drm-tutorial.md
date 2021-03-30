@@ -22,7 +22,7 @@ ms.custom: seodec18
 > [!NOTE]
 > Even though this tutorial uses the [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent) examples, the general steps are the same for [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
-You can use Azure Media Services to deliver your streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses. For in-depth explanation, see [Content protection with dynamic encryption](content-protection-overview.md).
+You can use Azure Media Services to deliver your streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses. For in-depth explanation, see [Content protection with dynamic encryption](drm-content-protection-concept.md).
 
 Media Services also provides a service for delivering PlayReady, Widevine, and FairPlay DRM licenses. When a user requests DRM-protected content, the player app requests a license from the Media Services license service. If the player app is authorized, the Media Services license service issues a license to the player. A license contains the decryption key that can be used by the client player to decrypt and stream the content.
 
@@ -30,7 +30,7 @@ This article is based on the [Encrypting with DRM](https://github.com/Azure-Samp
 
 The sample described in this article produces the following result:
 
-![AMS with DRM protected video in Azure Media Player](./media/protect-with-drm/ams_player.png)
+![AMS with DRM protected video in Azure Media Player](./media/drm-protect-with-drm-tutorial/ams_player.png)
 
 This tutorial shows you how to:
 
@@ -47,7 +47,7 @@ This tutorial shows you how to:
 
 The following items are required to complete the tutorial:
 
-* Review the [Content protection overview](content-protection-overview.md) article.
+* Review the [Content protection overview](drm-content-protection-concept.md) article.
 * Review the [Design multi-DRM content protection system with access control](architecture-design-multi-drm-system.md).
 * Install Visual Studio Code or Visual Studio.
 * Create a new Azure Media Services account, as described in [this quickstart](./account-create-how-to.md).
@@ -105,13 +105,13 @@ The **Job** usually goes through the following states: **Scheduled**, **Queued**
 
 ## Create a Content Key Policy
 
-A content key provides secure access to your Assets. You need to create a [Content Key Policy](content-key-policy-concept.md) when encrypting your content with a DRM. The policy configures how the content key is delivered to end clients. The content key is associated with a Streaming Locator. Media Services also provides the key delivery service that delivers encryption keys and licenses to authorized users.
+A content key provides secure access to your Assets. You need to create a [Content Key Policy](drm-content-key-policy-concept.md) when encrypting your content with a DRM. The policy configures how the content key is delivered to end clients. The content key is associated with a Streaming Locator. Media Services also provides the key delivery service that delivers encryption keys and licenses to authorized users.
 
 You need to set the requirements (restrictions) on the **Content Key Policy** that must be met to deliver keys with the specified configuration. In this example, we set the following configurations and requirements:
 
 * Configuration
 
-    The [PlayReady](playready-license-template-overview.md) and [Widevine](widevine-license-template-overview.md) licenses are configured so they can be delivered by the Media Services license delivery service. Even though this sample app doesn't configure the [FairPlay](fairplay-license-overview.md) license, it contains a method you can use to configure FairPlay. You can add FairPlay configuration as another option.
+    The [PlayReady](drm-playready-license-template-concept.md) and [Widevine](widevine-license-template-overview.md) licenses are configured so they can be delivered by the Media Services license delivery service. Even though this sample app doesn't configure the [FairPlay](drm-fairplay-license-overview.md) license, it contains a method you can use to configure FairPlay. You can add FairPlay configuration as another option.
 
 * Restriction
 
@@ -153,7 +153,7 @@ Now that the [StreamingLocator](/rest/api/media/streaminglocators) has been crea
 
 When you run the app, you see the following screen:
 
-![Protect with DRM](./media/protect-with-drm/playready_encrypted_url.png)
+![Protect with DRM](./media/drm-protect-with-drm-tutorial/playready_encrypted_url.png)
 
 You can open a browser and paste the resulting URL to launch the Azure Media Player demo page with the URL and token filled out for you already.
 
@@ -186,4 +186,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 Check out
 
 > [!div class="nextstepaction"]
-> [Protect with AES-128](protect-with-aes128.md)
+> [Protect with AES-128](drm-playready-license-template-concept.md)

@@ -22,10 +22,10 @@ This quickstart shows you how to create a content key policy where you specify w
 
 ### Suggested pre-reading
 
-* [Dynamic encryption and key delivery](content-protection-overview.md)
+* [Dynamic encryption and key delivery](drm-content-protection-concept.md)
 * [Streaming locators](streaming-locators-concept.md)
 * [Streaming policies](streaming-policy-concept.md)
-* [Content key policies](content-key-policy-concept.md)
+* [Content key policies](drm-content-key-policy-concept.md)
 
 ## Prerequisites
 
@@ -42,9 +42,9 @@ Create the **content key policy** to configure how the content key (that provide
 
 The **Create a content key policy** window appears. In this window, you choose encryption options. You can choose to protect your media by choosing digital rights management (DRM), the advanced encryption standard (AES), or both.  
 
-![Create a content key policy](./media/encrypt-content-quickstart/create-content-key-policy.png)
+![Create a content key policy](./media/drm-encrypt-content-how-to/create-content-key-policy.png)
 
-Whether you choose one of the DRM options or an AES-128 clear key option, you will be recommended to specify how you want to configure restrictions. You can choose to have an open or token restriction. For detailed explanation, see [Controlling content access](content-protection-overview.md#controlling-content-access).
+Whether you choose one of the DRM options or an AES-128 clear key option, you will be recommended to specify how you want to configure restrictions. You can choose to have an open or token restriction. For detailed explanation, see [Controlling content access](drm-content-protection-concept.md#controlling-content-access).
 
 ### Add a DRM content key
 
@@ -58,14 +58,14 @@ For details about license templates, see:
 
     > [!NOTE]
     > You can create an empty license template with no values, just "{}." Then a license template is created with defaults. The default works for most cases.
-* [Apple FairPlay license requirements and configuration](fairplay-license-overview.md)
-* [PlayReady license template](playready-license-template-overview.md)
+* [Apple FairPlay license requirements and configuration](drm-fairplay-license-overview.md)
+* [PlayReady license template](drm-playready-license-template-concept.md)
 
 ### Add AES clear key
 
 You can also add an AES-128 clear key encryption to your content. The content key is transmitted to the client in an unencrypted format.
 
-![AES clear key](./media/encrypt-content-quickstart/aes-clear-key-policy.png)
+![AES clear key](./media/drm-encrypt-content-how-to/aes-clear-key-policy.png)
 
 ## Create a streaming locator for your asset
 
@@ -81,7 +81,7 @@ You can also add an AES-128 clear key encryption to your content. The content ke
 
     This publishes the asset and generates the streaming URLs.
 
-![A streaming locator](./media/encrypt-content-quickstart/multi-drm.png)
+![A streaming locator](./media/drm-encrypt-content-how-to/multi-drm.png)
 
 ## Cleanup resources
 

@@ -26,7 +26,7 @@ You can use Azure Media Services to secure your media from the time it leaves yo
 
 The following image illustrates the Media Services content protection workflow: 
 
-![Protect with PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
+![Protect with PlayReady](./media/media-services-drm-content-protection-concept/media-services-content-protection-with-multi-drm.png)
 
 This article explains concepts and terminology relevant to understanding content protection with Media Services. The article also provides links to articles that discuss how to protect content. 
 
@@ -111,7 +111,7 @@ The following considerations apply:
 The following articles describe next steps to help you get started with content protection:
 
 * [Protect with storage encryption](media-services-rest-storage-encryption.md)
-* [Protect with AES encryption](media-services-protect-with-aes128.md)
+* [Protect with AES encryption](media-services-drm-playready-license-template-concept.md)
 * [Protect with PlayReady and/or Widevine](media-services-protect-with-playready-widevine.md)
 * [Protect with FairPlay](media-services-protect-hls-with-FairPlay.md)
 
@@ -120,4 +120,4 @@ The following articles describe next steps to help you get started with content 
 * [JWT token authentication](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 * [Integrate Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 
-[content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
+[content-protection]: ./media/media-services-drm-content-protection-concept/media-services-content-protection.png

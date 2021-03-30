@@ -228,7 +228,7 @@ To get a test token based on the token restriction that was used for the key aut
 ## PlayReady dynamic encryption
 You can use Media Services to configure the rights and restrictions that you want the PlayReady DRM runtime to enforce when a user tries to play back protected content. 
 
-When you protect your content with PlayReady, one of the things you need to specify in your authorization policy is an XML string that defines the [PlayReady license template](media-services-playready-license-template-overview.md). In the Media Services SDK for .NET, the PlayReadyLicenseResponseTemplate and PlayReadyLicenseTemplate classes help you define the PlayReady license template.
+When you protect your content with PlayReady, one of the things you need to specify in your authorization policy is an XML string that defines the [PlayReady license template](media-services-drm-playready-license-template-concept.md). In the Media Services SDK for .NET, the PlayReadyLicenseResponseTemplate and PlayReadyLicenseTemplate classes help you define the PlayReady license template.
 
 To learn how to encrypt your content with PlayReady and Widevine, see [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md).
 

@@ -66,7 +66,7 @@ You can view the whole model [here](https://media.windows.net/API/$metadata?api-
 
 ## Protect content in storage, deliver dynamically encrypted streaming media
 
-![Protect with PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
+![Protect with PlayReady](./media/media-services-drm-content-protection-concept/media-services-content-protection-with-multi-drm.png)
 
 1. Upload a high-quality media file into an asset. Apply storage encryption option to the asset.
 1. Encode to a set of adaptive bitrate MP4 files. Apply storage encryption option to the output asset.

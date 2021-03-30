@@ -26,7 +26,7 @@ ms.author: inhenkel
 
 You can use Media Services to deliver HTTP Live Streaming (HLS), MPEG-DASH, and Smooth Streaming encrypted with the AES by using 128-bit encryption keys. Media Services also provides the key delivery service that delivers encryption keys to authorized users. If you want for Media Services to dynamically encrypt your video, you associate the encryption key with a Streaming Locator and also configure the content key policy. When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content with AES-128. To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
 
-You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types), to see what makes sense to combine. Also, see [How to protect with DRM](protect-with-drm.md).
+You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](drm-content-protection-concept.md#streaming-protocols-and-encryption-types), to see what makes sense to combine. Also, see [How to protect with DRM](drm-protect-with-drm-tutorial.md).
 
 The output from the sample this article includes a URL to the Azure Media Player, manifest URL, and the AES token needed to play back the content. The sample sets the expiration of the JSON Web Token (JWT) token to 1 hour. You can open a browser and paste the resulting URL to launch the Azure Media Player demo page with the URL and token filled out for you already in the following format: ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.
 
@@ -53,7 +53,7 @@ This tutorial shows you how to:
 
 The following are required to complete the tutorial.
 
-* Review the [Content protection overview](content-protection-overview.md) article.
+* Review the [Content protection overview](drm-content-protection-concept.md) article.
 * Install Visual Studio Code or Visual Studio.
 * [Create a Media Services account](./account-create-how-to.md).
 * Get credentials needed to use Media Services APIs by following [Access APIs](./access-api-howto.md).
@@ -172,4 +172,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Protect with DRM](protect-with-drm.md)
+> [Protect with DRM](drm-protect-with-drm-tutorial.md)

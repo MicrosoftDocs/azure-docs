@@ -303,7 +303,7 @@ Add AuthorizationPolicy to ContentKey, as shown in the section "[Add an authoriz
 ## PlayReady dynamic encryption
 You can use Media Services to configure the rights and restrictions that you want the PlayReady DRM runtime to enforce when a user tries to play back protected content. 
 
-When you protect your content with PlayReady, one of the things you need to specify in your authorization policy is an XML string that defines the [PlayReady license template](media-services-playready-license-template-overview.md). 
+When you protect your content with PlayReady, one of the things you need to specify in your authorization policy is an XML string that defines the [PlayReady license template](media-services-drm-playready-license-template-concept.md). 
 
 ### Open restriction
 Open restriction means the system delivers the key to anyone who makes a key request. This restriction might be useful for testing purposes.

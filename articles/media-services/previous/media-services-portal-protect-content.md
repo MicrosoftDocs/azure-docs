@@ -54,7 +54,7 @@ When you configure the token-restricted policy, you must specify the primary ver
 ![Key/license authorization policy](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
 ## PlayReady license template
-The PlayReady license template sets the functionality that is enabled on your PlayReady license. For more information about the PlayReady license template, see the [Media Services PlayReady license template overview](media-services-playready-license-template-overview.md).
+The PlayReady license template sets the functionality that is enabled on your PlayReady license. For more information about the PlayReady license template, see the [Media Services PlayReady license template overview](media-services-drm-playready-license-template-concept.md).
 
 ### Nonpersistent
 If you configure a license as nonpersistent, it's held in memory only while the player uses the license.  

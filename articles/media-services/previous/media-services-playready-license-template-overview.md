@@ -32,7 +32,7 @@ Here are some examples of PlayReady license restrictions that you can specify:
 * For more information, see the "Output Controls" section (3.5) in the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/) document.
 
 > [!NOTE]
-> Currently, you can only configure the PlayRight of the PlayReady license. This right is required. The PlayRight gives the client the ability to play back the content. You also can use the PlayRight to configure restrictions specific to playback. For more information, see [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
+> Currently, you can only configure the PlayRight of the PlayReady license. This right is required. The PlayRight gives the client the ability to play back the content. You also can use the PlayRight to configure restrictions specific to playback. For more information, see [PlayReadyPlayRight](media-services-drm-playready-license-template-concept.md#PlayReadyPlayRight).
 > 
 > 
 
@@ -55,12 +55,12 @@ The following example shows the simplest (and most common) template that configu
 
 The XML conforms to the PlayReady license template XML schema defined in the "PlayReady license template XML schema" section.
 
-Media Services also defines a set of .NET classes that can be used to serialize and deserialize to and from the XML. For a description of the main classes, see the [Media Services .NET classes](media-services-playready-license-template-overview.md#classes) that are used to configure license templates.
+Media Services also defines a set of .NET classes that can be used to serialize and deserialize to and from the XML. For a description of the main classes, see the [Media Services .NET classes](media-services-drm-playready-license-template-concept.md#classes) that are used to configure license templates.
 
 For an end-to-end example that uses .NET classes to configure the PlayReady license template, see [Use PlayReady dynamic encryption and the license delivery service](media-services-protect-with-playready-widevine.md).
 
 ## <a id="classes"></a>Media Services .NET classes that are used to configure license templates
-The following classes are the main .NET classes that are used to configure Media Services PlayReady license templates. These classes map to the types defined in [PlayReady license template XML schema](media-services-playready-license-template-overview.md#schema).
+The following classes are the main .NET classes that are used to configure Media Services PlayReady license templates. These classes map to the types defined in [PlayReady license template XML schema](media-services-drm-playready-license-template-concept.md#schema).
 
 The [MediaServicesLicenseTemplateSerializer](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_mediaserviceslicensetemplateserializer) class is used to serialize and deserialize to and from the Media Services license template XML.
 
