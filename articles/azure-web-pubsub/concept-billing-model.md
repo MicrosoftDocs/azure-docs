@@ -16,7 +16,7 @@ The billing model for Azure Web PubSub service is based on the number of units a
 
 ### What is the connection
 
-The connection is between client and service. You could monitor the connection count in Azure portal. The view of "Connection (Max)" shows the maximum number of connections aggregated in a specific period. 
+The connection is between client and service. You could monitor the connection count in Azure portal. The view of "Connection (Max)" shows the maximum number of connections in a specific period. 
 
 ### What is the unit
 
@@ -37,8 +37,8 @@ For example, imagine you have one Azure Web PubSub service instance with 5 units
 The outbound traffic is the messages sent out of Azure Web PubSub service. You could monitor the outbound traffic by Azure portal. The view of "Outbound Traffic (total)" shows the aggregated outbound messages size (bytes) in a specific period.
 
 - The messages broadcasted from service to receivers.
-- The upstream messages from service to server or functions.
-- The diagnostic logs with live trace from service to clients. 
+- The messages sent from the service to the upstream webhooks.
+- The diagnostic logs with [live trace tool](./howto-troubleshoot-diagnostic-logs.md#capture-diagnostic-logs-with-azure-web-pubsub-service-live-trace-tool). 
 
 The inbound traffic is the messages sent to the Azure Web PubSub service. 
 
@@ -59,10 +59,13 @@ For example, imagine you have an application with Azure Web PubSub service and A
 
 > Equivalent message count = 44 KB / 2 KB = 22
 
-The Azure Web PubSub service also offers daily free quota of outbound traffic (message count) based on the usage of the units. The outbound traffic (message count) beyond the free quota is the additional outbound traffic (additional messages). Taking standard tier as example, the free quota is 2,000,000 KB outbound traffic (1,000,000 messages) per unit/day.
+The Azure Web PubSub service also offers daily free quota of outbound traffic (message count) based on the usage of the units. The outbound traffic (message count) beyond the free quota is the additional outbound traffic (additional messages). Taking standard tier as example, the free quota is 2,000,000-KB outbound traffic (1,000,000 messages) per unit/day.
 
-Using the previous unit usage example, the application use 6.25 units per day which ensures the daily free quota as 12,500,000 KB outbound traffic (6.25 million messages). Imaging the daily outbound traffic is 30,000,000 KB (15 million messages), the additional messages will be 17,500,000 KB outbound traffic (8.25 million messages). As a result, you'll be billed with 6.25 standard units and 8.75 additional message units for the day.
+Using the previous unit usage example, the application use 6.25 units per day that ensures the daily free quota as 12,500,000-KB outbound traffic (6.25 million messages). Imaging the daily outbound traffic is 30,000,000 KB (15 million messages), the additional messages will be 17,500,000-KB outbound traffic (8.75 million messages). As a result, you'll be billed with 6.25 standard units and 8.75 additional message units for the day.
 
+## Pricing 
+
+The Azure Web PubSub service offers multiple tiers with different pricing. Once you understand how the number of units and size of outbound traffic (message count) are counted with billing model, you could learn more pricing details from [Azure Web PubSub service pricing](https://azure.microsoft.com/pricing/details/web-pubsub).
 
 
 
