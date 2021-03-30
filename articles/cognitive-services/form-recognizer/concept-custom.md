@@ -30,7 +30,7 @@ With Form Recognizer, you can train a model that will extract information from f
 At a high level, the steps for building, training, and using your custom model are as follows:
 
 > [!div class="nextstepaction"]
->Assemble your training dataset](build-training-data-set.md#custom-model-input-requirements)
+>[Assemble your training dataset](build-training-data-set.md#custom-model-input-requirements)
 
 Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types and contain both text and handwriting. Your forms must be of the same type of document and follow the [input requirements](build-training-data-set.md#custom-model-input-requirements) for Form Recognizer.  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;

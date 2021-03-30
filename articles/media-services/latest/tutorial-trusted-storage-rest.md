@@ -338,4 +338,4 @@ Authorization: Bearer {{getArmToken.response.body.access_token}}
 
 ## Next steps
 
-[How to create an Asset](how-to-create-asset.md)
+[How to create an Asset](asset-create-asset-how-to.md)

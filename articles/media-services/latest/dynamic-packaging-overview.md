@@ -3,18 +3,12 @@ title: Dynamic packaging in Azure Media Services v3
 description: This article gives an overview of dynamic packaging in Azure Media Services.
 author: myoungerman
 manager: femila
-editor: ''
 services: media-services
-documentationcenter: ''
-
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020 
 ms.author: inhenkel
-
 ---
 
 # Dynamic packaging in Media Services v3
@@ -46,9 +40,9 @@ Your streaming client can specify the following HLS formats:
 
 |Protocol|Example|
 |---|---|
-|HLS V4	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
-|HLS V3	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
+|HLS V4	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
+|HLS V3	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
 
 > [!NOTE]
 > Previous guidelines from Apple recommended that the fallback for low bandwidth networks was to provide an audio-only stream.  At present, the Media Services encoder automatically generates an audio-only track.  Apple guidelines now state that the audio-only track should *not* be included, especially for Apple TV distribution.  In order to prevent the player from defaulting to an audio-only track, we suggest using the “audio-only=false” tag in the URL which removes audio-only rendition in HLS, or simply use HLS-V3. For example, `http://host/locator/asset.ism/manifest(format=m3u8-aapl,audio-only=false)`.
@@ -59,8 +53,8 @@ Your streaming client can specify the following MPEG-DASH formats:
 
 |Protocol|Example|
 |---|---|
-|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` ||
-|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` ||
+|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 
 ### Smooth Streaming protocol
 
@@ -68,7 +62,7 @@ Your streaming client can specify the following Smooth Streaming formats:
 
 |Protocol|Notes/examples| 
 |---|---|
-|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
+|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 |Smooth Streaming 2.0 (legacy manifest)|By default, Smooth Streaming manifest format contains the repeat tag (r-tag). However, some players do not support the `r-tag`. Clients with these players can use a format that disables the r-tag:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
 
 > [!NOTE]
