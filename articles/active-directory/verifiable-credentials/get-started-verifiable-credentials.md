@@ -6,7 +6,7 @@ ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 03/28/2021
+ms.date: 03/30/2021
 # Customer intent: As an enterprise we want to enable customers to manage information about themselves using verifiable credentials
 
 ---
@@ -15,7 +15,7 @@ ms.date: 03/28/2021
 
 In this tutorial, we go over the steps needed to issue your first verifiable credential: a Verified Credential Ninja Card. You can then use this card to prove to a verifier that you are a Verified Credential Ninja, mastered in the art of digital credentialing. Get started with Azure Active Directory Verifiable Credentials by using the Verifiable Credentials sample app to issue your first verifiable credential.
 
-![This is an image of an example card](media/get-started-verifiable-credentials/ninja-card.png)
+![This is an image of an example card](media/get-started-verifiable-credentials/verifiedcredentialexpert-card.png)
 
 >   [!IMPORTANT] Azure Verifiable Credentials is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -30,7 +30,7 @@ In this tutorial, we go over the steps needed to issue your first verifiable cre
 
 ## Download the sample code
 
-To issue yourself a Verified Credential Ninja Card, you need to run a website on your local machine. The website is used to initiate a verifiable credential issuance process. We've provided a simple website, written in NodeJS, that we use throughout this tutorial.
+To issue yourself a Verified Credential Expert Card, you need to run a website on your local machine. The website is used to initiate a verifiable credential issuance process. We've provided a simple website, written in NodeJS, that we use throughout this tutorial.
 
 First, download our sample code from GitHub [here](https://github.com/Azure-Samples/active-directory-verifiable-credentials), or clone the repository to your local machine:
 
@@ -84,26 +84,29 @@ Now that your local port is exposed to the internet using ngrok, the sample site
 
 2. Next, issue yourself a verifiable credential. **Click** the **Get Credential** button. When you click the **Get Credential** button, the sample website displays a QR code, that you can be scan using Authenticator. If you view the site from the browser on your mobile device, clicking the **Get Credential** button triggers a deep link that opens the authenticator app and does not require the scanning of a QR code.
 
-   ![Get credential button](media/get-started-verifiable-credentials/ninjacard-credential.png)
+   ![Get credential button](media/get-started-verifiable-credentials/credential-expert-get.png)
 
 3. Scan the website's QR code using Authenticator, or if you are accessing the website via a mobile click the Get credential button to trigger the deep link. 
 
-   ![QR Code ](media/get-started-verifiable-credentials/ninjacard-credential-issue.png)
+   ![QR Code ](media/get-started-verifiable-credentials/credential-expert-issue.png)
 
 4. Notice that the **Add** button is greyed out at this time. Choose **Sign in to your account** below the card image.
 
-   ![Sign in ](media/get-started-verifiable-credentials/add-verified-credential-ninja.png)
+   ![Sign in ](media/get-started-verifiable-credentials/add-verified-credential-expert.png)
 
-5. Before you get your Ninja Card, the tenant we are using requires that you provide authentication information. If this is your first time going through tutorial you don't have a Ninja account, create a new user account in our B2C tenant.
+5. Before you get your Credential expert card, the tenant we are using requires that you provide authentication information. If this is your first time going through tutorial you don't have a credential expert account, create a new user account in our B2C tenant.
+
+   ![authenticate before you proceed](media/get-started-verifiable-credentials/authenticate-credential-expert.png)
 
 6. After you are signed in, the **Add** button is no longer greyed out. Choose **Add** to accept your new VC.
 
-   ![Choose add after authenticating](media/get-started-verifiable-credentials/add-vc-after-sign-in.png) 
+   ![Choose add after authenticating](media/get-started-verifiable-credentials/add-verified-credential-expert-after-auth.png) 
 
-7. Congratulations! You now have a verified credential Ninja VC.
 
-   ![Choose add after authenticating](media/get-started-verifiable-credentials/vc-in-your-wallet.png) 
+7. Congratulations! You now have a verified credential expert VC.
 
+  ![Credential expert VC added](media/get-started-verifiable-credentials/credential-expert-add-card.png) 
+ 
 Next, it is time to verify your credential.
 
 ## Validate credentials
@@ -131,9 +134,9 @@ Now that you have completed the issuance portion of the tutorial and you have a 
     ngrok http 8082
     ```
 
-4. Open the ngrok https forwarding url in your browser and tap on the **PROVE Ninja Credential** button.  
+4. Open the ngrok https forwarding url in your browser and tap on the **VERIFY CREDENTIAL** button.  
 
-   ![Choose add after authenticating](media/get-started-verifiable-credentials/prove-ninja-credential.png)
+   ![Choose add after authenticating](media/get-started-verifiable-credentials/prove-credential-expert.png)
 
 5. Open Authenticator and scan the QR code.
 
@@ -160,6 +163,8 @@ Now that you have completed the issuance portion of the tutorial and you have a 
    3. In Authenticator, there should be an entry for recent activity of this presentation.
 
     ![Activity in Authenticator](media/get-started-verifiable-credentials/recent-activity.png)
+
+    ![Activity entries](media/get-started-verifiable-credentials/recent-activity-log.png)
 
 >[!NOTE]
 > While running the verifier app, ngrok may stop working and display an error that there are too many connections. We've found this can be avoided by registering your account with ngrok. 
