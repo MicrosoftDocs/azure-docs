@@ -160,11 +160,11 @@ If this scenario exists in your environment to avoid infinite loops, Azure AD wi
 
 For an explanation of the office update channels, see [Overview of update channels for Microsoft 365 Apps](/deployoffice/overview-update-channels). It is recommended that organizations do not disable Web Account Manager (WAM).
 
-### Policy change timing
+### Group membership and Policy update effective time
 
-Policy changes made by administrators could take up to one day to be effective. Some optimization has been done to reduce the delay to two hours. However, it does not cover all the scenarios yet. 
+Group membership and policy update made by administrators could take up to one day to be effective. Some optimization has been done for policy updates which reduce the delay to two hours. However, it does not cover all the scenarios yet. 
 
-If there is an emergency and you need to have your updated policies to be applied to certain users immediately, you should use this [PowerShell command](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) or "Revoke Session" in the user profile page to revoke the users' session, which will make sure that the updated policies will be applied immediately.
+If there is an emergency and you need to have your policies updated or group membership change to be applied to certain users immediately, you should use this [PowerShell command](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) or "Revoke Session" in the user profile page to revoke the users' session, which will make sure that the updated policies will be applied immediately.
 
 ### Coauthoring in Office apps
 

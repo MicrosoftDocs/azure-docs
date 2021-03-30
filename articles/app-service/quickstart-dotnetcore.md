@@ -117,8 +117,6 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 
 :::zone-end
 
-[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
-
 ## Create an ASP.NET web app
 
 :::zone target="docs" pivot="development-environment-vs"
@@ -292,8 +290,6 @@ You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
 :::image type="content" source="media/quickstart-dotnet/local-webapp-net48.png" alt-text="Visual Studio Code - ASP.NET Framework 4.8 in local browser." lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
 
 ---
-
-[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 :::zone-end
 
@@ -627,8 +623,6 @@ You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 ---
 
 :::zone-end
-
-[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 ## Manage the Azure app
 
