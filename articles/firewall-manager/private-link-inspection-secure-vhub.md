@@ -6,7 +6,7 @@ author: jocortems
 ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 04/01/2021
-ms.author: jocortems
+ms.author: jocorte
 ---
 
 # Secure traffic destined to private endpoints in Azure Virtual WAN
