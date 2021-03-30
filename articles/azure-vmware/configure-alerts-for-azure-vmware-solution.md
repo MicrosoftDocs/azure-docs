@@ -12,7 +12,7 @@ In this article, you'll learn how to configure [Azure Action Groups](/azure/azur
 
 ## Supported metrics and activities
 
-The following metrics are visible through Azure Monitor metrics.
+The following metrics are visible through Azure Monitor Metrics.
 
 | **Signal name**                                                         | **Signal type** | **Monitor service** |
 |-------------------------------------------------------------------------|-----------------|---------------------|
