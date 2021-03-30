@@ -138,7 +138,7 @@ const call = callAgent.join(context);
 
 ### Join a Teams meeting
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
 To join a Teams meeting, use the `join` method and pass a meeting link or coordinates.
 
@@ -590,7 +590,7 @@ console.log(result.video);
 
 ## Record calls
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
 Call recording is an extended feature of the core `Call` API. You first need to obtain the recording feature API object:
 
@@ -617,7 +617,7 @@ callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler)
 
 ## Transfer calls
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
 Call transfer is an extended feature of the core `Call` API. You first need to get the transfer feature API object:
 
