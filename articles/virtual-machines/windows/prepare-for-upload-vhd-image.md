@@ -121,10 +121,10 @@ After the SFC scan completes, install Windows Updates and restart the computer.
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TEMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    ```
-1. For the VM with legacy operating systems (Windows Server 2012 R2 or Windows 8.1 and below), make sure that you have the latest Hyper-V Integration Component Services installed. For more information, see [Hyper-V integration components update for Windows VM](https://support.microsoft.com/topic/hyper-v-integration-components-update-for-windows-virtual-machines-8a74ffad-576e-d5a0-5a2f-d6fb2594f990).
+1. For VMs with legacy operating systems (Windows Server 2012 R2 or Windows 8.1 and below), make sure the latest Hyper-V Integration Component Services are installed. For more information, see [Hyper-V integration components update for Windows VM](https://support.microsoft.com/topic/hyper-v-integration-components-update-for-windows-virtual-machines-8a74ffad-576e-d5a0-5a2f-d6fb2594f990).
 
 > [!NOTE]
-> For the scenario that the VMs will be set up with a disaster recovery solution that is between the on-premise VMware server and Azure, the Hyper-V Integration Component Services might not be used. In this scenario, please contact the VMWare support to migrate the VM to Azure, and co-reside in VMware server.
+> In a scenario where VMs are to be set up with a disaster recovery solution between the on-premise VMware server and Azure, the Hyper-V Integration Component Services can't be used. If that’s the case, please contact the VMWare support to migrate the VM to Azure and make it co-reside in VMware server.
 
 ## Check the Windows services
 
@@ -392,8 +392,8 @@ Make sure the VM is healthy, secure, and RDP accessible:
 ### Install Windows updates
 
 > [!NOTE]
-> To avoid an accidental reboot during VM provisioning, we recommend you complete all Windows update installations, and make sure that there is no pending restart. One way to do this is to install all possible Windows updates and reboot once before you perform the migration to Azure. </br><br>
->If you also need to do a generalization of the OS (sysprep), you must complete this Windows update step before you run the Sysprep command.
+> To avoid an accidental reboot during the VM provisioning, we recommend completing all Windows update installations and to make sure there’s no pending restart. One way to do this is to install all Windows updates and to reboot the VM before performing the migration to Azure. </br><br>
+>If you also need to do a generalization of the OS (sysprep), you must update Windows and restart the VM before running the Sysprep command.
 
 Ideally, you should keep the machine updated to the *patch level*, if this isn't possible, make sure
 the following updates are installed. To get the latest updates, see the Windows update history
