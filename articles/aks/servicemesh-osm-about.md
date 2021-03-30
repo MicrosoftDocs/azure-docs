@@ -830,7 +830,7 @@ spec:
     namespace: bookbuyer
 ```
 
-In the above TrafficTarget spec, the `destination` denotes the service account that is configured for the destination source service. Remember the service account that was added to the deployment earlier will be used to authorize access to the deployment it is attached to. The `rules` section , in this partricular example, defines the type of HTTP traffic that is allowed over the connection. You can configure fine grain regex patterns for the HTTP headers to be very specific on what traffic is allowed via HTTP. The `sources` section is the service originating communications. This spec reads bookbuyer needs to communicate to the bookstore.
+In the above TrafficTarget spec, the `destination` denotes the service account that is configured for the destination source service. Remember the service account that was added to the deployment earlier will be used to authorize access to the deployment it is attached to. The `rules` section , in this particular example, defines the type of HTTP traffic that is allowed over the connection. You can configure fine grain regex patterns for the HTTP headers to be very specific on what traffic is allowed via HTTP. The `sources` section is the service originating communications. This spec reads bookbuyer needs to communicate to the bookstore.
 
 The HTTPRouteGroup resource consists of one or an array of matches of HTTP header information and is a requirement for the TrafficTarget spec. In the example below, you can see that the HTTPRouteGroup is authorizing three HTTP actions, two GET and one POST.
 
@@ -984,7 +984,7 @@ You must have the following resources installed:
 
 ### View and verify the current OSM cluster configuration
 
-Once the OSM add-on for AKS has been enabled on the AKS cluster, you can view the current configuration parmaaters in the osm-config Kubernetes ConfigMap. Run the following command to view the ConfigMap properties:
+Once the OSM add-on for AKS has been enabled on the AKS cluster, you can view the current configuration parameters in the osm-config Kubernetes ConfigMap. Run the following command to view the ConfigMap properties:
 
 ```azurecli-interactive
 kubectl get configmap -n kube-system osm-config -o json | jq '.data'
@@ -1348,7 +1348,7 @@ You must have the following resources installed:
 
 ### View and verify the current OSM cluster configuration
 
-Once the OSM add-on for AKS has been enabled on the AKS cluster, you can view the current configuration paramaters in the osm-config Kubernetes ConfigMap. Run the following command to view the ConfigMap properties:
+Once the OSM add-on for AKS has been enabled on the AKS cluster, you can view the current configuration parameters in the osm-config Kubernetes ConfigMap. Run the following command to view the ConfigMap properties:
 
 ```azurecli-interactive
 kubectl get configmap -n kube-system osm-config -o json | jq '.data'
