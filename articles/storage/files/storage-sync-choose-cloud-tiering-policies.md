@@ -29,11 +29,11 @@ For agent versions 9 and newer, the minimum file size for a file to tier is base
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 KB   |
 |64 KB (65536)    | 128 KB  |
-|128 KB | 256 KB |
-|256 KB | 512 KB |
-|512 KB | 1 MB |
-|1 MB   | 2 MB |
-|2 MB   | 4 MB |
+|128 KB (131072) | 256 KB |
+|256 KB (262144) | 512 KB |
+|512 KB (524288) | 1 MB |
+|1 MB (1048576) | 2 MB |
+|2 MB (2097152) | 4 MB |
 
 Cluster sizes up to 2 MB are supported with Azure File Sync agent version 12 but, for larger sizes, cloud tiering does not work.
 
