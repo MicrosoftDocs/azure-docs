@@ -366,9 +366,12 @@
   items:
   - name: Create templates
     items:
-    - name: Template file structure
+    - name: JSON template structure
       displayName: parameters,variables,resources,outputs,condition
       href: template-syntax.md
+    - name: Bicep file structure
+      displayName: parameters,variables,resources,outputs
+      href: bicep-file.md
     - name: Write template expressions
       href: template-expressions.md
     - name: Parameters
