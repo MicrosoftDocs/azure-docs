@@ -11,8 +11,8 @@ ms.custom: devx-track-python
 
 During development or after deploying your local Python function app project to Azure, it's a good practice to analyze for potential memory bottlenecks in your functions. Such bottlenecks can decrease the performance of your functions and lead to errors. The following instruction show you how to use the [memory-profiler](https://pypi.org/project/memory-profiler) Python package, which provides line-by-line memory consumption analysis of your functions as they execute.
 
-    > [!NOTE]
-    > Memory profiling is intended only for memory footprint analysis on development environment. Please do not apply the memory profiler on production function apps.
+> [!NOTE]
+> Memory profiling is intended only for memory footprint analysis on development environment. Please do not apply the memory profiler on production function apps.
 
 ## Prerequisites
 
@@ -52,20 +52,21 @@ Before you start developing a Python function app, you must meet these requireme
 
 :::image type="content" source="media/python-memory-profiler-reference/application-insights-query.png" alt-text="Query memory usage of a Python app in Application Insights":::
 
-    ```kusto
+```text
+traces
+| where timestamp > ago(1d)
+| where message startswith_cs "memory_profiler_logs:"
+| parse message with "memory_profiler_logs: " LineNumber "  " TotalMem_MiB "  " IncreMem_MiB "  " Occurences "  " Contents
+| union (
     traces
     | where timestamp > ago(1d)
-    | where message startswith_cs "memory_profiler_logs:"
-    | parse message with "memory_profiler_logs: " LineNumber "  " TotalMem_MiB "  " IncreMem_MiB "  " Occurences "  " Contents
-    | union (
-        traces
-        | where timestamp > ago(1d)
-        | where message startswith_cs "memory_profiler_logs: Filename: "
-        | parse message with "memory_profiler_logs: Filename: " FileName
-        | project timestamp, FileName, itemId
-    )
-    | project timestamp, LineNumber=iff(FileName != "", FileName, LineNumber), TotalMem_MiB, IncreMem_MiB, Occurences, Contents, RequestId=itemId
-    | order by timestamp asc
+    | where message startswith_cs "memory_profiler_logs: Filename: "
+    | parse message with "memory_profiler_logs: Filename: " FileName
+    | project timestamp, FileName, itemId
+)
+| project timestamp, LineNumber=iff(FileName != "", FileName, LineNumber), TotalMem_MiB, IncreMem_MiB, Occurences, Contents, RequestId=itemId
+| order by timestamp asc
+```
 
 ## Example
 
