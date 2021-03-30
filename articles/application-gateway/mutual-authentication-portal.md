@@ -1,5 +1,5 @@
 ---
-title: COnfiguring mutual authentication on Azure Application Gateway through Portal
+title: Configure mutual authentication on Azure Application Gateway through Portal
 description: Learn how to configure an Application Gateway to have mutual authentication through Portal 
 services: application-gateway
 author: mscatyao
@@ -30,7 +30,7 @@ First create a new Application Gateway as you would usually through the portal -
 
 ## Enable mutual authentication on an existing Application Gateway
 
-To configure an existing Application Gateway with mutual authentication, you'll need to first go to the SSL settings (Preview) tab in the Portal and create a new SSL profile. When you create an SSL profile, you'll see two tabs: **Client Authentication** and **SSL Policy**. The **Client Authentication** tab is where you'll upload your client certificate(s). The **SSL Policy** tab is to configure a listener specific SSL policy - for more information, check out [Configuring a listener specific SSL policy](./application-gateway-configure-listener-specific-ssl-policy.md).
+To configure an existing Application Gateway with mutual authentication, you'll need to first go to the **SSL settings (Preview)** tab in the Portal and create a new SSL profile. When you create an SSL profile, you'll see two tabs: **Client Authentication** and **SSL Policy**. The **Client Authentication** tab is where you'll upload your client certificate(s). The **SSL Policy** tab is to configure a listener specific SSL policy - for more information, check out [Configuring a listener specific SSL policy](./application-gateway-configure-listener-specific-ssl-policy.md).
 
 1. Search for **Application Gateway** in portal, select **Application gateways**, and click on your existing Application Gateway.
 
@@ -40,7 +40,7 @@ To configure an existing Application Gateway with mutual authentication, you'll 
 
 4. Enter a name under **SSL Profile Name**. In this example, we call our SSL profile *applicationGatewaySSLProfile*. 
 
-5. Upload the PEM certificate you intend to use for mutual authentication between the client and the Application Gateway using the **Upload a new certificate** button. 
+5. Stay in the **Client Authentication** tab. Upload the PEM certificate you intend to use for mutual authentication between the client and the Application Gateway using the **Upload a new certificate** button. 
 
    > [!NOTE]
    > If this isn't your first SSL profile and you've uploaded other client certificates onto your Application Gateway, you can choose to reuse an existing certificate on your gateway through the dropdown menu. 
