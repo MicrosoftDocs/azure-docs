@@ -72,7 +72,7 @@ There are two state values for containers- a current state and a previous state.
 This value is the state of the last operation performed on a container group. Generally, this operation is a PUT (create), but it can also be a POST (start/stop) or DELETE (delete).
 
 > [!IMPORTANT]
-> PUT (create) operations are asynchronous, and the return value of the PUT's response is not the final state. Subsequent GET calls on the resourceId or the AsyncOperation (returned in the PUT response headers) is recommended to monitor the status of the deployment.
+> PUT (create) operations are asynchronous. The returned value from the PUT's response body is not the final state. Making subsequent GET calls on the container group's resourceId or the AsyncOperation (returned in the PUT response headers) is the recommended way to monitor the status of the deployment.
 
 In addition to the JSON view, provisioning state can be also be found in the [response body of the HTTP call](https://docs.microsoft.com/rest/api/container-instances/containergroups/createorupdate#response).
 
