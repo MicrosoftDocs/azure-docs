@@ -59,19 +59,11 @@ For example, imagine you have an application with Azure Web PubSub service and A
 
 > Equivalent message count = 44 KB / 2 KB = 22
 
-The Azure Web PubSub service also offers daily free quota of outbound traffic (message count) based on the usage of the units. The outbound traffic (message count) beyond the free quota is the additional outbound traffic (message count).
+The Azure Web PubSub service also offers daily free quota of outbound traffic (message count) based on the usage of the units. The outbound traffic (message count) beyond the free quota is the additional outbound traffic (additional messages). Taking standard tier as example, the free quota is 2,000,000 KB outbound traffic (1,000,000 messages) per unit/day.
 
-For example, imagine you have one standard tier Azure Web PubSub service instance with 5 units, scale up to 10 units from 10:00 AM to 16:00 PM and then scale back to 5 units after 16:00 PM. It turns out 5 units for 18 hours and 10 units for 6 hours in a specific day. The total outbound traffic is 30,000,000 KB. 
+Using the previous unit usage example, the application use 6.25 units per day which ensures the daily free quota as 12,500,000 KB outbound traffic (6.25 million messages). Imaging the daily outbound traffic is 30,000,000 KB (15 million messages), the additional messages will be 17,500,000 KB outbound traffic (8.25 million messages). As a result, you'll be billed with 6.25 standard units and 8.75 additional message units for the day.
 
-> Usage of the units for billing = (5 units * 18 hours + 10 units * 6 hours) / 24 hours = 6.25 Unit/Day
 
-> Free quota of outbound traffic = Usage of the units for billing * 1 million * 2 KB = 6.25 * 1,000,000 * 2 KB = 12,500,000 KB
-
-> Equivalent free quota of message count = Usage of the units for billing * 1 million = 6.25 million
-
-> Additional outbound traffic = 30,000,000 KB - free quota of outbound traffic = 30,000,000 KB - 12,500,000 KB = 17,500,000 KB
-
-> Equivalent additional message count = (30,000,000 KB / 2 KB) - 6.25 million = 8.25 million
 
 
 
