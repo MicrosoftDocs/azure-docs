@@ -11,10 +11,8 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: ASP.NET Core
-    href: quickstart-dotnetcore.md
   - name: ASP.NET
-    href: quickstart-dotnet-framework.md
+    href: quickstart-dotnetcore.md
   - name: Node.js
     href: quickstart-nodejs.md
   - name: PHP
@@ -320,8 +318,8 @@
     href: https://azure.microsoft.com/updates/?product=app-service
   - name: Kudu service
     href: resources-kudu.md
-  - name: Migration Assistant guides
-    href: https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs
+  - name: Migration Assistant
+    href: app-service-migration-assistant.md
   - name: Best practices
     href: app-service-best-practices.md
   - name: Samples

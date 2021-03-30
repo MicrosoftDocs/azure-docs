@@ -94,7 +94,7 @@ The following scenarios are not supported for staged rollout:
 
 To test the *password hash sync* sign-in by using staged rollout, follow the pre-work instructions in the next section.
 
-For information about which PowerShell cmdlets to use, see [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+For information about which PowerShell cmdlets to use, see [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## Pre-work for password hash sync
 
@@ -248,9 +248,9 @@ A: No, this feature is designed for testing cloud authentication. After successf
 
 **Q: Can I use PowerShell to perform staged rollout?**
 
-A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## Next steps
-- [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
 - [Change the sign-in method to password hash synchronization](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
 - [Change sign-in method to pass-through authentication](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)

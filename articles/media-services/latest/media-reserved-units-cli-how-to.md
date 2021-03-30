@@ -20,7 +20,7 @@ This article shows you how to scale Media Reserved Units (MRSs) for faster encod
 
 ## Prerequisites
 
-[Create a Media Services account](./create-account-howto.md).
+[Create a Media Services account](./account-create-how-to.md).
 
 Understand [Media Reserved Units](concept-media-reserved-units.md).
 
@@ -40,7 +40,7 @@ You are charged based on number of minutes the Media Reserved Units are provisio
 
 ## Next step
 
-[Analyze videos](analyze-videos-tutorial-with-api.md)
+[Analyze videos](analyze-videos-tutorial.md)
 
 ## See also
 
