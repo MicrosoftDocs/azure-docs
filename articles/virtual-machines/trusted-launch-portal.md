@@ -27,28 +27,30 @@ ms.custom: template-how-to
 Create a virtual machine with trusted launch enabled.
 
 1. Sign in to the Azure [portal](https://aka.ms/TL_preview).
-2. > [!NOTE] The Portal link is unique to trusted launch preview. 
-3. Search for **Virtual Machines**.
-4. Under **Services**, select **Virtual machines**.
-5. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
-6. Under **Project details**, make sure the correct subscription is selected.
-7. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
-8. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#public-preview-limitations).
-9. Under **Image**, select an [image that supports trusted launch](trusted-launch.md#public-preview-limitations). You might only see the Gen 1 version of the image, that is okay, go on to the next step.
-10. Switch over to the **Advanced** tab by selecting it at the top of the page.
-11. Scroll down to the **VM generation** section, and then select **Gen 2**.
-12. While still on the **Advanced** tab, scroll down to **Trusted launch**, and then select the **Trusted launch** checkbox. This will make two more options appear - Secure boot and vTPM. Select the appropriate options for your deployment.
+> [!NOTE] 
+> The Portal link is unique to trusted launch preview.
+>  
+2. Search for **Virtual Machines**.
+3. Under **Services**, select **Virtual machines**.
+4. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
+5. Under **Project details**, make sure the correct subscription is selected.
+6. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
+7. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#public-preview-limitations).
+8. Under **Image**, select an [image that supports trusted launch](trusted-launch.md#public-preview-limitations). You might only see the Gen 1 version of the image, that is okay, go on to the next step.
+9. Switch over to the **Advanced** tab by selecting it at the top of the page.
+10. Scroll down to the **VM generation** section, and then select **Gen 2**.
+11. While still on the **Advanced** tab, scroll down to **Trusted launch**, and then select the **Trusted launch** checkbox. This will make two more options appear - Secure boot and vTPM. Select the appropriate options for your deployment.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot showing the options for trusted launch.":::
 
-1. Go back to the **Basics** tab, under **Image**, and make sure you see the following message: **This image supports trusted launch preview. Configure in the Advanced tab**. The gen 2 image should now be selected.
+12. Go back to the **Basics** tab, under **Image**, and make sure you see the following message: **This image supports trusted launch preview. Configure in the Advanced tab**. The gen 2 image should now be selected.
 
     :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot showing the message confirming that this is a gen2 image that supports trusted launch.":::
 
-1.	Select a VM size that supports trusted launch. See the list of [supported sizes](trusted-launch.md#public-preview-limitations).
-1.	Fill in the **Administrator account** information and then **Inbound port rules**.
-1.	At the bottom of the page, select **Review + Create**
-1.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. When you are ready, select **Create**.
+13.	Select a VM size that supports trusted launch. See the list of [supported sizes](trusted-launch.md#public-preview-limitations).
+14.	Fill in the **Administrator account** information and then **Inbound port rules**.
+15.	At the bottom of the page, select **Review + Create**
+16.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. When you are ready, select **Create**.
 
     :::image type="content" source="media/trusted-launch/validation.png" alt-text="Sceenshot of the validation page, showing the trusted launch options are included.":::
 
