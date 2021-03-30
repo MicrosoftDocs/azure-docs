@@ -270,6 +270,30 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 }
 ```
 
+## Auto-collected Azure SDK telemetry
+
+This feature is in preview.
+
+Many of the latest Azure SDK libraries emit telemetry.
+
+Starting from version 3.0.3, you can enable collection of this telemetry:
+
+```json
+{
+  "preview": {
+    "instrumentation": {
+      "azureSdk": {
+        "enabled": true
+      }
+    }
+  }
+}
+```
+
+You can also enable this feature using the environment variable 
+`APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED`
+(which will then take precedence if the corresponding property is also specified in the json configuration).
+
 ## Suppressing specific auto-collected telemetry
 
 Starting from version 3.0.3, specific auto-collected telemetry can be suppressed using these configuration options:
@@ -305,7 +329,8 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
 }
 ```
 
-You can also suppress these instrumentations using these environment variables:
+You can also suppress these instrumentations using these environment variables
+(which will then take precedence if the corresponding property is also specified in the json configuration):
 
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`

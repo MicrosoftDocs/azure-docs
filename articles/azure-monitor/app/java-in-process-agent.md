@@ -126,6 +126,10 @@ See [configuration options](./java-standalone-config.md) for full details.
 * Micrometer (including Spring Boot Actuator metrics)
 * JMX Metrics
 
+### Azure SDKs
+
+* This feature is in preview, see the [configuration options](./java-standalone-config.md#auto-collected-azure-sdk-telemetry) for how to enable it.
+
 ## Send custom telemetry from your application
 
 Our goal in 3.0+ is to allow you to send your custom telemetry using standard APIs.
