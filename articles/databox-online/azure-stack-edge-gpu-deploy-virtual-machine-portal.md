@@ -169,24 +169,24 @@ Follow these steps to create a VM after you have created a VM image.
 
 1. In the **Review + Create** tab, review the specifications for the VM and select **Create**.
 
-    ![Add VM 7](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
+    ![Add VM 8](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
 
 1. The VM creation starts and can take up to 20 minutes. You can go to **Deployments** to monitor the VM creation.
 
-    ![Add VM 8](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-deployments-page-1.png)
+    ![Add VM 9](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-deployments-page-1.png)
 
     
 1. After the VM is successfully created, the **Overview** page updates to display the new VM.
 
-    ![Add VM 9](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
+    ![Add VM 10](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
 
 1. Select the newly created VM to go to **Virtual machines**.
 
-    ![Add VM 10](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
+    ![Add VM 11](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
 
     Select the VM to see the details. 
 
-    ![Add VM 11](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
+    ![Add VM 12](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
 
 ## Connect to a VM
 
