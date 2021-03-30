@@ -46,6 +46,4 @@
   items:
   - name: FAQ
     href: verifiable-credentials-faq.md
-  - name: Troubleshooting
-    href: verifiable-credentials-troubleshooting.md
-
+  
