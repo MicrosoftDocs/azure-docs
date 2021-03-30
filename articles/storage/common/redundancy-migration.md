@@ -121,16 +121,16 @@ You must perform a manual migration if:
 You can request live migration through the [Azure Support portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). 
 
 > [!IMPORTANT]
-> If you need to migrate more than one storage account, create a single support ticket and specify the names of the accounts to convert in the **Details** section.
+> If you need to migrate more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Details** tab.
 
 Follow these steps to request a live migration:
 
-1. In the Azure portal, navigate to a storage account you want to migrate.
+1. In the Azure portal, navigate to a storage account that you want to migrate.
 1. Under **Support + troubleshooting**, select **New Support Request**.
 1. Complete the **Basics** tab based on your account information:
     - **Issue type**: Select **Technical**.
     - **Service**: Select **My Services**, then **Storage Account Management**.
-    - **Resource**: Select a storage account to migrate.
+    - **Resource**: Select a storage account to migrate. If you need to specify multiple storage accounts, you can do so in the **Details** section.
     - **Problem type**: Choose **Data Migration**.
     - **Problem subtype**: Choose **Migrate to ZRS, GZRS, or RA-GZRS**.
 
