@@ -1,12 +1,14 @@
 - name: Translator Service Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: Language Support
     href: language-support.md
   - name: Pricing and limits
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator 
 - name: Text Translation
+  expanded: true
   items:
   - name: What is Translator?
     href: translator-info-overview.md
