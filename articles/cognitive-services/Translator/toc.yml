@@ -84,10 +84,10 @@
   items:
   - name: What is the Custom Translator?
     href: custom-translator/overview.md
-  - name: Quickstart
-    href: custom-translator/quickstart-build-deploy-custom-model.md  
   - name: FAQ
     href: custom-translator/faq.md
+  - name: Quickstart
+    href: custom-translator/quickstart-build-deploy-custom-model.md  
   - name: How-to guides
     items:
     - name: Create a project
@@ -160,7 +160,7 @@
         href: document-translation/reference/get-operations.md
       - name: Cancel operation
         href: document-translation/reference/cancel-operation.md      
-- name: Translator Resources
+- name: Resources
   items:
   - name: Support & help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
