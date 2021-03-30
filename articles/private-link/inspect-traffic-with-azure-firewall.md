@@ -112,6 +112,7 @@ Create three virtual networks and their corresponding subnets to:
 Replace the following parameters in the steps with the information below:
 
 ### Azure Firewall network
+
 | Parameter                   | Value                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -122,6 +123,7 @@ Replace the following parameters in the steps with the information below:
 | **\<subnet-address-range>** | 10.0.0.0/24          |
 
 ### Virtual machine network
+
 | Parameter                   | Value                |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -132,13 +134,14 @@ Replace the following parameters in the steps with the information below:
 | **\<subnet-address-range>** | 10.1.0.0/24          |
 
 ### Private endpoint network
+
 | Parameter                   | Value                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myPEVNet         |
 | **\<region-name>**          | South Central US      |
 | **\<IPv4-address-space>**   | 10.2.0.0/16          |
-| **\<subnet-name>**          | PrivateEndpointSubnet    |        |
+| **\<subnet-name>**          | PrivateEndpointSubnet |
 | **\<subnet-address-range>** | 10.2.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
@@ -559,7 +562,7 @@ In this section, you'll connect privately to the SQL Database using the private 
     Address: 10.2.0.4
     ```
 
-2. Install [SQL Server command-line tools](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Install [SQL Server command-line tools](/sql/linux/quickstart-install-connect-ubuntu#tools).
 
 3. Run the following command to connect to the SQL Server. Use the server admin and password you defined when you created the SQL Server in the previous steps.
 

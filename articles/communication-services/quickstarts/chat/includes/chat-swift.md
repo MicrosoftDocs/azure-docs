@@ -274,4 +274,3 @@ Replace `<USER ID>` with the the Communication Services user ID of the participa
 
 In Xcode hit the Run button to build and run the project. In the console you can view the output from the code and the logger output from the ChatClient.
 
-

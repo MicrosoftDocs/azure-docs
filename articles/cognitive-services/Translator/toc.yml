@@ -132,8 +132,6 @@
       href: custom-translator/training-and-model.md
     - name: BLEU Score
       href: custom-translator/what-is-bleu-score.md
-    - name:  Encryption
-      href:  encrypt-data-at-rest.md
 - name: Document Translation
   items:
     - name: What is Document Translation?
@@ -146,8 +144,6 @@
         href: document-translation/create-sas-tokens.md 
     - name: Reference
       items:     
-      - name: Document Translation REST API
-        href: /rest/api/cognitiveservices/translator/documenttranslation
       - name: Get document formats
         href: document-translation/reference/get-document-formats.md
       - name: Get glossary formats
@@ -170,5 +166,10 @@
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
   - name: Compliance
     href: https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy
+  - name:  Encryption
+    href:  encrypt-data-at-rest.md   
   - name: Code samples on GitHub
-    href: https://aka.ms/TranslatorGitHub   
+    href: https://aka.ms/TranslatorGitHub
+  - name: Privacy and cookies 
+    href: https://privacy.microsoft.com/en-US/privacystatement    
+
