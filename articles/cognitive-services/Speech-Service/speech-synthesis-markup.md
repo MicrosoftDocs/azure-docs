@@ -325,6 +325,7 @@ Use this table to determine which roles are supported for each neural voice.
 |`role="SeniorFemale"`    |	The voice imitates to a senior female.|
 |`role="SeniorMale"`      |	The voice imitates to a senior male.|
 
+
 **Example**
 
 This SSML snippet illustrates how the `<mstts:express-as>` element is used to change the speaking style to `cheerful`.
