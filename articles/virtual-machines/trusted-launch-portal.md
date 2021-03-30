@@ -27,16 +27,17 @@ ms.custom: template-how-to
 Create a virtual machine with trusted launch enabled.
 
 1. Sign in to the Azure [portal](https://aka.ms/TL_preview).
-1. Search for **Virtual Machines**.
-1. Under **Services**, select **Virtual machines**.
-1. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
-1. Under **Project details**, make sure the correct subscription is selected.
-1. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
-1. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#public-preview-limitations).
-1. Under **Image**, select an [image that supports trusted launch](trusted-launch.md#public-preview-limitations). You might only see the Gen 1 version of the image, that is okay, go on to the next step.
-1. Switch over to the **Advanced** tab by selecting it at the top of the page.
-1. Scroll down to the **VM generation** section, and then select **Gen 2**.
-1. While still on the **Advanced** tab, scroll down to **Trusted launch**, and then select the **Trusted launch** checkbox. This will make two more options appear - Secure boot and vTPM. Select the appropriate options for your deployment.
+2. [!NOTE] The Portal link is unique to trusted launch preview. 
+3. Search for **Virtual Machines**.
+4. Under **Services**, select **Virtual machines**.
+5. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
+6. Under **Project details**, make sure the correct subscription is selected.
+7. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
+8. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#public-preview-limitations).
+9. Under **Image**, select an [image that supports trusted launch](trusted-launch.md#public-preview-limitations). You might only see the Gen 1 version of the image, that is okay, go on to the next step.
+10. Switch over to the **Advanced** tab by selecting it at the top of the page.
+11. Scroll down to the **VM generation** section, and then select **Gen 2**.
+12. While still on the **Advanced** tab, scroll down to **Trusted launch**, and then select the **Trusted launch** checkbox. This will make two more options appear - Secure boot and vTPM. Select the appropriate options for your deployment.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot showing the options for trusted launch.":::
 
