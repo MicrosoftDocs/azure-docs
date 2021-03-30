@@ -280,7 +280,9 @@ For more information,
 
 ## Collect logs with dotnet-trace
 
-An alternate method of collecting logs for troubleshooting that may be particularly helpful for linux-based environments is [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)
+Alternatively, customers can also use a cross-platform .NET Core tool, [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace) for collecting logs that can help further help in troubleshooting. This may be particularly helpful for linux-based environments.
+
+The command below can be executed in the [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace) tool
 
 ```bash
 dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-LoggerProvider,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore
