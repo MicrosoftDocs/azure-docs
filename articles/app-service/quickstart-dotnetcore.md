@@ -3,7 +3,7 @@ title: "Quickstart: Deploy an ASP.NET web app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 03/29/2021
+ms.date: 03/30/2021
 ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1"
 zone_pivot_groups: app-service-ide
 adobe-target: true
@@ -134,7 +134,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 1. Select **.NET Core 3.1 (Long-term support)**.
 1. Make sure **Authentication Type** is set to **None**. Select **Create**.
 
-   :::image type="content" source="media/quickstart-dotnet/vs-additional-info-netcoreapp3.1.png" alt-text="Visual Studio - .NET Core 3.1" border="true":::
+   :::image type="content" source="media/quickstart-dotnet/vs-additional-info-netcoreapp31.png" alt-text="Visual Studio - .NET Core 3.1" border="true":::
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
@@ -151,7 +151,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 1. Select **.NET Core 5.0 (Current)**.
 1. Make sure **Authentication Type** is set to **None**. Select **Create**.
 
-   :::image type="content" source="media/quickstart-dotnet/vs-additional-info-net5.0.png" alt-text="Visual Studio - .NET Core 5.0" border="true":::
+   :::image type="content" source="media/quickstart-dotnet/vs-additional-info-net50.png" alt-text="Visual Studio - .NET Core 5.0" border="true":::
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
