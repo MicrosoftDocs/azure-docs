@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/12/2021
+ms.date: 03/04/2021
 ms.author: jeedes
 
 ---
@@ -122,13 +122,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Kendis-Azure AD Integration SSO
 
-1. In a different web browser window, sign in to your Kendis - Azure AD Integration company site as an administrator.
+1. To automate the configuration within Kendis - Azure AD Integration, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-1. Go to the **Settings > SAML Configurations**.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Set up Kendis - Azure AD Integration** will direct you to the Kendis - Azure AD Integration application. From there, provide the admin credentials to sign into Kendis - Azure AD Integration. The browser extension will automatically configure the application for you and automate steps 3-5.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup Kendis - Azure AD Integration manually, in a different web browser window, sign in to your Kendis - Azure AD Integration company site as an administrator.
+
+4. Go to the **Settings > SAML Configurations**.
 
     ![settings to SAML Configurations](./media/kendis-scaling-agile-platform-tutorial/settings.png)
 
-1. Click on **Edit** button at the bottom of the page and perform the following steps.
+5. Click on **Edit** button at the bottom of the page and perform the following steps.
 
     ![SAML Configurations](./media/kendis-scaling-agile-platform-tutorial/saml-configuration-settings.png)
 
@@ -162,11 +170,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Kendis - Azure AD Integration for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Kendis - Azure AD Integration tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Kendis - Azure AD Integration for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Kendis - Azure AD Integration tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Kendis - Azure AD Integration for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure Kendis - Azure AD Integration you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure Kendis - Azure AD Integration you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

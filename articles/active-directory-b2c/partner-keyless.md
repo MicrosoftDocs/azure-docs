@@ -26,7 +26,7 @@ To get started, you'll need:
 
 - An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Tenant must be linked to your Azure subscription.
+- An [Azure AD B2C tenant](./tutorial-create-tenant.md). Tenant must be linked to your Azure subscription.
 
 - A Keyless cloud tenant, get a free [trial account](https://keyless.io/go).
 
@@ -153,6 +153,6 @@ You should now see Keyless as a new OIDC Identity provider listed within your B2
 
 For additional information, review the following articles:
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

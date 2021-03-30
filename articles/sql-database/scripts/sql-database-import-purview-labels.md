@@ -249,6 +249,6 @@ foreach ($referredEntity in $referredEntities.psobject.Properties.GetEnumerator(
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 
-For more information on Azure Purview, see [Azure Purview documentation](https://docs.microsoft.com/azure/purview/).
+For more information on Azure Purview, see [Azure Purview documentation](../../purview/index.yml).

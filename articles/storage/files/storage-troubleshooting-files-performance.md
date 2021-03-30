@@ -34,7 +34,8 @@ To confirm whether your share is being throttled, you can access and use Azure m
     For standard file shares, the following response types are logged if a request is throttled:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     For premium file shares, the following response types are logged if a request is throttled:
 
@@ -45,7 +46,7 @@ To confirm whether your share is being throttled, you can access and use Azure m
     - ClientShareIngressThrottlingError
     - ClientShareIopsThrottlingError
 
-    To learn more about each response type, see [Metric dimensions](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+    To learn more about each response type, see [Metric dimensions](./storage-files-monitoring-reference.md#metrics-dimensions).
 
     ![Screenshot of the metrics options for premium file shares, showing a "Response type" property filter.](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -240,7 +241,8 @@ To confirm, you can use Azure Metrics in the portal -
     For standard file shares, select the following response types:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     For premium file shares, select the following response types:
 
@@ -254,13 +256,12 @@ To confirm, you can use Azure Metrics in the portal -
    > [!NOTE]
    > If the response types are not listed in the **Dimension values** drop-down, this means the resource has not been throttled. To add the dimension values, next to the **Dimension values** drop-down list, select **Add custom value**, enter the respone type (for example, **SuccessWithThrottling**), select **OK**, and then repeat these steps to add all applicable response types for your file share.
 
-8. Click the **Dimension name** drop-down and select **File Share**.
-9. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
-
+8. For **premium file shares**, click the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to **step #10**.
 
    > [!NOTE]
-   > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
+   > If the file share is a standard file share, the **File Share** dimension will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
 
+9. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 10. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and click **Done**.
 
     > [!TIP]

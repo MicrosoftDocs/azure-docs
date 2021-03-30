@@ -53,7 +53,7 @@ To complete this guide, you must first do the following:
 
 ### Connect to your Azure account
 
-Authenticate your Azure CLI session using the [az login](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) commands.
+Authenticate your Azure CLI session using the [az login](/powershell/module/az.accounts/connect-azaccount) commands.
 
 ```azurecli-interactive
 az login

@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.service: storage
-ms.date: 12/03/2020
+ms.date: 03/29/2021
 ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
@@ -20,6 +20,9 @@ The Azure Storage blob inventory feature provides an overview of your blob data 
 ## Availability
 
 Blob inventory is supported for both general purpose version 2 (GPv2) and premium block blob storage accounts. This feature is supported with or without the [hierarchical namespace](data-lake-storage-namespace.md) feature enabled.
+
+> [!IMPORTANT]
+> Blob inventory is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Preview regions
 
@@ -197,6 +200,15 @@ Sample event:
 }
 ```
 
+## Known issues
+
+This section describes limitations and known issues of the Azure Storage blob inventory feature.
+
+### Inventory job fails to complete
+
+The inventory job may not complete within 24 hours for an account with millions of blobs and hierarchical namespaces enabled. If this happens, no inventory file is created.
+
 ## Next steps
 
-[Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
+- [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
+- [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)

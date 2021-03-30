@@ -25,7 +25,7 @@ When delivering your content to customers (streaming Live events or Video on Dem
 
 For detailed description of this feature and scenarios where it is used, see [Dynamic Manifests](filters-dynamic-manifest-overview.md) and [Filters](filters-concept.md).
 
-This topic shows how to use Media Services .NET SDK to define a filter for a Video on Demand asset and create [Account Filters](/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) and [Asset Filters](/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+This topic shows how to use Media Services .NET SDK to define a filter for a Video on Demand asset and create [Account Filters](/dotnet/api/microsoft.azure.management.media.models.accountfilter) and [Asset Filters](/dotnet/api/microsoft.azure.management.media.models.assetfilter). 
 
 > [!NOTE]
 > Make sure to review [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -33,13 +33,13 @@ This topic shows how to use Media Services .NET SDK to define a filter for a Vid
 ## Prerequisites 
 
 - Review [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
-- [Create a Media Services account](./create-account-howto.md). Make sure to remember the resource group name and the Media Services account name. 
+- [Create a Media Services account](./account-create-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
 - Get information needed to [access APIs](./access-api-howto.md)
 - Review [Upload, encode, and stream using Azure Media Services](stream-files-tutorial-with-api.md) to see how to [start using .NET SDK](stream-files-tutorial-with-api.md#start-using-media-services-apis-with-net-sdk)
 
 ## Define a filter  
 
-In .NET, you configure track selections with [FilterTrackSelection](/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) and [FilterTrackPropertyCondition](/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) classes. 
+In .NET, you configure track selections with [FilterTrackSelection](/dotnet/api/microsoft.azure.management.media.models.filtertrackselection) and [FilterTrackPropertyCondition](/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition) classes. 
 
 The following code defines a filter that includes any audio tracks that are EC-3 and any video tracks that have bitrate in the 0-1000000 range.
 

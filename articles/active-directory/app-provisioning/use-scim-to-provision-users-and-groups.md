@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 03/22/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
@@ -192,6 +192,7 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 |The filter [excludedAttributes=members](#get-group) when querying the group resource|section 3.4.2.5|
 |Accept a single bearer token for authentication and authorization of AAD to your application.||
 |Soft-deleting a user `active=false` and restoring the user `active=true`|The user object should be returned in a request whether or not the user is active. The only time the user should not be returned is when it is hard deleted from the application.|
+|Support the /Schemas endpoint|[section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint will be used to discover additional attributes.|
 
 Use the general guidelines when implementing a SCIM endpoint to ensure compatibility with AAD:
 
@@ -204,7 +205,12 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 * Microsoft AAD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
 * The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com), see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
 * Support HTTPS on your SCIM endpoint
-
+* [Schema discovery](#schema-discovery)
+  * Schema discovery is not currently supported on the custom application, but it is being used on certain gallery applications. Going forward, schema discovery will be used as the primary method to add additional attributes to a connector. 
+  * If a value is not present, do not send null values.
+  * Property values should be camel cased (e.g. readWrite).
+  * Must return a list response.
+  
 ### User provisioning and deprovisioning
 
 The following illustration shows the messages that AAD sends to a SCIM service to manage the lifecycle of a user in your application's identity store.  
@@ -246,6 +252,9 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
   - [Update Group [Add Members]](#update-group-add-members) ([Request](#request-11) / [Response](#response-11))
   - [Update Group [Remove Members]](#update-group-remove-members) ([Request](#request-12) / [Response](#response-12))
   - [Delete Group](#delete-group) ([Request](#request-13) / [Response](#response-13))
+
+[Schema discovery](#schema-discovery)
+  - [Discover schema](#discover-schema) ([Request](#request-15) / [Response](#response-15))
 
 ### User Operations
 
@@ -744,6 +753,105 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
 
 *HTTP/1.1 204 No Content*
 
+### Schema discovery
+#### Discover schema
+
+##### <a name="request-15"></a>Request
+*GET /Schemas* 
+##### <a name="response-15"></a>Response
+*HTTP/1.1 200 OK*
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    ],
+    "itemsPerPage": 50,
+    "startIndex": 1,
+    "totalResults": 3,
+    "Resources": [
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:User",
+    "name" : "User",
+    "description" : "User Account",
+    "attributes" : [
+      {
+        "name" : "userName",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "Unique identifier for the User, typically
+used by the user to directly authenticate to the service provider.
+Each User MUST include a non-empty userName value.  This identifier
+MUST be unique across the service provider's entire set of Users.
+REQUIRED.",
+        "required" : true,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "server"
+      },                
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+        "/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:User"
+    }
+  },
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:Group",
+    "name" : "Group",
+    "description" : "Group",
+    "attributes" : [
+      {
+        "name" : "displayName",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "A human-readable name for the Group.
+REQUIRED.",
+        "required" : false,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "none"
+      },
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+        "/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:Group"
+    }
+  },
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+    "name" : "EnterpriseUser",
+    "description" : "Enterprise User",
+    "attributes" : [
+      {
+        "name" : "employeeNumber",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "Numeric or alphanumeric identifier assigned
+to a person, typically based on order of hire or association with an
+organization.",
+        "required" : false,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "none"
+      },
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+"/v2/Schemas/urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+    }
+  }
+]
+}
+```
+
 ### Security requirements
 **TLS Protocol Versions**
 
@@ -877,7 +985,7 @@ In the sample code, requests are authenticated using the Microsoft.AspNetCore.Au
 
 A bearer token is also required to use of the provided [postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) and perform local debugging using localhost. The sample code uses ASP.NET Core environments to change the authentication options during development stage and enable the use a self-signed token.
 
-For more information on multiple environments in ASP.NET Core, see [Use multiple environments in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
+For more information on multiple environments in ASP.NET Core, see [Use multiple environments in ASP.NET Core](/aspnet/core/fundamentals/environments).
 
 The following code enforces that requests to any of the service’s endpoints are authenticated using a bearer token signed with a custom key:
 

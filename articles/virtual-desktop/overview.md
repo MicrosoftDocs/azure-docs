@@ -118,7 +118,7 @@ To learn more about URLs you must unblock to use the clients, see the [Safe URL 
 Windows Virtual Desktop supports the following x64 operating system images:
 
 * Windows 10 Enterprise multi-session, version 1809 or later
-* Windows 10 Enterprise, version 1809 or later
+* Windows 10 Enterprise, version 1809 or later (Semi-Annual Channel only)
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016

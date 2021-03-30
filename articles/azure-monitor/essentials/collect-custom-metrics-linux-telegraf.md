@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
-ms.subservice: metrics
 ---
 # Collect custom metrics for a Linux VM with the InfluxData Telegraf agent
 
@@ -20,7 +19,7 @@ By using Azure Monitor, you can collect custom metrics via your application tele
  ![Telegraph agent overview](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
 > [!NOTE]  
-> Custom Metrics are not supported in all regions. Supported regions are listed [here](../platform/metrics-custom-overview.md#supported-regions)
+> Custom Metrics are not supported in all regions. Supported regions are listed [here](./metrics-custom-overview.md#supported-regions)
 
 ## Send custom metrics 
 
@@ -131,4 +130,4 @@ Additionally, in this walkthrough, you used the Telegraf agent to emit metrics a
 When they're no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine and select **Delete**. Then confirm the name of the resource group to delete. 
 
 ## Next steps
-- Learn more about [custom metrics](../platform/metrics-custom-overview.md).
+- Learn more about [custom metrics](./metrics-custom-overview.md).

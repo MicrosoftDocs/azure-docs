@@ -24,7 +24,7 @@ This article shows you how to connect to the Azure Media Services v3 .NET SDK us
 
 ## Prerequisites
 
-- [Create a Media Services account](./create-account-howto.md). Make sure to remember the resource group name and the Media Services account name
+- [Create a Media Services account](./account-create-how-to.md). Make sure to remember the resource group name and the Media Services account name
 - Install a tool that you would like to use for .NET development. The steps in this article show how to use [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). You can use Visual Studio Code, see [Working with C#](https://code.visualstudio.com/docs/languages/csharp). Or, you can use a different code editor.
 
 > [!IMPORTANT]
@@ -232,7 +232,7 @@ namespace ConsoleApp1
 
 - [Tutorial: Upload, encode, and stream videos - .NET](stream-files-tutorial-with-api.md) 
 - [Tutorial: Stream live with Media Services v3 - .NET](stream-live-tutorial-with-api.md)
-- [Tutorial: Analyze videos with Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
+- [Tutorial: Analyze videos with Media Services v3 - .NET](analyze-videos-tutorial.md)
 - [Create a job input from a local file - .NET](job-input-from-local-file-how-to.md)
 - [Create a job input from an HTTPS URL - .NET](job-input-from-http-how-to.md)
 - [Encode with a custom Transform - .NET](customize-encoder-presets-how-to.md)
@@ -244,5 +244,5 @@ namespace ConsoleApp1
 
 ## See also
 
-* [.NET reference](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true)
+* [.NET reference](/dotnet/api/overview/azure/mediaservices/management)
 * For more code examples, see the [.NET SDK samples](https://github.com/Azure-Samples/media-services-v3-dotnet) repo.

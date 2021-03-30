@@ -1,13 +1,8 @@
 ---
 title: About the Forescout integration
-titleSuffix: Azure Defender for IoT
 description: The Azure Defender for IoT integration with the Forescout platform provides a new level of centralized visibility, monitoring, and control for the IoT and OT landscape.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
 ---
 
 # About the Forescout integration

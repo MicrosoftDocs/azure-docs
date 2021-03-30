@@ -236,7 +236,7 @@ Immediately afterward, the user tries to access Web Application B. The user is r
 
 ## Cmdlet reference
 
-These are the cmdlets in the [Azure Active Directory PowerShell for Graph Preview module](/powershell/module/azuread/?view=azureadps-2.0-preview#service-principals&preserve-view=true&preserve-view=true).
+These are the cmdlets in the [Azure Active Directory PowerShell for Graph Preview module](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#service-principals).
 
 ### Manage policies
 

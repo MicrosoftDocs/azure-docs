@@ -21,7 +21,7 @@ This section shows you how to use the Azure portal to create a private endpoint 
 2. Switch to the **Networking** tab of your topic page. Select **+ Private endpoint** on the toolbar.
 
     ![Add private endpoint](./media/configure-private-endpoints/add-button.png)
-2. One the **Basics** page, follow these steps: 
+2. On the **Basics** page, follow these steps: 
     1. Select an **Azure subscription** in which you want to create the private endpoint. 
     2. Select an **Azure resource group** for the private endpoint. 
     3. Enter a **name** for the endpoint. 

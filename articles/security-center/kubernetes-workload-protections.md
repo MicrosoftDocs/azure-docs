@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/17/2021
 ms.author: memildin
 ---
 
@@ -47,7 +47,7 @@ Azure Security Center includes a bundle of recommendations that are available wh
 
 To configure the recommendations, install the  **Azure Policy add-on for Kubernetes**. 
 
-- You can auto deploy this add-on as explained in [Enable auto provisioning of extensions](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
+- You can auto deploy this add-on as explained in [Enable auto provisioning of the Log Analytics agent and extensions](security-center-enable-data-collection.md#auto-provision-mma). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
 
     :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Using Security Center's auto provisioning tool to install the policy add-on for Kubernetes":::
 

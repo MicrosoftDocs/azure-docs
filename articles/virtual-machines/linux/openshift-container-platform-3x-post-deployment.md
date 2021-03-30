@@ -3,8 +3,9 @@ title: OpenShift Container Platform 3.11 in Azure post-deployment tasks
 description: Additional tasks for after an OpenShift Container Platform 3.11 cluster has been deployed. 
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019

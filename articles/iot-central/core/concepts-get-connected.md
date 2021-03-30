@@ -171,7 +171,7 @@ This approach is useful when you're experimenting with IoT Central or testing de
 
 ## Associate a device with a device template
 
-IoT Central automatically associates a device with a device template when the device connects. A device sends a [model ID](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) when it connects. IoT Central uses the model ID to identify the device template for that specific device model. The discovery process works as follows:
+IoT Central automatically associates a device with a device template when the device connects. A device sends a [model ID](../../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json#model-id) when it connects. IoT Central uses the model ID to identify the device template for that specific device model. The discovery process works as follows:
 
 1. If the device template is already published in the IoT Central application, the device is associated with the device template.
 1. If the device template isn't already published in the IoT Central application, IoT Central looks for the device model in the [public model repository](https://github.com/Azure/iot-plugandplay-models). If IoT Central finds the model, it uses it to generate a basic device template.
@@ -207,10 +207,6 @@ When a real device connects to your IoT Central application, its device status c
     - A device was registered manually on the **Devices** page without specifying the device template. The device then connected with valid credentials.  
 
     The Operator can associate a device to a device template from the **Devices** page using the **Migrate** button.
-
-## Best practices
-
-Don't persist or cache the device connection string that DPS returns when you first connect the device. To reconnect a device, go through the standard device registration flow to get the correct device connection string. If the device caches the connection string, the device software runs into the risk of having a stale connection string. If IoT Central updates the underlying Azure IoT hub it uses, a device with a stale connection string can't connect.
 
 ## SDK support
 
@@ -260,8 +256,8 @@ All data exchanged between devices and your Azure IoT Central is encrypted. IoT 
 
 If you're a device developer, some suggested next steps are to:
 
+- Review [best practices](concepts-best-practices.md) for developing devices.
 - Review some sample code that shows how to use SAS tokens in [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)
 - Learn how to [How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application](how-to-connect-devices-x509.md)
 - Learn how to [Monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)
-- Learn how to [Define a new IoT device type in your Azure IoT Central application](./howto-set-up-template.md)
 - Read about [Azure IoT Edge devices and Azure IoT Central](./concepts-iot-edge.md)

@@ -1,7 +1,6 @@
 ---
 title: Overview of Log Analytics in Azure Monitor
 description: Describes Log Analytics which is a tool in the Azure portal used to edit and run log queries for analyzing data in Azure Monitor Logs.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -14,12 +13,12 @@ Log Analytics is a tool in the Azure portal used to edit and run log queries wit
 
 
 > [!TIP]
-> This article provides a description of Log Analytics and each of its features. If you want to jump right into a tutorial, see [Log Analytics tutorial](../log-query/log-analytics-tutorial.md).
+> This article provides a description of Log Analytics and each of its features. If you want to jump right into a tutorial, see [Log Analytics tutorial](./log-analytics-tutorial.md).
 
 
 
 ## Starting Log Analytics
-Start Log Analytics from **Logs** in the **Azure Monitor** menu in the Azure portal. You'll also see this option in the menu for most Azure resources. Regardless of where you start it from, it will be the same Log Analytics tool. The menu you use to start Log Analytics determines the data that will be available though. If you start it from the **Azure Monitor** menu or the **Log Analytics workspaces** menu, you'll have access to all of the records in a workspace. If you select **Logs** from another type of resource, then your data will be limited to log data for that resource. See [Log query scope and time range in Azure Monitor Log Analytics](../log-query/scope.md) for details.
+Start Log Analytics from **Logs** in the **Azure Monitor** menu in the Azure portal. You'll also see this option in the menu for most Azure resources. Regardless of where you start it from, it will be the same Log Analytics tool. The menu you use to start Log Analytics determines the data that will be available though. If you start it from the **Azure Monitor** menu or the **Log Analytics workspaces** menu, you'll have access to all of the records in a workspace. If you select **Logs** from another type of resource, then your data will be limited to log data for that resource. See [Log query scope and time range in Azure Monitor Log Analytics](./scope.md) for details.
 
 [![Start Log Analytics](media/log-analytics-overview/start-log-analytics.png)](media/log-analytics-overview/start-log-analytics.png#lightbox)
 
@@ -36,9 +35,9 @@ Controls for working with the query in the query window.
 
 | Option | Description |
 |:---|:---|
-| Scope | Specifies the scope of data used for the query. This could be all data in a Log Analytics workspace or data for a particular resource across multiple workspaces. See [Query scope](../log-query/scope.md). |
+| Scope | Specifies the scope of data used for the query. This could be all data in a Log Analytics workspace or data for a particular resource across multiple workspaces. See [Query scope](./scope.md). |
 | Run button | Click to run the selected query in the query window. You can also press shift+enter to run a query. |
-| Time picker | Select the time range for the data available to the query. This is overridden if you include a time filter in the query. See [Log query scope and time range in Azure Monitor Log Analytics](../log-query/scope.md). |
+| Time picker | Select the time range for the data available to the query. This is overridden if you include a time filter in the query. See [Log query scope and time range in Azure Monitor Log Analytics](./scope.md). |
 | Save button | Save the query to the Query Explorer for the workspace. |
  Copy button | Copy a link to the query, the query text, or the query results to the clipboard. |
 | New alert rule button | Create a new tab with an empty query. |
@@ -88,5 +87,5 @@ Displays the results as one of multiple available chart types. You can specify t
 If you're already familiar with the Azure Data Explorer Web UI, then Log Analytics should look familiar. That's because it's built on top of Azure Data Explorer and uses the same Kusto Query Language (KQL). Log Analytics adds features specific to Azure Monitor such as filtering by time range and the ability to create an alert rule from a query. Both tools included an explorer that lets you scan through the structure of available tables, but the Azure Data Explorer Web UI primarily works with tables in Azure Data Explorer databases while Log Analytics works with tables in a Log Analytics workspace. 
 
 ## Next steps
-- Walk through a [tutorial on using Log Analytics in the Azure portal](../log-query/log-analytics-tutorial.md).
-- Walk through a [tutorial on writing queries](../log-query/get-started-queries.md).
+- Walk through a [tutorial on using Log Analytics in the Azure portal](./log-analytics-tutorial.md).
+- Walk through a [tutorial on writing queries](./get-started-queries.md).

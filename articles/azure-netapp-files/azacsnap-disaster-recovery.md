@@ -145,13 +145,13 @@ HDB stop
 #### Step 4: Restore the volumes
 
 ```bash
-azacsnap -c restore --restore revertvolume --hanasid H80
+azacsnap -c restore --restore revertvolume --dbsid H80
 ```
 
 **_Output of the DR failover command_**.
 
 ```bash
-azacsnap --configfile DR.json -c restore --restore revertvolume --hanasid H80
+azacsnap --configfile DR.json -c restore --restore revertvolume --dbsid H80
 ```
 
 ```output

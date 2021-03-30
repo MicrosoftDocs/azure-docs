@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/02/2021
+ms.date: 03/17/2021
 ---
 
 # Copy data from SAP Cloud for Customer (C4C) using Azure Data Factory
@@ -158,6 +158,7 @@ To copy data to SAP Cloud for Customer, set the sink type in the copy activity t
 | type | The type property must be set to: **SapCloudForCustomerSink**  | Yes |
 | writeBehavior | The write behavior of the operation. Could be “Insert”, “Update”. | No. Default “Insert”. |
 | writeBatchSize | The batch size of write operation. The batch size to get best performance may be different for different table or server. | No. Default 10. |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 

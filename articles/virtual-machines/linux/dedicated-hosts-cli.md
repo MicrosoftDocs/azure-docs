@@ -3,6 +3,7 @@ title: Deploy VMs and scale set instances to dedicated hosts using the CLI
 description: Deploy VMs and scale set instances to dedicated hosts using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: cynthn
