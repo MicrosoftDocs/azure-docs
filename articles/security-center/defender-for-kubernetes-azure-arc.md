@@ -234,8 +234,25 @@ To confirm a successful deployment, or to validate the status of your extension 
     ```console
     kubectl get pods -n azuredefender
     ```
-
 ---
+
+## Simulate security alerts from Azure Defender for Kubernetes
+
+A full list of supported alerts is available in the [reference table of all security alerts in Azure Security Center](alerts-reference.md#alerts-akscluster).
+
+1. To simulate an Azure Defender alert, run the following command:
+
+    ```console
+    kubectl get pods --namespace=asc-alerttest-662jfi039n
+    ```
+
+    The expected response is "No resource found".
+
+    Within 30 minutes, Azure Defender will detect this activity and trigger a security alert.
+
+1. In the Azure portal, open Azure Security Center's security alerts page and look for the alert on the relevant resource:
+
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png" alt-text="Sample alert from Azure Defender for Kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png":::
 
 ## Removing the Azure Defender for Kubernetes extension
 
