@@ -42,6 +42,8 @@
       href: extensions.md
     - name: Monitor using Azure Monitor for containers
       href: extensions-monitor.md
+    - name: Enforce threat protection using Azure Defender
+      href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.yml
     - name: Admission control policies using Azure Policy
       href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.yml
     - name: Deploy IoT workloads

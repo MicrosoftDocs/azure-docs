@@ -15,6 +15,8 @@ To defend your on-premises clusters with the same threat detection capabilities 
 
 You can also use the extension to protect Kubernetes clusters deployed on machines in other cloud providers, although not on their managed Kubernetes services.
 
+[!INCLUDE [preview features note](../azure-arc/kubernetes/includes/preview/preview-callout.md)]
+
 > [!TIP]
 > We've put some sample files to help with the installation process in [Installation examples on GitHub](https://aka.ms/kubernetes-extension-installation-examples).
 
