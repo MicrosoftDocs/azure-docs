@@ -239,11 +239,24 @@ techniques as above to replicate the previous behavior.
 Previously in the 2.x SDK, the operation name from the request telemetry was also set on the dependency telemetry.
 Application Insights Java 3.0 no longer populates operation name on dependency telemetry.
 If you want to see the operation name for the request that is the parent of the dependency telemetry,
-you can write a Logs (Kusto) query to join from the dependency table to the request table.
+you can write a Logs (Kusto) query to join from the dependency table to the request table, e.g.
+
+```
+let start = datetime('...');
+let end = datetime('...');
+dependencies
+| where timestamp between (start .. end)
+| project timestamp, type, name, operation_Id
+| join (requests
+    | where timestamp between (start .. end)
+    | project operation_Name, operation_Id)
+    on $left.operation_Id == $right.operation_Id
+| summarize count() by operation_Name, type, name
+```
 
 ## 2.x SDK logging appenders
 
-The 3.0 agent [auto-collects logging](./java-standalone-config#auto-collected-logging)
+The 3.0 agent [auto-collects logging](./java-standalone-config.md#auto-collected-logging)
 without the need for configuring any logging appenders.
 If you are using 2.x SDK logging appenders, those can be removed, as they will be suppressed by the 3.0 agent anyways.
 

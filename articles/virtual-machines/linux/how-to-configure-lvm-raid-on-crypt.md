@@ -3,7 +3,8 @@ title: Configure LVM and RAID on encrypted devices - Azure Disk Encryption
 description: This article provides instructions for configuring LVM and RAID on encrypted devices for Linux VMs.
 author: jofrance
 ms.service: virtual-machines
-ms.subservice: security
+ms.subservice: disks
+ms.collection: linux
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
@@ -257,7 +258,7 @@ Don't worry about the mount points on this file. Azure Disk Encryption will lose
 You unmount the file systems on the disks that will be used as part of LVM.
 
 ```bash
-for disk in c d e f; do unmount /tempdata${disk}; done
+for disk in c d e f; do umount /tempdata${disk}; done
 ```
 And remove the /etc/fstab entries:
 
@@ -419,6 +420,9 @@ mkfs.ext4 /dev/md10
 ```
 
 Create a new mount point for the file system, add the new file system to /etc/fstab, and mount it:
+
+>[!NOTE] 
+>This cycle iterates only on one device for this particular example, is built this way to be used for multiple md devices if needed.
 
 ```bash
 for device in md10; do diskuuid="$(blkid -s UUID -o value /dev/${device})"; \

@@ -21,7 +21,7 @@ You can use this solution to collect and query the Apache Spark metrics data nea
 
 ## Prerequisites
 
-1.	[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
+1.	[Azure CLI](/cli/azure/install-azure-cli)
 2.	[Helm client 3.30+](https://github.com/helm/helm/releases)
 3.	[kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 4.	[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/)

@@ -3,7 +3,9 @@ title: Prepare a Windows VHD to upload to Azure
 description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
 author: glimoli
 manager: dcscontentpm
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
@@ -119,6 +121,10 @@ After the SFC scan completes, install Windows Updates and restart the computer.
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TEMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    ```
+1. For VMs with legacy operating systems (Windows Server 2012 R2 or Windows 8.1 and below), make sure the latest Hyper-V Integration Component Services are installed. For more information, see [Hyper-V integration components update for Windows VM](https://support.microsoft.com/topic/hyper-v-integration-components-update-for-windows-virtual-machines-8a74ffad-576e-d5a0-5a2f-d6fb2594f990).
+
+> [!NOTE]
+> In a scenario where VMs are to be set up with a disaster recovery solution between the on-premise VMware server and Azure, the Hyper-V Integration Component Services can't be used. If that’s the case, please contact the VMware support to migrate the VM to Azure and make it co-reside in VMware server.
 
 ## Check the Windows services
 
@@ -283,6 +289,8 @@ Make sure the VM is healthy, secure, and RDP accessible:
 1. Set the Boot Configuration Data (BCD) settings.
 
    ```powershell
+   cmd
+
    bcdedit.exe /set "{bootmgr}" integrityservices enable
    bcdedit.exe /set "{default}" device partition=C:
    bcdedit.exe /set "{default}" integrityservices enable
@@ -296,6 +304,8 @@ Make sure the VM is healthy, secure, and RDP accessible:
    bcdedit.exe /set "{bootmgr}" bootems yes
    bcdedit.exe /ems "{current}" ON
    bcdedit.exe /emssettings EMSPORT:1 EMSBAUDRATE:115200
+
+   exit
    ```
 
 1. The dump log can be helpful in troubleshooting Windows crash issues. Enable the dump log
@@ -380,6 +390,10 @@ Make sure the VM is healthy, secure, and RDP accessible:
    other virtualization technology.
 
 ### Install Windows updates
+
+> [!NOTE]
+> To avoid an accidental reboot during the VM provisioning, we recommend completing all Windows update installations and to make sure there’s no pending restart. One way to do this is to install all Windows updates and to reboot the VM before performing the migration to Azure. </br><br>
+>If you also need to do a generalization of the OS (sysprep), you must update Windows and restart the VM before running the Sysprep command.
 
 Ideally, you should keep the machine updated to the *patch level*, if this isn't possible, make sure
 the following updates are installed. To get the latest updates, see the Windows update history
@@ -594,4 +608,4 @@ configured them.
 ## Next steps
 
 - [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)
-- [Troubleshoot Azure Windows VM activation problems](../troubleshooting/troubleshoot-activation-problems.md)
+- [Troubleshoot Azure Windows VM activation problems](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)

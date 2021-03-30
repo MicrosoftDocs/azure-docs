@@ -2,7 +2,7 @@
 title: Create Bicep files - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources
 author: mumian
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.topic: quickstart
 ms.author: jgao
 
@@ -12,9 +12,11 @@ ms.author: jgao
 
 # Quickstart: Create Bicep files with Visual Studio Code
 
-The Bicep extension for Visual Studio Code provides language support and resource autocompletion. These tools help create and validate [Bicep](https://github.com/azure/bicep) files. In this quickstart, you use the extension to create a Bicep file from scratch. While doing so you experience the extensions capabilities such as validation, and completions.
+The Bicep extension for Visual Studio Code provides language support and resource autocompletion. These tools help create and validate [Bicep](./bicep-overview.md) files. In this quickstart, you use the extension to create a Bicep file from scratch. While doing so you experience the extensions capabilities such as validation, and completions.
 
-To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also need either the latest [Azure CLI](/cli/azure/?view=azure-cli-latest&preserve-view=true) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az?view=azps-3.7.0&preserve-view=true) installed and authenticated.
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
+To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also need either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az) installed and authenticated.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -122,4 +124,4 @@ Remove-AzResourceGroup -Name arm-vscode
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Beginner tutorials](./template-tutorial-create-first-template.md)
+> [Beginner Bicep tutorials](./bicep-tutorial-create-first-bicep.md)

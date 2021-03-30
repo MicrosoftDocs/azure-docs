@@ -16,7 +16,7 @@ Use the Face client library for Python to:
 
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
-* [Create and train a person group](#create-and-train-a-person-group)
+* [Create and train a PersonGroup](#create-and-train-a-persongroup)
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
 
@@ -26,7 +26,8 @@ Use the Face client library for Python to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+  * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource</a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -79,7 +80,7 @@ These code snippets show you how to do the following tasks with the Face client 
 * [Authenticate the client](#authenticate-the-client)
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
-* [Create and train a person group](#create-and-train-a-person-group)
+* [Create and train a PersonGroup](#create-and-train-a-persongroup)
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
 
@@ -126,7 +127,7 @@ Use the following code to print the match details to the console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar_print)]
 
-## Create and train a person group
+## Create and train a PersonGroup
 
 The following code creates a **PersonGroup** with three different **Person** objects. It associates each **Person** with a set of example images, and then it trains to be able to recognize each person. 
 
@@ -167,7 +168,7 @@ Once you've assigned faces, you must train the **PersonGroup** so that it can id
 The Identify operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known.
 
 > [!IMPORTANT]
-> In order to run this example, you must first run the code in [Create and train a person group](#create-and-train-a-person-group).
+> In order to run this example, you must first run the code in [Create and train a PersonGroup](#create-and-train-a-persongroup).
 
 ### Get a test image
 

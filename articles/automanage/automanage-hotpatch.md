@@ -3,28 +3,28 @@ title: Hotpatch for Windows Server Azure Edition (preview)
 description: Learn how Hotpatch for Windows Server Azure Edition works and how to enable it
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: automanage
+ms.subservice: hotpatch
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
 ---
 
-# Hotpatch for Windows Server Azure Edition (Preview)
+# Hotpatch for new virtual machines (Preview)
 
 Hotpatching is a new way to install updates on new Windows Server Azure Edition virtual machines (VMs) that doesn’t require a reboot after installation. This article covers information about Hotpatch for Windows Server Azure Edition VMs, which has the following benefits:
 * Lower workload impact with less reboots
 * Faster deployment of updates as the packages are smaller, install faster, and have easier patch orchestration with Azure Update Manager
 * Better protection, as the Hotpatch update packages are scoped to Windows security updates that install faster without rebooting
 
-## How Hotpatch works
+## How hotpatch works
 
 Hotpatch works by first establishing a baseline with a Windows Update Latest Cumulative Update. Hotpatches are periodically released (for example, on the second Tuesday of the month) that build on that baseline. Hotpatches will contain updates that don't require a reboot. Periodically (starting at every three months), the baseline is refreshed with a new Latest Cumulative Update.
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Hotpatch Sample Schedule.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Hotpatch Sample Schedule.":::
 
 There are two types of baselines: **Planned baselines** and **unplanned baselines**.
-*  **Planned baselines** are released on a regular cadence, with Hotpatch releases in between.  Planned baselines include all the updates in a comparable _Latest Cumulative Update_ for that month, and require a reboot.
+*  **Planned baselines** are released on a regular cadence, with hotpatch releases in between.  Planned baselines include all the updates in a comparable _Latest Cumulative Update_ for that month, and require a reboot.
     * The sample schedule above illustrates four planned baseline releases in a calendar year (five total in the diagram), and eight hotpatch releases.
 * **Unplanned baselines** are released when an important update (such as a zero-day fix) is released, and that particular update can't be released as a Hotpatch.  When unplanned baselines are released, a hotpatch release will be replaced with an unplanned baseline in that month.  Unplanned baselines also include all the updates in a comparable _Latest Cumulative Update_ for that month, and also require a reboot.
     * The sample schedule above illustrates two unplanned baselines that would replace the hotpatch releases for those months (the actual number of unplanned baselines in a year isn't known in advance).
@@ -124,21 +124,21 @@ az provider register --namespace Microsoft.Compute
 
 ## Patch installation
 
-During the preview, [Automatic VM Guest Patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) is enabled automatically for all VMs created with _Windows Server 2019 Datacenter: Azure Edition_. With automatic VM guest patching enabled:
+During the preview, [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) is enabled automatically for all VMs created with _Windows Server 2019 Datacenter: Azure Edition_. With automatic VM guest patching enabled:
 * Patches classified as Critical or Security are automatically downloaded and applied on the VM.
 * Patches are applied during off-peak hours in the VM's time zone.
-* Patch orchestration is managed by Azure and patches are applied following [availability-first principles](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching).
+* Patch orchestration is managed by Azure and patches are applied following [availability-first principles](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching).
 * Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
 
 ### How does automatic VM guest patching work?
 
-When [Automatic VM Guest Patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) is enabled on a VM, the available Critical and Security patches are downloaded and applied automatically. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
+When [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) is enabled on a VM, the available Critical and Security patches are downloaded and applied automatically. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
 
 With Hotpatch enabled on _Windows Server 2019 Datacenter: Azure Edition_ VMs, most monthly security updates are delivered as hotpatches that don't require reboots. Latest Cumulative Updates sent on planned or unplanned baseline months will require VM reboots. Additional Critical or Security patches may also be available periodically which may require VM reboots.
 
 The VM is assessed automatically every few days and multiple times within any 30-day period to determine the applicable patches for that VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
-Patches are installed within 30 days of the monthly patch releases, following [availability-first principles](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching). Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be assessed and applicable patches will be installed automatically during the next periodic assessment when the VM is powered on. The next periodic assessment usually happens within a few days.
+Patches are installed within 30 days of the monthly patch releases, following [availability-first principles](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching). Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be assessed and applicable patches will be installed automatically during the next periodic assessment when the VM is powered on. The next periodic assessment usually happens within a few days.
 
 Definition updates and other patches not classified as Critical or Security won't be installed through automatic VM guest patching.
 
@@ -146,10 +146,10 @@ Definition updates and other patches not classified as Critical or Security won'
 
 To view the patch status for your VM, navigate to the **Guest + host updates** section for your VM in the Azure portal. Under the **Guest OS updates** section, click on ‘Go to Hotpatch (Preview)’ to view the latest patch status for your VM.
 
-On this screen, you'll see the Hotpatch status for your VM. You can also review if there any available patches for your VM that haven't been installed. As described in the ‘Patch installation’ section above, all security and critical updates will be automatically installed on your VM using [Automatic VM Guest Patching](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) and no extra actions are required. Patches with other update classifications aren't automatically installed. Instead, they're viewable in the list of available patches under the ‘Update compliance’ tab. You can also view the history of update deployments on your VM through the ‘Update history’. Update history from the past 30 days is displayed, along with patch installation details.
+On this screen, you'll see the Hotpatch status for your VM. You can also review if there any available patches for your VM that haven't been installed. As described in the ‘Patch installation’ section above, all security and critical updates will be automatically installed on your VM using [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) and no extra actions are required. Patches with other update classifications aren't automatically installed. Instead, they're viewable in the list of available patches under the ‘Update compliance’ tab. You can also view the history of update deployments on your VM through the ‘Update history’. Update history from the past 30 days is displayed, along with patch installation details.
 
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch Management.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch Management.":::
 
 With automatic VM guest patching, your VM is periodically and automatically assessed for available updates. These periodic assessments ensure that available patches are detected. You can view the results of the assessment on the Updates screen above, including the time of the last assessment. You can also choose to trigger an on-demand patch assessment for your VM at any time using the ‘Assess now’ option and review the results after assessment completes.
 
@@ -192,7 +192,7 @@ There are some important considerations to running a Windows Server Azure editio
 
 ### Are reboots still needed for a VM enrolled in Hotpatch?
 
-* Reboots are still required to install updates not included in the Hotpatch program, and are required periodically after a baseline (Windows Update Latest Cumulative Update) has been installed. This reboot will keep your VM in sync with all the patches included in the cumulative update. Baselines (which require a reboot) will start out on a three-month cadence and increase over time to 6+ months.
+* Reboots are still required to install updates not included in the Hotpatch program, and are required periodically after a baseline (Windows Update Latest Cumulative Update) has been installed. This reboot will keep your VM in sync with all the patches included in the cumulative update. Baselines (which require a reboot) will start out on a three-month cadence and increase over time.
 
 ### Are my applications affected when a Hotpatch update is installed?
 
@@ -220,5 +220,5 @@ There are some important considerations to running a Windows Server Azure editio
 
 ## Next steps
 
-* Learn about Azure Update Management [here](https://docs.microsoft.com/azure/automation/update-management/overview).
-* Learn more about Automatic VM Guest Patching [here](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching)
+* Learn about Azure Update Management [here](../automation/update-management/overview.md).
+* Learn more about Automatic VM Guest Patching [here](../virtual-machines/automatic-vm-guest-patching.md)

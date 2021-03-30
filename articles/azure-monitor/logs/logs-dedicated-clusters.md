@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor Logs Dedicated Clusters
 description: Customers who ingest more than 1 TB a day of monitoring data may use dedicated rather than shared clusters
-ms.subservice: logs
 ms.topic: conceptual
 author: rboucher
 ms.author: robb

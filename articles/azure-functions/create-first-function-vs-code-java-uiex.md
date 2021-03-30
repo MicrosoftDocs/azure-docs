@@ -135,7 +135,7 @@ Your first deployment of your code includes creating a Function resource in your
 
     + **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
 
-    + **Select Function App in Azure**: Choose `- Create new Function App`.
+    + **Select Function App in Azure**: Choose `Create new Function App`.
 
     + **Enter a globally unique name for the function app**: Type a name that is unique across Azure in a URL path. The name you type is validated to ensure global uniqueness.
 

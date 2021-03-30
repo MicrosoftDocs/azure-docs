@@ -5,7 +5,6 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: dukek
-ms.subservice: alerts
 ---
 # Create and manage action groups in the Azure portal
 An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements. 
@@ -144,7 +143,7 @@ If you are not receiving Notifications on your *primary email*, then you can try
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
 ### Function
-Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md).
+Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md). To handle a request, your endpoint must handle the HTTP POST verb.
 
 You may have a limited number of Function actions in an Action Group.
 
@@ -170,7 +169,7 @@ The Action Groups Webhook action enables you to take advantage of Azure Active D
 2. Enable Action Groups to use your Azure AD Application.
 
     > [!NOTE]
-    > You must be a member of the [Azure AD Application Administrator role](../../active-directory/roles/permissions-reference.md#available-roles) to execute this script.
+    > You must be a member of the [Azure AD Application Administrator role](../../active-directory/roles/permissions-reference.md#all-roles) to execute this script.
     
     - Modify the PowerShell script's Connect-AzureAD call to use your Azure AD Tenant ID.
     - Modify the PowerShell script's variable $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application.
@@ -245,7 +244,7 @@ else
     
 New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $actionGroupsSP.ObjectId -PrincipalId $actionGroupsSP.ObjectId
     
-Write-Host "My Azure AD Application ($myApp.ObjectId): " + $myApp.ObjectId
+Write-Host "My Azure AD Application (ObjectId): " + $myApp.ObjectId
 Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```

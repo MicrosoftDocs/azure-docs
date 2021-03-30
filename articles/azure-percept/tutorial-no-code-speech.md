@@ -13,36 +13,17 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 In this tutorial, you will create a voice assistant from a template to use with your Azure Percept DK and Azure Percept Audio. The voice assistant demo runs within [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) and contains a selection of voice-controlled virtual objects. To control an object, say your keyword, which is a word or short phrase that wakes your device, followed by a command. Each template responds to a set of specific commands.
 
-This guide will walk you through the process of setting up your devices, creating a voice assistant and the necessary [Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview) resources, testing your voice assistant, configuring your keyword, and creating custom keywords.
+This guide will walk you through the process of setting up your devices, creating a voice assistant and the necessary [Speech Services](../cognitive-services/speech-service/overview.md) resources, testing your voice assistant, configuring your keyword, and creating custom keywords.
 
 ## Prerequisites
 
 - Azure Percept DK (devkit)
 - Azure Percept Audio
-- Speaker or headphones (optional)
+- Speaker or headphones that can connect to 3.5mm audio jack (optional)
 - [Azure subscription](https://azure.microsoft.com/free/)
 - [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md): you connected your devkit to a Wi-Fi network, created an IoT Hub, and connected your devkit to the IoT Hub
+- [Azure Percept Audio setup](./quickstart-percept-audio-setup.md)
 
-## Device setup
-
-1. (Optionally) connect your speaker or headphones to the Audio SoM via the headphone jack, which is labeled "Line Out." This will allow you to hear your voice assistant's audio responses. If you do not connect a speaker or headphones, you will still be able to see the responses as text in the demo window.
-
-1. Connect the Audio SoM to the carrier board of your devkit with the included USB-A to micro B cable.
-
-1. Power on the devkit.
-
-    - LED L01 on the Audio SoM will change to solid green to indicate that the device was powered on.
-    - LED L02 will change to blinking green to indicate that the Audio SoM is authenticating.
-
-1. Wait for the authentication process to complete--this can take up to 3 minutes.
-
-1. Proceed to the next section when you see one of the following:
-
-    - LED L01 turns off and L02 turns white. This indicates that authentication is complete, and the devkit has not been configured with a keyword yet.
-    - All three LEDs turn blue. This indicates that authentication is complete, and the devkit is configured with a keyword.
-
-    > [!NOTE]
-    > Reach out to support if your devkit does not authenticate.
 
 ## Create a voice assistant using an available template
 
@@ -114,6 +95,7 @@ The automotive demo has a virtual seat warmer, defroster, and thermostat you can
 * "Set temperature to X degrees." (X is the desired temperature, e.g. 75.)
 * "Increase/decrease the temperature by Y degrees."
 
+
 :::image type="content" source="./media/tutorial-no-code-speech/auto-demo.png" alt-text="Screenshot of automotive demo window.":::
 
 ### Inventory demo commands
@@ -126,19 +108,30 @@ The inventory demo has a selection of virtual blue, yellow, and green boxes to i
 * "Count Y boxes." (Y is the color of the boxes, e.g. yellow.)
 * "Ship everything in stock."
 
+
 :::image type="content" source="./media/tutorial-no-code-speech/inventory-demo.png" alt-text="Screenshot of inventory demo window.":::
 
 ## Configure your keyword
 
-To change your keyword, click **change** next to **Custom Keyword** in the demo window. Select one of the available keywords and click **Save**. You will be able to choose from a selection of prebuilt keywords and any custom keywords you have created.
+You can customize keyword for your voice assistant application.
 
-:::image type="content" source="./media/tutorial-no-code-speech/change-keyword.png" alt-text="Screenshot of selection of available keywords.":::
+1. Click **change** next to **Custom Keyword** in the demo window.
+
+1. Select one of the available keywords. You will be able to choose from a selection of sample keywords and any custom keywords you have created.
+
+1. Click **Save**.
 
 ### Create a custom keyword
 
-To create a custom keyword, click **+ Create Custom Keyword** near the top of the demo window. Enter your desired keyword, which can be a single word or a short phrase, select your **Speech resource** (this is listed next to **Custom Command** in the demo window and contains your application prefix), and click **Save**. Training for your custom keyword may complete in just a few seconds.
+You can create your own keyword for your voice application. Training for your custom keyword may complete in just a few minutes.
 
-:::image type="content" source="./media/tutorial-no-code-speech/custom-keyword.png" alt-text="Screenshot of custom keyword creation window.":::
+1. Click **+ Create Custom Keyword** near the top of the demo window. 
+
+1. Enter your desired keyword, which can be a single word or a short phrase.
+
+1. Select your **Speech resource** (this is listed next to **Custom Command** in the demo window and contains your application prefix).
+
+1. Click **Save**. 
 
 ## Create a custom command
 
@@ -174,19 +167,19 @@ Once you create a custom command, you must go to [Speech Studio](https://speech.
 
     :::image type="content" source="./media/tutorial-no-code-speech/speech-studio.png" alt-text="Screenshot of speech studio home screen.":::
 
-For more information on developing custom commands, please see the [Speech Service documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands).
+For more information on developing custom commands, please see the [Speech Service documentation](../cognitive-services/speech-service/custom-commands.md).
 
 ## Troubleshooting
 
 ### Voice assistant was created but does not respond to commands
 
-Check the LED lights on the Audio SoM:
+Check the LED lights on the Interposer Board:
 
 * Three solid blue lights indicate that the voice assistant is ready and waiting for the keyword.
 * If the center LED (L02) is white, the devkit completed initialization and needs to be configured with a keyword.
-* Any combination of green lights indicates that the Audio SoM has not completed initialization yet. Initialization may take a few minutes to complete.
+* If the center LED (L02) is flashing white, the Audio SoM has not completed initialization yet. Initialization may take a few minutes to complete.
 
-For more information about the Audio SoM LED indicators, please see the LED article.
+For more information about the LED indicators, please see the [LED article](./audio-button-led-behavior.md).
 
 ### Voice assistant does not respond to a custom keyword created in Speech Studio
 
@@ -202,22 +195,20 @@ This may occur if the speech module is out of date. Follow these steps to update
 
 1. Check the speech module version. If an update is available, you will see an **Update** button next to the version number.
 
-    :::image type="content" source="./media/tutorial-no-code-speech/devkit.png" alt-text="Screenshot of devkit speech settings window.":::
-
 1. Click **Update** to deploy the speech module update. The update process generally takes 2-3 minutes to complete.
 
 ## Clean up resources
 
 Once you are done working with your voice assistant application, follow these steps to clean up the speech resources you deployed during this tutorial:
 
-1. From the [Azure portal](https://ms.portal.azure.com/#home), select **Resource groups** from the left menu panel or type it into the search bar.
+1. From the [Azure portal](https://portal.azure.com), select **Resource groups** from the left menu panel or type it into the search bar.
 
     :::image type="content" source="./media/tutorial-no-code-speech/azure-portal.png" alt-text="Screenshot of Azure portal homepage showing left menu panel and Resource Groups.":::
 
 1. Select your resource group.
 
 1. Select all six resources that contain your application prefix and click the **Delete** icon on the top menu panel.
-
+\
     :::image type="content" source="./media/tutorial-no-code-speech/select-resources.png" alt-text="Screenshot of speech resources selected for deletion.":::
 
 1. To confirm deletion, type **yes** in the confirmation box, verify you have selected the correct resources, and click **Delete**.

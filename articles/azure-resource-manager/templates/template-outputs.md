@@ -9,7 +9,7 @@ ms.date: 02/19/2021
 
 This article describes how to define output values in your Azure Resource Manager template (ARM template) and Bicep file. You use outputs when you need to return values from the deployed resources.
 
-The format of each output value must resolve to one of the [data types](template-syntax.md#data-types).
+The format of each output value must resolve to one of the [data types](data-types.md).
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 

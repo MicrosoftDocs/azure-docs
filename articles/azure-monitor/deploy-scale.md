@@ -1,7 +1,6 @@
 ---
 title: Deploy Azure Monitor at scale using Azure Policy
 description: Deploy Azure Monitor features at scale using Azure Policy.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

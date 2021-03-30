@@ -61,7 +61,7 @@ Group Tag Requirements:
 
 1. Add a Tag to your device(s).
 	1. From **IoT Edge** on the left navigation pane, find your Azure Percept DK and navigate to its **Device Twin**.
-	1. Add a new **Device Update for IoT Hub** tag value as shown below (Change ```<CustomTagValue>``` to your value, i.e. AzurePerceptGroup1). Learn more about device twin [JSON document tags](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins#device-twins).
+	1. Add a new **Device Update for IoT Hub** tag value as shown below (Change ```<CustomTagValue>``` to your value, i.e. AzurePerceptGroup1). Learn more about device twin [JSON document tags](../iot-hub/iot-hub-devguide-device-twins.md#device-twins).
 
     ```
     "tags": {
@@ -87,7 +87,7 @@ Group Tag Requirements:
 1. Confirm that the correct device group is selected as the target device group. Select a **Start date** and **Start time** for your deployment, then click **Create deployment**. 
 
 	>[!CAUTION]
-	>Setting the start time the past will trigger the deployment immediately.
+	>Setting the start time in the past will trigger the deployment immediately.
  
 1. Check the compliance chart. You should see the update is now in progress.
  

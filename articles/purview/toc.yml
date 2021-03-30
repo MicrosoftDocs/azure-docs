@@ -123,9 +123,7 @@ items:
     - name: Create, import, & export glossary terms
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
-      href: how-to-manage-term-templates.md
-    - name: Bulk edit assets to assign glossary terms 
-      href: how-to-bulk-edit-assets.md
+      href: how-to-manage-term-templates.md  
   - name: Bulk edit
     items:
     - name: Bulk edit assets to tag annotations and contacts 
@@ -170,6 +168,10 @@ items:
       href: sensitivity-insights.md
     - name: View file extension insights
       href: file-extension-insights.md
+  - name: Security & Networking
+    items:
+    - name: Manage Private endpoints
+      href: catalog-private-link.md
 - name: Reference
   items:
     - name: Supported classifications

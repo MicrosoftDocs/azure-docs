@@ -29,7 +29,7 @@ This quickstart shows you how to create a content key policy where you specify w
 
 ## Prerequisites
 
-Upload and process your content as described in [manage assets in the Azure portal](manage-assets-quickstart.md)
+Upload and process your content as described in [manage assets in the Azure portal](asset-create-asset-upload-portal-quickstart.md)
 
 ## Create a content key policy
 
@@ -89,4 +89,4 @@ If you intend to try the other quickstarts, you should hold on to the resources 
 
 ## Next steps
 
-[Manage assets](manage-assets-quickstart.md)
+[Manage assets](asset-create-asset-upload-portal-quickstart.md)

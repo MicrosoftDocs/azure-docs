@@ -4,8 +4,8 @@ description: Learn to configure routes, enforce security rules, and global setti
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
-ms.topic:  quickstart
-ms.date: 12/08/2020
+ms.topic:  conceptual
+ms.date: 02/18/2021
 ms.author: cshoe
 ---
 
@@ -270,7 +270,7 @@ The following example configuration demonstrates how to override an error code.
         },
         {
             "route": "/.auth/login/twitter",
-            "statusCode": 404,
+            "statusCode": 404
         },
         {
             "route": "/logout",
@@ -310,7 +310,7 @@ The following example configuration demonstrates how to override an error code.
     },
     "mimeTypes": {
         ".json": "text/json"
-    },
+    }
 }
 ```
 

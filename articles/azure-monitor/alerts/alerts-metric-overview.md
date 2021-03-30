@@ -1,9 +1,8 @@
 ---
 title: Understand how metric alerts work in Azure Monitor.
 description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
-ms.date: 01/19/2021
+ms.date: 03/11/2021
 ms.topic: conceptual
-ms.subservice: alerts
 
 ---
 
@@ -137,7 +136,7 @@ This feature is currently supported for platform metrics (not custom metrics) fo
 
 | Service | Public Azure | Government | China |
 |:--------|:--------|:--------|:--------|
-| Virtual machines<sup>1</sup>  | **Yes** | **Yes** | No |
+| Virtual machines<sup>1</sup>  | **Yes** | **Yes** | **Yes** |
 | SQL server databases | **Yes** | **Yes** | **Yes** |
 | SQL server elastic pools | **Yes** | **Yes** | **Yes** |
 | NetApp files capacity pools | **Yes** | **Yes** | **Yes** |

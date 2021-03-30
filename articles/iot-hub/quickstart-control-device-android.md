@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.custom: [mvc, mqtt, devx-track-java, devx-track-azurecli]
 ms.date: 06/21/2019
 ms.author: wesmc
-# As a developer new to IoT Hub, I need to use a service application written for Android to control devices connected to the hub.
+#Customer intent: As a developer new to IoT Hub, I need to use a service application written for Android to control devices connected to the hub.
 ---
 
 # Quickstart: Control a device connected to an IoT hub (Android)
@@ -125,7 +125,7 @@ This app needs to be left running on a physical device or emulator while you exe
 
 ## Read the telemetry from your hub
 
-In this section, you will use the Azure Cloud Shell with the [IoT extension](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) to monitor the messages that are sent by the Android device.
+In this section, you will use the Azure Cloud Shell with the [IoT extension](/cli/azure/ext/azure-iot/iot) to monitor the messages that are sent by the Android device.
 
 1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
 

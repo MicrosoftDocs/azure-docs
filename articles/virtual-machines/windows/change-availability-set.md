@@ -1,14 +1,14 @@
 ---
-title: Change a VMs availability set 
+title: Change a VMs availability set using Azure PowerShell
 description: Learn how to change the availability set for your virtual machine using Azure PowerShell.
 ms.service: virtual-machines
 author: cynthn
 ms.topic: how-to
-ms.date: 01/31/2020
+ms.date: 3/8/2021
 ms.author: cynthn
-#pmcontact: 
+ms.reviewer: mimckitt
 ---
-# Change the availability set for a VM
+# Change the availability set for a VM using Azure PowerShell    
 The following steps describe how to change the availability set of a VM using Azure PowerShell. A VM can only be added to an availability set when it is created. To change the availability set, you need to delete and then recreate the virtual machine. 
 
 This article applies to both Linux and Windows VMs.
@@ -75,7 +75,7 @@ The following script provides an example of gathering the required information, 
        -CreateOption Attach
     }
     
-# Add NIC(s) and keep the same NIC as primary
+# Add NIC(s) and keep the same NIC as primary; keep the Private IP too, if it exists. 
     foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {	
     if ($nic.Primary -eq "True")
     {
