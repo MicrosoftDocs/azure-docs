@@ -40,4 +40,4 @@ To get to the key, use **GetPolicyPropertiesWithSecretsAsync**, as shown in the 
 
 ## Next steps
 
-[Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md) 
+[Design of a multi-DRM content protection system with access control](architecture-design-multi-drm-system.md) 
