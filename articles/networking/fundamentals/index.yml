@@ -139,7 +139,7 @@ landingContent:
        - linkListType: overview
          links:
            - text: VPN connections - VPN Gateway
-             url: ../../vpn-gateway/about-vpn-gateways.md
+             url: ../../vpn-gateway/vpn-gateway-about-vpngateways.md
            - text: Dedicated private connections - ExpressRoute
              url: ../../expressroute/expressroute-introduction.md
            - text: VPN and dedicated private connections - Virtual WAN
