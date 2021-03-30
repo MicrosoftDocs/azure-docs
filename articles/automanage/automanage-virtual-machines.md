@@ -65,6 +65,8 @@ If you are enabling Automanage with a new Automanage account:
 If you are enabling Automanage with an existing Automanage account:
 * **Contributor** role on the resource group containing your VMs
 
+The Automanage account will be granted **Contributor** and **Resource Policy Contributor** permissions to perform actions on Automanaged machines.
+
 > [!NOTE]
 > If you want to use Automanage on a VM that is connected to a workspace in a different subscription, you must have the permissions described above on each subscription.
 
