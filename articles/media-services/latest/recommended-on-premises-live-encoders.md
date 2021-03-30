@@ -9,11 +9,6 @@ ms.author: johndeu
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-# ms.custom: can-be-multiple-comma-separated
-# ms.suite: 
-# ms.tgt_pltfrm: 
-# ms.reviewer: 
-# manager: MSFT-alias-manager-or-PM-counterpart
 ---
  
 # Verified on-premises live streaming encoders

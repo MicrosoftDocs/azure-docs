@@ -11,7 +11,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-# As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio
+#Customer intent: As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio.
 ---
 
 # Run Jupyter Notebooks in your workspace
@@ -155,7 +155,7 @@ These actions will reset the notebook state and will reset all variables in the 
 
 ## Add new kernels
 
-[Use the terminal ](how-to-access-terminal.md#add-new-kernels) to create and add new kernels to your compute instance. The notebook will automatically find all Jupyter kernels installed on the connected compute instance.
+[Use the terminal](how-to-access-terminal.md#add-new-kernels) to create and add new kernels to your compute instance. The notebook will automatically find all Jupyter kernels installed on the connected compute instance.
 
 Use the kernel dropdown on the right to change to any of the installed kernels.  
 
