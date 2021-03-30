@@ -6,16 +6,13 @@ ms.date: 03/20/2021
 ---
 
 # Publish events to Azure Active Directory protected endpoints
-
-This article describes how to take advantage of Azure Active Directory to secure the connection between your Event Subscription and your webhook endpoint. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../active-directory/develop/v2-overview.md).
+This article describes how to use Azure Active Directory (Azure AD) to secure the connection between your **event subscription** and your **webhook endpoint**. For an overview of Azure AD applications and service principals, see [Microsoft identity platform (v2.0) overview](../active-directory/develop/v2-overview.md).
 
 This article uses the Azure portal for demonstration, however the feature can also be enabled using CLI, PowerShell, or the SDKs.
 
 
 ## Create an Azure AD Application
-
-Begin by creating an Azure AD Application for your protected endpoint. See https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
-    - Configure your protected API to be called by a daemon app.
+Register your Webhook with Azure AD by creating an Azure AD application for your protected endpoint. See [Scenario: Protected web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview). Configure your protected API to be called by a daemon app.
     
 ## Enable Event Grid to use your Azure AD Application
 This section shows you how to enable Event Grid to use your Azure AD application. 
@@ -106,13 +103,13 @@ Write-Host $myAppRoles
 ```
 
 ### Create a role Assignment
-The role assignment should be created in the Webhook Azure AD App for the AAD App or AAD user creating the event subscription.   Use one of the scripts below depending on if an AAD App or AAD User is creating the event subscription.
+The role assignment should be created in the Webhook Azure AD App for the AAD app or AAD user creating the event subscription. Use one of the scripts below depending on whether an AAD app or AAD user is creating the event subscription.
 
 #### Option A. Create a role assignment for event subscription AAD app 
 
 ```powershell
-# This is the app id of the application which will create eventsubscription. Set to $null if you are not assigning the role to app.
-$eventSubscriptionWriterAppId = "<the app id of the application which will create eventsubscription>"
+# This is the app id of the application which will create event subscription. Set to $null if you are not assigning the role to app.
+$eventSubscriptionWriterAppId = "<the app id of the application which will create event subscription>"
 
        $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
 
@@ -130,7 +127,7 @@ $eventSubscriptionWriterAppId = "<the app id of the application which will creat
 
 ```powershell
 # This is the user principal name of the user who will create event subscription. Set to $null if you are not assigning the role to user.
-$eventSubscriptionWriterUserPrincipalName = "<the user principal name of the user who will create eventsubscription>"
+$eventSubscriptionWriterUserPrincipalName = "<the user principal name of the user who will create event subscription>"
 
 $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
     
@@ -146,7 +143,7 @@ Run the New-AzureADServiceAppRoleAssignment command to assign Event Grid service
 New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
 ```
 
-Run the following commands to output information that you will use the next steps.
+Run the following commands to output information that you'll use later.
 
 ```powershell
 Write-Host "My Webhook's Azure AD Tenant Id:  $myWebhookAadTenantId"
