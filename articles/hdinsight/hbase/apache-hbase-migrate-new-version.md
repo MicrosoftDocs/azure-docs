@@ -43,7 +43,7 @@ For more information about HDInsight versions and compatibility, see [Azure HDIn
 
 To upgrade your Apache HBase cluster on Azure HDInsight, complete the following steps:
 
-1. [Set up a new destination HDInsight cluster](../hdinsight-hadoop-provision-linux-clusters.md) using the same storage account, but with a different container name:
+1. In the Azure portal, [set up a new destination HDInsight cluster](../hdinsight-hadoop-provision-linux-clusters.md) using the same storage account, but with a different container name:
 
    :::image type="content" source="./media/apache-hbase-migrate-new-version/same-storage-different-container.png" alt-text="Use the same Storage account, but create a different container." border="false":::
    
@@ -70,8 +70,8 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 1. If your source HBase cluster doesn't have the [Accelerated Writes](apache-hbase-accelerated-writes.md) feature, also called Enhanced Writes, skip this step. For source HBase clusters with Accelerated Writes, back up the WAL dir under HDFS by running the following commands from an SSH session on any of the Zookeeper nodes or worker nodes of the source cluster.
    
    ```bash
-   hdfs dfs -mkdir /hbase-wal-backup**
-   hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup**
+   hdfs dfs -mkdir /hbase-wal-backup
+   hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup
    ```
    
 1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the destination cluster, `https://<NEWCLUSTERNAME>.azurehdinsight.net`, and stop the HBase services.
@@ -105,8 +105,8 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
         
      1. Run the following commands:
         ```bash   
-        hdfs dfs -rm -r hdfs://mycluster/hbasewal**
-        hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal hdfs://mycluster/**
+        hdfs dfs -rm -r hdfs://mycluster/hbasewal
+        hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal hdfs://mycluster/
         ```
      
    - If only the **destination cluster** has Accelerated Writes:
@@ -122,14 +122,14 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
         
         - If the source cluster is HDI 3.6:
           ```bash   
-          hdfs dfs -rm -r hdfs://mycluster/hbasewal**
+          hdfs dfs -rm -r hdfs://mycluster/hbasewal
           hdfs dfs -cp <source-container-fullpath>/hbase/MasterProcWALs hdfs://mycluster/hbasewal
           hdfs dfs -cp <source-container-fullpath>/hbase/WALs hdfs://mycluster/hbasewal
           ```
           
         - If the source cluster is HDI 4.0:
           ```bash   
-          hdfs dfs -rm -r hdfs://mycluster/hbasewal**
+          hdfs dfs -rm -r hdfs://mycluster/hbasewal
           hdfs dfs -cp <source-container-fullpath>/hbase-wals/MasterProcWALs hdfs://mycluster/hbasewal
           hdfs dfs -cp <source-container-fullpath>/hbase-wals/WALs hdfs://mycluster/hbasewal
           ```

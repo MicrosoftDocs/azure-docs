@@ -49,7 +49,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    
    For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
    
-1. Clean the Zookeeper data, file system, and WAL on the destination cluster by running the following commands in any of the Zookeeper nodes or worker nodes:
+1. Clean the Zookeeper data and file system on the destination cluster by running the following commands in any of the Zookeeper nodes or worker nodes:
    
    ```bash
    hbase zkcli
@@ -59,15 +59,14 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    
    ```bash   
    hdfs dfs -rm -r /hbase
-   hdfs dfs -rm -r hdfs://mycluster/hbasewal**
    ```
    
-1. Clean up the WAL on the destination cluster by running the following commands in any of the Zookeeper nodes or worker nodes.
+1. Clean the WAL on the destination cluster by running the following commands in any of the Zookeeper nodes or worker nodes.
    
    - If the destination cluster **has the Accelerated Writes feature,** also called Enhanced Writes, run:
      
      ```bash   
-     hdfs dfs -rm -r hdfs://mycluster/hbasewal**
+     hdfs dfs -rm -r hdfs://mycluster/hbasewal
      ```
      
    - If the destination cluster is HDI 4.0 and **doesn't have the Accelerated Writes feature**, run:
@@ -111,8 +110,8 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 1. If your source HBase cluster doesn't have the [Accelerated Writes](apache-hbase-accelerated-writes.md) feature, skip this step. For source HBase clusters with Accelerated Writes, back up the WAL dir under HDFS by running the following commands from an SSH session on any of the Zookeeper nodes or worker nodes of the source cluster.
    
    ```bash
-   hdfs dfs -mkdir /hbase-wal-backup**
-   hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup**
+   hdfs dfs -mkdir /hbase-wal-backup
+   hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup
    ```
    
 1. On the destination cluster, save your changes and restart all required services as indicated by Ambari.
