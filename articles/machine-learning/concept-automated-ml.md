@@ -18,6 +18,17 @@ Automated machine learning, also referred to as automated ML or AutoML, is the p
 
 Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. With automated machine learning, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
+## AutoML in Azure Machine Learning
+
+Azure Machine Learning offers two experiences for working with automated ML:
+
+* For code experienced customers, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  Get started with [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md).
+
+* For limited/no code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with these tutorials:
+    * [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
+    *  [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md)
+
+
 ## When to use AutoML: classify, regression, & forecast
 
 Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. Automated ML democratizes the machine learning model development process, and empowers its users, no matter their data science expertise, to identify an end-to-end machine learning pipeline for any problem.
@@ -198,14 +209,6 @@ For example, building a model __for each instance or individual__ in the followi
 * Predicting sales for each individual store
 * Predictive maintenance for hundreds of oil wells
 * Tailoring an experience for individual users.
-
-## AutoML in Azure Machine Learning
-
-Azure Machine Learning offers two experiences for working with automated ML:
-
-* For code experienced customers, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 
-
-* For limited/no code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/)  
 
 <a name="parity"></a>
 
