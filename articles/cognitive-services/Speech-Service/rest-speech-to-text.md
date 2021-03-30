@@ -148,7 +148,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 We strongly recommend streaming (chunked) uploading while posting the audio data, which can significantly reduce the latency. See [sample code in different programming languages](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) for how to enable streaming.
 
 >[!NOTE]
->The pronunciation assessment feature currently supports `en-US` language, and is available on all speech-to-text regions, see supported [region list](regions.md#speech-to-text).
+>The pronunciation assessment feature currently supports `en-US` language, and is available on all speech-to-text regions. See supported [region list](regions.md#speech-to-text).
 
 ### Sample request
 

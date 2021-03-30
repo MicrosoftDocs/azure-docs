@@ -23,7 +23,7 @@ With pronunciation assessment, language learners can practice, get instant feedb
 In this article, you'll learn how to set up `PronunciationAssessmentConfig` and retrieve the `PronunciationAssessmentResult` using the speech SDK.
 
 > [!NOTE]
-> The pronunciation assessment feature currently supports `en-US` language, and is available on all speech-to-text regions, see supported [region list](regions.md#speech-to-text-text-to-speech-and-translation).
+> The pronunciation assessment feature currently supports `en-US` language, and is available on all speech-to-text regions. See supported [region list](regions.md#speech-to-text-text-to-speech-and-translation).
 
 ## Pronunciation assessment with the Speech SDK
 
