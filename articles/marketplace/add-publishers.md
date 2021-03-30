@@ -12,6 +12,11 @@ ms.custom: contperf-fy21q2
 
 # Add new publishers to the commercial markeplace program
 
+**Appropriate roles**
+
+- Owner
+- Manager
+
 An organization can have multiple publishers associated with a commercial marketplace account.
 
 >[!NOTE]
