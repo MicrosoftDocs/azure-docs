@@ -20,7 +20,7 @@ An organization can have multiple publishers associated with a commercial market
 There are two ways to add a publisher, depending on whether you are part of a publisher account:
 
 - [Add a publisher if you are part of a publisher account](#add-a-publisher-if-you-are-part-of-a-publisher-account)
-- [Add a publisher if you are not part of a publisher account](add-a-publisher-if-you-are-not-part-of-a-publisher-account)
+- [Add a publisher if you are not part of a publisher account](#add-a-publisher-if-you-are-not-part-of-a-publisher-account)
 
 ## Add a publisher if you are part of a publisher account
 
