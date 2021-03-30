@@ -333,7 +333,7 @@
       items:
         - name: About Service Meshes
           href: servicemesh-about.md
-        - name: Open Service Mesh (OSM) AKS add-on (preview)
+        - name: Open Service Mesh AKS add-on (preview)
           href: servicemesh-osm-about.md
         - name: Use Istio
           items:
