@@ -1056,7 +1056,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | accounts | No. [Learn more](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region).
+> | accounts | No. [Learn more](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
 > | actiongroups |  No | 
 > | activitylogalerts | No | 
 > | alertrules |  No | 
@@ -1073,7 +1073,7 @@ Jump to a resource provider namespace:
 > | listmigrationdate | No | 
 > | logdefinitions | No | 
 > | logprofiles | No | 
-> | logs | No | No |
+> | logs | No |
 > | metricalerts | No | 
 > | metricbaselines | No | 
 > | metricbatch | No | 
