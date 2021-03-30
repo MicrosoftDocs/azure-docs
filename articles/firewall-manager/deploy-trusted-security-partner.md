@@ -62,7 +62,7 @@ Remember that a VPN gateway must be deployed to convert an existing hub to secur
 
 ## Configure third-party security providers to connect to a secured hub
 
-To set up tunnels to your virtual hub’s VPN Gateway, third-party providers need access rights to your hub. To do this, associate a service principal with your subscription or resource group, and grant access rights. You then must give these credentials to the third-party using their portal.
+To set up tunnels to your virtual hub’s VPN Gateway, third-party providers need access rights to your hub. To do this, associate a service principal with your subscription or resource group, and grant access rights. You then must give these credentials to the third party using their portal.
 
 ### Create and authorize a service principal
 
@@ -103,7 +103,7 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 
 Next, you can check if VNet virtual machines or the branch site can access the Internet and validate that the traffic is flowing to the third-party service.
 
-After finishing the route setting steps, the VNet virtual machines as well as the branch sites are sent a 0/0 to third party service route. You can't RDP or SSH into these virtual machines. To sign in, you can deploy the [Azure Bastion](../bastion/bastion-overview.md) service in a peered VNet.
+After finishing the route setting steps, the VNet virtual machines as well as the branch sites are sent a 0/0 to the third-party service route. You can't RDP or SSH into these virtual machines. To sign in, you can deploy the [Azure Bastion](../bastion/bastion-overview.md) service in a peered VNet.
 
 ## Next steps
 
