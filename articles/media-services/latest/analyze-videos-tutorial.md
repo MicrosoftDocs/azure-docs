@@ -34,7 +34,7 @@ As an important reminder, you must comply with all applicable laws in your use o
 ## Prerequisites
 
 - If you don't have Visual Studio installed, get [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Create a Media Services account](./create-account-howto.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
+- [Create a Media Services account](./account-create-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You'll need to use them to access the API.
 
 ## Download and configure the sample
@@ -154,7 +154,7 @@ When we run the program, the job produces thumbnails for each face that it finds
 
 ## Examine the output
 
-The output file of analyzing videos is called insights.json. This file contains insights about your video. You can find description of  elements found in the json file in the [Media intelligence](./analyzing-video-audio-files-concept.md) article.
+The output file of analyzing videos is called insights.json. This file contains insights about your video. You can find description of  elements found in the json file in the [Media intelligence](./analyze-video-audio-files-concept.md) article.
 
 ## Multithreading
 
