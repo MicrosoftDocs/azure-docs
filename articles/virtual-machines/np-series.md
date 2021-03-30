@@ -46,7 +46,7 @@ During the preview program Microsoft Azure engineering teams will share specific
 **A:** Xilinx recommends [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)
 
 
-**Q:** Do I need to use NP VMs for develop my solutuion? 
+**Q:** Do I need to use NP VMs to develop my solutuion? 
 
 **A:** No, you can develop on-premise and deploy to the cloud! Please make sure you follow the attestation documentation to deploy on NP VMs. 
 
