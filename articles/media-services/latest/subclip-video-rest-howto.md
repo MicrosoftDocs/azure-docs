@@ -29,7 +29,7 @@ To complete the steps described in this topic, you have to:
     
     Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 - Create a Transform and an output Assets. You can see how to create a Transform and an output Assets in the [Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md) tutorial.
-- Review the [Encoding concept](encoding-concept.md) topic.
+- Review the [Encoding concept](encode-concept.md) topic.
 
 ## Create a subclipping job
 

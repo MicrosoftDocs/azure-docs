@@ -162,7 +162,7 @@ See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/A
 
 * [Create filters with .NET](filters-dynamic-manifest-dotnet-how-to.md)
 * [Create filters with REST](filters-dynamic-manifest-rest-howto.md)
-* [Create filters with CLI](filters-dynamic-manifest-cli-howto.md)
+* [Create filters with CLI](filters-dynamic-manifest-cli-how-to.md)
 
 ## Next steps
 

@@ -152,7 +152,7 @@ The following articles show how to create filters programmatically:
 
 - [Create filters with REST APIs](filters-dynamic-manifest-rest-howto.md)
 - [Create filters with .NET](filters-dynamic-manifest-dotnet-how-to.md)
-- [Create filters with CLI](filters-dynamic-manifest-cli-howto.md)
+- [Create filters with CLI](filters-dynamic-manifest-cli-how-to.md)
 
 [renditions1]: ./media/filters-dynamic-manifest-concept/media-services-rendition-filter.png
 [renditions2]: ./media/filters-dynamic-manifest-concept/media-services-rendition-filter2.png

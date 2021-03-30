@@ -21,7 +21,7 @@ In Media Services, a [streaming endpoint](streaming-endpoint-concept.md) (origin
 
 ## To prepare your source files for delivery
 
-To take advantage of dynamic packaging, you need to [encode](encoding-concept.md) your mezzanine (source) file into a set of multiple bitrate MP4 (ISO Base Media 14496-12) files. You need to have an [asset](assets-concept.md) with the encoded MP4 and streaming configuration files needed by Media Services dynamic packaging. From this set of MP4 files, you can use dynamic packaging to deliver video via the streaming media protocols described below.
+To take advantage of dynamic packaging, you need to [encode](encode-concept.md) your mezzanine (source) file into a set of multiple bitrate MP4 (ISO Base Media 14496-12) files. You need to have an [asset](assets-concept.md) with the encoded MP4 and streaming configuration files needed by Media Services dynamic packaging. From this set of MP4 files, you can use dynamic packaging to deliver video via the streaming media protocols described below.
 
 Azure Media Services dynamic packaging only supports video and audio file in the MP4 container format. Audio files must be encoded into an MP4 container as well when using alternate codecs like Dolby.  
 
@@ -87,7 +87,7 @@ The download path is present in the above image just to show you that you can do
 
 ### Encode to adaptive bitrate MP4s
 
-The following articles show examples of [how to encode a video with Media Services](encoding-concept.md):
+The following articles show examples of [how to encode a video with Media Services](encode-concept.md):
 
 * [Encode from an HTTPS URL by using built-in presets](job-input-from-http-how-to.md).
 * [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md).

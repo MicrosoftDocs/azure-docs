@@ -88,7 +88,7 @@
   - name: Python
     items:
     - name: Python Basic Encoding
-      href: quickstart-basic-encoding-python.md
+      href: encode-basic-encoding-python-quickstart.md
   - name: Azure portal
     items:
     - name: Customer managed keys or BYOK tutorial
@@ -136,7 +136,7 @@
   - name: Encoding content
     items:
     - name: Overview
-      href: encoding-concept.md   
+      href: encode-concept.md   
       displayName: encode, encoding, presets, jobs, adaptive, bitrate, billing 
     - name: Standard Encoder formats
       displayName: containers, codecs    
@@ -257,7 +257,7 @@
     items:
     - name: Video on Demand
       displayName: failover, bcdr, HA, high availability
-      href: architecture-high-availability-encoding-concept.md
+      href: architecture-high-availability-encode-concept.md
   - name: Media Services architectures
     displayName: architectures
     href: architecture-concept.md
@@ -439,7 +439,7 @@
       href: filters-dynamic-manifest-rest-howto.md
       displayName: filters
     - name: With CLI
-      href: filters-dynamic-manifest-cli-howto.md  
+      href: filters-dynamic-manifest-cli-how-to.md  
       displayName: filters
   - name: Deliver content
     items:

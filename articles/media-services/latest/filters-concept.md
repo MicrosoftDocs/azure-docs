@@ -142,7 +142,7 @@ You can specify a list of [asset or account filters](filters-concept.md) on your
 See the following examples:
 
 * [Associate filters with Streaming Locator - .NET](filters-dynamic-manifest-dotnet-how-to.md#associate-filters-with-streaming-locator)
-* [Associate filters with Streaming Locator - CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+* [Associate filters with Streaming Locator - CLI](filters-dynamic-manifest-cli-how-to.md#associate-filters-with-streaming-locator)
 
 ## Updating filters
  
@@ -158,4 +158,4 @@ The following articles show how to create filters programmatically.
 
 - [Create filters with REST APIs](filters-dynamic-manifest-rest-howto.md)
 - [Create filters with .NET](filters-dynamic-manifest-dotnet-how-to.md)
-- [Create filters with CLI](filters-dynamic-manifest-cli-howto.md)
+- [Create filters with CLI](filters-dynamic-manifest-cli-how-to.md)

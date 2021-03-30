@@ -152,7 +152,7 @@ For filter guidance, see:
 - [Concept: filters](filters-concept.md)
 - [Sample: create filters with REST APIs](filters-dynamic-manifest-rest-howto.md)
 - [Sample: create filters with .NET](filters-dynamic-manifest-dotnet-how-to.md)
-- [Sample: create filters with CLI](filters-dynamic-manifest-cli-howto.md)
+- [Sample: create filters with CLI](filters-dynamic-manifest-cli-how-to.md)
 
 For live articles and samples, see:
 
