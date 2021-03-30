@@ -61,7 +61,7 @@ This guide will show you how to successfully update your dev kit's operating sys
 
     - Windows:
 
-        ```bash
+        ```console
         uuu -b emmc_full.txt fast-hab-fw.raw Azure-Percept-DK-<version number>.raw 
         ```
 

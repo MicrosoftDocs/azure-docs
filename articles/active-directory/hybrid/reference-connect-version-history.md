@@ -54,6 +54,9 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 
 
 ## 1.6.2.4
+>[!IMPORTANT]
+> Update per March 30, 2021: we have discovered an issue in this build. After installation of this build, the Health services are not registered. We recommend not installing this build. We will release a hotfix shortly.
+> If you already installed this build, you can manually register the Health services by using the cmdlet as shown in [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#manually-register-azure-ad-connect-health-for-sync)
 
 >[!NOTE]
 > - This release will be made available for download only.
@@ -78,6 +81,7 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
      - If the Cloned Custom Sync Rule does not flow some Mail and Exchange attributes, then new Exchange Sync Rule will add those attributes.
  - Added support for [Selective Password hash Synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization)
  - Added the new [Single Object Sync cmdlet](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-single-object-sync). Use this cmdlet to troubleshoot your Azure AD Connect sync configuration. 
+ -  Azure AD Connect now supports the Hybrid Identity Administrator role for configuring the service.
  - Updated AADConnectHealth agent to 3.1.83.0
  - New version of the [ADSyncTools PowerShell module](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adsynctools), which has several new or improved cmdlets. 
  

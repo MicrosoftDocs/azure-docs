@@ -793,28 +793,25 @@ Total actions: 1
   Failed actions: 0
   In progress actions: 0
 Recognized Entities
-  Recognized the following 3 entities:
-  Entity: Microsoft
-  Category: Organization
-  Offset: 0
-  Length: 9
-  ConfidenceScore: 0.97
-  SubCategory:
-  Entity: Bill Gates
-  Category: Person
-  Offset: 25
-  Length: 10
-  ConfidenceScore: 1
-  SubCategory:
-  Entity: Paul Allen
-  Category: Person
-  Offset: 40
-  Length: 10
-  ConfidenceScore: 0.99
-  SubCategory:
+    Recognized the following 3 entities:
+    Entity: Microsoft
+    Category: Organization
+    Offset: 0
+    ConfidenceScore: 0.83
+    SubCategory: 
+    Entity: Bill Gates
+    Category: Person
+    Offset: 25
+    ConfidenceScore: 0.85
+    SubCategory: 
+    Entity: Paul Allen
+    Category: Person
+    Offset: 40
+    ConfidenceScore: 0.9
+    SubCategory: 
 ```
 
-You can also use the Analyze operation to detect PII, recognize linked entities and key phrase extraction. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeOperation.md) on GitHub.
+You can also use the Analyze operation to detect PII and key phrase extraction. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) on GitHub.
 
 # [Version 3.0](#tab/version-3)
 

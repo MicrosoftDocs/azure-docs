@@ -25,7 +25,7 @@ The following C# example creates a job that trims a video in an Asset as it subm
 
 To complete the steps described in this topic, you have to:
 
-- [Create an Azure Media Services account](./create-account-howto.md)
+- [Create an Azure Media Services account](./account-create-how-to.md)
 - Create a Transform and an input and output Assets. You can see how to create a Transform and input and output Assets in the [Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md) tutorial.
 - Review the [Encoding concept](encoding-concept.md) topic.
 

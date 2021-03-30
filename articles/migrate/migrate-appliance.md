@@ -1,11 +1,11 @@
 ---
 title: Azure Migrate appliance 
 description: Provides a summary of support for the Azure Migrate appliance.
-author: vikram1988
-ms.author: vibansa
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 03/18/2021
 ---
 
 
@@ -19,10 +19,10 @@ The Azure Migrate appliance is used in the following scenarios.
 
 **Scenario** | **Tool** | **Used to**
 --- | --- | ---
-**Discovery and assessment of servers running in VMware environment** | Azure Migrate:Server Assessment | Discover servers running in your VMware environment<br/><br/> Perform discovery of installed applications, agentless dependency analysis and discover SQL Server instances and databases.<br/><br/> Collect server configuration and performance metadata for assessments.
+**Discovery and assessment of servers running in VMware environment** | Azure Migrate: Discovery and assessment | Discover servers running in your VMware environment<br/><br/> Perform discovery of installed software inventory, agentless dependency analysis and discover SQL Server instances and databases.<br/><br/> Collect server configuration and performance metadata for assessments.
 **Agentless migration of servers running in VMware environment** | Azure Migrate:Server Migration | Discover servers running in your VMware environment. <br/><br/> Replicate servers without installing any agents on them.
-**Discovery and assessment of servers running in Hyper-V environment** | Azure Migrate:Server Assessment | Discover servers running in your Hyper-V environment.<br/><br/> Collect server configuration and performance metadata for assessments.
-**Discovery and assessment of physical or virtualized servers on-premises** |  Azure Migrate:Server Assessment |  Discover physical or virtualized servers on-premises.<br/><br/> Collect server configuration and performance metadata for assessments.
+**Discovery and assessment of servers running in Hyper-V environment** | Azure Migrate: Discovery and assessment | Discover servers running in your Hyper-V environment.<br/><br/> Collect server configuration and performance metadata for assessments.
+**Discovery and assessment of physical or virtualized servers on-premises** |  Azure Migrate: Discovery and assessment |  Discover physical or virtualized servers on-premises.<br/><br/> Collect server configuration and performance metadata for assessments.
 
 ## Deployment methods
 
@@ -34,7 +34,6 @@ The appliance can be deployed using a couple of methods:
 - For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script.Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
 - Download links are available in the tables below.
 
-
 ## Appliance - VMware
 
 The following table summarizes the Azure Migrate appliance requirements for VMware.
@@ -42,7 +41,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 > [!Note]
 > Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
 
-**Requirement** | **VMware** 
+**Requirement** | **VMware**
 --- | ---
 **Permissions** | To access the appliance configuration manager locally or remotely,you need to have a local or domain user account with administrative privileges on the appliance server.
 **Appliance services** | The appliance has the following services:<br/><br/> - **Appliance configuration manager**: This is a web application which can be configured with source details to start the discovery and assessment of servers.<br/> - **VMware discovery agent**: The agent collects server configuration metadata which can be used to create as on-premises assessments.<br/>- **VMware assessment agent**: The agent collects server performance metadata which can be used to create performance-based assessments.<br/>- **Auto update service**: The service keeps all the agents running on the appliance up-to-date. It automatically runs once every 24 hours.<br/>- **DRA agent**: Orchestrates server replication, and coordinates communication between replicated servers and Azure. Used only when replicating servers to Azure using agentless migration.<br/>- **Gateway**: Sends replicated data to Azure. Used only when replicating servers to Azure using agentless migration.<br/>- **SQL discovery and assessment agent**: sends the configuration and performance metadata of SQL Server instances and databases to Azure.
@@ -58,7 +57,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 
 ## Appliance - Hyper-V
 
-**Requirement** | **Hyper-V** 
+**Requirement** | **Hyper-V**
 --- | ---
 **Permissions** | To access the appliance configuration manager locally or remotely,you need to have a local or domain user account with administrative privileges on the appliance server.
 **Appliance services** | The appliance has the following services:<br/><br/> - **Appliance configuration manager**: This is a web application which can be configured with source details to start the discovery and assessment of servers.<br/> - **Discovery agent**: The agent collects server configuration metadata which can be used to create as on-premises assessments.<br/>- **Assessment agent**: The agent collects server performance metadata which can be used to create performance-based assessments.<br/>- **Auto update service**: The service keeps all the agents running on the appliance up-to-date. It automatically runs once every 24 hours.
@@ -73,17 +72,16 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 
 ## Appliance - Physical
 
-**Requirement** | **Physical** 
+**Requirement** | **Physical**
 --- | ---
 **Permissions** | To access the appliance configuration manager locally or remotely,you need to have a local or domain user account with administrative privileges on the appliance server.
 **Appliance services** | The appliance has the following services:<br/><br/> - **Appliance configuration manager**: This is a web application which can be configured with source details to start the discovery and assessment of servers.<br/> - **Discovery agent**: The agent collects server configuration metadata which can be used to create as on-premises assessments.<br/>- **Assessment agent**: The agent collects server performance metadata which can be used to create performance-based assessments.<br/>- **Auto update service**: The service keeps all the agents running on the appliance up-to-date. It automatically runs once every 24 hours.
-**Project limits** |  An appliance can only be registered with a single project.<br/> A single project can have multiple registered appliances.<br/> 
+**Project limits** |  An appliance can only be registered with a single project.<br/> A single project can have multiple registered appliances.<br/>
 **Discovery limits** | An appliance can discover up to 1000 physical servers.
 **Supported deployment** | Deploy on an existing server running Windows Server 2016 using PowerShell installer script.
 **PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zip file from the project or from [here](https://go.microsoft.com/fwlink/?linkid=2140334). [Learn more](tutorial-discover-physical.md).<br/><br/> Download size is 85.8 MB.
 **Script verification** | [Verify](tutorial-discover-physical.md#verify-security) the PowerShell installer script downloaded from project by checking the hash values.
 **Hardware and network requirements** |  The appliance should run on server with Windows Server 2016, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance on an existing server, make sure that it's running Windows Server 2016, and meets hardware requirements.<br/>_(Currently the deployment of appliance is only supported on Windows Server 2016.)_
-
 
 ## URL access
 
@@ -91,7 +89,7 @@ The Azure Migrate appliance needs connectivity to the internet.
 
 - When you deploy the appliance, Azure Migrate does a connectivity check to the required URLs.
 - You need to allow access to all URLs in the list. If you're doing assessment only, you can skip the URLs that are marked as required for VMware agentless migration.
--  If you're using a URL-based proxy to connect to the internet, make sure that the proxy resolves any CNAME records received while looking up the URLs.
+- If you're using a URL-based proxy to connect to the internet, make sure that the proxy resolves any CNAME records received while looking up the URLs.
 
 ### Public cloud URLs
 
@@ -128,7 +126,6 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 *.blob.core.usgovcloudapi.net  |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
 *.applicationinsights.us | Upload appliance logs used for internal monitoring.
 
-
 ## Collected data - VMware
 
 The appliance collects configuration metadata, performance metadata, and server dependencies data (if agentless [dependency analysis](concepts-dependency-visualization.md) is used).
@@ -140,12 +137,12 @@ Metadata discovered by the Azure Migrate appliance helps you to figure out wheth
 Here's the full list of server metadata that the appliance collects and sends to Azure.
 
 **DATA** | **COUNTER**
---- | --- 
-**Server details** | 
-Server ID | vm.Config.InstanceUuid 
+--- | ---
+**Server details** |
+Server ID | vm.Config.InstanceUuid
 Server name | vm.Config.Name
 vCenter Server ID | VMwareClient.Instance.Uuid
-VM description | vm.Summary.Config.Annotation
+Server description | vm.Summary.Config.Annotation
 License product name | vm.Client.ServiceContent.About.LicenseProductName
 Operating system type | vm.SummaryConfig.GuestFullName
 Boot type | vm.Config.Firmware
@@ -156,7 +153,7 @@ Disk size list | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk)
 Network adapters list | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualEthernet).count
 CPU utilization | cpu.usage.average
 Memory utilization |mem.usage.average
-**Per disk details** | 
+**Per disk details** |
 Disk key value | disk.Key
 Dikunit number | disk.UnitNumber
 Disk controller key value | disk.ControllerKey.Value
@@ -166,53 +163,51 @@ Read operations per second | virtualDisk.numberReadAveraged.average
 Write operations per second | virtualDisk.numberWriteAveraged.average
 Read throughput (MB per second) | virtualDisk.read.average
 Write throughput (MB per second) | virtualDisk.write.average
-**Per NIC details** | 
+**Per NIC details** |
 Network adapter name | nic.Key
 MAC address | ((VirtualEthernetCard)nic).MacAddress
 IPv4 addresses | vm.Guest.Net
 IPv6 addresses | vm.Guest.Net
 Read throughput (MB per second) | net.received.average
 Write throughput (MB per second) | net.transmitted.average
-**Inventory path details** | 
+**Inventory path details** |
 Name | container.GetType().Name
 Type of child object | container.ChildType
 Reference details | container.MoRef
 Parent details | Container.Parent
-Folder details per VM | ((Folder)container).ChildEntity.Type
-Datacenter details per VM | ((Datacenter)container).VmFolder
+Folder details per server | ((Folder)container).ChildEntity.Type
+Datacenter details per server | ((Datacenter)container).VmFolder
 Datacenter details per host folder | ((Datacenter)container).HostFolder
 Cluster details per host | ((ClusterComputeResource)container).Host
-Host details per VM | ((HostSystem)container).VM
+Host details per server | ((HostSystem)container).VM
 
 ### Performance data
 
-
-Here's the VMware VM performance data that the appliance collects and sends to Azure.
+Here's the performance data that an appliance collects for a server running on VMware and sends to Azure.
 
 **Data** | **Counter** | **Assessment impact**
 --- | --- | ---
-CPU utilization | cpu.usage.average | Recommended VM size/cost
-Memory utilization | mem.usage.average | Recommended VM size/cost
-Disk read throughput (MB per second) | virtualDisk.read.average | Calculation for disk size, storage cost, VM size
-Disk writes throughput (MB per second) | virtualDisk.write.average | Calculation for disk size, storage cost, VM size
-Disk read operations per second | virtualDisk.numberReadAveraged.average | Calculation for disk size, storage cost, VM size
-Disk writes operations per second | virtualDisk.numberWriteAveraged.average  | Calculation for disk size, storage cost, VM size
-NIC read throughput (MB per second) | net.received.average | Calculation for VM size
-NIC writes throughput (MB per second) | net.transmitted.average  |Calculation for VM size
+CPU utilization | cpu.usage.average | Recommended server size/cost
+Memory utilization | mem.usage.average | Recommended server size/cost
+Disk read throughput (MB per second) | virtualDisk.read.average | Calculation for disk size, storage cost, server size
+Disk writes throughput (MB per second) | virtualDisk.write.average | Calculation for disk size, storage cost, server size
+Disk read operations per second | virtualDisk.numberReadAveraged.average | Calculation for disk size, storage cost, server size
+Disk writes operations per second | virtualDisk.numberWriteAveraged.average  | Calculation for disk size, storage cost, server size
+NIC read throughput (MB per second) | net.received.average | Calculation for server size
+NIC writes throughput (MB per second) | net.transmitted.average  |Calculation for server size
 
+### Installed software inventory
 
-### Installed applications data
+The appliance collects data about installed software inventory on servers.
 
-The appliance collects data about installed applications, roles and features on servers.
+#### Windows server software inventory data
 
-#### Windows server application data
-
-Here's the applications data that the appliance collects from each Windows server discovered in your VMware environment.
+Here's the software inventory data that the appliance collects from each Windows server discovered in your VMware environment.
 
 **Data** | **Registry Location** | **Key**
 --- | --- | ---
 Application Name  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
-Version  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+Version  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion
 Provider  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
 
 #### Windows server features data
@@ -232,9 +227,9 @@ Here's the SQL Server data that the appliance collects from each Windows server 
 **Data**  | **Registry Location**  | **Key**
 --- | --- | ---
 Name  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
-Edition  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | Edition 
+Edition  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | Edition
 Service Pack  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | SP
-Version  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | Version 
+Version  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | Version
 
 #### Windows server operating system data
 
@@ -246,12 +241,12 @@ Name  | Win32_operatingsystem  | Caption
 Version  | Win32_operatingsystem  | Version
 Architecture  | Win32_operatingsystem  | OSArchitecture
 
-#### Linux server application data
+#### Linux server software inventory data
 
-Here's the applications data that the appliance collects from each Linux server discovered in your VMware environment. Based on the operating system of the server, one or more of the commands are run.
+Here's the software inventory data that the appliance collects from each Linux server discovered in your VMware environment. Based on the operating system of the server, one or more of the commands are run.
 
 **Data**  | **Commands**
---- | --- 
+--- | ---
 Name | rpm, dpkg-query, snap
 Version | rpm, dpkg-query, snap
 Provider | rpm, dpkg-query, snap
@@ -261,8 +256,8 @@ Provider | rpm, dpkg-query, snap
 Here's the operating system data that the appliance collects from each Linux server discovered in your VMware environment.
 
 **Data**  | **Commands**
---- | --- 
-Name <br/> version | Gathered from one or more of the following files:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+--- | ---
+Name <br/> version | Gathered from one or more of the following files:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version
 Architecture | uname
 
 ### SQL Server instances and databases data
@@ -292,13 +287,13 @@ Database is enabled for change data capture or not | sys.databases
 
 **Server Metadata** | **Views/ SQL server properties**
 --- | ---
-Server name |SERVERPROPERTY 
+Server name |SERVERPROPERTY
 FQDN | Connection string derived from discovery of installed applications
 Install ID | sys.dm_server_registry
 Server version | SERVERPROPERTY
 Server edition | SERVERPROPERTY
 Server host platform (Windows/Linux) | SERVERPROPERTY
-Product level of the server (RTM SP CTP) | SERVERPROPERTY 
+Product level of the server (RTM SP CTP) | SERVERPROPERTY
 Default Backup path | SERVERPROPERTY
 Default path of the data files | SERVERPROPERTY, and Software\Microsoft\MSSQLServer\MSSQLServer
 Default path of the log files | SERVERPROPERTY, and Software\Microsoft\MSSQLServer\MSSQLServer
@@ -309,8 +304,8 @@ Unique Server ID | sys.dm_server_registry
 HA enabled or not | SERVERPROPERTY
 Buffer Pool Extension enabled or not | sys.dm_os_buffer_pool_extension_configuration
 Failover cluster configured or not | SERVERPROPERTY
-Server using Windows Authentication mode only | SERVERPROPERTY 
-Server installs PolyBase | SERVERPROPERTY 
+Server using Windows Authentication mode only | SERVERPROPERTY
+Server installs PolyBase | SERVERPROPERTY
 No. of logical CPUs on the system | sys.dm_server_registry, sys.dm_os_sys_info
 Ratio of the no of logical or physical cores that are exposed by one physical processor package | sys.dm_os_schedulers, sys.dm_os_sys_info
 No of physical CPUs on the system |	sys.dm_os_schedulers, sys.dm_os_sys_info
@@ -347,8 +342,8 @@ Agentless dependency analysis collects the connection and process data.
 
 Here's the connection data that the appliance collects from each Windows server, enabled for agentless dependency analysis.
 
-**Data** | **Commands** 
---- | --- 
+**Data** | **Commands**
+--- | ---
 Local port | netstat
 Local IP address | netstat
 Remote port | netstat
@@ -369,19 +364,18 @@ Application name | Win32_Process | VersionInfo.ProductName parameter of Executab
 
 Here's the connection data that the appliance collects from each Linux server, enabled for agentless dependency analysis.
 
-**Data** | **Commands** 
+**Data** | **Commands**
 --- | ---
-Local port | netstat 
-Local IP address | netstat 
-Remote port | netstat 
-Remote IP address | netstat 
-TCP connection state | netstat 
+Local port | netstat
+Local IP address | netstat
+Remote port | netstat
+Remote IP address | netstat
+TCP connection state | netstat
 Number of active connections | netstat
-Process ID  | netstat 
+Process ID  | netstat
 Process name | ps
 Process arguments | ps
 Application name | dpkg or rpm
-
 
 ## Collected data - Hyper-V
 
@@ -396,20 +390,20 @@ Here's the full list of server metadata that the appliance collects and sends to
 --- | --- | ---
 **Server details** | 
 Serial number of BIOS | Msvm_BIOSElement | BIOSSerialNumber
-VM type (Gen 1 or 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
-VM display name | Msvm_VirtualSystemSettingData | ElementName
-VM version | Msvm_ProcessorSettingData | VirtualQuantity
+Server type (Gen 1 or 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
+Server display name | Msvm_VirtualSystemSettingData | ElementName
+Server version | Msvm_ProcessorSettingData | VirtualQuantity
 Memory (bytes) | Msvm_MemorySettingData | VirtualQuantity
-Maximum memory that can be consumed by VM | Msvm_MemorySettingData | Limit
+Maximum memory that can be consumed by server | Msvm_MemorySettingData | Limit
 Dynamic memory enabled | Msvm_MemorySettingData | DynamicMemoryEnabled
 Operating system name/version/FQDN | Msvm_KvpExchangeComponent | GuestIntrinsicExchangeItems Name Data
-VM power status | Msvm_ComputerSystem | EnabledState
-**Per disk details** | 
+Server power status | Msvm_ComputerSystem | EnabledState
+**Per disk details** |
 Disk identifier | Msvm_VirtualHardDiskSettingData | VirtualDiskId
 Virtual hard disk type | Msvm_VirtualHardDiskSettingData | Type
 Virtual hard disk size | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Virtual hard disk parent | Msvm_VirtualHardDiskSettingData | ParentPath
-**Per NIC details** | 
+**Per NIC details** |
 IP addresses (synthetic NICs) | Msvm_GuestNetworkAdapterConfiguration | IPAddresses
 DHCP enabled (synthetic NICs) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
 NIC ID (synthetic NICs) | Msvm_SyntheticEthernetPortSettingData | InstanceID
@@ -423,17 +417,16 @@ Here's the server performance data that the appliance collects and sends to Azur
 
 **Performance counter class** | **Counter** | **Assessment impact**
 --- | --- | ---
-Hyper-V Hypervisor Virtual Processor | % Guest Run Time | Recommended VM size/cost
-Hyper-V Dynamic Memory VM | Current Pressure (%)<br/> Guest Visible Physical Memory (MB) | Recommended VM size/cost
-Hyper-V Virtual Storage Device | Read Bytes/Second | Calculation for disk size, storage cost, VM size
-Hyper-V Virtual Storage Device | Write Bytes/Second | Calculation for disk size, storage cost, VM size
-Hyper-V Virtual Network Adapter | Bytes Received/Second | Calculation for VM size
-Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for VM size
+Hyper-V Hypervisor Virtual Processor | % Guest Run Time | Recommended server size/cost
+Hyper-V Dynamic Memory Server | Current Pressure (%)<br/> Guest Visible Physical Memory (MB) | Recommended server size/cost
+Hyper-V Virtual Storage Device | Read Bytes/Second | Calculation for disk size, storage cost, server size
+Hyper-V Virtual Storage Device | Write Bytes/Second | Calculation for disk size, storage cost, server size
+Hyper-V Virtual Network Adapter | Bytes Received/Second | Calculation for server size
+Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for server size
 
-- CPU utilization is the sum of all usage, for all virtual processors attached to a VM.
+- CPU utilization is the sum of all usage, for all virtual processors attached to a server.
 - Memory utilization is (Current Pressure * Guest Visible Physical Memory) / 100.
 - Disk and network utilization values are collected from the listed Hyper-V performance counters.
-
 
 ## Collected data - Physical
 
@@ -468,8 +461,8 @@ NIC MAC address | Win32_NetworkAdapterConfiguration | MACAddress
 
 Here's the full list of Linux server metadata that the appliance collects and sends to Azure.
 
-**Data** | **Commands** 
---- | --- 
+**Data** | **Commands**
+--- | ---
 FQDN | cat /proc/sys/kernel/hostname, hostname -f
 Processor core count |  /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
 Memory allocated | cat /proc/meminfo \| grep MemTotal \| awk '{printf "%.0f", $2/1024}'
@@ -503,8 +496,8 @@ Disk details | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesPerSec,
 
 Here's the Linux server performance data that the appliance collects and sends to Azure.
 
-**Data** | **Commands** 
---- | --- 
+**Data** | **Commands**
+--- | ---
 CPU usage | cat /proc/stat/| grep 'cpu' /proc/stat
 Memory usage | free \| grep Mem \| awk '{print $3/$2 * 100.0}'
 NIC count | lshw -class network \| grep eth[0-60] \| wc -l
@@ -536,7 +529,7 @@ You can turn on auto-update using either of these methods:
 
 To delete the registry key:
 
-1. On the machine running the appliance, open the Registry Editor.
+1. On the server running the appliance, open the Registry Editor.
 2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
 3. Delete the registry key **AutoUpdate**, that was previously created to turn off auto-update.
 
@@ -552,7 +545,7 @@ To turn on from Appliance Configuration Manager, after discovery is complete:
 You can check the appliance services version using either of these methods:
 
 - In Appliance configuration manager, go to **Set up prerequisites** panel.
-- On the appliance machine, in the **Control Panel** > **Programs and Features**.
+- On the appliance, in the **Control Panel** > **Programs and Features**.
 
 To check in the Appliance configuration manager:
 
@@ -573,12 +566,12 @@ To check in the Control Panel:
 If you are running an older version for any of the services, you must uninstall the service, and manually update to the latest version.
 
 1. To check for the latest appliance service versions, [download](https://aka.ms/latestapplianceservices) the LatestComponents.json file.
-2.    After downloading, open the LatestComponents.json file in Notepad.
+2. After downloading, open the LatestComponents.json file in Notepad.
 3. Find the latest service version in the file, and the download link for it. For example:
 
     "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
-4.    Download the latest version of an outdated service, using the download link in the file.
+4. Download the latest version of an outdated service, using the download link in the file.
 5. After downloading, run the following command in an administrator command window, to verify the integrity of the downloaded MSI.
 
     ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```
@@ -589,11 +582,8 @@ If you are running an older version for any of the services, you must uninstall 
 6. Now, run the MSI to install the service. It's a silent install, and the installation window closes after it's done.
 7. After installation is complete, check the version of the service in **Control panel** > **Programs and Features**. The service version should now be upgraded to the latest shown in the json file.
 
-
-
 ## Next steps
 
 - [Learn how](how-to-set-up-appliance-vmware.md) to set up the appliance for VMware.
 - [Learn how](how-to-set-up-appliance-hyper-v.md) to set up the appliance for Hyper-V.
 - [Learn how](how-to-set-up-appliance-physical.md) to set up the appliance for physical servers.
-

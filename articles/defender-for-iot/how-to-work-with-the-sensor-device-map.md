@@ -1,12 +1,8 @@
 ---
 title: Work with the sensor device map
 description: The Device Map provides a graphical representation of network devices detected. Use the map to analyze, and manage device information, network slices and generate reports.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Investigate sensor detections in the Device Map

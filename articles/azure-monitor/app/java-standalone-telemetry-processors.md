@@ -16,10 +16,14 @@ ms.author: kryalama
 The Java 3.0 agent for Application Insights can process telemetry data before the data is exported.
 
 Here are some use cases for telemetry processors:
- * Create sensitive data.
+ * Mask sensitive data.
  * Conditionally add custom dimensions.
  * Update the span name, which is used to aggregate similar telemetry in the Azure portal.
- * Drop span attributes to control ingestion costs.
+ * Drop specific span attribute(s) to control ingestion costs.
+
+> [!NOTE]
+> If you are looking to drop specific (whole) spans for controlling ingestion cost,
+> see [sampling overrides](./java-standalone-sampling-overrides.md).
 
 ## Terminology
 

@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 03/12/2021
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, contperf-fy21q3
 ---
 
 # How to use your workspace with a custom DNS server
@@ -38,7 +38,10 @@ The following list contains the fully qualified domain names (FQDN) used by your
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
+
+    > [!NOTE]
+    > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` 63 characters.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
@@ -53,7 +56,7 @@ The following FQDNs are for Azure China 21Vianet regions:
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
 
     > [!NOTE]
-    > The workspace name for this FQDN may be truncated. Truncation is done to keep the FQDN less than or equal to 63 characters.
+    > The workspace name for this FQDN may be truncated. Truncation is done to keep `ml-<workspace-name, truncated>-<region>-<workspace-guid>` 63 characters.
 * `<instance-name>.<region>.instances.ml.azure.cn`
 ## Find the IP addresses
 
