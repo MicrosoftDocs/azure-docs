@@ -62,7 +62,7 @@ Aside from the main scenarios listed above, named replicas offer flexibility and
 The following example creates named replica WideWorldImporters01 on server WideWorldImporterServer for database WideWorldImporters with service level objective HS_Gen5_4
 
 # [T-SQL](#tab/tsql)
-```tsql
+```sql
 ALTER DATABASE [WideWorldImporters]
 ADD SECONDARY ON SERVER [WideWorldImporterServer] 
 WITH (SERVICE_OBJECTIVE = 'HS_Gen5_2', SECONDARY_TYPE = Named, DATABASE_NAME = [WideWorldImporters01])
@@ -90,7 +90,7 @@ Just like for HA replicas, even though the primary, HA, and named replicas share
 You can define the service level objective of a named replica when you create it, via the `ALTER DATABASE` command or in any other supported way. If you need to change the service level objective after the named replica has been created, you can do it using the regular `ALTER DATABASE…MODIFY` command on the named replica itself. For example, if "WideWorldImporters01" is the named replica of "WideWorldImporters" database, you can do it as shown below (it will take up to a minute max).
 
 # [T-SQL](#tab/tsql)
-```tsql
+```sql
 ALTER DATABASE [WideWorldImporters01] MODIFY (SERVICE_OBJECTIVE = 'HS_Gen5_4')
 ```
 # [PowerShell](#tab/azure-powershell)
@@ -109,7 +109,7 @@ az sql db update -g SampleResourceGroup -s WideWorldImporterServer -n WideWorldI
 To remove a named replica, you drop it just like you would do with a regular database. 
 
 # [T-SQL](#tab/tsql)
-```tsql
+```sql
 DROP DATABASE [WideWorldImporters01]
 ```
 
