@@ -33,18 +33,18 @@ The deployment is initiated from the Start/Stop VMs v2 GitHub organization [here
     |Storage Account Name |Specify the name of the Azure Storage account to store Start/Stop VMs execution telemetry. |
     |Email Address |Specify one or more email addresses to receive status notifications, separated by a comma (,).|
 
-    :::image type="content" source="media/enable/deployment-template-details.png" alt-text="Start/Stop VMs template deployment configuration":::
+    :::image type="content" source="media/deploy/deployment-template-details.png" alt-text="Start/Stop VMs template deployment configuration":::
 
 1. Select **Review + create** on the bottom of the page.
 1. Select **Create** to start the deployment.
 1. Select the bell icon (notifications) from the top of the screen to see the deployment status. You shall see **Deployment in progress**. Wait until the deployment is completed.
 1. Select **Go to resource group** from the notification pane. You shall see a screen similar to:
 
-    :::image type="content" source="media/enable/deployment-results-resource-list.png" alt-text="Start/Stop VMs template deployment resource list":::
+    :::image type="content" source="media/deploy/deployment-results-resource-list.png" alt-text="Start/Stop VMs template deployment resource list":::
 
 ## Enable multiple subscriptions
 
-After the Start/Stop deployment completes, perform the following steps to enable Start/Stop to take action across multiple subscriptions.
+After the Start/Stop deployment completes, perform the following steps to enable Start/Stop VMs v2 (preview) to take action across multiple subscriptions.
 
 1. Copy the value for the Azure Function App Name that you specified during the deployment.
 
@@ -73,7 +73,7 @@ To manage the automation method to control the start and stop of your VMs, you c
 
 If you need additional schedules, you can duplicate one of the Logic Apps provided using the **Clone** option in the Azure portal.
 
-:::image type="content" source="media/enable/logic-apps-clone-option.png" alt-text="Select the Clone option to duplicate a logic app":::
+:::image type="content" source="media/deploy/logic-apps-clone-option.png" alt-text="Select the Clone option to duplicate a logic app":::
 
 ## Scheduled start and stop scenario
 
@@ -91,7 +91,7 @@ For each scenario, you can target the action against one or more subscriptions, 
 
 1. After Logic App Designer appears, in the designer pane, select **Recurrence** to configure the logic app schedule. To learn about the specific recurrence options, see [Schedule recurring task](../../connectors/connectors-native-recurrence.md#add-the-recurrence-trigger).
 
-    :::image type="content" source="media/enable/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
+    :::image type="content" source="media/deploy/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
 
 1. In the designer pane, select **Function-Try** to configure the target settings. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
 
@@ -181,7 +181,7 @@ In an environment that includes two or more components on multiple Azure Resourc
 
 1. After Logic App Designer appears, in the designer pane, select **Recurrence** to configure the logic app schedule. To learn about the specific recurrence options, see [Schedule recurring task](../../connectors/connectors-native-recurrence.md#add-the-recurrence-trigger).
 
-    :::image type="content" source="media/enable/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
+    :::image type="content" source="media/deploy/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
 
 1. In the designer pane, select **Function-Try** to configure the target settings. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
 
@@ -271,7 +271,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
 
 1. After Logic App Designer appears, in the designer pane, select **Recurrence** to configure the logic app schedule. To learn about the specific recurrence options, see [Schedule recurring task](../../connectors/connectors-native-recurrence.md#add-the-recurrence-trigger).
 
-    :::image type="content" source="media/enable/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
+    :::image type="content" source="media/deploy/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
 
 1. In the designer pane, select **Function-Try** to configure the target settings. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
 
@@ -348,4 +348,4 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
 
 ## Next steps
 
-To learn how to monitor status of your Azure VMs managed by the Start/Stop VMs (preview) feature and perform other management tasks, see the [Manage Start/Stop VMs](manage.md) article.
+To learn how to monitor status of your Azure VMs managed by the Start/Stop VMs v2 (preview) feature and perform other management tasks, see the [Manage Start/Stop VMs](manage.md) article.
