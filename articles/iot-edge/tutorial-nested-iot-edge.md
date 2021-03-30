@@ -58,10 +58,10 @@ To create a hierarchy of IoT Edge devices, you will need:
 
    ```azurecli-interactive
    az deployment group create \
-    --name TestVM1 \
-    --resource-group TomsNestedEdgeResources \
+    --name <REPLACE_WITH_UNIQUE_NAME_FOR_VIRTUAL_MACHINE \
+    --resource-group <REPLACE_WITH_YOUR_RESOURCE_GROUP> \
     --template-uri "https://raw.githubusercontent.com/ebertrams/iotedge-vm-deploy/1.2.0-bugbash/edgeDeploy.json" \
-    --parameters dnsLabelPrefix='nested-edge-test-vm1' \
+    --parameters dnsLabelPrefix='<REPLACE_WITH_UNIQUE_DNS_FOR_VIRTUAL_MACHINE' \
     --parameters adminUsername='azureuser' \
     --parameters authenticationType='sshPublicKey' \
     --parameters adminPasswordOrKey="$(< ~/.ssh/id_rsa.pub)
