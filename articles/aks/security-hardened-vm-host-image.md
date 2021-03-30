@@ -16,7 +16,7 @@ Azure Kubernetes Service (AKS) is a secure service, compliant with SOC, ISO, PCI
 > [!Note]
 > This document is scoped to Linux agents in AKS only.
 
-AKS clusters are deployed on host VMs, which run a security-optimized OS utilized for containers running on AKS. This host OS is based on an **Ubuntu 16.04.LTS** image with additional [security hardening](#security-hardening-features) and optimizations applied.
+AKS clusters are deployed on host VMs, which run a security-optimized OS utilized for containers running on AKS. This host OS is based on an **Ubuntu 16.04.LTS** image with more [security hardening](#security-hardening-features) and optimizations applied.
 
 The goal of the security hardened host OS is to reduce the surface area of attack and optimize for the deployment of containers in a secure manner.
 

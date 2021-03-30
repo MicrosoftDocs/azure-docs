@@ -21,7 +21,7 @@ This document helps support the following scenarios:
 * Migrating from non-Azure based Kubernetes clusters to AKS.
 * Moving existing resources to a different region.
 
-When migrating, ensure your target Kubernetes version is within the supported window for AKS. Older versions may not be within the supported range and will require a version upgrade to be supported by AKS. See [AKS supported Kubernetes versions](./supported-kubernetes-versions.md) for more information.
+When migrating, ensure your target Kubernetes version is within the supported window for AKS. Older versions may not be within the supported range and will require a version upgrade to be supported by AKS. For more information, see [AKS supported Kubernetes versions](./supported-kubernetes-versions.md).
 
 If you're migrating to a newer version of Kubernetes, review [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions).
 
@@ -45,14 +45,14 @@ In this article we will summarize migration details for:
 
 ## Use Azure Migrate to migrate your applications to AKS
 
-Azure Migrate offers a unified platform to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. For AKS, you can use Azure Migrate for the following:
+Azure Migrate offers a unified platform to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. For AKS, you can use Azure Migrate for the following tasks:
 
 * [Containerize ASP.NET applications and migrate to AKS](../migrate/tutorial-containerize-aspnet-kubernetes.md)
 * [Containerize Java web applications and migrate to AKS](../migrate/tutorial-containerize-java-kubernetes.md)
 
 ## AKS with Standard Load Balancer and Virtual Machine Scale Sets
 
-AKS is a managed service offering unique capabilities with lower management overhead. Since AKS is a managed service, you must select from a set of [regions](./quotas-skus-regions.md) which AKS supports. You may need to modify your existing applications to keep them healthy on the AKS managed control plane during the transition from your existing cluster to AKS.
+AKS is a managed service offering unique capabilities with lower management overhead. Since AKS is a managed service, you must select from a set of [regions](./quotas-skus-regions.md) which AKS supports. You may need to modify your existing applications to keep them healthy on the AKS-managed control plane during the transition from your existing cluster to AKS.
 
 We recommend using AKS clusters backed by [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml) and the [Azure Standard Load Balancer](./load-balancer-standard.md) to ensure you get features such as:
 * [Multiple node pools](./use-multiple-node-pools.md),
@@ -98,9 +98,9 @@ When migrating clusters, you may have attached external Azure services. While th
 
 ## Ensure valid quotas
 
-Since additional VMs will be deployed into your subscription during migration, you should verify that your quotas and limits are sufficient for these resources. If necessary, request an increase in [vCPU quota](../azure-portal/supportability/per-vm-quota-requests.md).
+Since other VMs will be deployed into your subscription during migration, you should verify that your quotas and limits are sufficient for these resources. If necessary, request an increase in [vCPU quota](../azure-portal/supportability/per-vm-quota-requests.md).
 
-You may need to request an increase for [Network quotas](../azure-portal/supportability/networking-quota-requests.md) to ensure you don't exhaust IPs. See [networking and IP ranges for AKS](./configure-kubenet.md) for additional information.
+You may need to request an increase for [Network quotas](../azure-portal/supportability/networking-quota-requests.md) to ensure you don't exhaust IPs. For more information, see [networking and IP ranges for AKS](./configure-kubenet.md).
 
 For more information, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md). To check your current quotas, in the Azure portal, go to the [subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), select your subscription, and then select **Usage + quotas**.
 
@@ -190,7 +190,7 @@ You may want to move your AKS cluster to a [different region supported by AKS][r
 In addition, if you have any services such as [Azure Dev Spaces][azure-dev-spaces] running on your AKS cluster, you will need to install and configure those services on your cluster in the new region.
 
 
-In this article we summarized migration details for:
+In this article, we summarized migration details for:
 
 > [!div class="checklist"]
 > * AKS with Standard Load Balancer and Virtual Machine Scale Sets

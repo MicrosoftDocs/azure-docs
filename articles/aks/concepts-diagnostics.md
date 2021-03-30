@@ -38,7 +38,7 @@ After you click on a category, you can view a diagnostic report specific to your
 * Related-metrics
 * Logging data 
 
-Diagnostic reports generate based on the current state of your cluster after running a variety of checks. They can be useful for pinpointing the problem of your cluster and understanding next steps to resolve the issue.
+Diagnostic reports generate based on the current state of your cluster after running various checks. They can be useful for pinpointing the problem of your cluster and understanding next steps to resolve the issue.
 
 ![Diagnostic Report](./media/concepts-diagnostics/diagnostic-report.png)
 
