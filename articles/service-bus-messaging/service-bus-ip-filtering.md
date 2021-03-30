@@ -18,9 +18,9 @@ The IP firewall rules are applied at the Service Bus namespace level. Therefore,
 - Specify **at least one IP firewall rule or virtual network rule** for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key).  
 - Implementing firewall rules can prevent other Azure services from interacting with Service Bus. As an exception, you can allow access to Service Bus resources from certain **trusted services** even when IP filtering is enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services). 
 
-The following Microsoft services are required to be on a virtual network
-- Azure App Service
-- Azure Functions
+    The following Microsoft services are required to be on a virtual network
+    - Azure App Service
+    - Azure Functions
 
 ## Use Azure portal
 This section shows you how to use the Azure portal to create IP firewall rules for a Service Bus namespace. 
