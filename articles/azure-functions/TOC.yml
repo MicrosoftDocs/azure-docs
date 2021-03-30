@@ -55,6 +55,10 @@
         - name: ARM template
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
+    - name: Connect to a database
+      items:
+        - name: Visual Studio Code
+          href: functions-add-output-binding-cosmos-db-vs-code.md
     - name: Connect to storage
       items:
         - name: Visual Studio Code
@@ -448,10 +452,14 @@
       items:
         - name: Troubleshoot storage
           href: functions-recover-storage-account.md
-        - name: Troubleshoot Python functions
-          href: recover-python-functions.md
-        - name: Scale and performance for Python functions
-          href: python-scale-performance-reference.md
+        - name: Python functions
+          items:
+            - name: General troubleshooting
+              href: recover-python-functions.md
+            - name: Scale and performance
+              href: python-scale-performance-reference.md
+            - name: Memory profiling
+              href: python-memory-profiler-reference.md
 - name: Reference
   items:
     - name: API references

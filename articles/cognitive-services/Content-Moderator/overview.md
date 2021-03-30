@@ -25,6 +25,13 @@ Azure Content Moderator is an AI service that lets you handle content that is po
 
 You may want to build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 
+This documentation contains the following article types:  
+
+* [**Quickstarts**](client-libraries.md) are getting-started instructions to guide you through making requests to the service.  
+* [**How-to guides**](try-text-api.md) contain instructions for using the service in more specific or customized ways.  
+* [**Concepts**](text-moderation-api.md) provide in-depth explanations of the service functionality and features.  
+* [**Tutorials**](ecommerce-retail-catalog-moderation.md) are longer guides that show you how to use the service as a component in broader business solutions.  
+
 ## Where it's used
 
 The following are a few scenarios in which a software developer or team would require a content moderation service:

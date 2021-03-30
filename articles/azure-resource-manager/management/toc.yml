@@ -28,7 +28,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Azure common security attributes
-      href: azure-resource-manager-security-controls.md
+      href: ./security-baseline.md
 - name: How to
   items:
   - name: Move - resource groups/subscriptions
