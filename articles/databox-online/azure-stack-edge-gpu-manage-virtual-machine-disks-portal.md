@@ -51,9 +51,9 @@ Before you begin to manage disks on the VMs running on your device via the Azure
 
 1. You have at least one VM deployed on your device. To create this VM, see the instructions in [Deploy VM on your Azure Stack Edge Pro via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 
-1. Your VM should be in **Stopped** state. To stop your VM, go to **Virtual machines > Overview** and select the VM you want to stop. In the **Overview** page, select **Stop** and then select **Yes** when prompted for confirmation. Before you add, edit, or detach disks, you must stop the VM.
+<!--1. Your VM should be in **Stopped** state. To stop your VM, go to **Virtual machines > Overview** and select the VM you want to stop. In the **Overview** page, select **Stop** and then select **Yes** when prompted for confirmation. Before you add, edit, or detach disks, you must stop the VM.
 
-    ![Stop VM from Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
+    ![Stop VM from Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)-->
 
 
 ## Add a data disk
