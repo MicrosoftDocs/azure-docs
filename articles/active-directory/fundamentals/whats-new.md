@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/4/2021
+ms.date: 3/31/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -34,6 +34,173 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 ---
+
+## March 2021
+
+### Guidance on how to enable support for TLS 1.2 in your environment, in preparation for upcoming Azure AD TLS 1.0/1.1 deprecation
+
+**Type:** Plan for change  
+**Service category:** N/A  
+**Product capability:** Standards
+
+Azure Active Directory will deprecate the following protocols in Azure Active Directory worldwide regions starting June 30, 2021:
+
+
+- TLS 1.0
+- TLS 1.1
+- 3DES cipher suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA)
+
+Affected environments include:
+
+- Azure Commercial Cloud
+- Office 365 GCC and WW
+
+For additional guidance, refer to [Enable support for TLS 1.2 in your environment for Azure AD TLS 1.1 and 1.0 deprecation](https://docs.microsoft.com/troubleshoot/azure/active-directory/enable-support-tls-environment).
+
+---
+
+### Public Preview - Azure AD Entitlement management now supports multi-geo SharePoint Online
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Entitlement Management
+ 
+For organizations using multi-geo SharePoint Online, you can now include sites from specific multi-geo environments to your Entitlement management access packages. [Learn more](../governance/entitlement-management-catalog-create.md#add-a-multi-geo-sharepoint-site).
+
+---
+
+### Public Preview - Restore deleted apps from App Registrations
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Developer Experience
+ 
+Customers can now view, restore, and permanently remove deleted app registrations from the Azure portal. This applies only to applications associated to a directory, not applications from a personal Microsoft account. [Learn more](../develop/quickstart-restore-app.md).
+ 
+---
+
+### Public preview - New "User action" in Conditional Access for registering or joining devices
+
+**Type:** New feature  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+ 
+ A new user action called "Register or join devices" in Conditional access is available. This user action allows you to control Multi-factor authentication (MFA) policies for Azure AD device registration. 
+
+Currently, this user action only allows you to enable MFA as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration are disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
+ 
+---
+
+### General availability - Staged rollout to cloud authentication
+
+**Type:** New feature  
+**Service category:** AD Connect  
+**Product capability:** User Authentication
+ 
+Staged rollout to cloud authentication is now generally available. The staged rollout feature allows you to selectively test groups of users with cloud authentication methods, such as Passthrough Authentication (PTA) or Password Hash Sync (PHS). Meanwhile, all other users in the federated domains continue to use federation services, such as AD FS or any other federation services to authenticate users. [Learn more](../hybrid/how-to-connect-staged-rollout.md).
+
+---
+
+### General Availability - User Type attribute can now be updated in the Azure admin portal
+
+**Type:** New feature  
+**Service category:** User Experience and Management  
+**Product capability:** User Management
+ 
+Customers can now update the user type of Azure AD users when they update their user profile information from the Azure admin portal. The user type can be updated from Microsoft Graph also. To learn more, see [Add or update user profile information](active-directory-users-profile-azure-portal.md).
+ 
+---
+
+### General availability - Collaborate with your partners using Email One-Time Passcode in the Azure Government cloud
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+Organizations in the Microsoft Azure Government cloud can now enable their guests to redeem invitations with Email One-Time Passcode. This ensures that any guest users with no Azure AD, Microsoft, or Gmail accounts in the Azure Government cloud can still collaborate with their partners by requesting and entering a temporary code to sign in to shared resources. [Learn more](../external-identities/one-time-passcode.md#note-for-azure-us-government-customers).
+
+---
+
+### New Federated Apps available in Azure AD Application gallery - March 2021
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+In March 2021 we have added following 37 new applications in our App gallery with Federation support:
+
+[Bambuser Live Video Shopping](https://lcx.bambuser.com/), [DeepDyve Inc](https://www.deepdyve.com/azure-sso), [Moqups](../saas-apps/moqups-tutorial.md), [RICOH Spaces Mobile](https://ricohspaces.app/welcome), [Flipgrid](https://auth.flipgrid.com/), [hCaptcha Enterprise](../saas-apps/hcaptcha-enterprise-tutorial.md), [SchoolStream ASA](https://jsd.schoolstreamk12.com/ASA/ASAlogin.aspx), [TransPerfect GlobalLink Dashboard](../saas-apps/transperfect-globallink-dashboard-tutorial.md), [SimplificaCI](https://app.simplificaci.com.br/), [Thrive LXP](../saas-apps/thrive-lxp-tutorial.md), [Lexonis TalentScape](../saas-apps/lexonis-talentscape-tutorial.md), [Exium](../saas-apps/exium-tutorial.md), [Sapient](../saas-apps/sapient-tutorial.md), [TrueChoice](../saas-apps/truechoice-tutorial.md), [RICOH Spaces](https://ricohspaces.app/welcome), [Saba Cloud](../saas-apps/learning-at-work-tutorial.md), [Acunetix 360](../saas-apps/acunetix-360-tutorial.md), [Exceed.ai](../saas-apps/exceed-ai-tutorial.md), [GitHub Enterprise Managed User](../saas-apps/github-enterprise-managed-user-tutorial.md), [Enterprise Vault.cloud for Outlook](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=openid%20profile%20User.Read&client_id=7176efe5-e954-4aed-b5c8-f5c85a980d3a&nonce=4b9e1981-1bcb-4938-a283-86f6931dc8cb), [Smartlook](../saas-apps/smartlook-tutorial.md), [Accenture Academy](../saas-apps/accenture-academy-tutorial.md), [Onshape](../saas-apps/onshape-tutorial.md), [Tradeshift](../saas-apps/tradeshift-tutorial.md), [JuriBlox](../saas-apps/juriblox-tutorial.md), [SecurityStudio](../saas-apps/securitystudio-tutorial.md), [ClicData](https://app.clicdata.com/), [Evergreen](../saas-apps/evergreen-tutorial.md), [Patchdeck](https://patchdeck.com/ad_auth/authenticate/), [FAX.PLUS](../saas-apps/fax.plus-tutorial.md), [ValidSign](../saas-apps/validsign-tutorial.md), [AWS Single Sign-on](../saas-apps/aws-single-sign-on-tutorial.md), [Nura Space](https://dashboard.nuraspace.com/login), [Broadcom DX SaaS](../saas-apps/broadcom-dx-saas-tutorial.md), [Interplay Learning](https://skilledtrades.interplaylearning.com/#login), [SendPro Enterprise](../saas-apps/sendpro-enterprise-tutorial.md), [FortiSASE SIA](../saas-apps/fortisase-sia-tutorial.md)
+
+You can also find the documentation of all the applications here: https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, read the details here: https://aka.ms/AzureADAppRequest
+
+---
+
+### New provisioning connectors in the Azure AD Application Gallery - March 2021
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [AWS Single Sign-on](../saas-apps/aws-single-sign-on-provisioning-tutorial.md)
+- [Bpanda](../saas-apps/bpanda-provisioning-tutorial.md)
+- [Britive](../saas-apps/britive-provisioning-tutorial.md)
+- [GitHub Enterprise Managed User](../saas-apps/github-enterprise-managed-user-provisioning-tutorial.md)
+- [Grammarly](../saas-apps/grammarly-provisioning-tutorial.md)
+- [LogicGate](../saas-apps/logicgate-provisioning-tutorial.md)
+- [SecureLogin](../saas-apps/secure-login-provisioning-tutorial.md)
+- [TravelPerk](../saas-apps/travelperk-provisioning-tutorial.md)
+
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+
+### Introducing MS Graph API for Company Branding
+
+**Type:** Changed feature  
+**Service category:** MS Graph  
+**Product capability:** B2B/B2C
+
+[MS Graph API for the Company Branding](https://docs.microsoft.com/en-us/graph/api/resources/organizationalbrandingproperties?view=graph-rest-1.0)  is available for the Azure AD or Microsoft 365 login experience to allow the management of the branding parameters programmatically.
+
+---
+
+### General availability - Header-based authentication SSO with Application Proxy
+
+**Type:** Changed feature  
+**Service category:** App Proxy  
+**Product capability:** Access Control
+ 
+Azure AD Application Proxy native support for header-based authentication is now in general availability. With this feature, you can configure the user attributes required as HTTP headers for the application without additional components needed to deploy. [Learn more](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md).
+
+---
+
+### Refresh and session token lifetimes configurability in Configurable Token Lifetimes (CTL) are retired
+
+**Type:** Deprecated  
+**Service category:** Other  
+**Product capability:** User Authentication
+ 
+Refresh and session token lifetimes configurability in CTL are retired. Azure Active Directory no longer honors refresh and session token configuration in existing policies. [Learn more](../develop/active-directory-configurable-token-lifetimes.md#token-lifetime-policies-for-refresh-tokens-and-session-tokens).
+
+---
+
+### Two-way SMS for MFA Server is no longer supported
+
+**Type:** Deprecated  
+**Service category:** MFA  
+**Product capability:** Identity Security & Protection
+ 
+
+Two-way SMS for MFA Server was originally deprecated in 2018, and will not be supported after February 24, 2021. Administrators should enable another method for users who still use two-way SMS.
+
+Email notifications and Azure Portal Service Health notifications were sent to affected admins on December 8, 2020 and January 28, 2021. The alerts went to the Owner, Co-Owner, Admin, and Service Admin RBAC roles tied to the subscriptions. [Learn more](../authentication/how-to-authentication-two-way-sms-unsupported.md).
+ 
+---
+ 
 ## February 2021
 
 ### Email one-time passcode authentication on by default starting October 2021
@@ -554,7 +721,7 @@ For more information, go to [Change approval settings for an access package in A
 **Service category:** All Azure AD applications  
 **Product capability:** Standards
 
-Azure Active Directory will deprecate the following protocols in Azure Active Directory worldwide regions by June 30, 2021:
+Azure Active Directory will deprecate the following protocols in Azure Active Directory worldwide regions starting June 30, 2021:
 
 - TLS 1.0
 - TLS 1.1
@@ -566,6 +733,8 @@ Affected environments are:
 
 Related announcement 
 All client-server and browser-server combinations should use TLS 1.2 and modern cipher suites to maintain a secure connection to Azure Active Directory for Azure, Office 365, and Microsoft 365 services. This is change is related to [Azure Active Directory TLS 1.0 & 1.1, and 3DES Cipher Suite Deprecation in US Gov Cloud](whats-new.md#azure-active-directory-tls-10-tls-11-and-3des-deprecation-in-us-gov-cloud).
+
+For guidance to remove deprecating protocols dependencies, please refer to [Enable support for TLS 1.2 in your environment for Azure AD TLS 1.1 and 1.0 deprecation](https://docs.microsoft.com/troubleshoot/azure/active-directory/enable-support-tls-environment).
 
 ---
 
@@ -783,7 +952,7 @@ If you have an environment with firewall rules set to allow outbound calls to on
 **Service category:** All Azure AD applications  
 **Product capability:** Standards
  
-Azure Active Directory will deprecate the following protocols by March 31, 2021:
+Azure Active Directory will deprecate the following protocols starting March 31, 2021:
 - TLS 1.0
 - TLS 1.1
 - 3DES cipher suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA)
@@ -793,6 +962,8 @@ All client-server and browser-server combinations should use TLS 1.2 and modern 
 Affected environments are:
 - Azure US Gov
 - [Office 365 GCC High & DoD](/microsoft-365/compliance/tls-1-2-in-office-365-gcc)
+
+For guidance to remove deprecating protocols dependencies, please refer to [Enable support for TLS 1.2 in your environment for Azure AD TLS 1.1 and 1.0 deprecation](https://docs.microsoft.com/troubleshoot/azure/active-directory/enable-support-tls-environment).
  
 ---
 
