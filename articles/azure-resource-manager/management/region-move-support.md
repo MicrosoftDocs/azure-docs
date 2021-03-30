@@ -1068,7 +1068,7 @@ Jump to a resource provider namespace:
 > | diagnosticsettingscategories | No | 
 > | eventcategories | No | 
 > | eventtypes | No | 
-> | extendeddiagnosticsettings | No | |
+> | extendeddiagnosticsettings | No |
 > | guestdiagnosticsettings | No | 
 > | listmigrationdate | No | 
 > | logdefinitions | No | 
@@ -1394,7 +1394,8 @@ Jump to a resource provider namespace:
 > | networkwatchers / pingmeshes |  No | 
 > | p2svpngateways | No | 
 > | privatednszones |  No |  
-> | privatednszones / virtualnetworklinks | No |> | privatednszonesinternal | No |
+> | privatednszones / virtualnetworklinks | No |
+> | privatednszonesinternal | No |
 > | privateendpointredirectmaps | No |
 > | privateendpoints | No | 
 > | privatelinkservices | No | 
