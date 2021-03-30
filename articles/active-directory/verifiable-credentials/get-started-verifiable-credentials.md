@@ -94,6 +94,9 @@ Now that your local port is exposed to the internet using ngrok, the sample site
 
    ![Sign in ](media/get-started-verifiable-credentials/add-verified-credential-expert.png)
 
+
+   ![Sign in ](media/get-started-verifiable-credentials/test.png)
+
 5. Before you get your Credential expert card, the tenant we are using requires that you provide authentication information. If this is your first time going through tutorial you don't have a credential expert account, create a new user account in our B2C tenant.
 
    ![authenticate before you proceed](media/get-started-verifiable-credentials/authenticate-credential-expert.png)
