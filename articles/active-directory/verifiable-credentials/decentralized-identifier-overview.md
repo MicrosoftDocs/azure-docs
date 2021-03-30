@@ -64,13 +64,13 @@ To deliver on these promises, we need a technical foundation made up of seven ke
 IDs users create, own, and control independently of any organization or government. DIDs are globally unique identifiers linked to Decentralized Public Key Infrastructure (DPKI) metadata composed of JSON documents that contain public key material, authentication descriptors, and service endpoints.
 
 **2. Decentralized system: ION (Identity Overlay Network)**
-ION is a Layer 2 open, permissionless network based on the purely deterministic Sidetree protocol, which requires no special tokens, trusted validators, or additional consensus mechanisms; the linear progression of Bitcoin's timechain is all that's required for its operation.
+ION is a Layer 2 open, permissionless network based on the purely deterministic Sidetree protocol, which requires no special tokens, trusted validators, or additional consensus mechanisms; the linear progression of Bitcoin's timechain is all that's required for its operation. We have [open sourced a npm package](https://www.npmjs.com/package/@decentralized-identity/ion-tools) to make working with the ION network easy to integrate into your apps and services. Libraries include creating a new DID, generating keys and anchoring your DID on the bitcoin blockchain. 
 
 **3. DID User Agents: Microsoft Authenticator App**
-Enables real people to use decentralized identities and Verifiable Credentials. Authenticator creates DIDs, facilitates issuance and presentation requests for Verifiable Credentials and manage the back up of your DID's seed through an encrypted wallet file.
+Enables real people to use decentralized identities and Verifiable Credentials. Authenticator creates DIDs, facilitates issuance and presentation requests for Verifiable Credentials and manage the back up of your DID's seed through an encrypted wallet file. 
 
 **4. Microsoft Resolver**
-An API that connects to our ION node to look up and resolve DID's using the did:ion method and return the DID Document Object (DDO). The DDO includes DPKI metdata associated with the DID such as public keys and service endpoints. 
+An API that connects to our ION node to look up and resolve DID's using the did:ion method and return the DID Document Object (DDO). The DDO includes DPKI metdata associated with the DID such as public keys and service endpoints. In the future, this resolver could include drivers for other DID methods we choose to support. 
 
 **5. Azure Active Directory Verified Credentials Service**
 An issuance and verification API and open source SDK for [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) that are signed with the did:ion method. They enable identity owners to generate, present, and verify claims. This 
