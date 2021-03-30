@@ -27,7 +27,7 @@ Cluster Connect allows you to securely connect to Azure Arc enabled Kubernetes c
     az extension add --name connectedk8s
     ```
   
-    If you have already installed the `connectedk8s` extension, you can update the extension to the latest version:
+    If you've already installed the `connectedk8s` extension, you can update the extension to the latest version:
     
     ```azurecli
     az extension update --name connectedk8s
@@ -43,7 +43,7 @@ Cluster Connect allows you to securely connect to Azure Arc enabled Kubernetes c
     az connectedk8s enable-features --features cluster-connect
     ```
 
-- The following endpoints need to be enabled for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md#meet-network-requirements):
+- Enable the below endpoints for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md#meet-network-requirements):
 
     | Endpoint | Port |
     |----------------|-------|
@@ -56,7 +56,7 @@ The two authentication options are supported with the Cluster Connect feature - 
 
 ### Option 1: Azure Active Directory
 
-1. With kubeconfig file on your machine pointing to the apiserver of your Kubernetes cluster, create a ClusterRoleBinding or RoleBinding to the AAD entity (service principal or user) that needs to access this cluster:
+1. With kubeconfig file pointing to the `apiserver` of your Kubernetes cluster, create a ClusterRoleBinding or RoleBinding to the AAD entity (service principal or user) that needs to access this cluster:
 
     **For user:**
     
@@ -94,7 +94,7 @@ The two authentication options are supported with the Cluster Connect feature - 
 
 ### Option 2: Service Account Bearer Token
 
-1. With kubeconfig file on your machine pointing to the apiserver of your Kubernetes cluster, create a service account in any namespace you desire (following command creates it in the default namespace):
+1. With kubeconfig file pointing to the `apiserver` of your Kubernetes cluster, create a service account in any namespace (following command creates it in the default namespace):
 
     ```console
     kubectl create serviceaccount admin-user
