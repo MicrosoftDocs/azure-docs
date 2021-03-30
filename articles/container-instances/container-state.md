@@ -19,7 +19,7 @@ This value is the state of the deployed container group on the backend. In the A
 
 - **Stopped**: The container group has been stopped and will not be scheduled to run without user action.
 
-- **Pending**: The container group is waiting to initialize (finish running init containers, mount Azure file volumes). The container continues to attempt to get to the **Running** state unless a user action (stop/delete) happens.
+- **Pending**: The container group is waiting to initialize (finish running init containers, mount Azure file volumes if applicable). The container continues to attempt to get to the **Running** state unless a user action (stop/delete) happens.
 
 - **Succeeded**: The container group has run to completion successfully. Only applicable for *Never* and *On Failure* restart policies.
 
