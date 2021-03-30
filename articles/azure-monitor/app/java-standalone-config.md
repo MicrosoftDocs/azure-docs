@@ -59,7 +59,7 @@ Connection string is required. You can find your connection string in your Appli
 ```
 
 You can also set the connection string using the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`
-(which will then take precedence if the connection string is also specified in the json configuration).
+(which will then take precedence over connection string specified in the json configuration).
 
 Not setting the connection string will disable the Java agent.
 
@@ -80,7 +80,7 @@ If you want to set the cloud role name:
 If cloud role name is not set, the Application Insights resource's name will be used to label the component on the application map.
 
 You can also set the cloud role name using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`
-(which will then take precedence if the cloud role name is also specified in the json configuration).
+(which will then take precedence over cloud role name specified in the json configuration).
 
 ## Cloud role instance
 
@@ -98,7 +98,7 @@ If you want to set the cloud role instance to something different rather than th
 ```
 
 You can also set the cloud role instance using the environment variable `APPLICATIONINSIGHTS_ROLE_INSTANCE`
-(which will then take precedence if the cloud role instance is also specified in the json configuration).
+(which will then take precedence over cloud role instance specified in the json configuration).
 
 ## Sampling
 
@@ -118,7 +118,7 @@ Here is an example how to set the sampling to capture approximately **1/3 of all
 ```
 
 You can also set the sampling percentage using the environment variable `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE`
-(which will then take precedence if the sampling percentage is also specified in the json configuration).
+(which will then take precedence over sampling percentage specified in the json configuration).
 
 > [!NOTE]
 > For the sampling percentage, choose a percentage that is close to 100/N where N is an integer. Currently sampling doesn't support other values.
@@ -225,7 +225,7 @@ The default level configured for Application Insights is `INFO`. If you want to 
 ```
 
 You can also set the level using the environment variable `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL`
-(which will then take precedence if the level is also specified in the json configuration).
+(which will then take precedence over level specified in the json configuration).
 
 These are the valid `level` values that you can specify in the `applicationinsights.json` file, and how they correspond to logging levels in different logging frameworks:
 
@@ -292,7 +292,7 @@ Starting from version 3.0.3, you can enable collection of this telemetry:
 
 You can also enable this feature using the environment variable 
 `APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED`
-(which will then take precedence if the corresponding property is also specified in the json configuration).
+(which will then take precedence over enabled specified in the json configuration).
 
 ## Suppressing specific auto-collected telemetry
 
@@ -329,8 +329,7 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
 }
 ```
 
-You can also suppress these instrumentations using these environment variables
-(which will then take precedence if the corresponding property is also specified in the json configuration):
+You can also suppress these instrumentations using these environment variables:
 
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
@@ -340,6 +339,8 @@ You can also suppress these instrumentations using these environment variables
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_REDIS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_SPRING_SCHEDULING_ENABLED`
+
+(which will then take precedence over enabled specified in the json configuration).
 
 > NOTE
 > If you are looking for more fine-grained control, e.g. to suppress some redis calls but not all redis calls,
@@ -451,7 +452,7 @@ and the console, corresponding to this configuration:
 `maxHistory` is the number of rolled over log files that are retained (in addition to the current log file).
 
 Starting from version 3.0.2, you can also set the self-diagnostics `level` using the environment variable `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`
-(which will then take precedence if the self-diagnostics `level` is also specified in the json configuration).
+(which will then take precedence over self-diagnostics level specified in the json configuration).
 
 ## An example
 
