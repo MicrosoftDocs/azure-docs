@@ -39,6 +39,47 @@ Visit [Xilinx Runtime (XRT) release notes](https://www.xilinx.com/support/docume
 
 During the preview program Microsoft Azure engineering teams will share specific instructions for driver installation.
 
+##  Frequently asked questions
+
+**Q:** What version of Vitis should I use? 
+
+**A:** Xilinx recommends [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)
+
+
+**Q:** Do I need to use NP VMs for develop my solutuion? 
+
+**A:** No, you can develop on-premise and deploy to the cloud! Please make sure you follow the attestation documentation to deploy on NP VMs. 
+
+**Q:** What are the supported OS (Operating Systems)? 
+
+**A:** Xilinx and Microsoft have validated Ubuntu 18.04 LTS and CentOS 7.8.
+
+ Xilinx created the following marketplace images to simplify the deployment of these VMs. 
+
+[Xilinx Alveo U250 Deployment VM – Ubuntu18.04](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/xilinx.xilinx_alveo_u250_deployment_vm_ubuntu1804_032321/)
+
+[Xilinx Alveo U250 Deployment VM – CentOS7.8](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/xilinx.xilinx_alveo_u250_deployment_vm_centos78_032321)
+
+**Q:** Can I deploy my Own Ubuntu/CentOS VMs and install XRT/Deployment Target Platform? 
+
+**A:** Yes.
+Can I run xbmgmt commands? 
+
+No, on Azure VMs there is no management support directly from the Azure VM. 
+
+ **Q:** Do I need to load a PLP? 
+
+**A:** No, the PLP is loaded automatically for you, so there is no need to load via xbmgmt commands. 
+
+ 
+**Q:** Does Azure support different PLPs? 
+
+**A:** Not at this time, we only support the PLP provided in the deployment platform packages. 
+
+**Q:** How can I query the PLP information? 
+
+**A:** Need to run xbutil query and look at the lower portion. 
+
 ## Other sizes
 
 - [General purpose](sizes-general.md)
