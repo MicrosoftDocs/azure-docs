@@ -47,7 +47,7 @@ The inbound traffic is the messages sent to the Azure Web PubSub service.
 
 ### What is message count
 
-The message count for billing purpose is an abstract concept and defined as the size of outbound traffic (bytes) divided in 2 KB. 
+The message count for billing purpose is an abstract concept and defined as the size of outbound traffic (bytes) divided in 2 KB. For example, 100-KB traffic is counted as 50 messages.  
 
 ### How traffic is counted with billing model
 
