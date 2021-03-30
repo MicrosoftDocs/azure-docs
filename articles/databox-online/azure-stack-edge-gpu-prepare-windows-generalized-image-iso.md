@@ -14,28 +14,21 @@ ms.author: alkohli
 
 # Create a generalized Windows VHD from an ISO 
 
-This article describes the steps to create a Windows VHD from an ISO installation media so that it can be used to create a generalized image on Azure Stack Edge. A ‘generalized’ image requires setup to be completed on first boot of the VM. For example, it needs to set the hostname, admin user, and other VM-specific configurations. This is useful when you want to create multiple new VMs from the same image.
+This article describes how to create a Windows virtual hard disk from ISO installation media that you can use to create a generalized image on Azure Stack Edge. When you use a *generalized image*, you complete the setup on first boot of the VM. For example, you need to set the hostname, admin user, and other VM-specific configurations. Use a generalized image when you want to create multiple new VMs from the same image.
 
-This is different than a "specialized" image, which is completely pre-configured and does not require special provisioning or parameters. The platform will just turn the VM on. Specialized images are useful for migrating a specific machine or restoring a VM from a previous backup. o deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.<!--Get target!-->
-
+By contrast, a *specialized image* is completely pre-configured and does not require special provisioning or parameters. The platform will just turn on the VM. Specialized images are useful for migrating a specific virtual machine or restoring a VM from a previous backup. To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.<!--Get target!-->
 
 ## Workflow 
 
 The high-level workflow to create a generalized Windows VHD from an ISO is: 
 
 1. Create a new fixed-size VHD in Hyper-V Manager 
-
 1. Create a new VM in Hyper-V using the VHD 
-
 1. Mount the ISO as a DVD drive on the new VM 
-
-1. Start the VM and install the Windows operating system 
-
-1. Generalize the VHD using the ‘sysprep’ utility  
-
+1. Start the VM, and install the Windows operating system 
+1. Generalize the VHD using the `sysprep` utility  
 1. Copy the generalized image to blob storage 
-
-1. Proceed to the steps to deploy a VM from a generalized image via Azure Portal or PowerShell 
+1. Proceed to the steps to deploy a VM from a generalized image via the Azure portal or PowerShell<!--This should be the "Next step," and it shouldn't be included in the work flow.-->
  
 
 ## Prerequisites 
@@ -48,7 +41,7 @@ Before you can create a generalized Windows VHD from an ISO image, make sure tha
 
 - You have access to an Azure blob storage account to store your VHD after it is prepared.
 
-## Create a new VHD in Hyper-V Manager 
+## Create new VHD in Hyper-V Manager 
 
 1. Open Hyper-V Manager on your client system. On the **Action** menu, select **New** and then **Hard Disk**.<!--To get to View, they have to first select the server (?) under the Hyper-V Manager?-->
 
@@ -123,21 +116,19 @@ Before you can create a generalized Windows VHD from an ISO image, make sure tha
 
 ## Connect to the Hyper-V VM 
 
-Using Hyper-V manager, connect to the new VM you created. 
+Using Hyper-V manager, connect to the new VM you created.
 
 [!INCLUDE [Connect to Hyper-V VM](../../includes/azure-stack-edge-connect-to-hyperv-vm.md)]
 
-After you are connected to the VM, complete the Machine setup wizard and then sign into the VM.<!--What does this mean? Doesn't correspond to the procedures/steps that follow.-->
+After you're connected to the VM, complete the Machine setup wizard, and then sign into the VM.<!--What does this mean? Doesn't correspond to the procedures/steps that follow.-->
 
 ## Generalize the VHD  
 
 [!INCLUDE [Generalize the VHD](../../includes/azure-stack-edge-generalize-vhd.md)]
 
-### Upload the VHD to Azure blob storage
+Your VHD can now be used to create a generalized image on Azure Stack Edge.
 
 ## Upload the VHD to Azure Blob storage
-
-Your VHD can now be used to create a generalized image on Azure Stack Edge.
 
 [!INCLUDE [Upload VHD to Blob storage](../../includes/azure-stack-edge-upload-vhd-to-blob-storage.md)]
 
@@ -145,4 +136,4 @@ Your VHD can now be used to create a generalized image on Azure Stack Edge.
 
 ## Next steps
 
-TBD
+Deploy a virtual machine from an ISO image via the Azure portal,<!--Is this article available?-->

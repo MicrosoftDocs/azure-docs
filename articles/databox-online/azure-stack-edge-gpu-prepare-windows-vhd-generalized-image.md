@@ -128,7 +128,7 @@ You'll use this fixed VHD for all the subsequent steps in this article.
 
 1. Review the **Summary** and then select **Finish** to create the virtual machine.
 
-The virtual machine takes several minutes to create.
+Creation of the virtual machine takes several minutes.
 
 ## Connect to the Hyper-V VM
 
@@ -136,15 +136,15 @@ The VM shows in the list of the virtual machines on your client system.
 
 [!INCLUDE [Connect to Hyper-V VM](../../includes/azure-stack-edge-connect-to-hyperv-vm.md)]
 
-After you are connected to the VM, complete the Machine setup wizard and then sign into the VM.
+After you're connected to the VM, complete the Machine setup wizard, and then sign into the VM.<!--It's not clear what they are doing here. Where does the Machine setup wizard come in?-->
 
 ## Generalize the VHD  
 
 [!INCLUDE [Generalize the VHD](../../includes/azure-stack-edge-generalize-vhd.md)]
 
-## Upload the VHD to Azure Blob storage
-
 Your VHD can now be used to create a generalized image on Azure Stack Edge.
+
+## Upload the VHD to Azure Blob storage
 
 [!INCLUDE [Upload VHD to Blob storage](../../includes/azure-stack-edge-upload-vhd-to-blob-storage.md)]
 
