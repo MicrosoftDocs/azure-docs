@@ -56,7 +56,7 @@ As noted prior, the OSM add-on for AKS is in a preview state and will undergo ad
 | Kubernetes Cluster Version                         | 1.19+ |
 | Maximum OSM controllers per cluster                | 1     |
 | Maximum pods per OSM controller                    | 500   |
-| Maximum Kubernetes service accounts managed my OSM | 50    |
+| Maximum Kubernetes service accounts managed by OSM | 50    |
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -206,7 +206,7 @@ You must have the following resources installed:
 
 ### Create namespaces for the application
 
-In this walkthrough we will be using the OMS bookstore appplication that has the following Kubernetes services:
+In this walkthrough we will be using the OSM bookstore appplication that has the following Kubernetes services:
 
 - bookbuyer
 - bookthief
@@ -1017,7 +1017,7 @@ Notice the **permissive_traffic_policy_mode** is configured to **true**. Permiss
 
 ### Create namespaces for the application
 
-In this totorial we will be using the OMS bookstore appplication that has the following application components:
+In this totorial we will be using the OSM bookstore appplication that has the following application components:
 
 - bookbuyer
 - bookthief
@@ -1381,7 +1381,7 @@ Notice the **permissive_traffic_policy_mode** is configured to **true**. Permiss
 
 ### Create namespaces for the application
 
-In this tutorial we will be using the OMS bookstore application that has the following application components:
+In this tutorial we will be using the OSM bookstore application that has the following application components:
 
 - bookbuyer
 - bookthief
@@ -2083,7 +2083,7 @@ If you scroll down you should see all the SMI metric endpoints state being **UP*
 
 ### Deploy and configure a Grafana Instance for OSM
 
-We will use Helm to deploy the Grafan instance. Run the following commands to install Grafana via Helm:
+We will use Helm to deploy the Grafana instance. Run the following commands to install Grafana via Helm:
 
 ```
 helm repo add grafana https://grafana.github.io/helm-charts
@@ -2099,7 +2099,7 @@ kubectl get secret --namespace default osm-grafana -o jsonpath="{.data.admin-pas
 
 Make note of the Grafana password.
 
-Next we will retreive the Grafana pod to port forward to the Grafan dashboard to login.
+Next we will retreive the Grafana pod to port forward to the Grafana dashboard to login.
 
 ```azurecli-interactive
 GRAF_POD_NAME=$(kubectl get pods -l "app.kubernetes.io/name=grafana" -o jsonpath="{.items[0].metadata.name}")
