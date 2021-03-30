@@ -49,7 +49,7 @@ To enable this exchange, register an application with your identity provider. If
 
 After you register an application with your identity provider, record its client ID. You will use it in the section that follows. You also need to write down the URL to the well-known endpoint for the OIDC compatible identity provider. The Issuing Service uses this to download the public keys so it can validate the ID token once that it’s sent by Authenticator.
 
-The configured redirect URI is used by Authenticator so it knows when the sign in is completed and it can retrieve the ID token. 
+The configured redirect URI is used by Authenticator so it knows when the sign-in is completed and it can retrieve the ID token. 
 
 ## Authorization request
 
