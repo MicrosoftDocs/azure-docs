@@ -14,9 +14,9 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Cognitive Services
 
-This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Cognitive Services. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure.The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Cognitive Services. **Controls** not applicable to Cognitive Services, or for which the responsibility is Microsoft's, have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Cognitive Services. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Cognitive Services. **Controls** not applicable to Cognitive Services, or for which the responsibility is Microsoft's, have been excluded.
 
-To see how Cognitive Services completely maps to the Azure Security Benchmark, see the [full Cognitive Services security baseline mappingfile](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+To see how Cognitive Services completely maps to the Azure Security Benchmark, see the [full Cognitive Services security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Network Security
 

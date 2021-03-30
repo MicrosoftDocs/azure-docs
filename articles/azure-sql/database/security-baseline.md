@@ -14,9 +14,7 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure SQL Database
 
-This security baseline applies guidance from the [Azure Security Benchmark version 1.0](../../security/benchmarks/overview.md) to Azure SQL Database. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure SQL Database. **Controls** not applicable to Azure SQL Database, or for which the responsibility is Microsoft's, have been excluded.
-
-To see how Azure SQL Database completely maps to the Azure Security Benchmark, see the [full Azure SQL Database security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+This security baseline applies guidance from the [Azure Security Benchmark version1.0](../../security/benchmarks/overview-v1.md) to Azure SQL Database. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure SQL Database. **Controls** not applicable to Azure SQL Database, or for which the responsibility is Microsoft's, have been excluded. To see how Azure SQL Database completely maps to the Azure Security Benchmark, see the [full Azure Monitor security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Network Security
 
