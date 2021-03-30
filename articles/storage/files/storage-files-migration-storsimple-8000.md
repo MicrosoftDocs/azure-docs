@@ -60,7 +60,7 @@ When you first set up your StorSimple appliance, it generated a "service data en
 
 The "service data encryption key" is necessary for a successful migration. Now is a good time to retrieve this key from your records, one for each of the appliances in your inventory.
 
-If you can't find the keys in your records, you can generate a new key key from the appliance. Each appliance has a unique encryption key.
+If you can't find the keys in your records, you can generate a new key from the appliance. Each appliance has a unique encryption key.
 
 #### Change the service data encryption key
 

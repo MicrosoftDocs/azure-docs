@@ -1,12 +1,13 @@
 ---
-title: Deploy a Storage Sync Service
-description: Deploy the Azure File Sync cloud resource, a Storage Sync Service. A common text block, shared across migration docs.
+title: include file
+description: include file
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
-ms.date: 03/26/2021
+ms.topic: include
+ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
+ms.custom: include file
 ---
 Service data encryption keys are used to encrypt confidential customer data, such as storage account credentials, that are sent from your StorSimple Manager service to the StorSimple device. You will need to change these keys periodically if your IT organization has a key rotation policy on the storage devices. The key change process can be slightly different depending on whether there is a single device or multiple devices managed by the StorSimple Manager service. For more information, go to [StorSimple security and data protection](../articles/storsimple/storsimple-8000-security.md).
 
