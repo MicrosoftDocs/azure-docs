@@ -163,7 +163,7 @@ This schema assessment was developed to help users decide which database to migr
 
 ### Convert
 
-In minimal-downtime migrations, your migration source changes. It drifts from the target in terms of data and schema after the one-time migration. During the *Data sync* phase, ensure that all changes in the source are captured and applied to the target in near real time. After you verify that all changes are applied to the target, you can *cutover* from the source to the target environment.
+In minimal-downtime migrations, your migration source changes. It drifts from the target in terms of data and schema after the one-time migration. During the *Data sync* phase, ensure that all changes in the source are captured and applied to the target in near real time. After you verify that all changes are applied to the target, you can *cut over* from the source to the target environment.
 
 In this step of the migration, the Oracle code and DDL scripts are converted or translated to PostgreSQL. The ora2pg tool exports the Oracle objects in a PostgreSQL format automatically. Some of the generated objects can't be compiled in the PostgreSQL database without manual changes.  
 
@@ -277,11 +277,11 @@ When you've made the necessary fixes, a stable build of the database is ready to
 
 In this step, you can implement a level of parallelism on importing the data.
 
-### Sync data and cutover
+### Sync data and cut over
 
 In online (minimal-downtime) migrations, the migration source continues to change. It drifts from the target in terms of data and schema after the one-time migration. 
 
-During the *Data sync* phase, ensure that all changes in the source are captured and applied to the target in near real time. After you verify that all changes are applied, you can cutover from the source to the target environment.
+During the *Data sync* phase, ensure that all changes in the source are captured and applied to the target in near real time. After you verify that all changes are applied, you can cut over from the source to the target environment.
 
 To do an online migration, contact AskAzureDBforPostgreSQL@service.microsoft.com for support.
 
