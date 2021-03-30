@@ -498,7 +498,7 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | capabilities | No | 
-> | domainnames | Yes | No |
+> | domainnames | No |
 > | quotas | No | 
 > | resourcetypes | No |
 > | validatesubscriptionmoveavailability | No | 
