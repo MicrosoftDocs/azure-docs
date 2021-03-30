@@ -32,7 +32,7 @@
     - name: Manage groups
       href: manage-groups.md
     - name: Add and manage Azure AD applications
-      href: manage-aad-app.md  
+      href: manage-aad-apps.md  
 - name: Concepts
   items: 
   - name: Listing options
