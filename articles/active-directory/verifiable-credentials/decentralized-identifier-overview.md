@@ -78,9 +78,9 @@ The issuer of the credential, Woodgrove Inc., creates a public key and a private
 
 There are three primary actors in the verifiable credential solution. In the following diagram:
 
-1. Step 1, the **user** requests a verifiable credential from an issuer.
-1. Step 2, the **issuer** of the credential attests that the proof the user provided is accurate and creates a public and private key pair. The public key is placed on the DPKI and transmits the private key portion of the VC to the user. 
-1. In Step 3, the user presents the private key to a **verifier**. The verifier then verifies the validity of the credential by matching with the public key placed in the DPKI. 
+- **Step 1**, the **user** requests a verifiable credential from an issuer.
+- **Step 2**, the **issuer** of the credential attests that the proof the user provided is accurate and creates a public and private key pair. The public key is placed on the DPKI and transmits the private key portion of the VC to the user. 
+- **In Step 3**, the user presents the private key to a **verifier**. The verifier then verifies the validity of the credential by matching with the public key placed in the DPKI. 
 
 The roles in this scenario are:
 
