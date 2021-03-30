@@ -92,7 +92,7 @@ The cmdlets used in the code example are the following:
 - [Set-AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifies the server name that the alias is configured to refer to, from server 1 to server 2.
 - [Remove-AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove the DNS alias from server 2, by using the name of the alias.
 
-## Limitations during preview
+## Limitations
 
 Presently, a DNS alias has the following limitations:
 

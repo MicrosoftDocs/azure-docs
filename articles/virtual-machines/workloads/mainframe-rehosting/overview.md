@@ -116,7 +116,7 @@ See also:
 
 - [White papers about mainframe topics](mainframe-white-papers.md)
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Troubleshooting](../../troubleshooting/index.yml)
+- [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

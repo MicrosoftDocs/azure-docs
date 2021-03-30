@@ -34,7 +34,7 @@ highlightedContent:
     # Card
     - title: Build your skills with Microsoft Learn
       itemType: learn
-      url: /learn/browse/?products=azure&resource_type=learning%2bpath
+      url: /learn/browse/?products=azure&resource_type=learning%20path
 
 productDirectory:
   title: Browse Azure products
@@ -1232,7 +1232,7 @@ productDirectory:
       imageSrc: ./media/index/media-protection.svg
       azureCategories:
         - media
-      url: media-services/latest/content-protection-overview.md
+      url: media-services/latest/drm-content-protection-concept.md
     # Card
     - title: Encoding
       summary: Studio grade encoding at cloud scale

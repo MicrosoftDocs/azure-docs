@@ -59,7 +59,7 @@ AzCopy uses the [Put Block From URL](/rest/api/storageservices/put-block-from-ur
 
 Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
 
-|    |     |
+| Syntax / example  |  Code |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
 | **Example** | `azcopy copy 'https://storage.cloud.google.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
@@ -70,7 +70,7 @@ Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hiera
 
 Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
 
-|    |     |
+| Syntax / example  |  Code |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Example** | `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
@@ -83,7 +83,7 @@ Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hiera
 
 You can copy the contents of a directory without copying the containing directory itself by using the wildcard symbol (*).
 
-|    |     |
+| Syntax / example  |  Code |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Example** | `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
@@ -93,7 +93,7 @@ You can copy the contents of a directory without copying the containing director
 
 Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
 
-|    |     |
+| Syntax / example  |  Code |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Example** | `azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
@@ -105,7 +105,7 @@ First, set the `GOOGLE_CLOUD_PROJECT` to project ID of Google Cloud project.
 
 Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
 
-|    |     |
+| Syntax / example  |  Code |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://storage.cloud.google.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Example** | `azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
@@ -117,7 +117,7 @@ First, set the `GOOGLE_CLOUD_PROJECT` to project ID of Google Cloud project.
 
 Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
 
-|    |     |
+| Syntax / example  |  Code |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://storage.cloud.google.com/<bucket*name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Example** | `azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |

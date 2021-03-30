@@ -114,7 +114,7 @@ After installing the WebSocket Service and the Teams desktop app, follow these s
 
 3. Select **Version**.
 
-      If media optimizations loaded, the banner will show you **WVD Media optimized**. If the banner shows you **WVD Media not connected**, quit the Teams app and try again.
+      If media optimizations loaded, the banner will show you **Windows Virtual Desktop Media optimized**. If the banner shows you **Windows Virtual Desktop Media not connected**, quit the Teams app and try again.
 
 4. Select your user profile image, then select **Settings**.
 
