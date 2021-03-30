@@ -156,5 +156,6 @@ Follow these steps to create a VM from a managed disk:
 
 Depending on the nature of deployment, you can choose one of the following procedures.
 
-- [Deploy a VM from a generalized image via Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
 - [Deploy a VM from a generalized image via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)  
+- [Deploy a VM via Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
+
