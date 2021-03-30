@@ -66,8 +66,6 @@
     href: configure-nsx-network-components-azure-portal.md
   - name: Deploy disaster recovery for VMs
     href: disaster-recovery-for-virtual-machines.md
-  - name: Deploy VM via content library
-    href: ./deploy-vm-content-library.md
   - name: Set up GitHub Enterprise Server
     href: github-enterprise-server.md
   - name: Public IP usage
@@ -108,6 +106,8 @@
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon
       href: azure-vmware-solution-horizon.md
+    - name: Deploy VMs from the content library
+      href: ./deploy-vm-content-library.md
   - name: VMware ecosystem
     items:
     - name: Backup solutions for VMs
