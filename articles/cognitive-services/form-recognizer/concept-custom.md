@@ -36,12 +36,13 @@ Building a custom model begins with establishing your training dataset. You'll n
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 > [!div class="nextstepaction"]
-> [Upload your training dataset](build-training-data-set.md#upload-your-training-data)
+><span></span>
+> [<h2>Upload your training dataset</h2>](build-training-data-set.md#upload-your-training-data)
 
 You'll need to upload your training data to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, *see* [Azure Storage quickstart for Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 > [!div class="nextstepaction"]
->[Train your custom model](quickstarts/client-library.md#train-a-custom-model)
+>[<h2>Train your custom model](quickstarts/client-library.md#train-a-custom-model)
 
 You can train your model [without](quickstarts/client-library.md#train-a-model-without-labels) or [with](quickstarts/client-library.md#train-a-model-with-labels) labeled data sets. Unlabeled datasets rely solely on the Layout API to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;  
