@@ -84,14 +84,14 @@ To configure an Azure Key Vault linked service in Synapse Studio to store the wo
    - Search **Azure Key Vault** in the search box.
    - Type a name for the linked service.
    - Choose your Azure key vault. Click **Create**.
-3. Add a `spark.synapse.logAnalytics.keyVault.linkedService` item to Spark configuration.
+3. Add a `spark.synapse.logAnalytics.keyVault.linkedServiceName` item to Spark configuration.
 
 ```properties
 spark.synapse.logAnalytics.enabled true
 spark.synapse.logAnalytics.workspaceId <LOG_ANALYTICS_WORKSPACE_ID>
 spark.synapse.logAnalytics.keyVault.name <AZURE_KEY_VAULT_NAME>
 spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
-spark.synapse.logAnalytics.keyVault.linkedService <LINKED_SERVICE_NAME>
+spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 ```
 
 #### Available Spark Configuration
@@ -101,7 +101,7 @@ spark.synapse.logAnalytics.keyVault.linkedService <LINKED_SERVICE_NAME>
 | spark.synapse.logAnalytics.enabled                  | false                        | To enable the Azure Log Analytics sink for the Spark applications, true. Otherwise, false.                                                                                                                  |
 | spark.synapse.logAnalytics.workspaceId              | -                            | The destination Azure Log Analytics workspace ID                                                                                                                                                          |
 | spark.synapse.logAnalytics.secret                   | -                            | The destination Azure Log Analytics workspace secret.                                                                                                                                                      |
-| spark.synapse.logAnalytics.keyVault.linkedService   | -                            | Azure Key vault linked service name for the Azure Log Analytics workspace ID and key                                                                                                                       |
+| spark.synapse.logAnalytics.keyVault.linkedServiceName   | -                            | Azure Key vault linked service name for the Azure Log Analytics workspace ID and key                                                                                                                       |
 | spark.synapse.logAnalytics.keyVault.name            | -                            | Azure Key vault name for the Azure Log Analytics ID and key                                                                                                                                                |
 | spark.synapse.logAnalytics.keyVault.key.workspaceId | SparkLogAnalyticsWorkspaceId | Azure Key vault secret name for the Azure Log Analytics workspace ID                                                                                                                                       |
 | spark.synapse.logAnalytics.keyVault.key.secret      | SparkLogAnalyticsSecret      | Azure Key vault secret name for the Azure Log Analytics workspace key                                                                                                                                      |
