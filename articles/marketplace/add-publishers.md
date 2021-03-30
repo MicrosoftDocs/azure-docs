@@ -20,7 +20,7 @@ An organization can have multiple publishers associated with a commercial market
 There are two ways to add a publisher, depending on whether you are part of a publisher account:
 
 - [Add a publisher if you are part of a publisher account](#add-a-publisher-if-you-are-part-of-a-publisher-account)
-- [Add a publisher if you’re not part of a publisher account](add-a-publisher-if-you’re-not-part-of-a-publisher-account)
+- [Add a publisher if you are not part of a publisher account](add-a-publisher-if-you-are-not-part-of-a-publisher-account)
 
 ## Add a publisher if you are part of a publisher account
 
@@ -33,7 +33,7 @@ A user who is part of an existing publisher account can add publishers.
 
 After you add a publisher, to work in the context of this account, you can switch to it using the account picker in the left navigation. Once you switch to this publisher account, you can assign appropriate user roles and permissions to your users, so they can have access to the commercial marketplace program on this publisher account.
 
-## Add a publisher if you’re not part of a publisher account
+## Add a publisher if you are not part of a publisher account
 
 Users who are not part of a publisher account and are from the same Azure Active Directory tenant can use these steps to add a new publisher.
 

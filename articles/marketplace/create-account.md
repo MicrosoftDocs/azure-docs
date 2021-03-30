@@ -31,8 +31,8 @@ To create an account in the commercial marketplace program in Partner Center, ma
 
 **There are two ways to create an account**:
 
-- If you're new to Partner Center and don't have a Microsoft Partner Network (MPN) account, continue to [Create a Partner Center account and enroll in the commercial marketplace](#create-an-account-using-the-partner-center-enrollment-page).
-- If you're already enrolled in the Microsoft Partner Network or a developer program, create an account directly from Partner Center. Go to [Use an existing Partner Center account to enroll in the commercial marketplace](#create-an-account-using-existing-partner-center-enrollments).
+- If you're new to Partner Center and don't have a Microsoft Partner Network (MPN) account, continue to [Create a Partner Center account and enroll in the commercial marketplace](#create-a-partner-center-account-and-enroll-in-the-commercial-marketplace).
+- If you're already enrolled in the Microsoft Partner Network or a developer program, create an account directly from Partner Center. Go to [Use an existing Partner Center account to enroll in the commercial marketplace](#use-an-existing-partner-center-account-to-enroll-in-the-commercial-marketplace).
 
 ### Create a Partner Center account and enroll in the commercial marketplace
 
