@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 03/22/2021 
+  ms.date: 03/30/2021 
 
 # card 1
 landingContent:
@@ -121,6 +121,8 @@ landingContent:
             url: protect-azure-vmware-solution-with-application-gateway.md
           - text: Traffic Manager
             url: deploy-traffic-manager-balance-workloads.md
+          - text: Configure alerts and work with metrics 
+            url: configure-alerts-for-azure-vmware-solution.md
 
 # card 5
   - title: VMware solutions
