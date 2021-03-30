@@ -1542,6 +1542,8 @@
         href: runmyprocess-tutorial.md
     - name: S
       items:
+      - name: Saba Cloud
+        href: saba-cloud-tutorial.md
       - name: Saba TalentSpace
         href: halogen-software-tutorial.md
       - name: SafeConnect

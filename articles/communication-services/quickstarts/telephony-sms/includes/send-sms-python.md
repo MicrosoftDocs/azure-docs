@@ -75,7 +75,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Instantiate an **SmsClient** with your connection string. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Instantiate an **SmsClient** with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 ```python
 # Create the SmsClient object which will be used to send SMS messages
@@ -103,7 +103,7 @@ sms_responses = sms_client.send(
 You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number>` with the phone number you wish to send a message to. 
 
 > [!WARNING]
-> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444).
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
 
 ## Send a 1:N SMS Message
 
@@ -121,13 +121,16 @@ sms_responses = sms_client.send(
 
 ```
 
-You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number-1>` and `<to-phone-number-2>` with the phone numbers you wish to send a message to. 
+You should replace `<from-phone-number>` with an SMS enabled phone number associated with your communication service and `<to-phone-number-1>` `<to-phone-number-2>` with phone number(s) you wish to send a message to. 
+
+> [!WARNING]
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +14255550123).
 
 ## Optional Parameters
 
 The `enable_delivery_report` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 
-The `tag` parameter is an optional parameter that you can use to configure custom tagging.
+The `tag` parameter is an optional parameter that you can use to apply a tag to the Delivery Report.
 
 ## Run the code
 Run the application from your application directory with the `python` command.

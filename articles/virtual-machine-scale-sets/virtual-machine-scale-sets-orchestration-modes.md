@@ -5,7 +5,7 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: extensions
+
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt

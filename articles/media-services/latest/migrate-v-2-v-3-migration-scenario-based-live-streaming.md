@@ -9,7 +9,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -59,13 +59,9 @@ See Live events concepts, tutorials and how to guides below for specific steps.
 
 - [Tutorial: Stream live with Media Services](stream-live-tutorial-with-api.md)
 - [Create an Azure Media Services live stream with OBS](live-events-obs-quickstart.md)
-- [Quickstart: Upload, encode, and stream content with portal](manage-assets-quickstart.md)
+- [Quickstart: Upload, encode, and stream content with portal](asset-create-asset-upload-portal-quickstart.md)
 - [Quickstart: Create an Azure Media Services live stream with Wirecast](live-events-wirecast-quickstart.md)
 
 ## Samples
 
 You can also [compare the V2 and V3 code in the code samples](migrate-v-2-v-3-migration-samples.md).
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

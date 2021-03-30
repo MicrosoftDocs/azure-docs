@@ -39,7 +39,7 @@ Semantic search improves precision and recall with the addition of the following
 
 ### Order of operations
 
-Components of semantic search extend the existing query execution pipeline in both directions. If you enable spelling correction, the [speller](speller-how-to-add.md) corrects typos at the outset, before the query terms reach the search engine.
+Components of semantic search extend the existing query execution pipeline in both directions. If you enable spelling correction, the [speller](speller-how-to-add.md) corrects typos at query onset, before terms reach the search engine.
 
 :::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="Semantic components in query execution" border="true":::
 
