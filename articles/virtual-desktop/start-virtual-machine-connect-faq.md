@@ -14,11 +14,11 @@ manager: lizross
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article covers frequently asked questions about the Start VM on Connect feature for Windows Virtual Desktop host pools.
+This article covers frequently asked questions about the Start Virtual Machine (VM) on Connect (preview) feature for Windows Virtual Desktop host pools.
 
 ## Are VMs automatically deallocated when a user stops using them?
 
-No. You'll need to configure additional policies to sign users out of their sessions and run Azure automation scripts to deallocate virtual machines (VMs).
+No. You'll need to configure additional policies to sign users out of their sessions and run Azure automation scripts to deallocate VMs.
 
 To configure the deallocation policy:
 
