@@ -51,7 +51,7 @@ Additional languages for video transcription and subtitling are available now in
 * Thai, ‘th-TH’
 * Turkish, ‘tr-TR’
 
-See the latest available languages in the [Analyzing Video And Audio Files concept article.](analyzing-video-audio-files-concept.md)
+See the latest available languages in the [Analyzing Video And Audio Files concept article.](analyze-video-audio-files-concept.md)
 
 ## February 2021
 
@@ -143,11 +143,11 @@ Azure Media Services is now available in the Norway East region in the Azure por
 
 ### Basic Audio Analysis
 
-The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic Audio Analyzer mode provides a low-cost option to extract speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyzing-video-audio-files-concept.md#built-in-presets)
+The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic Audio Analyzer mode provides a low-cost option to extract speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyze-video-audio-files-concept.md#built-in-presets)
 
 Customers using Indexer v1 and Indexer v2 should migrate to the Basic Audio Analysis preset.
 
-For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyzing-video-audio-files-concept.md).  To learn to use the Basic Audio Analyzer mode with the REST API, see [How to Create a Basic Audio Transform](how-to-create-basic-audio-transform.md).
+For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyze-video-audio-files-concept.md).  To learn to use the Basic Audio Analyzer mode with the REST API, see [How to Create a Basic Audio Transform](how-to-create-basic-audio-transform.md).
 
 ### Live Events
 
@@ -184,11 +184,11 @@ Live Transcriptions now supports 19 languages and 8 regions.
 
 ### Protecting your content with Media Services and Azure AD
 
-We published a tutorial called [End-to-End content protection using Azure AD](./azure-ad-content-protection.md).
+We published a tutorial called [End-to-End content protection using Azure AD](./architecture-azure-ad-content-protection.md).
 
 ### High availability
 
-We published a High Availability with Media Services and Video on Demand (VOD) [overview](./media-services-high-availability-encoding.md) and [sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
+We published a High Availability with Media Services and Video on Demand (VOD) [overview](./architecture-high-availability-encoding-concept.md) and [sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
 
 ## June 2020
 
@@ -515,7 +515,7 @@ If you created Assets or Account Filters between 09/28 and 10/12 with Media Serv
 
 The following features are present in the .NET SDK:
 
-* **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial-with-api.md).
+* **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial.md).
 * **Streaming Locators** for publishing and streaming content to end-user devices
 * **Streaming Policies** and **Content Key Policies** to configure key delivery and content protection (DRM) when delivering content.
 * **Live Events** and **Live Outputs** to configure the ingest and archiving of live streaming content.
