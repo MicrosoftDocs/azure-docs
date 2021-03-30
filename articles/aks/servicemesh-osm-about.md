@@ -301,7 +301,7 @@ NAME                         READY   STATUS    RESTARTS   AGE
 bookbuyer-7676c7fcfb-mtnrz   2/2     Running   0          7m8s
 ```
 
-Once we have the pod's name, we can now use the port-forward command to set up a tunnel from our local system to the application inside the AKS cluster. Run the following command to set up the port forward for the local system port 8080. Again use your specice bookbuyer pod name.
+Once we have the pod's name, we can now use the port-forward command to set up a tunnel from our local system to the application inside the AKS cluster. Run the following command to set up the port forward for the local system port 8080. Again use your specified bookbuyer pod name.
 
 > [!NOTE]
 > For all port forwarding commands it is best to use an additional terminal so that you can continue to work through this walkthrough and not disconnect the tunnel. It is also best that you establish the port forward tunnel outside of the Azure Cloud Shell.
@@ -984,7 +984,7 @@ You must have the following resources installed:
 
 ### View and verify the current OSM cluster configuration
 
-Once the OSM add-on for AKS has been enabled on the AKS cluster, you can view the current configuration parmaters in the osm-config Kubernetes ConfigMap. Run the following command to view the ConfigMap properties:
+Once the OSM add-on for AKS has been enabled on the AKS cluster, you can view the current configuration parmaaters in the osm-config Kubernetes ConfigMap. Run the following command to view the ConfigMap properties:
 
 ```azurecli-interactive
 kubectl get configmap -n kube-system osm-config -o json | jq '.data'
@@ -1010,7 +1010,7 @@ Notice the **permissive_traffic_policy_mode** is configured to **true**. Permiss
 
 ### Create namespaces for the application
 
-In this totorial we will be using the OSM bookstore application that has the following application components:
+In this tutorial we will be using the OSM bookstore application that has the following application components:
 
 - bookbuyer
 - bookthief
@@ -1111,7 +1111,7 @@ EOF
 
 ### Verify the Bookstore application running inside the AKS cluster
 
-As of now we have deployed the bookstore mulit-container application, but it is only accessible from within the AKS cluster. Later we will add the Azure Application Gateway ingress controller to expose the appliction outside the AKS cluster. To verify that the application is running inside the cluster, we will use a port forward to view the bookbuyer component UI.
+As of now we have deployed the bookstore mulit-container application, but it is only accessible from within the AKS cluster. Later we will add the Azure Application Gateway ingress controller to expose the application outside the AKS cluster. To verify that the application is running inside the cluster, we will use a port forward to view the bookbuyer component UI.
 
 First let's get the bookbuyer pod's name
 
@@ -1126,7 +1126,7 @@ NAME                         READY   STATUS    RESTARTS   AGE
 bookbuyer-7676c7fcfb-mtnrz   2/2     Running   0          7m8s
 ```
 
-Once we have the pod's name, we can now use the port-forward command to set up a tunnel from our local system to the application inside the AKS cluster. Run the following command to set up the port forward for the local system port 8080. Again use your specice bookbuyer pod name.
+Once we have the pod's name, we can now use the port-forward command to set up a tunnel from our local system to the application inside the AKS cluster. Run the following command to set up the port forward for the local system port 8080. Again use your specified bookbuyer pod name.
 
 ```azurecli-interactive
 kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
@@ -2107,7 +2107,7 @@ At the login screen pictured below, enter **admin** as the username and use the 
 
 #### Configure the Grafana Prometheus data source
 
-Once you have successfully logged into Grafana, the next step is to add Prometheus as data sources for Grafana. To do so, naviagte on the configuration icon on the left menu and select Data Sources as shown below.
+Once you have successfully logged into Grafana, the next step is to add Prometheus as data sources for Grafana. To do so, navigate on the configuration icon on the left menu and select Data Sources as shown below.
 
 ![OSM Grafana Datasources Page UI image](./media/aks-osm-addon/osm-grafana-ui-datasources.png)
 
