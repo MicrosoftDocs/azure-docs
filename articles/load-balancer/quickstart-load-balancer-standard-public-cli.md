@@ -274,7 +274,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
     --sku Standard
 ```
 
-To create a zonal redundant public IP address in Zone 1:
+To create a zonal public IP address in Zone 1:
 
 ```azurecli-interactive
   az network public-ip create \
