@@ -34,19 +34,17 @@ Before you start developing a Python function app, you must meet these requireme
 
 2. In your function script (usually \_\_init\_\_.py), add the following lines above the `main()` function. This will ensure the root logger reports the child logger names, so that the memory profiling logs are distinguishable by the prefix `memory_profiler_logs`.
 
-        ```python
-        import logging
-        import memory_profiler
-        root_logger = logging.getLogger()
-        root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
-        profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
-        ```
+    ```python
+    import logging
+    import memory_profiler
+    root_logger = logging.getLogger()
+    root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
+    profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
 
 3. Apply the following decorator above any functions that need memory profiling. This does not work directly on the trigger entrypoint `main()` method. You need to create subfunctions and decorate them. Also, due to a memory-profiler known issue, when applying to an async coroutine, the coroutine return value will always be None.
 
-        ```python
-        @memory_profiler.profile(stream=memory_logger)
-        ```
+    ```python
+    @memory_profiler.profile(stream=memory_logger)
 
 4. Test the memory profiler on your local machine by using azure Functions Core Tools command `func host start`. This should generate a memory usage report with file name, line of code, memory usage, memory increment, and the line content in it.
 
@@ -54,21 +52,20 @@ Before you start developing a Python function app, you must meet these requireme
 
 :::image type="content" source="media/python-memory-profiler-reference/application-insights-query.png" alt-text="Query memory usage of a Python app in Application Insights":::
 
-        ```kusto
+    ```kusto
+    traces
+    | where timestamp > ago(1d)
+    | where message startswith_cs "memory_profiler_logs:"
+    | parse message with "memory_profiler_logs: " LineNumber "  " TotalMem_MiB "  " IncreMem_MiB "  " Occurences "  " Contents
+    | union (
         traces
         | where timestamp > ago(1d)
-        | where message startswith_cs "memory_profiler_logs:"
-        | parse message with "memory_profiler_logs: " LineNumber "  " TotalMem_MiB "  " IncreMem_MiB "  " Occurences "  " Contents
-        | union (
-            traces
-            | where timestamp > ago(1d)
-            | where message startswith_cs "memory_profiler_logs: Filename: "
-            | parse message with "memory_profiler_logs: Filename: " FileName
-            | project timestamp, FileName, itemId
-        )
-        | project timestamp, LineNumber=iff(FileName != "", FileName, LineNumber), TotalMem_MiB, IncreMem_MiB, Occurences, Contents, RequestId=itemId
-        | order by timestamp asc
-        ```
+        | where message startswith_cs "memory_profiler_logs: Filename: "
+        | parse message with "memory_profiler_logs: Filename: " FileName
+        | project timestamp, FileName, itemId
+    )
+    | project timestamp, LineNumber=iff(FileName != "", FileName, LineNumber), TotalMem_MiB, IncreMem_MiB, Occurences, Contents, RequestId=itemId
+    | order by timestamp asc
 
 ## Example
 
@@ -78,87 +75,87 @@ Here is an example of performing memory profiling on an asynchronous and a synch
 
 A Python function app should follow Azure Functions specified [folder structure](functions-reference-python.md#folder-structure). To scaffold the project, we recommend using the Azure Functions Core Tools by running the following commands:
 
-    ```bash
-    func init PythonMemoryProfilingDemo --python
-    cd PythonMemoryProfilingDemo
-    func new -l python -t HttpTrigger -n HttpTriggerAsync -a anonymous
-    func new -l python -t HttpTrigger -n HttpTriggerSync -a anonymous
-    ```
+```bash
+func init PythonMemoryProfilingDemo --python
+cd PythonMemoryProfilingDemo
+func new -l python -t HttpTrigger -n HttpTriggerAsync -a anonymous
+func new -l python -t HttpTrigger -n HttpTriggerSync -a anonymous
+```
 
 ### Update file contents
 
 The requirements.txt defines the packages that will be used in our project. Besides the Azure Functions SDK and memory-profiler, we introduce `aiohttp` for asynchronous HTTP requests and `requests` for synchronous HTTP calls.
 
-    ```text
-    # requirements.txt
+```text
+# requirements.txt
 
-    azure-functions
-    memory-profiler
-    aiohttp
-    requests
-    ```
+azure-functions
+memory-profiler
+aiohttp
+requests
+```
 
 We also need to rewrite the asynchronous HTTP trigger `HttpTriggerAsync/__init__.py` and configure the memory profiler, root logger format, and logger streaming binding.
 
-    ```python
-    # HttpTriggerAsync/__init__.py
+```python
+# HttpTriggerAsync/__init__.py
 
-    import azure.functions as func
-    import aiohttp
-    import logging
-    import memory_profiler
+import azure.functions as func
+import aiohttp
+import logging
+import memory_profiler
 
-    # Update root logger's format to include the logger name. Ensure logs generated
-    # from memory profiler can be filtered by "memory_profiler_logs" prefix.
-    root_logger = logging.getLogger()
-    root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
-    profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
+# Update root logger's format to include the logger name. Ensure logs generated
+# from memory profiler can be filtered by "memory_profiler_logs" prefix.
+root_logger = logging.getLogger()
+root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
+profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
 
-    async def main(req: func.HttpRequest) -> func.HttpResponse:
-        await get_microsoft_page_async('https://microsoft.com')
-        return func.HttpResponse(
-            f"Microsoft Page Is Loaded",
-            status_code=200
-        )
+async def main(req: func.HttpRequest) -> func.HttpResponse:
+    await get_microsoft_page_async('https://microsoft.com')
+    return func.HttpResponse(
+        f"Microsoft Page Is Loaded",
+        status_code=200
+    )
 
-    @memory_profiler.profile(stream=profiler_logstream)
-    async def get_microsoft_page_async(url: str):
-        async with aiohttp.ClientSession() as client:
-            async with client.get(url) as response:
-                await response.text()
-        # @memory_profiler.profile does not support return for coroutines.
-        # All returns become None in the parent functions.
-        # GitHub Issue: https://github.com/pythonprofilers/memory_profiler/issues/289
-    ```
+@memory_profiler.profile(stream=profiler_logstream)
+async def get_microsoft_page_async(url: str):
+    async with aiohttp.ClientSession() as client:
+        async with client.get(url) as response:
+            await response.text()
+    # @memory_profiler.profile does not support return for coroutines.
+    # All returns become None in the parent functions.
+    # GitHub Issue: https://github.com/pythonprofilers/memory_profiler/issues/289
+```
 
 For synchronous HTTP trigger, please refer to the following `HttpTriggerSync/__init__.py` code section:
 
-    ```python
-    # HttpTriggerSync/__init__.py
+```python
+# HttpTriggerSync/__init__.py
 
-    import azure.functions as func
-    import requests
-    import logging
-    import memory_profiler
+import azure.functions as func
+import requests
+import logging
+import memory_profiler
 
-    # Update root logger's format to include the logger name. Ensure logs generated
-    # from memory profiler can be filtered by "memory_profiler_logs" prefix.
-    root_logger = logging.getLogger()
-    root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
-    profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
+# Update root logger's format to include the logger name. Ensure logs generated
+# from memory profiler can be filtered by "memory_profiler_logs" prefix.
+root_logger = logging.getLogger()
+root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
+profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
 
-    def main(req: func.HttpRequest) -> func.HttpResponse:
-        content = profile_get_request('https://microsoft.com')
-        return func.HttpResponse(
-            f"Microsoft Page Response Size: {len(content)}",
-            status_code=200
-        )
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    content = profile_get_request('https://microsoft.com')
+    return func.HttpResponse(
+        f"Microsoft Page Response Size: {len(content)}",
+        status_code=200
+    )
 
-    @memory_profiler.profile(stream=profiler_logstream)
-    def profile_get_request(url: str):
-        response = requests.get(url)
-        return response.content
-    ```
+@memory_profiler.profile(stream=profiler_logstream)
+def profile_get_request(url: str):
+    response = requests.get(url)
+    return response.content
+```
 
 ### Profile Python function app in local development environment
 
@@ -172,16 +169,16 @@ After making all the above changes, there are a few more steps to initialize a P
 6. Send a GET request to `https://localhost:7071/api/HttpTriggerAsync` or `https://localhost:7071/api/HttpTriggerSync`.
 7. It should show a memory profiling report similiar to below section in Azure Functions Core Tools.
 
-        ```text
-        Filename: <ProjectRoot>\HttpTriggerAsync\__init__.py
-        Line #    Mem usage    Increment  Occurences   Line Contents
-        ============================================================
-            19     45.1 MiB     45.1 MiB           1   @memory_profiler.profile
-            20                                         async def get_microsoft_page_async(url: str):
-            21     45.1 MiB      0.0 MiB           1       async with aiohttp.ClientSession() as client:
-            22     46.6 MiB      1.5 MiB          10           async with client.get(url) as response:
-            23     47.6 MiB      1.0 MiB           4               await response.text()
-        ```
+    ```text
+    Filename: <ProjectRoot>\HttpTriggerAsync\__init__.py
+    Line #    Mem usage    Increment  Occurences   Line Contents
+    ============================================================
+        19     45.1 MiB     45.1 MiB           1   @memory_profiler.profile
+        20                                         async def get_microsoft_page_async(url: str):
+        21     45.1 MiB      0.0 MiB           1       async with aiohttp.ClientSession() as client:
+        22     46.6 MiB      1.5 MiB          10           async with client.get(url) as response:
+        23     47.6 MiB      1.0 MiB           4               await response.text()
+    ```
 
 ## Next steps
 
