@@ -373,8 +373,8 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
 ##### Other Errors
 
 - **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611)
-   - Reason: If an event with eventID 220 is present in User Device Registration event logs, Windows has difficulties to access the computer object in Active Directory. A Windows error code is inlcuded in the event. For error code ERROR_NO_SUCH_LOGON_SESSION (1312) and ERROR_NO_SUCH_USER (1317), it could be caused by replication issues in AD.
-   - Resolution: Troubleshoot replication issues in AD. Replication in AD could have delays. This error may go way after some time.
+   - Reason: EventID 220 is present in User Device Registration event logs. Windows cannot access the computer object in Active Directory. A Windows error code may be included in the event. For error codes ERROR_NO_SUCH_LOGON_SESSION (1312) and ERROR_NO_SUCH_USER (1317), these are related to replication issues in on-premises AD.
+   - Resolution: Troubleshoot replication issues in AD. Replication issues may be transient and may go way after a period of time.
 
 ##### Federated join server Errors
 
