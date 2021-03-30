@@ -2,16 +2,16 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Translator?
-    href: translator-info-overview.md 
   - name: Language Support
     href: language-support.md
   - name: Pricing and limits
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator 
-  - name: Translator FAQ
-    href: https://www.microsoft.com/translator/faq.aspx 
 - name: Text Translation
   items:
+  - name: What is Translator?
+    href: translator-info-overview.md
+  - name: Translator FAQ
+    href: https://www.microsoft.com/translator/faq.aspx    
   - name: Quickstart
     href: quickstart-translator.md  
   - name: Samples
