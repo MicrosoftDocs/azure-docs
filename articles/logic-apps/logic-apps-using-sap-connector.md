@@ -569,18 +569,22 @@ Your logic app is now ready to receive messages from your SAP system.
 If you receive a **500 Bad Gateway** error with a message similar to **service 'sapgw00' unknown**, replace your gateway service name in your API connection and trigger configuration with its port number. In the following example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. 
 
 ```json
-"body": {
-   "error": {
-      "code": 500,
-      "source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
-      "clientRequestId": "00000000-0000-0000-0000-000000000000",
-      "message": "BadGateway",
-      "innerError": {
-         "error": {
-            "code": "UnhandledException",
-            "message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
-         }
-      }
+{
+	"body": {
+		"error": {
+			"code": 500,
+			"source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
+			"clientRequestId": "00000000-0000-0000-0000-000000000000",
+			"message": "BadGateway",
+			"innerError": {
+				"error": {
+					"code": "UnhandledException",
+					"message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
+				}
+			}
+		}
+	}
+}
 ```
 
 #### Parameters
@@ -603,15 +607,27 @@ Any SAP action filtering happens at the level of the SAP adapter for your on-pre
 
 If you can't send IDoc packets from SAP to your logic app's trigger, see the Transactional RFC (tRFC) call rejection message in the SAP tRFC dialog box (T-code SM58). In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
 
-* `The RequestContext on the IReplyChannel was closed without a reply being`: Unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
+##### The RequestContext on the IReplyChannel was closed without a reply being sent
 
-  * To acknowledge that your logic app received the IDoc, [add a Response action](../connectors/connectors-native-reqres.md#add-a-response-action) that returns a `200 OK` status code. The IDoc is transported through tRFC, which doesn't allow for a response payload.
+This error message means unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
 
-  * If you need to reject the IDoc instead, respond with any HTTP status code other than `200 OK` so that the SAP Adapter returns an exception back to SAP on your behalf. 
+To acknowledge that your logic app received the IDoc, [add a Response action](../connectors/connectors-native-reqres.md#add-a-response-action) that returns a `200 OK` status code. Leave the body empty and don't change or add to the headers. The IDoc is transported through tRFC, which doesn't allow for a response payload.
 
-* `The segment or group definition E2EDK36001 was not found in the IDoc meta`: Expected failures happen with other errors, such as the failure to generate an IDoc XML payload because its segments are not released by SAP, so the segment type metadata required for conversion is missing. 
+To reject the IDoc instead, respond with any HTTP status code other than `200 OK`. The SAP Adapter then returns an exception back to SAP on your behalf. You should only reject the IDoc to signal transport errors back to SAP, such as a misrouted IDoc that your application can't process. You shouldn't reject an IDoc for application-level errors, such as issues with the data contained in the IDoc. If you delay transport acceptance for application-level validation, you might experience negative performance due to blocking your connection from transporting other IDocs.
 
-  * To have these segments released by SAP, contact the ABAP engineer for your SAP system.
+If you're receiving this error message and experience systemic failures calling Logic Apps, check that you've configured the network settings for your on-premises data gateway service for your specific environment. For example, if your network environment requires the use of a proxy to call Azure endpoints, you need to configure your on-premises data gateway service to use your proxy. For more information, see [Proxy Configuration](/dotnet/framework/network-programming/proxy-configuration).
+
+If you're receiving this error message and experience intermittent failures calling Logic Apps, you might need to increase your retry count and/or retry interval. 
+
+1. Check SAP settings in your on-premises data gateway service configuration file, `Microsoft.PowerBI.EnterpriseGateway.exe.config`. The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` and the timespan format is `HH:mm:ss.ff`. 
+    
+1. Save your changes and restart your on-premises data gateway.
+
+##### The segment or group definition E2EDK36001 was not found in the IDoc meta
+
+This error message means expected failures happen with other errors. For example, the failure to generate an IDoc XML payload because its segments are not released by SAP. As a result, the segment type metadata required for conversion is missing.
+
+To have these segments released by SAP, contact the ABAP engineer for your SAP system.
 ### Asynchronous request-reply for triggers
 
 The SAP connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply) for Logic Apps triggers. You can use this pattern to create successful requests that would have otherwise failed with the default synchronous request-reply pattern. 
@@ -1445,7 +1461,6 @@ Here are the currently known issues and limitations for the managed (non-ISE) SA
   * For stateful SAP actions, use the data gateway either in non-cluster mode or in a cluster that's set up for failover only.
 
 * The SAP connector currently doesn't support SAP router strings. The on-premises data gateway must exist on the same LAN as the SAP system you want to connect.
-
 
 ## Connector reference
 
