@@ -60,7 +60,7 @@ Before you begin to manage disks on the VMs running on your device via the Azure
 
 Follow these steps to add a disk to a virtual machine deployed on your device. 
 
-1. Go to the virtual machine that you have stopped and then go to the **Overview** page. Select **Disks**.
+1. Go to the virtual machine to which you want to add a data disk and then go to the **Overview** page. Select **Disks**.
     
     ![Select Disks on Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/add-data-disk-1.png)
 
@@ -97,7 +97,7 @@ Follow these steps to add a disk to a virtual machine deployed on your device.
 
 Follow these steps to change a disk associated with a virtual machine deployed on your device.
 
-1. Go to the virtual machine that you have stopped and go to the **Overview** page. Select **Disks**.
+1. Go to the virtual machine which has the data disk to change and go to the **Overview** page. Select **Disks**.
 
 1. In the list of data disks, select the disk that you wish to change. In the far right of the disk selected, select the edit icon (pencil).  
 
