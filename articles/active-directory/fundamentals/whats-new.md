@@ -65,7 +65,7 @@ For additional guidance, refer to [Enable support for TLS 1.2 in your environmen
 **Service category:** Other  
 **Product capability:** Entitlement Management
  
-For organizations using multi-geo SharePoint Online, you can now include sites from specific multi-geo environments to your Entitlement management access packages. [Learn more](../governance/entitlement-management-catalog-create.md#add-a-multi-geo-sharepoint-site).
+For organizations using multi-geo SharePoint Online, you can now include sites from specific multi-geo environments to your Entitlement management access packages. [Learn more](../governance/entitlement-management-catalog-create.md#add-a-multi-geo-sharepoint-site-preview).
 
 ---
 
