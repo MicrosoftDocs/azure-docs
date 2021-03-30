@@ -23,15 +23,17 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ### Azure Machine Learning SDK for Python v1.26.0
 + **Bug fixes and improvements**
   + **azureml-automl-core**
-    + Fixed an issue where Naive models would be recommended in AutoMLStep runs and fail with lag or rolling window features. These models will not be recommended when target lags or target rolling window size are set.
+    + Fixed an issue where Naive models would be recommended in AutoMLStep runs and fail with lag or rolling window features. These models will not be recommended when target         lags or target rolling window size are set.
     +  Changed console output when submitting an AutoML run to show a portal link to the run.
   + **azureml-core**
-    + Add hdfs mode in doc
+    + Added hdfs mode in doc
     + Added support to understand File Dataset partitions based on glob structure.
-    + Starts to support updating container registry for workspace in SDK and CLI
-    + Deprecated DockerSection's 'enabled', 'shared_volume', and 'arguments' attributes in favor of using DockerConfiguration with ScriptRunConfig.
+    + Added support for update container registry associated with AzureML Workspace.
+    + Deprecated Environment attributes under the DockerSection - "enabled", "shared_volume" and "arguments" are a part of DockerConfiguration in RunConfiguration now.
     + Updated Pipeline CLI clone documentation
-    + 1. Add '&tid=<tenant_id>` to end of portal URLs so that UI does not have to guess which tenant to authenticate against. 2. Remove experiment name from run URLs to stop unnecessary redirects. 3. Change experiment URL to use the experiment id instead of experiment name.
+    + Updated portal URIs to include tenant for authentication
+    + Removed experiment name from run URIs to avoid redirects 
+    + Updated experiment URO to use experiment Id.
     + Bug fixes for attaching remote compute using az cli
   + **azureml-interpret**
     + azureml-interpret updated to use interpret-community 0.17.0
@@ -40,12 +42,10 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-parallel-run**
     + [Experimental feature] Add `partition_keys` parameter to ParallelRunConfig, if specified, the input dataset(s) would be partitioned into mini-batches by the keys specified by it. It requires all input datasets to be partitioned dataset.
   + **azureml-pipeline-core**
-    + [Experimental feature] Add `partition_keys` parameter to ParallelRunConfig, if specified, the input dataset(s) would be partitioned into mini-batches by the keys specified by it. It requires all input datasets to be partitioned dataset.
     + Bugfix - supporting path_on_compute while passing dataset configuration as download.
   + **azureml-pipeline-steps**
-    + [Experimental feature] Add `partition_keys` parameter to ParallelRunConfig, if specified, the input dataset(s) would be partitioned into mini-batches by the keys specified by it. It requires all input datasets to be partitioned dataset.
     + Bugfix - supporting path_on_compute while passing dataset configuration as download.
-    + * Deprecate RScriptStep in favor of using CommandStep for running R scripts in pipelines. * Deprecate EstimatorStep in favor of using CommandStep for running ML training (including distributed training) in pipelines.
+    + Deprecate RScriptStep in favor of using CommandStep for running R scripts in pipelines. * Deprecate EstimatorStep in favor of using CommandStep for running ML training (including distributed training) in pipelines.
   + **azureml-sdk**
     + Update python_requires to < 3.9 for azureml-sdk
   + **azureml-train-automl-client**
