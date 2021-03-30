@@ -11,12 +11,12 @@ ms.custom: mvc
 
 # Security hardening for AKS agent node host OS
 
-Azure Kubernetes Service (AKS) is a secure service, compliant with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security hardening applied to AKS virtual machine (VM) hosts. For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](./concepts-security.md).
+As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security hardening applied to AKS virtual machine (VM) hosts. For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](./concepts-security.md).
 
 > [!Note]
 > This document is scoped to Linux agents in AKS only.
 
-AKS clusters are deployed on host VMs, which run a security-optimized OS utilized for containers running on AKS. This host OS is based on an **Ubuntu 16.04.LTS** image with more [security hardening](#security-hardening-features) and optimizations applied.
+AKS clusters are deployed on host VMs, which run a security-optimized OS used for containers running on AKS. This host OS is based on an **Ubuntu 16.04.LTS** image with more [security hardening](#security-hardening-features) and optimizations applied.
 
 The goal of the security hardened host OS is to reduce the surface area of attack and optimize for the deployment of containers in a secure manner.
 
@@ -25,11 +25,11 @@ The goal of the security hardened host OS is to reduce the surface area of attac
 
 ## Security hardening features
 
-* AKS provides a security-optimized host OS by default. There is no option to select an alternate operating system.
+* AKS provides a security-optimized host OS by default, but no option to select an alternate operating system.
 
 * Azure applies daily patches (including security patches) to AKS virtual machine hosts. 
     * Some of these patches require a reboot, while others will not. 
-    * You are responsible for scheduling AKS VM host reboots as needed. 
+    * You're responsible for scheduling AKS VM host reboots as needed. 
     * For guidance on how to automate AKS patching, see [patching AKS nodes](./node-updates-kured.md).
 
 ## What is configured
@@ -81,10 +81,8 @@ The goal of the security hardened host OS is to reduce the surface area of attac
 
 ## Next steps  
 
-See the following articles for more information about AKS security: 
+For more information about AKS security, see the following articles: 
 
-[Azure Kubernetes Service (AKS)](./intro-kubernetes.md)
-
-[AKS security considerations ](./concepts-security.md)
-
-[AKS best practices ](./best-practices.md)
+* [Azure Kubernetes Service (AKS)](./intro-kubernetes.md)
+* [AKS security considerations](./concepts-security.md)
+* [AKS best practices](./best-practices.md)
