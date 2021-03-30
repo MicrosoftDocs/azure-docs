@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/29/2021
+ms.date: 03/30/2021
 ms.author: barclayn
 
 #Customer intent: Why are we doing this?
@@ -20,6 +20,7 @@ ms.author: barclayn
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+In this article:
 > [!div class="checklist"]
 > * Why do we need to link our DID to our domain?
 > * How do we link DIDs and domains?
@@ -86,7 +87,7 @@ When a user is going through an issuance flow or presenting a verifiable credent
 
 Before Microsoft Authenticator displays a **Verified** icon, a few things need to be true:
 
-* The DID signing the SIOP request must have a Service endpoint for Linked Domain. (WHAT IS THIS? WHAT IS A STOP REQUEST?)
+* The DID signing the self-issued open ID (SIOP) request must have a Service endpoint for Linked Domain.
 * The root domain does not use a redirect and uses https.
 * The domain listed in the DID Document has a resolvable well-known resource.
 * The well-known resource's verifiable credential is signed with the same DID that was used to sign the SIOP that Microsoft Authenticator used to kick start the flow.
@@ -103,7 +104,7 @@ If any of the above are not true, the Microsoft Authenticator will display a ful
 * The configuration was not set up properly.
 * The DID the user is interacting with is malicious and actually can't prove they own a domain (since they actually don't). Due to this last point, it is imperative that you link your DID to the domain the user is familiar with, to avoid propagating the warning message.
 
-<todo: add image of unverified domain>
+![Verify this domain in settings](media/how-to-dnsbind/add-credential-not-verified-authenticated.png)
 
 ## Distribute well-known config
 
