@@ -31,7 +31,7 @@ To onboard a subscription:
 
 Subscriptions are managed on a monthly basis. When you offboard a subscription, you will be billed for that subscription until the end of the month.
 
-Uninstall all sensors that are associated with the subscription prior to offboarding the subscription. For more information on how to delete a sensor, see [Delete a sensor](#delete-a-sensor). 
+Uninstall all sensors that are associated with the subscription prior to offboarding the subscription. For more information on how to delete a sensor, see [Delete a sensor](how-to-manage-sensors-on-the-cloud.md#delete-a-sensor). 
 
 To offboard a subscription:
 
