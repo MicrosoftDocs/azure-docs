@@ -14,14 +14,14 @@ ms.date: 3/29/2021
 # Hyperscale Secondary Replicas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-As described in Distributed functions architecture, Azure SQL Database Hyperscale has two different types of compute nodes, also referred to as “replicas”.
+As described in Distributed functions architecture, Azure SQL Database Hyperscale has two different types of compute nodes, also referred to as "replicas".
 - Primary: serves read and write operations
 - Secondary: provides read scale-out, high availability and geo-replication
 A secondary replica can be of three different types. Each type has a slightly different architecture, feature set, purpose, and cost. Based on the features you need, you may use just one or even all of the three together.
 
 ## High Availability Replica
 
-A high-availability (HA) replica uses the same page servers as the primary replica, so no data copy is required to add an HA replica. HA replicas are mainly used to provide high-availability as they act as a hot standby for failover purposes. If the primary replica becomes unavailable, failover to one of the existing HA replicas is automatic. Connection string doesn’t need to change; during failover applications may experience minimum downtime due to active connections being dropped. As usual for this scenario, proper connection retry logic is recommended. Several drivers already provide some degree of automatic retry logic. 
+A high-availability (HA) replica uses the same page servers as the primary replica, so no data copy is required to add an HA replica. HA replicas are mainly used to provide high-availability as they act as a hot standby for failover purposes. If the primary replica becomes unavailable, failover to one of the existing HA replicas is automatic. Connection string doesn't need to change; during failover applications may experience minimum downtime due to active connections being dropped. As usual for this scenario, proper connection retry logic is recommended. Several drivers already provide some degree of automatic retry logic. 
 
 If you are using .NET, the [latest Microsoft.Data.SqlClient](https://devblogs.microsoft.com/azure-sql/configurable-retry-logic-for-microsoft-data-sqlclient/) library provides native full support to configurable automatic retry logic. 
 HA replicas use the same server and database name of the primary replica. Their Service Level Objective is also always the same as for the primary replica. HA replicas are not manageable as a stand-alone resource from the portal or from any other tool or DMV. 
@@ -73,46 +73,57 @@ New-AzSqlDatabaseSecondary -ResourceGroupName "SampleResourceGroup" -ServerName 
 ```
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-az sql db replica create -g SampleResourceGroup -n WideWorldImporters -s WideWorldImporterServer --secondary-type named --partner-database WideWorldImporters01 --partner-server WideWorldImporterServer
+az sql db replica create -g SampleResourceGroup -n WideWorldImporters -s WideWorldImporterServer --secondary-type named --partner-database WideWorldImporters01 --partner-server WideWorldImporterServer --service-objective HS_Gen5_2
 ```
+
 ---
+
 As there is no data movement involved, creation will usually take only up to a minute. Once the named replica is available it will be visible from the portal or any command line tool like AZ CLI or PowerShell. A named replica is usable as a regular database, with the exception that it is read-only. 
 
 ### Connecting to a named replica
 
-To connect to a named replica, you must use the connection string for that named replica. There is no need to specify the option “ApplicationIntent” as named replicas are always read-only. Using it is still possible but will not have any additional effect.
+To connect to a named replica, you must use the connection string for that named replica. There is no need to specify the option "ApplicationIntent" as named replicas are always read-only. Using it is still possible but will not have any additional effect.
 Just like for HA replicas, even though the primary, HA, and named replicas share the same data on the same set of page servers, caches on each named replica are kept in sync with the primary via the transaction log service which forwards log records from the primary to named replicas. As a result, depending on the workload being processed by a named replica, application of the log records may happen at different speeds and thus different replicas could have different data latency relative to the primary replica.
 
 ### Modifying a named replica
 
-You can define the service level objective of a named replica when you create it, via the ALTER DATABASE command or in any other supported way. If you need to change the service level objective after the named replica has been created, you can do it using the regular ALTER DATABASE…MODIFY command on the named replica itself. For example, if “WideWorldImporters01” is the named replica of “WideWorldImporters” database, you can do it as shown below (it will take up to a minute max).
+You can define the service level objective of a named replica when you create it, via the ALTER DATABASE command or in any other supported way. If you need to change the service level objective after the named replica has been created, you can do it using the regular ALTER DATABASE…MODIFY command on the named replica itself. For example, if "WideWorldImporters01" is the named replica of "WideWorldImporters" database, you can do it as shown below (it will take up to a minute max).
 
 # [T-SQL](#tab/tsql)
 ```tsql
-ALTER DATABASE [WideWorldImporters01] MODIFY (SERVICE_OBJECTIVE = ‘HS_Gen5_8’)
+ALTER DATABASE [WideWorldImporters01] MODIFY (SERVICE_OBJECTIVE = 'HS_Gen5_4')
 ```
 # [PowerShell](#tab/azure-powershell)
 ```azurepowershell
+Set-AzSqlDatabase -ResourceGroup "SampleResourceGroup" -ServerName "WideWorldImporterServer" -DatabaseName "WideWorldImporters01" -RequestedServiceObjectiveName "HS_Gen5_4"
 ```
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
+az sql db update -g SampleResourceGroup -s WideWorldImporterServer -n WideWorldImporters01 --service-objective HS_Gen5_4
 ```
+
 ---
 
 ### Removing a named replica
 
 To remove a named replica, you drop it just like you would do with a regular database. 
 
+# [T-SQL](#tab/tsql)
 ```tsql
 DROP DATABASE [WideWorldImporters01]
 ```
+
+# [PowerShell](#tab/azure-powershell)
 ```azurepowershell
+Remove-AzSqlDatabase -ResourceGroupName "SampleResourceGroup" -ServerName "WideWorldImporterServer" -DatabaseName "WideWorldImporters01"
 ```
+# [Azure CLI](#tab/azure-cli)
 ```azurecli
+az sql db delete -g SampleResourceGroup -s WideWorldImporterServer -n WideWorldImporters01
 ```
 
+---
 ### Frequently Asked Questions
-
 #### Can a named replica be used as a failover target?
 No, named replicas cannot be used as failover targets. Use HA replicas for that purpose.
 
@@ -128,7 +139,7 @@ Under normal circumstances it is unlikely, but it can happen. Just like an HA re
 #### What happens to named replicas if the primary replica is unavailable, for example because of planned maintenance?
 Named replicas will still be available for read-only access, as usual.
 
-## Geo Replica
+## Geo Replica  (in Preview)
 
 With [Active Geo-replication](https://docs.microsoft.com/azure/azure-sql/database/active-geo-replication-overview), you can create a readable secondary replica of the primary Hyperscale database in the same or in a different region. Geo-replicas must always be created on a different logical server. The database name of a geo-replica always matches the database name of the primary.
 
