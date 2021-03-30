@@ -257,7 +257,7 @@
     items:
     - name: Video on Demand
       displayName: failover, bcdr, HA, high availability
-      href: architecture-high-availability-encode-concept.md
+      href: architecture-high-availability-encoding-concept.md
   - name: Media Services architectures
     displayName: architectures
     href: architecture-concept.md
