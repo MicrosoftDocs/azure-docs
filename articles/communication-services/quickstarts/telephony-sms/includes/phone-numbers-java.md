@@ -49,8 +49,6 @@ Use the following code to begin:
 import com.azure.communication.phonenumbers.*;
 import com.azure.communication.phonenumbers.models.*;
 import java.io.*;
-import com.azure.core.http.*;
-import com.azure.core.http.netty.*;
 import com.azure.core.util.Context;
 import com.azure.core.util.polling.PollResponse;
 import com.azure.identity.*;
@@ -73,13 +71,9 @@ The PhoneNumberClientBuilder is enabled to use Azure Active Directory Authentica
 // You can find your endpoint and access key from your resource in the Azure Portal
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 
-// Create an HttpClient builder of your choice and customize it
-HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
-
 PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
     .endpoint(endpoint)
     .credential(new DefaultAzureCredentialBuilder().build())
-    .httpClient(httpClient)
     .buildClient();
 ```
 
@@ -89,12 +83,8 @@ Alternatively, using the endpoint and access key from the communication resource
 // You can find your connection string from your resource in the Azure Portal
 String connectionString = "https://<RESOURCE_NAME>.communication.azure.com/;accesskey=<ACCESS_KEY>";
 
-// Create an HttpClient builder of your choice and customize it
-HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
-
 PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
     .connectionString(connectionString)
-    .httpClient(httpClient)
     .buildClient();
 ```
 
