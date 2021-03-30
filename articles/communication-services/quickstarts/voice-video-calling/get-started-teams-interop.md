@@ -13,6 +13,8 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 # Quickstart: Join your calling app to a Teams meeting
 
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
 > [!IMPORTANT]
 > To enable/disable [Teams tenant interoperability](../../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
