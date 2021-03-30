@@ -37,13 +37,13 @@ The following steps enable Azure Firewall to filter traffic using FQDN in networ
 
 1. Deploy a [DNS forwarder](../private-link/private-endpoint-dns.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) virtual machine in a virtual network connected to the secured virtual hub and linked to the Private DNS Zones hosting the A record types for the private endpoints.
 
-2. Configure [custom DNS servers](../firewall/dns-settings.md#configure-custom-dns-servers---azure-portal) with the IP address of the DNS forwarder deployed in step 1 above and enable DNS proxy in the firewall policy associated with the Azure Firewall deployed in the secured virtual hub.
+2. Configure [custom DNS settings](../firewall/dns-settings.md#configure-custom-dns-servers---azure-portal) to point to the DNS forwarder virtual machine IP address and enable DNS proxy in the firewall policy associated with the Azure Firewall deployed in the secured virtual hub.
 
 3. Configure [custom DNS servers](../virtual-network/manage-virtual-network.md#change-dns-servers) for the virtual networks connected to the secured virtual hub to point to the private IP address associated with the Azure Firewall deployed in the secured virtual hub.
 
 4. Configure on premises DNS servers to forward DNS queries for the private endpoints public DNS zones to the private IP address associated with the Azure Firewall deployed in the secured virtual hub.
 
-5. Configure an [application rule](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule) in the firewall policy associated with the Azure Firewall deployed in the secured virtual hub with *Destination Type* FQDN and the private link resource public FQDN as *Destination*.
+5. Configure an [application rule](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule) or [network rule](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule) as necessary in the firewall policy associated with the Azure Firewall deployed in the secured virtual hub with *Destination Type* FQDN and the private link resource public FQDN as *Destination*.
 
 6. Navigate to *Secured virtual hubs* in the firewall policy associated with the Azure Firewall deployed in the secured virtual hub and select the secured virtual hub where traffic filtering destined to private endpoints will be configured.
 
@@ -57,7 +57,7 @@ The following steps enable Azure Firewall to filter traffic using FQDN in networ
 :::image type="content" source="./media/private-link-inspection-secure-vhub/firewall-manager-security-configuration.png" alt-text="Firewall Manager Security Configuration" border="true":::
 
 > [!NOTE]
-> These steps only work when the clients and private endpoints are deployed in different virtual networks connected to the same secured virtual hub. If the clients and private endpoints are deployed in the same virtual network a UDR with /32 routes for the private endpoint must be created. Configure these routes with *Next hop tye* **Virtual appliance** and *Nex hop address* set to the private IP address of the Azure Firewall deployed in the secured virtual hub. *Propagate gateway routes* must be set to **Yes**.
+> These steps only work when the clients and private endpoints are deployed in different virtual networks connected to the same secured virtual hub and for on premises clients. If the clients and private endpoints are deployed in the same virtual network a UDR with /32 routes for the private endpoints must be created. Configure these routes with *Next hop tye* **Virtual appliance** and *Nex hop address* set to the private IP address of the Azure Firewall deployed in the secured virtual hub. *Propagate gateway routes* must be set to **Yes**.
 
 ## Troubleshooting
 
@@ -170,12 +170,28 @@ Azure portal:
 
 6. Inspect *AzureFirewallApplicationRule* and *AzureFirewallNetworkRule* Azure Firewall logs. Make sure traffic destined to the private endpoints is being logged.
 
+> [!NOTE]
+> *AzureFirewallNetworkRule* log entries don't include FQDN information. Filter by IP address and port when inspecting network rules.
+
+> [!NOTE]
+> When filtering traffic destined to [Azure Files](../storage/files/storage-files-introduction.md) private endpoints *AzureFirewallNetworkRule* log entries will only be generated when a client first mounts or connects to the file share. Azure Firewall won't generate logs for [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations for files in the file share. This is because CRUD operations are carried over the persistent TCP channel opened when the client first connects or mounts to the file share.
+
+Application rule log query example:
+
 ```kusto
 AzureDiagnostics
-| where Category contains "Application" or Category contains "Network"
-| where msg_s contains "database.windows.net" or msg_s contains ":445."
+| where msg_s contains "database.windows.net"
+| where Category contains "ApplicationRule"
 ```
 
 :::image type="content" source="./media/private-link-inspection-secure-vhub/azure-firewall-application-rule-log.png" alt-text="Azure Firewall Application Rule Log" border="true":::
+
+Network rule log query example:
+
+```kusto
+AzureDiagnostics
+| where msg_s contains "10.2.1.6:445"
+| where Category contains "NetworkRule"
+```
 
 :::image type="content" source="./media/private-link-inspection-secure-vhub/azure-firewall-network-rule-log.png" alt-text="Azure Firewall Network Rule Log" border="true":::
