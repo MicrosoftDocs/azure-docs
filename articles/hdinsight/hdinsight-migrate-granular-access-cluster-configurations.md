@@ -26,8 +26,8 @@ permissions of Contributor or Owner. To summarize:
 
 | Role                                  | Previously                                                                                       | Going Forward       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Reader                                | - Read access, including secrets.                                                                   | - Read access, **excluding** secrets |           |   |   |
-| HDInsight Cluster Operator<br>(New Role) | N/A                                                                                              | - Read/write access, including secrets         |   |   |
+| Reader                                | - Read access, including secrets.                                                                   | - Read access, **excluding** secrets | 
+| HDInsight Cluster Operator<br>(New Role) | N/A                                                                                              | - Read/write access, including secrets         | 
 | Contributor                           | - Read/write access, including secrets.<br>- Create and manage all of types of Azure resources.<br>- Execute script actions.     | No change |
 | Owner                                 | - Read/write access including secrets.<br>- Full access to all resources<br>- Delegate access to others.<br>- Execute script actions. | No change |
 

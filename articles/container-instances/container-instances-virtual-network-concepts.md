@@ -11,6 +11,9 @@ ms.date: 08/11/2020
 
 This article provides background about virtual network scenarios, limitations, and resources. For deployment examples using the Azure CLI, see [Deploy container instances into an Azure virtual network](container-instances-vnet.md).
 
+> [!IMPORTANT]
+> Container group deployment to a virtual network is generally available for Linux containers, in most regions where Azure Container Instances is available. For details, see [Regions and resource availability](container-instances-region-availability.md). 
+
 ## Scenarios
 
 Container groups deployed into an Azure virtual network enable scenarios like:
@@ -40,12 +43,6 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * If you are connecting your container group to an Azure Storage Account, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to that resource.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
-
-## Where to deploy
-
-The following regions and maximum resources are available to deploy a container group in an Azure virtual network.
-
-[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## Required network resources
 

@@ -11,11 +11,10 @@ ms.author: memildin
 ---
 # Configure auto provisioning for agents and extensions from Azure Security Center
 
-Security Center collects data from your resources using the relevant agent or extensions for that resource and the type of data collection you've enabled. Use the precedures below to ensure your resource have the necessary 
-This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Azure Security Center
+Azure Security Center collects data from your resources using the relevant agent or extensions for that resource and the type of data collection you've enabled. Use the procedures below to ensure your resources have the necessary agents and extensions used by Security Center.
 
 ## Prerequisites
-To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
+To get started with Security Center, you must have a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Availability
 
@@ -31,7 +30,9 @@ To get started with Security Center, you must have a subscription to Microsoft A
 
 Security Center collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers, and non-Azure (including on-premises) machines to monitor for security vulnerabilities and threats. 
 
-Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat protection. Data collection is only needed for compute resources (VMs, virtual machine scale sets, IaaS containers, and non-Azure computers). You can benefit from Azure Security Center even if you don’t provision agents; however, you will have limited security and the capabilities listed above are not supported.  
+Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat protection. Data collection is only needed for compute resources such as VMs, virtual machine scale sets, IaaS containers, and non-Azure computers. 
+
+You can benefit from Azure Security Center even if you don’t provision agents. However, you'll have limited security and the capabilities listed above aren't supported.  
 
 Data is collected using:
 
@@ -47,7 +48,7 @@ Any of the agents and extensions described on this page *can* be installed manua
 We recommend enabling auto provisioning, but it's disabled by default.
 
 ## How does auto provisioning work?
-Security Center's auto provisioning settings have a toggle for each type of supported extension. When you enable auto provisioning of an extension, you assign the appropriate **Deploy if not exists** policy to make sure that the extension is provisioned on all existing and future resources of that type.
+Security Center's auto provisioning settings have a toggle for each type of supported extension. When you enable auto provisioning of an extension, you assign the appropriate **Deploy if not exists** policy. This policy type ensures the extension is provisioned on all existing and future resources of that type.
 
 > [!TIP]
 > Learn more about Azure Policy effects including deploy if not exists in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
@@ -159,7 +160,7 @@ To determine the events for the **Common** and **Minimal** options, we worked wi
 - **Minimal** - Make sure that this set covers only events that might indicate a successful breach and important events that have a very low volume. For example, this set contains user successful and failed login (event IDs 4624, 4625), but it doesn’t contain sign out which is important for auditing but not meaningful for detection and has relatively high volume. Most of the data volume of this set is the login events and process creation event (event ID 4688).
 - **Common** - Provide a full user audit trail in this set. For example, this set contains both user logins and user sign outs (event ID 4634). We include auditing actions like security group changes, key domain controller Kerberos operations, and other events that are recommended by industry organizations.
 
-Events that have very low volume were included in the Common set as the main motivation to choose it over all the events is to reduce the volume and not to filter out specific events.
+Events that have very low volume were included in the common set as the main motivation to choose it over all the events is to reduce the volume and not to filter out specific events.
 
 Here is a complete breakdown of the Security and App Locker event IDs for each set:
 
@@ -279,4 +280,4 @@ To turn off automatic provisioning of an agent:
 
 
 ## Next steps
-This page explained how to enable auto provisioning for the Log Analytics agent and other Security Center extensions. It also described how to define a Log Analytics workspace in which to store the collected data. Both operations are required to enable data collection. Storing data in Log Analytics, whether you use a new or existing workspace, might incur additional charges for data storage. For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
+This page explained how to enable auto provisioning for the Log Analytics agent and other Security Center extensions. It also described how to define a Log Analytics workspace in which to store the collected data. Both operations are required to enable data collection. Storing data in Log Analytics, whether you use a new or existing workspace, might incur more charges for data storage. For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).

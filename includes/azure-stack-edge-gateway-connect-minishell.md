@@ -16,7 +16,7 @@ Depending on the operating system of client, the procedures to remotely connect 
 Before you begin, make sure that:
 
 - Your Windows client is running Windows PowerShell 5.0 or later.
-- Your Windows client has the signing chain (root certificate) corresponding to the node certificate installed on the device. For detailed instructions, see [Install certificate on your Windows client](../articles/databox-online/azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Your Windows client has the signing chain (root certificate) corresponding to the node certificate installed on the device. For detailed instructions, see [Install certificate on your Windows client](../articles/databox-online/azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 - The `hosts` file located at `C:\Windows\System32\drivers\etc` for your Windows client has an entry corresponding to the node certificate in the following format:
 
     `<Device IP>    <Node serial number>.<DNS domain of the device>`
@@ -76,21 +76,21 @@ Follow these steps to remotely connect from a Windows client.
 
 On the Linux client that you'll use to connect:
 
-- [Install the latest PowerShell Core for Linux](/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6&preserve-view=true) from GitHub to get the SSH remoting feature. 
+- [Install the latest PowerShell Core for Linux](/powershell/scripting/install/installing-powershell-core-on-linux) from GitHub to get the SSH remoting feature. 
 - [Install only the `gss-ntlmssp` package from the NTLM module](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). For Ubuntu clients, use the following command:
     - `sudo apt-get install gss-ntlmssp`
 
-For more information, go to [PowerShell remoting over SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6&preserve-view=true).
+For more information, go to [PowerShell remoting over SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
 
 Follow these steps to remotely connect from an NFS client.
 
 1. To open PowerShell session, type:
 
-    `sudo pwsh`
+    `pwsh`
  
 2. For connecting using the remote client, type:
 
-    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser -UseSSL`
+    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
 
     When prompted, provide the password used to sign into your device.
  

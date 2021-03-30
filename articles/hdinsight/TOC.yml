@@ -190,6 +190,8 @@
           href: ./optimize-hive-ambari.md
         - name: Optimize Apache Pig
           href: ./optimize-pig-ambari.md
+      - name: Find host names of cluster nodes
+        href: ./find-host-name.md
       - name: Reboot cluster nodes
         href: ./cluster-reboot-vm.md
       - name: Use Apache Ambari REST API
@@ -275,7 +277,7 @@
     - name: SDK for .NET
       href: /dotnet/api/overview/azure/hdinsight
     - name: SDK for Python
-      href: /python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true
+      href: /python/api/overview/azure/hdinsight
     - name: SDK for Java
       href: /java/api/overview/azure/hdinsight
     - name: SDK for Go

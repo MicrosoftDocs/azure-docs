@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/09/2021
 ---
 
 # Automatically label your data in Azure Purview
@@ -109,6 +109,14 @@ For example:
 Once you extend labeling to assets in Azure Purview, you can select the labels that you want to make available in Purview. For more information, see [Creating new sensitivity labels or modifying existing labels](#creating-new-sensitivity-labels-or-modifying-existing-labels).
 ### Creating new sensitivity labels or modifying existing labels
 
+When you use sensitivity labels for Office apps on Windows, macOS, iOS, and Android, users see new labels within four hours, and within one hour for Office on the web. However, allow up to 24 hours for changes to replicate to all apps and services.
+
+> [!IMPORTANT]
+> Do not delete a label unless you understand the impact for your users. For more information, see [Removing and deleting labels](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) in the Microsoft 365 documentation.
+>
+
+**To create new sensitivity labels or modify existing labels**:
+
 1. Open the [Microsoft 365 Security and Compliance Center](https://protection.office.com/homepage). 
 
 1. Under **Solutions**, select **Information protection**, then select **Create a label**. 
@@ -147,10 +155,6 @@ Once you extend labeling to assets in Azure Purview, you can select the labels t
 
     For more information, see [Label priority (order matters)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters) in the Microsoft 365 documentation.
 
-> [!IMPORTANT]
-> Do not delete a label unless you understand the impact for your users. 
->
-> For more information, see [Removing and deleting labels](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) in the Microsoft 365 documentation.
 
 Continue by [scanning your data to apply labels automatically](#scan-your-data-to-apply-labels-automatically), and then:
 

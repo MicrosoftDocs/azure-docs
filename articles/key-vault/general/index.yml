@@ -85,7 +85,7 @@ landingContent:
           - text: .NET Client library
             url: /dotnet/api/overview/azure/key-vault
           - text: Python Client library
-            url: /python/api/overview/azure/key-vault-index?view=azure-python
+            url: /python/api/overview/azure/key-vault-index
           - text: Java Client library
             url: https://azure.github.io/azure-sdk-for-java/keyvault.html
           - text: Node.js Client library

@@ -36,8 +36,12 @@ These changes include:
 
 ## Some logging is not auto-collected
 
-Logging is only captured if it first meets the logging frameworks' configured threshold,
-and second also meets the Application Insights configured threshold.
+Logging is only captured if it first meets the level that is configured for the logging framework,
+and second, also meets the level that is configured for Application Insights.
+
+For example, if your logging framework is configured to log `WARN` (and above) from package `com.example`,
+and Application Insights is configured to capture `INFO` (and above),
+then Application Insights will only capture `WARN` (and above) from package `com.example`.
 
 The best way to know if a particular logging statement meets the logging frameworks' configured threshold
 is to confirm that it is showing up in your normal application log (e.g. file or console).

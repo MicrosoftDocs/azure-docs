@@ -94,13 +94,15 @@ Open a console window to the folder location **Azure_Digital_Twins__ADT__explore
 
 1. Enter the Azure Digital Twins instance URL that you gathered earlier in the [Set up an Azure Digital Twins instance](#set-up-an-azure-digital-twins-instance) section, in the format *https://{instance host name}*.
 
->[!NOTE]
-> You can revisit or edit this information at any time by selecting the same icon to open the **Sign In** box again. It will keep the values that you passed in.
-
 > [!TIP]
 > If a `SignalRService.subscribe` error message appears when you connect, make sure that your Azure Digital Twins URL begins with *https://*.
+>
+> If an authentication error appears, you may want to check your **environment variables** to make sure any credentials included there are valid for Azure Digital Twins. The `DefaultAzureCredential` attempts to authenticate against credential types in a [specific order](/dotnet/api/overview/azure/identity-readme#defaultazurecredential), and environment variables are evaluated first.
 
 If you see a **Permissions requested** pop-up window from Microsoft, grant consent for this application and accept to continue.
+
+>[!NOTE]
+> You can revisit or edit this information at any time by selecting the same icon to open the **Sign In** box again. It will keep the values that you passed in.
 
 ## Add the sample data
 
