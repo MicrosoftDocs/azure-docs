@@ -1,3 +1,10 @@
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Java Development Kit (JDK)](/java/fundamentals/java-jdk-install) version 8 or above.
+- [Apache Maven](https://maven.apache.org/download.cgi).
+- A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+
 ## Add managed identity to your Communication Services solution (Java)
 
 ### Install the client library packages
