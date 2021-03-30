@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting
 ms.reviewer: larryfr, vaidyas, laobri, tracych
-ms.author: trmccorm
-author: tmccrmck
+ms.author: psavdekar
+author: pansav
 ms.date: 09/23/2020
 #Customer intent: As a data scientist, I want to figure out why my ParallelRunStep doesn't run so that I can fix it.
 
@@ -93,6 +93,9 @@ file_path = os.path.join(script_dir, "<file_name>")
 - `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (optional; the default value is `10` files for `FileDataset` and `1MB` for `TabularDataset`.)
     - For `FileDataset`, it's the number of files with a minimum value of `1`. You can combine multiple files into one mini-batch.
     - For `TabularDataset`, it's the size of data. Example values are `1024`, `1024KB`, `10MB`, and `1GB`. The recommended value is `1MB`. The mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100 KB and the largest is 10 MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1 MB will be treated as one mini-batch. Files with a size larger than 1 MB will be split into multiple mini-batches.
+        > [!NOTE]
+        > TabularDatasets backed by SQL cannot be partitioned. 
+
 - `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be aborted. The error threshold is for the entire input and not for individual mini-batch sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
 - `output_action`: One of the following values indicates how the output will be organized:
     - `summary_only`: The user script will store the output. `ParallelRunStep` will use the output only for the error threshold calculation.
