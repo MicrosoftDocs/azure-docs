@@ -53,7 +53,7 @@ The message count for billing purpose is an abstract concept and defined as the 
 
 For billing, only the outbound traffic is counted. 
 
-For example, imagine you have an application with Azure Web PubSub service and Azure Functions. One user broadcast 1 message (4 KB) to 10 users in a group. It turns out 4 KB for upstream from service to function and 40 KB from service broadcast to 10 users.
+For example, imagine you have an application with Azure Web PubSub service and Azure Functions. One user broadcast 4 KB data to 10 connections in a group. It turns out 4 KB for upstream from service to function and 40 KB from service broadcast to 10 connections.
 
 > Outbound traffic for billing = 4 KB + 40 KB = 44 KB
 
