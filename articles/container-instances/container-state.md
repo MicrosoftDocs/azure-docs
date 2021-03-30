@@ -23,8 +23,8 @@ State is also displayed in other locations in the Azure portal. The following ta
 |-|-|-|
 |Container Group state|`properties.instanceView.state`|Under Essentials in the Overview blade|
 |Current Container state|`properties.containers/initContainers[x].instanceView.currentState.state`|Under the Containers blade's table's **State** column|
-|Previous Container State|`properties.containers/initContainers[x].instanceView.previousState.state`|Via *JSON view* under Essentials in the Overview blade|
-|Provisioning state|`properties.provisioningState`|Via *JSON view* under Essentials in the Overview blade|
+|Previous Container state|`properties.containers/initContainers[x].instanceView.previousState.state`|Via *JSON view* under Essentials in the Overview blade|
+|Provisioning state|`properties.provisioningState`|Via *JSON view* under Essentials in the Overview blade; HTTP response body|
 
 ## Container Groups
 
@@ -69,8 +69,12 @@ There are two state values for containers- a current state and a previous state.
 
 ## Provisioning
 
-This value is the state of the last operation performed on a container group. Generally, this operation is a PUT (create), but it can also be a POST (start/stop) or DELETE (delete). In addition to the JSON view, provisioning state can be also be found in the [response body of the HTTP call](https://docs.microsoft.com/rest/api/container-instances/containergroups/createorupdate#response)..
+This value is the state of the last operation performed on a container group. Generally, this operation is a PUT (create), but it can also be a POST (start/stop) or DELETE (delete).
 
+> [!IMPORTANT] 
+> PUT (create) operations are asynchronous, and the return value of the PUT's response is not the final state. Subsequent GET calls on the resourceId or the AsyncOperation (returned in the PUT response headers) is recommended to monitor the status of the deployment.
+
+In addition to the JSON view, provisioning state can be also be found in the [response body of the HTTP call](https://docs.microsoft.com/rest/api/container-instances/containergroups/createorupdate#response).
 
 - **Pending**: The container group is waiting for infrastructure setup, such as a node assignment, virtual network provisioning, or anything else needed prior to pulling the user image.
 
