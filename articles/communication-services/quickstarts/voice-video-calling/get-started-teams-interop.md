@@ -30,6 +30,16 @@ Get started with Azure Communication Services by connecting your calling solutio
 [!INCLUDE [Calling with iOS](./includes/teams-interop-ios.md)]
 ::: zone-end
 
+The Quickstarts use the General Availblity version of the SDK. The Teams Interoperability requires Beta version. When you working on Quickstart, look for the latest version of the Beta SDK  on [release notes page](https://github.com/Azure/Communication/tree/master/releasenotes).
+
+When execute the "Install package"  step, please modify the version of package to the latest Beta release by adding @1.0.0-beta.10 (version at the moment of writing this article) to the communication-calling. You don't need to modify the communication-common
+
+Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
+
+```console
+npm install @azure/communication-calling@1.0.0-beta.10 --save
+```
+
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
