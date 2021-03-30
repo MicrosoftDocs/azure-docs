@@ -88,7 +88,7 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 ## Configure security with Firewall Manager
 
 1. Browse to the Azure Firewall Manager -> Secured Hubs. 
-2. Select a hub. The Hub status should now show **Provisioned** instead of **Security Connection Pending**.
+2. Select a hub. The hub status should now show **Provisioned** instead of **Security Connection Pending**.
 
    Ensure the third-party provider can connect to the hub. The tunnels on the VPN gateway should be in a **Connected** state. This state is more reflective of the connection health between the hub and the third-party partner, compared to previous status.
 3. Select the hub, and navigate to **Security Configurations**.
