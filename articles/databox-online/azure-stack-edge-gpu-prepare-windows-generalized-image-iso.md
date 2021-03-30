@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 03/30/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, XXXX.
 ---
@@ -60,13 +60,13 @@ Before you can create a generalized Windows VHD from an ISO, make sure that:
 
 1. Under **Choose Disk Type**, select **Fixed size**.
 
-   ![Choose Fixed size as the disk type](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image-iso/vhd-from-iso-03.png)
+   ![Choose Fixed size as the disk type](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-03.png)
 
 1. Enter a name and location for your new VHD.
 
 1. Under **Configure Disk**, select **Create a new blank virtual hard disk** and enter the size of disk you would like to create (generally 20 GB and above for Windows Server).
 
-   ![Settings for creating a new blank virtual hard disk and specifying the size](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image-iso/vhd-from-iso-04.png)
+   ![Settings for creating a new blank virtual hard disk and specifying the size](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-04.png)
 
 1. Review your selections and click **Finish** to create the new VHD. The process will take five or more minutes depending on the size of the VHD created.
 
@@ -76,21 +76,21 @@ Before you can create a generalized Windows VHD from an ISO, make sure that:
 
 1. In the right menu, click **New** > **Virtual Machine**. 
 
-   ![Select New and then Virtual Machine from the menu on the right.](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image-iso/vhd-from-iso-05.png) 
+   ![Select New and then Virtual Machine from the menu on the right.](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-05.png)
 
 1. In the New Virtual Machine Wizard, specify the name and location of your VM.
 
-   ![New Virtual Machine wizard, Specify Name and Location](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image-iso/vhd-from-iso-06.png) 
+   ![New Virtual Machine wizard, Specify Name and Location](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-06.png)
 
 1. Under **Specify Generation**, select **Generation 1**. 
 
-   ![New Virtual Machine wizard, Choose the generation of virtual machine to create](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image-iso/vhd-from-iso-07.png)
+   ![New Virtual Machine wizard, Choose the generation of virtual machine to create](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-07.png)
 
 1. Assign your desired memory and networking configurations. 
 
 1. In the **Connect Virtual Hard Disk** menu, select **Use an existing virtual hard disk** and point to the fixed VHD you created in the previous step.
 
-   ![New Virtual Machine wizard, Select an existing virtual hard disk as the source](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image-iso/vhd-from-iso-08.png)
+   ![New Virtual Machine wizard, Select an existing virtual hard disk as the source](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-08.png)
 
 1. Create the VM. 
  
@@ -100,11 +100,11 @@ Before you can create a generalized Windows VHD from an ISO, make sure that:
 
 1. Under the **DVD Drive** menu, select **Image file** and point to your ISO image.  
 
-   ![In Hyper-V Manager, select the image file for your VHD from the DVD Drive menu](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image-iso/vhd-from-iso-09.png)
+   ![In Hyper-V Manager, select the image file for your VHD from the DVD Drive menu](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-09.png)
 
 1. Under the **BIOS** menu, ensure that **CD** is at the top of the **Startup order** list. 
 
-   ![In the settings, the first item under Startup order should be CD](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image-iso/vhd-from-iso-10.png) 
+   ![In the settings, the first item under Startup order should be CD](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-10.png)
 
 1. Click **OK** to save your VM settings.
 
