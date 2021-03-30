@@ -74,7 +74,7 @@ No, on Azure VMs there is no management support directly from the Azure VM.
  
 **Q:** Does Azure support different PLPs? 
 
-**A:** Not at this time, we only support the PLP provided in the deployment platform packages. 
+**A:** Not at this time. We only support the PLP provided in the deployment platform packages. 
 
 **Q:** How can I query the PLP information? 
 
