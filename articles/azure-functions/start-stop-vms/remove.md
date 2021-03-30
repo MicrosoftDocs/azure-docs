@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # How to remove Start/Stop VMs v2 (preview)
 
-After you enable the Start/Stop VMs v2 (preview) feature to manage the running state of your Azure VMs, you may decide to stop using it. Removing this feature can be done by deleting the resource group dedicated to store the following resources:
+After you enable the Start/Stop VMs v2 (preview) feature to manage the running state of your Azure VMs, you may decide to stop using it. Removing this feature can be done by deleting the resource group dedicated to store the following resources in support of Start/Stop VMs v2 (preview):
 
 - The Azure Functions applications
 - Schedules in Azure Logic Apps
@@ -18,7 +18,7 @@ After you enable the Start/Stop VMs v2 (preview) feature to manage the running s
 
 ## Delete the dedicated resource group
 
-To delete the resource group, follow the steps outlined in the [Azure Resource Manager resource group and resource deletion](../azure-resource-manager/management/delete-resource-group.md) article.
+To delete the resource group, follow the steps outlined in the [Azure Resource Manager resource group and resource deletion](../../azure-resource-manager/management/delete-resource-group.md) article.
 
 ## Next steps
 
