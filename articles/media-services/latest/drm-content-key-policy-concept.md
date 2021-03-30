@@ -47,7 +47,7 @@ Usually, you associate your content key policy with your [Streaming Locator](str
 
 ## Example
 
-To get to the key, use `GetPolicyPropertiesWithSecretsAsync`, as shown in the [Get a signing key from the existing policy](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) example.
+To get to the key, use `GetPolicyPropertiesWithSecretsAsync`, as shown in the [Get a signing key from the existing policy](drm-get-content-key-policy-dotnet-how-to.md#get-contentkeypolicy-with-secrets) example.
 
 ## Filtering, ordering, paging
 
@@ -60,6 +60,6 @@ See [Filtering, ordering, paging of Media Services entities](entities-overview.m
 
 ## Next steps
 
-* [Use AES-128 dynamic encryption and the key delivery service](protect-with-aes128.md)
-* [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)
+* [Use AES-128 dynamic encryption and the key delivery service](drm-playready-license-template-concept.md)
+* [Use DRM dynamic encryption and license delivery service](drm-protect-with-drm-tutorial.md)
 * [Basic AES Clear Key Encryption and streaming sample code](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/BasicAESClearKey)

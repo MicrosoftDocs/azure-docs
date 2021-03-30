@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure. 
+# Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure. 
 ---
 # Quickstart: Get started with Azure Stack Edge Pro with GPU 
 
