@@ -10,7 +10,7 @@ metadata:
   ms.collection: collection
   author: KumudD
   ms.author: kumud
-  ms.date: 03/29/2021
+  ms.date: 03/30/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -24,7 +24,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Networking?
-            url: ../networking-overview.md
+            url: networking-overview.md
       - linkListType: concept
         links:
           - text: What is Microsoft global network?

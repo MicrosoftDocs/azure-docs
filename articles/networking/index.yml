@@ -20,7 +20,7 @@ highlightedContent:
   items: 
     - title: What is Azure Networking? 
       itemType: overview # controls the icon image and super-title text 
-      url: networking-overview.md
+      url: /fundamentals/networking-overview.md
     - title: What's new in Azure Networking? 
       itemType: whats-new 
       url: https://azure.microsoft.com/updates/?category=networking
