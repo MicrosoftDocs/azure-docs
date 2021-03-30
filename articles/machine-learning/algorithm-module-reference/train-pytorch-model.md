@@ -1,7 +1,7 @@
 ---
-title: "Train Pytorch Model"
+title: "Train PyTorch Model"
 titleSuffix: Azure Machine Learning
-description: Use the Train Pytorch Models module in Azure Machine Learning designer to train models from scratch, or fine-tune existing models.
+description: Use the Train PyTorch Models module in Azure Machine Learning designer to train models from scratch, or fine-tune existing models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,24 +12,24 @@ ms.author: keli19
 ms.date: 03/19/2021
 ---
 
-# Train Pytorch Model
+# Train PyTorch Model
 
-This article describes how to use the **Train Pytorch Model** module in Azure Machine Learning designer to train pytorch models like DenseNet. Training takes place after you define a model and set its parameters, and requires labeled data. 
+This article describes how to use the **Train PyTorch Model** module in Azure Machine Learning designer to train PyTorch models like DenseNet. Training takes place after you define a model and set its parameters, and requires labeled data. 
 
-Currently, **Train Pytorch Model** module supports both single node and distributed training.
+Currently, **Train PyTorch Model** module supports both single node and distributed training.
 
-## How to use Train Pytorch Model 
+## How to use Train PyTorch Model 
 
 1. Add [DenseNet](densenet.md) module or [ResNet](resnet.md) to your pipeline draft in the designer.
 
-2. Add the **Train Pytorch Model** module to the pipeline. You can find this module under the **Model Training** category. Expand **Train**, and then drag the **Train Pytorch Model** module into your pipeline.
+2. Add the **Train PyTorch Model** module to the pipeline. You can find this module under the **Model Training** category. Expand **Train**, and then drag the **Train PyTorch Model** module into your pipeline.
 
    > [!NOTE]
-   > **Train Pytorch Model** module is better run on **GPU** type compute for large dataset, otherwise your pipeline will fail. You can select compute for specific module in the right pane of the module by setting **Use other compute target**.
+   > **Train PyTorch Model** module is better run on **GPU** type compute for large dataset, otherwise your pipeline will fail. You can select compute for specific module in the right pane of the module by setting **Use other compute target**.
 
-3.  On the left input, attach an untrained model. Attach the training dataset and validation dataset to the middle and right-hand input of **Train Pytorch Model**.
+3.  On the left input, attach an untrained model. Attach the training dataset and validation dataset to the middle and right-hand input of **Train PyTorch Model**.
 
-    For untrained model, it must be a pytorch model like DenseNet; otherwise, a 'InvalidModelDirectoryError' will be thrown.
+    For untrained model, it must be a PyTorch model like DenseNet; otherwise, a 'InvalidModelDirectoryError' will be thrown.
 
     For dataset, the training dataset must be a labeled image directory. Refer to **Convert to Image Directory** for how to get a labeled image directory. If not labeled, a 'NotLabeledDatasetError' will be thrown.
 
@@ -51,9 +51,10 @@ Currently, **Train Pytorch Model** module supports both single node and distribu
 
 ## Distributed training
 
-In distributed training the workload to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. Currently the designer support distributed training for **Train Pytorch Model** module.
+In distributed training the workload to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. Currently the designer support distributed training for **Train PyTorch Model** module.
 
-### Training times
+### Training time
+
 Distributed training makes it possible to train on a large dataset like ImageNet (1000 classes, 1.2 million images) in just several hours by **Train PyTorch Model**. The following table shows training time and performance during training 50 epochs of Resnet50 on ImageNet from scratch based on different devices.
 
 | Devices       | Training Time  | Training Throughput  | Top-1 Validation Accuracy | Top-5 Validation Accuracy |
@@ -63,11 +64,11 @@ Distributed training makes it possible to train on a large dataset like ImageNet
 
 Click on this module 'Metrics' tab and see training metric graphs, such as 'Train images per second' and 'Top 1 accuracy'.
 
-![Screenshot showing training metrics](./media/module/train-pytorch-model-train-metrics.png)
+![Screenshot showing training metrics](./media/module/train-PyTorch-model-train-metrics.png)
 
 ### How to enable distributed training
 
-To enable distributed training for **Train Pytorch Model** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)** is supported for distributed training.
+To enable distributed training for **Train PyTorch Model** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)** is supported for distributed training.
 
 
 
@@ -81,7 +82,7 @@ To enable distributed training for **Train Pytorch Model** module, you can set i
 
     - **Node count** : Number of nodes in the compute target used for training. It should be **less than or equal to** the **Maximum number of nodes** your compute cluster. By default it is 1, which means single node job.
 
-    - **Process count per node**: Number of processes triggered per node. It should be **less than or equal to** the **Processing Unit** of your compute. By default it is 1, which means single node job.
+    - **Process count per node**: Number of processes triggered per node. It should be **less than or equal to** the **Processing Unit** of your compute. By default it is 1, which means single process job.
 
     You can check the **Maximum number of nodes** and **Processing Unit** of your compute by clicking the compute name into the compute detail page.
 
@@ -103,14 +104,14 @@ The following example shows a common error, which is **Process count per node** 
 
 ## Results
 
-After pipeline run is completed, to use the model for scoring, connect the [Train Pytorch Model](train-pytorch-model.md) to [Score Image Model](score-image-model.md), to predict values for new input examples.
+After pipeline run is completed, to use the model for scoring, connect the [Train PyTorch Model](train-PyTorch-model.md) to [Score Image Model](score-image-model.md), to predict values for new input examples.
 
 ## Technical notes
 ###  Expected inputs  
 
 | Name               | Type                    | Description                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
-| Untrained model    | UntrainedModelDirectory | Untrained model, require pytorch         |
+| Untrained model    | UntrainedModelDirectory | Untrained model, require PyTorch         |
 | Training dataset   | ImageDirectory          | Training dataset                         |
 | Validation dataset | ImageDirectory          | Validation dataset for evaluation every epoch |
 
