@@ -41,7 +41,7 @@ The Kubernetes extensions feature enables the following on Azure Arc enabled Kub
 | Extension | Description |
 | --------- | ----------- |
 | [Azure Monitor](extensions-monitor.md) | Provides visibility into the performance of workloads deployed on the Kubernetes cluster. Collects memory and CPU utilization metrics from controllers, nodes, and containers. |
-| **Azure Defender** | Gathers audit log data from control plane nodes of the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
+| [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers audit log data from control plane nodes of the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
 
 ## Usage of cluster extensions
 
