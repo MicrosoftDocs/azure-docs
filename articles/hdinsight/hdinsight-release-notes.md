@@ -28,7 +28,7 @@ HDInsight added [Spark 3.0.0](https://spark.apache.org/docs/3.0.0/) support to H
 HDInsight added [Kafka 2.4.1](http://kafka.apache.org/24/documentation.html) support to HDInsight 4.0 as a Preview feature.
 
 ### Eav4-series support
-HDInsight added Eav4-series support in this release. Learn more about [Dav4-series here](../virtual-machines/eav4-easv4-series.md). The series has been made available in below regions: 
+HDInsight added Eav4-series support in this release. Learn more about [Dav4-series here](../virtual-machines/eav4-easv4-series.md). The series has been made available in the following regions: 
 
 * Australia East
 * Brazil South
