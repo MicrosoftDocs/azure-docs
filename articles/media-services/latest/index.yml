@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: IngridAtMicrosoft
   ms.author: inhenkel
-  ms.date: 21/16/2020 #Required; mm/dd/yyyy format.
+  ms.date: 03/25/2021 #Required; mm/dd/yyyy format.
  
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
  
@@ -32,7 +32,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Media Services accounts
-            url: media-services-account-concept.md
+            url: account-move-account-how-to.md
           - text: Storage accounts
             url: storage-account-concept.md
           - text: Packaging
@@ -50,7 +50,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create an account
-            url: ./create-account-howto.md
+            url: ./account-create-how-to.md
           - text: Access API
             url: ./access-api-howto.md
       - linkListType: download
@@ -120,10 +120,12 @@ landingContent:
       - linkListType: concept
         links:
           - text: Media analytics
-            url: analyzing-video-audio-files-concept.md
+            url: analyze-video-audio-files-concept.md
           - text: Compliance, Privacy and Security
-            url: analyzing-video-audio-files-concept.md#compliance-privacy-and-security
+            url: analyze-video-audio-files-concept.md#compliance-privacy-and-security
       - linkListType: tutorial
         links:
           - text: Analyze videos
-            url: analyze-videos-tutorial-with-api.md
+            url: analyze-videos-tutorial.md
+          - text: Redact faces in videos
+            url: analyze-face-redaction-concept.md
