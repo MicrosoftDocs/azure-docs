@@ -11,9 +11,24 @@ ms.date: 03/25/2021
 
 Azure Container Instances displays several independent state values. This article catalogs those values, where they can be found, and what they indicate.
 
+## Where to find state values
+
+In the Azure portal, state is shown in various locations. All state values are accessible via the JSON definition of the resource. This can be found under Essentials in the Overview blade, shown below.
+
+:::image type="content" source="./media/container-state/provisioning-state.png" alt-text="The Overview blade in the Azure portal is shown. The link 'JSON view' is highlighted.":::
+
+State is also displayed in other locations in the Azure portal. The following table summarizes where state values can be found:
+
+|Name|JSON path|Azure portal location|
+|-|-|-|
+|Container Group state|`properties.instanceView.state`|Under Essentials in the Overview blade|
+|Current Container state|`properties.containers/initContainers[x].instanceView.currentState.state`|Under the Containers blade's table's **State** column|
+|Previous Container State|`properties.containers/initContainers[x].instanceView.previousState.state`|Via *JSON view* under Essentials in the Overview blade|
+|Provisioning state|`properties.provisioningState`|Via *JSON view* under Essentials in the Overview blade|
+
 ## Container Groups
 
-This value is the state of the deployed container group on the backend. In the Azure portal, you can find container group state under Essentials in the Overview blade.
+This value is the state of the deployed container group on the backend.
 
 :::image type="content" source="./media/container-state/container-group-state.png" alt-text="The overview blade for the resource in the Azure portal is shown in a web browser. The text 'Status: Running' is highlighted.":::
 
@@ -39,7 +54,10 @@ The following table shows what states are applicable to a container group based 
 
 ## Containers
 
-This value is the state of a single container in a container group. In the Azure portal, container state is shown on the Containers blade.
+There are two state values for containers- a current state and a previous state. In the Azure portal, shown below, only current state is displayed. All state values are applicable for any given container regardless of the container group's restart policy.
+
+> [!NOTE]
+> The JSON values of `currentState` and `previousState` contain additional information, such as an exit code or a reason, that is not shown elsewhere in the Azure portal.
 
 :::image type="content" source="./media/container-state/container-state.png" alt-text="The Containers blade in the Azure portal is shown. A table is shown, and 'Running' under the 'State' column is highlighted. ":::
 
@@ -51,9 +69,8 @@ This value is the state of a single container in a container group. In the Azure
 
 ## Provisioning
 
-This value is the state of the last operation performed on a container group. Generally, this operation is a PUT(create), but it can also be a POST(start/stop) or DELETE (delete). Provisioning state can be seen in the [response body of the HTTP call](https://docs.microsoft.com/rest/api/container-instances/containergroups/createorupdate#response), or in the Azure portal via the resource's JSON view.
+This value is the state of the last operation performed on a container group. Generally, this operation is a PUT (create), but it can also be a POST (start/stop) or DELETE (delete). In addition to the JSON view, provisioning state can be also be found in the [response body of the HTTP call](https://docs.microsoft.com/rest/api/container-instances/containergroups/createorupdate#response)..
 
-:::image type="content" source="./media/container-state/provisioning-state.png" alt-text="The Overview blade in the Azure portal is shown. The link 'JSON view' is highlighted.":::
 
 - **Pending**: The container group is waiting for infrastructure setup, such as a node assignment, virtual network provisioning, or anything else needed prior to pulling the user image.
 
