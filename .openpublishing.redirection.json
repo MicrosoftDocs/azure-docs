@@ -64925,6 +64925,10 @@
       "source_path_from_root": "/articles/virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md",
       "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-public-portal",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/quickstart-dotnet-framework.md",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore?tabs=netframework48"
     }
   ]
 }
