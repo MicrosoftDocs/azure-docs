@@ -45,7 +45,7 @@ Learn how to write automated tests against private endpoints for Azure Blob Stor
 
 1. In Azure Storage Explorer, select **Attach to a local emulator**
 
-    :::image type="content" source="media/use-azurite-to-run-automated-tests/blob_storage_connection.png" alt-text="Azure Storage Explorer attach to a local emulator screen.":::
+    :::image type="content" source="media/use-azurite-to-run-automated-tests/blob_storage_connection.png" alt-text="Azure Storage Explorer connect to Azure Storage screen.":::
 
 1. Provide a **Display name** and **Blobs port** number to connect Azurite and use Azure Storage Explorer to manage local blob storage.
 
