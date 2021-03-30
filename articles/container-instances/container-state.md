@@ -13,7 +13,7 @@ Azure Container Instances displays several independent state values. This articl
 
 ## Where to find state values
 
-In the Azure portal, state is shown in various locations. All state values are accessible via the JSON definition of the resource. This can be found under Essentials in the Overview blade, shown below.
+In the Azure portal, state is shown in various locations. All state values are accessible via the JSON definition of the resource. This value can be found under Essentials in the Overview blade, shown below.
 
 :::image type="content" source="./media/container-state/provisioning-state.png" alt-text="The Overview blade in the Azure portal is shown. The link 'JSON view' is highlighted.":::
 
@@ -80,12 +80,12 @@ In addition to the JSON view, provisioning state can be also be found in the [re
 
 - **Creating**: The infrastructure setup has finished. The container group is now getting brought up and receiving the resources it needs (mounting Azure file volumes, getting ingress IP address, etc.).
 
-- **Succeeded**: The container group has succeeded in getting its containers into the running state and has received all resources it needs. If the latest operation was to stop the container group, this indicates the operation completed successfully.
+- **Succeeded**: The container group has succeeded in getting its containers into the running state and has received all resources it needs. If the latest operation was to stop the container group, this value indicates the operation completed successfully.
 
 - **Unhealthy**: The container group is unhealthy. For an unexpected state, such as if a node is down, a job is automatically triggered to repair the container group by moving it.
 
 - **Repairing**: The container group is getting moved in order to repair an unhealthy state.
 
-- **Failed**: The container group failed to reach the **Succeeded** provisioning state within the timeout of 30 minutes. If the last operation was not a create/start, this indicates that the operation failed.
+- **Failed**: The container group failed to reach the **Succeeded** provisioning state within the timeout of 30 minutes. If the last operation was not a create/start, this value indicates that the operation failed.
     > [!NOTE]
     > A failed state does not mean that the resource is removed or stops attempting to succeed. The container group state will indicate the current state of the group. If you want to ensure the container group does not run after a **Failed** provisioning state, then you will have to stop or delete it.
