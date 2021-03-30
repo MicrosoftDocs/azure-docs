@@ -11,7 +11,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
-Customer intent: As a key vault administrator, I want to move my vault to another subscription.
+# Customer intent: As a key vault administrator, I want to move my vault to another subscription.
 ---
 
 # Moving an Azure Key Vault to another subscription

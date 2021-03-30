@@ -23,8 +23,8 @@ ms.custom: devx-track-csharp
 
 Azure Media Services support offline download/playback with DRM protection. This article covers offline support of Azure Media Services for Windows 10/PlayReady clients. You can read about the offline mode support for iOS/FairPlay and Android/Widevine devices in the following articles:
 
-- [Offline FairPlay Streaming for iOS](offline-fairplay-for-ios.md)
-- [Offline Widevine Streaming for Android](offline-widevine-for-android.md)
+- [Offline FairPlay Streaming for iOS](drm-offline-fairplay-for-ios-concept.md)
+- [Offline Widevine Streaming for Android](drm-offline-widevine-for-android.md)
 
 > [!NOTE]
 > Offline DRM is only billed for making a single request for a license when you download the content. Any errors are not billed.
