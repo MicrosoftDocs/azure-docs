@@ -16,11 +16,11 @@ ms.author: ruxu
 # Tutorial: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)
 
 In this article, you will learn how to use Microsoft Machine Learning for Apache Spark ([MMLSpark](https://github.com/Azure/mmlspark)) to create machine learning applications. 
-MMLSpark expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/big-data/cognitive-services-for-big-data), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  MMLSpark allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
+MMLSpark expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Azure Cognitive Services](../../cognitive-services/big-data/cognitive-services-for-big-data.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  MMLSpark allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
 Synapse Spark provide built-in MMLSpark libraries including:
 
 - [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) – Library services for Machine learning to enable Text analytics like sentiment analysis in tweets.
-- [Cognitive Services on Spark](https://docs.microsoft.com/azure/cognitive-services/big-data/cognitive-services-for-big-data) – To combine the feature of Azure Cognitive Services in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
+- [Cognitive Services on Spark](../../cognitive-services/big-data/cognitive-services-for-big-data.md) – To combine the feature of Azure Cognitive Services in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
 - [LightBGM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – Machine learning model to enable training the model for predictive analysis like face ID detection.
 - Conditional KNN - Scalable KNN Models with Conditional Queries.
 - [HTTP on Spark](https://github.com/Azure/mmlspark/blob/master/docs/http.md) – Enables distributed Microservices orchestration in integrating Spark and HTTP protocol-based accessibility.
@@ -36,9 +36,9 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 ## Prerequisites 
 
-- [Azure Synapse Analytics workspace](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
-- Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-sql-pool-studio).
-- Pre-configuration steps described in the tutorial [Configure Cognitive Services in Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-configure-cognitive-services-synapse).
+- [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
+- Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
+- Pre-configuration steps described in the tutorial [Configure Cognitive Services in Azure Synapse](./tutorial-configure-cognitive-services-synapse.md).
 
 
 ## Get started
@@ -67,7 +67,7 @@ anomalydetector_key = mssparkutils.credentials.getSecret("keyvaultForSynapse", a
 
 ## Text analytics sample
 
-The [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between 0.0 and 1.0 where low scores indicate negative sentiment and high score indicates positive sentiment. This sample uses three simple sentences and returns the sentiment for each.
+The [Text Analytics](../../cognitive-services/text-analytics/index.yml) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between 0.0 and 1.0 where low scores indicate negative sentiment and high score indicates positive sentiment. This sample uses three simple sentences and returns the sentiment for each.
 
 ```python
 from pyspark.sql.functions import col
@@ -102,7 +102,7 @@ display(sentiment.transform(df_sentences).select("text", col("sentiment")[0].get
 | I am so happy today, its sunny! | positive |
 
 ## Computer vision sample
-[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analyzes images to identify structure such as faces, objects, and natural-language descriptions. In this sample, we tag the follow image. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
+[Computer Vision](../../cognitive-services/computer-vision/index.yml) analyzes images to identify structure such as faces, objects, and natural-language descriptions. In this sample, we tag the follow image. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
 
 
 ![image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg)
@@ -132,7 +132,7 @@ display(analysis.transform(df_images).select("image", "analysis_results.descript
 | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg` | [skating, person, man, outdoor, riding, sport, skateboard, young, board, shirt, air, park, boy, side, jumping, ramp, trick, doing, flying] |
 
 ## Bing image search sample
-[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) searches the web to retrieve images related to a user's natural language query. In this sample, we use a text query that looks for images with quotes. It returns a list of image URLs that contain photos related to our query.
+[Bing Image Search](../../cognitive-services/bing-image-search/overview.md) searches the web to retrieve images related to a user's natural language query. In this sample, we use a text query that looks for images with quotes. It returns a list of image URLs that contain photos related to our query.
 
 
 ```python
@@ -183,7 +183,7 @@ display(res_bingsearch.dropDuplicates())
 
 ## Anomaly detector sample
 
-[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) is great for detecting irregularities in your time series data. In this sample, we use the service to find anomalies in the entire time series.
+[Anomaly Detector](../../cognitive-services/anomaly-detector/index.yml) is great for detecting irregularities in your time series data. In this sample, we use the service to find anomalies in the entire time series.
 
 ```python
 from pyspark.sql.functions import lit

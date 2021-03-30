@@ -31,7 +31,7 @@ To deliver events to event hubs in your Event Hubs namespace using managed ident
 To deliver events to Service Bus queues or topics in your Service Bus namespace using managed identity, follow these steps:
 
 1. [Enable system-assigned identity for a topic or a domain](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity). 
-1. Add the identity to the [Azure Service Bus Data Sender](/service-bus-messaging/service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) role on the Service Bus namespace
+1. Add the identity to the [Azure Service Bus Data Sender](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) role on the Service Bus namespace
 1. [Enable the **Allow trusted Microsoft services to bypass this firewall** setting on your Service Bus namespace](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
 1. [Configure the event subscription](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) that uses a Service Bus queue or topic as an endpoint to use the system-assigned identity.
 

@@ -13,6 +13,8 @@ ms.topic: conceptual
 
 *This topic applies to administrators and solution developers.*
 
+[!Note] This solution uses [legacy data export features](./howto-export-data-legacy.md). Stay tuned for updated guidance on how to connect to Power BI using the latest data export.
+
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Power BI solution pipeline":::
 
 Use the Power BI Solution for Azure IoT Central V3 to create a powerful Power BI dashboard to monitor the performance of your IoT devices. In your Power BI dashboard, you can:
@@ -22,7 +24,7 @@ Use the Power BI Solution for Azure IoT Central V3 to create a powerful Power BI
 - Filter down to data sent by specific devices
 - View the most recent telemetry data in a table
 
-This solution sets up a pipeline that reads data from your [Continuous Data Export](./howto-export-data.md) Azure Blob storage account. The pipeline uses Azure Functions, Azure Data Factory, and Azure SQL Database to process and transform the data. you can visualize and analyze the data in a Power BI report that you download as a PBIX file. All of the resources are created in your Azure subscription, so you can customize each component to suit your needs.
+This solution sets up a pipeline that reads data from your [Continuous Data Export](./howto-export-data-legacy.md) Azure Blob storage account. The pipeline uses Azure Functions, Azure Data Factory, and Azure SQL Database to process and transform the data. you can visualize and analyze the data in a Power BI report that you download as a PBIX file. All of the resources are created in your Azure subscription, so you can customize each component to suit your needs.
 
 ## Prerequisites
 

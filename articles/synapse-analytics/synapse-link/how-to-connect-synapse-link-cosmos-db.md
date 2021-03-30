@@ -9,6 +9,7 @@ ms.subservice: synapse-link
 ms.date: 03/02/2021
 ms.author: acomet
 ms.reviewer: jrasnick
+ms.custom: cosmos-db
 ---
 
 # Connect to Azure Synapse Link for Azure Cosmos DB

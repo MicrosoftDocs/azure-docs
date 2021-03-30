@@ -1,5 +1,5 @@
 ---
-title: "SQL Server to SQL Database: Migration overview"
+title: "SQL Server to Azure SQL Database: Migration overview"
 description: Learn about the different tools and options available to migrate your SQL Server databases to Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -11,7 +11,7 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
 ---
-# Migration overview: SQL Server to SQL Database
+# Migration overview: SQL Server to Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Learn about different migration options and considerations to migrate your SQL Server to Azure SQL Database. 
@@ -24,7 +24,7 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (Google Cloud Platform - GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
 
-For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
+For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
 
 ## Overview
 
@@ -52,7 +52,7 @@ Different tools are available for different workloads and user preferences. Some
 
 ## Choose appropriate target
 
-Consider general guidelines to help you choose the right deployment model and service tier of Azure SQL Database. You can choose compute and storage resources during deployment and then change them afterwards using the  [Azure portal](../../database/scale-resources.md)  without incurring downtime for your application.
+Consider general guidelines to help you choose the right deployment model and service tier of Azure SQL Database. You can choose compute and storage resources during deployment and then [change them afterwards using the Azure portal](../../database/scale-resources.md) without incurring downtime for your application.
 
 
 **Deployment models**: Understand your application workload and the usage pattern to decide between a single database or elastic pool. 
@@ -206,7 +206,7 @@ These resources were developed as part of the Data SQL Ninja Program, which is s
 
 ## Next steps
 
-To start migrating your SQL Server to Azure SQL Database, see the [SQL Server to SQL Database migration guide](sql-server-to-sql-database-guide.md).
+To start migrating your SQL Server to SQL Database, see the [SQL Server to Azure SQL Database migration guide](sql-server-to-sql-database-guide.md).
 
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 

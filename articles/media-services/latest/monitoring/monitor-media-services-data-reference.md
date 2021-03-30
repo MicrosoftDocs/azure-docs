@@ -6,7 +6,7 @@ ms.author: inhenkel
 manager: femila
 ms.topic: reference
 ms.service: media-services
-ms.date: 03/11/2021
+ms.date: 03/17/2021
 ---
 
 # Monitoring Media Services data reference

@@ -77,7 +77,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
  1. Perform eye calibration to get accurate rendering.
  2. Ensure the room has rich visual texture and good lighting.
  3. Keep object stationary, away from clutter if possible.
- 4. Optionally, clear the [Spatial Mapping](https://docs.microsoft.com/windows/mixed-reality/spatial-mapping) cache on your HoloLens device.
+ 4. Optionally, clear the [Spatial Mapping](/windows/mixed-reality/spatial-mapping) cache on your HoloLens device.
  5. Scan the object by walking around it. Ensure most of the object is observed.
  6. Set a search area sufficiently large to cover the object.
  7. The object should remain stationary during detection.

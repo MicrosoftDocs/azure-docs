@@ -197,6 +197,8 @@ After you've verified that the test migration works as expected, you can migrate
 - For increased resilience:
     - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal.md).
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
+- For increased performance:
+    - By default, data disks are created with host caching set to "None". Review and adjust data disk caching to your workload needs. [Learn more](../virtual-machines/premium-storage-performance.md#disk-caching).  
 - For increased security:
     - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).

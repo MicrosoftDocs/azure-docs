@@ -7,7 +7,7 @@ ms.topic: troubleshooting
 
 # Recover a deleted dashboard in the Azure portal
 
-If you're in the public Azure cloud, and you delete a _published_ dashboard in the Azure portal, you can recover that dashboard within 14 days of the delete. If you're in an Azure government cloud or the dashboard isn't published, you cannot recover it, and you must rebuild it. For more information about publishing a dashboard, see [Publish dashboard](azure-portal-dashboard-share-access.md#publish-dashboard). Follow these steps to recover a published dashboard:
+If you're in the global Azure cloud, and you delete a _published_ dashboard in the Azure portal, you can recover that dashboard within 14 days of the delete. If you're in an Azure Government cloud or the dashboard isn't published, you cannot recover it, and you must rebuild it. For more information about publishing a dashboard, see [Publish dashboard](azure-portal-dashboard-share-access.md#publish-a-dashboard). Follow these steps to recover a published dashboard:
 
 1. From the Azure portal menu, select **Resource groups**, then select the resource group where you published the dashboard (by default, it's named **dashboards**).
 

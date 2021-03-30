@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/20/2021
+ms.date: 03/11/2021
 ms.author: aahi
 ms.reviewer: assafi
 ---
@@ -15,7 +15,7 @@ ms.reviewer: assafi
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-[v3.1 Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-preview) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [v3.1 Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.3) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+[v3.1 Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-preview) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [v3.1 Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.5) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 # [Version 3.0](#tab/version-3)
 
@@ -40,7 +40,7 @@ Using the Visual Studio IDE, create a new .NET Core console app. This will creat
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Check the **include prerelase** box, select version `5.1.0-beta.3`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Check the **include prerelase** box, select version `5.1.0-beta.5`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 # [Version 3.0](#tab/version-3)
 
@@ -211,7 +211,7 @@ Document sentiment: Positive
 
 ### Opinion mining
 
-Create a new function called `SentimentAnalysisWithOpinionMiningExample()` that takes the client that you created earlier, and call its `AnalyzeSentimentBatch()` function with `AdditionalSentimentAnalyses.OpinionMining` option. The returned `AnalyzeSentimentResultCollection` object will contain the collection of `AnalyzeSentimentResult` in which represents `Response<DocumentSentiment>`. The difference between `SentimentAnalysis()` and `SentimentAnalysisWithOpinionMiningExample()` is that the latter will contain `MinedOpinion` in each sentence, which shows an analyzed aspect and the related opinion(s). If there was an error, it will throw a `RequestFailedException`.
+Create a new function called `SentimentAnalysisWithOpinionMiningExample()` that takes the client that you created earlier, and call its `AnalyzeSentimentBatch()` function with `IncludeOpinionMining` option in the `AnalyzeSentimentOptions` bag. The returned `AnalyzeSentimentResultCollection` object will contain the collection of `AnalyzeSentimentResult` in which represents `Response<DocumentSentiment>`. The difference between `SentimentAnalysis()` and `SentimentAnalysisWithOpinionMiningExample()` is that the latter will contain `SentenceOpinion` in each sentence, which shows an analyzed target and the related assessment(s). If there was an error, it will throw a `RequestFailedException`.
 
 ```csharp
 static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
@@ -240,16 +240,16 @@ static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
             Console.WriteLine($"\tSentence negative score: {sentence.ConfidenceScores.Negative:0.00}");
             Console.WriteLine($"\tSentence neutral score: {sentence.ConfidenceScores.Neutral:0.00}\n");
 
-            foreach (MinedOpinion minedOpinion in sentence.MinedOpinions)
+            foreach (SentenceOpinion sentenceOpinion in sentence.Opinions)
             {
-                Console.WriteLine($"\tAspect: {minedOpinion.Aspect.Text}, Value: {minedOpinion.Aspect.Sentiment}");
-                Console.WriteLine($"\tAspect positive score: {minedOpinion.Aspect.ConfidenceScores.Positive:0.00}");
-                Console.WriteLine($"\tAspect negative score: {minedOpinion.Aspect.ConfidenceScores.Negative:0.00}");
-                foreach (OpinionSentiment opinion in minedOpinion.Opinions)
+                Console.WriteLine($"\tTarget: {sentenceOpinion.Target.Text}, Value: {sentenceOpinion.Target.Sentiment}");
+                Console.WriteLine($"\tTarget positive score: {sentenceOpinion.Target.ConfidenceScores.Positive:0.00}");
+                Console.WriteLine($"\tTarget negative score: {sentenceOpinion.Target.ConfidenceScores.Negative:0.00}");
+                foreach (AssessmentSentiment assessment in sentenceOpinion.Assessments)
                 {
-                    Console.WriteLine($"\t\tRelated Opinion: {opinion.Text}, Value: {opinion.Sentiment}");
-                    Console.WriteLine($"\t\tRelated Opinion positive score: {opinion.ConfidenceScores.Positive:0.00}");
-                    Console.WriteLine($"\t\tRelated Opinion negative score: {opinion.ConfidenceScores.Negative:0.00}");
+                    Console.WriteLine($"\t\tRelated Assessment: {assessment.Text}, Value: {assessment.Sentiment}");
+                    Console.WriteLine($"\t\tRelated Assessment positive score: {assessment.ConfidenceScores.Positive:0.00}");
+                    Console.WriteLine($"\t\tRelated Assessment negative score: {assessment.ConfidenceScores.Negative:0.00}");
                 }
             }
         }
@@ -273,25 +273,24 @@ Document sentiment: Positive
         Sentence negative score: 0.16
         Sentence neutral score: 0.00
 
-        Aspect: food, Value: Negative
-        Aspect positive score: 0.01
-        Aspect negative score: 0.99
-                Related Opinion: unacceptable, Value: Negative
-                Related Opinion positive score: 0.01
-                Related Opinion negative score: 0.99
-        Aspect: service, Value: Negative
-        Aspect positive score: 0.01
-        Aspect negative score: 0.99
-                Related Opinion: unacceptable, Value: Negative
-                Related Opinion positive score: 0.01
-                Related Opinion negative score: 0.99
-        Aspect: concierge, Value: Positive
-        Aspect positive score: 1.00
-        Aspect negative score: 0.00
-                Related Opinion: nice, Value: Positive
-                Related Opinion positive score: 1.00
-                Related Opinion negative score: 0.00
-
+        Target: food, Value: Negative
+        Target positive score: 0.01
+        Target negative score: 0.99
+                Related Assessment: unacceptable, Value: Negative
+                Related Assessment positive score: 0.01
+                Related Assessment negative score: 0.99
+        Target: service, Value: Negative
+        Target positive score: 0.01
+        Target negative score: 0.99
+                Related Assessment: unacceptable, Value: Negative
+                Related Assessment positive score: 0.01
+                Related Assessment negative score: 0.99
+        Target: concierge, Value: Positive
+        Target positive score: 1.00
+        Target negative score: 0.00
+                Related Assessment: nice, Value: Positive
+                Related Assessment positive score: 1.00
+                Related Assessment negative score: 0.00
 
 Press any key to exit.
 ```
@@ -713,13 +712,13 @@ Key phrases:
 
 ---
 
-## Use the API asynchronously with the Analyze operation
+## Use the API asynchronously with the analyze operation
 
 # [Version 3.1 preview](#tab/version-3-1)
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
-Create a new function called `AnalyzeOperationExample()` that takes the client that you created earlier, and call its `StartAnalyzeOperationBatch()` function. The returned `AnalyzeOperation` object will contain the `Operation` interface object for `AnalyzeOperationResult`. As it is a Long Running Operation, `await` on the `operation.WaitForCompletionAsync()` for the value to be updated. Once the `WaitForCompletionAsync()` is finishes, the collection should be updated in the `operation.Value`. If there was an error, it will throw a `RequestFailedException`.
+Create a new function called `AnalyzeOperationExample()` that takes the client that you created earlier, and call its `StartAnalyzeBatchActionsAsync()` function. The returned `AnalyzeBatchActionsOperation` object will contain the `Operation` interface object. As it is a Long Running Operation, `await` on the `operation.WaitForCompletionAsync()` for the value to be updated. Once the `WaitForCompletionAsync()` is finishes, the collection should be updated in the `operation.Value`. If there was an error, it will throw a `RequestFailedException`.
 
 
 ```csharp
@@ -729,40 +728,49 @@ static async Task AnalyzeOperationExample(TextAnalyticsClient client)
 
     var batchDocuments = new List<string> { inputText };
 
-    AnalyzeOperationOptions operationOptions = new AnalyzeOperationOptions()
+
+    TextAnalyticsActions actions = new TextAnalyticsActions()
     {
-        EntitiesTaskParameters = new EntitiesTaskParameters(),
+        RecognizeEntitiesOptions = new List<RecognizeEntitiesOptions>() { new RecognizeEntitiesOptions() },
         DisplayName = "Analyze Operation Quick Start Example"
     };
 
-    AnalyzeOperation operation = client.StartAnalyzeOperationBatch(batchDocuments, operationOptions, "en");
+    AnalyzeBatchActionsOperation operation = await client.StartAnalyzeBatchActionsAsync(batchDocuments, actions);
 
     await operation.WaitForCompletionAsync();
 
-    AnalyzeOperationResult resultCollection = operation.Value;
+    Console.WriteLine($"Status: {operation.Status}");
+    Console.WriteLine($"Created On: {operation.CreatedOn}");
+    Console.WriteLine($"Expires On: {operation.ExpiresOn}");
+    Console.WriteLine($"Last modified: {operation.LastModified}");
+    if (!string.IsNullOrEmpty(operation.DisplayName))
+        Console.WriteLine($"Display name: {operation.DisplayName}");
+    Console.WriteLine($"Total actions: {operation.TotalActions}");
+    Console.WriteLine($"  Succeeded actions: {operation.ActionsSucceeded}");
+    Console.WriteLine($"  Failed actions: {operation.ActionsFailed}");
+    Console.WriteLine($"  In progress actions: {operation.ActionsInProgress}");
 
-    RecognizeEntitiesResultCollection entitiesResult = resultCollection.Tasks.EntityRecognitionTasks[0].Results;
-
-    Console.WriteLine("Analyze Operation Request Details");
-    Console.WriteLine($"    Status: {resultCollection.Status}");
-    Console.WriteLine($"    DisplayName: {resultCollection.DisplayName}");
-    Console.WriteLine("");
-
-    Console.WriteLine("Recognized Entities");
-
-    foreach (RecognizeEntitiesResult result in entitiesResult)
+    await foreach (AnalyzeBatchActionsResult documentsInPage in operation.Value)
     {
-        Console.WriteLine($"    Recognized the following {result.Entities.Count} entities:");
+        RecognizeEntitiesResultCollection entitiesResult = documentsInPage.RecognizeEntitiesActionsResults.FirstOrDefault().Result;
 
-        foreach (CategorizedEntity entity in result.Entities)
+        Console.WriteLine("Recognized Entities");
+
+        foreach (RecognizeEntitiesResult result in entitiesResult)
         {
-            Console.WriteLine($"    Entity: {entity.Text}");
-            Console.WriteLine($"    Category: {entity.Category}");
-            Console.WriteLine($"    Offset: {entity.Offset}");
-            Console.WriteLine($"    ConfidenceScore: {entity.ConfidenceScore}");
-            Console.WriteLine($"    SubCategory: {entity.SubCategory}");
+            Console.WriteLine($"  Recognized the following {result.Entities.Count} entities:");
+
+            foreach (CategorizedEntity entity in result.Entities)
+            {
+                Console.WriteLine($"  Entity: {entity.Text}");
+                Console.WriteLine($"  Category: {entity.Category}");
+                Console.WriteLine($"  Offset: {entity.Offset}");
+                Console.WriteLine($"  Length: {entity.Length}");
+                Console.WriteLine($"  ConfidenceScore: {entity.ConfidenceScore}");
+                Console.WriteLine($"  SubCategory: {entity.SubCategory}");
+            }
+            Console.WriteLine("");
         }
-        Console.WriteLine("");
     }
 }
 ```
@@ -775,30 +783,38 @@ await AnalyzeOperationExample(client).ConfigureAwait(false);
 ### Output
 
 ```console
-Analyze Operation Request Details
-    Status: succeeded
-    DisplayName: Analyze Operation Quick Start Example
-
+Status: succeeded
+Created On: 3/10/2021 2:25:01 AM +00:00
+Expires On: 3/11/2021 2:25:01 AM +00:00
+Last modified: 3/10/2021 2:25:05 AM +00:00
+Display name: Analyze Operation Quick Start Example
+Total actions: 1
+  Succeeded actions: 1
+  Failed actions: 0
+  In progress actions: 0
 Recognized Entities
-    Recognized the following 3 entities:
-    Entity: Microsoft
-    Category: Organization
-    Offset: 0
-    ConfidenceScore: 0.83
-    SubCategory: 
-    Entity: Bill Gates
-    Category: Person
-    Offset: 25
-    ConfidenceScore: 0.85
-    SubCategory: 
-    Entity: Paul Allen
-    Category: Person
-    Offset: 40
-    ConfidenceScore: 0.9
-    SubCategory: 
+  Recognized the following 3 entities:
+  Entity: Microsoft
+  Category: Organization
+  Offset: 0
+  Length: 9
+  ConfidenceScore: 0.97
+  SubCategory:
+  Entity: Bill Gates
+  Category: Person
+  Offset: 25
+  Length: 10
+  ConfidenceScore: 1
+  SubCategory:
+  Entity: Paul Allen
+  Category: Person
+  Offset: 40
+  Length: 10
+  ConfidenceScore: 0.99
+  SubCategory:
 ```
 
-You can also use the Analyze operation to detect PII and key phrase extraction. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeOperation.md) on GitHub.
+You can also use the Analyze operation to detect PII, recognize linked entities and key phrase extraction. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeOperation.md) on GitHub.
 
 # [Version 3.0](#tab/version-3)
 

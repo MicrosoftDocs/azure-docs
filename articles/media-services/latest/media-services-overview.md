@@ -93,7 +93,7 @@ How-to guides contain code samples that demonstrate how to complete a task. In t
 * [Create an account - CLI](./create-account-howto.md)
 * [Access APIs - CLI](./access-api-howto.md)
 * [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
-* [Monitor events - Portal](monitor-events-portal-how-to.md)
+* [Monitor events - Portal](monitoring/monitor-events-portal-how-to.md)
 * [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md) 
 * [How to encode with a custom transform - CLI](custom-preset-cli-howto.md)
 

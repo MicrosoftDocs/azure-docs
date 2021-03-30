@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -192,7 +192,7 @@ You can define an Apple ID as a claims provider by adding it to the **ClaimsProv
             <Item Key="response_types">code</Item>
             <Item Key="external_user_identity_claim_id">sub</Item>
             <Item Key="response_mode">form_post</Item>
-            <Item Key="ReadBodyClaimsOnIdpRedirect">user.firstName user.lastName user.email</Item>
+            <Item Key="ReadBodyClaimsOnIdpRedirect">user.name.firstName user.name.lastName user.email</Item>
             <Item Key="client_id">You Apple ID</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
           </Metadata>
@@ -203,8 +203,8 @@ You can define an Apple ID as a claims provider by adding it to the **ClaimsProv
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="https://appleid.apple.com" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.firstName"/>
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.lastName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.name.firstName"/>
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.name.lastName"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="user.email"/>
           </OutputClaims>
           <OutputClaimsTransformations>

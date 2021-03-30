@@ -126,7 +126,7 @@ Solutions vary depending on the communication protocol that's used by the infere
    
 *Use the gRPC protocol*: 
 
-* With Live Video Analytics module 1.0, when you use a general-purpose remote procedure call (gRPC) protocol, the only way to do so is if the gRPC server exposes different AI models via different ports. In [this code example](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json), a single port, 44000, exposes all the yolo models. In theory, the yolo gRPC server could be rewritten to expose some models at port 44000 and others at port 45000. 
+* With Live Video Analytics module 1.0, when you use a general-purpose remote procedure call (gRPC) protocol, the only way to do so is if the gRPC server exposes different AI models via different ports. In [this code example](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json), a single port, 44000, exposes all the yolo models. In theory, the yolo gRPC server could be rewritten to expose some models at port 44000 and others at port 45000. 
 
 * With Live Video Analytics module 2.0, a new property is added to the gRPC extension node. This property, **extensionConfiguration**, is an optional string that can be used as a part of the gRPC contract. When you have multiple AI models packaged in a single inference server, you don't need to expose a node for every AI model. Instead, for a graph instance, you, as the extension provider, can define how to select the different AI models by using the **extensionConfiguration** property. During execution, Live Video Analytics passes this string to the inferencing server, which can use it to invoke the desired AI model. 
 

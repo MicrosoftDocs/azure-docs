@@ -34,7 +34,7 @@ highlightedContent:
     # Card
     - title: Build your skills with Microsoft Learn
       itemType: learn
-      url: /learn/browse/?products=azure&resource_type=learning%2bpath
+      url: /learn/browse/?products=azure&resource_type=learning%20path
 
 productDirectory:
   title: Browse Azure products
@@ -581,7 +581,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cloud-services.svg
       azureCategories:
         - compute
-      url: cloud-services/index.yml
+      url: cloud-services-extended-support/index.yml
     # Card
     - title: Container Instances
       summary: Easily run containers on Azure without managing servers
@@ -1604,3 +1604,13 @@ additionalContent:
         - title: Azure China 21Vianet
           summary: A dedicated cloud located in China and operated by 21Vianet.
           url: /azure/china/
+    - title: Partner solutions
+      items:
+        # Card
+        - title: Azure partner solutions
+          summary: Integrated partner solutions that you can use in Azure to enhance your cloud infrastructure.
+          url: ./partner-solutions/overview.md
+        # Card
+        - title: Commercial marketplace
+          summary: An online marketplace of applications and services from independent software vendor (ISV) partners.
+          url: ./marketplace/index.yml

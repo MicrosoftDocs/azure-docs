@@ -16,7 +16,7 @@ ms.date: 02/12/2021
 > It is highly recommended to begin testing scenarios with Azure Policy for AKS, which offers built-in policies to secure pods and built-in initiatives which map to pod security policies. To migrate from pod security policy, you need to take the following actions on a cluster.
 > 
 > 1. [Disable pod security policy](#clean-up-resources) on the cluster
-> 1. Enable the [Azure Policy Add-on][kubernetes-policy-reference]
+> 1. Enable the [Azure Policy Add-on][azure-policy-add-on]
 > 1. Enable the desired Azure policies from [available built-in policies][policy-samples]
 > 1. Review [behavior changes between pod security policy and Azure Policy](#behavior-changes-between-pod-security-policy-and-azure-policy)
 
@@ -457,7 +457,6 @@ For more information about limiting pod network traffic, see [Secure traffic bet
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubernetes-policy-reference]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#policy-reference
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -474,3 +473,4 @@ For more information about limiting pod network traffic, see [Secure traffic bet
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [policy-samples]: ./policy-reference.md#microsoftcontainerservice
+[azure-policy-add-on]: ../governance/policy/concepts/policy-for-kubernetes.md

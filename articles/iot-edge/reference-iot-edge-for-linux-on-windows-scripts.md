@@ -135,7 +135,7 @@ The **Get-EflowVmSshKey** command is used to query and display the SSH key used 
 
 ## Ssh-EflowVm
 
-The **Ssh-EflowVm** command is used to SSH into the virtual machine. For additional information, use the command `Get-Help Ssh-EflowVm -full`.
+The **Ssh-EflowVm** command is used to SSH into the virtual machine. The only account allowed to SSH to the virtual machine is the user that created it. For additional information, use the command `Get-Help Ssh-EflowVm -full`.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |

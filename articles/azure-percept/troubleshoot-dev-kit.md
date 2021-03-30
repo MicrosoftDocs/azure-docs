@@ -26,6 +26,12 @@ To redirect any output to a .txt file for further analysis, use the following sy
 sudo [command] > [file name].txt
 ```
 
+Change the permissions of the .txt file so it can be copied:
+
+```console
+sudo chmod 666 [file name].txt
+```
+
 After redirecting output to a .txt file, copy the file to your host PC via SCP:
 
 ```console
@@ -34,7 +40,7 @@ scp [remote username]@[IP address]:[remote file path]/[file name].txt [local hos
 
 ```[local host file path]``` refers to the location on your host PC that you would like to copy the .txt file to. ```[remote username]``` is the SSH username chosen during the [setup experience](./quickstart-percept-dk-set-up.md). If you did not set up an SSH login during the OOBE, your remote username is ```root```.
 
-For additional information on the Azure IoT Edge commands, see the [Azure IoT Edge device troubleshooting documentation](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+For additional information on the Azure IoT Edge commands, see the [Azure IoT Edge device troubleshooting documentation](../iot-edge/troubleshoot.md).
 
 |Category:         |Command:                    |Function:                  |
 |------------------|----------------------------|---------------------------|
@@ -94,5 +100,3 @@ There are three small LEDs on top of the carrier board housing. A cloud icon is 
 |LED 2 (Wi-Fi)   |Fast blink |Authentication was successful, device association in progress. |
 |LED 2 (Wi-Fi)   |On (solid) |Authentication and association were successful; device is connected to a Wi-Fi network. |
 |LED 3           |NA         |LED not in use. |
-
-

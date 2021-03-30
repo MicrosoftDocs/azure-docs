@@ -66,6 +66,9 @@ If you see an error related to **GSS**, you are likely using a newer client/driv
    - We plan to complete the update by the end of November. Consider using a working driver version in the meantime.
    - Or, consider disabling the GSS request.  Use a connection parameter like `gssEncMode=disable`.
 
+### Storage size reduction
+Storage size cannot be reduced. You have to create a new server with desired storage size, perform manual [dump and restore](./howto-migrate-using-dump-and-restore.md) and migrate your database(s) to the new server.
+
 ## Next steps
 - Understand [what’s available in each pricing tier](concepts-pricing-tiers.md)
 - Learn about [Supported PostgreSQL Database Versions](concepts-supported-versions.md)

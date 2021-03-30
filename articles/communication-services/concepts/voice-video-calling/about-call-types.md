@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-You can use Azure Communication Services to make and receive one to one or group voice and video calls. Your calls can be made to other Internet-connected devices and to plain-old telephones. You can use the Communication Services JavaScript, Android, or iOS client libraries to build applications that allow your users to speak to one another in private conversations or in group discussions. Azure Communication Services supports calls to and from services or Bots.
+You can use Azure Communication Services to make and receive one to one or group voice and video calls. Your calls can be made to other Internet-connected devices and to plain-old telephones. You can use the Communication Services JavaScript, Android, or iOS SDKs to build applications that allow your users to speak to one another in private conversations or in group discussions. Azure Communication Services supports calls to and from services or Bots.
 
 ## Call types in Azure Communication Services
 
@@ -32,7 +32,7 @@ Any time your users interact with a traditional telephone number, calls are faci
 
 ### One-to-one call
 
-A one-to-one call on Azure Communication Services happens when one of your users connects to another user using one of our client libraries. The call can be either VoIP or PSTN.
+A one-to-one call on Azure Communication Services happens when one of your users connects to another user using one of our SDKs. The call can be either VoIP or PSTN.
 
 ### Group call
 
@@ -56,4 +56,4 @@ During the preview you can use the group ID to join the same conversation. You c
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md)
 - [Phone number types](../telephony-sms/plan-solution.md)
-- Learn about the [calling client library capabilities](../voice-video-calling/calling-sdk-features.md)
+- Learn about the [Calling SDK capabilities](../voice-video-calling/calling-sdk-features.md)

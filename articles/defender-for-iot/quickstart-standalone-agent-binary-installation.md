@@ -1,13 +1,8 @@
 ---
 title: Install Defender for IoT micro agent (Preview)
-titleSuffix: Azure Defender for IoT
 description: Learn how to install, and authenticate the Defender Micro Agent.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 3/9/2021
 ms.topic: quickstart
-ms.service: azure
 ---
 
 # Install Defender for IoT micro agent (Preview)

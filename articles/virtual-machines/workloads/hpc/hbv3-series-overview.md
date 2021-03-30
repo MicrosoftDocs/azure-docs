@@ -28,6 +28,9 @@ To provide room for the Azure hypervisor to operate without interfering with the
 
 Note that Constrained Cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.
 
+The following diagram shows the segregation of cores reserved for Azure Hypervisor (yellow) and the HBv3-series VM (green).
+![Segregation of cores reserved for Azure Hypervisor and HBv3-series VM](./media/architecture/hbv3-segregation-cores.png)
+
 ## InfiniBand networking
 HBv3 VMs also feature Nvidia Mellanox HDR InfiniBand network adapters (ConnectX-6) operating at up to 200 Gigabits/sec. The NIC is passed through to the VM via SRIOV, enabling network traffic to bypass the hypervisor. As a result, customers load standard Mellanox OFED drivers on HBv3 VMs as they would a bare metal environment.
 
@@ -58,13 +61,16 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 |--------------------------------|-----------------------------------------------------------|
 | Max MPI Job Size               | 36,000 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true) |
 | MPI Support                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |
-| Additional Frameworks          | Unified Communication X, libfabric, PGAS                  |
+| Additional Frameworks          | UCX, libfabric, PGAS                  |
 | Azure Storage Support          | Standard and Premium Disks (maximum 32 disks)              |
-| OS Support for SRIOV RDMA      | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+           |
+| OS Support for SRIOV RDMA      | CentOS/RHEL 7.6+, Ubuntu 18.04+, SLES 12 SP4+, WinServer 2016+           |
 | Recommended OS for Performance | CentOS 8.1, Windows Server 2019+
-| Orchestrator Support           | Azure CycleCloud, Azure Batch, Azure Kubernetes Service                      | 
+| Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](../../sizes-hpc.md#cluster-configuration-options)                      | 
+
+> [!NOTE] 
+> Windows Server 2012 R2 is not supported on HBv3 and other VMs with more than 64 (virtual or physical) cores. See [here](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) for more details.
 
 ## Next steps
 
-- Read about the latest announcements and some HPC examples in the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

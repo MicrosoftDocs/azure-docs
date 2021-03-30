@@ -173,4 +173,3 @@ In this quickstart, you learned how to use the Content Moderator REST API to do 
 
 * [Image moderation concepts](../../image-moderation-api.md)
 * [Text moderation concepts](../../text-moderation-api.md)
-* [What is Azure Content Moderator?](../../overview.md)

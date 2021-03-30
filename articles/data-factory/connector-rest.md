@@ -489,7 +489,7 @@ The template defines two parameters:
 5. Select **Web** activity. In **Settings**, specify the corresponding **URL**, **Method**, **Headers**, and **Body** to retrieve OAuth bearer token from the login API of the service that you want to copy data from. The placeholder in the template showcases a sample of Azure Active Directory (AAD) OAuth. Note AAD authentication is natively supported by REST connector, here is just an example for OAuth flow. 
 
     | Property | Description |
-    |:--- |:--- |:--- |
+    |:--- |:--- |
     | URL |Specify the url to retrieve OAuth bearer token from. for example, in the sample here it's https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Method | The HTTP method. Allowed values are **Post** and **Get**. | 
     | Headers | Header is user-defined, which references one header name in the HTTP request. | 
@@ -500,7 +500,7 @@ The template defines two parameters:
 6. In **Copy data** activity, select *Source* tab, you could see that the bearer token (access_token)  retrieved from previous step would be passed to Copy data activity as **Authorization** under Additional headers. Confirm settings for following properties before starting a pipeline run.
 
     | Property | Description |
-    |:--- |:--- |:--- | 
+    |:--- |:--- |
     | Request method | The HTTP method. Allowed values are **Get** (default) and **Post**. | 
     | Additional headers | Additional HTTP request headers.| 
 

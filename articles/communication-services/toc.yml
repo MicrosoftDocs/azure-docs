@@ -42,7 +42,7 @@
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your app (JavaScript)
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-    - name: Use the calling client library
+    - name: Use the Calling SDK
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
@@ -70,13 +70,13 @@
   items:
   - name: Chat
     items:
-      - name: Chat client library overview
+      - name: Chat SDK overview
         href: concepts/chat/sdk-features.md
       - name: Chat concepts
         href: concepts/chat/concepts.md
   - name: Telephony and SMS
     items:
-      - name: SMS client library overview
+      - name: SMS SDK overview
         href: concepts/telephony-sms/sdk-features.md
       - name: SMS concepts
         href: concepts/telephony-sms/concepts.md
@@ -88,10 +88,12 @@
         href: concepts/telephony-sms/sip-interface-infrastructure.md
   - name: Voice and video calling
     items:
-      - name: Calling client library overview
+      - name: Calling SDK overview
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video concepts
         href: concepts/voice-video-calling/about-call-types.md
+      - name: Network requirements
+        href: concepts/voice-video-calling/network-requirements.md
       - name: Call flows
         href: concepts/call-flows.md
       - name: Call flow topologies
@@ -105,7 +107,8 @@
   - name: Data and Operations
     items:
       - name: Service Events (EventGrid)
-        href: concepts/event-handling.md
+        href: ../event-grid/event-schema-communication-services.md
+        maintainContext: true
       - name: Logging and diagnostics
         href: concepts/logging-and-diagnostics.md
       - name: Metrics

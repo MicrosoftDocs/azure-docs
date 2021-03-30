@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
 ---
-# Containerize Java web applications and migrate to Azure Kubernetes Service
+# Java web app containerization and migration to Azure Kubernetes Service
 
 In this article, you'll learn how to containerize Java web applications (running on Apache Tomcat) and migrate them to [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) using the Azure Migrate: App Containerization tool. The containerization process doesn’t require access to your codebase and provides an easy way to containerize existing applications. The tool works by using the running state of the applications on a server to determine the application components and helps you package them in a container image. The containerized application can then be deployed on Azure Kubernetes Service (AKS).
 
@@ -53,7 +53,7 @@ Before you begin this tutorial, you should:
 
 **Requirement** | **Details**
 --- | ---
-**Identify a machine to install the tool** | A Windows machine to install and run the Azure Migrate: App Containerization tool. The Windows machine could be a server (Windows Server 2016 or later) or client (Windows 10) operating system, meaning that the tool can run on your desktop as well. <br/><br/> The Windows machine running the tool should have network connectivity to the servers/virtual machines hosting the ASP.NET applications to be containerized.<br/><br/> Ensure that 6-GB space is available on the Windows machine running the Azure Migrate: App Containerization tool for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy. <br/> <br/>Install the Microsoft Web Deploy tool on the machine running the App Containerization helper tool and application server if not already installed. You can download the tool from [here](https://aka.ms/webdeploy3.6)
+**Identify a machine to install the tool** | A Windows machine to install and run the Azure Migrate: App Containerization tool. The Windows machine could be a server (Windows Server 2016 or later) or client (Windows 10) operating system, meaning that the tool can run on your desktop as well. <br/><br/> The Windows machine running the tool should have network connectivity to the servers/virtual machines hosting the Java web applications to be containerized.<br/><br/> Ensure that 6-GB space is available on the Windows machine running the Azure Migrate: App Containerization tool for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy.
 **Application servers** | - Enable Secure Shell (SSH) connection on port 22 on the server(s) running the Java application(s) to be containerized. <br/>
 **Java web application** | The tool currently supports <br/><br/> - Applications running on Tomcat 8 or later.<br/> - Application servers on Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. <br/> - Applications using Java version 7 or later.  <br/><br/> The tool currently doesn't support <br/><br/> - Applications servers running multiple Tomcat instances <br/>  
 
@@ -98,7 +98,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 3. Run the installation script using the command
 
    ```powershell
-   .\App ContainerizationInstaller.ps1
+   .\AppContainerizationInstaller.ps1
    ```
 
 ## Launch the App Containerization tool

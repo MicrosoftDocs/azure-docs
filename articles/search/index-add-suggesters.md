@@ -62,7 +62,7 @@ Your choice of an analyzer determines how fields are tokenized and subsequently 
 
 When evaluating analyzers, consider using the [Analyze Text API](/rest/api/searchservice/test-analyzer) for insight into how terms are processed. Once you build an index, you can try various analyzers on a string to view token output.
 
-Fields that use [custom analyzers](index-add-custom-analyzers.md) or [predefined analyzers](index-add-custom-analyzers.md#predefined-analyzers-reference) (with the exception of standard Lucene) are explicitly disallowed to prevent poor outcomes.
+Fields that use [custom analyzers](index-add-custom-analyzers.md) or [built-in analyzers](index-add-custom-analyzers.md#built-in-analyzers) (with the exception of standard Lucene) are explicitly disallowed to prevent poor outcomes.
 
 > [!NOTE]
 > If you need to work around the analyzer constraint, for example if you need a keyword or ngram analyzer for certain query scenarios, you should use two separate fields for the same content. This will allow one of the fields to have a suggester, while the other can be set up with a custom analyzer configuration.

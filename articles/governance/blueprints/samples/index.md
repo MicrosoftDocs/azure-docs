@@ -29,6 +29,7 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards ISO 27001 attestation. |
 | [ISO 27001 App Service Environment/SQL Database workload](./iso27001-ase-sql-workload/index.md) | Provides more infrastructure to the [ISO 27001 Shared Services](./iso27001-shared/index.md) blueprint sample. |
 | [Media](./media/index.md) | Provides a set of policies to help comply with Media MPAA. |
+| [New Zealand ISM Restricted](./new-zealand-ism.md) | Assigns policies to address specific New Zealand Information Security Manual controls. |
 | [NIST SP 800-53 R4](./nist-sp-800-53-r4.md) | Provides guardrails for compliance with NIST SP 800-53 R4. |
 | [NIST SP 800-171 R2](./nist-sp-800-171-r2.md) | Provides guardrails for compliance with NIST SP 800-171 R2. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Provides a set of policies to aide in PCI-DSS v3.2.1 compliance. |

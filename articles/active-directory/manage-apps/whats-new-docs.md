@@ -136,7 +136,6 @@ Welcome to what's new in Azure Active Directory application management documenta
 
 ### New articles
 - [Configure SAML-based single sign-on](configure-saml-single-sign-on.md)
-- [Using Azure AD for applications not listed in the app gallery](non-gallery-apps.md)
 - [Get It Now - add an app from the Azure Marketplace](get-it-now-azure-marketplace.md)
 - [Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-configure.md)
 - [Quickstart: Set up single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-setup-sso.md)

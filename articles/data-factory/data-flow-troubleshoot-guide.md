@@ -6,7 +6,7 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/15/2021
+ms.date: 03/18/2021
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -21,12 +21,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Message**: Data preview, debug, and pipeline data flow execution failed because container does not exist
 - **Cause**: A dataset contains a container that doesn't exist in storage.
 - **Recommendation**: Make sure that the container referenced in your dataset exists and can be accessed.
-
-### Error code: DF-Executor-SystemImplicitCartesian
-
-- **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
-- **Cause**: Implicit cartesian products for INNER joins between logical plans aren't supported. If you're using columns in the join, create a unique key with at least one column from both sides of the relationship.
-- **Recommendation**: For non-equality based joins, use CUSTOM CROSS join.
 
 ### Error code: DF-Executor-SystemInvalidJson
 
@@ -77,11 +71,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Cause**: The data type for the declared type isn't compatible with the actual parameter value.
 - **Recommendation**: Check that the parameter values passed into the data flow match the declared type.
 
-### Error code: DF-Executor-ColumnUnavailable
-- **Message**: Column name used in expression is unavailable or invalid
-- **Cause**: An invalid or unavailable column name used in an expression.
-- **Recommendation**: Check column names in expressions.
-
 ### Error code: DF-Executor-ParseError
 - **Message**: Expression cannot be parsed
 - **Cause**: An expression generated parsing errors because of incorrect formatting.
@@ -91,29 +80,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
 - **Cause**: Implicit cartesian products for INNER joins between logical plans aren't supported. If you're using columns in the join, create a unique key.
 - **Recommendation**: For non-equality based joins, use CROSS JOIN.
-
-### Error code: DF-Executor-SystemInvalidJson
-- **Message**: JSON parsing error, unsupported encoding or multiline
-- **Cause**: Possible problems with the JSON file: unsupported encoding, corrupt bytes, or using JSON source as a single document on many nested lines.
-- **Recommendation**: Verify that the JSON file's encoding is supported. On the source transformation that's using a JSON dataset, expand **JSON Settings** and turn on **Single Document**.
-
-
-
-### Error code: DF-Executor-Conversion
-- **Message**: Converting to a date or time failed due to an invalid character
-- **Cause**: Data isn't in the expected format.
-- **Recommendation**: Use the correct data type.
-
-
-### Error code: DF-Executor-BlockCountExceedsLimitError
-- **Message**: The uncommitted block count cannot exceed the maximum limit of 100,000 blocks. Check blob configuration.
-- **Cause**: The maximum number of uncommitted blocks in a blob is 100,000.
-- **Recommendation**: Contact the Microsoft product team for more details about this problem.
-
-### Error code: DF-Executor-PartitionDirectoryError
-- **Message**: The specified source path has either multiple partitioned directories (for e.g. *<Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/<Partition Root Directory 2>/c=10/d=30*) or partitioned directory with other file or non-partitioned directory (for e.g. *<Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/Directory 2/file1*), remove partition root directory from source path and read it through separate source transformation.
-- **Cause**: The source path has either multiple partitioned directories or a partitioned directory that has another file or non-partitioned directory. 
-- **Recommendation**: Remove the partitioned root directory from the source path and read it through separate source transformation.
 
 ### Error code: GetCommand OutputAsync failed
 - **Message**: During Data Flow debug and data preview: GetCommand OutputAsync failed with ...
@@ -132,22 +98,10 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Cause**: The account name or access key is incorrect.
 - **Recommendation**: Ensure the account name or access key specified in your linked service is correct. 
 
-### Error code: DF-Executor-InvalidType
-- **Message**: Please make sure that the type of parameter matches with type of value passed in. Passing float parameters from pipelines isn't currently supported.
-- **Cause**: The data type for the declared type isn't compatible with the actual parameter value. 
-- **Recommendation**: Supply the correct data types.
-
 ### Error code: DF-Executor-ColumnUnavailable
 - **Message**: Column name used in expression is unavailable or invalid.
 - **Cause**: An invalid or unavailable column name is used in an expression.
 - **Recommendation**: Check the column names used in expressions.
-
-
-### Error code: DF-Executor-ParseError
-- **Message**: Expression cannot be parsed.
-- **Cause**: An expression generated parsing errors because of incorrect formatting. 
-- **Recommendation**: Check the formatting in the expression.
-
 
  ### Error code: DF-Executor-OutOfDiskSpaceError
 - **Message**: Internal server error

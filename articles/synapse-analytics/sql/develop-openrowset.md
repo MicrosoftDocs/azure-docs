@@ -237,7 +237,7 @@ Specifies encoding: char is used for UTF8, widechar is used for UTF16 files.
 
 CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
 
-Specifies the code page of the data in the data file. The default value is 65001 (UTF-8 encoding). See more details about this option [here](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15#codepage).
+Specifies the code page of the data in the data file. The default value is 65001 (UTF-8 encoding). See more details about this option [here](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15#codepage).
 
 ## Fast delimited text parsing
 

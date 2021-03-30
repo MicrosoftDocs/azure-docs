@@ -21,7 +21,7 @@ ms.custom: aaddev
 Shared device mode is a feature of Azure Active Directory that allows you to build applications that support Frontline Workers and enable shared device mode on the devices deployed to them.
 
 >[!IMPORTANT]
-> This feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+> Shared device mode for iOS [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## What are Frontline Workers?
 
