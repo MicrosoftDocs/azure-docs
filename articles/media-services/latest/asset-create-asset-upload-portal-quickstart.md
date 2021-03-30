@@ -26,11 +26,11 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
   * [Assets concept](assets-concept.md)
 * Once you upload your high-quality digital media file into an asset (an input asset), you can process it (encode or analyze). The processed content goes into another asset (output asset). 
     * [Encode](encoding-concept.md) your uploaded file into formats that can be played on a wide variety of browsers and devices.
-    * [Analyze](analyzing-video-audio-files-concept.md) your uploaded file. 
+    * [Analyze](analyze-video-audio-files-concept.md) your uploaded file. 
 
         Currently, when using the Azure portal, you can do the following: generate a TTML and WebVTT closed caption files. Files in these formats can be used to make audio and video files accessible to people with hearing disability. You can also extract keywords from your content.
 
-        For a rich experience that enables you to extract insights from your video and audio files, use Media Services v3 presets (as described in [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>If you want more detailed insights, use [Video Indexer](../video-indexer/index.yml) directly.    
+        For a rich experience that enables you to extract insights from your video and audio files, use Media Services v3 presets (as described in [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial.md)). <br/>If you want more detailed insights, use [Video Indexer](../video-indexer/index.yml) directly.    
 * Once your content is processed, you can deliver media content to client players. To make videos in the output asset available to clients for playback, you have to create a **streaming locator**. When creating the **streaming locator**, you need to specify a **streaming policy**. **Streaming policies** enable you to define streaming protocols and encryption options (if any) for your **streaming locators**.
     
     Review:
@@ -45,7 +45,7 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[Create a Media Services account](create-account-howto.md)
+[Create a Media Services account](account-create-how-to.md)
 
 ## Upload
 
@@ -57,7 +57,7 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
 
 If you navigate to your assets window, you will see that a new asset was added to the list:
 
-![Screenshot of the Azure portal showing the Assets window opened by selecting Assets (new), and a new asset added by selecting the Upload button.](./media/manage-assets-quickstart/upload.png)
+![Screenshot of the Azure portal showing the Assets window opened by selecting Assets (new), and a new asset added by selecting the Upload button.](./media/asset-create-asset-upload-portal-quickstart/upload.png)
 
 ## Encode
 
@@ -69,13 +69,13 @@ If you navigate to your assets window, you will see that a new asset was added t
 
 If you navigate to your assets window, you will see that the output asset was added to the list:
 
-![Screenshot of the Assets window in Azure portal showing the asset ignite.mp4 Media Encoded Standard encoded added to the list of assets.](./media/manage-assets-quickstart/encode.png)
+![Screenshot of the Assets window in Azure portal showing the asset ignite.mp4 Media Encoded Standard encoded added to the list of assets.](./media/asset-create-asset-upload-portal-quickstart/encode.png)
 
 ## Monitor the job progress
 
 To view job status, navigate to **Jobs**. The job usually goes through the following states: Scheduled, Queued, Processing, Finished (the final state). If the job has encountered an error, you get the Error state.
 
-![Status](./media/manage-assets-quickstart/job-status.png)
+![Status](./media/asset-create-asset-upload-portal-quickstart/job-status.png)
 
 ## Publish and stream
 
@@ -90,11 +90,11 @@ To publish an asset, you now need to add a streaming locator to your asset.
     > If you want for your stream to be encrypted, you need to create a content key policy and set it on the streaming locator. For details, see [Encrypt content with the Azure portal](encrypt-content-quickstart.md).
 1. In the **Add streaming locator** window, you choose one of the predefined streaming policies. For detailed information, see [streaming policies](streaming-policy-concept.md)
 
-    ![Streaming locator](./media/manage-assets-quickstart/streaming-locator.png)
+    ![Streaming locator](./media/asset-create-asset-upload-portal-quickstart/streaming-locator.png)
 
 Once the asset has been published, you can stream it right in the portal. 
 
-![Play](./media/manage-assets-quickstart/publish.png)
+![Play](./media/asset-create-asset-upload-portal-quickstart/publish.png)
 
 Or, copy the streaming URL and use it in your client player.
 
