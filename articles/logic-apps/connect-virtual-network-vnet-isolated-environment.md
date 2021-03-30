@@ -149,7 +149,7 @@ If you set up or use [forced tunneling](../firewall/forced-tunneling.md) through
 
 If you don't permit access for these dependencies, your ISE deployment fails and your deployed ISE stops working.
 
-* User defined routes
+* User-defined routes
 
   To prevent asymmetric routing, you must define a route for each and every IP address that's listed below with **Internet** as the next hop.
   
