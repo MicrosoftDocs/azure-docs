@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Azure Networking
-    href: networking-overview.md
+    href: ../networking-overview.md?toc=/azure/networking/fundamentals/toc.json
 - name: Quickstarts
   items:
   - name: Create a virtual network
@@ -20,9 +20,9 @@
   - name: Plan and design
     items:
     - name: Azure for network engineers
-      href: ../azure-for-network-engineers.md
+      href: ../azure-for-network-engineers.md?toc=/azure/networking/fundamentals/toc.json
     - name: Working remotely
-      href: ../working-remotely-support.md  
+      href: ../working-remotely-support.md?toc=/azure/networking/fundamentals/toc.json  
     - name: Virtual networks
       href: ../../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=/azure/networking/fundamentals/toc.json
     - name: Cross-premises connectivity - VPN
@@ -32,9 +32,9 @@
   - name: Microsoft global network
     items:
     - name: Overview
-      href: ../microsoft-global-network.md
+      href: ../microsoft-global-network.md?toc=/azure/networking/fundamentals/toc.json
     - name: Azure network latency
-      href: ../azure-network-latency.md
+      href: ../azure-network-latency.md?toc=/azure/networking/fundamentals/toc.json
     - name: Internet routing preference in Azure
       href: ../../virtual-network/routing-preference-overview.md?toc=/azure/networking/fundamentals/toc.json
   - name: Cloud network connectivity
@@ -75,7 +75,7 @@
   - name: Scalable application delivery
     items:
     - name: Load balancing options in Azure
-      href: /azure/architecture/guide/technology-choices/load-balancing-overview
+      href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/networking/fundamentals/toc.json
     - name: Network load balancer
       href: ../../load-balancer/load-balancer-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Secure cloud CDN and global load balancer
