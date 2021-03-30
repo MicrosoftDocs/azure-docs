@@ -1358,7 +1358,7 @@ The [Text Analytics for health][ta-he] container image can be found on the `mcr.
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/healthcare/tags/list).
 
 
-Release notes for `3.0.015370001-onprem-amd64`:
+Release notes for `3.0.015490002-onprem-amd64`:
 
 * new model-version `2021-03-01`
 * Container released to MCR.
@@ -1366,7 +1366,7 @@ Release notes for `3.0.015370001-onprem-amd64`:
 | Image Tags | Notes                                         |
 |------------|:----------------------------------------------|
 | `latest`   |                                               |
-| `3.0.015370001-onprem-amd64`   |               |
+| `3.0.015490002-onprem-amd64`   |               |
 
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
