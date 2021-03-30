@@ -17,4 +17,4 @@ ms.author: inhenkel
 | [StandardEncoderPreset](../encoding-concept.md) |![StandardEncoderPreset UAE Central general availability](../media/azure-clouds-regions/ga.svg)  | ![StandardEncoderPreset UAE North general availability](../media/azure-clouds-regions/ga.svg) |
 | [LiveEvents](../live-streaming-overview.md) |![LiveEvents UAE Central general availability](../media/azure-clouds-regions/ga.svg)  | ![LiveEvents UAE North general availability](../media/azure-clouds-regions/ga.svg) |
 | [StreamingEndpoints](../streaming-endpoint-concept.md) |![StreamingEndpoints UAE Central general availability](../media/azure-clouds-regions/ga.svg) | ![StreamingEndpoints UAE North general availability](../media/azure-clouds-regions/ga.svg) |
-| [LiveTranscription](../live-transcription.md) |![LiveTranscription UAE Central general availability](../media/azure-clouds-regions/ga.svg) |![LiveTranscription UAE North general availability](../media/azure-clouds-regions/ga.svg) |
+| [LiveTranscription](../live-transcription.md) | | |
