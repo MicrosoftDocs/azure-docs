@@ -25,6 +25,8 @@ ms.custom: seodec18
 
 - **New male voice added for French (Canada)** - A new voice Antoine is available for `fr-CA` French (Canada).
 
+- **Quality improvement** - Pronunciation error rate reduction on `hu-HU` Hungarian - 48.17%, `nb-NO` Norwegian - 52.76%, `nl-NL` Dutch (Netherland) - 22.11%.
+
 With this release, we now support a total of 142 neural voices across 60 languages/locales. In addition, over 70 standard voices are available in 49 languages/locales. Visit [Language support](language-support.md#text-to-speech) for the full list.
 
 **Get facial pose events to animate characters**
