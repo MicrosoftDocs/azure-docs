@@ -17,12 +17,12 @@ ms.author: barclayn
 Verifiable credentials are made up of two components, the rules and display files. The rules file determines what the user needs provide in order to receive a verifiable credential. The display file controls the branding of the credential and styling of the claims. In this guide, we will explain how to modify both files to meet the requirements of your organization. 
 
 > [!IMPORTANT]
-> Azure Verifiable Credentials is currently in public preview.
+> Azure Active Directory Verifiable Credentials is currently in public preview.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Rules File: Requirements from the user
 
-The rules file is a simple JSON file that describes important properties of verifiable credentials. In particular, it describes how claims are used to populate your verifiable credential.
+The rules file is a simple JSON file that describes important properties of verifiable credentials. In particular, it describes what a user needs to provide in order to receive a Verifiable Credential. 
 
 There are currently three input types that that are available to configure in the rules file. These types are used by the verifiable credential issuing service to insert claims into a verifiable credential and attest to that information with your DID. The following are the three types with explanations.
 
@@ -53,6 +53,8 @@ There are currently three input types that that are available to configure in th
 
 
 ## Input Type: ID Token
+
+To get ID Token as input, the rules file needs to configure the well-known endpoint of the OIDC compatible Identity system. In that system you need to register an application with the correct information from [Issuer service communication examples](issuer-openid). Additionally, the client_id needs to be put in the rules file, as well as a scope parameter needs to be filled in with the correct scopes. For example, Azure Active Directory needs the email scope if you want to return an email claim in the ID token.
 
 ```json
     {
@@ -90,7 +92,7 @@ There are currently three input types that that are available to configure in th
 | `validityInterval` | A time duration, in seconds, representing the lifetime of your verifiable credentials. After this time period elapses, the verifiable credential will no longer be valid. Omitting this value means that each Verifiable Credential will remain valid until is it explicitly revoked. |
 | `vc.type` | An array of strings indicating the schema(s) that your Verifiable Credential satisfies. See the section below for more detail. |
 
-## vc.type: Choose credential type(s) 
+### vc.type: Choose credential type(s) 
 
 All verifiable credentials must declare their "type" in their rules file. The type of a credential distinguishes your verifiable credentials from credentials issued by other organizations and ensures interoperability between issuers and verifiers. To indicate a credential type, you must provide one or more credential types that the credential satisfies. Each type is represented by a unique string - often a URI will be used to ensure global uniqueness. The URI does not need to be addressable; it is treated as a string. 
 
@@ -161,6 +163,8 @@ To ensure interoperability of your credentials, it's recommended that you work c
 
 
 ## Input Type: Self-Attested Claims
+
+During the issuance flow, the user can be asked to input some self-attested information. As of now, the only input type is a 'string'. 
 
 ```json
 {
@@ -254,6 +258,7 @@ The display file has the following structure.
 | `consent.instructions` | Supplemental text displayed when a card is being issued. Used to provide details about the issuance process. Recommended length of 100 characters. |
 | `claims` | Allows you to provide labels for attributes included in each credential. |
 | `claims.{attribute}` | Indicates the attribute of the credential to which the label applies. |
+| `claims.{attribute}.type` | Indicates the attribute type. Currently we only support 'String'. We will be added other types in a future release. |
 | `claims.{attribute}.label` | The value that should be used as a label for the attribute, which will show up in Authenticator. This maybe different than the label that was used in the rules file. Recommended maximum length of 40 characters. |
 
 >[!note]
