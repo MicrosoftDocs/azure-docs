@@ -617,6 +617,11 @@
         displayName: backup, restore, outage, hyperscale
       - name: High availability
         href: concepts-hyperscale-high-availability.md
+    - name: Replication
+      items:
+      - name: Azure portal
+        href: concepts-hyperscale-read-replicas.md
+        displayName: replication, read replica
     - name: Monitor and tune
       items:
       - name: Monitor and tune
@@ -668,6 +673,11 @@
         href: howto-hyperscale-modify-distributed-tables.md
     - name: High availability
       href: howto-hyperscale-high-availability.md
+    - name: Replication
+      items:
+      - name: Azure portal
+        href: howto-hyperscale-read-replicas-portal.md
+        displayName: replication, read replica
     - name: Monitor
       items:
       - name: Create alerts on metrics
