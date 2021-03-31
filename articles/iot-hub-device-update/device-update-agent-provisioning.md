@@ -115,7 +115,7 @@ This section describes how to start and verify the Device Update agent as a modu
    ```
 4.	You should see status OK.
 5.	On the IoT Hub portal,  go to IoT device or IoT Edge devices to find the device that you configured with Device Update agent. There you will see the Device Update agent running as a module, For example:
-:::image type="content" source="media/understand-device-update/Device Update Module.png " alt-text="Diagram of Device Update module name." lightbox="media/understand-device-update/Device Update Module.png":::
+:::image type="content" source="media/understand-device-update/device-update-module.png " alt-text="Diagram of Device Update module name." lightbox="media/understand-device-update/device-update-module.png":::
 
 ## How to build and run Device Update Agent
 You can also build and modify your own customer Device Update agent.
