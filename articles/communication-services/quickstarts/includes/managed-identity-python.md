@@ -5,6 +5,7 @@
 ```console
 pip install azure-identity
 pip install azure-communication-identity
+pip install azure-communication-sms
 ```
 
 ### Use the SDK packages
@@ -34,4 +35,20 @@ def create_identity_and_get_token(resource_endpoint):
      token_response = client.get_token(user, scopes=["voip"])
 
      return token_response
+```
+
+### Send an SMS with Azure managed identity
+The following code example shows how to create a service client object with Azure managed identity, then use the client to send an SMS message:
+
+```python
+from azure.communication.sms import SmsClient
+def send_sms(resource_endpoint, from_phone_number, to_phone_number, message_content):
+     credential = DefaultAzureCredential()
+     sms_client = SmsClient(resource_endpoint, credential)
+     sms_client.send(
+          from_=from_phone_number,
+          to_=[to_phone_number],
+          message=message_content,
+          enable_delivery_report=True  # optional property
+     )
 ```

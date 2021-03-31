@@ -4,6 +4,7 @@
 
 ```console
 dotnet add package Azure.Communication.Identity  --version 1.0.0
+dotnet add package Azure.Communication.Sms --version 1.0.0
 dotnet add package Azure.Identity
 ```
 
@@ -14,6 +15,7 @@ Add the following `using` directives to your code to use the Azure Identity and 
 ```csharp
 using Azure.Identity;
 using Azure.Communication.Identity;
+using Azure.Communication.Sms;
 using Azure.Core;
 ```
 
@@ -45,3 +47,23 @@ Then, use the client to issue a token for a new user:
      }
 ```
 
+### Send an SMS with Managed Identity
+
+The following code example shows how to create an SMS service client object with managed identity, then use the client to send an SMS message:
+
+```csharp
+     public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, string message)
+     {
+          TokenCredential credential = new DefaultAzureCredential();
+          // You can find your endpoint and access key from your resource in the Azure portal
+          // "https://<RESOURCE_NAME>.communication.azure.com";
+          SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
+          SmsSendResult sendResult = smsClient.Send(
+               from: from,
+               to: to,
+               message: message,
+               new SmsSendOptions(enableDeliveryReport: true) // optional
+          );
+          return sendResult;
+      }
+```
