@@ -22,7 +22,8 @@ You can use LDAP over TLS to secure communication between an Azure NetApp Files 
 
 ## Considerations
 
-LDAP over TLS must not be enabled if you are using Azure Active Directory Domain Services (AADDS). AADDS uses LDAPS (port 636) to secure LDAP traffic instead of LDAP over TLS (port 389).
+* LDAP over TLS must not be enabled if you are using Azure Active Directory Domain Services (AADDS). AADDS uses LDAPS (port 636) to secure LDAP traffic instead of LDAP over TLS (port 389).  
+* The time-to-live (TTL) setting for the LDAP cache is 24 hours. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an "access denied" message appears on the client. 
 
 ## Register the LDAP over TLS feature 
 
