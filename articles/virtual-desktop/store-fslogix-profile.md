@@ -49,7 +49,7 @@ Azure Files offers two different tiers of storage: premium and standard. These t
 
 - Standard file shares are backed by hard disk drives (HDDs) and are deployed in the general purpose version 2 (GPv2) storage account type. Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability, such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
 
-Depends on the target performance, cost and regional considerations, you can select the most appropriate performance tier for storing the user profile data. We have included our recommendation based on the performance of the typical [remote desktop workloads types](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/remote-desktop-workloads). 
+The following table lists our recommendations for which performance tier to use based on your workload. These recommendations will help you select the performance tier that meets your performance targets, budget, and regional considerations. We've based these recommendations on the example scenarios from [Remote Desktop workload types](/windows-server/remote/remote-desktop-services/remote-desktop-workloads). 
 
 | Workload type | Recommended file tier |
 |--------|-----------|
