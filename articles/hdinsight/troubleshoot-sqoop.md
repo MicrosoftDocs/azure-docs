@@ -8,7 +8,7 @@ ms.date: 04/01/2021
 
 # Scenario: Sqoop import/export command fails for usernames greater than 20 characters in Azure HDInsight ESP clusters
 
-This article describes a known issue and workaround when using Azure HDInsight ESP (Enterprise Security Pack) enabled clusters.
+This article describes a known issue and workaround when using Azure HDInsight ESP (Enterprise Security Pack) enabled clusters using ADLS Gen2 (ABFS) storage account.
 
 ## Issue
 
@@ -29,7 +29,7 @@ The length of the username exceeds 20 characters in length.
 
 ## Workaround
 
-Use a username less than 20 characters.
+Use a username less than or equals to 20 characters.
 
 ## Next steps
 
