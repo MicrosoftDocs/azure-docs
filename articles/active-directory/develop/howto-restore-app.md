@@ -76,6 +76,5 @@ You can manually permanently delete an application from your organization. A per
 ## Next steps
 After you've restored or permanently deleted your app, you can:
 
-- [Add an application](quickstart-register-app.md)
-
+- [Add an application](quickstart-register-app.md).
 - Learn more about [application and service principal objects](app-objects-and-service-principals.md) in the Microsoft identity platform.
