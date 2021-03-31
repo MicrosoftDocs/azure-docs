@@ -25,9 +25,6 @@ Azure Firewall filters traffic using any of the following methods:
 
 A secured virtual hub is managed by Microsoft and it cannot be linked to a [Private DNS Zone](../dns/private-dns-privatednszone.md), this is required to resolve a [private link resource](../private-link/private-endpoint-overview.md#private-link-resource) FQDN to its corresponding private endpoint IP address.
 
-> [!IMPORTANT]
-> The use of application rules over network rules is recommended when inspecting traffic destined to private endpoints.
-
 > [!NOTE]
 > SQL FQDN filtering is supported in [proxy-mode](../azure-sql/database/connectivity-architecture.md#connection-policy) only (port 1433). **Proxy** mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using FQDN in firewall network rules.
 
