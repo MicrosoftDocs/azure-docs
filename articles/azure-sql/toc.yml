@@ -346,6 +346,8 @@
         href: database/always-encrypted-enclaves-getting-started.md
       - name: Configure security
         href: database/secure-database-tutorial.md
+      - name: Configure security for named replicas
+        href: database/hyperscale-named-replica-security-configure.md
       - name: Create users using service principals
         href: database/authentication-aad-service-principal-tutorial.md
       - name: Rotate TDE BYOK keys
