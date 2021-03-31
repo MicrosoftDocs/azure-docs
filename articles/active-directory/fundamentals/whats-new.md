@@ -999,13 +999,13 @@ For guidance to remove deprecating protocols dependencies, please refer to [Enab
  
 ---
 
-### Assign applications to roles on AU and object scope
+### Assign applications to roles on ddiminstrative unit and object scope
 
 **Type:** New feature  
 **Service category:** RBAC  
 **Product capability:** Access Control
  
-This feature enables the ability to assign an application (SPN) to an administrator role on the Administrative Unit scope. To learn more, refer to [Assign scoped roles to an administrative unit](../roles/admin-units-assign-roles.md).
+This feature enables the ability to assign an application (SPN) to an administrator role on the administrative unit scope. To learn more, refer to [Assign scoped roles to an administrative unit](../roles/admin-units-assign-roles.md).
 
 ---
 
