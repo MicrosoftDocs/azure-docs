@@ -62,9 +62,9 @@ The following diagram illustrates the DNS and data traffic flows for the differe
 
 Azure Firewall might be bypassed if you have issues connecting to the private endpoints, or if there are no log entries in Azure Firewall for the network or application rules configured for the private endpoints. This is usually caused by one of the following issues:
 
-1. Incorrect DNS name resolution.
+- Incorrect DNS name resolution.
 
-2. Incorrect routing configuration.
+- Incorrect routing configuration.
 
 ### Incorrect DNS name resolution
 
