@@ -22,7 +22,7 @@ Azure Firewall filters traffic using any of the following methods:
 * [FQDN in network rules](../firewall/fqdn-filtering-network-rules.md) for TCP and UDP protocols
 * [FQDN in application rules](../firewall/features.md#application-fqdn-filtering-rules) for HTTP, HTTPS, and MSSQL.
 * Source and destination IP addresses, port and protocol using [network rules](../firewall/features.md#network-traffic-filtering-rules)
-
+Use application rules over network rules to inspect traffic destined to private endpoints.
 A secured virtual hub is managed by Microsoft and it cannot be linked to a [Private DNS Zone](../dns/private-dns-privatednszone.md), this is required to resolve a [private link resource](../private-link/private-endpoint-overview.md#private-link-resource) FQDN to its corresponding private endpoint IP address.
 
 > [!NOTE]
