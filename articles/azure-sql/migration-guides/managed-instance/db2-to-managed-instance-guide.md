@@ -78,7 +78,7 @@ To convert the schema, follow these steps:
 
 1. (Optional) Add dynamic or ad-hoc queries to statements. Right-click the node, and then choose **Add statements**. 
 1. Select **Connect to Azure SQL Managed Instance**. 
-    1. Enter connection details to connect to your instance of Azure SQL Managed Instance. 
+    1. Enter connection details to connect to Azure SQL Managed Instance. 
     1. Choose your target database from the drop-down list, or provide a new name, in which case a database will be created on the target server. 
     1. Provide authentication details. 
     1. Select **Connect**.
