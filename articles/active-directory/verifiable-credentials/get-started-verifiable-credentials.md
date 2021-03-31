@@ -6,7 +6,7 @@ ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 03/30/2021
+ms.date: 03/31/2021
 # Customer intent: As an enterprise we want to enable customers to manage information about themselves using verifiable credentials
 
 ---
@@ -105,7 +105,7 @@ Now that your local port is exposed to the internet using ngrok, the sample site
 
 7. Congratulations! You now have a verified credential expert VC.
 
-  ![Credential expert VC added](media/get-started-verifiable-credentials/credential-expert-add-card.png) 
+   ![Credential expert VC added](media/get-started-verifiable-credentials/credential-expert-add-card.png) 
  
 Next, it is time to verify your credential.
 
