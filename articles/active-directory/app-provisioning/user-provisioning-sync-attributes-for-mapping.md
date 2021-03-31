@@ -23,7 +23,7 @@ For users in [Active Directory Federation Services (AD FS)](/windows-server/iden
 ## Create an extension attribute on a cloud only user
 You can use Microsoft Graph and PowerShell to extend the user schema for users in Azure AD. These extension attributes are automatically discovered in most cases.
 
-When you have more than 1000 service principals you may find extensions missing in the source attribute list. If an attribute you have created does not automatically appear then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview.md). To add it manually add it to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
+When you have more than 1000 service principals you may find extensions missing in the source attribute list. If an attribute you have created does not automatically appear then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview.md). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
 
 ### Create an extension attribute on a cloud only user using Microsoft Graph
 You can extend the schema of Azure AD users using [Microsoft Graph](/graph/overview.md). 
@@ -34,7 +34,8 @@ First, list the apps in your tenant to get the ID of the app you are working on.
 GET https://graph.microsoft.com/v1.0/applications
 ```
 
-Create the extension attribute. Replace the **ID** property below with the **ID** retrieved in the previous step. You will need to use the **"ID"** attribute and not the "appId". [Learn more.](https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true)
+Next, create the extension attribute. Replace the **ID** property below with the **ID** retrieved in the previous step. You will need to use the **"ID"** attribute and not the "appId". To learn more, see [Create extensionProperty]/graph/api/application-post-extensionproperty.md?view=graph-rest-1.0&tabs=http&preserve-view=true).
+
 ```json
 POST https://graph.microsoft.com/v1.0/applications/{id}/extensionProperties
 Content-type: application/json
@@ -48,7 +49,7 @@ Content-type: application/json
 }
 ```
 
-The previous request created an extension attribute with the format "extension_appID_extensionName". Update a user with the extension attribute. [Learn more.](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0&tabs=http&preserve-view=true)
+The previous request created an extension attribute with the format `extension_appID_extensionName`. You can now update a user with this extension attribute. To learn more, see [Update user](/graph/api/user-update.md?view=graph-rest-1.0&tabs=http&preserve-view=true).
 ```json
 PATCH https://graph.microsoft.com/v1.0/users/{id}
 Content-type: application/json
@@ -57,7 +58,7 @@ Content-type: application/json
   "extension_inputAppId_extensionName": "extensionValue"
 }
 ```
-Check the user to ensure the attribute was successfully updated. [Learn more.](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select&preserve-view=true)
+Finally, verify the attribute for the user. To learn more, see [Get a user](/graph/api/user-get.md?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select&preserve-view=true).
 
 ```json
 GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName
