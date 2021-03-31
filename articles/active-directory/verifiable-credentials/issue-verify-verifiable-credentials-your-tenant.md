@@ -28,7 +28,7 @@ In this article you:
 
 > [!div class="checklist"]
 > * Register the sample app in your Azure AD (AAD) tenant
-> * Create the Ninja Credential Rules and Display File
+> * Create a Rules and Display File
 > * Upload Rules and Display files
 > * Set up your Verifiable Credentials Issuer service to use Azure Key Vault
 > * Update Sample Code with your tenant's information.
@@ -236,5 +236,5 @@ Follow the same steps to issue the Verifiable Credential and validate it with yo
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Tutorial: Update Sample with your IdP VC and to use your key vault ](tutorial-04-update-sample-your-IdP-vc.md)
+- Learn how to create [custom credentials](credential-design.md)
+- Issuer service communication [examples](issuer-openid.md)
