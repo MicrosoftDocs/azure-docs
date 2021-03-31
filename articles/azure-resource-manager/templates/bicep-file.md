@@ -2,7 +2,7 @@
 title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 03/31/2021
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -18,7 +18,7 @@ A Bicep file has the following elements:
 ```bicep
 targetScope = '<scope>'
 
-@<decorator>()
+@<decorator>(<argument>)
 param <parameter-name> <parameter-data-type> = <default-value>
 
 var <variable-name> = <variable-value>
@@ -39,6 +39,41 @@ output <output-name> <output-data-type> = <output-value>
 
 The elements can appear in any order.
 
+The following example shows an implementation of these elements.
+
+```bicep
+@minLength(3)
+@maxLength(11)
+param storagePrefix string
+
+param storageSKU string = 'Standard_LRS'
+param location string = resourceGroup().location
+
+var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
+
+resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+  name: uniqueStorageName
+  location: location
+  sku: {
+    name: storageSKU
+  }
+  kind: 'StorageV2'
+  properties: {
+    supportsHttpsTrafficOnly: true
+  }
+}
+
+module webModule './webApp.bicep' = {
+  name: 'webDeploy'
+  params: {
+    skuName: 'S1'
+    location: location
+  }
+}
+
+output storageEndpoint object = stg.properties.primaryEndpoints
+```
+
 ## Target scope
 
 By default, the target scope is set to `resourceGroup`. If you're deploying at the resource group level, you don't need to set the target scope in your Bicep file.
@@ -56,11 +91,24 @@ Use parameters for values that need to vary for different deployments. For examp
 
 For the available data types, see [Data types in templates](data-types.md).
 
-You can add one or more decorators for each parameter. These decorators define the values that are allowed for the parameter.
-
 You can define a default value for the parameter that is used if no value is provided during deployment.
 
 For more information, see [Parameters in templates](template-parameters.md).
+
+## Parameter decorators
+
+You can add one or more decorators for each parameter. These decorators define the values that are allowed for the parameter.
+
+| Decorator | Apply to | Argument | Description |
+| --------- | ---- | ----------- | ------- |
+| allowed | all | array | Allowed values for the parameter. Use this decorator to make sure the user provides correct values. |
+| description | all | string | Text that explains how to use the parameter. The description is displayed to users through the portal. |
+| maxLength | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
+| maxValue | int | int | The maximum value for the integer parameter. This value is inclusive. |
+| metadata | all | object | Properties to apply to the parameter. |
+| minLength | array, string | int | The minimum length for string and array parameters. The value is inclusive. |
+| minValue | int | int | The minimum value for the integer parameter. This value is inclusive. |
+| secure | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
 
 ## Variables
 
@@ -119,14 +167,29 @@ param existingKeyVaultName string
 
 ## Multi-line strings
 
-You can break a string into multiple lines. Use three single quote characters `'''` to start and end the multi-line string. You can optionally include a newline after the starting quotes.
+You can break a string into multiple lines. Use three single quote characters `'''` to start and end the multi-line string. 
 
-Characters that are entered between the opening and closing sequence are read verbatim, and no escaping is necessary or possible.
+Characters within the multi-line string are handled as-is. Escape characters are unnecessary. You can't include `'''` in the multi-line string. String interpolation isn't currently supported.
 
-Because the Bicep parser reads all characters as-is, depending on the line endings of your Bicep file, newlines will either be interpreted as \r\n or \n.
-Interpolation is not currently supported in multi-line strings.
-Multi-line strings containing ''' are not supported.
+You can either start your string right after the opening `'''` or include a new line. In either case, the resulting string doesn't include a new line. Depending on the line endings in your Bicep file, new lines are interpreted as `\r\n` or `\n`.
 
+The following example shows a multi-line string.
+
+```bicep
+var stringVar = '''
+this is multi-line
+  string with formatting
+  preserved.
+'''
+```
+
+The preceding example is equivalent to the following JSON.
+
+```json
+"variables": {
+  "stringVar": "this is multi-line\r\n  string with formatting\r\n  preserved.\r\n"
+}
+```
 
 ## Next steps
 
