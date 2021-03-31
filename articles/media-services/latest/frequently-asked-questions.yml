@@ -57,7 +57,7 @@ sections:
           The term encoding in Media Services applies to the process of converting files containing digital video and/or audio from one standard format to another, with the purpose of (a) reducing the size of the files, and/or (b) producing a format that's compatible with a broad range of devices and apps. This process is also referred to as video compression, or transcoding.
       - question: What are the encoding formats available with Media Services?
         answer: |
-          The common encoding formats are available with Media Services Standard Encoder. For a list of all formats, see [Standard Encoder formats and codecs](media-encoder-standard-formats.md).
+          The common encoding formats are available with Media Services Standard Encoder. For a list of all formats, see [Standard Encoder formats and codecs](encode-media-encoder-standard-formats-reference.md).
       - question: Can I analyze an audio or video file?
         answer: |
           Yes you can. Azure Media Services v3 lets you extract insights from your video and audio files with Video Indexer. Media Services v3 analyzer presets can be used to extract those insights. If you want more detailed insights, use Video Indexer directly. To understand when to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets).

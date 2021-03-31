@@ -13,11 +13,20 @@ ms.service: azure-communication-services
 ---
 # Calling SDK overview
 
-There are two separate families of Calling SDKs, for *clients* and *services.* Currently available SDKs are intended for end-user experiences: websites and native apps.
+The Calling SDK enables end-user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away, please check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md). 
 
-The Service SDKs are not yet available, and provide access to the raw voice and video data planes, suitable for integration with bots and other services.
+Once you've started development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
 
-## Calling SDK capabilities
+Key features of the Calling SDK:
+
+- **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provides clients visibility into who is connected to a call (the roster).
+- **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire. 
+- **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
+- **PSTN** - The Calling SDK can receive and initiate voice calls with the traditional publically switched telephony system, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony-sms/get-phone-number.md) or programmatically.
+- **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane. 
+- **Notifications** - The Calling SDK provides APIs allowing clients to be notified of an incoming call. In situations where your app is not running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call. 
+
+## Detailed capabilities 
 
 The following list presents the set of features which are currently available in the Azure Communication Services Calling SDKs.
 
@@ -28,30 +37,30 @@ The following list presents the set of features which are currently available in
 |                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️            | ✔️
 |                   | Join a group call after it has started                                                                              | ✔️   | ✔️            | ✔️
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️            | ✔️
-|  Mid call control | Turn your video on/off                                                                                              | ✔️   | ✔️            | ✔️ 
-|                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️            | ✔️         
-|                   | Switch between cameras                                                                                              | ✔️   | ✔️            | ✔️           
-|                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️            | ✔️           
-|                   | Active speaker                                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Choose speaker for calls                                                                                            | ✔️   | ✔️            | ✔️           
-|                   | Choose microphone for calls                                                                                         | ✔️   | ✔️            | ✔️           
-|                   | Show state of a participant<br/>*Idle, Early media, Connecting, Connected, On hold, In Lobby, Disconnected*         | ✔️   | ✔️            | ✔️           
-|                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️   | ✔️            | ✔️           
-|                   | Show if a participant is muted                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Show the reason why a participant left a call                                                                       | ✔️   | ✔️            | ✔️     
-| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ❌            | ❌           
-|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ❌            | ❌           
-|                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   | ❌            | ❌           
-|                   | Participant can view remote screen share                                                                            | ✔️   | ✔️            | ✔️         
-| Roster            | List participants                                                                                                   | ✔️   | ✔️            | ✔️           
-|                   | Remove a participant                                                                                                | ✔️   | ✔️            | ✔️         
-| PSTN              | Place a one-to-one call with a PSTN participant                                                                     | ✔️   | ✔️            | ✔️   
+|  Mid call control | Turn your video on/off                                                                                              | ✔️   | ✔️            | ✔️
+|                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️            | ✔️
+|                   | Switch between cameras                                                                                              | ✔️   | ✔️            | ✔️
+|                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️            | ✔️
+|                   | Active speaker                                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Choose speaker for calls                                                                                            | ✔️   | ✔️            | ✔️
+|                   | Choose microphone for calls                                                                                         | ✔️   | ✔️            | ✔️
+|                   | Show state of a participant<br/>*Idle, Early media, Connecting, Connected, On hold, In Lobby, Disconnected*         | ✔️   | ✔️            | ✔️
+|                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️   | ✔️            | ✔️
+|                   | Show if a participant is muted                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Show the reason why a participant left a call                                                                       | ✔️   | ✔️            | ✔️
+| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ❌            | ❌
+|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ❌            | ❌
+|                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   | ❌            | ❌
+|                   | Participant can view remote screen share                                                                            | ✔️   | ✔️            | ✔️
+| Roster            | List participants                                                                                                   | ✔️   | ✔️            | ✔️
+|                   | Remove a participant                                                                                                | ✔️   | ✔️            | ✔️
+| PSTN              | Place a one-to-one call with a PSTN participant                                                                     | ✔️   | ✔️            | ✔️
 |                   | Place a group call with PSTN participants                                                                           | ✔️   | ✔️            | ✔️
 |                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️   | ✔️            | ✔️
-|                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️            | ✔️   
-| General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   | ✔️   | ✔️            | ✔️ 
+|                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️            | ✔️
+| General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   | ✔️   | ✔️            | ✔️
 | Device Management | Ask for permission to use  audio and/or video                                                                       | ✔️   | ✔️            | ✔️
-|                   | Get camera list                                                                                                     | ✔️   | ✔️            | ✔️ 
+|                   | Get camera list                                                                                                     | ✔️   | ✔️            | ✔️
 |                   | Set camera                                                                                                          | ✔️   | ✔️            | ✔️
 |                   | Get selected camera                                                                                                 | ✔️   | ✔️            | ✔️
 |                   | Get microphone list                                                                                                 | ✔️   | ✔️            | ✔️
@@ -61,7 +70,7 @@ The following list presents the set of features which are currently available in
 |                   | Set speaker                                                                                                         | ✔️   | ✔️            | ✔️
 |                   | Get selected speaker                                                                                                | ✔️   | ✔️            | ✔️
 | Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️   | ✔️            | ✔️
-|                   | Set / update scaling mode                                                                                           | ✔️   | ✔️            | ✔️ 
+|                   | Set / update scaling mode                                                                                           | ✔️   | ✔️            | ✔️
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️            | ✔️
 
 ## Calling SDK streaming support
@@ -90,7 +99,7 @@ The following timeouts apply to the Communication Services Calling SDKs:
 
 The following table represents the set of supported browsers which are currently available. We support the most recent three versions of the browser unless otherwise indicated.
 
-| Platform                         | Chrome | Safari*  | Edge (Chromium) | 
+| Platform                         | Chrome | Safari*  | Edge (Chromium) |
 | -------------------------------- | -------| ------  | --------------  |
 | Android                          |  ✔️    | ❌     | ❌             |
 | iOS                              |  ❌    | ✔️**** | ❌             |
@@ -98,9 +107,9 @@ The following table represents the set of supported browsers which are currently
 | Windows***                       |  ✔️    | ❌     | ✔️             |
 | Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
-*Safari versions 13.1+ are supported, 1:1 calls are not supported on Safari. 
+*Safari versions 13.1+ are supported, 1:1 calls are not supported on Safari.
 
-**Safari 14+/macOS 11+ needed for outgoing video support. 
+**Safari 14+/macOS 11+ needed for outgoing video support.
 
 ***Outgoing screen sharing is supported only on desktop platforms (Windows, macOS, and Linux), regardless of the browser version, and is not supported on any mobile platform (Android, iOS, iPad, and tablets).
 

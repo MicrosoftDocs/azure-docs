@@ -80,7 +80,7 @@ conceptualContent:
         - url: ./latest/assets-concept.md 
           itemType: concept
           text: Uploading
-        - url: ./latest/encoding-concept.md 
+        - url: ./latest/encode-concept.md 
           itemType: concept
           text: Encoding   
         - url: ./latest/stream-files-tutorial-with-rest.md
