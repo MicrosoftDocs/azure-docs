@@ -24,7 +24,7 @@ The OCR APIs support extracting printed text in [several languages](./language-s
 
 This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
-* The [how-to guides](./Vision-API-How-to-Topics/call-read-api.md.md) contain instructions for using the service in more specific or customized ways.
+* The [how-to guides](./Vision-API-How-to-Topics/call-read-api.md) contain instructions for using the service in more specific or customized ways.
 <!--* The [conceptual articles](Vision-API-How-to-Topics/call-read-api.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions. -->
 

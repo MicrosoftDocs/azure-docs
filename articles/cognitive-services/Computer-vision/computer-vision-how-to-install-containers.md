@@ -91,7 +91,7 @@ Container images for Read are available.
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
-### Docker pull for the Read container
+### Docker pull for the Read OCR container
 
 # [Version 3.2-preview](#tab/version-3-2)
 
@@ -134,7 +134,7 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs the Read container from the container image.
+* Runs the Read OCR container from the container image.
 * Allocates 8 CPU core and 18 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
@@ -151,7 +151,7 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs the Read container from the container image.
+* Runs the Read OCR container from the container image.
 * Allocates 8 CPU core and 16 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
@@ -387,7 +387,7 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 ---
 
 > [!IMPORTANT]
-> If you deploy multiple Read containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](./computer-vision-resource-container-config.md).
+> If you deploy multiple Read OCR containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](./computer-vision-resource-container-config.md).
 
 ### Synchronous read
 
@@ -440,7 +440,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Computer Vision provides a Linux container for Docker, encapsulating Read.
 * Container images are downloaded from the "Container Preview" container registry in Azure.
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Read containers by specifying the host URI of the container.
+* You can use either the REST API or SDK to call operations in Read OCR containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]

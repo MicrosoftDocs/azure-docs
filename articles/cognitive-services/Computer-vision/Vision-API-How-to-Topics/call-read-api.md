@@ -39,17 +39,17 @@ The [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/compu
 ### Natural reading order output (Latin languages only)
 With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005), you can specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
 
-:::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="OCR Reading order example":::
+:::image border type="content" source="../Images/ocr-reading-order-example.png" alt-text="OCR Reading order example":::
 
 ### Handwritten classification for text lines (Latin languages only)
 The [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
 
-:::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="OCR handwriting classification example":::
+:::image border type="content" source="../Images/ocr-handwriting-classification.png" alt-text="OCR handwriting classification example":::
 
 ### Select page(s) or page ranges for text extraction
 With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005), for large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
 
-:::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Selected pages output":::
+:::image border type="content" source="../Images/ocr-select-pages.png" alt-text="Selected pages output":::
 
 ## Get results from the service
 

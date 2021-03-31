@@ -1,7 +1,7 @@
 ---
 title: Migrating to the Read v3.x containers
 titleSuffix: Azure Cognitive Services
-description: Learn how to migrate to the v3 Read containers
+description: Learn how to migrate to the v3 Read OCR containers
 services: cognitive-services 
 author: aahill
 manager: nitinme
@@ -14,12 +14,12 @@ ms.author: aahi
 
 # Migrate to the Read v3.x OCR containers
 
-If you're using version 2 of the Computer Vision Read container, Use this article to learn about upgrading your application to use version 3.x of the container. 
+If you're using version 2 of the Computer Vision Read OCR container, Use this article to learn about upgrading your application to use version 3.x of the container. 
 
 
 ## Configuration changes
 
-* `ReadEngineConfig:ResultExpirationPeriod` is no longer supported. The Read container has a built Cron job that removes the results and metadata associated with a request after 48 hours.
+* `ReadEngineConfig:ResultExpirationPeriod` is no longer supported. The Read OCR container has a built Cron job that removes the results and metadata associated with a request after 48 hours.
 * `Cache:Redis:Configuration` is no longer supported. The Cache is not used in the v3.x containers, so you do not need to set it.
 
 ## API changes
@@ -34,7 +34,7 @@ See the [Computer Vision v3 REST API migration guide](./upgrade-api-versions.md)
 
 ## Memory requirements
 
-The requirements and recommendations are based on benchmarks with a single request per second, using an 8-MB image of a scanned business letter that contains 29 lines and a total of 803 characters. The following table describes the minimum and recommended allocation of resources for each Read container.
+The requirements and recommendations are based on benchmarks with a single request per second, using an 8-MB image of a scanned business letter that contains 29 lines and a total of 803 characters. The following table describes the minimum and recommended allocation of resources for each Read OCR container.
 
 |Container  |Minimum | Recommended  |
 |---------|---------|------|

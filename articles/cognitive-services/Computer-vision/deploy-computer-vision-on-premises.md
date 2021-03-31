@@ -49,7 +49,7 @@ Begin by creating a folder named *read*. Then, paste the following YAML content 
 apiVersion: v2
 name: read
 version: 1.0.0
-description: A Helm chart to deploy the Read container to a Kubernetes cluster
+description: A Helm chart to deploy the Read OCR container to a Kubernetes cluster
 dependencies:
 - name: rabbitmq
   condition: read.image.args.rabbitmq.enabled
@@ -82,13 +82,13 @@ read:
       # resultExpirationPeriod=0, the system will clear the recognition result after result retrieval.
       resultExpirationPeriod: 1
       
-      # Redis storage, if configured, will be used by read container to store result records.
-      # A cache is required if multiple read containers are placed behind load balancer.
+      # Redis storage, if configured, will be used by read OCR container to store result records.
+      # A cache is required if multiple read OCR containers are placed behind load balancer.
       redis:
         enabled: false # {true/false}
         password: password
 
-      # RabbitMQ is used for dispatching tasks. This can be useful when multiple read containers are
+      # RabbitMQ is used for dispatching tasks. This can be useful when multiple read OCR containers are
       # placed behind load balancer.
       rabbitmq:
         enabled: false # {true/false}
@@ -100,7 +100,7 @@ read:
 > [!IMPORTANT]
 > - If the `billing` and `apikey` values aren't provided, the services expire after 15 minutes. Likewise, verification fails because the services aren't available.
 > 
-> - If you deploy multiple Read containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](./computer-vision-resource-container-config.md).
+> - If you deploy multiple Read OCR containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](./computer-vision-resource-container-config.md).
 >
 
 Create a *templates* folder under the *read* directory. Copy and paste the following YAML into a file named `deployment.yaml`. The `deployment.yaml` file will serve as a Helm template.
