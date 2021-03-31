@@ -59,7 +59,7 @@ Depends on the target performance, cost and regional considerations, you can sel
 |Heavy|Premium file shares|
 |Power|Premium file shares|
 
-You can leverage the guidance above and further optimize for your WVD scenario. Detailed information of Azure Files on performance targets ([Standard](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets), [Premium](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares)) and [pricing](https://azure.microsoft.com/pricing/details/storage/files/) is available to help you further fine tune the file share solution.
+For more information about Azure Files performance, see [File share and file scale targets](../storage/files/storage-files-scale-targets.md#file-share-and-file-scale-targets) and [Understanding provisioning for premium file shares](../storage/files/storage-files-planning.md#understanding-provisioning-for-premium-file-shares). For more information about pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Next steps
 
