@@ -20,17 +20,17 @@ keywords: computer vision, computer vision applications, computer vision service
 
 The Computer Vision Image Analysis service can extract a wide variety of visual features from your images. For example, it can determine whether an image contains adult content, find specific brands or objects, or find human faces.
 
-You can use Image Analysis through a [client library SDK](tbd) or by calling the [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) directly. This page broadly covers what you can do with Computer Vision.
+You can use Image Analysis through a client library SDK or by calling the [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) directly. Follow the [quickstart](quickstarts-sdk/image-analysis-client-library.md) to get started.
 
 This documentation contains the following types of articles:
-* The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [quickstarts](./quickstarts-sdk/image-analysis-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) contain instructions for using the service in more specific or customized ways.
-* The [conceptual articles](concept-recognizing-text.md) provide in-depth explanations of the service's functionality and features.
+* The [conceptual articles](concept-tagging-images.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
 ## Image Analysis features
 
-You can analyze images to provide insights about their visual features and characteristics. All of the features in the list below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API. Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started.
+You can analyze images to provide insights about their visual features and characteristics. All of the features in the list below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API. Follow a [quickstart](./quickstarts-sdk/image-analysis-client-library.md) to get started.
 
 
 ### Tag visual features
@@ -97,4 +97,4 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 Get started with Image Analysis by following the quickstart guide in your preferred development language:
 
-- [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/client-library.md)
+- [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md)
