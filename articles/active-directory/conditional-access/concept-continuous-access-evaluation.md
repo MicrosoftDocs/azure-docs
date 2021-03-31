@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 
 Token expiration and refresh is a standard mechanism in the industry. When a client application like Outlook connects to a service like Exchange Online, the API requests are authorized using OAuth 2.0 access tokens. By default, those access tokens are valid for one hour, when they expire, the client is redirected back to Azure AD to refresh them. That refresh period provides an opportunity to reevaluate policies for user access. For example: we might choose not to refresh the token because of a Conditional Access policy, or because the user has been disabled in the directory. 
 
-Customers have expressed concerns about the lag between when conditions change for the user, like network location or credential theft, and when policies can be enforced related to that change. We have experimented with the “blunt object” approach of reduced token lifetimes but found they can degrade user experiences and reliability without eliminating risks.
+Customers have expressed concerns about the lag between when conditions change for the user, like network location or credential theft, and when policies can be enforced related to that change. We have experimented with the "blunt object" approach of reduced token lifetimes but found they can degrade user experiences and reliability without eliminating risks.
 
-Timely response to policy violations or security issues really requires a “conversation” between the token issuer, like Azure AD, and the relying party, like Exchange Online. This two-way conversation gives us two important capabilities. The relying party can notice when things have changed, like a client coming from a new location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user due to account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE). The goal is for response to be near real time, but in some cases latency of up to 15 minutes may be observed due to event propagation time.
+Timely response to policy violations or security issues really requires a "conversation" between the token issuer, like Azure AD, and the relying party, like Exchange Online. This two-way conversation gives us two important capabilities. The relying party can notice when things have changed, like a client coming from a new location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user due to account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE). The goal is for response to be near real time, but in some cases latency of up to 15 minutes may be observed due to event propagation time.
 
 The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
 
@@ -160,17 +160,17 @@ If this scenario exists in your environment to avoid infinite loops, Azure AD wi
 
 For an explanation of the office update channels, see [Overview of update channels for Microsoft 365 Apps](/deployoffice/overview-update-channels). It is recommended that organizations do not disable Web Account Manager (WAM).
 
-### Policy change timing
+### Group membership and Policy update effective time
 
-Policy changes made by administrators could take up to one day to be effective. Some optimization has been done to reduce the delay to two hours. However, it does not cover all the scenarios yet. 
+Group membership and policy update made by administrators could take up to one day to be effective. Some optimization has been done for policy updates which reduce the delay to two hours. However, it does not cover all the scenarios yet. 
 
-If there is an emergency and you need to have your updated policies to be applied to certain users immediately, you should use this [PowerShell command](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) or "Revoke Session" in the user profile page to revoke the users' session, which will make sure that the updated policies will be applied immediately.
+If there is an emergency and you need to have your policies updated or group membership change to be applied to certain users immediately, you should use this [PowerShell command](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) or "Revoke Session" in the user profile page to revoke the users' session, which will make sure that the updated policies will be applied immediately.
 
 ### Coauthoring in Office apps
 
-When multiple users are collaborating on the same document at the same time, the user’s access to the document may not be immediately revoked by CAE based on user revocation or policy change events. In this case, the user loses access completely after, closing the document, closing Word, Excel, or PowerPoint, or after a period of 10 hours.
+When multiple users are collaborating on the same document at the same time, the user's access to the document may not be immediately revoked by CAE based on user revocation or policy change events. In this case, the user loses access completely after, closing the document, closing Word, Excel, or PowerPoint, or after a period of 10 hours.
 
-To reduce this time a SharePoint Administrator can optionally reduce the maximum lifetime of coauthoring sessions for documents stored in SharePoint Online and OneDrive for Business, by [configuring a network location policy in SharePoint Online](/sharepoint/control-access-based-on-network-location). Once this configuration is changed, the maximum lifetime of coauthoring sessions will be reduced to 15 minutes, and can be adjusted further using the SharePoint Online PowerShell command “Set-SPOTenant –IPAddressWACTokenLifetime"
+To reduce this time a SharePoint Administrator can optionally reduce the maximum lifetime of coauthoring sessions for documents stored in SharePoint Online and OneDrive for Business, by [configuring a network location policy in SharePoint Online](/sharepoint/control-access-based-on-network-location). Once this configuration is changed, the maximum lifetime of coauthoring sessions will be reduced to 15 minutes, and can be adjusted further using the SharePoint Online PowerShell command "Set-SPOTenant –IPAddressWACTokenLifetime"
 
 ### Enable after a user is disabled
 

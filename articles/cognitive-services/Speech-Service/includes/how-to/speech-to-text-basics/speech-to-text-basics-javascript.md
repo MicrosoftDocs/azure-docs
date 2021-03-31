@@ -57,7 +57,7 @@ Recognizing speech from a microphone is **not supported in Node.js**, and is onl
 
 ## Recognize from file 
 
-To recognize speech from an audio file, create an `AudioConfig` using `fromWavFileInput()` which accepts a `Buffer` object. Then initialize a [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest), passing your `audioConfig` and `speechConfig`.
+To recognize speech from an audio file, create an `AudioConfig` using `fromWavFileInput()` which accepts a `Buffer` object. Then initialize a [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer), passing your `audioConfig` and `speechConfig`.
 
 ```javascript
 const fs = require('fs');

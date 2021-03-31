@@ -21,7 +21,7 @@ ms.custom: devx-track-azurecli, devx-track-csharp
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-When your Media Services account is created a **default** [Streaming Endpoint](streaming-endpoint-concept.md) is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and [dynamic encryption](content-protection-overview.md), the streaming endpoint from which you want to stream content has to be in the **Running** state.
+When your Media Services account is created a **default** [Streaming Endpoint](streaming-endpoint-concept.md) is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and [dynamic encryption](drm-content-protection-concept.md), the streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 This article shows you how to execute the [start](/rest/api/media/streamingendpoints/start) command on your streaming endpoint using different technologies. 
  

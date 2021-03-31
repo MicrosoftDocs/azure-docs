@@ -7,7 +7,7 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
-Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
+# Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
 ---
 # About Network Virtual Appliance in an Azure Virtual WAN hub (Preview)
 
