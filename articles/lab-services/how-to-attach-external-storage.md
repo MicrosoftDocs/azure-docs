@@ -202,3 +202,13 @@ Follow the steps below to use an Azure NetApp Files share in Azure Lab Services.
 8. [Publish](how-to-create-manage-template.md#publish-the-template-vm) the template VM.
 9. [Configure policy](/azure/azure-netapp-files/azure-netapp-files-configure-export-policy) for file share.  Export policy can allow for a single VM or multiple VMs to have access to a volume.  Read only or read/write access can be granted.
 10. Students must start their VM and run the script to mount the file share.  They'll only have to run the script once.  The command will look like `./mount_fileshare.sh myvolumename`.
+
+## Next steps
+
+Next steps are common to setting up any lab.
+
+- [Create and manage a template](how-to-create-manage-template.md)
+- [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
+- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
