@@ -21,13 +21,13 @@ Resource Provider and Type: [Microsoft.ContainerRegistry/registries](/azure/azur
 
 | Metric | Exportable via Diagnostic Settings? | Unit | Aggregation Type | Description | Dimensions  |  
 |:-------|:-----|:-----|:------------|:------------------|:----- |
-|     AgentPoolCPUTime   | Yes |   Seconds   | Total |   CPU time used by [ACR tasks](container-registry-tasks-overview.md) running on dedicated [agent pools](tasks-agent-pools.md)	         | None | |
-|     RunDuration   | Yes |  Milliseconds   |  Total |  Duration of [ACR tasks](container-registry-tasks-overview.md) runs       | None | |
-|     StorageUsed   |  No | Bytes   |   Average | Storage used by the container registry<br/><br/>Sum of storage for unique and shared layers, manifest files, and replica copies in all repositories<sup>1</sup>	         | Geo-location | |
-|     SuccessfulPullCount | Yes  |   Count   | Total | Successful pulls of container images and other artifacts from the registry	           | None | |
-|     SuccessfulPushCount   | Yes |   Count   | Total | Successful pushes of container images and other artifacts to the registry          | None | |
+|     AgentPoolCPUTime   | Yes |   Seconds   | Total |   CPU time used by [ACR tasks](container-registry-tasks-overview.md) running on dedicated [agent pools](tasks-agent-pools.md)	         | None | 
+|     RunDuration   | Yes |  Milliseconds   |  Total |  Duration of [ACR tasks](container-registry-tasks-overview.md) runs       | None | 
+|     StorageUsed   |  No | Bytes   |   Average | Storage used by the container registry<br/><br/>Sum of storage for unique and shared layers, manifest files, and replica copies in all repositories<sup>1</sup>	         | Geo-location | 
+|     SuccessfulPullCount | Yes  |   Count   | Total | Successful pulls of container images and other artifacts from the registry	           | None | 
+|     SuccessfulPushCount   | Yes |   Count   | Total | Successful pushes of container images and other artifacts to the registry          | None | 
 |     TotalPullCount   |   Yes | Count   |     Total |  Total pulls of container images and other artifacts from the registry	      | None | |
-|     TotalPushCount   | Yes |  Seconds   |   Total |  Total pushes of container images and other artifacts to the registry	        | None | |
+|     TotalPushCount   | Yes |  Seconds   |   Total |  Total pushes of container images and other artifacts to the registry	        | None | 
 
 <sup>1</sup>Because of layer sharing, registry storage used may be less than the sum of storage for individual repositories. When you [delete](container-registry-delete.md) a repository or tag, you recover only the storage used by manifest files and the unique layers referenced.
 
