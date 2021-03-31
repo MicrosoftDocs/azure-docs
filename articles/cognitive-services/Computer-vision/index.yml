@@ -104,19 +104,19 @@ tools:
   summary: Get started with the Computer Vision SDK in your favorite programming language.
   items:
   - title: C#
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
+    imageSrc: media/index/logo_Csharp.svg
     url: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
   - title: Node.js
-    imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
+    imageSrc: media/index/logo_nodejs.svg
     url: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
   - title: Objective-C and Swift
-    imageSrc: https://docs.microsoft.com/media/logos/logo_ios.svg
+    imageSrc: media/index/logo_ios.svg
     url: /objectivec/cognitive-services/speech/
   - title: Python
-    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+    imageSrc: media/index/logo_python.svg
     url: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
   - title: Go
-    imageSrc:
+    imageSrc: media/index/logo_go.svg
     url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
   - title: Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
