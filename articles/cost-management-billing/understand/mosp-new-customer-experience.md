@@ -62,7 +62,7 @@ Your new experience includes the following cost management and billing capabilit
    ![Screenshot that shows search in the Azure portal for Cost Management + Billing.](./media/mosp-new-customer-experience/billing-search-cost-management-billing.png)
 3. Select **Azure subscriptions** from the left-side of the screen. 
 4. The table lists Azure subscriptions that you're paying for. In the billing profile column, you would find the billing profile that is billed for the subscription. The subscription charges are displayed on the invoice for the billing profile. To consolidate the charges for all your subscriptions on a single invoice, you need to link all your subscriptions to a single billing profile.  
-    ![Screenshot that shows the list of Azure subscriptions](./media/mosp-new-customer-experience/list-azure-subscriptions.png)
+    :::image type="content" source="./media/mosp-new-customer-experience/list-azure-subscriptions.png" alt-text="Screenshot that shows the list of Azure subscriptions." lightbox="./media/mosp-new-customer-experience/list-azure-subscriptions.png" :::
 5. Pick a billing profile that you want to use. 
 6. Select a subscription that is not linked to the billing profile that you chose in step 5. Click on ellipsis (three dots) for the subscription. Select **Change invoice section**.  
     :::image type="content" source="./media/mosp-new-customer-experience/select-change-invoice-section.png" alt-text="Screenshot that shows where to find the option to change invoice section." lightbox="./media/mosp-new-customer-experience/select-change-invoice-section-zoomed-in.png" :::
