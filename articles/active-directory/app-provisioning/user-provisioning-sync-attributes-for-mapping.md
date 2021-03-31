@@ -23,7 +23,7 @@ For users in [Active Directory Federation Services (AD FS)](/windows-server/iden
 ## Create an extension attribute on a cloud only user
 You can use Microsoft Graph and PowerShell to extend the user schema for users in Azure AD. These extension attributes are automatically discovered in most cases.
 
-When you have more than 1000 service principals you may find extensions missing in the source attribute list. If an attribute you have created does not automatically appear then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview.md). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
+When you have more than 1000 service principals, you may find extensions missing in the source attribute list. If an attribute you have created does not automatically appear, then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview.md). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
 
 ### Create an extension attribute on a cloud only user using Microsoft Graph
 You can extend the schema of Azure AD users using [Microsoft Graph](/graph/overview.md). 
