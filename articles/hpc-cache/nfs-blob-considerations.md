@@ -113,7 +113,7 @@ In a few situations, Azure HPC Cache itself acknowledges NLM requests from the c
 
 If you switch an ADLS-NFS storage target's usage model to or from **Read heavy, infrequent writes**, you must remount all clients using the ``nolock`` option.
 
-More information about NLM, HPC Cache, and usage models is included in [Understand cache usage models](cache-usage-models.md#know-when-to-remount-clients).
+More information about NLM, HPC Cache, and usage models is included in [Understand cache usage models](cache-usage-models.md#know-when-to-remount-clients-for-nlm).
 
 ## Streamline writes to NFS-enabled containers with HPC Cache
 
