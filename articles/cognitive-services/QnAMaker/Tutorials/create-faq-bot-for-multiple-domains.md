@@ -26,10 +26,12 @@ The content authors can use documents/URLs to extract QnAs or add custom QnAs to
 
 ### Create a separate knowledge base for each domain
 
+You can also create a separate knowledge base for each domain, however you will then have to write a logic to decide which KB answers the user query. As you can see in the Generate Answer API below, the KB id is passed on in the endpoint, and the user will have to pass that on along with the user query. Hence, we advise you to instead add all content in the same knowledgebase using metadata, instead of creating multiple knowledgebases.
 
 
 ## Content Authoring flow
 
+We currently define RBAC roles that will define permissions for all knowledgebases in the same QnA Maker resource. For instance, if the user is granted the 'Publisher' role, he will be able to 
 
 
 Create a distinct QnA resource per domain
