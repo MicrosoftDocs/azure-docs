@@ -9,7 +9,7 @@ ms.date: 03/30/2021
 
 # Pipeline extension
 
-Azure Video Analyzer allows you to extend the pipeline processing capabilities through a pipeline extension node. Your analytics extension plugin can make use of traditional image-processing techniques or computer vision AI models. Pipeline extensions are enabled by including an extension processor node in the pipeline flow. The extension processor node relays video frames to the configured endpoint and acts as the interface to your extension. The connection can be made to a local or remote endpoint and it can be secured by authentication and TLS encryption, if required. Additionally, the pipeline extension processor node allows for optional scaling and encoding of the video frames before they are submitted to your custom extension.
+Azure Video Analyzer allows you to extend the pipeline processing capabilities through a pipeline extension node. Your analytics extension plugin can make use of traditional image-processing techniques or computer vision AI models. Pipeline extensions are enabled by including an extension processor node in the pipeline flow. The extension processor node relays video frames to the configured endpoint and acts as the interface to your extension. The connection can be made to a local or remote endpoint and it can be secured by authentication and TLS encryption, if necessary. Additionally, the pipeline extension processor node allows for optional scaling and encoding of the video frames before they are submitted to your custom extension.
 
 Azure Video Analyzer supports the following pipeline extension processors:
 
@@ -45,13 +45,13 @@ The gRPC extension processor can be used for sending media properties along with
 
 ## Cognitive Services extension processor
 
-Cognitive Services extension processor is a custom built extension processor that allows Azure Video Analyzer to work well with our Computer Vision [spatial analysis]() <!--TODO: add the right topic--> capabilities, using gRPC based, highly performant [structured protocol]() <!--TODO: add the right topic-->. 
+Cognitive Services extension processor is a custom-built extension processor that allows Azure Video Analyzer to work well with our Computer Vision [spatial analysis]() <!--TODO: add the right topic--> capabilities, using gRPC based, highly performant [structured protocol]() <!--TODO: add the right topic-->. 
 
 Use Cognitive Services extension processor node when:
 
 * You want better interoperability with existing [spatial analysis operations]() <!--TODO: add the right topic-->.
-* Want to leverage all the benefits if gRPC protocol, accuracy and performance of Microsoft built and supported AI.
-* Analyze multiple camera feeds at low latency and high throughput .
+* Want to use all the benefits if gRPC protocol, accuracy, and performance of Microsoft built and supported AI.
+* Analyze multiple camera feeds at low latency and high throughput.
 
 ## Use your inferencing model
 
@@ -72,7 +72,7 @@ For advanced users, you can check out some of our [Jupyter notebook](https://git
 
 * How to create a Docker container image of an extension service
 * How to deploy the extension service as a container along with the Azure Video Analyzer container
-* How to use a Azure Video Analyzer pipeline with an extension client and point it to the extension endpoint (HTTP/gRPC)
+* How to use an Azure Video Analyzer pipeline with an extension client and point it to the extension endpoint (HTTP/gRPC)
 
 ## Next steps 
 
