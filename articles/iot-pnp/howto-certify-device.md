@@ -1,8 +1,8 @@
 ---
 title: How to certify IoT Plug and Play devices | Microsoft Docs
 description: As a device builder, learn how to run tests and submit a device for certification
-author: konichi3
-ms.author: koichih
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/21/2020
 ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
