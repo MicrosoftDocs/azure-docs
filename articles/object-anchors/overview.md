@@ -8,8 +8,8 @@ ms.author: crtreasu
 ms.date: 03/02/2021
 ms.topic: overview
 ms.service: azure-object-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
 ---
+
 # Azure Object Anchors overview
 
 Azure Object Anchors enables an application to detect an object in the physical world using a 3D model and estimate its 6DoF pose. The 6DoF (6 degrees of freedom) pose is defined as a rotation and translation between a 3D model and its physical counterpart, the real object.

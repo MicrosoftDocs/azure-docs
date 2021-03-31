@@ -88,7 +88,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 | --- | --- |
 | [Streaming Endpoints](streaming-endpoint-concept.md) (stopped or running) per Media Services account | 2 |
 | Premium streaming units | 10 |
-| [Dynamic Manifest Filters](filters-dynamic-manifest-overview.md)|100|
+| [Dynamic Manifest Filters](filters-dynamic-manifest-concept.md)|100|
 | [Streaming Policies](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | Unique [Streaming Locators](streaming-locators-concept.md) associated with an Asset at one time | 100<sup>(7)</sup> (fixed) |
 
@@ -100,7 +100,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 
 | Resource | Default Limit |
 | --- | --- |
-| Options per [Content Key Policy](content-key-policy-concept.md) |30 |
+| Options per [Content Key Policy](drm-content-key-policy-concept.md) |30 |
 | Licenses per month for each of the DRM types on Media Services key delivery service per account|1,000,000|
 
 ## Support ticket

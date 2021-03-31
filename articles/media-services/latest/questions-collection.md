@@ -44,7 +44,7 @@ See [Azure role-based access control (Azure RBAC) for Media Services accounts](r
 
 ### How do I stream to Apple iOS devices?
 
-Make sure you have **(format=m3u8-aapl)** at the end of your path (after the **/manifest** portion of the URL) to tell the streaming origin server to return HTTP Live Streaming (HLS) content for consumption on Apple iOS native devices. For details, see [Delivering content](dynamic-packaging-overview.md).
+Make sure you have **(format=m3u8-aapl)** at the end of your path (after the **/manifest** portion of the URL) to tell the streaming origin server to return HTTP Live Streaming (HLS) content for consumption on Apple iOS native devices. For details, see [Delivering content](encode-dynamic-packaging-concept.md).
 
 ### What is the recommended method to process videos?
 
@@ -56,7 +56,7 @@ One of the most common reasons is that you don't have the streaming endpoint fro
 
 ### How does pagination work?
 
-When you're using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](entities-overview.md).
+When you're using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](filter-order-page-entitites-how-to.md).
 
 ### What features are not yet available in Azure Media Services v3?
 
@@ -105,7 +105,7 @@ You don't have to use any specific token provider such as Azure Active Directory
 
 Make sure that the issuer, audience, and claims all match up exactly between what's in JWT and the `ContentKeyPolicyRestriction` value used in `ContentKeyPolicy`.
 
-For more information, see [Protect your content by using Media Services dynamic encryption](content-protection-overview.md).
+For more information, see [Protect your content by using Media Services dynamic encryption](drm-content-protection-concept.md).
 
 ### How and where did I get a JWT token before using it to request a license or key?
 
@@ -123,7 +123,7 @@ Use Azure Media Services APIs for configuring license/key delivery and encryptin
 
 For more information, see:
 
-- [Content protection overview](content-protection-overview.md)
+- [Content protection overview](drm-content-protection-concept.md)
 - [Design of a multi-DRM content protection system with access control](architecture-design-multi-drm-system.md)
 
 ### Should I use HTTP or HTTPS?
@@ -163,7 +163,7 @@ Currently, you can use the [Azure portal](https://portal.azure.com/) to:
 * View (not manage) v3 [assets](assets-concept.md). 
 * [Get info about accessing APIs](./access-api-howto.md). 
 
-For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/), the [Azure CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [content protection](drm-content-protection-concept.md)), use the [REST API](/rest/api/media/), the [Azure CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ### Is there an AssetFile concept in v3?
 
@@ -203,7 +203,7 @@ The downloaded file structure on an iOS device looks like the following screensh
 
 The first folder with a name that ends with a dash followed by a number contains video content. The numeric value is the peak bandwidth of the video renditions. The second folder with a name that ends with a dash followed by 0 contains audio content. The third folder named `Data` contains the master playlist of the FPS content. Finally, boot.xml provides a complete description of the `.movpkg` folder content. 
 
-![Offline file structure for the FairPlay iOS sample app](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
+![Offline file structure for the FairPlay iOS sample app](media/drm-offline-fairplay-for-ios-concept/offline-fairplay-file-structure.png)
 
 Here's a sample boot.xml file:
 
@@ -249,7 +249,7 @@ Depending on business logic of custom STS, different claims are issued in the JW
 
 #### What is the mapping between the Widevine and Media Services DRM security levels?
 
-Google's "Widevine DRM Architecture Overview" defines three security levels. However, the [Azure Media Services documentation on the Widevine license template](widevine-license-template-overview.md) outlines
+Google's "Widevine DRM Architecture Overview" defines three security levels. However, the [Azure Media Services documentation on the Widevine license template](drm-widevine-license-template-concept.md) outlines
 five security levels (client robustness requirements for playback). This section explains how the security levels map.
 
 Both sets of security levels are defined by Google Widevine. The difference is in usage level: architecture or API. The five security levels are used in the Widevine API. The `content_key_specs` object, which

@@ -43,7 +43,7 @@ Application Insights is aimed at the development team, to help you understand ho
 
 There are plenty of ways to explore your data. Check out these articles:
 
-|  |  |
+| Article description   | Image |
 | --- | --- |
 | [**Smart detection and manual alerts**](./proactive-diagnostics.md)<br/>Set up automatic alerts that adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also [set alerts](../alerts/alerts-log.md) on particular levels of custom or standard metrics. |![Alert sample](./media/app-insights-overview/alerts-tn.png) |
 | [**Application map**](./app-map.md)<br/>Explore the components of your app, with key metrics and alerts. |![Application map](./media/app-insights-overview/appmap-tn.png)  |
