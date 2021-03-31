@@ -43,14 +43,14 @@ ms.reviewer:
 ##  <a name="Considerations"></a> Considerations  
 
 -   In Azure SQL Database, you can change the default MAXDOP value:
-    -   At the query level, using the **MAXDOP** [query hint](/sql/t-sql/queries/hints-transact-sql-query.md).     
-    -   At the database level, using the **MAXDOP** [database scoped configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql.md).
+    -   At the query level, using the **MAXDOP** [query hint](/sql/t-sql/queries/hints-transact-sql-query).     
+    -   At the database level, using the **MAXDOP** [database scoped configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).
 
 -   Long-standing SQL Server MAXDOP considerations and [recommendations](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) are applicable to Azure SQL Database. 
 
--   MAXDOP is enforced per [task](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-tasks-transact-sql.md). It is not enforced per [request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql.md) or per query. This means that during a parallel query execution, a single request can spawn multiple tasks with an upper boundary determined by the MAXDOP. For more information, see the *Scheduling parallel tasks* section in the [Thread and Task Architecture Guide](/sql/relational-databases/thread-and-task-architecture-guide.md). 
+-   MAXDOP is enforced per [task](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-tasks-transact-sql). It is not enforced per [request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) or per query. This means that during a parallel query execution, a single request can spawn multiple tasks with an upper boundary determined by the MAXDOP. For more information, see the *Scheduling parallel tasks* section in the [Thread and Task Architecture Guide](/sql/relational-databases/thread-and-task-architecture-guide). 
   
--   Index operations that create or rebuild an index, or that drop a clustered index, can be resource intensive. You can override the database max degree of parallelism value for index operations by specifying the MAXDOP index option in the `CREATE INDEX` or `ALTER INDEX` statement. The MAXDOP value is applied to the statement at execution time and is not stored in the index metadata. For more information, see [Configure Parallel Index Operations](/sql/relational-databases/indexes/configure-parallel-index-operations.md).  
+-   Index operations that create or rebuild an index, or that drop a clustered index, can be resource intensive. You can override the database max degree of parallelism value for index operations by specifying the MAXDOP index option in the `CREATE INDEX` or `ALTER INDEX` statement. The MAXDOP value is applied to the statement at execution time and is not stored in the index metadata. For more information, see [Configure Parallel Index Operations](/sql/relational-databases/indexes/configure-parallel-index-operations).  
   
 -   In addition to queries and index operations, the database scoped configuration option for MAXDOP also controls the parallelism of DBCC CHECKTABLE, DBCC CHECKDB, and DBCC CHECKFILEGROUP. 
 
@@ -191,14 +191,14 @@ REBUILD WITH
        , ONLINE = ON);
 ```
 
-## See Also  
-* [ALTER DATABASE SCOPED CONFIGURATION &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql.md)        
+## See also  
+* [ALTER DATABASE SCOPED CONFIGURATION &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)        
 * [sys.database_scoped_configurations (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql)
-* [Configure Parallel Index Operations](/sql/relational-databases/indexes/configure-parallel-index-operations.md)    
-* [Query Hints &#40;Transact-SQL&#41;](/sql/t-sql/queries/hints-transact-sql-query.md)     
-* [Set Index Options](/sql/relational-databases/indexes/set-index-options.md)     
+* [Configure Parallel Index Operations](/sql/relational-databases/indexes/configure-parallel-index-operations)    
+* [Query Hints &#40;Transact-SQL&#41;](/sql/t-sql/queries/hints-transact-sql-query)     
+* [Set Index Options](/sql/relational-databases/indexes/set-index-options)     
 * [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md)
 
 ## Next steps
 
-* [Monitor and Tune for Performance](/sql/relational-databases/performance/monitor-and-tune-for-performance.md)
+* [Monitor and Tune for Performance](/sql/relational-databases/performance/monitor-and-tune-for-performance)
