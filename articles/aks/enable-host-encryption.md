@@ -44,7 +44,7 @@ az extension update --name aks-preview
 
 ### Limitations
 
-- Can only be enabled on new node pools or new clusters.
+- Can only be enabled on new node pools.
 - Can only be enabled in [Azure regions][supported-regions] that support server-side encryption of Azure managed disks and only with specific [supported VM sizes][supported-sizes].
 - Requires an AKS cluster and node pool based on Virtual Machine Scale Sets(VMSS) as *VM set type*.
 

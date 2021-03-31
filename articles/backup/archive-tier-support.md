@@ -35,7 +35,12 @@ Supported clients:
 
 ## Get started with PowerShell
 
-1. Download the [latest PowerShell module](https://github.com/Azure/azure-powershell/tree/Az.RecoveryServices-preview) (preview).
+1. Run the following command in PowerShell:
+  
+    ```azurepowershell
+    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
+    ```
+
 1. Connect to Azure using the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
 1. Sign into your subscription:
 

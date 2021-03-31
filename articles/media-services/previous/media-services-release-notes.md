@@ -3,19 +3,17 @@ title: Azure Media Services release notes | Microsoft Docs
 description: This article talks about the Microsoft Azure Media Services v2 release notes.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Azure Media Services release notes
 
@@ -44,6 +42,27 @@ We want to hear from our customers so that we can focus on fixing problems that 
 
 ## <a name="rest_version_history"></a>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
+
+## February 2021
+
+### Azure Media Services v2 API and SDKs deprecation announcement
+
+#### Update your Azure Media Services REST API and SDKs to v3 by 29 February 2024
+
+Because version 3 of Azure Media Services REST API and client SDKs for .NET and Java offers more capabilities than version 2, we’re retiring version 2 of the Azure Media Services REST API and client SDKs for .NET and Java. 
+We encourage you to make the switch sooner to gain the richer benefits of version 3 of Azure Media Services REST API and client SDKs for .NET and Java.
+Version 3 provides:
+ 
+- 24x7 live event support
+- ARM REST APIs, client SDKs for .NET core, Node.js, Python, Java, Go and Ruby.
+- Customer managed keys, trusted storage integration, private link support, and [more](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+
+#### Action Required:
+
+To minimize disruption to your workloads, review the [migration guide](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) to transition your code from the version 2 API and SDKs to version 3 API and SDK before 29 February 2024.
+**After 29 February 2024**, Azure Media Services will no longer accept traffic on the version 2 REST API, the ARM account management API version 2015-10-01, or from the version 2 .NET client SDKs. This includes any 3rd party open-source client SDKS that may call the version 2 API.  
+
+See the official [Azure Updates announcement](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
 
 ## September 2020
 

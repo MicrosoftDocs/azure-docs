@@ -11,7 +11,7 @@ ms.date: 11/24/2020
 To complete the steps in this article, you need the following:
 
 * An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](../articles/iot-central/core/quick-deploy-iot-central.md). The application must have been created on or after 14 July 2020.
-* A development machine with Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), under **Long-term support**, select **Java 8**.
+* A development machine with Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/), under **Long-term support**, select **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 * A local copy of the [Microsoft Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-java/archive/master.zip). Then unzip the file to a suitable location on your local machine.
 

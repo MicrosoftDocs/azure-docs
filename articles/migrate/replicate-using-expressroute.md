@@ -68,6 +68,7 @@ To create and locate the storage account:
 ![Resource group view](./media/replicate-using-expressroute/storage-account-name.png)
 
 > [!Tip]
+>  
 > If you have more than one storage account with the prefix **"lsa"** in your resource group, you can verify the storage account by navigating to the replication settings and target configuration menu for any of the replicating VMs in the project. <br/> 
 > ![Replication settings overview](./media/replicate-using-expressroute/storage-account.png)
 
@@ -121,9 +122,9 @@ If you did not select the option to integrate with a private DNS zone at the tim
 
     ![createprivatedns](./media/replicate-using-expressroute/create-private-dns.png)
 
-    a.	On the **Private DNS zones** page, select the **+Add** button to start creating a new zone.  
-    b.	On the **Create private DNS zone** page, fill in the required details. Enter the name of the private DNS zone as _privatelink_.blob.core.windows.net. 
-    c. Continue to the **Review + create** tab to review and create the DNS zone.
+    a. On the **Private DNS zones** page, select the **+Add** button to start creating a new zone.  
+    b. On the **Create private DNS zone** page, fill in the required details. Enter the name of the private DNS zone as _privatelink_.blob.core.windows.net.  
+    c. Continue to the **Review + create** tab to review and create the DNS zone.   
 
 2. Link the private DNS zone to your virtual network.  
 

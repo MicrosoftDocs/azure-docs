@@ -21,6 +21,15 @@ Networking configuration for Azure file shares is done on the Azure storage acco
 
 We recommend reading [Planning for an Azure Files deployment](storage-files-planning.md) prior to reading this conceptual guide.
 
+:::row:::
+    :::column:::
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    :::column-end:::
+    :::column:::
+        This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps. The sections below provide links and additional context to the documentation referenced in the video.
+   :::column-end:::
+:::row-end:::
+
 ## Accessing your Azure file shares
 When you deploy an Azure file share within a storage account, your file share is immediately accessible via the storage account's public endpoint. This means that authenticated requests, such as requests authorized by a user's logon identity, can originate securely from inside or outside of Azure. 
 

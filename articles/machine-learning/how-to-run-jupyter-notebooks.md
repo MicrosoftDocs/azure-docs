@@ -112,7 +112,7 @@ Only you can see and use the compute instances you create.  Your **User files** 
 
 ### View logs and output
 
-Use [notebook widgets](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
+Use [notebook widgets](/python/api/azureml-widgets/azureml.widgets) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Screenshot: Jupyter notebook widget ":::
 
@@ -270,7 +270,7 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 * If you can't connect to a notebook, ensure that web socket communication is **not** disabled. For compute instance Jupyter functionality to work, web socket communication must be enabled. Please ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms. 
 
-* When compute instance is deployed in a private link workspace it can be only be [accessed from within virtual network](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). If you are using custom DNS or hosts file please add an entry for <instance-name>.<region>.instances.azureml.ms with private IP address of workspace private endpoint. For more information see the [custom DNS](./how-to-custom-dns.md?tabs=azure-cli) article.
+* When compute instance is deployed in a private link workspace it can be only be [accessed from within virtual network](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). If you are using custom DNS or hosts file please add an entry for < instance-name >.< region >.instances.azureml.ms with private IP address of workspace private endpoint. For more information see the [custom DNS](./how-to-custom-dns.md?tabs=azure-cli) article.
     
 ## Next steps
 

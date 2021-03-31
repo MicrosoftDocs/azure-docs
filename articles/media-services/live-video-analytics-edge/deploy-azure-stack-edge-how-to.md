@@ -7,6 +7,8 @@ ms.date: 09/09/2020
 ---
 # Deploy Live Video Analytics on Azure Stack Edge
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 This article lists the steps that will help you deploy Live Video Analytics on your Azure Stack Edge. After the device has been setup and activated, it is then ready for Live Video Analytics deployment. 
 
 For Live Video Analytics, we will deploy via IoT Hub, but the Azure Stack Edge resources expose a Kubernetes API, which allows the customer to deploy additional non-IoT Hub aware solutions that can interface with Live Video Analytics. 

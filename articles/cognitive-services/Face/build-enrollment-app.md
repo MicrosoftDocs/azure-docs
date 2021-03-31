@@ -33,9 +33,9 @@ The sample enrollment app is written using JavaScript and the React Native frame
 ## Set up the development environment
 
 1. Clone the git repository for the [sample enrollment app](https://github.com/azure-samples/cognitive-services-FaceAPIEnrollmentSample).
-1. To set up your development environment, follow the <a href="https://reactnative.dev/docs/environment-setup"  title="React Native documentation"  target="_blank">React Native documentation <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Select **React Native CLI Quickstart** as your development OS and select **Android** as the target OS. Complete the sections **Installing dependencies** and **Android development environment**.
+1. To set up your development environment, follow the <a href="https://reactnative.dev/docs/environment-setup"  title="React Native documentation"  target="_blank">React Native documentation </a>. Select **React Native CLI Quickstart** as your development OS and select **Android** as the target OS. Complete the sections **Installing dependencies** and **Android development environment**.
 1. Open the env.json file in your preferred text editor, such as [Visual Studio Code](https://code.visualstudio.com/), and add your endpoint and key. You can get your endpoint and key in the Azure portal under the **Overview** tab of your resource. This step is only for local testing purposes&mdash;don't check in your Face API key to your remote repository.
-1. Run the app using either the Android Virtual Device emulator from Android Studio, or your own Android device. To test your app on a physical device, follow the relevant <a href="https://reactnative.dev/docs/running-on-device"  title="React Native documentation"  target="_blank">React Native documentation <span class="docon docon-navigate-external x-hidden-focus"></span></a>.  
+1. Run the app using either the Android Virtual Device emulator from Android Studio, or your own Android device. To test your app on a physical device, follow the relevant <a href="https://reactnative.dev/docs/running-on-device"  title="React Native documentation"  target="_blank">React Native documentation </a>.  
 
 
 ## Create an enrollment experience  
@@ -74,9 +74,9 @@ First, make sure that your app is ready for production deployment: remove any ke
 
 When you're ready to release your app for production, you'll generate a release-ready APK file, which is the package file format for Android apps. This APK file must be signed with a private key. With this release build, you can begin distributing the app to your devices directly. 
 
-Follow the <a href="https://developer.android.com/studio/publish/preparing#publishing-build"  title="Prepare for release"  target="_blank">Prepare for release <span class="docon docon-navigate-external x-hidden-focus"></span></a> documentation to learn how to generate a private key, sign your application, and generate a release APK.  
+Follow the <a href="https://developer.android.com/studio/publish/preparing#publishing-build"  title="Prepare for release"  target="_blank">Prepare for release </a> documentation to learn how to generate a private key, sign your application, and generate a release APK.  
 
-Once you've created a signed APK, see the <a href="https://developer.android.com/studio/publish"  title="Publish your app"  target="_blank">Publish your app <span class="docon docon-navigate-external x-hidden-focus"></span></a> documentation to learn more about how to release your app.
+Once you've created a signed APK, see the <a href="https://developer.android.com/studio/publish"  title="Publish your app"  target="_blank">Publish your app </a> documentation to learn more about how to release your app.
 
 ## Next steps  
 

@@ -63,7 +63,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 ### Storage
 
-- Once configured, storage size cannot be reduced.
+- Once configured, storage size cannot be reduced. You have to create a new server with desired storage size, perform manual [dump and restore](../howto-migrate-using-dump-and-restore.md) and migrate your database(s) to the new server.
 - Currently, storage auto-grow feature is not available. Please monitor the usage and increase the storage to a higher size. 
 - When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to **read-only mode** to avoid errors associated with disk-full situations. 
 - We recommend to set alert rules for `storage used` or `storage percent` when they exceed certain thresholds so that you can proactively take action such as increasing the storage size. For example, you can set an alert if the storage percent exceeds 80% usage.

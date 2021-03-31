@@ -317,7 +317,7 @@ Note that additional permissions might be required to get visibility into worklo
 
 **Guidance**: You can bring in your own applications to run on any locally created virtual machines. Use PowerShell scripts to create local compute virtual machines on your Stack Edge device. We strongly recommend that you bring in only trusted applications to run on the local virtual machines. 
 
-- [How to control PowerShell script execution in Windows environment](/powershell/module/microsoft.powershell.security/set-executionpolicy?preserve-view=true&amp;viewFallbackFrom=powershell-6&view=powershell-7.1)
+- [How to control PowerShell script execution in Windows environment](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Azure Security Center monitoring**: Not applicable
 

@@ -98,9 +98,9 @@ To learn more about user-assigned managed identity, see [Managed identity types]
 1. Make sure that User-assigned Managed Identity (UA-MI) has _Get_, _Unwrap Key_ and _Wrap Key_ permissions to Key Vault
 
 1. Under __Advanced__ tab, check the box for _Enable encryption using a customer managed key_
-  :::image type="content" source="media/enable-customer-managed-key/06-uami-cmk.png" alt-text="Screenshot of Advanced tab for data factory creation experience in Azure portal.":::
+  :::image type="content" source="media/enable-customer-managed-key/06-user-assigned-managed-identity.png" alt-text="Screenshot of Advanced tab for data factory creation experience in Azure portal.":::
 
-1. Provide the url for Key Vault
+1. Provide the url for the customer managed key stored in Key Vault
 
 1. Select an appropriate user assigned managed identity to authenticate with Key Vault
 

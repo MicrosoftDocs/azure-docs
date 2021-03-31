@@ -8,6 +8,8 @@ titleSuffix: Azure
 ---
 # Tutorial: Analyze live video by using OpenVINO™ Model Server – AI Extension from Intel 
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 This tutorial shows you how to use the OpenVINO™ Model Server – AI Extension from Intel to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server gives you access to models for detecting objects (a person, a vehicle, or a bike), and a model for classifying vehicles. A subset of the frames in the live video feed is sent to this inference server, and the results are sent to IoT Edge Hub.
 
 This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.

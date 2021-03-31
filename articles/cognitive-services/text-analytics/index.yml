@@ -159,13 +159,13 @@ landingContent:
         - text: REST API (v3.0)
           url: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
         - text: .NET client library
-          url: /dotnet/api/overview/azure/ai.textanalytics-readme?view=azure-dotnet
+          url: /dotnet/api/overview/azure/ai.textanalytics-readme
         - text: Python client library
-          url: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+          url: /python/api/overview/azure/ai-textanalytics-readme
         - text: JavaScript client library
-          url: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest
+          url: /javascript/api/overview/azure/ai-text-analytics-readme
         - text: Java client library
-          url: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
+          url: /java/api/overview/azure/ai-textanalytics-readme
         - text: Azure PowerShell 
           url: /powershell/module/az.cognitiveservices
         - text: Azure CLI 

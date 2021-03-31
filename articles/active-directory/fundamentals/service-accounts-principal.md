@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Securing service principals
 
-An Azure Active Directory (Azure AD) [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) is the local representation of an application object in a single tenant or directory.  ‎It functions as the identity of the application instance. Service principals define who can access the application, and what resources the application can access. A service principal is created in each tenant where the application is used and references the globally unique application object. The tenant secures the service principal’s sign in and access to resources.  
+An Azure Active Directory (Azure AD) [service principal](../develop/app-objects-and-service-principals.md) is the local representation of an application object in a single tenant or directory.  ‎It functions as the identity of the application instance. Service principals define who can access the application, and what resources the application can access. A service principal is created in each tenant where the application is used and references the globally unique application object. The tenant secures the service principal’s sign in and access to resources.  
 
 ### Tenant-service principal relationships
 A single-tenant application has only one service principal in its home tenant. A multi-tenant web application or API requires a service principal in each tenant. A service principal is created when a user from that tenant has consented to the application's or API's use. ​This consent creates a one-to-many relationship between the multi-tenant application and its associated service principals.
@@ -35,7 +35,7 @@ A given application instance has two distinct properties: the ApplicationID (als
 
 The ApplicationID represents the global application and is the same for all the application instances across tenants. The ObjectID is a unique value for an application object and represents the service principal. As with users, groups, and other resources, the ObjectID helps uniquely identify an application instance in Azure AD.
 
-​​For more detailed information on this topic, see [Application and service principal relationship](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+​​For more detailed information on this topic, see [Application and service principal relationship](../develop/app-objects-and-service-principals.md).
 
 You can also create an application and its service principal object (ObjectID) in a tenant using Azure PowerShell, Azure CLI, Microsoft Graph, the Azure portal, and other tools. 
 
@@ -60,7 +60,7 @@ There are two mechanisms for authentication using service principals—client ce
 * passwords 
 
 For more information on Azure Key Vault and how to use it for certificate and secret management, see 
-[About Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) and [Assign a Key Vault access policy using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal). 
+[About Azure Key Vault](../../key-vault/general/overview.md) and [Assign a Key Vault access policy using the Azure portal](../../key-vault/general/assign-access-policy-portal.md). 
 
  ### Challenges and mitigations
 The following table presents mitigations to challenges you may encounter when using service principals.
@@ -86,7 +86,7 @@ Using PowerShell
 `Get-AzureADServicePrincipal -All:$true` 
 
 
-For more information see [Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0)
+For more information see [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal)
 
 ## Assess service principal security
 
@@ -102,7 +102,7 @@ Can't manage service principals' sign-in with Conditional Access.| Monitor the s
 | The default Azure RBAC role is Contributor​. |Evaluate the needs and apply the role with the least possible permissions to meet that need.|
 
 ## Move from a user account to a service principal​  
-‎If you are using an Azure user account as a service principal, evaluate if you can move to a [Managed Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) or a service principal. If you cannot use a managed identity, provision a service principal that has just enough permissions and scope to run the required tasks. You can create a service principal by [registering an application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal), or with [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell).
+‎If you are using an Azure user account as a service principal, evaluate if you can move to a [Managed Identity](../../app-service/overview-managed-identity.md?tabs=dotnet) or a service principal. If you cannot use a managed identity, provision a service principal that has just enough permissions and scope to run the required tasks. You can create a service principal by [registering an application](../develop/howto-create-service-principal-portal.md), or with [PowerShell](../develop/howto-authenticate-service-principal-powershell.md).
 
 When using Microsoft Graph, check the documentation of the specific API, [like in this example](/powershell/azure/create-azure-service-principal-azureps), ‎and make sure the permission type for application is showing as supported.
 
@@ -112,7 +112,7 @@ When using Microsoft Graph, check the documentation of the specific API, [like i
 
 [Create a service principal](../develop/howto-create-service-principal-portal.md)
 
- [Monitor service principal sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
+ [Monitor service principal sign-ins](../reports-monitoring/concept-sign-ins.md#sign-ins-report)
 
 **To learn more about securing service accounts:**
 

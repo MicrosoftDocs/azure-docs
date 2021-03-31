@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -322,6 +322,77 @@ Following example generates an integer random value between 0 and 1000. The valu
     - **outputClaim**: OTP_853
 
 
+## FormatLocalizedString
+
+Format multiple claims according to a provided localized format string. This transformation uses the C# `String.Format` method.
+
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaims |  |string | The collection of input claims that acts as string format {0}, {1}, {2} parameters. |
+| InputParameter | stringFormatId | string |  The `StringId` of a [localized string](localization.md).   |
+| OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
+
+> [!NOTE]
+> String format maximum allowed size is 4000.
+
+To use the FormatLocalizedString claims transformation:
+
+1. Define a [localization string](localization.md), and associate it with a [self-asserted-technical-profile](self-asserted-technical-profile.md).
+1. The `ElementType` of the `LocalizedString` element must be set to `FormatLocalizedStringTransformationClaimType`.
+1. The `StringId` is a unique identifier that you define, and use it later in your claims transformation `stringFormatId`.
+1. In the claims transformation, specify the list of claims to be set with the localized string. Then set the `stringFormatId` to the `StringId` of the localized string element. 
+1. In a [self-asserted technical profile](self-asserted-technical-profile.md), or a [display control](display-controls.md) input or output claims transformation, make a reference to your claims transformation.
+
+
+The following example generates an error message when an account is already in the directory. The example defines localized strings for English (default) and Spanish.
+
+```xml
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
+      </LocalizedStrings>
+    </LocalizedResources>
+  <LocalizedResources Id="api.localaccountsignup.es">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">Este correo electrónico "{0}" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+The claims transformation creates a response message based on the localized string. The message contains the user's email address embedded into the localized sting *ResponseMessge_EmailExists*.
+
+```xml
+<ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+    - **inputClaim**: sarah@contoso.com
+- Input parameters:
+    - **stringFormat**:  ResponseMessge_EmailExists
+- Output claims:
+  - **outputClaim**: The email 'sarah@contoso.com' is already an account in this organization. Click Next to sign in with that account.
+
+
 ## FormatStringClaim
 
 Format a claim according to the provided format string. This transformation uses the C# `String.Format` method.
@@ -331,6 +402,9 @@ Format a claim according to the provided format string. This transformation uses
 | InputClaim | inputClaim |string |The ClaimType that acts as string format {0} parameter. |
 | InputParameter | stringFormat | string | The string format, including the {0}  parameter. This input parameter supports [string claims transformation expressions](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
+
+> [!NOTE]
+> String format maximum allowed size is 4000.
 
 Use this claims transformation to format any string with one parameter {0}. The following example creates a **userPrincipalName**. All social identity provider technical profiles, such as `Facebook-OAUTH` calls the **CreateUserPrincipalName** to generate a **userPrincipalName**.
 
@@ -367,6 +441,9 @@ Format two claims according to the provided format string. This transformation u
 | InputClaim | inputClaim | string | The ClaimType that acts as string format {1} parameter. |
 | InputParameter | stringFormat | string | The string format, including the {0} and {1} parameters. This input parameter supports [string claims transformation expressions](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
+
+> [!NOTE]
+> String format maximum allowed size is 4000.
 
 Use this claims transformation to format any string with two parameters, {0} and {1}. The following example creates a **displayName** with the specified format:
 

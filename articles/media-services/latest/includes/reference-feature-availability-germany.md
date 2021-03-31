@@ -11,7 +11,7 @@ ms.author: inhenkel
 
 | Feature | Germany North (Public) | Germany West Central (Public) |
 | --- | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) |![Azure EventGrid Germany North (Public) general availability](../media/azure-clouds-regions/ga.svg) |![Azure EventGrid Germany West Central (Public) general availability](../media/azure-clouds-regions/ga.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |![Azure EventGrid Germany North (Public) general availability](../media/azure-clouds-regions/ga.svg) |![Azure EventGrid Germany West Central (Public) general availability](../media/azure-clouds-regions/ga.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![Azure EventGrid Germany North (Public) general availability](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid Germany West Central (Public) general availability](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![AudioAnalyzerPreset Germany North (Public) general availability](../media/azure-clouds-regions/ga.svg) |![AudioAnalyzerPreset Germany West Central (Public) general availability](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) | ![StandardEncoderPreset Germany North (Public) general availability](../media/azure-clouds-regions/ga.svg) |![StandardEncoderPreset Germany West Central (Public) general availability](../media/azure-clouds-regions/ga.svg) |

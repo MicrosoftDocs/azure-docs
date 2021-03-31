@@ -225,4 +225,4 @@ When you're finished with the quickstart, delete the resources created in the re
 
 ## Next steps
 
-Get familiar with the [Media Services Python SDK](https://docs.microsoft.com/python/api/azure-mgmt-media/?view=azure-python)
+Get familiar with the [Media Services Python SDK](https://docs.microsoft.com/python/api/azure-mgmt-media/)

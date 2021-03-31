@@ -7,6 +7,8 @@ ms.date: 05/30/2020
 ---
 # Terminology
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 This article provides an overview of terminology related to [Live Video Analytics on IoT Edge](overview.md).
 
 ## Azure Media Services

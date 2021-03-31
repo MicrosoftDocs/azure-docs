@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 12/07/2020
+ms.date: 03/08/2021
 ---
 
 # Geographic availability and currency support for the commercial marketplace
@@ -14,6 +14,8 @@ ms.date: 12/07/2020
 ## Supported geographic locations
 
 Commercial marketplace offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in 17 currencies. The following table lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
+
+A CSP can purchase an offer in Partner Center in their end customer's currency so they can bill them in that same currency. For additional information on this, refer to [these FAQs](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf).
 
 |   Country/Region Name               |   ISO-2   |   Currency</br>(All offer types)  |    Currency</br>(Consulting service offers only)    |
 |-------------------------------------|-----------|--------------|---------------------------------------------|

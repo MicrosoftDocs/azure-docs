@@ -121,6 +121,140 @@ After saving all changes, you can select **Create release** to manually create a
 
    ![Select Create release](media/release-creation-manually.png)
 
+## Use custom parameters of the workspace template 
+
+You use automated CI/CD and you want to change some properties during deployment, but the properties aren't parameterized by default. In this case, you can override the default parameter template.
+
+To override the default parameter template, you need to create a custom parameter template, a file named **template-parameters-definition.json** in the root folder of your git collaboration branch. You must use that exact file name. When publishing from the collaboration branch, Synapse workspace will read this file and use its configuration to generate the parameters. If no file is found, the default parameter template is used.
+
+### Custom parameter syntax
+
+The following are some guidelines for creating the custom parameters file:
+
+* Enter the property path under the relevant entity type.
+* Setting a property name to `*` indicates that you want to parameterize all properties under it (only down to the first level, not recursively). You can also provide exceptions to this configuration.
+* Setting the value of a property as a string indicates that you want to parameterize the property. Use the format `<action>:<name>:<stype>`.
+   *  `<action>` can be one of these characters:
+      * `=` means keep the current value as the default value for the parameter.
+      * `-` means don't keep the default value for the parameter.
+      * `|` is a special case for secrets from Azure Key Vault for connection strings or keys.
+   * `<name>` is the name of the parameter. If it's blank, it takes the name of the property. If the value starts with a `-` character, the name is shortened. For example, `AzureStorage1_properties_typeProperties_connectionString` would be shortened to `AzureStorage1_connectionString`.
+   * `<stype>` is the type of parameter. If `<stype>` is blank, the default type is `string`. Supported values: `string`, `securestring`, `int`, `bool`, `object`, `secureobject` and `array`.
+* Specifying an array in the file indicates that the matching property in the template is an array. Synapse iterates through all the objects in the array by using the definition that's specified. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
+* A definition can't be specific to a resource instance. Any definition applies to all resources of that type.
+* By default, all secure strings, like Key Vault secrets, and secure strings, like connection strings, keys, and tokens, are parameterized.
+
+### Parameter template definition samples 
+
+Here's an example of what a parameter template definition looks like:
+
+```json
+{
+"Microsoft.Synapse/workspaces/notebooks": {
+        "properties":{
+            "bigDataPool":{
+                "referenceName": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/sqlscripts": {
+	 "properties": {
+         "content":{
+             "currentConnection":{
+                    "*":"-"
+                 }
+            } 
+        }
+	},
+    "Microsoft.Synapse/workspaces/pipelines": {
+        "properties": {
+            "activities": [{
+                 "typeProperties": {
+                    "waitTimeInSeconds": "-::int",
+                    "headers": "=::object"
+                }
+            }]
+        }
+    },
+    "Microsoft.Synapse/workspaces/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/triggers": {
+        "properties": {
+            "typeProperties": {
+                "recurrence": {
+                    "*": "=",
+                    "interval": "=:triggerSuffix:int",
+                    "frequency": "=:-freq"
+                },
+                "maxConcurrency": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                     "*": "="
+                }
+            }
+        },
+        "AzureDataLakeStore": {
+            "properties": {
+                "typeProperties": {
+                    "dataLakeStoreUri": "="
+                }
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/datasets": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    }
+}
+```
+Here's an explanation of how the preceding template is constructed, broken down by resource type.
+
+#### Notebooks 
+
+* Any property in the path `properties/bigDataPool/referenceName` is parameterized with its default value. You can parameterize attached Spark pool for each notebook file. 
+
+#### SQL Scripts 
+
+* Properties (poolName and databaseName) in the path `properties/content/currentConnection` are parameterized as strings without the default values in the template. 
+
+#### Pipelines
+
+* Any property in the path `activities/typeProperties/waitTimeInSeconds` is parameterized. Any activity in a pipeline that has a code-level property named `waitTimeInSeconds` (for example, the `Wait` activity) is parameterized as a number, with a default name. But it won't have a default value in the Resource Manager template. It will be a mandatory input during the Resource Manager deployment.
+* Similarly, a property called `headers` (for example, in a `Web` activity) is parameterized with type `object` (Object). It has a default value, which is the same value as that of the source factory.
+
+#### IntegrationRuntimes
+
+* All properties under the path `typeProperties` are parameterized with their respective default values. For example, there are two properties under `IntegrationRuntimes` type properties: `computeProperties` and `ssisProperties`. Both property types are created with their respective default values and types (Object).
+
+#### Triggers
+
+* Under `typeProperties`, two properties are parameterized. The first one is `maxConcurrency`, which is specified to have a default value and is of type`string`. It has the default parameter name `<entityName>_properties_typeProperties_maxConcurrency`.
+* The `recurrence` property also is parameterized. Under it, all properties at that level are specified to be parameterized as strings, with default values and parameter names. An exception is the `interval` property, which is parameterized as type `int`. The parameter name is suffixed with `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Similarly, the `freq` property is a string and is parameterized as a string. However, the `freq` property is parameterized without a default value. The name is shortened and suffixed. For example, `<entityName>_freq`.
+
+#### LinkedServices
+
+* Linked services are unique. Because linked services and datasets have a wide range of types, you can provide type-specific customization. In this example, for all linked services of type `AzureDataLakeStore`, a specific template will be applied. For all others (via `*`), a different template will be applied.
+* The `connectionString` property will be parameterized as a `securestring` value. It won't have a default value. It will have a shortened parameter name that's suffixed with `connectionString`.
+* The property `secretAccessKey` happens to be an `AzureKeyVaultSecret` (for example, in an Amazon S3 linked service). It's automatically parameterized as an Azure Key Vault secret and fetched from the configured key vault. You can also parameterize the key vault itself.
+
+#### Datasets
+
+* Although type-specific customization is available for datasets, you can provide configuration without explicitly having a \*-level configuration. In the preceding example, all dataset properties under `typeProperties` are parameterized.
+
+
 ## Best practices for CI/CD
 
 If you're using Git integration with your Synapse workspace and have a CI/CD pipeline that moves your changes from development into test and then to production, we recommend these best practices:

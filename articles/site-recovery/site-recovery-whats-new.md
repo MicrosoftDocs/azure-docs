@@ -17,6 +17,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Configuration server ova** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | 9.41.5888.1 | 5.1.6620.0 | 9.41.5888.1 | 5.1.6620.0  | 2.0.9202.0
 [Rollup 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
 [Rollup 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
 [Rollup 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
@@ -25,6 +26,21 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (February 2021)
+
+### Update rollup 54
+
+[Update rollup 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup.
+**Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup. 
+**Azure VM disaster recovery** | Zone to Zone Disaster Recovery using Azure Site Recovery is now GA in 4 more regions – North Europe, East US, Central US, and West US 2.<br/>
+**VMware VM/physical disaster recovery to Azure** | The update includes portal support for selecting Proximity Placements Groups for VMware/Physical machines after enabling replication.<br/><br/> Protecting VMware machines with data disk size up to 32 TB iss now supported.
+**Hyper-V disaster recovery to Azure** | The update includes portal support for selecting Proximity Placements Groups for Hyper-V machines after enabling replication.
+
 
 ## Updates (January 2021)
 

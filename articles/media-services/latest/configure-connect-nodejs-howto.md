@@ -219,13 +219,13 @@ The following samples are available in the [repository](https://github.com/Azure
 
 ## See also
 
-- [Reference documentation for Azure Media Services modules for Node.js](https://docs.microsoft.com/javascript/api/overview/azure/media-services?view=azure-node-latest)
-- [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Reference documentation for Azure Media Services modules for Node.js](/javascript/api/overview/azure/media-services)
+- [Azure for JavaScript & Node.js developers](/azure/developer/javascript/)
 - [Media Services source code in the @azure/azure-sdk-for-js Git Hub repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
-- [Azure Package Documentation for Node.js developers](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+- [Azure Package Documentation for Node.js developers](/javascript/api/overview/azure/)
 - [Media Services concepts](concepts-overview.md)
 - [npm install @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
-- [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Azure for JavaScript & Node.js developers](/azure/developer/javascript/)
 - [Media Services source code in the @azure/azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## Next steps

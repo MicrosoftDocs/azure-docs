@@ -10,6 +10,8 @@ author: fvneerden
 ---
 # Tutorial: Analyze live video by using Intel OpenVINO™ DL Streamer – Edge AI Extension 
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server gives you access to different models for detecting objects (a person, a vehicle, or a bike), object classification (vehicle attributions) and a model for object tracking (person, vehicle and bike). The integration with the gRPC module lets you send video frames to the AI inference server. The results are then sent to the IoT Edge Hub. When you run this inference service on the same compute node as Live Video Analytics, you can take advantage of sending video data via shared memory. This enables you to run inferencing at the frame rate of the live video feed (eg. 30 frames/sec). 
 
 This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.
@@ -126,7 +128,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     The *deployment.openvino.grpc.cpu.amd64.json* manifest file is created in the *src/edge/config* folder.
 
 > [!NOTE]
-We also included a *deployment.openvino.grpc.gpu.template.json* template that enables GPU support for the Intel OpenVINO DL Streamer - Edge AI Extension module. These templates point to Intel's Docker hub image.
+> We also included a *deployment.openvino.grpc.gpu.template.json* template that enables GPU support for the Intel OpenVINO DL Streamer - Edge AI Extension module. These templates point to Intel's Docker hub image.
 
 The above mentioned templates point to the intel Docker hub image. If you rather want to host a copy on your own Azure Container Registry you can follow step 1 and 2 below:
 1. SSH into a device with docker CLI tools installed (i.e. your edge device) and pull/tag/push the container with these steps:

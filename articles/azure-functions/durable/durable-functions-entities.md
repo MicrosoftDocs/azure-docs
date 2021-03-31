@@ -14,7 +14,7 @@ Entity functions define operations for reading and updating small pieces of stat
 Entities provide a means for scaling out applications by distributing the work across many entities, each with a modestly sized state.
 
 > [!NOTE]
-> Entity functions and related functionality are only available in Durable Functions 2.0 and above. They are currently supported in .NET and JavaScript.
+> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET, JavaScript, and Python.
 
 ## General concepts
 
@@ -185,7 +185,6 @@ def entity_function(context: df.DurableEntityContext):
     elif operation == "get":
         context.set_result(current_value)
     context.set_state(current_value)
-
 
 
 main = df.Entity.create(entity_function)

@@ -7,6 +7,8 @@ ms.date: 04/27/2020
 ---
 # Playback of recordings 
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 ## Pre-read  
 
 * [Video playback](video-playback-concept.md)

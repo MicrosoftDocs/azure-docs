@@ -36,7 +36,7 @@ The following table shows the different methods that can be used to create an HD
 |[Azure CLI (ver 1.0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[.NET SDK](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)||||X|
+|[.NET SDK](/dotnet/api/overview/azure/hdinsight)||||X|
 |[Python SDK](/python/api/overview/azure/hdinsight)||||X|
 |[Java SDK](/java/api/overview/azure/hdinsight)||||X|
 |[Azure Resource Manager templates](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||

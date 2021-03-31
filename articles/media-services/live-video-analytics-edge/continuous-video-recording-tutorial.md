@@ -7,6 +7,8 @@ ms.date: 05/27/2020
 ---
 # Tutorial: Continuous video recording to the cloud and playback from the cloud
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 In this tutorial, you'll learn how to use Azure Live Video Analytics on Azure IoT Edge to perform [continuous video recording](continuous-video-recording-concept.md) (CVR) to the cloud and stream any portion of that video by using Azure Media Services. This capability is useful for scenarios such as safety and compliance where there's a need to maintain an archive of the footage from a camera for days or weeks. 
 
 In this tutorial you will:

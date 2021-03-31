@@ -7,6 +7,8 @@ ms.date: 05/22/2020
 ---
 # Quotas and limitations
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 This article enumerates the quotas and limitations of the Live Video Analytics on IoT Edge module.
 
 ## Maximum period of disconnected use

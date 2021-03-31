@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 01/14/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -31,7 +31,9 @@ properties from related resource types. Here is the list of tables available in 
 |ResourceContainers |Yes |Includes subscription (in preview -- `Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
 |AdvisorResources |Yes (preview) |Includes resources _related_ to `Microsoft.Advisor`. |
 |AlertsManagementResources |Yes (preview) |Includes resources _related_ to `Microsoft.AlertsManagement`. |
+|ExtendedLocationResources |No |Includes resources _related_ to `Microsoft.ExtendedLocation`. |
 |GuestConfigurationResources |No |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
+|KubernetesConfigurationResources |No |Includes resources _related_ to `Microsoft.KubernetesConfiguration`. |
 |MaintenanceResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.Maintenance`. |
 |PatchAssessmentResources|No |Includes resources _related_ to Azure Virtual Machines patch assessment. |
 |PatchInstallationResources|No |Includes resources _related_ to Azure Virtual Machines patch installation. |
@@ -39,6 +41,7 @@ properties from related resource types. Here is the list of tables available in 
 |RecoveryServicesResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.DataProtection` and `Microsoft.RecoveryServices`. |
 |SecurityResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.Security`. |
 |ServiceHealthResources |No |Includes resources _related_ to `Microsoft.ResourceHealth`. |
+|WorkloadMonitorResources |No |Includes resources _related_ to `Microsoft.WorkloadMonitor`. |
 
 For a complete list, including resource types, see [Reference: Supported tables and resource types](../reference/supported-tables-resources.md).
 

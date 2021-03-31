@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -14,6 +14,18 @@ manager: CelesteDG
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## February 2021
+
+### New articles
+
+- [Securing phone-based multi-factor authentication (MFA)](phone-based-mfa.md)
+
+### Updated articles
+
+- [Azure Active Directory B2C code samples](code-samples.md)
+- [Track user behavior in Azure AD B2C by using Application Insights](analytics-with-application-insights.md)
+- [Configure session behavior in Azure Active Directory B2C](session-behavior.md)
 
 ## January 2021
 

@@ -4,19 +4,17 @@ description: This topic shows how to configure your Azure Media Services account
 services: media-services
 keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: steveng
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 3/10/2021
 ms.author: willzhan
 ms.reviewer: dwgeo
-
 ---
 # Offline Widevine streaming for Android
 

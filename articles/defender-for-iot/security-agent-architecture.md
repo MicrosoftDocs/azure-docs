@@ -1,23 +1,11 @@
 ---
-title: Security agents overview
-description: Understand security agent architecture for the agents used in the Azure Defender for IoT service.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
+title: "Quickstart: Security agents overview"
+description: In this quickstart you will learn how to understand security agent architecture for the agents used in the Azure Defender for IoT service.
+ms.topic: quickstart
 ms.date: 01/24/2021
-ms.author: shhazam
 ---
 
-# Security agent reference architecture
+# Quickstart: Security agent reference architecture
 
 Azure Defender for IoT provides reference architecture for security agents that log, process, aggregate, and send security data through IoT Hub.
 
@@ -38,6 +26,10 @@ Defender for IoT Security agents is developed as open-source projects, and are a
 - [Defender for IoT C-based agent](https://github.com/Azure/Azure-IoT-Security-Agent-C)
 - [Defender for IoT C#-based agent](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
+## Prerequisites
+
+None
+
 ## Agent supported platforms
 
 Defender for IoT offers different installer agents for 32 bit and 64-bit Windows, and the same for 32 bit and 64-bit Linux. Make sure you have the correct agent installer for each of your devices according to the following table:
@@ -50,12 +42,9 @@ Defender for IoT offers different installer agents for 32 bit and 64-bit Windows
 
 ## Next steps
 
-In this article, you got a high-level overview about Defender for IoT security module architecture, and the available installers.
+In this article, you got a high-level overview about Defender for IoT Defender-IoT-micro-agent architecture, and the available installers.
 
 To continue getting started with Defender for IoT deployment, use the following articles:
 
-- Understand [security agent authentication methods](concept-security-agent-authentication-methods.md)
-- Select and deploy a [security agent](how-to-deploy-agent.md)
-- Review the Defender for IoT [system prerequisites](quickstart-system-prerequisites.md)
-- Learn how to [enable Defender for IoT service in your IoT Hub](quickstart-onboard-iot-hub.md)
-- Learn more about the service from the [Defender for IoT FAQ](resources-frequently-asked-questions.md)
+> [!div class="nextstepaction"]
+> [security agent authentication methods](concept-security-agent-authentication-methods.md)

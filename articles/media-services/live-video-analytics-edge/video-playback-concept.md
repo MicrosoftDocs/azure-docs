@@ -7,6 +7,8 @@ ms.date: 04/27/2020
 ---
 # Video playback 
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 ## Suggested pre-reading 
 
 * [Live Video Analytics on IoT Edge overview](overview.md)

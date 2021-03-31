@@ -10,6 +10,7 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
+ms.custom: cosmos-db
 ---
 
 # Interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
@@ -24,6 +25,10 @@ The following capabilities are supported while interacting with Azure Cosmos DB:
 * Synapse Apache Spark also supports Spark structured streaming with Azure Cosmos DB as a source as well as a sink. 
 
 The following sections walk you through the syntax of above capabilities. Gestures in Azure Synapse Analytics workspace are designed to provide an easy out-of-the-box experience to get started. Gestures are visible when you right-click on an Azure Cosmos DB container in the **Data** tab of the Synapse workspace. With gestures, you can quickly generate code and tailor it to your needs. Gestures are also perfect for discovering data with a single click.
+
+> [!IMPORTANT]
+> You should be aware of some constraints in the analytical schema that could lead to the unexpected behavior in data loading operations.
+> As an example, only first 1000 properties from transactional schema are available in the analytical schema, properties with spaces are not available, etc. If you are experiencing some unexpected results, check the [analytical store schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints) for more details.
 
 ## Query Azure Cosmos DB analytical store
 

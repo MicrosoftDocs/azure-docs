@@ -263,9 +263,9 @@ Review detailed security alerts and recommendations in Security Center, at the p
 
 It is recommended that you create a process with automated tools to monitor network resource configurations and quickly detect changes.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Export security alerts and recommendations](../security-center/continuous-export.md)
 
@@ -284,7 +284,7 @@ Enable Azure Activity log diagnostic settings for control plane audit logging. S
 
 Use Microsoft Azure Sentinel, a scalable, cloud-native, security information event management (SIEM) available to connect to various data sources and connectors, based on your business requirements. You can also enable and on-board data to a third-party security information event management (SIEM) system, such as Barracuda in Azure Marketplace.
 
-- [Logging ASE Activity](https://docs.microsoft.com/azure/app-service/environment/using-an-ase#logging)
+- [Logging ASE Activity](./environment/using-an-ase.md#logging)
 
 - [How to enable Diagnostic Settings for Azure App Service](troubleshoot-diagnostic-logs.md)
 
@@ -304,7 +304,7 @@ The "what, who, and when" for any write operations (PUT, POST, DELETE) performed
 
 Additionally, Azure Key Vault provides centralized secret management with access policies and audit history. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable Diagnostic Settings for Azure App Service](troubleshoot-diagnostic-logs.md)
 
@@ -321,7 +321,7 @@ Additionally, Azure Key Vault provides centralized secret management with access
 ### 2.5: Configure security log storage retention
 
 **Guidance**: In Azure Monitor, set the log retention period for the Log Analytics workspaces associated with your App Service resources according to your organization's compliance regulations.
-- [How to set log retention parameters](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -337,7 +337,7 @@ If you have deployed a Web Application Firewall (WAF), you can monitor attacks a
 
 Use Azure Sentinel, a scalable and cloud-native security information event management (SIEM), to integrate with various data sources and connectors, as per requirements. Optionally, enable and on-board data to a third-party  security information event management solution in the Azure Marketplace.
 
-- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable Application Insights](../azure-monitor/app/app-insights-overview.md)
 
@@ -371,9 +371,9 @@ Monitor attacks against your App Service apps by using a real-time Web Applicati
 
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and query-able. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
-- [How to use managed identities for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
+- [How to use managed identities for App Service and Azure Functions](./overview-managed-identity.md?tabs=dotnet&context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context)
 
 - [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
@@ -389,7 +389,7 @@ Generally, avoid implementing default passwords for user access when building yo
 
 Disable anonymous access, unless you need to support it. 
 
-- [Identity providers available by default in Azure App Service](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
+- [Identity providers available by default in Azure App Service](./overview-authentication-authorization.md#identity-providers)
 
 - [Authentication and authorization in Azure App Service and Azure Functions](overview-authentication-authorization.md)
 
@@ -436,7 +436,7 @@ App Service apps use federated identity, in which a third-party identity provide
 
 When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider.
 
-- [Understand authentication and authorization in Azure App Service](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
+- [Understand authentication and authorization in Azure App Service](./overview-authentication-authorization.md#identity-providers)
 
 - [Learn about Authentication and Authorization in Azure App Service](overview-authentication-authorization.md)
 
@@ -450,7 +450,7 @@ When you enable authentication and authorization with one of these providers, it
 
 Implement multifactor authentication for Azure AD. Administrators need to ensure that the subscription accounts in the portal are protected. The subscription is vulnerable to attacks because it manages the resources that you created. 
 
-- [Azure Security multifactor authentication](/azure/security/develop/secure-aad-app)
+- [Azure Security multifactor authentication](/previous-versions/azure/security/develop/secure-aad-app)
 
 - [How to enable multifactor authentication in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -516,7 +516,7 @@ Threat protection in Security Center provides comprehensive defenses for your en
 
 **Guidance**: Discover stale accounts with the logs provided by Azure Active Directory (Azure AD). Use Azure Identity Access Reviews to efficiently manage group memberships and access to enterprise applications, as well as role assignments. Review user access periodically to make sure only the intended users have continued access. 
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -532,7 +532,7 @@ Access to Azure AD sign-in activity, audit, and risk event log sources allow you
 
 - [How to configure your Azure App Service apps to use Azure AD login](configure-authentication-provider-aad.md)
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -560,7 +560,7 @@ Use Azure AD Identity Protection to configure automated responses to detected su
 
 **Guidance**: Not available; Customer Lockbox is not supported for Azure App Service.
 
-- [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [List of Customer Lockbox-supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsibility**: Customer
 
@@ -660,7 +660,7 @@ Customer supplied secrets are encrypted at rest while stored in App Service conf
 
 Note that while locally attached disks can be used optionally by websites as temporary storage, (for example, D:\local and %TMP%), they are not encrypted at rest.
 
-- [Understand data protection controls for Azure App Service](https://docs.microsoft.com/azure/app-service/security-recommendations#data-protection)
+- [Understand data protection controls for Azure App Service](./security-recommendations.md#data-protection)
 
 - [Understand Azure Storage encryption at rest](../storage/common/storage-service-encryption.md)
 
@@ -672,7 +672,7 @@ Note that while locally attached disks can be used optionally by websites as tem
 
 **Guidance**: Use Azure Monitor with Azure Activity log to create alerts upon any changes to production App Service apps and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -688,7 +688,7 @@ Note that while locally attached disks can be used optionally by websites as tem
 
 Review and follow recommendations from Security Center for securing your App Service apps.
 
-- [How to add continuous security validation to your CI/CD pipeline](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?preserve-view=true&amp;view=azure-devops)
+- [How to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops&preserve-view=true)
 
 - [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)
 
@@ -718,7 +718,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?preserve-view=true&amp;view=azps-4.8.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&preserve-view=true)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -840,7 +840,7 @@ Use WebJobs in App Service to monitor for unapproved software applications deplo
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 - [Run background tasks with WebJobs in Azure App Service](webjobs-create.md)
 
@@ -864,7 +864,7 @@ Similarly, use WebJobs in App Service to inventory unapproved software applicati
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -926,7 +926,7 @@ Apply built-in policy definitions such as:
 
 It is recommended that you document the process to apply the built-in policy definitions for standardized usage.   
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&amp;view=azps-4.8.0)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&preserve-view=true)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -952,9 +952,9 @@ It is recommended that you document the process to apply the built-in policy def
 
 Use your existing Continuous Integration (CI) and Continuous Delivery (CD) pipeline to deploy a known-secure configuration.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?preserve-view=true&amp;view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?preserve-view=true&amp;view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/?view=azure-devops&preserve-view=true)
 
 **Responsibility**: Customer
 
@@ -1060,7 +1060,7 @@ More information is available at the referenced links.
 
 - [Restore an app running in Azure App Service](web-sites-restore.md)
 
-- [Understand encryption at rest in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#encryption-at-rest-in-microsoft-cloud-services) 
+- [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
 
 - [Encryption Model and key management table](../security/fundamentals/encryption-atrest.md)
 
@@ -1188,5 +1188,5 @@ Additionally, clearly mark subscriptions (for example, production, non-productio
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

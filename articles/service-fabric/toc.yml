@@ -106,8 +106,6 @@
       href: service-fabric-tutorial-standalone-clean-up.md
 - name: Best practices
   items:
-  - name: Service Fabric best practices overview
-    href: service-fabric-best-practices-overview.md
   - name: Security
     href: service-fabric-best-practices-security.md
   - name: Networking 
@@ -895,7 +893,7 @@
   - name: Java API
     href: /java/api/overview/azure/servicefabric
   - name: .NET
-    href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
+    href: /dotnet/api/overview/azure/service-fabric
   - name: REST
     href: /rest/api/servicefabric
   - name: Resource Manager template

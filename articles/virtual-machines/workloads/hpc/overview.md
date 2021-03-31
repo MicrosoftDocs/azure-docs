@@ -6,7 +6,7 @@ ms.author: amverma
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: overview
-ms.date: 07/29/2020
+ms.date: 03/18/2021
 ms.reviewer: cynthn
 
 ---
@@ -28,19 +28,19 @@ See [Enable InfiniBand](enable-infiniband.md) to learn more about setting up Inf
 
 ### Message passing interface
 
-The SR-IOV enabled H-series and N-series support almost all MPI libraries and versions. Some of the most common, supported MPI libraries are: Intel MPI, OpenMPI, MPICH, MVAPICH2, Platform MPI, and all remote direct memory access (RDMA) verbs.
+The SR-IOV enabled H-series and N-series support almost all MPI libraries and versions. Some of the most commonly used MPI libraries are: Intel MPI, OpenMPI, HPC-X, MVAPICH2, MPICH, Platform MPI. All remote direct memory access (RDMA) verbs are supported.
 See [Set up MPI](setup-mpi.md) to learn more about installing various supported MPI libraries and their optimal configuration.
 
 ## Get started
 
 The first step is to select the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VM type optimal for the workload based on the VM specifications and [RDMA capability](../../sizes-hpc.md#rdma-capable-instances).
 Second, configure the VM by enabling InfiniBand. There are various methods to doing this including using optimized VM images with drivers baked-in; see [Optimization for Linux](configure.md) and [Enable InfiniBand](enable-infiniband.md) for details.
-Third, for distributed node workloads, choosing and configuring MPI is critical. See [Set up MPI](setup-mpi.md) for details.
-Fourth, for performance and scalability, optimally configure the workloads by following guidance specific to the VM family, such as for [HB-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md).
+Third, for distributed node workloads, choosing and configuring MPI appropriately is critical. See [Set up MPI](setup-mpi.md) for details.
+Fourth, for performance and scalability, optimally configure the workloads by following guidance specific to the VM family, such as for [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
 
 ## Next steps
 
 - Learn about [configuring and optimizing](configure.md) the InfiniBand enabled [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs.
-- Review the [HB-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md) to learn about optimally configuring workloads for performance and scalability.
-- Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Review the [HBv3-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md) to learn about optimally configuring workloads for performance and scalability.
+- Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

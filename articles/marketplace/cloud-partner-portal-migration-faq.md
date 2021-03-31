@@ -17,7 +17,7 @@ The Cloud Partner Portal has transitioned to Partner Center. Partner Center offe
 
 You can continue doing business in Partner Center:
 
-| Area<img src="" width=200px> | Changes |
+| Area | Changes |
 | --- | --- |
 | Account | No need to create a new Partner Center account; you can use your existing Cloud Partner Portal credentials to log into Partner Center where you will now manage your account, users, permissions, and billing. The publishing agreement and company profile information are migrated to your new Partner Center account, along with any payout profile information, user accounts and permissions, and active offers. Learn more at [Manage your commercial marketplace account in Partner Center](partner-center-portal/manage-account.md). |
 | Offer publishing and offer management experience | We've moved your offer data from the Cloud Partner Portal to Partner Center. You will now access your offers in Partner Center, which offers an improved user experience and intuitive interface. Learn how to [Update an existing offer in the commercial marketplace](partner-center-portal/update-existing-offer.md). |
@@ -36,7 +36,7 @@ No, your account will be preserved. This means that if you're an existing partne
 
 Following are Partner Center links for pages commonly used in the Cloud Partner Portal. If you saved the Cloud Partner Portal links as bookmarks, you'll want to update them.
 
-| Cloud Partner Portal page <img src="" width=100px>| Cloud Partner Portal page link | Partner Center page link |
+| Cloud Partner Portal page | Cloud Partner Portal page link | Partner Center page link |
 | --- | --- | --- |
 | All offers page | [https://cloudpartner.azure.com/#alloffers](https://cloudpartner.azure.com/#alloffers) | [https://partner.microsoft.com/dashboard/commercial-marketplace/overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) |
 | All publishers page | [https://cloudpartner.azure.com/#publishers](https://cloudpartner.azure.com/#publishers) | [https://partner.microsoft.com/dashboard/account/v3/publishers/list](https://partner.microsoft.com/dashboard/account/v3/publishers/list) |
@@ -70,7 +70,7 @@ All offer types previously supported in the Cloud Partner Portal are supported i
 
 For the offer types supported in Partner Center, all offers were moved regardless of their status; draft, de-listed, and preview-only offers also moved.
 
-| Offer type <img src="" width=150px>| Moved to Partner Center? <img src="" width=100px>| Next steps |
+| Offer type | Moved to Partner Center? | Next steps |
 | --- | --- | --- |
 | SaaS | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md). |
 | Virtual Machine | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Plan a virtual machine offer](marketplace-virtual-machines.md). |
@@ -176,7 +176,7 @@ You can request to [stop selling an offer](partner-center-portal/update-existing
 
 The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work. The transition to Partner Center introduces small changes. Review the table below to ensure your code continues to work in Partner Center.
 
-| API <img src="" width=100px>| Change description | Impact |
+| API | Change description | Impact |
 | --- | --- | --- |
 | POST Publish, GoLive, Cancel | For migrated offers, the response header will have a different format but will continue to work in the same way, denoting a relative path to retrieve the operation status. | When sending any of the corresponding POST requests for an offer, the Location header will have one of two formats depending on the migration status of the offer: <ul><li>Non-migrated offers: `/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Migrated offers: `/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
 | GET Operation | For offers that previously supported a 'notification-email' field in the response, this field will be deprecated and no longer returned for migrated offers. | For migrated offers, we'll no longer send notifications to the list of emails specified in the requests. Instead, the API service will align with the notification email process in Partner Center to send emails. Specifically, notifications of operation progress will be sent to the email address set in the Seller contact info section of your account settings in Partner Center.<br><br>Ensure the email address set in the Seller contact info section in the [Account settings](https://partner.microsoft.com/dashboard/account/management) in Partner Center is correct to receive notifications. |

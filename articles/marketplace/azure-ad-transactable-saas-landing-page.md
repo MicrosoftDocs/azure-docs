@@ -117,7 +117,7 @@ The ID token contains basic information to identify the buyer, but your activati
 | surname | Last name of the user. |
 |||
 
-Additional properties—such as the name of the user's company or the user's location (country)—can be selected for inclusion in the request. See [properties for the user resource type](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties) for more details.
+Additional properties—such as the name of the user's company or the user's location (country)—can be selected for inclusion in the request. See [properties for the user resource type](/graph/api/resources/user#properties) for more details.
 
 Most apps that are registered with Azure AD grant delegated permissions to read the user's information from their company's Azure AD tenant. Any request to Microsoft Graph for that information must be accompanied by an access token for authentication. Specific steps to generate the access token will depend on the technology stack you're using, but the sample code will contain an example. For more information, see [Get access on behalf of a user](/graph/auth-v2-user).
 

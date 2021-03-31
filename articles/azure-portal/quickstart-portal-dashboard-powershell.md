@@ -25,7 +25,7 @@ cmdlet. For more information about installing the Az PowerShell module, see
 [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> While the **Az.Portal** PowerShell module is in preview, you must install it separately from from
+> While the **Az.Portal** PowerShell module is in preview, you must install it separately from
 > the Az PowerShell module using the `Install-Module` cmdlet. Once this PowerShell module becomes
 > generally available, it becomes part of future Az PowerShell module releases and available
 > natively from within Azure Cloud Shell.
@@ -121,7 +121,7 @@ a JSON representation of a sample dashboard. For more information, see [The stru
 ```azurepowershell-interactive
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
 
-$myPortalDashboardTemplatePath = "$env:TEMP\portal-dashboard-template-testvm.json"
+$myPortalDashboardTemplatePath = "$HOME\portal-dashboard-template-testvm.json"
 
 Invoke-WebRequest -Uri $myPortalDashboardTemplateUrl -OutFile $myPortalDashboardTemplatePath -UseBasicParsing
 ```
@@ -164,20 +164,7 @@ Check that the dashboard was created successfully.
 Get-AzPortalDashboard -Name $dashboardName -ResourceGroupName $resourceGroupName
 ```
 
-Verify that you can see data about the VM from within the Azure portal.
-
-1. In the Azure portal, select **Dashboard**.
-
-   ![Azure portal navigation to dashboard](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. On the dashboard page, select **Simple VM Dashboard**.
-
-   ![Navigate to Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Review the dashboard. You can see that some of the content is static, but there are also charts
-   that show the performance of the VM.
-
-   ![Review Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## Clean up resources
 
@@ -190,6 +177,7 @@ To remove the VM and associated dashboard, delete the resource group that contai
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroupName
+Remove-Item -Path "$HOME\portal-dashboard-template-testvm.json"
 ```
 
 ## Next steps

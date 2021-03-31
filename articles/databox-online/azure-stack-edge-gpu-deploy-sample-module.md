@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Deploy a GPU enabled IoT module on Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 This article describes how to deploy a GPU enabled IoT Edge module on your Azure Stack Edge Pro GPU device. 
 

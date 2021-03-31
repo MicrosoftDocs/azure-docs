@@ -3,18 +3,17 @@ title: Configure the Haivision KB encoder to send a single bitrate live stream t
 description: 'This topic shows how to configure the Haivision KB live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding.'
 services: media-services
 documentationcenter: ''
-author: dbgeorge
+author: IngridAtMicrosoft
 manager: vsood
 editor: ''
-
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Use the Haivision KB live encoder to send a single bitrate live stream
 
