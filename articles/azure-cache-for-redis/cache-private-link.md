@@ -17,7 +17,7 @@ Azure Private Endpoint is a network interface that connects you privately and se
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
 > [!IMPORTANT]
-> Currently, zone redundancy, portal console support, firewall storage accounts, and persistence are not supported. 
+> Currently, zone redundancy, portal console support, and persistence to firewall storage accounts are not supported. 
 >
 >
 
@@ -201,7 +201,7 @@ To create a private endpoint, follow these steps.
 If your cache is already a VNet injected cache, private endpoints cannot be used with your cache instance. If your cache instance is using an unsupported feature (listed below), you won't be able to connect to your private endpoint instance.
 
 ### What features are not supported with private endpoints?
-Currently, zone redundancy, portal console support, firewall storage accounts, and persistence are not supported. 
+Currently, zone redundancy, portal console support, and persistence to firewall storage accounts are not supported. 
 
 ### How can I change my private endpoint to be disabled or enabled from public network access?
 There is a `publicNetworkAccess` flag which is `Disabled` by default. 
