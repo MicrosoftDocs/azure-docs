@@ -8,7 +8,7 @@ ms.author: diagarw
 ms.date: 03/31/2021
 ---
 
-## Create a FAQ Bot for multiple domains 
+# Create a FAQ Bot for multiple domains 
 
 When building a FAQ bot, you may encounter use cases that require you to address queries across multiple domains. Take for example, the following scenarios:
 
@@ -20,7 +20,7 @@ Many a times, users would have similar questions but on a different domain. You 
 1) Create a single knowledge base and define distinct domains for groups of QnA pairs.
 2) Create a separate knowledge base for each domain.
 
-### Create a single knowledge base and define distinct domains for groups of QnA pairs
+## Create a single knowledge base and define distinct domains for groups of QnA pairs
 
-### Create a separate knowledge base for each domain
+## Create a separate knowledge base for each domain
 
