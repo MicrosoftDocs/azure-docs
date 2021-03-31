@@ -20,7 +20,7 @@ Many a times, users would have similar questions but on a different domain. You 
 1) Create a single knowledge base and define distinct domains for groups of QnA pairs.
 2) Create a separate knowledge base for each domain.
 
-## Create a single knowledge base and define distinct domains for groups of QnA pairs
+#### Create a single knowledge base and define distinct domains for groups of QnA pairs
 
-## Create a separate knowledge base for each domain
+#### Create a separate knowledge base for each domain
 
