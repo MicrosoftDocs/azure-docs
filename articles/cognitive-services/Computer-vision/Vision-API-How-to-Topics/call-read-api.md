@@ -124,3 +124,7 @@ See the following example of a successful JSON response:
   }
 }
 ```
+
+## Next steps
+
+To use the REST API, go to the [Read API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005).
