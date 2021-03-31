@@ -45,8 +45,9 @@ If you're using Safari on macOS, your app will not be able to enumerate/select s
 
 ### Audio connectivity is lost when receiving SMS messages or calls during an ongoing VoIP call
 This problem may occur due to multiple reasons:
-1. Some Mobile browsers don't maintain connectivity while in the background state. This can lead to a degraded call experience if the VoIP call was interrupted by an event that pushes your application into the background. 
-2. Other times it could happen due to SMS or PSTN call has captured the audio sound. On iOS Apple fixed it in version 14.4.1+. 
+
+- Some mobile browsers don't maintain connectivity while in the background state. This can lead to a degraded call experience if the VoIP call was interrupted by an event that pushes your application into the background. 
+- Sometimes, an SMS or PSTN call captures the audio sound, and doesn't release audio back to the VoIP call. Apple fixed this issue in iOS versions 14.4.1+. 
 
 <br/>Client library: Calling (JavaScript)
 <br/>Browsers: Safari, Chrome
