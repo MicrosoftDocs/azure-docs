@@ -45,10 +45,8 @@ You can see all the applications in a soft deleted state.  Only applications del
 
 #### To view your restorable applications
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-
 2. Search and select **Azure Active Directory**, select **App registrations**, and then select the **Deleted applications (Preview)** tab.
-
-    Review the list of applications. Only applications that have been deleted in the past 30 days are available to restore. If using the App registrations search preview, you can filter by the 'Deleted date' column to see only these applications.
+Review the list of applications. Only applications that have been deleted in the past 30 days are available to restore. If using the App registrations search preview, you can filter by the 'Deleted date' column to see only these applications.
 
 ## Restore a recently deleted application
 
@@ -59,7 +57,6 @@ This is because organization-specific settings are stored on a separate object, 
 
 ### To restore an application
 1. On the **Deleted applications (Preview)** tab, search for and select one of the applications deleted less than 30 days ago.
-
 2. Select **Restore app registration**.
 
 ## Permanently delete an application
@@ -68,9 +65,7 @@ You can manually permanently delete an application from your organization. A per
 ### To permanently delete an application
 
 1. On the **Deleted applications (Preview)** tab, search for and select one of the available applications.
-
 2. Select **Delete permanently**.
-
 3. Read the warning text and select **Yes**.
 
 ## Next steps
