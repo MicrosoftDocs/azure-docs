@@ -6,15 +6,15 @@ services: storage
 author: ikivanc
 
 ms.service: storage
-ms.devlang: yaml
+ms.devlang: python
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 03/31/2021
 ms.author: ikivanc
 ---
 
 # Run automated tests by using Azurite
 
-Learn how to write automated tests against private endpoints for Azure Blob Storage by using Azurite.
+Learn how to write automated tests against private endpoints for Azure Blob Storage by using the Azurite storage emulator.
 
 ## Run tests on your local machine
 
@@ -22,7 +22,7 @@ Learn how to write automated tests against private endpoints for Azure Blob Stor
 
 1. Install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 
-1. Install and run Azurite:
+1. Install and run [Azurite](../common/storage-use-azurite.md):
 
    **Option 1:** Use npm to install, then run Azurite locally
 
@@ -57,7 +57,7 @@ Learn how to write automated tests against private endpoints for Azure Blob Stor
    python -m venv .venv
    ```
 
-1. Create a container and initialize environment variables. Use a [PyTest](https://docs.pytest.org/) [conftest.py](https://docs.pytest.org/en/2.1.0/plugins.html) file to generate tests.
+1. Create a container and initialize environment variables. Use a [PyTest](https://docs.pytest.org/) [conftest.py](https://docs.pytest.org/en/2.1.0/plugins.html) file to generate tests. Here is an example of a conftest.py file:
 
    ```python
    from azure.storage.blob import BlobServiceClient
@@ -78,10 +78,10 @@ Learn how to write automated tests against private endpoints for Azure Blob Stor
    > [!NOTE]
    > The value shown for `AZURE_STORAGE_CONNECTION_STRING` is the default value for Azurite, it's not a private key.
 
-1. Install dependencies  
+1. Install dependencies listed in a [requirements.txt](https://github.com/Azure-Samples/automated-testing-with-azurite/blob/main/requirements.txt) file
 
    ```bash
-   pip install -r requirements_tests.txt
+   pip install -r requirements.txt
    ```
 
 1. Run tests:
@@ -96,7 +96,7 @@ After running tests, you can see the files in Azurite blob storage by using Azur
 
 ## Run tests on Azure Pipelines
 
-After running tests locally, make sure the tests pass on Azure Pipelines. Use a Docker Azurite image as a hosted agent on Azure, or use npm to install Azurite. The following Azure Pipelines example uses npm to install Azurite.
+After running tests locally, make sure the tests pass on [Azure Pipelines](/azure/devops/pipelines). Use a Docker Azurite image as a hosted agent on Azure, or use npm to install Azurite. The following Azure Pipelines example uses npm to install Azurite.
   
 ```yaml
 trigger:
@@ -142,3 +142,4 @@ After running the Azure Pipelines tests, you should see output similar to this:
 ## Next steps
 
 [Use the Azurite emulator for local Azure Storage development](../common/storage-use-azurite.md)
+[Sample: Using Azurite to run blob storage tests in Azure DevOps Pipeline](https://github.com/Azure-Samples/automated-testing-with-azurite)
