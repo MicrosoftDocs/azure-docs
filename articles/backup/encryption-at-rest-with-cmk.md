@@ -123,6 +123,9 @@ To assign the user-assigned managed identity for your Recovery Services vault, p
 
 ## Assign permissions to the Recovery Services vault to access the encryption key in the Azure Key Vault
 
+>[!Note]
+>If you are using user-assigned identities, the same permissions must be assigned to the user-assigned identity.
+
 You now need to permit the Recovery Services vault to access the Azure Key Vault that contains the encryption key. This is done by allowing the Recovery Services vault’s managed identity to access the Key Vault.
 
 **In the portal**:
@@ -272,8 +275,8 @@ Before proceeding to configure protection, we strongly recommend you ensure the 
 > Before proceeding to configure protection, you must have **successfully** completed the following steps:
 >
 >1. Created your Backup vault
->1. Enabled the Backup vault’s system-assigned Managed Identity
->1. Assigned permissions to your Backup Vault to access encryption keys from your Key Vault
+>1. Enabled the Recovery Services vault's system-assigned managed identity or assigned a user-assigned managed identity to the vault
+>1. Assigned permissions to your Backup Vault (or the user-assigned managed identity) to access encryption keys from your Key Vault
 >1. Enabled soft delete and purge protection for your Key Vault
 >1. Assigned a valid encryption key for your Backup vault
 >
