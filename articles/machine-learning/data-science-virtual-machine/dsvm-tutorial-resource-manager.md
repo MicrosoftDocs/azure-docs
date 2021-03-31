@@ -1,14 +1,16 @@
 ---
 title: 'Quickstart: Create a Data Science VM - Resource Manager template'
-titleSuffix: Azure Data Science Virtual Machine 
+titleSuffix: Azure Data Science Virtual Machine
 description: In this quickstart, you use an Azure Resource Manager template to quickly deploy a Data Science Virtual Machine
 services: machine-learning
 author: lobrien
 ms.author: laobri
-ms.custom: subject-armqs
 ms.date: 06/10/2020
-ms.service: data-science-vm
 ms.topic: quickstart
+ms.service: data-science-vm
+ms.custom:
+  - subject-armqs
+  - mode-arm
 ---
 
 # Quickstart: Create an Ubuntu Data Science Virtual Machine using an ARM template

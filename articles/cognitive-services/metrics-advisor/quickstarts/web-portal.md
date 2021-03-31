@@ -1,15 +1,17 @@
 ---
-title: "Quickstart: Metrics Advisor web portal" 
+title: 'Quickstart: Metrics Advisor web portal'
 titleSuffix: Azure Cognitive Services
 description: Learn how to start using the Metrics Advisor web portal.
 services: cognitive-services
 author: mrbullwinkle
+ms.author: mbullwin
 manager: nitinme
+ms.date: 09/30/2020
+ms.topic: quickstart
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
-ms.topic: quickstart
-ms.date: 09/30/2020
-ms.author: mbullwin
+ms.custom:
+  - mode-portal
 ---
 
 # Quickstart: Monitor your first metric using the web portal

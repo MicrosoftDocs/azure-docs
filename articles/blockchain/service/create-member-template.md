@@ -2,10 +2,13 @@
 title: Create an Azure Blockchain Service member by using Azure Resource Manager template
 description: Learn how to create an Azure Blockchain Service member by using Azure Resource Manager template.
 services: azure-resource-manager
-ms.service: azure-resource-manager
-ms.topic: quickstart
-ms.custom: subject-armqs, references_regions
 ms.date: 09/16/2020
+ms.topic: quickstart
+ms.service: azure-resource-manager
+ms.custom:
+  - subject-armqs
+  - references_regions
+  - mode-arm
 ---
 
 # Quickstart: Create an Azure Blockchain Service member using an ARM template

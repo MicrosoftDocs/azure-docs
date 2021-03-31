@@ -2,18 +2,19 @@
 title: 'Quickstart: Create an Azure Front Door Service by using an Azure Resource Manager template (ARM template)'
 description: This quickstart describes how to create an Azure Front Door Service by using Azure Resource Manager template (ARM template).
 services: front-door
-documentationcenter: ''
+documentationcenter: 
 author: duongau
-editor: ''
-ms.assetid:
-ms.service: frontdoor
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/14/2020
 ms.author: duau
-ms.custom: subject-armqs
+editor: 
+ms.date: 09/14/2020
+ms.topic: quickstart
+ms.service: frontdoor
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+  - subject-armqs
+  - mode-arm
 # Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 

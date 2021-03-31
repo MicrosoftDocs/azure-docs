@@ -3,12 +3,14 @@ title: 'Quickstart: Create an ExpressRoute circuit by using an Azure Resource Ma
 description: This quickstart shows you how to create an ExpressRoute circuit by using Azure Resource Manager template (ARM template).
 services: expressroute
 author: duongau
-mnager: kumud
-ms.service: expressroute
-ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 10/12/2020
 ms.author: duau
+manager: kumud
+ms.date: 10/12/2020
+ms.topic: quickstart
+ms.service: expressroute
+ms.custom:
+  - subject-armqs
+  - mode-arm
 ---
 
 # Quickstart: Create an ExpressRoute circuit with private peering using an ARM template
