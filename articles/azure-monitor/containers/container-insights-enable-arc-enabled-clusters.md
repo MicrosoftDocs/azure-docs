@@ -115,10 +115,13 @@ If the Azure Arc enabled Kubernetes cluster is on Azure Stack Edge, then a custo
 az k8s-extension create --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --name azuremonitor-containers --configuration-settings  omsagent.logsettings.custommountpath=/home/data/docker
 ```
 
+>[!NOTE]
+> If you are explicitly specifying the version of the extension to be installed in the create command, then ensure that the version specified is >= 2.8.2.
+
 ## Create Azure Monitor extension instance using Azure portal
 
 >[!IMPORTANT]
->If you are deploying Azure Monitor on a Kubernetes cluster running on top of Azure Stack Edge, then the Azure CLI option needs to be followed instead of the Azure portal option as a custom mount path needs to be set for these clusters.    
+>  If you are deploying Azure Monitor on a Kubernetes cluster running on top of Azure Stack Edge, then the Azure CLI option needs to be followed instead of the Azure portal option as a custom mount path needs to be set for these clusters.    
 
 ### Onboarding from the Azure Arc enabled Kubernetes resource blade
 
