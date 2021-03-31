@@ -21,11 +21,11 @@ Managing costs and invoices is one of the key components of your cloud experienc
 
 The following diagram compares your old and the new billing account:
 
-:::image type="content" source="./media/mosp-new-customer-experience/comparison-old-new-account.png" alt-text="Diagram showing the comparison between billing hierarchy in the old and the new account" border="false" lightbox="./media/mosp-new-customer-experience/comparison-old-new-account.png":::
+:::image type="content" source="./media/mosp-new-customer-experience/comparison-old-new-account.png" alt-text="Diagram showing the comparison between billing hierarchy in the old and the new account." border="false" lightbox="./media/mosp-new-customer-experience/comparison-old-new-account.png":::
 
 Your new billing account contains one or more billing profiles that let you manage your invoices and payment methods. Each billing profile contains one or more invoice sections that let you organize costs on the billing profile's invoice.
 
-![Diagram showing the new billing hierarchy](./media/mosp-new-customer-experience/new-billing-account-hierarchy.png)
+:::image type="content" source="./media/mosp-new-customer-experience/new-billing-account-hierarchy.png" alt-text="Diagram showing the new billing hierarchy." border="false" lightbox="./media/mosp-new-customer-experience/new-billing-account-hierarchy.png":::
 
 Roles on the billing account have the highest level of permissions. These roles should be assigned to users that need to view invoices, and track costs for your entire account like finance or IT managers in an organization or the individual who signed up for an account. For more information, see [billing account roles and tasks](../manage/understand-mca-roles.md#billing-account-roles-and-tasks). When your account is updated, the user who has an account administrator role in the old billing account is given an owner role on the new account.
 
@@ -58,29 +58,17 @@ Your new experience includes the following cost management and billing capabilit
 **Get a single monthly invoice for multiple subscriptions** - In your existing account, you get an invoice for each Azure subscription. When your account is updated, the existing behavior is maintained but you have the flexibility to consolidate the charges of your subscriptions on a single invoice. After you account is updated, follow the steps below to consolidate your charges on a single invoice:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. Search for **Cost Management + Billing**.
-
+2. Search for **Cost Management + Billing**.  
    ![Screenshot that shows search in the Azure portal for Cost Management + Billing.](./media/mosp-new-customer-experience/billing-search-cost-management-billing.png)
-
 3. Select **Azure subscriptions** from the left-side of the screen. 
-
-4. The table lists Azure subscriptions that you're paying for. In the billing profile column, you would find the billing profile that is billed for the subscription. The subscription charges are displayed on the invoice for the billing profile. To consolidate the charges for all your subscriptions on a single invoice, you need to link all your subscriptions to a single billing profile.
-
+4. The table lists Azure subscriptions that you're paying for. In the billing profile column, you would find the billing profile that is billed for the subscription. The subscription charges are displayed on the invoice for the billing profile. To consolidate the charges for all your subscriptions on a single invoice, you need to link all your subscriptions to a single billing profile.  
     ![Screenshot that shows the list of Azure subscriptions](./media/mosp-new-customer-experience/list-azure-subscriptions.png)
-
 5. Pick a billing profile that you want to use. 
-
-6. Select a subscription that is not linked to the billing profile that you chose in step 5. Click on ellipsis (three dots) for the subscription. Select **Change invoice section**.
- 
-    [![Screenshot that shows where to find the option to change invoice section](./media/mosp-new-customer-experience/select-change-invoice-section.png)](./media/mosp-new-customer-experience/select-change-invoice-section-zoomed-in.png)
-
-7. Select the billing profile that you chose in step #5.
-
-    [![Screenshot that shows how to change invoice section](./media/mosp-new-customer-experience/change-invoice-section.png)](./media/mosp-new-customer-experience/change-invoice-section-zoomed-in.png)
-
+6. Select a subscription that is not linked to the billing profile that you chose in step 5. Click on ellipsis (three dots) for the subscription. Select **Change invoice section**.  
+    :::image type="content" source="./media/mosp-new-customer-experience/select-change-invoice-section.png" alt-text="Screenshot that shows where to find the option to change invoice section." lightbox="./media/mosp-new-customer-experience/select-change-invoice-section-zoomed-in.png" :::
+7. Select the billing profile that you chose in step #5.  
+    :::image type="content" source="./media/mosp-new-customer-experience/change-invoice-section.png" alt-text="Screenshot that shows how to change invoice section." lightbox="./media/mosp-new-customer-experience/change-invoice-section-zoomed-in.png" :::
 8. Select **Change**.
- 
 9. Repeat steps 6-8 for all other subscriptions. 
 
 **Receive a single monthly invoice for Azure subscriptions, support plans, and Azure Marketplace products** - You'll get one monthly invoice for all charges including usage charges for Azure subscriptions, and support plans and Azure Marketplace purchases.
@@ -169,7 +157,7 @@ With your updated account, you receive a single invoice for all Azure charges. Y
 
 For example, if your billing period was November 24 to December 23 for your old account, then after the upgrade the period becomes November 1 to November 30, December 1 to December 31 and so on.
 
-:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Image showing a comparison between old and new billing periods " lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
+:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Screenshot showing a comparison between old and new billing periods." lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
 
 #### Budgets
 
@@ -184,7 +172,7 @@ Your new billing account provides improved export functionality. For example, yo
 
 For example, for a billing period from December 23 to January 22, the exported CSV file would have cost and usage data for that period. After the update, the export will contain data for the calendar month. For example, January 1 to January 31 and so on.
 
-:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Image showing a comparison between old and new export details" lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
+:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Screenshots showing a comparison between old and new export details." lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
 
 ## Additional information
 
