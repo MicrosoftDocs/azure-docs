@@ -13,9 +13,10 @@ ms.date: 05/18/2018
 Log Analytics is a data store where personal data is likely to be found. Application Insights stores its data in a Log Analytics partition. This article will discuss where in Log Analytics and Application Insights such data is typically found, as well as the capabilities available to you to handle such data.
 
 > [!NOTE]
-> For the purposes of this article _log data_ refers to data sent to a Log Analytics workspace, while _application data_ refers to data collected by Application Insights.
+> For the purposes of this article _log data_ refers to data sent to a Log Analytics workspace, while _application data_ refers to data collected by Application Insights. If you are using a workspace-based Application Insights resource, the information on log data will apply but if you are using the classic Application Insights resource then the  application data applies.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
+
 
 ## Strategy for personal data handling
 
@@ -23,7 +24,7 @@ While it will be up to you and your company to ultimately determine the strategy
 
 * Where possible, stop collection of, obfuscate, anonymize, or otherwise adjust the data being collected to exclude it from being considered "private". This is _by far_ the preferred approach, saving you the need to create a very costly and impactful data handling strategy.
 * Where not possible, attempt to normalize the data to reduce the impact on the data platform and performance. For example, instead of logging an explicit User ID, create a lookup data that will correlate the username and their details to an internal ID that can then be logged elsewhere. That way, should one of your users ask you to delete their personal information, it is possible that only deleting the row in the lookup table corresponding to the user will be sufficient. 
-* Finally, if private data must be collected, build a process around the purge API path and the existing query API path to meet any obligations you may have around exporting and deleting any private data associated with a user. 
+* Finally, if private data must be collected, build a process around the purge API path and the existing query API path to meet any obligations you may have around exporting and deleting any private data associated with a user.
 
 ## Where to look for private data in Log Analytics?
 

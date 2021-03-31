@@ -4,7 +4,7 @@ description: The Azure Kubernetes Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -14,17 +14,9 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure Kubernetes Service
 
-This security
-baseline applies guidance from the [Azure Security Benchmark version
-1.0](../security/benchmarks/overview-v1.md) to Azure Kubernetes. The Azure Security Benchmark
-provides recommendations on how you can secure your cloud solutions on Azure.
-The content is grouped by the **security controls** defined by the Azure
-Security Benchmark and the related guidance applicable to Azure Kubernetes. **Controls** not applicable to Azure Kubernetes have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Azure Kubernetes. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Kubernetes. **Controls** not applicable to Azure Kubernetes, or for which the responsibility is Microsoft's, have been excluded.
 
- 
-To see how Azure Kubernetes completely maps to the Azure
-Security Benchmark, see the [full Azure Kubernetes security baseline mapping
-file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+To see how Azure Kubernetes completely maps to the Azure Security Benchmark, see the [full Azure Kubernetes security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Network Security
 
@@ -46,7 +38,7 @@ You can implement a private AKS cluster to ensure network traffic between your A
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ContainerService**:
 
@@ -631,7 +623,7 @@ Use the AKS built-in roles with Azure RBAC- Resource Policy Contributor and Owne
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ContainerService**:
 
@@ -724,7 +716,7 @@ Note that the process to keep Windows Server nodes up to date differs from nodes
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.ContainerService**:
 
@@ -1258,13 +1250,13 @@ Perform regular automated backups of Key Vault Certificates, Keys, Managed Stora
 
 Periodically perform data restoration of Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with PowerShell commands.
 
-- [How to restore Key Vault Certificates](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultcertificate?view=azps-4.8.0&amp;preserve-view=true)
+- [How to restore Key Vault Certificates](/powershell/module/az.keyvault/restore-azkeyvaultcertificate)
 
-- [How to restore Key Vault Keys](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to restore Key Vault Keys](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 - [How to restore Key Vault Managed Storage Accounts](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [How to restore Key Vault Secrets](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultsecret?view=azps-4.8.0&amp;preserve-view=true)
+- [How to restore Key Vault Secrets](/powershell/module/az.keyvault/restore-azkeyvaultsecret)
 
 - [How to recover files from Azure Virtual Machine backup](/azure/backup/backup-azure-restore-files-from-vm)
 

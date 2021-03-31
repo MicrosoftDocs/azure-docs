@@ -14,7 +14,7 @@ Azure Monitor supports distributed tracing, metric collection, and logging of Py
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/release/python-370/), although other versions will likely work with minor changes. The SDK only supports Python v2.7 and v3.4-v3.7.
+- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/release/python-370/), although other versions will likely work with minor changes. The SDK only supports Python versions 2.7 and 3.6+.
 - Create an Application Insights [resource](./create-new-resource.md). You'll be assigned your own instrumentation key (ikey) for your resource.
 
 ## Instrument with OpenCensus Python SDK for Azure Monitor

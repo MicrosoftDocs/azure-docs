@@ -32,6 +32,9 @@ When you enable container soft delete, you can specify a retention period for de
 
 When you restore a container, the container's blobs and any blob versions are also restored. However, you can only use container soft delete to restore blobs if the container itself was deleted. To a restore a deleted blob when its parent container has not been deleted, you must use blob soft delete or blob versioning.
 
+> [!WARNING]
+> Container soft delete can restore only whole containers and the blobs they contained at the time of deletion. You cannot restore a deleted blob within a container by using container soft delete.
+
 The following diagram shows how a deleted container can be restored when container soft delete is enabled:
 
 :::image type="content" source="media/soft-delete-container-overview/container-soft-delete-diagram.png" alt-text="Diagram showing how a soft-deleted container may be restored":::

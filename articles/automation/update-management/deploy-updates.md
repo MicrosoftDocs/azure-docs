@@ -3,7 +3,7 @@ title: How to create update deployments for Azure Automation Update Management
 description: This article describes how to schedule update deployments and review their status.
 services: automation
 ms.subservice: update-management
-ms.date: 12/09/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
 ---
 
@@ -16,6 +16,9 @@ Under each scenario, the deployment you create targets that selected machine or 
 * The operating system is automatically pre-selected based on the OS of the machine
 * The target machine to update is set to target itself automatically
 * When configuring the schedule, you can specify **Update now**, occurs once, or uses a recurring schedule.
+
+> [!IMPORTANT]
+> By creating an update deployment, you accept the terms of the Software License Terms (EULA) provided by the company offering updates for their operating system.
 
 ## Sign in to the Azure portal
 

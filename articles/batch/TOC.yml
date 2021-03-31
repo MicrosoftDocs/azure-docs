@@ -163,6 +163,9 @@
     - name: Configure managed identities
       displayName: user-assigned
       href: managed-identity-pools.md
+    - name: Enable certificate rotation
+      displayName: key vault, keyvault, automatic
+      href: automatic-certificate-rotation.md
     - name: Mount a virtual file system
       href: virtual-file-mount.md
     - name: Mount an Azure file share

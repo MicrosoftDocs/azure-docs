@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 03/10/2021
 ms.author: b-juche
 ---
 # Resize a capacity pool or a volume
@@ -34,6 +34,21 @@ You can change the size of a volume as necessary. A volume's capacity consumptio
 1. From the Manage NetApp Account blade, click **Volumes**. 
 2. Right-click the name of the volume that you want to resize or click the "…" icon at the end of the volume's row to display the context menu.
 3. Use the context menu options to resize or delete the volume.
+
+## Resize a cross-region replication destination volume 
+
+In a [cross-region replication](cross-region-replication-introduction.md) relationship, a destination volume is automatically resized based on the size of the source volume. As such, you don’t need to resize the destination volume separately. This automatic resizing behavior is applicable when the volumes are in an active replication relationship, or when replication peering is broken with the [resync operation](cross-region-replication-manage-disaster-recovery.md#resync-replication). 
+
+The following table describes the destination volume resizing behavior based on the [Mirror state](cross-region-replication-display-health-status.md):
+
+|  Mirror state  | Destination volume resizing behavior |
+|-|-|
+| *Mirrored* | When the destination volume has been initialized and is ready to receive mirroring updates, resizing the source volume automatically resizes the destination volumes. |
+| *Broken* | When you resize the source volume and the Mirror state is *broken*, the destination volume is automatically resized with the [resync operation](cross-region-replication-manage-disaster-recovery.md#resync-replication).  |
+| *Uninitialized* | When you resize the source volume and the Mirror state is still *uninitialized*, resizing the destination volume needs to be done manually. As such, it's recommended that you wait for the initialization to complete (that is, when the Mirror state becomes *mirrored*) to resize the source volume. | 
+
+> [!IMPORTANT]
+> Ensure that you have enough headroom in the capacity pools for both the source and the destination volumes of cross-region replication. When you resize the source volume, the destination volume is automatically resized. But if the capacity pool hosting the destination volume doesn’t have enough headroom, the resizing of both the source and the destination volumes will fail.
 
 ## Next steps
 

@@ -131,14 +131,16 @@ Some of these files are only written once when pool nodes are created, such as p
 
 Other files are written out for each task that is run on a node, such as stdout and stderr. If a large number of tasks run on the same node and/or the task files are too large, they could fill the temporary drive.
 
-The size of the temporary drive depends on the VM size. One consideration when picking a VM size is to ensure the temporary drive has enough space.
+Additionally, after the node starts, a small amount of space is needed on the operating system disk to create users.
+
+The size of the temporary drive depends on the VM size. One consideration when picking a VM size is to ensure the temporary drive has enough space for the planned workload.
 
 - In the Azure portal when adding a pool, the full list of VM sizes can be displayed and there is a 'Resource Disk Size' column.
 - The articles describing all VM sizes have tables with a 'Temp Storage' column; for example [Compute Optimized VM sizes](../virtual-machines/sizes-compute.md)
 
 For files written out by each task, a retention time can be specified for each task that determines how long the task files are kept before being automatically cleaned up. The retention time can be reduced to lower the storage requirements.
 
-If the temporary disk runs out of space (or is very close to running out of space), the node will move to [Unusable](/rest/api/batchservice/computenode/get#computenodestate) state and a node error will be reported saying that the disk is full.
+If the temporary or operating system disk runs out of space (or is very close to running out of space), the node will move to [Unusable](/rest/api/batchservice/computenode/get#computenodestate) state and a node error will be reported saying that the disk is full.
 
 If you're not sure what is taking up space on the node, try remoting to the node and investigating manually where the space has gone. You can also make use of the [Batch List Files API](/rest/api/batchservice/file/listfromcomputenode) to examine files in Batch managed folders (for example, task outputs). Note that this API only lists files in the Batch managed directories. If your tasks created files elsewhere, you won't see them.
 

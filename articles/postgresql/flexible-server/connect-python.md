@@ -23,7 +23,7 @@ This article assumes that you're familiar with developing using Python, but you'
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * An Azure Database for PostgreSQL - Flexible Server. To create flexible server, refer to [Create an Azure Database for PostgreSQL - Flexible Server using Azure portal](./quickstart-create-server-portal.md).
-* [Python](https://www.python.org/downloads/) 2.7.9+ or 3.4+.
+* [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 * Latest [pip](https://pip.pypa.io/en/stable/installing/) package installer.
 
 ## Preparing your client workstation

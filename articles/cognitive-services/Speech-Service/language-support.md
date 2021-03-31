@@ -69,7 +69,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | English (South Africa)             | `en-ZA` | Text                                   |                           |
 | English (Tanzania)                 | `en-TZ` | Text                                   |                           |
 | English (United Kingdom)           | `en-GB` | Audio (20201019)<br>Text<br>Pronunciation| Yes                          |
-| English (United States)            | `en-US` | Audio (20201019)<br>Text<br>Pronunciation| Yes                          |
+| English (United States)            | `en-US` | Audio (20201019, 20210223)<br>Text<br>Pronunciation| Yes                          |
 | Estonian(Estonia)                  | `et-EE` | Text                                   |                           |
 | Filipino (Philippines)             | `fil-PH`| Text                                   |                           |
 | Finnish (Finland)                  | `fi-FI` | Text                                   |     Yes                      |
