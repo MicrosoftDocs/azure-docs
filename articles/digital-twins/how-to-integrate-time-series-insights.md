@@ -37,7 +37,7 @@ You will be attaching Time Series Insights to Azure Digital Twins through the pa
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-integrate-time-series-insights/diagram-simple.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting Time Series Insights" lightbox="media/how-to-integrate-time-series-insights/diagram-simple.png":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/diagram-simple.png" alt-text="Screenshot of Azure services in an end-to-end scenario, highlighting Time Series Insights." lightbox="media/how-to-integrate-time-series-insights/diagram-simple.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -76,10 +76,10 @@ Next, **publish** the new Azure function. For instructions on how to do this, se
 
 In this article, you'll create two event hubs and configure them.
 
-  1. Twins Hub - Event hub to receive twin change events
-  2. Time Series Hub - Event hub to receive time series insights
+  1. **Twins Hub** - Event hub to receive twin change events
+  2. **Time Series Hub** - Event hub to receive time series insights
 
-Before creating the event hubs, you'll first create an event hub namespace that will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](../event-hubs/event-hubs-create.md). To see what regions support Event Hubs, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
+Before creating the event hubs, you'll first create an event hub namespace that will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](../event-hubs/event-hubs-create.md). To see what regions support event hubs, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
 
 ```azurecli-interactive
 az eventhubs namespace create --name <specify-name-for-your-Event-Hubs-namespace> --resource-group <your-resource-group> -l <region>
@@ -173,7 +173,7 @@ az eventhubs eventhub authorization-rule create --rights Listen Send --resource-
 
 You'll need to set environment variables in your function app from earlier, containing the connection strings for the event hub.
 
-1. Get the TSI [event hub connection string](../event-hubs/event-hubs-get-connection-string.md), using the authorization rules you created above for the Time Series Insights hub:
+1. Get the [Time Series hub connection string](../event-hubs/event-hubs-get-connection-string.md), using the authorization rules you created above for the Time Series hub:
 
     ```azurecli-interactive
     az eventhubs eventhub authorization-rule keys list --resource-group <your-resource-group> --namespace-name <your-Event-Hub-namespace-from-earlier> --eventhub-name <your-Time Series Hub-name-from-earlier> --name <name-of-Time-Series-Hub-auth-rule>
@@ -192,9 +192,9 @@ Make note of the following values as you'll use them to create Time Series Insig
 
 ## Create and connect a Time Series Insights instance
 
-Next, you will set up a Time Series Insights instance to receive the data from your Time Series hub. Follow the steps below, and for more details about this process, see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorial-set-up-environment.md).
+Next, you will set up Time Series Insights instance to receive data from your Time Series hub. Follow the steps below, and for more details about this process, see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorial-set-up-environment.md).
 
-1. In the Azure portal, search for *Time Series Insights environments*, and select **Add** button to create a time series environment and choose the following options.
+1. In the [Azure portal](https://portal.azure.com), search for *Time Series Insights environments*, and select the **Add** button. Choose the following options to create time series environment.
 
     1. **Subscription** - Choose your subscription.
         1. **Resource group** - Choose your resource group.
@@ -208,13 +208,13 @@ Next, you will set up a Time Series Insights instance to receive the data from y
     2. **Storage account name** - Specify a storage account name.
     3. **Enable Warm store** - Select the radio button *No*.
 
-You can leave default values for other properties on this page. Select **Next : Event Source >** button.
+You can leave default values for other properties on this page. Select the **Next : Event Source >** button.
 
-   :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png" alt-text="The creation portal UX for a Time Series Insights environment. Select your subscription, resource group, and location from the respective dropdowns and choose a name for your environment." lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png":::
+   :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png" alt-text="Screenshot of the Azure portal to create Time Series Insights environment. Select your subscription, resource group, and location from the respective dropdowns and choose a name for your environment." lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png":::
         
-   :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png" alt-text="The creation portal UX for a Time Series Insights environment. The Gen2(L1) pricing tier is selected and the time series ID property name is $dtId" lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png":::
+   :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png" alt-text="Screenshot of the Azure portal to create Time Series Insights environment. The Gen2(L1) pricing tier is selected and the time series ID property name is $dtId." lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png":::
 
-2. In the Event Source tab, choose the following fields:
+2. In the *Event Source* tab, choose the following fields:
 
    1. **Create an event source?** - Choose *Yes*.
    2. **Source type** - Choose *Event Hub* 
@@ -223,23 +223,23 @@ You can leave default values for other properties on this page. Select **Next : 
    5. **Event Hub namespace** - Choose the namespace that you created earlier in this article.
    6. **Event Hub name** - Choose the *Time Series Hub* name that you created earlier in this article.
    7. **Event Hub access policy name** - Choose the *Time Series Hub auth rule* that you created earlier in this article.
-   8. **Event Hub consumer group** - Select *New* and specify a name for your event hub consumer group.Then, select *Add*.
+   8. **Event Hub consumer group** - Select *New* and specify a name for your event hub consumer group. Then, select *Add*.
    9. **Property name** - Specify a name for your event source time stamp property.
     
-Choose **Review + Create** button to review all the details and again select **Review + Create** button to create the time series environment.
+Choose the **Review + Create** button to review all the details and again select the **Review + Create** button to create time series environment.
 
-   :::image type="content" source="media/how-to-integrate-time-series-insights/create-tsi-environment-event-source.png" alt-text="The creation portal UX for a Time Series Insights environment event source. You are creating an event source with the event hub information from above. You are also creating a new consumer group." lightbox="media/how-to-integrate-time-series-insights/create-tsi-environment-event-source.png":::
+   :::image type="content" source="media/how-to-integrate-time-series-insights/create-tsi-environment-event-source.png" alt-text="Screenshot of the Azure portal to create Time Series Insights environment. You are creating an event source with the event hub information from above. You are also creating a new consumer group." lightbox="media/how-to-integrate-time-series-insights/create-tsi-environment-event-source.png":::
 
 ## Send IoT data to Azure Digital Twins
 
-To begin sending data to Time Series Insights, you will need to start updating the digital twin properties in Azure Digital Twins with changing data values. You can choose to do this in either of the following ways:
-  * Use the following CLI command to update the twin property. If you followed [*How-to: Ingest IoT Hub data*](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) article to create a model and twin, the twin_id value will be *thermostat67*. Repeat the command to observe the change in the temperatures.
+To begin sending data to Time Series Insights, you'll need to start updating the digital twin properties in Azure Digital Twins with changing data values. You can choose to do this in either of the following ways:
+  * Use the following CLI command to update the twin property. If you followed [*How-to: Ingest IoT Hub data*](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) article to create a model and twin, the twin_id value will be *thermostat67*. Repeat the command with different temperature values to observe changes reflected in the Time Series Insights environment.
 
     ```azurecli-interactive
     az dt twin update -n <your-azure-digital-twins-instance-name> --twin-id {twin_id} --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
     ```
 
-  * You can download the [*Azure Digital Twins end-to-end samples*](/samples/azure-samples/digital-twins-samples/digital-twins-samples), and run the *DeviceSimulator* project to update the temperature values for the twins in the Azure digital twins instance. The instructions are in the [*Configure and run the simulation*](tutorial-end-to-end.md#configure-and-run-the-simulation) section of the tutorial.
+  * You can download the [*Azure Digital Twins end-to-end samples*](/samples/azure-samples/digital-twins-samples/digital-twins-samples), and run the *DeviceSimulator* project to update the temperature values for the twins in the Azure digital twins instance. The instructions are in the [*Configure and run the simulation*](tutorial-end-to-end.md#configure-and-run-the-simulation) section of the Connect an end-to-end tutorial.
 
 ## Visualize your data in Time Series Insights
 
@@ -247,19 +247,19 @@ Now, data should be flowing into your Time Series Insights instance, ready to be
 
 1. In the [Azure portal](https://portal.azure.com), search for your time series environment name that you created earlier. In the menu options on the left, select *Overview* to see the *Time Series Insights Explorer URL*. Select the URL to view the temperature changes reflected in the Time Series Insights environment.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Select the Time Series Insights explorer URL in the overview tab of your Time Series Insights environment" lightbox="media/how-to-integrate-time-series-insights/view-environment.png":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Screenshot of the Azure portal to select the Time Series Insights explorer URL in the overview tab of your Time Series Insights environment." lightbox="media/how-to-integrate-time-series-insights/view-environment.png":::
 
-2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select a twin, choose the property *Temperature*, and hit **add**.
+2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select a twin, choose the property *Temperature*, and hit **add**. Note that the instance has multiple twins in the below screenshot.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Select thermostat67, select the property temperature, and hit add" lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Screenshot of the Time Series Insights explorer to select thermostat67, select the property temperature, and hit add." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
 
 3. You should now see the initial temperature readings from your thermostat, as shown below. You can visualize those data streams in tandem.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Initial temperature data is graphed in the TSI explorer. It is a line of random values between 68 and 85" lightbox="media/how-to-integrate-time-series-insights/initial-data.png":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Screenshot of the TSI explorer to view the initial temperature data. It is a line of random values between 68 and 85" lightbox="media/how-to-integrate-time-series-insights/initial-data.png":::
 
 4. If you allow the simulation to run for much longer, your visualization will look something like this:
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Temperature data for each twin is graphed in three parallel lines of different colors." lightbox="media/how-to-integrate-time-series-insights/day-data.png" :::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Screenshot of the TSI explorer where temperature data for each twin is graphed in three parallel lines of different colors." lightbox="media/how-to-integrate-time-series-insights/day-data.png" :::
 
 ## Next steps
 
