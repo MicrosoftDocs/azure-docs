@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # GPU sharing on your Azure Stack Edge Pro GPU device
 
-Graphics processing unit (GPU) is a specialized processor designed to accelerate graphics rendering. GPUs can process many pieces of data simultaneously, making them useful for machine learning, video editing, and gaming applications. In addition to CPU for general purpose compute, your Azure Stack Edge Pro GPU devices can contain one or two Nvidia Tesla T4 GPUs for compute-intensive workloads such as hardware accelerated inferencing. For more information, see [Nvidia's Tesla T4 GPU](https://www.nvidia.com/data-center/tesla-t4/).
+Graphics processing unit (GPU) is a specialized processor designed to accelerate graphics rendering. GPUs can process many pieces of data simultaneously, making them useful for machine learning, video editing, and gaming applications. In addition to CPU for general purpose compute, your Azure Stack Edge Pro GPU devices can contain one or two Nvidia Tesla T4 GPUs for compute-intensive workloads such as hardware accelerated inferencing. For more information, see [Nvidia's Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/).
 
 
 ## About GPU sharing

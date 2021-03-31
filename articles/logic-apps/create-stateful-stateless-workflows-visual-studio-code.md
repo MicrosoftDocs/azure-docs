@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/30/2021
 ---
 
 # Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -100,9 +100,9 @@ To locally build and run your logic app project in Visual Studio Code when using
 1. Save the connection string somewhere safe. After you create your logic app project in Visual Studio Code, you have to add the string to the **local.settings.json** file in your project's root level folder.
 
    > [!IMPORTANT]
-   > If you plan to deploy to a Docker container, you also need to add 
-   > this connection string to the Docker file that you use for deployment.
-
+   > If you plan to deploy to a Docker container, you also need to use this connection string with the Docker file that you use for deployment. 
+   > For production scenarios, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault.
+  
 ### Tools
 
 * [Visual Studio Code 1.30.1 (January 2019) or higher](https://code.visualstudio.com/), which is free. Also, download and install these tools for Visual Studio Code, if you don't have them already:
@@ -313,6 +313,9 @@ Before you can create your logic app, create a local project so that you can man
          }
       }
       ```
+
+      > [!IMPORTANT]
+      > For production scenarios, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault.
 
    1. When you're done, make sure that you save your changes.
 
@@ -1238,7 +1241,12 @@ If you're not familiar with Docker, review these topics:
 
 * A Docker file for the workflow that you use when building your Docker container
 
-  For example, this sample Docker file deploys a logic app. The specifies the connection string that contains the access key for the Azure Storage account that was used for publishing the logic app to the Azure portal. To find this string, see [Get storage account connection string](#find-storage-account-connection-string).
+  For example, this sample Docker file deploys a logic app and specifies the connection string that contains the access key for the Azure Storage account that was used for publishing the logic app to the Azure portal. To find this string, see [Get storage account connection string](#find-storage-account-connection-string). For more information, review [Best practices for writing Docker files](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+  
+  > [!IMPORTANT]
+  > For production scenarios, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. 
+  > For Docker files specifically, review [Build images with BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) 
+  > and [Manage sensitive data with Docker Secrets](https://docs.docker.com/engine/swarm/secrets/).
 
    ```text
    FROM mcr.microsoft.com/azure-functions/node:3.0
@@ -1252,8 +1260,6 @@ If you're not familiar with Docker, review these topics:
 
    RUN cd /home/site/wwwroot
    ```
-
-   For more information, see [Best practices for writing Docker files](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 <a name="find-storage-account-connection-string"></a>
 
