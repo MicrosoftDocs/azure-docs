@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Create a public load balancer with an IP based backend - Azure Portal'
+title: 'Tutorial: Create a public load balancer with an IP-based backend - Azure portal'
 titleSuffix: Azure Load Balancer
-description: In this tutorial, learn how to create a public Azure Load Balancer with an IP based backend pool.
+description: In this tutorial, learn how to create a public load balancer with an IP based backend pool.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
@@ -10,9 +10,11 @@ ms.date: 3/26/2021
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Create a public load balancer with an IP based backend using the Azure portal
+# Tutorial: Create a public load balancer with an IP-based backend using the Azure portal
 
-In this tutorial, you'll learn how to create a public Azure Load Balancer with an IP based backend pool. A traditional deployment of Azure Load Balancer uses the network interface configuration of the virtual machines for the backend pool. With a IP based backend the virtual machines are added to the backend pool by IP address.
+In this tutorial, you'll learn how to create a public load balancer with an IP based backend pool. 
+
+A traditional deployment of Azure Load Balancer uses the network interface of the virtual machines. With an IP-based backend, the virtual machines are added to the backend by IP address.
 
 In this tutorial, you learn how to:
 
@@ -269,7 +271,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Subnet | **myBackendSubnet** |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myHTTPRule** </br> Select **Add** </br> Select **OK** |
+    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Within **Inbound rules**, select **+Add an inbound rule**. </br> Under **Destination port ranges**, enter **80**. </br> In **Priority**, enter **100**. </br> Under **Name**, enter **myHTTPRule** </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
     | Place this virtual machine behind an existing load-balancing solution? | Select the check box.|
     | **Load balancing settings** |
