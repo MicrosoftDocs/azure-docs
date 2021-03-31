@@ -14,7 +14,7 @@ ms.author: kenwith
 
 # Syncing extension attributes for app provisioning
 
-Azure Active Directory (Azure AD) must contain all the data (attributes) required to create a user profile when provisioning user accounts from Azure AD to a [SaaS app](../saas-apps/tutorial-list.md). When customizing attribute mappings for user provisioning, you might find that the attribute you want to map doesn't appear in the **Source attribute** list. This article shows you how to add the missing attribute.
+Azure Active Directory (Azure AD) must contain all the data (attributes) required to create a user profile when provisioning user accounts from Azure AD to a [SaaS app](../saas-apps/tutorial-list.md). When customizing attribute mappings for user provisioning, you might find the attribute you want to map doesn't appear in the **Source attribute** list. This article shows you how to add the missing attribute.
 
 For users only in Azure AD, you can [create schema extensions using PowerShell or Microsoft Graph](#create-an-extension-attribute-on-a-cloud-only-user).
 
@@ -23,18 +23,18 @@ For users in [Active Directory Federation Services (AD FS)](/windows-server/iden
 ## Create an extension attribute on a cloud only user
 You can use Microsoft Graph and PowerShell to extend the user schema for users in Azure AD. These extension attributes are automatically discovered in most cases.
 
-When you have more than 1000 service principals, you may find extensions missing in the source attribute list. If an attribute you have created does not automatically appear, then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview.md). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
+When you've more than 1000 service principals, you may find extensions missing in the source attribute list. If an attribute you've created doesn't automatically appear, then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview.md). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
 
 ### Create an extension attribute on a cloud only user using Microsoft Graph
 You can extend the schema of Azure AD users using [Microsoft Graph](/graph/overview.md). 
 
-First, list the apps in your tenant to get the ID of the app you are working on. To learn more, see [List extensionProperties](/graph/api/application-list-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true).
+First, list the apps in your tenant to get the ID of the app you're working on. To learn more, see [List extensionProperties](/graph/api/application-list-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true).
 
 ```json
 GET https://graph.microsoft.com/v1.0/applications
 ```
 
-Next, create the extension attribute. Replace the **ID** property below with the **ID** retrieved in the previous step. You will need to use the **"ID"** attribute and not the "appId". To learn more, see [Create extensionProperty]/graph/api/application-post-extensionproperty.md?view=graph-rest-1.0&tabs=http&preserve-view=true).
+Next, create the extension attribute. Replace the **ID** property below with the **ID** retrieved in the previous step. You'll need to use the **"ID"** attribute and not the "appId". To learn more, see [Create extensionProperty]/graph/api/application-post-extensionproperty.md?view=graph-rest-1.0&tabs=http&preserve-view=true).
 
 ```json
 POST https://graph.microsoft.com/v1.0/applications/{id}/extensionProperties
