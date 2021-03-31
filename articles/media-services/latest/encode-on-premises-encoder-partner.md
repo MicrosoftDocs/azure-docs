@@ -40,7 +40,7 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 ## Live encoding Live Event verification
 
 1. In your Media Services account, make sure that the **Streaming Endpoint** is running. 
-2. Create and start the **live encoding** Live Event. <br/> For more information, see [Live Event states and billing](live-event-states-billing.md).
+2. Create and start the **live encoding** Live Event. <br/> For more information, see [Live Event states and billing](live-event-states-billing-concept.md).
 3. Get the ingest URLs and configure your encoder to push a single-bitrate live stream to Media Services.
 4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 5. Create a new **Asset** object.
