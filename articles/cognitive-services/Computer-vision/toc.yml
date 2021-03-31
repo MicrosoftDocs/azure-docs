@@ -57,13 +57,13 @@
       href: concept-ocr.md
   - name: Reference
     items:
-    - name: Read REST API v3.2 preview
+    - name: OCR REST API v3.2 preview
       href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b
-    - name: Read REST API v3.1
+    - name: OCR REST API v3.1
       href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
-    - name: Read REST API v2.1
+    - name: OCR REST API v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
-    - name: Read REST API v1.0
+    - name: OCR REST API v1.0
       href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
     - name: .NET
       href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
@@ -155,7 +155,7 @@
   items: 
   - name: Spatial Analysis overview
     href: intro-to-spatial-analysis-public-preview.md
-  - name: Setup the host machine and run the container
+  - name: Set up the host machine and run the container
     href: spatial-analysis-container.md
   - name: Responsible use of AI
     items:
