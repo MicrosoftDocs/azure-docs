@@ -11,8 +11,8 @@ ms.topic: troubleshooting
 ms.service: azure-communication-services
 ---
 
-# Known issues: Azure Communication Services SDKs
-This article provides information about limitations and known issues related to the Azure Communication Services SDKs.
+# Known issues: Azure Communication Services Calling SDKs
+This article provides information about limitations and known issues related to the Azure Communication Services Calling SDKs.
 
 > [!IMPORTANT]
 > There are multiple factors that can affect the quality of your calling experience. Refer to the **[network requirements](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)** documentation to learn more about Communication Services network configuration and testing best practices.
