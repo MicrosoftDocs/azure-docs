@@ -22,7 +22,7 @@ After configuring mutual authentication on an Application Gateway, there can be 
 * Uploaded a certificate or certificate chain without a root CA certificate
 * Uploaded a certificate chain with multiple root CA certificates
 * Uploaded a certificate chain that only contained a leaf certificate without a CA certificate 
-* Uploaded a certificate that was not in the right format (i.e., not in PEM format)
+* Uploaded a certificate that was not in the right format (not in PEM format)
 
 We'll go through different scenarios that you might run into and how to troubleshoot those scenarios. We'll then address error codes and explain likely causes for certain error codes you might be seeing with mutual authentication. 
 
