@@ -27,13 +27,30 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## March 2021
 
+- [New detections for Azure Firewall](#new-detections-for-Azure-Firewall)
 - [Automation rules and incident-triggered playbooks](#automation-rules-and-incident-triggered-playbooks) (including all-new playbook documentation)
 - [New alert enrichments: enhanced entity mapping and custom details](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
 - [Print your Azure Sentinel workbooks or save as PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
 - [Incident filters and sort preferences now saved in your session (Public preview)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Microsoft 365 Defender incident integration (Public preview)](#microsoft-365-defender-incident-integration-public-preview)
 - [New Microsoft service connectors using Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
- 
+
+### New detections for Azure Firewall
+Several out-of-the-box detections for Azure Firewall have been added to the Analytics in Azure Sentinel. These new detections allow security teams to get alerts if machines on the internal network attempt to query/connect to domain names or IP addresses on the internet that are associated with known IOCs, as defined in the detection rule query. Here are the new detections: <p>
+| No.| Sentinel Analytic Rule Name| Sentinel Repo Link|
+| --| --|--|
+|1.| Solorigate Network Beacon | [Azure-Sentinel/Solorigate-Network-Beacon.yaml](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)|
+|2.| Known GALLIUM domains and hashes | [Azure-Sentinel/GalliumIOCs.yaml](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/GalliumIOCs.yaml)|
+|3.| Known IRIDIUM IP | [Azure-Sentinel/IridiumIOCs.yaml](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)|
+|4.| Known Phosphorus group domains/IP| [Azure-Sentinel/PHOSPHORUSMarch2019IOCs.yaml](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)|
+|5.| THALLIUM domains included in DCU takedown| [Azure-Sentinel/ThalliumIOCs.yaml](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)|
+|6.| Known ZINC related maldoc hash | [Azure-Sentinel/ZincJan272021IOCs.yaml](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)|
+|7.| Known STRONTIUM group domains| [Azure-Sentinel/STRONTIUMJuly2019IOCs.yaml](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
+|8.| NOBELIUM - Domain and IP IOCs - March 2021| [NOBELIUM_DomainIOCsMarch2021.yaml](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)|
+
+To learn more on how these detections work, please read this [blog post](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958).
+Detections for Azure Firewalls will continuously be added to the built-in template gallery, so to get the most updated detections for Azure Firewall, under **Rule Templates**, filter the **Data Sources** by **Azure Firewall**.
+
 ### Automation rules and incident-triggered playbooks
 
 Automation rules are a new concept in Azure Sentinel, allowing you to centrally manage the automation of incident handling. Besides letting you assign playbooks to incidents (not just to alerts as before), automation rules also allow you to automate responses for multiple analytics rules at once, automatically tag, assign, or close incidents without the need for playbooks, and control the order of actions that are executed. Automation rules will streamline automation use in Azure Sentinel and will enable you to simplify complex workflows for your incident orchestration processes.
