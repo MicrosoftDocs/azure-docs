@@ -7,7 +7,7 @@ documentationcenter: network-watcher
 author: damendo
 editor: ''
 tags: azure-resource-manager
-Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
+# Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
 
 ms.assetid: 
 ms.service: network-watcher

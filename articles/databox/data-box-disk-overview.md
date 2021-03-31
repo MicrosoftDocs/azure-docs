@@ -9,7 +9,7 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 06/18/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
+# Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
 
 # What is Azure Data Box Disk?
