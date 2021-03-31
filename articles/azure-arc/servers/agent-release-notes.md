@@ -2,7 +2,7 @@
 title: What's new with Azure Arc enabled servers agent
 description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/31/2021
 ---
 
 # What's new with Azure Arc enabled servers agent
@@ -19,9 +19,9 @@ Version 1.4
 
 ## New feature
 
-- Added support for private endpoints.
+- Added support for private endpoints, which is currently in limited preview.
 - Expanded list of exit codes for azcmagent.
-- Agent configuration parameters can now be read from a file with the --config parameter.
+- Agent configuration parameters can now be read from a file with the `--config` parameter.
 
 ## Fixed
 
