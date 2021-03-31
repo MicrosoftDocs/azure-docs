@@ -88,7 +88,6 @@ Azure Machine Learning builds on top of other services. Some services can be con
 | Container Registry | Microsoft | Configure the Container Registry instance to geo-replicate registries to the paired region for Azure Machine Learning. Use the same instance for both workspace instances. For more information, see [Geo-replication in Azure Container Registry](../container-registry/container-registry-geo-replication.md). |
 | Storage Account | You | Azure Machine Learning does not support __default storage-account__ failover using geo-redundant storage (GRS), geo-zone-redundant storage (GZRS), read-access geo-redundant storage (RA-GRS), or read-access geo-zone-redundant storage (RA-GZRS). Create a separate storage account for the default storage of each workspace. </br>Create separate storage accounts or services for other data storage. For more information, see [Azure Storage redundancy](../storage/common/storage-redundancy.md). |
 | Application Insights | You | Create Application Insights for the workspace in both regions. To adjust the data-retention period and details, see [Data collection, retention, and storage in Application Insights](../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept). |
-| Cosmos DB | You |  Optionally create a dedicated Cosmos DB instance for use with your workspace to allow for geo-replication of data that Azure Machine Learning manages in Cosmos DB. |
 
 To enable fast recovery and restart in the secondary region, we recommend the following development practices:
 
@@ -134,9 +133,6 @@ By keeping your data storage isolated from the default storage the workspace use
 * Attach the same storage instances as datastores to the primary and secondary workspaces.
 * Make use of geo-replication for data storage accounts and maximize your uptime.
 
-### Create a dedicated Cosmos DB instance for use with your workspace
-Azure Machine Learning stores metadata in an Azure Cosmos DB instance. This instance is associated with a Microsoft subscription managed by Azure Machine Learning. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys. You can [create](concept-data-encryption.md#azure-cosmos-db) a dedicated Cosmos DB instance for use with your workspace. We recommend this approach if you want to store your data, such as run history information, outside of the multi-tenant Cosmos DB instance hosted in our Microsoft subscription. Since you will be the owner of the Cosmos DB instance, you have the ability to configure the Cosmos DB instance in a high available configuration. See [High availability with Azure Cosmos DB](../cosmos-db/high-availability.md).
-
 ### Manage machine learning artifacts as code
 
 Runs in Azure Machine Learning are defined by a run specification. This specification includes dependencies on input artifacts that are managed on a workspace-instance level, including environments, datasets, and compute. For multi-region run submission and deployments, we recommend the following practices:
@@ -158,11 +154,13 @@ Runs in Azure Machine Learning are defined by a run specification. This specific
 
 ## Initiate a failover
 
-### Recovering runs and experimentation
+### Continue work in the failover workspace
 
-When you need to continue experimentation and development on the secondary workspace, you must change the configuration on your user's development environments. We recommend relying on a workspace config file to allow users to quickly swap to the secondary workspace.
+When your primary workspace becomes unavailable, you can switch over the secondary workspace to continue experimentation and development. Azure Machine Learning does not automatically submit runs to the secondary workspace in case of an outage. You must update your code configuration to point to the new workspace resource. We recommend to avoid the hardcoding of workspace references by relying on a [workspace config file](how-to-configure-environment.md#workspace), to minimize manual user steps when changing workspaces. Make sure to also update any automation, such as continuous integration and deployment pipelines to the new workspace.
 
-Also update any automation, such as continuous integration and deployment pipelines and integration services that may directly reference the workspace.
+Azure Machine Learning cannot sync or recover artifacts or metadata between workspace instances. Dependent on your application deployment strategy, you might have to move artifacts or recreate experimentation inputs such as Dataset objects in the failover workspace in order to continue run submission. In case you have configured your primary workspace and secondary workspace resources to share associated resources with geo-replication enabled, some objects might be directly available to the failover workspace. For instance, under the below reference configuration, hosted custom docker images (1), configured Datastores (2) and Key Vault resources (3) are accessible by both workspace instances.
+
+![BCDR Reference resource configuration](./media/how-to-high-availability-machine-learning/bcdr-resource-configuration.png)
 
 > [!NOTE]
 > Any jobs that are running when a service outage occurs will not automatically transition to the secondary workspace. It is also unlikely that the jobs will resume and finish successfully in the primary workspace once the outage is resolved. Instead, these jobs must be resubmitted, either in the secondary workspace or in the primary (once the outage is resolved).
