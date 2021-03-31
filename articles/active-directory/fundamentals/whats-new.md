@@ -69,7 +69,7 @@ For organizations using multi-geo SharePoint Online, you can now include sites f
 
 ---
 
-### Public Preview - Restore deleted apps from App Registrations
+### Public Preview - Restore deleted apps from App registrations
 
 **Type:** New feature  
 **Service category:** Other  
@@ -91,6 +91,38 @@ Currently, this user action only allows you to enable MFA as a control when user
  
 ---
 
+### Public Preview - Optimize connector groups to use the closest Application Proxy cloud service
+
+**Type:** New feature  
+**Service category:** App Proxy  
+**Product capability:** Access Control
+ 
+With this new capability, connector groups can be assigned to the closest regional Application Proxy service an application is hosted in. This can improve app performance in scenarios where apps are hosted in regions other than the home tenant’s region. [Learn more](../manage-apps/application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview). 
+ 
+---
+
+### Public Preview - External Identities Self-Service Sign-up in AAD using Email One-Time Passcode accounts
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+
+External users will now be able to use Email One-Time Passcode accounts to sign up in to Azure AD 1st party and LOB apps. [Learn more](../external-identities/one-time-passcode.md).
+
+---
+
+### Public Preview - Availability of AD FS Sign-Ins in Azure AD
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** Monitoring & Reporting
+ 
+AD FS sign-in activity can now be integrated with Azure AD activity reporting, providing a unified view of hybrid identity infrastructure. Using the Azure AD Sign-Ins report, Log Analytics, and Azure Monitor Workbooks, it's possible to perform in-depth analysis for both AAD and AD FS sign-in scenarios such as AD FS account lockouts, bad password attempts, and spikes of unexpected sign-in attempts.
+
+To learn more, visit [AD FS sign-ins in Azure AD with Connect Health](../hybrid/how-to-connect-health-ad-fs-sign-in.md).
+
+---
+
 ### General availability - Staged rollout to cloud authentication
 
 **Type:** New feature  
@@ -108,6 +140,16 @@ Staged rollout to cloud authentication is now generally available. The staged ro
 **Product capability:** User Management
  
 Customers can now update the user type of Azure AD users when they update their user profile information from the Azure admin portal. The user type can be updated from Microsoft Graph also. To learn more, see [Add or update user profile information](active-directory-users-profile-azure-portal.md).
+ 
+---
+
+### General Availability - Replica Sets for Azure Active Directory Domain Services
+
+**Type:** New feature  
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azure AD Domain Services
+ 
+The capability of replica sets in Azure AD DS is now generally available. [Learn more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-replica-sets).
  
 ---
 
@@ -175,16 +217,6 @@ For more information about how to better secure your organization by using autom
 **Product capability:** Access Control
  
 Azure AD Application Proxy native support for header-based authentication is now in general availability. With this feature, you can configure the user attributes required as HTTP headers for the application without additional components needed to deploy. [Learn more](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md).
-
----
-
-### Refresh and session token lifetimes configurability in Configurable Token Lifetimes (CTL) are retired
-
-**Type:** Deprecated  
-**Service category:** Other  
-**Product capability:** User Authentication
- 
-Refresh and session token lifetimes configurability in CTL are retired. Azure Active Directory no longer honors refresh and session token configuration in existing policies. [Learn more](../develop/active-directory-configurable-token-lifetimes.md#token-lifetime-policies-for-refresh-tokens-and-session-tokens).
 
 ---
 
