@@ -1,6 +1,6 @@
 ---
-title: Configure named replicas security to 
-description: Learn the security considerations for configuring and managing security after a database restore or a failover to a secondary server.
+title: Configure named replicas security to allow isolated access
+description: Learn the security considerations for configuring and managing named replica so that a user can access the named replica but not the primary replica.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
