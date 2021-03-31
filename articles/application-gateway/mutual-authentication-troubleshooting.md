@@ -40,10 +40,10 @@ The client certificate you uploaded onto your Application Gateway is now expired
 You can update the client certificate on your gateway through portal or through PowerShell. 
 
 **Portal**
-1. Navigate to your Application Gateway and go to the **SSL settings (Preview)** tab in the left hand menu. 
-2. Click on the existing SSL profile(s) with the expired client certificate. 
-3. Click on **Upload a new certificate** in the **Client Authentication** tab and upload your new client certificate. 
-4. Click on the trash can icon next to the expired certificate. This will remove the association of that certificate from the SSL profile. 
+1. Navigate to your Application Gateway and go to the **SSL settings (Preview)** tab in the left-hand menu. 
+2. Select the existing SSL profile(s) with the expired client certificate. 
+3. Select **Upload a new certificate** in the **Client Authentication** tab and upload your new client certificate. 
+4. Select the trash can icon next to the expired certificate. This will remove the association of that certificate from the SSL profile. 
 5. Repeat steps 2-4 with any other SSL profile that was using the same expired client certificate. You will be able to choose the new certificate you uploaded in step 3 from the dropdown menu in other SSL profiles. 
 
 **PowerShell** 
@@ -85,7 +85,7 @@ Double check that the self-signed certificate that you're using has the constrai
 
 ## Scenario troubleshooting - data path problems
 
-You might've been able to configure mutual authentication without any problems but you're running into problems when sending requests to your Application Gateway with mutual authentication configured. We address some common problems and solutions in the following section. 
+You might have been able to configure mutual authentication without any problems but you're running into problems when sending requests to your Application Gateway. We address some common problems and solutions in the following section. 
 
 ### SslClientVerify is NONE
 
@@ -95,7 +95,7 @@ The property *sslClientVerify* is appearing as "NONE" in your access logs.
 
 #### Solution 
 
-This is usually seen when the client doesn't send a client certificate when sending a request to the Application Gateway. This could happen if the client sending the request to the Application Gateway isn't configured correctly to use client certificates. Verify through OpenSSL or through a browser that the endpoint on client side is properly set up to send a client certificate. 
+This is seen when the client doesn't send a client certificate when sending a request to the Application Gateway. This could happen if the client sending the request to the Application Gateway isn't configured correctly to use client certificates. Verify through OpenSSL or through a browser that the endpoint on client side is properly set up to send a client certificate. 
 
 ### SslClientVerify is FAILED
 
@@ -107,10 +107,10 @@ The property *sslClientVerify* is appearing as "FAILED" in your access logs.
 
 There are a number of potential causes for failures in the access logs. Below is a list of common causes for failure:
 * **Unable to get issuer certificate:** The issuer certificate of the client certificate couldn't be found. This normally means the trusted certificate chain is not complete. 
-* **Self-signed certificate:** The client certificate is self-signed and the same certificate cannot be found int he list of trusted certificates. 
+* **Self-signed certificate:** The client certificate is self-signed and the same certificate cannot be found in the list of trusted certificates. 
 * **Unable to get local issuer certificate:** Similar to unable to get issuer certificate, the issuer certificate of the client certificate couldn't be found. This normally means the trusted certificate chain is not complete.
 * **Unable to verify the first certificate:** Unable to verify the client certificate. This error occurs specifically when the client presents only the leaf certificate, whose issuer is not trusted. 
-* **Unable to verify the client certificate issuer:** This error occurs when the configuration *VerifyClientCertIssuerDN* is set to true. This typically happens when the Issuer DN of the client certificate doesn't match any *ClientCertificateIssuerDN*, which is extracted from the trusted certificate chains uploaded by the customer. For more information about how Application Gateway extracts the *ClientCertificateIssuerDN*, please check out [Application Gateway extracting issuer DN](./mutual-authentication-overview.md#verify-client-certificate-dn).
+* **Unable to verify the client certificate issuer:** This error occurs when the configuration *VerifyClientCertIssuerDN* is set to true. This typically happens when the Issuer DN of the client certificate doesn't match any *ClientCertificateIssuerDN*, which is extracted from the trusted certificate chains uploaded by the customer. For more information about how Application Gateway extracts the *ClientCertificateIssuerDN*, check out [Application Gateway extracting issuer DN](./mutual-authentication-overview.md#verify-client-certificate-dn).
 
 ## Error code troubleshooting
 If you're seeing any of the following error codes, we have a few recommended solutions to help resolve the problem you might be facing. 
@@ -119,7 +119,7 @@ If you're seeing any of the following error codes, we have a few recommended sol
 
 #### Cause
 
-There is certificate data that is missing. The certificate uploaded could've been an empty file without any certificate data. 
+There is certificate data that is missing. The certificate uploaded could have been an empty file without any certificate data. 
 
 #### Solution
 
@@ -133,7 +133,7 @@ There is a private key in the certificate chain. There shouldn't be a private ke
 
 #### Solution
 
-Double check the certificate chain that was uploaded and remove the private key that was part of the chain. Re-upload the chain without the private key. 
+Double check the certificate chain that was uploaded and remove the private key that was part of the chain. Reupload the chain without the private key. 
 
 ### Error code: ApplicationGatewayTrustedClientCertificateInvalidData
 
@@ -141,7 +141,7 @@ Double check the certificate chain that was uploaded and remove the private key 
 
 There are two potential causes behind this error code.
 1. The parsing failed due to the chain not being presented in the right format. Application Gateway expects a certificate chain to be in PEM format and also expects individual certificate data to be delimited. 
-2. The parser didn't find anything to parse. The file uploaded could potentially only had the delimiters but no certificate data. 
+2. The parser didn't find anything to parse. The file uploaded could potentially only have had the delimiters but no certificate data. 
 
 #### Solution
 
@@ -163,10 +163,10 @@ Double check the certificate chain that was uploaded contained more than just th
 
 #### Cause
 
-The certificate chain contained multiple root CA certificates *or* contained 0 root CA certificates. 
+The certificate chain contained multiple root CA certificates *or* contained zero root CA certificates. 
 
 #### Solution
 
-Certificates uploaded must contain exactly 1 root CA certificate (and however many intermediate CA certificates as needed).
+Certificates uploaded must contain exactly one root CA certificate (and however many intermediate CA certificates as needed).
 
 
