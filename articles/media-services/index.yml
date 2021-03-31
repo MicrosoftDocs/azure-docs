@@ -92,13 +92,13 @@ conceptualContent:
 
     - title: Encrypt content
       links:
-          - url: ./latest/content-protection-overview.md 
+          - url: ./latest/drm-content-protection-concept.md 
             itemType: concept
             text: Protection
-          - url: ./latest/protect-with-aes128.md
+          - url: ./latest/drm-playready-license-template-concept.md
             itemType: tutorial
             text: Encrypt dynamically with AES-128        
-          - url: ./latest/protect-with-drm.md
+          - url: ./latest/drm-protect-with-drm-tutorial.md
             itemType: tutorial
             text: Encrypt dynamically with DRM
             

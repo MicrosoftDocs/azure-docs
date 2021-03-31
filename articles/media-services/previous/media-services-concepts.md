@@ -151,7 +151,7 @@ When configuring the token restricted policy, you must specify the primary verif
 
 For more information, see the following articles:
 - [Protect content overview](media-services-content-protection-overview.md)
-- [Protect with AES-128](media-services-protect-with-aes128.md)
+- [Protect with AES-128](media-services-playready-license-template-overview.md)
 - [Protect with PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## Delivering

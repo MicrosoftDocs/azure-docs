@@ -12,8 +12,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2021
 ms.author: duau
-# As a website owner, I want to enable HTTPS on the custom domain in my Front Door so that my users can use my custom domain to access their content securely.
-
+#Customer intent: As a website owner, I want to enable HTTPS on the custom domain in my Front Door so that my users can use my custom domain to access their content securely.
 ---
 
 # Tutorial: Configure HTTPS on a Front Door custom domain
