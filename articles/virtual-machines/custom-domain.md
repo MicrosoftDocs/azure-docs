@@ -7,7 +7,7 @@ ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/25/2021
-ms.author: mimckitt
+ms.author: jamesser
 ms.reviewer: cynthn
 ---
 
@@ -53,10 +53,10 @@ Once there add an *A record* pointing to your Public IP Address or FQDN. For exa
 3. For **Domain Name**, enter your custom domain, then select **Search**.
 4. From the DNS Management page, select Add, then select A in the Type list.
 5. Complete the fields of the A entry:
-    - Type: Leave A selected.
-    - Host: Enter @
+    - Type: Leave **A** selected.
+    - Host: Enter **@**
     - Points to: Enter the Public IP Address or FQDN of your VM. 
-    - TTL: Leave one Hour selected.
+    - TTL: Leave one hour selected.
 6. Select **Save**.
 
 The A record entry is added to the DNS records table.
