@@ -43,7 +43,7 @@
   - name: Terminology
     href: terminology.md
     displayName: best practice, design
-  - name: Fundamental concepts
+  - name: Personalizer fundamentals
     items:
     - name: "Features Action and Context"
       href: concepts-features.md
