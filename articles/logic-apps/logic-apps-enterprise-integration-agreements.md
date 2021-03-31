@@ -89,7 +89,6 @@ about your agreement, for example:
    | **Guest Identity** | Yes | <*guest-partner-identifier*> | The guest partner's identifier |
    | **Receive Settings** | Varies | Varies | These properties specify how the host partner receives all incoming messages from the guest partner in the agreement. For more information, see the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
    | **Send Settings** | Varies | Varies | These properties specify how the host partner sends all outgoing messages to the guest partner in the agreement. For more information, see the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
-   |||||
 
    > [!IMPORTANT]
    > The resolution for an agreement depends on matching these items that are defined in the partner and incoming message:
