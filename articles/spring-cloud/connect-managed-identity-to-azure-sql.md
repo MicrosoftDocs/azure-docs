@@ -47,7 +47,7 @@ spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:14
 ```
 
 ## Build and deploy the app to Azure Spring Cloud
-Rebuild the app and deploy it to the Azure Spring Cloud app provisioned in Prerequisites 2. You've created a Spring Boot application that uses JPA to store and retrieve data from Azure SQL Database from Azure Spring Cloud, authenticated by Managed Identity.
+Rebuild the app and deploy it to the Azure Spring Cloud app provisioned in the second bullet point under Prerequisites. Now you have a Spring Boot application, authenticated by a Managed Identity, that uses JPA to store and retrieve data from an Azure SQL Database in Azure Spring Cloud.
 
 ## Next steps
 
