@@ -1,7 +1,7 @@
 ---
-title: Migrating to the Read v3.x OCR containers
+title: Migrating to the Read v3.x containers
 titleSuffix: Azure Cognitive Services
-description: Learn how to migrate to the v3 Read OCR containers
+description: Learn how to migrate to the v3 Read containers
 services: cognitive-services 
 author: aahill
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Migrate to the Read v3.x OCR containers
 
-If you're using version 2 of the Computer Vision Read OCR container, Use this article to learn about upgrading your application to use version 3.x of the container. 
+If you're using version 2 of the Computer Vision Read container, Use this article to learn about upgrading your application to use version 3.x of the container. 
 
 
 ## Configuration changes
