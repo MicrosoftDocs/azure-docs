@@ -82,14 +82,10 @@ Azure Firewall might be bypassed if you have issues connecting to the private en
    dig @<DNS forwarder VM IP address> <Private endpoint public FQDN>
 3. Inspect *AzureFirewallDNSProxy* Azure Firewall log entries and validate it is able to receive and resolve DNS queries from the clients.
 
-```kusto
-AzureDiagnostics
-| where Category contains "DNS"
-| where msg_s contains "database.windows.net"
-```
-
-:::image type="content" source="./media/private-link-inspection-secure-vhub/AzureFirewallDNSProxyLog.png" alt-text="Sample Azure Firewall DNS Proxy Log" border="true":::
-
+   ```kusto
+   AzureDiagnostics
+   | where Category contains "DNS"
+   | where msg_s contains "database.windows.net"
 4. Verify *DNS proxy* has been enabled and a *Custom* DNS server pointing to the IP address of the DNS forwarder virtual machine IP address has been configured in the firewall policy associated with the Azure Firewall in the secured virtual hub.
 
 Azure CLI:
