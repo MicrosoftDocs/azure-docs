@@ -99,18 +99,6 @@ Since Personalizer uses collective information in near real-time to return the s
         * Or sometime later in an offline system
     1. [Evaluate your loop](concepts-offline-evaluation.md) with an offline evaluation after a period of use. An offline evaluation allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience.
 
-## Complete a quickstart
-
-We offer quickstarts in C#, JavaScript, and Python. Each quickstart is designed to teach you basic design patterns, and have you running code in less than 10 minutes. 
-
-* [Quickstart: How to use the Personalizer client library](./quickstart-personalizer-sdk.md)
-
-After you've had a chance to get started with the Personalizer service, try our tutorials and learn how to use Personalizer in web applications, chat bots, or an Azure Notebook.
-
-* [Tutorial: Use Personalizer in a .NET web app](tutorial-use-personalizer-web-app.md)
-* [Tutorial: Use Personalizer in a .NET chat bot](tutorial-use-personalizer-chat-bot.md)
-* [Tutorial: Use Personalizer in an Azure Notebook](tutorial-use-azure-notebook-generate-loop-data.md)
-
 ## Reference 
 
 * [Personalizer C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer)
