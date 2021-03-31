@@ -3,7 +3,7 @@ title: Expand existing Windows Virtual Desktop (classic) host pool with new sess
 description: How to expand an existing host pool with new session hosts in Windows Virtual Desktop (classic).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
 ---
