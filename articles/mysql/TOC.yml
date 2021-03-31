@@ -7,8 +7,6 @@
     href: overview.md
   - name: Which MySQL option should I choose?
     href: select-right-deployment-type.md
-  - name: Supported versions
-    href: concepts-supported-versions.md
   - name: Version support policy
     href: concepts-version-policy.md
     displayName: version policy
@@ -21,6 +19,8 @@
     items:
     - name: What is Single Server?
       href: single-server-overview.md
+    - name: Supported versions
+      href: concepts-supported-versions.md
     - name: Pricing Tiers
       items:
       - name: Pricing tiers
