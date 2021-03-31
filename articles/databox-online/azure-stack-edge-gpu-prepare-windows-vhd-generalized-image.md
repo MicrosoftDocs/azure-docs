@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 03/31/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -44,7 +44,7 @@ The high-level workflow to prepare a Windows VHD for use as a generalized image 
 1. Convert the source VHD or VHDX to a fixed size VHD.
 1. Create a VM in Hyper-V using the fixed VHD.
 1. Connect to the Hyper-V VM.
-1. Generalize the VHD using the *sysprep* utility. 
+1. Generalize the VHD using the *sysprep* utility.
 1. Copy the generalized image to Blob storage.
 1. Use generalized image to deploy VMs on your device. For more information, see how to [deploy a VM via Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md) or [deploy a VM via PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
 
