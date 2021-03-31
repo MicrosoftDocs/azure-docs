@@ -22,7 +22,7 @@ Fortanix is a third-party software vendor with products and services built on to
 
 This tutorial shows you how to convert your application image to a confidential compute-protected image. This environment uses [Fortanix](https://www.fortanix.com/) software, powered by Azure's DCsv2-Series Intel SGX-enabled virtual machines. This solution orchestrates critical security policies such as identity verification and data access control.
 
-For Fortanix-specific support, join the [Fortanix Slack community](https://fortanix.com/community/) and use the channel #enclavemanager.
+For Fortanix-specific support, join the [Fortanix Slack community](https://fortanix.com/community/) and use the channel `#enclavemanager`.
 
 ## Prerequisites
 
@@ -36,19 +36,19 @@ For Fortanix-specific support, join the [Fortanix Slack community](https://forta
 ## Add an application to Fortanix Confidential Computing Manager
 
 1. Sign in to [Fortanix Confidential Computing Manager (Fortanix CCM)](https://ccm.fortanix.com).
-1. Navigate to the **Accounts** page and select **ADD ACCOUNT** to create a new account.
+1. Go to the **Accounts** page and select **ADD ACCOUNT** to create a new account.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-account-new.png" alt-text="Create an account.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-account-new.png" alt-text="Screenshot that shows how to create an account.":::
 
 1. After your account is created, hit **SELECT** to select the newly created account. Now we can start enrolling the compute nodes and creating applications.
 1. Select the **+ APPLICATION** button to add an application. In this example, we'll be adding a Flask Server Enclave OS application.
 
 1. Select the **ADD** button for the Enclave OS Application.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/add-enclave-application.png" alt-text="Add application.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/add-enclave-application.png" alt-text="Screenshot that shows how to add an application.":::
 
    > [!NOTE]
-   > This tutorial covers adding Enclave OS Applications only. [Read more](https://support.fortanix.com/hc/en-us/articles/360044746932-Bringing-EDP-Rust-Apps-to-Confidential-Computing-Manager) about bringing EDP Rust Applications to Fortanix Confidential Computing Manager.
+   > This tutorial covers adding Enclave OS Applications only. [Learn more](https://support.fortanix.com/hc/en-us/articles/360044746932-Bringing-EDP-Rust-Apps-to-Confidential-Computing-Manager) about bringing EDP Rust Applications to Fortanix Confidential Computing Manager.
 
 1. In this tutorial, we'll use Fortanix's docker registry for the sample application. Fill in the details from the following information. Use your private docker registry to keep the output image.
 
@@ -85,11 +85,11 @@ A Fortanix CCM Image is a software release or version of an application. Each im
 
 1. On the **Add Image** page, enter the **REGISTRY CREDENTIALS** for **Output image name**. These credentials are used to access the private docker registry where the image will be pushed.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-image.png" alt-text="Create image.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-image.png" alt-text="Screenshot that shows how to create an image.":::
 
 1. Provide the image tag and select **Create**.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/add-tag.png" alt-text="Add tag.":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/add-tag.png" alt-text="Screenshot that shows how to add a tag.":::
 
 ## Domain and image allowlist
 
@@ -111,7 +111,7 @@ In Fortanix Confidential Computing Manager, you'll create a token. This token al
 Creating a Fortanix Node Agent will deploy a virtual machine, network interface, virtual network, network security group, and a public IP address into your Azure resource group. Your Azure subscription will be billed hourly for the virtual machine. Before you create a Fortanix Node Agent, review the Azure [virtual machine pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) for DCsv2-Series. Delete Azure resources when not in use.
 
 1. Go to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) and sign in with your Azure credentials.
-1. In the search bar, type **Fortanix Confidential Computing Node Agent**. Select the App that shows up in the search box called **Fortanix Confidential Computing Node Agent** to navigate to the offering's home page.
+1. In the search bar, type **Fortanix Confidential Computing Node Agent**. Select the App that shows up in the search box called **Fortanix Confidential Computing Node Agent** to go to the offering's home page.
 
    ![search marketplace](media/how-to-fortanix-confidential-computing-manager-node-agent/search-fortanix-marketplace.png)
 1. Select **Get It Now**, fill in your information if necessary, and select **Continue**. You'll be redirected to the Azure portal.
@@ -127,9 +127,9 @@ Creating a Fortanix Node Agent will deploy a virtual machine, network interface,
 1. Leave the default OS Disk Size as 200 and select a VM size (Standard_DC4s_v2 will suffice for this tutorial).
 1. Paste the token generated earlier in **Join Token**.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/deploy-fortanix-node-agent-1.png" alt-text="Deploy resource." lightbox="media/how-to-fortanix-confidential-computing-manager-node-agent/deploy-fortanix-node-agent-1.png":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/deploy-fortanix-node-agent-1.png" alt-text="Screenshot that shows how to deploy a resource." lightbox="media/how-to-fortanix-confidential-computing-manager-node-agent/deploy-fortanix-node-agent-1.png":::
 
-1. Select **Review + Create**. Ensure the validation passes and then select **Create**. Once all the resources deploy, the compute node is now enrolled in Fortanix Confidential Computing Manager.
+1. Select **Review + Create**. Ensure the validation passes and then select **Create**. When all the resources deploy, the compute node is now enrolled in Fortanix Confidential Computing Manager.
 
 ## Run the application image on the compute node
 
@@ -155,19 +155,19 @@ Where:
 
 1. Return to [Fortanix Confidential Computing Manager](https://ccm.fortanix.com/console).
 1. Ensure you're working inside the **Account** where you enrolled the node.
-1. Navigate to the **Management Console** by selecting the top icon on the left navigation pane.
+1. Go to the **Management Console** by selecting the top icon on the left navigation pane.
 1. Select the **Application** tab.
 1. Verify that there's a running application with an associated compute node.
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, virtual machine, and associated resources. Deleting the resource group will unenroll the nodes associated with your converted image.
+When they are no longer needed, you can delete the resource group, virtual machine, and associated resources. Deleting the resource group will unenroll the nodes associated with your converted image.
 
 Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
 
 To delete the Fortanix Confidential Computing Manager account you created, go the [Accounts Page](https://ccm.fortanix.com/accounts) in the Fortanix Confidential Computing Manager. Hover over the account you want to delete. Select the vertical black dots in the upper right-hand corner and select **Delete Account**.
 
-:::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/delete-account.png" alt-text="Delete the account.":::
+:::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/delete-account.png" alt-text="Screenshot that shows how to delete the account.":::
 
 ## Next steps
 
