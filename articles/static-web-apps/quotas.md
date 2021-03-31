@@ -24,7 +24,7 @@ The following quotas exist for Azure Static Web Apps Preview.
 | App size                    | 250 MB           |
 | Pre-production environments | 3                |
 | Custom domains              | 1                |
-| Authorization (with custom roles and routing rules) | Maximum of 25 end-users which that belong to custom roles |
+| Authorization (with custom roles and routing rules) | Maximum of 25 end-users that may belong to custom roles |
 | Azure Functions             | Available        |
 | SLA                         | None             |
 
