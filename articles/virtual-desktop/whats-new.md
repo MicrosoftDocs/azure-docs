@@ -79,23 +79,20 @@ We've made the following updates for Teams on Windows Virtual Desktop:
 - We've reduced CPU utilization by 5-10% (depending on CPU generation) by using hardware offload of video processing (XVP).
 - Older machines can now use XVP and hardware decoding to display more incoming video streams smoothly in 2x2 mode.
 - We've updated the WebRTC stack from M74 to M88 for better AV sync performance and fewer transient issues.
-- Replaced our software H264 encoder with OpenH264 (OSS used in Teams on the web) which increased the video quality of the outgoing camera
-- Along side the March 23 release of MSRDC Microsoft Teams enabled 2x2 mode for Teams on Windows VIrtual Desktop clients. 2x2 mode shows up to 4 incoming video stream simultaneously. 2x2 mode is a Teams Server configuration that Microsoft will enable starting the week of March 23 to the Insiders group and the week of March 30th to the public group
+- We've replaced our software H264 encoder with OpenH264 (OSS used in Teams on the web), which increased the video quality of the outgoing camera.
+- We enabled 2x2 mode for Teams Server for the general public on the week of March 30th. 2x2 mode shows up to four incoming video streams at the same time. 
 
 ### Web client now supports file transfer
 
 Beginning with web client version 1.0.24.7, users can transfer files between the
 remote session and local computer. To upload files to the remote session, simply
-click the upload icon in the top menu. To download files, search for **Remote
-Desktop Virtual Drive** in the remote session. Drop your files in the
+select the **Upload icon** in the menu at the top of the window. To download files, search for **Remote Desktop Virtual Drive** in the remote session. Drop your files in the
 **Downloads** folder and the browser will begin downloading the files to your
 local computer.
 
-### Windows Virtual Desktop Speciality certification
+### Windows Virtual Desktop Specialty certification
 
-We have released in beta the AZ-140 exam enabling you to prove your expertise in
-Windows VIrtual Desktop in Azure. Further information is available in this
-[article](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107)
+We've released a beta version of the AZ-140 exam that will let you prove your expertise in Windows VIrtual Desktop in Azure. To learn more, check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107).
 
 ## February 2021
 
