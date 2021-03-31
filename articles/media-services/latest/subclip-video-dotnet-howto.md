@@ -27,7 +27,7 @@ To complete the steps described in this topic, you have to:
 
 - [Create an Azure Media Services account](./account-create-how-to.md)
 - Create a Transform and an input and output Assets. You can see how to create a Transform and input and output Assets in the [Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md) tutorial.
-- Review the [Encoding concept](encoding-concept.md) topic.
+- Review the [Encoding concept](encode-concept.md) topic.
 
 ## Example
 
@@ -86,4 +86,4 @@ private static async Task<Job> JobWithBuiltInStandardEncoderWithSingleClipAsync(
 
 ## Next steps
 
-[How to encode with a custom transform](customize-encoder-presets-how-to.md) 
+[How to encode with a custom transform](encode-custom-presets-how-to.md) 
