@@ -31090,6 +31090,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/networking/networking-overview.md",
+      "redirect_url": "/azure/networking/fundamentals/networking-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/network-watcher/connection-monitor-preview-create-using-portal.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-portal",
       "redirect_document_id": false
