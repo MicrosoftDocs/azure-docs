@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 03/31/2021
 ms.author: jeedes
 ---
 # Tutorial: Implement federated authentication between Azure Active Directory and SharePoint on-premises
@@ -74,7 +74,7 @@ In this section, you configure the SAML authentication and define the claims tha
 
 1. The settings should now look like this:
 
-    ![Basic SAML settings](./media/sharepoint-on-premises-tutorial/aad-app-saml-ids.png)
+    ![Basic SAML settings](./media/sharepoint-on-premises-tutorial/azure-active-directory-app-saml-ids.png)
 
 1. Copy the information that you'll need later in SharePoint:
 
@@ -139,7 +139,7 @@ In this step, you configure a web application in SharePoint to trust the Azure A
         1. Under **System Settings**, select **Configure Alternate Access Mappings**. The **Alternate Access Mapping Collection** box opens.
         1. Filter the display with the new web application and confirm that you see something like this:
     
-           ![Alternate Access Mappings of web application](./media/sharepoint-on-premises-tutorial/sp-aam-newwebapp.png)
+           ![Alternate Access Mappings of web application](./media/sharepoint-on-premises-tutorial/sp-alternate-access-mappings-new-web-app.png)
 
     - If you extend an existing web application to use Azure AD authentication on a new zone:
 
@@ -162,7 +162,7 @@ In this step, you configure a web application in SharePoint to trust the Azure A
         1. Under **System Settings**, select **Configure Alternate Access Mappings**. The **Alternate Access Mapping Collection** box opens.
         1. Filter the display with the web application that was extended and confirm that you see something like this:
     
-            ![Alternate Access Mappings of extended web application](./media/sharepoint-on-premises-tutorial/sp-aam-extendedzone.png)
+            ![Alternate Access Mappings of extended web application](./media/sharepoint-on-premises-tutorial/sp-alternate-access-mappings-extended-zone.png)
 
 Once the web application is created, you can create a root site collection and add you Windows account as the primary site collection administrator.
 
@@ -207,7 +207,7 @@ Azure Active Directory has [two type of users](https://docs.microsoft.com/azure/
   
     1. In the **User name** box, enter `AzureUser1@<yourcompanytenant>.onmicrosoft.com`. This example shows `AzureUser1@demo1984.onmicrosoft.com`:
 
-       ![The User dialog box](./media/sharepoint-on-premises-tutorial/aad-new-user.png)
+       ![The User dialog box](./media/sharepoint-on-premises-tutorial/azure-active-directory-new-user.png)
 
     1. Select the **Show password** check box, and then write down the value that appears in the **Password** box.
 
@@ -223,14 +223,14 @@ In the dialog, you need to type the exact value of the userprincipalname, for ex
 > [!IMPORTANT]
 > Be careful to type the exact value of the user you want to invite, and choose the appropriate claim type in the list, otherwise the sharing will not work.
 
-![People picker results without AzureCP](./media/sharepoint-on-premises-tutorial/sp-peoplepickersearch-noazurecp.png)
+![People picker results without AzureCP](./media/sharepoint-on-premises-tutorial/sp-people-picker-search-no-azurecp.png)
 
 This limitation is because SharePoint does not validate the input from the people picker, which can be confusing and lead to misspellings or users accidentally choosing the wrong claim type.  
 To fix this scenario, an open-source solution called [AzureCP](https://yvand.github.io/AzureCP/) can be used to connect SharePoint 2019 / 2016 / 2013 with Azure Active Directory and resolve the input against your Azure Active Directory tenant. For more information, see [AzureCP](https://yvand.github.io/AzureCP/).
 
 Below is the same search with AzureCP configured: SharePoint returns actual users based on the input:
 
-![People picker results with AzureCP](./media/sharepoint-on-premises-tutorial/sp-peoplepickersearch-withazurecp.png)
+![People picker results with AzureCP](./media/sharepoint-on-premises-tutorial/sp-people-picker-search-with-azurecp.png)
 
 > [!IMPORTANT]
 > AzureCP isn't a Microsoft product and isn't supported by Microsoft Support. To download, install, and configure AzureCP on the on-premises SharePoint farm, see the [AzureCP](https://yvand.github.io/AzureCP/) website. 
@@ -249,7 +249,7 @@ Azure Active Directory user `AzureUser1@demo1984.onmicrosoft.com` can now use hi
     1. Check **Customize the name of the group claim**, then check **Emit groups as role claims** and click **Save**.
     1. The **User Attributes & Claims** should look like this:
 
-    ![Claims for users and group](./media/sharepoint-on-premises-tutorial/aad-claims-with-group.png)
+    ![Claims for users and group](./media/sharepoint-on-premises-tutorial/azure-active-directory-claims-with-group.png)
 
 ### Create a security group in Azure Active Directory
 
@@ -261,7 +261,7 @@ Let's create a security group in Azure Active Directory:
 
 1. Fill in the **Group type** (Security), **Group name** (for example, `AzureGroup1`), and **Membership type**. Add the user you created above as a member and click select **Create**:
 
-    ![Create an Azure AD security group](./media/sharepoint-on-premises-tutorial/aad-new-group.png)
+    ![Create an Azure AD security group](./media/sharepoint-on-premises-tutorial/azure-active-directory-new-group.png)
   
 ### Grant permissions to the security group in SharePoint
 
@@ -269,7 +269,7 @@ Azure AD security groups are identified with their attribute `Id`, which is a GU
 Without a custom claims provider, users need to type the exact value (`Id`) of the group in the people picker, and select the corresponding claim type. This is not user-friendly nor reliable.  
 To avoid this, this article uses third-party claims provider [AzureCP](https://yvand.github.io/AzureCP/) to find the group in a friendly way in SharePoint:
 
-![People picker search Azure AD group](./media/sharepoint-on-premises-tutorial/sp-peoplepickersearch-aadgroup.png)
+![People picker search Azure AD group](./media/sharepoint-on-premises-tutorial/sp-people-picker-search-azure-active-directory-group.png)
 
 ## Manage Guest users access
 
@@ -302,7 +302,7 @@ As a conclusion, to ensure that guest accounts are all identified with the same 
     
     1. The **User Attributes & Claims** should look like this:
     
-    ![User Attributes & Claims for Guests](./media/sharepoint-on-premises-tutorial/aad-claims-guests.png)
+    ![User Attributes & Claims for Guests](./media/sharepoint-on-premises-tutorial/azure-active-directory-claims-guests.png)
 
 ### Invite guest users in SharePoint
 
@@ -317,7 +317,7 @@ Now, the configuration of AzureCP needs to be updated to reflect that change and
 1. In the section **User identifier property**: Set the **User identifier for 'Guest' users:** to **UserPrincipalName**.
 1. Click Ok
 
-![AzureCP guests accounts configuration](./media/sharepoint-on-premises-tutorial/sp-azurecp-attributeforguests.png)
+![AzureCP guests accounts configuration](./media/sharepoint-on-premises-tutorial/sp-azurecp-attribute-for-guests.png)
 
 You can now invite any guest user in the SharePoint sites.
 
@@ -343,4 +343,4 @@ $t.Update()
 
 1. In the section **Reply URL (Assertion Consumer Service URL)**, add the URL (for example, `https://otherwebapp.contoso.local/`) of all additional web applications that need to sign in users with Azure Active Directory and click **Save**.
 
-![Specify additional web applications](./media/sharepoint-on-premises-tutorial/aad-app-reply-urls.png)
+![Specify additional web applications](./media/sharepoint-on-premises-tutorial/azure-active-directory-app-reply-urls.png)
