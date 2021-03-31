@@ -133,7 +133,7 @@ On the **New term template** screen, do the following steps:
    |Setting|Suggested value|
    |---------|-----------|
    |Attribute name |is sensitive information|
-   |Field type | dropdown\|Single choice|
+   |Field type | Single choice|
    |Mark as required | Check this box.|
    |+ Add a choice | Add two choices. "Yes" and "No".|
 
