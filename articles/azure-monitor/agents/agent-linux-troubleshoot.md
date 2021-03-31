@@ -80,17 +80,17 @@ We've seen that a clean re-install of the Agent will fix most issues. In fact th
  >[!NOTE]
  >Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [data menu Log Analytics Advanced Settings](../agents/agent-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from Log Analytics **Advanced Settings** or for a single agent run the following:  
 > `sudo /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable && sudo rm /etc/opt/omi/conf/omsconfig/configuration/Current.mof* /etc/opt/omi/conf/omsconfig/configuration/Pending.mof*`
-
+Fixin
 ## Installation error codes
 
 | Error Code | Meaning |
 | --- | --- |
-| NOT_DEFINED | Because the necessary dependencies are not installed, the auoms auditd plugin will not be installed | Installation of auoms failed, install package auditd. |
+| NOT_DEFINED | Because the necessary dependencies are not installed, the auoms auditd plugin will not be installed. Installation of auoms failed, install package auditd. |
 | 2 | Invalid option provided to the shell bundle. Run `sudo sh ./omsagent-*.universal*.sh --help` for usage |
 | 3 | No option provided to the shell bundle. Run `sudo sh ./omsagent-*.universal*.sh --help` for usage. |
 | 4 | Invalid package type OR invalid proxy settings; omsagent-*rpm*.sh packages can only be installed on RPM-based systems, and omsagent-*deb*.sh packages can only be installed on Debian-based systems. It is recommend you use the universal installer from the [latest release](../vm/quick-collect-linux-computer.md#install-the-agent-for-linux). Also review to verify your proxy settings. |
 | 5 | The shell bundle must be executed as root OR there was 403 error returned during onboarding. Run your command using `sudo`. |
-| 6 | Invalid package architecture OR there was error 200 error returned during onboarding; omsagent-*x64.sh packages can only be installed on 64-bit systems, and omsagent-*x86.sh packages can only be installed on 32-bit systems. Download the correct package for your architecture from the [latest release](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
+| 6 | Invalid package architecture OR there was error 200 error returned during onboarding; omsagent-\*x64.sh packages can only be installed on 64-bit systems, and omsagent-\*x86.sh packages can only be installed on 32-bit systems. Download the correct package for your architecture from the [latest release](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Installation of OMS package failed. Look through the command output for the root failure. |
 | 18 | Installation of OMSConfig package failed. Look through the command output for the root failure. |
 | 19 | Installation of OMI package failed. Look through the command output for the root failure. |
