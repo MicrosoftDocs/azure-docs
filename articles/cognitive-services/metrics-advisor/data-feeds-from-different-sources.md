@@ -212,6 +212,14 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
 
 * **Query**: Specify the query of Log Analytics. For more details please refer to [Log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md)
 
+    Sample query:
+
+    ```
+    TABLE
+    | where StartTime >=datetime(@StartTime) and EndTime <datetime(@EndTime)
+    | summarize count_per_type=count() by DataType
+    ```
+
 ## <span id="sql">Azure SQL Database | SQL Server</span>
 
 * **Connection String**: Metrics Advisor accepts an [ADO.NET Style Connection String](/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source. Also, your connection string could be found in Azure SQL Server resource in **Connection strings** of **Settings** section.
