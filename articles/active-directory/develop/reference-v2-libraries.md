@@ -9,12 +9,11 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 01/29/2021
+ms.date: 03/30/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-# Customer intent: As a developer, I want to know whether there's a Microsoft Authentication Library (MSAL) available for
-# the language/framework I'm using to build my application, and whether the library is GA or in preview.
+# Customer intent: As a developer, I want to know whether there's a Microsoft Authentication Library (MSAL) available for the language/framework I'm using to build my application, and whether the library is GA or in preview.
 ---
 
 # Microsoft identity platform authentication libraries
@@ -27,7 +26,7 @@ If you choose to hand-code your own protocol-level implementation of [OAuth 2.0 
 
 ## Single-page application (SPA)
 
-A single-page application runs entirely on the browser surface and fetches page data (HTML, CSS, and JavaScript) dynamically or at application load time. It can call web APIs to interact with back-end data sources.
+A single-page application runs entirely in the browser and fetches page data (HTML, CSS, and JavaScript) dynamically or at application load time. It can call web APIs to interact with back-end data sources.
 
 Because a SPA's code runs entirely in the browser, it's considered a *public client* that's unable to store secrets securely.
 
@@ -43,7 +42,7 @@ Because a web application's code runs on the web server, it's considered a *conf
 
 ## Desktop application
 
-A desktop application is typically binary (compiled) code that surfaces a user interface and is intended to run on a user's desktop.
+A desktop application is typically binary (compiled) code that displays a user interface and is intended to run on a user's desktop.
 
 Because a desktop application runs on the user's desktop, it's considered a *public client* that's unable to store secrets securely.
 
@@ -51,7 +50,7 @@ Because a desktop application runs on the user's desktop, it's considered a *pub
 
 ## Mobile application
 
-A mobile application is typically binary (compiled) code that surfaces a user interface and is intended to run on a user's mobile device.
+A mobile application is typically binary (compiled) code that displays a user interface and is intended to run on a user's mobile device.
 
 Because a mobile application runs on the user's mobile device, it's considered a *public client* that's unable to store secrets securely.
 
