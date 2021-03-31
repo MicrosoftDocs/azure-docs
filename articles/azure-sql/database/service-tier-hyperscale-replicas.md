@@ -139,6 +139,17 @@ Under normal circumstances it is unlikely, but it can happen. Just like an HA re
 #### What happens to named replicas if the primary replica is unavailable, for example because of planned maintenance?
 Named replicas will still be available for read-only access, as usual.
 
+#### How do I validate if I have successfully connected to secondary compute replica using SSMS or other client tools?
+You can execute the following T-SQL query:
+`SELECT DATABASEPROPERTYEX ('<database_name>', 'Updateability')`.
+The result is `READ_ONLY` if you are connected to a read-only secondary replica, and `READ_WRITE` if you are connected to the primary replica. Note that the database context must be set to the name of the Hyperscale database, not to the `master` database.
+
+### Can I add indexes and views on my secondary compute replicas
+No. Hyperscale databases have shared storage, meaning that all compute replicas see the same tables, indexes, and views. If you want additional indexes optimized for reads on secondary, you must add them on the primary.
+
+### How much delay is there going to be between the primary and secondary compute replicas
+Data latency from the time a transaction is committed on the primary to the time it is readable on a secondary depends on current log generation rate, transaction size, load on the replica, and other factors. Typical data latency for small transactions is in tens of milliseconds, however there is no upper bound on data latency. Data on a given secondary replica is always transactionally consistent. However, at a given point in time data latency may be different for different secondary replicas. Workloads that need to read committed data immediately should run on the primary replica.
+
 ## Geo Replica  (in Preview)
 
 With [Active Geo-replication](https://docs.microsoft.com/azure/azure-sql/database/active-geo-replication-overview), you can create a readable secondary replica of the primary Hyperscale database in the same or in a different region. Geo-replicas must always be created on a different logical server. The database name of a geo-replica always matches the database name of the primary.

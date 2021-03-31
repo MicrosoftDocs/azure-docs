@@ -45,7 +45,7 @@ The vCore-based service tiers are differentiated based on database availability 
 | **Storage size** | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **IOPS** | Single database | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
 | **IOPS** | SQL Managed Instance | Depends on file size | N/A | 1375 IOPS/vCore |
-|**Availability**|All|1 replica, no Read Scale-out, no local cache | Multiple replicas, up to 4 Read Scale-out, partial local cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
+|**Availability**|All|1 replica, no Read Scale-out, no local cache | Multiple replicas, up to 4 HA Replica, partial local cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
 |**Backups**|All|RA-GRS, 7-35 day retention (7 days by default)| RA-GRS, 7 day retention, constant time point-in-time recovery (PITR) | RA-GRS, 7-35 day retention (7 days by default) |
 
 \* Elastic pools are not supported in the Hyperscale service tier
@@ -58,7 +58,7 @@ The Hyperscale service tier is intended for customers who have large on-premises
 - Fast database backups regardless of database size (backups are based on storage snapshots)
 - Fast database restores regardless of database size (restores are from storage snapshots)
 - Higher log throughput regardless of database size and the number of vCores
-- Read Scale-out using one or more read-only replicas, used for read offloading  and as hot standbys.
+- Read Scale-out using one or more read-only replicas, used for read offloading and as hot standbys.
 - Rapid scale up of compute, in constant time, to be more powerful to accommodate the heavy workload and then scale down, in constant time. This is similar to scaling up and down between a P6 and a P11, for example, but much faster as this is not a size of data operation.
 
 ### What regions currently support Hyperscale
@@ -80,11 +80,10 @@ Hyperscale provides rapid scalability based on your workload demand.
 - **Scaling Up/Down**
 
   With  Hyperscale, you can scale up the primary compute size in terms of resources like CPU and memory, and then scale down, in constant time. Because the storage is shared, scaling up and scaling down is not a size of data operation.  
+
 - **Scaling In/Out**
 
-  With Hyperscale, you also get the ability to provision one or more additional compute replicas that you can use to serve your read requests. This means that you can use these additional compute replicas as read-only replicas to offload your read workload from the primary compute. In addition to read-only, these replicas also serve as hot-standbys in case of a failover from the primary.
-
-  Provisioning of each of these additional compute replicas can be done in constant time and is an online operation. You can connect to these additional read-only compute replicas by setting the `ApplicationIntent` argument on your connection string to `ReadOnly`. Any connections  with the `ReadOnly` application intent are automatically routed to one of the additional read-only compute replicas.
+  With Hyperscale, you also get the ability to provision one or more additional compute replicas that you can use to serve your read requests. Details on the different types of replicas you can use can be found here: [Hyperscale Secondary Replicas](service-tier-hyperscale-replicas.md)
 
 ## Deep dive questions
 
@@ -98,11 +97,11 @@ No, your application programming model stays as is. You use your connection stri
 
 ### What transaction isolation level is the default in a Hyperscale database
 
-On the primary replica, the default transaction isolation level is RCSI (Read Committed Snapshot Isolation). On the Read Scale-out secondary replicas, the default isolation level is Snapshot.
+On the primary replica, the default transaction isolation level is RCSI (Read Committed Snapshot Isolation). On the read-only replicas, the default isolation level is Snapshot.
 
 ### Can I bring my on-premises or IaaS SQL Server license to Hyperscale
 
-Yes, [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) is available for Hyperscale. Every SQL Server Standard core can map to 1 Hyperscale vCores. Every SQL Server Enterprise core can map to 4 Hyperscale vCores. You don’t need a SQL license for secondary replicas. The Azure Hybrid Benefit price will be automatically applied to Read Scale-out (secondary) replicas.
+Yes, [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) is available for Hyperscale. Every SQL Server Standard core can map to 1 Hyperscale vCores. Every SQL Server Enterprise core can map to 4 Hyperscale vCores. You don’t need a SQL license for secondary replicas. The Azure Hybrid Benefit price will be automatically applied to read Scale-out replicas.
 
 ### What kind of workloads is Hyperscale designed for
 
@@ -117,20 +116,17 @@ If you are running data analytics on a large scale with complex queries and sust
 ## Hyperscale compute questions
 
 ### Can I pause my compute at any time
-
 Not at this time, however you can scale your compute and number of replicas down to reduce cost during non-peak times.
 
 ### Can I provision a compute replica with extra RAM for my memory-intensive workload
-
 No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
 
 ### Can I provision multiple compute replicas of different sizes
+Yes, by creating named replicas. More info here: [Hyperscale Secondary Replicas](service-tier-hyperscale-replicas.md).
 
-No.
+### How many replicas are supported
 
-### How many Read Scale-out replicas are supported
-
-The Hyperscale databases are created with one Read Scale-out replica (two replicas including primary) by default. You can scale the number of read-only replicas between 0 and 4 using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate).
+Hyperscale provide three different types of replicas. All details are mode available here: [Hyperscale Secondary Replicas](service-tier-hyperscale-replicas.md).
 
 ### For high availability, do I need to provision additional compute replicas
 
@@ -247,7 +243,7 @@ Yes. [Azure Database Migration Service](../../dms/dms-overview.md) supports many
 
 ### What SLAs are provided for a Hyperscale database
 
-See [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/). Additional secondary compute replicas increase availability, up to 99.99% for a database with two or more secondary compute replicas.
+See [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/). Additional high-availability replicas increase availability, up to 99.99% for a database with two or more HA replicas.
 
 ### Are the database backups managed for me by Azure SQL Database
 
@@ -275,7 +271,7 @@ Yes. Geo-restore is fully supported. Unlike point-in-time restore, geo-restore r
 
 ### Can I set up geo-replication with Hyperscale database
 
-Not at this time.
+Geo-Replication is in Preview. More info here: [Hyperscale Secondary Replicas](service-tier-hyperscale-replicas.md).
 
 ### Can I take a Hyperscale database backup and restore it to my on-premises server, or on SQL Server in a VM
 
@@ -349,43 +345,8 @@ No. Only the primary compute replica accepts read/write requests. Secondary comp
 
 ## Read scale-out questions
 
-### How many secondary compute replicas can I provision
+Full details on scale-out options and frequently asked questions are available: here [Hyperscale Secondary Replicas](service-tier-hyperscale-replicas.md).
 
-We create one secondary replica for Hyperscale databases by default. If you want to adjust the number of replicas, you can do so using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate).
-
-### How do I connect to these secondary compute replicas
-
-You can connect to these additional read-only compute replicas by setting the `ApplicationIntent` argument on your connection string to `ReadOnly`. Any connections marked with `ReadOnly` are automatically routed to one of the additional read-only compute replicas. For details, see [Use read-only replicas to offload read-only query workloads](read-scale-out.md).
-
-### How do I validate if I have successfully connected to secondary compute replica using SSMS or other client tools?
-
-You can execute the following T-SQL query:
-`SELECT DATABASEPROPERTYEX ('<database_name>', 'Updateability')`.
-The result is `READ_ONLY` if you are connected to a read-only secondary replica, and `READ_WRITE` if you are connected to the primary replica. Note that the database context must be set to the name of the Hyperscale database, not to the `master` database.
-
-### Can I create a dedicated endpoint for a Read Scale-out replica
-
-No. You can only connect to Read Scale-out replicas by specifying `ApplicationIntent=ReadOnly`.
-
-### Does the system do intelligent load balancing of the read workload
-
-No. A new connection with read-only intent is redirected to an arbitrary Read Scale-out replica.
-
-### Can I scale up/down the secondary compute replicas independently of the primary replica
-
-No. The secondary compute replica are also used as high availability failover targets, so they need to have the same configuration as the primary to provide expected performance after failover.
-
-### Do I get different `tempdb` sizing for my primary compute and my additional secondary compute replicas
-
-No. Your `tempdb` database is configured based on the compute size provisioning, your secondary compute replicas are the same size as the primary compute.
-
-### Can I add indexes and views on my secondary compute replicas
-
-No. Hyperscale databases have shared storage, meaning that all compute replicas see the same tables, indexes, and views. If you want additional indexes optimized for reads on secondary, you must add them on the primary.
-
-### How much delay is there going to be between the primary and secondary compute replicas
-
-Data latency from the time a transaction is committed on the primary to the time it is readable on a secondary depends on current log generation rate, transaction size, load on the replica, and other factors. Typical data latency for small transactions is in tens of milliseconds, however there is no upper bound on data latency. Data on a given secondary replica is always transactionally consistent. However, at a given point in time data latency may be different for different secondary replicas. Workloads that need to read committed data immediately should run on the primary replica.
 
 ## Next steps
 
