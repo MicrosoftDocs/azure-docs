@@ -1,0 +1,13 @@
+- name: Azure Video Analyzer (preview) documentation 
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Video Analyzer
+    href: overview.md
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?category=media
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/media-services/
+
