@@ -33,7 +33,7 @@ Test the new way of delivering Live events with Media Services before moving you
 - Create a new v3 [Live Event](live-events-outputs-concept.md#live-events) for encoding. You can enable [1080P and 720P encoding presets](live-event-types-comparison.md#system-presets).
 - Use the [Live Output](live-events-outputs-concept.md#live-outputs) entity instead of Programs
 - Create [streaming locators](streaming-locators-concept.md).
-- Consider your need for [HLS and DASH](dynamic-packaging-overview.md) live streaming.
+- Consider your need for [HLS and DASH](encode-dynamic-packaging-concept.md) live streaming.
 - If you require fast-start of live events explore the new [Standby mode](live-events-outputs-concept.md#standby-mode) features.
 - If you want to transcribe your live event while it is happening, explore the new [live transcription](live-transcription.md) feature.
 - Create 24x7x365 live events in v3 if you need a longer streaming duration.

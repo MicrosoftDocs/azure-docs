@@ -54,7 +54,7 @@ No, we don't support Open Network Video Interface Forum (ONVIF) discovery of dev
 
 **Can I play back assets recorded to Azure Media Services from the edge by using streaming technologies such as HLS or DASH?**
 
-Yes. You can stream recorded assets like any other asset in Azure Media Services. To stream the content, you must have a streaming endpoint created and in the running state. Using the standard Streaming Locator creation process will give you access to an Apple HTTP Live Streaming (HLS) or Dynamic Adaptive Streaming over HTTP (DASH, also known as MPEG-DASH) manifest for streaming to any capable player framework. For more information about creating and publishing HLS or DASH manifests, see [dynamic packaging](../latest/dynamic-packaging-overview.md).
+Yes. You can stream recorded assets like any other asset in Azure Media Services. To stream the content, you must have a streaming endpoint created and in the running state. Using the standard Streaming Locator creation process will give you access to an Apple HTTP Live Streaming (HLS) or Dynamic Adaptive Streaming over HTTP (DASH, also known as MPEG-DASH) manifest for streaming to any capable player framework. For more information about creating and publishing HLS or DASH manifests, see [dynamic packaging](../latest/encode-dynamic-packaging-concept.md).
 
 **Can I use the standard content protection and DRM features of Media Services on an archived asset?**
 
