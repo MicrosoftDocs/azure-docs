@@ -36,7 +36,7 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 - [New Microsoft service connectors using Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
 
 ### New detections for Azure Firewall
-Several out-of-the-box detections for Azure Firewall have been added to the Analytics in Azure Sentinel. These new detections allow security teams to get alerts if machines on the internal network attempt to query/connect to domain names or IP addresses on the internet that are associated with known IOCs, as defined in the detection rule query. Here are the new detections: <p>
+Several out-of-the-box detections for Azure Firewall have been added to the Analytics in Azure Sentinel. These new detections allow security teams to get alerts if machines on the internal network attempt to query or connect to internet domain names or IP addresses that are associated with known IOCs, as defined in the detection rule query. Here are the new detections: <p>
 | No.| Sentinel Analytic Rule Name| Sentinel Repo Link|
 | --| --|--|
 |1.| Solorigate Network Beacon | [Azure-Sentinel/Solorigate-Network-Beacon.yaml](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)|
@@ -48,8 +48,8 @@ Several out-of-the-box detections for Azure Firewall have been added to the Anal
 |7.| Known STRONTIUM group domains| [Azure-Sentinel/STRONTIUMJuly2019IOCs.yaml](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
 |8.| NOBELIUM - Domain and IP IOCs - March 2021| [NOBELIUM_DomainIOCsMarch2021.yaml](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)|
 
-To learn more on how these detections work, please read this [blog post](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958).
-Detections for Azure Firewalls will continuously be added to the built-in template gallery, so to get the most updated detections for Azure Firewall, under **Rule Templates**, filter the **Data Sources** by **Azure Firewall**.
+To learn more about how these detections work, see [New detections for Azure Firewall in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958).
+Detections for Azure Firewalls are continuously added to the built-in template gallery, so to get the most updated detections for Azure Firewall, under **Rule Templates**, filter the **Data Sources** by **Azure Firewall**.
 
 ### Automation rules and incident-triggered playbooks
 
