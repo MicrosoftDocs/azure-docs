@@ -10,7 +10,7 @@ ms.author: parthp
 ms.custom: contperf-fy21q2
 ---
 
-# Add and manage Azure AD application
+# Add and manage Azure AD applications
 
 **Appropriate roles**
 

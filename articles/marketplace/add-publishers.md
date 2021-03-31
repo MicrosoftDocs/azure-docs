@@ -10,7 +10,7 @@ ms.author: parthp
 ms.custom: contperf-fy21q2
 ---
 
-# Add new publishers to the commercial markeplace program
+# Add new publishers to the commercial marketplace program
 
 **Appropriate roles**
 

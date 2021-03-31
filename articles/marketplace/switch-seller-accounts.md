@@ -1,5 +1,5 @@
 ---
-title: Switch seller accounts
+title: Switch seller accounts in Partner Center
 description: Learn how switch between seller accounts in the commercial marketplace program of Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -10,7 +10,7 @@ ms.author: parthp
 ms.custom: contperf-fy21q2
 ---
 
-# Switch seller accounts
+# Switch seller accounts in Partner Center
 
 **Appropriate roles**
 

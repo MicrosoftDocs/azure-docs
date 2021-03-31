@@ -1,5 +1,5 @@
 ---
-title: Manage tenants
+title: Manage tenants in the commercial marketplace
 description: Learn how to manage tenants for the commercial marketplace program in Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -10,7 +10,7 @@ ms.author: parthp
 ms.custom: contperf-fy21q2
 ---
 
-# Manage tenants
+# Manage tenants in the commercial marketplace
 
 **Appropriate roles**
 
