@@ -10,7 +10,7 @@ editor: ''
 ms.service: api-management
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/10/2020
+ms.date: 03/29/2021
 ms.author: apimpm
 ms.custom: references_regions
 ---
@@ -34,7 +34,21 @@ To perform the steps described in this article, you must have:
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
++ An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
+
+* A Standard SKU [public IP address](../virtual-network/public-ip-addresses.md#standard), if your client uses API version 2021-01-01-preview or later. The value is assigned as the virtual IP address of the API Management instance. 
+
+  * The IP address must be in the same region and subscription as the API Management instance and the virtual network.
+
+  * Either create the public IP address when deploying API Management in a virtual network, or provide an existing public IP address resource.
+  
+  * Provide a unique DNS label when creating the IP address. This label becomes the DNS prefix for the API Management instance's gateway and other endpoints. Create an A record to point the fully qualified gateway DNS name to the IP address.
+
+  * When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you must configure a different public IP address. 
+
+  > [!NOTE]
+  > Currently, you can only use an Azure Resource Manager template to configure an API Management instance in a virtual network with API version 2021-01-01 preview.
+
 
 ## <a name="enable-vpn"> </a>Enable VNET connection
 
@@ -64,7 +78,8 @@ To perform the steps described in this article, you must have:
 6. If you selected **External** or **Internal**, you will see a list of all regions where your API Management service is provisioned. Choose a **Location**, and then pick its **Virtual network** and **Subnet**. The virtual network list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are set up in the region you are configuring.
 
     > [!IMPORTANT]
-    > When deploying an Azure API Management instance to a Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
+    > * When your client uses **API version 2019-01-01 or earlier** to deploy an Azure API Management instance in a Resource Manager VNET, the service must be in a dedicated subnet that contains no resources except Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
+    > * When your client uses **API version 2021-01-01-preview or later** to deploy an Azure API Management instance in a virtual network, only a Resource Manager virtual network is supported. Additionally, the subnet used may contain other resources. You don't have to use a subnet dedicated to API Management instances. 
 
     Then select **Apply**. The **Virtual network** page of your API Management instance is updated with your new virtual network and subnet choices.
 
@@ -73,20 +88,32 @@ To perform the steps described in this article, you must have:
 7. In the top navigation bar, select **Save**, and then select **Apply network configuration**.
 
 > [!NOTE]
-> The VIP address of the API Management instance will change each time VNET is enabled or disabled.
-> The VIP address will also change when API Management is moved from **External** to **Internal**, or vice-versa.
->
+> * The VIP address of the API Management instance will change each time the VNET is enabled or disabled.
+> * The VIP address will also change when API Management is moved from **External** to **Internal**, or vice-versa.
 
 > [!IMPORTANT]
 > If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to six hours. During this period it will not be possible to delete the VNET or deploy a new resource to it. This behavior is true for clients using api-version 2018-01-01 and earlier. Clients using api-version 2019-01-01 and later, the VNET is freed up as soon as the associated API Management service is deleted.
 
-## <a name="deploy-apim-external-vnet"> </a>Deploy API Management into External VNET
+### <a name="deploy-apim-external-vnet"> </a>Deploy API Management into External VNET
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
+You can also enable virtual network connectivity by using the following methods.
 
-* **Create an API Management service inside a VNET**: Use the cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) to create an Azure API Management service inside a VNET.
+### API version 2021-01-01-preview
 
-* **Deploy an existing API Management service inside a VNET**: Use the cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) to move an existing Azure API Management service inside a Virtual Network.
+* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-external-vnet-publicip)
+
+     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet-publicip%2Fazuredeploy.json)
+
+### API version 2019-01-01
+
+* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-external-vnet)
+    
+     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
+
+* Azure PowerShell cmdlets - [Create](/powershell/module/az.apimanagement/new-azapimanagement) or [update](/powershell/module/az.apimanagement/update-azapimanagementregion) an API Management instance in a virtual network
+
+* Azure CLI commands - [Create](/cli/azure/apim#az_apim_create) or [update](/cli/azure/apim#az_apim_update) an API Management instance in a virtual network
+
 
 ## <a name="connect-vnet"> </a>Connect to a web service hosted within a virtual Network
 After your API Management service is connected to the VNET, accessing backend services within it is no different than accessing public services. Just type in the local IP address or the host name (if a DNS server is configured for the VNET) of your web service into the **Web service URL** field when creating a new API or editing an existing one.
@@ -140,7 +167,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
     | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com(**new**)</li><li>global.metrics.nsatc.net(**to be deprecated**)</li><li>shoebox2.prod.microsoftmetrics.com(**new**)</li><li>shoebox2.metrics.nsatc.net(**to be deprecated**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**new**)</li><li>prod3.metrics.nsatc.net(**to be deprecated**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
 
   >[!IMPORTANT]
-  > The change of clusters above with dns zone **.nsatc.net** to **.microsoftmetrics.com** is mostly a DNS Change. IP Address of cluster will not change.
+  > The change of clusters above with DNS zone **.nsatc.net** to **.microsoftmetrics.com** is mostly a DNS Change. IP Address of cluster will not change.
 
 + **Regional Service Tags**: NSG rules allowing outbound connectivity to Storage, SQL, and Event Hubs service tags may use the regional versions of those tags corresponding to the region containing the API Management instance (for example, Storage.WestUS for an API Management instance in the West US region). In multi-region deployments, the NSG in each region should allow traffic to the service tags for that region and the primary region.
 
