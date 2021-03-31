@@ -128,6 +128,12 @@
     href: key-distribution-center-proxy.md
   - name: Set up the RD Gateway role
     href: rd-gateway-role.md
+  - name: Start VM on Connect
+    items:
+    - name: Set up Start VM on Connect
+      href: start-virtual-machine-connect.md
+    - name: Start VM on Connect FAQ
+      href: start-virtual-machine-connect-faq.md
 - name: Concepts
   items:
   - name: Built-in roles
