@@ -44,7 +44,7 @@ See [Azure role-based access control (Azure RBAC) for Media Services accounts](r
 
 ### How do I stream to Apple iOS devices?
 
-Make sure you have **(format=m3u8-aapl)** at the end of your path (after the **/manifest** portion of the URL) to tell the streaming origin server to return HTTP Live Streaming (HLS) content for consumption on Apple iOS native devices. For details, see [Delivering content](dynamic-packaging-overview.md).
+Make sure you have **(format=m3u8-aapl)** at the end of your path (after the **/manifest** portion of the URL) to tell the streaming origin server to return HTTP Live Streaming (HLS) content for consumption on Apple iOS native devices. For details, see [Delivering content](encode-dynamic-packaging-concept.md).
 
 ### What is the recommended method to process videos?
 
@@ -56,7 +56,7 @@ One of the most common reasons is that you don't have the streaming endpoint fro
 
 ### How does pagination work?
 
-When you're using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](entities-overview.md).
+When you're using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](filter-order-page-entitites-how-to.md).
 
 ### What features are not yet available in Azure Media Services v3?
 
