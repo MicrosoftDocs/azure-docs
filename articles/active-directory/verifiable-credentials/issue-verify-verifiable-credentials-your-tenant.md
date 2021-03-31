@@ -157,7 +157,7 @@ Now when a user is presented with the "sign in" to get issued your verifiable cr
 ## Create new VC with this rules file and the old display file
 
 1. Upload the new rules file to our container
-1. From the verifiable credentials page create a new credential called **ninjaCatModified** using the old display file and the new rules file (**modified_ninjaRules.json**).
+1. From the verifiable credentials page create a new credential called **modifiedCredentialExpert** using the old display file and the new rules file (**modified-credentialExpert.json**).
 1. After the credential creation process completes from the **Overview** page copy the **Issue Credential URL** and save it because we need it in the next section.
 
 ## Before we continue
@@ -168,7 +168,7 @@ We need to put a few values together before we can make the necessary code chang
 - **Application Client ID** We got this when we registered the Node app.
 - **Client secret** We created this earlier when we granted your app access to key vault.
 
-There are a few other values we need to get in order to make the changes one time in our Sample app. Let's get those now!
+There are a few other values we need to get before we can make the changes one time in our sample app. Let's get those now!
 
 ### Verifiable Credentials Settings
 
@@ -232,7 +232,7 @@ Now you have everything in place to issuer and verify your own Verifiable Creden
 
 ## Issue and Verify the VC
 
-Follow the same steps to issue the Verifiable Credential and validate it with your app. 
+Follow the same steps we followed in the previous tutorial to issue the verifiable credential and validate it with your app. Once that you successfully complete the verification process you are now ready to continue learning about verifiable credentials.
 
 ## Next steps
 
