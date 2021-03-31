@@ -1,6 +1,7 @@
 ---
 title: Continuous video recording from the edge - Azure Video Analyzer
-description: Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. This topic discusses what CVR is.
+description: Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. This topic discusses what CVR is and how to use it with Azure Video Analyzer.
+ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 03/10/2021
 
@@ -37,7 +38,7 @@ If your edge module loses connectivity for a very long time and the content stor
 
 When network connectivity is restored, the video sink will begin uploading from the cache, again starting from the oldest data. In the above example, suppose 5 minutes worth of video had to be discarded from cache by the time connectivity was restored (say at 6:02PM), then the video sink will start uploading from the 10:05AM mark.
 
-If you later examine the video resource using [these](playback-recordings-how-to.md) APIs, you will see that there is a gap in the video resource from approximately 10AM to 10:05AM.
+If you later examine the video resource using [these APIs]() <--playback-recordings-how-to.md --> you will see that there is a gap in the video resource from approximately 10AM to 10:05AM.
 
 ## Segmented recording  
 
