@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 03/31/2021
 ms.author: banders
 ---
 
@@ -67,7 +67,7 @@ Your new experience includes the following cost management and billing capabilit
 
 4. The table lists Azure subscriptions that you're paying for. In the billing profile column, you would find the billing profile that is billed for the subscription. The subscription charges are displayed on the invoice for the billing profile. To consolidate the charges for all your subscriptions on a single invoice, you need to link all your subscriptions to a single billing profile.
 
-    ![Screenshot that shows the list of Azure subscriptions](./media/mosp-new-customer-experience/list-azue-subscriptions.png)
+    ![Screenshot that shows the list of Azure subscriptions](./media/mosp-new-customer-experience/list-azure-subscriptions.png)
 
 5. Pick a billing profile that you want to use. 
 
