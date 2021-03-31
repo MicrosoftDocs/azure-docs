@@ -84,7 +84,7 @@ conceptualContent:
           text: Get started with Spatial Analysis
           url: spatial-analysis-container.md
         - itemType: how-to
-          text: Confiture Spatial Analysis operations
+          text: Configure Spatial Analysis operations
           url: spatial-analysis-operations.md
         - itemType: concept
           text: Zone and line placement
