@@ -4,7 +4,7 @@ description: This quickstart shows how to use Azure Front Door Standard/Premium 
 services: frontdoor
 author: duongau
 manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
+# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
