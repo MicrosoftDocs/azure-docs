@@ -151,11 +151,11 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```
 	  
 
-8. Install the Pacemaker, SBD, OpenIPMI, ipmitools and fencing_sbd tools on all nodes.
+8. Install the Pacemaker, SBD, OpenIPMI, ipmitool and fencing_sbd tools on all nodes.
 
 	```	
 	yum install pcs sbd fence-agent-sbd.x86_64 OpenIPMI
-	ipmitools
+	ipmitool
 	```
 
   ## Configure Watchdog
@@ -182,9 +182,8 @@ In this section, you learn how to configure Watchdog. This section uses the same
 	```
 
 2. The default Linux watchdog, which will be installed during the installation, is the iTCO watchdog which is not supported by UCS and HPE SDFlex systems. Therefore, this watchdog must be disabled.
-    1. The wrong watchdog is installed and loaded on the system:
+    1. The wrong watchdog is installed and loaded on the system :
 	   ```
-   
 	   sollabdsm35:~ # lsmod |grep iTCO
    
 	   iTCO_wdt 13480 0
@@ -201,7 +200,6 @@ In this section, you learn how to configure Watchdog. This section uses the same
 	  	
     3. To make sure the driver is not loaded during the next system boot, the driver must be blocklisted. To blocklist the iTCO modules, add the following to the end of the `50-blacklist.conf` file:
 	   ```
-   
 	   sollabdsm35:~ # vi /etc/modprobe.d/50-blacklist.conf
    
 	    unload the iTCO watchdog modules
@@ -304,7 +302,6 @@ In this section, you learn how to configure Watchdog. This section uses the same
 In this section, you learn how to configure SBD. This section uses the same two hosts, `sollabdsm35` and `sollabdsm36`, referenced at the beginning of this article.
 
 1.  Make sure the iSCSI or FC disk is visible on both nodes. This example uses an FC-based SBD device. For more information about SBD fencing, see [Design Guidance for RHEL High Availability Clusters - SBD Considerations](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Faccess.redhat.com%2Farticles%2F2941601&data=04%7C01%7Cralf.klahr%40microsoft.com%7Cd49d7a3e3871449cdecc08d8c77341f1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637478645171139432%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=c%2BUAC5gmgpFNWZCQFfiqcik8CH%2BmhH2ly5DsOV1%2FE5M%3D&reserved=0).
-Also see [this reference](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Faccess.redhat.com%2Farticles%2F2941601&data=04%7C01%7Cralf.klahr%40microsoft.com%7Cd49d7a3e3871449cdecc08d8c77341f1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637478645171139432%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=c%2BUAC5gmgpFNWZCQFfiqcik8CH%2BmhH2ly5DsOV1%2FE5M%3D&reserved=0)
 2.  The LUN-ID must be identically on all nodes.
   
 3.  Check multipath status for the sbd device.
