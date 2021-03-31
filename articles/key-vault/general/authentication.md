@@ -1,9 +1,9 @@
 ---
 title: Authenticate to Azure Key Vault
 description: Learn how to authenticate to Azure Key Vault
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 08/27/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to

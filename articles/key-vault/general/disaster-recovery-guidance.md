@@ -2,14 +2,13 @@
 title: Azure Key Vault availability and redundancy - Azure Key Vault | Microsoft Docs
 description: Learn about Azure Key Vault availability and redundancy.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/28/2020
-ms.author: sudbalas
+ms.date: 03/31/2021
+ms.author: mbaldwin
 
 ---
 # Azure Key Vault availability and redundancy

@@ -2,14 +2,14 @@
 title: Secure access to a key vault
 description: The access model for Azure Key Vault, including Active Directory authentication and resource endpoints.
 services: key-vault
-author: ShaneBala-keyvault
+author: msmbaldwin
 manager: ravijan
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.author: sudbalas
+ms.date: 03/22/2021
+ms.author: mbaldwin
 # Customer intent: As a key vault administrator, I want to set access policies and configure the key vault, so that I can ensure it's secure and auditors can properly monitor all activities for this key vault.
 ---
 # Secure access to a key vault

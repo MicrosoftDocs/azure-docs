@@ -2,15 +2,14 @@
 title: Azure Key Vault monitoring and alerting | Microsoft Docs
 description: Create a dashboard to monitor the health of your key vault and configure alerts.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/06/2020
-ms.author: sudbalas
+ms.date: 03/31/2021
+ms.author: mbaldwin
 # Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
 ---
 
