@@ -148,6 +148,7 @@ Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Support
 [Spot VMs](../virtual-machines/spot-vms.md) | Unsupported. Azure Backup restores Spot VMs as regular Azure VMs.
 [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Supported
 Windows Storage Spaces configuration of standalone Azure VMs | Supported
+[Azure VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Supported for both uniform and flexible orchestration models to back up and restore Single Azure VM.
 
 ## VM storage support
 

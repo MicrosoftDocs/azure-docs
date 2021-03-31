@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 03/13/2021
+ms.date: 03/29/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
@@ -236,7 +236,7 @@ The [Authentication policy administrator](#authentication-policy-administrator) 
 >* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 > [!IMPORTANT]
-> This role is not currently capable of managing per-user MFA in the legacy MFA management portal. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD Powershell module.
+> This role can't manage MFA settings in the legacy MFA management portal or Hardware OATH tokens. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD Powershell module.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -262,7 +262,7 @@ The [Authentication administrator](#authentication-administrator) and [Privilege
 | Authentication policy administrator | No | No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
-> This role is not currently capable of managing MFA settings in the legacy MFA management portal.
+> This role can't manage MFA settings in the legacy MFA management portal or Hardware OATH tokens. 
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

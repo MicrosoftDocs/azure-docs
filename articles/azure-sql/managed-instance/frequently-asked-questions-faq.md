@@ -82,7 +82,7 @@ You can provision an instance from [Azure portal](instance-create-quickstart.md)
 
 Yes, you can provision a Managed Instance in an existing subscription if that subscription belongs to the [Supported subscription types](resource-limits.md#supported-subscription-types).
 
-**Why couldn’t I provision a Managed Instance in the subnet which name starts with a digit?**
+**Why couldn't I provision a Managed Instance in the subnet which name starts with a digit?**
 
 This is a current limitation on underlying component that verifies subnet name against the regex ^[a-zA-Z_][^\\\/\:\*\?\"\<\>\|\`\'\^]*(?<![\.\s])$. All names that pass the regex and are valid subnet names are currently supported.
 
@@ -129,7 +129,7 @@ Managed instance offers the same performance levels per compute and storage size
 
 One option is to [export a database to BACPAC](../database/database-export.md) and then [import the BACPAC file](../database/database-import.md). This is the recommended approach if your database is smaller than 100 GB.
 
-[Transactional replication](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) can be used if all tables in the database have *primary* keys and there are no In-memory OLTP objects in the database.
+[Transactional replication](replication-two-instances-and-sql-server-configure-tutorial.md) can be used if all tables in the database have *primary* keys and there are no In-memory OLTP objects in the database.
 
 Native COPY_ONLY backups taken from managed instance cannot be restored to SQL Server because managed instance has a higher database version compared to SQL Server. For more details, see [Copy-only backup](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15).
 
@@ -165,7 +165,7 @@ See [Key causes of performance differences between SQL managed instance and SQL 
 
 You can optimize the performance of your managed instance by:
 - [Automatic tuning](../database/automatic-tuning-overview.md) that provides peak performance and stable workloads through continuous performance tuning based on AI and machine learning.
--	[In-memory OLTP](../in-memory-oltp-overview.md) that improves throughput and latency on transactional processing workloads and delivers faster business insights. 
+-    [In-memory OLTP](../in-memory-oltp-overview.md) that improves throughput and latency on transactional processing workloads and delivers faster business insights. 
 
 To tune the performance even further, consider applying some of the *best practices* for [Application and database tuning](../database/performance-guidance.md#tune-your-database).
 If your workload consists of lots of small transactions, consider [switching the connection type from proxy to redirect mode](connection-types-overview.md#changing-connection-type) for lower latency and higher throughput.
@@ -257,9 +257,9 @@ Yes. After a Managed Instance is provisioned you can set NSG that controls inbou
 **Can I set the NVA or on-premises firewall to filter the outbound management traffic based on FQDNs?**
 
 No. This is not supported for several reasons:
--	Routing traffic that represent response to inbound management request would be asymmetric and could not work.
--	Routing traffic that goes to storage would be affected by throughput constraints and latency so this way we won’t be able to provide expected service quality and availability.
--	Based on experience, these configurations are error prone and not supportable.
+-    Routing traffic that represent response to inbound management request would be asymmetric and could not work.
+-    Routing traffic that goes to storage would be affected by throughput constraints and latency so this way we won't be able to provide expected service quality and availability.
+-    Based on experience, these configurations are error prone and not supportable.
 
 **Can I set the NVA or firewall for the outbound non-management traffic?**
 
@@ -378,7 +378,7 @@ Yes, customers can create logins that are members of the sysadmin role.  Custome
 
 Yes, Transparent Data Encryption is supported for SQL Managed Instance. For details, see [Transparent Data Encryption for SQL Managed Instance](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal).
 
-**Can I leverage the “bring your own key” model for TDE?**
+**Can I leverage the "bring your own key" model for TDE?**
 
 Yes, Azure Key Vault for BYOK scenario is available for Azure SQL Managed Instance. For details, see [Transparent Data Encryption with customer-managed key](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
 
@@ -397,7 +397,7 @@ You can rotate TDE protector for Managed Instance using Azure Cloud Shell. For i
 Yes, you don't need to decrypt your database to restore it to SQL Managed Instance. You do need to provide a certificate/key used as the encryption key protector on the source system to SQL Managed Instance to be able to read data from the encrypted backup file. There are two possible ways to do it:
 
 - *Upload certificate-protector to SQL Managed Instance*. It can be done using PowerShell only. The [sample script](./tde-certificate-migrate.md) describes the whole process.
-- *Upload asymmetric key-protector to Azure Key Vault and point SQL Managed Instance to it*. This approach resembles bring-your-own-key (BYOK) TDE use case that also uses Key Vault integration to store the encryption key. If you don't want to use the key as an encryption key protector, and just want to make the key available for SQL Managed Instance to restore encrypted database(s), follow instructions for [setting up BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption), and don’t check the checkbox **Make the selected key the default TDE protector**.
+- *Upload asymmetric key-protector to Azure Key Vault and point SQL Managed Instance to it*. This approach resembles bring-your-own-key (BYOK) TDE use case that also uses Key Vault integration to store the encryption key. If you don't want to use the key as an encryption key protector, and just want to make the key available for SQL Managed Instance to restore encrypted database(s), follow instructions for [setting up BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption), and don't check the checkbox **Make the selected key the default TDE protector**.
 
 Once you make the encryption protector available to SQL Managed Instance, you can proceed with the standard database restore procedure.
 
@@ -410,9 +410,9 @@ SQL Managed Instance offers [vCore-based purchasing model](sql-managed-instance-
 **What cost benefits are available for SQL Managed Instance?**
 
 You can save costs with the Azure SQL benefits in the following ways:
--	Maximize existing investments in on-premises licenses and save up to 55 percent with [Azure Hybrid Benefit](../azure-hybrid-benefit.md?tabs=azure-powershell). 
--	Commit to a reservation for compute resources and save up to 33 percent with [Reserved Instance Benefit](../database/reserved-capacity-overview.md). Combine this with Azure Hybrid benefit for savings up to 82 percent. 
--	Save up to 55 percent versus list prices with [Azure Dev/Test Pricing Benefit](https://azure.microsoft.com/pricing/dev-test/) that offers discounted rates for your ongoing development and testing workloads.
+-    Maximize existing investments in on-premises licenses and save up to 55 percent with [Azure Hybrid Benefit](../azure-hybrid-benefit.md?tabs=azure-powershell). 
+-    Commit to a reservation for compute resources and save up to 33 percent with [Reserved Instance Benefit](../database/reserved-capacity-overview.md). Combine this with Azure Hybrid benefit for savings up to 82 percent. 
+-    Save up to 55 percent versus list prices with [Azure Dev/Test Pricing Benefit](https://azure.microsoft.com/pricing/dev-test/) that offers discounted rates for your ongoing development and testing workloads.
 
 **Who is eligible for Reserved Instance benefit?**
 
