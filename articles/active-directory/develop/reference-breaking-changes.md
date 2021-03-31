@@ -39,7 +39,7 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 **Protocol impacted**: All flows that visit the `/authorize` endpoint (implicit flow and authorization code flow)
 
-A bug was found and fixed in the Azure AD authorization response. During the authorization response, the `state` parameter from the request is included in the response as well, in order to preservee app state and help prevent CSRF attacks. Azure AD incorrectly URL encoded the `state` parameter before inserting it into the repsonse, where it was encoded once more.  This would result in applications incorrectly rejecting the response from Azure AD. 
+A bug was found and fixed in the Azure AD authorization response. During the `/authorize` leg of authentication, the `state` parameter from the request is included in the response, in order to preserve app state and help prevent CSRF attacks. Azure AD incorrectly URL encoded the `state` parameter before inserting it into the response, where it was encoded once more.  This would result in applications incorrectly rejecting the response from Azure AD. 
 
 Azure AD will no longer double-encode this parameter, allowing apps to correctly parse the result. This change will be made for all applications. 
 
@@ -57,7 +57,7 @@ In order to reduce the number of unnecessary Conditional Access prompts, Azure A
 
 Apps will now receive access tokens with a mix of permissions in this - those requested, as well as those they have consent for that do not require Conditional Access prompts.  The scopes of the access token is reflected in the token response's `scope` parameter. 
 
-This change will be made for all apps except those with an observed dependency on this behavior.  Developers will recieve outreach if they are exempted from this change, as them may have a dependency on the additional conditional access prompts. 
+This change will be made for all apps except those with an observed dependency on this behavior.  Developers will receive outreach if they are exempted from this change, as them may have a dependency on the additional conditional access prompts. 
 
 **Examples**
 
