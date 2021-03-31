@@ -109,9 +109,6 @@ tools:
   - title: Node.js
     imageSrc: media/index/logo_nodejs.svg
     url: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
-  - title: Objective-C and Swift
-    imageSrc: media/index/logo_ios.svg
-    url: /objectivec/cognitive-services/speech/
   - title: Python
     imageSrc: media/index/logo_python.svg
     url: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
