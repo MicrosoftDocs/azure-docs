@@ -41,6 +41,22 @@ Microsoft is actively collaborating with members of the Decentralized Identity F
 * [DIF Presentation Exchange](https://identity.foundation/presentation-exchange/)
 
 
+## What are DIDs 
+
+To understand DIDs, it helps to compare them with current identity systems. Email addresses and social network IDs were created as human-friendly aliases for collaboration but are now overloaded to serve as the control points for data access across many scenarios beyond collaboration. This poses a potential problem, given that access to these IDs can be removed at any time by the email 
+provider, social network provider, or other external parties.
+
+Decentralized Identifiers (DIDs) are different. DIDs are user-generated, self-owned, globally unique identifiers rooted in decentralized systems like ION. They possess unique characteristics, like greater assurance of immutability, censorship resistance, and 
+tamper evasiveness. These attributes are critical for any ID system that is intended to provide self-ownership and user control. 
+
+Microsoft’s verifiable credential solution uses decentralized credentials (DIDs) to cryptographically sign as proof that a relying party (verifier) is attesting to information or proving they are the owners of a verifiable credential. Therefore, a basic understanding of decentralized identifiers is recommended for anyone creating a verifiable credential solution based on the Microsoft offering.
+## What are Verifiable Credentials 
+
+Verifiable credentials provide an alternative to traditional mechanisms used to present information meant as proof of an assertion. From [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/) “Credentials are a part of our daily lives; driver's licenses are used to assert that we are capable of operating a motor vehicle, university degrees can be used to assert our level of education, and government-issued passports enable us to travel between countries. This specification provides a mechanism to express these sorts of credentials on the Web in a way that is cryptographically secure, privacy respecting, and machine-verifiable".  
+
+Verifiable credentials are data objects consisting of claims made by the issuer attesting information about a subject. These claims are identified by schema and include the DID the issuer and subject. The issuer's DID creates a digital signature as proof that they attest to this information. 
+
+
 ## How does Decentralized Identity work? 
 
 A new form of identity is needed, one that weaves together technologies and standards to deliver key identity attributes—such as self-ownership and censorship resistance that are difficult to achieve with existing systems.
@@ -55,7 +71,7 @@ IDs users create, own, and control independently of any organization or governme
 **2. Decentralized system: ION (Identity Overlay Network)**
 ION is a Layer 2 open, permissionless network based on the purely deterministic Sidetree protocol, which requires no special tokens, trusted validators, or other consensus mechanisms; the linear progression of Bitcoin's timechain is all that's required for its operation. We have [open sourced a npm package](https://www.npmjs.com/package/@decentralized-identity/ion-tools) to make working with the ION network easy to integrate into your apps and services. Libraries include creating a new DID, generating keys and anchoring your DID on the bitcoin blockchain. 
 
-**3. DID User Agents: Microsoft Authenticator App**
+**3. DID User Agent/Wallet: Microsoft Authenticator App**
 Enables real people to use decentralized identities and Verifiable Credentials. Authenticator creates DIDs, facilitates issuance and presentation requests for verifiable credentials and manages the backup of your DID's seed through an encrypted wallet file.
 
 **4. Microsoft Resolver**
@@ -79,33 +95,18 @@ The issuer of the credential, Woodgrove Inc., creates a public key and a private
 There are three primary actors in the verifiable credential solution. In the following diagram:
 
 - **Step 1**, the **user** requests a verifiable credential from an issuer.
-- **Step 2**, the **issuer** of the credential attests that the proof the user provided is accurate and creates a public and private key pair. The public key is placed on the DPKI and transmits the private key portion of the VC to the user. 
-- **In Step 3**, the user presents the private key to a **verifier**. The verifier then verifies the validity of the credential by matching with the public key placed in the DPKI. 
+- **Step 2**, the **issuer** of the credential attests that the proof the user provided is accurate and creates a verifiable credential signed with their DID and the user’s DID is the subject.
+- **In Step 3**, the user signs a verifiable presentation (VP) with their DID and sends to the **verifier.** The verifier then validates of the credential by matching with the public key placed in the DPKI.
 
 The roles in this scenario are:
 
 ![roles in a verifiable credential environment](media/decentralized-identifier-overview/issuer-user-verifier.png)
 
-**issuer** – The issuer is an organization that creates an issuance solution requesting information from a user. The information is used to verify the user’s identity. For example, Woodgrove, Inc. has an issuance solution that enables them to create and distribute verifiable credentials (VCs) to all their employees. The employee fills out an online form providing the required information. Once Woodgrove, Inc. validates the information submitted, they send the employee a link to access and download their credential. The issuance solution creates a VC that uses public key encryption and blockchain technology to ensure the credential is authentic and valid. The employee stores the credential in their electronic wallet.  
+**issuer** – The issuer is an organization that creates an issuance solution requesting information from a user. The information is used to verify the user’s identity. For example, Woodgrove, Inc. has an issuance solution that enables them to create and distribute verifiable credentials (VCs) to all their employees. The employee uses the Authenticator app to sign in with their username and password, which passes an id token to the issuing service. Once Woodgrove, Inc. validates the id token submitted, the issuance solution creates a VC that includes claims about the employee and is signed with Woodgrove, Inc. DID. The employee now has a verifiable credential that is signed by their employer which includes the employees DID as the subject DID.  
 
-**user** – The user is the person or entity that is requesting a VC. For example, Alice is a new employee of Woodgrove, Inc. Alice provides the information the company requires as proof of Alice’s identity, and then Alice uses a provided link to access and download the credential. When Alice needs to provide proof of employment, she can grant access to the credential in her electronic wallet. The verifier validates the credential was issued by Woodgrove, Inc.
+**user** – The user is the person or entity that is requesting a VC. For example, Alice is a new employee of Woodgrove, Inc. and was previously issued her proof of employment verifiable credential. When Alice needs to provide proof of employment in order to get a discount at Proseware, she can grant access to the credential in her Authenticator app by signing a verifiable presentation that proves Alice is the owner of the DID which is the subject of the employment verifiable credential. Proseware is able to validate the credential was issued by Woodgrove, Inc.and Alice is the owner of the credential. 
 
-**verifier** – The verifier is a company or entity that creates a validation solution to accept VCs from one or more issuers they trust to validate the identity of users. For example, Proseware trusts Woodgrove, Inc. does an adequate job of verifying their employees’ identity and issuing authentic and valid VCs. When Alice tries to order the equipment she needs for her job, Proseware provides a way for her to submit the credential from Woodgrove, Inc. that is stored in her electronic wallet. For example, Proseware might provide Alice a link to a website with a QR code she scans with her phone camera. This initiates the users VC being sent to Proseware, which verifies the decentralized identifier using the public key infrastructure and gives Alice the discount. If other companies and organizations know that Woodgrove, Inc. issues VCs to their employees, they can also create a verifier solution and use the Woodgrove, Inc. verifiable credential to provide special offers reserved for Woodgrove, Inc. employees.
-
-## What are DIDs 
-
-To understand DIDs, it helps to compare them with current identity systems. Email addresses and social network IDs were created as human-friendly aliases for collaboration but are now overloaded to serve as the control points for data access across many scenarios beyond collaboration. This poses a potential problem, given that access to these IDs can be removed at any time by the email 
-provider, social network provider, or other external parties.
-
-Decentralized Identifiers (DIDs) are different. DIDs are user-generated, self-owned, globally unique identifiers rooted in decentralized systems like ION. They possess unique characteristics, like greater assurance of immutability, censorship resistance, and 
-tamper evasiveness. These attributes are critical for any ID system that is intended to provide self-ownership and user control. 
-
-Microsoft’s verifiable credential solution uses decentralized credentials (DIDs) to cryptographically sign as proof that a relying party (verifier) is attesting to information or proving they are the owners of a verifiable credential. Therefore, a basic understanding of decentralized identifiers is recommended for anyone creating a verifiable credential solution based on the Microsoft offering.
-## What are Verifiable Credentials 
-
-Verifiable credentials provide an alternative to traditional mechanisms used to present information meant as proof of an assertion. From [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/) “Credentials are a part of our daily lives; driver's licenses are used to assert that we are capable of operating a motor vehicle, university degrees can be used to assert our level of education, and government-issued passports enable us to travel between countries. This specification provides a mechanism to express these sorts of credentials on the Web in a way that is cryptographically secure, privacy respecting, and machine-verifiable".  
-
-Verifiable credentials are data objects consisting of claims made by the issuer attesting information about a subject. These claims are identified by schema and include the DID the issuer and subject. The issuer's DID creates a digital signature as proof that they attest to this information. 
+**verifier** – The verifier is a company or entity tht needs to verify claims from one or more issuers they trust. For example, Proseware trusts Woodgrove, Inc. does an adequate job of verifying their employees’ identity and issuing authentic and valid VCs. When Alice tries to order the equipment she needs for her job, Proseware will use open standards such as SIOP and Presentation Exchange to request credentials from the User proving they are an employee of Woodgrove, Inc. For example, Proseware might provide Alice a link to a website with a QR code she scans with her phone camera. This initiates the request for a specific VC, which Authenticator will analyze and give Alice the ability to approve the request to prove her employment to Proseware. Proseware can use Azure Active Directory Verified Credentials Service API or SDK, which verifies the authenticity of the verifiable presentation and verifiable credential and gives Alice the discount. If other companies and organizations know that Woodgrove, Inc. issues VCs to their employees, they can also create a verifier solution and use the Woodgrove, Inc. verifiable credential to provide special offers reserved for Woodgrove, Inc. employees.
 
 ## Next steps
 
