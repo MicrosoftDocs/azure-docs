@@ -36,121 +36,9 @@ This section outlines the differences between ADAL Node and MSAL Node. You will 
 
 ### Code Comparison
 
-The snippet below demonstrates a confidential client web app in Express.js and secured with ADAL Node. The web app performs a sign-in when a user hits the authentication route `/auth`, acquires an access token for Microsoft Graph and then displays the said token.
+The snippet below demonstrates a confidential client web app in Express.js framework. The web app performs a sign-in when a user hits the authentication route `/auth`, acquires an access token for Microsoft Graph via the `/redirect` route and then displays the said token.
 
-```javascript
-var express = require('express');
-var crypto = require('crypto');
-var adal = require('adal-node');
-
-var clientId = 'Enter_the_Application_Id_Here';
-var clientSecret = 'Enter_the_Client_Secret_Here';
-var tenant = 'Enter_the_Tenant_Info_Here';
-var authorityUrl = 'https://login.microsoftonline.com/' + tenant;
-var redirectUri = 'http://localhost:3000/redirect';
-var resource = 'https://graph.microsoft.com';
-
-adal.Logging.setLoggingOptions({
-    log: function (level, message, error) {
-        console.log(message);
-        if (error) {
-            console.log(error);
-        }
-    },
-    level: adal.Logging.LOGGING_LEVEL.VERBOSE,
-    loggingWithPII: false
-});
-
-var templateAuthzUrl = 'https://login.microsoftonline.com/' + tenant +
-    '/oauth2/authorize?response_type=code&client_id=' + clientId +
-    '&redirect_uri=' + redirectUri + '&state=<state>&resource=' + resource;
-
-var app = express();
-app.locals.state = "";
-
-app.get('/auth', function (req, res) {
-    crypto.randomBytes(48, function (ex, buf) {
-        app.locals.state = buf.toString('base64').replace(/\//g, '_').replace(/\+/g, '-');
-        var authorizationUrl = templateAuthzUrl.replace('<state>', app.locals.state);
-        res.redirect(authorizationUrl);
-    });
-});
-
-app.get('/redirect', function (req, res) {
-    if (app.locals.state !== req.query.state) {
-        res.send('error: state does not match');
-    }
-
-    var authenticationContext = new adal.AuthenticationContext(authorityUrl);
-
-    authenticationContext.acquireTokenWithAuthorizationCode(
-        req.query.code, redirectUri, resource, clientId, clientSecret,
-        function (err, response) {
-            if (err) {
-                res.send(err);
-            }
-            res.send(response);
-        }
-    );
-});
-
-app.listen(3000, function() { console.log(`listening on port 3000!`); });
-```
-
-An application with the same functionality can be secured by MSAL Node as shown below:
-
-```javascript
-const express = require("express");
-const msal = require('@azure/msal-node');
-
-const REDIRECT_URI = "http://localhost:3000/redirect";
-
-const config = {
-    auth: {
-        clientId: "Enter_the_Application_Id_Here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-        clientSecret: "Enter_the_Client_Secret_Here"
-    },
-    system: {
-        loggerOptions: {
-            loggerCallback(loglevel, message, containsPii) {
-                console.log(message);
-            },
-            piiLoggingEnabled: false,
-            logLevel: msal.LogLevel.Verbose,
-        }
-    }
-};
-
-const cca = new msal.ConfidentialClientApplication(config);
-
-const app = express();
-
-app.get('/auth', (req, res) => {
-    const authCodeUrlParameters = {
-        scopes: ["user.read"],
-        redirectUri: REDIRECT_URI,
-    };
-
-    cca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
-        res.redirect(response);
-    }).catch((error) => res.send(error));
-});
-
-app.get('/redirect', (req, res) => {
-    const tokenRequest = {
-        code: req.query.code,
-        scopes: ["https://graph.microsoft.com/.default"],
-        redirectUri: REDIRECT_URI,
-    };
-
-    cca.acquireTokenByCode(tokenRequest).then((response) => {
-        res.send(response);
-    }).catch((error) => res.status(500).send(error));
-});
-
-app.listen(3000, () => console.log(`listening on port 3000!`));
-```
+![Side-by-side code](./media/msal-compare-msalnode-and-adalnode/differences.png)
 
 ### Initialization
 
@@ -343,6 +231,10 @@ const cachePlugin = {
 };
 ```
 
+If you are developing [public client applications](https://docs.microsoft.com/azure/active-directory/develop/msal-client-applications) like desktop apps, the [Microsoft Authentication Extensions for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/extensions/msal-node-extensions) offers secure mechanisms for client applications to perform cross-platform token cache serialization and persistence. Supported platforms are Windows, Mac and Linux.
+
+> [!NOTE] This is not recommended for web applications, as it may lead to scale and performance issues. Web apps are recommended to persist the cache in session.
+
 ### Public API
 
 Most of the public methods in ADAL Node have equivalents in MSAL Node:
@@ -367,9 +259,117 @@ However, some methods in ADAL Node are deprecated, while MSAL Node offers new me
 
 ### Other notable differences
 
+#### Promises, not callbacks
+
+In ADAL Node, callbacks are used for any operation after the authentication succeeds and a response is obtained:
+
+```javascript
+var context = new AuthenticationContext(authorityUrl, validateAuthority);
+
+context.acquireTokenWithClientCredentials(resource, clientId, clientSecret, function(err, response) {
+  if (err) {
+    console.log(err);
+  } else {
+    // do something with the authentication response
+  }
+});
+```
+
+In MSAL Node, promises are used instead:
+
+```javascript
+    const cca = new msal.ConfidentialClientApplication(msalConfig);
+
+    cca.acquireTokenByClientCredentials(tokenRequest).then((response) => {
+        // do something with the authentication response
+    }).catch((error) => {
+        console.log(error);
+    });
+```
+
+You can also use the **async/await** syntax that comes with ES8:
+
+```javascript
+    try {
+        const authResponse = await cca.acquireTokenByCode(tokenRequest);
+    } catch (error) {
+        console.log(error);
+    }
+```
+
+#### Making use of refresh tokens
+
+In ADAL Node, the refresh tokens (RT) were exposed allowing you to develop solutions around the use of these tokens by caching them and using the `acquireTokenWithRefreshToken` method. Typical scenarios where RTs are especially relevant:
+
+* Long running services that do actions including refreshing dashboards on behalf of the users where the users are no longer connected.
+* WebFarm scenarios for enabling the client to bring the RT to the web service (caching is done client side, encrypted cookie, and not server side).
+
+MSAL Node does not expose refresh tokens for security reasons. Instead, MSAL handles refreshing tokens for you. As such, you no longer need to built logic for this. Still, if you need to migrate and make use of your previously acquired refresh tokens, MSAL Node offers `acquireTokenByRefreshToken`, which is equivalent to ADAL Node's `acquireTokenWithRefreshToken` method.
+
+#### Proof Key for Code Exchange support
+
+MSAL Node supports authorization code grant with [Proof Key for Code Exchange (PKCE)](https://oauth.net/2/pkce/), which provides enhanced security to [public client applications](https://docs.microsoft.com/azure/active-directory/develop/msal-client-applications) such as desktop apps. MSAL Node offers PKCE generation tools through the [CryptoProvider](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_node.cryptoprovider.html) class, which exposes the `generatePkceCodes` asynchronous method.
+
+```javascript
+// Create msal application object
+const pca = new msal.PublicClientApplication(config);
+
+app.locals.pkceCodes = {
+    challengeMethod: "S256", // Use SHA256 Algorithm
+    verifier: "", // Generate a code verifier for the Auth Code Request first
+    challenge: "" // Generate a code challenge from the previously generated code verifier
+};
+
+app.get('/', (req, res) => {
+    // Initialize CryptoProvider instance
+    const cryptoProvider = new msal.CryptoProvider();
+    // Generate PKCE Codes before starting the authorization flow
+    cryptoProvider.generatePkceCodes().then(({ verifier, challenge }) => {
+        // Set generated PKCE Codes as app variables
+        app.locals.pkceCodes.verifier = verifier;
+        app.locals.pkceCodes.challenge = challenge;
+
+        // Add PKCE code challenge and challenge method to authCodeUrl request object
+        const authCodeUrlParameters = {
+            scopes: ["user.read"],
+            redirectUri: "http://localhost:3000/redirect",
+            codeChallenge: app.locals.pkceCodes.challenge, // PKCE Code Challenge
+            codeChallengeMethod: app.locals.pkceCodes.challengeMethod // PKCE Code Challenge Method
+        };
+    
+        // Get url to sign user in and consent to scopes needed for application
+        pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+            res.redirect(response);
+        }).catch((error) => console.log(JSON.stringify(error)));
+    });
+});
+
+app.get('/redirect', (req, res) => {
+    // Add PKCE code verifier to token request object
+    const tokenRequest = {
+        code: req.query.code,
+        scopes: ["user.read"],
+        redirectUri: "http://localhost:3000/redirect",
+        codeVerifier: app.locals.pkceCodes.verifier // PKCE Code Verifier
+    };
+
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        res.send(response);
+    }).catch((error) => {
+        res.send(error);
+    });
+});
+```
+
+#### New behavior for the "common" authority
+
+In v1.0, if you use the `https://login.microsoftonline.com/common` authority, you will allow users to sign in with any AAD account (for any organization). 
+
+If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any AAD organization or a personal Microsoft account (MSA). In MSAL Node, if you want to restrict login to any AAD account (same behavior as with ADAL Node), use `https://login.microsoftonline.com/organizations`.
+
 #### v1.0 vs. v2.0 resources
 
-When working with ADAL Node, you were likely using the **Azure AD v1.0 endpoint**. By contrast, MSAL Node was primarily built for the **v2.0 endpoint**. An important difference between v1.0 vs. v2.0 endpoints is about how the resources are accessed. In ADAL Node, you would first register a permission on app registration portal, and then request an access token for a resource as shown below:
+When working with ADAL Node, you were likely using the **Azure AD v1.0 endpoint**. An important difference between v1.0 vs. v2.0 endpoints is about how the resources are accessed. In ADAL Node, you would first register a permission on app registration portal, and then request an access token for a resource as shown below:
 
 ```javascript
   authenticationContext.acquireTokenWithAuthorizationCode(
@@ -383,7 +383,7 @@ When working with ADAL Node, you were likely using the **Azure AD v1.0 endpoint*
   );
 ```
 
-The v2.0 endpoint employs a scope-centric model to access resources. Thus when you request an access token for a resource, you also need to specify the scope for that resource:
+MSAL Node supports both **v1.0** and **v2.0** endpoints. The v2.0 endpoint employs a scope-centric model to access resources. Thus when you request an access token for a resource, you also need to specify the scope for that resource:
 
 ```javascript
     const tokenRequest = {
@@ -410,65 +410,9 @@ There are two versions of tokens:
 
 The v1.0 endpoint (used by ADAL) only emits v1.0 tokens.
 
-However, the v2.0 endpoint (used by MSAL) emits the version of the token that the web API accepts. A property of the application manifest of the web API enables developers to choose which version of token is accepted. See `accessTokenAcceptedVersion` in the [Application manifest](reference-app-manifest.md) reference documentation.
+However, the v2.0 endpoint emits the version of the token that the web API accepts. A property of the application manifest of the web API enables developers to choose which version of token is accepted. See `accessTokenAcceptedVersion` in the [Application manifest](reference-app-manifest.md) reference documentation.
 
-For more information about v1.0 and v2.0 tokens, see [Azure Active Directory access tokens](access-tokens.md)
-
-#### Promises, not callbacks
-
-In ADAL Node, callbacks are used for any operation after the authentication succeeds and a response is obtained:
-
-```javascript
-  var authenticationContext = new AuthenticationContext(authorityUrl);
-  
-  authenticationContext.acquireTokenWithAuthorizationCode(
-    req.query.code,
-    redirectUri,
-    resource,
-    clientId,
-    clientSecret,
-    function (err, response) {
-      // do something with the authentication response
-    }
-  );
-```
-
-In MSAL Node, promises are used instead:
-
-```javascript
-    const cca = new msal.ConfidentialClientApplication(msalConfig);
-
-    cca.acquireTokenByCode(tokenRequest).then((response) => {
-        // do something with the authentication response
-    }).catch((error) => {
-        console.log(error);
-    });
-```
-
-You can also use the **async/await** syntax that comes with ES6:
-
-```javascript
-    try {
-        const authResponse = await cca.acquireTokenByCode(tokenRequest);
-    } catch (error) {
-        console.log(error);
-    }
-```
-
-#### Making use of refresh tokens
-
-In ADAL Node, the refresh tokens (RT) were exposed allowing you to develop solutions around the use of these tokens by caching them and using the `acquireTokenWithRefreshToken` method. Typical scenarios where RT are especially relevant:
-
-* Long running services that do actions including refreshing dashboards on behalf of the users where the users are no longer connected.
-* WebFarm scenarios for enabling the client to bring the RT to the web service (caching is done client side, encrypted cookie, and not server side)
-
-MSAL Node does not expose refresh tokens for security reasons. Instead, MSAL handles refreshing tokens for you. As such, you no longer need to built logic for this. Still, if you need to migrate and make use of your previously acquired refresh tokens, MSAL Node offers `acquireTokenByRefreshToken`, which is equivalent to ADAL Node's `acquireTokenWithRefreshToken` method.
-
-#### New behavior for the "common" authority
-
-In v1.0, if you use the `https://login.microsoftonline.com/common` authority, you will allow users to sign in with any AAD account (for any organization). 
-
-If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any AAD organization or a personal Microsoft account (MSA). In MSAL Node, if you want to restrict login to any AAD account (same behavior as with ADAL Node), use `https://login.microsoftonline.com/organizations`.
+For more information about v1.0 and v2.0 tokens, see [Azure Active Directory access tokens](access-tokens.md).
 
 ## More Information
 
