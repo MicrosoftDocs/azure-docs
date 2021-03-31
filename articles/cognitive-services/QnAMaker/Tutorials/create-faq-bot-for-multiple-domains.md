@@ -22,5 +22,9 @@ Many a times, users would have similar questions but on a different domain. You 
 
 ### Create a single knowledge base and define distinct domains for QnA pairs
 
+The content authors can use documents/URLs to extract QnAs or add custom QnAs to the knowledgebase. In order to group these QnAs by domain, you can add metadata to the QnA pairs. 
+
 ### Create a separate knowledge base for each domain
+
+
 
