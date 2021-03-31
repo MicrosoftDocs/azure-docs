@@ -6,7 +6,7 @@ author: rinarish
 manager: rinarish
 services: azure-communication-services
 
-ms.author: akania
+ms.author: arturk
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
