@@ -336,6 +336,7 @@ We have now issued a verifiable credential using our tenant to generate our vc w
 
   ![vc issued by your azure AD and authenticated by our Azure B2C instance](media/enable-your-tenant-verifiable-credentials/my-vc-b2c.png)
 
+
 ## Test verifying the VC using the sample app
 
 Now that we've issued the verifiable credential from our own tenant, let's verify it using our sample app.
@@ -343,7 +344,7 @@ Now that we've issued the verifiable credential from our own tenant, let's verif
 >[!IMPORTANT]
 > When testing, use the same email and password that you used during the [get started](get-started-verifiable-credentials.md) article. While your tenant is issuing the vc, the input is coming from an id token issued by the Microsoft B2C tenant. In tutorial two, we are switching token issuance to your tenant
 
-1. Open up **Settings** in the verifiable credentials blade in the Azure portal. Copy the Issuer identifier.
+1. Open up **Settings** in the verifiable credentials blade in the Azure portal. Copy the decentralized identifier (DID).
 
    ![copy the DID](media/enable-your-tenant-verifiable-credentials/issuer-identifier.png)
 
