@@ -1,15 +1,14 @@
 ---
-title: Storage Migration Guide
-titleSuffix: Azure  Storage Docs
-description: Storage migration overview guide
-keywords: azure,storage,migration
+title: Azure Storage Migration Guide
+description: Storage migration overview guide describes basic guidance for storage migration 
 author: dukicn
-ms.author: dukicn
+ms.author: nikoduki
+ms.topic: overview 
 ms.date: 03/31/2021
-ms.topic: article
+ms.custom: template-overview
 ms.service: storage
-ms.subservice: blob,files,anf,disks
 ---
+
 # Azure Storage migration overview
 
 This article focuses on storage migrations to Azure and provides guidance on the following storage migration scenarios:

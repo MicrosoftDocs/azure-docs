@@ -1,15 +1,14 @@
 ---
-title: Migration tools comparison matrix
-titleSuffix: Azure  Storage Docs
-description: Comparison matrix for migration tools
-keywords: azure,storage,migration
+title: Azure Storage Migration Guide
+description: Storage migration overview guide describes basic guidance for storage migration 
 author: dukicn
-ms.author: dukicn
+ms.author: nikoduki
+ms.topic: overview 
 ms.date: 03/31/2021
-ms.topic: article
+ms.custom: template-overview
 ms.service: storage
-ms.subservice: blob,files,anf
 ---
+
 # Comparison matrix
 
 Comparison matrix shows basic functionality of different tools that can be used for migration of unstructured data. 
