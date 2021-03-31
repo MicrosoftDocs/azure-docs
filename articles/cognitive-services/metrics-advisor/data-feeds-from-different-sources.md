@@ -202,11 +202,15 @@ The timestamp field must match one of these two formats:
 
 ## <span id="log">Azure Log Analytics</span>
 
+For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register app or web API](../../active-directory/develop/quickstart-register-app.md).
 * **Tenant Id**: Specify the tenant id to access your Log Analytics.
 * **Client Id**: Specify the client id to access your Log Analytics.
 * **Client Secret**: Specify the client secret to access your Log Analytics.
-* **Workspace ID**: Specify the workspace Id of Log Analytics.
-* **Query**: Specify the query of Log Analytics.
+* **Workspace ID**: Specify the workspace Id of Log Analytics. For **Wordkspace ID**, you can find it in Azure portal.
+* 
+:::image type="content" source="/media/workspace-id.png" alt-text="Workspace ID":::
+
+* **Query**: Specify the query of Log Analytics. For more details please refer to [Log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md)
 
 ## <span id="sql">Azure SQL Database | SQL Server</span>
 
