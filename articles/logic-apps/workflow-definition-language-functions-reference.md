@@ -983,7 +983,7 @@ Return the base64-encoded version for a string.
 > Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
 > the encoding and decoding functions. However, if you use these functions anyway, you might experience unexpected rendering behaviors in the designer. 
 > These behaviors affect only the functions' visibility and not their effect unless you edit the functions' parameter values, which removes the functions 
-> and their effects from your code. For more information, see [Implicit data type conversions](#base64-encoding-decoding).
+> and their effects from your code. For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
 
 ```
 base64('<value>')
