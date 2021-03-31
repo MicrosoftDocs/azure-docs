@@ -233,7 +233,8 @@ const cachePlugin = {
 
 If you are developing [public client applications](https://docs.microsoft.com/azure/active-directory/develop/msal-client-applications) like desktop apps, the [Microsoft Authentication Extensions for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/extensions/msal-node-extensions) offers secure mechanisms for client applications to perform cross-platform token cache serialization and persistence. Supported platforms are Windows, Mac and Linux.
 
-> [!NOTE] This is not recommended for web applications, as it may lead to scale and performance issues. Web apps are recommended to persist the cache in session.
+> [!NOTE]
+> This is not recommended for web applications, as it may lead to scale and performance issues. Web apps are recommended to persist the cache in session.
 
 ### Public API
 
@@ -252,10 +253,10 @@ However, some methods in ADAL Node are deprecated, while MSAL Node offers new me
 
 | ADAL                              | MSAL                            | Notes                             |
 |-----------------------------------|---------------------------------|-----------------------------------|
-| acquireUserCode                   | N/A                             | Merged with `acquireTokeByDeviceCode` (see above)|
-| N/A                               | acquireTokenOnBehalfOf          | A new method that abstracts [OBO flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) |
-| acquireTokenWithClientCertificate | N/A                             | No longer needed as certificates are assigned during initialization now (see [configuration options](#configuration-options)) |
-| N/A                               | getAuthCodeUrl                  | A new method that abstracts [authorize endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols#endpoints) URL construction |
+| `acquireUserCode`                   | N/A                             | Merged with `acquireTokeByDeviceCode` (see above)|
+| N/A                               | `acquireTokenOnBehalfOf`          | A new method that abstracts [OBO flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) |
+| `acquireTokenWithClientCertificate` | N/A                             | No longer needed as certificates are assigned during initialization now (see [configuration options](#configuration-options)) |
+| N/A                               | `getAuthCodeUrl`                  | A new method that abstracts [authorize endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols#endpoints) URL construction |
 
 ### Other notable differences
 
