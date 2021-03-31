@@ -68,3 +68,23 @@ You can also use the `FROM` clause to pull relationships into the query scope.
 Unlike in classical SQL-type languages, each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal, and is written with an Azure Digital Twins version of `JOIN`.
 
 For more information on the `JOIN` clause and crafting relationship queries, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
+
+## Limitations
+
+The following limits apply to queries using `FROM`.
+* [No subqueries](#no-subqueries)
+
+See the section below for more details.
+
+### No subqueries
+
+No subqueries are supported within the `FROM` statement.
+
+#### Example (negative)
+
+The following query shows an example of what **cannot** be done as per this limitation.
+
+```sql
+SELECT * 
+FROM (SELECT * FROM DIGITALTWINS T WHERE ...)
+```

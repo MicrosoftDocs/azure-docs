@@ -80,3 +80,49 @@ The following example...
 ```sql
 <example>
 ```
+
+## Limitations
+
+The following limits apply to queries using `JOIN`.
+* [Depth limit of five](#depth-limit-of-five)
+* [No OUTER JOIN semantics](#no-outer-join-semantics)
+* [Source twin required](#source-twin-required)
+
+See the sections below for more details.
+
+### Depth limit of five
+
+Graph traversal depth is restricted to five `JOIN` levels per query.
+
+#### Example
+
+The following query illustrates the maximum number of `JOINs` that are possible in an Azure Digital Twins query. It gets all the LightBulbs in Buliding1.
+
+```sql
+SELECT LightBulb
+FROM DIGITALTWINS Building
+JOIN Floor RELATED Building.contains
+JOIN Room RELATED Floor.contains
+JOIN LightPanel RELATED Room.contains
+JOIN LightBulbRow RELATED LightPanel.contains
+JOIN LightBulb RELATED LightBulbRow.contains
+WHERE Buliding.$dtId = 'Building1'
+```
+
+### No OUTER JOIN semantics
+
+`OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
+
+#### Example (negative)
+
+The following query shows an example of what **cannot** be done as per this limitation.
+
+```sql
+<example>
+```
+
+### Source twin required
+
+Relationships in Azure Digital Twins can't be queried as independent entities; you also need to provide information about the source twin that the relationship comes from. This means that there are some restrictions on the `JOIN` operation, which is used to query relationships, to make sure that the query declares the twin(s) where the query begins.
+
+The requirements of this limitation are considered part of the default `JOIN` usage in Azure Digital Twins.
