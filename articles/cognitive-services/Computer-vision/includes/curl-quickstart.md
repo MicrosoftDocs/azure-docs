@@ -114,7 +114,7 @@ A successful response is returned in JSON. The sample application parses and dis
 
 ## Read printed and handwritten text
 
-Computer Vision can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR) overview](../concept-recognizing-text.md#read-api).
+Computer Vision can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR) overview](../overview-ocr.md).
 
 To create and run the sample, do the following steps:
 

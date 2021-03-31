@@ -35,7 +35,7 @@ Computer Vision's Read API v3.2 public preview, available as cloud service and D
 * Extract text only for selected pages for a multi-page document.
 * Available as a [Distroless container](./computer-vision-how-to-install-containers.md?tabs=version-3-2) for on-premise deployment.
 
-[Learn more](concept-recognizing-text.md) about the Read API.
+[Learn more](overview-ocr.md) about the Read API.
 
 > [!div class="nextstepaction"]
 > [Use the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
@@ -78,7 +78,7 @@ Computer Vision's Read API v3.1 public preview adds these capabilities:
 
 * This preview version of the Read API supports English, Dutch, French, German, Italian, Japanese, Portuguese, Simplified Chinese, and Spanish languages.
 
-See the [Read API overview](concept-recognizing-text.md) to learn more.
+See the [Read API overview](overview-ocr.md) to learn more.
 
 > [!div class="nextstepaction"]
 > [Learn more about Read API v3.1 Public Preview 2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
@@ -90,13 +90,13 @@ Computer Vision's Read API v3.1 public preview adds support for Simplified Chine
 
 * This preview version of the Read API supports English, Dutch, French, German, Italian, Portuguese, Simplified Chinese, and Spanish languages.
 
-See the [Read API overview](concept-recognizing-text.md) to learn more.
+See the [Read API overview](overview-ocr.md) to learn more.
 
 > [!div class="nextstepaction"]
 > [Learn more about Read API v3.1 Public Preview 1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## May 2020
-Computer Vision API v3.0 entered General Availability, with updates to [Read API](concept-recognizing-text.md):
+Computer Vision API v3.0 entered General Availability, with updates to the [Read API](overview-ocr.md):
 
 * Support for English, Dutch, French, German, Italian, Portuguese, and Spanish
 * Improved accuracy
