@@ -106,13 +106,13 @@ landingContent:
       - linkListType: concept
         links:
           - text: Protection
-            url: content-protection-overview.md           
+            url: drm-content-protection-concept.md           
       - linkListType: tutorial
         links:
           - text: Encrypt dynamically with AES-128
-            url: protect-with-aes128.md
+            url: drm-playready-license-template-concept.md
           - text: Encrypt dynamically with DRM
-            url: protect-with-drm.md
+            url: drm-protect-with-drm-tutorial.md
 
 # Card
   - title: Analyze content

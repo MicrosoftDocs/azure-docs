@@ -6,7 +6,7 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
+# Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial

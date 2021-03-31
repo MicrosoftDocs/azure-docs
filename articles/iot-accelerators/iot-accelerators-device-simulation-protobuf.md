@@ -10,7 +10,7 @@ ms.custom:  "mvc, amqp, devx-track-csharp"
 ms.date: 11/06/2018
 ms.author: dobett
 
-# As an IT Pro, I need to create advanced custom simulated devices to test my IoT solution.
+#Customer intent: As an IT Pro, I need to create advanced custom simulated devices to test my IoT solution.
 ---
 
 # Serialize telemetry using Protocol Buffers
