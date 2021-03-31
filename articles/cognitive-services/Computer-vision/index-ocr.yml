@@ -17,19 +17,19 @@ metadata:
 landingContent:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   - title: About Optical character recognition
-      linkLists:
-        - linkListType: overview
-          links:
-            - text: What is Optical character recognition?
-              url: overview-ocr.md
-        - linkListType: concept
-          links:
-            - text: OCR concepts
-              url: concept-ocr.md
-        - linkListType: quickstart
-          links:
-            - text: OCR quickstart
-              url: quickstarts-sdk/client-library.md
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Optical character recognition?
+            url: overview-ocr.md
+      - linkListType: concept
+        links:
+          - text: OCR concepts
+            url: concept-ocr.md
+      - linkListType: quickstart
+        links:
+          - text: OCR quickstart
+            url: quickstarts-sdk/client-library.md
   - title: Use the Read container
     linkLists:
       - linkListType: get-started

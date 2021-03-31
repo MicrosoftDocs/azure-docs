@@ -19,19 +19,20 @@ metadata:
 landingContent:
 - title: About Spatial Analysis
   linkLists:
-    - linkListType: overview
-      links:
-        - text: Spatial Analysis overview
-          url: intro-to-spatial-analysis-public-preview.md
-    - linkListType: concept
-      links:
-        - text: OCR concepts
-          url: concept-ocr.md
-    - linkListType: quickstart
-      links:
-        - text: Set up the host machine and run the container
-          url: spatial-analysis-container.md
+  - linkListType: overview
+    links:
+      - text: Spatial Analysis overview
+        url: intro-to-spatial-analysis-public-preview.md
+  - linkListType: concept
+    links:
+      - text: OCR concepts
+        url: concept-ocr.md
+  - linkListType: quickstart
+    links:
+      - text: Set up the host machine and run the container
+        url: spatial-analysis-container.md
 - title: Develop with Spatial Analysis
+  linkLists:
   - linkListType: how-to-guide
     links:
       - text: Configure operations
@@ -45,7 +46,7 @@ landingContent:
       - text: Logging and troubleshooting
         url: spatial-analysis-logging.md
 - title: Responsible use of AI
-linkLists:
+  linkLists:
   - linkListType: overview
     links:
       - text: Transparency note for Spatial Analysis
@@ -64,4 +65,3 @@ linkLists:
         links:
           - text: Support and help
             url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
-
