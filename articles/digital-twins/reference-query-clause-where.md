@@ -25,9 +25,9 @@ This clause is optional while querying.
 
 ## Core syntax: WHERE
 
-The WHERE clause is used along with a boolean condition to filter query results. 
+The WHERE clause is used along with a Boolean condition to filter query results. 
 
-A condition can be a [function](reference-query-functions.md) that evaluates to a boolean result. You can also create your own boolean statement using the properties of twins and relationships (accessed with `.`) with a comparison or contains-type [operator](reference-query-operators.md).
+A condition can be a [function](reference-query-functions.md) that evaluates to a Boolean result. You can also create your own Boolean statement using the properties of twins and relationships (accessed with `.`) with a comparison or contains-type [operator](reference-query-operators.md).
 
 ### Syntax
 
@@ -44,12 +44,12 @@ With a function:
 ```sql
 --SELECT ...
 --FROM ...
-WHERE <function-with-boolean-result>
+WHERE <function-with-Boolean-result>
 ```
 
 ### Arguments
 
-A condition evaluating to a `boolean` value.
+A condition evaluating to a `Boolean` value.
 
 ### Examples
 
