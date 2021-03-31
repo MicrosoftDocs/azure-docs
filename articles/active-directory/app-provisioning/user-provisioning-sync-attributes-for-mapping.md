@@ -12,7 +12,7 @@ ms.date: 03/31/2021
 ms.author: kenwith
 ---
 
-# Syncing extension attributes attributes
+# Syncing extension attributes for app provisioning
 
 Azure Active Directory (Azure AD) must contain all the data (attributes) required to create a user profile when provisioning user accounts from Azure AD to a SaaS app. When customizing attribute mappings for user provisioning, you might find that the attribute you want to map doesn't appear in the **Source attribute** list. This article shows you how to add the missing attribute.
 
