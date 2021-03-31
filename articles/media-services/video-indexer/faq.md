@@ -55,7 +55,7 @@ No, Video Indexer provides the integration of multiple machine learning models i
 
 ### What media formats does Video Indexer support?
 
-Video Indexer supports most common media formats. Refer to the [Azure Media Encoder standard formats](../latest/media-encoder-standard-formats.md) list for more details.
+Video Indexer supports most common media formats. Refer to the [Azure Media Encoder standard formats](../latest/encode-media-encoder-standard-formats-reference.md) list for more details.
 
 ### How do I upload a media file into Video Indexer and what are the limitations?
 

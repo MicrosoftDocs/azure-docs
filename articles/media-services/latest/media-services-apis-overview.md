@@ -141,7 +141,7 @@ AMSE is an Open Source project, support is provided by the community (issues can
 
 ## Filtering, ordering, paging of Media Services entities
 
-See [Filtering, ordering, paging of Azure Media Services entities](entities-overview.md).
+See [Filtering, ordering, paging of Azure Media Services entities](filter-order-page-entitites-how-to.md).
 
 ## Ask questions, give feedback, get updates
 
