@@ -46,9 +46,9 @@ During the preview program Microsoft Azure engineering teams will share specific
 **A:** Xilinx recommends [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)
 
 
-**Q:** Do I need to use NP VMs to develop my solutuion? 
+**Q:** Do I need to use NP VMs to develop my solution? 
 
-**A:** No, you can develop on-premise and deploy to the cloud! Please make sure you follow the attestation documentation to deploy on NP VMs. 
+**A:** No, you can develop on-premise and deploy to the cloud! Please make sure to follow the attestation documentation to deploy on NP VMs. 
 
 **Q:** What Version of XRT should I use?
 
@@ -56,9 +56,9 @@ During the preview program Microsoft Azure engineering teams will share specific
 
 **Q:** What is the target deployment platform?
 
-**A:** - xilinx-u250-gen3x16-xdma-platform-2.1-3_all 
+**A:** xilinx-u250-gen3x16-xdma-platform-2.1-3_all 
 
-       - xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1 
+       xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1 
 
 **Q:** Which platform should I target for development?
 
@@ -68,7 +68,7 @@ During the preview program Microsoft Azure engineering teams will share specific
 
 **A:** Xilinx and Microsoft have validated Ubuntu 18.04 LTS and CentOS 7.8.
 
- Xilinx created the following marketplace images to simplify the deployment of these VMs. 
+ Xilinx has created the following marketplace images to simplify the deployment of these VMs. 
 
 [Xilinx Alveo U250 Deployment VM – Ubuntu18.04](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/xilinx.xilinx_alveo_u250_deployment_vm_ubuntu1804_032321/)
 
@@ -80,30 +80,34 @@ During the preview program Microsoft Azure engineering teams will share specific
 
 **Q:** If I deploy my own Ubuntu18.04 VM then what are the required packages and steps?
 
-**A:** - Use Kernel 4.1X per [Xilinx XRT documentation] (https://www.xilinx.com/support/documentation/sw_manuals/xilinx2020_2/ug1451-xrt-release-notes.pdf)
-       - Install the following packages.
+**A:** Use Kernel 4.1X per [Xilinx XRT documentation](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2020_2/ug1451-xrt-release-notes.pdf)
+       
+       Install the following packages.
+       
        xrt_202020.2.8.832_18.04-amd64-xrt.deb
+       
        xrt_202020.2.8.832_18.04-amd64-azure.deb
+       
        xilinx-u250-gen3x16-xdma-platform-2.1-3_all_18.04.deb.tar.gz
+       
        xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1_all.deb 
-
-xrt_202020.2.8.832_18.04-amd64-azure.deb 
-
-xilinx-u250-gen3x16-xdma-platform-2.1-3_all_18.04.deb.tar.gz 
-
-xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1_all.deb 
 
 **Q:** On Ubuntu, after rebooting my VM I cannot find my FPGA(s): 
 
-**A:** Please verify that your kernel has not been upgraded (uname -a). If so, please downgrade to a kernel 4.1X. 
+**A:** Please verify that your kernel has not been upgraded (uname -a). If so, please downgrade to  kernel 4.1X. 
 
 **Q:** If I deploy my own CentOS7.8 VM then what are the required packages and steps?
 
-**A:** - Use Kernel version: 3.10.0-1160.15.2.el7.x86_64
-       - Install the following packages.
+**A:** Use Kernel version: 3.10.0-1160.15.2.el7.x86_64
+
+   Install the following packages.
+   
       xrt_202020.2.8.832_7.4.1708-x86_64-xrt.rpm 
+      
       xrt_202020.2.8.832_7.4.1708-x86_64-azure.rpm 
+      
       xilinx-u250-gen3x16-xdma-platform-2.1-3.noarch.rpm.tar.gz 
+      
       xilinx-u250-gen3x16-xdma-validate-2.1-3005608.1.noarch.rpm 
 
 **Q:** When running xbutil validate on CentOS I get this warning: “WARNING: Kernel version 3.10.0-1160.15.2.el7.x86_64 is not officially supported. 4.18.0-193 is the latest supported version.” 
@@ -112,7 +116,7 @@ xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1_all.deb
 
 **Q:** What are the differences between OnPrem and NP VMs regarding XRT? 
 
-**A:** On Azure, XDMA 2.1 platform only supports Slave Bridge and DDR data retention features. 
+**A:** On Azure, XDMA 2.1 platform only supports Host_Mem(SB) and DDR data retention features. 
 
 To enable Slave Bridge (1Gb RAM):  sudo xbutil host_mem --enable --size 1g 
 
