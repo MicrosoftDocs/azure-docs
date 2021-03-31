@@ -132,7 +132,7 @@ Add the following URL patterns for Azure Monitor if you're using the containeriz
 | URL pattern | Port | Component or functionality |
 |-------------|-------------|----------------------------|
 | http://\*ods.opinsights.azure.us | 443 | Data ingestion |
-| http://\*.oms.opinsights.azure.oms | 443 | Operations Management Suite (OMS) onboarding |
+| http://\*.oms.opinsights.azure.us | 443 | Operations Management Suite (OMS) onboarding |
 | http://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
 
 
