@@ -24,8 +24,8 @@ Use this article to find the settings and requirements for connecting different 
 | **AzureManagedIdentity** | [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for Azure resources is a feature of Azure Active Directory. It provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication.|
 | **AzureSQLConnectionString**| Store your AzureSQL connection string as a **credential entity** in Metrics Advisor, and use it directly each time when onboarding metrics data. Only admins of the Credential entity are able to view these credentials, but enables authorized viewers to create data feeds without needing to know details for the credentials. |
 | **DataLakeGen2SharedKey**| Store your data lake account key as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of the Credential entity are able to view these credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
-| **Service principal**| Store your service principal as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Credential entity are able to view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
-| **Service principal from key vault**|Store your service principal in a key vault as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of a **credential entity** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
+| **Service principal**| Store your [Service Principal](../../active-directory/develop/app-objects-and-service-principals.md) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Credential entity are able to view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
+| **Service principal from key vault**|Store your [Service Principal in a Key Vault](../../../azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2008&viewFallbackFrom=azs-2008.md) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of a **credential entity** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
 
 ## Data sources supported and corresponding authentication types
 
@@ -37,6 +37,7 @@ Use this article to find the settings and requirements for connecting different 
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity<br>Service principal from key vault<br>Service principal|
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Service principal<br>Service principal from key vault<br> |
+|[**Azure Log Analytics**](#log)| Basic|<br>Service principal from key vault<br>Service principal|
 |[**Azure SQL Database / SQL Server**](#sql) | Basic<br>ManagedIdentity<br>Service principal<br>Service principal from key vault<br>AzureSQLConnectionString
 |[**Azure Table Storage**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
@@ -45,6 +46,8 @@ Use this article to find the settings and requirements for connecting different 
 |[**MongoDB**](#mongodb) | Basic |
 |[**MySQL**](#mysql) | Basic |
 |[**PostgreSQL**](#pgsql)| Basic|
+|[**Local files(CSV)**](#csv)| Basic|
+
 
 Create an **Credential entity** and use it for authenticating to your data sources. The following sections specify the parameters required for *Basic* authentication within different data source scenarios. 
 
@@ -196,6 +199,15 @@ The timestamp field must match one of these two formats:
 
     No matter which timestamp field it left aligns to granularity.For example, if timestamp is "2019-01-01T00:03:00Z", granularity is 5 minutes, then Metrics Advisor aligns the timestamp to "2019-01-01T00:00:00Z". If the event timestamp is "2019-01-01T00:10:00Z",  Metrics Advisor uses the timestamp directly without any alignment.
 -->
+
+## <span id="log">Azure Log Analytics</span>
+
+* **Tenant Id**: Specify the tenant id to access your Log Analytics.
+* **Client Id**: Specify the client id to access your Log Analytics.
+* **Client Secret**: Specify the client secret to access your Log Analytics.
+* **Workspace ID**: Specify the workspace Id of Log Analytics.
+* **Query**: Specify the query of Log Analytics.
+
 ## <span id="sql">Azure SQL Database | SQL Server</span>
 
 * **Connection String**: Metrics Advisor accepts an [ADO.NET Style Connection String](/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source. Also, your connection string could be found in Azure SQL Server resource in **Connection strings** of **Settings** section.
@@ -325,6 +337,17 @@ The timestamp field must match one of these two formats:
     ```
     
     *Only the 'TABLE', 'Timestamp' should be replaced in this example.*
+    
+## <span id="csv">Local files(CSV)</span>
+
+> [!NOTE]
+> This feature is only used for quick system evaluation focusing on anomaly detection. It only accepts static data from a local CSV and perform anomaly detection on single time series data. However, for full product experience analyzing on multi-dimensional metrics including real-time data ingestion, anomaly notification, root cause analysis, cross-metric incident analysis, please use other supported data sources.
+
+Requirements on data in CSV:
+1. Have at least one column, which represents as measures to be analyzed. You can have multiple columns(measures), which will be ingested as different metrics to be monitored.
+2. Timestamp column is optional, if there's no timestamp, Metrics Advisor will use timestamp starting from today 00:00:00(UTC) and map each measure in the row at a one-hour interval. If there is timestamp column in CSV and you want to keep it, please make sure it fall into the [historical data processing window].(Timestamp format : 2021-03-30T00:00:00Z)
+3.  Multi-dimensional metric is not supported in CSV source.
+4. There is no re-ordering or gap-filling happening during data ingestion, please make sure your data in CSV is ordered by timestamp ASC.
 
 ## Next steps
 
