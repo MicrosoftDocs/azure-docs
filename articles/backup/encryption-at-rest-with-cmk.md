@@ -54,14 +54,14 @@ This section involves the following steps:
 
 It's necessary that all these steps are followed in the order mentioned above to achieve the intended results. Each step is discussed in detail below.
 
-### Enable managed identity for your Recovery Services vault
+## Enable managed identity for your Recovery Services vault
 
-Azure Backup uses system assigned managed identities as well as user-assigned managed identities to authenticate the Recovery Services vault to access encryption keys stored in the Azure Key Vault. To enable managed identity for your Recovery Services vault, follow the steps mentioned below.
+Azure Backup uses system assigned managed identities and user-assigned managed identities to authenticate the Recovery Services vault to access encryption keys stored in the Azure Key Vault. To enable managed identity for your Recovery Services vault, follow the steps mentioned below.
 
 >[!NOTE]
 >Once enabled, the managed identity must **not** be disabled (even temporarily). Disabling the managed identity may lead to inconsistent behavior.
 
-**Enable system-assigned managed identity for the vault**
+### Enable system-assigned managed identity for the vault
 
 **In the portal:**
 
@@ -103,7 +103,7 @@ TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Type        : SystemAssigned
 ```
 
-**Assign user-assigned managed identity to the vault**
+### Assign user-assigned managed identity to the vault
 
 To assign the user-assigned managed identity for your Recovery Services vault, perform the following steps:
 
@@ -121,7 +121,7 @@ To assign the user-assigned managed identity for your Recovery Services vault, p
 
 1.	Once done, click **Add** to finish assigning the identity.
 
-### Assign permissions to the Recovery Services vault to access the encryption key in the Azure Key Vault
+## Assign permissions to the Recovery Services vault to access the encryption key in the Azure Key Vault
 
 You now need to permit the Recovery Services vault to access the Azure Key Vault that contains the encryption key. This is done by allowing the Recovery Services vault’s managed identity to access the Key Vault.
 
@@ -143,7 +143,7 @@ You now need to permit the Recovery Services vault to access the Azure Key Vault
 
 1. Select **Save** to save changes made to the access policy of the Azure Key Vault.
 
-### Enable soft-delete and purge protection on the Azure Key Vault
+## Enable soft-delete and purge protection on the Azure Key Vault
 
 You need to **enable soft delete and purge protection** on your Azure Key Vault that stores your encryption key. You can do this from the Azure Key Vault UI as shown below. (Alternatively, these properties can be set while creating the Key Vault). Read more about these Key Vault properties [here](../key-vault/general/soft-delete-overview.md).
 
@@ -183,7 +183,7 @@ You can also enable soft delete and purge protection through PowerShell using th
     Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
-### Assign encryption key to the RS vault
+## Assign encryption key to the RS vault
 
 >[!NOTE]
 > Before proceeding further, ensure the following:
@@ -195,7 +195,7 @@ You can also enable soft delete and purge protection through PowerShell using th
 
 Once the above are ensured, continue with selecting the encryption key for your vault.
 
-#### To assign the key in the portal
+### To assign the key in the portal
 
 1. Go to your Recovery Services vault -> **Properties**
 
@@ -215,7 +215,7 @@ Once the above are ensured, continue with selecting the encryption key for your 
     1. Browse and select the key from the Key Vault in the key picker pane.
 
         >[!NOTE]
-        >When specifying the encryption key using the key picker pane, the key will be auto-rotated whenever a new version for the key is enabled.
+        >When specifying the encryption key using the key picker pane, the key will be auto-rotated whenever a new version for the key is enabled. [Learn more](#enabling-auto-rotation-of-encryption-keys) on enabling auto-rotation of encryption keys.
 
         ![Select key from key vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
@@ -229,7 +229,7 @@ Once the above are ensured, continue with selecting the encryption key for your 
 
     ![Activity log](./media/encryption-at-rest-with-cmk/activity-log.png)
 
-#### To assign the key with PowerShell
+### To assign the key with PowerShell
 
 Use the [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) command to enable encryption using customer-managed keys, and to assign or update the encryption key to be used.
 
@@ -340,9 +340,9 @@ When restoring from a backed-up SAP HANA/SQL database running in an Azure VM, th
 ### Enable encryption using customer-managed keys at vault creation (in preview)
 
 >[!NOTE]
->Enabling encryption at vault creation using customer managed keys is in limited public preview and requires whitelisting of subscriptions. To sign up for the preview, fill the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u) and write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>Enabling encryption at vault creation using customer managed keys is in limited public preview and requires allow-listing of subscriptions. To sign up for the preview, fill the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u) and write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
-When your subscription is whitelisted, the **Backup Encryption** tab will display. This allows you to enable encryption on the backup using customer-managed keys during the creation of a new Recovery Services vault. To enable the encryption, perform the following steps:
+When your subscription is allow-listed, the **Backup Encryption** tab will display. This allows you to enable encryption on the backup using customer-managed keys during the creation of a new Recovery Services vault. To enable the encryption, perform the following steps:
 
 1. Next to the **Basics** tab, on the **Backup Encryption** tab, specify the encryption key and the identity to use for encryption.
 
@@ -371,13 +371,13 @@ When you specify the customer-managed key that must be used to encrypt backups, 
 
 Using the **Select from Key Vault** option helps to enable auto-rotation for the selected key. This eliminates the manual effort to update to the next version. However, using this option:
 - Key version update may take up to an hour to take effect.
-- When a new version of the key takes effect, the old version is also available (in enabled state) for at least one subsequent backup job to run.
+- When a new version of the key takes effect, the old version should also be available (in enabled state) for at least one subsequent backup job after the key update has taken effect.
 
 ### Using Azure Policies for auditing and enforcing encryption utilizing customer-managed keys (in preview)
 
 Azure Backup allows you to use Azure Polices to audit and enforce encryption, using customer-managed keys, of data in the Recovery Services vault. Using the Azure Policies:
 
-- The audit policy can be used for auditing vaults with encryption using customer-managed keys, enabled after 3/31/2021. For vaults with the CMK encryption enabled before this date, the policy may fail to apply or may show false negatives values (that is these vaults may report as not non-compliant, despite having the CMK encryption enabled).
+- The audit policy can be used for auditing vaults with encryption using customer-managed keys, enabled after 3/31/2021. For vaults with the CMK encryption enabled before this date, the policy may fail to apply or may show false negatives values (that is these vaults may be reported as non-compliant, despite having the CMK encryption enabled).
 - To use the audit policy for auditing vaults with the CMK encryption enabled before 3/31/2021, use the Azure portal to update an encryption key. This helps to upgrade to the new model. If you do not want to change the encryption key, provide the same key again through the key URI or the key selection option. 
 
     >[!Warning]
