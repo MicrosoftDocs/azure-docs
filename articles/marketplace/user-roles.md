@@ -10,12 +10,12 @@ ms.author: parthp
 ms.custom: contperf-fy21q2
 ---
 
+# Assign user roles and permissions
+
 **Appropriate roles**
 
 - Owner
 - Manager
-
-# Assign user roles and permissions
 
 In order to access capabilities related to marketplace or your developer account you need to have one or more of the following roles assigned to yourself. Each role has a specific set of permissions to perform certain functions within the account.
 
