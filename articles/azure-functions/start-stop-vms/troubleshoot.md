@@ -51,4 +51,4 @@ Learn more about monitoring Azure Functions and logic apps:
 
 * [How to configure monitoring for Azure Functions](../../azure-functions/configure-monitoring.md).
 
-* [Monitor logic apps](../../logic-apps/monitor-logic-apps#review-runs-history.md).
+* [Monitor logic apps](../../logic-apps/monitor-logic-apps.md).
