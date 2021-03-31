@@ -53,23 +53,24 @@ Alice makes a PSTN Call from an app to Bob on his US phone number beginning with
 - 1 participant on the VoIP leg (Alice) from App to Communication Services servers x 10 minutes x $0.004 per participant leg per minute = $0.04
 - 1 participant on the PSTN outbound leg (Charlie) from Communication Services servers to a US telephone number x 10 minutes x $0.013 per participant leg per minute = $0.13.
 
-Note: USA mixed rates to +1-425 is $0.013; refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+Note: USA mixed rates to `+1-425` is $0.013. Refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
 **Total cost for the group call**: $0.04 + $0.13 = $0.17
 
 
-### Pricing example: Group audio call using JS client library and 1 PSTN leg
+### Pricing example: Group audio call using JS SDK and 1 PSTN leg
 
-Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on his PSTN number (a US phone number: +1 425 555 xyz).
+Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on Charlie's PSTN number, a US phone number beginning with `+1-425`.
 
-- Alice used the JS client libary to build the app. They spoke for 10 minutes before calling Charlie on the PSTN number
-- Once Bob escalated the call to Charlie on his PSTN number, the three of them spoke for another 10 mins
+- Alice used the JS SDK to build the app. They spoke for 10 minutes before calling Charlie on the PSTN number.
+- Once Bob escalated the call to Charlie on his PSTN number, the three of them spoke for another 10 minutes.
 
 **Cost calculations**
 
-- 2 participant on the VoIP leg (Alice and Bob) from App to ACS servers x 20 minutes x $0.004 per participant leg per minute = $0.16
-- 1 participant on the PSTN OB leg (Charlie) from ACS servers to US Telephone number x 10 minutes x $0.013 per participant leg per minute = $0.13
-(Note: USA mixed rates to +1-425 is $0.013; refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+- 2 participants on the VoIP leg (Alice and Bob) from App to Communication Services servers x 20 minutes x $0.004 per participant leg per minute = $0.16
+- 1 participant on the PSTN outbound leg (Charlie) from Communication Services servers to US Telephone number x 10 minutes x $0.013 per participant leg per minute = $0.13
+
+Note: USA mixed rates to `+1-425` is $0.013. Refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
 **Total cost for the VoIP + escalation call**: $0.16 + $0.13 = $.29
 
