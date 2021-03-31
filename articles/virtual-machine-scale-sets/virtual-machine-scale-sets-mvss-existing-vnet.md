@@ -20,7 +20,7 @@ This article shows how to modify the [basic scale set template](virtual-machine-
 
 In a previous article we had created a [basic scale set template](virtual-machine-scale-sets-mvss-start.md). You will need that earlier template so that you can modify it to create a template that deploys a scale set into an existing virtual network.
 
-## Identify the subnet
+## Identify subnet
 
 First, add a `subnetId` parameter. This string is passed into the scale set configuration, allowing the scale set to identify the pre-created subnet to deploy virtual machines into. This string must be of the form:
 
@@ -42,7 +42,7 @@ For instance, to deploy the scale set into an existing virtual network with name
     },
 ```
 
-## Delete the extra virtual network resource
+## Delete extra virtual network resource
 
 Next, delete the virtual network resource from the `resources` array, as you use an existing virtual network and don't need to deploy a new one.
 
@@ -89,7 +89,7 @@ The virtual network already exists before the template is deployed, so there is 
           "capacity": 2
 ```
 
-## Pass the subnet parameter
+## Pass subnet parameter
 
 Finally, pass in the `subnetId` parameter set by the user (instead of using `resourceId` to get the ID of a vnet in the same deployment, which is what the basic viable scale set template does).
 
