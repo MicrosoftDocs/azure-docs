@@ -22,10 +22,7 @@ Each solution has different requirements and abilities.  The table below lists i
 | [Azure Files with identity-base authorization](#azure-files-with-identity-base-authorization) | <ul><li>Either read or read/write access permissions can be set for folder or file.</li><li>Vnet peering required.</li><li>Storage account must be connected to Active Directory.</li><li>Lab VMs must be domain-joined.</li><li>Storage Account key not used for students to connect to the file share.</li></ul> |
 | [NetApp Files with NFS volumes](#netapp-files-with-nfs-volumes) | <ul><li>Either read or read/write access can be set for volumes.</li><li>Permissions are set using student VM’s ip address.</li><li>Vnet peering required.</li><li>May need to register to use NetApp Files service.</li><li>Linux only.</li></ul>
 
-Cost of using external storage is not included in the cost of using Azure Lab Services.  For more information about pricing, see
-
-- [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
-- [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/)
+Cost of using external storage is not included in the cost of using Azure Lab Services.  For more information about pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) and [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/).
 
 ## Azure Files share
 
@@ -93,18 +90,24 @@ If the template VM is already published that mounts the Azure File share to the 
 
 - Move the instruction to mount `/mnt` to the top of the `/etc/fstab` file.  
 - Modify the instruction to mount `/mnt/{file-share-name}` to different directory like `/prm-mnt/{file-share-name}`.
+
 Students should run `mount -a` to remount directories.
 
-For more information using Azure Files with Linux, see [Use Azure Files with Linux](/azure/storage/files/storage-how-to-use-files-linux).
+For more information about Linux, see [use Azure Files with Linux](/azure/storage/files/storage-how-to-use-files-linux).
 
 ## Azure Files with identity-base authorization
 
-Azure Files shared can also be accessed using AD authentication if the VM is domain-joined and AD authentication is [enabled on the Azure Storage Account](/azure/storage/files/storage-files-active-directory-overview) that hosts the file share.  The network drive is mounted on the virtual machine using the user’s identity, not the key to the storage account.  Access to the storage account can use public or private endpoints.
+Azure Files shares can also be accessed using AD authentication if
+
+1. The student VM is domain-joined.
+2. AD authentication is [enabled on the Azure Storage Account](/azure/storage/files/storage-files-active-directory-overview) that hosts the file share.  
+
+The network drive is mounted on the virtual machine using the user’s identity, not the key to the storage account.  Access to the storage account can use public or private endpoints.
 
 Let’s go over some important points of this approach.
 
 - Permissions can be set on a directory or file level.
-- Current user credentials are used to authenticate.
+- Current user credentials are used to authenticate to the file share.
 
 If using a public endpoint to the Azure Files share, it's important to remember:
 
@@ -118,23 +121,23 @@ If using a private endpoint to the Azure Files share, it's important to remember
 Follow the steps below to create an AAD authentication enabled Azure Files share, domain join the lab VMs.
 
 1. Create an [Azure Storage Account](/azure/storage/files/storage-how-to-create-file-share).
-2. If using, create a [private endpoint](/azure/private-link/create-private-endpoint-storage-portal) in order for the File Shares to be accessible from the virtual network.  Create a [private DNS zone](/azure/dns/private-dns-privatednszone) or use an existing one. Private Azure DNS zones provide name resolution within a virtual network.
+2. If using, create a [private endpoint](/azure/private-link/create-private-endpoint-storage-portal) in order for the file shares to be accessible from the virtual network.  Create a [private DNS zone](/azure/dns/private-dns-privatednszone) or use an existing one. Private Azure DNS zones provide name resolution within a virtual network.
 3. Create an [Azure file share](/azure/storage/files/storage-how-to-create-file-share).
 4. Follow steps to enable identity-based authorization.  If using on-prem AD that is synced to Azure AD, follow steps for [on-premises Active Directory Domain Services authentication over SMB for Azure file shares](/azure/storage/files/storage-files-identity-auth-active-directory-enable).  If only using Azure AD, follow steps to [enable Azure Active Directory Domain Services authentication on Azure Files](/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable).
     >[!IMPORTANT]
     >Talk to the team that manages your AD to verify all prerequisites listed in the instructions are met.
-5. Assign SMB share permissions in Azure.  For details about permissions are granted to each role, see [share-level permissions](/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+5. Assign SMB share permissions in Azure.  For details about permissions that are granted to each role, see [share-level permissions](/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
     1. ‘Storage File Data SMB Share Elevated Contributor’ role must be assigned to the person or group that will set up permissions for contents of the file share.
     2. ‘Storage File Data SMB Share Contributor’ role should be assigned to students that need to add or edit files on the file share.
-    3. ‘Storage File Data SMB Share Reader’ role should be assigned to students or student group that will only need to read the files from the file share.
-6. Set up directory/file-level permissions for the file share.  Permissions must set up from a domain-joined machine that has network access to the file share.  **To modify directory/file-level permissions, the share must be mounted using the storage key, not your AAD credentials.**  [Set-Acl](/powershell/module/microsoft.powershell.security/set-acl?view=powershell-7.1) PowerShell command or the [icacls](/windows-server/administration/windows-commands/icacls) tool are the recommend tools to use when assigning permissions.
+    3. ‘Storage File Data SMB Share Reader’ role should be assigned to students that will only need to read the files from the file share.
+6. Set up directory/file-level permissions for the file share.  Permissions must set up from a domain-joined machine that has network access to the file share.  **To modify directory/file-level permissions, the share must be mounted using the storage key, not your AAD credentials.**  [Set-Acl](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command or [icacls](/windows-server/administration/windows-commands/icacls) are the recommend tools to use when assigning permissions.
 7. [Peer the virtual network](how-to-connect-peer-virtual-network.md) for the storage account to the lab account.
 8. [Create the classroom lab](how-to-manage-classroom-labs.md).
 9. Save a script that students can run to connect to the network drive on the template VM.  To get example script:
-    1. Open the storage account.
-    1. Select ‘File Shares’ under ‘File Service’ on the menu.
-    1. Find the share that you want to connect to and select the ellipses button on the far right.  Choose ‘Connect’.
-    1. The Connect fly out will open with instructions for Windows, Linux, and macOS.  If using Windows, set the Authentication method to ‘Active Directory’.
+    1. Open the storage account in the Azure portal.
+    1. Select **File Shares** under **File Service** on the menu.
+    1. Find the share that you want to connect to, select the ellipses button on the far right, and choose **Connect**.
+    1. The **Connect** fly out will open with instructions for Windows, Linux, and macOS.  If using Windows, set the **Authentication method** to **Active Directory**.
     1. Copy the code in the example and save it on the template machine in a `.ps1` file for windows or `.sh` file for Linux.
 10. On the template machine, download and run script to [join student machines to the domain](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Scripts/ActiveDirectoryJoin/README.md#usage).  The `Join-AzLabADTemplate` script will [publish the template VM](how-to-create-manage-template.md#publish-the-template-vm) automatically.  
     > [!NOTE]
@@ -158,11 +161,18 @@ Follow the steps below to use an Azure NetApp Files share in Azure Lab Services.
 3. [Peer the virtual network](how-to-connect-peer-virtual-network.md) for the NetApp Files capacity pool to the lab account.
 4. [Create the classroom lab](how-to-manage-classroom-labs.md).
 5. On the template VM, install necessary components to use NFS file shares.
+    - Ubuntu:
 
-    ```bash
-    sudo apt update
-    sudo apt install nfs-common
-    ```
+        ```bash
+        sudo apt update
+        sudo apt install nfs-common
+        ```
+
+    - CentOS
+
+        ```bash
+        sudo yum install nfs-utils
+        ```
 
 6. On the template VM, save script below as `mount_fileshare.sh` to [mount the NetApp Files share](/azure/azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines).  Assign the `capacity_pool_ipaddress` variable the mount target IP address for the capacity pool.  Get the mount instructions for the volume to find the appropriate value.  The script expects the path/name of the NetApp Files volume.  Don’t forget to run `chmod u+x mount_fileshare.sh` to ensure script can be executed by users.
 
@@ -191,4 +201,4 @@ Follow the steps below to use an Azure NetApp Files share in Azure Lab Services.
 7. If all students are sharing access to the same NetApp Files volume, the `mount_fileshare.sh` script can be run on the template machine before publishing.  If students each get their own volume file share, save script to be run later by the student.
 8. [Publish](how-to-create-manage-template.md#publish-the-template-vm) the template VM.
 9. [Configure policy](/azure/azure-netapp-files/azure-netapp-files-configure-export-policy) for file share.  Export policy can allow for a single VM or multiple VMs to have access to a volume.  Read only or read/write access can be granted.
-10. Students must start their VM and run the script to mount the file share.  Students will only have to run the script once.  Command will look like `./mount_fileshare.sh myvolumename`.
+10. Students must start their VM and run the script to mount the file share.  They'll only have to run the script once.  The command will look like `./mount_fileshare.sh myvolumename`.
