@@ -227,32 +227,7 @@ sections:
           > You can only apply tags to resources that support Azure Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. You must re-deploy these resources through the Resource Manager to support tagging. All other resources support tagging.
       - question: Can I perform analyses using Power BI?
         answer: |
-          Yes. With the Microsoft Azure Enterprise content pack for Power BI, you can:
-          
-          - Quickly import and analyze Azure consumption for your enterprise enrollment.
-          - Find out which department, account, or subscription consumed the most usage.
-          - Learn which service your organization used most.
-          - Track spending and usage trends.
-          
-          To use Power BI:
-          
-          1. Go to the Power BI website.
-          1. Sign in with a valid work or school account.
-          
-             The work or school account can be the same or different than what is used to access the enrollment through the Azure Enterprise portal.
-             1. On the dashboard of services, choose the Microsoft Azure Enterprise tile, and select **Connect**.
-             1. On the **Connect to Azure Enterprise** screen, enter:
-                 - Azure Environment URL: [https://ea.azure.com](https://ea.azure.com)
-                 - Number of Months: between 1 and 36
-                 - Enrollment Number: your enrollment number
-             1. Select **Next**.
-             1. Enter the API Key in the **Account Key** box.
-             
-               You can find the API key in the Azure Enterprise portal. Look under the **Download Usage** tab, and then select **API Access Key**. Copy it, and then paste the key into **Account Key** box in Power BI.
-               
-               Depending on the size of the data set, it can take between five and 30 minutes for the data to load in Power BI.
-               
-               Power BI reporting is available for Azure EA direct, partner, and indirect customers who are able to view billing information.
+          Yes, you can use the [Azure Cost Management connector for Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) to create powerful, customized visualizations and reports that help you better understand your Azure spend. If you are on an Enterprise Agreement (EA), you can also utilize the [Azure Cost Management template app](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md). The Azure Cost Management template app comes with premade reports to assist you with monitor costs, service usage trends, and identifying cost optimization options to reduce your expenditures.               Power BI reporting is available for Azure EA direct, partner, and indirect customers who are able to view billing information.
 
   - name: EA subscription ownership questions
     questions:
@@ -353,9 +328,6 @@ sections:
       - question: Where can I see the Azure Marketplace services that consume Azure EA Prepayment?
         answer: |
           Specific Azure Marketplace offers can use Azure Prepayment funds. See [third-party services that use Azure Prepayment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) for a complete list of products participating in the program.
-      - question: Question?
-        answer: |
-          Answer.
 
   - name: Cost Management questions
     questions:
@@ -370,7 +342,7 @@ sections:
           - Billing subscriptions area
           - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
           - [Power BI Desktop connector](/power-bi/connect-data/desktop-connect-azure-cost-management)
-      - question: Are costs factored into budgets and forecast views?
+      - question: Are allocated costs factored into budgets and forecast views?
         answer: |
           <a name="budgets-forecast"></a>Yes. Allocated costs are factored into and supported by budgets and forecasts. Budget and forecast views show costs allocated to them, as configured by cost allocation rules.
       - question: If a cost allocation rule is deleted, what happens?
