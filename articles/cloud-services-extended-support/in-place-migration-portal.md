@@ -21,7 +21,7 @@ This article shows you how to use the Azure portal to migrate from [Cloud Servic
 
 ## Before you begin
 
-**Ensure you are an administrator for the subscription.** 
+**Ensure you are an administrator for the subscription.**
 
 To perform this migration, you must be added as a coadministrator for the subscription in the [Azure portal](https://portal.azure.com).
 
