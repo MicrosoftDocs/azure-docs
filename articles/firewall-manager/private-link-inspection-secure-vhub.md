@@ -117,30 +117,15 @@ Azure Firewall might be bypassed if you have issues connecting to the private en
 
 Azure virtual WAN doesn't advertise the prefixes configured under **Private traffic prefixes** in firewall policy **Security configuration** to on premises. It is expected that the /32 entries won't show in the routing tables of your on premises routing devices.
 
-6. Inspect *AzureFirewallApplicationRule* and *AzureFirewallNetworkRule* Azure Firewall logs. Make sure traffic destined to the private endpoints is being logged.
+6. Inspect **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule** Azure Firewall logs. Make sure traffic destined to the private endpoints is being logged.
 
-> [!NOTE]
-> *AzureFirewallNetworkRule* log entries don't include FQDN information. Filter by IP address and port when inspecting network rules.
+   *AzureFirewallNetworkRule* log entries don't include FQDN information. Filter by IP address and port when inspecting network rules.
 
-> [!NOTE]
-> When filtering traffic destined to [Azure Files](../storage/files/storage-files-introduction.md) private endpoints *AzureFirewallNetworkRule* log entries will only be generated when a client first mounts or connects to the file share. Azure Firewall won't generate logs for [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations for files in the file share. This is because CRUD operations are carried over the persistent TCP channel opened when the client first connects or mounts to the file share.
+   When filtering traffic destined to [Azure Files](../storage/files/storage-files-introduction.md) private endpoints **AzureFirewallNetworkRule** log entries will only be generated when a client first mounts or connects to the file share. Azure Firewall won't generate logs for [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations for files in the file share. This is because CRUD operations are carried over the persistent TCP channel opened when the client first connects or mounts to the file share.
 
-Application rule log query example:
+   Application rule log query example:
 
-```kusto
-AzureDiagnostics
-| where msg_s contains "database.windows.net"
-| where Category contains "ApplicationRule"
-```
-
-:::image type="content" source="./media/private-link-inspection-secure-vhub/azure-firewall-application-rule-log.png" alt-text="Azure Firewall Application Rule Log" border="true":::
-
-Network rule log query example:
-
-```kusto
-AzureDiagnostics
-| where msg_s contains "10.2.1.6:445"
-| where Category contains "NetworkRule"
-```
-
-:::image type="content" source="./media/private-link-inspection-secure-vhub/azure-firewall-network-rule-log.png" alt-text="Azure Firewall Network Rule Log" border="true":::
+   ```kusto
+   AzureDiagnostics
+   | where msg_s contains "database.windows.net"
+   | where Category contains "ApplicationRule"
