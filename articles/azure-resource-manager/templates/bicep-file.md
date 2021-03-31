@@ -13,7 +13,7 @@ This article is intended for users who have some familiarity with Bicep files. I
 
 ## Template format
 
-A Bicep file has the following elements:
+A Bicep file has the following elements. The elements can appear in any order.
 
 ```bicep
 targetScope = '<scope>'
@@ -40,8 +40,6 @@ resource <resource-symbolic-name> '<resource-type>@<api-version>' = if (<conditi
 
 output <output-name> <output-data-type> = <output-value>
 ```
-
-The elements can appear in any order.
 
 The following example shows an implementation of these elements.
 
@@ -146,6 +144,16 @@ For more information, see [Variables in templates](template-variables.md).
 ## Modules
 
 Use modules to link to other Bicep files that contain code you want to reuse. The module contains one or more resources to deploy. Those resources are deployed along with any other resources in your Bicep file.
+
+```bicep
+module webModule './webApp.bicep' = {
+  name: 'webDeploy'
+  params: {
+    skuName: 'S1'
+    location: location
+  }
+}
+```
 
 The symbolic name enables you to reference the module from somewhere else in the file. For example, you can get an output value from a module by using the symbolic name and the name of the output value.
 
