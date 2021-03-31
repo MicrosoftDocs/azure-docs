@@ -105,7 +105,7 @@ Azure Firewall might be bypassed if you have issues connecting to the private en
 
 3. In the secured virtual hub under virtual WAN, inspect effective routes for the route tables associated with the virtual networks and branches connections you want to filter traffic for. Make sure there are /32 entries for each private endpoint private IP address you want to filter traffic for.
 
-:::image type="content" source="./media/private-link-inspection-secure-vhub/secured-virtual-hub-effective-routes.png" alt-text="Secured Virtual Hub Effective Routes" border="true":::
+   :::image type="content" source="./media/private-link-inspection-secure-vhub/secured-virtual-hub-effective-routes.png" alt-text="Secured Virtual Hub Effective Routes" border="true":::
 
 4. Inspect the effective routes on the NICs attached to the virtual machines deployed in the virtual networks you want to filter traffic for. Make sure there are /32 entries for each private endpoint private IP address you want to filter traffic for.
  
