@@ -118,9 +118,9 @@ During the preview program Microsoft Azure engineering teams will share specific
 
 **A:** On Azure, XDMA 2.1 platform only supports Host_Mem(SB) and DDR data retention features. 
 
-To enable Slave Bridge (1Gb RAM):  sudo xbutil host_mem --enable --size 1g 
+To enable Host_Mem(SB) (1Gb RAM):  sudo xbutil host_mem --enable --size 1g 
 
-To disable Slave Bridge: sudo xbutil host_mem --disable 
+To disable Host_Mem(SB): sudo xbutil host_mem --disable 
 
 **Q:** Can I run xbmgmt commands? 
 
