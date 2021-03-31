@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 03/30/2021
+ms.date: 03/31/2021
 ms.author: barclayn
 ms.reviewer: 
 
@@ -21,7 +21,7 @@ In this tutorial, we build on the work done as part of the [get started](get-sta
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article:
@@ -330,7 +330,7 @@ Now we make modifications to the sample app's issuer code to update it with your
 13. Choose **Sign in to your account** and authenticate using the credential information you provided in the [get started tutorial](get-started-verifiable-credentials.md).
 14. After successfully authenticating the **Add** button is no longer greyed out. Choose **Add**.
 
-    ![add credential screen after authenticating](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified-authenticated.png)
+  ![add credential screen after authenticating](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified-authenticated.png)
 
 We have now issued a verifiable credential using our tenant to generate our vc while still using our B2C tenant for authentication.
 
@@ -381,7 +381,9 @@ Now that we've issued the verifiable credential from our own tenant, let's verif
 
     >[!NOTE]
     > The DID signing this VC is still the Microsoft B2C. The Verifier DID is still from the Microsoft Sample App tenant. Since Microsoft's DID has been linked to a domain we own, you do not see the warning like we experienced during the issuance flow. This will be updated in the next section.
-    ![new permission request](media/enable-your-tenant-verifiable-credentials/new-permission-request.png)
+    
+   ![new permission request](media/enable-your-tenant-verifiable-credentials/new-permission-request.png)
+
 8. You have no successfully verified your credential.
 
 ## Next steps
