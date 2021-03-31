@@ -95,5 +95,4 @@ following these steps:
 ## Next steps
 
 * Learn more about [read replicas in Azure Database for
-  PostgreSQL](concepts-hyperscale-read-replicas.md).
-  API](howto-read-replicas-cli.md).
+  PostgreSQL - Hyperscale (Citus)](concepts-hyperscale-read-replicas.md).
