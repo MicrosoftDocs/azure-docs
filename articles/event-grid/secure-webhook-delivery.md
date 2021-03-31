@@ -111,16 +111,16 @@ The role assignment should be created in the Webhook Azure AD App for the AAD ap
 # This is the app id of the application which will create event subscription. Set to $null if you are not assigning the role to app.
 $eventSubscriptionWriterAppId = "<the app id of the application which will create event subscription>"
 
-       $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
+$myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
 
-       $eventSubscriptionWriterSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventSubscriptionWriterAppId + "'")
-       if ($eventSubscriptionWriterSP -eq $null)
-       {
-              $eventSubscriptionWriterSP = New-AzureADServicePrincipal -AppId $eventSubscriptionWriterAppId
-       }
+$eventSubscriptionWriterSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventSubscriptionWriterAppId + "'")
+if ($eventSubscriptionWriterSP -eq $null)
+{
+        $eventSubscriptionWriterSP = New-AzureADServicePrincipal -AppId $eventSubscriptionWriterAppId
+}
 
-       Write-Host "Creating the Azure Ad App Role assignment for application: " $eventSubscriptionWriterAppId
-       New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterSP.ObjectId -PrincipalId $eventSubscriptionWriterSP.ObjectId
+Write-Host "Creating the Azure Ad App Role assignment for application: " $eventSubscriptionWriterAppId
+New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterSP.ObjectId -PrincipalId $eventSubscriptionWriterSP.ObjectId
 ```
 
 #### Option B. Create a role assignment for event subscription AAD user 
