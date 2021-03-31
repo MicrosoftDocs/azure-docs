@@ -21,7 +21,7 @@ Managing costs and invoices is one of the key components of your cloud experienc
 
 The following diagram compares your old and the new billing account:
 
-![Diagram showing the comparison between billing hierarchy in the old and the new account](./media/mosp-new-customer-experience/comparison-old-new-account.png)
+:::image type="content" source="./media/mosp-new-customer-experience/comparison-old-new-account.png" alt-text="Diagram showing the comparison between billing hierarchy in the old and the new account" border="false" lightbox="./media/mosp-new-customer-experience/comparison-old-new-account.png":::
 
 Your new billing account contains one or more billing profiles that let you manage your invoices and payment methods. Each billing profile contains one or more invoice sections that let you organize costs on the billing profile's invoice.
 
