@@ -95,8 +95,8 @@ Now that your local port is exposed to the internet using ngrok, the sample site
    ![Sign in ](media/get-started-verifiable-credentials/add-verified-credential-expert.png)
 
 
-   ![Sign in ](media/get-started-verifiable-credentials/test.png)
-   ![Sign in ](media/get-started-verifiable-credentials/test.png)
+   ![50% ](media/get-started-verifiable-credentials/test.png)
+   ![40% ](media/get-started-verifiable-credentials/test.png)
 
 5. Before you get your Credential expert card, the tenant we are using requires that you provide authentication information. If this is your first time going through tutorial you don't have a credential expert account, create a new user account in our B2C tenant.
 
@@ -140,7 +140,7 @@ Now that you have completed the issuance portion of the tutorial and you have a 
 
 4. Open the ngrok https forwarding url in your browser and tap on the **VERIFY CREDENTIAL** button.  
 
-   ![Choose add after authenticating](media/get-started-verifiable-credentials/prove-credential-expert.png)
+   ![verify credential expert button](media/get-started-verifiable-credentials/prove-credential-expert.png)
 
 5. Open Authenticator and scan the QR code.
 
@@ -151,7 +151,7 @@ Now that you have completed the issuance portion of the tutorial and you have a 
 
 6. Choose **Allow** on the new permission request screen in Authenticator. By pressing allow, you are signing a verifiable presentation with your DID (Decentralized Identifier) to prove you in fact control this Verifiable Credential.
 
-   ![scan qr code to verify credential](media/get-started-verifiable-credentials/new-permission-request.png)
+   ![new permission request](media/get-started-verifiable-credentials/new-permission-request.png)
 
     After a successful presentation three things should have been updated:
 
@@ -177,4 +177,5 @@ Now that you have completed the issuance portion of the tutorial and you have a 
 
 Now that you have successfully completed the quick start guide, it's time to create your own Decentralized identifier in the Azure AD verifiable credentials service and issue your own verifiable credential.
 
->[!div class="nextstepaction"] [Configure your own issuer using the verifiable credentials sample app](./enable-your-tenant-verifiable-credentials.md)
+>[!div class="nextstepaction"] 
+>[Configure your own issuer using the verifiable credentials sample app](./enable-your-tenant-verifiable-credentials.md)

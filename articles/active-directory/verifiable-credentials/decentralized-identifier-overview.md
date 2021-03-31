@@ -47,7 +47,7 @@ A new form of identity is needed, one that weaves together technologies and stan
 
 To deliver on these promises, we need a technical foundation made up of seven key innovations—most notably, identifiers that are owned by the user, a user agent to manage keys associated with such identifiers, and encrypted, user-controlled datastores.
 
-![microsoft-did-overview](media/decentralized-identifier-overview/microsoft-did-system.png)
+![overview of Microsoft's verifiable credential environment](media/decentralized-identifier-overview/microsoft-did-system.png)
 
 **1. W3C Decentralized Identifiers (DIDs)**
 IDs users create, own, and control independently of any organization or government. DIDs are globally unique identifiers linked to Decentralized Public Key Infrastructure (DPKI) metadata composed of JSON documents that contain public key material, authentication descriptors, and service endpoints.
@@ -84,7 +84,7 @@ There are three primary actors in the verifiable credential solution. In the fol
 
 The roles in this scenario are:
 
-![microsoft-did-overview](media/decentralized-identifier-overview/issuer-user-verifier.png)
+![roles in a verifiable credential environment](media/decentralized-identifier-overview/issuer-user-verifier.png)
 
 **issuer** – The issuer is an organization that creates an issuance solution requesting information from a user. The information is used to verify the user’s identity. For example, Woodgrove, Inc. has an issuance solution that enables them to create and distribute verifiable credentials (VCs) to all their employees. The employee fills out an online form providing the required information. Once Woodgrove, Inc. validates the information submitted, they send the employee a link to access and download their credential. The issuance solution creates a VC that uses public key encryption and blockchain technology to ensure the credential is authentic and valid. The employee stores the credential in their electronic wallet.  
 
@@ -98,7 +98,7 @@ To understand DIDs, it helps to compare them with current identity systems. Emai
 provider, social network provider, or other external parties.
 
 Decentralized Identifiers (DIDs) are different. DIDs are user-generated, self-owned, globally unique identifiers rooted in decentralized systems like ION. They possess unique characteristics, like greater assurance of immutability, censorship resistance, and 
-tamper evasiveness. These are critical attributes for any ID system that is intended to provide self-ownership and user control. 
+tamper evasiveness. These attributes are critical for any ID system that is intended to provide self-ownership and user control. 
 
 Microsoft’s verifiable credential solution uses decentralized credentials (DIDs) to cryptographically sign as proof that a relying party (verifier) is attesting to information or proving they are the owners of a verifiable credential. Therefore, a basic understanding of decentralized identifiers is recommended for anyone creating a verifiable credential solution based on the Microsoft offering.
 ## What are Verifiable Credentials 
@@ -109,7 +109,7 @@ Verifiable credentials are data objects consisting of claims made by the issuer 
 
 ## Next steps
 
-Now that you know about DIDs and verifiable credentials try them yourself by following our get started article or one of our articles providing additional detail on some of the concepts.
+Now that you know about DIDs and verifiable credentials try them yourself by following our get started article or one of our articles providing more detail on verifiable credential concepts.
 
 - [Get started with verifiable credentials](get-started-verifiable-credentials.md)
 - [How to customize your credentials](credential-design.md)

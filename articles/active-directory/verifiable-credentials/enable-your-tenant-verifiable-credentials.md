@@ -267,7 +267,7 @@ The previous step leaves you in the **Create a new credential** page.
 9. Select **MyFirstVC-rules.json**
 10. From the **Create a new credential** screen choose **Create**.
 
-   ![verifiable credentials get started](media/enable-your-tenant-verifiable-credentials/create-my-first-vc.png)
+   ![create a new credential](media/enable-your-tenant-verifiable-credentials/create-my-first-vc.png)
 
 ### Credential URL
 
@@ -330,7 +330,7 @@ Now we make modifications to the sample app's issuer code to update it with your
 13. Choose **Sign in to your account** and authenticate using the credential information you provided in the [get started tutorial](get-started-verifiable-credentials.md).
 14. After successfully authenticating the **Add** button is no longer greyed out. Choose **Add**.
 
-    ![add credential screen with warning](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified-authenticated.png)
+    ![add credential screen after authenticating](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified-authenticated.png)
 
 We have now issued a verifiable credential using our tenant to generate our vc while still using our B2C tenant for authentication.
 
@@ -389,6 +389,6 @@ Now that we've issued the verifiable credential from our own tenant, let's verif
 Now that you have the sample code issuing a VC from your issuer, lets continue to the next section where you use your own identity provider to authenticate users trying to get verifiable credential and use your DID to sign presentation requests.
 
 > [!div class="nextstepaction"]
-> [Tutorial - Configure your identity provider using the verifiable credentials sample app](tutorial-03-sample-app-your-idp.md)
+> [Tutorial - Issue and verify verifiable credentials using your tenant](issue-verify-verifiable-credentials-your-tenant.md)
 
 

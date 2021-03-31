@@ -36,7 +36,7 @@ There are currently three input types that that are available to configure in th
 
 **Self Attested Claims:** When this option is selected, the user will be able to directly type information into Authenticator. At this time, strings are the only supported input for self attested claims. 
 
-![issuance documentation](media/credential-design/issuance-doc.png) 
+![detailed view of verifiable credential card](media/credential-design/issuance-doc.png) 
 
 **Static Claims:** Additionally we are able declare a static claim in the Rules file, however this input does not come from the user. The Issuer defines a static claim in the Rules file and would look like any other claim in the Verifiable Credential. Simply add a credentialSubject after vc.type and declare the attribute and the claim. 
 
@@ -54,7 +54,7 @@ There are currently three input types that that are available to configure in th
 
 ## Input Type: ID Token
 
-To get ID Token as input, the rules file needs to configure the well-known endpoint of the OIDC compatible Identity system. In that system you need to register an application with the correct information from [Issuer service communication examples](issuer-openid). Additionally, the client_id needs to be put in the rules file, as well as a scope parameter needs to be filled in with the correct scopes. For example, Azure Active Directory needs the email scope if you want to return an email claim in the ID token.
+To get ID Token as input, the rules file needs to configure the well-known endpoint of the OIDC compatible Identity system. In that system you need to register an application with the correct information from [Issuer service communication examples](issuer-openid.md). Additionally, the client_id needs to be put in the rules file, as well as a scope parameter needs to be filled in with the correct scopes. For example, Azure Active Directory needs the email scope if you want to return an email claim in the ID token.
 ```json
     {
       "attestations": {
