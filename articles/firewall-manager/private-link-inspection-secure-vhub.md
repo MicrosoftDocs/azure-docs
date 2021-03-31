@@ -115,8 +115,7 @@ Azure Firewall might be bypassed if you have issues connecting to the private en
    az network nic show-effective-route-table --name <Netwokr Interface Name> --resource-group <Resource Group Name> -o table
 5. Inspect the routing tables of your on premises routing devices. Make sure you are learning the address spaces of the virtual networks where the private endpoints are deployed.
 
-> [!NOTE]
-> Azure virtual WAN doesn't advertise the prefixes configured under *Private traffic prefixes* in firewall policy *Security configuration* to on premises. It is expected that the /32 entries won't show in the routing tables of your on premises routing devices.
+Azure virtual WAN doesn't advertise the prefixes configured under **Private traffic prefixes** in firewall policy **Security configuration** to on premises. It is expected that the /32 entries won't show in the routing tables of your on premises routing devices.
 
 6. Inspect *AzureFirewallApplicationRule* and *AzureFirewallNetworkRule* Azure Firewall logs. Make sure traffic destined to the private endpoints is being logged.
 
