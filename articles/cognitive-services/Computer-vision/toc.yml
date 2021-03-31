@@ -23,6 +23,8 @@
     href: /samples/browse/?products=azure&terms=computer-vision
   - name: How-to guides
     items:
+    - name: Call the Read API
+      href: Vision-API-How-to-Topics/call-read-api.md
     - name: Upgrade from Read 2.x to Read 3.x
       href: upgrade-api-versions.md
     - name: Deploy OCR
@@ -51,10 +53,6 @@
             maintainContext: true
             href: ../containers/azure-container-instance-recipe.md
             displayName: container instances, container, containers, images
-  - name: Concepts
-    items:
-    - name: Text recognition
-      href: concept-ocr.md
   - name: Reference
     items:
     - name: OCR REST API v3.2 preview

@@ -23,10 +23,6 @@ landingContent:
     links:
       - text: Spatial Analysis overview
         url: intro-to-spatial-analysis-public-preview.md
-  - linkListType: concept
-    links:
-      - text: OCR concepts
-        url: concept-ocr.md
   - linkListType: quickstart
     links:
       - text: Set up the host machine and run the container
