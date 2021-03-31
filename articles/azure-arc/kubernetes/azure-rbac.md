@@ -44,7 +44,7 @@ Kubernetes objects of the type [ClusterRoleBinding and RoleBinding](https://kube
 1. Create a new AAD application and fetch its `appId` value, which is used in later steps as `serverApplicationId`:
 
 ```azurecli
-az ad app create --display-name "ArcAzureADServer" --identifier-uris "https://ArcAzureADServer" --query appId -o tsv)
+az ad app create --display-name "ArcAzureADServer" --identifier-uris "https://ArcAzureADServer" --query appId -o tsv
 ```
 
 2. Update this application so that it can query for user's group membership claims:
@@ -67,7 +67,7 @@ az ad sp credential reset --name <serverApplicationId> --credential-description 
 1. Create a new AAD application and fetch its 'appId' value, which is used in later steps as `clientApplicationId`:
 
 ```azurecli
-az ad app create --display-name "ArcAzureADClient" --native-app --reply-urls "https://ArcAzureADClient" --query appId -o tsv)
+az ad app create --display-name "ArcAzureADClient" --native-app --reply-urls "https://ArcAzureADClient" --query appId -o tsv
 ```
 
 2. Create a service principal for this client application:
@@ -131,7 +131,7 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 1. Enable Azure RBAC on your Arc enabled Kubernetes cluster by running the following command:
 
     ```console
-    az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --server-id <serverApplicationId> --server-secret <serverApplicationSecret>
+    az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id <serverApplicationId> --app-secret <serverApplicationSecret>
     ```
     
     > [!NOTE]
