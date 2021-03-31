@@ -76,7 +76,7 @@ For a server named **my replica** with the admin username **citus**, you can
 connect to the coordinator node of the replica by using psql:
 
 ```bash
-psql -h myreplica-c.postgres.database.azure.com -U citus@myreplica -d postgres
+psql -h c.myreplica.postgres.database.azure.com -U citus@myreplica -d postgres
 ```
 
 At the prompt, enter the password for the user account.
