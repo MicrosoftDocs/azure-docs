@@ -150,7 +150,15 @@ Review the [API reference](status-monitor-v2-api-reference.md) for a detailed de
 4. Try to browse to your app.
 5. After your app is loaded, return to PerfView and select **Stop Collection**.
 
+### How to capture full SQL command text
 
+To capture full SQL command text you need to modify the applicationinsights.config file with the following:
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">,
+<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+</Add>
+```
 
 ## Next steps
 

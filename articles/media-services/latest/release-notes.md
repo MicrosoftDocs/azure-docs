@@ -51,7 +51,7 @@ Additional languages for video transcription and subtitling are available now in
 * Thai, ‘th-TH’
 * Turkish, ‘tr-TR’
 
-See the latest available languages in the [Analyzing Video And Audio Files concept article.](analyzing-video-audio-files-concept.md)
+See the latest available languages in the [Analyzing Video And Audio Files concept article.](analyze-video-audio-files-concept.md)
 
 ## February 2021
 
@@ -143,11 +143,11 @@ Azure Media Services is now available in the Norway East region in the Azure por
 
 ### Basic Audio Analysis
 
-The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic Audio Analyzer mode provides a low-cost option to extract speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyzing-video-audio-files-concept.md#built-in-presets)
+The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic Audio Analyzer mode provides a low-cost option to extract speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyze-video-audio-files-concept.md#built-in-presets)
 
 Customers using Indexer v1 and Indexer v2 should migrate to the Basic Audio Analysis preset.
 
-For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyzing-video-audio-files-concept.md).  To learn to use the Basic Audio Analyzer mode with the REST API, see [How to Create a Basic Audio Transform](how-to-create-basic-audio-transform.md).
+For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyze-video-audio-files-concept.md).  To learn to use the Basic Audio Analyzer mode with the REST API, see [How to Create a Basic Audio Transform](how-to-create-basic-audio-transform.md).
 
 ### Live Events
 
@@ -170,7 +170,7 @@ Live encoding now adds the capability of outputting fixed key frame interval fra
 
 Support for the legacy PlayReady Protected Interoperable File Format (PIFF 1.1) encryption is now available in the Dynamic Packager. This provides support for legacy Smart TV sets from Samsung and LG that implemented the early drafts of the Common Encryption standard (CENC) published by Microsoft.  The PIFF 1.1 format is also known as the encryption format that was previously supported by the Silverlight client library. Today, the only use case scenario for this encryption format is to target the legacy Smart TV market where there remains a non-trivial number of Smart TVs in some regions that only support Smooth Streaming with PIFF 1.1 encryption.
 
-To use the new PIFF 1.1 encryption support, change the encryption value to 'piff' in the URL path of the Streaming Locator. For more details, see the [Content Protection overview.](content-protection-overview.md)
+To use the new PIFF 1.1 encryption support, change the encryption value to 'piff' in the URL path of the Streaming Locator. For more details, see the [Content Protection overview.](drm-content-protection-concept.md)
 For Example: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
 
 > [!NOTE]
@@ -184,11 +184,11 @@ Live Transcriptions now supports 19 languages and 8 regions.
 
 ### Protecting your content with Media Services and Azure AD
 
-We published a tutorial called [End-to-End content protection using Azure AD](./azure-ad-content-protection.md).
+We published a tutorial called [End-to-End content protection using Azure AD](./architecture-azure-ad-content-protection.md).
 
 ### High availability
 
-We published a High Availability with Media Services and Video on Demand (VOD) [overview](./media-services-high-availability-encoding.md) and [sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
+We published a High Availability with Media Services and Video on Demand (VOD) [overview](./architecture-high-availability-encoding-concept.md) and [sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
 
 ## June 2020
 
@@ -248,7 +248,7 @@ Live transcription is designed to work in conjunction with live events as an add
 ### Content protection
 
 The *Token Replay Prevention* feature released in limited regions back in September is now available in all regions.
- Media Services customers can now set a limit on the number of times the same token can be used to request a key or a license. For more information, see [Token Replay Prevention](content-protection-overview.md#token-replay-prevention).
+ Media Services customers can now set a limit on the number of times the same token can be used to request a key or a license. For more information, see [Token Replay Prevention](drm-content-protection-concept.md#token-replay-prevention).
 
 ### New recommended live encoder partners
 
@@ -307,7 +307,7 @@ For details, see [Migrate WAME to Media Encoder Standard](../previous/migrate-wi
 
 ### Content protection
 
-When streaming content protected with token restriction, end users need to obtain a token that is sent as part of the key delivery request. The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. For more information, see [Token Replay Prevention](content-protection-overview.md#token-replay-prevention).
+When streaming content protected with token restriction, end users need to obtain a token that is sent as part of the key delivery request. The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. For more information, see [Token Replay Prevention](drm-content-protection-concept.md#token-replay-prevention).
 
 As of July, the preview feature was only available in US Central and US West Central.
 
@@ -337,7 +337,7 @@ For details, see [Monitor Media Services metrics and diagnostic logs](monitoring
 
 ### Multi audio tracks support in Dynamic Packaging 
 
-When streaming Assets that have multiple audio tracks with multiple codecs and languages, [Dynamic Packaging](dynamic-packaging-overview.md) now supports multi audio tracks for the HLS output (version 4 or above).
+When streaming Assets that have multiple audio tracks with multiple codecs and languages, [Dynamic Packaging](encode-dynamic-packaging-concept.md) now supports multi audio tracks for the HLS output (version 4 or above).
 
 ### Korea regional pair is open for Media Services 
 
@@ -357,11 +357,11 @@ Added updates that include Media Services performance improvements.
 ### New presets
 
 * [FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset) was added to the built-in analyzer presets.
-* [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) was added to the built-in encoder presets. For more information, see [Content-aware encoding](content-aware-encoding.md). 
+* [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) was added to the built-in encoder presets. For more information, see [Content-aware encoding](encode-content-aware-concept.md). 
 
 ## March 2019
 
-Dynamic Packaging now supports Dolby Atmos. For more information, see [Audio codecs supported by dynamic packaging](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+Dynamic Packaging now supports Dolby Atmos. For more information, see [Audio codecs supported by dynamic packaging](encode-dynamic-packaging-concept.md#audio-codecs-supported-by-dynamic-packaging).
 
 You can now specify a list of asset or account filters, which would apply to your Streaming Locator. For more information, see [Associate filters with Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator).
 
@@ -375,7 +375,7 @@ Media Services v3 is now supported in Azure national clouds. Not all features ar
 
 ### Media Encoder Standard and MPI files 
 
-When encoding with Media Encoder Standard to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for [dynamic packaging](dynamic-packaging-overview.md) and streaming scenarios.
+When encoding with Media Encoder Standard to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for [dynamic packaging](encode-dynamic-packaging-concept.md) and streaming scenarios.
 
 You should not modify or remove the MPI file, or take any dependency in your service on the existence (or not) of such a file.
 
@@ -515,7 +515,7 @@ If you created Assets or Account Filters between 09/28 and 10/12 with Media Serv
 
 The following features are present in the .NET SDK:
 
-* **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial-with-api.md).
+* **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial.md).
 * **Streaming Locators** for publishing and streaming content to end-user devices
 * **Streaming Policies** and **Content Key Policies** to configure key delivery and content protection (DRM) when delivering content.
 * **Live Events** and **Live Outputs** to configure the ingest and archiving of live streaming content.

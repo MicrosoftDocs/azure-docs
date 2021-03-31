@@ -2,7 +2,7 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 03/29/2021
 ms.author: memildin
 ms.custom: generated
 ---
@@ -94,7 +94,7 @@ ms.custom: generated
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">0</p></strong></td>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Enable Advanced Threat Protection</p></strong>Azure Security Center's optional Azure Defender threat protection plans provide comprehensive defenses for your environment. When Security Center detects a threat in any area of your environment, it generates an alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response.<br>Each Azure Defender plan is a separate, optional offering which you can enable using the relevant recommendation in this security control.<br><a href="/azure/security-center/threat-protection">Learn more about threat protection in Security Center</a>.</td>
-    <td class="tg-lboi"; width=55%>- Azure Defender for App Service should be enabled<br />- Azure Defender for Azure SQL Database servers should be enabled<br />- Azure Defender for container registries should be enabled<br />- Azure Defender for Key Vault should be enabled<br />- Azure Defender for Kubernetes should be enabled<br />- Azure Defender for servers should be enabled<br />- Azure Defender for SQL servers on machines should be enabled<br />- Azure Defender for Storage should be enabled</td>
+    <td class="tg-lboi"; width=55%>- Azure Arc enabled Kubernetes clusters should have Azure Defender's extension installed<br />- Azure Defender for App Service should be enabled<br />- Azure Defender for Azure SQL Database servers should be enabled<br />- Azure Defender for container registries should be enabled<br />- Azure Defender for Key Vault should be enabled<br />- Azure Defender for Kubernetes should be enabled<br />- Azure Defender for servers should be enabled<br />- Azure Defender for SQL servers on machines should be enabled<br />- Azure Defender for Storage should be enabled</td>
   </tr>
 </tbody>
 </table>
