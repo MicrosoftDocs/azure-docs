@@ -27,7 +27,7 @@ When you create a Media Services account, a **default** Streaming Endpoint is cr
 >
 > You're only billed when your Streaming Endpoint is in the running state.
 
-Make sure to also review the [Dynamic packaging](dynamic-packaging-overview.md) topic. 
+Make sure to also review the [Dynamic packaging](encode-dynamic-packaging-concept.md) topic. 
 
 ## Naming convention
 
@@ -213,7 +213,7 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## See also
 
-[Dynamic packaging](dynamic-packaging-overview.md)
+[Dynamic packaging](encode-dynamic-packaging-concept.md)
 
 ## Next steps
 
