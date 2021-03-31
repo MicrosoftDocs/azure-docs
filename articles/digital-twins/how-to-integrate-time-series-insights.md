@@ -158,7 +158,7 @@ To create the second event hub, you can either use the Azure CLI instructions be
 Create Time Series Hub using the following command. Specify a name for the Time Series Hub.
 
 ```azurecli-interactive
- az eventhubs eventhub create --name <specify-name-for-your-Time-Series-Hub> --resource-group <your-resource-group> --namespace-name <your-Event-Hubs-namespace-from-earlier>
+ az eventhubs eventhub create --name <specify-name-for-your-Time-Series-Hub> --resource-group <your-resource-group> --namespace-name <your-Event-Hub-namespace-from-earlier>
 ```
 
 ### Create an authorization rule
@@ -166,7 +166,7 @@ Create Time Series Hub using the following command. Specify a name for the Time 
 Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions. Specify a name for Time Series Hub auth rule.
 
 ```azurecli-interactive
-az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <your-resource-group> --namespace-name <your-Event-Hubs-namespace-from-earlier> --eventhub-name <your-Time-Series-Hub-name-from-above> --name <specify-name-for-Time-Series-Hub-auth-rule>
+az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <your-resource-group> --namespace-name <your-Event-Hub-namespace-from-earlier> --eventhub-name <your-Time-Series-Hub-name-from-above> --name <specify-name-for-Time-Series-Hub-auth-rule>
 ```
 
 ### Set connection string
@@ -176,7 +176,7 @@ You'll need to set environment variables in your function app from earlier, cont
 1. Get the TSI [event hub connection string](../event-hubs/event-hubs-get-connection-string.md), using the authorization rules you created above for the Time Series Insights hub:
 
     ```azurecli-interactive
-    az eventhubs eventhub authorization-rule keys list --resource-group <your-resource-group> --namespace-name <your-Event-Hubs-namespace-from-earlier> --eventhub-name <your-Time Series Hub-name-from-earlier> --name <name-of-Time-Series-Hub-auth-rule>
+    az eventhubs eventhub authorization-rule keys list --resource-group <your-resource-group> --namespace-name <your-Event-Hub-namespace-from-earlier> --eventhub-name <your-Time Series Hub-name-from-earlier> --name <name-of-Time-Series-Hub-auth-rule>
     ```
 
 2. Use the **primaryConnectionString** value from the result to create an app setting in your function app that contains your connection string:
@@ -185,20 +185,48 @@ You'll need to set environment variables in your function app from earlier, cont
     az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<primaryConnectionString-from above>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
     ```
 
+Make note of the following values as you'll use them to create Time Series Insights instance.
+* Event hub namespace
+* Time Series Hub name
+* Time Series Hub access policy
+
 ## Create and connect a Time Series Insights instance
 
-Next, you will set up a Time Series Insights instance to receive the data from your second (TSI) event hub. Follow the steps below, and for more details about this process, see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorial-set-up-environment.md).
+Next, you will set up a Time Series Insights instance to receive the data from your Time Series hub. Follow the steps below, and for more details about this process, see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorial-set-up-environment.md).
 
-1. In the Azure portal, begin creating a Time Series Insights environment. 
-    1. Select the **Gen2(L1)** pricing tier.
-    2. You will need to choose a **time series ID** for this environment. Your time series ID can be up to three values that you will use to search for your data in Time Series Insights. For this tutorial, you can use **$dtId**. Read more about selecting an ID value in [*Best practices for choosing a Time Series ID*](../time-series-insights/how-to-select-tsid.md).
+1. In the Azure portal, begin creating a Time Series Insights environment.
+
+    1. **Subscription** - Choose your subscription.
+        1. **Resource group** - Choose your resource group.
+    2. **Environment name** - Specify a name for your Time series environment.
+    3. **Location** - Choose a location.
+    4. **Tier** - **Gen2(L1)** pricing tier.
+    
+    *Time series ID*
+
+    **Property name** - $dtId
+    **Storage account name** - Specify a storage account name.
+    **Enable Warm store** - Select the radio button **No**.
+
+You can leave default values for other properties on this page. Select **Next : Event Source >** button.
+
+1. You will need to choose a **time series ID** for this environment. Your time series ID can be up to three values that you will use to search for your data in Time Series Insights. For this tutorial, you can use **$dtId**. Read more about selecting an ID value in [*Best practices for choosing a Time Series ID*](../time-series-insights/how-to-select-tsid.md).
     
         :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png" alt-text="The creation portal UX for a Time Series Insights environment. Select your subscription, resource group, and location from the respective dropdowns and choose a name for your environment." lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png":::
         
         :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png" alt-text="The creation portal UX for a Time Series Insights environment. The Gen2(L1) pricing tier is selected and the time series ID property name is $dtId" lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png":::
 
-2. Select **Next: Event Source** and select your TSI event hub information from earlier. You will also need to create a new Event Hubs consumer group by selecting the **New** button.
-    
+2. In the Event Source tab, choose the following fields:
+
+    1. Create an event source - Choose Yes.
+    1. Source type - Choose Event Hub
+    1. Name - Specify a name for your event source
+    1. Subscription - Choose your subscription
+    1. Event Hub namespace - Choose your event hub namespace
+    1. Event Hub name - Choose your Time Series Hub name
+    1. Event Hub access policy name - Admin
+    1. Event Hub consumer group - Choose *New* button to create a new consumer group.
+     
     :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="The creation portal UX for a Time Series Insights environment event source. You are creating an event source with the event hub information from above. You are also creating a new consumer group." lightbox="media/how-to-integrate-time-series-insights/event-source-twins.png":::
 
 ## Send IoT data to Azure Digital Twins
