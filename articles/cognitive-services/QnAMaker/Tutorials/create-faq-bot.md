@@ -8,20 +8,19 @@ ms.author: diagarw
 ms.date: 03/31/2021
 ---
 
-## Managing data from multiple domains
+## Create a FAQ Bot for multiple domains 
 
-You may encounter scenarios, when a bot is used by end users for answers across multiple domains. Take for example, an employee information bot, that has to cater to employees across multiple departments. At times, they might have the same questions but with different answers based on their department. 
+When building a FAQ bot, you may encounter use cases that require you to address queries across multiple domains. Take for example, the following scenarios:
 
-You can design your bot to cater to the above scenario in the following ways:
+* FAQ bot for employees across multiple departments such as HR, Marketing, Engineering, Sales, etc.
+* FAQ bot for customers that are looking for information across multiple product categories.
 
-1) Create a single knowledge base with defined scope for QnA pairs.
-2) Creating a separate knowledge base for each domain.
+Many a times, users would have similar questions but on a different domain. You can design your bot to handle queries across multiple domains with QnA Maker in the following ways:
 
-### Create a single knowledge base with defined scope for QnA pairs.
+1) Create a single knowledge base and define distinct domains for groups of QnA pairs.
+2) Create a separate knowledge base for each domain.
 
-In such scenarois, the ideal way to fetch an answer would be to scope QnAs by a domain and then pass on the domain as input when fetching the answer. In QnA Maker, we accomplish this, by defining metadata for QnA Pairs.
+### Create a single knowledge base and define distinct domains for groups of QnA pairs
 
-Take for example, the document. It was used to create the following knowledgebase. As you may see in the diagram below, 
-
-### Creating a separate knowledge base for each domain.
+### Create a separate knowledge base for each domain
 
