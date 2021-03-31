@@ -53,7 +53,7 @@
             displayName: container instances, container, containers, images
   - name: Concepts
     items:
-    - name: Text recognition Concepts
+    - name: Text recognition
       href: concept-ocr.md
   - name: Reference
     items:
@@ -89,11 +89,11 @@
     items:  
     - name: Explore an image processing app
       href: Tutorials/CSharpTutorial.md
-    - name: Other Computer Vision samples
+    - name: Other samples
       href: /samples/browse/?products=azure&terms=computer-vision
   - name: How-to guides
     items:
-    - name: Call the Computer Vision API
+    - name: Call the Image Analysis API
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: Analyze videos in real time
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
@@ -129,13 +129,13 @@
       href: Tutorials/storage-lab-tutorial.md
   - name: Reference
     items: 
-    - name: Analyze REST API v3.2 preview
+    - name: Image Analysis REST API v3.2 preview
       href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b
-    - name: Analyze REST API v3.1
+    - name: Image Analysis REST API v3.1
       href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
-    - name: Analyze REST API v2.1
+    - name: Image Analysis REST API v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
-    - name: Analyze REST API v1.0
+    - name: Image Analysis REST API v1.0
       href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
     - name: .NET
       href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
