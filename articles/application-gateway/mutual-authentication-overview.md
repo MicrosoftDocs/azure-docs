@@ -5,10 +5,11 @@ services: application-gateway
 author: mscatyao
 ms.service: application-gateway
 ms.date: 03/30/2021
+ms.topic: conceptual 
 ms.author: caya
 
 ---
-# Overview of mutual authentication with Application Gateway
+# Overview of mutual authentication with Application Gateway (Preview)
 
 Mutual authentication, or client authentication, allows for the Application Gateway to authenticate the client sending requests. Usually only the client is authenticating the Application Gateway; mutual authentication allows for both the client and the Application Gateway to authenticate each other. 
 
@@ -35,9 +36,25 @@ For more information, see [configure mutual authentication with application gate
 ### Size of the certificate
 Check the [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) section to know the maximum TLS/SSL certificate size supported.
 
-## Verify client certificate's DN
+## Verify client certificate DN
 
 You have the option to verify the client certificate's immediate issuer and only allow the Application Gateway to trust that issuer. This options is off by default but you can enable this through Portal, PowerShell, or Azure CLI. 
+
+If you choose to enable the Application Gateway to verify the client certificate's immediate issuer, here's how to determine what the client certificate issuer DN will be extracted from the certificates uploaded. 
+* **Scenario 1:** Certificate chain includes: root certificate - intermediate certificate - leaf certificate 
+    * *Intermediate certificate's* subject name is what Application Gateway will extract as the client certificate issuer DN and will be verified against. 
+* **Scenario 2:** Certificate chain includes: root certificate - intermediate1 certificate - intermediate2 certificate - leaf certificate
+    * *Intermediate2 certificate's* subject name will be what's extracted as the client certificate issuer DN and will be verified against. 
+* **Scenario 3:** Certificate chain includes: root certificate - leaf certificate 
+    * *Root certificate's* subject name will be extracted and used as client certificate issuer DN.
+* **Scenario 4:** Multiple certificate chains of the same length. Chain 1 includes: root certificate - intermediate1 certificate - leaf certificate. Chain 2 includes: root certificate - intermediate2 certificate - leaf certificate. 
+    * *Intermediate1 certificate's* subject name will be extracted as client certificate issuer DN.  
+* **Scenario 5:** Multiple certificate chains of different lengths. Chain 1 includes: root certificate - intermediate1 certificate - leaf certificate. Chain 2 includes root certificate - intermediate2 certificate - intermediate3 certificate - leaf certificate. 
+    * *Intermediate3 certificate's* subject name will be extracted as client certificate issuer DN. 
+
+## Server variables 
+
+With mutual authentication, there are additional server variables that you can use to pass information about the client certificate to the backend servers behind the Application Gateway. For more information about which server variables are available and how to use them, check out [server variables](./rewrite-http-headers-url.md#server-variables).
    
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.date: 03/30/2021
 ms.author: caya
 ---
 
-# Configure listener-specific SSL policies on Application Gateway through Portal
+# Configure listener-specific SSL policies on Application Gateway through Portal (Preview)
 
 This article describes how to use the Azure portal to configure listener-specific SSL policies on your Application Gateway. Listener-specific SSL policies allow you to configure specific listeners to use different SSL policies from each other. You'll still be able to set a default SSL policy that all listeners will use unless otherwise specified through the listener-specific SSL policy. 
 

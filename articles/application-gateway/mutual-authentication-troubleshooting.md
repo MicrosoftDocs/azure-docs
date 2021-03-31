@@ -9,7 +9,7 @@ ms.date: 03/30/2021
 ms.author: caya
 ---
 
-# Troubleshooting mutual authentication errors in Application Gateway 
+# Troubleshooting mutual authentication errors in Application Gateway (Preview)
 
 Learn how to troubleshoot problems with mutual authentication when using Application Gateway. 
 
@@ -106,15 +106,14 @@ The property *sslClientVerify* is appearing as "FAILED" in your access logs.
 #### Solution
 
 There are a number of potential causes for failures in the access logs. Below is a list of common causes for failure:
-* Unable to get issuer certificate: The issuer certificate of the client certificate couldn't be found. This normally means the trusted certificate chain is not complete. 
-* Self-signed certificate: The client certificate is self-signed and the same certificate cannot be found int he list of trusted certificates. 
-* Unable to get local issuer certificate: Similar to unable to get issuer certificate, the issuer certificate of the client certificate couldn't be found. This normally means the trusted certificate chain is not complete.
-* Unable to verify the first certificate: Unable to verify the client certificate. This error occurs specifically when the client presents only the leaf certificate, whose issuer is not trusted. 
-* Unable to verify the client certificate issuer: This error occurs when the configuration *VerifyClientCertIssuerDN* is set to true. This typically happens when the Issuer DN of the client certificate doesn't match any *ClientCertificateIssuerDN*, which is extracted from the trusted certificate chains uploaded by the customer. For more information about how Application Gateway extracts the *ClientCertificateIssuerDN*, please check out [Application Gateway extracting issuer DN](./mutual-authentication-overview.md#extracting-issuer-dn)
-
+* **Unable to get issuer certificate:** The issuer certificate of the client certificate couldn't be found. This normally means the trusted certificate chain is not complete. 
+* **Self-signed certificate:** The client certificate is self-signed and the same certificate cannot be found int he list of trusted certificates. 
+* **Unable to get local issuer certificate:** Similar to unable to get issuer certificate, the issuer certificate of the client certificate couldn't be found. This normally means the trusted certificate chain is not complete.
+* **Unable to verify the first certificate:** Unable to verify the client certificate. This error occurs specifically when the client presents only the leaf certificate, whose issuer is not trusted. 
+* **Unable to verify the client certificate issuer:** This error occurs when the configuration *VerifyClientCertIssuerDN* is set to true. This typically happens when the Issuer DN of the client certificate doesn't match any *ClientCertificateIssuerDN*, which is extracted from the trusted certificate chains uploaded by the customer. For more information about how Application Gateway extracts the *ClientCertificateIssuerDN*, please check out [Application Gateway extracting issuer DN](./mutual-authentication-overview.md#verify-client-certificate-dn).
 
 ## Error code troubleshooting
-If you're seeing one of the following error codes, we have a few recommended solutions to help resolve the problem you might be facing. 
+If you're seeing any of the following error codes, we have a few recommended solutions to help resolve the problem you might be facing. 
 
 ### Error code: ApplicationGatewayTrustedClientCertificateMustSpecifyData
 
