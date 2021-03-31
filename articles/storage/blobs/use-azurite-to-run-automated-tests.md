@@ -141,5 +141,5 @@ After running the Azure Pipelines tests, you should see output similar to this:
 
 ## Next steps
 
-[Use the Azurite emulator for local Azure Storage development](../common/storage-use-azurite.md)
-[Sample: Using Azurite to run blob storage tests in Azure DevOps Pipeline](https://github.com/Azure-Samples/automated-testing-with-azurite)
+- [Use the Azurite emulator for local Azure Storage development](../common/storage-use-azurite.md)
+- [Sample: Using Azurite to run blob storage tests in Azure DevOps Pipeline](https://github.com/Azure-Samples/automated-testing-with-azurite)
