@@ -23,7 +23,7 @@ ms.custom: devx-track-csharp
 
 When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content.
 
-For detailed description of this feature and scenarios where it is used, see [Dynamic Manifests](filters-dynamic-manifest-overview.md) and [Filters](filters-concept.md).
+For detailed description of this feature and scenarios where it is used, see [Dynamic Manifests](filters-dynamic-manifest-concept.md) and [Filters](filters-concept.md).
 
 This topic shows how to use Media Services .NET SDK to define a filter for a Video on Demand asset and create [Account Filters](/dotnet/api/microsoft.azure.management.media.models.accountfilter) and [Asset Filters](/dotnet/api/microsoft.azure.management.media.models.assetfilter). 
 
@@ -32,7 +32,7 @@ This topic shows how to use Media Services .NET SDK to define a filter for a Vid
 
 ## Prerequisites 
 
-- Review [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
+- Review [Filters and dynamic manifests](filters-dynamic-manifest-concept.md).
 - [Create a Media Services account](./account-create-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
 - Get information needed to [access APIs](./access-api-howto.md)
 - Review [Upload, encode, and stream using Azure Media Services](stream-files-tutorial-with-api.md) to see how to [start using .NET SDK](stream-files-tutorial-with-api.md#start-using-media-services-apis-with-net-sdk)
@@ -83,7 +83,7 @@ client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, enc
 
 ## Associate filters with Streaming Locator
 
-You can specify a list of asset or account filters, which would apply to your Streaming Locator. The [Dynamic Packager (Streaming Endpoint)](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
+You can specify a list of asset or account filters, which would apply to your Streaming Locator. The [Dynamic Packager (Streaming Endpoint)](encode-dynamic-packaging-concept.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-concept.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
 
 The following C# code shows how to create a Streaming Locator and specify `StreamingLocator.Filters`. This is an optional property that takes an `IList<string>` of filter names.
 

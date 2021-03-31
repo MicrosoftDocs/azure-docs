@@ -39,14 +39,14 @@ There have been significant improvements to Media Services with V3.
 | Private link support | Customers will access Media Services endpoints for Key Delivery, LiveEvents, and StreamingEndpoints via a PrivateEndpoint on their VNet. |
 | [Customer-manged keys](concept-use-customer-managed-keys-byok.md) or bring your own key (BYOK) support | Customers can encrypt the data in their Media Services account using a key in their Azure Key Vault. |
 | **Assets** | |
-| An Asset can have multiple [streaming locators](streaming-locators-concept.md) each with different [dynamic packaging](dynamic-packaging-overview.md) and dynamic encryption settings. | There's a limit of 100 streaming locators allowed on each asset. Customers can store a single copy of the media content in the asset, but share different streaming URLs with different streaming policies or content protection policies that are based on a targeted audience.
+| An Asset can have multiple [streaming locators](streaming-locators-concept.md) each with different [dynamic packaging](encode-dynamic-packaging-concept.md) and dynamic encryption settings. | There's a limit of 100 streaming locators allowed on each asset. Customers can store a single copy of the media content in the asset, but share different streaming URLs with different streaming policies or content protection policies that are based on a targeted audience.
 | **Job processing** ||
 | V3 introduces the concept of [Transforms](transforms-jobs-concept.md) for file-based Job processing. | A Transform can be used to build reusable configurations, to create Azure Resource Manager Templates, and isolate processing settings between multiple customers or tenants. |
 | For file-based job processing, you can use a HTTP(S) URL as the input. | You don't need to have content already stored in Azure, nor do you need to create input Assets. |
 | **Live events** ||
 | Premium 1080p Live Events | New Live Event SKU allows customers to get cloud encoding with output up to 1080p in resolution. |
 | New [low latency](live-event-latency.md) live streaming support on Live Events. | This allows users to watch live events closer to real time than if they didn't have this setting enabled. |
-| Live Event Preview supports [dynamic packaging](dynamic-packaging-overview.md) and dynamic encryption. | This enables content protection on preview and DASH and HLS packaging. |
+| Live Event Preview supports [dynamic packaging](encode-dynamic-packaging-concept.md) and dynamic encryption. | This enables content protection on preview and DASH and HLS packaging. |
 | Live Outputs replace Programs | Live output is simpler to use than the program entity in the v2 APIs. |
 | RTMP ingest for Live Events is improved, with support for more encoders | Increases stability and provides source encoder flexibility. |
 | Live Events can stream 24x7 | You can host a Live Event and keep your audience engaged for longer periods. |
