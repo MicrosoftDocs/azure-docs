@@ -23,29 +23,22 @@ You can view your deleted applications, restore a deleted application, or perman
 
 Note that neither you nor Microsoft customer support can restore a permanently deleted application or an application deleted more than 30 days ago.
 
+> [!IMPORTANT]
+> The deleted applications portal UI feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+
 ## Required permissions
 You must have one of the following roles to permanently delete applications.
 
 - Global administrator
-
 - Application administrator
-
 - Cloud application administrator
-
 - Hybrid identity administrator
-
 - Application owner
 
 You must have one of the following roles to restore applications.
 
 - Global administrator
-
 - Application owner
-
-## Deleted applications UI | Preview
-
-> [!IMPORTANT]
-> The deleted applications portal UI feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ### View your deleted applications
 You can see all the applications in a soft deleted state.  Only applications deleted less than 30 days ago can be restored.
@@ -57,22 +50,22 @@ You can see all the applications in a soft deleted state.  Only applications del
 
     Review the list of applications. Only applications that have been deleted in the past 30 days are available to restore. If using the App registrations search preview, you can filter by the 'Deleted date' column to see only these applications.
 
-### Restore a recently deleted application
+## Restore a recently deleted application
 
 When an app registration is deleted from the organization, the app is in a suspended state and its configurations are preserved. When you restore an app registration, its configurations are also restored.  However, if there were any organization-specific settings in **Enterprise applications** for the application's home tenant, those will not be restored.  
 
 This is because organization-specific settings are stored on a separate object, called the service principal.  Settings held on the service principal include permission consents and user and group assignments for a certain organization; these configurations will not be restored when the app is restored. For more information, see [Application and service principal objects](app-objects-and-service-principals.md). 
 
 
-#### To restore an application
+### To restore an application
 1. On the **Deleted applications (Preview)** tab, search for and select one of the applications deleted less than 30 days ago.
 
 2. Select **Restore app registration**.
 
-### Permanently delete an application
+## Permanently delete an application
 You can manually permanently delete an application from your organization. A permanently deleted application can't be restored by you, another administrator, or by Microsoft customer support.
 
-#### To permanently delete an application
+### To permanently delete an application
 
 1. On the **Deleted applications (Preview)** tab, search for and select one of the available applications.
 
