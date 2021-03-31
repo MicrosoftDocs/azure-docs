@@ -19,6 +19,7 @@ Many a times, users would have similar questions but on a different domain. You 
 
 * Create a single knowledge base and define distinct domains for QnA pairs.
 * Create a separate knowledge base for each domain.
+* Create a separate QnA Maker resource for each domain.
 
 ### Create a single knowledge base and define distinct domains for QnA pairs
 
