@@ -26,7 +26,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Image Analysis quickstart
-            url: quickstarts-sdk/client-library-image-analysis.md
+            url: quickstarts-sdk/image-analysis-client-library.md
   - title: Image Analysis features
     linkLists:
       - linkListType: concept
