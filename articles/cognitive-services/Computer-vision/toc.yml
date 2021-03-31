@@ -16,7 +16,7 @@
 - name: Optical character recognition (OCR)
   items:
   - name: OCR overview
-    href: concept-recognizing-text.md
+    href: overview-ocr.md
   - name: OCR quickstart
     href: quickstarts-sdk/client-library.md
   - name: Samples
@@ -25,12 +25,6 @@
     items:
     - name: Upgrade from Read 2.x to Read 3.x
       href: upgrade-api-versions.md
-    - name: How to configure virtual networks
-      href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
-    - name: How to configure AAD Authentication
-      href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
-    - name: How to use customer managed keys
-      href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
     - name: Deploy OCR
       items:
       - name: Containers
@@ -57,6 +51,10 @@
             maintainContext: true
             href: ../containers/azure-container-instance-recipe.md
             displayName: container instances, container, containers, images
+  - name: Concepts
+    items:
+    - name: Text recognition Concepts
+      href: concept-ocr.md
   - name: Reference
     items:
     - name: Read REST API v3.2 preview
@@ -99,12 +97,6 @@
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: Analyze videos in real time
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
-    - name: How to configure virtual networks
-      href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
-    - name: How to configure AAD Authentication
-      href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
-    - name: How to use customer managed keys
-      href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
   - name: Concepts
     items:
     - name: Object detection
@@ -205,6 +197,14 @@
             href: spatial-analysis-zone-line-placement.md
           - name: Camera placement
             href: spatial-analysis-camera-placement.md
+- name: How-to guides
+  items:
+  - name: How to configure virtual networks
+    href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
+  - name: How to configure AAD Authentication
+    href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
+  - name: How to use customer managed keys
+    href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
 - name: Resources
   items: 
   - name: Region support
