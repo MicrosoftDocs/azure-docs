@@ -303,7 +303,7 @@ In this section, you learn how to configure Watchdog. This section uses the same
 ## SBD configuration
 In this section, you learn how to configure SBD. This section uses the same two hosts, `sollabdsm35` and `sollabdsm36`, referenced at the beginning of this article.
 
-1.  Make sure the iSCSI or FC disk is visible on both nodes. This example uses an FC-based SBD device. For more information about SBD fencing, see the [reference documentation](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Faccess.redhat.com%2Farticles%2F2941601&data=04%7C01%7Cralf.klahr%40microsoft.com%7Cd49d7a3e3871449cdecc08d8c77341f1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637478645171139432%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=c%2BUAC5gmgpFNWZCQFfiqcik8CH%2BmhH2ly5DsOV1%2FE5M%3D&reserved=0).
+1.  Make sure the iSCSI or FC disk is visible on both nodes. This example uses an FC-based SBD device. For more information about SBD fencing, see [Design Guidance for RHEL High Availability Clusters - SBD Considerations](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Faccess.redhat.com%2Farticles%2F2941601&data=04%7C01%7Cralf.klahr%40microsoft.com%7Cd49d7a3e3871449cdecc08d8c77341f1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637478645171139432%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=c%2BUAC5gmgpFNWZCQFfiqcik8CH%2BmhH2ly5DsOV1%2FE5M%3D&reserved=0).
 Also see [this reference](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Faccess.redhat.com%2Farticles%2F2941601&data=04%7C01%7Cralf.klahr%40microsoft.com%7Cd49d7a3e3871449cdecc08d8c77341f1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637478645171139432%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=c%2BUAC5gmgpFNWZCQFfiqcik8CH%2BmhH2ly5DsOV1%2FE5M%3D&reserved=0)
 2.  The LUN-ID must be identically on all nodes.
   
@@ -629,7 +629,7 @@ In this section, you initialize the cluster. This section uses the same two host
 19. For the rest of the SAP HANA clustering you can disable STONITH by setting:
 
    * pcs property set `stonith-enabled=false`
-   * It sometimes is easier to keep STONITH deactivated during the setup of the cluster., because you will avoid unexpected reboots of the system
+   * It is sometimes easier to keep STONITH deactivated during setup of the cluster, because you will avoid unexpected reboots of the system.
    * This parameter must be set to true for productive usage. If this parameter is not set to true, the cluster will be not supported.
    * pcs property set `stonith-enabled=true`
 
@@ -938,7 +938,7 @@ In the following example, the `[system_replication_communication]listeninterface
 
   
 
-Further documentation is available [here](https://www.sap.com/documents/2016/06/18079a1c-767c-0010-82c7-eda71af511fa.html)
+For more information, see [Network Configuration for SAP HANA System Replication](https://www.sap.com/documents/2016/06/18079a1c-767c-0010-82c7-eda71af511fa.html).
 
   
 
@@ -980,7 +980,7 @@ Ensure you have met the following prerequisites:
 	[root@node1 ~]# pcs resource defaults migration-threshold=5000
 	```
 2.  Configure corosync.
-	[More info on configuring corosync](https://access.redhat.com/solutions/1293523)
+	For more information, see [How can I configure my RHEL 7 High Availability Cluster with pacemaker and corosync](https://access.redhat.com/solutions/1293523).
 	```
 	cat /etc/corosync/corosync.conf
 
@@ -1055,7 +1055,7 @@ Ensure you have met the following prerequisites:
 
 		| Attribute Name | Description                                                                       |
 		|----------------|-----------------------------------------------------------------------------------|
-		| SID            | SAP System Identifier (SID) of SAP HANA installation. Must be same for all nodes. |
+		| SID            | SAP System Identifier (SID) of SAP HANA installation. Must be the same for all nodes. |
 		| InstanceNumber | 2-digit SAP Instance identifier.                                                  |
 
 	* Resource status
@@ -1085,7 +1085,7 @@ Ensure you have met the following prerequisites:
 	   ```
 
 4.  Create Primary/Secondary SAPHana resource.
-	* SAPHana resource is responsible for starting, stopping and relocating the SAP HANA database. This resource must be run as a Primary/	Secondary cluster resource. The resource has the following attributes.
+	* SAPHana resource is responsible for starting, stopping, and relocating the SAP HANA database. This resource must be run as a Primary/Secondary cluster resource. The resource has the following attributes.
 
 | Attribute Name            | Required? | Default value | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |---------------------------|-----------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1094,7 +1094,7 @@ Ensure you have met the following prerequisites:
 | PREFER_SITE_TAKEOVER      | no        | yes           | Should cluster prefer to switchover to secondary instance instead of restarting primary locally? ("no": Do prefer restart locally; "yes": Do prefer takeover to remote site)                                                                                                                                                                                                                                                                                            |
 |                           |           |               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | AUTOMATED_REGISTER        | no        | FALSE         | Should the former SAP HANA primary be registered as secondary after takeover and DUPLICATE_PRIMARY_TIMEOUT? ("false": no, manual intervention will be needed; "true": yes, the former primary will be registered by resource agent as secondary)                                                                                                                                                                                                                        |
-| DUPLICATE_PRIMARY_TIMEOUT | no        | 7200          | Time difference (in seconds) needed between primary time stamps, if a dual-primary situation occurs. If the time difference is less than the time gap, then the cluster holds one or both instances in a "WAITING" status. This is to give an admin a chance to react on a failover. A failed former primary will be registered after the time difference is passed. After this registration to the new primary all data will be overwritten by the system replication. |
+| DUPLICATE_PRIMARY_TIMEOUT | no        | 7200          | Time difference (in seconds) needed between primary time stamps, if a dual-primary situation occurs. If the time difference is less than the time gap, then the cluster holds one or both instances in a "WAITING" status. This is to give an admin a chance to react on a failover. A failed former primary will be registered after the time difference is passed. After this registration to the new primary, all data will be overwritten by the system replication. |
 
 5.  Create the HANA resource.
 	```
@@ -1216,7 +1216,7 @@ Ensure you have met the following prerequisites:
 	```
 
 7.  Create constraints.
-    * For correct operation we need to ensure that SAPHanaTopology resources are started before starting the SAPHana resources and also that 	the virtual IP address is present on the node where the Primary resource of SAPHana is running. To achieve this, the following 2 	constraints need to be created.
+    * For correct operation, we need to ensure that SAPHanaTopology resources are started before starting the SAPHana resources, and also that the virtual IP address is present on the node where the Primary resource of SAPHana is running. To achieve this, the following 2 constraints need to be created.
 	   ```
 	   pcs constraint order SAPHanaTopology_HR2_00-clone then SAPHana_HR2_00-primary symmetrical=false
 	   pcs constraint colocation add vip_HR2_00 with primary SAPHana_HR2_00-primary 2000
@@ -1315,4 +1315,4 @@ pcs resource update SAPHana_HR2_00-primary AUTOMATED_REGISTER=true
 pcs cluster node clear node1
 ```
 
-If you prefer automatic registering or not is dependent on the customer scenario. If you decide to automatically reregister the node after a takeover it would be easier for the operation team. On the other hand, you might want to register the node by yourself because you might would run additional tests before reregistering the node to make sure everything works as you expect.
+Whether you prefer automatic registering depends on the customer scenario. Automatically reregistering the node after a takeover will be easier for the operation team. However, you may want to register the node manually in order to first run additional tests to make sure everything works as you expect.
