@@ -45,7 +45,7 @@ Azure services include:
 
 * **Other data stores**: Azure Machine Learning can mount other data stores such as Azure Storage, Azure Data Lake Storage, and Azure SQL Database for training data.  These data stores are provisioned within your subscription. You're responsible for configuring their high-availability settings.
 
-The following table shows which Azure services are managed by Microsoft, which are managed by you, and which are highly available by default.
+The following table shows the Azure services are managed by Microsoft and which are managed by you. It also indicates the services that are highly available by default.
 
 | Service | Managed by | High availability by default |
 | ----- | ----- | ----- |
@@ -72,8 +72,8 @@ A multi-regional deployment relies on creation of Azure Machine Learning and oth
 * __Service availability__: Decide whether the resources used by your solution should be hot/hot, hot/warm, or hot/code.
     
     * __Hot/hot__: Both regions are active at the same time, with one region ready to begin use immediately.
-    * __Hot/warm__: Primary region active, secondary region has critical resources (for example, deployed models) ready to start. However non-critical resources would not be available in the secondary region and would need to be manually deployed.
-    * __Hot/cold__: Primary region active, secondary region has Azure Machine Learning and other resources deployed, along with needed data, but resources such as models, model deployments, or pipelines would need to be manually deployed.
+    * __Hot/warm__: Primary region active, secondary region has critical resources (for example, deployed models) ready to start. Non-critical resources would need to be manually deployed in the secondary region.
+    * __Hot/cold__: Primary region active, secondary region has Azure Machine Learning and other resources deployed, along with needed data. Resources such as models, model deployments, or pipelines would need to be manually deployed.
 
 > [!TIP]
 > Depending on your business requirements, you may decide to treat different Azure Machine Learning resources differently. For example, you may want to use hot/hot for deployed models (inference), and hot/cold for experiments (training).
@@ -156,11 +156,11 @@ Runs in Azure Machine Learning are defined by a run specification. This specific
 
 ### Continue work in the failover workspace
 
-When your primary workspace becomes unavailable, you can switch over the secondary workspace to continue experimentation and development. Azure Machine Learning does not automatically submit runs to the secondary workspace in case of an outage. You must update your code configuration to point to the new workspace resource. We recommend to avoid the hardcoding of workspace references by relying on a [workspace config file](how-to-configure-environment.md#workspace), to minimize manual user steps when changing workspaces. Make sure to also update any automation, such as continuous integration and deployment pipelines to the new workspace.
+When your primary workspace becomes unavailable, you can switch over the secondary workspace to continue experimentation and development. Azure Machine Learning does not automatically submit runs to the secondary workspace if there is an outage. Update your code configuration to point to the new workspace resource. We recommend to avoiding hardcoding workspace references. Instead, use a [workspace config file](how-to-configure-environment.md#workspace) to minimize manual user steps when changing workspaces. Make sure to also update any automation, such as continuous integration and deployment pipelines to the new workspace.
 
-Azure Machine Learning cannot sync or recover artifacts or metadata between workspace instances. Dependent on your application deployment strategy, you might have to move artifacts or recreate experimentation inputs such as Dataset objects in the failover workspace in order to continue run submission. In case you have configured your primary workspace and secondary workspace resources to share associated resources with geo-replication enabled, some objects might be directly available to the failover workspace. For instance, under the below reference configuration, hosted custom docker images (1), configured Datastores (2) and Key Vault resources (3) are accessible by both workspace instances.
+Azure Machine Learning cannot sync or recover artifacts or metadata between workspace instances. Dependent on your application deployment strategy, you might have to move artifacts or recreate experimentation inputs such as dataset objects in the failover workspace in order to continue run submission. In case you have configured your primary workspace and secondary workspace resources to share associated resources with geo-replication enabled, some objects might be directly available to the failover workspace. For example, if both workspaces share the same docker images, configured datastores, and Azure Key Vault resources. The following diagram shows a configuration where two workspaces share the same images (1), datastores (2), and Key Vault (3).
 
-![BCDR Reference resource configuration](./media/how-to-high-availability-machine-learning/bcdr-resource-configuration.png)
+![Reference resource configuration](./media/how-to-high-availability-machine-learning/bcdr-resource-configuration.png)
 
 > [!NOTE]
 > Any jobs that are running when a service outage occurs will not automatically transition to the secondary workspace. It is also unlikely that the jobs will resume and finish successfully in the primary workspace once the outage is resolved. Instead, these jobs must be resubmitted, either in the secondary workspace or in the primary (once the outage is resolved).
