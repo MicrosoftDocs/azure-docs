@@ -6,6 +6,10 @@
     href: overview.md
   - name: Terminology
     href: terminology.md
+- name: Tutorials
+  items:
+  - name: Continuous video recording
+    href: continuous-video-recording-concept.md
 - name: Resources
   items:
   - name: Azure roadmap

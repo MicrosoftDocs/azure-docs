@@ -32,9 +32,9 @@ Video Analyzer supports operating under conditions where the edge device may occ
 "localMediaCachePath": "/var/lib/azurevideoanalyzer/tmp/",
 ```
 
-The latter two properties are relevant to resilient recording (both are also required properties for an video sink node). The localMediaCachePath property tells the video sink to use that folder path to cache media data before uploading to the asset. You can see [this](../../iot-edge/how-to-access-host-storage-from-module.md) article to understand how the edge module can make use of your device's local storage. The `localMediaCacheMaximumSizeMiB` property defines how much disk space the video sink can use as a cache (1 MiB = 1024 * 1024 bytes). 
+The latter two properties are relevant to resilient recording (both are also required properties for a video sink node). The localMediaCachePath property tells the video sink to use that folder path to cache media data before uploading to the asset. You can see [this](../../iot-edge/how-to-access-host-storage-from-module.md) article to understand how the edge module can make use of your device's local storage. The `localMediaCacheMaximumSizeMiB` property defines how much disk space the video sink can use as a cache (1 MiB = 1024 * 1024 bytes). 
 
-If your edge module loses connectivity for a very long time and the content stored in the cache folder reaches the `localMediaCacheMaximumSizeMiB` value, the video sink will start discarding data from the cache, starting from the oldest data. For example, if the device lost connectivity at 10AM and the cache hits the maximum limit at 6PM, then the video sink starts to delete data recorded at 10AM. 
+If your edge module loses connectivity for a long time and the content stored in the cache folder reaches the `localMediaCacheMaximumSizeMiB` value, the video sink will start discarding data from the cache, starting from the oldest data. For example, if the device lost connectivity at 10AM and the cache hits the maximum limit at 6PM, then the video sink starts to delete data recorded at 10AM. 
 
 When network connectivity is restored, the video sink will begin uploading from the cache, again starting from the oldest data. In the above example, suppose 5 minutes worth of video had to be discarded from cache by the time connectivity was restored (say at 6:02PM), then the video sink will start uploading from the 10:05AM mark.
 
@@ -44,7 +44,7 @@ If you later examine the video resource using [these APIs]() <--playback-recordi
 
 The `segmentLength` property, shown above, will help you control the write transactions cost associated with writing data to your storage account where the video resource is being recorded. For example, if you increase the upload period from 30 seconds to 5 minutes, then the number of storage transactions will drop by a factor of 10 (5*60/30).
 
-The `segmentLength` property ensures that the edge module will upload video at most once per `segmentLength` seconds. This property has a minimum value of 30 seconds (also the default), and can be increased by 30 second increments to a maximum of 5 minutes.
+The `segmentLength` property ensures that the edge module will upload video at most once per `segmentLength` seconds. This property has a minimum value of 30 seconds (also the default), and can be increased by 30-second increments to a maximum of 5 minutes.
 
 > [!NOTE]
 > See the [playback recordings]() <!--playback-recordings-how-to.md--> article for the effect that `segmentLength` has on playback.
