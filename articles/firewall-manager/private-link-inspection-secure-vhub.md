@@ -109,22 +109,10 @@ Azure Firewall might be bypassed if you have issues connecting to the private en
 
 4. Inspect the effective routes on the NICs attached to the virtual machines deployed in the virtual networks you want to filter traffic for. Make sure there are /32 entries for each private endpoint private IP address you want to filter traffic for.
  
-Azure CLI:
+   Azure CLI:
 
-```azurecli-interactive
-az network nic show-effective-route-table --name <Netwokr Interface Name> --resource-group <Resource Group Name> -o table
-```
-
-Azure PowerShell:
-
-```azurepowershell-interactive
-Get-AzEffectiveRouteTable  -NetworkInterfaceName <Netwokr Interface Name> -ResourceGroupName <Resource Group Name> | Format-Table
-```
-
-Azure portal:
-
-:::image type="content" source="./media/private-link-inspection-secure-vhub/network-interface-effective-routes.png" alt-text="Network Interface Effective Routes" border="true":::
-
+   ```azurecli-interactive
+   az network nic show-effective-route-table --name <Netwokr Interface Name> --resource-group <Resource Group Name> -o table
 5. Inspect the routing tables of your on premises routing devices. Make sure you are learning the address spaces of the virtual networks where the private endpoints are deployed.
 
 > [!NOTE]
