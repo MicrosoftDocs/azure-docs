@@ -120,7 +120,7 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 ## Import update
 
-1. Go to [Device Update releases](https://github.com/Azure/iot-hub-device-update/releases) in Github and click the "Assets" drop-down.
+1. Go to [Device Update releases](https://github.com/Azure/iot-hub-device-update/releases) in GitHub and click the "Assets" drop-down.
 
 3. Download the `Edge.package.update.samples.zip` by clicking on it.
 
