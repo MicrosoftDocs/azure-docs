@@ -203,7 +203,7 @@ az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee <AAD-E
 
 Optionally you may choose to create your own role definition for usage in role assignments.
 
-Below is an example of a role definition that allows a user to only read only deployments. The full list of data actions that can be used to construct a role definition is available [here](../../role-based-access-control/resource-provider-operations#microsoftkubernetes).
+Below is an example of a role definition that allows a user to only read only deployments. The full list of data actions that can be used to construct a role definition is available [here](../../role-based-access-control/resource-provider-operations.md#microsoftkubernetes).
 
 Copy the below JSON object into a file called custom-role.json and replace `<subscription-id>` placeholder with the actual subscription ID. The below custom role uses one of the data actions and lets you view all deployments in the scope (cluster/namespace) the role assignment is created at.
 
