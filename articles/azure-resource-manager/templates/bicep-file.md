@@ -34,6 +34,10 @@ resource <resource-symbolic-name> '<resource-type>@<api-version>' = {
   <resource-properties>
 }
 
+resource <resource-symbolic-name> '<resource-type>@<api-version>' = if (<condition-to-deploy>) {
+  <resource-properties>
+}
+
 output <output-name> <output-data-type> = <output-value>
 ```
 
@@ -87,17 +91,34 @@ The allowed values are:
 
 ## Parameters
 
-Use parameters for values that need to vary for different deployments. For example, you might add a SKU parameter to specify different sizes for a resource.
+Use parameters for values that need to vary for different deployments. You can define a default value for the parameter that is used if no value is provided during deployment.
+
+For example, you might add a SKU parameter to specify different sizes for a resource. You can use template functions for creating the default value, such as getting the resource group location.
+
+```bicep
+param storageSKU string = 'Standard_LRS'
+param location string = resourceGroup().location
+```
 
 For the available data types, see [Data types in templates](data-types.md).
-
-You can define a default value for the parameter that is used if no value is provided during deployment.
 
 For more information, see [Parameters in templates](template-parameters.md).
 
 ## Parameter decorators
 
-You can add one or more decorators for each parameter. These decorators define the values that are allowed for the parameter.
+You can add one or more decorators for each parameter. These decorators define the values that are allowed for the parameter. The following example specifies the SKUs that can be deployed through the Bicep file.
+
+```bicep
+@allowed([
+  'Standard_LRS'
+  'Standard_GRS'
+  'Standard_ZRS'
+  'Premium_LRS'
+])
+param storageSKU string = 'Standard_LRS'
+```
+
+The following table describes the available decorators and how to use them.
 
 | Decorator | Apply to | Argument | Description |
 | --------- | ---- | ----------- | ------- |
@@ -105,7 +126,7 @@ You can add one or more decorators for each parameter. These decorators define t
 | description | all | string | Text that explains how to use the parameter. The description is displayed to users through the portal. |
 | maxLength | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
 | maxValue | int | int | The maximum value for the integer parameter. This value is inclusive. |
-| metadata | all | object | Properties to apply to the parameter. |
+| metadata | all | object | Custom properties to apply to the parameter. Can include a description property that is equivalent to the description decorator. |
 | minLength | array, string | int | The minimum length for string and array parameters. The value is inclusive. |
 | minValue | int | int | The minimum value for the integer parameter. This value is inclusive. |
 | secure | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
@@ -113,6 +134,10 @@ You can add one or more decorators for each parameter. These decorators define t
 ## Variables
 
 Use variables for complex expressions that are repeated in a Bicep file. For example, you might add a variable for a resource name that is constructed by concatenating several values together.
+
+```bicep
+var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
+```
 
 You don't specify a [data type](data-types.md) for a variable. Instead, the data type is inferred from the value.
 
@@ -128,17 +153,53 @@ For more information, see [Use Bicep modules](bicep-modules.md).
 
 ## Resource
 
-Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. Use the symbolic name in other parts of the Bicep file to get a value from the resource.
+Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file if you need to get a value from the resource.
+
+The resource declaration also includes the resource type and API version.
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: uniqueStorageName
+  location: location
+  sku: {
+    name: storageSKU
+  }
+  kind: 'StorageV2'
+  properties: {
+    supportsHttpsTrafficOnly: true
+  }
+}
+```
 
 In your resource declaration, you include properties for the resource type. These properties are unique to each resource type.
+
+To [conditionally deploy a resource](conditional-resource-deployment.md), add an `if` statement.
+
+```bicep
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+   name: uniqueStorageName
+  location: location
+  sku: {
+    name: storageSKU
+  }
+  kind: 'StorageV2'
+  properties: {
+    supportsHttpsTrafficOnly: true
+  }
+}
+```
 
 For more information, see [Resource declaration in templates](resource-declaration.md).
 
 ## Outputs
 
-Use outputs to return value from the deployment. Specify a [data type](data-types.md) for the output value.
+Use outputs to return value from the deployment. Typically, you return a value from a deployed resource when you need to reuse that value for another operation.
 
-Typically, you return a value from a deployed resource when you need to reuse that value for another operation.
+```bicep
+output storageEndpoint object = stg.properties.primaryEndpoints
+```
+
+Specify a [data type](data-types.md) for the output value.
 
 For more information, see [Outputs in templates](template-outputs.md).
 
