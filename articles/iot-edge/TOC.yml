@@ -25,18 +25,20 @@
     items:
     - name: C
       href: tutorial-c-module.md
-    - name: C (Windows containers)
-      href: tutorial-c-module-windows.md
     - name: C#
       href: tutorial-csharp-module.md
-    - name: C# (Windows containers)
-      href: tutorial-csharp-module-windows.md
     - name: Java
       href: tutorial-java-module.md
     - name: Node.js
       href: tutorial-node-module.md
     - name: Python
       href: tutorial-python-module.md
+    - name: Develop with Windows containers
+      items:
+      - name: C
+        href: tutorial-c-module-windows.md
+      - name: C# (Windows containers)
+        href: tutorial-csharp-module-windows.md
   - name: Deploy Azure services as modules
     items: 
     - name: Filter data with Azure Functions
