@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 03/28/2021
+ms.date: 03/30/2021
 ms.author: barclayn
 ms.reviewer: 
 
@@ -102,25 +102,25 @@ In this section, we use the rules and display files from the Sample issuer app a
 2. Open up the MyFirstVC-rules.json file in your code editor. 
 
 ```json
-  {
-     "attestations": {
-       "idTokens": [
-         {
-           "mapping": {
-             "firstName": { "claim": "given_name" },
-             "lastName": { "claim": "family_name" }
-           },
-           "configuration": "https://didplayground.b2clogin.com/didplayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
-           "client_id": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
-           "redirect_uri": "vcclient://openid"
-         }
-       ]
-     },
-     "validityInterval": 2592000,
-     "vc": {
-       "type": ["VerifiedCredentialNinja"]
-     }
-   }
+     {
+      "attestations": {
+        "idTokens": [
+          {
+            "mapping": {
+              "firstName": { "claim": "given_name" },
+              "lastName": { "claim": "family_name" }
+            },
+            "configuration": "https://didplayground.b2clogin.com/didplayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
+            "client_id": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
+            "redirect_uri": "vcclient://openid/"
+          }
+        ]
+      },
+      "validityInterval": 2592000,
+      "vc": {
+        "type": ["VerifiedCredentialExpert"]
+      }
+    }
   
 ```
 
@@ -138,36 +138,37 @@ Save this change.
 3. Open up the MyFirstVC-display.json file in your code editor.
 
 ```json
-{
-  "default": {
-    "locale": "en-US",
-    "card": {
-      "title": "Verified Credential Ninja",
-      "issuedBy": "Microsoft",
-      "backgroundColor": "#000000",
-      "textColor": "#ffffff",
-      "logo": {
-        "uri": "https://didcustomerplayground.blob.core.windows.net/public/ninja-icon.png",
-        "description": "Ninja Logo"
-      },
-      "description": "Use your verified credential ninja card to prove to anyone that you know all about verifiable credentials."
-    },
-    "consent": {
-      "title": "Do you want to get your Verified Credential Ninja card?",
-      "instructions": "Sign in with your account to get your card."
-    },
-    "claims": {
-      "vc.credentialSubject.firstName": {
-        "type": "String",
-        "label": "First name"
-      },
-      "vc.credentialSubject.lastName": {
-        "type": "String",
-        "label": "Last name"
+    {
+      "default": {
+        "locale": "en-US",
+        "card": {
+          "title": "Verified Credential Expert",
+          "issuedBy": "Microsoft",
+          "backgroundColor": "#000000",
+          "textColor": "#ffffff",
+          "logo": {
+            "uri": "https://didcustomerplayground.blob.core.windows.net/public/VerifiedCredentialExpert_icon.png",
+            "description": "Verified Credential Expert Logo"
+          },
+          "description": "Use your verified credential to prove to anyone that you know all about verifiable credentials."
+        },
+        "consent": {
+          "title": "Do you want to get your Verified Credential?",
+          "instructions": "Sign in with your account to get your card."
+        },
+        "claims": {
+          "vc.credentialSubject.firstName": {
+            "type": "String",
+            "label": "First name"
+          },
+          "vc.credentialSubject.lastName": {
+            "type": "String",
+            "label": "Last name"
+          }
+        }
       }
     }
-  }
-}
+
 ```
 
 Lets make a few modifications so this verifiable credential looks visibly different from sample code's version. 
