@@ -9,7 +9,7 @@
 - name: Concepts
   items:
   - name: Continuous video recording
-    href: continuous-video-recording-concept.md
+    href: continuous-video-recording.md
 - name: Resources
   items:
   - name: Azure roadmap
