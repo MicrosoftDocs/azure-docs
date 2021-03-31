@@ -144,6 +144,10 @@ N/A
 
 ---
 
+## Pricing and billing
+
+A storage account that is created to use an encryption key scoped to the account is billed for Table storage capacity and transactions at a different rate than an account that uses the default service-scoped key. For details, see [Azure Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
+
 ## Next steps
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
