@@ -20,7 +20,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Optical character recognition?
+          - text: OCR overview
             url: overview-ocr.md
       - linkListType: quickstart
         links:

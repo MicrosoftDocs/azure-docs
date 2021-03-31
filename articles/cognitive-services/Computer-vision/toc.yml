@@ -77,11 +77,11 @@
       href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
-- name: Image analysis
+- name: Image Analysis
   items:
-  - name: Image analysis overview
+  - name: Image Analysis overview
     href: overview.md
-  - name: Image analysis quickstart
+  - name: Image Analysis quickstart
     href: quickstarts-sdk/client-library.md
   - name: Samples  
     items:  

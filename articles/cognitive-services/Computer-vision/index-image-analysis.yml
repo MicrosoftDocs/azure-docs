@@ -21,7 +21,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Image Analysis?
+          - text: Image Analysis overview
             url: overview-image-analysis.md
       - linkListType: quickstart
         links:
