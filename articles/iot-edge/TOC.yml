@@ -24,17 +24,13 @@
   - name: Develop custom code modules
     items:
     - name: C
-      items:
-      - name: C modules for Linux devices
-        href: tutorial-c-module.md
-      - name: C modules for Windows devices
-        href: tutorial-c-module-windows.md
+      href: tutorial-c-module.md
+    - name: C (Windows containers)
+      href: tutorial-c-module-windows.md
     - name: C#
-      items: 
-      - name: C# modules for Linux devices
-        href: tutorial-csharp-module.md
-      - name: C# modules for Windows devices
-        href: tutorial-csharp-module-windows.md
+      href: tutorial-csharp-module.md
+    - name: C# (Windows containers)
+      href: tutorial-csharp-module-windows.md
     - name: Java
       href: tutorial-java-module.md
     - name: Node.js
