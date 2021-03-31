@@ -31,7 +31,7 @@ az ad app permission add --id <serverApplicationId> --api 00000003-0000-0000-c00
 az ad app permission grant --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000
 ```
 
-3. Create a service principal and fetch its secret which is required later as server application secret when enabling this feature on the cluster:
+3. Create a service principal and fetch its `password` field value, which is required later as `serverApplicationSecret` when enabling this feature on the cluster:
 
 ```azurecli
 az ad sp create --id <serverApplicationId>
@@ -102,6 +102,49 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
     az role assignment create --role <roleId> --assignee <serverApplicationId> --scope /subscriptions/<subscription-id>/*
     ```
 
+## Enable Azure RBAC on cluster
+
+1. Enable Azure RBAC on your Arc enabled Kubernetes cluster by running the following command:
+
+    ```console
+    az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --server-id <serverApplicationId> --server-secret <serverApplicationSecret>
+    ```
+    
+    > [!NOTE]
+    > 1. Before running the above command you need to ensure that the `kubeconfig` file on the machine is pointing to the cluster on which the Azure RBAC feature needs to be enabled.
+    > 2. The optional `--skip-azure-rbac-list` can be used with above command to provide a comma separated list of usernames/email/oid of the users for whom authorization checks should not be done using Azure RBAC, but instead using Kubernetes native ClusterRoleBinding and RoleBinding objects.
+
+1. Update `apiserver` to run in webhook mode for authentication and authorization by running `kubectl edit <apiserver pod name>`:
+
+    1. Add the following under `volumes`:
+        ```yml
+        - name: check
+          secret:
+            secretName: azure-arc-guard-manifests
+        ```
+    1. Add the following under `volumeMounts`:
+        ```yml
+        - mountPath: /etc/guard
+          name: check
+          readOnly: true
+        ```
+    1. Add the following `apiserver` arguments:
+        ```yml
+        - --authentication-token-webhook-config-file=/etc/guard/guard-authn-webhook.yaml
+        - --authentication-token-webhook-cache-ttl=5m0s
+        - --authorization-webhook-cache-authorized-ttl=5m0s
+        - --authorization-webhook-config-file=/etc/guard/guard-authz-webhook.yaml
+        - --authorization-webhook-version=v1
+        - --authentication-token-webhook-config-file=/etc/guard/guard-authn-webhook.yaml
+        ```
+    
+        If the Kubernetes cluster is of version >= 1.19.0, then the following additional `apiserver argument` needs to be set:
+
+        ```yml
+        - --authentication-token-webhook-version=v1
+        ```
+    1. Save and exit the editor to update the apiserver pod.
+    
 ## Create role assignments for users to access cluster
 
 Owners of the Azure Arc enabled Kubernetes resource can either use built-in roles or custom roles to grant other users access to the Kubernetes cluster.
