@@ -95,7 +95,7 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 ## Service limits
 
-You can read about the **service limits** of Azure Digital Twins here: [Azure Digital Twins service limits](reference-service-limits.md).
+You can read about the **service limits** of Azure Digital Twins here: [Azure Digital Twins service limits](reference-service-limits.md). This can be useful while working with the service to understand the service's functional and rate limitations, as well as which limits can be adjusted if necessary.
 
 ## Terminology
 
