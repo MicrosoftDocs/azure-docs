@@ -42,9 +42,11 @@ The following code example shows how to create a service client object with Azur
 
 ```python
 from azure.communication.sms import SmsClient
+
 def send_sms(resource_endpoint, from_phone_number, to_phone_number, message_content):
      credential = DefaultAzureCredential()
      sms_client = SmsClient(resource_endpoint, credential)
+
      sms_client.send(
           from_=from_phone_number,
           to_=[to_phone_number],

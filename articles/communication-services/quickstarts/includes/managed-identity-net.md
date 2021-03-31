@@ -57,6 +57,7 @@ The following code example shows how to create an SMS service client object with
           TokenCredential credential = new DefaultAzureCredential();
           // You can find your endpoint and access key from your resource in the Azure portal
           // "https://<RESOURCE_NAME>.communication.azure.com";
+
           SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
           SmsSendResult sendResult = smsClient.Send(
                from: from,
@@ -64,6 +65,7 @@ The following code example shows how to create an SMS service client object with
                message: message,
                new SmsSendOptions(enableDeliveryReport: true) // optional
           );
+
           return sendResult;
       }
 ```

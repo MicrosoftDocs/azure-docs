@@ -6,12 +6,12 @@ In the pom.xml file, add the following dependency elements to the group of depen
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
-    <artifactId>azure-communication-sms</artifactId>
+    <artifactId>azure-communication-identity</artifactId>
     <version>1.0.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
-    <artifactId>azure-communication-identity</artifactId>
+    <artifactId>azure-communication-sms</artifactId>
     <version>1.0.0</version>
 </dependency>
 <dependency>
@@ -72,13 +72,14 @@ The following code example shows how to create a service client object with mana
      public SendSmsResponse sendSms() {
           // You can find your endpoint and access key from your resource in the Azure portal
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-          HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+
           TokenCredential credential = new DefaultAzureCredentialBuilder().build();
+
           SmsClient smsClient = new SmsClientBuilder()
                .endpoint(endpoint)
                .credential(credential)
-               .httpClient(httpClient)
                .buildClient();
+
           // Send the message and check the response for a message id
           SmsSendResult response = smsClient.send(
                "<from-phone-number>",
