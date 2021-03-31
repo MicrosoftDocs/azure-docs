@@ -22,10 +22,12 @@
     href: conceptual-agent-architecture.md
   - name: Configurations and GitOps
     href: conceptual-configurations.md
-  - name: CI/CD workflow using GitOps
-    href: conceptual-gitops-ci-cd.md
+  - name: Cluster extensions
+    href: conceptual-extensions.md
   - name: Frequently Asked Questions
     href: faq.md
+  - name: CI/CD workflow using GitOps
+    href: conceptual-gitops-ci-cd.md
 - name: How-to guides
   items:
   - name: Connect cluster using service principal
