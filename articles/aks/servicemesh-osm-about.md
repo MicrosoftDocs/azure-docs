@@ -72,6 +72,30 @@ OSM preview limitations for service quotas and limits can be found on the AKS [Q
 > [!WARNING]
 > Do not attempt to install OSM from the binary using `osm install`. This will result in a installation of OSM that is not integrated as an add-on for AKS.
 
+### Register the `AKS-OpenServiceMesh` preview feature
+
+To create an AKS cluster that can use the Open Service Mesh add-on, you must enable the `AKS-OpenServiceMesh` feature flag on your subscription.
+
+Register the `AKS-OpenServiceMesh` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "AKS-OpenServiceMesh"
+```
+
+It takes a few minutes for the status to show _Registered_. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-OpenServiceMesh')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the _Microsoft.ContainerService_ resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## Install Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for a new AKS cluster
 
 For a new AKS cluster deployment scenario, you will start with a brand new deployment of an AKS cluster enabling the OSM add-on at the cluster create operation.
@@ -2655,3 +2679,6 @@ az aks disable-addons -n <AKS-cluster-name> -g <AKS-resource-group-name> -a open
 <!-- LINKS - internal -->
 
 [kubernetes-service]: concepts-network.md#services
+[az-feature-register]: /cli/azure/feature?view=azure-cli-latest&preserve-view=true#az_feature_register
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest&preserve-view=true#az_feature_list
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest&preserve-view=true#az_provider_register
