@@ -37,10 +37,10 @@ landingContent:
 
   - title: Optical Character Recognition (OCR)
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
-          - text: Optical Character Recognition (OCR)
-            url: concept-recognizing-text.md
+          - text: What is Optical Character Recognition?
+            url: overview-ocr.md
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
