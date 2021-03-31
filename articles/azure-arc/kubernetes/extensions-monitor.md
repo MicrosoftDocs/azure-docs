@@ -30,10 +30,20 @@ description: "Collect metrics and logs of Azure Arc enabled Kubernetes clusters 
 - The following endpoints need to be enabled for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md#meet-network-requirements).
 
     | Endpoint | Port |
-    |----------------|-------|
+    |----------|------|
     |`*.ods.opinsights.azure.com` | 443 |
     |`*.oms.opinsights.azure.com` | 443 |
-    |`*.dc.services.visualstudio.com` | 443 |
+    |`dc.services.visualstudio.com` | 443 |
+    |`*.monitoring.azure.com` | 443 |
+    |`login.microsoftonline.com` | 443 |
+
+    If your Arc enabled Kubernetes resource is in Azure US Government environment, following endpoints need to be enabled for outbound access:
+
+    | Endpoint | Port |
+    |----------|------|
+    |`*.ods.opinsights.azure.us` | 443 |
+    |`*.oms.opinsights.azure.us` | 443 |
+    |`dc.services.visualstudio.com` | 443 |
     
 
 - If you had previously deployed Azure Monitor Container Insights on this cluster using script without cluster extensions, follow the instructions listed [here](../../azure-monitor/containers/container-insights-optout-hybrid.md) to delete this Helm chart. You can then continue to creating a cluster extension instance for Azure Monitor Container Insights.
