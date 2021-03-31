@@ -65,9 +65,9 @@ landingContent:
         links:
           - text: Image Analysis REST API
             url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b
-- title: Help and feedback
-  linkLists:
-    - linkListType: reference
-      links:
-        - text: Support and help
-          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
+  - title: Help and feedback
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Support and help
+            url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context

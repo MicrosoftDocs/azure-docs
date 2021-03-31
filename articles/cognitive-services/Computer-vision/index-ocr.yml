@@ -34,7 +34,7 @@ landingContent:
             url: Vision-API-How-to-Topics/call-read-api.md
           - text: Upgrade from Read 2.x to Read 3.x
             url: upgrade-api-versions.md
-  - title: Use the Read container
+  - title: Use the Read OCR container
     linkLists:
       - linkListType: get-started
         links:
