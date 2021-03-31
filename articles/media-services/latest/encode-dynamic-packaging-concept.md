@@ -21,7 +21,7 @@ In Media Services, a [streaming endpoint](streaming-endpoint-concept.md) (origin
 
 ## To prepare your source files for delivery
 
-To take advantage of dynamic packaging, you need to [encode](encoding-concept.md) your mezzanine (source) file into a set of multiple bitrate MP4 (ISO Base Media 14496-12) files. You need to have an [asset](assets-concept.md) with the encoded MP4 and streaming configuration files needed by Media Services dynamic packaging. From this set of MP4 files, you can use dynamic packaging to deliver video via the streaming media protocols described below.
+To take advantage of dynamic packaging, you need to [encode](encode-concept.md) your mezzanine (source) file into a set of multiple bitrate MP4 (ISO Base Media 14496-12) files. You need to have an [asset](assets-concept.md) with the encoded MP4 and streaming configuration files needed by Media Services dynamic packaging. From this set of MP4 files, you can use dynamic packaging to deliver video via the streaming media protocols described below.
 
 Azure Media Services dynamic packaging only supports video and audio file in the MP4 container format. Audio files must be encoded into an MP4 container as well when using alternate codecs like Dolby.  
 
@@ -72,7 +72,7 @@ Your streaming client can specify the following Smooth Streaming formats:
 
 The following steps show a common Media Services streaming workflow where dynamic packaging is used along with the Standard Encoder in Azure Media Services.
 
-1. [Upload an input file](job-input-from-http-how-to.md) such as a MP4, QuickTime/MOV, or other supported file format. This file is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Standard Encoder](media-encoder-standard-formats.md).
+1. [Upload an input file](job-input-from-http-how-to.md) such as a MP4, QuickTime/MOV, or other supported file format. This file is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Standard Encoder](encode-media-encoder-standard-formats-reference.md).
 1. [Encode](#encode-to-adaptive-bitrate-mp4s) your mezzanine file into an H.264/AAC MP4 adaptive bitrate set.
 
     If you already have encoded files and just want to copy and stream the files, use: [CopyVideo](/rest/api/media/transforms/createorupdate#copyvideo) and [CopyAudio](/rest/api/media/transforms/createorupdate#copyaudio) APIs. A new MP4 file with a streaming manifest (.ism file) will be created as a result.
@@ -81,19 +81,19 @@ The following steps show a common Media Services streaming workflow where dynami
     
 The following diagram shows the on-demand streaming with dynamic packaging workflow.
 
-![Diagram of a workflow for on-demand streaming with dynamic packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Diagram of a workflow for on-demand streaming with dynamic packaging](./media/encode-dynamic-packaging-concept/media-services-dynamic-packaging.svg)
 
 The download path is present in the above image just to show you that you can download an MP4 file directly through the *streaming endpoint* (origin) (you specify the downloadable [streaming policy](streaming-policy-concept.md) on the streaming locator).<br/>The dynamic packager is not altering the file. You can optionally use the Azure blob storage APIs to access an MP4 directly for progressive downloading if you wish to bypass the *streaming endpoint* (origin) features. 
 
 ### Encode to adaptive bitrate MP4s
 
-The following articles show examples of [how to encode a video with Media Services](encoding-concept.md):
+The following articles show examples of [how to encode a video with Media Services](encode-concept.md):
 
 * [Encode from an HTTPS URL by using built-in presets](job-input-from-http-how-to.md).
 * [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md).
-* [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md).
+* [Build a custom preset to target your specific scenario or device requirements](encode-custom-presets-how-to.md).
 
-See the list of Standard Encoder [formats and codecs](media-encoder-standard-formats.md).
+See the list of Standard Encoder [formats and codecs](encode-media-encoder-standard-formats-reference.md).
 
 ## Live streaming workflow
 
@@ -299,7 +299,7 @@ For more information, see [How to signal audio description tracks](signal-descri
 
 ## Dynamic manifest
 
-To control the number of tracks, formats, bitrates, and presentation time windows that are sent to players, you can use dynamic filtering with the Media Services dynamic packager. For more information, see [Pre-filtering manifests with the dynamic packager](filters-dynamic-manifest-overview.md).
+To control the number of tracks, formats, bitrates, and presentation time windows that are sent to players, you can use dynamic filtering with the Media Services dynamic packager. For more information, see [Pre-filtering manifests with the dynamic packager](filters-dynamic-manifest-concept.md).
 
 ## Dynamic encryption
 

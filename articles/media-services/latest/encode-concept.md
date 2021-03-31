@@ -29,11 +29,11 @@ Videos are typically delivered to devices and apps by [progressive download](htt
 > Media Services does not bill for canceled or errored jobs. For example, a job that has reached 50% progress and is canceled is not billed at 50% of the job minutes. You are only charged for finished jobs.
 
 * To deliver by progressive download, you can use Azure Media Services to convert a digital media file (mezzanine) into an [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) file, which contains video that's been encoded with the [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) codec, and audio that's been encoded with the [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codec. This MP4 file is written to an Asset in your storage account. You can use the Azure Storage APIs or SDKs  (for example, [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) to download the file directly. If you created the output Asset with a specific container name in storage, use that location. Otherwise, you can use Media Services to [list the asset container URLs](/rest/api/media/assets/listcontainersas). 
-* To prepare content for delivery by adaptive bitrate streaming, the mezzanine file needs to be encoded at multiple bitrates (high to low). To ensure graceful transition of quality, the resolution of the video is lowered as the bitrate is lowered. This results in a so-called encoding ladder–a table of resolutions and bitrates (see [auto-generated adaptive bitrate ladder](autogen-bitrate-ladder.md)). You can use Media Services to encode your mezzanine files at multiple bitrates. In doing so, you'll get a set of MP4 files and associated streaming configuration files written to an Asset in your storage account. You can then use the [Dynamic Packaging](dynamic-packaging-overview.md) capability in Media Services to deliver the video via streaming protocols like [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) and [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). This requires you to create a [Streaming Locator](streaming-locators-concept.md) and build streaming URLs corresponding to the supported protocols, which can then be handed off to devices/apps based on their capabilities.
+* To prepare content for delivery by adaptive bitrate streaming, the mezzanine file needs to be encoded at multiple bitrates (high to low). To ensure graceful transition of quality, the resolution of the video is lowered as the bitrate is lowered. This results in a so-called encoding ladder–a table of resolutions and bitrates (see [auto-generated adaptive bitrate ladder](encode-autogen-bitrate-ladder.md)). You can use Media Services to encode your mezzanine files at multiple bitrates. In doing so, you'll get a set of MP4 files and associated streaming configuration files written to an Asset in your storage account. You can then use the [Dynamic Packaging](encode-dynamic-packaging-concept.md) capability in Media Services to deliver the video via streaming protocols like [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) and [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). This requires you to create a [Streaming Locator](streaming-locators-concept.md) and build streaming URLs corresponding to the supported protocols, which can then be handed off to devices/apps based on their capabilities.
 
 The following diagram shows the workflow for on-demand encoding with dynamic packaging.
 
-![Workflow for on-demand encoding with dynamic packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Workflow for on-demand encoding with dynamic packaging](./media/encode-dynamic-packaging-concept/media-services-dynamic-packaging.svg)
 
 This topic gives you guidance on how to encode your content with Media Services v3.
 
@@ -43,9 +43,9 @@ To encode with Media Services v3, you need to create a [Transform](/rest/api/med
 
 When encoding with Media Services, you use presets to tell the encoder how the input media files should be processed. In Media Services v3, you use Standard Encoder to encode your files. For example, you can specify the video resolution and/or the number of audio channels you want in the encoded content.
 
-You can get started quickly with one of the recommended built-in presets based on industry best practices or you can choose to build a custom preset to target your specific scenario or device requirements. For more information, see [Encode with a custom Transform](customize-encoder-presets-how-to.md).
+You can get started quickly with one of the recommended built-in presets based on industry best practices or you can choose to build a custom preset to target your specific scenario or device requirements. For more information, see [Encode with a custom Transform](encode-custom-presets-how-to.md).
 
-Starting with January 2019, when encoding with the Standard  Encoder to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for [dynamic packaging](dynamic-packaging-overview.md) and streaming scenarios.
+Starting with January 2019, when encoding with the Standard  Encoder to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for [dynamic packaging](encode-dynamic-packaging-concept.md) and streaming scenarios.
 
 > [!NOTE]
 > You shouldn't modify or remove the MPI file, or take any dependency in your service on the existence (or not) of such a file.
@@ -76,7 +76,7 @@ When encoding a video, you can specify to also trim or clip the source file and 
 You can specify to create a [Job](/rest/api/media/jobs/create) with a single clip of a video on-demand or live archive (a recorded event). The job input could be an Asset or an HTTPS URL.
 
 > [!TIP]
-> If you want to stream a sublip of your video without re-encoding the video, consider using [Pre-filtering manifests with Dynamic Packager](filters-dynamic-manifest-overview.md).
+> If you want to stream a sublip of your video without re-encoding the video, consider using [Pre-filtering manifests with Dynamic Packager](filters-dynamic-manifest-concept.md).
 
 #### Examples
 
@@ -96,9 +96,9 @@ Media Services supports the following built-in encoding presets:
 The following built-in presets are currently supported:
 
 - **EncoderNamedPreset.AACGoodQualityAudio**: produces a single MP4 file containing only stereo audio encoded at 192 kbps.
-- **EncoderNamedPreset.AdaptiveStreaming** (recommended): This supports H.264 adaptive bitrate encoding. For more information, see [auto-generating a bitrate ladder](autogen-bitrate-ladder.md).
+- **EncoderNamedPreset.AdaptiveStreaming** (recommended): This supports H.264 adaptive bitrate encoding. For more information, see [auto-generating a bitrate ladder](encode-autogen-bitrate-ladder.md).
 - **EncoderNamerPreset.H265AdaptiveStreaming** : Similar to the AdaptiveStreaming preset, but uses the HEVC (H.265) codec. Produces a set of GOP aligned MP4 files with H.265 video and stereo AAC audio. Auto-generates a bitrate ladder based on the input resolution, bitrate and frame rate. The auto-generated preset will never exceed the input resolution. For example, if the input is 720p, output will remain 720p at best.
-- **EncoderNamedPreset.ContentAwareEncoding**: exposes a preset for H.264 content-aware encoding. Given any input content, the service attempts to automatically determine the optimal number of layers, and appropriate bitrate and resolution settings for delivery by adaptive streaming. The underlying algorithms will continue to evolve over time. The output will contain MP4 files with video and audio interleaved. For more information, see [content-aware encoding](content-aware-encoding.md).
+- **EncoderNamedPreset.ContentAwareEncoding**: exposes a preset for H.264 content-aware encoding. Given any input content, the service attempts to automatically determine the optimal number of layers, and appropriate bitrate and resolution settings for delivery by adaptive streaming. The underlying algorithms will continue to evolve over time. The output will contain MP4 files with video and audio interleaved. For more information, see [content-aware encoding](encode-content-aware-concept.md).
 - **EncoderNamedPreset.H265ContentAwareEncoding**: exposes a preset for HEVC (H.265) content-aware encoding.Produces a set of GOP-aligned MP4s by using content-aware encoding. Given any input content, the service performs an initial lightweight analysis of the input content, and uses the results to determine the optimal number of layers, appropriate bitrate and resolution settings for delivery by adaptive streaming. This preset is particularly effective for low and medium complexity videos, where the output files will be at lower bitrates but at a quality that still delivers a good experience to viewers. The output will contain MP4 files with video and audio interleaved.
   > [!NOTE]
   > Make sure to use **ContentAwareEncoding** not  ContentAwareEncodingExperimental which is now deprecated
@@ -134,9 +134,9 @@ Media Services fully supports customizing all values in presets to meet your spe
 
 #### Examples
 
-- [Customize presets with .NET](customize-encoder-presets-how-to.md)
-- [Customize presets with CLI](custom-preset-cli-howto.md)
-- [Customize presets with REST](custom-preset-rest-howto.md)
+- [Customize presets with .NET](encode-custom-presets-how-to.md)
+- [Customize presets with CLI](encode-custom-preset-cli-how-to.md)
+- [Customize presets with REST](encode-custom-preset-rest-how-to.md)
 
 
 ## Preset schema
@@ -163,4 +163,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 * [Upload, encode, and stream using Media Services](stream-files-tutorial-with-api.md).
 * [Encode from an HTTPS URL using built-in presets](job-input-from-http-how-to.md).
 * [Encode a local file using built-in presets](job-input-from-local-file-how-to.md).
-* [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md).
+* [Build a custom preset to target your specific scenario or device requirements](encode-custom-presets-how-to.md).
