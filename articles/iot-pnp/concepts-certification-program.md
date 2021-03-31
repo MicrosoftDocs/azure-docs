@@ -1,8 +1,8 @@
 ---
 title: Azure Certified Device program | Microsoft Docs
 description: Understand the Azure Certified Device program.
-author: koichih
-ms.author: koichih
+author: dominicbetts
+ms.author: dobett
 ms.date: 09/25/2020
 ms.topic: conceptual
 ms.custom: mvc
