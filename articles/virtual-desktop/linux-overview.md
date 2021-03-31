@@ -3,13 +3,13 @@ title: Windows Virtual Desktop Thin Client Support - Azure
 description: A brief overview of thin client support for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
 ---
 # Linux support
 
-You can access Windows Virtual Desktop resources from your Linux devices with the [web client](connect-web.md) or the following supported clients, provided by our Linux thin client partners. We're working with a number of partners to enable supported Windows Virtual Desktop clients on more Linux-based operating systems and devices. If you need Windows Virtual Desktop support on a Linux platform that isn't listed here, let us know on our [UserVoice page](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+You can access Windows Virtual Desktop resources from your Linux devices with the [web client](connect-web.md) or the following supported clients, provided by our Linux thin client partners. We're working with a number of partners to enable supported Windows Virtual Desktop clients on more Linux-based operating systems and devices.
 
 ## Connect with your Linux device
 
