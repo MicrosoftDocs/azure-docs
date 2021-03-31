@@ -98,21 +98,21 @@ Once the telegraf module is deployed, the reported metrics can be accessed eithe
 
 ### System health events
 
-| Event Name | Description |
-|------|---------|
-| archon_exit     |Sent when a user changes the spatial analysis module status from *running* to *stopped*.  |
-| archon_error     |Sent when any of the processes inside the container crash. This is a critical error.  |
-| InputRate     |The rate at which the graph processes video input. Reported every 5 minutes. | 
-| OutputRate     |The rate at which the graph outputs AI insights. Reported every 5 minutes. |
-| archon_allGraphsStarted | Sent when all graphs have finished starting up. |
-| archon_configchange     | Sent when a graph configuration has changed. |
-| archon_graphCreationFailed     |Sent when the graph with the reported `graphId` fails to start. |
-| archon_graphCreationSuccess     |Sent when the graph with the reported `graphId` starts successfully. |
-| archon_graphCleanup     | Sent when the graph with the reported `graphId` cleans up and exits. |
-| archon_graphHeartbeat     |Heartbeat sent every minute for every graph of a skill. |
-| archon_apiKeyAuthFail |Sent when the Computer Vision resource key fails to authenticate the container for more than 24 hours, due to the following reasons: Out of Quota, Invalid, Offline. |
-| VideoIngesterHeartbeat     |Sent every hour to indicate that video is streamed from the Video source, with the number of errors in that hour. Reported for each graph. |
-| VideoIngesterState | Reports *Stopped* or *Started* for video streaming. Reported for each graph. |
+| Event Name                  | Description    |
+|-----------------------------|-------------------------------------------------------------------------------------------|
+| archon_exit                 | Sent when a user changes the spatial analysis module status from *running* to *stopped*.  |
+| archon_error                | Sent when any of the processes inside the container crash. This is a critical error.      |
+| InputRate                   | The rate at which the graph processes video input. Reported every 5 minutes.              |
+| OutputRate                  | The rate at which the graph outputs AI insights. Reported every 5 minutes.                |
+| archon_allGraphsStarted     | Sent when all graphs have finished starting up.                                           |
+| archon_configchange         | Sent when a graph configuration has changed.                                              |
+| archon_graphCreationFailed  | Sent when the graph with the reported `graphId` fails to start.                           |
+| archon_graphCreationSuccess | Sent when the graph with the reported `graphId` starts successfully.                      |
+| archon_graphCleanup         | Sent when the graph with the reported `graphId` cleans up and exits.                      |
+| archon_graphHeartbeat       | Heartbeat sent every minute for every graph of a skill.                                   |
+| archon_apiKeyAuthFail       | Sent when the Computer Vision resource key fails to authenticate the container for more than 24 hours, due to the following reasons: Out of Quota, Invalid, Offline. |
+| VideoIngesterHeartbeat      | Sent every hour to indicate that video is streamed from the Video source, with the number of errors in that hour. Reported for each graph. |
+| VideoIngesterState          | Reports *Stopped* or *Started* for video streaming. Reported for each graph.              |
 
 ##  Troubleshooting an IoT Edge Device
 
