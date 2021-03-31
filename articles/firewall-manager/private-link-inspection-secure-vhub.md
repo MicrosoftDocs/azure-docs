@@ -60,7 +60,13 @@ The following diagram illustrates the DNS and data traffic flows for the differe
 
 ## Troubleshooting
 
-Azure Firewall might be bypassed if you have issues connecting to the private endpoints, or if there are no log entries in Azure Firewall for the network or application rules configured for the private endpoints. This is usually caused by one of the following issues:
+The main problems that might be experienced when attempting to filter traffic destined to private endpoints via secured virtual hub are:
+
+- Clients are unable to connect to private endpoints.
+
+- Azure Firewall is bypassed. This symptom can be validated by the absence of network or application rules log entries in Azure Firewall.
+
+These problems are, in most cases, due to one of the following:
 
 - Incorrect DNS name resolution.
 
