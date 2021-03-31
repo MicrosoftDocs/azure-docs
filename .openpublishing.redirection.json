@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/spring-cloud/spring-cloud-howto-access-data-plane-azure-ad-rbac.md",
-      "redirect_url": "/azure/spring-cloud/how-to-access-data-plane-azure-ad-rbac",
+      "redirect_url": "/azure/spring-cloud/overview",
       "redirect_document_id": false
     },
     {
