@@ -13,6 +13,30 @@ description: "Use Azure RBAC for authorization checks on Azure Arc enabled Kuber
 
 Kubernetes objects of the type ClusterRoleBinding and RoleBinding provide a way to define authorization in a Kubernetes native way. This feature introduces relies on usage of Azure Active Directory (AAD) and role assignments in Azure as an alternative way for controlling authorization checks on the Kubernetes cluster.
 
+## Prerequisites
+
+- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
+- Install the `connectedk8s` Azure CLI extension of version >= 1.1.0:
+
+    ```azurecli
+    az extension add --name connectedk8s
+    ```
+    
+    If the `connectedk8s` extension is already installed, you can update it to the latest version using the following command: 
+
+    ```azurecli
+    az extension update --name connectedk8s
+    ```
+
+- An existing Azure Arc enabled Kubernetes connected cluster.
+    - If you haven't connected a cluster yet, walk through our [Connect an Azure Arc enabled Kubernetes cluster quickstart](quickstart-connect-cluster.md).
+    - If you had already created an Azure Arc enabled Kubernetes cluster but had disabled auto upgrade of agents, then you need to [upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
+
+- Self managed Kubernetes cluster where access to `apiserver` of the cluster is available.
+
+> [!NOTE]
+> This feature can't be set up for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc.
+
 ## Set up AAD applications
 
 ### Create server application

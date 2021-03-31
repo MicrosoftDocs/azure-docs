@@ -49,7 +49,7 @@
     - name: Securely connect to cluster from anywhere
       href: cluster-connect.md
     - name: Use Azure AD RBAC for authorization checks
-      href: aad-rbac.md
+      href: azure-rbac.md
     - name: Deploy IoT workloads
       href: deploy-azure-iot-edge-workloads.md
   - name: Troubleshooting

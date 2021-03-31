@@ -26,14 +26,17 @@ The Kubernetes extensions feature enables the following on Azure Arc enabled Kub
     - If you had already created an Azure Arc enabled Kubernetes cluster but had disabled auto upgrade of agents, then you need to [upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
 
 - [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
-- Install the `k8s-extension` Azure CLI extension of version >= 1.0.0:
+- Install the `k8s-extension` Azure CLI extension of version >= 0.2.0:
   
-  ```azurecli
-  az extension add --name k8s-extension
-  ```
+    ```azurecli
+    az extension add --name k8s-extension
+    ```
+    
+    If the `k8s-extension` extension is already installed, you can update it to the latest version using the following command:
 
->[!TIP]
-> If the `k8s-extension` extension is already installed, you can update it to the latest version using the following command - `az extension update --name k8s-extension`
+    ```azurecli
+    az extension update --name k8s-extension  
+    ```
 
 ## Currently available extensions
 
