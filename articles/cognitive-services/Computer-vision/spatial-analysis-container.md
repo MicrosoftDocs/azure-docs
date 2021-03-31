@@ -23,7 +23,7 @@ The Spatial Analysis container enables you to analyze real-time streaming video 
     * You will need the key and endpoint from the resource you create to run the Spatial Analysis container. You'll use your key and endpoint later.
 
 
-### Spatial analysis container requirements
+### Spatial Analysis container requirements
 
 To run the Spatial Analysis container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements. We will refer to this device as the host computer.
 
@@ -89,7 +89,7 @@ It is recommended that you use an Azure Stack Edge device for your host computer
 
 ### Configure compute on the Azure Stack Edge portal 
  
-Spatial analysis uses the compute features of the Azure Stack Edge to run an AI solution. To enable the compute features, make sure that: 
+Spatial Analysis uses the compute features of the Azure Stack Edge to run an AI solution. To enable the compute features, make sure that: 
 
 * You've [connected and activated](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md) your Azure Stack Edge device. 
 * You have a Windows client system running PowerShell 5.0 or later, to access the device.  
@@ -598,7 +598,7 @@ Azure Cognitive Services containers aren't licensed to run without being connect
 
 In this article, you learned concepts and workflow for downloading, installing, and running the Spatial Analysis container. In summary:
 
-* Spatial analysis is a Linux container for Docker.
+* Spatial Analysis is a Linux container for Docker.
 * Container images are downloaded from the Microsoft Container Registry.
 * Container images run as IoT Modules in Azure IoT Edge.
 * How to configure the container and deploy it on a host machine.

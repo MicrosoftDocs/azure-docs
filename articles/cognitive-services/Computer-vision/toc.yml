@@ -151,9 +151,9 @@
       href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
-- name: Spatial analysis
+- name: Spatial Analysis
   items: 
-  - name: Spatial analysis overview
+  - name: Spatial Analysis overview
     href: intro-to-spatial-analysis-public-preview.md
   - name: Setup the host machine and run the container
     href: spatial-analysis-container.md
@@ -177,7 +177,7 @@
       href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides
     items:
-    - name: Deploy Spatial analysis
+    - name: Deploy Spatial Analysis
       items:
       - name: Containers
         items:

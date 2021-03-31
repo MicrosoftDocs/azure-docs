@@ -1,7 +1,7 @@
 ---
 title: What is Spatial Analysis?
 titleSuffix: Azure Cognitive Services
-description: This document explains the basic concepts and features of a Computer Vision spatial analysis container.
+description: This document explains the basic concepts and features of a Computer Vision Spatial Analysis container.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -24,7 +24,7 @@ The Spatial Analysis service helps organizations maximize the value of their phy
 
 ## What it does
 
-The core operations of spatial analysis are all built on a pipeline that ingests video, detects people in the video, tracks the people as they move around over time, and generates events as people interact with regions of interest.
+The core operations of Spatial Analysis are all built on a pipeline that ingests video, detects people in the video, tracks the people as they move around over time, and generates events as people interact with regions of interest.
 
 ## Spatial Analysis features
 
@@ -34,15 +34,15 @@ The core operations of spatial analysis are all built on a pipeline that ingests
 | **People Tracking** | This component connects the people detections over time as people move around in front of a camera. It uses temporal logic about how people typically move and basic information about the overall appearance of the people. It does not track people across multiple cameras. If a person exits the field of view for longer than approximately a minute and then re-enters the camera view,  the system will perceive this as a new person. People Tracking does not uniquely identify individuals across cameras. It does not use facial recognition or gait tracking. |
 | **Face Mask Detection** | This component detects the location of a person's face in the camera's field of view and identifies the presence of a face mask. The AI operation scans images from video; where a face is detected the service provides a bounding box around the face. Using object detection capabilities, it identifies the presence of face masks within the bounding box. Face Mask detection does not involve distinguishing one face from another face, predicting or classifying facial attributes or performing facial recognition. |
 | **Region of Interest** | This is a user-defined zone or line in the input video frame. When a person interacts with this region on the video, the system generates an event. For example, for the PersonCrossingLine operation, a line is defined in the video. When a person crosses that line an event is generated. |
-| **Event** | An event is the primary output of spatial analysis. Each operation emits a specific event either periodically (like once per minute) or whenever a specific trigger occurs. The event includes information about what occurred in the input video but does not include any images or video. For example, the PeopleCount operation can emit an event containing the updated count every time the count of people changes (trigger) or once every minute (periodically). |
+| **Event** | An event is the primary output of Spatial Analysis. Each operation emits a specific event either periodically (like once per minute) or whenever a specific trigger occurs. The event includes information about what occurred in the input video but does not include any images or video. For example, the PeopleCount operation can emit an event containing the updated count every time the count of people changes (trigger) or once every minute (periodically). |
 
 ## Get started
 
 ### Public preview gating
 
-To ensure Spatial Analysis is used for scenarios it was designed for, we are making this technology available to customers through an application process. To get access to spatial analysis, you'll need to start by filling out our online intake form. [Begin your application here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u).
+To ensure Spatial Analysis is used for scenarios it was designed for, we are making this technology available to customers through an application process. To get access to Spatial Analysis, you'll need to start by filling out our online intake form. [Begin your application here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u).
 
-Access to the spatial analysis public preview is subject to Microsoft's sole discretion based on our eligibility criteria, vetting process, and availability to support a limited number of customers during this gated preview. In public preview, we are looking for customers who have a significant relationship with Microsoft, are interested in working with us on the recommended use cases, and additional scenarios that keep with our responsible AI commitments.
+Access to the Spatial Analysis public preview is subject to Microsoft's sole discretion based on our eligibility criteria, vetting process, and availability to support a limited number of customers during this gated preview. In public preview, we are looking for customers who have a significant relationship with Microsoft, are interested in working with us on the recommended use cases, and additional scenarios that keep with our responsible AI commitments.
 
 ### Follow a quickstart
 
@@ -55,4 +55,4 @@ To learn how to use Spatial Analysis technology responsibly, see the [transparen
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Spatial Analysis container](spatial-analysis-container.md)
+> [Quickstart: Spatial Analysis container](spatial-analysis-container.md)''''''''''''

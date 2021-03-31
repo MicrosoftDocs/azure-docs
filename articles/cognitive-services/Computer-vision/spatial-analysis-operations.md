@@ -14,9 +14,9 @@ ms.author: aahi
 
 # Spatial analysis operations
 
-Spatial analysis enables the analysis of real-time streaming video from camera devices. For each camera device you configure, the operations for spatial analysis will generate an output stream of JSON messages sent to your instance of Azure IoT Hub. 
+Spatial analysis enables the analysis of real-time streaming video from camera devices. For each camera device you configure, the operations for Spatial Analysis will generate an output stream of JSON messages sent to your instance of Azure IoT Hub. 
 
-The spatial analysis container implements the following operations:
+The Spatial Analysis container implements the following operations:
 
 | Operation Identifier| Description|
 |---------|---------|
@@ -50,7 +50,7 @@ Live Video Analytics operations are also available in the `.debug` version (e.g.
 > [!IMPORTANT]
 > The computer vision AI models detect and locate human presence in video footage and output by using a bounding box around a human body. The AI models do not attempt to discover the identities or demographics of individuals.
 
-These are the parameters required by each of these spatial analysis operations.
+These are the parameters required by each of these Spatial Analysis operations.
 
 | Operation parameters| Description|
 |---------|---------|
@@ -65,7 +65,7 @@ These are the parameters required by each of these spatial analysis operations.
 | SPACEANALYTICS_CONFIG | JSON configuration for zone and line as outlined below.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` to enable detecting people wearing face masks in the video stream, `False` to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 `"INPUT_VIDEO_WIDTH": 1920`. The face mask attribute will not be returned if detected people are not facing the camera or are too far from it. Refer to [camera placement](spatial-analysis-camera-placement.md) guide for more information |
 
-This is an example of the DETECTOR_NODE_CONFIG parameters for all spatial analysis operations.
+This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.
 
 ```json
 {
@@ -104,16 +104,16 @@ This is an example of the DETECTOR_NODE_CONFIG parameters for all spatial analys
 ```json
 {
 "zones":[{
-	"name": "lobbycamera",
-	"polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-	"events":[{
-		"type": "count",
-		"config":{
-			"trigger": "event",
+       "name": "lobbycamera",
+       "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+       "events":[{
+              "type": "count",
+              "config":{
+                     "trigger": "event",
             "threshold": 16.00,
             "focus": "footprint"
       }
-	}]
+       }]
 }
 ```
 
@@ -228,16 +228,16 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
    "name": "lobbycamera",
    "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
    "events":[{
-   	"type": "persondistance",
-   	"config":{
-   		"trigger": "event",
-   		"output_frequency":1,
-   		"minimum_distance_threshold":6.0,
-   		"maximum_distance_threshold":35.0,
+          "type": "persondistance",
+          "config":{
+                 "trigger": "event",
+                 "output_frequency":1,
+                 "minimum_distance_threshold":6.0,
+                 "maximum_distance_threshold":35.0,
            "threshold": 16.00,
            "focus": "footprint"
-     		}
-   	}]
+                   }
+          }]
    }]
 }
 ```
@@ -319,10 +319,10 @@ Sample JSON for an event output by this operation.
                 "y": 0.0
             },
             "metadata": {
-	        "attributes": {
-	            "face_Mask": 0.99
-	        }
-	    }
+               "attributes": {
+                   "face_Mask": 0.99
+               }
+           }
         },
         {
             "type": "person",
@@ -346,11 +346,11 @@ Sample JSON for an event output by this operation.
                 "y": 0.0
             },
             "metadata":{
-	        "attributes": {
-	            "face_noMask": 0.99
-	        }
+               "attributes": {
+                   "face_noMask": 0.99
+               }
             }
-	}
+       }
     ],
     "schemaVersion": "1.0"
 }
@@ -446,10 +446,10 @@ Sample JSON for detections output by this operation.
             },
             "confidence": 0.9005028605461121,
             "metadata": {
-	        "attributes": {
-	            "face_Mask": 0.99
-	        }
-	    }
+               "attributes": {
+                   "face_Mask": 0.99
+               }
+           }
         }
     ],
     "schemaVersion": "1.0"
@@ -535,11 +535,11 @@ Sample JSON for detections output by this operation with `zonecrossing` type SPA
                 ]
             },
             "confidence": 0.6267998814582825,
-	    "metadata": {
-	    "attributes": {
-	    "face_Mask": 0.99
-	    }
-	    }
+           "metadata": {
+           "attributes": {
+           "face_Mask": 0.99
+           }
+           }
            
         }
     ],
@@ -562,7 +562,7 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Exit",
                 "side": "1",
-		"durationMs": 7132.0
+              "durationMs": 7132.0
             },
             "zone": "queuecamera"
         }
@@ -763,15 +763,15 @@ In this example, `centerGroundPoint` is `{x: 4, y: 5}`. This means there's a per
 
 ## Use the output generated by the container
 
-You may want to integrate spatial analysis detection or events into your application. Here are a few approaches to consider: 
+You may want to integrate Spatial Analysis detection or events into your application. Here are a few approaches to consider: 
 
 * Use the Azure Event Hub SDK for your chosen programming language to connect to the Azure IoT Hub endpoint and receive the events. See [Read device-to-cloud messages from the built-in endpoint](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) for more information. 
 * Set up **Message Routing** on your Azure IoT Hub to send the events to other endpoints or save the events to your data storage. See [IoT Hub Message Routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) for more information. 
 * Setup an Azure Stream Analytics job to process the events in real-time as they arrive and create visualizations. 
 
-## Deploying spatial analysis operations at scale (multiple cameras)
+## Deploying Spatial Analysis operations at scale (multiple cameras)
 
-In order to get the best performance and utilization of the GPUs, you can deploy any spatial analysis operations on multiple cameras using graph instances. Below is a sample for running the `cognitiveservices.vision.spatialanalysis-personcrossingline` operation on fifteen cameras.
+In order to get the best performance and utilization of the GPUs, you can deploy any Spatial Analysis operations on multiple cameras using graph instances. Below is a sample for running the `cognitiveservices.vision.spatialanalysis-personcrossingline` operation on fifteen cameras.
 
 ```json
   "properties.desired": {

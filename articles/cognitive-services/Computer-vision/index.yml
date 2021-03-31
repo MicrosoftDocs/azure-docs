@@ -117,11 +117,11 @@ landingContent:
             url: ../containers/azure-container-instance-recipe.md
           - text: Use with Kubernetes and Helm
             url: deploy-computer-vision-on-premises.md
-  - title: Use the spatial analysis container
+  - title: Use the Spatial Analysis container
     linkLists:
       - linkListType: get-started
         links:
-          - text: Overview of Spatial analysis
+          - text: Overview of Spatial Analysis
             url: intro-to-spatial-analysis-public-preview.md
           - text: Install and run the container
             url: spatial-analysis-container.md
