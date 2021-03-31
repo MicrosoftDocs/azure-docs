@@ -9,7 +9,7 @@ metadata:
   services: cognitive-services
   ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: computer-vision
-  ms.topic: landing-page # Required
+  ms.topic: hub-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
   ms.date: 03/31/2021 #Required; mm/dd/yyyy format.
