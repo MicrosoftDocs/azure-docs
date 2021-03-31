@@ -65,7 +65,7 @@ If the runtime status of **azureeyemodule** is not listed as **running**, click 
 
  :::image type="content" source="./media/vision-solution-troubleshooting/firmware-desired-status-stopped.png" alt-text="Module setting configuration screen.":::
 
-### Update TelemetryInterval
+### Update TelemetryIntervalNeuralNetworkMs
 
 If you encounter the following count limitation error, the TelemetryIntervalNeuralNetworkMs value in the azureeyemodule module twin settings will need to be updated.
 
