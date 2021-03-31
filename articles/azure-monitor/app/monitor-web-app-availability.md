@@ -2,7 +2,7 @@
 title: Monitor availability and responsiveness of any web site - Azure Monitor 
 description: Set up ping tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 03/31/2021
 
 ms.reviewer: sdash
 ---
