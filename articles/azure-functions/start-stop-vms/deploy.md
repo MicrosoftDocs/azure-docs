@@ -20,7 +20,7 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (p
 > [!NOTE]
 > Currently this preview does not support specifying an existing Storage account or Application Insights resource.
 
-1. Open your browser and navigate to the Start/Stop VMs v2 [Github organization](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md).
+1. Open your browser and navigate to the Start/Stop VMs v2 [GitHub organization](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md).
 1. Select the deployment option based on the Azure cloud environment your Azure VMs are created in. This will open the custom Azure Resource Manager deployment page in the Azure portal.
 1. If prompted, sign in to the [Azure portal](https://portal.azure.com).
 1. Enter the following values:

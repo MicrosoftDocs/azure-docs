@@ -3,7 +3,7 @@ title: Troubleshoot Start/Stop VMs (preview)
 description: This article tells how to troubleshoot issues encountered with the Start/Stop VMs (preview) feature for your Azure VMs.
 services: azure-functions
 ms.subservice: 
-ms.date: 03/30/2021
+ms.date: 03/31/2021
 ms.topic: conceptual
 ---
 
@@ -17,7 +17,7 @@ This section covers how to troubleshoot general issues with the schedules scenar
 
 ### Azure dashboard
 
-You can start by reviewing the Azure shared dashboard. The Azure shared dashboard deployed as part of Start/Stop VMs v2 (preivew) is a quick and easy way to verify the status of each operation that's performed on your VMs. Refer to the **Recently attempted actions on VMs** tile to see all the recent operations executed on your VMs. Note that there is some latency, around five minutes, for data to show up in the report as it pulls data from the Application Insights resource.
+You can start by reviewing the Azure shared dashboard. The Azure shared dashboard deployed as part of Start/Stop VMs v2 (preview) is a quick and easy way to verify the status of each operation that's performed on your VMs. Refer to the **Recently attempted actions on VMs** tile to see all the recent operations executed on your VMs. There is some latency, around five minutes, for data to show up in the report as it pulls data from the Application Insights resource.
 
 ### Logic Apps
 
@@ -33,11 +33,11 @@ You can review the details for the operations performed on the VMs that are writ
 
 ### Azure Functions
 
-You can review the latest invocation details of any one of the Azure Functions responsible for the VM start and stop execution. First let's review the execution flow.
+You can review the latest invocation details for any of the Azure Functions responsible for the VM start and stop execution. First let's review the execution flow.
 
 The execution flow for both **Scheduled** and **Sequenced** scenario is controlled by the same function. The payload schema is what determines which scenario is performed. For the **Scheduled** scenario, the execution flow is - **Scheduled** HTTP > **VirtualMachineRequestOrchestrator** Queue > **VirtualMachineRequestExecutor** Queue.
 
-From the logic app the **Scheduled** HTTP function is invoked with Payload schema. Once the **Scheduled** HTTP function receives the request, it sends the information to the **Orchestrator** queue function, which in turn creates several queues for each VM to perform the action.
+From the logic app, the **Scheduled** HTTP function is invoked with Payload schema. Once the **Scheduled** HTTP function receives the request, it sends the information to the **Orchestrator** queue function, which in turn creates several queues for each VM to perform the action.
 
 Perform the following steps to see the invocation details.
 
