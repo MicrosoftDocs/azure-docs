@@ -229,7 +229,7 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 
 | `sapi` | `ipa` | Example 1 | Example 2 | Example 3 |
 |--|--|--|--|--|
-| b | `b` | **B**ank | [<sup>1</sup>](#de-c-1)Pu**b** |  |
+| b | `b` | **B**ank | | [<sup>1</sup>](#de-c-1)Pu**b** | 
 | c | `ç` | **Ch**emie | mögli**ch**st | [<sup>2</sup>](#de-c-2)i**ch** |
 | d | `d` | **d**anken | [<sup>3</sup>](#de-c-3)Len**d**l | [<sup>4</sup>](#de-c-4)Clau**d**e | 
 | jh | `ʤ` | **J**eff | gemana**g**t | [<sup>5</sup>](#de-c-5)Chan**g**e |
