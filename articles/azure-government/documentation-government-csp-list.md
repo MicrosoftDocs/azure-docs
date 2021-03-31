@@ -322,7 +322,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Secure-24](https://www.secure-24.com)|
 |[Selex Galileo Inc](http://www.selexgalileo.com/)|
 |[Sev1Tech](https://www.sev1tech.com/)|
-|[Sevatec Inc.](https://www.sevatec.com/)|.
+|[Sevatec Inc.](https://www.sevatec.com/)|
 |[Shadow-Soft, LLC.](https://shadow-soft.com)|
 |[SHI International Corp](https://www.shi.com)|
 |[SHR Consulting Group LLC](https://www.shrgroupllc.com)|
