@@ -50,7 +50,7 @@ Follow these steps to list deny assignments at the subscription or management gr
 
     ![Deny assignments - Columns](./media/deny-assignments-portal/deny-assignments-columns.png)
 
-    |  |  |
+    | Setting | Description  |
     | --- | --- |
     | **Name** | Name of the deny assignment. |
     | **Principal type** | User, group, system-defined group, or service principal. |
