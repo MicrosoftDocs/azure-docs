@@ -83,7 +83,7 @@ The Log Analytics gateway supports only Transport Layer Security (TLS) 1.0, 1.1,
 For additional information, review [Sending data securely using TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12). 
 
 >[!NOTE]
->The gateway is a forwarding proxy that doesn’t store any data. It facilitates connection between agents and Azure Monitor endpoints in the case of closed or on-premises networks. Once the agent establishes connection with Azure Monitor, it follows the same encryption flow with or without the gateway. The data is encrypted between the client and the endpoint. Since the gateway is just a tunnel, it doesn’t have the ability the inspect what is being sent.
+>The gateway is a forwarding proxy that doesn’t store any data. Once the agent establishes connection with Azure Monitor, it follows the same encryption flow with or without the gateway. The data is encrypted between the client and the endpoint. Since the gateway is just a tunnel, it doesn’t have the ability the inspect what is being sent.
 
 ### Supported number of agent connections
 
