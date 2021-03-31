@@ -88,23 +88,10 @@ Azure Firewall might be bypassed if you have issues connecting to the private en
    | where msg_s contains "database.windows.net"
 4. Verify *DNS proxy* has been enabled and a *Custom* DNS server pointing to the IP address of the DNS forwarder virtual machine IP address has been configured in the firewall policy associated with the Azure Firewall in the secured virtual hub.
 
-Azure CLI:
+   Azure CLI:
 
-```azurecli-interactive
-az network firewall policy show --name <Firewall Policy> --resource-group <Resource Group Name> --query dnsSettings
-```
-
-Azure PowerShell:
-
-```azurepowershell-interactive
-(Get-AzFirewallPolicy -Name <Firewall Policy> -ResourceGroupName <Resource Group Name>).DnsSettings
-```
-
-Azure portal:
-
-:::image type="content" source="./media/private-link-inspection-secure-vhub/firewall-policy-dns-settings.png" alt-text="Firewall Policy DNS Settings" border="true":::
-
-5. For on premises clients, verify the on premises DNS severs have been configured to forward queries for the public DNS zone rather than the privatelink DNS zone to the private IP address of Azure Firewall in secured virtual hub. For more information refer to [On-premises workloads using a DNS forwarder](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder)
+   ```azurecli-interactive
+   az network firewall policy show --name <Firewall Policy> --resource-group <Resource Group Name> --query dnsSettings
 
 ### Incorrect routing configuration
 
