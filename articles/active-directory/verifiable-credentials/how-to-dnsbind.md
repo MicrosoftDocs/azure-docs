@@ -94,7 +94,7 @@ Before Microsoft Authenticator displays a **Verified** icon, a few things need t
 
 If all of the previously mentioned are true, then Microsoft Authenticator displays a verified page and includes the domain that was validated.
 
-   ![new permission request](media/how-to-dnsbind/new-permission-request.png) 
+![new permission request](media/how-to-dnsbind/new-permission-request.png) 
 
 ## Unverified Domain
 
@@ -104,7 +104,7 @@ If any of the above are not true, the Microsoft Authenticator will display a ful
 * The configuration was not set up properly.
 * The DID the user is interacting with is malicious and actually can't prove they own a domain (since they actually don't). Due to this last point, it is imperative that you link your DID to the domain the user is familiar with, to avoid propagating the warning message.
 
-![Verify this domain in settings](media/how-to-dnsbind/add-credential-not-verified-authenticated.png)
+![unverified domain warning in the add credential screen](media/how-to-dnsbind/add-credential-not-verified-authenticated.png)
 
 ## Distribute well-known config
 

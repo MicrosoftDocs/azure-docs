@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/29/2021
+ms.date: 03/30/2021
 ms.author: barclayn
 ms.reviewer: 
 
@@ -70,11 +70,11 @@ Register an application called 'VC Wallet App' in Azure Active Directory (AAD) a
 To authenticate a user's credential issuance request, the issuer website uses your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website needs a client ID and client secret that can be used to authenticate to Azure Key Vault.
 
 1. While viewing the VC wallet app overview page select **Certificates & secrets**.
-    ![application client id](media/issue-verify-verifable-credentials-your-tenant/vc-wallet-app-certs-secrets.png)
+    ![certificates and secrets](media/issue-verify-verifable-credentials-your-tenant/vc-wallet-app-certs-secrets.png)
 1. In the **Client secrets** section choose **New client secret**
     1. Add a description like "Node VC client secret"
     1. Expires: in one year.
-  ![application client id](media/issue-verify-verifable-credentials-your-tenant/add-client-secret.png)
+  ![Application secret with a one year expiration](media/issue-verify-verifable-credentials-your-tenant/add-client-secret.png)
 1. Copy down the SECRET. You need this information to update your sample node app.
 
 >[!WARNING]
@@ -181,7 +181,7 @@ There are a few other values we need to get in order to make the changes one tim
 
 1. Under the Signing key identifier, there is a URI but we only need a portion of it. Copy from the part that says **issuerSigningKeyION** as highlighted by the red rectangle in the image below.
 
-   ![add permissions for optional claims](media/issue-verify-verifable-credentials-your-tenant/issuer-signing-key-ion.png)
+   ![sign in key identifier](media/issue-verify-verifable-credentials-your-tenant/issuer-signing-key-ion.png)
 
 ### DID Document 
 
@@ -193,7 +193,7 @@ There are a few other values we need to get in order to make the changes one tim
 
 2. Paste the URL in your browser.
 
-    ![assign key vault permissions](media/issue-verify-verifable-credentials-your-tenant/did-document.png)
+    ![did information](media/issue-verify-verifable-credentials-your-tenant/did-document.png)
 
 3. Copy the json in the browser and open up the following link: https://jsonformatter.org/ to format the json response. 
 4. From the formatted response find the section called **verificationMethod**

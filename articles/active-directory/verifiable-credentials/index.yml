@@ -9,7 +9,7 @@ metadata:
   manager: daveba
   ms.author: barclayn
   ms.collection: na
-  ms.date: 03/24/2021
+  ms.date: 03/30/2021
   ms.service: active-directory
   ms.subservice: na
   ms.topic: landing-page
@@ -23,8 +23,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure AD Verifiable Credentials?
-            url: verifiable-credentials-overview.md
+          - text: Introduction to Azure Active Directory Verifiable Credentials
+            url: decentralized-identifier-overview.md
       - linkListType: video
         links:
           - text: Govern access to your resources
@@ -33,10 +33,6 @@ landingContent:
   # Card
   - title: Verifiable credentials put people in control of their personal information
     linkLists:
-      - linkListType: overview
-        links:
-          - text: What is verifiable Credentials?
-            url: verifiable-credentials-overview.md
       - linkListType: tutorial
         links:
           - text: Get started with verifiable credentials

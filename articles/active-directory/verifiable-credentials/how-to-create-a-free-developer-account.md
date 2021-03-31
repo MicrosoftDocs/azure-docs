@@ -11,6 +11,9 @@ ms.date: 03/24/2021
 ms.author: barclayn
 # Customer intent: As a developer I am looking to create a developer Azure Active Directory account so I can participate in the Preview with a P2 license. 
 ---
+
+# How to create a free Azure Active Directory developer tenant
+
 > [!Note]
 > While in Preview a P2 license is required. 
 
