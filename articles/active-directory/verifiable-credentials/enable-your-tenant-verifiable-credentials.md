@@ -311,7 +311,7 @@ Now we make modifications to the sample app's issuer code to update it with your
 
 8. Choose **GET CREDENTIAL**
 9. In Authenticator scan the QR code.
-10. At **This app or wewbsite may be risky** warning message choose **Advanced**.
+10. At **This app or website may be risky** warning message choose **Advanced**.
 
   ![Initial warning](media/enable-your-tenant-verifiable-credentials/site-warning.png)
 

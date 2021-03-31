@@ -33,7 +33,7 @@ In this article you:
 > * Set up your Verifiable Credentials Issuer service to use Azure Key Vault
 > * Update Sample Code with your tenant's information.
 
-Our sample code requires users to authenticate to an identity provider, specifically Azure AD B2C, before Ninja Verifiable Credentials can be issued. Not all verifiable credentials issuers require authentication before issuing credentials.
+Our sample code requires users to authenticate to an identity provider, specifically Azure AD B2C, before the Verified Credential Expert VC can be issued. Not all verifiable credential issuers require authentication before issuing credentials.
 
 Authenticating ID Tokens allows users to prove who they are before receiving their credential. When users successfully log in, the identity provider returns a security token containing claims about the user. The issuer service then transforms these security tokens and their claims into a verifiable credential. The verifiable credential is signed with the issuer's DID.
 
@@ -98,7 +98,7 @@ For more information about Key Vault permissions and access control read the [ke
 
 So far, we have been working with our sample app. The app uses [Azure Active Directory B2C](../../active-directory-b2c/overview.md) and we are now switching to use AAD so we need to make some changes not just to match your environment but also to support additional claims that were not used before.
 
-1. Copy the rules file below and save it to **modified-ninjaRules.json**. 
+1. Copy the rules file below and save it to **modified-expertRules.json**. 
 
     > [!NOTE]
     > **"scope": "openid profile"** is included in this Rules file and was not included in the Sample App's Rules file. The next section will explain how to enable the optional claims in your Azure Active Directory tenant. 
@@ -121,7 +121,7 @@ So far, we have been working with our sample app. The app uses [Azure Active Dir
       },
       "validityInterval": 2592000,
       "vc": {
-        "type": ["VerifiedCredentialNinja"]
+        "type": ["VerifiedCredentialExpert"]
       }
     }
     ```
@@ -130,10 +130,9 @@ So far, we have been working with our sample app. The app uses [Azure Active Dir
 
     ![highlighting the two values that need to be modified as part of this step](media/issue-verify-verifable-credentials-your-tenant/rules-file.png)
 
-   The value **Configuration** is the OpenID Connect metadata document URI.
+  The value **Configuration** is the OpenID Connect metadata document URI.
 
-    >[!IMPORTANT]
-    >Since the Sample Code is using Azure Active Directory B2C and we are using Azure Active Directory, we need to add optional claims via scopes in order for these claims to be included in the ID Token to be written into the Verifiable Credential. 
+  Since the Sample Code is using Azure Active Directory B2C and we are using Azure Active Directory, we need to add optional claims via scopes in order for these claims to be included in the ID Token to be written into the Verifiable Credential. 
 
 3. Back in the Azure portal, open Azure Active Directory.
 4. Choose **App registrations**.
@@ -152,7 +151,7 @@ So far, we have been working with our sample app. The app uses [Azure Active Dir
 
      ![add permissions for optional claims](media/issue-verify-verifable-credentials-your-tenant/add-optional-claim-permissions.png)
 
-Now when a user is presented with the "sign in" to get issued your verifiable credential, the VC Wallet App knows to include the specific claims to be written in to the Verifiable Credential.
+Now when a user is presented with the "sign in" to get issued your verifiable credential, the VC Wallet App knows to include the specific claims via the scope parameter to be written in to the Verifiable Credential.
 
 ## Create new VC with this rules file and the old display file
 
@@ -185,17 +184,10 @@ There are a few other values we need to get before we can make the changes one t
 
 ### DID Document 
 
-1. Open notepad and paste ```https://beta.discover.did.microsoft.com/1.0/identifiers/``` and append your did to the url. As shown below:
+1. Open the [DIF ION Network Explorer](https://identity.foundation/ion/explorer/)
 
-    ```http
-    https://beta.discover.did.microsoft.com/1.0/identifiers/did:ion:EiD3DvRok3n5OwN5hXy2gmzzbzyuxNSjPm9UwnI3sL3Ssg:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJyZXBsYWNlIiwiZG9jdW1lbnQiOnsicHVibGljS2V5cyI6W3siaWQiOiJzaWdfOTk0ZWMwYWIiLCJwdWJsaWNLZXlKd2siOnsiY3J2Ijoic2VjcDI1NmsxIiwia3R5IjoiRUMiLCJ4IjoiRXFXS3g0NlRrMXgzUHpnanRMVzlMMThrbEhwZjJ3Y0xIWkFYSU5ORFF0MCIsInkiOiJ6TmVWbmZsN2xUZWJDOGNXc3VyR1l3VURCWGViWEUzeWljREZTRTFobGRjskkdlkdlslole:LoKIJNML
-    ```
+2. Paste your DID in the search bar.
 
-2. Paste the URL in your browser.
-
-    ![did information](media/issue-verify-verifable-credentials-your-tenant/did-document.png)
-
-3. Copy the json in the browser and open up the following link: https://jsonformatter.org/ to format the json response. 
 4. From the formatted response find the section called **verificationMethod**
 5. Under "verificationMethod" copy the id and label it as the kvSigningKeyId
     
@@ -218,21 +210,106 @@ Now we have everything we need to make the changes in our sample code.
     "azClientId": "Your client ID",
     "azClientSecret": "Your client secret",
     "kvVaultUri": "your keyvault uri",
-    "kvSigningKeyId": "The ID from your DID Document",
+    "kvSigningKeyId": "The verificationMethod ID from your DID Document",
     "kvRemoteSigningKeyId" : "The snippet of the issuerSigningKeyION we copied ",
     "did": "Your DID"
 }
 ```
 
 >[!IMPORTANT]
->This is a demo application and you should never give your application the secret.
+>This is a demo application and you should normally never give your application the secret directly.
 
 
-Now you have everything in place to issuer and verify your own Verifiable Credential from your AAD with your own keys. 
+Now you have everything in place to issue and verify your own Verifiable Credential from your Azure Active Directory tenant with your own keys. 
 
 ## Issue and Verify the VC
 
 Follow the same steps we followed in the previous tutorial to issue the verifiable credential and validate it with your app. Once that you successfully complete the verification process you are now ready to continue learning about verifiable credentials.
+
+1. Open a command prompt and open the issuer folder.
+2. Run the updated node app.
+
+    ```terminal
+    node app.js
+    ```
+
+3. Using a different command prompt run ngrok to set up a URL on 8081
+
+    ```terminal
+    ngrok http 8081
+    ```
+    
+    >[!IMPORTANT]
+    > You may also notice a warning that this app or website may be risky. The message is expected at this time because we have not yet linked your DID to your domain. Follow the [DNS binding](how-to-dnsbind.md) instructions to configure this.
+
+    
+4. Open the HTTPS URL generated by ngrok.
+
+    ![NGROK forwarding endpoints](media/enable-your-tenant-verifiable-credentials/ngrok-url-screen.png)
+
+5. Choose **GET CREDENTIAL**
+6. In Authenticator scan the QR code.
+7. At **This app or website may be risky** warning message choose **Advanced**.
+
+  ![Initial warning](media/enable-your-tenant-verifiable-credentials/site-warning.png)
+
+8. At the risky website warning choose **Proceed anyways (unsafe)**
+
+  ![Second warning about the issuer](media/enable-your-tenant-verifiable-credentials/site-warning-proceed.png)
+
+
+9. At the **Add a credential** screen notice a few things: 
+    1. At the top of the screen you can see a red **Not verified** message
+    1. The credential is customized based on the changes we made to the display file.
+    1. The **Sign in to your account** option is pointing to your AAD tenant sign in page.
+    
+   ![add credential screen with warning](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified.png)
+
+10. Choose **Sign in to your account** and authenticate using a User in your AAD tenant.
+11. After successfully authenticating the **Add** button is no longer greyed out. Choose **Add**.
+
+  ![add credential screen after authenticating](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified-authenticated.png)
+
+We have now issued a verifiable credential using our tenant to generate our vc while still using our B2C tenant for authentication.
+
+  ![vc issued by your azure AD and authenticated by our Azure B2C instance](media/enable-your-tenant-verifiable-credentials/my-vc-b2c.png)
+
+
+## Test verifying the VC using the sample app
+
+Now that we've issued the verifiable credential from our own tenant with claims from your AAD tenant, let's verify it using our sample app.
+
+1. Stop running your issuer ngrok service.
+
+    ```cmd
+    control-c
+    ```
+
+2. Now run ngrok with the verifier port 8082.
+
+    ```cmd
+    ngrok http 8082
+    ```
+
+3. In another terminal window, navigate to the verifier app and run it similarly to how we ran the issuer app.
+
+    ```cmd
+    cd ..
+    cd verifier
+    node app.js
+    ```
+
+4. Open the ngrok url in your browser and scan the QR code using Authenticator in your mobile device.
+5. On your mobile device, choose **Allow** at the **New permission request** screen.
+
+   >[!IMPORTANT]
+    > Since the Sample App is also using your DID to sign the presentation request, you will notice a warning that this app or website may be risky. The message is expected at this time because we have not yet linked your DID to your domain. Follow the [DNS binding](how-to-dnsbind.md) instructions to configure this.
+    
+   ![new permission request](media/enable-your-tenant-verifiable-credentials/new-permission-request.png)
+
+8. You have no successfully verified your credential and the website should display your first and last name from your AAD tenant's user account. 
+
+You have now completing the tutorial and are officially a Verified Credential Expert! Your sample app is using your DID for both issuing and verifying, while writing claims into a verifiable credential from your AAD tenant. 
 
 ## Next steps
 
