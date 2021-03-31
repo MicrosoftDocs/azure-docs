@@ -39,4 +39,4 @@ The following screenshot is an example email that is sent when the feature shuts
 
 ## Next steps
 
-To handle problems during VM management, see Troubleshoot Start/Stop VMs issues.
+To handle problems during VM management, see [Troubleshoot Start/Stop VMs v2](troubleshoot.md) (preview) issues.
