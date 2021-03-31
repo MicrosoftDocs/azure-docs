@@ -19,9 +19,9 @@ Version 1.4
 
 ## New feature
 
-- Added support for private endpoints, which is currently in limited private preview.
+- Added support for private endpoints, which is currently in limited preview.
 - Expanded list of exit codes for azcmagent.
-- Agent configuration parameters can now be read from a file with the --config parameter.
+- Agent configuration parameters can now be read from a file with the `--config` parameter.
 
 ## Fixed
 
