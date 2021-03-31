@@ -27,5 +27,7 @@ The content authors can use documents/URLs to extract QnAs or add custom QnAs to
 
 ### Create a separate knowledge base for each domain
 
+### Create a distinct bot endpoint per domain
+
 
 
