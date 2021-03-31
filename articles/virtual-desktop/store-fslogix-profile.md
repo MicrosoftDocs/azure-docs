@@ -51,7 +51,7 @@ Azure Files offers two different tiers of storage, premium and standard, to allo
 
 Depends on the target performance, cost and regional considerations, you can select the most appropriate performance tier for storing the user profile data. We have included our recommendation based on the performance of the typical [remote desktop workloads types](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/remote-desktop-workloads). 
 
-|Workload type|File Tiers|
+| Workload type | Recommended file tier |
 |--------|-----------|
 |Light|Less than 200 concurrent active users: Standard file shares|
 | |More than 200 concurrent active users: Standard file shares. You may also consider using Standard file shares with multiple shares if you are scaling up from existing Standard file shares or plan to manage scale out for cost efficiency.|
