@@ -44,7 +44,10 @@ Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safa
 If you're using Safari on macOS, your app will not be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on macOS, the app can enumerate/select devices through the Communication Services Device Manager.
 
 ### Audio connectivity is lost when receiving SMS messages or calls during an ongoing VoIP call
-Mobile browsers don't maintain connectivity while in the background state. This can lead to a degraded call experience if the VoIP call was interrupted by an event that pushes your application into the background.
+This problem may occur due to multiple reasons:
+
+- Some mobile browsers don't maintain connectivity while in the background state. This can lead to a degraded call experience if the VoIP call was interrupted by an event that pushes your application into the background. 
+- Sometimes, an SMS or PSTN call captures the audio sound, and doesn't release audio back to the VoIP call. Apple fixed this issue in iOS versions 14.4.1+. 
 
 <br/>Client library: Calling (JavaScript)
 <br/>Browsers: Safari, Chrome
