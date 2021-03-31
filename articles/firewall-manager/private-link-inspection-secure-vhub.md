@@ -17,7 +17,7 @@ Private endpoints allow resources access to the private link service deployed in
 
 You may need to filter traffic from clients either on premises or in Azure destined to services exposed via private endpoints in a Virtual WAN connected virtual network. This article walks you through this task using [secured virtual hub](../firewall-manager/secured-virtual-hub.md) with [Azure Firewall](../firewall/overview.md) as the security provider.
 
-Azure Firewall filters traffic using any of the following:
+Azure Firewall filters traffic using any of the following methods:
 
 * [FQDN in network rules](../firewall/fqdn-filtering-network-rules.md) for TCP and UDP protocols
 * [FQDN in application rules](../firewall/features.md#application-fqdn-filtering-rules) for HTTP, HTTPS, and MSSQL.
