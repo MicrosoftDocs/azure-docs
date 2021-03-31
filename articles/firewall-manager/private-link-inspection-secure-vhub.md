@@ -76,18 +76,10 @@ Azure Firewall might be bypassed if you have issues connecting to the private en
    az network vnet show --name <VNET Name> --resource-group <Resource Group Name> --query "dhcpOptions.dnsServers"
 2. Verify clients in the same virtual network as the DNS forwarder virtual machine can resolve the private endpoint public FQDN to its corresponding private IP address by directly querying the virtual machine configured as DNS forwarder.
 
-Linux:
+   Linux:
 
-```bash
-dig @<DNS forwarder VM IP address> <Private endpoint public FQDN>
-```
-
-Windows:
-
-```powershell
-Resolve-DnsName -Name <Private endpoint public FQDN> -Server <DNS forwarder VM IP address>
-```
-
+   ```bash
+   dig @<DNS forwarder VM IP address> <Private endpoint public FQDN>
 3. Inspect *AzureFirewallDNSProxy* Azure Firewall log entries and validate it is able to receive and resolve DNS queries from the clients.
 
 ```kusto
