@@ -27,9 +27,9 @@ The following diagram depicts how we can scale the Python script using Azure Bat
 
 The JavaScript sample dpeloys a batch job with a preparation task (explained in detail later) and a set of tasks depending on the number of containers in the storage account. You can download the scripts from the GitHub repository.
 
-- [Sample Code](https://github.com/Azure/azure-batch-samples/blob/master/JavaScript/GettingStarted/nodejs_batch_client_sample.js)
-- [Preparation task shell scripts](https://github.com/Azure/azure-batch-samples/blob/master/JavaScript/GettingStarted/startup_prereq.sh)
-- [Python csv to JSON processor](https://github.com/Azure/azure-batch-samples/blob/master/JavaScript/GettingStarted/processcsv.py)
+- [Sample Code](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/sample.js)
+- [Preparation task shell scripts](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/startup_prereq.sh)
+- [Python csv to JSON processor](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/processcsv.py)
 
 > [!TIP]
 > The JavaScript sample in the link specified does not contain specific code to be deployed as an Azure function app. You can refer to the following links for instructions to create one.
