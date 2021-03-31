@@ -244,6 +244,71 @@
             "source_path_from_root": "/articles/media-services/cli-reset-account-credentials.md",
             "redirect_url": "asset-reset-account-credentials",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/concept-compliance.md",
+            "redirect_url": "compliance-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/content-key-policy-concept.md",
+            "redirect_url": "drm-content-key-policy-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/content-protection-overview.md",
+            "redirect_url": "drm-content-protection-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/encrypt-content-quickstart.md",
+            "redirect_url": "drm-encrypt-content-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/fairplay-license-overview.md",
+            "redirect_url": "drm-fairplay-license-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/get-content-key-policy-dotnet-howto.md",
+            "redirect_url": "drm-get-content-key-policy-dotnet-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/offline-fairplay-for-ios.md",
+            "redirect_url": "drm-offline-fairplay-for-ios-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/offline-plaready-streaming-for-windows-10.md",
+            "redirect_url": "drm-offline-playready-streaming-for-windows-10",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/offline-widevine-for-android.md",
+            "redirect_url": "drm-offline-widevine-for-android",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/playready-license-template-overview.md",
+            "redirect_url": "drm-playready-license-template-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/protect-with-aes128.md",
+            "redirect_url": "drm-protect-with-aes128-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/protect-with-drm.md",
+            "redirect_url": "drm-protect-with-drm-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/widevine-license-template-overview.md",
+            "redirect_url": "drm-widevine-license-template-concept",
+            "redirect_document_id": false
         }
     ]
 }
