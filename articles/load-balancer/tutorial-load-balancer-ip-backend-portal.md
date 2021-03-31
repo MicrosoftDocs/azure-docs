@@ -66,7 +66,7 @@ In this section, you'll create a virtual network for the load balancer, NAT gate
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet name | Enter **myBackendSubnet** |
-    | Subnet address range | Enter **10.1.0.0/27** |
+    | Subnet address range | Enter **10.1.0.0/24** |
 
 8. Select **Save**.
 
@@ -77,7 +77,7 @@ In this section, you'll create a virtual network for the load balancer, NAT gate
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/24** |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/27** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
 
