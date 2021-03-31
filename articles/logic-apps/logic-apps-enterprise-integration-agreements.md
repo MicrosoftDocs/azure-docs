@@ -82,7 +82,7 @@ about your agreement, for example:
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Name** | Yes | <*agreement-name*> | The name for your agreement |
-   | **Agreement type** | Yes | **AS2**, **X12**, or **EDIFACT** | The protocol type for your agreement. When you create your agreement file, the content in that file must match the agreement type. | |  
+   | **Agreement type** | Yes | **AS2**, **X12**, or **EDIFACT** | The protocol type for your agreement. When you create your agreement file, the content in that file must match the agreement type. |
    | **Host Partner** | Yes | <*host-partner-name*> | The host partner represents the organization that specifies the agreement |
    | **Host Identity** | Yes | <*host-partner-identifier*> | The host partner's identifier |
    | **Guest Partner** | Yes | <*guest-partner-name*> | The guest partner represents the organization that's doing business with the host partner |
