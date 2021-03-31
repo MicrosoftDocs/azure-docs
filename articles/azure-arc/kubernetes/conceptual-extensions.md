@@ -21,17 +21,17 @@ description: "This article provides a conceptual overview of cluster extensions 
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
-## Extensions
+## Architecture
 
 [ ![Cluster extensions architecture](./media/conceptual-extensions.png) ](./media/conceptual-extensions.png#lightbox)
 
-The intent to create an extension instance on the cluster is created as an extension resource (`Microsoft.KubernetesConfiguration/extensions`) on top of the Azure Arc enabled Kubernetes resource (represented by `Microsoft.Kubernetes/connectedClusters`) in Azure Resource Manager. 
+The cluster extension instance is created as an extension Azure Resource Manager resource (`Microsoft.KubernetesConfiguration/extensions`) on top of the Azure Arc enabled Kubernetes resource (represented by `Microsoft.Kubernetes/connectedClusters`) in Azure Resource Manager. This Azure Resoure Manager representation makes it possible to author a policy that checks for all the Azure Arc enabled Kubernetes resource that have or do not have a specific cluster extension created on them. Once it's determined that a cluster doesn't have that cluster extension with desired property values, it is then possible to use Azure Policy remediate those resources by creating the cluster extension resource on top of these clusters.
 
 The `config-agent` running in your cluster is responsible for tracking new or updated extension resources on the Azure Arc enabled Kubernetes resource. The `extensions-manager` running in your cluster is responsible for pulling the Helm chart from Azure Container Registry or Microsoft Container Registry and then installing it on the cluster. Version updates and deletion of the extension instance are also handled in a similar manner by the `config-agent` and `extensions-manager` component running in the cluster.
 
 > [!NOTE]
 > * `config-agent` monitors for new or updated extension resources to be available on the Arc enabled Kubernetes resource. Thus agents require connectivity for the desired state to be pulled down to the cluster. If agents are unable to connect to Azure, there is a delay in propagating the desired state to the cluster.
-> * Protected configuration settings for an extension are not stored for more than 48 hours in the Azure Arc enabled Kubernetes services. As a result if the cluster remains disconnected during the 48 hours after the extension resource was created on Azure, the extension transitions from a `Pending` state to `Failed` state. So it is thus advisable to bring the clusters online as regularly as possible.
+> * Protected configuration settings for an extension are not stored for more than 48 hours in the Azure Arc enabled Kubernetes services. As a result if the cluster remains disconnected during the 48 hours after the extension resource was created on Azure, the extension transitions from a `Pending` state to `Failed` state. It is thus advisable to bring the clusters online as regularly as possible.
 
 ## Next steps
 

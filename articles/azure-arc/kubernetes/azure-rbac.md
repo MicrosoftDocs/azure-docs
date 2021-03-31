@@ -11,7 +11,7 @@ description: "Use Azure RBAC for authorization checks on Azure Arc enabled Kuber
 
 # Azure RBAC for Azure Arc enabled Kubernetes clusters
 
-Kubernetes objects of the type [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) provide a way to define authorization in a Kubernetes native way. Instead, this feature allows for usage of Azure Active Directory (AAD) and role assignments in Azure controlling authorization checks on the cluster.
+Kubernetes objects of the type [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) provide a way to define authorization in a Kubernetes native way. Instead, this feature allows for usage of Azure Active Directory (AAD) and role assignments in Azure to control authorization checks on the cluster.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
