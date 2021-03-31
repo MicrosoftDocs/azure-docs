@@ -81,24 +81,28 @@ In most cases these problems are caused by one of the following issues:
 
    ```azurecli-interactive
    az network vnet show --name <VNET Name> --resource-group <Resource Group Name> --query "dhcpOptions.dnsServers"
+   ```
 2. Verify clients in the same virtual network as the DNS forwarder virtual machine can resolve the private endpoint public FQDN to its corresponding private IP address by directly querying the virtual machine configured as DNS forwarder.
 
    Linux:
 
    ```bash
    dig @<DNS forwarder VM IP address> <Private endpoint public FQDN>
+   ```
 3. Inspect *AzureFirewallDNSProxy* Azure Firewall log entries and validate it can receive and resolve DNS queries from the clients.
 
    ```kusto
    AzureDiagnostics
    | where Category contains "DNS"
    | where msg_s contains "database.windows.net"
+   ```
 4. Verify *DNS proxy* has been enabled and a *Custom* DNS server pointing to the IP address of the DNS forwarder virtual machine IP address has been configured in the firewall policy associated with the Azure Firewall in the secured virtual hub.
 
    Azure CLI:
 
    ```azurecli-interactive
    az network firewall policy show --name <Firewall Policy> --resource-group <Resource Group Name> --query dnsSettings
+   ```
 
 ### Incorrect routing configuration
 
