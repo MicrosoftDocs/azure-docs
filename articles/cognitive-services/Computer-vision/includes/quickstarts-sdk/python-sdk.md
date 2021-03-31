@@ -79,7 +79,6 @@ The following classes and interfaces handle some of the major features of the OC
 These code snippets show you how to do the following tasks with the OCR client library for Python:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Analyze an image](#analyze-an-image)
 * [Read printed and handwritten text](#read-printed-and-handwritten-text)
 
 ## Authenticate the client
@@ -89,7 +88,7 @@ Instantiate a client with your endpoint and key. Create a [CognitiveServicesCred
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_client)]
 
 > [!div class="nextstepaction"]
-> [I authenticated the client](?success=authenticate-client#analyze-an-image) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=authenticate-client)
+> [I authenticated the client](?success=authenticate-client#read-printed-and-handwritten-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=authenticate-client)
 
 ## Read printed and handwritten text
 
