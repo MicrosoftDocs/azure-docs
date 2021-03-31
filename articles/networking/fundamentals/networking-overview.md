@@ -74,13 +74,11 @@ Azure Peering service enhances customer connectivity to Microsoft cloud services
 
 ### <a name="edge-zones"></a>Azure Edge Zones
 
-Azure Edge Zone is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other selected Azure services into Edge Zones to address the low latency and high throughput requirements of applications. For more information, see [What is Azure Edge Zones?](../networking/edge-zones-overview.md).
+Azure Edge Zone is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other selected Azure services into Edge Zones to address the low latency and high throughput requirements of applications.
 
 ### <a name="orbital"></a>Azure Orbital
 
-Azure Orbital is a fully managed cloud-based ground station as a service that lets you communicate with your spacecraft or satellite constellations, downlink and uplink data, process your data in the cloud, chain services with Azure services in unique scenarios, and generate products for your customers. This system is built on top of the Azure global infrastructure and low-latency global fiber network. For more information, see [What is Azure Orbital?](../networking/azure-orbital-overview.md).
-
-:::image type="content" source="../networking/media/azure-orbital-overview/orbital-communications-use-flow.png" alt-text="Azure Orbital communications diagram":::
+Azure Orbital is a fully managed cloud-based ground station as a service that lets you communicate with your spacecraft or satellite constellations, downlink and uplink data, process your data in the cloud, chain services with Azure services in unique scenarios, and generate products for your customers. This system is built on top of the Azure global infrastructure and low-latency global fiber network.
 
 ## <a name="protect"></a>Application protection services
 
