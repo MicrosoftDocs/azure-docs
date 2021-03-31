@@ -11,7 +11,7 @@ description: "This article provides a conceptual overview of cluster extensions 
 
 # Cluster extensions on Azure Arc enabled Kubernetes
 
-[Helm charts](https://helm.sh/) help you manage Kubernetes applications by providing the building blocks needed to define, install, and upgrade even the most complex Kubernetes applications. Cluster extension feature seeks to build on top of the packaging components of Helm. It does so by providing an Azure Resource Manager driven experience for installation and lifecycle management of cluster extensions such as Azure Monitor and Azure Defender for Kubernetes. The Cluster extensions feature provide the following extra benefits over and above what is already available natively with Helm charts:
+[Helm charts](https://helm.sh/) help you manage Kubernetes applications by providing the building blocks needed to define, install, and upgrade even the most complex Kubernetes applications. Cluster extension feature seeks to build on top of the packaging components of Helm. It does so by providing an Azure Resource Manager driven experience for installation and lifecycle management of cluster extensions such as Azure Monitor and Azure Defender for Kubernetes. The cluster extensions feature provide the following extra benefits over and above what is already available natively with Helm charts:
 
 - Get an inventory of all clusters and the extensions installed on those clusters.
 - Use Azure Policy to automate at-scale deployment of cluster extensions.
@@ -36,4 +36,4 @@ The `config-agent` running in your cluster is responsible for tracking new or up
 ## Next steps
 
 * Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md).
-* Already have a Kubernetes cluster connected Azure Arc? [Deploy cluster extensions on your Arc enabled Kubernetes cluster](./extensions.md).
+* Already have a Kubernetes cluster connected to Azure Arc? [Deploy cluster extensions on your Arc enabled Kubernetes cluster](./extensions.md).
