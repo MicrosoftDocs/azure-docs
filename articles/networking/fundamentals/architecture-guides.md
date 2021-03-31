@@ -12,7 +12,7 @@ ms.author: kumud
 
 This article provides information about architecture guides that can help you explore the different networking services in Azure available to you for building your applications.
 
-## General networking
+## Networking overview
 
 The following table includes articles that provide a networking overview of a virtual datacenter and a hub and spoke topology in Azure.
 
@@ -21,7 +21,7 @@ The following table includes articles that provide a networking overview of a vi
 |[Virtual Datacenters](/azure/architecture/vdc/networking-virtual-datacenter)   | Provides a networking perspective of a virtual datacenter in Azure.       |
 |[Hub-spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)  |Provides an overview of the hub and spoke network topology in Azure along with information about subscription limits and multiple hubs.          |
 
-## Connectivity services
+## Connect to Azure resources
 
 The following table includes articles about Azure Networking services that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure.
 
@@ -33,7 +33,7 @@ The following table includes articles about Azure Networking services that provi
 |[Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/)  | Compares options for connecting an on-premises network to an Azure Virtual Network (VNet). For each option, a more detailed reference architecture is available.        |
 |[SD-WAN connectivity architecture with Azure Virtual WAN](../../virtual-wan/sd-wan-connectivity-architecture.md)|Describes the different connectivity options for interconnecting a private Software Defined WAN (SD-WAN) with Azure Virtual WAN.|
 
-## High availability services
+## Deploy highly available applications
 
 The following table includes articles that describe how to deploy your applications for high availability using a combination of Azure Networking services.
 
@@ -46,7 +46,7 @@ The following table includes articles that describe how to deploy your applicati
 |[Sharing location in real time using low-cost serverless Azure services](/azure/architecture/example-scenario/signalr/#azure-front-door)       |   Uses Azure Front Door to provide higher availability for your applications than deploying to a single region. If a regional outage affects the primary region, you can use Front Door to fail over to the secondary region.      |
 |[Highly available network virtual appliances](/azure/architecture/reference-architectures/dmz/nva-ha)     | Shows how to deploy a set of network virtual appliances (NVAs) for high availability in Azure.        |
 
-## Security services
+## Secure your network resources
 
 The following table includes articles that describe how protect your network resources using Azure Networking services.
 
