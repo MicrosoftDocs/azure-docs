@@ -676,7 +676,7 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
 | `properties` | collection| Collection of values|
 | `trackinId` | string| Unique identifier of the person detected|
 | `status` | string| Direction of polygon crossings, either 'Enter' or 'Exit'|
-| `side` | int| The number of the side of the polygon that the person crossed. Each side is a numbered edge between the two vertices of the polygon that represents your zone. The edge between the first two vertices of the polygon represent first side. 'Side' is empty when the event isn't assosiated with a specific side due to occlusion. For example, an exit occurred when a person disappears but wasn't seen crossing a side of the zone or an enter occured when a person appeared in the zone but wasn't seen crossing a side.|
+| `side` | int| The number of the side of the polygon that the person crossed. Each side is a numbered edge between the two vertices of the polygon that represents your zone. The edge between the first two vertices of the polygon represent first side. 'Side' is empty when the event isn't associated with a specific side due to occlusion. For example, an exit occurred when a person disappears but wasn't seen crossing a side of the zone or an enter occurred when a person appeared in the zone but wasn't seen crossing a side.|
 | `durationMs` | float | The number of milliseconds that represent the time the person spent in the zone. This field is provided when the event type is _personZoneDwellTimeEvent_|
 | `zone` | string | The "name" field of the polygon that represents the zone that was crossed|
 
