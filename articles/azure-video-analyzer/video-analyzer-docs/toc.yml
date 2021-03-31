@@ -6,7 +6,7 @@
     href: overview.md
   - name: Terminology
     href: terminology.md
-- name: Tutorials
+- name: Concepts
   items:
   - name: Continuous video recording
     href: continuous-video-recording-concept.md
