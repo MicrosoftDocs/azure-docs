@@ -138,12 +138,12 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
     > 1. Before running the above command you need to ensure that the `kubeconfig` file on the machine is pointing to the cluster on which the Azure RBAC feature needs to be enabled.
     > 2. The optional `--skip-azure-rbac-list` can be used with above command to provide a comma separated list of usernames/email/oid of the users for whom authorization checks should not be done using Azure RBAC, but instead using Kubernetes native ClusterRoleBinding and RoleBinding objects.
 
-1. Update `apiserver` to run in webhook mode for authentication and authorization by running `kubectl edit <apiserver pod name>`:
+1. Update `apiserver` to run in webhook mode for authentication and authorization by running `kubectl edit pod <apiserver pod name>`:
 
     1. Add the following specification under `volumes`:
         
         ```yml
-        - name: check
+        - name: azure-rbac
           secret:
             secretName: azure-arc-guard-manifests
         ```
@@ -152,7 +152,7 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 
         ```yml
         - mountPath: /etc/guard
-          name: check
+          name: azure-rbac
           readOnly: true
         ```
 
