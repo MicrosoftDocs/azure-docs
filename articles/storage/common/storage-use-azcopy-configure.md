@@ -117,4 +117,3 @@ To remove the plan and log files associated with only one job, use `azcopy jobs 
 ## See also
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
-- [AzCopy V10 with Azure Storage FAQ](storage-use-azcopy-faq.yml)

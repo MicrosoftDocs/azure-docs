@@ -318,7 +318,7 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileSh
 
 You can use AzCopy to copy files to other storage accounts. The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
 
-AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer. You can increase the throughput of these operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Optimize throughput](storage-use-azcopy-optimize.md#optimize-throughput).
+AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer. You can increase the throughput of these operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Increase Concurrency](storage-use-azcopy-optimize.md#increase-concurrency).
 
 You can also copy specific versions of a files by referencing the **DateTime** value of a share snapshot. To learn more about share snapshots see [Overview of share snapshots for Azure Files](../files/storage-snapshots-files.md). 
 
@@ -491,5 +491,4 @@ See these articles to configure settings, optimize performance, and troubleshoot
 - [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
 - [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
 - [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
-- [AzCopy V10 with Azure Storage FAQ](storage-use-azcopy-faq.yml)
 

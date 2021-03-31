@@ -115,7 +115,7 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 
 |Command|Description|
 |---|---|
-|[azcopy bench](storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json)|Runs a performance benchmark by uploading or downloading test data to or from a specified destination.|
+|[azcopy bench](storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json)|Runs a performance benchmark by uploading or downloading test data to or from a specified location.|
 |[azcopy copy](storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json)|Copies source data to a destination location|
 |[azcopy doc](storage-ref-azcopy-doc.md?toc=/azure/storage/blobs/toc.json)|Generates documentation for the tool in Markdown format.|
 |[azcopy env](storage-ref-azcopy-env.md?toc=/azure/storage/blobs/toc.json)|Shows the environment variables that can configure AzCopy's behavior.|
@@ -188,8 +188,6 @@ See any of the following resources:
 - [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
 
 - [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
-
-- [AzCopy V10 with Azure Storage FAQ](storage-use-azcopy-faq.yml)
 
 ## Use a previous version
 
