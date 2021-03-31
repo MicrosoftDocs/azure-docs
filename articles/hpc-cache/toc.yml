@@ -12,6 +12,8 @@
     href: hpc-cache-namespace.md
   - name: Understand cache usage models
     href: cache-usage-models.md
+  - name: Decide if HPC Cache is the right solution
+    href: usage-scenarios.md
   - name: Security
     items:
     - name: Security baseline
