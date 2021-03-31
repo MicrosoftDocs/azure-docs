@@ -51418,6 +51418,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-modify-supported-accounts.md",
+      "redirect_url": "/azure/active-directory/develop/howto-modify-supported-accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-remove-app.md",
+      "redirect_url": "/azure/active-directory/develop/howto-remove-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-restore-app.md",
+      "redirect_url": "/azure/active-directory/develop/howto-restore-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/msal-testing.md",
       "redirect_url": "/azure/active-directory/develop/msal-overview",
       "redirect_document_id": true
