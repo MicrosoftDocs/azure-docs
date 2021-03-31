@@ -311,11 +311,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/media-services/latest/entities-overview.md",
-            "redirect_url": "filter-order-page-entitites-how-to",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/media-services/latest/autogen-bitrate-ladder.md",
             "redirect_url": "encode-autogen-bitrate-ladder",
             "redirect_document_id": false
@@ -353,6 +348,36 @@
         {
             "source_path_from_root": "/articles/media-services/latest/quickstart-basic-encoding-python.md",
             "redirect_url": "encode-basic-encoding-python-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/entities-overview.md",
+            "redirect_url": "filter-order-page-entitites-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "articles/media-services/latest/custom-preset-cli-how-to.md",
+            "redirect_url": "encode-custom-preset-cli-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "articles/media-services/latest/custom-preset-rest-how-to.md",
+            "redirect_url": "encode-custom-preset-rest-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "articles/media-services/latest/filters-dynamic-manifest-cli-howto.md",
+            "redirect_url": "filters-dynamic-manifest-cli-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "articles/media-services/latest/filters-dynamic-manifest-overview.md",
+            "redirect_url": "filters-dynamic-manifest-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "articles/media-services/latest/filters-dynamic-manifest-dotnet-howto.md",
+            "redirect_url": "filters-dynamic-manifest-dotnet-how-to",
             "redirect_document_id": false
         }
     ]
