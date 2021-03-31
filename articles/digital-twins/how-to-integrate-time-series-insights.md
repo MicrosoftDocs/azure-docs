@@ -23,12 +23,12 @@ The solution described in this article will allow you to gather and analyze hist
 
 ## Prerequisites
 
-Before you can set up a relationship with Time Series Insights, you'll need to set up the following resources as prerequisites:
+Before you can set up a relationship with Time Series Insights, you'll need to set up the following resources:
 * **An IoT hub**. For instructions, see the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
 * An **Azure Digital Twins instance**.
 For instructions, see [*How-to: Set up an Azure Digital Twins instance and authentication*](./how-to-set-up-instance-portal.md).
 * **A model and a twin to the Azure Digital Twins instance**.
-This instance should be set up with the ability to update digital twin information based on data, as you'll need to update twin information a few times to see that data tracked in Time Series Insights. For instructions, see [*Add a model and twin*](how-to-ingest-iot-hub.md#add-a-model-and-twin) section of the *How to: Ingest IoT hub* article.
+This instance should be set up with the ability to update digital twin information based on data, as you'll need to update twin information a few times to see that data tracked in Time Series Insights. For instructions, see [*Add a model and twin*](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) section of the *How to: Ingest IoT hub* article.
 * An **Azure function** to access Azure Digital Twins and update twins based on IoT telemetry events. For instructions, follow [*How to: Ingest IoT Hub data*](how-to-ingest-iot-hub-data.md). Continue the article until you validate your device telemetry values.
 
 ## Solution architecture
