@@ -54,7 +54,7 @@ For on-premise deployment, the [Read Docker container (preview)](./computer-visi
 
 ## OCR API
 
-The [OCR API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) uses an older recognition model, supports only images, and executes synchronously, returning immediately with the detected text. See the [OCR supported languages](./language-support.md#optical-character-recognition-ocr).
+The legacy [OCR API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) uses an older recognition model, supports only images, and executes synchronously, returning immediately with the detected text. See the OCR column of [supported languages](./language-support.md#optical-character-recognition-ocr) for a list of supported languages.
 
 ## RecognizeText API
 

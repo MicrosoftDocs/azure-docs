@@ -19,9 +19,13 @@ In this guide, you'll learn how to call the Read API to extract text from images
 
 ## Submit data to the service
 
-The Read API's [Read call](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously. The call returns with a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Operation ID to be used in the next step.
+The Read API's [Read call](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously.
 
-|Response header| Result URL |
+`https://{endpoint}/vision/v3.2-preview.3/read/analyze[?language][&pages][&readingOrder]`
+
+The call returns with a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Operation ID to be used in the next step.
+
+|Response header| Example value |
 |:-----|:----|
 |Operation-Location | `https://cognitiveservice/vision/v3.1/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
@@ -41,10 +45,7 @@ With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/
 
 :::image border type="content" source="../Images/ocr-reading-order-example.png" alt-text="OCR Reading order example":::
 
-### Handwritten classification for text lines (Latin languages only)
-The [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
 
-:::image border type="content" source="../Images/ocr-handwriting-classification.png" alt-text="OCR handwriting classification example":::
 
 ### Select page(s) or page ranges for text extraction
 With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005), for large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
@@ -53,19 +54,25 @@ With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/
 
 ## Get results from the service
 
-The second step is to call [Get Read Results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) operation. This operation takes as input the operation ID that was created by the Read operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 1 to 2 seconds to avoid exceeding the requests per second (RPS) rate.
+The second step is to call [Get Read Results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) operation. This operation takes as input the operation ID that was created by the Read operation. 
 
-|Field| Type | Possible values |
-|:-----|:----:|:----|
-|status | string | notStarted: The operation has not started. |
-| |  | running: The operation is being processed. |
-| |  | failed: The operation has failed. |
-| |  | succeeded: The operation has succeeded. |
+`https://{endpoint}/vision/v3.2-preview.3/read/analyzeResults/{operationId}`
+
+It returns a JSON response that contains a **status** field with the following possible values. 
+
+|Value | Meaning |
+|:-----|:----|
+| `notStarted`| The operation has not started. |
+| `running`| The operation is being processed. |
+| `failed`| The operation has failed. |
+| `succeeded`| The operation has succeeded. |
+
+You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 1 to 2 seconds to avoid exceeding the requests per second (RPS) rate.
 
 > [!NOTE]
 > The free tier limits the request rate to 20 calls per minute. The paid tier allows 10 requests per second (RPS) that can be increased upon request. Use the Azure support channel or your account team to request a higher request per second (RPS) rate.
 
-When the **status** field has the **succeeded** value, the JSON response contains the extracted text content from your image or document. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and confidence scores.
+When the **status** field has the `succeeded` value, the JSON response contains the extracted text content from your image or document. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and confidence scores.
 
 > [!NOTE]
 > The data submitted to the `Read` operation are temporarily encrypted and stored at rest for a short duration, and then deleted. This lets your applications retrieve the extracted text as part of the service response.
@@ -124,6 +131,11 @@ See the following example of a successful JSON response:
   }
 }
 ```
+
+### Handwritten classification for text lines (Latin languages only)
+The [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
+
+:::image border type="content" source="../Images/ocr-handwriting-classification.png" alt-text="OCR handwriting classification example":::
 
 ## Next steps
 
