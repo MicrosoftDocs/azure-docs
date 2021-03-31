@@ -1,5 +1,5 @@
 ---
-title: Manage VMs disks on Azure Stack Edge Pro GPu, Pro R, Mini R via Azure portal
+title: Manage VMs disks on Azure Stack Edge Pro GPU, Pro R, Mini R via Azure portal
 description: Learn how to manage disks including add or detach a data disk on VMs that are deployed on your Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R via the Azure portal.
 services: databox
 author: alkohli
@@ -16,7 +16,7 @@ Customer intent: As an IT admin, I need to understand how to manage disks on a V
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-You can provision disks on the virtual machines (VMs) deployed on your Azure Stack Edge Pro device using the Azure portal. The disks are provisioned on the device via the local Azure Resource Manager and consume the device capacity. The operations such as adding a disk, detaching a disk can be done via the Azure portal, which in turn makes calls to the local Azure Resource Manager to provision the storage. <!--Disks are provisioned in local ARM via the portal. Use the Storage RP/Disk RP-->
+You can provision disks on the virtual machines (VMs) deployed on your Azure Stack Edge Pro device using the Azure portal. The disks are provisioned on the device via the local Azure Resource Manager and consume the device capacity. The operations such as adding a disk, detaching a disk can be done via the Azure portal, which in turn makes calls to the local Azure Resource Manager to provision the storage. 
 
 This article explains how to add a data disk to an existing VM, detach a data disk, and finally resize the VM itself via the Azure portal. 
 
@@ -31,15 +31,13 @@ Your VM can have an OS disk and a data disk. Every virtual machine deployed on y
 
 A data disk on the other hand, is a managed disk attached to the VM running on your device. A data disk is used to store application data. Data disks are typically SCSI drives. The size of the VM determines how many data disks you can attach to a VM. By default, premium storage is used to host the disks.
 
-<!-- Do we have temp disk on VMs that run on ASE?-->
-<!--do we allow features such as encryption or BitLocker for these disks.Didn't see anything in portal.-->
 A VM deployed on your device may sometimes contain a temporary disk. The temporary disk provides short-term storage for applications and processes, and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a maintenance event or when you redeploy a VM. During a successful standard reboot of the VM, data on the temporary disk will persist. 
 
 
 ## Prerequisites
 
 Before you begin to manage disks on the VMs running on your device via the Azure portal, make sure that:
-<!--Does the VM needs to be stopped or in running state when adding a disk like Azure VM? I was able to add a data disk while the VM was stopped and also when it was running -->
+
 
 1. You've access to an activated Azure Stack Edge Pro GPU device. You have also enabled a network interface for compute on your device. This action creates a virtual switch on that network interface on your VM. 
     1. In the local UI of your device, go to **Compute**. Select the network interface that you will use to create a virtual switch.
@@ -51,9 +49,6 @@ Before you begin to manage disks on the VMs running on your device via the Azure
 
 1. You have at least one VM deployed on your device. To create this VM, see the instructions in [Deploy VM on your Azure Stack Edge Pro via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 
-<!--1. Your VM should be in **Stopped** state. To stop your VM, go to **Virtual machines > Overview** and select the VM you want to stop. In the **Overview** page, select **Stop** and then select **Yes** when prompted for confirmation. Before you add, edit, or detach disks, you must stop the VM.
-
-    ![Stop VM from Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)-->
 
 
 ## Add a data disk
@@ -107,7 +102,7 @@ Follow these steps to change a disk associated with a virtual machine deployed o
 
     ![Change size of the data disk](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/edit-data-disk-2.png)
 
-    >![NOTE]
+    > [!NOTE]
     > You can only expand a data disk, you can't shrink the disk.
 
 1. On the **Overview** page, the list of disks refreshes to display the updated disk.
