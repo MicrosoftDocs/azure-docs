@@ -999,7 +999,7 @@ For guidance to remove deprecating protocols dependencies, please refer to [Enab
  
 ---
 
-### Assign applications to roles on ddiminstrative unit and object scope
+### Assign applications to roles on administrative unit and object scope
 
 **Type:** New feature  
 **Service category:** RBAC  
