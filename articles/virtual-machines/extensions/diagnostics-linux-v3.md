@@ -1,6 +1,6 @@
 ---
 title: Azure Compute - Linux Diagnostic Extension 3.0
-description: How to configure the Azure Linux Diagnostic Extension (LAD) 3.0 to collect metrics and log events from Linux VMs running in Azure.
+description: How to configure Azure Linux Diagnostic Extension (LAD) 3.0 to collect metrics and log events from Linux VMs that are running in Azure.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
@@ -12,14 +12,14 @@ ms.date: 12/13/2018
 ---
 # Use Linux Diagnostic Extension 3.0 to monitor metrics and logs
 
-This document describes version 3.0 and newer of the Linux Diagnostic Extension.
+This document describes version 3.0 and newer of Linux Diagnostic Extension (LAD).
 
 > [!IMPORTANT]
-> For information about version 2.3 and older, see [this document](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> For information about version 2.3 and earlier, see [Monitor the performance and diagnostic data of a Linux VM](docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## Introduction
 
-The Linux Diagnostic Extension helps a user monitor the health of a Linux VM running on Microsoft Azure. It has the following capabilities:
+Linux Diagnostic Extension helps a user monitor the health of a Linux VM that runs on Microsoft Azure. It has the following capabilities:
 
 * Collects system performance metrics from the VM and stores them in a specific table in a designated storage account.
 * Retrieves log events from syslog and stores them in a specific table in the designated storage account.
@@ -30,27 +30,27 @@ The Linux Diagnostic Extension helps a user monitor the health of a Linux VM run
 
 This extension works with both Azure deployment models.
 
-## Installing the extension in your VM
+## Install the extension on a VM
 
-You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, ARM templates, or the Azure portal. For more information, see [Extensions Features](features-linux.md).
+You can enable the extension by using the Azure PowerShell cmdlets, Azure CLI scripts, Azure Resource Monitor templates (ARM templates), or the Azure portal. For more information, see [Extensions features](features-linux.md).
 
 >[!NOTE]
->Certain components of the Diagnostics VM extension are also shipped in the [Log Analytics VM extension](./oms-linux.md). Due to this architecture, conflicts can arise if both extensions are instantiated in the same ARM template. To avoid these install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) to ensure the extensions are installed sequentially. The extensions can be installed in either order.
+>Some components of the Diagnostics VM extension are also shipped in the [Log Analytics VM extension](./oms-linux.md). Because of this architecture, conflicts can arise if both extensions are instantiated in the same ARM template. To avoid install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) to ensure the extensions are installed sequentially. The extensions can be installed in either order.
 
-These installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configure LAD 3.0 to:
+These installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) to configure LAD 3.0 to:
 
-* capture and store the same metrics as were provided by LAD 2.3;
-* capture a useful set of file system metrics, new to LAD 3.0;
-* capture the default syslog collection enabled by LAD 2.3;
-* enable the Azure portal experience for charting and alerting on VM metrics.
+* Capture and store the same metrics that LAD 2.3 provided.
+* Capture a useful set of file system metrics (new to LAD 3.0).
+* Capture the default syslog collection that LAD 2.3 enabled.
+* Enable the Azure portal experience for charting and alerting on VM metrics.
 
-The downloadable configuration is just an example; modify it to suit your own needs.
+The downloadable configuration is just an example. Modify it to suit your needs.
 
 ### Supported Linux distributions
 
-The Linux Diagnostic Extension supports the following distributions and versions. The list of distributions and versions applies only to Azure-endorsed Linux vendor images. Third-party BYOL and BYOS images, like appliances, are generally not supported for the Linux Diagnostic Extension.
+LAD supports the following distributions and versions. The list of distributions and versions applies only to Azure-endorsed Linux vendor images. Third-party BYOL and BYOS images, like appliances, are generally not supported for Linux Diagnostic Extension.
 
-A distribution that lists only major versions, like Debian 7, is also supported for all minor versions. If a specific minor version is specified, only that specific version is supported; if "+" is appended, minor versions equal to or greater than the specified version are supported.
+A distribution that lists only major versions, like Debian 7, is also supported for all minor versions. If a minor version is specified, only that version is supported. If a plus sign (+) is appended, minor versions equal to or greater than the specified version are supported.
 
 Supported distributions and versions:
 
@@ -60,25 +60,26 @@ Supported distributions and versions:
 - OpenSUSE 13.1+
 - SUSE Linux Enterprise Server 12
 - Debian 9, 8, 7
-- RHEL 7, 6.7+
+- Red Hat Enterprise Linux (RHEL) 7, 6.7+
 
 ### Prerequisites
 
-* **Azure Linux Agent version 2.2.0 or later**. Most Azure VM Linux gallery images include version 2.2.7 or later. Run `/usr/sbin/waagent -version` to confirm the version installed on the VM. If the VM is running an older version of the guest agent, follow [these instructions](./update-linux-agent.md) to update it.
-* **Azure CLI**. [Set up the Azure CLI](/cli/azure/install-azure-cli) environment on your machine.
-* The wget command, if you don't already have it: Run `sudo apt-get install wget`.
-* An existing Azure subscription and an existing general purpose storage account to store the data in.  General purpose storage accounts support Table storage which is required.  A Blob storage account will not work.
-* Python 2
+* **Azure Linux Agent version 2.2.0 or later**. Most Azure VM Linux gallery images include version 2.2.7 or later. Run `/usr/sbin/waagent -version` to confirm the version installed on the VM. If the VM is running an older version, [Update the guest agent](./update-linux-agent.md).
+* The **Azure CLI**. If necessary, [set up the Azure CLI](/cli/azure/install-azure-cli) environment on your machine.
+* The **wget command**. If you don't already have it, run `sudo apt-get install wget`.
+* An existing **Azure subscription**. 
+* An existing **general purpose storage account** to store the data. General purpose storage accounts must support table storage. A blob storage account won't work.
+* **Python 2**.
 
 ### Python requirement
 
-The Linux Diagnostic Extension requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.	
+Linux Diagnostic Extension requires Python 2. If your virtual machine uses a distribution that doesn't include Python 2 by default, you must install it. The following sample commands install Python 2 on various distributions:	
 
- - Red Hat, CentOS, Oracle: `yum install -y python2`
- - Ubuntu, Debian: `apt-get install -y python2`
- - SUSE: `zypper install -y python2`
+- Red Hat, CentOS, Oracle: `yum install -y python2`
+- Ubuntu, Debian: `apt-get install -y python2`
+- SUSE: `zypper install -y python2`
 
-The python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
+The `python2` executable must be aliased to *python*. Here's one method to set this alias:
 
 1. Run the following command to remove any existing aliases.
  
@@ -94,11 +95,10 @@ The python2 executable must be aliased to *python*. Following is one method that
 
 ### Sample installation
 
+The sample configuration downloaded in the following examples collects a set of standard data and sends it to table storage. The URL for the sample configuration and its contents are subject to change. In most cases, you should download a copy of the portal settings JSON file and customize it for your needs. Then use any necessary templates or custom automation, or use your own version of the configuration file rather than downloading from the URL each time.
+
 > [!NOTE]
-> For either of the samples, fill in the correct values for the variables in the first section before running. 
-
-The sample configuration downloaded in these examples collects a set of standard data and sends them to table storage. The URL for the sample configuration and its contents are subject to change. In most cases, you should download a copy of the portal settings JSON file and customize it for your needs, then have any templates or automation you construct use your own version of the configuration file rather than downloading that URL each time.
-
+> For either of the samples, fill in the correct values for the variables in the first section before you run the code. 
 #### Azure CLI sample
 
 ```azurecli
@@ -107,28 +107,28 @@ my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm
 my_linux_vm=<your_azure_linux_vm_name>
 my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>
 
-# Should login to Azure first before anything else
+# Login to Azure first before anything else.
 az login
 
-# Select the subscription containing the storage account
+# Select the subscription containing the storage account.
 az account set --subscription <your_azure_subscription_id>
 
-# Download the sample Public settings. (You could also use curl or any web browser)
+# Download the sample public settings. (You could also use curl or any web browser.)
 wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
 
-# Build the VM resource ID. Replace storage account name and resource ID in the public settings.
+# Build the VM resource ID. Replace the storage account name and resource ID in the public settings.
 my_vm_resource_id=$(az vm show -g $my_resource_group -n $my_linux_vm --query "id" -o tsv)
 sed -i "s#__DIAGNOSTIC_STORAGE_ACCOUNT__#$my_diagnostic_storage_account#g" portal_public_settings.json
 sed -i "s#__VM_RESOURCE_ID__#$my_vm_resource_id#g" portal_public_settings.json
 
-# Build the protected settings (storage account SAS token)
+# Build the protected settings (storage account SAS token).
 my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
 my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
-# Finally tell Azure to install and enable the extension
+# Finally, tell Azure to install and enable the extension.
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-#### Azure CLI sample for Installing LAD 3.0 extension on the virtual machine scale set instance
+#### Azure CLI sample to install LAD 3.0 on the VM scale set instance
 
 ```azurecli
 #Set your Azure VMSS diagnostic variables correctly below
@@ -136,25 +136,25 @@ $my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_v
 $my_linux_vmss=<your_azure_linux_vmss_name>
 $my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>
 
-# Should login to Azure first before anything else
+# Login to Azure first before anything else.
 az login
 
-# Select the subscription containing the storage account
+# Select the subscription containing the storage account.
 az account set --subscription <your_azure_subscription_id>
 
-# Download the sample Public settings. (You could also use curl or any web browser)
+# Download the sample public settings. (You could also use curl or any web browser.)
 wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
 
-# Build the VMSS resource ID. Replace storage account name and resource ID in the public settings.
+# Build the VMSS resource ID. Replace the storage account name and resource ID in the public settings.
 $my_vmss_resource_id=$(az vmss show -g $my_resource_group -n $my_linux_vmss --query "id" -o tsv)
 sed -i "s#__DIAGNOSTIC_STORAGE_ACCOUNT__#$my_diagnostic_storage_account#g" portal_public_settings.json
 sed -i "s#__VM_RESOURCE_ID__#$my_vmss_resource_id#g" portal_public_settings.json
 
-# Build the protected settings (storage account SAS token)
+# Build the protected settings (storage account SAS token).
 $my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
 $my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
-# Finally tell Azure to install and enable the extension
+# Finally, tell Azure to install and enable the extension.
 az vmss extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vmss-name $my_linux_vmss --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
@@ -182,31 +182,31 @@ $sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Servi
 # Build the protected settings (storage account SAS token)
 $protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
 
-# Finally install the extension with the settings built above
+# Finally, install the extension with the settings built above
 Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0 
 ```
 
-### Updating the extension settings
+### Update the extension settings
 
-After you've changed your Protected or Public settings, deploy them to the VM by running the same command. If anything changed in the settings, the updated settings are sent to the extension. LAD reloads the configuration and restarts itself.
+After you've changed your protected or sublic settings, deploy them to the VM by running the same command. If anything changed in the settings, the updated settings are sent to the extension. LAD reloads the configuration and restarts itself.
 
-### Migration from previous versions of the extension
+### Migrate from previous versions of the extension
 
-The latest version of the extension is **3.0**. **Any old versions (2.x) are deprecated and may be unpublished on or after July 31, 2018**.
+The latest version of the extension is *3.0*. *Any old versions (2.x) are deprecated and might be unpublished on or after July 31, 2018*.
 
 > [!IMPORTANT]
-> This extension introduces breaking changes to the configuration of the extension. One such change was made to improve the security of the extension; as a result, backwards compatibility with 2.x could not be maintained. Also, the Extension Publisher for this extension is different than the publisher for the 2.x versions.
+> This extension introduces breaking changes to the configuration. One such change improved the security of the extension, so backward compatibility with 2.x couldn't be maintained. Also, the extension publisher for this extension differs from the publisher for the 2.x versions.
 >
-> To migrate from 2.x to this new version of the extension, you must uninstall the old extension (under the old publisher name), then install version 3 of the extension.
+> To migrate from 2.x to the new version, first uninstall the old extension (under the old publisher name). Then install version 3.
 
 Recommendations:
 
 * Install the extension with automatic minor version upgrade enabled.
-  * On classic deployment model VMs, specify '3.*' as the version if you are installing the extension through Azure XPLAT CLI or PowerShell.
-  * On Azure Resource Manager deployment model VMs, include '"autoUpgradeMinorVersion": true' in the VM deployment template.
-* Use a new/different storage account for LAD 3.0. There are several small incompatibilities between LAD 2.3 and LAD 3.0 that make sharing an account troublesome:
-  * LAD 3.0 stores syslog events in a table with a different name.
-  * The counterSpecifier strings for `builtin` metrics differ in LAD 3.0.
+  * On classic deployment model VMs, specify version `3.*` if you're installing the extension through the Azure XPLAT CLI or PowerShell.
+  * On Azure Resource Manager deployment model VMs, include `"autoUpgradeMinorVersion": true` in the VM deployment template.
+* Use a new or different storage account for LAD 3.0. LAD 2.3 and LAD 3.0 have several small incompatibilities that make sharing an account troublesome:
+  * LAD 3.0 stores syslog events in a table that has a different name.
+  * The `counterSpecifier` strings for `builtin` metrics differ in LAD 3.0.
 
 ## Protected settings
 
@@ -267,7 +267,7 @@ type | The type of sink being defined. Determines the other values (if any) in i
 
 Version 3.0 of the Linux Diagnostic Extension supports two sink types: EventHub, and JsonBlob.
 
-#### The EventHub sink
+#### EventHub sink
 
 ```json
 "sink": [
@@ -294,7 +294,7 @@ https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.wi
 
 For more information about generating and retrieving information on SAS tokens for Event Hubs, see [this web page](/rest/api/eventhub/generate-sas-token#powershell).
 
-#### The JsonBlob sink
+#### JsonBlob sink
 
 ```json
 "sink": [
@@ -620,7 +620,7 @@ BytesPerSecond | Number of bytes read or written per second
 
 Aggregated values across all disks can be obtained by setting `"condition": "IsAggregate=True"`. To get information for a specific device (for example, /dev/sdf1), set `"condition": "Name=\\"/dev/sdf1\\""`.
 
-## Installing and configuring LAD 3.0
+## Install and configure LAD 3.0
 
 ### Azure CLI
 
@@ -640,7 +640,7 @@ Assuming your protected settings are in the `$protectedSettings` variable and yo
 Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0
 ```
 
-## An example LAD 3.0 configuration
+## Example LAD 3.0 configuration
 
 Based on the preceding definitions, here's a sample LAD 3.0 extension configuration with some explanation. To apply this sample to your case, you should use your own storage account name, account SAS token, and EventHubs SAS tokens.
 
@@ -697,7 +697,7 @@ These protected settings configure:
 }
 ```
 
-### Public Settings
+### Public settings
 
 These public settings cause LAD to:
 
