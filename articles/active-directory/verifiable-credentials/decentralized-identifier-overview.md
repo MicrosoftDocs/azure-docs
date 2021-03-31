@@ -8,7 +8,7 @@ editor:
 ms.service: identity
 ms.subservice: verifiable-credentials
 ms.topic: overview
-ms.date: 03/30/2021
+ms.date: 03/31/2021
 ms.author: barclayn
 ms.reviewer: 
 ---
