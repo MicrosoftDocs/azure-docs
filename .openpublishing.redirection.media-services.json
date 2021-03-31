@@ -356,27 +356,27 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/media-services/latest/custom-preset-cli-how-to.md",
+            "source_path_from_root": "/articles/media-services/latest/custom-preset-cli-how-to.md",
             "redirect_url": "encode-custom-preset-cli-how-to",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/media-services/latest/custom-preset-rest-how-to.md",
+            "source_path_from_root": "/articles/media-services/latest/custom-preset-rest-how-to.md",
             "redirect_url": "encode-custom-preset-rest-how-to",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/media-services/latest/filters-dynamic-manifest-cli-howto.md",
+            "source_path_from_root": "/articles/media-services/latest/filters-dynamic-manifest-cli-howto.md",
             "redirect_url": "filters-dynamic-manifest-cli-how-to",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/media-services/latest/filters-dynamic-manifest-overview.md",
+            "source_path_from_root": "/articles/media-services/latest/filters-dynamic-manifest-overview.md",
             "redirect_url": "filters-dynamic-manifest-concept",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/media-services/latest/filters-dynamic-manifest-dotnet-howto.md",
+            "source_path_from_root": "/articles/media-services/latest/filters-dynamic-manifest-dotnet-howto.md",
             "redirect_url": "filters-dynamic-manifest-dotnet-how-to",
             "redirect_document_id": false
         }
