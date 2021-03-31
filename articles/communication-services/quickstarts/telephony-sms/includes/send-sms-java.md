@@ -103,7 +103,7 @@ Instantiate an `SmsClient` with your connection string. (Credential is the `Key`
 Add the following code to the `main` method:
 
 ```java
-// You can find your endpoint and access key from your resource in the Azure Portal
+// You can find your endpoint and access key from your resource in the Azure portal
 String endpoint = "https://<resource-name>.communication.azure.com/";
 AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key-credential>");
 
@@ -115,7 +115,7 @@ SmsClient smsClient = new SmsClientBuilder()
 
 You can also provide the entire connection string using the connectionString() function instead of providing the endpoint and access key.
 ```java
-// You can find your connection string from your resource in the Azure Portal
+// You can find your connection string from your resource in the Azure portal
 String connectionString = "https://<resource-name>.communication.azure.com/;<access-key>";
 
 SmsClient smsClient = new SmsClientBuilder()

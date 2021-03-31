@@ -53,7 +53,7 @@ static async Task Main(string[] args)
 
 ## Authenticate the client
 
-Phone Number clients can be authenticated using connection string acquired from an Azure Communication Resources in the [Azure Portal][azure_portal].
+Phone Number clients can be authenticated using connection string acquired from an Azure Communication Resources in the [Azure portal][azure_portal].
 
 ```csharp
 // Get a connection string to our Azure Communication resource.
