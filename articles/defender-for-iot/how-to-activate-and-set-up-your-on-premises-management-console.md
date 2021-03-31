@@ -1,12 +1,8 @@
 ---
 title: Activate and set up your on-premises management console 
 description: Activating the management console ensures that sensors are registered with Azure and send information to the on-premises management console, and that the on-premises management console carries out management tasks on connected sensors.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 3/18/2021
 ms.topic: how-to
-ms.service: defender-for-iot
 ---
 
 # Activate and set up your on-premises management console 

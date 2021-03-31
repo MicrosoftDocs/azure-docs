@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/10/2021
+ms.date: 03/26/2021
 ---
 
 # Data transformation expressions in mapping data flow
@@ -144,13 +144,6 @@ Returns the first not null value from a set of inputs. All inputs should be of t
 * ``coalesce(10, 20) -> 10``  
 * ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``  
 ___
-### <code>collect</code>
-<code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
-Collects all values of the expression in the aggregated group into an array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small.  
-* ``collect(salesPerson)``
-* ``collect(firstName + lastName))``
-* ``collect(@(name = salesPerson, sales = salesAmount) )``
-___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
 Gets the names of all output columns for a stream. You can pass an optional stream name as the second argument.  
@@ -277,6 +270,11 @@ ___
 ### <code>escape</code>
 <code><b>escape(<i>&lt;string_to_escape&gt;</i> : string, <i>&lt;format&gt;</i> : string) => string</b></code><br/><br/>
 Escapes a string according to a format. Literal values for acceptable format are 'json', 'xml', 'ecmascript', 'html', 'java'.
+___
+### <code>expr</code>
+<code><b>expr(<i>&lt;expr&gt;</i> : string) => any</b></code><br/><br/>
+Results in a expression from a string. This is the same as writing this expression in a non-literal form. This can be used to pass parameters as string representations.
+*	expr(‘price * discount’) => any
 ___
 ### <code>factorial</code>
 <code><b>factorial(<i>&lt;value1&gt;</i> : number) => long</b></code><br/><br/>
@@ -868,6 +866,13 @@ ___
 Based on a criteria gets the average of values of a column.  
 * ``avgIf(region == 'West', sales)``  
 ___
+### <code>collect</code>
+<code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
+Collects all values of the expression in the aggregated group into an array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small.  
+* ``collect(salesPerson)``
+* ``collect(firstName + lastName))``
+* ``collect(@(name = salesPerson, sales = salesAmount) )``
+___
 ### <code>count</code>
 <code><b>count([<i>&lt;value1&gt;</i> : any]) => long</b></code><br/><br/>
 Gets the aggregate count of values. If the optional column(s) is specified, it ignores NULL values in the count.  
@@ -912,6 +917,11 @@ Gets the first value of a column group. If the second parameter ignoreNulls is o
 * ``first(sales)``  
 * ``first(sales, false)``  
 ___
+### <code>isDistinct</code>
+<code><b>isDistinct(<i>&lt;value1&gt;</i> : any , <i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
+Finds if a column or set of columns is distinct. It does not count null as a distinct value
+*	``isDistinct(custId, custName) => boolean``
+*	___
 ### <code>kurtosis</code>
 <code><b>kurtosis(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Gets the kurtosis of a column.  
@@ -1182,6 +1192,16 @@ ___
 
 Conversion functions are used to convert data and test for data types
 
+### <code>isBitSet</code>
+<code><b>isBitSet (<value1> : array, <value2>:integer ) => boolean</b></code><br/><br/>
+Checks if a bit position is set in this bitset
+* ``isBitSet(toBitSet([10, 32, 98]), 10) => true``
+___
+### <code>setBitSet</code>
+<code><b>setBitSet (<value1> : array, <value2>:array) => array</b></code><br/><br/>
+Sets bit positions in this bitset
+* ``setBitSet(toBitSet([10, 32]), [98]) => [4294968320L, 17179869184L]``
+___  
 ### <code>isBoolean</code>
 <code><b>isBoolean(<value1> : string) => boolean</b></code><br/><br/>
 Checks if the string value is a boolean value according to the rules of ``toBoolean()``
@@ -1397,6 +1417,11 @@ Select an array of columns by name in the stream. You can pass a optional stream
 * ``toString(byNames(['a Column'], 'DeriveStream'))``
 * ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
+### <code>byPath</code>
+<code><b>byPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => any</b></code><br/><br/>
+Finds a hierarchical path by name in the stream. You can pass an optional stream name as the second argument. If no such path is found it returns null. Column names/paths known at design time should be addressed just by their name or dot notation path. Computed inputs are not supported but you can use parameter substitutions.  
+* ``byPath('grandpa.parent.child') => column`` 
+___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
 Selects a column value by its relative position(1 based) in the stream. If the position is out of bounds it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...) Computed inputs are not supported but you can use parameter substitutions.  
@@ -1405,6 +1430,11 @@ Selects a column value by its relative position(1 based) in the stream. If the p
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
+___
+### <code>hasPath</code>
+<code><b>hasPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => boolean</b></code><br/><br/>
+Checks if a certain hierarchical path exists by name in the stream. You can pass an optional stream name as the second argument. Column names/paths known at design time should be addressed just by their name or dot notation path. Computed inputs are not supported but you can use parameter substitutions.  
+* ``hasPath('grandpa.parent.child') => boolean``
 ___
 ### <code>hex</code>
 <code><b>hex(<value1>: binary) => string</b></code><br/><br/>

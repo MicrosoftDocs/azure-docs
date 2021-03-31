@@ -484,7 +484,7 @@ After migration, you may choose to send communication informing the users of the
 
 During the process of the migration, your app may already have a test environment used during regular deployments. You can continue to use this environment for migration testing. If a test environment is not currently available, you may be able to set one up using Azure App Service or Azure Virtual Machines, depending on the architecture of the application. You may choose to set up a separate test Azure AD tenant to use as you develop your app configurations. This tenant will start in a clean state and will not configured to sync with any system.
 
-You can test each app by logging in with a test user and make sure all functionality is the same as prior to the migration. If you determine during testing that users will need to update their [MFA](/active-directory/authentication/howto-mfa-userstates) or [SSPR](../authentication/tutorial-enable-sspr.md)settings, or you are adding this functionality during the migration, be sure to add that to your end-user communication plan. See [MFA](https://aka.ms/mfatemplates) and [SSPR](https://aka.ms/ssprtemplates) end-user communication templates.
+You can test each app by logging in with a test user and make sure all functionality is the same as prior to the migration. If you determine during testing that users will need to update their [MFA](/azure/active-directory/authentication/howto-mfa-userstates) or [SSPR](../authentication/tutorial-enable-sspr.md)settings, or you are adding this functionality during the migration, be sure to add that to your end-user communication plan. See [MFA](https://aka.ms/mfatemplates) and [SSPR](https://aka.ms/ssprtemplates) end-user communication templates.
 
 Once you have migrated the apps, go to the [Azure portal](https://aad.portal.azure.com/) to test if the migration was a success. Follow the instructions below:
 
@@ -568,7 +568,7 @@ You can guide your users on how to discover their apps:
 
 Users can download an **Intune-managed browser**:
 
-- **For Android devices**, from the [Google play store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)
+- **For Android devices**, from the [Google play store](https://play.google.com/store/apps/details?id=com.microsoft.intune)
 
 - **For Apple devices**, from the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) or they can download the [My Apps mobile app for iOS ](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653)
 

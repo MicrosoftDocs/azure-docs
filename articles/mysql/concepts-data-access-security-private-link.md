@@ -79,7 +79,7 @@ Once the network admin creates the private endpoint (PE), the MySQL admin can ma
 
 ## Use cases of Private Link for Azure Database for MySQL
 
-Clients can connect to the private endpoint from the same VNet, peered VNet in same region, or via VNet-to-VNet connection across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
+Clients can connect to the private endpoint from the same VNet, [peered VNet](../virtual-network/virtual-network-peering-overview.md) in same region or across regions, or via [VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="select the private endpoint overview":::
 
@@ -113,7 +113,7 @@ If you want to rely only on private endpoints for accessing their Azure Database
 When this setting is set to *YES*, only connections via private endpoints are allowed to your Azure Database for MySQL. When this setting is set to *NO*, clients can connect to your Azure Database for MySQL based on your firewall or VNet service endpoint settings. Additionally, once the value of the Private network access is set, customers cannot add and/or update existing 'Firewall rules' and 'VNet service endpoint rules'.
 
 > [!Note]
-> This feature is available in all Azure regions where Azure Database for PostgreSQL - Single server supports General Purpose and Memory Optimized pricing tiers.
+> This feature is available in all Azure regions where Azure Database for MySQL - Single server supports General Purpose and Memory Optimized pricing tiers.
 >
 > This setting does not have any impact on the SSL and TLS configurations for your Azure Database for MySQL.
 

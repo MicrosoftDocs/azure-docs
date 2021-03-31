@@ -28,7 +28,7 @@ Cloud apps or actions are a key signal in a Conditional Access policy. Condition
 
 Many of the existing Microsoft cloud applications are included in the list of applications you can select from. 
 
-Administrators can assign a Conditional Access policy to the following cloud apps from Microsoft. Some apps like Office 365 and Microsoft Azure Management include multiple related child apps or services. The following list is not exhaustive and is subject to change.
+Administrators can assign a Conditional Access policy to the following cloud apps from Microsoft. Some apps like Office 365 and Microsoft Azure Management include multiple related child apps or services. We continually add more apps, so the following list is not exhaustive and is subject to change.
 
 - [Office 365](#office-365)
 - Azure Analysis Services
@@ -63,6 +63,8 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Skype for Business Online
 - Virtual Private Network (VPN)
 - Windows Defender ATP
+
+Applications that are available to Conditional Access have gone through an onboarding and validation process. This does not include all Microsoft apps, as many are backend services and not meant to have policy directly applied to them. If you are looking for an application that is missing, you can contact the specific application team or make a request on [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
 
 ### Office 365
 
