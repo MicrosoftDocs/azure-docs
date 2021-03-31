@@ -11,10 +11,12 @@ ms.author: caya
 
 # Configure listener-specific SSL policies on Application Gateway through Portal (Preview)
 
-This article describes how to use the Azure portal to configure listener-specific SSL policies on your Application Gateway. Listener-specific SSL policies allow you to configure specific listeners to use different SSL policies from each other. You'll still be able to set a default SSL policy that all listeners will use unless otherwise specified through the listener-specific SSL policy. 
+This article describes how to use the Azure portal to configure listener-specific SSL policies on your Application Gateway. Listener-specific SSL policies allow you to configure specific listeners to use different SSL policies from each other. You'll still be able to set a default SSL policy that all listeners will use unless overwritten by the listener-specific SSL policy. 
 
 > [!NOTE]
 > Only Standard_v2 and WAF_v2 SKUs support listener specific policies as listener specific policies are part of SSL profiles, and SSL profiles are only supported on v2 gateways. 
+
+
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,7 +38,7 @@ To set up a listener-specific SSL policy, you'll need to first go to the **SSL s
 
 5. Go to the **SSL Policy** tab and check the **Enable listener-specific SSL Policy** box. 
 
-6. Set up your listener-specific SSL policy given your requirements. You can choose between predefined SSL policies and customizing your own SSL policy. For more information on SSL policies, visit [SSL policy overview](./application-gateway-ssl-policy-overview.md).
+6. Set up your listener-specific SSL policy given your requirements. You can choose between predefined SSL policies and customizing your own SSL policy. For more information on SSL policies, visit [SSL policy overview](./application-gateway-ssl-policy-overview.md). We recommend using TLS 1.2
 
 7. Select **Add** to save.
 
@@ -45,7 +47,7 @@ To set up a listener-specific SSL policy, you'll need to first go to the **SSL s
 
 ![Add listener specific SSL policy to SSL profile](./media/application-gateway-configure-listener-specific-ssl-policy/listener-specific-ssl-policy-ssl-profile.png)
 
-## Associate the SSL profile with the listener-specific SSL policy to a listener
+## Associate the SSL profile with a listener
 
 Now that we've created an SSL profile with a listener-specific SSL policy, we need to associate the SSL profile to the listener to put the listener-specific policy in action. 
 

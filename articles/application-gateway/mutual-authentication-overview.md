@@ -17,9 +17,11 @@ Mutual authentication, or client authentication, allows for the Application Gate
 
 Application Gateway supports certificate based mutual authentication where you can upload a trusted client root certificate to the Application Gateway and the gateway will use that certificate to authenticate the client sending a request to the gateway. With the rise in IoT use cases and increased security requirements across industries, mutual authentication provides a way for you to manage and control which clients can talk to your Application Gateway. 
 
-To configure mutual authentication, a trusted client root certificate is required to be uploaded as part of the client authentication portion of an SSL profile. The SSL profile will then need to be associated to a listener in order to complete configuration of mutual authentication. There must always be a root CA certificate in the client certificate that you upload. You can upload a certificate chain as well, but the chain must include a root CA certificate in addition to as many intermediate CA certificates as you'd like. 
+To configure mutual authentication, a trusted client CA certificate is required to be uploaded as part of the client authentication portion of an SSL profile. The SSL profile will then need to be associated to a listener in order to complete configuration of mutual authentication. There must always be a root CA certificate in the client certificate that you upload. You can upload a certificate chain as well, but the chain must include a root CA certificate in addition to as many intermediate CA certificates as you'd like. 
 
-If you're uploading a certificate chain with root CA and intermediate CA certificates, the certificate chain must be uploaded as a PEM file to the gateway. If you're only uploading a root CA certificate, you can upload it as a base64 string. 
+For example, if your client certificate chain contains a root CA certificate, multiple intermediate CA certificates, and a leaf certificate, make sure that the root CA certificate and all the intermediate CA certificates are uploaded onto Application Gateway in one file. 
+
+If you're uploading a certificate chain with root CA and intermediate CA certificates, the certificate chain must be uploaded as a PEM or CER file to the gateway. If you're only uploading a root CA certificate, you can upload it as a base64 string. 
 
 > [!NOTE] 
 > Mutual authentication is only available on Standard_v2 and WAF_v2 SKUs. 
@@ -32,6 +34,9 @@ Application Gateway supports the following types of certificates:
 - Self-Signed certificates: Client browsers do not trust these certificates and will warn the user that the virtual service’s certificate is not part of a trust chain. Self-signed certificates are good for testing or environments where administrators control the clients and can safely bypass the browser’s security alerts. Production workloads should never use self-signed certificates.
 
 For more information, see [configure mutual authentication with application gateway](./mutual-authentication-portal.md).
+
+> [!IMPORTANT]
+> Make sure you upload the entire trusted client CA certificate chain to the Application Gateway.
 
 ### Size of the certificate
 Check the [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) section to know the maximum TLS/SSL certificate size supported.
@@ -51,6 +56,10 @@ If you choose to enable the Application Gateway to verify the client certificate
     * *Intermediate1 certificate's* subject name will be extracted as client certificate issuer DN.  
 * **Scenario 5:** Multiple certificate chains of different lengths. Chain 1 includes: root certificate - intermediate1 certificate - leaf certificate. Chain 2 includes root certificate - intermediate2 certificate - intermediate3 certificate - leaf certificate. 
     * *Intermediate3 certificate's* subject name will be extracted as client certificate issuer DN. 
+
+> [!IMPORTANT]
+> We recommend only uploading one certificate chain per file. This is especially important if you enable verify client certificate DN. By uploading multiple certificate chains in one file, you will end up in scenario four or five and may run into issues later down the line when the client certificate presented doesn't match the client certificate issuer DN Application Gateway extracted from the chains. 
+
 
 ## Server variables 
 

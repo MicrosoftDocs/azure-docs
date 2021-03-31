@@ -22,18 +22,28 @@ After configuring mutual authentication on an Application Gateway, there can be 
 * Uploaded a certificate or certificate chain without a root CA certificate
 * Uploaded a certificate chain with multiple root CA certificates
 * Uploaded a certificate chain that only contained a leaf certificate without a CA certificate 
-* Uploaded a certificate that was not in the right format (not in PEM format)
+* Validation errors due to issuer DN mismatch  
 
 We'll go through different scenarios that you might run into and how to troubleshoot those scenarios. We'll then address error codes and explain likely causes for certain error codes you might be seeing with mutual authentication. 
 
 ## Scenario troubleshooting - configuration problems
 There are a few scenarios that you might be facing when trying to configure mutual authentication. We'll walk through how to troubleshoot some of the most common pitfalls. 
 
-### Expired client certificate 
+### Self-signed certificate
+
+#### Problem 
+
+The client certificate you uploaded is a self-signed certificate and is resulting in the error code ApplicationGatewayTrustedClientCertificateDoesNotContainAnyCACertificate.
+
+#### Solution 
+
+Double check that the self-signed certificate that you're using has the extension *BasicConstraintsOid* = "2.5.29.19" which indicates the subject can act as a CA. This will ensure that the certificate used is a CA certificate. For more information about how to generate self-signed client certificates, check out [trusted client certificates](./mutual-authentication-certificate-management.md#<section>).
+
+### Expired client CA certificate 
 
 #### Problem
 
-The client certificate you uploaded onto your Application Gateway is now expired. You can validate that this is the problem by looking through the gateway's access logs and checking to see what the error message is. 
+The client CA certificate you uploaded onto your Application Gateway is now expired. You can validate that this is the problem by looking through the gateway's access logs and checking to see what the error message is. 
 
 #### Solution 
 
@@ -73,19 +83,9 @@ Add-AzApplicationGatewayTrustedClientCertificate -ApplicationGateway $gateway -N
 Set-AzApplicationGateway -ApplicationGateway $gateway
 ```
 
-### Self-signed certificate
+## Scenario troubleshooting - connectivity problems
 
-#### Problem 
-
-The client certificate you uploaded is a self-signed certificate and is resulting in the error code ApplicationGatewayTrustedClientCertificateDoesNotContainAnyCACertificate.
-
-#### Solution 
-
-Double check that the self-signed certificate that you're using has the constraint *BasicConstraintsOid* = "2.5.29.19" set to TRUE. This will ensure that the certificate used is a CA certificate. 
-
-## Scenario troubleshooting - data path problems
-
-You might have been able to configure mutual authentication without any problems but you're running into problems when sending requests to your Application Gateway. We address some common problems and solutions in the following section. 
+You might have been able to configure mutual authentication without any problems but you're running into problems when sending requests to your Application Gateway. We address some common problems and solutions in the following section. You can find the sslClientVerify property in the access logs of your Application Gateway. 
 
 ### SslClientVerify is NONE
 
@@ -95,7 +95,13 @@ The property *sslClientVerify* is appearing as "NONE" in your access logs.
 
 #### Solution 
 
-This is seen when the client doesn't send a client certificate when sending a request to the Application Gateway. This could happen if the client sending the request to the Application Gateway isn't configured correctly to use client certificates. Verify through OpenSSL or through a browser that the endpoint on client side is properly set up to send a client certificate. 
+This is seen when the client doesn't send a client certificate when sending a request to the Application Gateway. This could happen if the client sending the request to the Application Gateway isn't configured correctly to use client certificates. One way to verify that the client authentication setup on Application Gateway is working as expected is through the following OpenSSL command:
+
+openssl s_client -connect <hostname:port> -cert <path-to-certificate> -key <client-private-key-file> 
+
+The cert flag is the leaf certificate, the key flag is the client private key file. 
+
+For more information on how to use the OpenSSL s_client command, check out their [manual page](https://www.openssl.org/docs/man1.0.2/man1/openssl-s_client.html).
 
 ### SslClientVerify is FAILED
 
@@ -106,11 +112,10 @@ The property *sslClientVerify* is appearing as "FAILED" in your access logs.
 #### Solution
 
 There are a number of potential causes for failures in the access logs. Below is a list of common causes for failure:
-* **Unable to get issuer certificate:** The issuer certificate of the client certificate couldn't be found. This normally means the trusted certificate chain is not complete. 
-* **Self-signed certificate:** The client certificate is self-signed and the same certificate cannot be found in the list of trusted certificates. 
-* **Unable to get local issuer certificate:** Similar to unable to get issuer certificate, the issuer certificate of the client certificate couldn't be found. This normally means the trusted certificate chain is not complete.
-* **Unable to verify the first certificate:** Unable to verify the client certificate. This error occurs specifically when the client presents only the leaf certificate, whose issuer is not trusted. 
-* **Unable to verify the client certificate issuer:** This error occurs when the configuration *VerifyClientCertIssuerDN* is set to true. This typically happens when the Issuer DN of the client certificate doesn't match any *ClientCertificateIssuerDN*, which is extracted from the trusted certificate chains uploaded by the customer. For more information about how Application Gateway extracts the *ClientCertificateIssuerDN*, check out [Application Gateway extracting issuer DN](./mutual-authentication-overview.md#verify-client-certificate-dn).
+* **Unable to get issuer certificate:** The issuer certificate of the client certificate couldn't be found. This normally means the trusted client CA certificate chain is not complete on the Application Gateway. Validate that the trusted client CA certificate chain uploaded on the Application Gateway is complete.  
+* **Unable to get local issuer certificate:** Similar to unable to get issuer certificate, the issuer certificate of the client certificate couldn't be found. This normally means the trusted client CA certificate chain is not complete on the Application Gateway. Validate that the trusted client CA certificate chain uploaded on the Application Gateway is complete.
+* **Unable to verify the first certificate:** Unable to verify the client certificate. This error occurs specifically when the client presents only the leaf certificate, whose issuer is not trusted. Validate that the trusted client CA certificate chain uploaded on the Application Gateway is complete.
+* **Unable to verify the client certificate issuer:** This error occurs when the configuration *VerifyClientCertIssuerDN* is set to true. This typically happens when the Issuer DN of the client certificate doesn't match the *ClientCertificateIssuerDN* extracted from the trusted client CA certificate chain uploaded by the customer. For more information about how Application Gateway extracts the *ClientCertificateIssuerDN*, check out [Application Gateway extracting issuer DN](./mutual-authentication-overview.md#verify-client-certificate-dn). As best practice, make sure you're uploading one certificate chain per file to Application Gateway. 
 
 ## Error code troubleshooting
 If you're seeing any of the following error codes, we have a few recommended solutions to help resolve the problem you might be facing. 
@@ -157,7 +162,7 @@ The certificate uploaded only contained a leaf certificate without a CA certific
 
 #### Solution 
 
-Double check the certificate chain that was uploaded contained more than just the leaf certificate. The *BasicConstraintsOid* = "2.5.29.19" should be set to TRUE when the certificate is a CA certificate. 
+Double check the certificate chain that was uploaded contained more than just the leaf certificate. The *BasicConstraintsOid* = "2.5.29.19" extension should be present and indicate the subject can act as a CA.
 
 ### Error code: ApplicationGatewayOnlyOneRootCAAllowedInTrustedClientCertificate
 

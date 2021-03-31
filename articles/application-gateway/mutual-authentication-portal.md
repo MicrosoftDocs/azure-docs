@@ -32,6 +32,9 @@ First create a new Application Gateway as you would usually through the portal -
 
 To configure an existing Application Gateway with mutual authentication, you'll need to first go to the **SSL settings (Preview)** tab in the Portal and create a new SSL profile. When you create an SSL profile, you'll see two tabs: **Client Authentication** and **SSL Policy**. The **Client Authentication** tab is where you'll upload your client certificate(s). The **SSL Policy** tab is to configure a listener specific SSL policy - for more information, check out [Configuring a listener specific SSL policy](./application-gateway-configure-listener-specific-ssl-policy.md).
 
+> [!NOTE]
+> Please ensure that you upload the entire client CA certificate chain in one file. 
+
 1. Search for **Application Gateway** in portal, select **Application gateways**, and click on your existing Application Gateway.
 
 2. Select **SSL settings (Preview)** from the left-side menu.
