@@ -8,7 +8,7 @@ author: ikivanc
 ms.service: storage
 ms.devlang: python
 ms.topic: how-to
-ms.date: 03/31/2021
+ms.date: 04/01/2021
 ms.author: ikivanc
 ---
 
