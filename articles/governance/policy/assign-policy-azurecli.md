@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with Azure CLI"
 description: In this quickstart, you use Azure CLI to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: quickstart 
 ms.custom: devx-track-azurecli
 ---
@@ -63,7 +63,8 @@ The preceding command uses the following information:
   without managed disks Assignment_.
 - **Policy** – The policy definition ID, based on which you're using to create the assignment. In
   this case, it's the ID of policy definition _Audit VMs that do not use managed disks_. To get the
-  policy definition ID, run this command: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+  policy definition ID, run this command:
+  `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets
   enforced on. It could range from a subscription to resource groups. Be sure to replace
   &lt;scope&gt; with the name of your resource group.
