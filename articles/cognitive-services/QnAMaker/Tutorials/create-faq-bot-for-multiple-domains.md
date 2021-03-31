@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Customize a FAQ bot with Azure Bot Service"
+title: "Tutorial: Create a FAQ bot for multiple domains with Azure Bot Service"
 description: In this tutorial, create a no code FAQ Bot for production use cases with QnA Maker and Azure Bot Service.
 ms.service: cognitive-services
 ms.subservice: qna-maker
