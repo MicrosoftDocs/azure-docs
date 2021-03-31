@@ -428,3 +428,4 @@ The `wait_type`, `open_transaction_count`, and `status` columns refer to informa
 * [Deliver consistent performance with Azure SQL](/learn/modules/azure-sql-performance/)
 * [Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-common-errors-issues.md)
 * [Transient Fault Handling](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)
+* [Configure the max degree of parallelism (MAXDOP) in Azure SQL Database](configure-the-max-degree-of-parallelism-server.md)]
