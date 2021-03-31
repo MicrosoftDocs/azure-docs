@@ -430,6 +430,8 @@
               href: start-stop-vms/manage.md
             - name: Remove Start/Stop VMs
               href: start-stop-vms/remove.md
+            - name: Troubleshoot
+              href: start-stop-vms/troubleshoot.md
         - name: Connect to SQL Database
           href: functions-scenario-database-table-cleanup.md
         - name: Connect to a virtual Network
