@@ -61,7 +61,7 @@ FROM DIGITALTWINS T
 WHERE T.$dtId = 'Room1'
 ```
 
-Here is an example using a function. The following query uses the `IS_OF_MODEL` function to specify in the WHERE clause to only return the twins with a model of `dtmi:sample:Room;1`. For more about the `IS_OF_MODEL` function, see [Azure Digital Twins query language reference: Functions](reference-query-functions.md#is-of-model).
+Here is an example using a function. The following query uses the `IS_OF_MODEL` function to specify in the WHERE clause to only return the twins with a model of `dtmi:sample:Room;1`. For more about the `IS_OF_MODEL` function, see [Azure Digital Twins query language reference: Functions](reference-query-functions.md#is_of_model).
 
 ```sql
 SELECT *

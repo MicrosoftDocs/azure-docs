@@ -44,10 +44,13 @@ When writing queries for Azure Digital Twins, keep the following considerations 
 
 ## Reference documentation
 
-The reference for the Azure Digital Twins query language can be found under **Reference** in the left table of contents for the service. You can also go directly to the following reference sections using the links below:
+The reference for the Azure Digital Twins query language can be found under **Reference** in the left table of contents for the service. You can also go directly to the reference sections using the links below:
+* [SELECT clause](reference-query-clause-select.md)
+* [FROM clause](reference-query-clause-from.md)
+* [JOIN clause](reference-query-clause-join.md)
+* [WHERE clause](reference-query-clause-where.md)
 * [Functions](reference-query-functions.md)
 * [Operators](reference-query-operators.md)
-* [Limitations](reference-query-limitations.md)
 
 ## Next steps
 
