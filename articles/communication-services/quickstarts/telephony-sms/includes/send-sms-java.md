@@ -150,12 +150,12 @@ SmsSendOptions options = new SmsSendOptions();
 options.setDeliveryReportEnabled(true);
 options.setTag("Marketing");
 
-Iterable<SmsSendResult> sendResults = smsClient.send(
+Iterable<SmsSendResult> sendResults = smsClient.sendWithResponse(
     "<from-phone-number>",
     Arrays.asList("<to-phone-number1>", "<to-phone-number2>"),
     "Weekly Promotion",
     options /* Optional */,
-    Context.NONE);
+    Context.NONE).getValue();
 
 for (SmsSendResult result : sendResults) {
     System.out.println("Message Id: " + result.getMessageId());
