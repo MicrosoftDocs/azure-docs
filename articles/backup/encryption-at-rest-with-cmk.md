@@ -377,7 +377,7 @@ Using the **Select from Key Vault** option helps to enable auto-rotation for the
 
 Azure Backup allows you to use Azure Polices to audit and enforce encryption, using customer-managed keys, of data in the Recovery Services vault. Using the Azure Policies:
 
-- The audit policy can be used for auditing vaults with encryption using customer-managed keys, enabled after 3/31/2021. For vaults with the CMK encryption enabled before this date, the policy may fail to apply or may show false negatives values (that is these vaults may be reported as non-compliant, despite having the CMK encryption enabled).
+- The audit policy can be used for auditing vaults with encryption using customer-managed keys, enabled after 3/31/2021. For vaults with the CMK encryption enabled before this date, the policy may fail to apply or may show false negatives results (that is, these vaults may be reported as non-compliant, despite having the CMK encryption enabled).
 - To use the audit policy for auditing vaults with the CMK encryption enabled before 3/31/2021, use the Azure portal to update an encryption key. This helps to upgrade to the new model. If you do not want to change the encryption key, provide the same key again through the key URI or the key selection option. 
 
     >[!Warning]
