@@ -47,8 +47,8 @@ The following steps enable Azure Firewall to filter traffic using FQDN in networ
 
 8. Click on *Private traffic prefixes* to edit the CIDR prefixes that will be inspected via Azure Firewall in secured virtual hub and add one /32 prefix for each private endpoint as follows:
 
-> [!IMPORTANT]
-> If these /32 prefixes are not configured traffic destined to private endpoints will bypass Azure Firewall.
+   > [!IMPORTANT]
+   > If these /32 prefixes are not configured, traffic destined to private endpoints will bypass Azure Firewall.
 
 :::image type="content" source="./media/private-link-inspection-secure-vhub/firewall-manager-security-configuration.png" alt-text="Firewall Manager Security Configuration" border="true":::
 
