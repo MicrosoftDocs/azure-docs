@@ -28,19 +28,13 @@ Learn how to manage your onboarded data feeds in Metrics Advisor. This article g
 
 Only the administrator of a data feed is allowed to make changes to it. 
 
-To pause or reactivate a data feed:
+On the data feed list page, you can **pause, reactivate, delete** a data feed:
 
-1. On the data feed list page, click the operation you want to perform on the data feed.
+A. **Pause/Reactivate**: Click the **Pause/Play** icon you want to perform on the data feed.
 
-2. On the data feed details page, click the **Status** switch button.
+B. **Delete**: Click **Delete** icon on the data feed.
 
-To delete a data feed: 
-
-1. On the data feed list page, click **Delete** on the data feed.
-
-2. In the data feed details page, click **Delete**.
-
-When changing the start time, you need to verify the schema again. You can change it by using **Edit parameters**.
+If you change the start time, you need to verify the schema again. You can change it by clicking **Edit** in data feed detail page.
 
 ##  Backfill your data feed
 
