@@ -187,6 +187,8 @@ landingContent:
             url: https://youtu.be/BoQYvqzb6Y8
           - text: Migration and capacity planning
             url: https://youtu.be/NoNG-hkksrA
+          - text: Rotate vCenter & NSX-T passwords using Azure Logic App
+            url: https://youtu.be/cK1qY3knj88
                             
 
 # card 8
