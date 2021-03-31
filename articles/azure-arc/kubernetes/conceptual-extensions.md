@@ -2,7 +2,7 @@
 title: "Cluster extensions - Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/05/2021
+ms.date: 04/05/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
