@@ -9,7 +9,7 @@ services: iot-hub
 ms.topic: quickstart
 ms.custom: [mvc, mqtt, devx-track-azurecli]
 ms.date: 04/03/2019
-# As a developer, I need to build an end-to-end IoT solution that sends telemetry from a device to an IoT hub and reads that telemetry data from the hub using a back-end application.
+#Customer intent: As a developer, I need to build an end-to-end IoT solution that sends telemetry from a device to an IoT hub and reads that telemetry data from the hub using a back-end application.
 ---
 
 # Quickstart: Send telemetry from a device to an IoT hub (iOS)
