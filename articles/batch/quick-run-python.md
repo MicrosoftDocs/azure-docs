@@ -4,7 +4,7 @@ description: In this quickstart, you run an Azure Batch sample job and tasks usi
 ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom:
-  - [seo-python-october2019
+  - seo-python-october2019
   - mvc
   - devx-track-python
   - mode-api
