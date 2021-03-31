@@ -56,9 +56,9 @@ During the preview program Microsoft Azure engineering teams will share specific
 
 **Q:** What is the target deployment platform?
 
-**A:** xilinx-u250-gen3x16-xdma-platform-2.1-3_all 
+**A:**  ```xilinx-u250-gen3x16-xdma-platform-2.1-3_all 
 
-       xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1 
+       xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1  ```
 
 **Q:** Which platform should I target for development?
 
@@ -84,13 +84,13 @@ During the preview program Microsoft Azure engineering teams will share specific
        
        Install the following packages.
        
-       xrt_202020.2.8.832_18.04-amd64-xrt.deb
+        ```xrt_202020.2.8.832_18.04-amd64-xrt.deb
        
        xrt_202020.2.8.832_18.04-amd64-azure.deb
        
        xilinx-u250-gen3x16-xdma-platform-2.1-3_all_18.04.deb.tar.gz
        
-       xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1_all.deb 
+       xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1_all.deb  ```
 
 **Q:** On Ubuntu, after rebooting my VM I cannot find my FPGA(s): 
 
@@ -102,13 +102,13 @@ During the preview program Microsoft Azure engineering teams will share specific
 
    Install the following packages.
    
-      xrt_202020.2.8.832_7.4.1708-x86_64-xrt.rpm 
+       ```xrt_202020.2.8.832_7.4.1708-x86_64-xrt.rpm 
       
       xrt_202020.2.8.832_7.4.1708-x86_64-azure.rpm 
       
       xilinx-u250-gen3x16-xdma-platform-2.1-3.noarch.rpm.tar.gz 
       
-      xilinx-u250-gen3x16-xdma-validate-2.1-3005608.1.noarch.rpm 
+      xilinx-u250-gen3x16-xdma-validate-2.1-3005608.1.noarch.rpm  ```
 
 **Q:** When running xbutil validate on CentOS I get this warning: “WARNING: Kernel version 3.10.0-1160.15.2.el7.x86_64 is not officially supported. 4.18.0-193 is the latest supported version.” 
 
