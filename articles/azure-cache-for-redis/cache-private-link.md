@@ -205,7 +205,7 @@ Currently, zone redundancy, portal console support, firewall storage accounts, a
 
 ### How can I change my private endpoint to be disabled or enabled from public network access?
 There is a `publicNetworkAccess` flag which is `Disabled` by default. 
-This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` or `Enabled` in the Azure portal or with a PATCH request. 
+This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` or `Enabled` in the Azure portal or with a Restful API PATCH request. 
 
 To change the value in the Azure portal, follow these steps.
 
@@ -217,7 +217,7 @@ To change the value in the Azure portal, follow these steps.
 
 4. Click the **Enable public network access** button.
 
-To change the value through a PATCH request, see below and edit the value to reflect which flag you want for your cache.
+To change the value through a Restful API PATCH request, see below and edit the value to reflect which flag you want for your cache.
 
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
