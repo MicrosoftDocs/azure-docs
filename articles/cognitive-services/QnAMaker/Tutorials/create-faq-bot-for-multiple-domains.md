@@ -19,7 +19,6 @@ Many a times, users would have similar questions but on a different domain. You 
 
 * Create a single knowledge base and define distinct domains for QnA pairs.
 * Create a separate knowledge base for each domain.
-* Create a separate QnA Maker resource for each domain.
 
 ### Create a single knowledge base and define distinct domains for QnA pairs
 
@@ -27,7 +26,18 @@ The content authors can use documents/URLs to extract QnAs or add custom QnAs to
 
 ### Create a separate knowledge base for each domain
 
-### Create a distinct bot endpoint per domain
+
+
+## Content Authoring flow
+
+
+
+Create a distinct QnA resource per domain
+
+If the content developers need to have exclusive access per domain, you should create a separate QnA Maker resource for each domain that requires exclusive content authoring access. As we currently only support access control on resource level, similar permissions for a user will be applicable across all knowledge base in a single resource.
+
+If creating multiple resources is not feasible, you can manage content via documents offline and then periodically import the updated documents 
+
 
 
 
