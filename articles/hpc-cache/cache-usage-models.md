@@ -34,7 +34,7 @@ The usage models built into Azure HPC Cache have different values for these sett
 
 ## Choose the right usage model for your workflow
 
-You must choose a usage model for each NFS-mounted storage target that you use. Azure Blob storage targets have a built-in usage model that can't be customized.
+You must choose a usage model for each NFS-protocol storage target that you use. Azure Blob storage targets have a built-in usage model that can't be customized.
 
 HPC Cache usage models let you choose how to balance fast response with the risk of getting stale data. If you want to optimize speed for reading files, you might not care whether the files in the cache are checked against the back-end files. On the other hand, if you want to make sure your files are always up to date with the remote storage, choose a model that checks frequently.
 

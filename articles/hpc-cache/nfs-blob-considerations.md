@@ -47,7 +47,7 @@ If the files in your container were created with Azure Blob's REST API instead o
 * Empty the file (truncate it to 0).
 * Save a copy of the file. The copy is marked as an NFS-created file, and it can be edited using NFS.
 
-Azure HPC Cache **can't** edit the contents of a file that was created using REST. This means that it can't save a changed file back to the storage target.
+Azure HPC Cache **can't** edit the contents of a file that was created using REST. This means that it can't save a changed file from a client back to the storage target.
 
 It's important to understand this limitation, because it can cause data integrity problems if you use read/write caching usage models on files that were not created with NFS.
 
@@ -65,13 +65,15 @@ These cache usage models include write caching:
 
 Only use these usage models to edit files that were created with NFS.
 
-If you try to use write caching on REST-created files, you could corrupt or lose data because the cache does not try to save file edits to the storage container immediately.
+If you try to use write caching on REST-created files, your file changes could be lost. This is because the cache does not try to save file edits to the storage container immediately.
 
 Here is how trying to cache writes to REST-created files puts data at risk:
 
 1. The cache accepts edits from clients, and returns a success message on each change.
 1. The cache keeps the changed file in its storage and waits for additional changes.
-1. After some time has passed, the cache tries to save the changed file to the back-end container. At this point, it will get an error message because it is trying to write to a REST-created file with NFS. It is too late to tell the client machine that its changes were not accepted, and the cache has no way to update the original file.
+1. After some time has passed, the cache tries to save the changed file to the back-end container. At this point, it will get an error message because it is trying to write to a REST-created file with NFS.
+
+   It is too late to tell the client machine that its changes were not accepted, and the cache has no way to update the original file. So the changes from clients will be lost.
 
 ### Read caching scenarios
 
@@ -79,27 +81,13 @@ Read caching scenarios are appropriate for files created with either NFS or Azur
 
 These usage models use only read caching:
 
-* **Read heavy, infrequent write**s
+* **Read heavy, infrequent writes**
 * **Clients write to the NFS target, bypassing the cache**
 * **Read heavy, checking the backing server every 3 hours**
 
 You can use these usage models with files created by REST API or by NFS. Any NFS writes sent from a client to the back-end container will still fail, but they will fail immediately and return an error message to the client.
 
 A read caching workflow can still involve file changes, as long as these are not cached. For example, clients might access files from the container but write their changes back as a new file, or they could save modified files in a different location.
-
-<!-- 
-| Usage model | Type of caching | Files from REST API | Files from NFS |
-|--|--|--|--|
-| Greater than 15% writes (**all versions**) | read and write caching | X | ok |
-| Clients write to the NFS target, bypassing the cache | read | ok | ok |
-| Read heavy, infrequent writes | read | ok but writes will fail immediately | ok |
-| Read heavy, checking the backing server every 3 hours | read | ok but writes will fail immediately | ok |
-
-- what to do if you didn't load data with nfs
-- limitations of blob nfs
-- how to populate blob 
-
--->
 
 ## Recognize Network Lock Manager (NLM) limitations
 

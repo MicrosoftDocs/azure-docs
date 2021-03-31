@@ -72,6 +72,8 @@
     href: hpc-cache-blob-firewall-fix.md
   - name: Troubleshoot NFS storage target creation
     href: troubleshoot-nas.md
+  - name: Use NFS-mounted blob storage with Azure HPC Cache
+    href: nfs-blob-considerations.md
   - name: Recover from a regional outage
     href: hpc-region-recovery.md
   - name: Use customer-managed encryption keys
