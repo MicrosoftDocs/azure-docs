@@ -46,6 +46,9 @@
   - name: Manage tag governance
     displayName: modify, append, effects
     href: ./tutorials/govern-tags.md
+  - name: Route policy state change events
+    displayName: event grid, subject, topic, subscription
+    href: ./tutorials/route-state-change-events.md
   - name: Implement Azure Policy as Code with GitHub
     displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
     href: ./tutorials/policy-as-code-github.md
@@ -126,6 +129,9 @@
   - name: Assignment structure
     displayName: parameters, enforcementmode, policyDefinitionId
     href: ./concepts/assignment-structure.md
+  - name: React to policy state change events
+    displayName: event grid, subject, topic, subscription
+    href: ./concepts/event-overview.md
   - name: Exemption structure
     displayName: waiver, mitigated, compliance
     href: ./concepts/exemption-structure.md

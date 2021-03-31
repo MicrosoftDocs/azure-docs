@@ -3,7 +3,7 @@ title: Configure Google authentication
 description: Learn how to configure Google authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 03/29/2021
 ms.custom: [seodec18, fasttrack-edit]
 
 ---
@@ -28,21 +28,20 @@ To complete the procedure in this topic, you must have a Google account that has
 
 ## <a name="secrets"> </a>Add Google information to your application
 
-1. In the [Azure portal], go to your App Service app.
-1. Select **Settings** > **Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
-1. Select **Google**, then paste in the App ID and App Secret values that you obtained previously. Enable any scopes needed by your application.
-1. Select **OK**.
+1. Sign in to the [Azure portal] and navigate to your app.
+1. Select **Authentication** in the menu on the left. Click **Add identity provider**.
+1. Select **Google** in the identity provider dropdown. Paste in the App ID and App Secret values that you obtained previously.
 
-   App Service provides authentication but doesn't restrict authorized access to your site content and APIs. For more information, see [Authorize or deny users](app-service-authentication-how-to.md#authorize-or-deny-users).
+    The secret will be stored as a slot-sticky [application setting](./configure-common.md#configure-app-settings) named `GOOGLE_PROVIDER_AUTHENTICATION_SECRET`. You can update that setting later to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
 
-1. (Optional) To restrict site access only to users authenticated by Google, set **Action to take when request is not authenticated** to **Google**. When you set this functionality, your app requires that all requests be authenticated. It also redirects all unauthenticated requests to Google for authentication.
+1. If this is the first identity provider configured for the application, you will also be prompted with an **App Service authentication settings** section. Otherwise, you may move on to the next step.
+    
+    These options determine how your application responds to unauthenticated requests, and the default selections will redirect all requests to log in with this new provider. You can change customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
 
-    > [!CAUTION]
-    > Restricting access in this way applies to all calls to your app, which might not be desirable for apps that have a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** might be preferred so that the app manually starts authentication itself. For more information, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
+1. (Optional) Click **Next: Scopes** and add any scopes needed by the application. These will be requested at login time for browser-based flows.
+1. Click **Add**.
 
-1. Select **Save**.
-
-You are now ready to use Google for authentication in your app.
+You are now ready to use Google for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
 
 ## <a name="related-content"> </a>Next steps
 

@@ -193,12 +193,12 @@ The Body Tracking SDK supports CPU, CUDA, DirectML (Windows only) and TensorRT e
 > ONNX Runtime displays warnings for opcodes that are not accelerated. These may be safely ignored.
 
 ONNX Runtime includes environment variables to control TensorRT model caching. The recommended values are:
-- ORT_TENSORRT_CACHE_ENABLE=1 
+- ORT_TENSORRT_ENGINE_CACHE_ENABLE=1 
 - ORT_TENSORRT_CACHE_PATH="pathname"
 
 The folder must be created prior to starting body tracking.
 
-> [!NOTE]  
+> [!IMPORTANT]  
 > TensorRT pre-processes the model prior to inference resulting in extended start up times when compared to other execution environments. Engine caching limits this to first execution however it is experimental and is specific to the model, ONNX Runtime version, TensorRT version and GPU model.
 
 The TensorRT execution environment supports both FP32 (default) and FP16. FP16 trades ~2x performance increase for minimal accuracy decrease. To specify FP16:

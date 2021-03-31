@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 03/08/2021
+ms.date: 03/30/2021
 ms.author: alkohli
 ---
 
@@ -16,7 +16,7 @@ Depending on the operating system of client, the procedures to remotely connect 
 Before you begin, make sure that:
 
 - Your Windows client is running Windows PowerShell 5.0 or later.
-- Your Windows client has the signing chain (root certificate) corresponding to the node certificate installed on the device. For detailed instructions, see [Install certificate on your Windows client](../articles/databox-online/azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Your Windows client has the signing chain (root certificate) corresponding to the node certificate installed on the device. For detailed instructions, see [Install certificate on your Windows client](../articles/databox-online/azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 - The `hosts` file located at `C:\Windows\System32\drivers\etc` for your Windows client has an entry corresponding to the node certificate in the following format:
 
     `<Device IP>    <Node serial number>.<DNS domain of the device>`
@@ -53,8 +53,15 @@ Follow these steps to remotely connect from a Windows client.
 
     If you see an error related to trust relationship, then check if the signing chain of the node certificate uploaded to your device is also installed on the client accessing your device.
 
+    If you are not using the certificates (we recommend that you use the certificates!), you can skip this check by using the session options: `-SkipCACheck -SkipCNCheck -SkipRevocationCheck`.
+
+    ```powershell
+    $sessOptions = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck 
+    Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell -UseSSL -SessionOption $sessOptions    
+    ```
+
     > [!NOTE] 
-    > When you use the `-UseSSL` option, you are remoting via PowerShell over *https*. We recommend that you always use *https* to remotely connect via PowerShell. Although an *http* session is not the most secure connection method, it is acceptable on trusted networks.
+    > When you use the `-UseSSL` option, you are remoting via PowerShell over *https*. We recommend that you always use *https* to remotely connect via PowerShell. 
 
 6. Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is *Password1*. When you successfully connect to the device using remote PowerShell, you see the following sample output:  
 
@@ -72,9 +79,12 @@ Follow these steps to remotely connect from a Windows client.
     [10.100.10.10]: PS>
     ```
 
-### Remotely connect from a Linux client
+> [!IMPORTANT]
+> In the current release, you can connect to the PowerShell interface of the device only via a Windows client. The `-UseSSL` option does not work with the Linux clients.
 
-On the Linux client that you'll use to connect:
+<!--### Remotely connect from a Linux client-->
+
+<!--On the Linux client that you'll use to connect:
 
 - [Install the latest PowerShell Core for Linux](/powershell/scripting/install/installing-powershell-core-on-linux) from GitHub to get the SSH remoting feature. 
 - [Install only the `gss-ntlmssp` package from the NTLM module](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). For Ubuntu clients, use the following command:
@@ -95,4 +105,4 @@ Follow these steps to remotely connect from an NFS client.
     When prompted, provide the password used to sign into your device.
  
 > [!NOTE]
-> This procedure does not work on Mac OS.
+> This procedure does not work on Mac OS.-->
