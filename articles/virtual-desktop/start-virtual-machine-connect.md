@@ -111,6 +111,24 @@ Start VM on Connect is a host pool setting. If you only want a select group of u
 >[!IMPORTANT]
 > You can only configure this feature in existing host pools. This feature isn't available when you create a new host pool.
 
+### Use the Azure portal
+
+To use the Azure portal to configure Start VM on Connect:
+
+1. Open your browser and go to [the Azure portal](https://portal.azure.com/?feature.startVMonConnect=true#home). We recommend you open the Azure portal in an InPrivate window.
+
+2. In the Azure portal, go to **Windows Virtual Desktop**.
+
+3. Select **Host pools**, then find the host pool that contains the personal desktops you assigned the role to.
+
+   >[!NOTE]
+   > The host pool you configure this feature in must have personal desktops with direct role assignments. If the desktops in the host pool aren't configured correctly, the configuration process won't work.
+
+4. In the host pool, select **Properties**. Under **Start VM on connect**, select **Yes**, then select **Save** to instantly apply the setting.
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Properties window. The Start VM on connect option is highlighted in red.](media/properties-start-vm-on-connect.png)
+
 ### Use PowerShell
 
 To configure this setting with PowerShell, you need to make sure you have the names of the resource group and host pools you want to configure. You'll also need to install [the Azure PowerShell module (version 2.1.0 or later)](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.1.0).
