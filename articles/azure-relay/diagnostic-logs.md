@@ -86,7 +86,7 @@ Here's a sample hybrid connections event in JSON format.
 | ListenerRejectedConnection | The listener has rejected the connection. |
 | ListenerReturningHttpResponse | The listener is returning an HTTP response. |  
 | ListenerReturningHttpResponseFailed | The listener is returning an HTTP response with a failure code. | 
- ListenerSentHttpResponse | Relay service has received an HTTP response from the listener. | 
+| ListenerSentHttpResponse | Relay service has received an HTTP response from the listener. | 
 | ListenerUnregistered | The listener is unregistered. | 
 | ListenerUnresponsive | The listener is unresponsive when returning a response. | 
 | MessageSendingToListener | Message is being sent to listener. |
