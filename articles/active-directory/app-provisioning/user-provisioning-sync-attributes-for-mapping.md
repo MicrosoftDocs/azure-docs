@@ -26,13 +26,13 @@ You can use Microsoft Graph and PowerShell to extend the user schema for users i
 ### Create an extension attribute on a cloud only user using Microsoft Graph
 You can extend the schema of Azure AD users using [Microsoft Graph](/graph/overview.md). 
 
-First, list the apps in your tenant to get the id of the app you are working on. To learn more, see [List extensionProperties](/graph/api/application-list-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true).
+First, list the apps in your tenant to get the ID of the app you are working on. To learn more, see [List extensionProperties](/graph/api/application-list-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true).
 
 ```json
 GET https://graph.microsoft.com/v1.0/applications
 ```
 
-Create the extension attribute. Replace the **id** property below with the **id** retrieved in the previous step. You will need to use the **"id"** attribute and not the "appId". [Learn more.](https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true)
+Create the extension attribute. Replace the **ID** property below with the **ID** retrieved in the previous step. You will need to use the **"ID"** attribute and not the "appId". [Learn more.](https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true)
 ```json
 POST https://graph.microsoft.com/v1.0/applications/{id}/extensionProperties
 Content-type: application/json
@@ -81,7 +81,7 @@ New-AzureADApplicationExtensionProperty -ObjectId $App.ObjectId -Name “TestAtt
 #List users in your tenant to determine the objectid for your user
 Get-AzureADUser
 
-#Set a value for the extension property on the user. Replace the objectid with the id of the user and the extension name with the value from the previous step
+#Set a value for the extension property on the user. Replace the objectid with the ID of the user and the extension name with the value from the previous step
 Set-AzureADUserExtension -objectid 0ccf8df6-62f1-4175-9e55-73da9e742690 -ExtensionName “extension_6552753978624005a48638a778921fan3_TestAttributeName”
 
 #Verify that the attribute was added correctly.
