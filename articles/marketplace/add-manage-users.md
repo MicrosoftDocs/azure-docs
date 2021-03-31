@@ -24,7 +24,7 @@ After you are signed in with your work account (Azure AD tenant), you can:
 - [Add existing users](#add-existing-users)
 - [Create new users](#create-new-users)
 - [Invite new users by email](#invite-new-users-by-email)
-- [Remove a user](#remove-a-users)
+- [Remove a user](#remove-a-user)
 - [Change a user password](#change-a-user-password)
 
 ## Add existing users
@@ -64,7 +64,7 @@ The users you invited will get an email invitation to join your Partner Center a
 
 If you need to resend an invitation, visit the *Users* page, find the invitation in the list of users, select their email address (or the text that says *Invitation pending*). Then, at the bottom of the page, select **Resend invitation**.
 
-If your organization uses [directory integration](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/jj573653(v=azure.100)) to sync the on-premises directory service with your Azure AD, you won't be able to create new users, groups, or Azure AD applications in Partner Center. You (or another admin in your on-premises directory) will need to create them directly in the on-premises directory before you'll be able to see and add them in Partner Center.
+If your organization uses [directory integration](https://docs.microsoft.com/previous-versions/azure/azure-services/jj573653(v=azure.100)) to sync the on-premises directory service with your Azure AD, you won't be able to create new users, groups, or Azure AD applications in Partner Center. You (or another admin in your on-premises directory) will need to create them directly in the on-premises directory before you'll be able to see and add them in Partner Center.
 
 ## Remove a user
 
