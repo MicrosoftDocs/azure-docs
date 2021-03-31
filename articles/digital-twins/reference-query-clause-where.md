@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language WHERE clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/22/2021
+ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
 
@@ -19,14 +19,52 @@ ms.service: digital-twins
 
 This document contains reference information on the **WHERE clause** for the [Azure Digital Twins query language](concepts-query-language.md).
 
+The WHERE clause is the last part of a query. It is used to filter the items that are returned based on specific conditions.
+
 This clause is optional while querying.
 
-## WHERE core syntax
+## Core syntax: WHERE
 
-### Example
+The WHERE clause is used along with a boolean condition to filter query results. 
 
-The following example...
+A condition can be a [function](reference-query-functions.md) that evaluates to a boolean result. You can also create your own boolean statement using the properties of twins and relationships (accessed with `.`) with a comparison or contains-type [operator](reference-query-operators.md).
+
+### Syntax
+
+With properties and operators:
 
 ```sql
-<example>
+--SELECT ...
+--FROM ...
+WHERE <twin-or-relationship-collection>.<property> <operator> <value-to-compare>
+```
+
+With a function:
+
+```sql
+--SELECT ...
+--FROM ...
+WHERE <function-with-boolean-result>
+```
+
+### Arguments
+
+A condition evaluating to a `boolean` value.
+
+### Examples
+
+Here is an example using properties and operators. The following query specifies in the WHERE clause to only return the twin with a `$dtId` value of *Room1*.
+
+```sql
+SELECT *
+FROM DIGITALTWINS T
+WHERE T.$dtId = 'Room1'
+```
+
+Here is an example using a function. The following query uses the `IS_OF_MODEL` function to specify in the WHERE clause to only return the twins with a model of `dtmi:sample:Room;1`. For more about the `IS_OF_MODEL` function, see [Azure Digital Twins query language reference: Functions](reference-query-functions.md#is-of-model).
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+WHERE IS_OF_MODEL('dtmi:sample:Room;1')
 ```
