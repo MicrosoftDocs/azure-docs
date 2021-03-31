@@ -26,8 +26,8 @@ After configuring mutual authentication on an Application Gateway, there can be 
 
 We'll go through different scenarios that you might run into and how to troubleshoot those scenarios. We'll then address error codes and explain likely causes for certain error codes you might be seeing with mutual authentication. 
 
-## Scenario troubleshooting 
-There are a few scenarios that you might be facing. We'll walk through how to troubleshoot some of the most common pitfalls. 
+## Scenario troubleshooting - configuration problems
+There are a few scenarios that you might be facing when trying to configure mutual authentication. We'll walk through how to troubleshoot some of the most common pitfalls. 
 
 ### Expired client certificate 
 
@@ -73,8 +73,48 @@ Add-AzApplicationGatewayTrustedClientCertificate -ApplicationGateway $gateway -N
 Set-AzApplicationGateway -ApplicationGateway $gateway
 ```
 
+### Self-signed certificate
+
+#### Problem 
+
+The client certificate you uploaded is a self-signed certificate and is resulting in the error code ApplicationGatewayTrustedClientCertificateDoesNotContainAnyCACertificate.
+
+#### Solution 
+
+Double check that the self-signed certificate that you're using has the constraint *BasicConstraintsOid* = "2.5.29.19" set to TRUE. This will ensure that the certificate used is a CA certificate. 
+
+## Scenario troubleshooting - data path problems
+
+You might've been able to configure mutual authentication without any problems but you're running into problems when sending requests to your Application Gateway with mutual authentication configured. We address some common problems and solutions in the following section. 
+
+### SslClientVerify is NONE
+
+#### Problem 
+
+The property *sslClientVerify* is appearing as "NONE" in your access logs. 
+
+#### Solution 
+
+This is usually seen when the client doesn't send a client certificate when sending a request to the Application Gateway. This could happen if the client sending the request to the Application Gateway isn't configured correctly to use client certificates. Verify through OpenSSL or through a browser that the endpoint on client side is properly set up to send a client certificate. 
+
+### SslClientVerify is FAILED
+
+#### Problem
+
+The property *sslClientVerify* is appearing as "FAILED" in your access logs. 
+
+#### Solution
+
+There are a number of potential causes for failures in the access logs. Below is a list of common causes for failure:
+* Unable to get issuer certificate: The issuer certificate of the client certificate couldn't be found. This normally means the trusted certificate chain is not complete. 
+* Self-signed certificate: The client certificate is self-signed and the same certificate cannot be found int he list of trusted certificates. 
+* Unable to get local issuer certificate: Similar to unable to get issuer certificate, the issuer certificate of the client certificate couldn't be found. This normally means the trusted certificate chain is not complete.
+* Unable to verify the first certificate: Unable to verify the client certificate. This error occurs specifically when the client presents only the leaf certificate, whose issuer is not trusted. 
+* Unable to verify the client certificate issuer: This error occurs when the configuration *VerifyClientCertIssuerDN* is set to true. This typically happens when the Issuer DN of the client certificate doesn't match any *ClientCertificateIssuerDN*, which is extracted from the trusted certificate chains uploaded by the customer. For more information about how Application Gateway extracts the *ClientCertificateIssuerDN*, please check out [Application Gateway extracting issuer DN](./mutual-authentication-overview.md#extracting-issuer-dn)
+
 
 ## Error code troubleshooting
+If you're seeing one of the following error codes, we have a few recommended solutions to help resolve the problem you might be facing. 
 
 ### Error code: ApplicationGatewayTrustedClientCertificateMustSpecifyData
 
