@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 03/31/2021
 ms.author: alkohli
 ---
 
@@ -19,10 +19,14 @@ The hardware components of your Azure Stack Edge Pro with an onboard Graphics Pr
 
 The Azure Stack Edge Pro device has the following specifications for compute and memory:
 
-| Specification           | Value                  |
-|-------------------------|----------------------------|
-| CPU                     | 2 X Intel Xeon Silver 4214 (Cascade Lake) CPU<br> 24 physical cores (12 per CPU)<br>48 logical cores (vCPUs) (24 per CPU)       |
-| Memory                  | 128 (8x16 GB) GB RAM <br> Dell Compatible 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2v ECC Registered RDIMM       |
+| Specification  | Value                                                                       |
+|----------------|-----------------------------------------------------------------------------|
+| CPU type       | 2 X Intel Xeon Silver 4214 (Cascade Lake) CPU                               |  
+| CPU: raw       | 24 physical cores (12 per CPU)<br>48 logical cores (vCPUs) (24 per CPU)     |
+| CPU: usable    | 40 logical cores                                                            |
+| Memory type    | Dell Compatible 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2v ECC Registered RDIMM |
+| Memory: raw    | 128 (8x16 GB) GB RAM                                                        |
+| Memory: usable | 102 GB RAM                                                                  |
 
 
 ## Compute acceleration specifications
