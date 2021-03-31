@@ -70,22 +70,10 @@ Azure Firewall might be bypassed if you have issues connecting to the private en
 
 1. Verify the virtual network DNS servers are set to *Custom* and the IP address is the private IP address of Azure Firewall in secured virtual hub.
 
-Azure CLI:
+   Azure CLI:
 
-```azurecli-interactive
-az network vnet show --name <VNET Name> --resource-group <Resource Group Name> --query "dhcpOptions.dnsServers"
-```
-
-Azure PowerShell:
-
-```azurepowershell-interactive
-(Get-AzVirtualNetwork -Name <VNET Name> -ResourceGroupName <Resource Group Name>).DhcpOptions.DnsServers | Format-Table
-```
-
-Azure portal:
-
-:::image type="content" source="./media/private-link-inspection-secure-vhub/virtual-network-dns-settings.png" alt-text="Virtual Network DNS Settings" border="true":::
-
+   ```azurecli-interactive
+   az network vnet show --name <VNET Name> --resource-group <Resource Group Name> --query "dhcpOptions.dnsServers"
 2. Verify clients in the same virtual network as the DNS forwarder virtual machine can resolve the private endpoint public FQDN to its corresponding private IP address by directly querying the virtual machine configured as DNS forwarder.
 
 Linux:
