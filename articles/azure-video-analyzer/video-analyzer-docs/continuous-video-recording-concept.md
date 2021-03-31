@@ -1,29 +1,29 @@
 ---
-title: Continuous video recording from the edge - Azure
+title: Continuous video recording from the edge - Azure Video Analyzer
 description: Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. This topic discusses what CVR is.
 ms.topic: conceptual
 ms.date: 03/10/2021
 
 ---
-# Continuous video recording  
+# Continuous video recording in Azure Video Analyzer  
 
 ## Suggested pre-reading  
 
-* [Pipeline topology concept][concept-pipeline]
-* [Video recording concept][concept-recording]
+* [Pipeline topology concept]() <!--concept-pipeline -->
+* [Video recording concept]() <!--concept-recording -->
 
 ## Overview
 
-Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Azure Video Analyzer supports recording video continuously, on a 24x7 basis, from a CCTV camera via a video processing [pipeline topology][concept-pipeline] consisting of an RTSP source node and a video sink node. The diagram below shows a graphical representation of such a pipeline. The JSON representation of the [pipeline][concept-pipeline] can be found [here][pipeline-cvr-json].
+Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Azure Video Analyzer supports recording video continuously, on a 24x7 basis, from a CCTV camera via a video processing [pipeline topology]() <!--concept-pipeline--> consisting of an RTSP source node and a video sink node. The diagram below shows a graphical representation of such a pipeline. The JSON representation of the [pipeline]() <!--concept-pipeline--> can be found  in [the CVR json]() <!--pipeline-cvr-json-->.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Continuous video recording":::
 
-An instance of the pipeline topology depicted above can be run on an edge device, with the video sink recording to a Video Analyzer [video resource][terminology-video]. The video will be recorded for as long as the pipeline stays in the activated state. Since video is being recorded as a video resource, it can be played back using the streaming capabilities of Video Analyzer. See [Playback of recorded content][concept-video-playback] for more details.
+An instance of the pipeline topology depicted above can be run on an edge device, with the video sink recording to a Video Analyzer [video resource]() <!--terminology-video-->. The video will be recorded for as long as the pipeline stays in the activated state. Since video is being recorded as a video resource, it can be played back using the streaming capabilities of Video Analyzer. See [Playback of recorded content]()<!--concept-video-playback--> for more details.
 
 ## Resilient recording
 
-Video Analyzer supports operating under conditions where the edge device may occasionally lose connectivity with the cloud or experience a drop in available bandwidth. To account for this, the video from the source is recorded locally into a cache and is automatically synced with the video resource on a periodic basis. If you examine the [pipeline topology JSON][pipeline-cvr-json], you will see it has the following properties defined:
+Video Analyzer supports operating under conditions where the edge device may occasionally lose connectivity with the cloud or experience a drop in available bandwidth. To account for this, the video from the source is recorded locally into a cache and is automatically synced with the video resource on a periodic basis. If you examine the [pipeline topology JSON]() <!--pipeline-cvr-json-->, you will see it has the following properties defined:
 
 ```
 "segmentLength": "PT30S",
@@ -46,21 +46,23 @@ The `segmentLength` property, shown above, will help you control the write trans
 The `segmentLength` property ensures that the edge module will upload video at most once per `segmentLength` seconds. This property has a minimum value of 30 seconds (also the default), and can be increased by 30 second increments to a maximum of 5 minutes.
 
 > [!NOTE]
-> See the [playback recordings](playback-recordings-how-to.md) article for the effect that `segmentLength` has on playback.
+> See the [playback recordings]() <!--playback-recordings-how-to.md--> article for the effect that `segmentLength` has on playback.
 
 ## See also
 
-* [Event-based video recording](event-based-video-recording-concept.md)
-* [Playback of recorded content][concept-video-playback]
+* [Event-based video recording]() <!--event-based-video-recording-concept.md-->
+* [Playback of recorded content]() <!-- concept-video-playback -->
 
 ## Next steps
 
-[Tutorial: continuous video recording](continuous-video-recording-tutorial.md)
+[Tutorial: continuous video recording]() <!--continuous-video-recording-tutorial.md-->
 
-<!-- links -->
+<!-- links 
 [pipeline-cvr-json]: https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset
 [terminology-video]: terminology.md#video
 
 [concept-pipeline]: TODO
 [concept-video-playback]: TODO
 [concept-recording]: video-recording-concept.md
+
+-->
