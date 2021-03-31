@@ -293,7 +293,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 ## Install IIS
 
-1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **CreatePubLBQS-rg** resource group.
+1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **TutorPubLBIP-rg** resource group.
 
 2. On the **Overview** page, select **Connect**, then **Bastion**.
 
