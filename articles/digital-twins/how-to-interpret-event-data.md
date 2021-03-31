@@ -279,7 +279,7 @@ Here are the fields in the body of a telemetry message.
 
 | Name    | Value |
 | --- | --- |
-| `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event. |
+| `id` | Identifier of the notification, which is provided by the customer when calling the telemetry API. |
 | `source` | Fully qualified name of the twin that the telemetry event was sent to. Uses the following format: `<yourDigitalTwinInstance>.api.<yourRegion>.digitaltwins.azure.net/<twinId>`. |
 | `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
 | `type` | `microsoft.iot.telemetry` |
