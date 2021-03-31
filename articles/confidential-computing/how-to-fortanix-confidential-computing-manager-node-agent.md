@@ -127,7 +127,7 @@ Creating a Fortanix Node Agent will deploy a virtual machine, network interface,
 1. Leave the default OS Disk Size as 200 and select a VM size (Standard_DC4s_v2 will suffice for this tutorial).
 1. Paste the token generated earlier in **Join Token**.
 
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/deploy-fortanix-node-agent-1.png" alt-text="Screenshot that shows how to deploy a resource." lightbox="media/how-to-fortanix-confidential-computing-manager-node-agent/deploy-fortanix-node-agent-1.png":::
+   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/deploy-fortanix-node-agent-protocol.png" alt-text="Screenshot that shows how to deploy a resource.":::
 
 1. Select **Review + Create**. Ensure the validation passes and then select **Create**. When all the resources deploy, the compute node is now enrolled in Fortanix Confidential Computing Manager.
 
