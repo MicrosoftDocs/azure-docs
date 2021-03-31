@@ -158,14 +158,13 @@ Now that you have completed the issuance portion of the tutorial and you have a 
 
    2. Your verifier app terminal should also display the same message from the logs.
    
-     ![application activity in the command prompt](media/get-started-verifiable-credentials/cmd-verified-expert.png)
+    ![application activity in the command prompt](media/get-started-verifiable-credentials/cmd-verified-expert.png)
 
    3. In Authenticator, there should be an entry for recent activity of this presentation.
 
     ![Activity in Authenticator](media/get-started-verifiable-credentials/recent-activity.png)
 
-    ![Activity entries](media/get-started-verifiable-credentials/recent-activity-log.png)
-
+   
 >[!NOTE]
 > While running the verifier app, ngrok may stop working and display an error that there are too many connections. We've found this can be avoided by registering your account with ngrok. 
 
