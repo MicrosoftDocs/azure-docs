@@ -43,85 +43,28 @@ Once the login has been created, connect to the database to be shared, for examp
 create user [third-party-user] from login [third-party-login]
 ```
 
+## Create a named replica
 
-## How to configure logins and users
+Create a new Azure SQL logical server that will be used to isolate access to the database to be shared. Follow the instruction available at [Create and manage servers and single databases in Azure SQL Database](single-database-manage.md) if you need help.
 
-If you are using logins and users (rather than contained users), you must take extra steps to ensure that the same logins exist in the master database. The following sections outline the steps involved and additional considerations.
+Using, for example, AZ CLI:
 
-  >[!NOTE]
-  > It is also possible to use Azure Active Directory (AAD) logins to manage your databases. For more information, see [Azure SQL logins and users](./logins-create-manage.md).
-
-### Set up user access to a secondary or recovered database
-
-In order for the secondary database to be usable as a read-only secondary database, and to ensure proper access to the new primary database or the database recovered using geo-restore, the master database of the target server must have the appropriate security configuration in place before the recovery.
-
-The specific permissions for each step are described later in this topic.
-
-Preparing user access to a geo-replication secondary should be performed as part configuring geo-replication. Preparing user access to the geo-restored databases should be performed at any time when the original server is online (e.g. as part of the DR drill).
-
-> [!NOTE]
-> If you fail over or geo-restore to a server that does not have properly configured logins, access to it will be limited to the server admin account.
-
-Setting up logins on the target server involves three steps outlined below:
-
-#### 1. Determine logins with access to the primary database
-
-The first step of the process is to determine which logins must be duplicated on the target server. This is accomplished with a pair of SELECT statements, one in the logical master database on the source server and one in the primary database itself.
-
-Only the server admin or a member of the **LoginManager** server role can determine the logins on the source server with the following SELECT statement.
-
-```sql
-SELECT [name], [sid]
-FROM [sys].[sql_logins]
-WHERE [type_desc] = 'SQL_Login'
+```azurecli
+az sql server create -g SampleResourceGroup -n WideWorldImporterServer2 -l MyLocation --admin-user MyAdminUser --admin-password MyStrongADM1NPassw0rd!
 ```
 
-Only a member of the db_owner database role, the dbo user, or server admin, can determine all of the database user principals in the primary database.
+Make sure the location you chose is the same where the primary server also is. Then create a named replica, for example with AZ CLI:
 
-```sql
-SELECT [name], [sid]
-FROM [sys].[database_principals]
-WHERE [type_desc] = 'SQL_USER'
+```azurecli
+az sql db replica create -g SampleResourceGroup -n WideWorldImporters -s WideWorldImporterServer --secondary-type named --partner-database WideWorldImporters02 --partner-server WideWorldImporterServer2
 ```
 
-#### 2. Find the SID for the logins identified in step 1
+## Create database login in the named replica
 
-By comparing the output of the queries from the previous section and matching the SIDs, you can map the server login to database user. Logins that have a database user with a matching SID have user access to that database as that database user principal.
-
-The following query can be used to see all of the user principals and their SIDs in a database. Only a member of the db_owner database role or server admin can run this query.
+Connect to the created named replica and make sure to be in the `master` database. Add the login using the SID got from the primary replica:
 
 ```sql
-SELECT [name], [sid]
-FROM [sys].[database_principals]
-WHERE [type_desc] = 'SQL_USER'
+create login [third-party-login] with password = 'Just4STRONG_PAZzW0rd!', sid = 0x0...1234;
 ```
 
-> [!NOTE]
-> The **INFORMATION_SCHEMA** and **sys** users have *NULL* SIDs, and the **guest** SID is **0x00**. The **dbo** SID may start with *0x01060000000001648000000000048454*, if the database creator was the server admin instead of a member of **DbManager**.
-
-#### 3. Create the logins on the target server
-
-The last step is to go to the target server, or servers, and generate the logins with the appropriate SIDs. The basic syntax is as follows.
-
-```sql
-CREATE LOGIN [<login name>]
-WITH PASSWORD = <login password>,
-SID = <desired login SID>
-```
-
-> [!NOTE]
-> If you want to grant user access to the secondary, but not to the primary, you can do that by altering the user login on the primary server by using the following syntax.
->
-> ```sql
-> ALTER LOGIN <login name> DISABLE
-> ```
->
-> DISABLE doesn’t change the password, so you can always enable it if needed.
-
-## Next steps
-
-* For more information on managing database access and logins, see [SQL Database security: Manage database access and login security](logins-create-manage.md).
-* For more information on contained database users, see [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
-* To learn about active geo-replication, see [Active geo-replication](active-geo-replication-overview.md).
-* To learn about auto-failover groups, see [Auto-failover groups](auto-failover-group-overview.md).
-* For information about using geo-restore, see [geo-restore](recovery-using-backups.md#geo-restore)
+Done. Now the `third-party-login` can connect to the named replica database, but will be denied connecting to the primary replica.
