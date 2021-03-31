@@ -141,7 +141,7 @@ Live Outputs start on creation and stop when deleted. This is going to be the "t
 #### Create a Streaming Locator
 
 > [!NOTE]
-> When your Media Services account is created, a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
+> When your Media Services account is created, a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](encode-dynamic-packaging-concept.md) and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 When you publish the Asset using a Streaming Locator, the Live Event (up to the DVR window length) will continue to be viewable until the Streaming Locator's expiry or deletion, whichever comes first. This is how you make the virtual "tape" recording available for your viewing audience to see live and on-demand. The same URL can be used to watch the live event, DVR window, or the on-demand asset when the recording is complete (when the Live Output is deleted.)
 

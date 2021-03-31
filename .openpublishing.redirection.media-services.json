@@ -309,6 +309,76 @@
             "source_path_from_root": "/articles/media-services/latest/widevine-license-template-overview.md",
             "redirect_url": "drm-widevine-license-template-concept",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/autogen-bitrate-ladder.md",
+            "redirect_url": "encode-autogen-bitrate-ladder",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/become-on-premises-encoder-partner.md",
+            "redirect_url": "encode-on-premises-encoder-partner",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/content-aware-encoding.md",
+            "redirect_url": "encode-content-aware-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/customize-encoder-presets-how-to.md",
+            "redirect_url": "encode-custom-presets-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/dynamic-packaging-overview.md",
+            "redirect_url": "encode-dynamic-packaging-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/encoding-concept.md",
+            "redirect_url": "encode-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/media-encoder-standard-formats.md",
+            "redirect_url": "encode-media-encoder-standard-formats-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/quickstart-basic-encoding-python.md",
+            "redirect_url": "encode-basic-encoding-python-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/entities-overview.md",
+            "redirect_url": "filter-order-page-entitites-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/custom-preset-cli-how-to.md",
+            "redirect_url": "encode-custom-preset-cli-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/custom-preset-rest-how-to.md",
+            "redirect_url": "encode-custom-preset-rest-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/filters-dynamic-manifest-cli-howto.md",
+            "redirect_url": "filters-dynamic-manifest-cli-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/filters-dynamic-manifest-overview.md",
+            "redirect_url": "filters-dynamic-manifest-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/filters-dynamic-manifest-dotnet-howto.md",
+            "redirect_url": "filters-dynamic-manifest-dotnet-how-to",
+            "redirect_document_id": false
         }
     ]
 }

@@ -142,7 +142,7 @@ Here is more information about the outputs from an HTTP Webhook trigger or actio
 | headers | object | The headers from the request |
 | body | object | The object with the body content from the request |
 | status code | int | The status code from the request |
-
+||||
 
 | Status code | Description |
 |-------------|-------------|
@@ -153,7 +153,7 @@ Here is more information about the outputs from an HTTP Webhook trigger or actio
 | 403 | Forbidden |
 | 404 | Not Found |
 | 500 | Internal server error. Unknown error occurred. |
-
+|||
 
 ## Connector reference
 
