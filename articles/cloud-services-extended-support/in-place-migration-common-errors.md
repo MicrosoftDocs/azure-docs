@@ -20,12 +20,10 @@ Following issues are known and being addressed.
 
 | Known issues | Mitigation | 
 |---|---|
-| Azure portal - View resource group link giving 404 error after successful prepare operation. | View resource group content via resource group portal blade. | 
 | Role Instances restarting UD by UD after successful commit. | Restart operation follows the same method as monthly guest OS rollouts. Do not commit migration of cloud services with single role instance or impacted by restart.| 
 | Azure portal cannot read migration state after browser refresh. | Rerun validate and prepare operation to get back to the original migration state. | 
 | Certificate displayed as secret resource in key vault. | After migration, reupload the certificate as a certificate resource to simplify update operation on Cloud Services (extended support). | 
 | Deployment labels not getting saved as tags as part of migration. | Manually create the tags after migration to maintain this information.
-| Commit operation taking long time to succeed. Waiting until role instance is in available state. | Non-impacting. Will be fixed as part of the GA release. | 
 | Resource Group name is in all caps. | Non-impacting. Will be fixed as part of the GA release. |
 | Name of the lock on Cloud Services (extended support) lock is incorrect. | Non-impacting. Will be fixed as part of the GA release. | 
 | IP address name is incorrect on Cloud Services (extended support) portal blade. | Non-impacting. Solution not yet available. | 
