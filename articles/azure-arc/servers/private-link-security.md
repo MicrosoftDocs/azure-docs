@@ -2,7 +2,7 @@
 title: Use Azure Private Link to securely connect networks to Azure Arc
 description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 03/31/2021
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Arc
