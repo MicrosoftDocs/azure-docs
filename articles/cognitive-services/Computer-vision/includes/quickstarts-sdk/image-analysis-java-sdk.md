@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Computer Vision client library for Java"
-description: In this quickstart, get started with the Computer Vision client library for Java.
+title: "Quickstart: Image Analysis client library for Java"
+description: In this quickstart, get started with the Image Analysis client library for Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
-Use the Computer Vision client library to analyze an image for tags, text description, faces, adult content, and more.
+Use the Image Analysis client library to analyze an image for tags, text description, faces, adult content, and more.
 
 [Reference documentation](/java/api/overview/azure/cognitiveservices/client/computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision) |[Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -114,7 +114,7 @@ In the application's **main** method, add calls for the methods used in this qui
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Computer Vision Java SDK.
+The following classes and interfaces handle some of the major features of the Image Analysis Java SDK.
 
 |Name|Description|
 |---|---|
@@ -124,7 +124,7 @@ The following classes and interfaces handle some of the major features of the Co
 
 ## Code examples
 
-These code snippets show you how to do the following tasks with the Computer Vision client library for Java:
+These code snippets show you how to do the following tasks with the Image Analysis client library for Java:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze an image](#analyze-an-image)
@@ -217,7 +217,7 @@ The following code prints the detected color attributes in the image, like the d
 
 ### Get domain-specific content
 
-Computer Vision can use specialized model to do further analysis on images. For more information, see [Domain-specific content](../../concept-detecting-domain-content.md). 
+Image Analysis can use specialized model to do further analysis on images. For more information, see [Domain-specific content](../../concept-detecting-domain-content.md). 
 
 The following code parses data about detected celebrities in the image.
 
@@ -272,11 +272,11 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart, you learned how to use the Computer Vision Java library to do basis tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the Image Analysis Java library to do basis tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
->[Computer Vision reference (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
+>[Image Analysis reference (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
 
 
-* [What is Computer Vision?](../../overview.md)
+* [What is Image Analysis?](../../overview-image-analysis.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).

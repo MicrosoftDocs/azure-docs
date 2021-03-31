@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Computer Vision client library for Python"
-description: Get started with the Computer Vision client library for Python with this quickstart.
+title: "Quickstart: Optical character recognition client library for Python"
+description: Get started with the Optical character recognition client library for Python with this quickstart.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
-Use the Computer Vision client library to read printed and handwritten text with the Read API.
+Use the Optical character recognition client library to read printed and handwritten text with the Read API.
 
 [Reference documentation](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-computervision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -66,7 +66,7 @@ Create variables for your Computer Vision subscription key and endpoint. Paste y
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Computer Vision Python SDK.
+The following classes and interfaces handle some of the major features of the OCR Python SDK.
 
 |Name|Description|
 |---|---|
@@ -76,7 +76,7 @@ The following classes and interfaces handle some of the major features of the Co
 
 ## Code examples
 
-These code snippets show you how to do the following tasks with the Computer Vision client library for Python:
+These code snippets show you how to do the following tasks with the OCR client library for Python:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze an image](#analyze-an-image)
@@ -93,7 +93,7 @@ Instantiate a client with your endpoint and key. Create a [CognitiveServicesCred
 
 ## Read printed and handwritten text
 
-Computer Vision can read visible text in an image and convert it to a character stream. You do this in two parts.
+The OCR service can read visible text in an image and convert it to a character stream. You do this in two parts.
 
 ### Call the Read API
 
@@ -136,10 +136,10 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart, you learned how to use the Computer Vision library for Python to do basis tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the OCR library for Python to do basis tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
->[Computer Vision API reference (Python)](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
+>[OCR API reference (Python)](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-* [What is Computer Vision?](../../overview.md)
+* [What is Optical character recognition?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

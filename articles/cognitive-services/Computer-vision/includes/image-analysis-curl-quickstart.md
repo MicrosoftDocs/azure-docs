@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Computer Vision REST API"
+title: "Quickstart: Image Analysis REST API"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, get started with the Computer Vision REST API.
+description: In this quickstart, get started with the Image Analysis REST API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -110,7 +110,7 @@ A successful response is returned in JSON. The sample application parses and dis
 
 ## Generate a thumbnail
 
-You can use Computer Vision to generate a thumbnail with smart cropping. You specify the desired height and width, which can differ in aspect ratio from the input image. Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates around that region.
+You can use Image Analysis to generate a thumbnail with smart cropping. You specify the desired height and width, which can differ in aspect ratio from the input image. Image Analysis uses smart cropping to intelligently identify the area of interest and generate cropping coordinates around that region.
  
 To create and run the sample, do the following steps:
 
@@ -139,4 +139,4 @@ A successful response writes the thumbnail image to the file specified in `<thum
 Explore the Image Analysis API in more depth. To rapidly experiment with the API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
 
 > [!div class="nextstepaction"]
-> [Explore the Computer Vision API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)
+> [Explore the Image Analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)

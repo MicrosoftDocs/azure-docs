@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Computer Vision client library for Node.js"
-description: Get started with the Computer Vision client library for Node.js with this quickstart
+title: "Quickstart: Image Analysis client library for Node.js"
+description: Get started with the Image Analysis client library for Node.js with this quickstart
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.custom: devx-track-js
 
 <a name="HOLTop"></a>
 
-Use the Computer Vision client library to analyze an image for tags, text description, faces, adult content, and more.
+Use the Image Analysis client library to analyze an image for tags, text description, faces, adult content, and more.
 
 [Reference documentation](/javascript/api/@azure/cognitiveservices-computervision/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -79,7 +79,7 @@ Create variables for your resource's Azure endpoint and key.
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Computer Vision Node.js SDK.
+The following classes and interfaces handle some of the major features of the Image Analysis Node.js SDK.
 
 |Name|Description|
 |---|---|
@@ -88,7 +88,7 @@ The following classes and interfaces handle some of the major features of the Co
 
 ## Code examples
 
-These code snippets show you how to do the following tasks with the Computer Vision client library for Node.js:
+These code snippets show you how to do the following tasks with the Image Analysis client library for Node.js:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze an image](#analyze-an-image)
@@ -198,7 +198,7 @@ Define the helper function `printColorScheme` to print the details of the color 
 
 ### Get domain-specific content
 
-Computer Vision can use specialized model to do further analysis on images. See [Domain-specific content](../../concept-detecting-domain-content.md) for more details.
+Image Analysis can use specialized model to do further analysis on images. See [Domain-specific content](../../concept-detecting-domain-content.md) for more details.
 
 First, define the URL of an image to analyze:
 
@@ -251,8 +251,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Computer Vision API reference (Node.js)](/javascript/api/@azure/cognitiveservices-computervision/)
+>[Image Analysis API reference (Node.js)](/javascript/api/@azure/cognitiveservices-computervision/)
 
 
-* [What is Computer Vision?](../../overview.md)
+* [What is Image Analysis?](../../overview-image-analysis.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).

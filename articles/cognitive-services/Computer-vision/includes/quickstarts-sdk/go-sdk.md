@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Computer Vision client library for Go"
+title: "Quickstart: Optical character recognition client library for Go"
 titleSuffix: Azure Cognitive Services
-description: Get started with the Computer Vision client library for Go with this quickstart.
+description: Get started with the Optical character recognition client library for Go with this quickstart.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -87,14 +87,14 @@ Create variables for your Computer Vision subscription key and endpoint. Paste y
 > [!IMPORTANT]
 > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
-Next, you'll begin adding code to carry out different Computer Vision operations.
+Next, you'll begin adding code to carry out different OCR operations.
 
 > [!div class="nextstepaction"]
 > [I set up the client](?success=set-up-client#object-model) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=set-up-client)
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Computer Vision Go SDK.
+The following classes and interfaces handle some of the major features of the OCR Go SDK.
 
 |Name|Description|
 |---|---|
@@ -103,7 +103,7 @@ The following classes and interfaces handle some of the major features of the Co
 
 ## Code examples
 
-These code snippets show you how to do the following tasks with the Computer Vision client library for Go:
+These code snippets show you how to do the following tasks with the OCR client library for Go:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Read printed and handwritten text](#read-printed-and-handwritten-text)
@@ -124,7 +124,7 @@ Create a `main` function and add the following code to it to instantiate a clien
 
 ## Read printed and handwritten text
 
-Computer Vision can read visible text in an image and convert it to a character stream. The code in this section defines a function, `RecognizeTextReadAPIRemoteImage`, which uses the client object to detect and extract printed or handwritten text in the image.
+The OCR service can read visible text in an image and convert it to a character stream. The code in this section defines a function, `RecognizeTextReadAPIRemoteImage`, which uses the client object to detect and extract printed or handwritten text in the image.
 
 Add the sample image reference and function call in your `main` function.
 
@@ -178,8 +178,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Computer Vision API reference (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
+> [OCR API reference (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
 
 
-* [What is Computer Vision?](../../overview.md)
+* [What is Optical character recognition?](../../overview-ocr.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

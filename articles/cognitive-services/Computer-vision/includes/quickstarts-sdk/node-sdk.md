@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Computer Vision client library for Node.js"
-description: Get started with the Computer Vision client library for Node.js with this quickstart
+title: "Quickstart: Optical character recognition client library for Node.js"
+description: Get started with the Optical character recognition client library for Node.js with this quickstart
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.custom: devx-track-js
 
 <a name="HOLTop"></a>
 
-Use the Computer Vision client library to read printed and handwritten text with the Read API.
+Use the Optical character recognition client library to read printed and handwritten text with the Read API.
 
 [Reference documentation](/javascript/api/@azure/cognitiveservices-computervision/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -79,7 +79,7 @@ Create variables for your Computer Vision subscription key and endpoint. Paste y
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Computer Vision Node.js SDK.
+The following classes and interfaces handle some of the major features of the OCR Node.js SDK.
 
 |Name|Description|
 |---|---|
@@ -87,7 +87,7 @@ The following classes and interfaces handle some of the major features of the Co
 
 ## Code examples
 
-These code snippets show you how to do the following tasks with the Computer Vision client library for Node.js:
+These code snippets show you how to do the following tasks with the OCR client library for Node.js:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Read printed and handwritten text](#read-printed-and-handwritten-text)
@@ -112,7 +112,7 @@ Then, define a function `computerVision` and declare an async series with primar
 
 ## Read printed and handwritten text
 
-Computer Vision can extract the visible text in an image and convert it to a character stream. This sample uses the Read operations.
+The OCR service can extract the visible text in an image and convert it to a character stream. This sample uses the Read operations.
 
 ### Set up test images
 
@@ -168,8 +168,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Computer Vision API reference (Node.js)](/javascript/api/@azure/cognitiveservices-computervision/)
+>[OCR API reference (Node.js)](/javascript/api/@azure/cognitiveservices-computervision/)
 
 
-* [What is Computer Vision?](../../overview.md)
+* [What is Optical character recognition?](../../overview-ocr.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).

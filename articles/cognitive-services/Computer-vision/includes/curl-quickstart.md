@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Computer Vision REST API"
+title: "Quickstart: Optical character recognition REST API"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, get started with the Computer Vision REST API.
+description: In this quickstart, get started with the Optical character recognition REST API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -31,7 +31,7 @@ Use the Optical character recognition REST API to read printed and handwritten t
 
 ## Read printed and handwritten text
 
-Computer Vision can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR) overview](../overview-ocr.md).
+The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR) overview](../overview-ocr.md).
 
 To create and run the sample, do the following steps:
 
@@ -259,7 +259,7 @@ A successful response is returned in JSON. The sample application parses and dis
 
 ## Next steps
 
-Explore the Computer Vision API in more depth. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005/console).
+Explore the OCR API in more depth. To rapidly experiment with the API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005/console).
 
 > [!div class="nextstepaction"]
 > [Explore the OCR API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005)

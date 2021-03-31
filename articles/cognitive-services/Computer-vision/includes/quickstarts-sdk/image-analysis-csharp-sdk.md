@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Image Analysis client library for .NET"
-description: In this quickstart, get started with the Computer Vision client library for .NET.
+description: In this quickstart, get started with the Image Analysis client library for .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -99,7 +99,7 @@ In the application's `Main` method, add calls for the methods used in this quick
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Computer Vision .NET SDK.
+The following classes and interfaces handle some of the major features of the Image Analysis .NET SDK.
 
 |Name|Description|
 |---|---|
@@ -109,7 +109,7 @@ The following classes and interfaces handle some of the major features of the Co
 
 ## Code examples
 
-These code snippets show you how to do the following tasks with the Computer Vision client library for .NET:
+These code snippets show you how to do the following tasks with the Image Analysis client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze an image](#analyze-an-image)
@@ -209,7 +209,7 @@ The following code prints the detected color attributes in the image, like the d
 
 ### Get domain-specific content
 
-Computer Vision can use specialized models to do further analysis on images. See [Domain-specific content](../../concept-detecting-domain-content.md) for more details. 
+Image Analysis can use specialized models to do further analysis on images. See [Domain-specific content](../../concept-detecting-domain-content.md) for more details. 
 
 The following code parses data about detected celebrities in the image.
 
@@ -256,7 +256,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Computer Vision API reference (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/computervision)
+>[Image Analysis API reference (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/computervision)
 
-* [What is Computer Vision?](../../overview.md)
+* [What is Image Analysis?](../../overview-image-analysis.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

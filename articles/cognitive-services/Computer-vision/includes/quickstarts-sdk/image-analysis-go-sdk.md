@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Image Analysis client library for Go"
 titleSuffix: Azure Cognitive Services
-description: Get started with the Computer Vision client library for Go with this quickstart.
+description: Get started with the Image Analysis client library for Go with this quickstart.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -73,7 +73,7 @@ Open `sample-app.go` in your preferred IDE or text editor. Then add the package 
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_imports)]
 
-Also, declare a context at the root of your script. You'll need this object to execute most Computer Vision function calls:
+Also, declare a context at the root of your script. You'll need this object to execute most Image Analysis function calls:
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_context)]
 
@@ -84,7 +84,7 @@ Next, you'll begin adding code to carry out different Computer Vision operations
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Computer Vision Go SDK.
+The following classes and interfaces handle some of the major features of the Image Analysis Go SDK.
 
 |Name|Description|
 |---|---|
@@ -94,7 +94,7 @@ The following classes and interfaces handle some of the major features of the Co
 
 ## Code examples
 
-These code snippets show you how to do the following tasks with the Computer Vision client library for Go:
+These code snippets show you how to do the following tasks with the Image Analysis client library for Go:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze an image](#analyze-an-image)
@@ -186,7 +186,7 @@ The following function prints the detected color attributes in the image, like t
 
 ### Get domain-specific content
 
-Computer Vision can use specialized models to do further analysis on images. For more information, see [Domain-specific content](../../concept-detecting-domain-content.md). 
+Image Analysis can use specialized models to do further analysis on images. For more information, see [Domain-specific content](../../concept-detecting-domain-content.md). 
 
 The following code parses data about detected celebrities in the image.
 
@@ -230,8 +230,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Computer Vision API reference (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
+> [Image Analysis API reference (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
 
 
-* [What is Computer Vision?](../../overview.md)
+* [What is Image Analysis?](../../overview-image-analysis.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

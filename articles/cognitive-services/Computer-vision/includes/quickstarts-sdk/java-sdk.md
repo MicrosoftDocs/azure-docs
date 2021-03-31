@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Computer Vision client library for Java"
-description: In this quickstart, get started with the Computer Vision client library for Java.
+title: "Quickstart: Optical character recognition client library for Java"
+description: In this quickstart, get started with the Optical character recognition client library for Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
-Use the Computer Vision client library to read printed and handwritten text in images.
+Use the Optical character recognition client library to read printed and handwritten text in images.
 
 [Reference documentation](/java/api/overview/azure/cognitiveservices/client/computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision) |[Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -105,7 +105,7 @@ In the application's **main** method, add calls for the methods used in this qui
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Computer Vision Java SDK.
+The following classes and interfaces handle some of the major features of the OCR Java SDK.
 
 |Name|Description|
 |---|---|
@@ -113,7 +113,7 @@ The following classes and interfaces handle some of the major features of the Co
 
 ## Code examples
 
-These code snippets show you how to do the following tasks with the Computer Vision client library for Java:
+These code snippets show you how to do the following tasks with the OCR client library for Java:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Read printed and handwritten text](#read-printed-and-handwritten-text)
@@ -131,7 +131,7 @@ In a new method, instantiate a [ComputerVisionClient](/java/api/com.microsoft.az
 
 ## Read printed and handwritten text
 
-Computer Vision can read visible text in an image and convert it to a character stream. This section defines a method, `ReadFromFile`, that takes a local file path and prints the image's text to the console.
+The OCR service can read visible text in an image and convert it to a character stream. This section defines a method, `ReadFromFile`, that takes a local file path and prints the image's text to the console.
 
 > [!TIP]
 > You can also read text in a remote image referenced by URL. See the [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision) methods, such as **read**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) for scenarios involving remote images.
@@ -204,11 +204,11 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart, you learned how to use the Computer Vision Java library to do basis tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the OCR Java library to do basis tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
->[Computer Vision reference (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
+>[OCR SDK reference (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
 
 
-* [What is Computer Vision?](../../overview.md)
+* [What is Optical character recognition?](../../overview-ocr.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).
