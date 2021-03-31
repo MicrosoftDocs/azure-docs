@@ -3,13 +3,13 @@ title: Run automated tests by using Azurite
 titleSuffix: Azure Storage
 description: Learn how to write automated tests against private endpoints for Azure Blob Storage by using Azurite.
 services: storage
-author: ikivanc
+author: mhopkins-msft
 
 ms.service: storage
 ms.devlang: yaml
 ms.topic: how-to
 ms.date: 03/31/2021
-ms.author: ikivanc
+ms.author: mhopkins
 ---
 
 # Run automated tests by using Azurite
