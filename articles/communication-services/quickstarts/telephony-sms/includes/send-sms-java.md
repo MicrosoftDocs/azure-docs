@@ -50,7 +50,7 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0-beta.4</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -102,7 +102,7 @@ The following classes and interfaces handle some of the major features of the Az
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | SmsClientBuilder              | This class creates the SmsClient. You provide it with endpoint, credential, and an http client. |
 | SmsClient                    | This class is needed for all SMS functionality. You use it to send SMS messages.                |
-| SmsSendOptions               | This class provides options to add custom tags and configure delivery reporting. If deliveryReportEnabled is set to true, then an event will be emitted when delivery was successful|                           |
+| SmsSendOptions               | This class provides options to add custom tags and configure delivery reporting. If deliveryReportEnabled is set to true, then an event will be emitted when delivery was successful |        
 | SmsSendResult                | This class contains the result from the SMS service.                                          |
 
 ## Authenticate the client
