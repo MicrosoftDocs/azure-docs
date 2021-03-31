@@ -10,7 +10,7 @@ services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
 
-# As a device builder, I need to know what is IoT Plug and Play, so I can understand how it can help me build and market my IoT devices.
+#Customer intent: As a device builder, I need to know what is IoT Plug and Play, so I can understand how it can help me build and market my IoT devices.
 ---
 
 # What is IoT Plug and Play?
