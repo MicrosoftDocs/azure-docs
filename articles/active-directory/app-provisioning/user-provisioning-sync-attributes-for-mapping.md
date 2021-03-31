@@ -1,6 +1,6 @@
 ---
-title: Synchronize attributes to Azure AD for mapping
-description: When configuring user provisioning to SaaS apps, use the directory extension feature to add source attributes that aren't synchronized by default.
+title: Synchronize attributes to Azure Active Directory for mapping
+description: When configuring user provisioning with Azure Active Directory and SaaS apps, use the directory extension feature to add source attributes that aren't synchronized by default.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/17/2021
+ms.date: 03/31/2021
 ms.author: kenwith
 ---
 
@@ -16,7 +16,7 @@ ms.author: kenwith
 
 When customizing attribute mappings for user provisioning, you might find that the attribute you want to map doesn't appear in the **Source attribute** list. This article shows you how to add the missing attribute by synchronizing it from your on-premises Active Directory (AD) to Azure Active Directory (Azure AD) or by creating the extension attributes in Azure AD for a cloud only user. 
 
-Azure AD must contain all the data required to create a user profile when provisioning user accounts from Azure AD to a SaaS app. In some cases, to make the data available you might need synchronize attributes from your on-premises AD to Azure AD. Azure AD Connect automatically synchronizes certain attributes to Azure AD, but not all attributes. Furthermore, some attributes (such as SAMAccountName) that are synchronized by default might not be exposed using the Azure AD Graph API. In these cases, you can use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD. That way, the attribute will be visible to the Azure AD Graph API and the Azure AD provisioning service. If the data you need for provisioning is in Active Directory but isn't available for provisioning because of the reasons described above, you can use Azure AD Connect to create extension attributes. 
+Azure AD must contain all the data required to create a user profile when provisioning user accounts from Azure AD to a SaaS app. In some cases, to make the data available you might need to synchronize attributes from your on-premises AD to Azure AD. Azure AD Connect automatically synchronizes certain attributes to Azure AD, but not all attributes. Furthermore, some attributes (such as SAMAccountName) that are synchronized by default might not be exposed using the Azure AD Graph API. In these cases, you can use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD. That way, the attribute will be visible to the Azure AD Graph API and the Azure AD provisioning service. If the data you need for provisioning is in Active Directory but isn't available for provisioning because of the reasons described above, you can use Azure AD Connect to create extension attributes. 
 
 While most users are likely hybrid users that are synchronized from Active Directory, you can also create extensions on cloud-only users without using Azure AD Connect. Using PowerShell or Microsoft Graph you can extend the schema of a cloud only user. 
 
