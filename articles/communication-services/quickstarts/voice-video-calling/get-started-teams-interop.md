@@ -30,11 +30,9 @@ Get started with Azure Communication Services by connecting your calling solutio
 [!INCLUDE [Calling with iOS](./includes/teams-interop-ios.md)]
 ::: zone-end
 
-The Quickstarts use the General Availblity version of the SDK. The Teams Interoperability requires Beta version. When you working on Quickstart, look for the latest version of the Beta SDK  on [release notes page](https://github.com/Azure/Communication/tree/master/releasenotes).
+Functionality described in this document uses the General Availablity version of the Communication Services SDKs. Teams Interoperability requires the Beta version of the Communication Services SDKs. The Beta SDKs can be explored on the [release notes page](https://github.com/Azure/Communication/tree/master/releasenotes).
 
-When execute the "Install package"  step, please modify the version of package to the latest Beta release by adding @1.0.0-beta.10 (version at the moment of writing this article) to the communication-calling. You don't need to modify the communication-common
-
-Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
+When executing the "Install package" step with the Beta SDKs, modify the version of your package to the latest Beta release by specifying version `@1.0.0-beta.10` (version at the moment of writing this article) in the `communication-calling` package name. You don't need to modify the `communication-common` package command. For example:
 
 ```console
 npm install @azure/communication-calling@1.0.0-beta.10 --save
