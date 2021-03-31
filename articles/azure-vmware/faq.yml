@@ -171,25 +171,6 @@ sections:
       - question: If a cluster is scaled up and then workload demand falls, can it be scaled back down? 
         answer: Yes, as long as you have the quota allocated against your private cloud, you can scale out your clusters. When workload demand falls, you can delete nodes from the cluster to scale it down. You can do this through the Azure VMware Solution portal.
 
-  - name: Hosts, clusters, and private clouds
-    questions:
-      - question: Is the underlying infrastructure shared?
-        answer: No, private cloud hosts and clusters are dedicated and securely erased before and after use.
-
-      - question: What are the minimum and maximum number of hosts per cluster?
-        answer: Clusters can scale between 3 and 16 ESXi hosts. Trial clusters are limited to three hosts.
-
-      - question: Can I scale my private cloud clusters?
-        answer: Yes, clusters scale between the minimum and the maximum number of ESXi hosts. Trial clusters are limited to three hosts.
-
-      - question: What are trial clusters?
-        answer: Trial clusters are three host clusters used for one-month evaluations of Azure VMware Solution private clouds.
-
-      - question: Can I use High-end hosts for trial clusters?
-        answer: No. High-end ESXi hosts are reserved for use in production clusters.
-
-  - name: Connectivity
-    questions:
       - question: What network IP address planning is required to incorporate private clouds with on-premises environments?
         answer: A private network /22 address space is required to deploy an Azure VMware Solution private cloud. This private address space shouldn't overlap with other virtual networks in a subscription or with on-premises networks.
 
@@ -221,7 +202,26 @@ sections:
       - question: Could I use HCX through public Internet communications as a workaround for the non-supportability of HCX when using VPN S2S with vWAN for on-premises communications?
         answer: Currently, the only supported method for VMware HCX is through ExpressRoute.
 
-  - name: Accounts and privileges
+
+  - name: Hosts, clusters, and private clouds
+    questions:
+      - question: Is the underlying infrastructure shared?
+        answer: No, private cloud hosts and clusters are dedicated and securely erased before and after use.
+
+      - question: What are the minimum and maximum number of hosts per cluster?
+        answer: Clusters can scale between 3 and 16 ESXi hosts. Trial clusters are limited to three hosts.
+
+      - question: Can I scale my private cloud clusters?
+        answer: Yes, clusters scale between the minimum and the maximum number of ESXi hosts. Trial clusters are limited to three hosts.
+
+      - question: What are trial clusters?
+        answer: Trial clusters are three host clusters used for one-month evaluations of Azure VMware Solution private clouds.
+
+      - question: Can I use High-end hosts for trial clusters?
+        answer: No. High-end ESXi hosts are reserved for use in production clusters.
+
+
+  - name: User accounts and privileges
     questions:
       - question: What accounts and privileges will I get with my new Azure VMware Solution private cloud?
         answer: You're provided credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There's also a CloudAdmin group that can be used to incorporate Azure Active Directory. For more information, see [Access and Identity Concepts](concepts-identity.md).
@@ -242,7 +242,7 @@ sections:
       - question: How can I change my credentials?
         answer: For information on resetting your credentials, see [Reset vSphere credentials for Azure VMware Solution](reset-vsphere-credentials.md).
           
-  - name: Billing and Support
+  - name: Billing and support
     questions:
       - question: How will pricing be structured for Azure VMware Solution?
         answer: For general questions on pricing, see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. 
