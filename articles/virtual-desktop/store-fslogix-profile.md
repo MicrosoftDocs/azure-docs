@@ -53,7 +53,7 @@ The following table lists our recommendations for which performance tier to use 
 
 | Workload type | Recommended file tier |
 |--------|-----------|
-|Light|Less than 200 concurrent active users: Standard file shares|
+| Light | Standard file shares |
 | |More than 200 concurrent active users: Standard file shares. You may also consider using Standard file shares with multiple shares if you are scaling up from existing Standard file shares or plan to manage scale out for cost efficiency.|
 |Medium|Premium file shares|
 |Heavy|Premium file shares|
