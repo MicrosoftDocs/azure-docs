@@ -52,7 +52,7 @@ To achieve optimal performance, ensure that each jobs transfers fewer than 10 mi
 
 One way to reduce the size of a job is to limit the number of files affected by a job. You can use command parameters to do that. For example, a job can copy only a subset of directories by using the `include path` parameter as part of the [azcopy copy](storage-ref-azcopy-copy.md) command. 
 
-Use the `include-pattern` parameter to copy files that have a specific extension (for example: `*.pdf`). In a separate job, use the `exclude-pattern` parameter to copy all files that don't have `*.pdf` extension. See [Upload specific files](storage-use-azcopy-blobs-upload.md#upload-specific-files) and [Download specific blobs](#storage-use-azcopy-blobs-download.md#download-specific-blobs) for examples.
+Use the `include-pattern` parameter to copy files that have a specific extension (for example: `*.pdf`). In a separate job, use the `exclude-pattern` parameter to copy all files that don't have `*.pdf` extension. See [Upload specific files](storage-use-azcopy-blobs-upload.md#upload-specific-files) and [Download specific blobs](storage-use-azcopy-blobs-download.md#download-specific-blobs) for examples.
 
 After you've decided how to divide large jobs into smaller ones, consider running jobs on more than one Virtual Machine (VM).
 
