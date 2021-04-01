@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 12/16/2020
 ms.author: aahi
 keywords: on-premises, Docker, container, Kubernetes
-#As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
+#Customer intent: As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
 
 # Azure Cognitive Services containers

@@ -45,4 +45,4 @@ See the following articles for more information:
 ## Next steps
 
 - [Developing with Media Services v3 APIs](media-services-apis-overview.md)
-- [Get content key policy using Media Services .NET](get-content-key-policy-dotnet-howto.md)
+- [Get content key policy using Media Services .NET](drm-get-content-key-policy-dotnet-how-to.md)
