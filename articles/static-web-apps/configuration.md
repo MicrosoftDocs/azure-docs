@@ -32,7 +32,7 @@ See the [example configuration](#example-configuration-file) file for details.
 
 ## Routes
 
-Route rules allow you to define the pattern of URLs that allow access to your application to the web. Routes are are defined as an array of routing rules. See the [example configuration file](#example-configuration-file) for usage examples.
+Route rules allow you to define the pattern of URLs that allow access to your application to the web. Routes are defined as an array of routing rules. See the [example configuration file](#example-configuration-file) for usage examples.
 
 - Rules are executed in the order as they appear in the `routes` array.
 - Rule evaluation stops at the first match - routing rules aren't chained together.
