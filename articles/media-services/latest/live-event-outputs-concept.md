@@ -86,7 +86,7 @@ When creating a live event, you can specify the following options:
 
 When you create a live event, you can set it to StandBy mode. While the event is in StandBy mode, you can edit the Description, the Static hostname prefix and restrict input and preview access settings.  StandBy mode is still a billable mode, but is priced differently than when you start a live stream.
 
-For more information, see [Live event states and billing](live-event-states-billing.md).
+For more information, see [Live event states and billing](live-event-states-billing-concept.md).
 
 * IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this live event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').
 <br/><br/>
@@ -94,7 +94,7 @@ If no IP addresses are specified and there's no rule definition, then no IP addr
 <br/><br/>
 If you want to enable certain IPs on your own firewalls or want to constrain inputs to your live events to Azure IP addresses, download a JSON file from [Azure Datacenter IP address ranges](https://www.microsoft.com/download/details.aspx?id=41653). For details about this file, select the **Details** section on the page.
 
-* When creating the event, you can choose to turn on live transcriptions. By default, live transcription is disabled. For more information about live transcription read [Live transcription](live-transcription.md).
+* When creating the event, you can choose to turn on live transcriptions. By default, live transcription is disabled. For more information about live transcription read [Live transcription](live-event-live-transcription-how-to.md).
 
 ### Naming rules
 
@@ -217,7 +217,7 @@ For details, see [long-running operations](media-services-apis-overview.md#long-
 
 Once you have the stream flowing into the live event, you can begin the streaming event by creating an [Asset](/rest/api/media/assets), [live output](/rest/api/media/liveoutputs), and [Streaming Locator](/rest/api/media/streaminglocators). live output will archive the stream and make it available to viewers through the [Streaming Endpoint](/rest/api/media/streamingendpoints).  
 
-For detailed information about live outputs, see [Using a cloud DVR](live-event-cloud-dvr.md).
+For detailed information about live outputs, see [Using a cloud DVR](live-event-cloud-dvr-time-how-to.md).
 
 ## Live event output questions
 

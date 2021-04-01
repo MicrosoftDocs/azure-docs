@@ -46,5 +46,5 @@ You can choose to enable live transcriptions when you create the live event. If 
 
 ## Next steps
 
-- [Live streaming overview](live-streaming-overview.md)
+- [Live streaming overview](stream-live-streaming-concept.md)
 - [Live streaming tutorial](stream-live-tutorial-with-api.md)
