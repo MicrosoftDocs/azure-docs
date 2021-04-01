@@ -424,7 +424,7 @@ To clean up your resources in the portal, navigate to your resource group. Once 
 ## Next steps
 
 * To learn more about Private Link, see the [Azure Private Link](../private-link/private-link-overview.md) documentation.
-* 
+
 * If you need to set up registry access rules from behind a client firewall, see [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md).
 
 * [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md)
