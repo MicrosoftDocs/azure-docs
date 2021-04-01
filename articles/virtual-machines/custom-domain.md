@@ -37,11 +37,12 @@ If you select the IP address you can see more information on it. Check to make s
 If your IP Address is not static, you will need to create an FQDN. 
 
 1. Select your VM in the portal. 
-1. In the left menu, select **Configuration**
-1. Under **DNS name label**, enter the prefix you want to use.
-1. Select **Save** at the top of the page.
-1. Return to the VM overview blade by selecting **Overview** in the left menu. 
-1. Verify that the *DNS name* appears correctly. 
+1. In the left menu, select **Properties**
+1. Under **Public IP address\DNS name label**, selet your IP address.
+2. Under **DNA name label**, enter the prefix you want to use.
+3. Select **Save** at the top of the page.
+4. Select **Overview** in the left menu to return to the VM overview blade.
+5. Verify that the *DNS name* appears correctly. 
 
 Open a browser and enter your IP address or FQDN and verify that it shows the web content running on your VM.
  
