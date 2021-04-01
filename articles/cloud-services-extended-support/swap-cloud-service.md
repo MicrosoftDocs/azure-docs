@@ -1,17 +1,17 @@
 ---
-title: Swap two Cloud Services
+title: Swap/Switch between two Cloud Services (Extended Support)
 description: Swap/Switch between two Cloud Services (Extended Support)
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
-ms.date: 4/1/2021
+ms.date: 04/01/2021
 ms.custom: 
 ---
 
 # Swap/Switch between two Cloud Services (Extended Support)
-With cloud services (extended support) you can swap between two independent cloud service deployments. Unlike cloud services (classic), the concept of slots does not exist with the Azure Resource Manager model. When you decide to deploy a new release of a cloud service (extended support), you can make it “swappable” with another existing cloud service (extended support) enabling you to stage and test your new release using this deployment. A cloud service can be made ‘swappable’ with another cloud service only at the time of deploying the second cloud service (of the pair). When using the ARM template-based deployment method, this is done by setting the SwappableCloudService property within the Network Profile of the Cloud Service object to the ID of the paired cloud service. 
+With cloud services (extended support) you can swap between two independent cloud service deployments. Unlike cloud services (classic), the concept of slots does not exist with the Azure Resource Manager(ARM) model. When you decide to deploy a new release of a cloud service (extended support), you can make it “swappable” with another existing cloud service (extended support) enabling you to stage and test your new release using this deployment. A cloud service can be made ‘swappable’ with another cloud service only at the time of deploying the second cloud service (of the pair). When using the ARM template-based deployment method, this is done by setting the SwappableCloudService property within the Network Profile of the Cloud Service object to the ID of the paired cloud service. 
 
 ```
 "networkProfile": {
@@ -19,7 +19,7 @@ With cloud services (extended support) you can swap between two independent clou
               "id": "[concat(variables('swappableResourcePrefix'), 'Microsoft.Compute/cloudServices/', parameters('cloudServicesToBeSwappedWith'))]"
             },
 ```
-> [Note] 
+> [!Note] 
 > You cannot swap between a cloud service (classic) and a cloud service (extended support)
 
 Use **Swap** to switch the URLs by which the two cloud services are addressed, in effect promoting a new cloud service (staged) to production release.
@@ -30,6 +30,7 @@ You can swap deployments from the Cloud Services page or the dashboard.
    :::image type="content" source="media/swap-cloud-service-1.png" alt-text="Image shows the swap option the cloud service":::
    
 3. The following confirmation prompt opens
+   
    :::image type="content" source="media/swap-cloud-service-2.png" alt-text="Image shows swapping the cloud service":::
    
 4. After you verify the deployment information, select OK to swap the deployments.
@@ -67,8 +68,9 @@ POST https://management.azure.com/subscriptions/subId/providers/Microsoft.Networ
 
 ### What are the prerequisites for swapping between two cloud services?
 There are two key prerequisites for a successful cloud service (extended support) swap:
-•	If you want to use a static / reserved IP address for one of the swappable cloud services, the other cloud service must also use a reserved IP. Otherwise, the swap fails.
-•	All instances of your roles must be running before you can perform the swap. You can check the status of your instances on the Overview blade of the Azure portal. Alternatively, you can use the Get-AzRole command in Windows PowerShell.
+* If you want to use a static / reserved IP address for one of the swappable cloud services, the other cloud service must also use a reserved IP. Otherwise, the swap fails.
+* All instances of your roles must be running before you can perform the swap. You can check the status of your instances on the Overview blade of the Azure portal. Alternatively, you can use the Get-AzRole command in Windows PowerShell.
+
 Note that guest OS updates and service healing operations also can cause deployment swaps to fail. For more information, see Troubleshoot cloud service deployment problems.
 
 ### Can I perform a VIP Swap in parallel with another mutating operation?
