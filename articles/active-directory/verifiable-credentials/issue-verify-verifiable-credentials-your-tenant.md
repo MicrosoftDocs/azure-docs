@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/30/2021
+ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: 
 
@@ -22,12 +22,12 @@ ms.reviewer:
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Now that you have your Azure tenant set up with the Verifiable Credential service, we walk through the steps necessary to enable your Azure Active Directory (AAD) to issue verifiable credentials using the sample app.
+Now that you have your Azure tenant set up with the Verifiable Credential service, we walk through the steps necessary to enable your Azure Active Directory (Azure AD) to issue verifiable credentials using the sample app.
 
 In this article you:
 
 > [!div class="checklist"]
-> * Register the sample app in your Azure AD (AAD) tenant
+> * Register the sample app in your Azure AD
 > * Create a Rules and Display File
 > * Upload Rules and Display files
 > * Set up your Verifiable Credentials Issuer service to use Azure Key Vault
@@ -47,7 +47,7 @@ This tutorial assumes you've already completed the steps in the [previous tutori
 
 To issue a verifiable credential, you need to register an app so Authenticator, or any other verifiable credential wallet, is allowed to sign in users.  
 
-Register an application called 'VC Wallet App' in Azure Active Directory (AAD) and obtain a client ID.
+Register an application called 'VC Wallet App' in Azure AD and obtain a client ID.
 
 1. Follow the instructions for registering an application with [Azure AD](../develop/quickstart-register-app.md) When registering, use the values below.
 
@@ -91,12 +91,12 @@ After creating your application and client secret in Azure AD, you need to grant
 7. Select **Add**.
 8. Choose **SAVE**.
 
-For more information about Key Vault permissions and access control read the [key vault rbac guide](../../key-vault/general/rbac-guide.md)
+For more information about Key Vault permissions and access control read the [key vault RBAC guide](../../key-vault/general/rbac-guide.md)
 
 ![assign key vault permissions](media/issue-verify-verifable-credentials-your-tenant/key-vault-permissions.png)
 ## Make changes to match your environment
 
-So far, we have been working with our sample app. The app uses [Azure Active Directory B2C](../../active-directory-b2c/overview.md) and we are now switching to use AAD so we need to make some changes not just to match your environment but also to support additional claims that were not used before.
+So far, we have been working with our sample app. The app uses [Azure Active Directory B2C](../../active-directory-b2c/overview.md) and we are now switching to use Azure AD so we need to make some changes not just to match your environment but also to support additional claims that were not used before.
 
 1. Copy the rules file below and save it to **modified-expertRules.json**. 
 
@@ -261,11 +261,11 @@ Follow the same steps we followed in the previous tutorial to issue the verifiab
 9. At the **Add a credential** screen notice a few things: 
     1. At the top of the screen you can see a red **Not verified** message
     1. The credential is customized based on the changes we made to the display file.
-    1. The **Sign in to your account** option is pointing to your AAD tenant sign in page.
+    1. The **Sign in to your account** option is pointing to your Azure AD sign in page.
     
    ![add credential screen with warning](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified.png)
 
-10. Choose **Sign in to your account** and authenticate using a User in your AAD tenant.
+10. Choose **Sign in to your account** and authenticate using a User in your Azure AD tenant.
 11. After successfully authenticating the **Add** button is no longer greyed out. Choose **Add**.
 
   ![add credential screen after authenticating](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified-authenticated.png)
@@ -277,7 +277,7 @@ We have now issued a verifiable credential using our tenant to generate our vc w
 
 ## Test verifying the VC using the sample app
 
-Now that we've issued the verifiable credential from our own tenant with claims from your AAD tenant, let's verify it using our sample app.
+Now that we've issued the verifiable credential from our own tenant with claims from your Azure AD, let's verify it using our sample app.
 
 1. Stop running your issuer ngrok service.
 
@@ -307,9 +307,9 @@ Now that we've issued the verifiable credential from our own tenant with claims 
     
    ![new permission request](media/enable-your-tenant-verifiable-credentials/new-permission-request.png)
 
-8. You have no successfully verified your credential and the website should display your first and last name from your AAD tenant's user account. 
+8. You have no successfully verified your credential and the website should display your first and last name from your Azure AD's user account. 
 
-You have now completing the tutorial and are officially a Verified Credential Expert! Your sample app is using your DID for both issuing and verifying, while writing claims into a verifiable credential from your AAD tenant. 
+You have now completing the tutorial and are officially a Verified Credential Expert! Your sample app is using your DID for both issuing and verifying, while writing claims into a verifiable credential from your Azure AD. 
 
 ## Next steps
 

@@ -17,7 +17,7 @@ ms.reviewer:
 
 # Tutorial: Configure your Azure Active Directory to issue verifiable credentials (Preview)
 
-In this tutorial, we build on the work done as part of the [get started](get-started-verifiable-credentials.md) article and set up your Azure Active Directory (AAD) with its own [decentralized identifier](https://www.microsoft.com/security/business/identity-access-management/decentralized-identity-blockchain?rtc=1#:~:text=Decentralized%20identity%20is%20a%20trust,protect%20privacy%20and%20secure%20transactions.) (DID). We use the decentralized identifier to issue a verifiable credential using the sample app and your issuer; however, in this tutorial, we still use the sample Azure B2C tenant for authentication.  In our next tutorial, we will take additional steps to get the app configured to work with your AAD.
+In this tutorial, we build on the work done as part of the [get started](get-started-verifiable-credentials.md) article and set up your Azure Active Directory (Azure AD) with its own [decentralized identifier](https://www.microsoft.com/security/business/identity-access-management/decentralized-identity-blockchain?rtc=1#:~:text=Decentralized%20identity%20is%20a%20trust,protect%20privacy%20and%20secure%20transactions.) (DID). We use the decentralized identifier to issue a verifiable credential using the sample app and your issuer; however, in this tutorial, we still use the sample Azure B2C tenant for authentication.  In our next tutorial, we will take additional steps to get the app configured to work with your Azure AD.
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
@@ -27,10 +27,10 @@ In this tutorial, we build on the work done as part of the [get started](get-sta
 In this article:
 
 > [!div class="checklist"]
-> * You create the necessary services to onboard your Azure Active Directory (AAD) for verifiable credentials 
+> * You create the necessary services to onboard your Azure AD for verifiable credentials 
 > * We are creating your DID
 > * We are customizing the Rules and Display files
-> * Configure verifiable credentials in AAD.
+> * Configure verifiable credentials in Azure AD.
 
 
 ## Prerequisites
@@ -101,35 +101,35 @@ In this section, we use the rules and display files from the Sample issuer app a
 
 2. Open up the MyFirstVC-rules.json file in your code editor. 
 
-```json
-     {
-      "attestations": {
-        "idTokens": [
-          {
-            "mapping": {
-              "firstName": { "claim": "given_name" },
-              "lastName": { "claim": "family_name" }
-            },
-            "configuration": "https://didplayground.b2clogin.com/didplayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
-            "client_id": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
-            "redirect_uri": "vcclient://openid/"
+    ```json
+         {
+          "attestations": {
+            "idTokens": [
+              {
+                "mapping": {
+                  "firstName": { "claim": "given_name" },
+                  "lastName": { "claim": "family_name" }
+                },
+                "configuration": "https://didplayground.b2clogin.com/didplayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
+                "client_id": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
+                "redirect_uri": "vcclient://openid/"
+              }
+            ]
+          },
+          "validityInterval": 2592000,
+          "vc": {
+            "type": ["VerifiedCredentialExpert"]
           }
-        ]
-      },
-      "validityInterval": 2592000,
-      "vc": {
-        "type": ["VerifiedCredentialExpert"]
-      }
-    }
-  
-```
+        }
+      
+    ```
 
 Now let's change the type field to "MyFirstVC". 
-
-```json
-"type": ["MyFirstVC"]
-```
-
+    
+    ```json
+    "type": ["MyFirstVC"]
+    ```
+    
 Save this change.
 
  >[!NOTE]
@@ -137,49 +137,49 @@ Save this change.
 
 3. Open up the MyFirstVC-display.json file in your code editor.
 
-```json
-    {
-      "default": {
-        "locale": "en-US",
-        "card": {
-          "title": "Verified Credential Expert",
-          "issuedBy": "Microsoft",
-          "backgroundColor": "#000000",
-          "textColor": "#ffffff",
-          "logo": {
-            "uri": "https://didcustomerplayground.blob.core.windows.net/public/VerifiedCredentialExpert_icon.png",
-            "description": "Verified Credential Expert Logo"
-          },
-          "description": "Use your verified credential to prove to anyone that you know all about verifiable credentials."
-        },
-        "consent": {
-          "title": "Do you want to get your Verified Credential?",
-          "instructions": "Sign in with your account to get your card."
-        },
-        "claims": {
-          "vc.credentialSubject.firstName": {
-            "type": "String",
-            "label": "First name"
-          },
-          "vc.credentialSubject.lastName": {
-            "type": "String",
-            "label": "Last name"
+    ```json
+        {
+          "default": {
+            "locale": "en-US",
+            "card": {
+              "title": "Verified Credential Expert",
+              "issuedBy": "Microsoft",
+              "backgroundColor": "#000000",
+              "textColor": "#ffffff",
+              "logo": {
+                "uri": "https://didcustomerplayground.blob.core.windows.net/public/VerifiedCredentialExpert_icon.png",
+                "description": "Verified Credential Expert Logo"
+              },
+              "description": "Use your verified credential to prove to anyone that you know all about verifiable credentials."
+            },
+            "consent": {
+              "title": "Do you want to get your Verified Credential?",
+              "instructions": "Sign in with your account to get your card."
+            },
+            "claims": {
+              "vc.credentialSubject.firstName": {
+                "type": "String",
+                "label": "First name"
+              },
+              "vc.credentialSubject.lastName": {
+                "type": "String",
+                "label": "Last name"
+              }
+            }
           }
         }
-      }
-    }
-
-```
+    
+    ```
 
 Lets make a few modifications so this verifiable credential looks visibly different from sample code's version. 
-
-```json
-   "card": {
-      "title": "My First VC",
-      "issuedBy": "Your Issuer Name",
-      "backgroundColor": "#ffffff",
-      "textColor": "#000000",
-```
+    
+    ```json
+       "card": {
+          "title": "My First VC",
+          "issuedBy": "Your Issuer Name",
+          "backgroundColor": "#ffffff",
+          "textColor": "#000000",
+    ```
 
 Save these changes.
 ## Create a storage account

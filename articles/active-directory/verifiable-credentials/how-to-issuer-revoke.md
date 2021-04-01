@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/30/2021
+ms.date: 04/01/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
@@ -102,18 +102,21 @@ See below for an example of how the Rules file is modified to include the index.
 
 Once an index claim has been set and verifiable credentials have been issued to your users, it's time to see how you can revoke a verifiable credential in the VC blade.
 
-1. Navigate to the verifiable credentials blade in AAD.
+1. Navigate to the verifiable credentials blade in Azure Active Directory.
 1. Choose the verifiable credential where you've previously set up the index claim and issued a verifiable credential to a user. =
 1. On the left-hand menu, choose **Revoke a credential**
    ![Revoke a credential](media/how-to-issuer-revoke/settings-revoke.png) 
-1. Search for the index attribute of the user you want to revoke. In the example of Alice, the Woodgrove employee recently took a new job, the IT Admin indexed the email attribute. 
+1. Search for the index attribute of the user you want to revoke. 
+
    ![Find the credential to revoke](media/how-to-issuer-revoke/revoke-search.png)
 
->[!NOTE]
->Since we are only storing a hash of the indexed claim from the verifiable credential, only an exact match will populate the search results. We take the input as searched by the IT Admin and we use the same hashing algorithm to see if we have a hash match in our database.
-
+    >[!NOTE]
+    >Since we are only storing a hash of the indexed claim from the verifiable credential, only an exact match will populate the search results. We take the input as searched by the IT Admin and we use the same hashing algorithm to see if we have a hash match in our database.
+    
 1. Once you've found a match, select the **Revoke** option to the right of the credential you want to revoke.
-   ![revoke option to the right of the status column](media/how-to-issuer-revoke/revoke-foundinsearch-revoke.png) 
+
+   ![A warning letting you know that after revocation the user still has the credential](media/how-to-issuer-revoke/warning.png) 
+
 1. After successful revocation you see the status update and a green banner will appear at the top of the page. 
    ![Verify this domain in settings](media/how-to-issuer-revoke/revoke-successful.png) 
 

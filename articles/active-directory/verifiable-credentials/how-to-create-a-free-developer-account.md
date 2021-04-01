@@ -7,7 +7,7 @@ manager: davba
 ms.service: identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 04/01/2021
 ms.author: barclayn
 # Customer intent: As a developer I am looking to create a developer Azure Active Directory account so I can participate in the Preview with a P2 license. 
 ---
@@ -43,3 +43,7 @@ If you decide to sign up for the free Microsoft 365 developer program, you need 
 At this point, you have created a tenant with 25 E5 user licenses. The E5 licenses include Azure AD P2 licenses. Optionally, you can add sample data packs with users, groups, mail, and SharePoint to help you test in your development environment. For the Verifiable Credential Issuing service, they are not required.
 
 For your convenience, you could add your own work account as [guest](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) in the newly created tenant and use that account to administer the tenant. If you want the guest account to be able to manage the Verifiable Credential Service you need to assign the role 'Global Administrator' to that user.
+
+## Next steps
+
+Now that you have a developer account you can try our [first tutorial](get-started-verifiable-credentials.md) to learn more about verifiable credentials.

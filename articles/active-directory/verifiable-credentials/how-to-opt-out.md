@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/24/2021
+ms.date: 04/01/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator I am looking for information to help me disable 
@@ -41,17 +41,17 @@ At this time, we don't have the ability to make modifications to the domain info
 2. Choose **Settings** from the left side menu.
 3. Under the section, **Reset your organization**, select **Delete all credentials, and opt out of preview**.
 
-   ![settings reset org](media/how-to-optout/settings-reset.png)
+   ![settings reset org](media/how-to-opt-out/settings-reset.png)
 
 4. Read the warning message and to continue select **Delete and opt out**.
 
-   ![settings delete and opt out](media/how-to-optout/delete-and-optout.png)
+   ![settings delete and opt out](media/how-to-opt-out/delete-and-opt-out.png)
 
 You have now opted out of the Verifiable Credentials Preview. Keep reading to understand what is happening under the hood.
 
 ## What happens to your data?
 
-When you complete opting out of the AAD Verifiable Credentials service, the following actions will take place:
+When you complete opting out of the Azure Active Directory Verifiable Credentials service, the following actions will take place:
 
 - The DID keys in Key Vault will be [soft deleted](../../key-vault/general/soft-delete-overview.md).
 - The issuer object will be deleted from our database.

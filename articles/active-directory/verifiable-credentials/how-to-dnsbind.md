@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/30/2021
+ms.date: 04/01/2021
 ms.author: barclayn
 
 #Customer intent: Why are we doing this?
@@ -41,9 +41,9 @@ Linking a DID to a domain solves the initial trust problem by allowing any entit
 
 ## How do we link DIDs and domains?
 
-We make a link between a domain and a DID by implementing an open standard written by the Decentralized Identity Foundation called [Well-Known DID configuration](https://identity.foundation/.well-known/resources/did-configuration/). The verifiable credentials service in Azure Active Directory (AAD) helps your organization make the link between the DID and domain by included the domain information that you provided in your DID, and generating the well-known config file:
+We make a link between a domain and a DID by implementing an open standard written by the Decentralized Identity Foundation called [Well-Known DID configuration](https://identity.foundation/.well-known/resources/did-configuration/). The verifiable credentials service in Azure Active Directory (Azure AD) helps your organization make the link between the DID and domain by included the domain information that you provided in your DID, and generating the well-known config file:
 
-1. AAD uses the domain information you provide during organization setup to write a Service Endpoint within the DID Document. All parties who interact with your DID can see the domain your DID proclaims to be associated with.  
+1. Azure AD uses the domain information you provide during organization setup to write a Service Endpoint within the DID Document. All parties who interact with your DID can see the domain your DID proclaims to be associated with.  
 
     ```json
         "service": [
@@ -58,7 +58,7 @@ We make a link between a domain and a DID by implementing an open standard writt
           }
     ```
 
-2. The verifiable credential service in AAD generates a compliant well-known configuration resource that you can host on your domain. The configuration file includes a self-issued verifiable credential of credentialType 'DomainLinkageCredential' signed with your DID that has an origin of your domain. Here is an example of the config doc that is stored at the root domain url.
+2. The verifiable credential service in Azure AD generates a compliant well-known configuration resource that you can host on your domain. The configuration file includes a self-issued verifiable credential of credentialType 'DomainLinkageCredential' signed with your DID that has an origin of your domain. Here is an example of the config doc that is stored at the root domain url.
 
 
     ```json

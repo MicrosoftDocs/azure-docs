@@ -8,7 +8,7 @@ editor:
 ms.service: identity
 ms.subservice: verifiable-credentials
 ms.topic: overview
-ms.date: 03/31/2021
+ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: 
 ---
@@ -111,7 +111,7 @@ The roles in this scenario are:
 
 ![roles in a verifiable credential environment](media/decentralized-identifier-overview/issuer-user-verifier.png)
 
-**issuer** – The issuer is an organization that creates an issuance solution requesting information from a user. The information is used to verify the user’s identity. For example, Woodgrove, Inc. has an issuance solution that enables them to create and distribute verifiable credentials (VCs) to all their employees. The employee uses the Authenticator app to sign in with their username and password, which passes an id token to the issuing service. Once Woodgrove, Inc. validates the id token submitted, the issuance solution creates a VC that includes claims about the employee and is signed with Woodgrove, Inc. DID. The employee now has a verifiable credential that is signed by their employer, which includes the employees DID as the subject DID.  
+**issuer** – The issuer is an organization that creates an issuance solution requesting information from a user. The information is used to verify the user’s identity. For example, Woodgrove, Inc. has an issuance solution that enables them to create and distribute verifiable credentials (VCs) to all their employees. The employee uses the Authenticator app to sign in with their username and password, which passes an ID token to the issuing service. Once Woodgrove, Inc. validates the ID token submitted, the issuance solution creates a VC that includes claims about the employee and is signed with Woodgrove, Inc. DID. The employee now has a verifiable credential that is signed by their employer, which includes the employees DID as the subject DID.  
 
 **user** – The user is the person or entity that is requesting a VC. For example, Alice is a new employee of Woodgrove, Inc. and was previously issued her proof of employment verifiable credential. When Alice needs to provide proof of employment in order to get a discount at Proseware, she can grant access to the credential in her Authenticator app by signing a verifiable presentation that proves Alice is the owner of the DID. Proseware is able to validate the credential was issued by Woodgrove, Inc.and Alice is the owner of the credential. 
 

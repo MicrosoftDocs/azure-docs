@@ -1,13 +1,13 @@
 ---
-title: How to customize your verifiable credentials (preview)
-description: This article shows you how you can customize your credentials
+title: How to customize your Azure Active Directory Verifiable Credentials (preview)
+description: This article shows you how to create your own custom verifiable credential
 services: active-directory
 author: barclayn
 manager: davba
 ms.service: identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
-ms.date: 03/14/2021
+ms.date: 04/01/2021
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -150,9 +150,9 @@ To ensure interoperability of your credentials, it's recommended that you work c
 
 | Property | Description |
 | -------- | ----------- |
-| `attestations.presentations` | An array of Verifiable Credentials being requested as inputs. |
+| `attestations.presentations` | An array of verifiable credentials being requested as inputs. |
 | `...mapping` | An object that describes how claims in each presented Verifiable Credential are mapped to attributes in the resulting Verifiable Credential. |
-| `...mapping.{attribute-name}` | The attribute that should be populated in the resulting Verifiable Credential. |
+| `...mapping.{attribute-name}` | The attribute that should be populated in the resulting verifiable credential. |
 | `...mapping.{attribute-name}.claim` | The claim in the Verifiable Credential whose value should be used to populate the attribute. |
 | `...mapping.{attribute-name}.indexed` | Only one can be enabled per Verifiable Credential to save for revoke. Please see the [article on how to revoke a credential](how-to-issuer-revoke.md) for more information. |
 | `credentialType` | The credentialType of the Verifiable Credential you are asking the user to present. |
@@ -257,11 +257,11 @@ The display file has the following structure.
 | `consent.instructions` | Supplemental text displayed when a card is being issued. Used to provide details about the issuance process. Recommended length of 100 characters. |
 | `claims` | Allows you to provide labels for attributes included in each credential. |
 | `claims.{attribute}` | Indicates the attribute of the credential to which the label applies. |
-| `claims.{attribute}.type` | Indicates the attribute type. Currently we only support 'String'. We will be added other types in a future release. |
+| `claims.{attribute}.type` | Indicates the attribute type. Currently we only support 'String'. |
 | `claims.{attribute}.label` | The value that should be used as a label for the attribute, which will show up in Authenticator. This maybe different than the label that was used in the rules file. Recommended maximum length of 40 characters. |
 
 >[!note]
-  >If a claim is included in the rules file and then omitted in the display file, there will be two different types of experiences currently. On iOS, the claim will not be displayed in details section shown in the above image, while on Android the claim will be shown. A consistent experience will be rolled out in a later release. 
+  >If a claim is included in the rules file and then omitted in the display file, there are two different types of experiences. On iOS, the claim will not be displayed in details section shown in the above image, while on Android the claim will be shown.  
 
 ## Next steps
 

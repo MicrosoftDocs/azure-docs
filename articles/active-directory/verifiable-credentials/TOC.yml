@@ -19,7 +19,7 @@
 - name: Concepts
   expanded: true
   items:
-  - name: OpenID Connect Protocol Details
+  - name: OpenID Connect protocol details
     href: issuer-openid.md
 - name: How-to guides
   expanded: true
