@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/01/2021
 ---
 
-# Point-in-time restore of a Azure Database for MySQL - Flexible Server (Preview)
+# Point-in-time restore of a Azure Database for MySQL - Flexible Server (Preview) with Azure CLI
 
 
 > [!IMPORTANT]
