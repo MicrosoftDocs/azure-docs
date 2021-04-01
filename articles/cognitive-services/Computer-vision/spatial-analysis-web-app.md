@@ -167,7 +167,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-To install the container, create a new Azure Web App for Containers and fill in the required parameters. Then go to the **Docker** Tab and select **Single Container**, then **Azure Container Registry**. Use your instance of Azure Container Registry where you pushed the image above.
+To install the container, create a new Azure App Service and fill in the required parameters. Then go to the **Docker** Tab and select **Single Container**, then **Azure Container Registry**. Use your instance of Azure Container Registry where you pushed the image above.
 
 ![Enter image details](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -185,7 +185,7 @@ Once these 2 settings are added, click **Save**. Then click **Authentication/Aut
 
 ### Test the app
 
-Go to the Azure Web App and verify the deployment was successful, and the web app is running. Navigate to the configured url: `<yourapp>.azurewebsites.net` to view the running app.
+Go to the Azure Service and verify the deployment was successful, and the web app is running. Navigate to the configured url: `<yourapp>.azurewebsites.net` to view the running app.
 
 ![Test the deployment](./media/spatial-analysis/solution-app-output.png)
 
