@@ -24,8 +24,8 @@ Following issues are known and being addressed.
 | Azure portal cannot read migration state after browser refresh. | Rerun validate and prepare operation to get back to the original migration state. | 
 | Certificate displayed as secret resource in key vault. | After migration, reupload the certificate as a certificate resource to simplify update operation on Cloud Services (extended support). | 
 | Deployment labels not getting saved as tags as part of migration. | Manually create the tags after migration to maintain this information.
-| Resource Group name is in all caps. | Non-impacting. Will be fixed as part of the GA release. |
-| Name of the lock on Cloud Services (extended support) lock is incorrect. | Non-impacting. Will be fixed as part of the GA release. | 
+| Resource Group name is in all caps. | Non-impacting. Solution not yet available. |
+| Name of the lock on Cloud Services (extended support) lock is incorrect. | Non-impacting. Solution not yet available. | 
 | IP address name is incorrect on Cloud Services (extended support) portal blade. | Non-impacting. Solution not yet available. | 
 | Invalid DNS name shown for virtual IP address after on update operation on a migrated cloud service. | Non-impacting. Solution not yet available. | 
 | After successful prepare, linking a new Cloud Services (extended support) deployment as swappable is not allowed. | Do not link a new cloud service as swappable to a prepared cloud service. | 
