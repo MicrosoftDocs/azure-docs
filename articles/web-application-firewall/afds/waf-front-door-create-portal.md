@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Create a [Front Door](../../frontdoor/quickstart-create-front-door.md) or a [Front Door Standard/Premium](../../frontdoor/standard-premium/quickstart-create-front-door.md) profile. 
+Create a [Front Door](../../frontdoor/quickstart-create-front-door.md) or a [Front Door Standard/Premium](../../frontdoor/standard-premium/create-front-door-portal.md) profile. 
 
 ## Create a Web Application Firewall policy
 
