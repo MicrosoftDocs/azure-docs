@@ -57,7 +57,7 @@ For new applications, only default and serverless mode should be used. The main 
 
 Classic mode is designed for backward compatibility for existing applications so should not be used for new applications.
 
-For more information about service mode in [this doc](concept-service-mode.md).
+For more information about service mode see [this doc](concept-service-mode.md).
 
 ## Can I send message from client in serverless mode?
 
