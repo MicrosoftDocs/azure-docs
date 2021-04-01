@@ -34,7 +34,7 @@ You can also specify the start and end time on your Streaming Locator, which wil
 
 * **Streaming Locators** are not updatable. 
 * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
-* You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limits](limits-quotas-constraints.md).
+* You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limits](limits-quotas-constraints-reference.md).
 
 ## Create Streaming Locators  
 
@@ -82,7 +82,7 @@ See [Filters: associate with Streaming Locators](filters-concept.md#associating-
 
 ## Filter, order, page Streaming Locator entities
 
-See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
+See [Filtering, ordering, paging of Media Services entities](filter-order-page-entitites-how-to.md).
 
 ## List Streaming Locators by Asset name
 
