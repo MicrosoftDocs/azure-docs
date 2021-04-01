@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: Personlizer overview
+  - name: Personalizer overview
     href: what-is-personalizer.md
   - name: Pricing
     href: https://go.microsoft.com/fwlink/?linkid=2092154
