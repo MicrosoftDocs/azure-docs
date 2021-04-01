@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 1/12/2020
+ms.date: 04/01/2021
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
