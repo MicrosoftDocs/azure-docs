@@ -7,8 +7,6 @@ ms.date: 03/31/2021
 
 # How to use Azure portal to invoke direct methods
 
-[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
-
 IoT Hub gives you the ability to invoke [direct methods](../../iot-hub/iot-hub-devguide-direct-methods.md#method-invocation-for-iot-edge-modules) on edge devices from the cloud. The Azure Video Analyzer on IoT Edge (AVA) module exposes several [direct methods](./direct-methods.md) that can be used to define, deploy, and instantiate different workflows for analyzing live video.
 
 In this article, you will learn how to invoke direct method calls on Azure Video Analyzer for an IoT Edge module via the Azure portal.
@@ -42,7 +40,7 @@ Use the `LivePipelineList` method call to retrieve a list of all the pipeline to
 1. Copy and paste the JSON below in the **Payload** field.
     ```json
     {
-    "@apiVersion": "2.0"
+    "@apiVersion": "1.0"
     }
     ```
 <!-- Need the correct sample code-->
