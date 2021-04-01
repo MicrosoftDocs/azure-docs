@@ -85,7 +85,8 @@ Create a **Credential entity** and use it for authenticating to your data source
 
 * **Container**: Metrics Advisor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
 
-* **Blob Template**: This is the template of the Blob file names.  You could indicate that this value used to find json file. For example: `/%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. "%Y" is the first branch,  "%m" is the second, if you still have "%d", you should append it after "%m". Then, you append your JSON file name. If your JSON file is named by date, you could also use `%Y-%m-%d-%h-%M.json`.
+* **Blob Template**: Metrics Advisor uses path to find the json file in your Blob storage. This is an example of a Blob file template, which is used to find the json file in your Blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. "%Y/%m" is the path, if you have "%d" in your path, you can add after "%m". If your JSON file is named by date, you could also use `%Y-%m-%d-%h-%M.json`.
+
 The following parameters are supported:
   * `%Y` is the year formatted as `yyyy`
   * `%m` is the month formatted as `MM`
@@ -157,14 +158,15 @@ Query sample for an hourly metric:*/%Y/%m/%d/%h*.
 
 
 * **File Template**:
-This is the file template of the Blob file. The following parameters are supported:
+
+Metrics Advisor uses path to find the json file in your Blob storage. This is an example of a Blob file template, which is used to find the json file in your Blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. "%Y/%m" is the path, if you have "%d" in your path, you can add after "%m". If your JSON file is named by date, you could also use `%Y-%m-%d-%h-%M.json`. 
+
+The following parameters are supported:
   * `%Y` is the year formatted as `yyyy`
   * `%m` is the month formatted as `MM`
   * `%d` is the day formatted as `dd`
   * `%h` is the hour formatted as `HH`
   * `%M` is the minute formatted as `mm`
-
-Sample for a daily metric: *FileName_%Y-%m-%d.json*
 
 Currently Metrics Advisor supports the data schema in the JSON files as follow. For example:
 
