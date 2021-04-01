@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Azure Networking
-    href: ../networking-overview.md?toc=/azure/networking/fundamentals/toc.json
+    href: networking-overview.md
 - name: Quickstarts
   items:
   - name: Create a virtual network

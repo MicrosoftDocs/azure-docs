@@ -41,7 +41,7 @@ A [live event](/rest/api/media/liveevents) can be set to either a *pass-through*
 
 When using the pass-through **live event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the live event (using RTMP or fragmented-MP4 protocol). The live event then carries through the incoming video streams without any further processing. Such a pass-through live event is optimized for long-running live events or 24x365 linear live streaming. When creating this type of live event, specify None (LiveEventEncodingType.None).
 
-You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC video codecs, and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. For more information, see [Live event types comparison](live-event-types-comparison.md).
+You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC video codecs, and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. For more information, see [Live event types comparison](live-event-types-comparison-reference.md).
 
 > [!NOTE]
 > Using a pass-through method is the most economical way to do live streaming when you're doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [Pricing](https://azure.microsoft.com/pricing/details/media-services/) details.
@@ -55,9 +55,9 @@ See the .NET code example for creating a pass-through Live Event in [Live Event 
 
 When using live encoding with Media Services, you configure your on-premises live encoder to send a single bitrate video as the contribution feed to the live event (using RTMP or Fragmented-Mp4 protocol). You then set up a live event so that it encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), and makes the output available for delivery to play back devices via protocols like MPEG-DASH, HLS, and Smooth Streaming.
 
-When you use live encoding, you can send the contribution feed only at resolutions up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. Note that pass-through live events can support resolutions up to 4K at 60 frames/second. For more information, see [Live event types comparison](live-event-types-comparison.md).
+When you use live encoding, you can send the contribution feed only at resolutions up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. Note that pass-through live events can support resolutions up to 4K at 60 frames/second. For more information, see [Live event types comparison](live-event-types-comparison-reference.md).
 
-The resolutions and bitrates contained in the output from the live encoder is determined by the preset. If using a **Standard** live encoder (LiveEventEncodingType.Standard), then the *Default720p* preset specifies a set of six resolution/bit rate pairs, going from 720p at 3.5 Mbps down to 192p at 200 kbps. Otherwise, if using a **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), then the *Default1080p* preset specifies a set of six resolution/bit rate pairs, going from 1080p at 3.5 Mbps down to 180p at 200 kbps. For information, see [System presets](live-event-types-comparison.md#system-presets).
+The resolutions and bitrates contained in the output from the live encoder is determined by the preset. If using a **Standard** live encoder (LiveEventEncodingType.Standard), then the *Default720p* preset specifies a set of six resolution/bit rate pairs, going from 720p at 3.5 Mbps down to 192p at 200 kbps. Otherwise, if using a **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), then the *Default1080p* preset specifies a set of six resolution/bit rate pairs, going from 1080p at 3.5 Mbps down to 180p at 200 kbps. For information, see [System presets](live-event-types-comparison-reference.md#system-presets).
 
 > [!NOTE]
 > If you need to customize the live encoding preset, open a support ticket via Azure portal. Specify the desired table of resolution and bitrates. Verify that there's only one layer at 720p (if requesting a preset for a Standard live encoder) or at 1080p (if requesting a preset for a Premium1080p live encoder), and 6 layers at most.
@@ -86,7 +86,7 @@ When creating a live event, you can specify the following options:
 
 When you create a live event, you can set it to StandBy mode. While the event is in StandBy mode, you can edit the Description, the Static hostname prefix and restrict input and preview access settings.  StandBy mode is still a billable mode, but is priced differently than when you start a live stream.
 
-For more information, see [Live event states and billing](live-event-states-billing.md).
+For more information, see [Live event states and billing](live-event-states-billing-concept.md).
 
 * IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this live event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').
 <br/><br/>
@@ -94,7 +94,7 @@ If no IP addresses are specified and there's no rule definition, then no IP addr
 <br/><br/>
 If you want to enable certain IPs on your own firewalls or want to constrain inputs to your live events to Azure IP addresses, download a JSON file from [Azure Datacenter IP address ranges](https://www.microsoft.com/download/details.aspx?id=41653). For details about this file, select the **Details** section on the page.
 
-* When creating the event, you can choose to turn on live transcriptions. By default, live transcription is disabled. For more information about live transcription read [Live transcription](live-transcription.md).
+* When creating the event, you can choose to turn on live transcriptions. By default, live transcription is disabled. For more information about live transcription read [Live transcription](live-event-live-transcription-how-to.md).
 
 ### Naming rules
 
@@ -217,7 +217,7 @@ For details, see [long-running operations](media-services-apis-overview.md#long-
 
 Once you have the stream flowing into the live event, you can begin the streaming event by creating an [Asset](/rest/api/media/assets), [live output](/rest/api/media/liveoutputs), and [Streaming Locator](/rest/api/media/streaminglocators). live output will archive the stream and make it available to viewers through the [Streaming Endpoint](/rest/api/media/streamingendpoints).  
 
-For detailed information about live outputs, see [Using a cloud DVR](live-event-cloud-dvr.md).
+For detailed information about live outputs, see [Using a cloud DVR](live-event-cloud-dvr-time-how-to.md).
 
 ## Live event output questions
 
