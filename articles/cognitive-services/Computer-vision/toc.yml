@@ -173,20 +173,18 @@
     items:
     - name: Deploy Spatial Analysis
       items:
-      - name: Containers
-        items:
-        - name: Configure operations
-          href: spatial-analysis-operations.md
-        - name: Deploy a people counting web app
-          href: Spatial-analysis-web-app.md
-        - name: Logging and troubleshooting
-          href: spatial-analysis-logging.md
-        - name: Zone and line placement
-          href: spatial-analysis-zone-line-placement.md
-        - name: Camera placement
-          href: spatial-analysis-camera-placement.md
-        - name: All Cognitive Services containers
-          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+      - name: Configure operations
+        href: spatial-analysis-operations.md
+      - name: Deploy a people counting web app
+        href: Spatial-analysis-web-app.md
+      - name: Logging and troubleshooting
+        href: spatial-analysis-logging.md
+      - name: Zone and line placement
+        href: spatial-analysis-zone-line-placement.md
+      - name: Camera placement
+        href: spatial-analysis-camera-placement.md
+      - name: All Cognitive Services containers
+        href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
 - name: How-to guides
   items:
   - name: How to configure virtual networks
