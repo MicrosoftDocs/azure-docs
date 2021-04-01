@@ -26,6 +26,8 @@
     href: conceptual-extensions.md
   - name: Cluster connect
     href: conceptual-cluster-connect.md
+  - name: Custom locations
+    href: conceptual-custom-locations.md
   - name: Azure RBAC
     href: conceptual-azure-rbac.md
   - name: Frequently Asked Questions
