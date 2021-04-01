@@ -62,7 +62,7 @@ Once there add an *A record* pointing to your Public IP Address or FQDN. For exa
 
 The A record entry is added to the DNS records table.
  
-After the record is created it usually takes aboout an hour for DNS propogate, but it can sometimes take up to 48 hours. 
+After the record is created it usually takes about an hour for DNS propagate, but it can sometimes take up to 48 hours. 
 
 
  
