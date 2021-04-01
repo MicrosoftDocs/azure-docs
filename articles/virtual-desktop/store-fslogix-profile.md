@@ -60,7 +60,7 @@ The following table lists our recommendations for which performance tier to use 
 |Heavy|Premium file shares|
 |Power|Premium file shares|
 
-For more information about Azure Files performance, see [File share and file scale targets](../storage/files/storage-files-scale-targets.md#file-share-and-file-scale-targets). For more information about pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+For more information about Azure Files performance, see [File share and file scale targets](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets). For more information about pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Next steps
 
