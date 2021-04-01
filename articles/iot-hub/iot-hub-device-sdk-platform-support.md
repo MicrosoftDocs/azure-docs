@@ -111,7 +111,7 @@ Microsoft works with a number of partners to continually expand the Azure IoT un
 
 * To browse Azure IoT certified devices, see [Microsoft Azure Certified for IoT Device Catalog](https://devicecatalog.azure.com/).
 
-* To learn more about the Azure Certified for IoT ecosystem, see [Join the Certified for IoT ecosystem](https://docs.microsoft.com/en-us/azure/certification/overview).
+* To learn more about the Azure Certified for IoT ecosystem, see [Join the Certified for IoT ecosystem](../certification/overview.md).
 
 ## Connecting to IoT Hub without an SDK
 
