@@ -147,8 +147,8 @@ After learning how to use the CSI Secrets Store Driver with an AKS Cluster, see 
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-create]: /cli/azure/aks#az_aks_create
-[key-vault-provider]: ../key-vault/general/key-vault-integrate-kubernetes
-[csi-storage-drivers]: ./csi-storage-drivers
+[key-vault-provider]: ../key-vault/general/key-vault-integrate-kubernetes.md
+[csi-storage-drivers]: ./csi-storage-drivers.md
 
 <!-- External -->
 [kube-csi]: https://kubernetes-csi.github.io/docs/
