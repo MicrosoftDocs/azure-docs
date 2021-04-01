@@ -40,8 +40,7 @@ This tutorial helps you visualize your data in Azure Sentinel.
 
 1. Go to **Workbooks** and then select **Templates** to see the full list of Azure Sentinel built-in workbooks. To see which are relevant to the data types you have connected, the **Required data types** field in each workbook will list the data type next to a green check mark if you already stream relevant data to Azure Sentinel.
   ![go to workbooks](./media/tutorial-monitor-data/access-workbooks.png)
-
-1. Select **View template** to see the template populated with your data.
+1. Click  **View template** to see the template populated with your data.
 
 1. To edit the workbook, select **Save**, and then select the location where you want to save the JSON file for the template. 
 
@@ -54,6 +53,7 @@ This tutorial helps you visualize your data in Azure Sentinel.
 1. After you make your changes, you can save the workbook. 
 
 1. You can also clone the workbook: Select **Edit** and then **Save as**, making sure to save it with another name, under the same subscription and resource group. These cloned workbooks are displayed under the **My workbooks** tab.
+
 
 ## Create new workbook
 
@@ -71,6 +71,7 @@ This tutorial helps you visualize your data in Azure Sentinel.
 1. To switch between workbooks in your workspace, you can select **Open** ![Icon for opening a workbook.](./media/tutorial-monitor-data/switch.png)in the top pane of any workbook. On the window that opens to the right, switch between workbooks.
 
    ![Switch workbooks](./media/tutorial-monitor-data/switch-workbooks.png)
+
 
 ## Print a workbook or save as PDF
 
