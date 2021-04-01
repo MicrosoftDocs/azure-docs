@@ -5,7 +5,7 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 04/01/2021
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -57,23 +57,16 @@ SELECT CONTAINS("abc", "ab", false) AS c1, CONTAINS("abc", "A", false) AS c2, CO
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+This system function will [use indexes](index-overview.md#index-usage) the same way, regardless of the case-insensitive option.
 
-The RU consumption of Contains will increase as the cardinality of the property in the system function increases. In other words, if you are checking whether a property value contains a certain string, the query RU charge will depend on the number of possible values for that property.
+| Index lookup type  | Non-aggregate query | Aggregate query |
+| ------------------ | ------------------- | --------------- |
+| Index seek         |                     |                 |
+| Precise index scan |                     |                 |
+| Index scan         |  x                  |                 |
+| Full scan          |                     | x               |
 
-For example, consider two properties: town and country. The cardinality of town is 5,000 and the cardinality of country is 200. Here are two example queries:
-
-```sql
-    SELECT * FROM c WHERE CONTAINS(c.town, "Red", false)
-```
-
-```sql
-    SELECT * FROM c WHERE CONTAINS(c.country, "States", false)
-```
-
-The first query will likely use more RUs than the second query because the cardinality of town is higher than country.
-
-If the property size in Contains is greater than 1 KB for some documents, the query engine will need to load those documents. In this case, the query engine won't be able to fully evaluate Contains with an index. The RU charge for Contains will be high if you have a large number of documents with property sizes more than 1 KB.
+If the property size in [Contains](sql-query-contains.md) is greater than 1 KB for some items, the query engine will need to load those items. In this case, the query engine won't be able to fully evaluate Contains with an index. The RU charge for Contains will be high if you have a large number of items with property sizes more than 1 KB.
 
 ## Next steps
 

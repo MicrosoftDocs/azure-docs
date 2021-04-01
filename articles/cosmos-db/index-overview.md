@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 03/23/2021
 ms.author: tisande
 ---
 
@@ -184,6 +184,47 @@ For example, consider the following query: `SELECT location FROM location IN com
 > [!NOTE]
 > An `ORDER BY` clause that orders by a single property *always* needs a range index and will fail if the path it references doesn't have one. Similarly, an `ORDER BY` query which orders by multiple properties *always* needs a composite index.
 
+## Index usage
+
+There are four ways that the query engine can evaluate query filters: an index seek, a precise index scan, an index scan, or a full scan. When you index properties, the query engine will automatically use the indexes as effiectively as possible. Aside from creating new indexes, there is nothing that you need to configure to optimize how queries use indexes.
+
+An index seek is more efficient than an index scan because the query engine will only read index pages that match the query's filters. For an index seek, the query RU charge and index lookup time will be constant, even as data volume grows. For an index scan, the query engine will scan through all unique indexed values. Therefore, an index scan will become more expensive as that property's cardinality grows.
+
+For example, consider two properties: town and country. The cardinality of town is 5,000 and the cardinality of country is 200. Here are two example queries that each have a [Contains](sql-query-contains.md) system functions that does an index scan on the `town` property:
+
+```sql
+    SELECT *
+    FROM c
+    WHERE CONTAINS(c.town, "Red", false)
+```
+
+```sql
+    SELECT *
+    FROM c
+    WHERE CONTAINS(c.country, "States", false)
+```
+
+A precise index scan is similar to an index scan in the sense that both scan through all unique indexed values and load only matching items. However, unlike an index scan, a precise index scan does an optimized search and only reads a subset of the unique indexed values. A precise index scan will become more expensive as that property's cardinality grows but this will be a logarithmic, rather than linear, increase.
+
+For example, consider a query with a range filter on the `age` property:
+
+```sql
+   SELECT *
+   FROM c 
+   WHERE c.age > 20
+```
+
+Because indexed values are sorted, the query engine can do a binary search to find all of the age values that are greater than 20. While the query engine will still scan distinct index values like in an index scan, it only needs to read a subset of them. In this case, the query charge will increase gradually as the cardinality of `age` increases.
+
+
+The first query will likely use more RUs than the second query because the cardinality of town is higher than country.
+
+| Index lookup type  | Description                                                  | Common Examples                                       | Query charge                                                 |
+| ------------------ | ------------------------------------------------------------ | ----------------------------------------------------- | ------------------------------------------------------------ |
+| Index seek         | Read only index pages that match the query filter and load only matching items | Equality filters, IN | Constant                                                     |
+| Precise index scan | Optimized search of index pages and load only matching items | Range comparisons (>, <, <=, or >=), StartsWith       | Comparable to index seek for low cardinality properties. Gradual increase as cardinality of indexed properties increases. |
+| Index scan         | Read all index pages and load only matching items            | Contains, EndsWith, RegexMatch, LIKE                  | Increases linearly with cardinality of indexed properties    |
+| Full scan          | Load all items                                      | Upper, Lower                                           | Increases linearly with data size                                     |
 ## Next steps
 
 Read more about indexing in the following articles:
