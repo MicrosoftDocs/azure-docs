@@ -47,7 +47,6 @@ The following list contains the fully qualified domain names (FQDN) used by your
     > [!NOTE]
     > * Compute instances can be accessed only from within the virtual network.
     > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
-    > * The compute instance can be accessed only from within the virtual network.
 
 ## Azure China 21Vianet regions
 
