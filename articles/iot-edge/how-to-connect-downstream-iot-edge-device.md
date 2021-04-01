@@ -435,8 +435,6 @@ The API proxy module was designed to be customized to handle most common gateway
 
 ---
 
----
-
 ### Deploy modules to lower layer devices
 
 IoT Edge devices in lower layers of a gateway hierarchy have one required module that must be deployed to them, in addition to any workload modules you may run on the device.
