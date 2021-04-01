@@ -25,7 +25,7 @@ Azure Media Service delivers video, audio, and text in different protocols. When
 
 Additional charges apply when live transcription is turned on. Please review the pricing information in the Live Video section of the [Media Services pricing page](https://azure.microsoft.com/pricing/details/media-services/).
 
-This article describes how to enable live transcription when streaming a Live Event with Azure Media Services. Before you continue, make sure you're familiar with the use of Media Services v3 REST APIs (see [this tutorial](stream-files-tutorial-with-rest.md) for details). You should also be familiar with the [live streaming](live-streaming-overview.md) concept. It's recommended to complete the [Stream live with Media Services](stream-live-tutorial-with-api.md) tutorial.
+This article describes how to enable live transcription when streaming a Live Event with Azure Media Services. Before you continue, make sure you're familiar with the use of Media Services v3 REST APIs (see [this tutorial](stream-files-tutorial-with-rest.md) for details). You should also be familiar with the [live streaming](stream-live-streaming-concept.md) concept. It's recommended to complete the [Stream live with Media Services](stream-live-tutorial-with-api.md) tutorial.
 
 ## Live transcription preview regions and languages
 
