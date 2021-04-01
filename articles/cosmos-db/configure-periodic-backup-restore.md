@@ -4,7 +4,7 @@ description: This article describes how to configure Azure Cosmos DB accounts wi
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
 
@@ -49,6 +49,45 @@ Use the following steps to change the default backup options for an existing Azu
 If you configure backup options during the account creation, you can configure the **Backup policy**, which is either **Periodic** or **Continuous**. The periodic policy allows you to configure the Backup interval and Backup retention. The continuous policy is currently available by sign-up only. The Azure Cosmos DB team will assess your workload and approve your request.
 
 :::image type="content" source="./media/configure-periodic-backup-restore/configure-periodic-continuous-backup-policy.png" alt-text="Configure periodic or continuous backup policy for new  Azure Cosmos accounts." border="true":::
+
+## Modify the backup storage redundancy
+
+By default, Azure Cosmos DB stores periodic mode backup data in geo-redundant [blob storage](../storage/common/storage-redundancy.md) that is replicated to a [paired region](../best-practices-availability-paired-regions.md).  
+
+To ensure that your backup data stays within the same region where your Azure Cosmos DB account is provisioned, you can change the default geo-redundant backup storage and configure either locally redundant or zone-redundant storage. Storage redundancy mechanisms store multiple copies of your backups so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters.
+
+You can configure storage redundancy for periodic backup mode at the time of account creation or update it for an existing account.
+
+### Periodic backup mode redundancy options
+
+Backup data in Azure Cosmos DB is replicated three times in the primary region. When using the periodic backup mode, you can use the following three data redundancy options:
+
+* **Geo-redundant backup storage:** This option copies your data asynchronously across the paired region.
+
+* **Zone-redundant backup storage:** This option copies your data asynchronously across three Azure availability zones in the primary region.
+
+* Locally-redundant backup storage:** This option copies your data asynchronously three times within a single physical location in the primary region.
+
+> [!NOTE]
+> Zone-redundant storage is currently available only in [specific regions](high-availability.md#availability-zone-support). Based on the region you select; this option will not be available for new or existing accounts.
+
+### Configure backup redundancy for new accounts
+
+When provisioning a new account, from the **Backup Policy** tab, select **Periodic*** backup policy and choose the backup redundancy from the **Backup storage redundancy** option.
+
+For example, you can choose **locally redundant backup storage** option to prevent backup data replication outside your region.
+
+:::image type="content" source="./media/configure-periodic-backup-restore/backup-redundancy-new-accounts.png" alt-text="Configure backup storage redundancy for new  Azure Cosmos accounts." border="true":::
+
+### Configure backup redundancy for existing accounts
+
+By default, your existing periodic backup mode accounts have geo-redundant storage. You can choose other storage such as locally redundant to ensure the backup is not replicated to another region.  
+The changes made to an existing account are applied to only future backups. After the backup storage redundancy of an existing account is updated, it may take up to twice the [Backup interval](#configure-backup-interval-retention) time for the changes to take effect and you will lose access to restore the older backups immediately.
+
+> [!NOTE]
+> You must have the "role (to replace)" assigned at subscription level to configure backup storage redundancy.
+
+:::image type="content" source="./media/configure-periodic-backup-restore/backup-redundancy-existing-accounts.png" alt-text="Configure backup storage redundancy for existing Azure Cosmos accounts." border="true":::
 
 ## <a id="request-restore"></a>Request data restore from a backup
 
