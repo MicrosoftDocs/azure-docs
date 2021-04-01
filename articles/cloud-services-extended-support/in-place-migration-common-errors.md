@@ -29,7 +29,7 @@ Following issues are known and being addressed.
 | IP address name is incorrect on Cloud Services (extended support) portal blade. | Non-impacting. Solution not yet available. | 
 | Invalid DNS name shown for virtual IP address after on update operation on a migrated cloud service. | Non-impacting. Solution not yet available. | 
 | After successful prepare, linking a new Cloud Services (extended support) deployment as swappable is not allowed. | Do not link a new cloud service as swappable to a prepared cloud service. | 
-| Error messages need to be updated. | Non-impacting. Submit feedback using available channels for improvement. | 
+| Error messages need to be updated. | Non-impacting. | 
 
 ## Common migration errors
 Common migration errors and mitigation steps. 
@@ -46,7 +46,7 @@ Common migration errors and mitigation steps.
 | The deployment cannot be migrated because the deployment's cloud service has two occupied slots. Migration of cloud services is only supported for deployments that are the only deployment in their cloud service. Delete the other deployment in the cloud service to proceed with the migration of this deployment. | Refer to the [unsupported scenario](in-place-migration-overview.md#unsupported-configurations--migration-scenarios) list for more details. | 
 | Deployment deployment-name in HostedService cloud-service-name is in intermediate state: state. Migration not allowed. | Deployment is either being created, deleted or updated. Wait for the operation to complete and retry. | 
 | The deployment deployment-name in hosted service cloud-service-name has reserved IP(s) but no reserved IP name. To resolve this issue, update reserved IP name or contact the Microsoft Azure service desk. | Update cloud service deployment. | 
-| The deployment deployment-name in hosted service cloud-service-name has reserved IP(s) reserved-ip-name but no endpoint on the reserved IP. To resolve this issue, add at least one endpoint to the reserved IP. | Add endpoint to reserved ip. | 
+| The deployment deployment-name in hosted service cloud-service-name has reserved IP(s) reserved-ip-name but no endpoint on the reserved IP. To resolve this issue, add at least one endpoint to the reserved IP. | Add endpoint to reserved IP. | 
 | Migration of Deployment {0} in HostedService {1} is in the process of being committed and cannot be changed until it completes successfully.	| Wait or retry operation. | 
 | Migration of Deployment {0} in HostedService {1} is in the process of being aborted and cannot be changed until it completes successfully. | Wait or retry operation. |
 | One or more VMs in Deployment {0} in HostedService {1} is undergoing an update operation. It can't be migrated until the previous operation completes successfully. Retry after sometime. | Wait for operation to complete. | 
