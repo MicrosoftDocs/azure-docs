@@ -62,7 +62,7 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 #### Using the Azure portal to link your Notification Hub
 
-In the portal, navigate to your Azure Communication Services resource. Inside the Communication Services resource, select Push Notifications from the left menu of the Communication Services page and connect the Notification Hub that you provisioned earlier. Click "Connect notification hub". You will see list of notification hubs avilable to connect, Select notification hub that you would like to use for this resource. If there is no notification hub to link click "Create new notification hub" on top to get a new hub provisioned for this resource.
+In the portal, navigate to your Azure Communication Services resource. Inside the Communication Services resource, select Push Notifications from the left menu of the Communication Services page and connect the Notification Hub that you provisioned earlier. Click "Connect notification hub". You will see list of notification hubs available to connect. Select the notification hub that you'd like to use for this resource. If you need to create a new hub, click "Create new notification hub" to get a new hub provisioned for this resource.
 
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure portal.":::
 
