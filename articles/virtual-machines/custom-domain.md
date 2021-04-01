@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/25/2021
+ms.date: 04/01/2021
 ms.author: jamesser
 ms.reviewer: cynthn
 ---
@@ -67,6 +67,6 @@ After the record is created it usually takes about an hour for DNS propagate, bu
 
  
 ## Next steps
-[Quickstart: Load Balancer](/load-balancer/quickstart-load-balancer-standard-public-portal?tabs=option-1-create-load-balancer-standard).
+[Overview of TLS termination and end to end TLS with Application Gateway](../application-gateway/ssl-overview.md).
 
  
