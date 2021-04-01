@@ -46,7 +46,7 @@ However, you might determine that a complete backup copy of your Azure Time Seri
 - As a *failover instance* specifically for Azure Time Series Insights to redirect data and traffic to
 - To preserve data and auditing information
 
-In general, the best way to duplicate a Azure Time Series Insights environment is to create a second Azure Time Series Insights environment in a backup Azure region. Events are also sent to this secondary environment from your primary event source. Make sure that you use a second dedicated consumer group. Follow that source's business disaster recovery guidelines, as described earlier.
+In general, the best way to duplicate an Azure Time Series Insights environment is to create a second Azure Time Series Insights environment in a backup Azure region. Events are also sent to this secondary environment from your primary event source. Make sure that you use a second dedicated consumer group. Follow that source's business disaster recovery guidelines, as described earlier.
 
 To create a duplicate environment:
 
@@ -58,7 +58,7 @@ To create a duplicate environment:
 If an event occurs:
 
 1. If your primary region is affected during a disaster incident, reroute operations to the backup Azure Time Series Insights environment.
-1. Because hub sequence numbers restart from 0 after the failover, recreate the event source in both regions/environments with different consumer groups to avoid what would otherwise look like duplicate events.
+1. Because hub sequence numbers restart from 0 after the failover, recreate the event source in both regions/environments with different consumer groups. This helps avoid creating what would otherwise look like duplicate events.
 1. Use your second region to back up and recover all Azure Time Series Insights telemetry and query data.
 
 > [!IMPORTANT]
