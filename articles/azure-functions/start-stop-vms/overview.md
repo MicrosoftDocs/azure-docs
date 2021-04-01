@@ -23,7 +23,7 @@ An HTTP trigger endpoint function is created to support the schedule and sequenc
 
 |Name |Trigger |Description |
 |-----|--------|------------|
-|AlertAvailabilityTest |Timer |This function is performs the availability test to make sure the primary function **AutoStopVM** is always available.|
+|AlertAvailabilityTest |Timer |This function performs the availability test to make sure the primary function **AutoStopVM** is always available.|
 |AutoStop |HTTP |This function supports the **AutoStop** scenario, which is the entry point function that is called from Logic App.|
 |AutoStopAvailabilityTest |Timer |This function performs the availability test to make sure the primary function **AutoStop** is always available.|
 |AutoStopVM |HTTP |This function is triggered automatically by the VM alert when the alert condition is true.|
