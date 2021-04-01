@@ -46,7 +46,7 @@ Whenever a temperature telemetry event is sent by the thermostat device, a funct
 
 In this section, you'll set up a [digital twin](concepts-twins-graph.md) in Azure Digital Twins that will represent the thermostat device and will be updated with information from IoT Hub.
 
-To create a thermostat-type twin, you'll first need to upload the thermostat [model](concepts-models.md) to your instance, which describes the properties of a thermostat and will be used later to create the twin. 
+To create a thermostat-type twin, you'll first need to upload the thermostat [model](concepts-models.md) to your instance, which describes the properties of a thermostat and will be used later to create the twin.
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
