@@ -4,7 +4,7 @@ description: Learn how to identify the restore point and configure continuous ba
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
 
@@ -27,6 +27,10 @@ This article describes how to identify the restore point and configure continuou
 When creating a new Azure Cosmos DB account, for the **Backup policy** option, choose **continuous** mode to enable the point in time restore functionality for the new account. After this feature is enabled for the account, all the databases and containers are available for continuous backup. With the point-in-time restore, data is always restored to a new account, currently you can't restore to an existing account.
 
 :::image type="content" source="./media/continuous-backup-restore-portal/configure-continuous-backup-portal.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration." border="true":::
+
+## Backup storage redundancy
+
+By default, Azure Cosmos DB stores continuous mode backup data in locally redundant storage blobs. In the Azure Cosmos DB account, continuous mode backup data is stored in zone-redundant storage blobs for the regions that have zone redundancy configured.
 
 ## <a id="restore-live-account"></a>Restore a live account from accidental modification
 
