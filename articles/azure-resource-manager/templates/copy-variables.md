@@ -47,30 +47,30 @@ The following example shows how to create an array of string values:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "itemCount": {
-            "type": "int",
-            "defaultValue": 5
-        }
-     },
-    "variables": {
-        "copy": [
-            {
-                "name": "stringArray",
-                "count": "[parameters('itemCount')]",
-                "input": "[concat('item', copyIndex('stringArray', 1))]"
-            }
-        ]
-    },
-    "resources": [],
-    "outputs": {
-        "arrayResult": {
-            "type": "array",
-            "value": "[variables('stringArray')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "itemCount": {
+      "type": "int",
+      "defaultValue": 5
     }
+  },
+  "variables": {
+    "copy": [
+      {
+        "name": "stringArray",
+        "count": "[parameters('itemCount')]",
+        "input": "[concat('item', copyIndex('stringArray', 1))]"
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "arrayResult": {
+      "type": "array",
+      "value": "[variables('stringArray')]"
+    }
+  }
 }
 ```
 
@@ -78,11 +78,11 @@ The preceding template returns an array with the following values:
 
 ```json
 [
-    "item1",
-    "item2",
-    "item3",
-    "item4",
-    "item5"
+  "item1",
+  "item2",
+  "item3",
+  "item4",
+  "item5"
 ]
 ```
 
@@ -90,34 +90,34 @@ The next example shows how to create an array of objects with three properties -
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "itemCount": {
-            "type": "int",
-            "defaultValue": 5
-        }
-    },
-    "variables": {
-        "copy": [
-            {
-                "name": "objectArray",
-                "count": "[parameters('itemCount')]",
-                "input": {
-                    "name": "[concat('myDataDisk', copyIndex('objectArray', 1))]",
-                    "diskSizeGB": "1",
-                    "diskIndex": "[copyIndex('objectArray')]"
-                }
-            }
-        ]
-    },
-    "resources": [],
-    "outputs": {
-        "arrayResult": {
-            "type": "array",
-            "value": "[variables('objectArray')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "itemCount": {
+      "type": "int",
+      "defaultValue": 5
     }
+  },
+  "variables": {
+    "copy": [
+      {
+        "name": "objectArray",
+        "count": "[parameters('itemCount')]",
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('objectArray', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('objectArray')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "arrayResult": {
+      "type": "array",
+      "value": "[variables('objectArray')]"
+    }
+  }
 }
 ```
 
@@ -125,31 +125,31 @@ The preceding example returns an array with the following values:
 
 ```json
 [
-    {
-        "name": "myDataDisk1",
-        "diskSizeGB": "1",
-        "diskIndex": 0
-    },
-    {
-        "name": "myDataDisk2",
-        "diskSizeGB": "1",
-        "diskIndex": 1
-    },
-    {
-        "name": "myDataDisk3",
-        "diskSizeGB": "1",
-        "diskIndex": 2
-    },
-    {
-        "name": "myDataDisk4",
-        "diskSizeGB": "1",
-        "diskIndex": 3
-    },
-    {
-        "name": "myDataDisk5",
-        "diskSizeGB": "1",
-        "diskIndex": 4
-    }
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
 ]
 ```
 
@@ -161,37 +161,37 @@ You can also use the `copy` element within a variable. The following example cre
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "itemCount": {
-            "type": "int",
-            "defaultValue": 5
-        }
-    },
-    "variables": {
-        "topLevelObject": {
-            "sampleProperty": "sampleValue",
-            "copy": [
-                {
-                    "name": "disks",
-                    "count": "[parameters('itemCount')]",
-                    "input": {
-                        "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-                        "diskSizeGB": "1",
-                        "diskIndex": "[copyIndex('disks')]"
-                    }
-                }
-            ]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "objectResult": {
-            "type": "object",
-            "value": "[variables('topLevelObject')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "itemCount": {
+      "type": "int",
+      "defaultValue": 5
     }
+  },
+  "variables": {
+    "topLevelObject": {
+      "sampleProperty": "sampleValue",
+      "copy": [
+        {
+          "name": "disks",
+          "count": "[parameters('itemCount')]",
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
+          }
+        }
+      ]
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "objectResult": {
+      "type": "object",
+      "value": "[variables('topLevelObject')]"
+    }
+  }
 }
 ```
 
@@ -199,34 +199,34 @@ The preceding example returns an object with the following values:
 
 ```json
 {
-    "sampleProperty": "sampleValue",
-    "disks": [
-        {
-            "name": "myDataDisk1",
-            "diskSizeGB": "1",
-            "diskIndex": 0
-        },
-        {
-            "name": "myDataDisk2",
-            "diskSizeGB": "1",
-            "diskIndex": 1
-        },
-        {
-            "name": "myDataDisk3",
-            "diskSizeGB": "1",
-            "diskIndex": 2
-        },
-        {
-            "name": "myDataDisk4",
-            "diskSizeGB": "1",
-            "diskIndex": 3
-        },
-        {
-            "name": "myDataDisk5",
-            "diskSizeGB": "1",
-            "diskIndex": 4
-        }
-    ]
+  "sampleProperty": "sampleValue",
+  "disks": [
+    {
+      "name": "myDataDisk1",
+      "diskSizeGB": "1",
+      "diskIndex": 0
+    },
+    {
+      "name": "myDataDisk2",
+      "diskSizeGB": "1",
+      "diskIndex": 1
+    },
+    {
+      "name": "myDataDisk3",
+      "diskSizeGB": "1",
+      "diskIndex": 2
+    },
+    {
+      "name": "myDataDisk4",
+      "diskSizeGB": "1",
+      "diskIndex": 3
+    },
+    {
+      "name": "myDataDisk5",
+      "diskSizeGB": "1",
+      "diskIndex": 4
+    }
+  ]
 }
 ```
 

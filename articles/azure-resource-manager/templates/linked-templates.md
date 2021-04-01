@@ -592,6 +592,8 @@ As with other resource types, you can set dependencies between the linked templa
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/linked-dependency.json" highlight="10,22,24":::
 
+To deploy the resources in a linked template to a different resource group, you must set the linked template dependent on that resource group.
+
 ## contentVersion
 
 You don't have to provide the `contentVersion` property for the `templateLink` or `parametersLink` property. If you don't provide a `contentVersion`, the current version of the template is deployed. If you provide a value for content version, it must match the version in the linked template; otherwise, the deployment fails with an error.
