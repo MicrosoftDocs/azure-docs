@@ -38,9 +38,9 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ### Set workbooks to automatically refresh while in view mode
 
-Set your Azure Sentinel workbooks and workbook templates to automatically refresh while you're in view mode.
+Azure Sentinel users can now use the new [Azure Monitor ability](https://techcommunity.microsoft.com/t5/azure-monitor/azure-workbooks-set-it-to-auto-refresh/ba-p/2228555) to automatically refresh workbook data during a view session.
 
-- Supported refresh intervals range from **5 minutes** to **1 day**, similar to the Azure dashboard.
+- Supported refresh intervals range from **5 minutes** to **1 day**.
 - By default, auto refresh is turned off. To optimize performance, auto refresh is also turned off each time you close a workbook, and does not run in the background. Turn auto refresh back on as needed the next time you open the workbook.
 - Auto refresh is paused while you're editing a workbook, and auto refresh intervals are restarted each time you switch back to view mode from edit mode.
 
