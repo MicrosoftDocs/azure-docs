@@ -358,6 +358,13 @@ the virtual network, virtual machine, and NAT gateway with the following steps:
 
 ## Next steps
 
+In this tutorial you:
+
+* Created a virtual network
+* Created a NAT gateway
+* Created a load balancer with an IP-based backend pool
+* Tested the load balancer
+
 Advance to the next article to learn how to create a cross-region load balancer:
 > [!div class="nextstepaction"]
 > [Create a cross-region Azure Load Balancer using the Azure portal](tutorial-cross-region-portal.md)
