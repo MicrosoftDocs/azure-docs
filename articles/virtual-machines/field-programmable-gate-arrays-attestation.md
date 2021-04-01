@@ -20,11 +20,11 @@ We provide PowerShell and Bash scripts to submit attestation requests.   The scr
 
 Azure CLI download (required):  
 
-https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest  
+https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest  
 
 PowerShell for Windows, Linux, and macOS download (only for PowerShell scripts):  
 
-https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7  
+https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7  
 
 You will need to have your tenant and subscription ID authorized to submit to the attestation service. Visit https://aka.ms/AzureFPGAAttestationPreview to request access. 
 
@@ -40,13 +40,13 @@ You must include the following argument to Vitis (v++ cmd line) to build an xclb
 
 Prior to performing any operations with Azure, you must log into Azure and set the subscription that is authorized to call the service. Use the ```az login``` and ```az account set –s <Sub ID or Name>``` commands for this purpose. Further information about this process is documented here:  
 
-https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest. Use either the ‘sign in interactively’ or ‘sign in with credentials’ option on the command line.  
+https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest. Use either the ‘sign in interactively’ or ‘sign in with credentials’ option on the command line.  
 
 ## Creating a Storage Account and Blob Container  
 
 Your netlist file must be uploaded to an Azure storage blob container for access by the attestation service.  
 
-Refer to this page for more information on creating the account, a container, and uploading your netlist as a blob to that container: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstartblobs-cli.  
+Refer to this page for more information on creating the account, a container, and uploading your netlist as a blob to that container: https://docs.microsoft.com/azure/storage/blobs/storage-quickstartblobs-cli.  
 
 You can also use the Azure portal for this as well.  
 
