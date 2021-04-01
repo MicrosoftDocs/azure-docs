@@ -33,7 +33,7 @@
       href: tutorial-node-module.md
     - name: Python
       href: tutorial-python-module.md
-    - name: Custom modules as Windows containers
+    - name: Use Windows containers
       items:
       - name: C
         href: tutorial-c-module-windows.md
