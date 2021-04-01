@@ -208,7 +208,7 @@ If your function app is using the Python pickel library to load Python object fr
 
 ### Pyodbc connection collision
 
-If you uses the popular ODBC database driver [pyodbc](https://github.com/mkleehammer/pyodbc), it is possible that multiple connections are created and opened inside within a single function app. To avoid this issue, please use the singleton pattern and ensure only one pyodbc connection is used across the function app.
+If your function app is using the popular ODBC database driver [pyodbc](https://github.com/mkleehammer/pyodbc), it is possible that multiple connections are opened within a single function app. To avoid this issue, please use the singleton pattern and ensure only one pyodbc connection is used across the function app.
 
 ---
 
