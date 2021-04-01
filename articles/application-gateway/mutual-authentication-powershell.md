@@ -20,7 +20,7 @@ This article requires the Azure PowerShell module version 1.0.0 or later. Run `G
 
 ## Before you begin
 
-To configure mutual authentication with an Application Gateway, you need a client certificate to upload to the gateway. The client certificate will be used to validate the certificate the client will present to Application Gateway. For testing purposes, you can use a self-signed certificate. However, this is not advised for production workloads, because they're harder to manage and aren't completely secure. For more info, see [create a self-signed certificate](./create-ssl-portal.md#create-a-self-signed-certificate).
+To configure mutual authentication with an Application Gateway, you need a client certificate to upload to the gateway. The client certificate will be used to validate the certificate the client will present to Application Gateway. For testing purposes, you can use a self-signed certificate. However, this is not advised for production workloads, because they're harder to manage and aren't completely secure.
 
 To learn more, especially about what kind of client certificates you can upload, see [Overview of mutual authentication with Application Gateway](./mutual-authentication-overview.md#certificates-supported-for-mutual-authentication).
 
@@ -50,9 +50,9 @@ Create a public IP to use with your Application Gateway.
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name $publicIpName -location $location -AllocationMethod Static -sku Standard
 ```
 
-## Create the IP configuration
+## Create the Application Gateway IP configuration
 
-Create the public IP configuration for the IP of the Application Gateway. 
+Create the Application Gateway IP configuration. 
 
 ```azurepowershell
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name $gipconfigname -Subnet $gwSubnet
