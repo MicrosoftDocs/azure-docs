@@ -45,13 +45,13 @@ To perform this migration, you must be added as a coadministrator for the subscr
 3. On the Hub menu, select Subscription. If you don't see it, select All services.
 3. Find the appropriate subscription entry, and then look at the MY ROLE field. For a coadministrator, the value should be Account admin. If you're not able to add a co-administrator, contact a service administrator or co-administrator for the subscription to get yourself added.
 
-4. Register your subscription for Classic Infrastructure using PowerShell.
+4. Register your subscription for Microsoft.ClassicInfrastructureMigrate namespace using [Portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [PowerShell](../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) or [CLI](../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate 
     ```
  
-5. Register your subscription for Cloud Services (extended support) using PowerShell. 
+5. Register your subscription for the Cloud Services migration preview feature using [Portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [PowerShell](../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) or [CLI](../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)
 
     ```powershell
     Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
