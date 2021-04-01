@@ -62,14 +62,24 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 #### Using the Azure portal to link your Notification Hub
 
-In the portal, navigate to your Azure Communication Services resource. Inside the Communication Services resource, select Push Notifications from the left menu of the Communication Services page and connect the Notification Hub that you provisioned earlier. Click "Connect notification hub". You will see list of notification hubs available to connect. Select the notification hub that you'd like to use for this resource. If you need to create a new hub, click "Create new notification hub" to get a new hub provisioned for this resource.
+1. In the portal, go to your Azure Communication Services resource.
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure portal.":::
+1. Inside the Communication Services resource, select **Push Notifications** from the left menu of the Communication Services page, and connect the Notification Hub that you provisioned earlier.
 
-Now you will see the notification hub that you linked with connected state. If you would like to use different hub for the resource click "Disconnect" and repeat the steps to link the different notification hub.
+1. Select **Connect notification hub**. You'll see a list of notification hubs available to connect.
+ 
+1. Select the notification hub that you'd like to use for this resource.
+ 
+   - If you need to create a new hub, select **Create new notification hub** to get a new hub provisioned for this resource.
+
+   :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure portal.":::
+
+Now you'll see the notification hub that you linked with the connected state.
+
+If you'd like to use a different hub for the resource, select **Disconnect**, and then repeat the steps to link the different notification hub.
 
 > [!NOTE]
-> Any change on how the hub is linked will be reflected in data plane (i.e., when sending a notification) within a maximum period of ``10`` minutes. This is applicable also when the hub is linked for the first time **if** there were notifications sent before.
+> Any change on how the hub is linked is reflected in the data plane (that is, when sending a notification) within a maximum period of 10 minutes. This same behavior applies when the hub is linked for the first time, **if** notifications were sent before the change.
 
 ### Device registration
 
