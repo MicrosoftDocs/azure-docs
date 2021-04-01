@@ -148,7 +148,7 @@ DATA_ENDPOINT_PRIVATE_IP=$(az network nic show \
   --query 'ipConfigurations[0].privateIpAddress' \
   --output tsv)
 
-An FQDN is associated with each IP address in the IP configurations:
+# An FQDN is associated with each IP address in the IP configurations
 
 REGISTRY_FQDN=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
@@ -400,7 +400,7 @@ To resolve the registry's public FQDN to the private IP address in these scenari
 
 ### Manually configure DNS records
 
-If you manually configure DNS records in a private zone instead of using the Azure-provided private zone, be sure to create records for each of the following endpoints: the registry endpoint, the registry's data endpoint, and the data endpoint for any additional regional replica. If all records aren't configured, the registry may be unreachable.
+For some scenarios, you may need to manually configure DNS records in a private zone instead of using the Azure-provided private zone. Be sure to create records for each of the following endpoints: the registry endpoint, the registry's data endpoint, and the data endpoint for any additional regional replica. If all records aren't configured, the registry may be unreachable.
 
 > [!IMPORTANT]
 > If you later add a new replica, you need to manually add a new DNS record for the data endpoint in that region. For example, if you create a replica of *myregistry* in the northeurope location, add a record for `myregistry.northeurope.data.azurecr.io`.
@@ -410,6 +410,8 @@ The FQDNs and private IP addresses you need to create DNS records are associated
 * Using the Azure CLI, run the [az network nic show][az-network-nic-show] command. For example commands, see [Get endpoint IP configuration](#get-endpoint-ip-configuration), earlier in this article.
 
 * In the portal, navigate to your private endpoint, and select **DNS configuration**.
+
+After creating DNS records, make sure that the registry FQDNs resolve properly to their respective private IP addresses.
 
 ## Clean up resources
 
