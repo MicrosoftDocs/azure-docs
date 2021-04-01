@@ -43,12 +43,9 @@ The major differences between Cloud Services (classic) and Cloud Services (exten
 - All resources deployed through the [Azure Resource Manager](../azure-resource-manager/templates/overview.md) must be inside a virtual network. Virtual networks and subnets are created in Azure Resource Manager using existing Azure Resource Manager APIs and will need to be referenced within the NetworkConfiguration section of the .cscfg when deploying Cloud Services (extended support).   
 
 - Each cloud service (extended support) is a single independent deployment. Cloud services (extended support) does not support multiple slots within a single cloud service.  
-    - VIP Swap<sup>*</sup> capability may be used to swap between two cloud services (extended support). To test and stage a new release of a cloud service, deploy a cloud service (extended support) and tag it as VIP swappable with another cloud service (extended support)  
+    - VIP Swap capability may be used to swap between two cloud services (extended support). To test and stage a new release of a cloud service, deploy a cloud service (extended support) and tag it as VIP swappable with another cloud service (extended support)  
 
 - Domain Name Service (DNS) label is optional for a cloud service (extended support). In Azure Resource Manager, the DNS label is a property of the Public IP resource associated with the cloud service. 
-
-
-<sup>*</sup> VIP swap for Cloud Services (extended support) is not available during Public Preview.  
 
 ## Migration to Azure Resource Manager
 
