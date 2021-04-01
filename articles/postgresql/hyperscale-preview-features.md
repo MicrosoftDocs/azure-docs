@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
-ms.date: 03/15/2021
+ms.date: 03/19/2021
 ---
 
 # Preview features for PostgreSQL - Hyperscale (Citus)
@@ -28,26 +28,28 @@ Here are the features currently available for preview:
   Store selected tables' columns (rather than rows) contiguously
   on disk. Supports on-disk compression. Good for analytic and
   data warehousing workloads.
-* **PostgreSQL 12 and 13**. Use the latest database version
-  in your server group.
+* **[PostgreSQL 12 and 13](concepts-hyperscale-versions.md)**.
+  Use the latest database version in your server group.
 * **[Basic tier](concepts-hyperscale-tiers.md)**. Run a server
   group using only a coordinator node and no worker nodes. An
   economical way to do initial testing and development, and
   handle small production workloads.
-* **Read replicas** (currently same-region only). Any changes
-  that happen to the original server group get promptly
-  reflected in its replica, and queries against the replica
-  cause no extra load on the original. Replicas are a useful
-  tool to improve performance for read-only workloads.
-* **Managed pgBouncer**. A connection pooler that allows
-  many clients to connect to the server group at once, while
-  limiting the number of active connections. It satisfies
-  connection requests while keeping the coordinator node
-  running smoothly.
-* **pgAudit**. Provides detailed session and object audit
-  logging via the standard PostgreSQL logging facility. It
-  produces audit logs required to pass certain government,
-  financial, or ISO certification audits.
+* **[Read replicas](howto-hyperscale-read-replicas-portal.md)**
+  (currently same-region only). Any changes that happen to the
+  primary server group get reflected in its replica, and queries
+  against the replica cause no extra load on the original.
+  Replicas are a useful tool to improve performance for
+  read-only workloads.
+* **[Managed
+  PgBouncer](concepts-hyperscale-limits.md#managed-pgbouncer-preview)**.
+  A connection pooler that allows many clients to connect to
+  the server group at once, while limiting the number of active
+  connections. It satisfies connection requests while keeping
+  the coordinator node running smoothly.
+* **[PgAudit](concepts-hyperscale-audit.md)**. Provides detailed
+  session and object audit logging via the standard PostgreSQL
+  logging facility. It produces audit logs required to pass
+  certain government, financial, or ISO certification audits.
 
 ### Available regions for preview features
 
@@ -58,13 +60,20 @@ The other preview features are available in **East US** only.
 
 ## Does my server group have access to preview features?
 
-To determine if your Hyperscale (Citus) server group has preview
-features enabled, navigate to the **Overview** page for the
-server group in the Azure portal. If you see the property
-**Tier: Basic (preview)** or **Tier: Standard (preview)** then
-your server group has access to preview features.
+To determine if your Hyperscale (Citus) server group has preview features
+enabled, navigate to the server group's **Overview** page in the Azure portal.
+If you see the property **Tier: Basic (preview)** or **Tier: Standard
+(preview)** then your server group has access to preview features.
 
 ### How to get access
 
 When creating a new Hyperscale (Citus) server group, check
 the box **Enable preview features.**
+
+## Contact us
+
+Let us know about your experience using preview features, by emailing [Ask
+Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com).
+(This email address isn't a technical support channel. For technical problems,
+open a [support
+request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).)
