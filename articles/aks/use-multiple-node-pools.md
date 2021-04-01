@@ -734,7 +734,7 @@ For existing AKS clusters, you can also add a new node pool, and attach a public
 az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
 ```
 
-### Use a public IP prefix (preview)
+### Use a public IP prefix
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -750,10 +750,28 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-There are a number of [benefits to using a public IP prefix][public-ip-prefix-benefits]. AKS supports using addresses from an existing public IP prefix for your nodes by passing the resource ID with the flag `node-public-ip-prefix` when creating a new cluster or adding a node pool. For example:
+There are a number of [benefits to using a public IP prefix][public-ip-prefix-benefits]. AKS supports using addresses from an existing public IP prefix for your nodes by passing the resource ID with the flag `node-public-ip-prefix` when creating a new cluster or adding a node pool.
+
+First, create a public IP prefix using [az network public-ip prefix create][az-public-ip-prefix-create]:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicipprefixes/my-public-ip-prefix
+az network public-ip prefix create --length 28 --location eastus --name MyPublicIPPrefix --resource-group MyResourceGroup3
+```
+
+View the output, and take note of the `id` for the prefix:
+
+```output
+{
+  ...
+  "id": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix",
+  ...
+}
+```
+
+Finally, when creating a new cluster or adding a new node pool, use the flag `node-public-ip-prefix` and pass in the prefix's resource ID:
+
+```azurecli-interactive
+az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
 ```
 
 ### Locate public IPs for nodes
@@ -842,3 +860,4 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest&preserve-view=true#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
 [public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md#why-create-a-public-ip-address-prefix
+[az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest&preserve-view=true#az_network_public_ip_prefix_create
