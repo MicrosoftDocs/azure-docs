@@ -148,16 +148,16 @@ For encryption articles and examples, see:
 
 For filter guidance, see:
 
-- [Concept: dynamic manifests](filters-dynamic-manifest-overview.md)
+- [Concept: dynamic manifests](filters-dynamic-manifest-concept.md)
 - [Concept: filters](filters-concept.md)
 - [Sample: create filters with REST APIs](filters-dynamic-manifest-rest-howto.md)
-- [Sample: create filters with .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Sample: create filters with CLI](filters-dynamic-manifest-cli-howto.md)
+- [Sample: create filters with .NET](filters-dynamic-manifest-dotnet-how-to.md)
+- [Sample: create filters with CLI](filters-dynamic-manifest-cli-how-to.md)
 
 For live articles and samples, see:
 
-- [Concept: live streaming overview](live-streaming-overview.md)
-- [Concept: Live Events and Live Outputs](live-events-outputs-concept.md)
+- [Concept: live streaming overview](stream-live-streaming-concept.md)
+- [Concept: Live Events and Live Outputs](live-event-outputs-concept.md)
 - [Sample: live streaming tutorial](stream-live-tutorial-with-api.md)
 
 ## 416 Range Not Satisfiable
@@ -199,7 +199,7 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 - [Encoding error codes](/rest/api/media/jobs/get#joberrorcode)
 - [Azure Media Services concepts](concepts-overview.md)
-- [Quotas and limits](limits-quotas-constraints.md)
+- [Quotas and limits](limits-quotas-constraints-reference.md)
 
 ## Next steps
 

@@ -24,7 +24,7 @@ This article demonstrates how to create a streaming locator and build a streamin
 
 ## Prerequisite
 
-Preview [Dynamic packaging](dynamic-packaging-overview.md)
+Preview [Dynamic packaging](encode-dynamic-packaging-concept.md)
 
 ## Java
 
@@ -160,9 +160,9 @@ See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/A
 
 ## See also
 
-* [Create filters with .NET](filters-dynamic-manifest-dotnet-howto.md)
+* [Create filters with .NET](filters-dynamic-manifest-dotnet-how-to.md)
 * [Create filters with REST](filters-dynamic-manifest-rest-howto.md)
-* [Create filters with CLI](filters-dynamic-manifest-cli-howto.md)
+* [Create filters with CLI](filters-dynamic-manifest-cli-how-to.md)
 
 ## Next steps
 
