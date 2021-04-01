@@ -15,7 +15,7 @@ ms.date: 04/01/2021
 
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
-In this tutorial, you'll use the data flow canvas to create data flows that allow you to analyze and transform data in Azure Data Lake Storage (ADLS) Gen2 and store it in Delta Lake.
+In this tutorial, you'll learn best practices that can be applied when writing files to ADLS Gen2 or Azure Blob Storage using data flows.
 
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
