@@ -25,7 +25,7 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
   * [Cloud upload and storage](storage-account-concept.md)
   * [Assets concept](assets-concept.md)
 * Once you upload your high-quality digital media file into an asset (an input asset), you can process it (encode or analyze). The processed content goes into another asset (output asset). 
-    * [Encode](encoding-concept.md) your uploaded file into formats that can be played on a wide variety of browsers and devices.
+    * [Encode](encode-concept.md) your uploaded file into formats that can be played on a wide variety of browsers and devices.
     * [Analyze](analyze-video-audio-files-concept.md) your uploaded file. 
 
         Currently, when using the Azure portal, you can do the following: generate a TTML and WebVTT closed caption files. Files in these formats can be used to make audio and video files accessible to people with hearing disability. You can also extract keywords from your content.
@@ -37,9 +37,9 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
 
     * [Streaming locators](streaming-locators-concept.md)
     * [Streaming policies](streaming-policy-concept.md)
-    * [Packaging and delivery](dynamic-packaging-overview.md)
+    * [Packaging and delivery](encode-dynamic-packaging-concept.md)
     * [Filters](filters-concept.md)
-* You can protect your content by encrypting it with Advanced Encryption Standard (AES-128) or/and any of the three major DRM systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. The [Encrypt content with the Azure portal](encrypt-content-quickstart.md) quickstart shows how to configure content protection.
+* You can protect your content by encrypting it with Advanced Encryption Standard (AES-128) or/and any of the three major DRM systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. The [Encrypt content with the Azure portal](drm-encrypt-content-how-to.md) quickstart shows how to configure content protection.
         
 ## Prerequisites
 
@@ -87,7 +87,7 @@ To publish an asset, you now need to add a streaming locator to your asset.
     This publishes the asset and generates the streaming URLs.
 
     > [!NOTE]
-    > If you want for your stream to be encrypted, you need to create a content key policy and set it on the streaming locator. For details, see [Encrypt content with the Azure portal](encrypt-content-quickstart.md).
+    > If you want for your stream to be encrypted, you need to create a content key policy and set it on the streaming locator. For details, see [Encrypt content with the Azure portal](drm-encrypt-content-how-to.md).
 1. In the **Add streaming locator** window, you choose one of the predefined streaming policies. For detailed information, see [streaming policies](streaming-policy-concept.md)
 
     ![Streaming locator](./media/asset-create-asset-upload-portal-quickstart/streaming-locator.png)
@@ -107,4 +107,4 @@ If you intend to try the other quickstarts, you should hold on to the resources 
 
 ## Next steps
 
-[Use portal to encrypt content](encrypt-content-quickstart.md)
+[Use portal to encrypt content](drm-encrypt-content-how-to.md)
