@@ -61,7 +61,7 @@
           - name: Prerequisites
             href: direct-connected-mode
           - name: Deploy
-            href: direct-connected-mode
+            href: deploy-dc-direct-mode
     - name: Common experiences across Azure Arc enabled data services
       items:
         - name: Monitor with dashboards (Azure Data Studio)
