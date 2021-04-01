@@ -1,8 +1,8 @@
 ---
 title: Configure alerts - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: This article describes how to configure and access metric alerts for Azure Database for PostgreSQL - Flexible Server from the Azure portal.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020

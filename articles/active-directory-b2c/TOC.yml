@@ -225,20 +225,22 @@
       items:
       - name: Multi-factor authentication
         href: multi-factor-authentication.md
-      - name: HYPR
-        href: partner-hypr.md
-      - name: Keyless
-        href: partner-keyless.md
-      - name: Nevis
-        href: partner-nevis.md
-      - name: Trusona
-        href: partner-trusona.md
-      - name: Twilio
-        href: partner-twilio.md
-      - name: TypingDNA
-        href: partner-typingdna.md
-      - name: WhoIAM
-        href: partner-whoiam.md
+      - name: Partner integration
+        items:
+        - name: HYPR
+          href: partner-hypr.md
+        - name: Keyless
+          href: partner-keyless.md
+        - name: Nevis
+          href: partner-nevis.md
+        - name: Trusona
+          href: partner-trusona.md
+        - name: Twilio
+          href: partner-twilio.md
+        - name: TypingDNA
+          href: partner-typingdna.md
+        - name: WhoIAM
+          href: partner-whoiam.md
     - name: Set up direct sign-in
       href: direct-signin.md
   - name: Tokens and session management
@@ -458,10 +460,12 @@
     - name: Azure portal
       href: manage-users-portal.md
       displayName: create users, add users, delete users
-    - name: N8identity
-      href: partner-n8identity.md
-    - name: Saviynt 
-      href: partner-saviynt.md
+    - name: Partner integration
+      items:
+      - name: N8identity
+        href: partner-n8identity.md
+      - name: Saviynt 
+        href: partner-saviynt.md
   - name: Secure API Management API
     href: secure-api-management.md
     displayName: apim, api management, migrate, b2clogin.com

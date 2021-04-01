@@ -8,7 +8,7 @@ ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
 
-# As an administrator or developer, I want to use REST APIs to review billing data for all subscriptions and departments in the enterprise enrollment.
+#Customer intent: As an administrator or developer, I want to use REST APIs to review billing data for all subscriptions and departments in the enterprise enrollment.
 
 ---
 
