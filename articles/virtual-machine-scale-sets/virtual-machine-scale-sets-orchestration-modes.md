@@ -118,7 +118,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 |         Azure Dedicated Hosts   |            No  |            Yes  |            Yes  |
 |         Basic SLB   |            No  |            Yes  |            Yes  |
 |         Azure Load Balancer Standard SKU |            Yes  |            Yes  |            Yes  |
-|         Application Gateway  |            No  |            Yes  |            Yes  |
+|         Application Gateway  |            Yes  |            Yes  |            Yes  |
 |         Maintenance Control   |            No  |            Yes  |            Yes  |
 |         List VMs in Set  |            Yes  |            Yes  |            Yes, list VMs in AvSet  |
 |         Azure Alerts  |            No  |            Yes  |            Yes  |
