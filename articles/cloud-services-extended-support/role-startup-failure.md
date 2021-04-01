@@ -1,7 +1,7 @@
 ---
 title: Role Instance Startup Failure
 description: Troubleshoot Role Instance Startup Failure
-ms.topic: troubleshoot
+ms.topic: article
 ms.service: cloud-services-extended-support
 author: surbhijain
 ms.author: surbhijain
