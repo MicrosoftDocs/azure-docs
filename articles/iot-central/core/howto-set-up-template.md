@@ -52,7 +52,7 @@ Some [application templates](concepts-app-templates.md) already include device t
 
 ## Create a device template from the device catalog
 
-As a builder, you can quickly start building out your solution by using a certified device. See the list in the [Azure IoT Device Catalog](https://catalog.azureiotsolutions.com/alldevices). IoT Central integrates with the device catalog so you can import a device model from any of the certified devices. To create a device template from one of these devices in IoT Central:
+As a builder, you can quickly start building out your solution by using a certified device. See the list in the [Azure IoT Device Catalog](https://devicecatalog.azure.com). IoT Central integrates with the device catalog so you can import a device model from any of the certified devices. To create a device template from one of these devices in IoT Central:
 
 1. Go to the **Device templates** page in your IoT Central application.
 1. Select **+ New**, and then select any of the certified devices from the catalog. IoT Central creates a device template based on this device model.
