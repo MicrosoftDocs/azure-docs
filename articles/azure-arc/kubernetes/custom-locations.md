@@ -50,6 +50,11 @@ The Custom Locations is an extension of Azure location. It provides a way for te
     az extension update --name customlocation
     ```
 
+>[!NOTE]
+>**Supported regions for custom locations:**
+>* East US
+>* West Europe
+
 ## Enable custom locations on cluster
 
 All Arc enabled Kubernetes clusters created using `connectedk8s` Azure CLI extension of version >= 1.1.0 have custom locations feature already enabled on those clusters. To enable this feature on clusters created using `connectedk8s` Azure CLI extension of version < 1.1.0 or on clusters where this feature was manually disabled, run the following command:
