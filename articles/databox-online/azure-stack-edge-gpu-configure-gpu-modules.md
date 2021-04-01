@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/12/2021
 ms.author: alkohli
 ---
 # Configure and run a module on GPU on Azure Stack Edge Pro device
@@ -99,7 +99,7 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
        For more information on environment variables that you can use with the Nvidia GPU, go to [nVidia container runtime](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
 
     > [!NOTE]
-    > A GPU can only be mapped to one module. A module can however use one, both or no GPUs.
+    > A module can use one, both or no GPUs.
 
 12. Enter a name for your module. At this point you can choose to provide container create option and modify module twin settings or if done, select **Add**. 
 

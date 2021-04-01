@@ -85,7 +85,7 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 |Java       |1.8        |
 |Node.js    |8.16.0      |
 |PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |
-|Python     |2.7 and 3.5 (default)|
+|Python     |2.7 and 3.7 (default)|
 
 ## Next steps
 [Bash in Cloud Shell Quickstart](quickstart.md) <br>

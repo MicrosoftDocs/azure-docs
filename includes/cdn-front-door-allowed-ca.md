@@ -57,6 +57,8 @@ The following CAs are allowed when you create your own certificate:
 - Security Communication RootCA1
 - Security Communication RootCA2
 - Security Communication RootCA3
+- SSL.com Root Certification Authority RSA
+- SSL.com EV Root Certification Authority RSA R2
 - Staat der Nederlanden EV Root CA
 - Symantec Class 3 EV SSL CA - G3
 - Symantec Class 3 Secure Server CA - G4

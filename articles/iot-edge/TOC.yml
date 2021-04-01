@@ -131,6 +131,8 @@
       href: how-to-update-iot-edge.md
     - name: Manage device certificates
       href: how-to-manage-device-certificates.md
+    - name: Configure nested virtualization for Windows VMs
+      href: nested-virtualization.md
   - name: Alternative device scenarios
     items:
     - name: Run IoT Edge with Windows containers
