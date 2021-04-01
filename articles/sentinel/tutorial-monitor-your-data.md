@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2021
+ms.date: 05/04/2020
 ms.author: yelevin
 
 ---
@@ -71,16 +71,6 @@ This tutorial helps you visualize your data in Azure Sentinel.
 1. To switch between workbooks in your workspace, you can select **Open** ![Icon for opening a workbook.](./media/tutorial-monitor-data/switch.png)in the top pane of any workbook. On the window that opens to the right, switch between workbooks.
 
    ![Switch workbooks](./media/tutorial-monitor-data/switch-workbooks.png)
-
-## Refreshing data shown in your workbook
-
-On the workbook toolbar, select :::image type="icon" source="media/whats-new/refresh-button.PNG" border="false"::: **Refresh** to refresh the data displayed. 
-
-To have the data automatically refresh during your current view session, select **Auto refresh** and then select a refresh interval.
-
-Automatic refresh is paused while editing, and turned off when you close the workbook. Set an auto refresh interval again as needed each time you open a workbook.
-
-:::image type="content" source="media/whats-new/auto-refresh-workbook.png" alt-text="Set your workbook to automatically refresh during a view session.":::
 
 ## Print a workbook or save as PDF
 
