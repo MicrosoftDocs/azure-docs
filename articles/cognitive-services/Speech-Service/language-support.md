@@ -180,8 +180,6 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | English (Ireland) | `en-IE` | Male | `en-IE-ConnorNeural` | General |
 | English (Philippines) | `en-PH` | Female | `en-PH-RosaNeural` <sup>New</sup> | General | 
 | English (Philippines) | `en-PH` | Male | `en-PH-JamesNeural` <sup>New</sup> | General | 
-| English (South Africa) | `en-ZA` | Female | `en-ZA-LeahNeural` <sup>New</sup> | General | 
-| English (South Africa) | `en-ZA` | Male | `en-ZA-LukeNeural` <sup>New</sup> | General | 
 | English (United Kingdom) | `en-GB` | Female | `en-GB-LibbyNeural` | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-RyanNeural` | General |
@@ -271,8 +269,10 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Thai (Thailand) | `th-TH` | Male | `th-TH-NiwatNeural` | General |
 | Turkish (Turkey) | `tr-TR` | Female | `tr-TR-EmelNeural` | General |
 | Turkish (Turkey) | `tr-TR` | Male | `tr-TR-AhmetNeural` | General |
-| Urdu (Pakistan) | `ur-PK` | Female | `ur-PK-UzmaNeural` <sup>New</sup> | General | 
-| Urdu (Pakistan) | `ur-PK` | Male | `ur-PK-AsadNeural` <sup>New</sup> | General | 
+| Ukrainian (Ukraine) | `uk-UA` | Female | `en-ZA-LeahNeural` <sup>New</sup> | General | 
+| Ukrainian (Ukraine) | `uk-UA` | Male | `en-ZA-LukeNeural` <sup>New</sup> | General | 
+| Urdu (Pakistan) | `ur-PK` | Female | `uk-UA-PolinaNeural` <sup>New</sup> | General | 
+| Urdu (Pakistan) | `ur-PK` | Male | `uk-UA-OstapNeural` <sup>New</sup> | General | 
 | Vietnamese (Vietnam) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | General |
 | Vietnamese (Vietnam) | `vi-VN` | Male | `vi-VN-NamMinhNeural` | General |
 | Welsh (UK) | `cy-GB` | Female | `cy-GB-NiaNeural` <sup>New</sup> | General | 
