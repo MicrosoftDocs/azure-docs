@@ -10,8 +10,9 @@ ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: allensu
 ms.custom: mvc
-# As a website owner, I want to add a custom domain to my CDN endpoint so that my users can use my custom domain to access my content.
+#Customer intent: As a website owner, I want to add a custom domain to my CDN endpoint so that my users can use my custom domain to access my content.
 ---
+
 # Tutorial: Add a custom domain to your endpoint
 
 This tutorial shows how to add a custom domain to an Azure Content Delivery Network (CDN) endpoint. 

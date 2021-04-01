@@ -44,7 +44,7 @@
   - name: Digital twins
     href: concepts-digital-twin.md
   - name: Device certification
-    href: concepts-certification-program.md
+    href: ../certification/program-requirements-pnp.md
   - name: Model repository
     href: concepts-model-repository.md
   - name: Use models in a solution
@@ -61,8 +61,6 @@
     href: howto-use-embedded-c.md
   - name: Manage digital twins
     href: howto-manage-digital-twin.md
-  - name: Certify a device
-    href: howto-certify-device.md
   - name: How to connect an IoT Plug and Play bridge sample
     href: howto-use-iot-pnp-bridge.md
   - name: Build and deploy IoT Plug and Play bridge

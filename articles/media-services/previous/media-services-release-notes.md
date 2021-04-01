@@ -247,7 +247,7 @@ The Azure SDK team published a new release of the [Azure SDK for PHP](https://gi
 For more information, see:
 
 * The following [code samples](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) help you to get started quickly:
-  * **vodworkflow_aes.php**: This PHP file shows how to use AES-128 dynamic encryption and the key delivery service. It's based on the .NET sample explained in [Use AES-128 dynamic encryption and the key delivery service](media-services-protect-with-aes128.md).
+  * **vodworkflow_aes.php**: This PHP file shows how to use AES-128 dynamic encryption and the key delivery service. It's based on the .NET sample explained in [Use AES-128 dynamic encryption and the key delivery service](media-services-playready-license-template-overview.md).
   * **vodworkflow_aes.php**: This PHP file shows how to use PlayReady dynamic encryption and the license delivery service. It's based on the .NET sample explained in [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md).
   * **scale_encoding_units.php**: This PHP file shows how to scale encoding reserved units.
 
