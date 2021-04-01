@@ -444,7 +444,7 @@
   - name: Deliver content
     items:
     - name: Manage streaming endpoints
-      href: manage-streaming-endpoints-howto.md
+      href: stream-manage-streaming-endpoints-how-to.md
     - name: Create a streaming locator and build URLs
       href: create-streaming-locator-build-url.md
     - name: Download results

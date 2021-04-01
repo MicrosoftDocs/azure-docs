@@ -45,7 +45,7 @@ See publishing concepts, tutorials and how to guides below for specific steps.
 
 ### How to guides
 
-- [Manage streaming endpoints with Media Services v3](manage-streaming-endpoints-howto.md)
+- [Manage streaming endpoints with Media Services v3](stream-manage-streaming-endpoints-how-to.md)
 - [CLI example: Publish an asset](cli-publish-asset.md)
 - [Create a streaming locator and build URLs](create-streaming-locator-build-url.md)
 - [Download the results of a job](job-download-results-how-to.md)

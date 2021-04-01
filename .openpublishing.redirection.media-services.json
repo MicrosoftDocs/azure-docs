@@ -36,31 +36,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/media-services/latest/access-api-cli-how-to.md",
-            "redirect_url": "access-api-howto",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/media-services/latest/access-api-portal.md",
-            "redirect_url": "access-api-howto",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-transform.md",
-            "redirect_url": "cli-create-transform",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/media-services/latest/scripts/cli-publish-asset.md",
-            "redirect_url": "cli-publish-asset",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/media-services/latest/scripts/cli-upload-file-asset.md",
-            "redirect_url": "cli-upload-file-asset",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/media-services/latest/cae-experimental.md",
             "redirect_url": "content-aware-encoding",
             "redirect_document_id": false
