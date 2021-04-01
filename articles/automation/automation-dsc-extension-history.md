@@ -335,7 +335,7 @@ environments it supports, and comments and remarks on new features or changes.
 - **New features:**
   - In extension version 2.14, changes to install WMF RTM were included. While upgrading from
     extension version 2.13.2.0 to 2.14.0.0, you may notice that some DSC cmdlets fail or your
-    configuration fails with an error – 'No Instance found with given property values'. For more
+    configuration fails with an error - 'No Instance found with given property values'. For more
     information, see the
     [DSC release notes](/powershell/scripting/wmf/known-issues/known-issues-dsc). The workarounds
     for these issues have been added in 2.15 version.

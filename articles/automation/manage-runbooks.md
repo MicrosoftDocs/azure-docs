@@ -301,12 +301,12 @@ Use the [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJ
 The following example gets the last job for a sample runbook and displays its status, the values provided for the runbook parameters, and the job output.
 
 ```azurepowershell-interactive
-$job = (Get-AzAutomationJob –AutomationAccountName "MyAutomationAccount" `
-–RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate –desc)[0]
+$job = (Get-AzAutomationJob -AutomationAccountName "MyAutomationAccount" `
+-RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate -desc)[0]
 $job.Status
 $job.JobParameters
 Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
+-AutomationAccountName "MyAutomationAcct" -Id $job.JobId -Stream Output
 ```
 
 The following example retrieves the output for a specific job and returns each record. If there's an [exception](automation-runbook-execution.md#exceptions) for one of the records, the script writes the exception instead of the value. This behavior is useful since exceptions can provide additional information that might not be logged normally during output.
