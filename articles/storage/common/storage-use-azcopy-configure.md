@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot AzCopy V10 issues in Azure Storage by using log files | Microsoft Docs
-description: Learn how to use logs to find and fix issues with AzCopy v10 in Azure Storage.
+title: Find errors & resume jobs with logs in AzCopy (Azure Storage) | Microsoft Docs
+description: Learn how to use logs to diagnose errors, and to resume jobs that are paused by using plan files. 
 author: normesta
 ms.service: storage
 ms.topic: how-to
@@ -10,9 +10,9 @@ ms.subservice: common
 ms.reviewer: dineshm
 ---
 
-# Troubleshoot AzCopy V10 issues in Azure Storage by using log files
+# Find errors and resume jobs by using log and plan files in AzCopy
 
-AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you to troubleshoot issues that can arise as you use AzCopy by using log files
+AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you to use logs to diagnose errors, and then to resume jobs that are paused by using plan files. This article also shows how to configure log and plan files by changing their verbosity level, and the default location where they are stored.
 
 > [!NOTE]
 > If you're looking for content to help you get started with AzCopy, see [Get started with AzCopy](storage-use-azcopy-v10.md).

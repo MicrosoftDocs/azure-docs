@@ -10,7 +10,7 @@ ms.subservice: common
 ms.reviewer: dineshm
 ---
 
-# Synchronize with Azure Blob storage by using AzCopy v10
+# Synchronize with Azure Blob storage by using AzCopy
 
 You can synchronize local storage with Azure Blob storage by using the AzCopy v10 command-line utility. 
 

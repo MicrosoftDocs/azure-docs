@@ -10,7 +10,7 @@ ms.subservice: common
 ms.reviewer: dineshm
 ---
 
-# Optimize the performance of AzCopy v10 with Azure Storage
+# Optimize the performance of AzCopy with Azure Storage
 
 AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you to optimize performance.
 

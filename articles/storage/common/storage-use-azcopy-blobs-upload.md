@@ -10,7 +10,7 @@ ms.subservice: common
 ms.reviewer: dineshm
 ---
 
-# Upload files to Azure Blob storage by using AzCopy v10
+# Upload files to Azure Blob storage by using AzCopy
 
 You can upload files and directories to Blob storage by using the AzCopy v10 command-line utility. 
 

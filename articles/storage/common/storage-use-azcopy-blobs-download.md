@@ -10,7 +10,7 @@ ms.subservice: common
 ms.reviewer: dineshm
 ---
 
-# Download blobs from Azure Blob storage by using AzCopy v10
+# Download blobs from Azure Blob storage by using AzCopy
 
 You can download blobs and directories from Blob storage by using the AzCopy v10 command-line utility. 
 

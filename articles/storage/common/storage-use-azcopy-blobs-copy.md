@@ -10,7 +10,7 @@ ms.subservice: common
 ms.reviewer: dineshm
 ---
 
-# Copy blobs between Azure storage accounts by using AzCopy v10
+# Copy blobs between Azure storage accounts by using AzCopy
 
 You can copy blobs, directories, and containers between storage accounts by using the AzCopy v10 command-line utility. 
 
