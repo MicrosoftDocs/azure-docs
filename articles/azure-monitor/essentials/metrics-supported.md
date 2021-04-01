@@ -4,7 +4,7 @@ description: List of metrics available for each resource type with Azure Monitor
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 02/06/2021
+ms.date: 04/01/2021
 ms.author: robb
 ---
 # Supported metrics with Azure Monitor
@@ -141,26 +141,25 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |HttpIncomingRequestDuration|Yes|HttpIncomingRequestDuration|Count|Average|Latency on an http request.|StatusCode, Authentication|
 |ThrottledHttpRequestCount|Yes|ThrottledHttpRequestCount|Count|Count|Throttled http requests.|No Dimensions|
 
-
 ## Microsoft.AppPlatform/Spring
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|active-timer-count|Yes|System.Runtime|active-timer-count|Count|Average|Number of timers that are currently active|Deployment, AppName, Pod|
-|alloc-rate|Yes|System.Runtime|alloc-rate|Bytes|Average|Number of bytes allocated in the managed heap|Deployment, AppName, Pod|
-|AppCpuUsage|Yes|App CPU Usage|Percent|Average|The recent CPU usage for the app|Deployment, AppName, Pod|
-|assembly-count|Yes|System.Runtime|assembly-count|Count|Average|Number of Assemblies Loaded|Deployment, AppName, Pod|
-|cpu-usage|Yes|System.Runtime|cpu-usage|Percent|Average|% time the process has utilized the CPU|Deployment, AppName, Pod|
-|current-requests|Yes|Microsoft.AspNetCore.Hosting|current-requests|Count|Average|Total number of requests in processing in the lifetime of the process|Deployment, AppName, Pod|
-|exception-count|Yes|System.Runtime|exception-count|Count|Total|Number of Exceptions|Deployment, AppName, Pod|
-|failed-requests|Yes|Microsoft.AspNetCore.Hosting|failed-requests|Count|Average|Total number of failed requests in the lifetime of the process|Deployment, AppName, Pod|
-|gc-heap-size|Yes|System.Runtime|gc-heap-size|Count|Average|Total heap size reported by the GC (MB)|Deployment, AppName, Pod|
-|gen-0-gc-count|Yes|System.Runtime|gen-0-gc-count|Count|Average|Number of Gen 0 GCs|Deployment, AppName, Pod|
-|gen-0-size|Yes|System.Runtime|gen-0-size|Bytes|Average|Gen 0 Heap Size|Deployment, AppName, Pod|
-|gen-1-gc-count|Yes|System.Runtime|gen-1-gc-count|Count|Average|System.Runtime|Number of Gen 1 GCs|Deployment, AppName, Pod|
-|gen-1-size|Yes|System.Runtime|gen-1-size|Bytes|Average|Gen 1 Heap Size|Deployment, AppName, Pod|
-|gen-2-gc-count|Yes|System.Runtime|gen-2-gc-count|Count|Average|Number of Gen 2 GCs|Deployment, AppName, Pod|
-|gen-2-size|Yes|System.Runtime|gen-2-size|Bytes|Average|Gen 2 Heap Size|Deployment, AppName, Pod|
+|active-timer-count|Yes|active-timer-count|Count|Average|Number of timers that are currently active|Deployment, AppName, Pod|
+|alloc-rate|Yes|alloc-rate|Bytes|Average|Number of bytes allocated in the managed heap|Deployment, AppName, Pod|
+|AppCpuUsage|Yes|App CPU Usage |Percent|Average|The recent CPU usage for the app|Deployment, AppName, Pod|
+|assembly-count|Yes|assembly-count|Count|Average|Number of Assemblies Loaded|Deployment, AppName, Pod|
+|cpu-usage|Yes|cpu-usage|Percent|Average|% time the process has utilized the CPU|Deployment, AppName, Pod|
+|current-requests|Yes|current-requests|Count|Average|Total number of requests in processing in the lifetime of the process|Deployment, AppName, Pod|
+|exception-count|Yes|exception-count|Count|Total|Number of Exceptions|Deployment, AppName, Pod|
+|failed-requests|Yes|failed-requests|Count|Average|Total number of failed requests in the lifetime of the process|Deployment, AppName, Pod|
+|gc-heap-size|Yes|gc-heap-size|Count|Average|Total heap size reported by the GC (MB)|Deployment, AppName, Pod|
+|gen-0-gc-count|Yes|gen-0-gc-count|Count|Average|Number of Gen 0 GCs|Deployment, AppName, Pod|
+|gen-0-size|Yes|gen-0-size|Bytes|Average|Gen 0 Heap Size|Deployment, AppName, Pod|
+|gen-1-gc-count|Yes|gen-1-gc-count|Count|Average|Number of Gen 1 GCs|Deployment, AppName, Pod|
+|gen-1-size|Yes|gen-1-size|Bytes|Average|Gen 1 Heap Size|Deployment, AppName, Pod|
+|gen-2-gc-count|Yes|gen-2-gc-count|Count|Average|Number of Gen 2 GCs|Deployment, AppName, Pod|
+|gen-2-size|Yes|gen-2-size|Bytes|Average|Gen 2 Heap Size|Deployment, AppName, Pod|
 |jvm.gc.live.data.size|Yes|jvm.gc.live.data.size|Bytes|Average|Size of old generation memory pool after a full GC|Deployment, AppName, Pod|
 |jvm.gc.max.data.size|Yes|jvm.gc.max.data.size|Bytes|Average|Max size of old generation memory pool|Deployment, AppName, Pod|
 |jvm.gc.memory.allocated|Yes|jvm.gc.memory.allocated|Bytes|Maximum|Incremented for an increase in the size of the young generation memory pool after one GC to before the next|Deployment, AppName, Pod|
@@ -170,15 +169,15 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |jvm.memory.committed|Yes|jvm.memory.committed|Bytes|Average|Memory assigned to JVM in bytes|Deployment, AppName, Pod|
 |jvm.memory.max|Yes|jvm.memory.max|Bytes|Maximum|The maximum amount of memory in bytes that can be used for memory management|Deployment, AppName, Pod|
 |jvm.memory.used|Yes|jvm.memory.used|Bytes|Average|App Memory Used in bytes|Deployment, AppName, Pod|
-|loh-size|Yes|System.Runtime|loh-size|Bytes|Average|LOH Heap Size|Deployment, AppName, Pod|
-|monitor-lock-contention-count|Yes|System.Runtime|monitor-lock-contention-count|Count|Average|Number of times there were contention when trying to take the monitor lock|Deployment, AppName, Pod|
+|loh-size|Yes|loh-size|Bytes|Average|LOH Heap Size|Deployment, AppName, Pod|
+|monitor-lock-contention-count|Yes|monitor-lock-contention-count|Count|Average|Number of times there were contention when trying to take the monitor lock|Deployment, AppName, Pod|
 |process.cpu.usage|Yes|process.cpu.usage|Percent|Average|The recent CPU usage for the JVM process|Deployment, AppName, Pod|
-|requests-per-second|Yes|Microsoft.AspNetCore.Hosting|requests-rate|Count|Average|Request rate|Deployment, AppName, Pod|
+|requests-per-second|Yes|requests-rate|Count|Average|Request rate|Deployment, AppName, Pod|
 |system.cpu.usage|Yes|system.cpu.usage|Percent|Average|The recent CPU usage for the whole system|Deployment, AppName, Pod|
-|threadpool-completed-items-count|Yes|System.Runtime|threadpool-completed-items-count|Count|Average|ThreadPool Completed Work Items Count|Deployment, AppName, Pod|
-|threadpool-queue-length|Yes|System.Runtime|threadpool-queue-length|Count|Average|ThreadPool Work Items Queue Length|Deployment, AppName, Pod|
-|threadpool-thread-count|Yes|System.Runtime|threadpool-thread-count|Count|Average|Number of ThreadPool Threads|Deployment, AppName, Pod|
-|time-in-gc|Yes|System.Runtime|time-in-gc|Percent|Average|% time in GC since the last GC|Deployment, AppName, Pod|
+|threadpool-completed-items-count|Yes|threadpool-completed-items-count|Count|Average|ThreadPool Completed Work Items Count|Deployment, AppName, Pod|
+|threadpool-queue-length|Yes|threadpool-queue-length|Count|Average|ThreadPool Work Items Queue Length|Deployment, AppName, Pod|
+|threadpool-thread-count|Yes|threadpool-thread-count|Count|Average|Number of ThreadPool Threads|Deployment, AppName, Pod|
+|time-in-gc|Yes|time-in-gc|Percent|Average|% time in GC since the last GC|Deployment, AppName, Pod|
 |tomcat.global.error|Yes|tomcat.global.error|Count|Total|Tomcat Global Error|Deployment, AppName, Pod|
 |tomcat.global.received|Yes|tomcat.global.received|Bytes|Total|Tomcat Total Received Bytes|Deployment, AppName, Pod|
 |tomcat.global.request.avg.time|Yes|tomcat.global.request.avg.time|Milliseconds|Average|Tomcat Request Average Time|Deployment, AppName, Pod|
@@ -194,9 +193,8 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |tomcat.sessions.rejected|Yes|tomcat.sessions.rejected|Count|Total|Tomcat Session Rejected Count|Deployment, AppName, Pod|
 |tomcat.threads.config.max|Yes|tomcat.threads.config.max|Count|Total|Tomcat Config Max Thread Count|Deployment, AppName, Pod|
 |tomcat.threads.current|Yes|tomcat.threads.current|Count|Total|Tomcat Current Thread Count|Deployment, AppName, Pod|
-|total-requests|Yes|Microsoft.AspNetCore.Hosting|total-requests|Count|Average|Total number of requests in the lifetime of the process|Deployment, AppName, Pod|
-|working-set|Yes|System.Runtime|working-set|Count|Average|Amount of working set used by the process (MB)|Deployment, AppName, Pod|
-
+|total-requests|Yes|total-requests|Count|Average|Total number of requests in the lifetime of the process|Deployment, AppName, Pod|
+|working-set|Yes|working-set|Count|Average|Amount of working set used by the process (MB)|Deployment, AppName, Pod|
 
 ## Microsoft.Automation/automationAccounts
 
@@ -971,12 +969,12 @@ For important additional information, see [Monitoring Agents Overview](../agents
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|AgentPoolCPUTime|Yes|AgentPool CPU Time|Seconds|Total|AgentPool CPU Time in seconds||
-|RunDuration|Yes|Run Duration|MilliSeconds|Total|Run Duration in milliseconds||
-|SuccessfulPullCount|Yes|Successful Pull Count|Count|Average|Number of successful image pulls||
-|SuccessfulPushCount|Yes|Successful Push Count|Count|Average|Number of successful image pushes||
-|TotalPullCount|Yes|Total Pull Count|Count|Average|Number of image pulls in total||
-|TotalPushCount|Yes|Total Push Count|Count|Average|Number of image pushes in total||
+|AgentPoolCPUTime|Yes|AgentPool CPU Time|Seconds|Total|AgentPool CPU Time in seconds|No Dimensions|
+|RunDuration|Yes|Run Duration|Milliseconds|Total|Run Duration in milliseconds|No Dimensions|
+|SuccessfulPullCount|Yes|Successful Pull Count|Count|Average|Number of successful image pulls|No Dimensions|
+|SuccessfulPushCount|Yes|Successful Push Count|Count|Average|Number of successful image pushes|No Dimensions|
+|TotalPullCount|Yes|Total Pull Count|Count|Average|Number of image pulls in total|No Dimensions|
+|TotalPushCount|Yes|Total Push Count|Count|Average|Number of image pushes in total|No Dimensions|
 
 
 ## Microsoft.ContainerService/managedClusters
@@ -1448,7 +1446,7 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |---|---|---|---|---|---|---|
 |AddRegion|Yes|Region Added|Count|Count|Region Added|Region|
 |AutoscaleMaxThroughput|No|Autoscale Max Throughput|Count|Maximum|Autoscale Max Throughput|DatabaseName, CollectionName|
-|AvailableStorage|No|(deprecated) Available Storage|Bytes|Total|"Available Storage" will be removed from Azure Monitor at the end of September 2023. Cosmos DB collection storage size is now unlimited. The only restriction is that the storage size for each logical partition key is 20GB. You can enable PartitionKeyStatistics in Diagnostic Log to know the storage consumption for top partition keys. For more info about Cosmos DB storage quota, please check this doc https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits. After deprecation, the remaining alert rules still defined on the deprecated metric will be automatically disabled post the deprecation date.|CollectionName, DatabaseName, Region|
+|AvailableStorage|No|(deprecated) Available Storage|Bytes|Total|"Available Storage" will be removed from Azure Monitor at the end of September 2023. Cosmos DB collection storage size is now unlimited. The only restriction is that the storage size for each logical partition key is 20GB. You can enable PartitionKeyStatistics in Diagnostic Log to know the storage consumption for top partition keys. For more info about Cosmos DB storage quota, please check this doc https://docs.microsoft.com/azure/cosmos-db/concepts-limits. After deprecation, the remaining alert rules still defined on the deprecated metric will be automatically disabled post the deprecation date.|CollectionName, DatabaseName, Region|
 |CassandraConnectionClosures|No|Cassandra Connection Closures|Count|Total|Number of Cassandra connections that were closed, reported at a 1 minute granularity|Region, ClosureReason|
 |CassandraConnectorAvgReplicationLatency|No|Cassandra Connector Average ReplicationLatency|MilliSeconds|Average|Cassandra Connector Average ReplicationLatency|No Dimensions|
 |CassandraConnectorReplicationHealthStatus|No|Cassandra Connector Replication Health Status|Count|Count|Cassandra Connector Replication Health Status|NotStarted, ReplicationInProgress, Error|
@@ -2192,9 +2190,9 @@ For important additional information, see [Monitoring Agents Overview](../agents
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|QueryVolume|Yes|Query Volume|Count|Total|Number of queries served for a DNS zone|No Dimensions|
+|QueryVolume|No|Query Volume|Count|Total|Number of queries served for a DNS zone|No Dimensions|
 |RecordSetCapacityUtilization|No|Record Set Capacity Utilization|Percent|Maximum|Percent of Record Set capacity utilized by a DNS zone|No Dimensions|
-|RecordSetCount|Yes|Record Set Count|Count|Maximum|Number of Record Sets in a DNS zone|No Dimensions|
+|RecordSetCount|No|Record Set Count|Count|Maximum|Number of Record Sets in a DNS zone|No Dimensions|
 
 
 ## Microsoft.Network/expressRouteCircuits
@@ -2837,7 +2835,7 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
-|UsedCapacity|No|Used capacity|Bytes|Average|The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity or FileCapacity.|No Dimensions|
+|UsedCapacity|Yes|Used capacity|Bytes|Average|The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity or FileCapacity.|No Dimensions|
 
 
 ## Microsoft.Storage/storageAccounts/blobServices
@@ -3177,11 +3175,11 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |AverageResponseTime|Yes|Average Response Time (deprecated)|Seconds|Average|The average time taken for the app to serve requests, in seconds.|Instance|
 |BytesReceived|Yes|Data In|Bytes|Total|The amount of incoming bandwidth consumed by the app, in MiB.|Instance|
 |BytesSent|Yes|Data Out|Bytes|Total|The amount of outgoing bandwidth consumed by the app, in MiB.|Instance|
-|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
+|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Not applicable to Azure Functions. Please see https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
 |CurrentAssemblies|Yes|Current Assemblies|Count|Average|The current number of Assemblies loaded across all AppDomains in this application.|Instance|
 |FileSystemUsage|Yes|File System Usage|Bytes|Average|Percentage of filesystem quota consumed by the app.|No Dimensions|
-|FunctionExecutionCount|Yes|Function Execution Count|Count|Total|Function Execution Count|Instance|
-|FunctionExecutionUnits|Yes|Function Execution Units|Count|Total|Function Execution Units|Instance|
+|FunctionExecutionCount|Yes|Function Execution Count|Count|Total|Function Execution Count. Only present for Azure Functions.|Instance|
+|FunctionExecutionUnits|Yes|Function Execution Units|Count|Total|Function Execution Units. Only present for Azure Functions.|Instance|
 |Gen0Collections|Yes|Gen 0 Garbage Collections|Count|Total|The number of times the generation 0 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|Instance|
 |Gen1Collections|Yes|Gen 1 Garbage Collections|Count|Total|The number of times the generation 1 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|Instance|
 |Gen2Collections|Yes|Gen 2 Garbage Collections|Count|Total|The number of times the generation 2 objects are garbage collected since the start of the app process.|Instance|
@@ -3221,7 +3219,7 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |AverageResponseTime|Yes|Average Response Time (deprecated)|Seconds|Average|The average time taken for the app to serve requests, in seconds.|Instance|
 |BytesReceived|Yes|Data In|Bytes|Total|The amount of incoming bandwidth consumed by the app, in MiB.|Instance|
 |BytesSent|Yes|Data Out|Bytes|Total|The amount of outgoing bandwidth consumed by the app, in MiB.|Instance|
-|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
+|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Not applicable to Azure Functions. Please see https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
 |CurrentAssemblies|Yes|Current Assemblies|Count|Average|The current number of Assemblies loaded across all AppDomains in this application.|Instance|
 |FileSystemUsage|Yes|File System Usage|Bytes|Average|Percentage of filesystem quota consumed by the app.|No Dimensions|
 |FunctionExecutionCount|Yes|Function Execution Count|Count|Total|Function Execution Count|Instance|
