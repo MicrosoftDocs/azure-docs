@@ -68,3 +68,7 @@ create login [third-party-login] with password = 'Just4STRONG_PAZzW0rd!', sid = 
 ```
 
 Done. Now the `third-party-login` can connect to the named replica database, but will be denied connecting to the primary replica.
+
+## Test access
+
+TDB
