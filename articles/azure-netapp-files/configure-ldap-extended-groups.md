@@ -30,6 +30,17 @@ This article explains the considerations and steps for enabling LDAP with extend
 
 * You cannot modify the LDAP option setting (enabled or disabled) after you have created the volume.  
 
+* The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access denied message appears on the client. 
+
+    |     Error condition    |     Resolution    |
+    |-|-|
+    | Cache |  Default Timeout |
+    | Group membership list  | 24-hour TTL  |
+    | Unix groups  | 24-hour TTL, 1-minute negative TTL  |
+    | Unix users  | 24-hour TTL, 1-minute negative TTL  |
+
+    Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out to so that stale entries do not linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.”        
+
 ## Steps
 
 1. The LDAP with extended groups feature is currently in preview. Before using this feature for the first time, you need to register the feature:  
