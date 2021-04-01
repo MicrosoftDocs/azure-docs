@@ -28,6 +28,9 @@ First create a new Application Gateway as you would usually through the portal -
 
 To set up a listener-specific SSL policy, you'll need to first go to the **SSL settings (Preview)** tab in the Portal and create a new SSL profile. When you create an SSL profile, you'll see two tabs: **Client Authentication** and **SSL Policy**. The **SSL Policy** tab is to configure a listener-specific SSL policy. The **Client Authentication** tab is where to upload a client certificate(s) for mutual authentication - for more information, check out [Configuring a mutual authentication](./mutual-authentication-portal.md).
 
+> [!NOTE]
+> We recommend using TLS 1.2 as TLS 1.2 will be mandated in the future. 
+
 1. Search for **Application Gateway** in portal, select **Application gateways**, and click on your existing Application Gateway.
 
 2. Select **SSL settings (Preview)** from the left-side menu.

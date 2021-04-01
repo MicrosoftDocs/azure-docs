@@ -39,53 +39,9 @@ The client certificate you uploaded is a self-signed certificate and is resultin
 
 Double check that the self-signed certificate that you're using has the extension *BasicConstraintsOid* = "2.5.29.19" which indicates the subject can act as a CA. This will ensure that the certificate used is a CA certificate. For more information about how to generate self-signed client certificates, check out [trusted client certificates](./mutual-authentication-certificate-management.md).
 
-### Expired client CA certificate 
-
-#### Problem
-
-The client CA certificate you uploaded onto your Application Gateway is now expired. You can validate that this is the problem by looking through the gateway's access logs and checking to see what the error message is. 
-
-#### Solution 
-
-You can update the client certificate on your gateway through portal or through PowerShell. 
-
-**Portal**
-1. Navigate to your Application Gateway and go to the **SSL settings (Preview)** tab in the left-hand menu. 
-2. Select the existing SSL profile(s) with the expired client certificate. 
-3. Select **Upload a new certificate** in the **Client Authentication** tab and upload your new client certificate. 
-4. Select the trash can icon next to the expired certificate. This will remove the association of that certificate from the SSL profile. 
-5. Repeat steps 2-4 with any other SSL profile that was using the same expired client certificate. You will be able to choose the new certificate you uploaded in step 3 from the dropdown menu in other SSL profiles. 
-
-**PowerShell** 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-You must have Azure PowerShell module version 1.0.0 or later installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Connect-AzAccount` to create a connection with Azure.
-
-1. Sign in to Azure
-```azurepowershell
-Connect-AzAccount
-Select-AzSubscription -Subscription "<sub name>"
-```
-2. Get your Application Gateway configuration
-```azurepowershell
-$gateway = Get-AzApplicationGateway -Name "<gateway-name>" -ResourceGroupName "<resource-group-name>"
-```
-3. Remove the trusted client certificate from the gateway 
-```azurepowershell
-Remove-AzApplicationGatewayTrustedClientCertificate -Name "<name-of-client-certificate>" -ApplicationGateway $gateway
-``` 
-4. Add the new certificate onto the gateway 
-```azurepowershell
-Add-AzApplicationGatewayTrustedClientCertificate -ApplicationGateway $gateway -Name "<name-of-new-cert>" -CertificateFile "<path-to-certificate-file>"
-```
-5. Update the gateway with the new certificate 
-```azurepowershell
-Set-AzApplicationGateway -ApplicationGateway $gateway
-```
-
 ## Scenario troubleshooting - connectivity problems
 
-You might have been able to configure mutual authentication without any problems but you're running into problems when sending requests to your Application Gateway. We address some common problems and solutions in the following section. You can find the sslClientVerify property in the access logs of your Application Gateway. 
+You might have been able to configure mutual authentication without any problems but you're running into problems when sending requests to your Application Gateway. We address some common problems and solutions in the following section. You can find the *sslClientVerify* property in the access logs of your Application Gateway. 
 
 ### SslClientVerify is NONE
 
@@ -97,11 +53,13 @@ The property *sslClientVerify* is appearing as "NONE" in your access logs.
 
 This is seen when the client doesn't send a client certificate when sending a request to the Application Gateway. This could happen if the client sending the request to the Application Gateway isn't configured correctly to use client certificates. One way to verify that the client authentication setup on Application Gateway is working as expected is through the following OpenSSL command:
 
+```
 openssl s_client -connect <hostname:port> -cert <path-to-certificate> -key <client-private-key-file> 
+```
 
-The cert flag is the leaf certificate, the key flag is the client private key file. 
+The `-cert` flag is the leaf certificate, the `-key` flag is the client private key file. 
 
-For more information on how to use the OpenSSL s_client command, check out their [manual page](https://www.openssl.org/docs/man1.0.2/man1/openssl-s_client.html).
+For more information on how to use the OpenSSL `s_client` command, check out their [manual page](https://www.openssl.org/docs/man1.0.2/man1/openssl-s_client.html).
 
 ### SslClientVerify is FAILED
 

@@ -73,6 +73,20 @@ Now that we've created an SSL profile with mutual authentication configured, we 
 
 ![Associate SSL profile to new listener](./media/mutual-authentication-portal/mutual-authentication-listener-portal.png)
 
+## Renew expired client CA certificates
+
+In the case that your client CA certificate has expired, you can update the certificate on your gateway through the following steps: 
+
+1. Navigate to your Application Gateway and go to the **SSL settings (Preview)** tab in the left-hand menu. 
+ 
+1. Select the existing SSL profile(s) with the expired client certificate. 
+ 
+1. Select **Upload a new certificate** in the **Client Authentication** tab and upload your new client certificate. 
+ 
+1. Select the trash can icon next to the expired certificate. This will remove the association of that certificate from the SSL profile. 
+
+1. Repeat steps 2-4 with any other SSL profile that was using the same expired client certificate. You will be able to choose the new certificate you uploaded in step 3 from the dropdown menu in other SSL profiles.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

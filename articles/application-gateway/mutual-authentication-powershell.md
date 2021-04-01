@@ -74,6 +74,12 @@ $port = New-AzApplicationGatewayFrontendPort -Name $frontendPortName  -Port 443
 
 Configure client authentication on your Application Gateway. Make sure the trusted client CA certificate chain you upload, if you upload a chain, is complete and contains all intermediate certificates (if any).  
 
+> [!IMPORTANT]
+> Please ensure that you upload the entire client CA certificate chain in one file. 
+
+> [!NOTE]
+> We recommend using TLS 1.2 with mutual authentication as TLS 1.2 will be mandated in the future. 
+
 ```azurepowershell
 $clientCertFilePath = $basedir + "/ScenarioTests/Data/TrustedClientCertificate.cer"
 $trustedClient01 = New-AzApplicationGatewayTrustedClientCertificate -Name $trustedClientCert01Name -CertificateFile $clientCertFilePath
@@ -119,6 +125,32 @@ When no longer needed, remove the resource group, application gateway, and all r
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $rgname
+```
+
+## Renew expired client CA certificates
+
+In the case that your client CA certificate has expired, you can update the certificate on your gateway through the following steps: 
+
+1. Sign in to Azure
+```azurepowershell
+Connect-AzAccount
+Select-AzSubscription -Subscription "<sub name>"
+```
+2. Get your Application Gateway configuration
+```azurepowershell
+$gateway = Get-AzApplicationGateway -Name "<gateway-name>" -ResourceGroupName "<resource-group-name>"
+```
+3. Remove the trusted client certificate from the gateway 
+```azurepowershell
+Remove-AzApplicationGatewayTrustedClientCertificate -Name "<name-of-client-certificate>" -ApplicationGateway $gateway
+``` 
+4. Add the new certificate onto the gateway 
+```azurepowershell
+Add-AzApplicationGatewayTrustedClientCertificate -ApplicationGateway $gateway -Name "<name-of-new-cert>" -CertificateFile "<path-to-certificate-file>"
+```
+5. Update the gateway with the new certificate 
+```azurepowershell
+Set-AzApplicationGateway -ApplicationGateway $gateway
 ```
 
 ## Next steps
