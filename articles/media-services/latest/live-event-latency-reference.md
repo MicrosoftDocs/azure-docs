@@ -58,5 +58,5 @@ The following tables show typical results for latency (when the LowLatency flag 
 
 ## Next steps
 
-- [Live streaming overview](live-streaming-overview.md)
+- [Live streaming overview](stream-live-streaming-concept.md)
 - [Live streaming tutorial](stream-live-tutorial-with-api.md)
