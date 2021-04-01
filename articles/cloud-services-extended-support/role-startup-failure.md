@@ -77,7 +77,7 @@ For example:
 ## Diagnose issues by using the compute emulator
 You can use the Azure Compute Emulator to diagnose and troubleshoot issues of missing dependencies and web.config errors.
 For best results in using this method of diagnosis, you should use a computer or virtual machine that has a clean installation of Windows. 
-1.	Install the [Azure SDK](https://azure.microsoft.com/en-us/downloads/) 
+1.	Install the [Azure SDK](https://azure.microsoft.com/downloads/) 
 2.	On the development machine, build the cloud service project.
 3.	In Windows Explorer, navigate to the bin\debug folder of the cloud service project.
 4.	Copy the .csx folder and .cscfg file to the computer that you are using to debug the issues.
