@@ -79,12 +79,9 @@ Follow these steps to remotely connect from a Windows client.
     [10.100.10.10]: PS>
     ```
 
-> [!IMPORTANT]
-> In the current release, you can connect to the PowerShell interface of the device only via a Windows client. The `-UseSSL` option does not work with the Linux clients.
+### Remotely connect from a Linux client
 
-<!--### Remotely connect from a Linux client-->
-
-<!--On the Linux client that you'll use to connect:
+On the Linux client that you'll use to connect:
 
 - [Install the latest PowerShell Core for Linux](/powershell/scripting/install/installing-powershell-core-on-linux) from GitHub to get the SSH remoting feature. 
 - [Install only the `gss-ntlmssp` package from the NTLM module](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). For Ubuntu clients, use the following command:
@@ -97,12 +94,16 @@ Follow these steps to remotely connect from an NFS client.
 1. To open PowerShell session, type:
 
     `pwsh`
- 
+
 2. For connecting using the remote client, type:
 
-    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
+    `$pso = New-PSSessionOption -SkipCACheck -SkipCNCheck`
+
+    Followed by:
+
+    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser -UseSSL -SessionOption $pso`
 
     When prompted, provide the password used to sign into your device.
- 
+
 > [!NOTE]
-> This procedure does not work on Mac OS.-->
+> This procedure does not work on Mac OS.
