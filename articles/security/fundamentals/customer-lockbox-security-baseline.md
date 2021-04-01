@@ -14,10 +14,10 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Customer Lockbox for Microsoft Azure
 
-This security baseline applies guidance from the [Azure Security Benchmark version1.0](../benchmarks/overview-v1.md) to Customer Lockbox. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Customer Lockbox. **Controls** not applicable to Customer Lockbox, or for which the responsibility is Microsoft's, have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version1.0](../benchmarks/overview-v1.md) to Customer Lockbox. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Customer Lockbox. 
 
 >[!NOTE]
->To see how Customer Lockbox completely maps to the Azure Security Benchmark, see the [full Customer Lockbox security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+>**Controls** not applicable to Customer Lockbox, or for which the responsibility is Microsoft's, have been excluded. To see how Customer Lockbox completely maps to the Azure Security Benchmark, see the [full Customer Lockbox security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Logging and Monitoring
 
