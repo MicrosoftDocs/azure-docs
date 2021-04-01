@@ -33,11 +33,11 @@
       href: tutorial-node-module.md
     - name: Python
       href: tutorial-python-module.md
-    - name: Develop with Windows containers
+    - name: Custom modules as Windows containers
       items:
       - name: C
         href: tutorial-c-module-windows.md
-      - name: C# (Windows containers)
+      - name: C#
         href: tutorial-csharp-module-windows.md
   - name: Deploy Azure services as modules
     items: 
