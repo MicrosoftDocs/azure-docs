@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 03/31/2021
+ms.date: 04/01/2021
 # As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code.
 ---
 
@@ -55,6 +55,9 @@ To connect to your remote compute instance:
 # [Studio](#tab/studio)
 
 Navigate to [ml.azure.com](https://ml.azure.com)
+
+> [!IMPORTANT]
+> In order to connect to your remote compute instance from Visual Studio Code, make sure that the account you're logged into in Azure Machine Learning studio is the same one you use in Visual Studio Code.
 
 ### Compute
 
