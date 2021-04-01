@@ -7,8 +7,8 @@ ms.author: crtreasu
 ms.date: 03/12/2021
 ms.topic: best-practice
 ms.service: azure-object-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
 ---
+
 # Best practices
 
 We recommend trying some of these steps to get the best results.
