@@ -328,4 +328,4 @@ Follow the steps in the article, [Enable passwordless security key sign in for A
 
 - [Enable passwordless security keys for sign in for Azure AD](howto-authentication-passwordless-security-key.md)
 - [Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md)
-- [Learn more about Authentication methods usage & insights](howto-authentication-methods-usage-insights.md)
+- [Learn more about Authentication methods usage & insights](./howto-authentication-methods-activity.md)

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF
+title: Troubleshoot CI-CD, Azure DevOps and GitHub issues in ADF
 description: Use different methods to troubleshoot CI-CD issues in ADF. 
 author: ssabat
 ms.author: susabat
@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.date: 03/12/2021
 ---
 
-# Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF 
+# Troubleshoot CI-CD, Azure DevOps and GitHub issues in ADF 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -96,8 +96,7 @@ When trying to publish changes to a Data Factory, you get following error messag
         "details": null
     }
 `
-
-#### Symptom
+### Cause
 
 You have detached the Git configuration and set it up again with the "Import resources" flag selected, which sets the Data Factory as "in sync". This means no changes to publish.
 
@@ -145,11 +144,7 @@ You have created a customer role as the user and it did not have the necessary p
 
 In order to resolve the issue, you need to add the following permission to your role: *Microsoft.DataFactory/factories/queryFeaturesValue/action*. This permission should be included by default in the "Data Factory Contributor" role.
 
-###  Automatic publishing for CI/CD without clicking Publish button  
-
-#### Issue
-
-Manual publishing with button click in ADF portal does not enable automatic CI/CD operation.
+###  Cannot automate publishing for CI/CD 
 
 #### Cause
 
@@ -173,15 +168,14 @@ Azure Resource Manager restricts template size to be 4mb. Limit the size of your
 
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Please follow best practice at [Using Linked and Nested Templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
-### Cannot connect to GIT Enterprise Cloud 
+### Cannot connect to GIT Enterprise  
 
 ##### Issue
 
-You cannot connect to GIT Enterprise Cloud because of permission issues. You can see error like **422 - Unprocessable Entity.**
+You cannot connect to GIT Enterprise because of permission issues. You can see error like **422 - Unprocessable Entity.**
 
 #### Cause
 
-* You are using Git Enterprise on prem server. 
 * You have not configured Oauth for ADF. 
 * Your URL is misconfigured.
 
@@ -189,7 +183,7 @@ You cannot connect to GIT Enterprise Cloud because of permission issues. You can
 
 You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, ADF will try *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* at first and fail. Then, it will try *https://hostname/api/v3/orgs/<org>/<repo>...*, and succeed. 
  
-### Recover from a deleted data factory
+### Cannot recover from a deleted data factory
 
 #### Issue
 Customer deleted Data factory or the resource group containing the Data Factory. He would like to know how to restore a deleted data factory.
@@ -206,7 +200,7 @@ To recover the Deleted Data Factory which has Source Control refer the steps bel
 
  * Create a new Azure Data Factory.
 
- * Reconfigure Git with the same settings, but make sure Import existing Data Factory resources to the selected repository, and choose New branch.
+ * Reconfigure Git with the same settings, but make sure to import existing Data Factory resources to the selected repository, and choose New branch.
 
  * Create a pull request to merge the changes to the collaboration branch and publish.
 

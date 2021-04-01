@@ -1,14 +1,14 @@
 ---
 title: Encrypted connectivity using TLS/SSL in Azure Database for MySQL - Flexible Server
 description: Instructions and information on how to connect using TLS/SSL in Azure Database for MySQL - Flexible Server.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ---
 
-# Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server
+# Connect to Azure Database for MySQL - Flexible Server over TLS1.2/SSL
 
 > [!IMPORTANT]
 > Azure Database for MySQL Flexible Server is currently in public preview
@@ -17,8 +17,10 @@ Azure Database for MySQL Flexible Server supports connecting your client applica
 
 Azure Database for MySQL Flexible Server only supports encrypted connections using Transport Layer Security (TLS 1.2) and all incoming connections with TLS 1.0 and TLS 1.1 will be denied. For all flexible servers enforcement of TLS connections is enabled and you cannot disable TLS/SSL for connecting to flexible server.
 
-## Applications that require certificate verification for TLS/SSL connectivity
-In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file to connect securely. Azure Database for MySQL Flexible Server uses *DigiCert Global Root CA*. Download this certificate needed to communicate over SSL from [DigiCert Global Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) and save the certificate file to your preferred location. For example, this tutorial uses `c:\ssl`.
+## Download the public SSL certificate
+To use with your appliations,please download the [public SSL certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem).
+
+Save the certificate file to your preferred location. For example, this tutorial uses `c:\ssl` or `\var\www\html\bin` on your local environment or the client environment where your application is hosted. This will allow applications to connect securely to the database over SSL. 
 
 ### Connect using mysql command-line client with TLS/SSL
 
@@ -53,6 +55,16 @@ Some application frameworks that use MySQL for their database services do not en
 Connection strings that are pre-defined in the "Connection Strings" page available for your server in the Azure portal include the required parameters for common languages to connect to your database server using TLS/SSL. The TLS/SSL parameter varies based on the connector. For example, "useSSL=true", "sslmode=required", or "ssl_verify_cert=true" and other variations.
 
 To establish an encrypted connection to your flexible server over TLS/SSL from your application, refer to the following code samples:
+
+### WordPress
+Download [SSL public certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) and add the following lines in wp-config.php after the line ```// ** MySQL settings - You can get this info from your web host ** //```.
+
+```php
+//** Connect with SSL** //
+define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
+//** SSL CERT **//
+define('MYSQL_SSL_CERT','/FULLPATH/on-client/to/DigiCertGlobalRootCA.crt.pem');
+```
 
 ### PHP
 

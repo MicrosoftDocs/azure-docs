@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-#customer intent: As an admin, I want to automate user provisioning to SaaS apps
+# Customer intent: As an administrator, I want to automate user provisioning to SaaS apps.
 ---
 
 # Plan an automatic user provisioning deployment

@@ -4,7 +4,7 @@ description: Learn how to create a cluster that distributes nodes across availab
 services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
-ms.date: 09/04/2020
+ms.date: 03/16/2021
 
 ---
 
@@ -164,7 +164,7 @@ Name:       aks-nodepool1-28993262-vmss000004
 We now have two additional nodes in zones 1 and 2. You can deploy an application consisting of three replicas. We will use NGINX as an example:
 
 ```console
-kubectl create deployment nginx --image=nginx
+kubectl create deployment nginx --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 kubectl scale deployment nginx --replicas=3
 ```
 

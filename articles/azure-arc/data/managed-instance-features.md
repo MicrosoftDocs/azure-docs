@@ -112,19 +112,19 @@ Azure Arc enabled SQL Managed Instance share a common code base with the latest 
 | Feature | Azure Arc enabled SQL Managed Instance |
 |--|--|
 | JSON | Yes |
-| Query Store | Yes |  |
-| Temporal | Yes |  |
-| Native XML support | Yes |  |
-| XML indexing | Yes |  |
-| MERGE & UPSERT capabilities | Yes |  |
-| Date and Time datatypes | Yes |  |
-| Internationalization support | Yes |  |
+| Query Store | Yes | 
+| Temporal | Yes | 
+| Native XML support | Yes | 
+| XML indexing | Yes | 
+| MERGE & UPSERT capabilities | Yes | 
+| Date and Time datatypes | Yes | 
+| Internationalization support | Yes | 
 | Full-text and semantic search | No |
-| Specification of language in query | Yes |  |
-| Service Broker (messaging) | Yes |  |
-| Transact-SQL endpoints | Yes |  |
-| Graph | Yes |  |
-| Machine Learning Services | No |  |
+| Specification of language in query | Yes | 
+| Service Broker (messaging) | Yes | 
+| Transact-SQL endpoints | Yes | 
+| Graph | Yes | 
+| Machine Learning Services | No |
 | PolyBase | No |
 
 

@@ -22,7 +22,7 @@ You can use Media Encoder Standard to generate one or more thumbnails from your 
 
 ## Recommended reading and practice
 
-It is recommended that you become familiar with custom transforms by reading [How to encode with a custom transform - REST](custom-preset-rest-howto.md).
+It is recommended that you become familiar with custom transforms by reading [How to encode with a custom transform - REST](encode-custom-preset-rest-how-to.md).
 
 ## Thumbnail parameters
 
