@@ -25,7 +25,7 @@ This article assumes that you have already created a VM. If needed, you can crea
 2. Under **DNA name label**, enter the prefix you want to use.
 3. Select **Save** at the top of the page.
 4. Select **Overview** in the left menu to return to the VM overview blade.
-5. Verify that the *DNS name* appears correctly. 
+5. Verify that the **DNS name** appears correctly. 
 
 ## Next steps
 
