@@ -43,6 +43,7 @@ The following tables compare the storage solutions Azure Storage offers for Wind
 Once you've chosen your storage method, check out [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) for information about our pricing plans.
 
 ## Azure Files tiers
+
 Azure Files offers two different tiers of storage: premium and standard. These tiers let you tailor the performance and cost of your file shares to meet your scenario's requirements.
 
 - Premium file shares are backed by solid-state drives (SSDs) and are deployed in the FileStorage storage account type. Premium file shares provide consistent high performance and low latency for input and output (IO) intensive workloads. 
@@ -53,8 +54,8 @@ The following table lists our recommendations for which performance tier to use 
 
 | Workload type | Recommended file tier |
 |--------|-----------|
-| Light | Standard file shares |
-| |More than 200 concurrent active users: Standard file shares. You may also consider using Standard file shares with multiple shares if you are scaling up from existing Standard file shares or plan to manage scale out for cost efficiency.|
+| Light (fewer than 200 users) | Standard file shares |
+| Light (more than 200 users) | Premium file shares or standard with multiple file shares |
 |Medium|Premium file shares|
 |Heavy|Premium file shares|
 |Power|Premium file shares|
