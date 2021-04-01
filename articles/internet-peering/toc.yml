@@ -21,7 +21,7 @@
   - name: Peering Service partner walkthrough
     href: walkthrough-peering-service-all.md
   - name: Communications Services partner walkthrough
-    href: walkthrough-voice-service-partner.md
+    href: walkthrough-communications-services-partner.md
   - name: Associate peer ASN to Azure subscription
     items:
     - name: Portal
