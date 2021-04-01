@@ -426,11 +426,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/media-services/latest/how-to-set-azure-subscription.md",
-            "redirect_url": "setup-azure-subscription-how-to",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/media-services/latest/how-to-create-transform.md",
             "redirect_url": "transform-create-transform-how-to",
             "redirect_document_id": false
