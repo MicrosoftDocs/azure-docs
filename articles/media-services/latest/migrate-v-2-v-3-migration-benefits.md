@@ -45,13 +45,13 @@ There have been significant improvements to Media Services with V3.
 | For file-based job processing, you can use a HTTP(S) URL as the input. | You don't need to have content already stored in Azure, nor do you need to create input Assets. |
 | **Live events** ||
 | Premium 1080p Live Events | New Live Event SKU allows customers to get cloud encoding with output up to 1080p in resolution. |
-| New [low latency](live-event-latency.md) live streaming support on Live Events. | This allows users to watch live events closer to real time than if they didn't have this setting enabled. |
+| New [low latency](live-event-latency-reference.md) live streaming support on Live Events. | This allows users to watch live events closer to real time than if they didn't have this setting enabled. |
 | Live Event Preview supports [dynamic packaging](encode-dynamic-packaging-concept.md) and dynamic encryption. | This enables content protection on preview and DASH and HLS packaging. |
 | Live Outputs replace Programs | Live output is simpler to use than the program entity in the v2 APIs. |
 | RTMP ingest for Live Events is improved, with support for more encoders | Increases stability and provides source encoder flexibility. |
 | Live Events can stream 24x7 | You can host a Live Event and keep your audience engaged for longer periods. |
 | Live transcription on Live Events | Live transcription allows customers to automatically transcribe spoken language into text in real time during the live event broadcast. This significantly improves accessibility of live events. |
-| [Stand-by mode](live-events-outputs-concept.md#standby-mode) on Live Events | Live events that are in standby state are less costly than running live events. This allows customers to maintain a set of live events that are ready to start within seconds at a lower cost than maintaining a set of running live events. Reduced pricing for standby live events will become effective in February 2021 for most regions, with the rest to follow in April 2021.
+| [Stand-by mode](live-event-outputs-concept.md#standby-mode) on Live Events | Live events that are in standby state are less costly than running live events. This allows customers to maintain a set of live events that are ready to start within seconds at a lower cost than maintaining a set of running live events. Reduced pricing for standby live events will become effective in February 2021 for most regions, with the rest to follow in April 2021.
 |**Content protection** ||
 | [Content protection](drm-content-key-policy-concept.md) supports multi-key features. | Customers can now use multiple content encryption keys on their Streaming locators. |
 | **Monitoring** | |

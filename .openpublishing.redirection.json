@@ -6185,6 +6185,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-functions/functions-runtime-overview.md",
+      "redirect_url": "/azure/azure-functions/functions-kubernetes-keda",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-runtime-install.md",
+      "redirect_url": "/azure/azure-functions/functions-kubernetes-keda",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-government/documentation-government-k8.md",
       "redirect_url": "/azure/azure-government",
       "redirect_document_id": false
@@ -31090,6 +31100,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/networking/networking-overview.md",
+      "redirect_url": "/azure/networking/fundamentals/networking-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/network-watcher/connection-monitor-preview-create-using-portal.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-portal",
       "redirect_document_id": false
@@ -33903,7 +33918,7 @@
     },
     {
       "source_path": "articles/spring-cloud/spring-cloud-howto-access-data-plane-azure-ad-rbac.md",
-      "redirect_url": "/azure/spring-cloud/overview",
+      "redirect_url": "/azure/spring-cloud/how-to-access-data-plane-azure-ad-rbac",
       "redirect_document_id": false
     },
     {
