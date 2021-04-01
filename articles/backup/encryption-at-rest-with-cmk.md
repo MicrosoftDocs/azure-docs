@@ -39,7 +39,7 @@ This article discusses the following:
     >Use Az module 5.3.0 or greater to use customer managed keys for backups in the Recovery Services vault.
     
     >[!Warning]
-    >For users using PowerShell for managing encryption keys for Backup, it is not recommended to update the key from the portal.<br></br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
+    >For users using PowerShell for managing encryption keys for Backup, it is not recommended to update the keys from the portal.<br></br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
 
 If you haven't created and configured your Recovery Services vault, you can [read how to do so here](backup-create-rs-vault.md).
 
