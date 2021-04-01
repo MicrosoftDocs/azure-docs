@@ -2,11 +2,11 @@
 title: 'Quickstart: Create a Python app in the Azure portal'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service by using the Azure portal.
 ms.topic: quickstart
-ms.date: 03/15/2021
+ms.date: 04/01/2021
 ms.custom: devx-track-python
 ---
 
-# Quickstart: Create a Python app using Azure App Service on Linux (Azure portal))
+# Quickstart: Create a Python app using Azure App Service on Linux (Azure portal)
 
 In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the Azure portal to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a basic App Service tier that incurs a small cost in your Azure subscription.
 
@@ -41,6 +41,8 @@ An App Service web app is the web server to which you deploy your code.
 
 1. In the search bar at the top of the Azure portal, enter "App Service", then select **App Services**.
 
+    ![Portal search bar and selecting App Service](media/quickstart-python-portal/portal-search-bar.png)
+
 1. On the **App Services** page, select "**+Add**:
 
     ![Add App Service command](media/quickstart-python-portal/add-app-service.png)
@@ -73,7 +75,7 @@ Having issues? [Let us know](https://aka.ms/FlaskPortalQuickstartHelp).
     ![Deployment Center command on the App Service menu](media/quickstart-python-portal/deployment-center-command.png)
 
 
-1. On the **Deployment Center** page, select the **Settings** tab:
+1. On the **Deployment Center** page, select the **Settings** tab if it's not already open:
 
     ![Deployment Center settings tab](media/quickstart-python-portal/deployment-center-settings-tab.png)
 
@@ -92,7 +94,7 @@ Having issues? [Let us know](https://aka.ms/FlaskPortalQuickstartHelp).
 
     ![Save the GitHub source configuration on Deployment Center](media/quickstart-python-portal/deployment-center-configure-save.png)
 
-1. Select the logs **Logs** to view the status of the deployment. It takes a few minutes to build and deploy the sample and additional logs appear during the process. Upon completion, the logs should reflect a Status of **Success (Active)**:
+1. Select the **Logs** tab to view the status of the deployment. It takes a few minutes to build and deploy the sample and additional logs appear during the process. Upon completion, the logs should reflect a Status of **Success (Active)**:
 
     ![Deployment Center logs tab](media/quickstart-python-portal/deployment-center-logs.png)
 
@@ -118,7 +120,7 @@ Because you connected App Service to your repository, changes that you commit to
 
 1. You can make changes directly in your forked repository on GitHub, or you can clone the repository locally, make and commit changes, and then push those changes to GitHub. Either method results in a change to the repository that's connected to App Service.
 
-1. In your forked repository, change the app's message from "Hello, World!" to "Hello, Azure!" as follows:
+1. **In your forked repository**, change the app's message from "Hello, World!" to "Hello, Azure!" as follows:
     - Flask (python-docs-hello-world sample): Change the text string on line 6 of the *application.py* file.
     - Django (python-docs-hello-django sample): Change the text string on line 5 of the *views.py* file within the *hello* folder.
 
