@@ -1,17 +1,17 @@
 ---
-title: Role Instance Startup Failure
+title: Role instance startup failure for Cloud Services (extended support)
 description: Troubleshoot Role Instance Startup Failure
 ms.topic: article
 ms.service: cloud-services-extended-support
 author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachadw
-ms.date: 4/1/2021
+ms.date: 04/01/2021
 ms.custom: 
 ---
 
 # Troubleshoot Azure Cloud Service (extended support) roles that fail to start
-
+Here are some common problems and solutions related to Cloud Services (extended support) roles that fail to start.
 
 ## Cloud Service Operation failed with RoleInstanceStartupTimeoutError
 One or more role instances of your could service (extended support) may not start in the stipulated time. These role instances might be taking time to start or might be recycling and the role instance might fail with a RoleInstanceStartupTimeoutError
@@ -19,7 +19,7 @@ This is a role application error. The role application contains two major parts:
 
 To get the current state and details of the role instances in case of errors, use :
 
-1. Powershell: Use the [Get-AzCloudServiceRoleInstanceView](https://docs.microsoft.com/powershell/module/az.cloudservice/get-azcloudserviceroleinstanceview) cmdlet to retrieve information about the run-time state of a role instance in a cloud service.
+* PowerShell: Use the [Get-AzCloudServiceRoleInstanceView](https://docs.microsoft.com/powershell/module/az.cloudservice/get-azcloudserviceroleinstanceview) cmdlet to retrieve information about the run-time state of a role instance in a cloud service.
 ```powershell
 Get-AzCloudServiceRoleInstanceView -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstanceName "WebRole1_IN_0"
  
@@ -27,7 +27,8 @@ Statuses           PlatformFaultDomain PlatformUpdateDomain
 --------           ------------------- --------------------
 {RoleStateStarting} 0                   0
 ```
-2. Azure Portal: Go to your cloud service and select Roles and Instances tab. Click on the role instance to get its status details 
+
+* Azure portal: Go to your cloud service and select Roles and Instances tab. Click on the role instance to get its status details 
    :::image type="content" source="media/role-startup-failure-1.png" alt-text="Image shows role startup failure on portal.":::
    
 Here are some common problems and solutions related to Azure Cloud Services (extended support) roles that fail to start or it cycles between the initializing, busy, and stopping states.
@@ -35,13 +36,15 @@ Here are some common problems and solutions related to Azure Cloud Services (ext
 ## Missing DLLs or dependencies
 Unresponsive roles and roles that are cycling between Initializing, Busy, and Stopping states can be caused by missing DLLs or assemblies.
 Symptoms of missing DLLs or assemblies can be:
-•	Your role instance is cycling through Initializing, Busy, and Stopping states.
-•	Your role instance has moved to Ready but if you navigate to your web application, the page does not appear.
+
+* Your role instance is cycling through **Initializing**, **Busy**, and **Stopping** states.
+* Your role instance has moved to **Ready** but if you navigate to your web application, the page does not appear.
 
 There are several recommended methods for investigating these issues.
 
 ## Diagnose missing DLL issues in a web role
 When you navigate to a website that is deployed in a web role, and the browser displays a server error similar to the following, it may indicate that a DLL is missing.
+
 :::image type="content" source="media/role-startup-failure-2.png" alt-text="Image shows runtime error on role startup failure":::
 
 ## Diagnose issues by turning off custom errors
@@ -68,9 +71,9 @@ You can use Remote Desktop to access the role and view more complete error infor
 7.	Open Internet Explorer.
 8.	Type the address and the name of the web application. For example, http://<IPV4 Address>/default.aspx.
 Navigating to the website will now return more explicit error messages:
-•	Server Error in '/' Application.
-•	Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
-•	Exception Details: System.IO.FIleNotFoundException: Could not load file or assembly ‘Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ or one of its dependencies. The system cannot find the file specified.
+* Server Error in '/' Application.
+* Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
+* Exception Details: System.IO.FIleNotFoundException: Could not load file or assembly ‘Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ or one of its dependencies. The system cannot find the file specified.
 For example:
 :::image type="content" source="media/role-startup-failure-3.png" alt-text="Image shows exception on role startup failure":::
   
