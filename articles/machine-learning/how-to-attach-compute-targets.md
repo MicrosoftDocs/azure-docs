@@ -126,7 +126,7 @@ Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM 
 
 Azure HDInsight is a popular platform for big-data analytics. The platform provides Apache Spark, which can be used to train your model.
 
-1. **Create**:  Azure Machine Learning cannot create an HDInsight cluster for you. Instead, you must create the cluster and then attach it to your workspace. For more information, see [Create a Spark Cluster in HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+1. **Create**:  Azure Machine Learning cannot create an HDInsight cluster for you. Instead, you must create the cluster and then attach it to your Azure Machine Learning workspace. For more information, see [Create a Spark Cluster in HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
     > [!WARNING]
     > Azure Machine Learning requires the HDInsight cluster to have a __public IP address__.
