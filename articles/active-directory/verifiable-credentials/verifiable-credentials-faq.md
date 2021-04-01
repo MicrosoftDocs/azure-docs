@@ -79,3 +79,7 @@ Yes! The following repositories are the open-sourced components of our services.
 2. The [VC SDK for Node, on GitHub](https://github.com/microsoft/VerifiableCredentials-Verification-SDK-Typescript)
 3. An [Android SDK for building decentralized identity wallets, on GitHub](https://github.com/microsoft/VerifiableCredential-SDK-Android)
 4. An [iOS SDK for building decentralized identity wallets, on GitHub](https://github.com/microsoft/VerifiableCredential-SDK-iOS)
+
+## Next steps
+
+- [How to customize your Azure Active Directory Verifiable Credentials](credential-design.md)
