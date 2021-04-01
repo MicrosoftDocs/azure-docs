@@ -206,6 +206,10 @@ In your function app's requirements.txt, an unpinned package will be upgraded to
 
 If your function app is using the Python pickel library to load Python object from .pkl file, it is possible that the .pkl contains malformed bytes string, or invalid address reference in it. To recover from this issue, try commenting out the pickle.load() function.
 
+### Pyodbc connection collision
+
+If your function app is using the popular ODBC database driver [pyodbc](https://github.com/mkleehammer/pyodbc), it is possible that multiple connections are opened within a single function app. To avoid this issue, please use the singleton pattern and ensure only one pyodbc connection is used across the function app.
+
 ---
 
 ## Next steps
