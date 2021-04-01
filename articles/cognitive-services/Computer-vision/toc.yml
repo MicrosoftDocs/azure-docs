@@ -76,7 +76,7 @@
 - name: Image Analysis
   items:
   - name: Image Analysis overview
-    href: overview.md
+    href: overview-image-analysis.md
   - name: Image Analysis quickstart
     href: quickstarts-sdk/client-library.md
   - name: Samples  
