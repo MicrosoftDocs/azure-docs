@@ -17,9 +17,10 @@ The Secrets Store CSI Driver for Kubernetes allows for the integration of variou
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Before you start, install the [Azure CLI](/cli/azure/install-azure-cli-windows).
+- Before you start, install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows).
 
 ## Features
+
 - Mount secrets, keys, and/or certs to a pod using a CSI volume
 - Supports CSI Inline volumes (Kubernetes version v1.15+)
 - Supports mounting multiple secrets store objects as a single volume
@@ -70,7 +71,6 @@ The Secrets Store CSI Driver for AKS supports a number of Secrets Store CSI Driv
 - [Azure Key Vault][key-vault-provider-install]
 - [HashiCorp Vault][hashicorp-vault-provider-install]
 - [Google Secret Manager][google-secret-manager-provider-install]
-
 
 ## Create and deploy your own SecretProviderClass object
 
@@ -126,9 +126,9 @@ After the pod starts, the mounted content at the volume path specified in your d
 
 ```Bash
 ## show secrets held in secrets-store
-kubectl exec secrets-store-inline -- ls /mnt/secrets-store/foo
+kubectl exec secrets-store-inline -- ls /mnt/secrets-store/
 
-## print a test secret held in secrets-store
+## print a test secret 'foo' held in secrets-store
 kubectl exec secrets-store-inline -- cat /mnt/secrets-store/foo
 ```
 
