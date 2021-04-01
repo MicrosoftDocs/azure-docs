@@ -34,6 +34,8 @@ Using API Management in internal mode, you can achieve the following scenarios:
 * Enable hybrid cloud scenarios by exposing your cloud-based APIs and on-premises APIs through a common gateway.
 * Manage your APIs hosted in multiple geographic locations by using a single gateway endpoint.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
@@ -45,7 +47,10 @@ To perform the steps described in this article, you must have:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + **An Azure API Management instance**. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
-+ When an API Management service is deployed in a virtual network, a [list of ports](./api-management-using-with-vnet.md#required-ports) are used and need to be opened. 
+
+[!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
+
+When an API Management service is deployed in a virtual network, a [list of ports](./api-management-using-with-vnet.md#required-ports) are used and need to be opened. 
 
 ## <a name="enable-vpn"> </a>Creating an API Management in an internal virtual network
 The API Management service in an internal virtual network is hosted behind an [internal load balancer (classic)](/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). This is the only option available and can't be changed.
@@ -69,15 +74,19 @@ After the deployment succeeds, you should see **private** virtual IP address and
 
 ### <a name="deploy-apim-internal-vnet"> </a>Deploy API Management into Virtual Network
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
+You can also enable virtual network connectivity by using the following methods.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
-You can also enable virtual network connectivity by using PowerShell cmdlets.
+### API version 2019-01-01
 
-* Create an API Management service inside a virtual network: Use the cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) to create an Azure API Management service inside a virtual network and configure it to use the internal virtual network type.
+* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-internal-vnet)
 
-* Update an existing deployment of an API Management service inside a virtual network: Use the cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) to move an existing API Management service inside a virtual network and configure it to use the internal virtual network type.
+     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
+
+* Azure PowerShell cmdlets - [Create](/powershell/module/az.apimanagement/new-azapimanagement) or [update](/powershell/module/az.apimanagement/update-azapimanagementregion) an API Management instance in a virtual network
+
+* Azure CLI commands - [Create](/cli/azure/apim#az_apim_create) or [update](/cli/azure/apim#az_apim_update) an API Management instance in a virtual network
+
 
 ## <a name="apim-dns-configuration"></a>DNS configuration
 When API Management is in external virtual network mode, the DNS is managed by Azure. For internal virtual network mode, you have to manage your own DNS. Configuring an Azure DNS private zone and linking it to the virtual network API Management service is deployed into is the recommended option.  Click [here](../dns/private-dns-getstarted-portal.md) to learn how to setup a private zone in Azure DNS.

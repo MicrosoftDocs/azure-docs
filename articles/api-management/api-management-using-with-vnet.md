@@ -2,15 +2,11 @@
 title: How to use Azure API Management with virtual networks
 description: Learn how to setup a connection to a virtual network in Azure API Management and access web services through it.
 services: api-management
-documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
 
 ms.service: api-management
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 04/01/2021
 ms.author: apimpm
 ms.custom: references_regions
 ---
@@ -36,19 +32,7 @@ To perform the steps described in this article, you must have:
 
 + An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-* A Standard SKU [public IP address](../virtual-network/public-ip-addresses.md#standard), if your client uses API version 2021-01-01-preview or later. The value is assigned as the virtual IP address of the API Management instance. 
-
-  * The IP address must be in the same region and subscription as the API Management instance and the virtual network.
-
-  * Either create the public IP address when deploying API Management in a virtual network, or provide an existing public IP address resource.
-  
-  * Provide a unique DNS label when creating the IP address. This label becomes the DNS prefix for the API Management instance's gateway and other endpoints. Create an A record to point the fully qualified gateway DNS name to the IP address.
-
-  * When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you must configure a different public IP address. 
-
-  > [!NOTE]
-  > Currently, you can only use an Azure Resource Manager template to configure an API Management instance in a virtual network with API version 2021-01-01 preview.
-
+[!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
 ## <a name="enable-vpn"> </a>Enable VNET connection
 
@@ -88,11 +72,10 @@ To perform the steps described in this article, you must have:
 7. In the top navigation bar, select **Save**, and then select **Apply network configuration**.
 
 > [!NOTE]
-> * The VIP address of the API Management instance will change each time the VNET is enabled or disabled.
-> * The VIP address will also change when API Management is moved from **External** to **Internal**, or vice-versa.
+> With clients using API version 2019-01-01 and earlier, the VIP address of the API Management instance will change each time the VNET is enabled or disabled. The VIP address will also change when API Management is moved from **External** to **Internal**, or vice versa.
 
 > [!IMPORTANT]
-> If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to six hours. During this period it will not be possible to delete the VNET or deploy a new resource to it. This behavior is true for clients using api-version 2018-01-01 and earlier. Clients using api-version 2019-01-01 and later, the VNET is freed up as soon as the associated API Management service is deleted.
+> If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to six hours. During this period it will not be possible to delete the VNET or deploy a new resource to it. This behavior is true for clients using API version 2018-01-01 and earlier. Clients using API version 2019-01-01 and later, the VNET is freed up as soon as the associated API Management service is deleted.
 
 ### <a name="deploy-apim-external-vnet"> </a>Deploy API Management into External VNET
 
@@ -126,8 +109,7 @@ Following is a list of common misconfiguration issues that can occur while deplo
 * **Custom DNS server setup**: The API Management service depends on several Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) guidance on custom DNS setup. See the ports table below and other network requirements for reference.
 
 > [!IMPORTANT]
-> If you plan to use a Custom DNS Server(s) for the VNET, you should set it up **before** deploying an API Management service into it. Otherwise you need to
-> update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2019-12-01/apimanagementservice/applynetworkconfigurationupdates)
+> If you plan to use a Custom DNS Server(s) for the VNET, you should set it up **before** deploying an API Management service into it. Otherwise you need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2019-12-01/apimanagementservice/applynetworkconfigurationupdates)
 
 * **Ports required for API Management**: Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using [Network Security Group][Network Security Group]. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
 
@@ -233,7 +215,7 @@ Each additional scale unit of API Management requires two more IP addresses.
 + Load balanced public IP address can be found on the Overview/Essentials blade in the Azure portal.
 
 ## <a name="limitations"> </a>Limitations
-* A subnet containing API Management instances cannot contain any other Azure resource types.
+* For clients using API version 2019-01-01 and earlier, a subnet containing API Management instances cannot contain any other Azure resource types.
 * The subnet and the API Management service must be in the same subscription.
 * A subnet containing API Management instances cannot be moved across subscriptions.
 * For multi-region API Management deployments configured in Internal virtual network mode, users are responsible for managing the load balancing across multiple regions, as they own the routing.
