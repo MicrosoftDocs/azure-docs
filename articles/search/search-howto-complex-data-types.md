@@ -37,7 +37,7 @@ The following JSON document is composed of simple fields and complex fields. Com
   "HotelId": "1",
   "HotelName": "Secret Point Motel",
   "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
-  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"]
+  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"],
   "Address": {
     "StreetAddress": "677 5th Ave",
     "City": "New York",
