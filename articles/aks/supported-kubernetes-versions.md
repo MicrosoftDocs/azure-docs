@@ -136,6 +136,7 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
+| 1.17  | Dec-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
 | 1.18  | Mar-23-20  | May 2020   | Aug 2020  | 1.21 GA | 
 | 1.19  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
 | 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA |
@@ -185,11 +186,11 @@ Skipping multiple versions can only be done when upgrading from an unsupported v
 
 **Can I create a new 1.xx.x cluster during its 30 day support window?**
 
-No. Once a version is deprecated/removed, you cannot create a cluster with that version. As the change rolls out, you will start to see the old version removed from your version list. This process may take up to a week.
+No. Once a version is deprecated/removed, you cannot create a cluster with that version. As the change rolls out, you will start to see the old version removed from your version list. This process may take up to two weeks from announcement, progressively by region.
 
 **I am on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?**
 
-No. You will not be allowed to add node pools to your cluster running a deprecated version. You will have to upgrade.
+No. You will not be allowed to add node pools of the deprecated version to your cluster. You can add node pools of a new version. However, this may require you to update the control plane first. 
 
 ## Next steps
 
