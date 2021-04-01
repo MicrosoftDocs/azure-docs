@@ -175,11 +175,7 @@
     - name: Live event types comparison
       href: live-event-types-comparison-reference.md
     - name: States and billing
-<<<<<<< HEAD
-      href: live-event-latency-reference.md
-=======
       href: live-event-states-billing-concept.md
->>>>>>> 7d069ca4bf785ab1ac99aa60f9c8146a45f05300
     - name: Latency
       href: live-event-latency-reference.md  
   - name: Packaging and delivery
