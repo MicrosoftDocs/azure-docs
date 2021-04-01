@@ -62,13 +62,14 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 #### Using the Azure portal to link your Notification Hub
 
-In the portal, navigate to your Azure Communication Services resource. Inside the Communication Services resource, select Push Notifications from the left menu of the Communication Services page and connect the Notification Hub that you provisioned earlier. You'll need to provide your connection string and resourceId here:
+In the portal, navigate to your Azure Communication Services resource. Inside the Communication Services resource, select Push Notifications from the left menu of the Communication Services page and connect the Notification Hub that you provisioned earlier. Click "Connect notification hub". You will see list of notification hubs avilable to connect, Select notification hub that you would like to use for this resource. If there is no notification hub to link click "Create new notification hub" on top to get a new hub provisioned for this resource.
 
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure portal.":::
 
+Now you will see the notification hub that you linked with connected state. If you would like to use different hub for the resource click "Disconnect" and repeat the steps to link the different notification hub.
+
 > [!NOTE]
-> If the Azure Notification Hub connection string is updated the Communication Services resource has to be updated as well.
-Any change on how the hub is linked will be reflected in data plane (i.e., when sending a notification) within a maximum period of ``10`` minutes. This is applicable also when the hub is linked for the first time **if** there were notifications sent before.
+> Any change on how the hub is linked will be reflected in data plane (i.e., when sending a notification) within a maximum period of ``10`` minutes. This is applicable also when the hub is linked for the first time **if** there were notifications sent before.
 
 ### Device registration
 
