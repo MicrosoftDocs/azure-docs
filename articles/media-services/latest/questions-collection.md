@@ -159,7 +159,7 @@ Often, customers have invested in a license server farm either in their own data
 
 Currently, you can use the [Azure portal](https://portal.azure.com/) to:
 
-* Manage [Live Events](live-events-outputs-concept.md) in Media Services v3. 
+* Manage [Live Events](live-event-outputs-concept.md) in Media Services v3. 
 * View (not manage) v3 [assets](assets-concept.md). 
 * [Get info about accessing APIs](./access-api-howto.md). 
 
