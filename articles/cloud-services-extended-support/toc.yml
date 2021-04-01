@@ -67,6 +67,8 @@
     href: certificates-and-key-vault.md
   - name: Generate ARM Template using Portal
     href: generate-template-portal.md
+  - name: Swap two Cloud Services
+    href: swap-cloud-service.md
 - name: Samples
   items: 
   - name: Sample Templates
