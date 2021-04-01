@@ -146,7 +146,7 @@ If you receive an error when you try to set a phone number for a user account in
 
 For additional ways to sign in to Azure AD without a password, such as the Microsoft Authenticator App or FIDO2 security keys, see [Passwordless authentication options for Azure AD][concepts-passwordless].
 
-You can also use the Microsoft Graph REST API beta to [enable][rest-enable] or [disable][rest-disable] SMS-based sign-in.
+You can also use the Microsoft Graph REST API to [enable][rest-enable] or [disable][rest-disable] SMS-based sign-in.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../fundamentals/sign-up-organization.md
