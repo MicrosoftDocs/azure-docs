@@ -12,6 +12,40 @@ This article describes how to use Azure Service Bus to optimize performance when
 
 Throughout this article, the term "client" refers to any entity that accesses Service Bus. A client can take the role of a sender or a receiver. The term "sender" is used for a Service Bus queue client or a topic client that sends messages to a Service Bus queue or a topic. The term "receiver" refers to a Service Bus queue client or subscription client that receives messages from a Service Bus queue or a subscription.
 
+## Resource planning and considerations
+
+As with any technical resourcing, prudent planning is key in ensuring that Azure Service Bus is providing the performance that your application expects. The right configuration or topology for your Service Bus namespaces depends on a host of factors involving your application architecture and how each of the Service Bus features are used.
+
+### Pricing tier
+
+Service Bus offers various pricing tiers. It is recommended to pick the appropriate tier for your application requirements.
+
+   * **Standard tier** - Suited for developer/test environments or low throughput scenarios where the applications are **not sensitive** to throttling.
+
+   * **Premium tier** - Suited for production environments with varied throughput requirements where predictable latency and throughput is required. Additionally, Service Bus premium namespaces can be [auto scaled](automate-update-messaging-units.md) can be enabled to accommodate spikes in throughput.
+
+> [!NOTE]
+> If the right tier is not picked, there is a risk of overwhelming the Service Bus namespace which may lead to [throttling](service-bus-throttling.md).
+>
+> Throttling does not lead to loss of data. Applications leveraging the Service Bus SDK can utilize the default retry policy to ensure that the data is eventually accepted by Service Bus.
+>
+
+### Calculating throughput for Premium
+
+Data sent to Service Bus is serialized to binary and then deserialized when received by the receiver. Thus, while applications think of **messages** as atomic units of work, Service Bus measures throughput in terms of bytes.
+
+### Sharding across namespaces
+
+### Compute considerations
+
+Utilizing certain features may involve compute that may decrease the expected throughput.
+
+1. sessions
+1. too many filters
+1. too many subscriptions
+
+
+
 ## Protocols
 Service Bus enables clients to send and receive messages via one of three protocols:
 
