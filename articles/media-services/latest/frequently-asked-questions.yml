@@ -45,7 +45,7 @@ sections:
           A Transform contains the instructions for encoding or analyzing media files. Think of it as a recipe. It can apply more than one encoding instruction for a media file.  It is used by a job to transform files. For more information on Transforms, see Transforms in [Transforms and Jobs in Media Services](transforms-jobs-concept.md#transforms).
       - question: How do I create a Media Services Transform?
         answer: |
-          You can create a Transform using REST, the CLI or the SDKs available for Media Services.  See [How to create a transform](how-to-create-transform.md) to use REST or the CLI.  To use the SDK, see [Media Services samples](https://github.com/Azure-Samples?q=media-services&type=&language=&sort=) available in the Azure Samples repo.
+          You can create a Transform using REST, the CLI or the SDKs available for Media Services.  See [How to create a transform](transform-create-transform-how-to.md) to use REST or the CLI.  To use the SDK, see [Media Services samples](https://github.com/Azure-Samples?q=media-services&type=&language=&sort=) available in the Azure Samples repo.
       - question: What is a Media Services job?
         answer: |
           A Job is the request you make to start using a Transform to encode or analyze files.  You tell it to Transform a file contained in an input Asset.  You also tell it to either create an output Asset, or use an already existing output Asset.  Once the job is completed, the transformed (encoded, analyzed) files will be in the output Asset as well as other files associated with those files. For more information about Jobs, see [Transforms and Jobs in Media Services](transforms-jobs-concept.md#jobs).
