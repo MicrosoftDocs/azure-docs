@@ -69,16 +69,17 @@ Replace the placeholder text in the following command and run it twice, once for
     --parameters adminUsername='azureuser' \
     --parameters authenticationType='sshPublicKey' \
     --parameters adminPasswordOrKey="$(< ~/.ssh/id_rsa.pub)"
-    --query "properties.outputs.[publicFQDN.value, publicSSH.value, publicIPS.value]" -o tsv
+    --query "properties.outputs.[publicFQDN.value, publicSSH.value]" -o tsv
    ```
 
    The virtual machine using SSH keys for authenticating users. If you are unfamiliar with creating and using SSH keys, you can follow [the instructions for SSH public-private key pairs for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
    IoT Edge version 1.2 is preinstalled with this ARM template, saving the need to manually install the assets on your devices.
 
-   A successful creation of a virtual machine using this ARM template will create an output JSON. This JSON output contains the SSH handle, which you can use to log onto your virtual machines. Find the `public SSH` block in the `outputs` section, pictured below.
+   A successful creation of a virtual machine using this ARM template will output your virtual machine's `SSH` handle and fully-qualified domain name (`FQDN`). You will use the SSH handle and either the FQDN or IP address of each virtual machine for configuration in later steps, so keep track of this information. A sample output is pictured below.
 
-   You will use the public IP addresses or fully-qualified domain names (FQDN) of your virtual machines for configuration in later steps. The FQDN is also included in the output JSON. Find the `public FQDN` block in the `outputs` section, pictured below.
+   >[!TIP]
+   >You can also find the IP address and FQDN on the Azure portal. For the IP address, navigate to your list of virtual machines and note the **Public IP address field**. For the FQDN, go to each virtual machine's overview page and look for the **DNS name** field.
 
    ![The virtual machine will output a JSON upon creation, which contains its SSH handle](./media/tutorial-nested-iot-edge/virtual-machine-outputs.png)
 
@@ -158,6 +159,8 @@ To use the `iotedge-config-cli` tool to create and configure your hierarchy, fol
 
    You can define the parent-child relationships manually as well. See the [create a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy) section of the how-to guide to learn more.
 
+   <!-- Update hierarchy-config-sample.png when GA (1.2.0-rc4 image name no longer applicable) -->
+
    ![The edgedevices section of the configuration file allows you to define your hierarchy](./media/tutorial-nested-iot-edge/hierarchy-config-sample.png)
 
 1. Save and close the file:
@@ -200,9 +203,6 @@ To configure the IoT Edge runtime, you need to apply the configuration bundles c
 
    The `:~` means that the configuration folder will be placed in the home directory on the virtual machine.
 
-   [!TIP]
-   >If you did not note the IP address or FQDN of each virtual machine yet, you can find them on the Azure portal. For the IP address, navigate to your list of virtual machines and note the **Public IP address field**. For the FQDN, go to each virtual machine's overview page and look for the **DNS name** field.
-
 1. Log on to your virtual machine to apply the configuration bundle to the device:
 
    ```bash
@@ -230,10 +230,16 @@ To configure the IoT Edge runtime, you need to apply the configuration bundles c
 
 If you completed the above steps correctly, you can check your devices are configured correctly.
 
-1. Run the configuration and connectivity checks on your devices:
+1. Run the configuration and connectivity checks on your devices. For the **top layer device**:
 
    ```bash
    sudo iotedge check
+   ```
+
+   For the **lower layer device**, the diagnostics image needs to be manually passed in the command:
+
+   ```bash
+   sudo iotedge check --diagnostics-image-name $upstream:8000/azureiotedge-diagnostics:1.2.0-rc4
    ```
 
 On your **top layer device**, expect to see an output with several passing evaluations and at least one warning. The check for the `latest security daemon` will warn you that another IoT Edge version is the latest stable version, because IoT Edge version 1.2 is in public preview. You may see additional warnings about logs policies and, depending on your network, DNS policies.
