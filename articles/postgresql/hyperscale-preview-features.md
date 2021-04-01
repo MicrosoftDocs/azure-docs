@@ -60,11 +60,10 @@ The other preview features are available in **East US** only.
 
 ## Does my server group have access to preview features?
 
-To determine if your Hyperscale (Citus) server group has preview
-features enabled, navigate to the **Overview** page for the
-server group in the Azure portal. If you see the property
-**Tier: Basic (preview)** or **Tier: Standard (preview)** then
-your server group has access to preview features.
+To determine if your Hyperscale (Citus) server group has preview features
+enabled, navigate to the server group's **Overview** page in the Azure portal.
+If you see the property **Tier: Basic (preview)** or **Tier: Standard
+(preview)** then your server group has access to preview features.
 
 ### How to get access
 
@@ -73,9 +72,8 @@ the box **Enable preview features.**
 
 ## Contact us
 
-Please let us know about your experience using preview features, by emailing
-[Ask Azure DB for
-PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com).
-(This email address is not a technical support channel. For technical problems,
+Let us know about your experience using preview features, by emailing [Ask
+Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com).
+(This email address isn't a technical support channel. For technical problems,
 open a [support
 request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).)
