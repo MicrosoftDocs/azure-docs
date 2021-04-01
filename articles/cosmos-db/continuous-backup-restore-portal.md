@@ -30,7 +30,7 @@ When creating a new Azure Cosmos DB account, for the **Backup policy** option, c
 
 ## Backup storage redundancy
 
-By default, Azure Cosmos DB stores continuous mode backup data in locally redundant storage blobs. In the Azure Cosmos DB account, continuous mode backup data is stored in zone-redundant storage blobs for the regions that have zone redundancy configured.
+By default, Azure Cosmos DB stores continuous mode backup data in locally redundant storage blobs. For the regions that have zone redundancy configured, the backup is stored in zone-redundant storage blobs.
 
 ## <a id="restore-live-account"></a>Restore a live account from accidental modification
 
