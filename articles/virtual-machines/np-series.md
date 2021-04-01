@@ -9,11 +9,8 @@ ms.date: 02/09/2021
 ms.author: vikancha
 ---
 
-# NP-series (Preview) 
+# NP-series 
 The NP-series virtual machines are powered by [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGAs for accelerating workloads including machine learning inference, video transcoding, and database search & analytics. NP-series VMs are also powered by Intel Xeon 8171M (Skylake) CPUs with all core turbo clock speed of 3.2 GHz.
-
-Submit a request using the [preview form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9x_QCQkJXxHl4qOI4jC9YtUOVI0VkgwVjhaTFFQMTVBTDFJVFpBMzJSSCQlQCN0PWcu) to be part of the NP-series preview program.
-
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
@@ -34,10 +31,6 @@ VM Generation Support: Generation 1<br>
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## Supported operating systems and drivers
-Visit [Xilinx Runtime (XRT) release notes](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2020_2/ug1451-xrt-release-notes.pdf) to get the full list of supported operating systems.
-
-During the preview program Microsoft Azure engineering teams will share specific instructions for driver installation.
 
 ##  Frequently asked questions
 
