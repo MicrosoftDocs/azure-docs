@@ -19,7 +19,7 @@ This is a role application error. The role application contains two major parts:
 
 To get the current state and details of the role instances in case of errors, use :
 
-1. Powershell: Use the [Get-AzCloudServiceRoleInstanceView](https://docs.microsoft.com/en-us/powershell/module/az.cloudservice/get-azcloudserviceroleinstanceview) cmdlet to retrieve information about the run-time state of a role instance in a cloud service.
+1. Powershell: Use the [Get-AzCloudServiceRoleInstanceView](https://docs.microsoft.com/powershell/module/az.cloudservice/get-azcloudserviceroleinstanceview) cmdlet to retrieve information about the run-time state of a role instance in a cloud service.
 ```powershell
 Get-AzCloudServiceRoleInstanceView -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstanceName "WebRole1_IN_0"
  
@@ -60,7 +60,7 @@ Once the service is redeployed, you will see an error message with the name of t
 ## Diagnose issues by viewing the error remotely
 You can use Remote Desktop to access the role and view more complete error information remotely. Use the following steps to view the errors by using Remote Desktop:
 1.	Enable remote desktop extension for Cloud Service (extended support). For more information, see [Apply Remote Desktop extension to Cloud Services (extended support) using Azure Portal](enable-rdp.md)
-2.	On the Azure portal, once the instance shows a status of Ready, remote into the instance. For more information on using the remote desktop with Cloud Services (extended support), see [Connect to role instances with Remote Desktop](https://docs.microsoft.com/en-us/azure/cloud-services-extended-support/enable-rdp#connect-to-role-instances-with-remote-desktop-enabled)
+2.	On the Azure portal, once the instance shows a status of Ready, remote into the instance. For more information on using the remote desktop with Cloud Services (extended support), see [Connect to role instances with Remote Desktop](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-rdp#connect-to-role-instances-with-remote-desktop-enabled)
 3.	Sign in to the virtual machine by using the credentials that were specified during the Remote Desktop configuration.
 4.	Open a command window.
 5.	Type IPconfig.
@@ -86,7 +86,7 @@ For best results in using this method of diagnosis, you should use a computer or
 7.	When the role starts, you will see detailed error information in Internet Explorer. You can also use standard Windows troubleshooting tools to further diagnose the problem.
 
 ## Diagnose issues by using IntelliTrace
-For worker and web roles that use .NET Framework 4, you can use [IntelliTrace](https://docs.microsoft.com/en-us/visualstudio/debugger/intellitrace), which is available in Microsoft Visual Studio Enterprise.
+For worker and web roles that use .NET Framework 4, you can use [IntelliTrace](https://docs.microsoft.com/visualstudio/debugger/intellitrace), which is available in Microsoft Visual Studio Enterprise.
 Follow these steps to deploy the service with IntelliTrace enabled:
 1.	Confirm that Azure SDK 1.3 or later is installed.
 2.	Deploy the solution by using Visual Studio. During deployment, check the Enable IntelliTrace for .NET 4 roles check box.
@@ -108,4 +108,4 @@ To address missing DLL and assembly errors, follow these steps:
 Once you have verified that all errors have been corrected, you can deploy the service without checking the Enable IntelliTrace for .NET 4 roles check box.
 
 ## Next steps 
-- To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](https://docs.microsoft.com/en-us/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+- To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
