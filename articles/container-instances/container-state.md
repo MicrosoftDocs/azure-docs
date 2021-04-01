@@ -73,19 +73,33 @@ This value is the state of the last operation performed on a container group. Ge
 
 > [!IMPORTANT]
 > PUT (create) operations are asynchronous. The returned value from the PUT's response body is not the final state. Making subsequent GET calls on the container group's resourceId or the AsyncOperation (returned in the PUT response headers) is the recommended way to monitor the status of the deployment.
+>
+> Additionally, users should not create dependencies on non-terminal provisioning states. Dependencies on **Succeeded** and **Failed** states are acceptable.
 
 In addition to the JSON view, provisioning state can be also be found in the [response body of the HTTP call](https://docs.microsoft.com/rest/api/container-instances/containergroups/createorupdate#response).
+
+### Create, start, and restart operations
+
+These states are applicable to PUT (create) and POST (start/restart) events.
 
 - **Pending**: The container group is waiting for infrastructure setup, such as a node assignment, virtual network provisioning, or anything else needed prior to pulling the user image.
 
 - **Creating**: The infrastructure setup has finished. The container group is now getting brought up and receiving the resources it needs (mounting Azure file volumes, getting ingress IP address, etc.).
 
-- **Succeeded**: The container group has succeeded in getting its containers into the running state and has received all resources it needs. If the latest operation was to stop the container group, this value indicates the operation completed successfully.
+- **Succeeded**: The container group has succeeded in getting its containers into the running state and has received all resources it needs.
 
 - **Unhealthy**: The container group is unhealthy. For an unexpected state, such as if a node is down, a job is automatically triggered to repair the container group by moving it.
 
 - **Repairing**: The container group is getting moved in order to repair an unhealthy state.
 
-- **Failed**: The container group failed to reach the **Succeeded** provisioning state within the timeout of 30 minutes. If the last operation was not a create/start, this value indicates that the operation failed.
+- **Failed**: The container group failed to reach the **Succeeded** provisioning state. This can occur for a number of reasons (inaccessible network profile, low capacity in the designated region, full consumption of user quota, timeout after 30 minutes, etc.). More information on the failure can be found under `events` in the JSON view.
     > [!NOTE]
     > A failed state does not mean that the resource is removed or stops attempting to succeed. The container group state will indicate the current state of the group. If you want to ensure the container group does not run after a **Failed** provisioning state, then you will have to stop or delete it.
+
+### Stop and delete operations
+
+These values are applicable to POST (stop) and DELETE (delete) events.
+
+- **Succeeded**: The operation to stop or delete the container group completed successfully.
+
+- **Failed**: The container group failed to reach the **Succeeded** provisioning state, meaning the stop/delete event did not complete. More information on the failure can be found under `events` in the JSON view.
