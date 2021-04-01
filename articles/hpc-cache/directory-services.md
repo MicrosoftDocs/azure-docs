@@ -4,7 +4,7 @@ description: How to configure directory services for client access to storage ta
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
 ---
 
@@ -76,7 +76,7 @@ In the **Secure access** section, you can enable encryption and certificate vali
 
 * **Auto-download certificate** - Choose **Yes** if you want to try to download a certificate as soon as you submit these settings.
 
-Fill in the **Credentials** section if you want to use static credentials for LDAP security.
+Fill in the **Credentials** section if you want to use static credentials for LDAP security. This information is encrypted when stored, and can't be queried.
 
 * **Bind DN** - Enter the bind distinguished name to use to authenticate to the LDAP server. (Use DN format.)
 * **Bind password** - Provide the password for the bind DN.

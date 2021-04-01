@@ -29,10 +29,7 @@ In this tutorial, you learn how to:
 
    The URLs and user credentials for private cloud vCenter and NSX-T Manager display.
 
-   >[!TIP]
-   >Select **Generate a new password** to generate new vCenter and NSX-T passwords.
-
-   :::image type="content" source="media/tutorial-access-private-cloud/generate-vcenter-nsxt-passwords.png" alt-text="Display private cloud vCenter and NSX Manager URLs and credentials." border="true" lightbox="media/tutorial-access-private-cloud/generate-vcenter-nsxt-passwords.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Display private cloud vCenter and NSX Manager URLs and credentials." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 1. Navigate to the VM you created in the preceding step and connect to the virtual machine. 
 

@@ -87,6 +87,8 @@ As explained in [Endpoints](iot-hub-devguide-endpoints.md), the IoT hub delivers
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
+The system will send out the feedback either when the batch reaches to 64 messages, or in 15 seconds from last sent, whichever come first. 
+
 The body is a JSON-serialized array of records, each with the following properties:
 
 | Property           | Description |

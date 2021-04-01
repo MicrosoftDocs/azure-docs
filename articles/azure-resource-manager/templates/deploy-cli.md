@@ -2,7 +2,7 @@
 title: Deploy resources with Azure CLI and template
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template or a Bicep file.
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 03/25/2021
 ---
 
 # Deploy resources with ARM templates and Azure CLI
@@ -80,9 +80,11 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 ## Deploy remote template
 
 > [!NOTE]
-> Currently, Azure CLI doesn't support deploying remote Bicep files. To deploy a remote Bicep file, use CLI Bicep to compile the Bicep file to a JSON template first.
+> Currently, Azure CLI doesn't support deploying remote Bicep files. Use [Bicep CLI](./bicep-install.md#development-environment) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
+
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. The name can't end in a period.
 

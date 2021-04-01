@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 12/26/2020
+ms.date: 03/26/2021
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -31,7 +31,7 @@ When you are using auto-failover groups with automatic failover policy, any outa
 - [Azure portal](geo-distributed-application-configure-tutorial.md)
 - [Azure CLI: Failover Group](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: Failover Group](scripts/add-database-to-failover-group-powershell.md)
-- [REST API: Failover group](/rest/api/sql/failovergroups).
+- [REST API: Failover group](/rest/api/sql/failovergroups)
 
 After failover, ensure the authentication requirements for your database and server, or instance are configured on the new primary. For details, see [SQL Database security after disaster recovery](active-geo-replication-security-configure.md).
 
@@ -110,7 +110,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
   - Perform disaster recovery (DR) drills in production when the data loss is not acceptable
   - Relocate the databases to a different region
-  - Return the databases to the primary region after the outage has been mitigated (failback).
+  - Return the databases to the primary region after the outage has been mitigated (failback)
 
 - **Unplanned failover**
 
@@ -122,7 +122,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Grace period with data loss**
 
-  Because the primary and secondary databases are synchronized using asynchronous replication, the failover may result in data loss. You can customize the automatic failover policy to reflect your application’s tolerance to data loss. By configuring `GracePeriodWithDataLossHours`, you can control how long the system waits before initiating the failover that is likely to result data loss.
+  Because the primary and secondary databases are synchronized using asynchronous replication, the failover may result in data loss. You can customize the automatic failover policy to reflect your application’s tolerance to data loss. By configuring `GracePeriodWithDataLossHours`, you can control how long the system waits before initiating the failover that is likely to result in data loss.
 
 - **Multiple failover groups**
 
@@ -171,7 +171,13 @@ When performing OLTP operations, use `<fog-name>.database.windows.net` as the se
 
 ### Using read-only listener for read-only workload
 
-If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate in connection string read intent by using `ApplicationIntent=ReadOnly`.
+If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate read intent in the connection string by using `ApplicationIntent=ReadOnly`.
+
+> [!NOTE]
+> In Premium, Business Critical, and Hyperscale service tiers, SQL Database supports the use of [read-only replicas](read-scale-out.md) to offload read-only query workloads, using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
+>
+> - To connect to a read-only replica in the primary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.database.windows.net`.
+> - To connect to a read-only replica in the secondary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.secondary.database.windows.net`.
 
 ### Preparing for performance degradation
 
@@ -262,7 +268,7 @@ When performing OLTP operations, use `<fog-name>.zone_id.database.windows.net` a
 If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. To connect directly to the geo-replicated secondary, use `<fog-name>.secondary.<zone_id>.database.windows.net` as the server URL and the connection is made directly to the geo-replicated secondary.
 
 > [!NOTE]
-> In Premium, Business Critical, and Hyperscale service tiers, SQL Database supports the use of [read-only replicas](read-scale-out.md) to run read-only query workloads using the capacity of one or more read-only replicas, using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
+> In Business Critical tier, SQL Managed Instance supports the use of [read-only replicas](read-scale-out.md) to offload read-only query workloads, using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
 >
 > - To connect to a read-only replica in the primary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.<zone_id>.database.windows.net`.
 > - To connect to a read-only replica in the secondary location, use `ApplicationIntent=ReadOnly` and `<fog-name>.secondary.<zone_id>.database.windows.net`.

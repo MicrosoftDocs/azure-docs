@@ -145,9 +145,9 @@ Here is more information about the outputs from an HTTP + Swagger trigger or act
 | Property name | Type | Description |
 |---------------|------|-------------|
 | headers | object | The headers from the request |
-| body | object | JSON object | The object with the body content from the request |
+| body | object | The object with the body content from the request |
 | status code | int | The status code from the request |
-|||
+||||
 
 | Status code | Description |
 |-------------|-------------|

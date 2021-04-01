@@ -88,7 +88,7 @@ If your web page or application loads the video tag dynamically (ajax, appendChi
                // add an event listener
               this.addEventListener('ended', function() {
                 console.log('Finished!');
-            }
+            });
           }
     );
     myPlayer.src([{

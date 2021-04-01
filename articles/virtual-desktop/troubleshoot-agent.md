@@ -100,7 +100,7 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
    > ![Screenshot of unsuccessful loaded broker global access](media/unsuccessful-broker-global.png)
 
 8. If the network is blocking these URLs, you will need to unblock the required URLs. For more information, see [Required URL List](safe-url-list.md).
-9. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection. Windows Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](../frontdoor/front-door-faq.MD#what-are-the-current-cipher-suites-supported-by-azure-front-door). For more information, see [Connection Security](network-connectivity.md#connection-security).
+9. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection. Windows Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). For more information, see [Connection Security](network-connectivity.md#connection-security).
 
 ## Error: 3703
 
@@ -202,7 +202,7 @@ To resolve this issue:
 >To change the **fReverseConnectMode** or **fEnableWinStation** mode for multiple VMs at a time, you can do one of the following two things:
 >
 >- Export the registry key from the machine that you already have working and import it into all other machines that need this change.
->- Create a general policy object (GPO) that sets the registry key value for the machines that need the change.
+>- Create a group policy object (GPO) that sets the registry key value for the machines that need the change.
 
 7. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **ClusterSettings**.
 8. Under **ClusterSettings**, find **SessionDirectoryListener** and make sure its data value is **rdp-sxs...**.

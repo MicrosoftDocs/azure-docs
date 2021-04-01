@@ -4,8 +4,8 @@ description: Common questions encountered when creating a virtual machine in Azu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-author: iqshahmicrosoft
-ms.author: iqshah
+author: kriti-ms
+ms.author: krsh
 ms.date: 03/10/2021
 ---
 
@@ -465,6 +465,17 @@ $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAdd
 # deploying VM with existing VHD
 New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName"
 ```
+
+## How do I test a hidden preview image?
+
+You can deploy hidden preview images using quickstart templates.
+To deploy a preview image, 
+1. Goto the respective quick-start template for [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) or [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows), select "Deploy to Azure". This should take you to Azure portal.
+2. In Azure portal, select "Edit template".
+3. In the JSON template, search for imageReference and update the publisherid, offerid, skuid, and version of the image. To test preview image, append "-PREVIEW" to the offerid.
+ ![image](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)
+4. Click Save
+5. Fill out the rest of the details. Review and Create
 
 
 ## Next steps

@@ -27,6 +27,8 @@
       - name: Minimal-downtime migration with DMS
         href: howto-migrate-online.md
         displayName: dms, data migration service
+      - name: Migrate from Oracle
+        href: howto-migrate-from-oracle.md
   - name: Versioning policy
     href: concepts-version-policy.md
     displayName: version, postgresql
@@ -124,14 +126,14 @@
       href: concepts-supported-versions.md
     - name: PostgreSQL extensions
       href: concepts-extensions.md
+    - name: Limits
+      href: concepts-limits.md
     - name: Understand pricing tiers
       items:
       - name: Pricing tiers
         href: concepts-pricing-tiers.md
       - name: Prepay for reserved capacity
         href: concept-reserved-pricing.md
-      - name: Limits
-        href: concepts-limits.md
     - name: Security
       items:
       - name: Security overview
@@ -600,6 +602,8 @@
         displayName: hyperscale, ssl
       - name: Security baseline
         href: postgresql-hyperscale-security-baseline.md
+    - name: Scheduled maintenance
+      href: concepts-hyperscale-maintenance.md
     - name: Business continuity
       items:
       - name: Backup and restore

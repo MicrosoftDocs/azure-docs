@@ -5,7 +5,7 @@ description: Learn how to sign and makes requests for ACS with Postman to send a
 author: ProbablePrime
 services: azure-communication-services
 ms.author: rifox
-ms.date: 03/08/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -62,7 +62,7 @@ You can learn more about variables by reading [Postman's documentation on them](
 
 ### Creating a pre-request script
 
-The next step is to create a pre-request Script within Postman. A pre-request script, is a script that runs before each request in Postman and can modify or alter request parameters on your behalf. We'll be using this to sign our HTTP requests so that they can be authorized by ACS' Services. For more information about the Signing requirements, you can [read our guide on authentication](https://docs.microsoft.com/rest/api/communication/authentication).
+The next step is to create a pre-request Script within Postman. A pre-request script, is a script that runs before each request in Postman and can modify or alter request parameters on your behalf. We'll be using this to sign our HTTP requests so that they can be authorized by ACS' Services. For more information about the Signing requirements, you can [read our guide on authentication](/rest/api/communication/authentication).
 
 We'll be creating this script within the Collection such that it runs on any request within the collection. To do this, within the collection tab click the "Pre-request Script" Sub-Tab.
 
@@ -180,7 +180,7 @@ Now that everything is set up, we're ready to create an ACS request within Postm
 
 :::image type="content" source="media/postman/create-request.png" alt-text="Postman's plus button.":::
 
-This will create a new tab for our request within Postman. With it created we need to configure it. We'll be making a request against the SMS Send API so be sure to refer to the [documentation for this API for assistance](https://docs.microsoft.com/rest/api/communication/sms/send). Let's configure Postman's request.
+This will create a new tab for our request within Postman. With it created we need to configure it. We'll be making a request against the SMS Send API so be sure to refer to the [documentation for this API for assistance](/rest/api/communication/sms/send). Let's configure Postman's request.
 
 Start by setting, the request type to `POST` and entering `{{endpoint}}/sms?api-version=2021-03-07` into the request URL field. This URL uses our previously created `endpoint` variable to automatically send it to your ACS Resource.
 
@@ -232,8 +232,8 @@ The Mobile phone, which owns the number you provided in the "to" value, should a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore ACS APIs](https://docs.microsoft.com/rest/api/communication/)
-> [Read more about Authentication](https://docs.microsoft.com/rest/api/communication/authentication)
+> [Explore ACS APIs](/rest/api/communication/)
+> [Read more about Authentication](/rest/api/communication/authentication)
 > [Learn more about Postman](https://learning.postman.com/)
 
 You might also want to:
