@@ -50,7 +50,7 @@ how much memory it requires. Remember that vCores and RAM are scaled together
 as described in the [Hyperscale (Citus) configuration
 options](concepts-hyperscale-configuration-options.md) article.
 
-## Choosing a Hyperscale (Citus) plan
+## Choosing a Hyperscale (Citus) tier
 
 > [!IMPORTANT]
 > The Hyperscale (Citus) basic tier is currently in preview.  This preview
