@@ -284,9 +284,9 @@ LAD version 3.0 supports two sink types: EventHub and JsonBlob.
 ]
 ```
 
-The `sasURL` entry contains the full URL, including the SAS token, for the event hub to which data should be published. LAD requires a SAS naming a policy that enables the Send claim. 
+The `sasURL` entry contains the full URL, including the SAS token, for the event hub to which data should be published. LAD requires a SAS to name a policy that enables the send claim. 
 
-For example example:
+For example:
 
 * Create an Azure Event Hubs namespace called `contosohub`.
 * Create an event hub in the namespace called `syslogmsgs`.
@@ -298,7 +298,7 @@ If your SAS is good until midnight UTC on January 1, 2018, the sasURL value migh
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-For more information about generating and retrieving information on SAS tokens for Event Hubs, see [Generate SAS token](/rest/api/eventhub/generate-sas-token#powershell).
+For more information about generating and retrieving information on SAS tokens for Event Hubs, see [Generate a SAS token](/rest/api/eventhub/generate-sas-token#powershell).
 
 #### JsonBlob sink
 
@@ -318,7 +318,7 @@ Blobs are stored in a container that has the same name as the sink. The Azure St
 
 ## Public settings
 
-This structure contains various blocks of settings that control the information the extension collects. Each setting is optional. If you specify `ladCfg`, you must also specify `StorageAccount`.
+The public settings structure contains various blocks of settings that control the information the extension collects. Each setting is optional. If you specify `ladCfg`, you must also specify `StorageAccount`.
 
 ```json
 {
@@ -332,7 +332,7 @@ This structure contains various blocks of settings that control the information 
 
 Element | Value
 ------- | -----
-StorageAccount | The name of the storage account in which data is written by the extension. Must be the name specified in the [protected settings](#protected-settings).
+StorageAccount | The name of the storage account in which data is written by the extension. It must be the name specified in the [protected settings](#protected-settings).
 mdsdHttpProxy | (Optional) Same as in the [protected settings](#protected-settings). The public value is overridden by the private value, if it's set. Place proxy settings that contain a secret, such as a password, in the [protected settings](#protected-settings).
 
 The following sections provide details for the remaining elements.
@@ -355,7 +355,7 @@ The `ladCfg` structure is optional. It controls the gathering of metrics and log
 
 Element | Value
 ------- | -----
-eventVolume | (Optional) Controls the number of partitions created within the storage table. Must be one of `"Large"`, `"Medium"`, or `"Small"`. If a value isn't specified, the default is `"Medium"`.
+eventVolume | (Optional) Controls the number of partitions created within the storage table. It must be `"Large"`, `"Medium"`, or `"Small"`. If a value isn't specified, the default is `"Medium"`.
 sampleRateInSeconds | (Optional) The default interval between collections of raw (unaggregated) metrics. The smallest supported sample rate is 15 seconds. If the value isn't specified, the default is `15`.
 
 #### metrics
@@ -375,7 +375,7 @@ Element | Value
 resourceId | The Azure Resource Manager resource ID of the VM or of the scale set to which the VM belongs. This setting must be also specified if any `JsonBlob` sink is used in the configuration.
 scheduledTransferPeriod | The frequency at which aggregate metrics will be computed and transferred to Azure Metrics. The frequency is expressed as an IS 8601 time interval. The smallest transfer period is 60 seconds, that is, PT1M. You must specify at least one `scheduledTransferPeriod`.
 
-Samples of the metrics specified in the `performanceCounters` section are collected every 15 seconds or at the sample rate explicitly defined for the counter. If multiple `scheduledTransferPeriod` frequencies appear (as in the example), each aggregation is computed independently.
+Samples of the metrics specified in the `performanceCounters` section are collected every 15 seconds or at the sample rate explicitly defined for the counter. If multiple `scheduledTransferPeriod` frequencies appear, as in the example, each aggregation is computed independently.
 
 #### performanceCounters
 
@@ -417,7 +417,7 @@ type | Identifies the actual provider of the metric.
 class | Together with `counter`, identifies the specific metric within the provider's namespace.
 counter | Together with `class`, identifies the specific metric within the provider's namespace.
 counterSpecifier | Identifies the specific metric within the Azure Metrics namespace.
-condition | (Optional) Selects a specific instance of the object to which the metric applies. Or selects the aggregation across all instances of that object. For more information, see the `builtin` metric definitions.
+condition | (Optional) Selects a specific instance of the object to which the metric applies. Or it selects the aggregation across all instances of that object. For more information, see the `builtin` metric definitions.
 sampleRate | IS 8601 interval that sets the rate at which raw samples for this metric are collected. If the value isn't set, the collection interval is set by the value of [`sampleRateInSeconds`](#ladcfg). The shortest supported sample rate is 15 seconds (PT15S).
 unit | Should be one of these strings: `"Count"`, `"Bytes"`, `"Seconds"`, `"Percent"`, `"CountPerSecond"`, `"BytesPerSecond"`, `"Millisecond"`. Defines the unit for the metric. Consumers of the collected data expect the collected data values to match this unit. LAD ignores this field.
 displayName | The label (in the language specified by the associated locale setting) to be attached to this data in Azure Metrics. LAD ignores this field.
@@ -436,9 +436,9 @@ Neither LAD nor the Azure portal expects the `counterSpecifier` value to match a
 
 When you specify `performanceCounters`, LAD always writes data to a table in Azure Storage. The same data can be written to JSON blobs or Event Hubs or both. But you can't disable storing data to a table. 
 
-All instances of the diagnostic extension that are configured to use the same storage account name and endpoint add their metrics and logs to the same table. If too many VMs are writing to the same table partition, Azure can throttle writes to that partition. 
+All instances of the diagnostic extension that are configured to use the same storage account name and endpoint add their metrics and logs to the same table. If too many VMs write to the same table partition, Azure can throttle writes to that partition. 
 
-The `eventVolume` setting causes entries to be spread across 1 (small), 10 (medium), or 100 (large) partitions. Usually, medium partitions are sufficient to ensure traffic isn't throttled. 
+The `eventVolume` setting causes entries to be spread across 1 (small), 10 (medium), or 100 (large) partitions. Usually, medium partitions are sufficient to avoid traffic throttling. 
 
 The Azure Metrics feature of the Azure portal uses the data in this table to produce graphs or to trigger alerts. The table name is the concatenation of these strings:
 
