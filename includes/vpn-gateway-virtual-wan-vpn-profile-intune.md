@@ -14,8 +14,9 @@
 
 You can deploy profiles for Azure VPN clients (Windows 10) by using Microsoft Intune. This article helps you create an Intune profile using custom settings.
 
-[!NOTE]
-This article applies to deploying profiles that use Azure Active Directory for authentication only.
+> [!NOTE]
+>* This article applies to deploying profiles that use Azure Active Directory for authentication only.
+
 
 ## Prerequisites
 
