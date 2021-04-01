@@ -3,7 +3,7 @@ title: Expand existing Windows Virtual Desktop (classic) host pool with new sess
 description: How to expand an existing host pool with new session hosts in Windows Virtual Desktop (classic).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -90,7 +90,7 @@ All parameter values in this section should match what you provided when you fir
 1. Select the VM size that matches the existing session host VMs.
 
     >[!NOTE]
-    >If the specific VM size you're looking for doesn't appear in the VM size selector, that's because we haven't onboarded it to the Azure Marketplace tool yet. To request a VM size, create a request or upvote an existing request in the [Windows Virtual Desktop UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >If the specific VM size you're looking for doesn't appear in the VM size selector, that's because we haven't onboarded it to the Azure Marketplace tool yet.
 
 2. Customize the *Usage Profile*, *Total users*, and *Number of virtual machines* parameters to select the total number of session hosts you would like to have in your host pool. For example, if you're expanding your host pool from five session hosts to eight, configure these options to get to 8 virtual machines.
 3. Enter a prefix for the names of the virtual machines. For example, if you enter the name "prefix," the virtual machines will be called "prefix-0," "prefix-1," and so on.

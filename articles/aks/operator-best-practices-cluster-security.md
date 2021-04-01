@@ -118,7 +118,7 @@ While AppArmor works for any Linux application, [seccomp (*sec*ure *comp*uting)]
 
 To see seccomp in action, create a filter that prevents changing permissions on a file. [SSH][aks-ssh] to an AKS node, then create a seccomp filter named */var/lib/kubelet/seccomp/prevent-chmod* and paste the following content:
 
-```
+```json
 {
   "defaultAction": "SCMP_ACT_ALLOW",
   "syscalls": [
@@ -140,7 +140,8 @@ To see seccomp in action, create a filter that prevents changing permissions on 
 
 In version 1.19 and later, you need to configure the following:
 
-```
+
+```json
 {
   "defaultAction": "SCMP_ACT_ALLOW",
   "syscalls": [
