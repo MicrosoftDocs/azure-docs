@@ -30,7 +30,7 @@ When creating a new Azure Cosmos DB account, for the **Backup policy** option, c
 
 ## Backup storage redundancy
 
-By default, Azure Cosmos DB stores continuous mode backup data in locally redundant storage blobs. In the Azure Cosmos DB account, continuous mode backup data is stored in zone-redundant storage blobs for the regions that have zone redundancy configured.
+By default, Azure Cosmos DB stores continuous mode backup data in locally redundant storage blobs. In the Azure Cosmos DB account, continuous mode backup data is stored in zone-redundant blob storage for the regions that have zone redundancy configured. In this mode you can't update the backup storage redundancy.
 
 ## <a id="restore-live-account"></a>Restore a live account from accidental modification
 
@@ -46,7 +46,7 @@ You can use Azure portal to restore a live account or selected databases and con
 
    * **Restore Point (UTC)** – A timestamp within the last 30 days. The account should exist at that timestamp. You can specify the restore point in UTC. It can be as close to the second when you want to restore it. Select the **Click here** link to get help on [identifying the restore point](#event-feed).
 
-   * **Location** – The destination region where the account is restored. The account should exist in this region at the given timestamp (eg. West US or East US). An account can be restored only to the regions in which the source account existed.
+   * **Location** – The destination region where the account is restored. The account should exist in this region at the given timestamp (for example, West US or East US). An account can be restored only to the regions in which the source account existed.
 
    * **Restore Resource** – You can either choose **Entire account** or a **selected database/container** to restore. The databases and containers should exist at the given timestamp. Based on the restore point and location selected, restore resources are populated, which allows user to select specific databases or containers that need to be restored.
 
