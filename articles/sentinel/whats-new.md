@@ -43,12 +43,13 @@ Azure Sentinel users can now use the new [Azure Monitor ability](https://techcom
 In each workbook or workbook template, select :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false"::: **Auto refresh** to display your interval options. Select the option you want to use for the current view session, and select **Apply**.
 
 
-- Supported refresh intervals range from 5 minutes to 1 day.
+- Supported refresh intervals range from **5 minutes** to **1 day**.
 - By default, auto refresh is turned off. To optimize performance, auto refresh is also turned off each time you close a workbook, and does not run in the background. Turn auto refresh back on as needed the next time you open the workbook.
 - Auto refresh is paused while you're editing a workbook, and auto refresh intervals are restarted each time you switch back to view mode from edit mode.
 
     Intervals are also restarted if you manually refresh the workbook by selecting the :::image type="icon" source="media/whats-new/refresh-button.PNG" border="false"::: **Refresh** button.
 
+For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md) and the [Azure Monitor documentation](../azure-monitor/visualize/workbooks-overview.md).
 
 ### New detections for Azure Firewall
 
