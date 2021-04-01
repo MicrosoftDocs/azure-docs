@@ -56,7 +56,8 @@ During the preview program Microsoft Azure engineering teams will share specific
 
 **Q:** What is the target deployment platform?
 
-**A:** - xilinx-u250-gen3x16-xdma-platform-2.1-3_all
+**A:** Use the following platforms.
+- xilinx-u250-gen3x16-xdma-platform-2.1-3_all
 - xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1 
 
 **Q:** Which platform should I target for development?
