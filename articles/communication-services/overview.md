@@ -18,7 +18,7 @@ ms.service: azure-communication-services
 > Applications that you build using Azure Communication Services can talk to Microsoft Teams. To learn more, visit our [Teams Interop](./quickstarts/voice-video-calling/get-started-teams-interop.md) documentation.
 
 
-Azure Communication Services allows you to easily add real-time multimedia voice, video, and telephony-over-IP communications features to your applications. The Communication Services SDKs also allow you to add chat and SMS functionality to your communications solutions.
+Azure Communication Services allows you to easily add real-time multimedia voice, video, and telephony-over-IP communications features to your applications. The Communication Services SDK libraries also allow you to add chat and SMS functionality to your communications solutions.
 
 <br>
 
@@ -37,14 +37,13 @@ Mixed scenarios are supported. For example, a Communication Services application
 
 ## Common scenarios
 
-The following resources are a great place to get started with Azure Communication Services. 
+The following resources are a great place to get started with Azure Communication Services.
 <br>
 
 | Resource                               |Description                           |
 |---                                    |---                                   |
 |**[Create a Communication Services resource](./quickstarts/create-communication-resource.md)**|You can begin using Azure Communication Services by using the Azure portal or Communication Services  SDK to provision your first Communication Services resource. Once you have your Communication Services resource connection string, you can provision your first user access tokens.|
 |**[Get a phone number](./quickstarts/telephony-sms/get-phone-number.md)**|You can use Azure Communication Services to provision and release telephone numbers. These telephone numbers can be used to initiate outbound calls and build SMS communications solutions.|
-|**[Send an SMS from your app](./quickstarts/telephony-sms/send.md)**|The Azure Communication Services SMS SDK allows you to send and receive SMS messages from your .NET and JavaScript applications.|
 
 After creating an Communication Services resource you can start building client scenarios, such as voice and video calling or text chat.
 
@@ -54,30 +53,31 @@ After creating an Communication Services resource you can start building client 
 |**[Get started with voice and video calling](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services allows you to add voice and video calling to your apps using the Calling SDK. This library is powered by WebRTC and allows you to establish peer-to-peer, multimedia, real-time communications within your applications.|
 |**[Join your calling app to a Teams meeting](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, chat, and screen sharing.|
 |**[Get started with chat](./quickstarts/chat/get-started.md)**|The Azure Communication Services Chat SDK can be used to integrate real-time chat into your applications.|
+|**[Send an SMS from your app](./quickstarts/telephony-sms/send.md)**|The Azure Communication Services SMS SDK allows you to send and receive SMS messages from your .NET and JavaScript applications.|
 
 ## Samples
 
-The following samples demonstrate end-to-end utilization of the Azure Communication Services SDKs. Feel free to use these samples to bootstrap your own Communication Services solutions.
+The following samples demonstrate end-to-end utilization of the Azure Communication Services SDK libraries. Feel free to use these samples to bootstrap your own Communication Services solutions.
 <br>
 
 | Sample name                               | Description                           |
 |---                                    |---                                   |
-|**[The Group Calling Hero Sample](./samples/calling-hero-sample.md)**|See how the Communication Services SDKs can be used to build a group calling experience.|
-|**[The Group Chat Hero Sample](./samples/chat-hero-sample.md)**|See how the Communication Services SDKs can be used to build a group chat experience.|
+|**[The Group Calling Hero Sample](./samples/calling-hero-sample.md)**|See how the Communication Services SDK libraries can be used to build a group calling experience.|
+|**[The Group Chat Hero Sample](./samples/chat-hero-sample.md)**|See how the Communication Services SDK libraries can be used to build a group chat experience.|
 
 
-## Platforms and SDKs
+## Platforms and SDK libraries
 
-The following resources will help you learn about the Azure Communication Services SDKs:
+The following resources will help you learn about the Azure Communication Services SDK libraries:
 
 | Resource                               | Description                           |
 |---                                    |---                                   |
-|**[SDKs and REST APIs](./concepts/sdk-options.md)**|Azure Communication Services capabilities are conceptually organized into six areas, each represented by an SDK. You can decide which SDKs to use based on your real-time communication needs.|
+|**[SDK libraries and REST APIs](./concepts/sdk-options.md)**|Azure Communication Services capabilities are conceptually organized into six areas, each represented by an SDK. You can decide which SDK libraries to use based on your real-time communication needs.|
 |**[Calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)**|Review the Communication Services Calling SDK overview.|
 |**[Chat SDK overview](./concepts/chat/sdk-features.md)**|Review the Communication Services Chat SDK overview.|
 |**[SMS SDK overview](./concepts/telephony-sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
 
-## Compare Azure Communication Services
+## Other Microsoft Communication Services
 
 There are two other Microsoft communication products you may consider leveraging that are not directly interoperable with Communication Services at this time:
 
