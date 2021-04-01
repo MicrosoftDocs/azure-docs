@@ -343,7 +343,7 @@ To learn more about how to configure SAP SuccessFactors inbound provisioning to 
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
  
-Previously, Custom Open ID Connect providers could only be added or managed through the Azure portal. Now the Azure AD B2C customers can add and manage them through Microsoft Graph APIs beta version as well. To learn how to configure this resource with APIs, see [identityProvider resource type](/graph/api/resources/identityprovider?view=graph-rest-beta).
+Previously, Custom Open ID Connect providers could only be added or managed through the Azure portal. Now the Azure AD B2C customers can add and manage them through Microsoft Graph APIs beta version as well. To learn how to configure this resource with APIs, see [identityProvider resource type](/graph/api/resources/identityprovider?view=graph-rest-beta&preserve-view=true).
  
 ---
 
@@ -383,7 +383,7 @@ Users in the Insights Administrator role can access the full set of administrati
 **Service category:** Azure AD roles  
 **Product capability:** Access Control
  
-Previously, only the Global Administrator could manage the [extension property](/graph/api/application-post-extensionproperty?view=graph-rest-beta&tabs=http). We're now enabling this capability for the Application Administrator and Cloud Application Administrator as well.
+Previously, only the Global Administrator could manage the [extension property](/graph/api/application-post-extensionproperty?view=graph-rest-beta&tabs=http&preserve-view=true). We're now enabling this capability for the Application Administrator and Cloud Application Administrator as well.
  
 ---
 

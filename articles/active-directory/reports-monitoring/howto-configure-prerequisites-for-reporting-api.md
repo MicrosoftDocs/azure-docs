@@ -220,5 +220,5 @@ Follow the steps in the [Prerequisites to access the Azure Active Directory repo
 ## Next steps
 
 * [Get data using the Azure Active Directory reporting API with certificates](tutorial-access-api-with-certificates.md)
-* [Audit API reference](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
-* [Sign-in activity report API reference](/graph/api/resources/signin?view=graph-rest-beta)
+* [Audit API reference](/graph/api/resources/directoryaudit) 
+* [Sign-in activity report API reference](/graph/api/resources/signin)

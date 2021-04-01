@@ -173,7 +173,7 @@ Apps that require the following protocol capabilities can't be migrated today:
 
 Apps that require the following claims in token capabilities can't be migrated today.
 
-* Claims from attribute stores other than the Azure AD directory, unless that data is synced to Azure AD. For more information, see the [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview?view=graph-rest-beta).
+* Claims from attribute stores other than the Azure AD directory, unless that data is synced to Azure AD. For more information, see the [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview).
 * Issuance of directory multiple-value attributes. For example, we can't issue a multivalued claim for proxy addresses at this time.
 
 ## Map app settings from AD FS to Azure AD

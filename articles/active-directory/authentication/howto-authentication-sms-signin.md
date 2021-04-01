@@ -154,8 +154,8 @@ You can also use the Microsoft Graph REST API beta to [enable][rest-enable] or [
 [concepts-passwordless]: concept-authentication-passwordless.md
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [tutorial-sspr]: tutorial-enable-sspr.md
-[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?view=graph-rest-beta&tabs=http
-[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?view=graph-rest-beta&tabs=http
+[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?tabs=http
+[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?tabs=http
 
 <!-- EXTERNAL LINKS -->
 [azure-portal]: https://portal.azure.com
