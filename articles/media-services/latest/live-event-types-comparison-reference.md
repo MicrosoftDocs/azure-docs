@@ -124,11 +124,7 @@ For example, if you send a contribution feed at 720p to a Live Event configured 
 
 ### Bitrate of contribution feed and output layers
 
-<<<<<<< HEAD:articles/media-services/latest/live-event-types-comparison-reference.md
-The live encoder is configured to honor the bitrate settings in the preset, irrespective of the bitrate of the contribution feed. As a result the bitrate of the output layers may exceed that of the contribution feed. For example, if you send in a contribution feed at a resolution of 720p at 1 Mbps, the output layers will remain the same as in the [table](live-event-types-comparison-reference-reference.md#output-video-streams-for-default720p) above.
-=======
 The live encoder is configured to honor the bitrate settings in the preset, irrespective of the bitrate of the contribution feed. As a result the bitrate of the output layers may exceed that of the contribution feed. For example, if you send in a contribution feed at a resolution of 720p at 1 Mbps, the output layers will remain the same as in the [table](live-event-types-comparison-reference.md#output-video-streams-for-default720p) above.
->>>>>>> 7d069ca4bf785ab1ac99aa60f9c8146a45f05300:articles/media-services/latest/live-event-types-comparison.md
 
 ## Next steps
 
