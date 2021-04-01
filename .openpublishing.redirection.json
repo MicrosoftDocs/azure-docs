@@ -43598,6 +43598,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cloud-services-extended-support/manage-powershell.md",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-model-and-package",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/new-azurermfrontdoorhealthprobesettingobject.md",
       "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorhealthprobesettingobject",
       "redirect_document_id": false
