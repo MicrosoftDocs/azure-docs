@@ -11,7 +11,7 @@ ms.author: thweiss
 # Configure managed identities with Azure Active Directory for your Azure Cosmos DB account
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. This article shows how to create a managed identity for Azure Cosmos DB accounts and how to use it to configure [customer-managed keys](how-to-setup-cmk.md).
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. This article shows how to create a managed identity for Azure Cosmos DB accounts.
 
 > [!NOTE]
 > Only system-assigned managed identities are currently supported by Azure Cosmos DB.
@@ -19,7 +19,7 @@ Managed identities for Azure resources provide Azure services with an automatica
 ## Prerequisites
 
 - If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). To learn about managed identity types, see [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
-- To setup managed identities, your account needs to have the [DocumentDB Account Contributor role](../role-based-access-control/built-in-roles.md#documentdb-account-contributor).
+- To set up managed identities, your account needs to have the [DocumentDB Account Contributor role](../role-based-access-control/built-in-roles.md#documentdb-account-contributor).
 
 ## Add a system-assigned identity
 
