@@ -37,7 +37,7 @@ The client certificate you uploaded is a self-signed certificate and is resultin
 
 #### Solution 
 
-Double check that the self-signed certificate that you're using has the extension *BasicConstraintsOid* = "2.5.29.19" which indicates the subject can act as a CA. This will ensure that the certificate used is a CA certificate. For more information about how to generate self-signed client certificates, check out [trusted client certificates](./mutual-authentication-certificate-management.md#<section>).
+Double check that the self-signed certificate that you're using has the extension *BasicConstraintsOid* = "2.5.29.19" which indicates the subject can act as a CA. This will ensure that the certificate used is a CA certificate. For more information about how to generate self-signed client certificates, check out [trusted client certificates](./mutual-authentication-certificate-management.md).
 
 ### Expired client CA certificate 
 
