@@ -438,7 +438,7 @@ To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt
 
 To learn more about planning your IoT Hub deployment, see:
 
-* [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/)
+* [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/)
 * [Support additional protocols](iot-hub-protocol-gateway.md)
 * [Compare with Event Hubs](iot-hub-compare-event-hubs.md)
 * [Scaling, HA, and DR](iot-hub-scaling.md)
