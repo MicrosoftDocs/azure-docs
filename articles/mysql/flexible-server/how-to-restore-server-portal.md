@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 04/01/2021
 ---
 
 # Point-in-time restore of a Azure Database for MySQL - Flexible Server (Preview)
