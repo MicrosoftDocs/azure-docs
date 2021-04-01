@@ -26,7 +26,7 @@ This article shows how to encode a video, upload an audio-only MP4 file (AAC cod
 
 - [Create a Media Services account](./account-create-how-to.md).
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You will need to use them to access the API.
-- Review [Dynamic packaging](dynamic-packaging-overview.md).
+- Review [Dynamic packaging](encode-dynamic-packaging-concept.md).
 - Review the [Upload, encode, and stream videos](stream-files-tutorial-with-api.md) tutorial.
 
 ## Create an input asset and upload a local file into it 

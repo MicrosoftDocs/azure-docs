@@ -360,8 +360,6 @@
           displayName: keda, container, docker
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
-        - name: On-premises functions
-          href: functions-runtime-install.md
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true
@@ -434,6 +432,18 @@
               href: functions-add-output-binding-storage-queue-vs-code.md
             - name: Storage - Visual Studio
               href: functions-add-output-binding-storage-queue-vs.md
+        - name: Start/Stop VMs
+          items:
+            - name: Overview
+              href: start-stop-vms/overview.md
+            - name: Deploy and configure
+              href: start-stop-vms/deploy.md
+            - name: Manage and monitor
+              href: start-stop-vms/manage.md
+            - name: Remove Start/Stop VMs
+              href: start-stop-vms/remove.md
+            - name: Troubleshoot
+              href: start-stop-vms/troubleshoot.md
         - name: Connect to SQL Database
           href: functions-scenario-database-table-cleanup.md
         - name: Connect to a virtual Network
