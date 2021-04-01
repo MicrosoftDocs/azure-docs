@@ -42,7 +42,7 @@ Below deployment link can be used, if you don't have existing Key Vault and SQL 
 
 [![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. Under **Resource group**, select **Create new**. Name the group **akvrotation**.
+1. Under **Resource group**, select **Create new**. Give group a name, we use **akvrotation** in this tutorial.
 1. Under **Sql Admin Login**, type Sql administrator login name. 
 1. Select **Review + create**.
 1. Select **Create**
@@ -210,7 +210,7 @@ Creating a secret with a short expiration date will publish a `SecretNearExpiry`
 
 To verify that the secret has rotated, go to **Key Vault** > **Secrets**:
 
-:::image type="content" source="../media/rotate-8.png" alt-text="Go to Secrets":::
+:::image type="content" source="../media/rotate-8.png" alt-text="Screenshot that shows how to access Key Vault > Secrets.":::
 
 Open the **sqlPassword** secret and view the original and rotated versions:
 

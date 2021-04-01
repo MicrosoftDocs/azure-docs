@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [ServiceChannel Client support team](https://servicechannel.zendesk.com/hc/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. The role claim is pre-configured so you don't have to configure it but you still need to create them in Azure AD using this [article](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui). You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
+1. The role claim is pre-configured so you don't have to configure it but you still need to create them in Azure AD using this [article](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview). You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -128,7 +128,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the ServiceChannel for which you set up the SSO
 
-* You can use Microsoft My Apps. When you click the ServiceChannel tile in the My Apps, you should be automatically signed in to the ServiceChannel for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the ServiceChannel tile in the My Apps, you should be automatically signed in to the ServiceChannel for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 11/20/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -29,6 +29,12 @@ In this article, you’ll learn how to:
 - Hide collections
 - Show hidden collections
 - Delete collections
+
+>[!Note]
+>If you see an error while signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## Create a collection
 
@@ -99,6 +105,7 @@ To hide a collection:
 To make a hidden collection visible:
 
 1. Go to [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) and sign in using your work or school account.
+
 1. Open the page menu :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon for the page-level menu":::, and then select **Manage**.
 
     :::image type="content" source="media/my-apps-portal-user-collections/13-manage-apps-again.png" alt-text="The page menu contains the Manage command to manage your apps":::

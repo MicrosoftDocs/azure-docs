@@ -49,7 +49,7 @@ Configure Cisco UCS to forward Syslog messages to your Azure Sentinel workspace 
 
     1. Configure the logs to be collected
 
-        - Select the facilities and severities in the workspace advanced settings configuration
+        - Select the facilities and severities in the workspace agents configuration.
 
     1. Configure and connect the Cisco UCS
 

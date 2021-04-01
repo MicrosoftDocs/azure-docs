@@ -25,7 +25,7 @@ In this tutorial, you convert MP4 media files in parallel to MP3 format using th
 
 ## Prerequisites
 
-* [Python version 2.7 or 3.3 or later](https://www.python.org/downloads/)
+* [Python version 2.7 or 3.6+](https://www.python.org/downloads/)
 
 * [pip](https://pip.pypa.io/en/stable/installing/) package manager
 

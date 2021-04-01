@@ -1,6 +1,5 @@
 ---
 title: Protect your content with Media Services v3 dynamic encryption
-titleSuffix: Azure Media Services
 description: Learn about content protection with dynamic encryption, streaming protocols, and encryption types in Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -16,7 +15,7 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: "seodec18, devx-track-csharp"
-#Customer intent: As a developer who works on subsystems of online streaming/multiscreen solutions that need to deliver protected content, I want to make sure that delivered content is protected with DRM or AES-128.
+
 ---
 # Protect your content with Media Services dynamic encryption
 
@@ -262,12 +261,3 @@ If you get errors that end with `_NOT_SPECIFIED_IN_URL`, make sure that you spec
 ## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
-
-## Next steps
-
-* [Protect with AES encryption](protect-with-aes128.md)
-* [Protect with DRM](protect-with-drm.md)
-* [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
-* [Storage side encryption](storage-account-concept.md#storage-side-encryption)
-* [Frequently asked questions](frequently-asked-questions.md)
-* [JSON Web Token Handler](/dotnet/framework/security/json-web-token-handler)

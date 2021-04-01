@@ -91,7 +91,7 @@
 - name: Reference
   items:
   - name: CLI reference
-    href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    href: /cli/azure/cognitiveservices#az_cognitiveservices_list
   - name: PowerShell reference
     href: /powershell/module/azurerm.cognitiveservices/
   - name: Text Analytics API
@@ -100,7 +100,7 @@
         href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/
       - name: v3.0
         href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
-      - name: v2
+      - name: v2 (Retiring)
         href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1
   - name: SDKs
     items:
@@ -111,19 +111,19 @@
         - name: Python
           href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics
         - name: Java
-          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
+          href: /java/api/overview/azure/ai-textanalytics-readme
         - name: Node.js
           href: /javascript/api/overview/azure/ai-text-analytics-readme
-    - name: v2
+    - name: v2 (Retiring)
       items:
         - name: .NET
-          href: /dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+          href: /dotnet/api/overview/azure/cognitiveservices/client
         - name: Python
-          href: /python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
+          href: /python/api/overview/azure/cognitiveservices/textanalytics
         - name: Java
-          href: /java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable
+          href: /java/api/overview/azure/cognitiveservices/client/textanalytics
         - name: Node.js
-          href: /javascript/api/@azure/cognitiveservices-textanalytics/?view=azure-node-latest
+          href: /javascript/api/@azure/cognitiveservices-textanalytics/
         - name: Go
           href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
 - name: Resources

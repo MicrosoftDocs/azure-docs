@@ -36,8 +36,8 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 The template defines two resources:
 
-- [Microsoft.Network/ddosProtectionPlans](/templates/microsoft.network/ddosprotectionplans)
-- [Microsoft.Network/virtualNetworks](/templates/microsoft.network/virtualnetworks)
+- [Microsoft.Network/ddosProtectionPlans](/azure/templates/microsoft.network/ddosprotectionplans)
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
 
 ## Deploy the template
 

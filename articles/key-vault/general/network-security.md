@@ -2,13 +2,13 @@
 title: Configure Azure Key Vault firewalls and virtual networks - Azure Key Vault 
 description: Step-by-step instructions to configure Key Vault firewalls and virtual networks
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
+manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 10/01/2020
-ms.author: sudbalas 
+ms.author: mbaldwin 
 ms.custom: devx-track-azurecli
 ---
 # Configure Azure Key Vault firewalls and virtual networks
@@ -33,7 +33,7 @@ To determine if a service you are trying to use is on the trusted service list, 
 
 ### Key Vault Firewall Enabled (IPv4 Addresses and Ranges - Static IPs)
 
-If you would like to authorize a particular service to access key vault through the Key Vault Firewall, you can add it's IP Address to the key vault firewall allow list. This configuration is best for services that use static IP addresses or well-known ranges.
+If you would like to authorize a particular service to access key vault through the Key Vault Firewall, you can add it's IP Address to the key vault firewall allow list. This configuration is best for services that use static IP addresses or well-known ranges. There is a limit of 1000 CIDR ranges for this case.
 
 To allow an IP Address or range of an Azure resource, such as a Web App or Logic App, perform the following steps.
 

@@ -1,12 +1,11 @@
 ---
-title: A multi-DRM content protection system - Azure Media Services v3
+title: A multi-DRM content protection system
 description: This articles gives detailed description of how to design a multi-DRM content protection system with Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: willzhan
 manager: steveng
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,7 +14,6 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-
 ---
 # Design of a multi-DRM content protection system with access control
 
@@ -49,7 +47,7 @@ The following table summarizes native DRM support on different platforms and EME
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 for PlayReady|
 | **Android devices (phone, tablet, TV)** |Widevine |Chrome for Widevine |
 | **iOS** | FairPlay | Safari for FairPlay (since iOS 11.2) |
-| **macOS** | FairPlay | Safari for FairPlay (since Safari 9+ on Mac OS X 10.11+ El Capitan)|
+| **macOS** | FairPlay | Safari for FairPlay (since Safari 9+ on macOS X 10.11+ El Capitan)|
 | **tvOS** | FairPlay | |
 
 Considering the current state of deployment for each DRM, a service typically wants to implement two or three DRMs to make sure you address all the types of endpoints in the best way.
@@ -62,8 +60,8 @@ To make your selection, keep in mind:
 * Widevine is natively implemented in every Android device, in Chrome, and in some other devices. Widevine is also supported in Firefox and Opera browsers over DASH.
 * FairPlay is available on iOS, macOS and tvOS.
 
-
 ## A reference design
+
 This section presents a reference design that is agnostic to the technologies used to implement it.
 
 A DRM subsystem can contain the following components:
@@ -353,9 +351,3 @@ The following screenshot shows a scenario that uses an asymmetric key via an X50
 ![Custom STS with an asymmetric key](./media/design-multi-drm-system-with-access-control/media-services-running-sts2.png)
 
 In both of the previous cases, user authentication stays the same. It takes place through Azure AD. The only difference is that JWTs are issued by the custom STS instead of Azure AD. When you configure dynamic CENC protection, the license delivery service restriction specifies the type of JWT, either a symmetric or an asymmetric key.
-
-## Next steps
-
-* [Frequently asked questions](frequently-asked-questions.md)
-* [Content protection overview](content-protection-overview.md)
-* [Protect your content with DRM](protect-with-drm.md)

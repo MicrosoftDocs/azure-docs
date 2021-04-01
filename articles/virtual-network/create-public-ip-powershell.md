@@ -46,7 +46,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 # [**Standard SKU - Using zones**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
->The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../azure-resource-manager/management/resource-providers-and-types.md).
+>The following command works for Az.Network module version 4.5.0 or later.  For more information about the Powershell modules currently being used, please refer to the [PowerShellGet documentation](/powershell/module/powershellget/).
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a standard zone-redundant public IP address named **myStandardZRPublicIP** in **myResourceGroup**.
 
@@ -62,7 +62,7 @@ $zone = 1,2,3
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku -zone $zone
 ```
 > [!IMPORTANT]
-> For versions of the API older than 2020-08-01, run the command above without specifying a zone parameter to create a zone-redundant IP address. 
+> For Az.Network modules older than 4.5.0, run the command above without specifying a zone parameter to create a zone-redundant IP address. 
 >
 
 In order to create a standard zonal public IP address in Zone 2 named **myStandardZonalPublicIP** in **myResourceGroup**, use the following command:
@@ -84,7 +84,7 @@ Note that the above options for zones are only valid selections in regions with 
 # [**Standard SKU - No zones**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
->The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../azure-resource-manager/management/resource-providers-and-types.md).
+>The following command works for Az.Network module version 4.5.0 or later.  For more information about the Powershell modules currently being used, please refer to the [PowerShellGet documentation](/powershell/module/powershellget/).
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a standard public IP address as a non-zonal resource named **myStandardPublicIP** in **myResourceGroup**.
 

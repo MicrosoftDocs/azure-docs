@@ -204,33 +204,29 @@
     topicHref: /azure/vmware-cloudsimple/
   - name: Azure portal documentation
     tocHref: /azure/azure-portal/
-    topicHref: /azure/azure-portal/\
+    topicHref: /azure/azure-portal/
+  - name: Azure portal documentation
+    tocHref: /azure/virtual-machines/
+    topicHref: /azure/azure-portal/index
+  - name: Azure portal documentation
+    tocHref: /power-bi
+    topicHref: /azure/azure-portal/index
   - name: Internet of Things
     tocHref: /azure/iot-fundamentals/
     topicHref: /azure/iot-fundamentals/
     items:
+      - name: Azure Percept
+        tocHref: /azure/azure-percept/
+        topicHref: /azure/azure-percept/
+      - name: Device Update for IoT Hub
+        tocHref: /azure/iot-hub-device-update/
+        topicHref: /azure/iot-hub-device-update/            
       - name: IoT Hub
         tocHref: /azure/iot-hub/
         topicHref: /azure/iot-hub/
       - name: IoT Central
         tocHref: /azure/iot-central/
         topicHref: /azure/iot-central/
-        items:
-        - name: IoT Central
-          tocHref: /azure/iot-central/core/
-          topicHref: /azure/iot-central/core/
-        - name: IoT Central for Energy
-          tocHref: /azure/iot-central/energy/
-          topicHref: /azure/iot-central/energy/
-        - name: IoT Central for Government
-          tocHref: /azure/iot-central/government/
-          topicHref: /azure/iot-central/government/
-        - name: IoT Central for Healthcare
-          tocHref: /azure/iot-central/healthcare/
-          topicHref: /azure/iot-central/healthcare/
-        - name: IoT Central for Retail
-          tocHref: /azure/iot-central/retail/
-          topicHref: /azure/iot-central/retail/
       - name: IoT Edge
         tocHref: /azure/iot-edge/
         topicHref: /azure/iot-edge/
@@ -268,12 +264,23 @@
       - name: Azure Custom Providers
         tocHref: /azure/azure-resource-manager/custom-providers/
         topicHref: /azure/azure-resource-manager/custom-providers/
+  - name: Partner Solutions
+    tocHref: /azure/partner-solutions/
+    topicHref: /azure/partner-solutions/
+    items:
+      - name: Apache Kafka for Confluent Cloud
+        tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
+        topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
   - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
+    items:
+    - name: Azure Stack Edge
+      tocHref: /azure/databox-online/
+      topicHref: /azure/databox-online/
   - name: Azure Stack User
     tocHref: /azure/azure-stack/user/
     topicHref: /azure/azure-stack/user/
@@ -460,6 +467,9 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+  - name: Managed Instance for Apache Cassandra
+    tocHref: /azure/managed-instance-apache-cassandra/
+    topicHref: /azure/managed-instance-apache-cassandra/
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/
@@ -467,9 +477,6 @@
     - name: Data Box offline transfer
       tocHref: /azure/databox/
       topicHref: /azure/databox/
-    - name: Data Box online transfer
-      tocHref: /azure/databox-online/
-      topicHref: /azure/databox-online/
     - name: Data Box Gateway
       tocHref: /azure/databox-gateway/
       topicHref: /azure/databox-gateway/  
@@ -698,6 +705,9 @@
       - name: Front Door Service
         tocHref: /azure/frontdoor/
         topicHref: /azure/frontdoor/
+      - name: Front Door Standard/Premium (Preview)
+        tocHref: /azure/frontdoor/standard-premium
+        topicHref: /azure/frontdoor/standard-premium
       - name: Internet Analyzer
         tocHref: /azure/internet-analyzer/
         topicHref: /azure/internet-analyzer/
@@ -716,6 +726,9 @@
       - name: Peering Service
         tocHref: /azure/peering-service/
         topicHref: /azure/peering-service/
+      - name: Route Server (Preview)
+        tocHref: /azure/route-server/
+        topicHref: /azure/route-server/
       - name: Traffic Manager
         tocHref: /azure/traffic-manager/
         topicHref: /azure/traffic-manager/
@@ -945,6 +958,9 @@
     - name: Reservations
       tocHref: /azure/cost-management-billing/reservations/
       topicHref: /azure/cost-management-billing/reservations/
+    - name: Microsoft Customer Agreement
+      tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
+      topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
   - name: Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/

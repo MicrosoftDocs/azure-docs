@@ -8,8 +8,7 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -26,11 +25,11 @@ The time spent on the network to send such a query from the application tier to 
 
 In many Azure regions, the number of datacenters has grown. At the same time, customers, especially for high-end SAP systems, are using more special VM SKUs of the M or Mv2  family, or HANA Large Instances. These Azure virtual machine types aren't always available in all the datacenters that complement an  Azure region. These facts can create opportunities to optimize network latency between the SAP application layer and the SAP DBMS layer.
 
-To give you a possibility to optimize network latency, Azure offers [proximity placement groups](../../linux/co-location.md). Proximity placement groups can be used to force grouping of different VM types into a single Azure datacenter to optimize the network latency between these different VM types to the best possible. In the process of deploying the first VM into such a proximity placement group, the VM gets bound to a specific datacenter. As appealing as this prospect sounds, the usage of the construct introduces some restrictions as well:
+To give you a possibility to optimize network latency, Azure offers [proximity placement groups](../../co-location.md). Proximity placement groups can be used to force grouping of different VM types into a single Azure datacenter to optimize the network latency between these different VM types to the best possible. In the process of deploying the first VM into such a proximity placement group, the VM gets bound to a specific datacenter. As appealing as this prospect sounds, the usage of the construct introduces some restrictions as well:
 
 - You cannot assume that all Azure VM types are available in every and all Azure datacenters. As a result, the combination of different VM types within one proximity placement group can be restricted. These restrictions occur because the host hardware that’s needed to run a certain VM type might not be present in the datacenter to which the placement group was deployed
 - As you resize parts of the VMs that are within one proximity placement group, you cannot automatically assume that in all cases the new VM type is available in the same datacenter as the other VMs that are part of the proximity placement group
-- As Azure decommissions hardware it might force certain VMs of a proximity placement group into another Azure datacenter. For details covering this case, read the document [Co-locate resources for improved latency](../../linux/co-location.md#planned-maintenance-and-proximity-placement-groups)  
+- As Azure decommissions hardware it might force certain VMs of a proximity placement group into another Azure datacenter. For details covering this case, read the document [Co-locate resources for improved latency](../../co-location.md#planned-maintenance-and-proximity-placement-groups)  
 
 > [!IMPORTANT]
 > As a result of the potential restrictions, proximity placement groups should be used:

@@ -43,7 +43,7 @@ The table provides a high-level list of Azure Maps features, which correspond to
 | REST Service APIs           | ✓                                      |
 | Directions (Routing)        | ✓                                      |
 | Distance Matrix             | ✓                                      |
-| Elevation                   | Planned                                |
+| Elevation                   | ✓ (Preview)                            |
 | Geocoding (Forward/Reverse) | ✓                                      |
 | Geolocation                 | N/A                                    |
 | Nearest Roads               | ✓                                      |

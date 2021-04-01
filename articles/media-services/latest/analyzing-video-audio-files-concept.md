@@ -1,18 +1,12 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Analyze video and audio files
-titleSuffix: Azure Media Services
 description: Learn how to analyze audio and video content using AudioAnalyzerPreset and VideoAnalyzerPreset in Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
-
 ms.service: media-services
-ms.workload: 
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 03/22/2021
 ms.author: inhenkel
 ---
 
@@ -28,21 +22,18 @@ There are two modes for the Audio Analyzer preset, basic and standard. See the d
 
 To analyze your content using Media Services v3 presets, you create a **Transform** and submit a **Job** that uses one of these presets: [VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset) or **AudioAnalyzerPreset**. For a tutorial demonstrating how to use **VideoAnalyzerPreset**, see [Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md).
 
-> [!NOTE]
-> When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units, although this is not required. You can use either S1 or S2 for audio presets. For more information, see [Scale media processing](media-reserved-units-cli-how-to.md).
-
 ## Compliance, Privacy and Security
 
-As an important reminder, you must comply with all applicable laws in your use of Video Indexer, and you may not use Video Indexer or any other Azure service in a manner that violates the rights of others or may be harmful to others. Before uploading any videos, including any biometric data, to the Video Indexer service for processing and storage, You must have all the proper rights, including all appropriate consents, from the individual(s) in the video. To learn about compliance, privacy and security in Video Indexer, the Microsoft [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, please review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (“OST”) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). Additional privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../video-indexer/faq.md). By using Video Indexer, you agree to be bound by the Cognitive Services Terms, the OST, DPA and the Privacy Statement.
+As an important reminder, you must comply with all applicable laws in your use of Video Indexer, and you may not use Video Indexer or any other Azure service in a manner that violates the rights of others or may be harmful to others. Before uploading any videos, including any biometric data, to the Video Indexer service for processing and storage, You must have all the proper rights, including all appropriate consents, from the individual(s) in the video. To learn about compliance, privacy and security in Video Indexer, the Azure [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, please review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (“OST”) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). Additional privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../video-indexer/faq.md). By using Video Indexer, you agree to be bound by the Cognitive Services Terms, the OST, DPA and the Privacy Statement.
 
 ## Built-in presets
 
 Media Services currently supports the following built-in analyzer presets:  
 
-|**Preset name**|**Scenario**|**Details**|
+|**Preset name**|**Scenario / Mode**|**Details**|
 |---|---|---|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio Standard|The preset applies a predefined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing content with a single audio track that contains speech in a single language. You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region'. Supported languages are English ('en-US' and 'en-GB'), Spanish ('es-ES' and 'es-MX'), French ('fr-FR'), Italian ('it-IT'), Japanese ('ja-JP'), Portuguese ('pt-BR'), Chinese ('zh-CN'), German ('de-DE'), Arabic ('ar-EG' and 'ar-SY'), Russian ('ru-RU'), Hindi ('hi-IN'), and Korean ('ko-KR').<br/><br/> If the language isn't specified or set to null, automatic language detection chooses the first language detected and continues with the selected language for the duration of the file. The automatic language detection feature currently supports English, Chinese, French, German, Italian, Japanese, Spanish, Russian, and Portuguese. It doesn't support dynamically switching between languages after the first language is detected. The automatic language detection feature works best with audio recordings with clearly discernible speech. If automatic language detection fails to find the language, the transcription falls back to English.|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio Basic|This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. The list of supported languages is available [here](#built-in-presets)|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio Standard mode|The preset applies a predefined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing content with a single audio track that contains speech in a single language. You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region'. Supported languages are English ('en-US', 'en-GB' and 'en-AU'), Spanish ('es-ES' and 'es-MX'), French ('fr-FR' and 'fr-CA'), Italian ('it-IT'), Japanese ('ja-JP'), Portuguese ('pt-BR'), Chinese ('zh-CN'), German ('de-DE'), Arabic ('ar-BH', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-SA' and 'ar-SY'), Russian ('ru-RU'), Hindi ('hi-IN'), Korean ('ko-KR'), Danish('da-DK'), Norwegian('nb-NO'), Swedish('sv-SE'), Finnish ('fi-FI'), Thai('th-TH') and Turkish('tr-TR').<br/><br/> If the language isn't specified or set to null, automatic language detection chooses the first language detected and continues with the selected language for the duration of the file. The automatic language detection feature currently supports English, Chinese, French, German, Italian, Japanese, Spanish, Russian, and Portuguese. It doesn't support dynamically switching between languages after the first language is detected. The automatic language detection feature works best with audio recordings with clearly discernible speech. If automatic language detection fails to find the language, the transcription falls back to English.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio Basic mode|This preset mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. The list of supported languages is identical to the Standard mode above.|
 |[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analyzing audio and video|Extracts insights (rich metadata) from both audio and video, and outputs a JSON format file. You can specify whether you only want to extract audio insights when processing a video file. For more information, see [Analyze video](analyze-videos-tutorial-with-api.md).|
 |[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detecting faces present in video|Describes the settings to be used when analyzing a video to detect all the faces present.|
 

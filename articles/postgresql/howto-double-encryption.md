@@ -1,11 +1,11 @@
 ---
 title: Infrastructure double encryption - Azure portal - Azure Database for PostgreSQL
 description: Learn how to set up and manage Infrastructure double encryption for your Azure Database for PostgreSQL.
-author: mksuni
-ms.author: sumuth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 03/14/2021
 ---
 
 # Infrastructure double encryption for Azure Database for PostgreSQL
@@ -18,7 +18,7 @@ Learn how to use the how set up and manage Infrastructure double encryption for 
 
 ## Create an Azure Database for PostgreSQL server with Infrastructure Double encryption - Portal
 
-Follow these steps to create an Azure Database for MySQL server with Infrastructure double encryption from Azure portal:
+Follow these steps to create an Azure Database for PostgreSQL server with Infrastructure double encryption from Azure portal:
 
 1. Select **Create a resource** (+) in the upper-left corner of the  portal.
 
@@ -40,7 +40,7 @@ Follow these steps to create an Azure Database for MySQL server with Infrastruct
 
 ## Create an Azure Database for PostgreSQL server with Infrastructure Double encryption - CLI
 
-Follow these steps to create an Azure Database for MySQL server with Infrastructure double encryption from CLI:
+Follow these steps to create an Azure Database for PostgreSQL server with Infrastructure double encryption from CLI:
 
 This example creates a resource group named `myresourcegroup` in the `westus` location.
 

@@ -80,7 +80,7 @@ Go to the [Azure portal](https://portal.azure.com) to manage your virtual networ
 
 To learn more about common Azure settings, see the following information:
 
-- [Activity log](../azure-monitor/platform/platform-logs-overview.md)
+- [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
 - [Access control (IAM)](../role-based-access-control/overview.md)
 - [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

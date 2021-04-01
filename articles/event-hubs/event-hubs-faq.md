@@ -2,7 +2,7 @@
 title: Frequently asked questions - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 01/20/2021
 ---
 
 # Event Hubs frequently asked questions
@@ -50,8 +50,8 @@ You can configure the retention period for the captured data on your storage acc
 ### How do I monitor my Event Hubs?
 Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
-### <a name="in-region-data-residency"></a>Where does Azure Event Hubs store customer data?
-Azure Event Hubs stores customer data. This data is automatically stored by Event Hubs in a single region, so this service automatically satisfies the region data residency requirements including the ones specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+### <a name="in-region-data-residency"></a>Where does Azure Event Hubs store data?
+Azure Event Hubs standard and dedicated tiers store metadata and data in regions that you select. When geo-disaster recovery is set up for an Azure Event Hubs namespace, metadata is copied over to the secondary region that you select. Therefore, this service automatically satisfies the region data residency requirements including the ones specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
 
 [!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 

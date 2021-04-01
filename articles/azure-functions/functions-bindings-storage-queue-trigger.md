@@ -353,13 +353,15 @@ The following table explains the binding configuration properties that you set i
 |**direction**| n/a | In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a |The name of the variable that contains the queue item payload in the function code.  |
 |**queueName** | **QueueName**| The name of the queue to poll. |
-|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "MyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here.<br><br>For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "MyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Usage
 
 # [C#](#tab/csharp)
+
+### Default
 
 Access the message data by using a method parameter such as `string paramName`. You can bind to any of the following types:
 
@@ -370,7 +372,17 @@ Access the message data by using a method parameter such as `string paramName`. 
 
 If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+### Additional types
+
+Apps using the [5.0.0 or higher version of the Storage extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) may also use types from the [Azure SDK for .NET](/dotnet/api/overview/azure/storage.queues-readme). This version drops support for the legacy `CloudQueueMessage` type in favor of the following types:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+ 
+For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
 # [C# Script](#tab/csharp-script)
+
+### Default
 
 Access the message data by using a method parameter such as `string paramName`. The `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
 
@@ -381,9 +393,17 @@ Access the message data by using a method parameter such as `string paramName`. 
 
 If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+### Additional types
+
+Apps using the [5.0.0 or higher version of the Storage extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) may also use types from the [Azure SDK for .NET](/dotnet/api/overview/azure/storage.queues-readme). This version drops support for the legacy `CloudQueueMessage` type in favor of the following types:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+
+For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
 # [Java](#tab/java)
 
-The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) annotation gives you access to the queue message that triggered the function.
+The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger) annotation gives you access to the queue message that triggered the function.
 
 # [JavaScript](#tab/javascript)
 
@@ -395,7 +415,7 @@ Access the queue message via string parameter that matches the name designated b
 
 # [Python](#tab/python)
 
-Access the queue message via the parameter typed as [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true).
+Access the queue message via the parameter typed as [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage).
 
 ---
 
@@ -444,7 +464,7 @@ The queue trigger automatically prevents a function from processing a queue mess
 
 ## host.json properties
 
-The [host.json](functions-host-json.md#queues) file contains settings that control queue trigger behavior. See the [host.json settings](functions-bindings-storage-queue-output.md#hostjson-settings) section for details regarding available settings.
+The [host.json](functions-host-json.md#queues) file contains settings that control queue trigger behavior. See the [host.json settings](functions-bindings-storage-queue.md#hostjson-settings) section for details regarding available settings.
 
 ## Next steps
 

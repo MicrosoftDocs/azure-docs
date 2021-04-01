@@ -9,7 +9,7 @@ ms.service: iot-dps
 services: iot-dps
 ---
 
-# How to transfer a payload between device and DPS
+# How to transfer payloads between devices and DPS
 Sometimes DPS needs more data from devices to properly provision them to the right IoT Hub, and that data needs to be provided by the device. Vice versa, DPS can return data to the device to facilitate client side logics. 
 
 ## When to use it

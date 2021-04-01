@@ -43,6 +43,7 @@ The Event Subscription name must be 3-64 characters in length and can only conta
 | subjectBeginsWith | string | A prefix-match filter to the subject field in the event message. The default or empty string matches all. | 
 | subjectEndsWith | string | A suffix-match filter to the subject field in the event message. The default or empty string matches all. |
 | isSubjectCaseSensitive | string | Controls case-sensitive matching for filters. |
+| enableAdvancedFilteringOnArrays | boolean | Enables using arrays for keys in advanced filtering. For more information, see [Advanced filtering](event-filtering.md#advanced-filtering). |
 
 
 ## Example subscription schema

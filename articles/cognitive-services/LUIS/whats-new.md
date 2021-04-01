@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/12/2021
+ms.date: 02/16/2021
 ---
 
 # What's new in Language Understanding
@@ -15,7 +15,8 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ### January 2021
 
-* The V3 prediction API now supports the [Bing Spellcheck API](luis-how-to-publish-app.md#spelling-correction).
+* The V3 prediction API now supports the [Bing Spellcheck API](luis-tutorial-bing-spellcheck.md).
+* The regional portals (au.luis.ai and eu.luis.ai) have been consolidated into a single portal and URL. If you were using one of these portals, you will be automatically re-directed to luis.ai.
 
 ### December 2020
 
@@ -50,7 +51,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 * New resources for developers
     * [Continuous integration tools](developer-reference-resource.md#continuous-integration-tools)
     * Workshop - learn best practices for [_Natural Language Understanding_ (NLU) using LUIS](developer-reference-resource.md#workshops)
-* [Customer managed keys](luis-encryption-of-data-at-rest.md) - encrypt all the data you use in LUIS by using your own key
+* [Customer managed keys](./encrypt-data-at-rest.md) - encrypt all the data you use in LUIS by using your own key
 * [AI show](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (video) - see the new features in LUIS
 
 

@@ -1,15 +1,9 @@
 ---
 title: SSIS migration with Azure SQL Managed Instance as the database workload destination 
 description: SSIS migration with Azure SQL Managed Instance as the database workload destination.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: 
-manager: 
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: conceptual
 ms.date: 9/12/2019
 ---

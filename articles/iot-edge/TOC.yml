@@ -17,9 +17,9 @@
   items:
   - name: Set up development environment
     items:
-    - name: Develop for Linux devices
+    - name: Develop with Linux containers
       href: tutorial-develop-for-linux.md
-    - name: Develop for Windows devices
+    - name: Develop with Windows containers
       href: tutorial-develop-for-windows.md
   - name: Develop custom code modules
     items:
@@ -77,6 +77,8 @@
   items:
   - name: IoT Edge runtime
     href: iot-edge-runtime.md
+  - name: IoT Edge for Linux on Windows
+    href: iot-edge-for-linux-on-windows.md
   - name: IoT Edge modules
     items:
     - name: Understand Azure IoT Edge modules
@@ -108,34 +110,36 @@
     - name: IoT Edge certificates
       href: iot-edge-certs.md
     - name: Confidential computing
-      href: deploy-trusted-applications.md
+      href: deploy-confidential-applications.md
   - name: Platform support
     href: support.md
   - name: Production deployment checklist
     href: production-checklist.md
-  - name: IoT Edge glossary
-    href: iot-edge-glossary.md
 - name: How-to guides
   items:
   - name: Create an IoT Edge device
     items:
-    - name: Install runtime
-      href: how-to-install-iot-edge.md
-    - name: Register and authenticate device
+    - name: Register device in IoT Hub
+      href: how-to-register-device.md
+    - name: Install and provision IoT Edge
       items:
-      - name: Symmetric key authentication
-        href: how-to-manual-provision-symmetric-key.md
-      - name: X.509 certificate authentication
-        href: how-to-manual-provision-x509.md
+      - name: Install IoT Edge for Linux
+        href: how-to-install-iot-edge.md
+      - name: Run IoT Edge for Linux on Windows
+        href: how-to-install-iot-edge-on-windows.md
     - name: Update runtime
       href: how-to-update-iot-edge.md
     - name: Manage device certificates
       href: how-to-manage-device-certificates.md
-    - name: Create test certificates
-      href: how-to-create-test-certificates.md
-    - name: IoT Edge on Kubernetes
+    - name: Configure nested virtualization for Windows VMs
+      href: nested-virtualization.md
+  - name: Alternative device scenarios
+    items:
+    - name: Run IoT Edge with Windows containers
+      href: how-to-install-iot-edge-windows-on-windows.md
+    - name: Run IoT Edge on Kubernetes
       href: how-to-install-iot-edge-kubernetes.md
-    - name: IoT Edge virtual machine using an ARM template
+    - name: Deploy IoT Edge VM using an ARM template
       href: how-to-install-iot-edge-ubuntuvm.md
   - name: Auto-provision with DPS
     items:
@@ -243,14 +247,20 @@
       href: troubleshoot-common-errors.md
 - name: Reference
   items:
+  - name: Create test certificates
+    href: how-to-create-test-certificates.md
   - name: Windows device management scripts
     href: reference-windows-scripts.md
+  - name: IoT Edge for Linux on Windows scripts
+    href: reference-iot-edge-for-linux-on-windows-scripts.md
   - name: Azure CLI
     href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub

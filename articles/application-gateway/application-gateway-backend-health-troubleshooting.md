@@ -18,13 +18,10 @@ Overview
 By default, Azure Application Gateway probes backend servers to check their health status and to check whether they're ready to serve requests. Users can also create custom probes to mention the host name, the path to be probed, and the status codes to be accepted as Healthy. In each case, if the backend server doesn't respond successfully, Application Gateway marks the server as Unhealthy and stops forwarding requests to the server. After the server starts responding
 successfully, Application Gateway resumes forwarding the requests.
 
-> [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
-
 ### How to check backend health
 
 To check the health of your backend pool, you can use the
-**Backend Health** page on the Azure portal. Or, you can use [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health), or [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
+**Backend Health** page on the Azure portal. Or, you can use [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), [CLI](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health), or [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 The status retrieved by any of these methods can be any one of the following:
 
@@ -136,9 +133,9 @@ this message is displayed, it suggests that Application Gateway couldn't success
 
 1.  If the domain is private or internal, try to resolve it from a VM in the same virtual network. If you can resolve it, restart
     Application Gateway and check again. To restart Application Gateway, you need to
-    [stop](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0)
+    [stop](/powershell/module/azurerm.network/stop-azurermapplicationgateway)
     and
-    [start](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0)
+    [start](/powershell/module/azurerm.network/start-azurermapplicationgateway)
     by using the PowerShell commands described in these linked resources.
 
 #### TCP connect error
@@ -286,7 +283,7 @@ For more information about how to extract and upload Trusted Root Certificates i
 **Message:** The root certificate of the server certificate used by the
 backend does not match the trusted root certificate added to the
 application gateway. Ensure that you add the correct root certificate to
-whitelist the backend
+allowlist the backend.
 
 **Cause:** End-to-end SSL with Application Gateway v2 requires the
 backend server's certificate to be verified in order to deem the server Healthy.

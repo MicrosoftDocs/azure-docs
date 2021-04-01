@@ -1,7 +1,6 @@
 ---
 title: Targeting monitoring solutions in Azure Monitor | Microsoft Docs
 description: Targeting monitoring solutions allows you to limit monitoring solutions to a specific set of agents.  This article describes how to create a scope configuration and apply it to a solution.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -19,7 +18,7 @@ There are three steps to targeting a solution as described in the following sect
 
 
 ### 1. Create a computer group
-You specify the computers that you want to include in a scope by creating a [computer group](../platform/computer-groups.md) in Azure Monitor.  The computer group can be based on a log query or imported from other sources such as Active Directory or WSUS groups. As [described below](#solutions-and-agents-that-cant-be-targeted), only computers that are directly connected to Azure Monitor will be included in the scope.
+You specify the computers that you want to include in a scope by creating a [computer group](../logs/computer-groups.md) in Azure Monitor.  The computer group can be based on a log query or imported from other sources such as Active Directory or WSUS groups. As [described below](#solutions-and-agents-that-cant-be-targeted), only computers that are directly connected to Azure Monitor will be included in the scope.
 
 Once you have the computer group created in your workspace, then you'll include it in a scope configuration that can be applied to one or more solutions.
  
@@ -65,4 +64,4 @@ Solution targeting cannot be used with the following solutions even though they 
 
 ## Next steps
 - Learn more about monitoring solutions including the solutions that are available to install in your environment at [Add Azure Log Analytics monitoring solutions to your workspace](solutions.md).
-- Learn more about creating computer groups at [Computer groups in Azure Monitor log queries](../platform/computer-groups.md).
+- Learn more about creating computer groups at [Computer groups in Azure Monitor log queries](../logs/computer-groups.md).

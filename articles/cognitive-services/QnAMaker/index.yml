@@ -60,9 +60,7 @@ landingContent:
         links:
           - text: "Quickstart: With Postman or cURL"
             url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-          - text: "Quickstart: Using REST and cURL"
-            url: quickstarts/quickstart-rest-curl.md
-          - text: "Quickstart: Using SDK"
+          - text: "Quickstart: Using SDK and REST API"
             url: quickstarts/quickstart-sdk.md
       - linkListType: how-to-guide
         links:
@@ -101,7 +99,7 @@ landingContent:
           - text: "Power apps: Create a QnA Maker powered bot"
             url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
           - text: "Bot Framework: Dispatch between LUIS and QnA Maker apps"
-            url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0
+            url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs
           - text: Other bot samples
             url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 
@@ -116,11 +114,11 @@ landingContent:
           - text: Generate Answer APIs
             url: /rest/api/cognitiveservices/qnamaker4.0/Runtime
           - text: .Net SDK reference documentation
-            url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+            url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker
           - text: Azure PowerShell
-            url: /powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: /cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+            url: /cli/azure/cognitiveservices#az-cognitiveservices-list
 
   - title: Help and feedback
     linkLists:

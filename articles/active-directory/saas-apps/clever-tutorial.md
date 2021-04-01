@@ -116,7 +116,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Clever SSO
 
-Follow the instructions given in the [link](https://support.clever.com/hc/articles/205889768-Single-Sign-On-SSO-Log-in-with-Office-365-Azure-) to configure single sign-on on Clever side.
+Follow the instructions given in the [link](https://support.clever.com/hc/s/articles/205889768) to configure single sign-on on Clever side.
 
 ### Create Clever test user
 
@@ -135,7 +135,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Clever Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Clever tile in the My Apps, this will redirect to Clever Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the Clever tile in the My Apps, this will redirect to Clever Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Mitigate fairness in machine learning models (preview)
+title: Mitigate unfairness in machine learning models (preview)
 titleSuffix: Azure Machine Learning
 description: Learn about fairness in machine learning models and how the Fairlearn Python package can help you build fairer models. 
 services: machine-learning
@@ -8,16 +8,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 08/05/2020
+ms.date: 01/26/2021
 ms.custom: responsible-ml
-#Customer intent: As a data scientist, I want to learn about assessing and mitigating fairness in machine learning models.
+#Customer intent: As a data scientist, I want to learn about assessing fairness and mitigating unfairness in machine learning models.
 ---
 
-# Mitigate fairness in machine learning models (preview)
+# Mitigate unfairness in machine learning models (preview)
 
-Learn about fairness in machine learning and how the [Fairlearn](https://fairlearn.github.io/) open-source Python package can help you mitigate fairness issues in machine learning models. If you are not making an effort to understand fairness issues and to assess fairness when building machine learning models, you may build models that produce unfair results.
+Learn about fairness in machine learning and how the [Fairlearn](https://fairlearn.github.io/) open-source Python package can help you mitigate unfairness issues in machine learning models. If you are not making an effort to understand fairness issues and to assess fairness when building machine learning models, you may build models that produce unfair results.
 
-The following summary of the [user guide](https://fairlearn.github.io/master/user_guide/index.html) for the Fairlearn open-source package, describes how to use it to assess the fairness of the AI systems that you are building.  The Fairlearn open-source package can also offer options to help mitigate, or help to reduce, any fairness issues you observe.  See the [how-to](how-to-machine-learning-fairness-aml.md) and [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) to enable fairness assessment of AI systems during training on Azure Machine Learning.
+The following summary of the [user guide](https://fairlearn.github.io/main/user_guide/index.html) for the Fairlearn open-source package, describes how to use it to assess the fairness of the AI systems that you are building.  The Fairlearn open-source package can also offer options to help mitigate, or help to reduce, any fairness issues you observe.  See the [how-to](how-to-machine-learning-fairness-aml.md) and [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) to enable fairness assessment of AI systems during training on Azure Machine Learning.
 
 
 ## What is fairness in machine learning models?
@@ -37,7 +37,7 @@ To reduce unfair behavior in AI systems, you have to assess and mitigate these h
 
 ## Fairness assessment and mitigation with Fairlearn
 
-Fairlearn is an open-source Python package that allows machine learning systems developers to assess their systems' fairness and mitigate the observed fairness issues.
+Fairlearn is an open-source Python package that allows machine learning systems developers to assess their systems' fairness and mitigate unfairness.
 
 The Fairlearn open-source package has two components:
 
@@ -105,6 +105,6 @@ The Fairlearn open-source package provides postprocessing and reduction unfairne
 
 ## Next steps
 
-- Learn how to use the different components by checking out the Fairlearn's [GitHub](https://github.com/fairlearn/fairlearn/), [user guide](https://fairlearn.github.io/master/user_guide/index.html), [examples](https://fairlearn.github.io/master/auto_examples/), and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
+- Learn how to use the different components by checking out the Fairlearn's [GitHub](https://github.com/fairlearn/fairlearn/), [user guide](https://fairlearn.github.io/main/user_guide/index.html), [examples](https://fairlearn.github.io/main/auto_examples/index.html), and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
 - Learn [how to](how-to-machine-learning-fairness-aml.md) enable fairness assessment of machine learning models in Azure Machine Learning.
 - See the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) for additional fairness assessment scenarios in Azure Machine Learning. 

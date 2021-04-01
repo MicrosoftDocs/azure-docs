@@ -50,11 +50,11 @@ map.events.add("click", function(e){
 
     var features = map.layers.getRenderedShapes(e.position, "indoor");
 
-    var result = features.reduce(function (ids, feature) {
-        if (feature.layer.id == "indoor_unit_office") {
+    features.forEach(function (feature) {
+        if (feature.layer.id == 'indoor_unit_office') {
             console.log(feature);
         }
-    }, []);
+    });
 });
 ```
 
@@ -74,7 +74,7 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **BODY** of the **POST** request, write the following JSON with the feature updates. The update will be saved only if the posted time stamp is after the time stamp used in previous feature state update requests for the same feature `ID`. Pass the "occupied" `keyName` to update its value.
+3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **BODY** of the **POST** request, write the following raw JSON with the feature updates. The update will be saved only if the posted time stamp is after the time stamp used in previous feature state update requests for the same feature `ID`. Pass the "occupied" `keyName` to update its value.
 
     ```json
     {
@@ -104,9 +104,11 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 
 ### Visualize dynamic styles on a map
 
-The web application you previously opened in a browser should now reflect the updated state of the map features. `UNIT27`(151) should appear green and `UNIT26`(157) should appear red.
+The web application you previously opened in a browser should now reflect the updated state of the map features. `UNIT27`(142) should appear green and `UNIT26`(143) should appear red.
 
 ![Free room in green and Busy room in red](./media/indoor-map-dynamic-styling/room-state.png)
+
+[See live demo](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## Next steps
 

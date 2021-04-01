@@ -1,27 +1,21 @@
 ---
-title: Getting started
-description: Get started with understanding the basic workflow for Defender for IoT deployment.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/26/2020
-ms.author: shhazam
+title: "Quickstart: Getting started"
+description: In this quickstart you will learn how to get started with understanding the basic workflow for Defender for IoT deployment.
+ms.topic: quickstart
+ms.date: 2/18/2021
 ---
 
-# Getting started with Defender for IoT
+# Quickstart: Get started with Defender for IoT
 
 This article provides an overview of the steps you'll take to set up Azure Defender for IoT. The process requires that you:
 
 - Register your subscription and sensors on the Azure Defender for IoT portal.
 - Install the sensor and on-premises management console software.
 - Perform initial activation of the sensor and management console.
+
+## Prerequisites
+
+None
 
 ## Permission requirements
 
@@ -38,7 +32,7 @@ The following table describes user access permissions to Azure Defender for IoT 
 | Update pricing  |  |  ✓ | ✓ | ✓ |
 | Recover password  | ✓  |  ✓ | ✓ | ✓ |
 
-## 1. Identify the solution infrastructure
+## Identify the solution infrastructure
 
 **Clarify your network setup needs**
 
@@ -50,7 +44,7 @@ Azure Defender for IoT supports both physical and virtual deployments. For the p
 
 We recommend that you calculate the approximate number of devices that will be monitored. Later, when you register your Azure subscription to the portal, you'll be asked to enter this number. Numbers can be added in intervals of 1,000 seconds. The numbers of monitored devices are called *committed devices*.
 
-## 2. Register with Azure Defender for IoT
+## Register with Azure Defender for IoT
 
 Registration includes:
 
@@ -65,7 +59,9 @@ To register:
 1. On the **Pricing** page, select a subscription or create a new one, and add the number of committed devices.
 1. Select the **Download the on-premises management console** tab and save the downloaded activation file. This file contains the aggregate committed devices that you defined. The file will be uploaded to the management console after initial sign-in.
 
-## 3. Install and set up the on-premises management console
+For information on how to offboard a subscription, see [Offboard a subscription](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription).
+
+## Install and set up the on-premises management console
 
 After you acquire your on-premises management console appliance:
 
@@ -81,7 +77,7 @@ To install and set up:
 1. Install the on-premises management console software. For more information, see [Defender for IoT installation](how-to-install-software.md).
 1. Activate and set up the management console. For more information, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
 
-## 4. Onboard a sensor
+## Onboard a sensor
 
 Onboard a sensor by registering it with Azure Defender for IoT and downloading a sensor activation file:
 
@@ -96,7 +92,7 @@ Onboard a sensor by registering it with Azure Defender for IoT and downloading a
 
 For more information, see [Onboard and manage sensors in the Defender for IoT portal](how-to-manage-sensors-on-the-cloud.md).
 
-## 5. Install and set up the sensor
+## Install and set up the sensor
 
 Download the ISO package from the Azure Defender for IoT portal, install the software, and set up the sensor.
 
@@ -106,7 +102,7 @@ Download the ISO package from the Azure Defender for IoT portal, install the sof
 1. Install the sensor software. For more information, see [Defender for IoT installation](how-to-install-software.md).
 1. Activate and set up your sensor. For more information, see [Sign in and activate a sensor](how-to-activate-and-set-up-your-sensor.md).
 
-## 6. Connect sensors to an on-premises management console
+## Connect sensors to an on-premises management console
 
 Connect sensors to the management console to ensure that:
 
@@ -118,12 +114,12 @@ We recommend that you group multiple sensors monitoring the same networks in one
 
 For more information, see [Connect sensors to the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console).
 
-## 7. Populate Azure Sentinel with alert information (optional)
+## Populate Azure Sentinel with alert information (optional)
 
 Send alert information to Azure Sentinel by configuring Azure Sentinel. See [Connect your data from Defender for IoT to Azure Sentinel](how-to-configure-with-sentinel.md).
 
-## See also
+## Next steps
 
-- [Welcome to Azure Defender for IoT](overview.md)
-
-- [Azure Defender for IoT architecture](architecture.md)
+> [!div class="nextstepaction"]
+> [Welcome to Azure Defender for IoT](overview.md)
+> [Azure Defender for IoT architecture](architecture.md)

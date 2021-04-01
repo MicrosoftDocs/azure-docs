@@ -3,7 +3,7 @@ title: Plan an Azure Active Directory single sign-on deployment
 description: Guide to help you plan, deploy, and manage SSO in your organization.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -58,7 +58,7 @@ There are two primary ways in which you can enable your users to single sign-on 
 
 Using Azure AD for password-based SSO requires deploying a browser extension that will securely retrieve the credentials and fill out the login forms. Define a mechanism to deploy the extension at scale with [supported browsers](../user-help/my-apps-portal-end-user-access.md). Options include:
 
-- [Group Policy for Internet Explorer](./access-panel-deployment-plan.md)
+- [Group Policy for Internet Explorer](my-apps-deployment-plan.md)
 - [Configuration Manager for Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [User driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](../user-help/my-apps-portal-end-user-access.md)
 
@@ -287,17 +287,12 @@ The following links present troubleshooting scenarios. You may want to create a 
 
 - [Problem signing into a Microsoft application](./application-sign-in-problem-first-party-microsoft.md)
 
-#### SSO issues for applications listed in the Azure Application Gallery
+#### SSO issues for applications
 
-- [Problem with password SSO for applications listed in the Azure Application Gallery](./troubleshoot-password-based-sso.md) 
+- [Problem with password SSO for applications](./troubleshoot-password-based-sso.md) 
 
-- [Problem with federated SSO for applications listed in the Azure Application Gallery](./application-sign-in-problem-federated-sso-gallery.md)   
+- [Problems signing in to SAML-based single sign-on configured apps](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)   
 
-#### SSO issues for applications NOT listed in the Azure Application Gallery
-
-- [Problem with password SSO for applications NOT listed in the Azure Application Gallery](./troubleshoot-password-based-sso.md) 
-
-- [Problem with federated SSO for applications NOT listed in the Azure Application Gallery](./application-sign-in-problem-federated-sso-gallery.md)
 
 ## Next steps
 

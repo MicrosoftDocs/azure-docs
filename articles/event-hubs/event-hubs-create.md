@@ -82,7 +82,7 @@ To create an event hub within the namespace, do the following actions:
 
     The **partition count** setting allows you to parallelize consumption across many consumers. For more information, see [Partitions](event-hubs-scalability.md#partitions).
 
-    The **message retention** setting specifies how long the Event Hubs service keeps data. For the maximum limits for this setting, see [Quotas and limits](event-hubs-quotas.md).
+    The **message retention** setting specifies how long the Event Hubs service keeps data. For more information, see [Event retention](event-hubs-features.md#event-retention).
 1. You can check the status of the event hub creation in alerts. After the event hub is created, you see it in the list of event hubs.
 
     ![Event hub created](./media/event-hubs-quickstart-portal/event-hub-created.png)

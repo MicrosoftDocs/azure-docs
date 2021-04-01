@@ -74,7 +74,7 @@ Use this table as a guide:
 This option is available for blob Storage only. By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.  
 
 > [!NOTE]
-> In the current release, if you plan to copy blobs between storage accounts, you'll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](storage-use-azcopy-blobs.md).
+> In the current release, if you plan to copy blobs between storage accounts, you'll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](#transfer-data).
 
 To authorize access by using Azure AD, see [Authorize access to blobs with AzCopy and Azure Active Directory (Azure AD)](storage-use-azcopy-authorize-azure-active-directory.md).
 
@@ -96,13 +96,17 @@ To learn more about SAS tokens and how to obtain one, see [Using shared access s
 
 After you've authorized your identity or obtained a SAS token, you can begin transferring data.
 
+> [!NOTE]
+> The [Secure transfer required](storage-require-secure-transfer.md) setting of a storage account determines whether the connection to a storage account is secured with Transport Layer Security (TLS). This setting is enabled by default.   
+
 To find example commands, see any of these articles.
 
 | Service | Article |
 |--------|-----------|
-|Azure Blob storage |[Upload files to Azure Blob storage](storage-use-azcopy-blobs-upload.md)<br><br>[Download blobs from Azure Blob storage](storage-use-azcopy-blobs-download.md)<br><br>[Copy blobs between Azure storage accounts](storage-use-azcopy-blobs-copy.md)<br><br>[Synchronize with Azure Blob storage](storage-use-azcopy-blobs-synchronize.md)|
+|Azure Blob Storage |[Upload files to Azure Blob Storage](storage-use-azcopy-blobs-upload.md)<br><br>[Download blobs from Azure Blob Storage](storage-use-azcopy-blobs-download.md)<br><br>[Copy blobs between Azure storage accounts](storage-use-azcopy-blobs-copy.md)<br><br>[Synchronize with Azure Blob Storage](storage-use-azcopy-blobs-synchronize.md)|
 |Azure Files |[Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)|
-|Amazon S3|[Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)|
+|Amazon S3|[Copy data from Amazon S3 to Azure Storage](storage-use-azcopy-s3.md)|
+|Google Cloud Storage|[Copy data from Google Cloud Storage to Azure Storage (preview)](storage-use-azcopy-google-cloud.md)|
 |Azure Stack storage|[Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
 
 ## Use in a script

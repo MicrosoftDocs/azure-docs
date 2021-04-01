@@ -39,9 +39,9 @@ Knowledge of [single](quickstart-register-app.md) and [multi-tenant](howto-conve
 
 ### App types impacted
 
-In most common cases, Conditional Access does not change an app's behavior or requires any changes from the developer. Only in certain cases when an app indirectly or silently requests a token for a service, an app requires code changes to handle Conditional Access "challenges". It may be as simple as performing an interactive sign-in request.
+In most common cases, Conditional Access does not change an app's behavior or requires any changes from the developer. Only in certain cases when an app indirectly or silently requests a token for a service, an app requires code changes to handle Conditional Access challenges. It may be as simple as performing an interactive sign-in request.
 
-Specifically, the following scenarios require code to handle Conditional Access "challenges":
+Specifically, the following scenarios require code to handle Conditional Access challenges:
 
 * Apps performing the on-behalf-of flow
 * Apps accessing multiple services/resources
@@ -50,7 +50,7 @@ Specifically, the following scenarios require code to handle Conditional Access 
 
 Conditional Access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a Conditional Access policy, see [Quickstart: Require MFA for specific apps with Azure Active Directory Conditional Access](../authentication/tutorial-enable-azure-mfa.md).
 
-Depending on the scenario, an enterprise customer can apply and remove Conditional Access policies at any time. In order for your app to continue functioning when a new policy is applied, you need to implement the "challenge" handling. The following examples illustrate challenge handling.
+Depending on the scenario, an enterprise customer can apply and remove Conditional Access policies at any time. For your app to continue functioning when a new policy is applied, implement challenge handling. The following examples illustrate challenge handling.
 
 ### Conditional Access examples
 

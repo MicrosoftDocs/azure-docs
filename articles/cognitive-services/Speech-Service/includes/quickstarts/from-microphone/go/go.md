@@ -20,7 +20,7 @@ Before you get started:
 Update the go.mod file with the latest SDK version by adding this line
 ```sh
 require (
-    github.com/Microsoft/cognitive-services-speech-sdk-go v1.14.0
+    github.com/Microsoft/cognitive-services-speech-sdk-go v1.15.0
 )
 ```
 

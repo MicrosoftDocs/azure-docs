@@ -68,7 +68,7 @@ As you start using Azure Cosmos DB resources from Azure portal, you can see the 
 
 If your Azure subscription has a spending limit, Azure prevents you from spending over your credit amount. As you create and use Azure resources, your credits are used. When you reach your credit limit, the resources that you deployed are disabled for the rest of that billing period. You can't change your credit limit, but you can remove it. For more information about spending limits, see [Azure spending limit](../cost-management-billing/manage/spending-limit.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-You can pay for Azure Cosmos DB charges with your Azure Enterprise Agreement monetary commitment credit. However, you can't use the monetary commitment credit to pay for charges for third party products and services including those from the Azure Marketplace.
+You can pay for Azure Cosmos DB charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use the Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
 ## Monitor costs
 
