@@ -10,3 +10,118 @@ ms.author: caya
 ---
 
 # Configure mutual authentication with Application Gateway through PowerShell (Preview)
+This article describes how to use the PowerShell to configure mutual authentication on your Application Gateway. Mutual authentication means Application Gateway authenticates the client sending the request using the client certificate you upload onto the Application Gateway. 
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+This article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+
+## Before you begin
+
+To configure mutual authentication with an Application Gateway, you need a client certificate to upload to the gateway. The client certificate will be used to validate the certificate the client will present to Application Gateway. For testing purposes, you can use a self-signed certificate. However, this is not advised for production workloads, because they're harder to manage and aren't completely secure. For more info, see [create a self-signed certificate](./create-ssl-portal.md#create-a-self-signed-certificate).
+
+To learn more, especially about what kind of client certificates you can upload, see [Overview of mutual authentication with Application Gateway](./mutual-authentication-overview.md#certificates-supported-for-mutual-authentication).
+
+## Create a resource group
+
+First create a new resource group in your subscription. 
+
+```azurepowershell
+$resourceGroup = New-AzResourceGroup -Name $rgname -Location $location -Tags @{ testtag = "APPGw tag"}
+```
+## Create a virtual network
+
+Deploy a virtual network for your Application Gateway to be deployed in.
+
+```azurepowershell
+$gwSubnet = New-AzVirtualNetworkSubnetConfig -Name $gwSubnetName -AddressPrefix 10.0.0.0/24
+$vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgname -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet
+$vnet = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgname
+$gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name $gwSubnetName -VirtualNetwork $vnet
+```
+
+## Create a public IP
+
+Create a public IP to use with your Application Gateway. 
+
+```azurepowershell
+$publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name $publicIpName -location $location -AllocationMethod Static -sku Standard
+```
+
+## Create the IP configuration
+
+Create the public IP configuration for the IP of the Application Gateway. 
+
+```azurepowershell
+$gipconfig = New-AzApplicationGatewayIPConfiguration -Name $gipconfigname -Subnet $gwSubnet
+```
+
+## Configure frontend SSL 
+
+Configure the frontend portion of your Application Gateway.
+
+```azurepowershell
+$password = ConvertTo-SecureString "P@ssw0rd" -AsPlainText -Force
+$sslCertPath = $basedir + "/ScenarioTests/Data/ApplicationGatewaySslCert1.pfx"
+$sslCert = New-AzApplicationGatewaySslCertificate -Name $sslCertName -CertificateFile $sslCertPath -Password $password
+$fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name $fipconfigName -PublicIPAddress $publicip
+$port = New-AzApplicationGatewayFrontendPort -Name $frontendPortName  -Port 443
+```
+
+## Configure client authentication 
+
+Configure client authentication on your Application Gateway. Make sure the trusted client CA certificate chain you upload, if you upload a chain, is complete and contains all intermediate certificates (if any).  
+
+```azurepowershell
+$clientCertFilePath = $basedir + "/ScenarioTests/Data/TrustedClientCertificate.cer"
+$trustedClient01 = New-AzApplicationGatewayTrustedClientCertificate -Name $trustedClientCert01Name -CertificateFile $clientCertFilePath
+$sslPolicy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401"
+$clientAuthConfig = New-AzApplicationGatewayClientAuthConfiguration -VerifyClientCertIssuerDN
+$sslProfile01 = New-AzApplicationGatewaySslProfile -Name $sslProfile01Name -SslPolicy $sslPolicy -ClientAuthConfiguration $clientAuthConfig -TrustedClientCertificates $trustedClient01
+$listener = New-AzApplicationGatewayHttpListener -Name $listenerName -Protocol Https -SslCertificate $sslCert -FrontendIPConfiguration $fipconfig -FrontendPort $port -SslProfile $sslProfile01
+```
+
+## Configure the backend trusted root certificate 
+
+Set up the backend trusted root certificate on your Application Gateway for end-to-end SSL encryption. 
+
+```azurepowershell
+$certFilePath = $basedir + "/ScenarioTests/Data/ApplicationGatewayAuthCert.cer"
+$trustedRoot = New-AzApplicationGatewayTrustedRootCertificate -Name $trustedRootCertName -CertificateFile $certFilePath
+$pool = New-AzApplicationGatewayBackendAddressPool -Name $poolName -BackendIPAddresses www.microsoft.com, www.bing.com
+$poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name $poolSettingName -Port 443 -Protocol Https -CookieBasedAffinity Enabled -PickHostNameFromBackendAddress -TrustedRootCertificate $trustedRoot
+```
+
+## Configure the rule
+
+Set up a rule on your Application Gateway.
+
+```azurepowershell
+$rule = New-AzApplicationGatewayRequestRoutingRule -Name $ruleName -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+$sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
+$autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
+$sslPolicyGlobal = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401"
+```
+
+## Create the Application Gateway
+
+Using everything we created above, deploy your Application Gateway.
+
+```azurepowershell
+$appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname -Zone 1,2 -Location $location -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $port -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslPolicy $sslPolicyGlobal -TrustedRootCertificate $trustedRoot -AutoscaleConfiguration $autoscaleConfig -TrustedClientCertificates $trustedClient01 -SslProfiles $sslProfile01 -SslCertificates $sslCert
+```
+
+## Clean up resources
+
+When no longer needed, remove the resource group, application gateway, and all related resources using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+
+```azurepowershell
+Remove-AzResourceGroup -Name $rgname
+```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Manage web traffic with an application gateway using the Azure CLI](./tutorial-manage-web-traffic-cli.md)

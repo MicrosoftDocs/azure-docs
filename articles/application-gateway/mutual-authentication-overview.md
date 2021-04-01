@@ -31,12 +31,12 @@ If you're uploading a certificate chain with root CA and intermediate CA certifi
 Application Gateway supports the following types of certificates:
 
 - CA (Certificate Authority) certificate: A CA certificate is a digital certificate issued by a certificate authority (CA)
-- Self-Signed certificates: Client browsers do not trust these certificates and will warn the user that the virtual service’s certificate is not part of a trust chain. Self-signed certificates are good for testing or environments where administrators control the clients and can safely bypass the browser’s security alerts. Production workloads should never use self-signed certificates.
+- Self-signed CA certificates: Client browsers do not trust these certificates and will warn the user that the virtual service’s certificate is not part of a trust chain. Self-signed CA certificates are good for testing or environments where administrators control the clients and can safely bypass the browser’s security alerts. Production workloads should never use self-signed CA certificates.
 
-For more information, see [configure mutual authentication with application gateway](./mutual-authentication-portal.md).
+For more information on how to set up mutual authentication, see [configure mutual authentication with Application Gateway](./mutual-authentication-portal.md).
 
 > [!IMPORTANT]
-> Make sure you upload the entire trusted client CA certificate chain to the Application Gateway.
+> Make sure you upload the entire trusted client CA certificate chain to the Application Gateway when using mutual authentication. 
 
 ### Size of the certificate
 Check the [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) section to know the maximum TLS/SSL certificate size supported.
@@ -59,7 +59,6 @@ If you choose to enable the Application Gateway to verify the client certificate
 
 > [!IMPORTANT]
 > We recommend only uploading one certificate chain per file. This is especially important if you enable verify client certificate DN. By uploading multiple certificate chains in one file, you will end up in scenario four or five and may run into issues later down the line when the client certificate presented doesn't match the client certificate issuer DN Application Gateway extracted from the chains. 
-
 
 ## Server variables 
 
