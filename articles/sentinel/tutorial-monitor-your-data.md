@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2020
+ms.date: 04/01/2021
 ms.author: yelevin
 
 ---
@@ -40,8 +40,9 @@ This tutorial helps you visualize your data in Azure Sentinel.
 
 1. Go to **Workbooks** and then select **Templates** to see the full list of Azure Sentinel built-in workbooks. To see which are relevant to the data types you have connected, the **Required data types** field in each workbook will list the data type next to a green check mark if you already stream relevant data to Azure Sentinel.
   ![go to workbooks](./media/tutorial-monitor-data/access-workbooks.png)
-1. Click **View template** to see the template populated with your data.
-  
+
+1. Select **View template** to see the template populated with your data.
+
 1. To edit the workbook, select **Save**, and then select the location where you want to save the JSON file for the template. 
 
    > [!NOTE]
@@ -53,7 +54,6 @@ This tutorial helps you visualize your data in Azure Sentinel.
 1. After you make your changes, you can save the workbook. 
 
 1. You can also clone the workbook: Select **Edit** and then **Save as**, making sure to save it with another name, under the same subscription and resource group. These cloned workbooks are displayed under the **My workbooks** tab.
-
 
 ## Create new workbook
 
@@ -72,6 +72,15 @@ This tutorial helps you visualize your data in Azure Sentinel.
 
    ![Switch workbooks](./media/tutorial-monitor-data/switch-workbooks.png)
 
+## Refreshing data shown in your workbook
+
+On the workbook toolbar, select :::image type="icon" source="media/whats-new/refresh-button.PNG" border="false"::: **Refresh** to refresh the data displayed. 
+
+To have the data automatically refresh during your current view session, select **Auto refresh** and then select a refresh interval.
+
+Automatic refresh is paused while editing, and turned off when you close the workbook. Set an auto refresh interval again as needed each time you open a workbook.
+
+:::image type="content" source="media/whats-new/auto-refresh-workbook.png" alt-text="Set your workbook to automatically refresh during a view session.":::
 
 ## Print a workbook or save as PDF
 

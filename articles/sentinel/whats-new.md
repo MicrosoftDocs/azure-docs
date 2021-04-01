@@ -27,6 +27,7 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## March 2021
 
+- [Set workbooks to automatically refresh while in view mode](#set-workbooks-to-automatically-refresh-while-in-view-mode)
 - [New detections for Azure Firewall](#new-detections-for-azure-firewall)
 - [Automation rules and incident-triggered playbooks](#automation-rules-and-incident-triggered-playbooks) (including all-new playbook documentation)
 - [New alert enrichments: enhanced entity mapping and custom details](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
@@ -34,6 +35,20 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 - [Incident filters and sort preferences now saved in your session (Public preview)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Microsoft 365 Defender incident integration (Public preview)](#microsoft-365-defender-incident-integration-public-preview)
 - [New Microsoft service connectors using Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
+
+### Set workbooks to automatically refresh while in view mode
+
+Set your Azure Sentinel workbooks and workbook templates to automatically refresh while you're in view mode.
+
+- Supported refresh intervals range from **5 minutes** to **1 day**, similar to the Azure dashboard.
+- By default, auto refresh is turned off. To optimize performance, auto refresh is also turned off each time you close a workbook, and does not run in the background. Turn auto refresh back on as needed the next time you open the workbook.
+- Auto refresh is paused while you're editing a workbook, and auto refresh intervals are restarted each time you switch back to view mode from edit mode.
+
+    Intervals are also restarted if you manually refresh the workbook by selecting the :::image type="icon" source="media/whats-new/refresh-button.PNG" border="false"::: **Refresh** button.
+
+In each workbook or workbook template, select **Auto refresh** to display your interval options. Select the option you want to use for the current view session, and select **Apply**.
+
+:::image type="content" source="media/whats-new/auto-refresh-workbook.png" alt-text="Set the auto refresh interval for your workbooks.":::
 
 ### New detections for Azure Firewall
 
