@@ -62,7 +62,7 @@ Follow the quickstart steps for [setting up your environment](setup-azure-subscr
 
 ## [REST](#tab/rest)
 
-Use [Postman](./media-rest-apis-with-postman.md) for Media Services v3 REST API calls.
+Use [Postman](./setup-postman-rest-how-to.md) for Media Services v3 REST API calls.
 Read the [REST API reference pages](/rest/api/media/).
 
 You should use the 2020-05-01 version string in the Postman collection.

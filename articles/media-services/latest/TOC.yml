@@ -27,7 +27,7 @@
     - name: Connect to Media Services
       items:
       - name: Connect with REST and Postman
-        href: media-rest-apis-with-postman.md
+        href: setup-postman-rest-how-to.md
       - name: Connect with Java
         href: configure-connect-java-howto.md
       - name: Connect with .NET 
