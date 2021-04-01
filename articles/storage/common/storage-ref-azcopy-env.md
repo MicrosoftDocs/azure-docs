@@ -12,7 +12,7 @@ ms.reviewer: zezha-msft
 
 # azcopy env
 
-Shows the environment variables that can configure AzCopy's behavior.
+Shows the environment variables that can configure AzCopy's behavior. For a complete list of environment variables, see [AzCopy v10 configuration settings (Azure Storage)](storage-ref-azcopy-configuration-settings.md).
 
 ## Synopsis
 
