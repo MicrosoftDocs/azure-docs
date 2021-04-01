@@ -650,7 +650,7 @@ Transferring large volumes of data across the Internet is inherently unreliable.
 :::image type="content" source="./media/secure-isolation-fig13.png" alt-text="Block blob partitioning of data into individual blocks":::
 **Figure 13.**  Block blob partitioning of data into individual blocks
 
-Customers can upload blocks in any order and determine their sequence in the final block list commitment step. Customers can also upload a new block to replace an existing uncommitted block of the same block ID.
+Customers can upload blocks in any order and determine their sequence in the final blocklist commitment step. Customers can also upload a new block to replace an existing uncommitted block of the same block ID.
 
 #### Partition layer
 The partition layer is responsible for a) managing higher-level data abstractions (Blob, Table, Queue), b) providing a scalable object namespace, c) providing transaction ordering and strong consistency for objects, d) storing object data on top of the stream layer, and e) caching object data to reduce disk I/O. This layer also provides asynchronous geo-replication of data and is focused on replicating data across stamps. Inter-stamp replication is done in the background to keep a copy of the data in two locations for disaster recovery purposes.
