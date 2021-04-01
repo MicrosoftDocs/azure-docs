@@ -19,7 +19,7 @@ monikerRange: ">=iotedge-2020-11"
 This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
 
 >[!NOTE]
->This feature requires IoT Edge version 1.2, which is in public preview, running Linux containers.
+>This feature requires IoT Edge version 1.2, which is in public preview.
 >
 >This article reflects the latest preview release of IoT Edge version 1.2. Make sure that your device is running version [1.2.0-rc4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc4) or newer. For steps to get the latest preview version on your device, see [Install Azure IoT Edge for Linux (version 1.2)](how-to-install-iot-edge.md) or [Update IoT Edge to version 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
 
