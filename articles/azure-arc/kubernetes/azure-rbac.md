@@ -175,7 +175,7 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
         - --authentication-token-webhook-version=v1
         ```
 
-    1. Save and exit the editor to update the apiserver pod.
+    1. Save and exit the editor to update the `apiserver` pod.
     
 ## Create role assignments for users to access cluster
 
