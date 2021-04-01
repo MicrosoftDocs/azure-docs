@@ -35,9 +35,9 @@ Use this article to find the settings and requirements for connecting different 
 |[**Azure Application Insights**](#appinsights)|  Basic |
 |[**Azure Blob Storage (JSON)**](#blob) | Basic<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
-|[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity<br>Service principal from key vault<br>Service principal|
+|[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity<br>Service principal<br>Service principal from key vault|
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Service principal<br>Service principal from key vault<br> |
-|[**Azure Log Analytics**](#log)| Basic|<br>Service principal from key vault<br>Service principal|
+|[**Azure Log Analytics**](#log)| Basic|<br>Service principal<br>Service principal from key vault|
 |[**Azure SQL Database / SQL Server**](#sql) | Basic<br>ManagedIdentity<br>Service principal<br>Service principal from key vault<br>AzureSQLConnectionString
 |[**Azure Table Storage**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
@@ -49,7 +49,7 @@ Use this article to find the settings and requirements for connecting different 
 |[**Local files(CSV)**](#csv)| Basic|
 
 
-Create an **Credential entity** and use it for authenticating to your data sources. The following sections specify the parameters required for *Basic* authentication within different data source scenarios. 
+Create a **Credential entity** and use it for authenticating to your data sources. The following sections specify the parameters required for *Basic* authentication within different data source scenarios. 
 
 ## <span id="appinsights">Azure Application Insights</span>
 
@@ -76,11 +76,9 @@ Create an **Credential entity** and use it for authenticating to your data sourc
     Sample query:
 
     ``` Kusto
-    let gran = 1d; TABLE | where Timestamp >= @StartTime and Timestamp < @EndTime;
+    let gran = 1d; [TableName] | where [TimestampColumn] >= @StartTime and [TimestampColumn] < @EndTime;
     ```
       
-    *Only the 'TABLE', 'Timestamp' should be replaced in this example.
-
 ## <span id="blob">Azure Blob Storage (JSON)</span>
 
 * **Connection String**: See the Azure Blob Storage [connection string](../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account) article for information on retrieving this string. Also, you can just go to Azure portal for your Azure Blob Storage resource, and find connection string directly in **Access keys** in **Settings** section.
@@ -129,12 +127,6 @@ Only one timestamp is allowed per JSON file.
     
     ``` mssql
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE StartDate = @StartTime
-    ```
-    
-    Query sample for a data slice from 2019/12/12:
-    
-    ``` mssql
-    select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE StartDate = '2019-12-12 00:00:00'
     ```
 
 ## <span id="kusto">Azure Data Explorer (Kusto)</span>
@@ -231,14 +223,14 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     Server=db-server.database.windows.net,[port];Initial Catalog=[database];User ID=[username];Password=[password];Connection Timeout=30;
     ```
 
-* **Query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use a `@StartTime` variable in your query to help with getting expected metrics value.
+* **Query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use `@StartTime` and `@EndTime` in your query to help with getting expected metrics value.
 
   * `@StartTime`: a datetime in the format of `yyyy-MM-dd HH:mm:ss`
 
     Sample query:
     
     ``` mssql
-    SELECT [Timestamp], [dimensionColumnName], [metricColumnName] FROM [TABLE] WHERE [Timestamp] > @StartTime and [Timestamp]< dateadd(hour, 1, @StartTime)    
+    SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TABLE] WHERE [TimestampColumn] > @StartTime and [TimestampColumn]< @EndTime    
     ```
     
     *The 'TABLE', 'Timestamp','dimensionColumnName','metricColumnName' should be replaced in this example.*
