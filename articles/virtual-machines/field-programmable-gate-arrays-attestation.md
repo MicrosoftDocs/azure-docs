@@ -16,13 +16,13 @@ The FPGA Attestation service performs a series of validations on a design checkp
 
 You will need an Azure subscription and an Azure Storage account. The subscription gives you access to Azure and the storage account is used to hold your netlist and output files of the attestation service.  
 
-We provide PowerShell and Bash scripts to submit attestation requests.   The scripts use  Azure CLI, which can run on Windows and Linux. PowerShell can run on Windows, Linux and macOS.  
+We provide PowerShell and Bash scripts to submit attestation requests.   The scripts use  Azure CLI, which can run on Windows and Linux. PowerShell can run on Windows, Linux, and macOS.  
 
 Azure CLI download (required):  
 
 https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest  
 
-PowerShell for Windows, Linux and macOS download (only for PowerShell scripts):  
+PowerShell for Windows, Linux, and macOS download (only for PowerShell scripts):  
 
 https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7  
 
@@ -40,13 +40,13 @@ You must include the following argument to Vitis (v++ cmd line) to build an xclb
 
 Prior to performing any operations with Azure, you must log into Azure and set the subscription that is authorized to call the service. Use the ```az login``` and ```az account set –s <Sub ID or Name>``` commands for this purpose. Further information about this process is documented here:  
 
-https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest . Use either the ‘sign in interactively’ or ‘sign in with credentials’ option on the command line.  
+https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest. Use either the ‘sign in interactively’ or ‘sign in with credentials’ option on the command line.  
 
 ## Creating a Storage Account and Blob Container  
 
-Your netlist file must be uploaded to an azure storage blob container for access by the attestation service.  
+Your netlist file must be uploaded to an Azure storage blob container for access by the attestation service.  
 
-Refer to this page for more information on creating the account, a container and uploading your netlist as a blob to that container: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstartblobs-cli.  
+Refer to this page for more information on creating the account, a container, and uploading your netlist as a blob to that container: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstartblobs-cli.  
 
 You can also use the Azure portal for this as well.  
 
@@ -62,13 +62,13 @@ The Validation scripts can be downloaded from the following Azure storage blob c
 
 https://fpgaattestation.blob.core.windows.net/validationscripts/validate.zip  
 
-The zip file has two powershell scripts, one to submit and the other to monitor while the third file is a bash script which performs both functions.  
+The zip file has two PowerShell scripts, one to submit and the other to monitor while the third file is a bash script which performs both functions.  
 
 ## Running the Attestation Scripts  
 
 To run the scripts, you will need to provide the name of your storage account, the name of the blob container where the netlist file is stored and the name of the netlist file. You will also need to create a Service shared access signature (SAS) that grants read/write access to your container (not the netlist). This SAS is used by the attestation service to make a local copy of your netlist file and to write back the resulting output files of the validation process to your container.  
 
-An overview of shared access signatures is available here with specific information about the Service SAS available here. The Service SAS page includes an important caution about protecting the generated SAS.  Please read the caution to understand the need to keep the SAS protected from malicious or unintended use.  
+An overview of shared access signatures is available here with specific information about the Service SAS available here. The Service SAS page includes an important caution about protecting the generated SAS.  Read the caution to understand the need to keep the SAS protected from malicious or unintended use.  
 
 You can generate a SAS for your container using the az storage container generate-sas cmdlet. Specify an expiry time in UTC format that is at least a few hours past the time of submission; around 6 hours should be more than adequate.  
 
@@ -114,7 +114,7 @@ The request body should contain your Subscription ID, Tenant ID, and orchestrati
 
 ## Post validation steps
 
-The service will write its output back to your container. If the validation pass succeeds, your container will have the original netlist file (abc.xclbin), a file with the bitstream (abc.bit.xclbin), a file that identifies the private location of your stored bitstream (abc.azure.xclbin) and 4 log files: one for the startup process (abc-log.txt) and one each for the 3 parallel phases that perform the validation. These are named *logPhaseX.txt where X is a number for the phase. The azure.xclbin is used on your VM to signal the uploading of your validated image to the U250. 
+The service will write its output back to your container. If the validation pass succeeds, your container will have the original netlist file (abc.xclbin), a file with the bitstream (abc.bit.xclbin), a file that identifies the private location of your stored bitstream (abc.azure.xclbin) and four log files: one for the startup process (abc-log.txt) and one each for the three parallel phases that perform the validation. These are named *logPhaseX.txt where X is a number for the phase. The azure.xclbin is used on your VM to signal the uploading of your validated image to the U250. 
 
 If validation failed, an error-*.txt file is written indicating which step failed. Also check the log files if the error log indicates that attestation failed. When contacting us for support, please be sure to include all these files as part of the support request along with the orchestration ID.  
 
