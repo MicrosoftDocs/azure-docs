@@ -21,7 +21,7 @@ Verifiable credentials are made up of two components, the rules and display file
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Rules file: requirements from the user
+## Rules file: Requirements from the user
 
 The rules file is a simple JSON file that describes important properties of verifiable credentials. In particular, it describes how claims are used to populate your verifiable credential.
 
@@ -108,7 +108,7 @@ By declaring all three types, Contoso University's diplomas can be used to satis
 
 To ensure interoperability of your credentials, it's recommended that you work closely with related organizations to define credential types, schemas, and URIs for use in your industry. Many industry bodies provide guidance on the structure of official documents that can be repurposed for defining the contents of verifiable credentials. You should also work closely with the verifiers of your credentials to understand how they intend to request and consume your verifiable credentials.
 
-## Input type: verifiable credential
+## Input type: Verifiable credential
 
 >[!NOTE]
 >Rules files that ask for a verifiable credential do not use the presentation exchange format for requesting credentials. This will be updated when the Issuing Service supports the standard, Credential Manifest. 
@@ -162,7 +162,7 @@ To ensure interoperability of your credentials, it's recommended that you work c
 | `vc.type` | An array of strings indicating the schema(s) that your verifiable credential satisfies. |
 
 
-## Input type: self-attested claims
+## Input type: Self-attested claims
 
 During the issuance flow, the user can be asked to input some self-attested information. As of now, the only input type is a 'string'. 
 ```json
@@ -196,7 +196,7 @@ During the issuance flow, the user can be asked to input some self-attested info
 | `vc.type` | An array of strings indicating the schema(s) that your Verifiable Credential satisfies. |
 
 
-## Display file: verifiable credentials in Microsoft Authenticator
+## Display file: Verifiable credentials in Microsoft Authenticator
 
 Verifiable credentials offer a limited set of options that can be used to reflect your brand. This article provides instructions how to customize your credentials, and best practices for designing credentials that look great once issued to users.
 
