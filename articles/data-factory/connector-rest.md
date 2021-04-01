@@ -490,7 +490,7 @@ The template defines two parameters:
 
     | Property | Description |
     |:--- |:--- |
-    | URL |Specify the url to retrieve OAuth bearer token from. for example, in the sample here it's https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |Specify the url to retrieve OAuth bearer token from. for example, in the sample here it's https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |
     | Method | The HTTP method. Allowed values are **Post** and **Get**. | 
     | Headers | Header is user-defined, which references one header name in the HTTP request. | 
     | Body | The body for the HTTP request. | 

@@ -556,6 +556,9 @@
             - name: Transform data
               displayName: pipeline
               href: how-to-designer-transform-data.md
+            - name: Use pipeline parameters
+              displayName: designer, pipeline parameters
+              href: how-to-use-pipeline-parameter.md
             - name: Retrain using published pipelines
               displayName: retrain, designer, published pipeline
               href: how-to-retrain-designer.md
