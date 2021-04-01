@@ -1,6 +1,6 @@
 ---
 title: How to meet data residency requirements in Azure Cosmos DB
-description: 
+description: learn how to meet data residency requirements in Azure Cosmos DB for your data and backups to remain in a single region.
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -31,3 +31,6 @@ If you have data residency requirements that require you to keep all your data i
 Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep these resources compliant with your corporate standards and service level agreements. For more information, see how to use [Azure Policy](policy.md) to implement governance and controls for Azure Cosmos DB resources
 
 ## Next steps
+
+* Configure and manage periodic backup using [Azure portal](configure-periodic-backup-restore)
+* Configure and manage continuous backup using [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
