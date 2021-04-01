@@ -173,13 +173,13 @@ Save this change.
 
 Lets make a few modifications so this verifiable credential looks visibly different from sample code's version. 
     
-    ```json
-       "card": {
-          "title": "My First VC",
-          "issuedBy": "Your Issuer Name",
-          "backgroundColor": "#ffffff",
-          "textColor": "#000000",
-    ```
+```json
+     "card": {
+        "title": "My First VC",
+        "issuedBy": "Your Issuer Name",
+        "backgroundColor": "#ffffff",
+        "textColor": "#000000",
+```
 
 Save these changes.
 ## Create a storage account
