@@ -69,5 +69,5 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Support and help
+          - text: Support and help options
             url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
