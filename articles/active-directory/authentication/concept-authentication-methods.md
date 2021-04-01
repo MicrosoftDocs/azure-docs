@@ -103,7 +103,11 @@ To learn more about SSPR concepts, see [How Azure AD self-service password reset
 
 To learn more about MFA concepts, see [How Azure AD Multi-Factor Authentication works][concept-mfa].
 
+<<<<<<< HEAD
 Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
+=======
+Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview).
+>>>>>>> fd3b4db89a4d (Resolve preserve-view-not-set warnings for Graph links)
 
 To review what authentication methods are in use, see [Azure AD Multi-Factor Authentication authentication method analysis with PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 
