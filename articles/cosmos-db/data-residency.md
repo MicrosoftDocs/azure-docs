@@ -10,13 +10,13 @@ ms.reviewer: sngun
 
 ---
 
-## How to meet data residency requirements in Azure Cosmos DB
+# How to meet data residency requirements in Azure Cosmos DB
 
 In Azure Cosmos DB, you can configure your data and backups to remain in a single region to meet the residency requirements.
 
 ### residency requirements for data
 
-In Azure Cosmos DB, you must explicitly configure the cross-region data replication. Learn how to configure geo-replication using [Azure portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account), [Azure CLI](../scripts/cli/common/regions.md#sample-script). To meet data residency requirements, you can create an Azure policy that allows certain regions to prevent data replication to unwanted regions.
+In Azure Cosmos DB, you must explicitly configure the cross-region data replication. Learn how to configure geo-replication using [Azure portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account), [Azure CLI](scripts/cli/common/regions.md). To meet data residency requirements, you can create an Azure policy that allows certain regions to prevent data replication to unwanted regions.
 
 ### residency requirements for backups
 
@@ -32,5 +32,5 @@ Azure Policy is a service that you can use to create, assign, and manage policie
 
 ## Next steps
 
-* Configure and manage periodic backup using [Azure portal](configure-periodic-backup-restore)
+* Configure and manage periodic backup using [Azure portal](configure-periodic-backup-restore.md)
 * Configure and manage continuous backup using [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
