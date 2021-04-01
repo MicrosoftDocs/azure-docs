@@ -58,9 +58,12 @@ When you use your local computer for **inference**, you must have Docker install
 
 ## <a id="vm"></a>Remote virtual machines
 
-Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM must be an Azure Data Science Virtual Machine (DSVM). This VM is a pre-configured data science and AI development environment in Azure. The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](./how-to-configure-environment.md#dsvm).
+Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM must be an Azure Data Science Virtual Machine (DSVM). The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](./how-to-configure-environment.md#dsvm).
 
-1. **Create**: Azure Machine Learning cannot create a VM for you. Instead, you must create the VM and then attach it to your cluster. For information on creating a DSVM, see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
+> [!TIP]
+> Instead of a remote VM, we recommend using the [Azure Machine Learning compute instance](concept-compute-instance.md). It is a fully managed, cloud-based compute solution that is specific to Azure Machine Learning. For more information, see [create and manage Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
+
+1. **Create**: Azure Machine Learning cannot create a remote VM for you. Instead, you must create the VM and then attach it to your Azure Machine Learning workspace. For information on creating a DSVM, see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
 
     > [!WARNING]
     > Azure Machine Learning only supports virtual machines that run **Ubuntu**. When you create a VM or choose an existing VM, you must select a VM that uses Ubuntu.
