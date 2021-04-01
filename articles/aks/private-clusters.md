@@ -73,7 +73,7 @@ The following parameters can be leveraged to configure Private DNS Zone.
 
 ### Prerequisites
 
-* The AKS Preview version 0.5.3 or later
+* The AKS Preview version 0.5.7 or later
 * The api version 2020-11-01 or later
 
 ### Create a private AKS cluster with Private DNS Zone (Preview)
@@ -96,6 +96,57 @@ The API server endpoint has no public IP address. To manage the API server, you'
 * Use an [Express Route or VPN][express-route-or-VPN] connection.
 
 Creating a VM in the same VNET as the AKS cluster is the easiest option.  Express Route and VPNs add costs and require additional networking complexity.  Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
+
+### Connecting to the private cluster outside of the network using aks run command (Preview)
+
+Today when customer need to talk to private cluster, they must run kubectl within the VNET on a jumpbox or bastion host. This requires a Virtual Machine on the network and complicates the CI/CD story. AKS run command allows you to remotely invoke commands in an AKS cluster through the AKS API. This feature introduces a new API that allows you to, for example, execute just-in-time commands from a remote laptop for a private cluster. This can greatly assist with quick just-in-time access to a private cluster when the client is not on the cluster private network while still retaining and enforcing full RBAC controls and private API server.
+
+### Register the `RunCommandPreview` preview feature
+
+To create an AKS cluster or node pool that can customize the kubelet parameters or OS settings, you must enable the `RunCommandPreview` feature flag on your subscription.
+
+Register the `RunCommandPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "RunCommandPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/RunCommandPreview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+### Use aks run command
+
+Simple command
+
+```azurecli-interactive
+az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl get pods -n kube-system"
+```
+
+Attach a file
+
+```azurecli-interactive
+az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl apply -f deployment.yaml -n default" -f deployment.yaml
+```
+
+Attach a whole folder
+
+```azurecli-interactive
+az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl apply -f deployment.yaml -n default" -f .
+```
+
+Execute a HELM command
+
+```azurecli-interactive
+az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release -f values.yaml bitnami/nginx" -f values.yaml
+```
 
 ## Virtual network peering
 
