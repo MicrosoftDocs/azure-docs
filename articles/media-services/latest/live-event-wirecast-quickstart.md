@@ -188,4 +188,4 @@ To stop the streaming endpoint:
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Live events and live outputs in Media Services](./live-events-outputs-concept.md)
+> [Live events and live outputs in Media Services](./live-event-outputs-concept.md)

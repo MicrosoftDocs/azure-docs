@@ -46,16 +46,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-asset.md",
-            "redirect_url": "cli-create-asset",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-jobs.md",
-            "redirect_url": "cli-create-jobs",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-transform.md",
             "redirect_url": "cli-create-transform",
             "redirect_document_id": false
@@ -63,11 +53,6 @@
         {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-publish-asset.md",
             "redirect_url": "cli-publish-asset",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/media-services/latest/scripts/cli-reset-account-credentials.md",
-            "redirect_url": "cli-reset-account-credentials",
             "redirect_document_id": false
         },
         {
@@ -378,6 +363,76 @@
         {
             "source_path_from_root": "/articles/media-services/latest/filters-dynamic-manifest-dotnet-howto.md",
             "redirect_url": "filters-dynamic-manifest-dotnet-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/live-events-wirecast-quickstart.md",
+            "redirect_url": "live-event-wirecast-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/live-events-obs-quickstart.md",
+            "redirect_url": "live-event-obs-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/live-streaming-overview.md",
+            "redirect_url": "stream-live-streaming-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/live-events-outputs-concept.md",
+            "redirect_url": "live-event-outputs-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/live-event-cloud-dvr.md",
+            "redirect_url": "live-event-cloud-dvr-time-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/live-transcription.md",
+            "redirect_url": "live-event-live-transcription-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/live-event-types-comparison.md",
+            "redirect_url": "live-event-types-comparison-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/live-event-states-billing.md",
+            "redirect_url": "live-event-states-billing-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/live-event-latency.md",
+            "redirect_url": "live-event-latency-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/live-event-error-codes.md",
+            "redirect_url": "live-event-error-codes-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/job-error-codes.md",
+            "redirect_url": "job-error-codes-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/cli-create-jobs.md",
+            "redirect_url": "job-create-cli-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/job-multiple-transform-outputs.md",
+            "redirect_url": "job-multiple-transform-outputs-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/download-results-howto.md",
+            "redirect_url": "job-download-results-how-to",
             "redirect_document_id": false
         }
     ]
