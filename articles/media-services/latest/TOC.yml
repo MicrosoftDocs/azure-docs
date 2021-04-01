@@ -239,7 +239,7 @@
   - name: Compatible players
     items:
     - name: Media players for Media Services
-      href: media-players-overview.md
+      href: player-media-players-concept.md
   - name: Developing with v3 APIs
     items:
     - name: Overview
