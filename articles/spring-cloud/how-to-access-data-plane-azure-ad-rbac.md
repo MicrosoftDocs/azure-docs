@@ -1,6 +1,6 @@
 ---
 title:  "Access Config Server and Service Registry"
-description: How to access Config Server and Service Registry Endpoints with Azure Active Directory role-based access control.
+description: How to access Config Server and Service Registry Endpoints with Azure Active Directory role-based access control in Azure Spring Cloud.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -35,20 +35,20 @@ After the Azure Spring Cloud Data Reader role is assigned, customers can access 
 
 1. Get an access token. After an Azure AD user is assigned the Azure Spring Cloud Data Reader role, customers can use the following commands to log in to Azure CLI with user, service principal, or managed identity to get an access token. For details, see [Authenticate Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). 
 
-```azurecli
-az login
-az account get-access-token
-```
+    ```azurecli
+    az login
+    az account get-access-token
+    ```
 2. Compose the endpoint. We support default endpoints of the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Cloud. For more information, see [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints). Customers can also get a full list of supported endpoints of the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Cloud by accessing endpoints:
 
-* *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/*
-* *https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/* 
+    * *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/*
+    * *https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/* 
 
 3. Access the composed endpoint with the access token. Put the access token in a header to provide authorization.  Only the "GET" method is supported.
 
-For example, access an endpoint like *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/health* to see the health status of eureka.
+    For example, access an endpoint like *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/health* to see the health status of eureka.
 
-If the response is *401 Unauthorized*, check to see if the role is successfully assigned.  It will take several minutes for the role take effect or verify that the access token has not expired.
+    If the response is *401 Unauthorized*, check to see if the role is successfully assigned.  It will take several minutes for the role take effect or verify that the access token has not expired.
 
 ## Next steps
 * [Authenticate Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)
