@@ -34,18 +34,19 @@ Here are the features currently available for preview:
   group using only a coordinator node and no worker nodes. An
   economical way to do initial testing and development, and
   handle small production workloads.
-* **Read replicas** (currently same-region only). Any changes
-  that happen to the original server group get promptly
-  reflected in its replica, and queries against the replica
-  cause no extra load on the original. Replicas are a useful
-  tool to improve performance for read-only workloads.
+* **[Read replicas](howto-hyperscale-read-replicas-portal.md)**
+  (currently same-region only). Any changes that happen to the
+  primary server group get reflected in its replica, and queries
+  against the replica cause no extra load on the original.
+  Replicas are a useful tool to improve performance for
+  read-only workloads.
 * **[Managed
-  pgBouncer](concepts-hyperscale-limits.md#managed-pgbouncer-preview)**.
+  PgBouncer](concepts-hyperscale-limits.md#managed-pgbouncer-preview)**.
   A connection pooler that allows many clients to connect to
   the server group at once, while limiting the number of active
   connections. It satisfies connection requests while keeping
   the coordinator node running smoothly.
-* **[pgAudit](concepts-hyperscale-audit.md)**. Provides detailed
+* **[PgAudit](concepts-hyperscale-audit.md)**. Provides detailed
   session and object audit logging via the standard PostgreSQL
   logging facility. It produces audit logs required to pass
   certain government, financial, or ISO certification audits.
