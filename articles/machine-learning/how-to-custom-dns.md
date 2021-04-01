@@ -8,14 +8,14 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 03/12/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q3
 ---
 
 # How to use your workspace with a custom DNS server
 
-When using an Azure Machine Learning workspace with a private endpoint, there are [several ways to handle DNS name resolution](../private-link/private-endpoint-dns.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. If you instead _use your own custom DNS server__, you must manually create DNS entries or use conditional forwarders for the workspace.
+When using an Azure Machine Learning workspace with a private endpoint, there are [several ways to handle DNS name resolution](../private-link/private-endpoint-dns.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. If you instead __use your own custom DNS server__, you must manually create DNS entries or use conditional forwarders for the workspace.
 
 > [!IMPORTANT]
 > This article only covers how to find the fully qualified domain name (FQDN) and IP addresses for these entries it does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
@@ -45,7 +45,8 @@ The following list contains the fully qualified domain names (FQDN) used by your
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
-    > Compute instances can be accessed only from within the virtual network.
+    > * Compute instances can be accessed only from within the virtual network.
+    > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
 
 ## Azure China 21Vianet regions
 
@@ -103,7 +104,7 @@ The information returned from all methods is the same; a list of the FQDN and pr
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`
-> * If you have a compute instance, use `<instance-name>.<region>.instances.azureml.ms`, where `<instance-name>` is the name of your compute instance. Please use private IP address of workspace private endpoint. Please note compute instance can be accessed only from within the virtual network.
+> * If you have a compute instance, use `<instance-name>.<region>.instances.azureml.ms`, where `<instance-name>` is the name of your compute instance. Use the private IP address of workspace private endpoint. The compute instance can be accessed only from within the virtual network.
 >
 > For all of these IP address, use the same address as the `*.api.azureml.ms` entries returned from the previous steps.
 
