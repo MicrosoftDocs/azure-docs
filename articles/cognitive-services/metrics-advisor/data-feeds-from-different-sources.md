@@ -76,7 +76,7 @@ Create a **Credential entity** and use it for authenticating to your data source
     Sample query:
 
     ``` Kusto
-    let gran = 1d; [TableName] | where [TimestampColumn] >= @StartTime and [TimestampColumn] < @EndTime;
+    let gran = 1d; [TableName] | where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
     ```
       
 ## <span id="blob">Azure Blob Storage (JSON)</span>
@@ -85,7 +85,7 @@ Create a **Credential entity** and use it for authenticating to your data source
 
 * **Container**: Metrics Advisor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
 
-* **Blob Template**: This is the template of the Blob file names.  You could indicate that this value used to find json file. For example: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. "%Y" is the first branch,  "%m" is the second, if you still have "%d", you should append it after "%m". Then, you append your JSON file name. If your JSON file is named by date, you could also use `%Y-%m-%d-%h-%M.json`.
+* **Blob Template**: This is the template of the Blob file names.  You could indicate that this value used to find json file. For example: `/%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. "%Y" is the first branch,  "%m" is the second, if you still have "%d", you should append it after "%m". Then, you append your JSON file name. If your JSON file is named by date, you could also use `%Y-%m-%d-%h-%M.json`.
 The following parameters are supported:
   * `%Y` is the year formatted as `yyyy`
   * `%m` is the month formatted as `MM`
@@ -126,14 +126,14 @@ Only one timestamp is allowed per JSON file.
     Sample query:
     
     ``` mssql
-    select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE StartDate = @StartTime
+    select [TimestampColumn], [DimensionName], count(*) from [TableName] where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
     ```
 
 ## <span id="kusto">Azure Data Explorer (Kusto)</span>
 
 * **Connection String**: Metrics Advisor supports accessing Azure Data Explorer(Kusto) by using Azure AD application authentication. You will need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database. To get your connection string, see the [Azure Data Explorer](/azure/data-explorer/provision-azure-ad-app) documentation.
 
-* **Query**: See [Kusto Query Language](/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You can use the `@StartTime` and `@EndTime` variables in your query. They should be formatted: `yyyy-MM-dd HH:mm:ss`.
+* **Query**: See [Kusto Query Language](/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted: `yyyy-MM-dd HH:mm:ss`.
 
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 
@@ -207,9 +207,9 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     Sample query:
 
     ```
-    TABLE
-    | where StartTime >=datetime(@StartTime) and EndTime <datetime(@EndTime)
-    | summarize count_per_type=count() by DataType
+    [TableName]
+    | where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
+    | summarize [count_per_dimension]=count() by [Dimension]
     ```
 
 ## <span id="sql">Azure SQL Database | SQL Server</span>
@@ -220,7 +220,7 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     Sample connection string:
 
     ```
-    Server=db-server.database.windows.net,[port];Initial Catalog=[database];User ID=[username];Password=[password];Connection Timeout=30;
+    Server=[ServerName],[Port];Initial Catalog=[Database];User ID=[Username];Password=[Password];
     ```
 
 * **Query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use `@StartTime` and `@EndTime` in your query to help with getting expected metrics value.
@@ -230,11 +230,9 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     Sample query:
     
     ``` mssql
-    SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TABLE] WHERE [TimestampColumn] > @StartTime and [TimestampColumn]< @EndTime    
+    SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TABLE] WHERE [TimestampColumn] > @IntervalStart and [TimestampColumn]< @IntervalEnd    
     ```
     
-    *The 'TABLE', 'Timestamp','dimensionColumnName','metricColumnName' should be replaced in this example.*
-
 ## <span id="table">Azure Table Storage</span>
 
 * **Connection String**: Please refer to [View and copy a connection string](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) for information on how to retrieve the connection string from Azure Table Storage.
@@ -246,11 +244,8 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     Sample query:
     
     ``` mssql
-    PartitionKey ge '@StartTime' and PartitionKey lt '@EndTime'
+    PartitionKey ge '@IntervalStart' and PartitionKey lt '@IntervalEnd'
     ```
-    
-    *There is nothing need to be replaced in this example.*
-
 
 ## <span id="es">Elasticsearch</span>
 
@@ -262,10 +257,8 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     Sample query:
     
     ``` Sql
-    select * from TABLE where timestamp>=@StartTime and timestamp<@EndTime    
+    SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TABLE] WHERE [TimestampColumn] > @IntervalStart and [TimestampColumn]< @IntervalEnd
     ```
-    
-    *The 'TABLE' and 'Timestamp' need to be replaced in this example.*
 
 
 ## <span id="http">HTTP request</span>
@@ -279,10 +272,9 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     
     ``` JSON
     {
-       "startTime":"@StartTime"
+       "[Timestamp]":"@IntervalEnd"
     }
     ```
-    *There is nothing to be replaced in this example.*
 
 ## <span id="influxdb">InfluxDB (InfluxQL)</span>
 
@@ -293,10 +285,9 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     Sample query:
 
     ``` SQL
-    select * from TABLE where Timestamp >= @StartTime and Timestamp < @StartTime + 1d
+    SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TABLE] WHERE [TimestampColumn] > @IntervalStart and [TimestampColumn]< @IntervalEnd
     ```
     
-    *Only the 'TABLE', 'Timestamp' should be replaced in this example.*
 
 * **User name**: This is optional for authentication. 
 * **Password**: This is optional for authentication. 
@@ -310,11 +301,9 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     Sample query:
 
     ``` MongoDB
-    {"find": "TABLE","filter": { Timestamp: { $gte: ISODate(@StartTime) , $lt: ISODate(@EndTime) }},"singleBatch": true}
+    {"find": "[TableName]","filter": { [Timestamp]: { $gte: ISODate(@IntervalStart) , $lt: ISODate(@IntervalEnd) }},"singleBatch": true}
     ```
     
-    *Only the 'TABLE', 'Timestamp' should be replaced in this example.*
-
 
 ## <span id="mysql">MySQL</span>
 
@@ -324,10 +313,9 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     Sample query:
 
     ``` mysql
-    select * from TABLE where Timestamp >= @StartTime and Timestamp < + DATE_ADD(@StartTime, INTERVAL 1 DAY)
+    SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TABLE] WHERE [TimestampColumn] > @IntervalStart and [TimestampColumn]< @IntervalEnd
     ```
     
-    *Only the 'TABLE', 'Timestamp' should be replaced in this example.*
 
 ## <span id="pgsql">PostgreSQL</span>
 
@@ -337,10 +325,9 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     Sample query:
 
     ``` PostgreSQL
-    select * from TABLE where Timestamp >= @StartTime and Timestamp < @StartTime + interval '1' day
+    SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TABLE] WHERE [TimestampColumn] > @IntervalStart and [TimestampColumn]< @IntervalEnd
     ```
     
-    *Only the 'TABLE', 'Timestamp' should be replaced in this example.*
     
 ## <span id="csv">Local files(CSV)</span>
 
