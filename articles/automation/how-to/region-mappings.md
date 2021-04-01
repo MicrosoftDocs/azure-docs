@@ -41,23 +41,29 @@ The following table shows the supported mappings:
 |BrazilSouth|BrazilSouth|
 |**Canada**||
 |CanadaCentral|CanadaCentral|
+|**China**||
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |**Asia Pacific**||
-|AustraliaEast|AustraliaEast|
-|AustraliaSoutheast|AustraliaSoutheast|
 |EastAsia|EastAsia|
 |SoutheastAsia|SoutheastAsia|
+|**India**||
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>3</sup>|ChinaEast2|
+|**Japan**||
 |JapanEast|JapanEast|
+|**Australia**||
+|AustraliaEast|AustraliaEast|
+|AustraliaSoutheast|AustraliaSoutheast|
 |**Korea**||
 |KoreaCentral|KoreaCentral|
 |**Norway**||
 |NorwayEast|NorwayEast|
 |**Europe**||
 |NorthEurope|NorthEurope|
-|FranceCentral|FranceCentral|
-|UKSouth|UKSouth|
 |WestEurope|WestEurope|
+|**France**||
+|FranceCentral|FranceCentral|
+|**United Kingdom**
+|UKSouth|UKSouth|
 |**Switzerland**||
 |SwitzerlandNorth|SwitzerlandNorth|
 |**United Arab Emirates**||
