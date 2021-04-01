@@ -1,7 +1,7 @@
 ---
-title: Azure peering for Communications Services Walk through
+title: Azure Internet peering for Communications Services walkthrough
 titleSuffix: Azure
-description: Azure peering for Communications Services Walk through
+description: Azure Internet peering for Communications Services walkthrough
 services: internet-peering
 author: gthareja
 ms.service: internet-peering
@@ -10,17 +10,16 @@ ms.date: 03/30/2021
 ms.author: gatharej
 ---
 
-# Azure peering for Communications Services Walk through
-## Definitions:
+# Azure Internet peering for Communications Services walkthrough
 
-**Communications Services Providers:**  Communications Services Providers are the organizations which offer communication services (Communications, messaging, conferencing etc.) and are looking to integrate their communications services infrastructure (SBC/SIP Gateway etc.)  with Azure communication services and Microsoft teams. 
+This section explains the steps a Communications Services Provider needs to follow to establish a Direct interconnect with Microsoft.
 
-## Azure peering for Communications Services 
-This section explains the steps a Communications Services Provider needs to follow to enable a Direct peering with Microsoft.
+**Communications Services Providers:**  Communications Services Providers are the organizations which offer communication services (Communications, messaging, conferencing etc.) and are looking to integrate their communications services infrastructure (SBC/SIP Gateway etc.)  with Azure Communication Services and Microsoft Teams. 
 
-Azure Peering Services support Communications Services Providers to establish direct interconnect with Microsoft at any of its edge sites (pop locations). The list of all the public edges sites is available in [PeeringDB](https://www.peeringdb.com/net/694).
+Azure Internet peering support Communications Services Providers to establish direct interconnect with Microsoft at any of its edge sites (pop locations). The list of all the public edges sites is available in [PeeringDB](https://www.peeringdb.com/net/694).
 
-The Azure Peering service provides highly reliable and QoS (Quality of Service) enabled interconnect for Communications services to ensure high quality and performance centric services.
+The Azure Internet peering provides highly reliable and QoS (Quality of Service) enabled interconnect for Communications services to ensure high quality and performance centric services.
+
 ## Technical Requirements
 The technical requirements to establish direct interconnect for  Communication Services are as following:
 -	The Peer MUST provide own Autonomous System Number (ASN), which MUST be public.
@@ -32,12 +31,12 @@ The technical requirements to establish direct interconnect for  Communication S
 -	The Peer MUST supply detail of what class of traffic and endpoints are housed in each advertised subnet. 
 -	The Peer MUST run BGP over Bi-directional Forwarding Detection (BFD) to facilitate sub second route convergence.
 -	All communications infrastructure prefixes are registered in Azure portal and advertised with community string 8075:8007.
--	The Peer MUST NOT terminate peering’s on a device running a stateful firewall. 
--	Microsoft will configure all the interconnect links as LAG (link bundles) by default, so peer MUST support LACP (Link Aggregation Control Protocol) on the these interconnect links.
+-	The Peer MUST NOT terminate peering on a device running a stateful firewall. 
+-	Microsoft will configure all the interconnect links as LAG (link bundles) by default, so, peer MUST support LACP (Link Aggregation Control Protocol) on the interconnect links.
 
 ## Establishing Direct Interconnect with Microsoft for Communications Services.
 
-To establish a direct interconnect using Azure Peering Services please follow the below steps:
+To establish a direct interconnect using Azure Internet peering please follow the below steps:
 
 **1.	Associate Peer public ASN to the Azure Subscription:**
 
@@ -47,7 +46,8 @@ In case Peer already associated public ASN to Azure subscription, please ignore 
 
 The next step is to create a Direct peering connection for Peering Service.
 
-**Note:** Once ASN association is approved, Please do email us at peeringservices@microsoft.com with your ASN and subscription ID to associate your subscription with Communications services. 
+> [!NOTE]
+> Once ASN association is approved, email us at peeringservices@microsoft.com with your ASN and subscription ID to associate your subscription with Communications services. 
 
 **2.	Create Direct peering connection for Peering Service:**
 
@@ -70,14 +70,14 @@ Session Address provider:	**Microsoft**
 
 Use for Peering Services: 	**Enabled**
 
-**Note:** Ignore the following message while selecting for activating for Peering Services
-
-*Do not enable unless you have contacted peering@microsoft.com about becoming a MAPS provider.*
+> [!NOTE] 
+> Ignore the following message while selecting for activating for Peering Services.
+> *Do not enable unless you have contacted peering@microsoft.com about becoming a MAPS provider.*
 
 
   **2a. Use Existing Direct peering connection for Peering Services**
 
-If you have an existing Direct peering that you want to use to support Peering Service, you can activate on Azure Portal.
+If you have an existing Direct peering that you want to use to support Peering Service, you can activate on Azure portal.
 1.	Follow the instructions to [Convert a legacy Direct peering to Azure resource using the portal](https://docs.microsoft.com/azure/internet-peering/howto-legacy-direct-portal).
 As required, order additional circuits to meet high-availability requirement.
 
@@ -100,7 +100,7 @@ Please ensure that the prefixes being registered are being announced over the di
 
 **Q.**	I have smaller subnets (</24) for my Communications services. Can I get the smaller subnets also routed?
 
-**A.**	Yes, Microsoft Azure Peering service supports smaller prefix routing also. Please ensure that your are registering the smaller prefixes for routing and the same are announced over the interconnects.
+**A.**	Yes, Microsoft Azure Peering service supports smaller prefix routing also. Please ensure that you are registering the smaller prefixes for routing and the same are announced over the interconnects.
 
 **Q.**	What Microsoft routes will we receive over these interconnects?
 
