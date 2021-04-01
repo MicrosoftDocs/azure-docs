@@ -66,8 +66,9 @@
     href: How-tos/text-analytics-how-to-sentiment-analysis.md
   - name: Key phrase extraction
     href: How-tos/text-analytics-how-to-keyword-extraction.md
-  - name: Named entity recognition and PII
+  - name: Named entity recognition
     href: How-tos/text-analytics-how-to-entity-linking.md
+    displayName: NER, Named entity recognition, PII, redaction
   - name: Text Analytics for health
     href: How-tos/text-analytics-for-health.md
   - name: Deploy Text Analytics
