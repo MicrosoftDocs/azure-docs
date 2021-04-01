@@ -1,8 +1,8 @@
 ---
 title: Use managed identities to access Azure SQL Database or Azure Synapse Analytics - Azure Stream Analytics
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure SQL Database or Azure Synapse Analytics output.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
@@ -13,6 +13,20 @@ ms.date: 11/30/2020
 Azure Stream Analytics supports [Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for Azure SQL Database and Azure Synapse Analytics output sinks. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate due to password changes or user token expirations that occur every 90 days. When you remove the need to manually authenticate, your Stream Analytics deployments can be fully automated.
 
 A managed identity is a managed application registered in Azure Active Directory that represents a given Stream Analytics job. The managed application is used to authenticate to a targeted resource. This article shows you how to enable Managed Identity for an Azure SQL Database or an Azure Synapse Analytics output(s) of a Stream Analytics job through the Azure portal.
+
+## Overview
+
+This article shows you the steps needed to connect your Stream Analytics job to your Azure SQL Database or Azure Synapse Analytics SQL pool using Managed Identity authentication mode. 
+
+- You first create a system-assigned managed identity for your Stream Analytics job. This is your job’s identity in Azure Active Directory.  
+
+- Add an Active Directory admin to your SQL server or Synapse workspace, which enables Azure AD (Managed Identity) authentication for that resource.
+
+- Next, create a contained user representing the Stream Analytics job's identity in the database. Whenever the Stream Analytics job interacts with your SQL DB or Synapse SQL DB resource, this is the identity it will refer to for checking what permissions your Stream Analytics job has.
+
+- Grant permissions to your Stream Analytics job to access your SQL Database or Synapse SQL pools.
+
+- Finally, add your Azure SQL Database/Azure Synapse Analytics as output in the Stream Analytics job.
 
 ## Prerequisites
 
@@ -33,6 +47,8 @@ The following are required to use this feature:
 - An Azure Synapse Analytics SQL pool.
 
 - An Azure Storage account that is [configured to your Stream Analytics job](azure-synapse-analytics-output.md).
+
+- Note: Stream Analytics account storage MSI integrated with Synapse SQL MSI is currently unavailable.
 
 ---
 
@@ -58,25 +74,25 @@ First, you create a managed identity for your Azure Stream Analytics job.
 
 After you've created a managed identity, you select an Active Directory admin.
 
-1. Navigate to your Azure SQL Database or Azure Synapse Analytics resource and select the SQL Server that the database is under. You can find the SQL Server name next to *Server name* on the resource overview page.
+1. Navigate to your Azure SQL Database or Azure Synapse Analytics SQL Pool resource and select the SQL Server or Synapse Workspace the resource is under, respectively. You can find the link to these in the resource overview page next to *Server name* or *Workspace name*.
 
-1. Select **Active Directory Admin** under **Settings**. Then, select **Set admin**.
+1. Select **Active Directory Admin** or **SQL Active Directory Admin** under **Settings**, for SQL Server and Synapse Workspace respectively. Then, select **Set admin**.
 
    ![Active Directory admin page](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
 
-1. On the Active Directory admin page, search for a user or group to be an administrator for the SQL Server and click **Select**.
+1. On the Active Directory admin page, search for a user or group to be an administrator for the SQL Server and click **Select**. This will be the user who will be able to create the **Contained Database User** in the next section.
 
    ![Add Active Directory admin](./media/sql-db-output-managed-identity/add-admin.png)
 
-   The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they're not supported as Azure Active Directory administrators. See the list of supported admins in the **Azure Active Directory Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations). Azure role-based access control (Azure RBAC) applies only to the portal and is not propagated to SQL Server. Also, the selected user or group is the user who will be able to create the **Contained Database User** in the next section.
+   The Active Directory admin page shows all members and groups of your Active Directory. Grayed out users or groups can't be selected as they're not supported as Azure Active Directory administrators. See the list of supported admins in the **Azure Active Directory Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
 
 1. Select **Save** on the **Active Directory admin** page. The process for changing admin takes a few minutes.
-
-   When you set up the Azure Active Directory admin, the new admin name (user or group) can't be present in the virtual primary database as a SQL Server authentication user. If present, the Azure Active Directory admin setup will fail and roll back its creation, indicating that an admin (name) already exists. Since the SQL Server authentication user is not part of Azure Active Directory, any effort to connect to the server using Azure Active Directory authentication as that user fails. 
 
 ## Create a contained database user
 
 Next, you create a contained database user in your Azure SQL or Azure Synapse database that is mapped to the Azure Active Directory identity. The contained database user doesn't have a login for the primary database, but it maps to an identity in the directory that is associated with the database. The Azure Active Directory identity can be an individual user account or a group. In this case, you want to create a contained database user for your Stream Analytics job. 
+
+For more information, review the following article for background on Azure AD integration: [Universal Authentication with SQL Database and Azure Synapse Analytics (SSMS support for MFA)](../azure-sql/database/authentication-mfa-ssms-overview.md)
 
 1. Connect to your Azure SQL or Azure Synapse database using SQL Server Management Studio. The **User name** is an Azure Active Directory user with the **ALTER ANY USER** permission. The admin you set on the SQL Server is an example. Use **Azure Active Directory – Universal with MFA** authentication. 
 
@@ -92,7 +108,7 @@ Next, you create a contained database user in your Azure SQL or Azure Synapse da
 
    ![New firewall rule window](./media/sql-db-output-managed-identity/new-firewall-rule.png)
 
-   1. If so, go to your SQL Server resource on the Azure portal. Under the **Security** section, open the **Firewalls and virtual network** page. 
+   1. If so, go to your SQL Server/Synapse Workspace resource on the Azure portal. Under the **Security** section, open the **Firewalls and virtual network/Firewalls** page. 
    1. Add a new rule with any rule name.
    1. Use the *From* IP address from the **New Firewall Rule** window for the *Start IP*.
    1. Use the *To* IP address from the **New Firewall Rule** window for *End IP*. 
@@ -103,8 +119,15 @@ Next, you create a contained database user in your Azure SQL or Azure Synapse da
    ```sql
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
+   
+    To verify if you have added the contained database user correctly, run the following command in SSMS under the pertaining database and check if your *ASA_JOB_NAME* is under the “name” column.
 
-1. For Microsoft's Azure Active Directory to verify if the Stream Analytics job has access to the SQL Database, we need to give Azure Active Directory permission to communicate with the database. To do this, go to the "Firewalls and virtual network" page in Azure portal again, and enable "Allow Azure services and resources to access this server." 
+   ```sql
+   SELECT * FROM <SQL_DB_NAME>.sys.database_principals 
+   WHERE type_desc = 'EXTERNAL_USER' 
+   ```
+
+1. For Microsoft's Azure Active Directory to verify if the Stream Analytics job has access to the SQL Database, we need to give Azure Active Directory permission to communicate with the database. To do this, go to the "Firewalls and virtual network"/”Firewalls” page in Azure portal again, and enable "Allow Azure services and resources to access this server/workspace."
 
    ![Firewall and virtual network](./media/sql-db-output-managed-identity/allow-access.png)
 
@@ -112,13 +135,13 @@ Next, you create a contained database user in your Azure SQL or Azure Synapse da
 
 #### [Azure SQL Database](#tab/azure-sql)
 
-Once you've created a contained database user and given access to Azure services in the portal as described in the previous section, your Stream Analytics job has permission from Managed Identity to **CONNECT** to your Azure SQL database resource via managed identity. We recommend that you grant the SELECT and INSERT permissions to the Stream Analytics job as those will be needed later in the Stream Analytics workflow. The **SELECT** permission allows the job to test its connection to the table in the Azure SQL database. The **INSERT** permission allows testing end-to-end Stream Analytics queries once you have configured an input and the Azure SQL database output.
+Once you've created a contained database user and given access to Azure services in the portal as described in the previous section, your Stream Analytics job has permission from Managed Identity to **CONNECT** to your Azure SQL database resource via managed identity. We recommend that you grant the **SELECT** and **INSERT** permissions to the Stream Analytics job as those will be needed later in the Stream Analytics workflow. The **SELECT** permission allows the job to test its connection to the table in the Azure SQL database. The **INSERT** permission allows testing end-to-end Stream Analytics queries once you have configured an input and the Azure SQL database output.
 
 #### [Azure Synapse Analytics](#tab/azure-synapse)
 
-Once you've created a contained database user and given access to Azure services in the portal as described in the previous section, your Stream Analytics job has permission from Managed Identity to **CONNECT** to your Azure Synapse database resource via managed identity. We recommend that you further grant the SELECT, INSERT, and ADMINISTER DATABASE BULK OPERATIONS permissions to the Stream Analytics job as those will be needed later in the Stream Analytics workflow. The **SELECT** permission allows the job to test its connection to the table in the Azure Synapse database. The **INSERT** and **ADMINISTER DATABASE BULK OPERATIONS** permissions allow testing end-to-end Stream Analytics queries once you have configured an input and the Azure Synapse database output.
+Once you've created a contained database user and given access to Azure services in the portal as described in the previous section, your Stream Analytics job has permission from Managed Identity to **CONNECT** to your Azure Synapse database resource via managed identity. We recommend that you further grant the **SELECT**, **INSERT**, and **ADMINISTER DATABASE BULK OPERATIONS** permissions to the Stream Analytics job as those will be needed later in the Stream Analytics workflow. The **SELECT** permission allows the job to test its connection to the table in the Azure Synapse database. The **INSERT** and **ADMINISTER DATABASE BULK OPERATIONS** permissions allow testing end-to-end Stream Analytics queries once you have configured an input and the Azure Synapse database output.
 
-To grant the ADMINISTER DATABASE BULK OPERATIONS permission, you will need to grant all permissions that are labeled as **CONTROL** under [Implied by database permission](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest#remarks) to the Stream Analytics job. You need this permission because the Stream Analytics job performs the COPY statement, which requires [ADMINISTER DATABASE BULK OPERATIONS and INSERT](/sql/t-sql/statements/copy-into-transact-sql).
+To grant the **ADMINISTER DATABASE BULK OPERATIONS** permission, you will need to grant all permissions that are labeled as **CONTROL** under [Implied by database permission](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) to the Stream Analytics job. You need this permission because the Stream Analytics job performs the **COPY** statement, which requires [ADMINISTER DATABASE BULK OPERATIONS and INSERT](/sql/t-sql/statements/copy-into-transact-sql).
 
 ---
 
@@ -129,18 +152,28 @@ To only grant permission to a certain table or object in the database, use the f
 #### [Azure SQL Database](#tab/azure-sql)
 
 ```sql
-GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME;
+GRANT CONNECT, SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME;
 ```
 
 #### [Azure Synapse Analytics](#tab/azure-synapse)
 
 ```sql
-GRANT [PERMISSION NAME] OBJECT::TABLE_NAME TO ASA_JOB_NAME;
+GRANT CONNECT, SELECT, INSERT, CONTROL, ADMINISTER DATABASE BULK OPERATIONS OBJECT::TABLE_NAME TO ASA_JOB_NAME;
 ```
 
 ---
 
 Alternatively, you can right-click on your Azure SQL or Azure Synapse database in SQL Server Management Studio and select **Properties > Permissions**. From the permissions menu, you can see the Stream Analytics job you added previously, and you can manually grant or deny permissions as you see fit.
+
+To look at all the permissions you have added to your *ASA_JOB_NAME* user, run the following command in SSMS under the pertaining DB: 
+
+```sql
+SELECT dbprin.name, dbprin.type_desc, dbperm.permission_name, dbperm.state_desc, dbperm.class_desc, object_name(dbperm.major_id) 
+FROM sys.database_principals dbprin 
+LEFT JOIN sys.database_permissions dbperm 
+ON dbperm.grantee_principal_id = dbprin.principal_id 
+WHERE dbprin.name = '<ASA_JOB_NAME>' 
+```
 
 ## Create an Azure SQL Database or Azure Synapse output
 
@@ -156,6 +189,8 @@ Ensure you have created a table in your SQL Database with the appropriate output
 
 1. Fill out the rest of the properties. To learn more about creating an SQL Database output, see [Create a SQL Database output with Stream Analytics](sql-database-output.md). When you are finished, select **Save**.
 
+1. After clicking **Save**, a connection test to your resource should automatically trigger. Once that successfully completes, you have successfully configured your Stream Analytics job to connect to you Azure SQL Database or Synapse SQL Database using managed identity authentication mode. 
+
 #### [Azure Synapse Analytics](#tab/azure-synapse)
 
 Now that your managed identity and storage account are configured, you're ready to add an Azure SQL Database or Azure Synapse output to your Stream Analytics job.
@@ -167,6 +202,8 @@ Ensure you have created a table in your Azure Synapse database with the appropri
 1. Select **Add > Azure Synapse Analytics**. In the output properties window of the SQL Database output sink, select **Managed Identity** from the Authentication mode drop-down.
 
 1. Fill out the rest of the properties. To learn more about creating an Azure Synapse output, see [Azure Synapse Analytics output from Azure Stream Analytics](azure-synapse-analytics-output.md). When you are finished, select **Save**.
+
+1. After clicking **Save**, a connection test to your resource should automatically trigger. Once that successfully completes, you are now ready to proceed with using Managed Identity for your Azure Synapse Analytics resource with Stream Analytics. 
 
 ---
 

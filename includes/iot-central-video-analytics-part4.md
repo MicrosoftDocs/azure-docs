@@ -36,6 +36,12 @@ To migrate the **gateway-001** device:
 
 After a few seconds, the migration completes. Your device is now using the **LVA Edge Gateway v2** device template with your customized deployment manifest.
 
+There are now no devices using the original **LVA Edge Gateway** device template. Delete this device template:
+
+1. Navigate to the **Device templates** page and select the **LVA Edge Gateway** device template.
+
+1. Select **Delete** to delete the device template.
+
 ### Get the device credentials
 
 You need the credentials that allow the device to connect to your IoT Central application. The get the device credentials:
@@ -50,16 +56,3 @@ You need the credentials that allow the device to connect to your IoT Central ap
 
 1. Select **Close**.
 
-## Next steps
-
-You've now created an IoT Central application using the **Video analytics - object and motion detection** application template, created a device template for the gateway device, and added a gateway device to the application.
-
-If you want to try out the video analytics - object and motion detection application using IoT Edge modules running a cloud VM with simulated video streams:
-
-> [!div class="nextstepaction"]
-> [Create an IoT Edge instance for video analytics (Linux VM)](../articles/iot-central/retail/tutorial-video-analytics-iot-edge-vm.md)
-
-If you want to try out the video analytics - object and motion detection application using IoT Edge modules running a real device with real **ONVIF** camera:
-
-> [!div class="nextstepaction"]
-> [Create an IoT Edge instance for video analytics (Intel NUC)](../articles/iot-central/retail/tutorial-video-analytics-iot-edge-nuc.md)

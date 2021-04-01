@@ -6,8 +6,9 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/24/2019
+ms.date: 02/10/2021
 ms.author: cherylmc
+
 ---
 # Connect virtual networks from different deployment models using the portal
 

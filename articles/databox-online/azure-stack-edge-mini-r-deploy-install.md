@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Mini R device in datacenter so I can use it to transfer data to Azure.  
+# Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Mini R device in datacenter so I can use it to transfer data to Azure.  
 ---
 # Tutorial: Install Azure Stack Edge Mini R
 

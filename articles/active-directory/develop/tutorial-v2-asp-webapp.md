@@ -19,7 +19,7 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 
 In this tutorial, you build an ASP.NET MVC web app that signs in users by using the Open Web Interface for .NET (OWIN) middleware and the Microsoft identity platform.
 
-When you've completed this guide, your application will be able to accept sign-ins of personal accounts from the likes of outlook.com and live.com. Additionally, work and school accounts from any company or organization that's integrated with Microsoft identity platform will be able to sign in to your app.
+When you've completed this guide, your application will be able to accept sign-ins of personal accounts from the likes of outlook.com and live.com. Additionally, work and school accounts from any company or organization that's integrated with the Microsoft identity platform will be able to sign in to your app.
 
 In this tutorial:
 
@@ -115,7 +115,7 @@ The following steps are used to create an OWIN middleware Startup class to confi
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Microsoft identity platform endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed of the Microsoft identity platform and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -137,8 +137,8 @@ The following steps are used to create an OWIN middleware Startup class to confi
                     // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it is using the home page
                     PostLogoutRedirectUri = redirectUri,
                     Scope = OpenIdConnectScope.OpenIdProfile,
-                    // ResponseType is set to request the id_token - which contains basic information about the signed-in user
-                    ResponseType = OpenIdConnectResponseType.IdToken,
+                    // ResponseType is set to request the code id_token - which contains basic information about the signed-in user
+                    ResponseType = OpenIdConnectResponseType.CodeIdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
                     // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
@@ -357,7 +357,7 @@ To register your application and add your application registration information t
 
 To quickly register your application, follow these steps:
 
-1. Go to the new  [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) pane.
+1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.  
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application in a single click.
 
@@ -369,15 +369,17 @@ To register your application and add the app's registration information to your 
    1. in Solution Explorer, select the project and view the Properties window (if you don't see a Properties window, press F4).
    1. Change SSL Enabled to `True`.
    1. Right-click the project in Visual Studio, select **Properties**, and then select the **Web** tab. In the **Servers** section, change the **Project Url** setting to the **SSL URL**.
-   1. Copy the SSL URL. You'll add this URL to the list of Redirect URLs in the Registration portal's list of Redirect URLs in the next step.<br/><br/>![Project properties](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. Sign in to the [Azure portal](https://portal.azure.com) by using a work or school account, or by using a personal Microsoft account.
-1. If your account gives you access to more than one tenant, select your account in the upper-right corner, and set your portal session to the Azure AD tenant that you want.
-1. Go to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-1. Select **New registration**.
-1. When the **Register an application** page appears, enter your application's registration information:
-   1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, like **ASPNET-Tutorial**.
-   1. Add the SSL URL you copied from Visual Studio in step 1 (for example, `https://localhost:44368/`) in **Reply URL**, and select **Register**.
-1. Select the **Authentication** menu, select **ID tokens** under **Implicit Grant**, and then select **Save**.
+   1. Copy the SSL URL. You'll add this URL to the list of Redirect URIs in the Registration portal's list of Redirect URIs in the next step.<br/><br/>![Project properties](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+   
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application, for example `ASPNET-Tutorial`. Users of your app might see this name, and you can change it later.
+1. Add the SSL URL you copied from Visual Studio in step 1 (for example, `https://localhost:44368/`) in **Redirect URI**.
+1. Select **Register**.
+1. Under **Manage**, select **Authentication**.
+1. In the **Implicit grant and hybrid flows** section, select **ID tokens**, and then select **Save**.
 1. Add the following in the web.config file, located in the root folder in the `configuration\appSettings` section:
 
     ```xml
@@ -400,14 +402,13 @@ When you're ready to run your test, use an Azure AD account (work or school acco
 <br/><br/>
 ![Sign in to your Microsoft account](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-#### Permissions and consent in the Microsoft identity platform endpoint
-
-Applications that integrate with Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. After a user authenticates with Microsoft identity platform to access this application, they will be prompted to consent to the permissions requested by the application ("View your basic profile" and "Maintain access to data you have given it access to"). After accepting these permissions, the user will continue on to the application results. However, the user may instead be prompted with a **Need admin consent** page if either of the following occur:
+#### Permissions and consent in the Microsoft identity platform
+Applications that integrate with the Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. After a user authenticates with the Microsoft identity platform to access this application, they will be prompted to consent to the permissions requested by the application ("View your basic profile" and "Maintain access to data you have given it access to"). After accepting these permissions, the user will continue on to the application results. However, the user may instead be prompted with a **Need admin consent** page if either of the following occur:
 
 - The application developer adds any additional permissions that require **Admin consent**.
 - Or the tenant is configured (in **Enterprise Applications -> User Settings**) where users cannot consent to apps accessing company data on their behalf.
 
-For more information, refer to [Permissions and consent in the Microsoft identity platform endpoint](./v2-permissions-and-consent.md).
+For more information, refer to [Permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md).
 
 ### View application results
 

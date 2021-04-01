@@ -86,7 +86,7 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 #### [Free](https://azure.microsoft.com/free/)
 
 - 12 months of popular free services
-- $200 in credit to explore services for 30 days
+- 200 USD credit in your billing currency to explore services for 30 days
 - 25+ services are always free
 
 #### [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p)
@@ -98,7 +98,7 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 
 #### [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-- Options for up-front monetary commitments
+- Options for up-front Azure Prepayment (previously called monetary commitment)
 - Access to reduced Azure pricing
 
 #### [Azure in CSP](https://azure.microsoft.com/offers/ms-azr-0145p/)

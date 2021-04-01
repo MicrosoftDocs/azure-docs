@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/07/2020
 ms.custom: devx-track-js
 ---
 
 # Add and run code snippets by using inline code in Azure Logic Apps
 
-When you want to run a piece of code inside your logic app, you can add the built-in **Inline Code** action as a step in your logic app's workflow. This action works best when you want to run code that fits this scenario:
+When you want to run a piece of code inside your logic app, you can add the built-in Inline Code action as a step in your logic app's workflow. This action works best when you want to run code that fits this scenario:
 
 * Runs in JavaScript. More languages coming soon.
 
@@ -25,13 +25,13 @@ When you want to run a piece of code inside your logic app, you can add the buil
 [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
   > [!NOTE]
-  > The `require()` function isn't supported by the **Inline Code** action for running JavaScript.
+  > The `require()` function isn't supported by the Inline Code action for running JavaScript.
 
-This action runs the code snippet and returns the output from that snippet as a token named **Result**, which you can use in subsequent actions in your logic app. For other scenarios where you want to create a function for your code, try [creating and calling an Azure function](../logic-apps/logic-apps-azure-functions.md) in your logic app.
+This action runs the code snippet and returns the output from that snippet as a token that's named `Result`. You can use this token with subsequent actions in your logic app's workflow. For other scenarios where you want to create a function for your code, try [creating and calling a function through Azure Functions instead](../logic-apps/logic-apps-azure-functions.md) in your logic app.
 
 In this article, the example logic app triggers when a new email arrives in a work or school account. The code snippet extracts and returns any email addresses that appear in the email body.
 
-![Example overview](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
+![Screenshot that shows an example logic app](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
 ## Prerequisites
 
@@ -39,46 +39,55 @@ In this article, the example logic app triggers when a new email arrives in a wo
 
 * The logic app where you want to add your code snippet, including a trigger. If you don't have a logic app, see [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-   The example logic app in this topic uses this Office 365 Outlook trigger: **When a new email arrives**
+   The example in this topic uses the Office 365 Outlook trigger that's named **When a new email arrives**.
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's linked to your logic app. If you don't want to create or use an integration account, try creating a logic app in the Azure portal using the new **Logic App (Preview)** resource type or in Visual Studio Code by using the new [Azure Logic Apps preview extension](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md).
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's linked to your logic app.
 
-  > [!NOTE]
-  > Make sure that you use an integration account that's appropriate for your use case or scenario. 
-  > For example, [Free-tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration 
-  > accounts are meant only for exploratory scenarios and workloads, not production scenarios, 
-  > are limited in usage and throughput, and aren't supported by a service-level agreement (SLA). 
-  > Other tiers incur costs, but include SLA support, offer more throughput, and have higher limits. 
-  > Learn more about integration account [tiers](../logic-apps/logic-apps-pricing.md#integration-accounts), 
-  > [pricing](https://azure.microsoft.com/pricing/details/logic-apps/), 
-  > and [limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+  * Make sure that you use an integration account that's appropriate for your use case or scenario.
+
+    For example, [Free-tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration accounts are meant only for exploratory scenarios and workloads, not production scenarios, are limited in usage and throughput, and aren't supported by a service-level agreement (SLA). Other tiers incur costs, but include SLA support, offer more throughput, and have higher limits. Learn more about integration account [tiers](../logic-apps/logic-apps-pricing.md#integration-accounts), [pricing](https://azure.microsoft.com/pricing/details/logic-apps/), and [limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+
+   * If you don't want to use an integration account, you can try using [Azure Logic Apps Preview](logic-apps-overview-preview.md), and create a logic app from the **Logic App (Preview)** resource type.
+
+     In Azure Logic Apps Preview, **Inline Code** is now named **Inline Code Operations** along with these other differences:
+
+     * **Execute JavaScript Code** is now named **Run in-line JavaScript**.
+
+     * If you use macOS or Linux, the Inline Code Operations actions are currently unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
+
+     * Inline Code Operations actions have [updated limits](logic-apps-overview-preview.md#inline-code-limits).
+
+     You can start from either option here:
+
+     * Create the logic app from the **Logic App (Preview)** resource type [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md).
+
+     * Create a project for the logic app [by using Visual Studio Code and the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md)
 
 ## Add inline code
 
 1. If you haven't already, in the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
-1. In the designer, add the **Inline Code** action at the location that you want in your logic app's workflow.
+1. In the designer, choose where to add the Inline Code action in your logic app's workflow.
 
-   * To add the action at the end of your workflow, choose **New step**.
+   * To add the action at the end of your workflow, select **New step**.
 
-   * To add the action between existing steps, move your mouse pointer over the arrow that connects those steps. Choose the plus sign (**+**), 
-   and select **Add an action**.
+   * To add the action between steps, move your mouse pointer over the arrow that connects those steps. Select the plus sign (**+**) that appears, and select **Add an action**.
 
-   This example adds the **Inline Code** action under the Office 365 Outlook trigger.
+   This example adds the Inline Code action under the Office 365 Outlook trigger.
 
-   ![Add new step](./media/logic-apps-add-run-inline-code/add-new-step.png)
+   ![Add the new step under the trigger](./media/logic-apps-add-run-inline-code/add-new-step.png)
 
-1. Under **Choose an action**, in the search box, enter "inline code" as your filter. From the actions list, select this action: **Execute JavaScript Code**
+1. Under **Choose an action**, in the search box, enter `inline code`. From the actions list, select the action named **Execute JavaScript Code**.
 
-   ![Select "Execute JavaScript Code"](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
+   ![Select the "Execute JavaScript Code" action](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
 
-   The action appears in the designer and contains some default example code, including a return statement.
+   The action appears in the designer and by default, contains some sample code, including a `return` statement.
 
    ![Inline Code action with default sample code](./media/logic-apps-add-run-inline-code/inline-code-action-default.png)
 
-1. In the **Code** box, delete the sample code, and enter the code that you want to run. Write code that you'd put inside a method, but without defining the method signature.
+1. In the **Code** box, delete the sample code, and enter your code. Write the code that you'd put inside a method, but without the method signature.
 
-   When you type a recognized keyword, the autocomplete list appears so that you can select from available keywords, for example:
+   If you start typing a recognized keyword, the autocomplete list appears so that you can select from available keywords, for example:
 
    ![Keyword autocomplete list](./media/logic-apps-add-run-inline-code/auto-complete.png)
 
@@ -86,20 +95,18 @@ In this article, the example logic app triggers when a new email arrives in a wo
 
    ![Create variables](./media/logic-apps-add-run-inline-code/save-email-body-variable.png)
 
-   To make the results from the trigger and previous actions easier to reference, the dynamic content list appears while your cursor is inside the **Code** box. For this example, the list shows available results from the trigger, including the **Body** token, which you can now select.
+   To make the results from the trigger and previous actions easier to reference, the dynamic content list appears when your cursor is inside the **Code** box. For this example, the list shows available results from the trigger, including the **Body** token, which you can now select.
 
    After you select the **Body** token, the inline code action resolves the token to a `workflowContext` object that references the email's `Body` property value:
 
    ![Select result](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   In the **Code** box, your snippet can use the read-only `workflowContext` object as input. This object has subproperties that give your code access to the results from the trigger and previous actions in your workflow. For more information, see this section later in this topic: 
-   [Reference trigger and action results in your code](#workflowcontext).
+   In the **Code** box, your snippet can use the read-only `workflowContext` object as input. This object includes properties that give your code access to the results from the trigger and previous actions in your workflow. For more information, see [Reference trigger and action results in your code](#workflowcontext) later in this topic.
 
    > [!NOTE]
-   >
-   > If your code snippet references action names that use the dot (.) operator, you must add those action names to the 
-   > [**Actions** parameter](#add-parameters). Those references must also enclose the action names with square brackets ([]) 
-   > and quotation marks, for example:
+   > If your code snippet references action names that use the dot (.) operator, you must add those 
+   > action names to the [**Actions** parameter](#add-parameters). Those references must also enclose 
+   > the action names with square brackets ([]) and quotation marks, for example:
    >
    > `// Correct`</br> 
    > `workflowContext.actions["my.action.name"].body`</br>
@@ -107,7 +114,7 @@ In this article, the example logic app triggers when a new email arrives in a wo
    > `// Incorrect`</br>
    > `workflowContext.actions.my.action.name.body`
 
-   The inline code action doesn't require a `return` statement, but the results from a `return` statement are available for reference in later actions through the **Result** token. For example, the code snippet returns the result by calling the `match()` function, which finds matches in the email body against the regular expression. The **Compose** action uses the **Result** token to reference the results from the inline code action and creates a single result.
+   The Inline Code action doesn't require a `return` statement, but the results from a `return` statement are available for reference in later actions through the **Result** token. For example, the code snippet returns the result by calling the `match()` function, which finds matches in the email body against the regular expression. The **Compose** action uses the **Result** token to reference the results from the inline code action and creates a single result.
 
    ![Finished logic app](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
@@ -217,13 +224,13 @@ In this topic's example, the `workflowContext` object has these properties that 
 
 ## Add parameters
 
-In some cases, you might have to explicitly require that the **Inline Code** action includes results from the trigger or specific actions that your code references as dependencies by adding the **Trigger** or **Actions** parameters. This option is useful for scenarios where the referenced results aren't found at run time.
+In some cases, you might have to explicitly require that the Inline Code action includes results from the trigger or specific actions that your code references as dependencies by adding the **Trigger** or **Actions** parameters. This option is useful for scenarios where the referenced results aren't found at run time.
 
 > [!TIP]
 > If you plan to reuse your code, add references to properties by using the **Code** box so that your code 
 > includes the resolved token references, rather than adding the trigger or actions as explicit dependencies.
 
-For example, suppose you have code that references the **SelectedOption** result from the **Send approval email** action for the Office 365 Outlook connector. At create time, the Logic Apps engine analyzes your code to determine whether you've referenced any trigger or action results and includes those results automatically. At run time, should you get an error that the referenced trigger or action result isn't available in the specified `workflowContext` object, you can add that trigger or action as an explicit dependency. In this example, you add the **Actions** parameter and specify that the **Inline Code** action explicitly include the result from the **Send approval email** action.
+For example, suppose you have code that references the **SelectedOption** result from the **Send approval email** action for the Office 365 Outlook connector. At create time, the Logic Apps engine analyzes your code to determine whether you've referenced any trigger or action results and includes those results automatically. At run time, should you get an error that the referenced trigger or action result isn't available in the specified `workflowContext` object, you can add that trigger or action as an explicit dependency. In this example, you add the **Actions** parameter and specify that the Inline Code action explicitly include the result from the **Send approval email** action.
 
 To add these parameters, open the **Add new parameter** list, and select the parameters you want:
 
@@ -247,8 +254,7 @@ If you select **Triggers**, you're prompted whether to include trigger results.
 
 ### Include action results
 
-If you select **Actions**, you're prompted for the actions that you want to add. However, before you start adding actions, you need the version of the action name 
-that appears in the logic app's underlying workflow definition.
+If you select **Actions**, you're prompted for the actions that you want to add. However, before you start adding actions, you need the version of the action name that appears in the logic app's underlying workflow definition.
 
 * This capability doesn't support variables, loops, and iteration indexes.
 
@@ -258,19 +264,19 @@ that appears in the logic app's underlying workflow definition.
 
   `My.Action.Name`
 
-1. On the designer toolbar, choose **Code view**, and search inside the `actions` attribute for the action name.
+1. On the designer toolbar, select **Code view**, and search inside the `actions` attribute for the action name.
 
    For example, `Send_approval_email_` is the JSON name for the **Send approval email** action.
 
    ![Find action name in JSON](./media/logic-apps-add-run-inline-code/find-action-name-json.png)
 
-1. To return to designer view, on the code view toolbar, choose **Designer**.
+1. To return to designer view, on the code view toolbar, select **Designer**.
 
 1. To add the first action, in the **Actions Item - 1** box, enter the action's JSON name.
 
    ![Enter first action](./media/logic-apps-add-run-inline-code/add-action-parameter.png)
 
-1. To add another action, choose **Add new item**.
+1. To add another action, select **Add new item**.
 
 ## Reference
 

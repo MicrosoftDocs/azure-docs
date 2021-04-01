@@ -26,13 +26,13 @@ This article provides background information and steps to configure a customer-m
 >
 > - Access to this capability is controlled by Azure feature registration. You can request access by contacting azuresentinelCMK@microsoft.com. Pending requests will be approved according to the available capacity.
 >
-> - The CMK capability is only available to customers sending 1TB per day or more. You will receive information about additional pricing when you apply to Microsoft to provision CMK on your Azure subscription. Learn more about [Log Analytics pricing](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+> - The CMK capability is only available to customers sending 1TB per day or more. You will receive information about additional pricing when you apply to Microsoft to provision CMK on your Azure subscription. Learn more about [Log Analytics pricing](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## How CMK works 
 
 The Azure Sentinel solution uses several storage resources for log collection and features, including Log Analytics and others. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage resources other than Log Analytics will also be encrypted.
 
-Learn more about [CMK](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview).
+Learn more about [CMK](../azure-monitor/logs/customer-managed-keys.md#customer-managed-key-overview).
 
 > [!NOTE]
 > If you enable CMK on Azure Sentinel, any Public Preview feature that does not support CMK will not be enabled.
@@ -60,7 +60,7 @@ To provision CMK, follow these steps: 
     > [!NOTE]
     >  Azure Key Vault must be configured as recoverable to protect your key and the access.
 
-1.  [Turn on recovery options:](../key-vault/general/best-practices.md#turn-on-recovery-options)
+1.  [Turn on recovery options:](../key-vault/general/key-vault-recovery.md)
 
     -   Make sure [Soft Delete](../key-vault/general/soft-delete-overview.md) is turned on.
 
@@ -68,7 +68,7 @@ To provision CMK, follow these steps: 
 
 ### STEP 2: Enable CMK on your Log Analytics workspace
 
-Follow the instructions in [Azure Monitor customer-managed key configuration](../azure-monitor/platform/customer-managed-keys.md) in order to create a CMK workspace that will be used as the Azure Sentinel workspace in the following steps.
+Follow the instructions in [Azure Monitor customer-managed key configuration](../azure-monitor/logs/customer-managed-keys.md) in order to create a CMK workspace that will be used as the Azure Sentinel workspace in the following steps.
 
 ### STEP 3: Register for Cosmos DB
 
@@ -115,7 +115,7 @@ The only operation possible after the encryption key is revoked or deleted is ac
 
 If access is restored after revocation, Azure Sentinel will restore access to the data within an hour.
 
-To understand more about how this works in Azure Monitor, see [Azure Monitor CMK revocation](../azure-monitor/platform/customer-managed-keys.md#key-revocation).
+To understand more about how this works in Azure Monitor, see [Azure Monitor CMK revocation](../azure-monitor/logs/customer-managed-keys.md#key-revocation).
 
 ## Key encryption key rotation
 
@@ -130,7 +130,7 @@ You can disable the previous version of the key after 24 hours, or after the Azu
 version.
 
 If you use the same key in Azure Sentinel and in Log Analytics, it is necessary to perform key rotation you must explicitly update the cluster resource in Log
-Analytics with the new Azure Key Vault key version. For more information, see [Azure Monitor CMK rotation](../azure-monitor/platform/customer-managed-keys.md#key-rotation).
+Analytics with the new Azure Key Vault key version. For more information, see [Azure Monitor CMK rotation](../azure-monitor/logs/customer-managed-keys.md#key-rotation).
 
 ## Next steps
 In this document, you learned how to set up a customer-managed key in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:

@@ -19,11 +19,7 @@ This article shows you how to troubleshoot Azure Bastion.
 
 **Q:** When I try to create an NSG on the Azure Bastion subnet, I get the following error: *'Network security group <NSG name> does not have necessary rules for Azure Bastion Subnet AzureBastionSubnet"*.
 
-**A:** If you create and apply an NSG to *AzureBastionSubnet*, make sure you have added the following rules in your NSG. If you do not add these rules, the NSG creation/update will fail.
-
-1. Control plane connectivity – Inbound on 443 from GatewayManager
-2. Diagnostics logging and others – Outbound on 443 to AzureCloud (Regional tags within this service tag are not supported yet.)
-3. Target VM – Outbound for 3389 and 22 to VirtualNetwork
+**A:** If you create and apply an NSG to *AzureBastionSubnet*, make sure you have added the required rules to the NSG. For a list of required rules, see [Working with NSG access and Azure Bastion](./bastion-nsg.md). If you do not add these rules, the NSG creation/update will fail.
 
 An example of the NSG rules is available for reference in the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 For more information, see [NSG guidance for Azure Bastion](bastion-nsg.md).
@@ -78,7 +74,7 @@ The key's randomart image is:
 
 ## <a name="blackscreen"></a>Black screen in the Azure portal
 
-**Q:** When I try to connect using Azure Bastion, I get a black screen in the Azure portal.
+**Q:** When I try to connect using Azure Bastion, I can't connnect to the target VM and I get a black screen in the Azure portal.
 
 **A:** This happens when there is either a network connectivity issue between your web browser and Azure Bastion (your client Internet firewall may be blocking WebSockets traffic or similar), or between the Azure Bastion and your target VM. Most cases include an NSG applied either to AzureBastionSubnet, or on your target VM subnet that is blocking the RDP/SSH traffic in your virtual network. Allow WebSockets traffic on your client internet firewall, and check the NSGs on your target VM subnet.
 

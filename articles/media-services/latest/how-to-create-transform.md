@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Example - Create a transform | Microsoft Docs
+title: Azure CLI Script Example - Create a transform 
 description: Transforms describe a simple workflow of tasks for processing your video or audio files (often referred to as a "recipe"). The Azure CLI script in this article shows how to create a transform. 
 services: media-services
 documentationcenter: ''
@@ -27,14 +27,12 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 ## Prerequisites
 
-[Create a Media Services account](./create-account-howto.md).
+[Create a Media Services account](./account-create-how-to.md).
 
 ## [CLI](#tab/cli/)
 
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
-
 > [!NOTE]
-> You can only specify a path to a custom Standard Encoder preset JSON file for [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset), see the [encode with a custom transform](custom-preset-cli-howto.md) example.
+> You can only specify a path to a custom Standard Encoder preset JSON file for [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset), see the [encode with a custom transform](encode-custom-preset-cli-how-to.md) example.
 >
 > You cannot pass a file name when using [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset).
 
@@ -50,4 +48,4 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 ## Next steps
 
-[More about transforms and jobs](transforms-jobs-concept.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

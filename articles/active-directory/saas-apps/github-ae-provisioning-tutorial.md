@@ -28,6 +28,7 @@ This tutorial describes the steps you need to perform in both GitHub AE and Azur
 > * Create users in GitHub AE
 > * Remove users in GitHub AE when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and GitHub AE
+> * Provision groups and group memberships in GitHub AE
 > * Single sign-on to [Github AE](./github-ae-tutorial.md) (recommended)
 
 ## Prerequisites
@@ -55,7 +56,7 @@ Add GitHub AE from the Azure AD application gallery to start managing provisioni
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user and/or group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and/or groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user and/or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users to GitHub AE, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
+* When assigning users and groups to GitHub AE, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
 
 * Start small. Test with a small set of users and/or groups before rolling out to everyone. When scope for provisioning is set to assigned users and/or groups, you can control this by assigning one or two users and/or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -107,17 +108,27 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.formatted|String|
    |displayName|String|
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to GitHub AE**.
 
-11. To enable the Azure AD provisioning service for GitHub AE, change the **Provisioning Status** to **On** in the **Settings** section.
+11. Review the group attributes that are synchronized from Azure AD to GitHub AE in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in GitHub AE for update operations. Select the **Save** button to commit any changes.
+
+      |Attribute|Type|
+      |---|---|
+      |displayName|String|
+      |externalId|String|
+      |members|Reference|
+
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. To enable the Azure AD provisioning service for GitHub AE, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Define the users and/or groups that you would like to provision to GitHub AE by choosing the desired values in **Scope** in the **Settings** section.
+14. Define the users and/or groups that you would like to provision to GitHub AE by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-13. When you are ready to provision, click **Save**.
+15. When you are ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
@@ -129,6 +140,10 @@ Once you've configured provisioning, use the following resources to monitor your
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## Change log
+
+* 02/18/2021 - Added support for Groups provisioning.
 
 ## Additional resources
 

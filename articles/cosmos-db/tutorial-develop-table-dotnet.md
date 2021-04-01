@@ -115,7 +115,7 @@ This code defines an entity class that uses the customer's first name as the row
 
 ## Insert or merge an entity
 
-The following code example creates an entity object and adds it to the table. The InsertOrMerge method within the [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) class is used to insert or merge an entity. The [CloudTable.ExecuteAsync](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?preserve-view=true&view=azure-dotnet) method is called to execute the operation. 
+The following code example creates an entity object and adds it to the table. The InsertOrMerge method within the [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) class is used to insert or merge an entity. The [CloudTable.ExecuteAsync](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync) method is called to execute the operation. 
 
 Right click on your project **CosmosTableSamples**. Select **Add**, **New Item** and add a class named **SamplesUtils.cs**. This class stores all the code required to perform CRUD operations on the entities. 
 
@@ -173,4 +173,4 @@ Now you can sign into the Azure portal and verify that the data exists in the ta
 You can now proceed to the next tutorial and learn how to migrate data to Azure Cosmos DB Table API account. 
 
 > [!div class="nextstepaction"]
->[Migrate data to Azure Comsos DB Table API](../cosmos-db/table-import.md)
+>[Migrate data to Azure Cosmos DB Table API](../cosmos-db/table-import.md)

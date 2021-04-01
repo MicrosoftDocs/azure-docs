@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 10/26/2020
+  ms.date: 03/16/2021
 
 landingContent:
   - title: About Azure Policy
@@ -130,19 +130,11 @@ landingContent:
           - text: Azure CLI
             url: /cli/azure/policy
           - text: Azure PowerShell (Policy)
-            url: /powershell/module/az.resources/#policies
+            url: /powershell/module/az.resources/#policy
           - text: Azure PowerShell (Policy Insights)
-            url: /powershell/module/az.policyinsights#policy_insights
-          - text: REST (Policy Insights)
-            url: /rest/api/policy-insights/
-          - text: REST (Assignments)
-            url: /rest/api/resources/policyassignments
-          - text: REST (Definitions)
-            url: /rest/api/resources/policydefinitions
-          - text: REST (Exemptions)
-            url: /rest/api/resources/policyexemptions
-          - text: REST (Initiatives)
-            url: /rest/api/resources/policysetdefinitions
+            url: /powershell/module/az.policyinsights#policy-insights
+          - text: REST
+            url: /rest/api/policy/
           - text: Resource Manager templates
             url: /azure/templates/microsoft.authorization/allversions
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Blob storage reference
-description: Find Azure Blob storage API reference, readme files, and client library packages.
+title: Azure Blob Storage reference
+description: Find Azure Blob Storage API reference, readme files, and client library packages.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.reviewer: ripohane
 ---
 
-# Azure Blob storage reference
+# Azure Blob Storage reference
 
-Find Azure Blob storage API reference, library packages, readme files, and getting started articles.
+Find Azure Blob Storage API reference, library packages, readme files, and getting started articles.
 
 ## .NET client libraries
 
-The following table lists reference and sample documentation for Azure Blob storage .NET APIs.
+The following table lists reference and sample documentation for Azure Blob Storage .NET APIs.
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure Blob storage client library for .NET](/dotnet/api/overview/azure/storage.blobs-readme) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [Quickstart: Azure Blob storage client library v12 for .NET](./storage-quickstart-blobs-dotnet.md) |
-| 11.x | [Microsoft.Azure.Storage.Blob Namespace](/dotnet/api/microsoft.azure.storage.blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Quickstart: Azure Blob storage client library v11 for .NET](./storage-quickstart-blobs-dotnet-legacy.md) |
+| 12.x | [Azure Blob Storage client library for .NET](/dotnet/api/overview/azure/storage.blobs-readme) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [Quickstart: Azure Blob Storage client library v12 for .NET](./storage-quickstart-blobs-dotnet.md) |
+| 11.x | [Microsoft.Azure.Storage.Blob Namespace](/dotnet/api/microsoft.azure.storage.blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Quickstart: Azure Blob Storage client library v11 for .NET](./storage-quickstart-blobs-dotnet-legacy.md) |
 
 ### Storage management
 
@@ -42,7 +42,7 @@ The following table lists reference documentation for Azure Storage data movemen
 
 ## Java client libraries
 
-The following table lists reference and sample documentation for Azure Blob storage Java APIs.
+The following table lists reference and sample documentation for Azure Blob Storage Java APIs.
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -59,7 +59,7 @@ The following table lists reference documentation for Azure Storage management J
 
 ## Python client libraries
 
-The following table lists reference and sample documentation for Azure Blob storage Python APIs.
+The following table lists reference and sample documentation for Azure Blob Storage Python APIs.
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -68,7 +68,7 @@ The following table lists reference and sample documentation for Azure Blob stor
 
 ## JavaScript client libraries
 
-The following table lists reference and sample documentation for Azure Blob storage JavaScript APIs.
+The following table lists reference and sample documentation for Azure Blob Storage JavaScript APIs.
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -77,7 +77,7 @@ The following table lists reference and sample documentation for Azure Blob stor
 
 ## REST APIs
 
-The following table lists reference and sample documentation for Azure Blob storage REST APIs.
+The following table lists reference and sample documentation for Azure Blob Storage REST APIs.
 
 | Reference documentation | Overview |
 | ----------------------- | -------- |
@@ -103,7 +103,7 @@ The following table contains links to the latest version of reference content.
 
 | Version | Platform |
 | ------- | -------- |
-|  4.x  | [PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  4.x  | [PowerShell](/powershell/module/az.storage/?view=azps-4.8.0&preserve-view=true) |
 |  3.x  | [PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
 |  2.x  | [PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 

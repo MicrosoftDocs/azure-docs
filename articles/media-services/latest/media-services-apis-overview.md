@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Develop with v3 APIs
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: Learn about rules that apply to entities and APIs when developing with Media Services v3. 
 services: media-services
 documentationcenter: ''
@@ -141,7 +141,7 @@ AMSE is an Open Source project, support is provided by the community (issues can
 
 ## Filtering, ordering, paging of Media Services entities
 
-See [Filtering, ordering, paging of Azure Media Services entities](entities-overview.md).
+See [Filtering, ordering, paging of Azure Media Services entities](filter-order-page-entitites-how-to.md).
 
 ## Ask questions, give feedback, get updates
 

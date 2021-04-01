@@ -1,13 +1,10 @@
 ---
 title: Manage resources for Apache Spark cluster on Azure HDInsight 
 description: Learn how to manage resources for Spark clusters on Azure HDInsight for better performance.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
+ms.date: 01/12/2021
 ---
 
 # Manage resources for Apache Spark cluster on Azure HDInsight
@@ -26,7 +23,7 @@ You can use the YARN UI to monitor applications that are currently running on th
 
 2. From **Cluster dashboards**, select **Yarn**. When prompted, enter the admin credentials for the Spark cluster.
 
-    ![Launch YARN UI](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
+    :::image type="content" source="./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png" alt-text="Launch YARN UI" border="true":::
 
    > [!TIP]  
    > Alternatively, you can also launch the YARN UI from the Ambari UI. From the Ambari UI, navigate to **YARN** > **Quick Links** > **Active** > **Resource Manager UI**.
@@ -41,19 +38,19 @@ The three configuration parameters can be configured at the cluster level (for a
 
 1. From the Ambari UI navigate to **Spark2** > **Configs** > **Custom spark2-defaults**.
 
-    ![Set parameters using Ambari custom](./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png "Set parameters using Ambari custom")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png " alt-text="Set parameters using Ambari custom" border="true":::
 
 1. The default values are good to have four Spark applications run concurrently on the cluster. You can change these values from the user interface, as shown in the following screenshot:
 
-    ![Set parameters using Ambari](./media/apache-spark-resource-manager/ambari-ui-spark2-defaults.png "Set parameters using Ambari")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-defaults.png " alt-text="Set parameters using Ambari" border="true":::
 
 1. Select **Save** to save the configuration changes. At the top of the page, you're prompted to restart all the affected services. Select **Restart**.
 
-    ![Restart services](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-restart-services.png" alt-text="Restart services" border="true":::
 
-### Change the parameters for an application running in Jupyter notebook
+### Change the parameters for an application running in Jupyter Notebook
 
-For applications running in the Jupyter notebook, you can use the `%%configure` magic to make the configuration changes. Ideally, you must make such changes at the beginning of the application, before you run your first code cell. Doing this ensures that the configuration is applied to the Livy session, when it gets created. If you want to change the configuration at a later stage in the application, you must use the `-f` parameter. However, by doing so all progress in the application is lost.
+For applications running in the Jupyter Notebook, you can use the `%%configure` magic to make the configuration changes. Ideally, you must make such changes at the beginning of the application, before you run your first code cell. Doing this ensures that the configuration is applied to the Livy session, when it gets created. If you want to change the configuration at a later stage in the application, you must use the `-f` parameter. However, by doing so all progress in the application is lost.
 
 The following snippet shows how to change the configuration for an application running in Jupyter.
 
@@ -80,6 +77,9 @@ The following command is an example of how to change the configuration parameter
 curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 ```
 
+> [!Note]
+> Copy the JAR file to your cluster storage account. Do not copy the JAR file directly to the head node.
+
 ### Change these parameters on a Spark Thrift Server
 
 Spark Thrift Server provides JDBC/ODBC access to a Spark cluster and is used to service Spark SQL queries. Tools like Power BI, Tableau, and so on, use ODBC protocol to communicate with Spark Thrift Server to execute Spark SQL queries as a Spark Application. When a Spark cluster is created, two instances of the Spark Thrift Server are started, one on each head node. Each Spark Thrift Server is visible as a Spark application in the YARN UI.
@@ -88,11 +88,11 @@ Spark Thrift Server uses Spark dynamic executor allocation and hence the `spark.
 
 * Expand the **Advanced spark2-thrift-sparkconf** category to update the parameters `spark.dynamicAllocation.maxExecutors`, and `spark.dynamicAllocation.minExecutors`.
 
-    ![Configure Spark thrift server](./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png "Configure Spark thrift server")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png " alt-text="Configure Spark thrift server" border="true":::
 
 * Expand the **Custom spark2-thrift-sparkconf** category to update the parameters `spark.executor.cores`, and `spark.executor.memory`.
 
-    ![Configure Spark thrift server parameter](./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png "Configure Spark thrift server parameter")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png " alt-text="Configure Spark thrift server parameter" border="true":::
 
 ### Change the driver memory of the Spark Thrift Server
 
@@ -108,38 +108,38 @@ Because of Spark dynamic allocation, the only resources that are consumed by thr
 
 2. In the next page, select **Spark2 Thrift Servers**.
 
-    ![Restart thrift server1](./media/apache-spark-resource-manager/ambari-ui-spark2-thrift-servers.png "Restart thrift server1")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-thrift-servers.png " alt-text="Restart thrift server1" border="true":::
 
 3. You should see the two headnodes on which the Spark2 Thrift Server is running. Select one of the headnodes.
 
-    ![Restart thrift server2](./media/apache-spark-resource-manager/restart-thrift-server-2.png "Restart thrift server2")
+    :::image type="content" source="./media/apache-spark-resource-manager/restart-thrift-server-2.png " alt-text="Restart thrift server2" border="true":::
 
 4. The next page lists all the services running on that headnode. From the list, select the drop-down button next to Spark2 Thrift Server, and then select **Stop**.
 
-    ![Restart thrift server3](./media/apache-spark-resource-manager/ambari-ui-spark2-thriftserver-restart.png "Restart thrift server3")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-thriftserver-restart.png " alt-text="Restart thrift server3" border="true":::
 5. Repeat these steps on the other headnode as well.
 
 ## Restart the Jupyter service
 
 Launch the Ambari Web UI as shown in the beginning of the article. From the left navigation pane, select **Jupyter**, select **Service Actions**, and then select **Restart All**. This starts the Jupyter service on all the headnodes.
 
-![Restart Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "Restart Jupyter")
+:::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png " alt-text="Restart Jupyter" border="true":::
 
 ## Monitor resources
 
 Launch the Yarn UI as shown in the beginning of the article. In Cluster Metrics table on top of the screen, check values of **Memory Used** and **Memory Total** columns. If the two values are close, there might not be enough resources to start the next application. The same applies to the **VCores Used** and **VCores Total** columns. Also, in the main view, if there's an application stayed in **ACCEPTED** state and not transitioning into **RUNNING** nor **FAILED** state, this could also be an indication that it isn't getting enough resources to start.
 
-![Resource Limit](./media/apache-spark-resource-manager/apache-ambari-resource-limit.png "Resource Limit")
+:::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-resource-limit.png " alt-text="Resource Limit" border="true":::
 
 ## Kill running applications
 
 1. In the Yarn UI, from the left panel, select **Running**. From the list of running applications, determine the application to be killed and select the **ID**.
 
-    ![Kill App1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "Kill App1")
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-kill-app1.png " alt-text="Kill App1" border="true":::
 
 2. Select **Kill Application** on the top-right corner, then select **OK**.
 
-    ![Kill App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Kill App2")
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-kill-app2.png " alt-text="Kill App2" border="true":::
 
 ## See also
 
@@ -159,6 +159,6 @@ Launch the Yarn UI as shown in the beginning of the article. In Cluster Metrics 
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels available for Jupyter Notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter Notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)

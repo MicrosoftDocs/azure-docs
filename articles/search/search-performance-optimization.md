@@ -6,10 +6,10 @@ description: Learn techniques and best practices for tuning Azure Cognitive Sear
 manager: nitinme
 author: LiamCavanagh
 ms.author: liamca
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/01/2021
+ms.custom: references_regions
 ---
 
 # Scale for performance on Azure Cognitive Search
@@ -82,6 +82,31 @@ Replicas not only help reduce query latency, but can also allow for high availab
 For more details on this, please visit the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 Since replicas are copies of your data, having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. Conversely, if you take replicas away, you'll incur query performance degradation, assuming those replicas were an under-utilized resource.
+
+<a name="availability-zones"></a>
+
+### Availability Zones
+
+[Availability Zones](../availability-zones/az-overview.md) divide a region's data centers into distinct physical location groups to provide high-availability, within the same region. For Cognitive Search, individual replicas are the units for zone assignment. A search service runs within one region; its replicas run in different zones.
+
+You can utilize Availability Zones with Azure Cognitive Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region. If you have more replicas than Availability Zones, the replicas will be distributed across Availability Zones as evenly as possible.
+
+Azure Cognitive Search currently supports Availability Zones for Standard tier or higher search services that were created in one of the following regions:
+
++ Australia East (created January 30, 2021 or later)
++ Canada Central (created January 30, 2021 or later)
++ Central US (created December 4, 2020 or later)
++ East US (created January 27, 2021 or later)
++ East US 2 (created January 30, 2021 or later)
++ France Central (created October 23, 2020 or later)
++ Japan East (created January 30, 2021 or later)
++ North Europe (created January 28, 2021 or later)
++ South East Asia (created January 31, 2021 or later)
++ UK South (created January 30, 2021 or later)
++ West Europe (created January 29, 2021 or later)
++ West US 2 (created January 30, 2021 or later)
+
+Availability Zones do not impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/). You still need 3 or more replicas for query high availability.
 
 ## Scale for geo-distributed workloads and geo-redundancy
 

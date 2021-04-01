@@ -90,10 +90,12 @@ That returns an output like:
 ]
 ```
 
-Let's name the destination database **RESTORED_MyOnPremPostgresDB**  
-:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg" alt-text="Migrate-destination-db-create"lightbox="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg":::
+Let's name the destination database **RESTORED_MyOnPremPostgresDB**.
+
+:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg" alt-text="Migrate-destination-db-create" lightbox="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg":::
 
 ### Restore the database in your Arc setup
+
 :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="Migratre-db-restore":::
 
 Configure the restore:

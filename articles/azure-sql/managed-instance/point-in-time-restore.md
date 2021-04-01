@@ -104,7 +104,7 @@ For details, see [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/resto
 
 # [Azure CLI](#tab/azure-cli)
 
-If you don't already have the Azure CLI installed, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you don't already have the Azure CLI installed, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 To restore the database by using the Azure CLI, specify your values for the parameters in the following command. Then, run the command:
 
@@ -122,7 +122,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-For a detailed explanation of the available parameters, see the [CLI documentation for restoring a database in a SQL Managed Instance](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+For a detailed explanation of the available parameters, see the [CLI documentation for restoring a database in a SQL Managed Instance](/cli/azure/sql/midb#az-sql-midb-restore).
 
 ---
 
@@ -156,7 +156,7 @@ $targetDatabaseName = "<target database name>"
 $deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
 -InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `
@@ -170,7 +170,7 @@ To restore the database to another SQL Managed Instance, also specify the names 
 $targetResourceGroupName = "<Resource group of target SQL Managed Instance>"
 $targetInstanceName = "<Target SQL Managed Instance name>"
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `

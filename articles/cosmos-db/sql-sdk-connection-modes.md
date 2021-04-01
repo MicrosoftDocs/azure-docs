@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
-ms.custom: devx-track-dotnet, contperfq2
+ms.custom: devx-track-dotnet, contperf-fy21q2
 
 ---
 
@@ -24,7 +24,7 @@ The two available connectivity modes are:
       
     Gateway mode is supported on all SDK platforms. If your application runs within a corporate network with strict firewall restrictions, gateway mode is the best choice because it uses the standard HTTPS port and a single DNS endpoint. The performance tradeoff, however, is that gateway mode involves an additional network hop every time data is read from or written to Azure Cosmos DB. We also recommend gateway connection mode when you run applications in environments that have a limited number of socket connections.
 
-    When you use the SDK in Azure Functions, particularly in the [Consumption plan](../azure-functions/functions-scale.md#consumption-plan), be aware of the current [limits on connections](../azure-functions/manage-connections.md).
+    When you use the SDK in Azure Functions, particularly in the [Consumption plan](../azure-functions/consumption-plan.md), be aware of the current [limits on connections](../azure-functions/manage-connections.md).
 
   * Direct mode
 

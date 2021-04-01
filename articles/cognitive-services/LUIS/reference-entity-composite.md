@@ -168,7 +168,6 @@ This is the JSON if `verbose=true` is set in the query string:
 
 * * *
 
-
 |Data object|Entity name|Value|
 |--|--|--|
 |Prebuilt Entity - number|"builtin.number"|"2"|

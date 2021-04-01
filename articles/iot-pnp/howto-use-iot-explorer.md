@@ -7,9 +7,9 @@ ms.date: 11/10/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 
-# As a solution builder, I want to use a GUI tool to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
+#Customer intent: As a solution builder, I want to use a GUI tool to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
 ---
 
 # Install and use Azure IoT explorer

@@ -27,19 +27,19 @@ Since Application Insights is backed by the powerful Azure Monitor log platform,
 
 In this section, we will review how to get your data into Azure Monitor logs.
 
-If you don't already have one, provision a new Log Analytics workspace by following [these instructions](../learn/quick-collect-azurevm.md) through and including the "create a workspace" step.
+If you don't already have one, provision a new Log Analytics workspace by following [these instructions](../vm/quick-collect-azurevm.md) through and including the "create a workspace" step.
 
 To start sending log data into Azure Monitor. Several options exist:
 
-- For a synchronous mechanism, you can either directly call the [data collector API](../platform/data-collector-api.md) or use our Logic App connector – simply look for "Azure Log Analytics" and pick the "Send Data" option:
+- For a synchronous mechanism, you can either directly call the [data collector API](../logs/data-collector-api.md) or use our Logic App connector – simply look for "Azure Log Analytics" and pick the "Send Data" option:
 
   ![Screenshot choose and action](./media/custom-data-correlation/01-logic-app-connector.png)  
 
-- For an asynchronous option, use the Data Collector API to build a processing pipeline. See [this article](../platform/create-pipeline-datacollector-api.md) for details.
+- For an asynchronous option, use the Data Collector API to build a processing pipeline. See [this article](../logs/create-pipeline-datacollector-api.md) for details.
 
 ## Correlating data
 
-Application Insights is based on the Azure Monitor log platform. We can therefore use [cross-resource joins](../log-query/cross-workspace-query.md) to correlate any data we ingested into Azure Monitor with our Application Insights data.
+Application Insights is based on the Azure Monitor log platform. We can therefore use [cross-resource joins](../logs/cross-workspace-query.md) to correlate any data we ingested into Azure Monitor with our Application Insights data.
 
 For example, we can ingest our lab inventory and locations into a table called "LabLocations_CL" in a Log Analytics workspace called "myLA". If we then wanted to review our requests tracked in Application Insights app called "myAI" and correlate the machine names that served the requests to the locations of these machines stored in the previously mentioned custom table, we can run the following query from either the Application Insights or Azure Monitor context:
 
@@ -53,5 +53,5 @@ app('myAI').requests
 
 ## Next Steps
 
-- Check out the [Data Collector API](../platform/data-collector-api.md) reference.
-- For more information on [cross-resource joins](../log-query/cross-workspace-query.md).
+- Check out the [Data Collector API](../logs/data-collector-api.md) reference.
+- For more information on [cross-resource joins](../logs/cross-workspace-query.md).

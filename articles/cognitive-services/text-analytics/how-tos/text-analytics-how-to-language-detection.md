@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/16/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ---
 
@@ -26,8 +26,6 @@ If you have content expressed in a less frequently used language, you can try th
 > Text Analytics also provides a Linux-based Docker container image for language detection, so you can [install and run the Text Analytics container](text-analytics-how-to-install-containers.md) close to your data.
 
 ## Preparation
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 You must have JSON documents in this format: ID and text.
 
@@ -298,5 +296,5 @@ In this article, you learned concepts and workflow for language detection by usi
 ## See also
 
 * [Text Analytics overview](../overview.md)
-* [Using the Text Analytics client library](../quickstarts/text-analytics-sdk.md)
+* [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)

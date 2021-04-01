@@ -13,10 +13,7 @@ ms.custom: references_regions
 
 # Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)
 
-You can mount a container in Blob storage from a Windows or Linux-based Azure Virtual Machine (VM) or a Windows or Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
-
-> [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview and is available in the following regions: US East, US Central, US West Central, Australia Southeast, North Europe, UK West, Korea Central, Korea South, and Canada Central.
+You can mount a container in Blob storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
 
 ## Step 1: Register the NFS 3.0 protocol feature with your subscription
 
@@ -43,13 +40,7 @@ You can mount a container in Blob storage from a Windows or Linux-based Azure Vi
    Register-AzProviderFeature -FeatureName AllowNFSV3 -ProviderNamespace Microsoft.Storage 
    ```
 
-5. Register the `PremiumHns` feature by using the following command as well.
-
-   ```powershell
-   Register-AzProviderFeature -FeatureName PremiumHns -ProviderNamespace Microsoft.Storage  
-   ```
-
-6. Register the resource provider by using the following command.
+5. Register the resource provider by using the following command.
     
    ```powershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage   
@@ -61,7 +52,6 @@ Registration approval can take up to an hour. To verify that the registration is
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumHns  
 ```
 
 ## Step 3: Create an Azure Virtual Network (VNet)
@@ -81,20 +71,20 @@ To secure the data in your account, see these recommendations: [Network security
 
 To mount a container by using NFS 3.0, You must create a storage account **after** you register the feature with your subscription. You can't enable accounts that existed before you registered the feature. 
 
-In the preview release of this feature, NFS 3.0 protocol is supported only in [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) accounts.
+In the preview release of this feature, NFS 3.0 protocol is supported in [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) and [general-purpose V2](../common/storage-account-overview.md#general-purpose-v2-accounts) accounts.
 
 As you configure the account, choose these values:
 
-|Setting | Value|
-|----|---|
-|Location|One of the following regions: US East, US Central, US West Central, Australia Southeast, North Europe, UK West, Korea Central, Korea South, and Canada Central |
-|Performance|Premium|
-|Account kind|BlockBlobStorage|
-|Replication|Locally-redundant storage (LRS)|
-|Connectivity method|Public endpoint (selected networks) or Private endpoint|
-|Secure transfer required|Disabled|
-|Hierarchical namespace|Enabled|
-|NFS V3|Enabled|
+|Setting | Premium performance | Standard performance  
+|----|---|---|
+|Location|All available regions |One of the following regions: Australia East, Korea Central, and South Central US   
+|Performance|Premium| Standard
+|Account kind|BlockBlobStorage| General-purpose V2
+|Replication|Locally-redundant storage (LRS)| Locally-redundant storage (LRS)
+|Connectivity method|Public endpoint (selected networks) or Private endpoint |Public endpoint (selected networks) or Private endpoint
+|Secure transfer required|Disabled|Disabled
+|Hierarchical namespace|Enabled|Enabled
+|NFS V3|Enabled |Enabled 
 
 You can accept the default values for all other settings. 
 
@@ -105,16 +95,14 @@ Create a container in your storage account by using any of these tools or SDKs:
 |Tools|SDKs|
 |---|---|
 |[Azure portal](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
-|[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
+|[AzCopy](../common/storage-use-azcopy-v10.md#transfer-data)|[Java](data-lake-storage-directory-file-acl-java.md)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
 ||[REST](/rest/api/storageservices/create-container)|
 
 ## Step 7: Mount the container
 
-Create a directory on your Windows or Linux system, and then mount a container in the storage account.
-
-### [Linux](#tab/linux)
+Create a directory on your Linux system, and then mount a container in the storage account.
 
 1. On a Linux system, create a directory.
 
@@ -131,32 +119,6 @@ Create a directory on your Windows or Linux system, and then mount a container i
    - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
 
    - Replace the `<container-name>` placeholder with the name of your container.
-
-
-### [Windows](#tab/windows)
-
-1. Open the **Windows Features** dialog box, and then turn on the **Client for NFS** feature. 
-
-   ![Client for Network File System feature](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
-
-2. Mount a container by using the [mount](/windows-server/administration/windows-commands/mount) command.
-
-   ```
-   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
-   ```
-
-   - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
-
-   - Replace the `<container-name>` placeholder with the name of your container.
-
-3. If you need write permissions, you may need to change the default UID and GID that Windows uses to connect to the share. To do this, run the following PowerShell commands as an administrator:
-
-   ```
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
-   ```
-   
-   - Restart the NFS client service or reboot the server after making this change.
 
 ---
 

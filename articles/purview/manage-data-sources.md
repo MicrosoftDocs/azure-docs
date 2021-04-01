@@ -1,8 +1,8 @@
 ---
 title: Manage data sources in Azure Purview (Preview)
 description: Learn how to register new data sources, manage collections of data sources, and view sources in Azure Purview (Preview).
-author: mamccrea
-ms.author: mamccrea
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
@@ -11,18 +11,7 @@ ms.date: 11/25/2020
 
 # Manage data sources in Azure Purview (Preview)
 
-In this article, you learn how to register new data sources, manage collections of data sources, and view sources in Azure Purview (Preview). Azure Purview supports the following data sources:
-
-* SQL server on-premises
-* Azure Data Lake Storage Gen1 
-* Azure Data Lake Storage Gen2
-* Azure Blob Storage
-* Azure Data Explorer
-* Azure SQL DB
-* Azure SQL DB Managed Instance
-* Azure Synapse Analytics (formerly SQL DW)
-* Azure Cosmos DB
-* Power BI
+In this article, you learn how to register new data sources, manage collections of data sources, and view sources in Azure Purview (Preview)
 
 ## Register a new source
 

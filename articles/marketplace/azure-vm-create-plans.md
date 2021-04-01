@@ -186,7 +186,7 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 
 1. When creating a new offer, select a **Generation type** and enter the requested details:
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="A view of the Generation drop-down box.":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="A view of the Generation detail section in Partner Center.":::
 
 2. To add another generation to a plan, select **Add generation**...
 
@@ -198,9 +198,7 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 
 <!--    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
 -->
-3. To update an existing VM that has a Generation 1 already published, edit details on this **Technical configuration** page:
-
-    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="A view of the plan technical configuration page.":::
+3. To update an existing VM that has a Generation 1 already published, edit details on the **Technical configuration** page.
 
 To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
@@ -218,6 +216,8 @@ Data disks (select **Add data disk (maximum 16)**) are also VHD shared access si
 Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can't remove disks that are part of an image, but they can always add disks during or after deployment.
 
 Select **Save draft**, then select **← Plan overview** at the top left to see the plan you just created.
+
+Once your VM image has published, you can delete the image from your Azure storage.
 
 ## Next steps
 

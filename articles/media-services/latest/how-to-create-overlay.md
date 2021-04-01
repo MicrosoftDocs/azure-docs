@@ -36,8 +36,8 @@ The Media Encoder Standard allows you to overlay an image, audio file, or anothe
 
 If you aren't already familiar with Transforms, it is recommended that you complete the following activities:
 
-* Read [Encoding video and audio with Media Services](encoding-concept.md)
-* Read [How to encode with a custom transform - .NET](customize-encoder-presets-how-to.md). Follow the steps in that article to set up the .NET needed to work with transforms, then return here to try out an overlays preset sample.
+* Read [Encoding video and audio with Media Services](encode-concept.md)
+* Read [How to encode with a custom transform - .NET](encode-custom-presets-how-to.md). Follow the steps in that article to set up the .NET needed to work with transforms, then return here to try out an overlays preset sample.
 * See the [Transforms reference document](/rest/api/media/transforms).
 
 Once you are familiar with Transforms, download the overlays sample.
@@ -48,4 +48,4 @@ Download the [media-services-overlay sample](https://github.com/Azure-Samples/me
 
 ## Next steps
 
-* [Subclip a video when encoding with Media Services - .NET](subclip-video-dotnet-howto.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

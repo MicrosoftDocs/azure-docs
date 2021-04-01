@@ -1,25 +1,22 @@
 ---
-title: Monitor Windows Virtual Desktop preview glossary - Azure
+title: Monitor Windows Virtual Desktop glossary - Azure
 description: A glossary of terms and concepts related to Azure Monitor for Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
 ---
-# Azure Monitor for Windows Virtual Desktop (preview) glossary
-
->[!IMPORTANT]
->Azure Monitor for Windows Virtual Desktop is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Azure Monitor for Windows Virtual Desktop glossary
 
 This article lists and briefly describes key terms and concepts related to Azure Monitor for Windows Virtual Desktop (preview).
 
 ## Alerts
 
-Any active Azure Monitor alerts that you've configured on the subscription and classified as [severity 1](#severity-1-alerts) will appear in the Overview page. To learn how to set up alerts, see [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
+Any active Azure Monitor alerts that you've configured on the subscription and classified as [severity 0](#severity-0-alerts) will appear in the Overview page. To learn how to set up alerts, see [Respond to events with Azure Monitor Alerts](../azure-monitor/alerts/tutorial-response.md).
 
 ## Available sessions
 
@@ -35,7 +32,7 @@ The total number of users that have started a session in the last 24 hours.
 
 ## Daily alerts
 
-The total number of [severity 1 alerts](#severity-1-alerts) triggered in the last 24 hours.
+The total number of alerts triggered each day.
 
 ## Daily connections and reconnections
 
@@ -73,7 +70,7 @@ Each diagnostics issue or error includes a message that explains what went wrong
 
 ## Input delay
 
-"Input delay" in Azure Monitor for Windows Virtual Desktop means the input delay per process performance counter for each session. In the host performance page at <aka.ms/azmonwvdi>, this performance counter is configured to send a report to the service once every 30 seconds. These 30-second intervals are called "samples," and the report the worst case in that window. The median and p95 values reflect the median and 95th percentile across all samples.
+"Input delay" in Azure Monitor for Windows Virtual Desktop means the input delay per process performance counter for each session. In the host performance page at [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), this performance counter is configured to send a report to the service once every 30 seconds. These 30-second intervals are called "samples," and the report the worst case in that window. The median and p95 values reflect the median and 95th percentile across all samples.
 
 Under **Input delay by host**, you can select a session host row to filter all other visuals in the page to that host. You can also select a process name to filter the median input delay over time chart.
 
@@ -109,21 +106,16 @@ The following table lists the recommended performance counters and time interval
 |PhysicalDisk(\*)\\Avg. Disk sec/Read|30 seconds|
 |PhysicalDisk(\*)\\Avg. Disk sec/Transfer|30 seconds|
 |PhysicalDisk(\*)\\Avg. Disk sec/Write|30 seconds|
-|Process(\*)\\% Processor Time|20 seconds|
-|Process(\*)\\% User Time|30 seconds|
-|Process(\*)\\Thread Count|30 seconds|
-|Process(\*)\\ IO Write Operations/sec|30 seconds|
-|Process(\*)\\ IO Read Operations/sec|30 seconds|
 |Processor Information(_Total)\\% Processor Time|30 seconds|
 |Terminal Services(\*)\\Active Sessions|60 seconds|
 |Terminal Services(\*)\\Inactive Sessions|60 seconds|
 |Terminal Services(\*)\\Total Sessions|60 seconds|
-|\*User Input Delay per Process(\*)\\Max Input Dela|30 seconds|
+|\*User Input Delay per Process(\*)\\Max Input Delay|30 seconds|
 |\*User Input Delay per Session(\*)\\Max Input Delay|30 seconds|
 |RemoteFX Network(\*)\\Current TCP RTT|30 seconds|
 |RemoteFX Network(\*)\\Current UDP Bandwidth|30 seconds|
 
-To learn more about how to read performance counters, see [Configuring performance counters](../azure-monitor/platform/data-sources-performance-counters.md).
+To learn more about how to read performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md).
 
 To learn more about input delay performance counters, see [User Input Delay performance counters](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
@@ -144,13 +136,13 @@ You can also select entries to view additional information. You can view which h
 
 ## Round-trip time (RTT)
 
-Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the VM's Azure region. To see which locations have the best latency, look up your desired location in the [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
+Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the session host's Azure region. To see which locations have the best latency, look up your desired location in the [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 
 ## Session history
 
 The **Sessions** item shows the status of all sessions, connected and disconnected. **Idle sessions** only shows the disconnected sessions.
 
-## Severity 1 alerts
+## Severity 0 alerts
 
 The most urgent items that you need to take care of right away. If you don't address these issues, they could cause your Windows Virtual Desktop deployment to stop working.
 
@@ -169,11 +161,11 @@ maximum number of users per core over time can help you identify whether the
 environment consistently runs at a high, low, or fluctuating number of users per
 core. Knowing how many users are active will help you efficiently resource and scale the environment.
 
-## Windows events
+## Windows Event Logs
 
-Windows Event logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
+Windows Event Logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
-The following table lists the required Windows events for Azure Monitor for Windows Virtual Desktop:
+The following table lists the required Windows Event Logs for Azure Monitor for Windows Virtual Desktop:
 
 |Event name|Event type|
 |---|---|
@@ -184,7 +176,7 @@ The following table lists the required Windows events for Azure Monitor for Wind
 | Microsoft-FSLogix-Apps/Operational|Error, Warning, and Information|
 |Microsoft-FSLogix-Apps/Admin|Error, Warning, and Information|
 
-To learn more about Windows events, see [Windows event records properties](../azure-monitor/platform/data-sources-windows-events.md).
+To learn more about Windows Event Logs, see [Windows Event records properties](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).
 
 ## Next steps
 
@@ -201,4 +193,4 @@ If you need help or have any questions, check out our community resources:
    
 - To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Windows Virtual Desktop](troubleshoot-set-up-overview.md#report-issues).
 
-- You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) or [our UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+- You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)

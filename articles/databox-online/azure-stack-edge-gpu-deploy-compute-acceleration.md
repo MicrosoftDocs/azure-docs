@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Use compute acceleration on Azure Stack Edge Pro GPU for Kubernetes deployment
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to use compute acceleration on Azure Stack Edge devices when using Kubernetes deployments. The article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
 
@@ -24,8 +26,8 @@ Compute acceleration is a term used specifically for Azure Stack Edge devices wh
 
 The article will discuss compute acceleration only using GPU or VPU for the following devices:
 
-- **Azure Stack Edge Pro GPU** - These devices can have 1 or 2 Nvidia T4 Tensor Core GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/data-center/tesla-t4/).
-- **Azure Stack Edge Pro R** - These devices have 1 Nvidia T4 Tensor Core GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/data-center/tesla-t4/).
+- **Azure Stack Edge Pro GPU** - These devices can have 1 or 2 Nvidia T4 Tensor Core GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
+- **Azure Stack Edge Pro R** - These devices have 1 Nvidia T4 Tensor Core GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
 - **Azure Stack Edge Mini R** - These devices have 1 Intel Movidius Myriad X VPU. For more information, see [Intel Movidius Myriad X VPU](https://www.movidius.com/MyriadX).
 
 

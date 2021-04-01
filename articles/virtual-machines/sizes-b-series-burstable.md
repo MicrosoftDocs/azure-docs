@@ -2,7 +2,7 @@
 title: B-series burstable - Azure Virtual Machines
 description: Describes the B-series of burstable Azure VM sizes.
 services: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-general
 author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -16,14 +16,19 @@ The B-series VMs are ideal for workloads that do not need the full performance o
 
 The B-series comes in the following VM sizes:
 
-[Azure Compute Unit (ACU)](./acu.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): Varies*<br>
+[Azure Compute Unit (ACU)](./acu.md): Varies*<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported**<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+
+*B-series VMs are burstable and thus ACU numbers will vary depending on workloads and core usage.<br>
+**Accelerated Networking is only supported for *Standard_B12ms*, *Standard_B16ms* and *Standard_B20ms*.
 <br>
-*B-series VMs are burstable and thus ACU numbers will vary depending on workloads and core usage.
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Base CPU Perf of VM | Max CPU Perf of VM | Initial Credits | Credits banked/hour | Max Banked Credits | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -99,7 +104,7 @@ For a D16s_v3 which has 16 vCPUs and 64 GiB of memory the hourly rate is $0.936 
 
 **A**: The **Credit** metric allows you to view how many credits your VM have been banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
 
-For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../azure-monitor/platform/data-platform.md).
+For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../azure-monitor/data-platform.md).
 
 ### Q: How are credits accumulated and consumed?
 
@@ -107,7 +112,7 @@ For more information on how to access the metrics data for Azure, see [Overview 
 
 **Example**:  I deploy a VM using the B1ms size for my small time and attendance database application. This size allows my application to use up to 20% of a vCPU as my baseline, which is 0.2 credits per minute I can use or bank.
 
-My application is busy at the beginning and end of my employees work day, between 7:00-9:00 AM and 4:00 - 6:00PM. During the other 20 hours of the day, my application is typically at idle, only using 10% of the vCPU. For the non-peak hours, I earn 0.2 credits per minute but only consume 0.l credits per minute, so my VM will bank 0.1 x 60 = 6 credits per hour.  For the 20 hours that I am off-peak, I will bank 120 credits.  
+My application is busy at the beginning and end of my employees work day, between 7:00-9:00 AM and 4:00 - 6:00PM. During the other 20 hours of the day, my application is typically at idle, only using 10% of the vCPU. For the non-peak hours, I earn 0.2 credits per minute but only consume 0.1 credits per minute, so my VM will bank 0.1 x 60 = 6 credits per hour.  For the 20 hours that I am off-peak, I will bank 120 credits.  
 
 During peak hours my application averages 60% vCPU utilization, I still earn 0.2 credits per minute but I consume 0.6 credits per minute, for a net cost of 0.4 credits a minute or 0.4 x 60 = 24 credits per hour. I have 4 hours per day of peak usage, so it costs 4 x 24 = 96 credits for my peak usage.
 
@@ -127,7 +132,7 @@ e.g in above instance your baseline is 20% and if you use 10% of the CPU you are
 
 ### Q: Why is my remaining credit set to 0 after a redeploy or a stop/start?
 
-**A** : When a VM is “REDPLOYED” and the VM  moves to another node, the accumulated credit is lost. If the VM is stopped/started, but remains on the same node, the VM retains the accumulated credit. Whenever the VM starts fresh on a node, it gets an initial credit,  for Standard_B8ms it is 240.
+**A** : When a VM is redeployed and the VM  moves to another node, the accumulated credit is lost. If the VM is stopped/started, but remains on the same node, the VM retains the accumulated credit. Whenever the VM starts fresh on a node, it gets an initial credit,  for Standard_B8ms it is 240.
 
 ### Q: What happens if I deploy an unsupported OS image on B1ls?
 

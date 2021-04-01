@@ -155,7 +155,7 @@ To create the steps to execute Azure CLI commands.
           - name: Upgrade node images
             uses: Azure/cli@v1.0.0
             with:
-              inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only
+              inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only --yes
     ```
 
     > [!TIP]

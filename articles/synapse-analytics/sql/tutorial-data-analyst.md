@@ -33,8 +33,8 @@ SELECT TOP 100 * FROM
 
 [New York City (NYC) Taxi dataset](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) includes:
 
-- Pickup and drop-off dates and times.
-- Pick up and drop-off locations. 
+- Pick-up and drop-off dates and times.
+- Pick-up and drop-off locations. 
 - Trip distances.
 - Itemized fares.
 - Rate types.

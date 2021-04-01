@@ -237,4 +237,7 @@ To delete all of the resources created in this tutorial, delete the resource gro
 * [Learn how to order device connected and disconnected events](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * Learn about what else you can do with [Event Grid](overview.md).
 
-For a complete list of supported Logic App connectors, see the [Connectors overview](/connectors/).
+For a complete list of supported Logic App connectors, see the 
+
+> [!div class="nextstepaction"]
+> [Connectors overview](/connectors/).

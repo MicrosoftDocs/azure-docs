@@ -27,7 +27,7 @@ For this quickstart you need:
   | **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
   | **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- Install the [.NET Framework](https://www.microsoft.com/net/download) for your platform (Windows, Ubuntu Linux, or macOS). 
+- Install the [.NET Framework](https://www.microsoft.com/net/download) for your platform (Windows, Ubuntu Linux, or macOS).
 - Install [Visual Studio](https://www.visualstudio.com/downloads/) to build your project.
 - Install [Npgsql](https://www.nuget.org/packages/Npgsql/) NuGet package in Visual Studio.
 
@@ -41,13 +41,13 @@ Get the connection information needed to connect to the Azure Database for Postg
  :::image type="content" source="./media/connect-csharp/1-connection-string.png" alt-text="Azure Database for PostgreSQL server name":::
 
 ## Step 1: Connect and insert data
-Use the following code to connect and load the data using **CREATE TABLE** and  **INSERT INTO** SQL statements. The code uses NpgsqlCommand class with method: 
+Use the following code to connect and load the data using **CREATE TABLE** and  **INSERT INTO** SQL statements. The code uses NpgsqlCommand class with method:
 - [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to the PostgreSQL database.
 - [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) sets the CommandText property.
-- [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) method to run the database commands. 
+- [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) method to run the database commands.
 
 > [!IMPORTANT]
-> Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
+> Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database.
 
 ```csharp
 using System;
@@ -86,7 +86,7 @@ namespace Driver
                 conn.Open();
 
                 using (var command = new NpgsqlCommand("DROP TABLE IF EXISTS inventory", conn))
-                { 
+                {
                     command.ExecuteNonQuery();
                     Console.Out.WriteLine("Finished dropping table (if existed)");
 
@@ -106,7 +106,7 @@ namespace Driver
                     command.Parameters.AddWithValue("q2", 154);
                     command.Parameters.AddWithValue("n3", "apple");
                     command.Parameters.AddWithValue("q3", 100);
-                    
+
                     int nRows = command.ExecuteNonQuery();
                     Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
                 }
@@ -129,7 +129,7 @@ Use the following code to connect and read the data using a **SELECT** SQL state
 - [GetInt32()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) and [GetString()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) to parse the values in the record.
 
 > [!IMPORTANT]
-> Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
+> Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database.
 
 ```csharp
 using System;
@@ -182,6 +182,7 @@ namespace Driver
                                 )
                             );
                     }
+                    reader.Close();
                 }
             }
 
@@ -196,12 +197,12 @@ namespace Driver
 
 ## Step 3: Update data
 Use the following code to connect and update the data using an **UPDATE** SQL statement. The code uses NpgsqlCommand class with method:
-- [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL. 
+- [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL.
 - [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), sets the CommandText property.
 - [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) method to run the database commands.
 
 > [!IMPORTANT]
-> Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
+> Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database.
 
 ```csharp
 using System;
@@ -242,7 +243,6 @@ namespace Driver
                 {
                     command.Parameters.AddWithValue("n", "banana");
                     command.Parameters.AddWithValue("q", 200);
-                    
                     int nRows = command.ExecuteNonQuery();
                     Console.Out.WriteLine(String.Format("Number of rows updated={0}", nRows));
                 }
@@ -260,12 +260,12 @@ namespace Driver
 [Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
 
 ## Step 4: Delete data
-Use the following code to connect and delete data using a **DELETE** SQL statement. 
+Use the following code to connect and delete data using a **DELETE** SQL statement.
 
 The code uses NpgsqlCommand class with method [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to the PostgreSQL database. Then, the code uses the [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) method, sets the CommandText property, and calls the method [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run the database commands.
 
 > [!IMPORTANT]
-> Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
+> Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database.
 
 ```csharp
 using System;

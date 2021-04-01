@@ -97,10 +97,6 @@ Yes. See [Caveats/Limitations](#caveatslimitations).
 
 Yes it migrates traffic. If you would like to migrate traffic personally, use [this script](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0) which does not move VMs for you.
 
-### I ran into some issues with using this script. How can I get help?
-  
-You can send an email to slbupgradesupport@microsoft.com, open a support case with Azure Support, or do both.
-
 ## Next steps
 
 [Learn about Standard Load Balancer](load-balancer-overview.md)

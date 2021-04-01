@@ -104,9 +104,7 @@ See the full list of categories and subcategories in [Offer Listing Best Practic
 
 #### Terms and conditions
 
-To provide your own custom terms and conditions, enter up to 10,000 characters in the **Terms and conditions** box. If your terms and conditions require a longer description, enter a single web link to where they can be found. It will display to customers as an active link.
-
-Customers must accept these terms before they can try your offer.
+To provide your own custom terms and conditions, enter up to 10,000 characters in the **Terms and conditions** box. Customers must accept these terms before they can try your offer.
 
 Select **Save draft** before continuing to the next section, Offer listing.
 

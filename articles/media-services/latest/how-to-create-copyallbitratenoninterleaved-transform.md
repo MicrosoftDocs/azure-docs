@@ -25,7 +25,7 @@ This article shows how to create a `CopyAllBitrateNonInterleaved` transform.
 
 ## Prerequisites
 
-Follow the steps in [Create a Media Services account](./create-account-howto.md) to create the needed Media Services account and resource group to create an asset.
+Follow the steps in [Create a Media Services account](./account-create-how-to.md) to create the needed Media Services account and resource group to create an asset.
 
 ## Methods
 
@@ -33,7 +33,6 @@ Follow the steps in [Create a Media Services account](./create-account-howto.md)
 
 [!INCLUDE [task-create-copyallbitratenoninterleaved.md](./includes/task-create-copyallbitratenoninterleaved.md)]
 
-
 ## Next steps
 
-[Media Services Overview](media-services-overview.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

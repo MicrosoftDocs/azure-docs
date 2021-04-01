@@ -14,7 +14,7 @@ ms.date: 06/04/2020
 # Request quota increases for Azure SQL Database and SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-This article explains how to request a quota increase for Azure SQL Database and Azure SQL Managed Instance. It also explains how to enable subscription access to a region.
+This article explains how to request a quota increase for Azure SQL Database and Azure SQL Managed Instance. It also explains how to enable subscription access to a region and how to request enabling specific hardware in a region.
 
 ## <a id="newquota"></a> Create a new support request
 
@@ -57,8 +57,7 @@ The following sections describe the quota increase options for the **SQL Databas
 
 - Database transaction units (DTUs) per server
 - Servers per subscription
-- M-series region access
-- Region access
+- Region access for subscriptions or specific hardware
 
 ### Database transaction units (DTUs) per server
 
@@ -104,28 +103,15 @@ If your subscription needs access in a particular region, select the **Region ac
 
    ![Request region access](./media/quota-increase-request/quota-request.png)
 
-### <a id="mseries"></a> Enable M-series access to a region
+### Request enabling specific hardware in a region
 
-To enable M-series hardware for a subscription and region, a support request must be opened.
+If a [hardware generation](service-tiers-vcore.md#hardware-generations) you want to use is not available in your region (see [Hardware availability](service-tiers-vcore.md#hardware-availability)), you may request it using the following steps.
 
-1. Select the **M-series region access** quota type.
+1. Select the **Other quota request** quota type.
 
-1. In the **Select a location** list, select the Azure region to use. The quota is per subscription in each region.
+1. In the **Description** field, state your request, including the name of the hardware generation and the name of the region you need it in.
 
-
-   ![Request M-series region access](./media/quota-increase-request/quota-m-series.png)
-
-## <a id="sqlmiquota"></a> SQL Managed Instance quota type
-
-For the **SQL Managed Instance** quota type, use the following steps:
-
-1. In the **Region** list, select the Azure region to target.
-
-1. Enter the new limits you are requesting for **Subnet** and **vCore**.
-
-   ![SQL Managed Instance quota details](./media/quota-increase-request/quota-details-managed-instance.png)
-
-For more information, see [Overview Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md).
+   ![Request hardware in a new region](./media/quota-increase-request/hardware-in-new-region.png)
 
 ## Submit your request
 

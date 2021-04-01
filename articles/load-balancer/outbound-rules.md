@@ -5,7 +5,7 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: conceptual
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
 ---
@@ -31,11 +31,11 @@ With outbound rules, you can explicitly define outbound **SNAT** behavior.
 Outbound rules allow you to control:
 
 * **Which virtual machines are translated to which public IP addresses.**
-     * Two rules were backend pool A uses IP address A and B, backend pool B uses IP address C and D.
+     * Two rules were backend pool 1 uses the blue IP address 1 and 2, backend pool 2 uses the yellow IP prefix.
 * **How outbound SNAT ports are allocated.**
-     * Backend pool B is the only pool making outbound connections, give all SNAT ports to backend pool B and none to backend pool A.
+     * If backend pool 2 is the only pool making outbound connections, give all SNAT ports to backend pool 2 and none to backend pool 1.
 * **Which protocols to provide outbound translation for.**
-     * Backend pool B needs UDP ports for outbound. Backend pool A needs TCP. Give TCP ports to A and UDP ports to B.
+     * If backend pool 2 needs UDP ports for outbound, and backend pool 1 needs TCP, give TCP ports to 1 and UDP ports to 2.
 * **What duration to use for outbound connection idle timeout (4-120 minutes).**
      * If there are long running connections with keepalives, reserve idle ports for long running connections for up to 120 minutes. Assume stale connections are abandoned and release ports in 4 minutes for fresh connections 
 * **Whether to send a TCP Reset on idle timeout.**

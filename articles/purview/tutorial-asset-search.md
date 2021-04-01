@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Navigate the Azure Purview home page and search for an asset'
 description: This tutorial describes how to use features on the Azure Purview home page and search in the catalog. 
-author: hophan
-ms.author: hophan
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 12/01/2020
+ms.date: 02/22/2020
 ---
 
 # Tutorial: Navigate the Azure Purview (preview) home page and search for an asset
@@ -40,7 +40,7 @@ The following steps walk you through the Azure Purview home page.
 
 1. Navigate to your Azure Purview resource in the Azure portal and select **Open Purview Studio**. You're automatically taken to your Purview Studio's home page.
 
-   The top of the home page displays the name of your catalog and a set of catalog analytics. Included are the number of users, data assets, and glossary terms. In the summary, you can see that there are over 200 assets in total and 113 glossary terms. This number updates as your organization scans and adds more terms to Azure Purview.
+   The top of the home page displays the name of your catalog and a set of catalog analytics. Included are the number of sources, data assets, and glossary terms. In the summary, you can see that there are over 200 assets in total and 113 glossary terms. This number updates as your organization scans and adds more terms to Azure Purview.
 
    :::image type="content" source="./media/tutorial-asset-search/purview-home-page.png" alt-text="Screenshot showing the Azure Purview home page.":::
 

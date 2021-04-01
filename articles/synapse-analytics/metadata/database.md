@@ -14,9 +14,9 @@ ms.custom: devx-track-csharp
 
 # Azure Synapse Analytics shared database
 
-Azure Synapse Analytics allows the different computational workspace engines to share databases and tables between its serverless Apache Spark pools and serverless SQL pool engine.
+Azure Synapse Analytics allows the different computational workspace engines to share databases and tables. Currently, the databases and the Parquet tables that are created on the Apache Spark pools are automatically shared with the serverless SQL pool engine.
 
-A database created with a Spark job will become visible with that same name to all current and future Spark pools in the workspace, including the serverless SQL pool engine.
+A database created with a Spark job will become visible with that same name to all current and future Spark pools in the workspace, including the serverless SQL pool engine. You cannot add custom objects (external tables, views, procedures) directly in this replicated database using the serverless SQL pool.
 
 The Spark default database, called `default`, will also be visible in the serverless SQL pool context as a database called `default`.
 

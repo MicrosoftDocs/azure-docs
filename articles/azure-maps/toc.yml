@@ -9,6 +9,8 @@
   items:
   - name: Create a web app
     href: quick-demo-map-app.md
+  - name: Create an Android app
+    href: quick-android-map.md
 - name: Tutorials
   items:
   - name: Web SDK Tutorials
@@ -21,6 +23,10 @@
       href: tutorial-prioritized-routes.md
     - name: Create a store locator
       href: tutorial-create-store-locator.md
+  - name: Android SDK Tutorials
+    items:
+    - name: Load GeoJSON data into map
+      href: tutorial-load-geojson-file-android.md
   - name: REST API Tutorials
     items:
     - name: Create indoor maps
@@ -87,10 +93,12 @@
     href: supported-map-styles.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
-  - name: Mobility Service data structure
+  - name: Mobility services
     href: mobility-service-data-structure.md
-  - name: Weather Service concepts
+  - name: Weather services concepts
     href: weather-services-concepts.md
+  - name: Weather services FAQ
+    href: weather-services-faq.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
@@ -151,11 +159,11 @@
       - name: Create a data source
         href: create-data-source-web-sdk.md
       - name: Add a symbol layer
-        href: map-add-pin.md  
-      - name: Add a popup
-        href: map-add-popup.md      
+        href: map-add-pin.md     
       - name: Add a bubble layer
         href: map-add-bubble-layer.md
+      - name: Add a popup
+        href: map-add-popup.md   
       - name: Add HTML markers
         href: map-add-custom-html.md
       - name: Add a line layer
@@ -230,22 +238,42 @@
         href: spatial-io-supported-data-format-details.md
     - name: Web SDK supported browsers
       href: supported-browsers.md
+    - name: Best practices
+      href: web-sdk-best-practices.md
   - name: Develop with the Android SDK
     items:
     - name: Getting started with Android map control
       href: how-to-use-android-map-control-library.md
     - name: Change the style of the map
       href: set-android-map-styles.md
+    - name: Add controls to the map
+      href: map-add-controls-android.md
+    - name: Create a data source
+      href: create-data-source-android-sdk.md
     - name: Add a symbol layer
       href: how-to-add-symbol-to-android-map.md
-    - name: Add shapes
-      href: how-to-add-shapes-to-android-map.md
+    - name: Add a bubble layer
+      href: map-add-bubble-layer-android.md
     - name: Display feature information
       href: display-feature-information-android.md
+    - name: Add a line layer
+      href: android-map-add-line-layer.md
+    - name: Add a polygon layer
+      href: how-to-add-shapes-to-android-map.md
+    - name: Add a polygon extrusion layer
+      href: map-extruded-polygon-android.md
+    - name: Add heat map layer
+      href: map-add-heat-map-layer-android.md
+    - name: Add an image layer
+      href: map-add-image-layer-android.md
     - name: Add a tile layer
       href: how-to-add-tile-layer-android-map.md
     - name: Show traffic data 
       href: how-to-show-traffic-android.md
+    - name: Use data-driven expressions
+      href: data-driven-style-expressions-android-sdk.md
+    - name: Reacting to events
+      href: android-map-events.md
   - name: Use Azure Maps in Power BI
     items: 
     - name: Getting started
@@ -286,9 +314,11 @@
     items:
     - name: Data service
       href: /rest/api/maps/data
+    - name: Elevation service
+      href: /rest/api/maps/elevation
     - name: Geolocation service
       href: /rest/api/maps/geolocation
-    - name: Mobility service
+    - name: Mobility services
       href: /rest/api/maps/mobility
     - name: Render service
       href: /rest/api/maps/render
@@ -304,7 +334,7 @@
       href: /rest/api/maps/timezone
     - name: Traffic service
       href: /rest/api/maps/traffic
-    - name: Weather service
+    - name: Weather services
       href: /rest/api/maps/weather
     - name: Maps Creator service
       items:
@@ -341,7 +371,7 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub

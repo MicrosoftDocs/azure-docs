@@ -1,5 +1,5 @@
 ---
-title: How to use the Video.js player with Azure Media Services
+title: Use the Video.js player with Azure Media Services
 description: This article explains how to use the HTML video object and JavaScript with Azure Media Services
 services: media-services
 documentationcenter: ''
@@ -159,4 +159,4 @@ keySystems: {...
 ## Next steps
 
 - [Use the Azure Media Player](../azure-media-player/azure-media-player-overview.md)  
-- [Quickstart: Encrypt content](encrypt-content-quickstart.md)
+- [Quickstart: Encrypt content](drm-encrypt-content-how-to.md)

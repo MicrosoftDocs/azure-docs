@@ -1,12 +1,12 @@
 ---
 title: Template functions - comparison
-description: Describes the functions to use in an Azure Resource Manager template to compare values.
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to compare values.
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
 # Comparison functions for ARM templates
 
-Resource Manager provides several functions for making comparisons in your Azure Resource Manager (ARM) templates.
+Resource Manager provides several functions for making comparisons in your Azure Resource Manager template (ARM template):
 
 * [coalesce](#coalesce)
 * [equals](#equals)
@@ -100,11 +100,11 @@ param objectToTest object = {
   ]
 }
 
-output stringOutput string = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.string)
-output intOutput int = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.int)
-output objectOutput object = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.object)
-output arrayOutput array = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.array)
-output emptyOutput bool =empty(coalesce(objectToTest.null1, objectToTest.null2))
+output stringOutput string = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.string
+output intOutput int = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.int
+output objectOutput object = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.object
+output arrayOutput array = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.array
+output emptyOutput bool =empty(objectToTest.null1 ?? objectToTest.null2)
 ```
 
 ---
@@ -629,4 +629,4 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).

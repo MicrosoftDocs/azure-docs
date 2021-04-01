@@ -28,6 +28,7 @@ We recommend using [Mux.js](https://github.com/videojs/mux.js/) as, without it, 
 Its official documentation can be found at [Shaka player documentation](https://shaka-player-demo.appspot.com/docs/api/tutorial-welcome.html).
 
 ## Sample code
+
 Sample code for this article is available at [Azure-Samples/media-services-3rdparty-player-samples](https://github.com/Azure-Samples/media-services-3rdparty-player-samples).
 
 ## Implementing the player
@@ -146,4 +147,4 @@ For more information, see [Shaka player DRM protection documentation](https://sh
 ## Next steps
 
 * [Use the Azure Media Player](../azure-media-player/azure-media-player-overview.md)
-* [Quickstart: Encrypt content](encrypt-content-quickstart.md)
+* [Quickstart: Encrypt content](drm-encrypt-content-how-to.md)
