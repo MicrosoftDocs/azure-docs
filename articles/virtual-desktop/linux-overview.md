@@ -3,7 +3,7 @@ title: Windows Virtual Desktop Thin Client Support - Azure
 description: A brief overview of thin client support for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 04/01/2021
 ms.author: helohr
 manager: lizross
 ---
