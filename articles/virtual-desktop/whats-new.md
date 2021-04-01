@@ -11,7 +11,7 @@ ms.custom: references_regions
 ---
 # What's new in Windows Virtual Desktop?
 
-Windows Virtual Desktop updates on a regular basis. This article is where you'll find out about:
+Windows Virtual Desktop updates regularly. This article is where you'll find out about:
 
 - The latest updates
 - New features
@@ -65,7 +65,7 @@ The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and 
 
 ### FSLogix is now preinstalled on Windows 10 Enterprise multi-session images
 
-Based on customer feedback, we've set up a new version of the Windows 10 Enterprise multi-session image that has an unconfigured version of FSLogix already installed. We hope this makes your Windows VIrtual Desktop deployment easier.
+Based on customer feedback, we've set up a new version of the Windows 10 Enterprise multi-session image that has an unconfigured version of FSLogix already installed. We hope this makes your Windows Virtual Desktop deployment easier.
 
 ### Azure Monitor for Windows Virtual Desktop is now in General Availability
 
@@ -80,7 +80,7 @@ We've made the following updates for Teams on Windows Virtual Desktop:
 - Older machines can now use XVP and hardware decoding to display more incoming video streams smoothly in 2x2 mode.
 - We've updated the WebRTC stack from M74 to M88 for better AV sync performance and fewer transient issues.
 - We've replaced our software H264 encoder with OpenH264 (OSS used in Teams on the web), which increased the video quality of the outgoing camera.
-- We enabled 2x2 mode for Teams Server for the general public on the week of March 30th. 2x2 mode shows up to four incoming video streams at the same time. 
+- We enabled 2x2 mode for Teams Server for the general public on March 30. 2x2 mode shows up to four incoming video streams at the same time. 
 
 ### Web client now supports file transfer
 
@@ -91,7 +91,7 @@ local computer.
 
 ### Start VM on Connect public preview
 
-The new host pool setting, Start VM on Connect, is now available in public preview. This setting keeps your VMs deallcoated when you're not using them to save costs and allow the VM to start up automatically when users connect to it. For more information, check out [our blog post](https://aka.ms/wvdstartvmonconnect) and [our documentation](start-virtual-machine-connect.md).
+The new host pool setting, Start VM on Connect, is now available in public preview. This setting keeps your VMs deallocated when you're not using them to save costs and allow the VM to start up automatically when users connect to it. For more information, check out [our blog post](https://aka.ms/wvdstartvmonconnect) and [our documentation](start-virtual-machine-connect.md).
 
 ### Windows Virtual Desktop Specialty certification
 
