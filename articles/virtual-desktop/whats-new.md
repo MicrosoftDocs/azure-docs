@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/20/2021
+ms.date: 04/01/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -69,7 +69,7 @@ Based on customer feedback, we've set up a new version of the Windows 10 Enterpr
 
 ### Azure Monitor for Windows Virtual Desktop is now in General Availability
 
-Azure Monitor for Windows Virtual Desktop is now generally available to the public. This feature is an automated service that monitors your deployments and lets you view events, health, and troubleshooting suggestions in a single place. For more information, see [our documentation](azure-azure-monitor.md) or check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861)..
+Azure Monitor for Windows Virtual Desktop is now generally available to the public. This feature is an automated service that monitors your deployments and lets you view events, health, and troubleshooting suggestions in a single place. For more information, see [our documentation](azure-monitor.md) or check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861).
 
 ### March 2021 updates for Teams on Windows Virtual Desktop
 
