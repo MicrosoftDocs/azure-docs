@@ -234,7 +234,7 @@
     - name: Use Batch CLI templates
       displayName: extension
       href: batch-cli-templates.md
-  - name: Use Batch JavaScrip SDK
+  - name: Use Batch JavaScript SDK
     displayName: json
     href: batch-js-get-started.md
   - name: Run workloads

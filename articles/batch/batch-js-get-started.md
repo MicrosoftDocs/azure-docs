@@ -23,7 +23,7 @@ Here, we have a simple script written in Python that downloads all csv files fro
 
 The following diagram depicts how we can scale the Python script using Azure Batch and a client.
 
-![Diagram showing scenario architecture.](./media/batch-js-get-started/BatchScenario.png)
+![Diagram showing scenario architecture.](./media/batch-js-get-started/batch_scenario.png)
 
 The JavaScript sample deploys a batch job with a preparation task (explained in detail later) and a set of tasks depending on the number of containers in the storage account. You can download the scripts from the GitHub repository.
 
@@ -102,7 +102,7 @@ The Azure Batch URI can be found in the Overview tab of the Azure portal. It is 
 
 Refer to the screenshot:
 
-![Azure batch uri](./media/batch-js-get-started/azurebatchuri.png)
+![Azure batch uri](./media/batch-js-get-started/batch_uri.png)
 
 ### Step 4: Create an Azure Batch pool
 

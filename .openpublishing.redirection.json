@@ -13520,6 +13520,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/batch/batch-nodejs-get-started.md",
+      "redirect_url": "/azure/batch/batch-js-get-started.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/batch/policy-samples.md",
       "redirect_url": "/azure/batch/policy-reference",
       "redirect_document_id": false
