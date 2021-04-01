@@ -66,7 +66,7 @@
     href: How-tos/text-analytics-how-to-sentiment-analysis.md
   - name: Key phrase extraction
     href: How-tos/text-analytics-how-to-keyword-extraction.md
-  - name: Named entity recognition
+  - name: Named entity recognition and PII
     href: How-tos/text-analytics-how-to-entity-linking.md
   - name: Text Analytics for health
     href: How-tos/text-analytics-for-health.md
@@ -93,10 +93,8 @@
     href: text-analytics-user-scenarios.md
   - name: Named entity types
     href: named-entity-types.md
-  - name: Input types
-    items:
-    - name: Unicode encodings and text offsets
-      href: concepts/text-offsets.md
+  - name: Unicode encodings and text offsets
+    href: concepts/text-offsets.md
   - name: Data limits
     href: concepts/data-limits.md
   - name: Model versioning
