@@ -16,13 +16,13 @@ The FPGA Attestation service performs a series of validations on a design checkp
 
 You will need an Azure subscription and an Azure Storage account. The subscription gives you access to Azure and the storage account is used to hold your netlist and output files of the attestation service.  
 
-We provide Powershell and Bash scripts to submit attestation requests.   The scripts use  Azure CLI, which can run on Windows and Linux. Powershell can run on Windows, Linux and MacOS.  
+We provide PowerShell and Bash scripts to submit attestation requests.   The scripts use  Azure CLI, which can run on Windows and Linux. PowerShell can run on Windows, Linux and macOS.  
 
 Azure CLI download (required):  
 
 https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest  
 
-Powershell for Windows, Linux and MacOS download (only for powershell scripts):  
+PowerShell for Windows, Linux and macOS download (only for PowerShell scripts):  
 
 https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7  
 
@@ -74,7 +74,7 @@ You can generate a SAS for your container using the az storage container generat
 
 If you wish to use virtual directories, you must include the directory hierarchy as part of the container argument. For example, if you have a container named “netlists” and have a virtual directory named “image1” that contains the netlist blob, you would specify “netlists/image1” as the container name. Append any additional directory names to specify a deeper hierarchy. 
 
-### Powershell   
+### PowerShell   
 
 ```$sas=$(az storage container generate-sas --account-name <storage acct name> -name <blob container name> --https-only --permissions rwc --expiry <e.g., 2021-01-07T17:00Z> --output tsv)  ```
 
@@ -118,9 +118,9 @@ The service will write its output back to your container. If the validation pass
 
 If validation failed, an error-*.txt file is written indicating which step failed. Also check the log files if the error log indicates that attestation failed. When contacting us for support, please be sure to include all these files as part of the support request along with the orchestration ID.  
 
-Using the Azure Portal  
+Using the Azure portal  
 
-You can use the Azure Portal to create your container as well as uploading your netlist and downloading the bitstream and log files. Submitting an attestation request and monitoring its progress through the portal is not supported at this time and must be done through scripts as described above. 
+You can use the Azure portal to create your container as well as uploading your netlist and downloading the bitstream and log files. Submitting an attestation request and monitoring its progress through the portal is not supported at this time and must be done through scripts as described above. 
 
 ## Reporting Issues  
 
