@@ -48,7 +48,7 @@ In this section, you'll create a virtual network for the load balancer, NAT gate
     | Resource Group   | Select **TutorPubLBIP-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **East US** |
+    | Region           | Select **(US) East US** |
 
 4. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -97,9 +97,9 @@ In this section, you'll create a NAT gateway and assign it to the subnet in the 
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription.                                  |
-    | Resource Group   | Select **TutorPubLBIP-rg**. |
+    | Resource Group   | Select **Create new** and enter **TutorPubLBIP-rg** in the text box. </br> Select **OK**. |
     | **Instance details** |                                                                 |
-    | Name             | Enter **myNATGateway**                                    |
+    | Name             | Enter **myNATgateway**                                    |
     | Region           | Select **(US) East US**  |
     | Availability Zone | Select **None**. |
     | Idle timeout (minutes) | Enter **10**. |
@@ -135,7 +135,7 @@ In this section, you'll create a Standard Azure Load Balancer.
     | ---                     | ---                                                |
     | **Project details** |   |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **Create new** and enter **TutorPubLBIP-rg** in the text box. </br> Select **OK**.|
+    | Resource group         | Select **TutorPubLBIP-rg**.|
     | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **(US) East US**.                                        |
@@ -169,9 +169,18 @@ Create the backend address pool **myBackendPool** to include virtual machines fo
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
 
-2. Under **Settings**, select **Backend pools**, then select **Add**.
+2. Under **Settings**, select **Backend pools**, then select **+ Add**.
 
-3. On the **Add a backend pool** page, for name, type **myBackendPool**, as the name for your backend pool, and then select **Add**.
+3. On the **Add a backend pool** page, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myBackendPool**. |
+    | Virtual network | Select **myVNet**. |
+    | Backend Pool Configuration | Select **IP Address**. |
+    | IP Version | Select **IPv4**. |
+
+4. Select **Add**.
 
 ### Create a health probe
 
@@ -183,7 +192,7 @@ Create a health probe named **myHealthProbe** to monitor the health of the VMs.
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
 
-2. Under **Settings**, select **Health probes**, then select **Add**.
+2. Under **Settings**, select **Health probes**, then select **+ Add**.
     
     | Setting | Value |
     | ------- | ----- |
@@ -191,9 +200,8 @@ Create a health probe named **myHealthProbe** to monitor the health of the VMs.
     | Protocol | Select **TCP**. |
     | Port | Enter **80**.|
     | Interval | Enter **15** for number of **Interval** in seconds between probe attempts. |
-    | Unhealthy threshold | Select **2** for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.|
+    | Unhealthy threshold | Select **2**. |
    
-
 3. Leave the rest the defaults and Select **Add**.
 
 ### Create a load balancer rule
@@ -209,9 +217,9 @@ In this section, you'll create a load balancer rule:
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
 
-2. Under **Settings**, select **Load-balancing rules**, then select **Add**.
+2. Under **Settings**, select **Load-balancing rules**, then select **+ Add**.
 
-3. Use these values to configure the load-balancing rule:
+3. Enter or select the following information for the load balancer rule:
     
     | Setting | Value |
     | ------- | ----- |
@@ -223,11 +231,13 @@ In this section, you'll create a load balancer rule:
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**.|
     | Health probe | Select **myHealthProbe**. |
+    | Session persistence | Leave the default of **None**. |
     | Idle timeout (minutes) | Enter **15** minutes. |
     | TCP reset | Select **Enabled**. |
+    | Floating IP | Select **Disabled**. |
     | Outbound source network address translation (SNAT) | Select **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
-4. Leave the rest of the defaults and then select **OK**.
+4. Leave the rest of the defaults and then select **Add**.
 
 ## Create virtual machines
 
@@ -237,7 +247,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine**. 
    
-2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+2. In **Create a virtual machine**, enter or select the values in the **Basics** tab:
 
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
@@ -246,7 +256,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Resource Group | Select **TutorPubLBIP-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
-    | Region | Select **East US** |
+    | Region | Select **(US) East US** |
     | Availability Options | Select **Availability zones** |
     | Availability zone | Select **1** |
     | Image | Select **Windows Server 2019 Datacenter** |
@@ -270,7 +280,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Subnet | **myBackendSubnet** |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Within **Inbound rules**, select **+Add an inbound rule**. </br> Under **Destination port ranges**, enter **80**. </br> In **Priority**, enter **100**. </br> Under **Name**, enter **myHTTPRule** </br> Select **Add** </br> Select **OK** |
+    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Within **Inbound rules**, select **+Add an inbound rule**. </br> Under **Service**, select **HTTP**. </br> In **Priority**, enter **100**. </br> Under **Name**, enter **myHTTPRule** </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
     | Place this virtual machine behind an existing load-balancing solution? | Select the check box.|
     | **Load balancing settings** |
@@ -282,7 +292,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
   
 6. Review the settings, and then select **Create**.
 
-7. Follow the steps 1 to 7 to create a VM with the following values and all the other settings the same as **myVM1**:
+7. Follow the steps 1 to 6 to create a VM with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2 |
     | ------- | ----- |
@@ -295,6 +305,8 @@ These VMs are added to the backend pool of the load balancer that was created ea
 1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **TutorPubLBIP-rg** resource group.
 
 2. On the **Overview** page, select **Connect**, then **Bastion**.
+
+3. Select the **Use Bastion** button.
 
 4. Enter the username and password entered during VM creation.
 
@@ -313,14 +325,14 @@ These VMs are added to the backend pool of the load balancer that was created ea
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    Remove-Item C:\inetpub\wwwroot\iisstart.htm
     
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
 8. Close the Bastion session with **myVM1**.
 
-9. Repeat steps 1 to 6 to install IIS and the updated iisstart.htm file on **myVM2**.
+9. Repeat steps 1 to 7 to install IIS and the updated iisstart.htm file on **myVM2**.
 
 ## Test the load balancer
 
