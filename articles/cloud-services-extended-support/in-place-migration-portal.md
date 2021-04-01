@@ -33,7 +33,7 @@ If you're not able to add a co-administrator, contact a service administrator or
 
 **Sign up for Migration resource provider**
 
-1. Register with the migration resource provider `Microsoft.ClassicInfrastructureMigrate` using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1). 
+1. Register with the migration resource provider `Microsoft.ClassicInfrastructureMigrate` and preview feature `Cloud Services` under Microsoft.Compute namespace using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1).  
 1. Wait five minutes for the registration to complete then check the status of the approval. 
 
 ## Migrate your Cloud Service resources
