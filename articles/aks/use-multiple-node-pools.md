@@ -736,8 +736,6 @@ az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodep
 
 ### Use a public IP prefix
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 #### Install the `aks-preview` Azure CLI
 
 You will need the *aks-preview* Azure CLI extension. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
