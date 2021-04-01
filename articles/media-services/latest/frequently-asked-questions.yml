@@ -51,7 +51,7 @@ sections:
           A Job is the request you make to start using a Transform to encode or analyze files.  You tell it to Transform a file contained in an input Asset.  You also tell it to either create an output Asset, or use an already existing output Asset.  Once the job is completed, the transformed (encoded, analyzed) files will be in the output Asset as well as other files associated with those files. For more information about Jobs, see [Transforms and Jobs in Media Services](transforms-jobs-concept.md#jobs).
       - question: How do I create a Media Services Job?
         answer: |
-          You can create a Job in the Azure portal, with [CLI](cli-create-jobs.md), REST or any of the SDKs. See the [Media Services samples](https://github.com/Azure-Samples?q=media-services&type=&language=&sort=) for the language you prefer.
+          You can create a Job in the Azure portal, with [CLI](job-create-cli-how-to.md), REST or any of the SDKs. See the [Media Services samples](https://github.com/Azure-Samples?q=media-services&type=&language=&sort=) for the language you prefer.
       - question: What is encoding?
         answer: |
           The term encoding in Media Services applies to the process of converting files containing digital video and/or audio from one standard format to another, with the purpose of (a) reducing the size of the files, and/or (b) producing a format that's compatible with a broad range of devices and apps. This process is also referred to as video compression, or transcoding.

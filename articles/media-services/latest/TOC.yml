@@ -175,7 +175,11 @@
     - name: Live event types comparison
       href: live-event-types-comparison-reference.md
     - name: States and billing
+<<<<<<< HEAD
       href: live-event-latency-reference.md
+=======
+      href: live-event-states-billing-concept.md
+>>>>>>> 7d069ca4bf785ab1ac99aa60f9c8146a45f05300
     - name: Latency
       href: live-event-latency-reference.md  
   - name: Packaging and delivery
@@ -347,7 +351,7 @@
     - name: Copy videos without encoding with REST
       href: transform-create-copy-video-audio-how-to.md
     - name: Create jobs with CLI
-      href: cli-create-jobs.md
+      href: job-create-cli-how-to.md
     - name: Create job input with a local file and .NET
       displayName: upload
       href: job-input-from-local-file-how-to.md
@@ -448,7 +452,7 @@
     - name: Create a streaming locator and build URLs
       href: create-streaming-locator-build-url.md
     - name: Download results
-      href: download-results-howto.md
+      href: job-download-results-how-to.md
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
     - name: Publish
