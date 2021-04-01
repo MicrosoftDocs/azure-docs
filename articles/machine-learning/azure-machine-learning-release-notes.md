@@ -26,15 +26,15 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Fixed an issue where Naive models would be recommended in AutoMLStep runs and fail with lag or rolling window features. These models will not be recommended when target         lags or target rolling window size are set.
     +  Changed console output when submitting an AutoML run to show a portal link to the run.
   + **azureml-core**
-    + Added hdfs mode in doc
+    + Added HDFS mode in documentation.
     + Added support to understand File Dataset partitions based on glob structure.
     + Added support for update container registry associated with AzureML Workspace.
     + Deprecated Environment attributes under the DockerSection - "enabled", "shared_volume" and "arguments" are a part of DockerConfiguration in RunConfiguration now.
     + Updated Pipeline CLI clone documentation
     + Updated portal URIs to include tenant for authentication
     + Removed experiment name from run URIs to avoid redirects 
-    + Updated experiment URO to use experiment Id.
-    + Bug fixes for attaching remote compute using az cli
+    + Updated experiment URO to use experiment ID.
+    + Bug fixes for attaching remote compute with AzureML CLI.
   + **azureml-interpret**
     + azureml-interpret updated to use interpret-community 0.17.0
   + **azureml-opendatasets**
