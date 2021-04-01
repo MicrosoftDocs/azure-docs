@@ -108,7 +108,7 @@ The asset that the live output is archiving to, automatically becomes an on-dema
 
 - [Recommended live encoders](recommended-on-premises-live-encoders.md)
 - [Using a cloud DVR](live-event-cloud-dvr-time-how-to.md)
-- [Live event types feature comparison](live-event-types-comparison.md)
+- [Live event types feature comparison](live-event-types-comparison-reference.md)
 - [States and billing](live-event-states-billing-concept.md)
 - [Latency](live-event-latency-reference.md)
 

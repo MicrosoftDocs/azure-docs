@@ -89,7 +89,7 @@ Media Services recommends using one of the following live encoders that have mul
 
 ## Configuring on-premises live encoder settings
 
-For information about what settings are valid for your live event type, see [Live Event types comparison](live-event-types-comparison.md).
+For information about what settings are valid for your live event type, see [Live Event types comparison](live-event-types-comparison-reference.md).
 
 ### Playback requirements
 

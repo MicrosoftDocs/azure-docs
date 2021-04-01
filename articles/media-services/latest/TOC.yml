@@ -173,7 +173,7 @@
     - name: Live transcription
       href: live-event-live-transcription-how-to.md
     - name: Live event types comparison
-      href: live-event-types-comparison.md
+      href: live-event-types-comparison-reference.md
     - name: States and billing
       href: live-event-latency-reference.md
     - name: Latency

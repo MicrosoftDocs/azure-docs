@@ -30,7 +30,7 @@ The Azure portal now supports live event set up and management.  You are encoura
 
 Test the new way of delivering Live events with Media Services before moving your content from V2 to V3. Here are the V3 features to work with and consider for migration.
 
-- Create a new v3 [Live Event](live-event-outputs-concept.md#live-events) for encoding. You can enable [1080P and 720P encoding presets](live-event-types-comparison.md#system-presets).
+- Create a new v3 [Live Event](live-event-outputs-concept.md#live-events) for encoding. You can enable [1080P and 720P encoding presets](live-event-types-comparison-reference.md#system-presets).
 - Use the [Live Output](live-event-outputs-concept.md#live-outputs) entity instead of Programs
 - Create [streaming locators](streaming-locators-concept.md).
 - Consider your need for [HLS and DASH](encode-dynamic-packaging-concept.md) live streaming.
@@ -50,7 +50,7 @@ See Live events concepts, tutorials and how to guides below for specific steps.
 - [Verified on-premises live streaming encoders](recommended-on-premises-live-encoders.md)
 - [Use time-shifting and Live Outputs to create on-demand video playback](live-event-cloud-dvr-time-how-to.md)
 - [live-event-live-transcription-how-to (preview)](live-event-live-transcription-how-to.md)
-- [Live Event types comparison](live-event-types-comparison.md)
+- [Live Event types comparison](live-event-types-comparison-reference.md)
 - [Live event states and billing](live-event-states-billing-concept.md)
 - [Live Event low latency settings](live-event-latency-reference.md)
 - [Media Services Live Event error codes](live-event-error-codes-reference.md)
