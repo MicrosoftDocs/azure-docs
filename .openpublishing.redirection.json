@@ -13521,7 +13521,7 @@
     },
     {
       "source_path_from_root": "/articles/batch/batch-nodejs-get-started.md",
-      "redirect_url": "/azure/batch/batch-js-get-started.md",
+      "redirect_url": "/azure/batch/batch-js-get-started",
       "redirect_document_id": false
     },
     {
