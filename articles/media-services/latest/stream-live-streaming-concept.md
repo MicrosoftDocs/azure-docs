@@ -26,7 +26,7 @@ For customers looking to deliver content to large internet audiences, we recomme
 This article gives an overview and guidance of live streaming with Media Services and links to other relevant articles.
  
 > [!NOTE]
-> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, Transforms and Jobs), use the [REST API](/rest/api/media/), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-event-outputs-concept.md), view v3 [assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, Transforms and Jobs), use the [REST API](/rest/api/media/), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## Dynamic packaging and delivery
 
@@ -45,7 +45,7 @@ Dynamic filtering is used to control the number of tracks, formats, bitrates, an
 
 ## Live event types
 
-[Live events](/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. A live event can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). For details about live streaming in Media Services v3, see [Live events and live outputs](live-events-outputs-concept.md).
+[Live events](/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. A live event can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). For details about live streaming in Media Services v3, see [Live events and live outputs](live-event-outputs-concept.md).
 
 ### Pass-through
 
@@ -61,7 +61,7 @@ When using cloud encoding with Media Services, you would configure your on-premi
 
 ### Live transcription (preview)
 
-Live transcription is a feature you can use with live events that are either pass-through or live encoding. For more information, see [live transcription](live-transcription.md). When this feature is enabled, the service uses the [Speech-To-Text](../../cognitive-services/speech-service/speech-to-text.md) feature of Cognitive Services to transcribe the spoken words in the incoming audio into text. This text is then made available for delivery along with video and audio in MPEG-DASH and HLS protocols.
+Live transcription is a feature you can use with live events that are either pass-through or live encoding. For more information, see [live transcription](live-event-live-transcription-how-to.md). When this feature is enabled, the service uses the [Speech-To-Text](../../cognitive-services/speech-service/speech-to-text.md) feature of Cognitive Services to transcribe the spoken words in the incoming audio into text. This text is then made available for delivery along with video and audio in MPEG-DASH and HLS protocols.
 
 > [!NOTE]
 > Currently, live transcription is available as a preview feature in West US 2.
@@ -71,13 +71,13 @@ Live transcription is a feature you can use with live events that are either pas
 To understand the live streaming workflow in Media Services v3, you have to first review and understand the following concepts: 
 
 - [Streaming endpoints](streaming-endpoint-concept.md)
-- [Live events and live outputs](live-events-outputs-concept.md)
+- [Live events and live outputs](live-event-outputs-concept.md)
 - [Streaming locators](streaming-locators-concept.md)
 
 ### General steps
 
 1. In your Media Services account, make sure the **streaming endpoint** (origin) is running. 
-2. Create a [live event](live-events-outputs-concept.md). <br/>When creating the event, you can specify to autostart it. Alternatively, you can start the event when you are ready to start streaming.<br/> When autostart is set to true, the Live Event will be started right after creation. The billing starts as soon as the Live Event starts running. You must explicitly call Stop on the live event resource to halt further billing. For more information, see [live event states and billing](live-event-states-billing.md).
+2. Create a [live event](live-event-outputs-concept.md). <br/>When creating the event, you can specify to autostart it. Alternatively, you can start the event when you are ready to start streaming.<br/> When autostart is set to true, the Live Event will be started right after creation. The billing starts as soon as the Live Event starts running. You must explicitly call Stop on the live event resource to halt further billing. For more information, see [live event states and billing](live-event-states-billing-concept.md).
 3. Get the ingest URL(s) and configure your on-premises encoder to use the URL to send the contribution feed.<br/>See [recommended live encoders](recommended-on-premises-live-encoders.md).
 4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 5. Create a new **asset** object. 
@@ -107,10 +107,10 @@ The asset that the live output is archiving to, automatically becomes an on-dema
 ## Other important articles
 
 - [Recommended live encoders](recommended-on-premises-live-encoders.md)
-- [Using a cloud DVR](live-event-cloud-dvr.md)
-- [Live event types feature comparison](live-event-types-comparison.md)
-- [States and billing](live-event-states-billing.md)
-- [Latency](live-event-latency.md)
+- [Using a cloud DVR](live-event-cloud-dvr-time-how-to.md)
+- [Live event types feature comparison](live-event-types-comparison-reference.md)
+- [States and billing](live-event-states-billing-concept.md)
+- [Latency](live-event-latency-reference.md)
 
 ## Live streaming questions
 
