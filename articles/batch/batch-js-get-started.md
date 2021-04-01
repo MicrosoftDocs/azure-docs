@@ -25,7 +25,7 @@ The following diagram depicts how we can scale the Python script using Azure Bat
 
 ![Diagram showing scenario architecture.](./media/batch-js-get-started/BatchScenario.png)
 
-The JavaScript sample dpeloys a batch job with a preparation task (explained in detail later) and a set of tasks depending on the number of containers in the storage account. You can download the scripts from the GitHub repository.
+The JavaScript sample deploys a batch job with a preparation task (explained in detail later) and a set of tasks depending on the number of containers in the storage account. You can download the scripts from the GitHub repository.
 
 - [Sample Code](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/sample.js)
 - [Preparation task shell scripts](https://github.com/Azure-Samples/azure-batch-samples/blob/master/JavaScript/Node.js/startup_prereq.sh)
