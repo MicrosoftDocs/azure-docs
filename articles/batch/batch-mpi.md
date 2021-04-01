@@ -16,7 +16,7 @@ Multi-instance tasks allow you to run an Azure Batch task on multiple compute no
 
 In Batch, each task is normally executed on a single compute node--you submit multiple tasks to a job, and the Batch service schedules each task for execution on a node. However, by configuring a task's **multi-instance settings**, you tell Batch to instead create one primary task and several subtasks that are then executed on multiple nodes.
 
-:::image type="content" source="media/batch-mpi/batch_mpi_01.png" alt-text="Diagram showing an overview of multi-instance settings.":::
+:::image type="content" source="media/batch-mpi/batch-mpi-01.png" alt-text="Diagram showing an overview of multi-instance settings.":::
 
 When you submit a task with multi-instance settings to a job, Batch performs several steps unique to multi-instance tasks:
 
