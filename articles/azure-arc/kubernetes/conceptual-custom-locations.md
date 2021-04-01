@@ -11,7 +11,7 @@ description: "This article provides a conceptual overview of Custom Locations ca
 
 # Custom locations on top of Azure Arc enabled Kubernetes
 
-The Custom Locations is an extension of Azure location. It provides a way for tenant administrators to utilize their Azure Arc enabled Kubernetes clusters as target locations to deploy instances of Azure services. Examples of such Azure resources are Azure Arc enabled SQL Managed Instance and Azure Arc enabled PostgreSQL Hyperscale. Similar to locations, end users within the tenant who have access to Custom Locations can deploy resources there using their company's private compute.
+The Custom Locations is an extension of Azure location. It provides a way for tenant administrators to utilize their Azure Arc enabled Kubernetes clusters as target locations to deploy instances of Azure services. Examples of such Azure resources are Azure Arc enabled SQL Managed Instance and Azure Arc enabled PostgreSQL Hyperscale. Similar to Azure locations, end users within the tenant who have access to Custom Locations can deploy these Azure resources using their company's private compute.
 
 [ ![Arc platform layers](./media/conceptual-arc-platform-layers.png) ](./media/conceptual-arc-platform-layers.png#lightbox)
 

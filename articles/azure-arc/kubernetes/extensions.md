@@ -54,7 +54,7 @@ The Kubernetes extensions feature enables the following on Azure Arc enabled Kub
 Create a new extension instance with `k8s-extension create`, passing in values for the mandatory parameters. The below command creates an Azure Monitor for containers extension instance on your Azure Arc enabled Kubernetes cluster:
 
 ```azurecli
-az k8s-extension create --name myExtInstanceName  --extension-type azuremonitor-containers --scope cluster --cluster-name myCluster --resource-group myRG --cluster-type connectedClusters
+az k8s-extension create --name myExtInstanceName  --extension-type Microsoft.AzureMonitor.Containers --scope cluster --cluster-name myCluster --resource-group myRG --cluster-type connectedClusters
 ```
 
 **Output:**
@@ -67,7 +67,7 @@ az k8s-extension create --name myExtInstanceName  --extension-type azuremonitor-
     "code": null,
     "message": null
   },
-  "extensionType": "azuremonitor-containers",
+  "extensionType": "Microsoft.AzureMonitor.Containers",
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myRg/providers/Microsoft.Kubernetes/connectedClusters/myCluster/providers/Microsoft.KubernetesConfiguration/extensions/myExtInstanceName",
   "identity": null,
   "installState": "Pending",
@@ -96,7 +96,7 @@ az k8s-extension create --name myExtInstanceName  --extension-type azuremonitor-
 | Parameter name | Description |
 |----------------|------------|
 | `--name` | Name of the extension instance |
-| `--extension-type` | The type of extension you want to install on the cluster. For example: azuremonitor-containers, microsoft.azuredefender.kubernetes | 
+| `--extension-type` | The type of extension you want to install on the cluster. For example: Microsoft.AzureMonitor.Containers, microsoft.azuredefender.kubernetes | 
 | `--scope` | Scope of installation for the extension - `cluster` or `namespace` |
 | `--cluster-name` | Name of the Azure Arc enabled Kubernetes resource on which the extension instance has to be created |
 | `--resource-group` | The resource group containing the Azure Arc enabled Kubernetes resource |
@@ -134,7 +134,7 @@ az k8s-extension show --name myExtInstanceName --cluster-name myCluster --resour
     "code": null,
     "message": null
   },
-  "extensionType": "azuremonitor-containers",
+  "extensionType": "Microsoft.AzureMonitor.Containers",
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myRg/providers/Microsoft.Kubernetes/connectedClusters/myCluster/providers/Microsoft.KubernetesConfiguration/extensions/myExtInstanceName",
   "identity": null,
   "installState": "Pending",
@@ -173,7 +173,7 @@ az k8s-extension list --cluster-name myCluster --resource-group myRG --cluster-t
       "code": null,
       "message": null
     },
-    "extensionType": "azuremonitor-containers",
+    "extensionType": "Microsoft.AzureMonitor.Containers",
     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myRg/providers/Microsoft.Kubernetes/connectedClusters/myCluster/providers/Microsoft.KubernetesConfiguration/extensions/myExtInstanceName",
     "identity": null,
     "installState": "Pending",
