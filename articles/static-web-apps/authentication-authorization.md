@@ -155,7 +155,7 @@ If you want a user to return to a specific page after login, provide a full qual
 
 For example:
 
-```
+```html
 <a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
 ```
 
