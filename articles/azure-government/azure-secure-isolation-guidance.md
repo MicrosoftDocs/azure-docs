@@ -437,10 +437,10 @@ Table 5 summarizes available security guidance for customer virtual machines pro
 
 **Table 5.**  Security guidance for Azure virtual machines
 
-|VM|||Security guidance||
-|---|---|---|---|---|
-|**Windows**|[Secure policies](../virtual-machines/security-policy.md)|[Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md)|[Built-in security controls](../virtual-machines/windows/security-baseline.md)|[Security recommendations](../virtual-machines/security-recommendations.md)|
-|**Linux**|[Secure policies](../virtual-machines/security-policy.md)|[Azure Disk Encryption](../virtual-machines/linux/disk-encryption-overview.md)|[Built-in security controls](../virtual-machines/linux/security-baseline.md)|[Security recommendations](../virtual-machines/security-recommendations.md)|
+|VM|Security guidance|
+|---|---|
+|**Windows**|[Secure policies](../virtual-machines/security-policy.md) <br/>[Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md) <br/> [Built-in security controls](../virtual-machines/windows/security-baseline.md) <br/> [Security recommendations](../virtual-machines/security-recommendations.md)|
+|**Linux**|[Secure policies](../virtual-machines/security-policy.md) <br/> [Azure Disk Encryption](../virtual-machines/linux/disk-encryption-overview.md) <br/> [Built-in security controls](../virtual-machines/linux/security-baseline.md) <br/> [Security recommendations](../virtual-machines/security-recommendations.md)|
 
 #### Isolated Virtual Machines
 Azure Compute offers virtual machine sizes that are [isolated to a specific hardware type](../virtual-machines/isolation.md) and dedicated to a single customer. These VM instances allow customer workloads to be deployed on dedicated physical servers. Utilizing Isolated VMs essentially guarantees that a customer VM will be the only one running on that specific server node. Customers can also choose to further subdivide the resources on these Isolated VMs by using [Azure support for nested Virtual Machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
