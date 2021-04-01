@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.service: storage
-ms.date: 03/05/2021
+ms.date: 03/29/2021
 ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
@@ -199,6 +199,14 @@ Sample event:
   "eventTime": "2020-10-13T15:47:54Z"
 }
 ```
+
+## Known issues
+
+This section describes limitations and known issues of the Azure Storage blob inventory feature.
+
+### Inventory job fails to complete
+
+The inventory job may not complete within 24 hours for an account with millions of blobs and hierarchical namespaces enabled. If this happens, no inventory file is created.
 
 ## Next steps
 

@@ -10,7 +10,7 @@ ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
 
-# As a developer or IT Pro, I want to understand what the Device Simulation solution accelerator is so that I can understand if it can help me test my IoT solution.
+#Customer intent: As a developer or IT Pro, I want to understand what the Device Simulation solution accelerator is so that I can understand if it can help me test my IoT solution.
 ---
 
 # Device Simulation solution accelerator overview

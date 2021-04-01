@@ -26,9 +26,9 @@ ms.custom: [amqp, mqtt]
 | Cloud-to-device messages | Successfully sent messages are charged in 4-KB chunks, for example a 6-KB message is charged 2 messages. |
 | File uploads | File transfer to Azure Storage is not metered by IoT Hub. File transfer initiation and completion messages are charged as messaged metered in 4-KB increments. For example, transferring a 10-MB file is charged as two messages in addition to the Azure Storage cost. |
 | Direct methods | Successful method requests are charged in 4-KB chunks, and responses are charged in 4-KB chunks as additional messages. Requests to disconnected devices are charged as messages in 4-KB chunks. For example, a method with a 4-KB body that results in a response with no body from the device is charged as two messages. A method with a 6-KB body that results in a 1-KB response from the device is charged as two messages for the request plus another message for the response. |
-| Device and module twin reads | Twin reads from the device or module and from the solution back end are charged as messages in 512-byte chunks. For example, reading a 6-KB twin is charged as 12 messages. |
-| Device and module twin updates (tags and properties) | Twin updates from the device or module and from the solution back end are charged as messages in 512-byte chunks. For example, reading a 6-KB twin is charged as 12 messages. |
-| Device and module twin queries | Queries are charged as messages depending on the result size in 512-byte chunks. |
+| Device and module twin reads | Twin reads from the device or module and from the solution back end are charged as messages in 4-KB chunks. For example, reading a 8-KB twin is charged as 2 messages. |
+| Device and module twin updates (tags and properties) | Twin updates from the device or module and from the solution back end are charged as messages in 4-KB chunks. For example, reading a 12-KB twin is charged as 3 messages. |
+| Device and module twin queries | Queries are charged as messages depending on the result size in 4-KB chunks. |
 | Jobs operations <br/> (create, update, list, delete) | Not charged. |
 | Jobs per-device operations | Jobs operations (such as twin updates, and methods) are charged as normal. For example, a job resulting in 1000 method calls with 1-KB requests and empty-body responses is charged 1000 messages. |
 | Keep-alive messages | When using AMQP or MQTT protocols, messages exchanged to establish the connection and messages exchanged in the negotiation are not charged. |
