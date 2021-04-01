@@ -40,7 +40,7 @@ In the discovery phase, you determine all sources that need to be migrated like 
 
 #### Assessment phase
 
-The assessment phase is critical in understanding  available options for the migration. To reduce the risk during migration and to avoid common pitfalls follow these three steps:
+The assessment phase is critical in understanding  available options for the migration. To reduce the risk during migration, and to avoid common pitfalls follow these three steps:
 
 <br>
 
@@ -90,7 +90,7 @@ For more information about the different migration methods and guidelines, see [
 
 There are various migration tools that you can use to perform the migration. Some are open source like AzCopy, robocopy, xcopy, and rsync while others are commercial. List of available commercial tools and comparison between them is available on our [comparison matrix](../solution-integration/validated-partners/data-management/migration-tools-comparison.md).
 
-Open-source tools are well suited for small-scale migrations. For migration from Windows file servers to Azure Files, Microsoft recommends starting with Azure Files native capability and use [Azure File Sync](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/azure-file-sync). For more complex migrations consisting of different sources, large capacity, or special requirements like throttling or detailed reporting with audit capabilities, commercial tools are the best choice. These tools make the migration easier and reduce the risk significantly. Most commercial tools can also perform the discovery, which provides a valuable input for the assessment.
+Open-source tools are well suited for small-scale migrations. For migration from Windows file servers to Azure Files, Microsoft recommends starting with Azure Files native capability and using [Azure File Sync](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/azure-file-sync). For more complex migrations consisting of different sources, large capacity, or special requirements like throttling or detailed reporting with audit capabilities, commercial tools are the best choice. These tools make the migration easier and reduce the risk significantly. Most commercial tools can also perform the discovery, which provides a valuable input for the assessment.
 
 #### Migration phase
 
