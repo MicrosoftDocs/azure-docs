@@ -19,7 +19,7 @@ Additional high-availability features provided through Azure (and also available
 
 - **Failover**: Azure provides [geo-replication and load balancing](/azure/architecture/resiliency/recovery-loss-azure-region).
 - **Data restoration** and **storage recovery**: Azure provides [several options to preserve and recover data](/azure/architecture/resiliency/recovery-data-corruption).
-- **Azure Site Recovery**: Azure provides site recovery features through [Azure Site Recovery](../articles/site-recovery/index.yml).
+- **Azure Site Recovery**: Azure provides recovery features through [Azure Site Recovery](../articles/site-recovery/index.yml).
 - **Azure Backup**: [Azure Backup](../articles/backup/backup-architecture.md) supports both on-premises and in-cloud backup of Azure VMs.
 
 Make sure you enable the relevant Azure features to provide global, cross-region high availability for your devices and users.
@@ -58,7 +58,7 @@ To create a duplicate environment:
 If an event occurs:
 
 1. If your primary region is affected during a disaster incident, reroute operations to the backup Azure Time Series Insights environment.
-1. Because hub sequence numbers restart from 0 after the failover, recreate the event source in both regions/environments with different consumer groups. This helps avoid creating what would otherwise look like duplicate events.
+1. Because hub sequence numbers restart from 0 after the failover, recreate the event source in both regions/environments with different consumer groups to avoid creating what would look like duplicate events.
 1. Use your second region to back up and recover all Azure Time Series Insights telemetry and query data.
 
 > [!IMPORTANT]
