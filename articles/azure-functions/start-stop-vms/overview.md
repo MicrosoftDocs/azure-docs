@@ -90,7 +90,7 @@ Specifying a list of VMs can be used when you need to perform the start and stop
 
 - Your account has been granted the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) permission in the subscription.
 
-- Start/Stop VMs v2 (preview) is available in all Azure global regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) page for Azure Functions. For the Azure Government cloud, it is available only in the US Government Virginia region.
+- Start/Stop VMs v2 (preview) is available in all Azure global and US Government cloud regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) page for Azure Functions.
 
 ## Next steps
 
