@@ -70,3 +70,12 @@ your server group has access to preview features.
 
 When creating a new Hyperscale (Citus) server group, check
 the box **Enable preview features.**
+
+## Contact us
+
+Please let us know about your experience using preview features, by emailing
+[Ask Azure DB for
+PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com).
+(This email address is not a technical support channel. For technical problems,
+open a [support
+request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).)
