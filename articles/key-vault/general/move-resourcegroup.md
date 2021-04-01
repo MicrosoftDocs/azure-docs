@@ -11,7 +11,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: sudbalas
-Customer intent: As a key vault administrator, I want to move my vault to another resource group.
+# Customer intent: As a key vault administrator, I want to move my vault to another resource group.
 ---
 
 # Moving an Azure Key Vault across resource groups

@@ -52,7 +52,7 @@ This tutorial assumes familiarity with Azure DevOps, Azure Repos and Pipelines, 
 
 ## Import application and GitOps repos into Azure Repos
 
-Import an [application repo](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd#application-repo) and a [GitOps repo](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd#gitops-repo) into Azure Repos. For this tutorial, use the following example repos:
+Import an [application repo](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#application-repo) and a [GitOps repo](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#gitops-repo) into Azure Repos. For this tutorial, use the following example repos:
 
 * **arc-cicd-demo-src** application repo
    * URL: https://github.com/Azure/arc-cicd-demo-src
@@ -333,4 +333,4 @@ In this tutorial, you have set up a full CI/CD workflow that implements DevOps f
 Advance to our conceptual article to learn more about GitOps and configurations with Azure Arc enabled Kubernetes.
 
 > [!div class="nextstepaction"]
-> [CI/CD Workflow using GitOps - Azure Arc enabled Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd)
+> [CI/CD Workflow using GitOps - Azure Arc enabled Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd)

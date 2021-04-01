@@ -31,7 +31,7 @@ The article shows how to upload and index your videos with these options:
 
 ## Supported file formats for Video Indexer
 
-See the [input container/file formats](../latest/media-encoder-standard-formats.md#input-containerfile-formats) article for a list of file formats that you can use with Video Indexer.
+See the [input container/file formats](../latest/encode-media-encoder-standard-formats-reference.md) article for a list of file formats that you can use with Video Indexer.
 
 ## Video files storage
 
@@ -109,7 +109,7 @@ Once your video has been uploaded, Video Indexer, optionally encodes the video. 
 When using the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) or [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
 
 For SingleBitrate, standard encoder cost will apply per the output. If the video height is greater or equal to 720, Video Indexer encodes it as 1280x720. Otherwise, as 640x468.
-The Default setting is [content aware encoding](../latest/content-aware-encoding.md).
+The Default setting is [content aware encoding](../latest/encode-content-aware-concept.md).
 
 In order to run the indexing and encoding jobs, the [Azure Media Services account connected to your Video Indexer account](connect-to-azure.md), requires Reserved Units. For more information, see [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md). Since these are compute intensive jobs, S3 unit type is highly recommended. The number of RUs defines the max number of jobs that can run in parallel. The baseline recommendation is 10 S3 RUs. 
 

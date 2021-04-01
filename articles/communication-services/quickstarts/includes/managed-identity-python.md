@@ -25,7 +25,7 @@ To register application in the development environment and set up environment va
 The following code example shows how to create a service client object with managed identity, then use the client to issue a token for a new user:
 
 ```python
-from azure.communication.identity import CommunicationIdentityClient 
+from azure.communication.identity import CommunicationIdentityClient
 
 def create_identity_and_get_token(resource_endpoint):
      credential = DefaultAzureCredential()
@@ -33,12 +33,11 @@ def create_identity_and_get_token(resource_endpoint):
 
      user = client.create_user()
      token_response = client.get_token(user, scopes=["voip"])
-     
+
      return token_response
 ```
 
 ### Send an SMS with Azure managed identity
-
 The following code example shows how to create a service client object with Azure managed identity, then use the client to send an SMS message:
 
 ```python

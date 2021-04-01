@@ -111,7 +111,7 @@ The following considerations apply:
 The following articles describe next steps to help you get started with content protection:
 
 * [Protect with storage encryption](media-services-rest-storage-encryption.md)
-* [Protect with AES encryption](media-services-protect-with-aes128.md)
+* [Protect with AES encryption](media-services-playready-license-template-overview.md)
 * [Protect with PlayReady and/or Widevine](media-services-protect-with-playready-widevine.md)
 * [Protect with FairPlay](media-services-protect-hls-with-FairPlay.md)
 
