@@ -465,7 +465,15 @@
             "redirect_url": "player-shaka-player-how-to",
             "redirect_document_id": false
         },
-
-
+        {
+            "source_path_from_root": "/articles/media-services/latest/how-to-create-basic-audio-transform.md",
+            "redirect_url": "transform-create-basic-audio-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/media-rest-apis-with-postman.md",
+            "redirect_url": "setup-postman-rest-how-to",
+            "redirect_document_id": false
+        }
     ]
 }
