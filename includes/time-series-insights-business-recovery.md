@@ -4,7 +4,7 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
-ms.date: 07/09/2020
+ms.date: 04/01/2021
 ---
 
 ## Business disaster recovery
@@ -39,7 +39,7 @@ Integrating Azure Time Series Insights with the other services provides addition
 
 ### Azure Time Series Insights
 
-There are several ways to keep your Azure Time Series Insights data, apps, and services running, even if they're disrupted. 
+There are several ways to keep your Azure Time Series Insights data, apps, and services running, even if they're disrupted.
 
 However, you might determine that a complete backup copy of your Azure Time Series environment also is required, for the following purposes:
 
@@ -58,12 +58,13 @@ To create a duplicate environment:
 If an event occurs:
 
 1. If your primary region is affected during a disaster incident, reroute operations to the backup Azure Time Series Insights environment.
+1. Because hub sequence numbers restart from 0 after the failover, recreate the event source in both regions/environments with different consumer groups to avoid what would otherwise look like duplicate events.
 1. Use your second region to back up and recover all Azure Time Series Insights telemetry and query data.
 
 > [!IMPORTANT]
 > If a failover occurs:
-> 
-> * A delay might also occur.
-> * A momentary spike in message processing might occur, as operations are rerouted.
-> 
+>
+> - A delay might also occur.
+> - A momentary spike in message processing might occur, as operations are rerouted.
+>
 > For more information, read [Mitigate latency in Azure Time Series Insights](../articles/time-series-insights/time-series-insights-environment-mitigate-latency.md).
