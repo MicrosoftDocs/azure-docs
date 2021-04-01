@@ -1,6 +1,6 @@
 ---
-title: Azure Storage Migration Guide
-description: Storage migration overview guide describes basic guidance for storage migration 
+title: Migration tools comparison
+description: Basic functionality and comparison between tools used for migration of unstructured data 
 author: dukicn
 ms.author: nikoduki
 ms.topic: overview 
@@ -73,13 +73,15 @@ Comparison matrix shows basic functionality of different tools that can be used 
 | Preserving Access time                | Yes | Yes                        | Yes | Yes                            |
 | Preserving Modified time              | Yes | Yes                        | Yes | Yes                            |
 | Preserving Creation time              | No  | Yes                        | Yes | Yes                            |
-| Databox support                       | Yes | Yes                        | No  | No                             |
+| Azure Data Box support       | Yes | Yes                        | No  | No                             |
 | Migration of snapshots                | No  | Manual                     | Yes | No                             |
 | Symbolic link support                 | No  | Yes                        | No  | Yes                            |
 | Hard link support                     | No  | Migrated as separate files | Yes | Yes                            |
 | Support for open / locked files       | Yes | Yes                        | Yes | Yes                            |
 | Incremental migration                 | Yes | Yes                        | Yes | Yes                            |
 | Switchover support                    | No  | Yes                        | Yes | No (manual only)               |
+| [Other supported features](#other-features)         | [Link](#azure-file-sync)| [Link](#dobimigrate) | [Link](#data-mobility-and-migration) | [Link](#intelligent-data-management)                |
+
 <br>
 
 ## Assessment and reporting
@@ -111,14 +113,48 @@ Comparison matrix shows basic functionality of different tools that can be used 
 
 <br>
 
-## Additional features
+## Other features
 
-<br>
+### Azure File Sync
 
-|    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
-|--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-|    | [Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Intelligent Data Management](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    |
-| | Internal hash validation | Pre-Checks - checks prior to migration starts<br/>Migration Planning<br/>Dry Run for testing cutovers<br/>Detect and alert on target side user activity prior to cutover<br/>Policy driven migrations <br/>Scheduled copy iterations<br/>Configurable options for handling root directory security<br/>On-demand verification runs<br/>Data readback verification on source and destination<br/>Graphical, interactive error handling workflow<br/>Ability to restrict certain operations from propagating - deletes, updates<br/>Ability to preserve access time on the source (in addition to destination)<br/>Ability to execute rollback to source during migration switchover<br/>Ability to migrate selected SMB file attributes <br/>Ability to clean  NTFS security descriptors<br/>Ability to override NFSv3 permissions and write new mode bits to target<br/>Ability to convert NFSv3 POSIX draft ACLS to NFSv4 ACLS<br/>SMB 1 (CIFS) | Hash validation | Project/directory based migrations<br/>Automatic retry of failures<br/>Assessment / reporting: File types, file size, project based<br/>Assessment / reporting: Custom metadata based searches<br/>Full data lifecycle management solution for archival, replication, analytics<br/>Access time based analytics on Blob, S3 data <br/>Tagging<br/>Support 24 x 7 x 365<br/>Hash validation |
+- Internal hash validation
+
+### DobiMigrate
+
+- Pre-Checks - checks before migration starts
+- Migration Planning
+- Dry Run for testing cut-overs
+- Detect and alert on target side user activity prior to cutover
+- Policy driven migrations
+- Scheduled copy iterations
+- Configurable options for handling root directory security
+- On-demand verification runs
+- Data read back verification on source and destination
+- Graphical, interactive error handling workflow
+- Ability to restrict certain operations from propagating - deletes, updates
+- Ability to preserve access time on the source (in addition to destination)
+- Ability to execute rollback to source during migration switchover
+- Ability to migrate selected SMB file attributes
+- Ability to clean NTFS security descriptors
+- Ability to override NFSv3 permissions and write new mode bits to target
+- Ability to convert NFSv3 POSIX draft ACLS to NFSv4 ACLS
+- SMB 1 (CIFS)
+
+### Data Mobility and Migration
+
+- Hash validation
+
+### Intelligent Data Management
+
+- Project/directory based migrations
+- Automatic retry of failures
+- Assessment / reporting: File types, file size, project based
+- Assessment / reporting: Custom metadata-based searches
+- Full data lifecycle management solution for archival, replication, analytics
+- Access time-based analytics on Blob, S3 data
+- Tagging
+- Support 24 x 7 x 365
+- Hash validation
 
 *List was last verified on March, 31st 2021.*
 
@@ -128,7 +164,6 @@ Comparison matrix shows basic functionality of different tools that can be used 
 
 - [Storage Migration Overview](../../../common/storage-migration-overview.md)
 - [Choose an Azure solution for data transfer](https://docs.microsoft.com/azure/storage/common/storage-choose-data-transfer-solution?toc=/azure/storage/blobs/toc.json)
-- [Commercial migration tools comparison](../solution-integration/validated-partners/data-management/migration-tools-comparison.md)
 - [Migrate to Azure file shares](https://docs.microsoft.com/azure/storage/files/storage-files-migration-overview)
 - [Migrate to Data Lake Storage with WANdisco LiveData Platform for Azure](https://docs.microsoft.com/azure/storage/blobs/migrate-gen2-wandisco-live-data-platform)
 - [Copy or move data to Azure Storage with AzCopy](https://aka.ms/azcopy)
