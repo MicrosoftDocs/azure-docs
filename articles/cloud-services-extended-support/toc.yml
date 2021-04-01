@@ -51,14 +51,14 @@
       href: schema-cscfg-role.md
     - name: NetworkConfiguration schema
       href: schema-cscfg-networkconfiguration.md
-  - name: Frequently Asked Questions
-    href: faq.md
 - name: How To
   items:
-  - name: Apply Remote Desktop extension
-    href: enable-rdp.md
-  - name: Apply WAD extension
-    href: enable-wad.md
+  - name: Apply Extensions
+    items:
+    - name: Apply Remote Desktop extension
+      href: enable-rdp.md
+    - name: Apply WAD extension
+      href: enable-wad.md
   - name: Enable alerts
     href: enable-alerts.md
   - name: Configure scaling
@@ -69,6 +69,12 @@
     href: generate-template-portal.md
   - name: Swap two Cloud Services
     href: swap-cloud-service.md
+  - name: Troubleshoot
+    items:
+    - name: Role Startup Failure
+      href: role-startup-failure.md
+    - name: Frequently Asked Questions
+      href: faq.md
 - name: Samples
   items: 
   - name: Sample Templates
