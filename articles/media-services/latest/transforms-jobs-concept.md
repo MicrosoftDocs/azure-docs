@@ -104,7 +104,7 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 ## See also
 
 * [Error codes](/rest/api/media/jobs/get#joberrorcode)
-* [Filtering, ordering, paging of Media Services entities](entities-overview.md)
+* [Filtering, ordering, paging of Media Services entities](filter-order-page-entitites-how-to.md)
 
 ## Next steps
 
@@ -113,4 +113,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
     - [Tutorial: Encode a remote file based on URL and stream the video](stream-files-tutorial-with-rest.md)
     - [Tutorial: Upload, encode, and stream videos](stream-files-tutorial-with-api.md)
-    - [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial-with-api.md)
+    - [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial.md)

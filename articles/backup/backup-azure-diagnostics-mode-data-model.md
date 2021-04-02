@@ -194,9 +194,9 @@ This table provides details about policy-related fields.
 | MonthlyRetentionDaysOfTheWeek_s |Text ||Days of the week selected for monthly retention |
 | MonthlyRetentionWeeksOfTheMonth_s |Text ||Weeks of the month when monthly retention is configured, for example, First, Last |
 | YearlyRetentionDuration_s |Decimal Number ||Total retention duration in years for configured backups |
-| YearlyRetentionTimes_s |Text ||Date and time when yearly retention is configured |
-| YearlyRetentionMonthsOfTheYear_s |Text ||Months of the year selected for yearly retention |
-| YearlyRetentionFormat_s |Text ||Type of configuration for yearly retention, for example, daily for day based, weekly for week based | |
+| YearlyRetentionTimes_s |Text | | Date and time when yearly retention is configured |
+| YearlyRetentionMonthsOfTheYear_s |Text | | Months of the year selected for yearly retention |
+| YearlyRetentionFormat_s |Text ||Type of configuration for yearly retention, for example, daily for day based, weekly for week based |
 | YearlyRetentionDaysOfTheMonth_s |Text ||Dates of the month selected for yearly retention |
 | SynchronisationFrequencyPerDay_s |Whole Number |v2|Number of times in a day a file backup is synchronized for SC DPM and MABS |
 | DiffBackupFormat_s |Text |v2|Format for Differential backups for SQL in Azure VM backup |
