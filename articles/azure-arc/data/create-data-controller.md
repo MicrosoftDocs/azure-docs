@@ -14,8 +14,6 @@ ms.topic: how-to
 # Create the Azure Arc data controller
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
->
-> Currently, this capability does not support direct connect mode. 
 
 ## Overview of creating the Azure Arc data controller
 
