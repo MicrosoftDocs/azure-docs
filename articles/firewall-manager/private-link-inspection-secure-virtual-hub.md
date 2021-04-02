@@ -57,7 +57,7 @@ These steps only work when the clients and private endpoints are deployed in dif
 
 The following diagram illustrates the DNS and data traffic flows for the different clients to connect to a private endpoint deployed in Azure virtual WAN:
 
-:::image type="content" source="./media/private-link-inspection-secure-virtual-hub/filter-private-link-secured-virtual-hub.png" alt-text="Traffic Flows" border="true":::
+:::image type="content" source="./media/private-link-inspection-secure-virtual-hub/private-link-inspection-virtual-wan-architecture.png" alt-text="Traffic Flows" border="true":::
 
 ## Troubleshooting
 
