@@ -11,11 +11,11 @@ description: "This article provides a conceptual overview of Azure RBAC capabili
 
 # Azure RBAC on Azure Arc enabled Kubernetes
 
-Kubernetes objects of the type [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) provide a way to define authorization in a Kubernetes native way. Instead, this feature allows for usage of Azure Active Directory (AAD) and role assignments in Azure to control authorization checks on the cluster.
+Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) objects type help to define authorization in Kubernetes natively. With Azure RBAC, you can use Azure Active Directory (AAD) and role assignments in Azure to control authorization checks on the cluster.
 
-With this, all benefits of Azure role assignments such as activity log allowing you to see all the Azure RBAC changes happening on an Azure resource now become applicable for your Azure Arc enabled Kubernetes cluster.
+With this feature, all the benefits of Azure role assignments, such as activity logs showing all Azure RBAC changes to an Azure resource, now become applicable for your Azure Arc enabled Kubernetes cluster.
 
-## Architecture
+## Architecture - Azure RBAC on Azure Arc enabled Kubernetes
 
 [ ![Azure RBAC architecture](./media/conceptual-azure-rbac.png) ](./media/conceptual-azure-rbac.png#lightbox)
 
@@ -25,12 +25,12 @@ The `apiserver` of the cluster is configured to use [webhook token authenticatio
 
 Guard then makes a `checkAccess` call on the authorization service in  Azure to see if the requesting AAD entity has access to the resource of concern. 
 
-If there exists a role in assignment that permits this access, then an `allowed` response is sent back from the authorization service guard. Guard in turn sends back an `allowed` response to the `apiserver` resulting in the calling entity being able to access the requested Kubernetes resource
+If a role in assignment that permits this access exists, then an `allowed` response is sent from the authorization service guard. Guard, in turn, sends an `allowed` response to the `apiserver`, enabling the calling entity to access the requested Kubernetes resource.
 
 
-If a role in assignment permitting this access doesn't exist, then a `denied` response is sent back from the authorization service guard. Guard in turn sends back an `denied` response to the `apiserver`, resulting in the calling entity getting a 403 forbidden error on the requested resource.
+If a role in assignment permitting this access doesn't exist, then a `denied` response is sent from the authorization service to guard. Guard sends a `denied` response to the `apiserver`, giving the calling entity a 403 forbidden error on the requested resource.
 
 ## Next steps
 
-* Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md).
-* Already have a Kubernetes cluster connected to Azure Arc? [Set up Azure RBAC on your cluster](./azure-rbac.md).
+* Use our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md).
+* [Set up Azure RBAC](./azure-rbac.md) on your existing cluster.
