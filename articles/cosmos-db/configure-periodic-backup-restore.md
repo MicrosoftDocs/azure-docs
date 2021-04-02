@@ -43,6 +43,8 @@ Backup data in Azure Cosmos DB is replicated three times in the primary region. 
 
 > [!NOTE]
 > Zone-redundant storage is currently available only in [specific regions](high-availability.md#availability-zone-support). Based on the region you select; this option will not be available for new or existing accounts.
+>
+> Updating backup storage redundancy will not have any impact on backup storage pricing.
 
 ## <a id="configure-backup-interval-retention"></a>Modify the backup interval and retention period
 
@@ -63,7 +65,7 @@ Use the following steps to change the default backup options for an existing Azu
 
    * **Copies of data retained** - By default, two backup copies of your data are offered at free of charge. There is an extra charge if you need more than two copies. See the Consumed Storage section in the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to know the exact price for extra copies.
 
-   * **Backup storage redundancy** - Choose the required storage redundancy option, see the [Backup storage redundancy](#backup-storage-redundancy) section for available options. By default, your existing periodic backup mode accounts have geo-redundant storage. You can choose other storage such as locally redundant to ensure the backup is not replicated to another region. The changes made to an existing account are applied to only future backups. After the backup storage redundancy of an existing account is updated, it may take up to twice the backup interval time for the changes to take effect and **you will lose access to restore from the older backups immediately.**
+   * **Backup storage redundancy** - Choose the required storage redundancy option, see the [Backup storage redundancy](#backup-storage-redundancy) section for available options. By default, your existing periodic backup mode accounts have geo-redundant storage. You can choose other storage such as locally redundant to ensure the backup is not replicated to another region. The changes made to an existing account are applied to only future backups. After the backup storage redundancy of an existing account is updated, it may take up to twice the backup interval time for the changes to take effect and **you will lose access to restore the older backups immediately.**
 
    > [!NOTE]
    > You must have the Azure [Cosmos DB Account Reader Role](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role) role assigned at the subscription level to configure backup storage redundancy.
@@ -137,7 +139,7 @@ If you provision throughput at the database level, the backup and restore proces
 Principals who are part of the role [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), owner, or contributor are allowed to request a restore or change the retention period.
 
 ## Understanding Costs of extra backups
-Two backups are provided free and extra backups are charged according to the region-based  pricing for backup storage described in [backup storage pricing](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). For example if Backup Retention is configured  to  240 hrs that is, 10 days and Backup Interval to 24 hrs. This implies 10 copies of the backup data. Assuming  1 TB of data in West US 2, the cost would be  will be 0.12 * 1000 * 8  for backup storage in given month.
+Two backups are provided free and extra backups are charged according to the region-based  pricing for backup storage described in [backup storage pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). For example if Backup Retention is configured  to  240 hrs that is, 10 days and Backup Interval to 24 hrs. This implies 10 copies of the backup data. Assuming  1 TB of data in West US 2, the cost would be  will be 0.12 * 1000 * 8  for backup storage in given month.
 
 ## Options to manage your own backups
 
