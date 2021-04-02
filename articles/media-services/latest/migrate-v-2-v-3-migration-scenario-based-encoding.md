@@ -98,7 +98,7 @@ If you previously used workflows to copy files from Azure blob files into empty 
 
 ## Indexer v1 audio transcription to the new AudioAnalyzer “basic mode”
 
-For customers using the Indexer v1 processor in the v2 API, you need to create a transform that invokes the new `AudioAnalyzer` in [basic mode](how-to-create-basic-audio-transform.md) prior to submitting a Job.
+For customers using the Indexer v1 processor in the v2 API, you need to create a transform that invokes the new `AudioAnalyzer` in [basic mode](transform-create-basic-audio-how-to.md) prior to submitting a Job.
 
 ## Encoding, transforms and jobs concepts, tutorials and how to guides
 
@@ -122,10 +122,10 @@ For customers using the Indexer v1 processor in the v2 API, you need to create a
 
 - [Create a job input from an HTTPS URL](job-input-from-http-how-to.md)
 - [Create a job input from a local file](job-input-from-local-file-how-to.md)
-- [Create a basic audio transform](how-to-create-basic-audio-transform.md)
+- [Create a basic audio transform](transform-create-basic-audio-how-to.md)
 - With .NET
   - [How to encode with a custom transform - .NET](encode-custom-presets-how-to.md)
-  - [How to create an overlay with Media Encoder Standard](how-to-create-overlay.md)
+  - [How to create an overlay with Media Encoder Standard](transform-create-overlay-how-to.md)
   - [How to generate thumbnails using Encoder Standard with .NET](media-services-generate-thumbnails-dotnet.md)
 - With Azure CLI
   - [How to encode with a custom transform - Azure CLI](encode-custom-preset-cli-how-to.md)
