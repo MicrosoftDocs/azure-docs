@@ -12,6 +12,10 @@ items:
     href: create-catalog-portal.md
   - name: Create a Purview account - Azure PowerShell
     href: create-catalog-powershell.md
+  - name: Create a Purview account - .NET SDK
+    href: create-purview-dotnet.md
+  - name: Create a Purview account - Python
+    href: create-purview-python.md
 - name: Tutorials
   items:
   - name: Starter kit

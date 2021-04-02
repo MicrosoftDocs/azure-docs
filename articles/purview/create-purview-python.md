@@ -1,20 +1,18 @@
 ---
-title: Create Purview Account using .NET SDK
-description: Create an Azure Purview Account using .NET SDK.
+title: 'Quickstart: Create an Purview Account using Python'
+description: Create an Azure Purview Account using Python.
 author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
-ms.devlang: dotnet
+ms.devlang: python
 ms.topic: quickstart
-ms.date: 4/2/2021
-ms.author: nayenama
+ms.date: 04/02/2021
 ---
-# Quickstart: Create a Purview Account using .NET SDK
 
-This quickstart describes how to use .NET SDK to create an Azure Purview account 
+# Quickstart: Create a Purview Account using Python
 
-> [!IMPORTANT]
-> Azure Purview is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+In this quickstart, you create a Purview account using Python. 
 
 ## Prerequisites
 
@@ -24,181 +22,190 @@ This quickstart describes how to use .NET SDK to create an Azure Purview account
 
 * Your account must have permission to create resources in the subscription
 
-* If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an EventHub namespace. For more information refer to [Create Catalog Portal](create-catalog-portal.md)
+* If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an
+EventHub namespace. For more information refer to [Create Catalog Portal](create-catalog-portal.md)
 
-### Visual Studio
 
-The walkthrough in this article uses Visual Studio 2019. The procedures for Visual Studio 2013, 2015, or 2017 differ slightly.
+## Install the Python package
 
-### Azure .NET SDK
+1. Open a terminal or command prompt with administrator privileges. 
+2. First, install the Python package for Azure management resources:
 
-Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/) on your machine.
+    ```python
+    pip install azure-mgmt-resource
+    ```
+3. To install the Python package for Purview, run the following command:
 
-## Create an application in Azure Active Directory
-
-From the sections in *How to: Use the portal to create an Azure AD application and service principal that can access resources*, follow the instructions to do these tasks:
-
-1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you are creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
-2. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), get the **application ID** and **tenant ID**, and note down these values that you use later in this tutorial. 
-3. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), get the **authentication key**, and note down this value that you use later in this tutorial.
-4. In [Assign the application to a role](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.
-
-## Create a Visual Studio project
-
-Next, create a C# .NET console application in Visual Studio:
-
-1. Launch **Visual Studio**.
-2. In the Start window, select **Create a new project** > **Console App (.NET Framework)**. .NET version 4.5.2 or above is required.
-3. In **Project name**, enter **ADFv2QuickStart**.
-4. Select **Create** to create the project.
-
-## Install NuGet packages
-
-1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Microsoft.Azure.Management.Purview nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.Purview/).
-
-    ```powershell
-    Install-Package Microsoft.Azure.Management.Purview
-    Install-Package Microsoft.Azure.Management.ResourceManager -IncludePrerelease
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+    ```python
+    pip install azure-mgmt-purview
     ```
 
-## Create a Purview client
+    The [Python SDK for Purview](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5, 3.6 and 3.7.
 
-1. Open **Program.cs**, include the following statements to add references to namespaces.
+4. To install the Python package for Azure Identity authentication, run the following command:
 
-    ```csharp
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Microsoft.Rest;
-    using Microsoft.Rest.Serialization;
-	  using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.Azure.Management.Purview;
-	  using Microsoft.Azure.Management.Purview.Models;
-	  using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```python
+    pip install azure-identity
+    ```
+    > [!NOTE] 
+    > The "azure-identity" package might have conflicts with "azure-cli" on some common dependencies. If you meet any authentication issue, remove "azure-cli" and its dependencies, or use a clean machine without installing "azure-cli" package to make it work.
+    
+## Create a purview client
+
+1. Create a file named **purview.py**. Add the following statements to add references to namespaces.
+
+    ```python
+    from azure.identity import ClientSecretCredential 
+	from azure.mgmt.resource import ResourceManagementClient
+	from azure.mgmt.purview import PurviewManagementClient
+	from azure.mgmt.purview.models import *
+	from datetime import datetime, timedelta
+	import time
     ```
 
-2. Add the following code to the **Main** method that sets the variables. Replace the placeholders with your own values. For a list of Azure regions in which Purview is currently available, search on **Azure Purview** and select the regions that interest you on the following page: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+2. Add the following code to the **Main** method that creates an instance of PurviewManagementClient class. You use this object to create a purview account, delete purview account, check name availablity and other resource provider operations.
+ 
+ ```python
+    def main():
+    
+    # Azure subscription ID
+    subscription_id = '<subscription ID>'
+	
+	# This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
+    rg_name = '<resource group>'
 
-   ```csharp
-   // Set variables
-   string tenantID = "<your tenant ID>";
-   string applicationId = "<your application ID>";
-   string authenticationKey = "<your authentication key for the application>";
-   string subscriptionId = "<your subscription ID where the data factory resides>";
-   string resourceGroup = "<your resource group where the data factory resides>";
-   string region = "<the location of your resource group>";
-   string purviewAccountName = 
-       "<specify the name of purview account to create. It must be globally unique.>";
-   ```
+    # The purview name. It must be globally unique.
+    purview_name = '<purview account name>'
 
-3. Add the following code to the **Main** method that creates an instance of **PurviewManagementClient** class. You use this object to create a Purview Account.
+    # Specify your Active Directory client ID, client secret, and tenant ID
+    credentials = ClientSecretCredential(client_id='<service principal ID>', client_secret='<service principal key>', tenant_id='<tenant ID>') 
+    # resource_client = ResourceManagementClient(credentials, subscription_id)
+    purview_client = PurviewManagementClient(credentials, subscription_id)
+    ```
 
-   ```csharp
-   // Authenticate and create a purview management client
-   var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
-   ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
-   AuthenticationResult result = context.AcquireTokenAsync(
-   "https://management.azure.com/", cc).Result;
-   ServiceClientCredentials cred = new TokenCredentials(result.AccessToken);
-   var client = new PurviewManagementClient(cred)
-   {
-      SubscriptionId = subscriptionId           
-   };
-   ```
+## Create a purview account
 
-## Create a Purview Account
+Add the following code to the **Main** method that creates a **purview account**. If your resource group already exists, comment out the first `create_or_update` statement.
 
-Add the following code to the **Main** method that creates a **Purview Account**. 
+```python
+    # create the resource group
+    # comment out if the resource group already exits
+    resource_client.resource_groups.create_or_update(rg_name, rg_params)
 
-```csharp
-	// Create a purview Account
-    Console.WriteLine("Creating Purview Account " + purviewAccountName + "...");
-    Account account = new Account()
-    {
-    Location = region,
-    Identity = new Identity(type: "SystemAssigned"),
-    Sku = new AccountSku(name: "Standard", capacity: 4)
-    };            
-    try
-    {
-      client.Accounts.CreateOrUpdate(resourceGroup, purviewAccountName, account);
-      Console.WriteLine(client.Accounts.Get(resourceGroup, purviewAccountName).ProvisioningState);                
-    }
-    catch (ErrorResponseModelException purviewException)
-    {
-      Console.WriteLine(purviewException.StackTrace);
-    }
-    Console.WriteLine(
-      SafeJsonConvert.SerializeObject(account, client.SerializationSettings));
-    while (client.Accounts.Get(resourceGroup, purviewAccountName).ProvisioningState ==
-           "PendingCreation")
-    {
-      System.Threading.Thread.Sleep(1000);
-    }
-	Console.WriteLine("\nPress any key to exit...");
-    Console.ReadKey();
+    #Create a purview
+    identity = Identity(type= "SystemAssigned")
+    sku = AccountSku(name= 'Standard', capacity= 4)
+    purview_resource = Account(identity=identity,sku=sku,location ="southcentralus" )
+       
+    try:
+	    pa = (purview_client.accounts.begin_create_or_update(rg_name, purview_name, purview_resource)).result()
+	    print("location:", pa.location, " Purview Account Name: ", purview_name, " Id: " , pa.id ," tags: " , pa.tags)  
+    except:
+	    print("Error")
+	    print_item(pa)
+ 
+    while (getattr(pa,'provisioning_state')) != "Succeeded" :
+        pa = (purview_client.accounts.get(rg_name, purview_name))  
+        print(getattr(pa,'provisioning_state'))
+        if getattr(pa,'provisioning_state') != "Failed" :
+            print("Error in creating Purview account")
+            break
+        time.sleep(30)      
+        
+```
+
+Now, add the following statement to invoke the **main** method when the program is run:
+
+```python
+# Start the main method
+main()
+```
+
+## Full script
+
+Here is the full Python code:
+
+```python
+	
+	from azure.identity import ClientSecretCredential 
+	from azure.mgmt.resource import ResourceManagementClient
+	from azure.mgmt.purview import PurviewManagementClient
+	from azure.mgmt.purview.models import *
+	from datetime import datetime, timedelta
+	import time
+	
+	 # Azure subscription ID
+    subscription_id = '<subscription ID>'
+	
+	# This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
+    rg_name = '<resource group>'
+
+    # The purview name. It must be globally unique.
+    purview_name = '<purview account name>'
+
+    # Specify your Active Directory client ID, client secret, and tenant ID
+    credentials = ClientSecretCredential(client_id='<service principal ID>', client_secret='<service principal key>', tenant_id='<tenant ID>') 
+    # resource_client = ResourceManagementClient(credentials, subscription_id)
+    purview_client = PurviewManagementClient(credentials, subscription_id)
+	
+	# create the resource group
+    # comment out if the resource group already exits
+    resource_client.resource_groups.create_or_update(rg_name, rg_params)
+
+    #Create a purview
+    identity = Identity(type= "SystemAssigned")
+    sku = AccountSku(name= 'Standard', capacity= 4)
+    purview_resource = Account(identity=identity,sku=sku,location ="southcentralus" )
+       
+    try:
+	    pa = (purview_client.accounts.begin_create_or_update(rg_name, purview_name, purview_resource)).result()
+	    print("location:", pa.location, " Purview Account Name: ", purview_name, " Id: " , pa.id ," tags: " , pa.tags) 
+    except:
+	    print("Error in submitting job to create account")
+	    print_item(pa)
+ 
+    while (getattr(pa,'provisioning_state')) != "Succeeded" :
+        pa = (purview_client.accounts.get(rg_name, purview_name))  
+        print(getattr(pa,'provisioning_state'))
+        if getattr(pa,'provisioning_state') != "Failed" :
+            print("Error in creating Purview account")
+            break
+        time.sleep(30)    
+
+# Start the main method
+main()
 ```
 
 ## Run the code
 
-Build and start the application, then verify the execution.
+Build and start the application, then verify the pipeline execution.
 
-The console prints the progress of creating Purview Account.
+The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. Wait until you see the copy activity run details with data read/written size. Then, use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in variables.
 
-### Sample output
+Here is the sample output:
 
-```json
-Creating Purview Account testpurview...
+```console
+location: southcentralus  Purview Account Name:  purviewpython7  Id:  /subscriptions/8c2c7b23-848d-40fe-b817-690d79ad9dfd/resourceGroups/Demo_Catalog/providers/Microsoft.Purview/accounts/purviewpython7  tags:  None
+Creating
+Creating
 Succeeded
-{
-  "sku": {
-    "capacity": 4,
-    "name": "Standard"
-  },
-  "identity": {
-    "type": "SystemAssigned"
-  },
-  "location": "southcentralus"
-}
-
-Press any key to exit...
 ```
 
 ## Verify the output
 
 Go to the **Purview accounts** page in the Azure portal and verify the account created using the above code. 
 
-## Delete Purview account
+## Delete Purview Account
 
-To programmatically delete a Purview Account, add the following lines of code to the program: 
+To delete purview account, add the following code to the program:
 
-```csharp
-	Console.WriteLine("Deleting the Purview Account");
-	client.Accounts.Delete(resourceGroup, purviewAccountName);
+```python
+pa = purview_client.accounts.begin_delete(rg_name, purview_name).result()
 ```
-
-## Check if Purview account name is availble
-
-To check availablity of a purview account, use the following code: 
-
-```csharp
-	CheckNameAvailabilityRequest checkNameAvailabilityRequest = new CheckNameAvailabilityRequest()
-	{
-      Name = purviewAccountName,
-      Type =  "Microsoft.Purview/accounts"
-    };
-	Console.WriteLine("Check Purview account name");
-	Console.WriteLine(client.Accounts.CheckNameAvailability(checkNameAvailabilityRequest).NameAvailable);
-```
-
-The above code with print 'True' if the name is available and 'False' if the name is not available.
-
 
 ## Next steps
 
-The code in this tutorial creates a purview account, deletes a purview account and checks for name availablilty of purview account. You can now download the .NET SDK and learn about other resource provider actions you can perform for a Purview account.
+The code in this tutorial creates a purview account and  deletes a purview account. You can now download the python SDK and learn about other resource provider actions you can perform for a Purview account.
 
 Advance to the next article to learn how to allow users to access your Azure Purview Account. 
 
