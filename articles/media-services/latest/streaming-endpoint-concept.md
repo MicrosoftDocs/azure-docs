@@ -217,4 +217,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## Next steps
 
-[Manage streaming endpoints](manage-streaming-endpoints-howto.md)
+[Manage streaming endpoints](stream-manage-streaming-endpoints-how-to.md)
