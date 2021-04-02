@@ -40,7 +40,7 @@ The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a
 
 ## Secure and protect
 
-![Azure services that help you secure and protect](./media/end-to-end/secure-and-protect.png)
+![Azure services that help you secure and protect your cloud resources](./media/end-to-end/secure-and-protect.png)
 
 | Service | Description |
 |------|--------|
