@@ -26,7 +26,7 @@ Review limitations of this release in [Known issues - Azure Arc enabled data ser
 
 ### Data controller
 
-- Deploy Azure Arc enabled data services data controller in direct connect mode from the portal. Start from [Deploy data controller - direct connect mode - prerequisites](deploy-dc-direct-mode-prerequisites.md).
+- Deploy Azure Arc enabled data services data controller in direct connect mode from the portal. Start from [Deploy data controller - direct connect mode - prerequisites](deploy-data-controller-direct-mode-prerequisites.md).
 
 ### Azure Arc enabled PostgreSQL Hyperscale
 

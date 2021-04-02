@@ -24,7 +24,7 @@ At a high level summary, the prerequisites include:
 1. Create the service principal and configure roles for metrics
 1. Connect Kubernetes cluster to Azure using Azure Arc enabled Kubernetes
 
-After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode](deploy-dc-direct-mode.md).
+After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode](deploy-data-controller-direct-mode.md).
 
 The remaining sections of this article identify the prerequisites.
 
@@ -60,7 +60,7 @@ $ az version
 
 Follow the steps detailed in the [Upload metrics](upload-metrics-and-logs-to-azure-monitor.md) article and create a Service Principal and grant the roles as described the article. 
 
-The SPN ClientID, TenantID, and Client Secret information will be required when you [deploy Azure Arc data controller](deploy-dc-direct-mode.md). 
+The SPN ClientID, TenantID, and Client Secret information will be required when you [deploy Azure Arc data controller](deploy-data-controller-direct-mode.md). 
 
 ## Connect Kubernetes cluster to Azure using Azure Arc enabled Kubernetes
 
@@ -68,4 +68,4 @@ To complete this task, follow the steps in [Connect an existing Kubernetes clust
 
 ## Next steps
 
-After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode](deploy-dc-direct-mode.md).
+After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode](deploy-data-controller-direct-mode.md).

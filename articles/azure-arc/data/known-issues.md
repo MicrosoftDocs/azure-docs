@@ -25,7 +25,7 @@ ms.topic: conceptual
    - Azure Data CLI (`azdata`)
    - Kubernetes native tools
 
-   [Deploy Azure Arc data controller | Direct connect mode](deploy-dc-direct-mode.md) explains how to create the data controller in the portal. 
+   [Deploy Azure Arc data controller | Direct connect mode](deploy-data-controller-direct-mode.md) explains how to create the data controller in the portal. 
 
 ### Azure Arc enabled PostgreSQL Hyperscale
 

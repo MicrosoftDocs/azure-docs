@@ -21,7 +21,7 @@ Currently you can create the Azure Arc data controller from Azure portal. Other 
 
 ## Complete prerequisites
 
-Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](deploy-dc-direct-mode-prerequisites.md).
+Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](deploy-data-controller-direct-mode-prerequisites.md).
 
 From a high level, this article explains how to complete these tasks:
 
@@ -94,7 +94,7 @@ You can verify if  the Arc enabled data services extension is created either fro
 1. In the navigation on the left side, under **Settings**, select "Extensions (preview)".
 1. You should see the extension that was just created earlier in an "Installed" state.
 
-:::image type="content" source="media/deploy-dc-direct-mode-prerequisites/dc-extensions-dashboard.png" alt-text="Extensions dashboard":::
+:::image type="content" source="media/deploy-data-controller-direct-mode-prerequisites/dc-extensions-dashboard.png" alt-text="Extensions dashboard":::
 
 #### kubectl CLI
 
