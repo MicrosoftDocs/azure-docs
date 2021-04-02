@@ -43,4 +43,4 @@ The sequence of steps to create the SQL managed instance and PostgreSQL instance
 ## Next steps
 
 * Use our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md).
-* [Create a custom location](./custom-locations.md) on your Arc enabled Kubernetes cluster.
+* [Create a custom location](./custom-locations.md) on your Azure Arc enabled Kubernetes cluster.

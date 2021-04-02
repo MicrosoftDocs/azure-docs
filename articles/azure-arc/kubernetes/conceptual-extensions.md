@@ -25,15 +25,17 @@ description: "This article provides a conceptual overview of cluster extensions 
 
 [ ![Cluster extensions architecture](./media/conceptual-extensions.png) ](./media/conceptual-extensions.png#lightbox)
 
-The cluster extension instance is created as an extension Azure Resource Manager resource (`Microsoft.KubernetesConfiguration/extensions`) on top of the Azure Arc enabled Kubernetes resource (represented by `Microsoft.Kubernetes/connectedClusters`) in Azure Resource Manager. This Azure Resource Manager representation makes it possible to author a policy that checks for all the Azure Arc enabled Kubernetes resources that have or don't have a specific cluster extension created on them. Once it's determined that a cluster doesn't have the cluster extension with desired property values, it's then possible to use Azure Policy remediate those resources by creating the cluster extension resource on top of these clusters.
+The cluster extension instance is created as an extension Azure Resource Manager resource (`Microsoft.KubernetesConfiguration/extensions`) on top of the Azure Arc enabled Kubernetes resource (represented by `Microsoft.Kubernetes/connectedClusters`) in Azure Resource Manager. Representation in Azure Resource Manager allows you to author a policy that checks for all the Azure Arc enabled Kubernetes resources with or without a specific cluster extension. Once you've determined which clusters lack cluster extensions with desired property values, you can remediate these non-compliant resources using Azure Policy.
 
-The `config-agent` running in your cluster is responsible for tracking new or updated extension resources on the Azure Arc enabled Kubernetes resource. The `extensions-manager` running in your cluster is responsible for pulling the Helm chart from Azure Container Registry or Microsoft Container Registry and then installing it on the cluster. Version updates and deletion of the extension instance are also handled in a similar manner by the `config-agent` and `extensions-manager` component running in the cluster.
+The `config-agent` running in your cluster tracks new or updated extension resources on the Azure Arc enabled Kubernetes resource. The `extensions-manager` running in your cluster pulls the Helm chart from Azure Container Registry or Microsoft Container Registry and installs it on the cluster. 
+
+Both the `config-agent` and `extensions-manager` components running in the cluster handle version updates and extension instance deletion.
 
 > [!NOTE]
-> * `config-agent` monitors for new or updated extension resources to be available on the Arc enabled Kubernetes resource. Thus agents require connectivity for the desired state to be pulled down to the cluster. If agents are unable to connect to Azure, there is a delay in propagating the desired state to the cluster.
-> * Protected configuration settings for an extension are not stored for more than 48 hours in the Azure Arc enabled Kubernetes services. As a result if the cluster remains disconnected during the 48 hours after the extension resource was created on Azure, the extension transitions from a `Pending` state to `Failed` state. It's thus advisable to bring the clusters online as regularly as possible.
+> * `config-agent` monitors for new or updated extension resources to be available on the Arc enabled Kubernetes resource. Thus, agents require connectivity for the desired state to be pulled down to the cluster. If agents are unable to connect to Azure, propagation of the desired state to the cluster is delayed.
+> * Protected configuration settings for an extension are stored for up to 48 hours in the Azure Arc enabled Kubernetes services. As a result, if the cluster remains disconnected during the 48 hours after the extension resource was created on Azure, the extension transitions from a `Pending` state to `Failed` state. We advise bringing the clusters online as regularly as possible.
 
 ## Next steps
 
-* Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md).
-* Already have a Kubernetes cluster connected to Azure Arc? [Deploy cluster extensions on your Arc enabled Kubernetes cluster](./extensions.md).
+* Use our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md).
+* [Deploy cluster extensions](./extensions.md) on your Azure Arc enabled Kubernetes cluster.

@@ -33,4 +33,4 @@ If a role in assignment permitting this access doesn't exist, then a `denied` re
 ## Next steps
 
 * Use our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md).
-* [Set up Azure RBAC](./azure-rbac.md) on your existing cluster.
+* [Set up Azure RBAC](./azure-rbac.md) on your Azure Arc enabled Kubernetes cluster cluster.
