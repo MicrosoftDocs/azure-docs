@@ -37,6 +37,12 @@ Review limitations of this release in [Known issues - Azure Arc enabled data ser
 |February 2021 and prior| postgresql-11s.arcdata.microsoft.com<br/>postgresql-12s.arcdata.microsoft.com |
 |Beginning March 2021 | postgresqls.arcdata.microsoft.com
 
+### Azure Arc enabled managed instance
+
+- You can now restore a database to SQL Managed Instance with 3 replicas and it will be automatically added to the availability group. 
+
+- You can now connect to a secondary read-only endpoint on SQL Managed Instances deployed with 3 replicas. Use `azdata arc sql endpoint list` to see the secondary read-only connection endpoint.
+
 ## February 2021
 
 ### New capabilities and features
