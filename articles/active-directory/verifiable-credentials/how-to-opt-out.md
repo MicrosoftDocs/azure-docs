@@ -1,5 +1,5 @@
 ---
-title: Opt out of the verifiable credentials (Preview)
+title: Opt out of the Azure Active Directory Verifiable Credentials (Preview)
 description: Learn how to Opt Out of the Verifiable Credentials Preview
 documentationCenter: ''
 author: barclayn
@@ -60,7 +60,7 @@ When you complete opting out of the Azure Active Directory Verifiable Credential
 
 Once an opt-out takes place, you will not be able to recover your DID or conduct any operations on your DID. This step is a one-way operation, and you need to opt in again, which results in a new DID being created.  
 
-## Effect on existing verifiable credentials.
+## Effect on existing verifiable credentials
 
 All verifiable credentials already issued will continue to exist. They will not be cryptographically invalidated as your DID will remain resolvable through ION.
 However, when relying parties call the status API, they will always receive back a failure message.
