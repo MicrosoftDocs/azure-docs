@@ -65,7 +65,7 @@ Make sure the region you chose is the same where the primary server also is. The
 az sql db replica create -g MyResourceGroup -n WideWorldImporters -s MyPrimaryServer --secondary-type Named --partner-database WideWorldImporters_NR --partner-server MySecondaryServer
 ```
 
-## Create database login in the named replica
+## Create login in the named replica
 
 Connect to the `master` database on the logical server hosting the named replica. Add the login using the SID got from the primary replica:
 

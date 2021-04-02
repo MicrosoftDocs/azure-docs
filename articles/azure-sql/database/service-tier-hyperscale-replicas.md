@@ -56,7 +56,7 @@ The main goal of named replicas is to allow massive OLTP read scale-out scenario
 
 Aside from the main scenarios listed above, named replicas offer flexibility and elasticity to also satisfy many other use cases:
 - [Access Isolation](hyperscale-named-replica-security-configure.md): grant a login access to a named replica only and deny it from accessing the primary replica or other named replicas.
-- Workload Dependent Service Objective: as a named replica can have its own Service Level Objective, it is possible use different named replicas for different workloads and use cases. For example, one named replica could be used to serve PowerBI requests, while another can be used to serve data to Apache Spark for Data Science tasks. Each one can have independent service level objective and scale independently.
+- Workload Dependent Service Objective: as a named replica can have its own Service Level Objective, it is possible to use different named replicas for different workloads and use cases. For example, one named replica could be used to serve PowerBI requests, while another can be used to serve data to Apache Spark for Data Science tasks. Each one can have independent service level objective and scale independently.
 - Workload Dependent Routing: with up to 30 named replicas, it is possible to use named replicas in groups so that an application can be isolated from another. For example, a group of 4 named replicas could be used to serve requests coming from mobile applications, while another group of 2 named replicas can be used to serve requests coming from a web application. This approach would allow a very fine-grained tuning of performance and costs for each group.
 
 The following example creates named replica `WideWorldImporters_NR` for database `WideWorldImporters` with service level objective HS_Gen5_4. Both use the same logical server `MyServer`. If you prefer to use REST API directly, this is also possible: [Databases - Create A Database As Named Replica Secondary](https://docs.microsoft.com/en-us/rest/api/sql/2020-11-01-preview/databases/createorupdate#creates-a-database-as-named-replica-secondary).
@@ -87,7 +87,7 @@ Just like for HA replicas, even though the primary, HA, and named replicas share
 
 ### Modifying a named replica
 
-You can define the service level objective of a named replica when you create it, via the `ALTER DATABASE` command or in any other supported way. If you need to change the service level objective after the named replica has been created, you can do it using the regular `ALTER DATABASE…MODIFY` command on the named replica itself. For example, if `WideWorldImporters_NR` is the named replica of `WideWorldImporters` database, you can do it as shown below (it will take up to a minute max).
+You can define the service level objective of a named replica when you create it, via the `ALTER DATABASE` command or in any other supported ways (AZ CLI, PowerShell, REST API). If you need to change the service level objective after the named replica has been created, you can do it using the regular `ALTER DATABASE…MODIFY` command on the named replica itself. For example, if `WideWorldImporters_NR` is the named replica of `WideWorldImporters` database, you can do it as shown below (it will take up to a minute max).
 
 # [T-SQL](#tab/tsql)
 ```sql
