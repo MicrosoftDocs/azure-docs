@@ -1,19 +1,75 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 12/03/2020
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ---
 
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## February 2021
+
+### New articles
+
+- [Integrate with SharePoint (SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)
+- [Migrate application authentication to Azure Active Directory](migrate-application-authentication-to-azure-active-directory.md)
+
+### Updated articles
+
+- [Integrate with SharePoint (SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)
+- [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
+- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Use tenant restrictions to manage access to SaaS cloud applications](tenant-restrictions.md)
+
+## January 2021
+
+### New articles
+- [Plan Azure Active Directory My Apps configuration](my-apps-deployment-plan.md)
+
+### Updated articles
+- [Problem installing the Application Proxy Agent Connector](application-proxy-connector-installation-problem.md)
+- [Troubleshoot password-based single sign-on in Azure AD](troubleshoot-password-based-sso.md)
+- [Application management best practices](application-management-fundamentals.md)
+- [Integrating Azure Active Directory with applications getting started guide](plan-an-application-integration.md)
+- [What is application management?](what-is-application-management.md)
+- [Active Directory (Azure AD) Application Proxy frequently asked questions](application-proxy-faq.md)
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Develop line-of-business apps for Azure Active Directory](../develop/v2-overview.md)
+- [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
+- [Understand linked sign-on](configure-linked-sign-on.md)
+- [Understand password-based single sign-on](configure-password-single-sign-on-non-gallery-applications.md)
+- [Understand SAML-based single sign-on](configure-saml-single-sign-on.md)
+- [Troubleshoot common problem adding or removing an application to Azure Active Directory](troubleshoot-adding-apps.md)
+- [Viewing apps using your Azure AD tenant for identity management](application-types.md)
+- [Understand how users are assigned to apps in Azure Active Directory](ways-users-get-assigned-to-applications.md)
+- [Quickstart: Delete an application from your Azure Active Directory (Azure AD) tenant](delete-application-portal.md)
+- [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md)
+- [Take action on overprivileged or suspicious applications in Azure Active Directory](manage-application-permissions.md)
+
+
+## December 2020
+
+### Updated articles
+
+- [Quickstart: Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-setup-oidc-sso.md)
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Understand OIDC-based single sign-on](configure-oidc-single-sign-on.md)
+- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Use the AD FS application activity report (preview) to migrate applications to Azure AD](migrate-adfs-application-activity.md)
+- [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md)
+
 
 ## November 2020
 
@@ -22,7 +78,6 @@ Welcome to what's new in Azure Active Directory application management documenta
 
 ### Updated articles
 - [Azure Active Directory application management: What's new](whats-new-docs.md)
-- [Problems signing in to SAML-based single sign-on configured apps](application-sign-in-problem-federated-sso-gallery.md)
 
 
 ## October 2020
@@ -37,7 +92,6 @@ Welcome to what's new in Azure Active Directory application management documenta
 
 ### Updated articles
 
-- [Problems signing in to SAML-based single sign-on configured apps](application-sign-in-problem-federated-sso-gallery.md)
 - [Problem installing the Application Proxy Agent Connector](application-proxy-connector-installation-problem.md)
 - [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Configure how end-users consent to applications](configure-user-consent.md)
@@ -71,7 +125,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [How to use self-service application access](access-panel-manage-self-service-access.md)
 - [Troubleshoot problems signing in to an application from Azure AD My Apps](application-sign-in-other-problem-access-panel.md)
 - [Troubleshoot password-based single sign-on in Azure AD](troubleshoot-password-based-sso.md)
-- [Plan an Azure Active Directory My Apps deployment](access-panel-deployment-plan.md)
+- [Plan an Azure Active Directory My Apps deployment](my-apps-deployment-plan.md)
 - [What is single sign-on (SSO)?](what-is-single-sign-on.md)
 - [Take action on overprivileged or suspicious applications in Azure Active Directory](manage-application-permissions.md)
 - [Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-configure.md)
@@ -82,7 +136,6 @@ Welcome to what's new in Azure Active Directory application management documenta
 
 ### New articles
 - [Configure SAML-based single sign-on](configure-saml-single-sign-on.md)
-- [Using Azure AD for applications not listed in the app gallery](non-gallery-apps.md)
 - [Get It Now - add an app from the Azure Marketplace](get-it-now-azure-marketplace.md)
 - [Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-configure.md)
 - [Quickstart: Set up single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-setup-sso.md)

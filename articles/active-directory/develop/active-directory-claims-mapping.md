@@ -299,7 +299,7 @@ The ID element identifies which property on the source provides the value for th
 | User | streetaddress | Street Address |
 | User | postalcode | Postal Code |
 | User | preferredlanguage | Preferred Language |
-| User | onpremisesuserprincipalname | On-premises UPN |*
+| User | onpremisesuserprincipalname | On-premises UPN |
 | User | mailnickname | Mail Nickname |
 | User | extensionattribute1 | Extension Attribute 1 |
 | User | extensionattribute2 | Extension Attribute 2 |
@@ -414,16 +414,6 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 | ExtractMailPrefix | None |
 | Join | The suffix being joined must be a verified domain of the resource tenant. |
 
-### Custom signing key
-
-A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors. In order to add a custom signing key, you can use the Azure PowerShell cmdlet [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) to create a certificate key credential for your Application object.
-
-Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use:
-
-```
-https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
-```
-
 ### Cross-tenant scenarios
 
 Claims mapping policies do not apply to guest users. If a guest user tries to access an application with a claims mapping policy assigned to its service principal, the default token is issued (the policy has no effect).
@@ -526,6 +516,33 @@ In this example, you create a policy that emits a custom claim "JoinedData" to J
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
+
+## Security considerations
+
+Applications that receive tokens rely on the fact that the claim values are authoritatively issued by Azure AD and cannot be tampered with. However, when you modify the token contents via claims mapping policies, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the claims mapping policy to protect themselves from claims mapping policies created by malicious actors. This can be done in the following ways:
+
+- Configure a custom signing key
+- Update the application manifest to accept mapped claims.
+ 
+Without this, Azure AD will return an [`AADSTS50146` error code](reference-aadsts-error-codes.md#aadsts-error-codes).
+
+### Custom signing key
+
+In order to add a custom signing key to the service principal object, you can use the Azure PowerShell cmdlet [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) to create a certificate key credential for your Application object.
+
+Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use:
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
+
+### Update the application manifest
+
+Alternatively, you can set the `acceptMappedClaims` property to `true` in the [application manifest](reference-app-manifest.md). As documented on the [apiApplication resource type](/graph/api/resources/apiapplication#properties), this allows an application to use claims mapping without specifying a custom signing key.
+
+This does require the requested token audience to use a verified domain name of your Azure AD tenant, which means you should ensure to set the `Application ID URI` (represented by the `identifierUris` in the application manifest) for example to `https://contoso.com/my-api` or (simply using the default tenant name) `https://contoso.onmicrosoft.com/my-api`.
+
+If you're not using a verified domain, Azure AD will return an `AADSTS501461` error code with message *"AcceptMappedClaims is only supported for a token audience matching the application GUID or an audience within the tenant's verified domains. Either change the resource identifier, or use an application-specific signing key."*
 
 ## See also
 

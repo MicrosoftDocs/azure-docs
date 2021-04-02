@@ -82,7 +82,7 @@
       href: about-upgrade-circuit-bandwidth.md
     - name: Moving circuits from classic to Resource Manager
       href: expressroute-move.md
-  - name: About Expressroute gateways
+  - name: About ExpressRoute gateways
     href: expressroute-about-virtual-network-gateways.md
   - name: About ExpressRoute FastPath
     href: about-fastpath.md
@@ -130,12 +130,22 @@
       href: expressroute-howto-macsec.md
   - name: Configure ExpressRoute Global Reach
     items:
+    - name: Azure portal
+      href: expressroute-howto-set-global-reach-portal.md
     - name: Azure PowerShell
       href: expressroute-howto-set-global-reach.md
     - name: Azure CLI
       href: expressroute-howto-set-global-reach-cli.md
+  - name: Add IPv6 support for private peering (Preview)
+    items:
+    - name: Azure portal
+      href: expressroute-howto-add-ipv6-portal.md
+    - name: Azure PowerShell
+      href: expressroute-howto-add-ipv6-powershell.md
   - name: Monitoring
     items:
+    - name: Network Insights
+      href: expressroute-network-insights.md
     - name: ExpressRoute monitoring, metrics, and alerts
       href: expressroute-monitoring-metrics-alerts.md
     - name: Configure Network Performance Monitor for ExpressRoute

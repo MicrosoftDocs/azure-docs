@@ -2,7 +2,7 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 12/17/2020
 ---
 # Use Azure Key Vault to pass secure parameter value during deployment
 
@@ -300,7 +300,7 @@ The following template dynamically creates the key vault ID and passes it as a p
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-10-01",
       "name": "dynamicSecret",
       "properties": {
         "mode": "Incremental",
@@ -371,3 +371,4 @@ The following template dynamically creates the key vault ID and passes it as a p
 
 - For general information about key vaults, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 - For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- For a Microsoft Learn module that covers passing a secure value from a key vault, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).

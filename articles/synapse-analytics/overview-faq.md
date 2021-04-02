@@ -40,7 +40,7 @@ To secure your Synapse workspace, assign the RBAC Roles to these RBAC scopes:
 
 Additionally, with dedicated SQL pools you have all the same security features that you know and love.
 
-### Q: How do I control cont dedicated SQL pools, serverless SQL pools, and serverless Spark pools?
+### Q: How do I control dedicated SQL pools, serverless SQL pools, and serverless Spark pools?
 
 A: As a starting point, Azure Synapse works with the built-in cost analysis and cost alerts available at the Azure subscription level.
 
@@ -54,7 +54,7 @@ A: As a starting point, Azure Synapse works with the built-in cost analysis and 
 
 A: Synapse workspaces supports user-defined folders.
 
-### Q: Can I link more than one Power BI workspaces to a single Azure Synapse Workspace?
+### Q: Can I link more than one Power BI workspace to a single Azure Synapse Workspace?
 	
 A: Currently, you can only link a single Power BI workspace to an Azure Synapse Workspace. 
 
@@ -64,7 +64,7 @@ A: Synapse Link for Apache Spark is GA. Synapse Link for serverless SQL pool is 
 
 ### Q: Does Azure Synapse workspace Support CI/CD? 
 
-A: Yes! All Pipeline artifacts, notebooks, SQL scripts, and Spark job definitions will reside in GIT. All pool definitions will be stored in GIT as ARM Templates. Dedicated SQL pool objects (schemas, tables, views, etc.) will be managed with database projects with CI/CD support.
+A: Yes! All Pipeline artifacts, notebooks, SQL scripts, and Spark job definitions will reside in Git. All pool definitions will be stored in Git as ARM Templates. Dedicated SQL pool objects (schemas, tables, views, etc.) will be managed with database projects with CI/CD support.
 
 ## Pipelines
 
@@ -84,13 +84,13 @@ A: At this time, you must manually recreate your Azure Data Factory pipelines an
 
 ### Q: What is the difference between Apache Spark for Synapse and Apache Spark?
 
-A: Apache Spark for Synapse IS Apache Spark with added support for integrations with other services (AAD, AzureML, etc.) and additional libraries (mssparktuils, Hummingbird) and pre-tuned performance configurations.
+A: Apache Spark for Synapse is Apache Spark with added support for integrations with other services (AAD, AzureML, etc.) and additional libraries (mssparktuils, Hummingbird) and pre-tuned performance configurations.
 
-Any workload that is currently running on Apache Spark will run on MSFT Spark without change. 
+Any workload that is currently running on Apache Spark will run on Apache Spark for Azure Synapse without change. 
 
 ### Q: What versions of Spark are available?
 
-A: Azure Synapse Apache Spark fully supports Spark 2.4. For a full list of core components and currently supported version see [Apache Spark version support ](./spark/apache-spark-version-support.md).
+A: Azure Synapse Apache Spark fully supports Spark 2.4. For a full list of core components and currently supported version see [Apache Spark version support](./spark/apache-spark-version-support.md).
 
 ### Q: Is there an equivalent of DButils in Azure Synapse Spark?
 
@@ -117,13 +117,13 @@ The easiest way of accomplishing this task is to cook the data with Spark and th
  
 To satisfy this scenario, you should give each developer a serverless Spark pool that is set to use a small number of Spark resources. Since serverless Spark pools don’t cost anything, until they are actively used minimizes the cost when there are multiple developers. The pools share metadata (Spark tables) so they can easily work with each other.
 
-### Q: How do I include, manage, and install libraries 
+### Q: How do I include, manage, and install libraries?
 
 A:  You can install external packages via a requirements.txt file while creating the Spark pool, from the synapse workspace, or from the Azure portal. See [Manage libraries for Apache Spark in Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries.md).
 
 ## Dedicated SQL Pools
 
-### Q: What are the functional differences between dedicated SQL pools and serverless pools
+### Q: What are the functional differences between dedicated SQL pools and serverless pools?
 
 A: You can find a full list of differences in [T-SQL feature differences in Synapse SQL](./sql/overview-features.md).
 
@@ -135,11 +135,6 @@ You can choose to enable new workspace features on your existing pools. If you d
 ### Q: What is the default deployment of dedicated SQL pools now? 
 
 A: By Default, all new dedicated SQL pools will be deployed to a workspace; however, if you need to you can still create a dedicated SQL pool (formerly SQL DW) in a standalone form factor. 
-
-
-### Q: What are the functional differences between dedicated SQL pools and serverless SQL pool 
-
-A: You can find a full list of differences in [T-SQL feature differences in Synapse SQL](./sql/overview-features.md).
 
 ## Next steps
 

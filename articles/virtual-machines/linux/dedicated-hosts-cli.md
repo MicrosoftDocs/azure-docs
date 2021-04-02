@@ -3,6 +3,7 @@ title: Deploy VMs and scale set instances to dedicated hosts using the CLI
 description: Deploy VMs and scale set instances to dedicated hosts using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: cynthn
@@ -15,7 +16,7 @@ ms.author: cynthn
 
 This article guides you through how to create an Azure [dedicated host](../dedicated-hosts.md) to host your virtual machines (VMs). 
 
-Make sure that you have installed Azure CLI version 2.0.70 or later, and signed in to an Azure account using `az login`. 
+Make sure that you have installed Azure CLI version 2.16.0 or later, and signed in to an Azure account using `az login`. 
 
 
 ## Limitations
@@ -260,10 +261,10 @@ az group export --name myDHResourceGroup > myDHResourceGroup.json
 
 This command creates the `myDHResourceGroup.json` file in your current working directory. When you create an environment from this template, you are prompted for all the resource names. You can populate these names in your template file by adding the `--include-parameter-default-value` parameter to the `az group export` command. Edit your JSON template to specify the resource names, or create a parameters.json file that specifies the resource names.
  
-To create an environment from your template, use [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create).
+To create an environment from your template, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create).
 
 ```azurecli-interactive
-az group deployment create \ 
+az deployment group create \ 
     --resource-group myNewResourceGroup \ 
     --template-file myDHResourceGroup.json 
 ```

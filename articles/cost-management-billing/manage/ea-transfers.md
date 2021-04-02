@@ -6,7 +6,7 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 01/27/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -50,22 +50,22 @@ An enrollment transfer is considered when:
 - An enrollment is in expired/extended status and a new agreement is negotiated.
 - You have multiple enrollments and want to combine all the accounts and billing under a single enrollment.
 
-This section is for informational purposes only as the action cannot be performed by an enterprise administrator. A support request is needed to transfer an enterprise enrollment to a new one.
+This section is for informational purposes only as the action cannot be performed by an enterprise administrator. A support request is needed to transfer an enterprise enrollment to a new one, unless the enrollment qualifies for [Auto enrollment transfer](#auto-enrollment-transfer).
 
 When you request to transfer an entire enterprise enrollment to an enrollment, the following actions occur:
 
 - All Azure services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators, transfer to a new target enrollment.
 - The enrollment status is set to _Transferred_. The transferred enrollment is available for historic usage reporting purposes only.
-- You can't add roles or subscriptions to a transferred enrollment. Transferred status prevents additional usage against the enrollment.
+- You can't add roles or subscriptions to a transferred enrollment. Transferred status prevents more usage against the enrollment.
 - Any remaining Azure Prepayment balance in the agreement is lost, including future terms.
--    If the enrollment you're transferring from has RI purchases, the RI purchasing fee will remain in the source enrollment however all RI benefits will be transferred across for utilization in the new enrollment.
--    The marketplace one-time purchase fee and any monthly fixed fees already incurred on the old enrollment will not be transferred to the new enrollment. Consumption-based marketplace charges will be transferred.
+-    If the enrollment you're transferring from has RI purchases, the RI purchasing fee will remain in the source enrollment however all RI benefits will be transferred across for use in the new enrollment.
+-    The marketplace one-time purchase fee and any monthly fixed fees already incurred on the old enrollment aren't transferred to the new enrollment. Consumption-based marketplace charges will be transferred.
 
 ### Effective transfer date
 
 The effective transfer day can be on or after the start date of the target enrollment.
 
-The source enrollment usage is charged against Azure Prepayment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged accordingly.
+The source enrollment usage is charged against Azure Prepayment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged.
 
 ### Prerequisites
 
@@ -73,13 +73,24 @@ When you request an enrollment transfer, provide the following information:
 
 - For the source enrollment, the enrollment number.
 - For the target enrollment, the enrollment number to transfer to.
-- For the enrollment transfer effective date, it can be a date on or after the start date of the target enrollment. The chosen date can't impact usage for any overage invoice already issued.
+- For the enrollment transfer effective date, it can be a date on or after the start date of the target enrollment. The chosen date can't affect usage for any overage invoice already issued.
 
 Other points to keep in mind before an enrollment transfer:
 
 - Approval from both target and source enrollment EA Administrators is required.
 - If an enrollment transfer doesn't meet your requirements, consider an account transfer.
 - The source enrollment status will be updated to transferred and will only be available for historic usage reporting purposes.
+
+### Auto enrollment transfer
+
+You might see that an enrollment has the **Transferred** state, even if you haven't submitted a support ticket to request an enrollment transfer. The **Transferred** state results from the auto enrollment transfer process. In order for the auto enrollment transfer process to occur during the renewal phrase, there are a few items that must be included in the new agreement:
+
+- Prior enrollment number (it must exist in EA portal)
+- Expiration date of the prior enrollment number is one day before the effective start date of the new agreement
+- The new agreement has an invoiced Azure Prepayment order that has a current date or it's backdated
+- The new enrollment is created in the EA portal
+
+If there's no missing usage data in the EA portal between the prior enrollment and the new enrollment, then you don't have to create a transfer support ticket.
 
 ### Azure Prepayment
 

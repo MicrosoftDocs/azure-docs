@@ -2,7 +2,9 @@
 title: Azure security baseline for Linux Virtual Machines
 description: The Linux Virtual Machines security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: security
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
@@ -174,9 +176,9 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 Use Azure Policy to validate (and/or remediate) configurations for network resource related to Linux Virtual Machines.
 
-* [How to view and retrieve Azure Activity Log events](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -206,7 +208,7 @@ Use Azure Policy to validate (and/or remediate) configurations for network resou
 
 * [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
-* [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+* [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](../../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 **Azure Security Center monitoring**: Yes
 
@@ -222,13 +224,13 @@ For advanced visibility of the applications and services supported by your virtu
 
 Additionally, enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-* [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+* [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Log analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md)
+* [Log analytics agent overview](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Log analytics virtual machine extension for Linux](../extensions/oms-linux.md)
 
-* [View and retrieve Azure Activity log events](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [View and retrieve Azure Activity log events](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Application Insights overview](../../azure-monitor/app/app-insights-overview.md)
 
@@ -244,7 +246,7 @@ If your organization would like to retain the security event log data from the v
 
 * [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
-* [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+* [To capture the Syslog data for monitoring, you will need to enable the Log Analytics extension](../../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 **Azure Security Center monitoring**: Yes
 
@@ -254,9 +256,9 @@ If your organization would like to retain the security event log data from the v
 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing virtual machine logs has the log retention period set according to your organization's compliance regulations.
 
-* [How to monitor virtual machines in Azure](../../azure-monitor/insights/monitor-vm-azure.md)
+* [How to monitor virtual machines in Azure](../../azure-monitor/vm/monitor-vm-azure.md)
 
-* [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/platform/manage-cost-storage.md)
+* [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -270,15 +272,15 @@ Analyze and monitor logs for anomalous behavior and regularly review results. Us
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM to monitor and review your logs.
 
-* [Log analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md)
+* [Log analytics agent overview](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Log analytics virtual machine extension for Linux](../extensions/oms-linux.md)
 
 * [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Understand Log Analytics Workspace](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand Log Analytics Workspace](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -294,7 +296,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to manage alerts in Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md)
 
-* [How to alert on log analytics log data](../../azure-monitor/learn/tutorial-response.md)
+* [How to alert on log analytics log data](../../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -324,9 +326,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: You can manually configure console logging on a per-node basis and use syslogs to store the data. Also, use Azure Monitor's Log Analytics workspace to review logs and perform queries on syslog data from Azure Virtual machines.
 
-* [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
-* [Syslog data sources in Azure Monitor](../../azure-monitor/platform/data-sources-syslog.md)
+* [Syslog data sources in Azure Monitor](../../azure-monitor/agents/data-sources-syslog.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -396,7 +398,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Use PAWs (privileged access workstations) with MFA configured to log into and configure Azure resources.
 
-* [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -414,7 +416,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [How to configure action groups for custom alerting and notification](../../azure-monitor/platform/action-groups.md)
+* [How to configure action groups for custom alerting and notification](../../azure-monitor/alerts/action-groups.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -456,13 +458,13 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Configure diagnostic settings for Azure Active Directory to send the audit logs and sign-in logs to a Log Analytics workspace. Also, use Azure Monitor to review logs and perform queries on auth syslog data from Azure Virtual machines.
 
-* [Understand Log Analytics Workspace](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand Log Analytics Workspace](../../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
-* [Syslog data sources in Azure Monitor](../../azure-monitor/platform/data-sources-syslog.md)
+* [Syslog data sources in Azure Monitor](../../azure-monitor/agents/data-sources-syslog.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -596,9 +598,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Virtual machines and related resources.
 
-* [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../../azure-monitor/alerts/alerts-activity-log.md)
 
-* [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Azure Storage analytics logging](../../storage/common/storage-analytics-logging.md)
 
@@ -850,7 +852,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Information on how to download the VM template](../windows/download-template.md)
+* [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -894,11 +896,11 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 For most scenarios, the Microsoft base VM templates combined with the Azure Automation Desired State Configuration can assist in meeting and maintaining the security requirements.
 
-* [Information on how to download the VM template](../windows/download-template.md)
+* [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Information on creating ARM templates](../windows/ps-template.md)
 
-* [How to upload a custom VM VHD to Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [How to upload a custom VM VHD to Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910&preserve-view=true)
 
 **Azure Security Center monitoring**: Yes
 

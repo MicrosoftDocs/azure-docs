@@ -138,10 +138,10 @@ First, create a resource group with [az group create](/cli/azure/group). The fol
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create a virtual machine scale set with [az group deployment create](/cli/azure/group/deployment). When prompted, provide your own username, such as *azureuser*, and password that is used as the credentials for each VM instance:
+Now create a virtual machine scale set with [az deployment group create](/cli/azure/deployment/group). When prompted, provide your own username, such as *azureuser*, and password that is used as the credentials for each VM instance:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json
 ```

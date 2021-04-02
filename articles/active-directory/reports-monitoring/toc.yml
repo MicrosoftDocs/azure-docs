@@ -6,8 +6,9 @@
     href: overview-reports.md
   - name: What is Azure AD monitoring?
     href: overview-monitoring.md
-
-    
+  - name: What is the sign-in diagnostic?
+    href: overview-sign-in-diagnostics.md
+   
 - name: Quickstarts
   expanded: true
   items:
@@ -104,9 +105,9 @@
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
-    href: /graph/api/resources/directoryaudit?view=graph-rest-beta
+    href: /graph/api/resources/directoryaudit
   - name: Sign-in logs API reference
-    href: /graph/api/resources/signin?view=graph-rest-beta
+    href: /graph/api/resources/signin
   - name: Audit activities
     href: reference-audit-activities.md
   - name: Data retention policies

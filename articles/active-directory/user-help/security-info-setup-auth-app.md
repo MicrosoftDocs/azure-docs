@@ -42,10 +42,10 @@ Security info methods are used for both two-factor security verification and for
 
 Depending on your organization’s settings, you might be able to use an authentication app as one of your security info methods. You aren't required to use the Microsoft Authenticator app, and you can choose a different app during the set up process. However, this article uses the Microsoft Authenticator app.
 
->[!Important]
-> If you have setup Microsoft Authenticator app on 5 different devices or 5 hardware tokens, you would not be able to setup a sixth one and may see the following error message.
+> [!IMPORTANT]
+> If you have set up the Microsoft Authenticator app on five different devices or if you've used five hardware tokens, you won't be able to set up a sixth one, and you might see the following error message:
 > 
-> **You can't setup Microsoft Authenticator because you already have five authenticator apps or hardware tokens. Please contact your administrator to delete one of your authenticator apps or hardware tokens.**
+> **You can't set up Microsoft Authenticator because you already have five authenticator apps or hardware tokens. Please contact your administrator to delete one of your authenticator apps or hardware tokens.**
 
 ### To set up the Microsoft Authenticator app
 
@@ -53,7 +53,7 @@ Depending on your organization’s settings, you might be able to use an authent
 
     ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 
-2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, and then select **Add method** from the **Security info** page.
+2. Select **Security info** in the left menu or by using the link in the **Security info** pane. If you have already registered, you'll be prompted for two-factor verification. Then, select **Add method** in the **Security info** pane.
 
     ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod-page.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Deploy ISO 27001 ASE/SQL workload blueprint sample
 description: Deploy steps of the ISO 27001 App Service Environment/SQL Database workload blueprint sample including blueprint artifact parameter details.
-ms.date: 11/02/2020
+ms.date: 02/05/2021
 ms.topic: sample
 ---
 # Deploy the ISO 27001 App Service Environment/SQL Database workload blueprint sample
@@ -168,7 +168,7 @@ The following table provides a list of the blueprint artifact parameters:
 |Azure SQL Database resource group|Resource group|Name|**Locked** - Concatenates the **Organization name** with `-workload-azsql-rg` to make the resource group unique.|
 |Azure SQL Database resource group|Resource group|Location|**Locked** - Uses the blueprint parameter.|
 |Azure SQL Database template|Resource Manager template|Azure SQL Server admin username|Username for the Azure SQL Server. Must match same property value in **Key Vault template**. Default value is _sql-admin-user_.|
-|Azure SQL Database template|Resource Manager template|Azure SQL Server admin password (Key Vault Resource ID)|The Resource ID of the Key Vault. Use "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" and replace `{subscriptionId}` with your Subscription ID and `{orgName}` with the **Organization name** blueprint parameter.|
+|Azure SQL Database template|Resource Manager template|Azure SQL Server admin password (Key Vault Resource ID)|The Resource ID of the Key Vault. Use "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-workload-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" and replace `{subscriptionId}` with your Subscription ID and `{orgName}` with the **Organization name** blueprint parameter.|
 |Azure SQL Database template|Resource Manager template|Azure SQL Server admin password (Key Vault Secret Name)|Username of the SQL Server admin. Must match value in **Key Vault template** property **Azure SQL Server admin username**.|
 |Azure SQL Database template|Resource Manager template|Log retention in days|Data retention in days. Default value is _365_.|
 |Azure SQL Database template|Resource Manager template|AAD admin object ID|AAD object ID of the user that will get assigned as an Active Directory admin. No default value and can't be left blank. To locate this value from the Azure portal, search for and select "Users" under _Services_. Use the _Name_ box to filter for the account name and select that account. On the _User profile_ page, select the "Click to copy" icon next to the _Object ID_.|

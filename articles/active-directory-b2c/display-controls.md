@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -49,9 +49,9 @@ The **DisplayControl** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** are used to prepopulate the value of the claims to be collected from the user. For more information, see [InputClaims](technicalprofiles.md#inputclaims) element. |
+| InputClaims | 0:1 | **InputClaims** are used to prepopulate the value of the claims to be collected from the user. For more information, see [InputClaims](technicalprofiles.md#input-claims) element. |
 | DisplayClaims | 0:1 | **DisplayClaims** are used to represent claims to be collected from the user. For more information, see [DisplayClaim](technicalprofiles.md#displayclaim) element.|
-| OutputClaims | 0:1 | **OutputClaims** are used to represent claims to be saved temporarily for this **DisplayControl**. For more information, see [OutputClaims](technicalprofiles.md#outputclaims) element.|
+| OutputClaims | 0:1 | **OutputClaims** are used to represent claims to be saved temporarily for this **DisplayControl**. For more information, see [OutputClaims](technicalprofiles.md#output-claims) element.|
 | Actions | 0:1 | **Actions** are used to list the validation technical profiles to invoke for user actions happening at the front-end. |
 
 ### Input claims

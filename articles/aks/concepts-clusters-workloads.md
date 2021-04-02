@@ -3,7 +3,7 @@ title: Concepts - Kubernetes basics for Azure Kubernetes Services (AKS)
 description: Learn the basic cluster and workload components of Kubernetes and how they relate to features in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 12/07/2020
 
 ---
 
@@ -27,8 +27,8 @@ Azure Kubernetes Service (AKS) provides a managed Kubernetes service that reduce
 
 A Kubernetes cluster is divided into two components:
 
-- *Control plane* nodes provide the core Kubernetes services and orchestration of application workloads.
-- *Nodes* run your application workloads.
+- The *Control plane* provides the core Kubernetes services and orchestration of application workloads.
+- *Nodes* which run your application workloads.
 
 ![Kubernetes control plane and node components](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
@@ -57,7 +57,7 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 
 - The `kubelet` is the Kubernetes agent that processes the orchestration requests from the control plane and scheduling of running the requested containers.
 - Virtual networking is handled by the *kube-proxy* on each node. The proxy routes network traffic and manages IP addressing for services and pods.
-- The *container runtime* is the component that allows containerized applications to run and interact with additional resources such as the virtual network and storage. In AKS, Moby is used as the container runtime.
+- The *container runtime* is the component that allows containerized applications to run and interact with additional resources such as the virtual network and storage. AKS clusters using Kubernetes version 1.19 node pools and greater use `containerd` as its container runtime. AKS clusters using Kubernetes prior to v1.19 for node pools use [Moby](https://mobyproject.org/) (upstream docker) as its container runtime.
 
 ![Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -65,7 +65,7 @@ The Azure VM size for your nodes defines how many CPUs, how much memory, and the
 
 In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale out the number of nodes, the Azure platform creates the requested number of VMs and configures them. There's no manual configuration for you to perform. Agent nodes are billed as standard virtual machines, so any discounts you have on the VM size you're using (including [Azure reservations][reservation-discounts]) are automatically applied.
 
-If you need to use a different host OS, container runtime, or include custom packages, you can deploy your own Kubernetes cluster using [aks-engine][aks-engine]. The upstream `aks-engine` releases features and provides configuration options before they are officially supported in AKS clusters. For example, if you wish to use a container runtime other than Moby, you can use `aks-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
+If you need to use a different host OS, container runtime, or include custom packages, you can deploy your own Kubernetes cluster using [aks-engine][aks-engine]. The upstream `aks-engine` releases features and provides configuration options before they are officially supported in AKS clusters. For example, if you wish to use a container runtime other than `containerd` or Moby, you can use `aks-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
 
 ### Resource reservations
 
@@ -74,7 +74,6 @@ Node resources are utilized by AKS to make the node function as part of your clu
 To find a node's allocatable resources, run:
 ```kubectl
 kubectl describe node [NODE_NAME]
-
 ```
 
 To maintain node performance and functionality, resources are reserved on each node by AKS. As a node grows larger in resources, the resource reservation grows due to a higher amount of user deployed pods needing management.
@@ -82,22 +81,24 @@ To maintain node performance and functionality, resources are reserved on each n
 >[!NOTE]
 > Using AKS add-ons such as Container Insights (OMS) will consume additional node resources.
 
-- **CPU** - reserved CPU is dependent on node type and cluster configuration, which may cause less allocatable CPU due to running additional features
+Two types of resources are reserved:
 
-| CPU cores on host | 1    | 2    | 4    | 8    | 16 | 32|64|
-|---|---|---|---|---|---|---|---|
-|Kube-reserved (millicores)|60|100|140|180|260|420|740|
+- **CPU** - Reserved CPU is dependent on node type and cluster configuration, which may cause less allocatable CPU due to running additional features
 
-- **Memory** - memory utilized by AKS includes the sum of two values.
+   | CPU cores on host | 1    | 2    | 4    | 8    | 16 | 32|64|
+   |---|---|---|---|---|---|---|---|
+   |Kube-reserved (millicores)|60|100|140|180|260|420|740|
 
-1. The kubelet daemon is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, this daemon has the following eviction rule: *memory.available<750Mi*, which means a node must always have at least 750 Mi allocatable at all times.  When a host is below that threshold of available memory, the kubelet will terminate one of the running pods to free memory on the host machine and protect it. This action is triggered once available memory decreases beyond the 750Mi threshold.
+- **Memory** - Memory utilized by AKS includes the sum of two values.
 
-2. The second value is a regressive rate of memory reservations for the kubelet daemon to properly function (kube-reserved).
-    - 25% of the first 4 GB of memory
-    - 20% of the next 4 GB of memory (up to 8 GB)
-    - 10% of the next 8 GB of memory (up to 16 GB)
-    - 6% of the next 112 GB of memory (up to 128 GB)
-    - 2% of any memory above 128 GB
+   1. The kubelet daemon is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, this daemon has the following eviction rule: *memory.available<750Mi*, which means a node must always have at least 750 Mi allocatable at all times.  When a host is below that threshold of available memory, the kubelet will terminate one of the running pods to free memory on the host machine and protect it. This action is triggered once available memory decreases beyond the 750Mi threshold.
+
+   2. The second value is a regressive rate of memory reservations for the kubelet daemon to properly function (kube-reserved).
+      - 25% of the first 4 GB of memory
+      - 20% of the next 4 GB of memory (up to 8 GB)
+      - 10% of the next 8 GB of memory (up to 16 GB)
+      - 6% of the next 112 GB of memory (up to 128 GB)
+      - 2% of any memory above 128 GB
 
 The above rules for memory and CPU allocation are used to keep agent nodes healthy, including some hosting system pods that are critical to cluster health. These allocation rules also cause the node to report less allocatable memory and CPU than it normally would if it were not part of a Kubernetes cluster. The above resource reservations can't be changed.
 

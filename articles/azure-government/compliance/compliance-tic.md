@@ -48,11 +48,12 @@ The rest of this article provides customer guidance that is pertinent to Azure c
 
 ## Azure networking options
 
-There are three main options to connect to Azure services:
+There are four main options to connect to Azure services:
 
-- **Direct Internet connection:** Connect to Azure services directly through an open internet connection. The medium and the connection are public. Application and transport level encryption are relied upon to ensure privacy. Bandwidth is limited by a site's connectivity to the internet. Use more than one active provider to ensure resiliency.
-- **Virtual Private Network (VPN):** Connect to your Azure virtual network privately by using a VPN gateway. The medium is public because it traverses a site's standard internet connection, but the connection is encrypted in a tunnel to ensure privacy. Bandwidth is limited depending on the VPN devices and the configuration chosen. Azure point-to-site connections are typically limited to 100 Mbps and site-to-site connections are limited to 1.25 Gbps.
-- **Azure ExpressRoute:** ExpressRoute is a direct connection to Microsoft services. Because connectivity is through an isolated fiber channel, the connection can be public or private depending on the configuration that's used. The bandwidth is typically limited to a maximum of 10 Gbps.
+- **Direct internet connection:** Connect to Azure services directly through an open internet connection. The medium and the connection are public. Application and transport-level encryption are relied on to ensure privacy. Bandwidth is limited by a site's connectivity to the internet. Use more than one active provider to ensure resiliency.
+- **Virtual Private Network (VPN):** Connect to your Azure virtual network privately by using a VPN gateway. The medium is public because it traverses a site's standard internet connection, but the connection is encrypted in a tunnel to ensure privacy. Bandwidth is limited depending on the VPN devices and the configuration you choose. Azure point-to-site connections usually are limited to 100 Mbps. Site-to-site connections range from 100 Mbps to 10 Gbps.
+- **Azure ExpressRoute:** ExpressRoute is a direct connection to Microsoft services. ExpressRoute uses a provider at a peering location to connect to Microsoft Enterprise edge routers. ExpressRoute uses different peering types for IaaS and PaaS/SaaS services, private peering and Microsoft peering. Bandwidth ranges from 50 Mbps to 10 Gbps.
+- **Azure ExpressRoute Direct:** ExpressRoute Direct allows for direct fiber connections from your edge to the Microsoft Enterprise edge routers at the peering location. ExpressRoute Direct removes a third-party connectivity provider from the required hops. Bandwidth ranges from 10 Gbps to 100 Gbps. 
 
 To enable the connection from the *agency* to Azure or Microsoft 365, without routing traffic through the agency TIC, the agency must use an encrypted tunnel or a dedicated connection to the cloud service provider (CSP). The CSP services can ensure that connectivity to the agency cloud assets isn't offered via the public Internet for direct agency personnel access.
 
@@ -85,7 +86,7 @@ The simplest scenario to support TIC compliance is to assure that a virtual mach
 
 #### Force Internet traffic through an on-premises network
 
-Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. You can't create or remove system routes, but you can override some system routes with custom routes. Azure creates default system routes for each subnet. Azure adds optional default routes to specific subnets, or every subnet, when you use specific Azure capabilities. This type of routing ensures:
+Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. You can't create or remove system routes, but you can override system routes with custom routes. Azure creates default system routes for each subnet. Azure adds optional default routes to specific subnets, or every subnet, when you use specific Azure capabilities. This type of routing ensures:
 
 - Traffic that's destined within the virtual network stays within the virtual network.
 - Internet Assigned Numbers Authority (IANA)-designated private address spaces like 10.0.0.0/8 are dropped, unless they're included in the virtual network address space.
@@ -97,7 +98,7 @@ All traffic that leaves the virtual network needs to route through the on-premis
 
 #### Add user-defined routes
 
-If you use a route-based virtual network gateway, you can force tunneling in Azure. Add a user-defined route that sets 0.0.0.0/0 traffic to route to a **next hop** of your virtual network gateway. Azure prioritizes user-defined routes over system-defined routes. All non-virtual network traffic is sent to your virtual network gateway, which can then route the traffic to on-premises. After you define the user-defined route, associate the route with existing subnets or new subnets within all virtual networks in your Azure environment.
+If you use a route-based virtual network gateway, you can use forced tunneling in Azure. Add a user-defined route that sets 0.0.0.0/0 traffic to route to a **next hop** of your virtual network gateway. Azure prioritizes user-defined routes over system-defined routes. All non-virtual network traffic is sent to your virtual network gateway, which can then route the traffic to on-premises. After you define the user-defined route, associate the route with existing subnets or new subnets within all virtual networks in your Azure environment.
 
 :::image type="content" source="./media/tic-diagram-d.png" alt-text="User-defined routes and TIC" border="false":::
 

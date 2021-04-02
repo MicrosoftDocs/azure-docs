@@ -9,7 +9,7 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 
-# As a builder, I want to try out creating a device template and adding a simulated device to my IoT Central application.
+#Customer intent: As a builder, I want to try out creating a device template and adding a simulated device to my IoT Central application.
 ---
 
 # Quickstart: Add a simulated device to your IoT Central application
@@ -162,6 +162,10 @@ After you create a new simulated device, the builder can use this device to cont
 1. Choose your simulated device in the list. Then select **Apply**. Now you can see the same simulated device in your device template views building experience. This view is useful for charts and other visualizations.
 
     :::image type="content" source="media/quick-create-simulated-device/configure-preview.png" alt-text="Screenshot showing a configured preview device":::
+
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## Next steps
 

@@ -1,21 +1,21 @@
 ---
-title: Custom role permissions for enterprise app access assignments - Azure Active Directory | Microsoft Docs
+title: Create custom roles to manage enterprise apps in Azure Active Directory
 description: Create and assign custom Azure AD roles for enterprise apps access in Azure Active Directory
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Assign custom roles to manage enterprise apps in Azure Active Directory
+# Create custom roles to manage enterprise apps in Azure Active Directory
 
 This article explains how to create a custom role with permissions to manage enterprise app assignments for users and groups in Azure Active Directory (Azure AD). For the elements of roles assignments and the meaning of terms such as subtype, permission, and property set, see the [custom roles overview](custom-overview.md).
 
@@ -84,18 +84,16 @@ For more detail, see [Create and assign a custom role](custom-create.md) and [As
 First, install the Azure AD PowerShell module from [the PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Then import the Azure AD PowerShell preview module, using the following command:
 
 ```powershell
-PowerShell
-import-module azureadpreview
+Import-Module -Name AzureADPreview
 ```
 
 To verify that the module is ready to use, match the version returned by the following command to the one listed here:
 
 ```powershell
-PowerShell
-get-module azureadpreview
+Get-Module -Name AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azureadpreview               {Add-AzureADAdministrati...}
+  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...}
 ```
 
 ### Create a custom role

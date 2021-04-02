@@ -1,7 +1,6 @@
 ---
 title: Performance Monitor in Network Performance Monitor
 description: The Performance Monitor capability in Network Performance Monitor helps you monitor network connectivity across various points in your network. You can monitor cloud deployments and on-premises locations, multiple data centers and branch offices, and mission-critical multitier applications or microservices.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
@@ -10,6 +9,9 @@ ms.date: 02/20/2018
 ---
 
 # Network Performance Monitor solution: Performance monitoring
+
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher before 29 February 2024.
 
 The Performance Monitor capability in [Network Performance Monitor](network-performance-monitor.md) helps you monitor network connectivity across various points in your network. You can monitor cloud deployments and on-premises locations, multiple data centers and branch offices, and mission-critical multitier applications or microservices. With Performance Monitor, you can detect network issues before your users complain. Key advantages are that you can: 
 
@@ -61,7 +63,7 @@ To create custom monitoring rules:
 6. Choose monitoring conditions. To set custom thresholds for health-event generation, enter threshold values. Whenever the value of the condition exceeds its selected threshold for the selected network or subnetwork pair, a health event is generated. 
 7. Select **Save** to save the configuration. 
 
-After you save a monitoring rule, you can integrate that rule with Alert Management by selecting **Create Alert**. An alert rule is automatically created with the search query. Other required parameters are automatically filled in. Using an alert rule, you can receive e-mail-based alerts, in addition to the existing alerts within Network Performance Monitor. Alerts also can trigger remedial actions with runbooks, or they can integrate with existing service management solutions by using webhooks. Select **Manage Alert** to edit the alert settings. 
+After you save a monitoring rule, you can integrate that rule with Alert Management by selecting **Create Alert**. An alert rule is automatically created with the search query. Other required parameters are automatically filled in. Using an alert rule, you can receive e-mail-based alerts, in addition to the existing alerts within Network Performance Monitor. Alerts also can trigger remedial actions with runbooks, or they can integrate with existing Service Management solutions by using webhooks. Select **Manage Alert** to edit the alert settings. 
 
 You can now create more Performance Monitor rules or move to the solution dashboard to use the capability.
 
@@ -124,5 +126,4 @@ In the following image, the root cause of the problem areas to the specific sect
 ![Topology map with node properties selected](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## Next steps
-[Search logs](../log-query/log-query-overview.md) to view detailed network performance data records.
-
+[Search logs](../logs/log-query-overview.md) to view detailed network performance data records.

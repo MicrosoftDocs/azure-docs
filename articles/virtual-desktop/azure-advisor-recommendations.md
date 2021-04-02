@@ -3,7 +3,7 @@ title: Azure Advisor Windows Virtual Desktop Walkthrough - Azure
 description: How to resolve Azure Advisor recommendations for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -66,10 +66,6 @@ This recommendation appears under Operational Excellence.
 You need to unblock specific URLs to make sure that your virtual machine (VM) functions properly. You can see the list at [Safe URL list](safe-url-list.md). If the URLs aren't unblocked, then your VM won't work properly.
 
 To solve this recommendation, make sure you unblock all the URLs on the [Safe URL list](safe-url-list.md). You can use Service Tag or FQDN tags to unblock URLs, too.
-
-## Propose new recommendations
-
-You can help us improve Azure Advisor by submitting ideas for recommendations. Your recommendation could help another user out of a tough spot. To submit a suggestion, go to [our UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations) and fill out the submission form. When you fill out the form, make sure to give us as much detail as possible.
 
 ## Next steps
 

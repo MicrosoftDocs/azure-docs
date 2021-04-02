@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 
-# As a developer or IT Pro, I want to deploy and manage a solution accelerator from a web site to quickly get a demo or production environment up and running
+#Customer intent: As a developer or IT Pro, I want to deploy and manage a solution accelerator from a web site to quickly get a demo or production environment up and running.
 ---
 
 # Use the azureiotsolutions.com site to deploy your solution accelerator
 
 You can deploy Azure IoT solution accelerators to your Azure subscription from [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com hosts both the Microsoft open source and partner solution accelerators. These solution accelerators align with the [Azure IoT Reference Architecture](/azure/architecture/reference-architectures/iot). You can use the site to quickly deploy a solution accelerator as a demo or production environment.
 
-![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
+:::image type="content" source="media/iot-accelerators-permissions/iotsolutionscom.png" alt-text="IoT solutions home page":::
 
 > [!TIP]
 > If you need more control over the deployment process, you can use  the CLI to deploy a solution accelerator.
@@ -51,7 +51,7 @@ For more information about users and roles in Azure AD, see the following resour
 
 ## Choose your device
 
-The AzureIoTSolutions.com site links to the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/).
+The AzureIoTSolutions.com site links to the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/).
 
 The catalog lists hundreds of certified IoT hardware devices you can connect to your solution accelerators to start building your IoT solution.
 

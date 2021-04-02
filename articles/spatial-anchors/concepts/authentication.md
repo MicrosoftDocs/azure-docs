@@ -188,7 +188,7 @@ The Azure AD access token is retrieved via the [MSAL](../../active-directory/dev
 **In your code**
 
 >[!NOTE]
-> You can use the service sample that's available on GitHub.
+> You can use the [service sample](https://github.com/Azure/azure-spatial-anchors-samples/tree/master/Sharing/SharingServiceSample) that is available as a part of the [Spatial Anchors sample apps](https://github.com/Azure/azure-spatial-anchors-samples).
 
 1.    Be sure to use the application ID, application secret, and redirect URI of your own Azure AD application as the **client ID**, **secret**, and **RedirectUri** parameters in MSAL.
 2.    Set the tenant ID to your own Azure AD tenant ID in the **authority** parameter in MSAL.

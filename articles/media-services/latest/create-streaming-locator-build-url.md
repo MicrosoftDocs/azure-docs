@@ -1,12 +1,11 @@
 ---
-title: Create a streaming locator and build URLs - Azure Media Services 
+title: Create a streaming locator and build URLs
 description: This article demonstrates how to create a streaming locator and build URLs.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
@@ -23,9 +22,9 @@ In Azure Media Services, to build a streaming URL, you need to first create a [S
 
 This article demonstrates how to create a streaming locator and build a streaming URL using Java and .NET SDKs.
 
-## Prerequisite 
+## Prerequisite
 
-Preview [Dynamic packaging](dynamic-packaging-overview.md)
+Preview [Dynamic packaging](encode-dynamic-packaging-concept.md)
 
 ## Java
 
@@ -161,10 +160,10 @@ See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/A
 
 ## See also
 
-* [Create filters with .NET](filters-dynamic-manifest-dotnet-howto.md)
+* [Create filters with .NET](filters-dynamic-manifest-dotnet-how-to.md)
 * [Create filters with REST](filters-dynamic-manifest-rest-howto.md)
-* [Create filters with CLI](filters-dynamic-manifest-cli-howto.md)
+* [Create filters with CLI](filters-dynamic-manifest-cli-how-to.md)
 
 ## Next steps
 
-[Protect your content with DRM](protect-with-drm.md).
+[Protect your content with DRM](drm-protect-with-drm-tutorial.md).

@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
-
+ROBOTS: NOINDEX
 ---
 
 # Add a multitenant application to the Azure AD application gallery

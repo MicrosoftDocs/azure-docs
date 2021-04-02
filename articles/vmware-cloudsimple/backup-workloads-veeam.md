@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Back up workload virtual machines on Private Cloud using Veeam
 description: Describes how you can back up your virtual machines that are running in an Azure-based CloudSimple Private Cloud using Veeam B&R 9.5
-author: sharaths-cs
-ms.author: b-shsury 
+author: Ajayan1008
+ms.author: v-hborys 
 ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

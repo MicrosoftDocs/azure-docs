@@ -4,7 +4,7 @@ description: Provides an overview of Azure FarmBeats
 author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ---
 
 

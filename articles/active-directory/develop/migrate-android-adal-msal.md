@@ -68,7 +68,7 @@ In your app registration in the portal, you will see an **API permissions** tab.
 With ADAL and the Azure AD v1 endpoint, user consent to resources they own was granted on first use. With MSAL and the Microsoft identity platform, consent can be requested incrementally. Incremental consent is useful for permissions that a user may consider high privilege, or may otherwise question if not provided with a clear explanation of why the permission is required. In ADAL, those permissions may have resulted in the user abandoning signing in to your app.
 
 > [!TIP]
-> We recommend the use of incremental consent in scenarios where you need to provide additional context to your user about why your app needs a permission.
+> Use incremental consent to provide additional context to your users about why your app needs a permission.
 
 ### Admin consent
 
@@ -86,7 +86,7 @@ If you're currently using ADAL and don't need to use incremental consent, the si
 > [!CAUTION]
 > It's not possible to set both scopes and a resource id. Attempting to set both will result in an `IllegalArgumentException`.
 
- This will result in the same v1 behavior that you are used. All permissions requested in your app registration are requested from the user during their first interaction.
+This will result in the same v1 behavior that you are used. All permissions requested in your app registration are requested from the user during their first interaction.
 
 ### Authenticate and request permissions only as needed
 
@@ -128,13 +128,13 @@ If you attempt to use an authority that isn't known to Microsoft, and isn't incl
 ### Logging
 You can now declaratively configure logging as part of your configuration, like this:
 
- ```
- "logging": {
-    "pii_enabled": false,
-    "log_level": "WARNING",
-    "logcat_enabled": true
-  }
-  ```
+```json
+"logging": {
+  "pii_enabled": false,
+  "log_level": "WARNING",
+  "logcat_enabled": true
+}
+```
 
 ## Migrate from UserInfo to Account
 
@@ -275,30 +275,30 @@ In MSAL, there's a hierarchy of exceptions, and each has its own set of associat
 // New interface
   StringBuilder logs = new StringBuilder();
   Logger.getInstance().setExternalLogger(new ILoggerCallback() {
-            @Override
-            public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
-                logs.append(message).append('\n');
-            }
-        });
+      @Override
+      public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
+          logs.append(message).append('\n');
+      }
+  });
 
 // New Log Levels:
 public enum LogLevel
 {
-        /**
-         * Error level logging.
-         */
-        ERROR,
-        /**
-         * Warning level logging.
-         */
-        WARNING,
-        /**
-         * Info level logging.
-         */
-        INFO,
-        /**
-         * Verbose level logging.
-         */
-        VERBOSE
+    /**
+     * Error level logging.
+     */
+    ERROR,
+    /**
+     * Warning level logging.
+     */
+    WARNING,
+    /**
+     * Info level logging.
+     */
+    INFO,
+    /**
+     * Verbose level logging.
+     */
+    VERBOSE
 }
 ```

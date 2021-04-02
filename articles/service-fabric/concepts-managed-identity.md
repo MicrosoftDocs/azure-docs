@@ -51,7 +51,7 @@ The following scenarios are not supported or not recommended; note these actions
 
 - Remove or change the identities assigned to an application; if you must make changes, submit separate deployments to first add a new identity assignment, and then to remove a previously assigned one. Removal of an identity from an existing application can have undesirable effects, including leaving your application in a state that is not upgradeable. It is safe to delete the application altogether if the removal of an identity is necessary; note this will delete the system-assigned identity (if so defined) associated with the application, and will remove any associations with the user-assigned identities assigned to the application.
 
-- Service Fabric support for managed identities is not integrated at this time into the [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
+- Service Fabric support for managed identities is not integrated at this time into the [AzureServiceTokenProvider](/dotnet/api/overview/azure/service-to-service-authentication).
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Create a managed disk from an image version
 description: Create a managed disk from an image version in a shared image gallery.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/27/2020
@@ -29,7 +29,7 @@ az sig image-version list \
    -o table
 ```
 
-Set the `source` variable to the ID of the image version, then use [az disk create](/cli/azure/disk?view=azure-cli-latest#az_disk_create) to create the managed disk. 
+Set the `source` variable to the ID of the image version, then use [az disk create](/cli/azure/disk#az_disk_create) to create the managed disk. 
 
 In this example, we export the OS disk of the image version to create a managed disk named *myManagedOSDisk*, in the *EastUS* region, in a resource group named *myResourceGroup*. 
 

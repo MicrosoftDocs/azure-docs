@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 09/12/2020
+ms.date: 03/17/2021
 ms.author: memildin
 ---
 
@@ -23,7 +23,7 @@ Security Center offers more container security features if you enable Azure Defe
 - Get real-time threat detection alerts for your K8s clusters [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 
 > [!TIP]
-> For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
+> For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
 
 
 
@@ -31,11 +31,11 @@ Security Center offers more container security features if you enable Azure Defe
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Release state:|General Availability (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|**Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations|
-|Supported clusters:|Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Environment requirements:|Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
 
@@ -47,7 +47,9 @@ Azure Security Center includes a bundle of recommendations that are available wh
 
 To configure the recommendations, install the  **Azure Policy add-on for Kubernetes**. 
 
-- You can auto deploy this add-on as explained in [Enable auto provisioning of extensions](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
+- You can auto deploy this add-on as explained in [Enable auto provisioning of the Log Analytics agent and extensions](security-center-enable-data-collection.md#auto-provision-mma). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
+
+    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Using Security Center's auto provisioning tool to install the policy add-on for Kubernetes":::
 
 - To manually deploy the add-on:
 
@@ -58,7 +60,7 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
         > [!TIP]
         > The recommendation is included in five different security controls and it doesn't matter which one you select in the next step.
 
-    1. From any of the security controls, select the recommendation to see the resources on which you can install the add on.
+    1. From any of the security controls, select the recommendation to see the resources on which you can install the add-on.
     1. Select the relevant cluster, and **Remediate**.
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
@@ -247,6 +249,6 @@ In this article, you learned how to configure Kubernetes workload protection.
 
 For other related material, see the following pages: 
 
-- [Security Center recommendations for containers](recommendations-reference.md#recs-containers)
-- [Alerts for AKS cluster level](alerts-reference.md#alerts-akscluster)
-- [Alerts for Container host level](alerts-reference.md#alerts-containerhost)
+- [Security Center recommendations for compute](recommendations-reference.md#recs-compute)
+- [Alerts for AKS cluster level](alerts-reference.md#alerts-akscluster)
+- [Alerts for Container host level](alerts-reference.md#alerts-containerhost)

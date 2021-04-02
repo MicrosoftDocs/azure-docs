@@ -75,7 +75,7 @@ The following sample code shows you how to send a batch of messages to a Service
     				await sender.sendMessages(batch);
     
     				// then, create a new batch 
-    				batch = await sender.createBatch();
+    				batch = await sender.createMessageBatch();
      
     				// now, add the message failed to be added to the previous batch to this batch
     				if (!batch.tryAddMessage(messages[i])) {

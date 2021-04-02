@@ -15,7 +15,7 @@ Learn how to integrate health check in [Azure Deployment Manager](./deployment-m
 In the rollout template used in [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md), you used a wait step. In this tutorial, you replace the wait step with a health check step.
 
 > [!IMPORTANT]
-> If your subscription is marked for Canary to test out new Azure features, you can only use Azure Deployment Manager to deploy to the Canary regions. 
+> If your subscription is marked for Canary to test out new Azure features, you can only use Azure Deployment Manager to deploy to the Canary regions.
 
 This tutorial covers the following tasks:
 
@@ -31,26 +31,23 @@ This tutorial covers the following tasks:
 
 Additional resources:
 
-* The [Azure Deployment Manager REST API reference](/rest/api/deploymentmanager/).
+* [Azure Deployment Manager REST API reference](/rest/api/deploymentmanager/).
 * [An Azure Deployment Manager sample](https://github.com/Azure-Samples/adm-quickstart).
-
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-To complete this article, you need:
+To complete this tutorial you need:
 
+* Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 * Complete [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
 ## Install the artifacts
 
-Download [the templates and the artifacts](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) and unzip it locally if you haven't done so. And then run the PowerShell script found at [Prepare the artifacts](./deployment-manager-tutorial.md#prepare-the-artifacts). The script creates a resource group, creates a storage container, creates a blob container, upload the downloaded files, and then create a SAS token.
+If you haven't already downloaded the samples used in the prerequisite tutorial, you can download [the templates and the artifacts](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) and unzip it locally. Then, run the PowerShell script from the prerequisite tutorial's section [Prepare the artifacts](./deployment-manager-tutorial.md#prepare-the-artifacts). The script creates a resource group, creates a storage container, creates a blob container, uploads the downloaded files, and then creates a SAS token.
 
-Make a copy of the URL with SAS token. This URL is needed to populate a field in the two parameter files, topology parameters file and rollout parameters file.
-
-Open CreateADMServiceTopology.Parameters.json, and update the values of **projectName** and **artifactSourceSASLocation**.
-
-Open CreateADMRollout.Parameters.json, and update the values of **projectName** and **artifactSourceSASLocation**.
+* Make a copy of the URL with SAS token. This URL is needed to populate a field in the two parameter files: topology parameters file and rollout parameters file.
+* Open _CreateADMServiceTopology.Parameters.json_ and update the values of `projectName` and `artifactSourceSASLocation`.
+* Open _CreateADMRollout.Parameters.json_ and update the values of `projectName` and `artifactSourceSASLocation`.
 
 ## Create a health check service simulator
 
@@ -61,40 +58,40 @@ The following two files are used for deploying the Azure Function. You don't nee
 * A Resource Manager template located at [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json). You deploy this template to create an Azure Function.
 * A zip file of the Azure Function source code, [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip). This zip called is called by the Resource Manager template.
 
-To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window.  To paste the code, right-click the shell window and then select **Paste**.
+To deploy the Azure function, select **Try it** to open the Azure Cloud Shell, and then paste the following script into the shell window. To paste the code, right-click the shell window and then select **Paste**.
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
 ```
 
 To verify and test the Azure function:
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Open the resource group.  The default name is the project name with **rg** appended.
-1. Select the app service from the resource group.  The default name of the app service is the project name with **webapp** appended.
+1. Open the resource group. The default name is the project name with **rg** appended.
+1. Select the app service from the resource group. The default name of the app service is the project name with **webapp** appended.
 1. Expand **Functions**, and then select **HttpTrigger1**.
 
     ![Azure Deployment Manager health check Azure Function](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
 1. Select **&lt;/> Get function URL**.
-1. Select **Copy** to copy the URL to the clipboard.  The URL is similar to:
+1. Select **Copy** to copy the URL to the clipboard. The URL is similar to:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Replace `{healthStatus}` in the URL with a status code. In this tutorial, use **unhealthy** to test the unhealthy scenario, and use either **healthy** or **warning** to test the healthy scenario. Create two URLs, one with the unhealthy status, and the other with healthy status. For examples:
+    Replace `{healthStatus}` in the URL with a status code. In this tutorial, use *unhealthy* to test the unhealthy scenario, and use either *healthy* or *warning* to test the healthy scenario. Create two URLs, one with the *unhealthy* status, and the other with *healthy* status. For example:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/healthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    You need both URLs to completed this tutorial.
+    You need both URLs to complete this tutorial.
 
-1. To test the health monitoring simulator, open the URLs that you created in the last step.  The results for the unhealthy status shall be similar to:
+1. To test the health monitoring simulator, open the URLs that you created in the previous step. The results for the unhealthy status will be similar to:
 
-    ```
+    ```Output
     Status: unhealthy
     ```
 
@@ -102,7 +99,7 @@ To verify and test the Azure function:
 
 The purpose of this section is to show you how to include a health check step in the rollout template.
 
-1. Open **CreateADMRollout.json** that you created in [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md). This JSON file is a part of the download.  See [Prerequisites](#prerequisites).
+1. Open _CreateADMRollout.json_ that you created in [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md). This JSON file is a part of the download.  See [Prerequisites](#prerequisites).
 1. Add two more parameters:
 
     ```json
@@ -171,7 +168,7 @@ The purpose of this section is to show you how to include a health check step in
 
     Based on the definition, the rollout proceeds if the health status is either *healthy* or *warning*.
 
-1. Update the **dependsON** of the rollout definition to include the newly defined health check step:
+1. Update the `dependsOn` of the rollout definition to include the newly defined health check step:
 
     ```json
     "dependsOn": [
@@ -180,7 +177,7 @@ The purpose of this section is to show you how to include a health check step in
     ],
     ```
 
-1. Update **stepGroups** to include the health check step. The **healthCheckStep** is called in **postDeploymentSteps** of **stepGroup2**. **stepGroup3** and **stepGroup4** are only deployed if the healthy status is either *healthy* or *warning*.
+1. Update `stepGroups` to include the health check step. The `healthCheckStep` is called in `postDeploymentSteps` of `stepGroup2`. `stepGroup3` and `stepGroup4` are only deployed if the healthy status is either *healthy* or *warning*.
 
     ```json
     "stepGroups": [
@@ -218,15 +215,15 @@ The purpose of this section is to show you how to include a health check step in
     ]
     ```
 
-    If you compare the **stepGroup3** section before and after it is revised, this section now depends on **stepGroup2**.  This is necessary when **stepGroup3** and the subsequent step groups depend on the results of health monitoring.
+    If you compare the `stepGroup3` section before and after it's revised, this section now depends on `stepGroup2`. This is necessary when `stepGroup3` and the subsequent step groups depend on the results of health monitoring.
 
-    The following screenshot illustrates the areas modified, and how the health check step is used:
+    The following screenshot illustrates the modified areas and how the health check step is used:
 
     ![Azure Deployment Manager health check template](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-rollout-template.png)
 
 ## Deploy the topology
 
-Run the following PowerShell script to deploy the topology. You need the same **CreateADMServiceTopology.json** and **CreateADMServiceTopology.Parameters.json** that you used in [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
+Run the following PowerShell script to deploy the topology. You need the same _CreateADMServiceTopology.json_ and _CreateADMServiceTopology.Parameters.json_ that you used in [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
 ```azurepowershell
 # Create the service topology
@@ -244,7 +241,7 @@ Verify the service topology and the underlined resources have been created succe
 
 ## Deploy the rollout with the unhealthy status
 
-Use the unhealthy status URL you created in [Create a health check service simulator](#create-a-health-check-service-simulator). You need the revised **CreateADMServiceTopology.json** and the same **CreateADMServiceTopology.Parameters.json** that you used in [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
+Use the unhealthy status URL you created in [Create a health check service simulator](#create-a-health-check-service-simulator). You need the revised _CreateADMServiceTopology.json_ and the same _CreateADMServiceTopology.Parameters.json_ that you used in [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
 ```azurepowershell-interactive
 $healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
@@ -263,7 +260,7 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > `New-AzResourceGroupDeployment` is an asynchronous call. The success message only means the deployment has successfully begun. To verify the deployment, use `Get-AZDeploymentManagerRollout`.  See the next procedure.
 
-To check the rollout progress using the following PowerShell script:
+To check the rollout progress use the following PowerShell script:
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
@@ -279,7 +276,7 @@ Get-AzDeploymentManagerRollout `
 
 The following sample output shows the deployment failed due to the unhealthy status:
 
-```output
+```Output
 Service: myhc0417ServiceWUSrg
     TargetLocation: WestUS
     TargetSubscriptionId: <Subscription ID>
@@ -336,32 +333,32 @@ Id                      : /subscriptions/<Subscription ID>/resourcegroups/myhc04
 Tags                    :
 ```
 
-After the rollout is completed, you shall see one additional resource group created for West US.
+After the rollout is completed, you'll see one additional resource group created for West US.
 
 ## Deploy the rollout with the healthy status
 
-Repeat this section to redeploy the rollout with the healthy status URL.  After the rollout is completed, you shall see one more resource group created for East US.
+Repeat this section to redeploy the rollout with the healthy status URL. After the rollout is completed, you'll see one more resource group created for East US.
 
 ## Verify the deployment
 
 1. Open the [Azure portal](https://portal.azure.com).
-2. Browse to the newly create web applications under the new resource groups created by the rollout deployment.
-3. Open the web application in a web browser. Verify the location and the version on the index.html file.
+1. Browse to the new web applications under the new resource groups created by the rollout deployment.
+1. Open the web application in a web browser. Verify the location and the version on the _index.html_ file.
 
 ## Clean up resources
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
 1. From the Azure portal, select **Resource group** from the left menu.
-2. Use the **Filter by name** field to narrow down the resource groups created in this tutorial. There shall be 3-4:
+1. Use the **Filter by name** field to narrow down the resource groups created in this tutorial.
 
     * **&lt;projectName>rg**: contains the Deployment Manager resources.
     * **&lt;projectName>ServiceWUSrg**: contains the resources defined by ServiceWUS.
     * **&lt;projectName>ServiceEUSrg**: contains the resources defined by ServiceEUS.
     * The resource group for the user-defined managed identity.
-3. Select the resource group name.
-4. Select **Delete resource group** from the top menu.
-5. Repeat the last two steps to delete other resource groups created by this tutorial.
+1. Select the resource group name.
+1. Select **Delete resource group** from the top menu.
+1. Repeat the last two steps to delete other resource groups created by this tutorial.
 
 ## Next steps
 

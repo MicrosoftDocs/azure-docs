@@ -53,7 +53,7 @@ As part of the [CVR tutorial](continuous-video-recording-tutorial.md), you would
 }
 ```
 
-Next, in Visual Studio code, open src/ams-asset-player. This folder contains the necessary files for this tutorial. Open the appsettings.json file, and copy its contents into a new file, appsettings.development.json. Make the following edits to the latter file:
+Next, in Visual Studio code, open src/ams-asset-player. This folder contains the necessary files for this tutorial. Open the appsettings.json file, and copy its contents into a new file, appsettings.development.json. Make the following edits to the newly created appsettings.development.json:
 
 ```
   "AMS" : {

@@ -1,11 +1,8 @@
 ---
 title: Performance Monitoring with Azure Monitor logs 
 description: Learn how to set up the Log Analytics Agent for monitoring containers and performance counters for your Azure Service Fabric clusters.
-author: srrengar
-
 ms.topic: conceptual
 ms.date: 04/16/2018
-ms.author: srrengar
 ---
 
 # Performance Monitoring with Azure Monitor logs
@@ -87,6 +84,6 @@ Now that you have added the Log Analytics agent, head on over to the Log Analyti
 
 ## Next steps
 
-* Collect relevant [performance counters](service-fabric-diagnostics-event-generation-perf.md). To configure the Log Analytics agent to collect specific performance counters, review [configuring data sources](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/platform/alerts-overview.md) to aid in detecting and diagnostics
+* Collect relevant [performance counters](service-fabric-diagnostics-event-generation-perf.md). To configure the Log Analytics agent to collect specific performance counters, review [configuring data sources](../azure-monitor/agents/agent-data-sources.md#configuring-data-sources).
+* Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/alerts/alerts-overview.md) to aid in detecting and diagnostics
 * As an alternative you can collect performance counters through [Azure Diagnostics extension and send them to Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

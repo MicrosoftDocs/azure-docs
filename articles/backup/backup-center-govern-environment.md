@@ -7,7 +7,7 @@ ms.date: 09/01/2020
 
 # Govern your backup estate using Backup Center
 
-Backup Center helps you govern your Azure environment to ensure that all your resources are compliant from a backup perspective. Below are some of the governance capabilities of Backup Center:
+Backup center helps you govern your Azure environment to ensure that all your resources are compliant from a backup perspective. Below are some of the governance capabilities of Backup center:
 
 * View and assign Azure Policies for backup
 
@@ -38,6 +38,11 @@ Clicking on the Backup Compliance menu item helps you view the [compliance](../g
 Selecting the **Protectable Datasources** menu item allows you to view all your datasources that haven't been configured for backup. You can filter the list by datasource subscription, resource group, location, type and tags. Once you've identified a datasource that needs to be backed up, you can right-click on the corresponding grid item and select **Backup** to configure backup for the resource.
 
 ![Protectable datasources menu](./media/backup-center-govern-environment/protectable-datasources.png)
+
+> [!NOTE]
+> If you select **SQL in Azure VM** as the datasource type, the **Protectable Datasources** view displays the list of all Gallery VMs which do not have any SQL databases that have been configured for backup.
+> If you select **Azure Storage (Azure Files)** as the datasource type, the **Protectable Datasources** view displays the list of all storage accounts (that support file shares) which do not have any file shares that have been configured for backup.
+
 
 ## Next steps
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 10/23/2020
+ms.date: 01/29/2021
 ms.author: aahi
 ---
 

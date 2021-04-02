@@ -39,7 +39,7 @@ You can use a maximum of 256 characters for each redirect URI you add to an app 
 
 The Azure Active Directory (Azure AD) application model currently supports both HTTP and HTTPS schemes for apps that sign in work or school accounts in any organization's Azure AD tenant. These account types are specified by the `AzureADMyOrg` and `AzureADMultipleOrgs` values in the `signInAudience` field of the application manifest. For apps that sign in personal Microsoft accounts (MSA) *and* work and school accounts (that is, the `signInAudience` is set to `AzureADandPersonalMicrosoftAccount`), only the HTTPS scheme is allowed.
 
-To add redirect URIs with an HTTP scheme to app registrations that sign in work or school accounts, you need to use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) in the Azure portal. However, though it's possible to set an HTTP-based redirect URI by using the manifest editor, we *strongly* recommend that you use the HTTPS scheme for your redirect URIs.
+To add redirect URIs with an HTTP scheme to app registrations that sign in work or school accounts, use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) in the Azure portal. However, though it's possible to set an HTTP-based redirect URI by using the manifest editor, we *strongly* recommend that you use the HTTPS scheme for your redirect URIs.
 
 ## Localhost exceptions
 
@@ -59,7 +59,7 @@ From a development standpoint, this means a few things:
 * Do not register multiple redirect URIs where only the port differs. The login server will pick one arbitrarily and use the behavior associated with that redirect URI (for example, whether it's a `web`-, `native`-, or `spa`-type redirect).
 
     This is especially important when you want to use different authentication flows in the same application registration, for example both the authorization code grant and implicit flow. To associate the correct response behavior with each redirect URI, the login server must be able to distinguish between the redirect URIs and cannot do so when only the port differs.
-* If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI. For example, `http://localhost/MyWebApp` doesn't match `http://localhost/MyNativeApp`.
+* To register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI. For example, `http://localhost/MyWebApp` doesn't match `http://localhost/MyNativeApp`.
 * The IPv6 loopback address (`[::1]`) is not currently supported.
 
 #### Prefer 127.0.0.1 over localhost
@@ -78,7 +78,7 @@ Wildcard URIs like `https://*.contoso.com` may seem convenient, but should be av
 
 Wildcard URIs are currently unsupported in app registrations configured to sign in personal Microsoft accounts and work or school accounts. Wildcard URIs are allowed, however, for apps that are configured to sign in only work or school accounts in an organization's Azure AD tenant.
 
-To add redirect URIs with wildcards to app registrations that sign in work or school accounts, you need to use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) in the Azure portal. Though it's possible to set a redirect URI with a wildcard by using the manifest editor, we *strongly* recommend you adhere to [section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) and use only absolute URIs.
+To add redirect URIs with wildcards to app registrations that sign in work or school accounts, use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) in the Azure portal. Though it's possible to set a redirect URI with a wildcard by using the manifest editor, we *strongly* recommend you adhere to [section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) and use only absolute URIs.
 
 If your scenario requires more redirect URIs than the maximum limit allowed, consider the following [state parameter approach](#use-a-state-parameter) instead of adding a wildcard redirect URI.
 

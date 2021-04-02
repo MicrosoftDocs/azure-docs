@@ -115,7 +115,7 @@ Sending email requires that you supply your SendGrid API Key. If you need detail
 
 You may store these credentials via your Azure portal by clicking Application settings and adding the key/value pairs under App settings.
 
- ![Azure app settings][azure_app_settings]
+![Azure app settings][azure_app_settings]
 
 Then, you may access them as follows:
 
@@ -167,17 +167,17 @@ In this example, the API key has been stored in the `appsettings.json` file  whi
 
 The contents of `appsettings.json` file should look similar to:
 
-```csharp
+```json
 {
-   "Logging": {
-   "IncludeScopes": false,
-   "LogLevel": {
-   "Default": "Debug",
-   "System": "Information",
-   "Microsoft": "Information"
-     }
-   },
- "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  "Logging": {
+    "IncludeScopes": false,
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  },
+  "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 }
 ```
 
@@ -216,8 +216,8 @@ namespace SendgridMailApp.Controllers
        public NotificationController(IConfiguration configuration)
        {
          _configuration = configuration;
-       }      
-    
+       }
+
        [Route("SendNotification")]
        public async Task PostMessage()
        {
@@ -230,7 +230,7 @@ namespace SendgridMailApp.Controllers
               new EmailAddress("test3@example.com", "Example User 3"),
               new EmailAddress("test4@example.com","Example User 4")
           };
-        
+
           var subject = "Hello world email from Sendgrid ";
           var htmlContent = "<strong>Hello world with HTML content</strong>";
           var displayRecipients = false; // set this to true if you want recipients to see each others mail id 
@@ -267,10 +267,10 @@ filters:
 ### Footer settings
 
 ```csharp
-msg.SetFooterSetting(
-                     true,
-                     "Some Footer HTML",
-                     "<strong>Some Footer Text</strong>");
+    msg.SetFooterSetting(
+        true,
+        "Some Footer HTML",
+        "<strong>Some Footer Text</strong>");
 ```
 
 ### Click tracking
@@ -306,7 +306,7 @@ these links to learn more.
 [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
 [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
 [App Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-[SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/api_v3.html
+[SendGrid API documentation]: https://sendgrid.com/docs/api-reference/
 [NET-library]: https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html#-Using-NETs-Builtin-SMTP-Library
 [documentation]: https://sendgrid.com/docs/Classroom/Send/api_keys.html
 [settings-documentation]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html

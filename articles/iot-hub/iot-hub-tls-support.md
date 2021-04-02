@@ -5,7 +5,7 @@
  author: jlian
  ms.service: iot-fundamentals
  ms.topic: conceptual
- ms.date: 11/25/2020
+ ms.date: 03/31/2021
  ms.author: jlian
 ---
 
@@ -18,6 +18,10 @@ TLS 1.0 and 1.1 are considered legacy and are planned for deprecation. For more 
 ## IoT Hub's server TLS certificate
 
 During a TLS handshake, IoT Hub presents RSA-keyed server certificates to connecting clients. Its root is the Baltimore Cybertrust Root CA. Recently, we rolled out a change to our TLS server certificate so that it is now issued by new intermediate certificate authorities (ICA). For more information, see [IoT Hub TLS certificate update](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/).
+
+### 4KB size limit on renewal
+
+During renewal of IoT Hub server side certificates, a check is made on IoT Hub service side to prevent `Server Hello` exceeding 4KB in size. A client should have at least 4KB of RAM set for incoming TLS max content length buffer, so that existing devices which are set for 4KB limit continue to work as before after certificate renewals. For constrained devices, IoT Hub supports [TLS maximum fragment length negotiation in preview](#tls-maximum-fragment-length-negotiation-preview). 
 
 ### Elliptic Curve Cryptography (ECC) server TLS certificate (preview)
 
@@ -41,9 +45,16 @@ For added security, configure your IoT Hubs to *only* allow client connections t
 * South Central US
 * West US 2
 * US Gov Arizona
-* US Gov Virginia
+* US Gov Virginia (TLS 1.0/1.1 support isn't available in this region - TLS 1.2 enforcement must be enabled or IoT hub creation fails)
 
-For this purpose, provision a new IoT Hub in any of the supported regions and set the `minTlsVersion` property to `1.2` in your Azure Resource Manager template's IoT hub resource specification:
+To enable TLS 1.2 enforcement, follow the steps in [Create IoT hub in Azure portal](iot-hub-create-through-portal.md), except
+
+- Choose a **Region** from one in the list above.
+- Under **Management -> Advanced -> Transport Layer Security (TLS) -> Minimum TLS version**, select **1.2**. This setting only appears for IoT hub created in supported region.
+
+    :::image type="content" source="media/iot-hub-tls-12-enforcement.png" alt-text="Screenshot showing how to turn on TLS 1.2 enforcement during IoT hub creation":::
+
+To use ARM template for creation, provision a new IoT Hub in any of the supported regions and set the `minTlsVersion` property to `1.2` in the resource specification:
 
 ```json
 {
