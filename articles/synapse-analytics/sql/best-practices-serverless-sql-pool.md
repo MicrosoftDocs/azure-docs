@@ -70,7 +70,7 @@ If possible, you can prepare files for better performance:
 
 ### Colocate your CosmosDB analytical storage and serverless SQL pool
 
-Make sure that your CosmosDB analytical storage is placed in the same region as Synapse workspace. Cross-region queries might cause huge latencies. Use region property in the connection string to explicitly specify the region where analytical store is placed (see [query CosmosDb using serverless SQL pool](query-cosmos-db-analytical-store#overview)):
+Make sure that your CosmosDB analytical storage is placed in the same region as Synapse workspace. Cross-region queries might cause huge latencies. Use region property in the connection string to explicitly specify the region where analytical store is placed (see [query CosmosDb using serverless SQL pool](query-cosmos-db-analytical-store.md#overview)):
 
 ```
 'account=<database account name>;database=<database name>;region=<region name>'
