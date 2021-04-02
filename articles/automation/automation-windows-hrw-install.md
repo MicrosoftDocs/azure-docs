@@ -3,7 +3,7 @@ title: Deploy a Windows Hybrid Runbook Worker in Azure Automation
 description: This article tells how to deploy a Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/24/2021
+ms.date: 04/02/2021
 ms.topic: conceptual
 ---
 # Deploy a Windows Hybrid Runbook Worker
@@ -91,12 +91,12 @@ The runbook uses the following parameters.
 | `ResourceGroupName` | Mandatory | The resource group for your Automation account. |
 | `AccountName` | Mandatory | The Automation account name in which the Hybrid Run Worker will be registered. |
 | `CreateLA` | Mandatory | If true, uses the value of `WorkspaceName` to create a Log Analytics workspace. If false, the value of `WorkspaceName` must refer to an existing workspace. |
-| `LAlocation` | Optional | The location where the Log Analytics workspace will be created, or already exists. |
+| `LAlocation` | Optional | The location where the Log Analytics workspace will be created, or where it already exists. |
 | `WorkspaceName` | Optional | The name of the Log Analytics workspace to use. |
-| `CreateVM` | Mandatory | If true, use the value of `vmName` as the name of a new VM. If false,  use `vmName` to find and register existing VM. |
+| `CreateVM` | Mandatory | If true, use the value of `VMName` as the name of a new VM. If false, use `VMName` to find and register existing VM. |
 | `VMName` | Optional | The name of the virtual machine that's either created or registered, depending on the value of `CreateVM`. |
-| `VMImage` | Optional | The name of the VM image to be created.
-| `VMlocation` | Optional | Location of the VM that's either created or registered. If this location is not specified, the value of `location` is used. |
+| `VMImage` | Optional | The name of the VM image to be created. |
+| `VMlocation` | Optional | Location of the VM that's either created or registered. If this location is not specified, the value of `LAlocation` is used. |
 | `RegisterHW` | Mandatory | If true, register the VM as a hybrid worker. |
 | `WorkerGroupName` | Mandatory | Name of the Hybrid Worker Group. |
 
@@ -115,7 +115,7 @@ This automated deployment method uses the PowerShell script **New-OnPremiseHybri
 
 Perform the following steps to install the role on your Windows machine using the script.
 
-1. Download the **New-OnPremiseHybridWorker.ps1** script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). After you have downloaded the script, copy or run it on the target machine. The  script uses the following parameters.
+1. Download the **New-OnPremiseHybridWorker.ps1** script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). After you have downloaded the script, copy or run it on the target machine. The script uses the following parameters.
 
     | Parameter | Status | Description |
     | --------- | ------ | ----------- |
