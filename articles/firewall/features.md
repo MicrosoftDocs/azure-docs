@@ -50,7 +50,7 @@ Azure Firewall Availability Zones are available in regions that support Availabi
 > [!NOTE]
 > Availability Zones can only be configured during deployment. You can't configure an existing firewall to include Availability Zones.
 
-For more information about Availability Zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md)
+For more information about Availability Zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md).
 
 ## Unrestricted cloud scalability
 
