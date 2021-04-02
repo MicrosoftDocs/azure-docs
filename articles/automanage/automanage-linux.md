@@ -22,8 +22,8 @@ For all of these services, we will auto-onboard, auto-configure, monitor for dri
 
 Automanage supports the following Linux distributions and versions:
 
-- CentOS 7.3+, 8
-- RHEL 7.4+, 8
+- CentOS 7.3+
+- RHEL 7.4+
 - Ubuntu 16.04 and 18.04
 - SLES 12 (SP3-SP5 only) and 15 (up to SP1 only)
 
