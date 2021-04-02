@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 03/18/2020 
+ms.date: 03/24/2021 
 ---
 
 # Analyze data with dedicated SQL pools
@@ -107,9 +107,6 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
     This query shows how the total trip distances and average trip distance relate to the number of passengers.
 1. In the SQL script result window, change the **View** to **Chart** to see a visualization of the results as a line chart.
     
-    > [!NOTE]
-    > A workspace enabled dedicated SQL pool (formerly SQL DW) can be identified via the tool tip in the Data hub.
-
 ## Next steps
 
 > [!div class="nextstepaction"]

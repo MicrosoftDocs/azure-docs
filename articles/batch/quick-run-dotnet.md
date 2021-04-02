@@ -103,7 +103,7 @@ See the file `Program.cs` and the following sections for details.
 
 ### Preliminaries
 
-To interact with a storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount), and from that creates a [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient).
+To interact with a storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount), and from that creates a [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient).
 
 ```csharp
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

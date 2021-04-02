@@ -26,7 +26,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 ## Prerequisites
 
-- [Create a Media Services account](../create-account-howto.md)
+- [Create a Media Services account](../account-create-how-to.md)
 - Review  [Monitor Media Services metrics and diagnostic logs](monitor-media-services-data-reference.md)
 
 ## View metrics in Azure portal

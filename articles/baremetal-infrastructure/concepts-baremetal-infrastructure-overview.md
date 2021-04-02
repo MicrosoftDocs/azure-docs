@@ -3,7 +3,6 @@ title: Overview of BareMetal Infrastructure Preview in Azure
 description: Overview of the BareMetal Infrastructure in Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.subservice: workloads
 ms.date: 1/4/2021
 ---
 
