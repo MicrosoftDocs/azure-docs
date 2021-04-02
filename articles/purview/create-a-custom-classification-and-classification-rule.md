@@ -6,7 +6,7 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 2/5/2021
+ms.date: 3/24/2021
 ---
 # Custom classifications in Azure Purview
 
@@ -131,6 +131,14 @@ To create a custom classification rule:
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Verify rule before creating" border="true":::
 
+1. Test the classification rule before completing the creation process to validate that it will apply tags to your assets. The classifications in the rule will be applied to the sample data uploaded just as it would in a scan. This means all of the system classifications and your custom classification will be matched to the data in your file. 
+
+Input files may include delimited files(CSV, PSV, SSV, TSV) as well as JSON or XML content. The content will be parsed based on the file extension of the input file. Delimited data may have a file extension that matches any of the mentioned types. For example, TSV data can exist in a file named MySampleData.csv. Delimited content must also have a minimum of 3 columns. 
+
+ :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-screen.png" alt-text="Test rule before creating" border="true":::
+
+ :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-uploaded-file-result-screen.png" alt-text="View applied classifications after uploading a test file" border="true":::
+
 ### Creating a Dictionary Rule
 
 1. If creating a dictionary rule, you will see the following screen. Upload a file that contains all possible values for the classification you're creating in a single column.
@@ -139,7 +147,7 @@ To create a custom classification rule:
 
 1. After the dictionary is generated, you can adjust the distinct match and minimum match thresholds and submit the rule.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Purview dictionary rule - adjust distinct match threshold and minimum match threshold" border="true":::
+- **Distinct match threshold**: The total number of distinct data values that need to be found in a column before the scanner runs the data pattern on it. Distinct match threshold has nothing to do with pattern matching but it is a pre-requisite for pattern matching.The suggested value is 8. This value can be manually adjusted in a range from 2 to 32. The system requires this value to make sure that the column contains enough data for the scanner to accurately classify it. For example, a column that contains multiple rows that all contain the value 1 won't be classified. Columns that contain one row with a value and the rest of the rows have null values also won't get classified. If you specify multiple patterns, this value applies to each of them.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Create dictionary rule, with Dictionary Generated checkmark." border="true":::
 
