@@ -24,23 +24,21 @@
   - name: Develop custom code modules
     items:
     - name: C
-      items:
-      - name: C modules for Linux devices
-        href: tutorial-c-module.md
-      - name: C modules for Windows devices
-        href: tutorial-c-module-windows.md
+      href: tutorial-c-module.md
     - name: C#
-      items: 
-      - name: C# modules for Linux devices
-        href: tutorial-csharp-module.md
-      - name: C# modules for Windows devices
-        href: tutorial-csharp-module-windows.md
+      href: tutorial-csharp-module.md
     - name: Java
       href: tutorial-java-module.md
     - name: Node.js
       href: tutorial-node-module.md
     - name: Python
       href: tutorial-python-module.md
+    - name: Use Windows containers
+      items:
+      - name: C
+        href: tutorial-c-module-windows.md
+      - name: C#
+        href: tutorial-csharp-module-windows.md
   - name: Deploy Azure services as modules
     items: 
     - name: Filter data with Azure Functions
@@ -298,7 +296,7 @@
     - name: iOS Platform
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
-    href: https://catalog.azureiotsolutions.com/
+    href: https://devicecatalog.azure.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap

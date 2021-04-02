@@ -95,9 +95,16 @@ If users decide to quickly turn video on/off while call is in `Connecting` state
  - If the user starts with audio and then start and stop video while the call is in `Connecting` state.
  - If the user starts with audio and then start and stop video while the call is in `Lobby` state.
 
-
 #### Possible causes
 Under investigation.
+
+### "Fail to place call: No camera device found" error on Safari on desktop and on iOS 
+If camera access was already granted after some time end-user will see the error:"Fail to place call: No camera device found". Safari on desktop and on iOS does not keep permissions for very long time unless there is a stream acquired. The simplest way to work around this is to call ADP before actually joining the call as well. If the permissions are there, then user will not see anything, if not, it will re-prompt.
+
+<br/>Devices affected: iPhone
+<br/>Client library: Calling (JavaScript)
+<br/>Browsers: Safari
+<br/>Operating System: iOS
 
 ###  Sometimes it takes a long time to render remote participant videos
 During an ongoing group call, _User A_ sends video and then _User B_ joins the call. Sometimes, User B doesn't see video from User A, or User A's video begins rendering after a long delay. This issue could be caused by a network environment that requires further configuration. Refer to the [network requirements](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) documentation for network configuration guidance.
