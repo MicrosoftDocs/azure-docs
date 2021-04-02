@@ -1,5 +1,5 @@
 ---
-title: How to Revoke a Verifiable Credential as an Issuer
+title: How to Revoke a Verifiable Credential as an Issuer - Azure Active Directory Verifiable Credentials
 description: Learn how to revoke a Verifiable Credential that you've issued
 documentationCenter: ''
 author: barclayn
@@ -122,6 +122,6 @@ Once an index claim has been set and verifiable credentials have been issued to 
 
 Now whenever a relying party calls to check the status of this specific verifiable credential, Microsoft's status API, acting on behalf of the tenant, returns a 'false' response.
 
-## Next Steps
+## Next steps
 
 Test out the functionality on your own with a test credential to get used to the flow. You can see information on how to configure your tenant to issue verifiable credentials by [reviewing our tutorials](get-started-verifiable-credentials.md).

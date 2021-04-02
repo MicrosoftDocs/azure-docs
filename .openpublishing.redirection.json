@@ -13535,6 +13535,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/batch/batch-nodejs-get-started.md",
+      "redirect_url": "/azure/batch/batch-js-get-started",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/batch/policy-samples.md",
       "redirect_url": "/azure/batch/policy-reference",
       "redirect_document_id": false
@@ -43590,6 +43595,11 @@
     {
       "source_path_from_root": "/articles/frontdoor/new-azurermfrontdoorfrontendendpointobject.md",
       "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorfrontendendpointobject",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cloud-services-extended-support/manage-powershell.md",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-model-and-package",
       "redirect_document_id": false
     },
     {
