@@ -25,12 +25,12 @@ To learn more, especially about what kind of client certificates you can upload,
 
 First create a new Application Gateway as you would usually through the portal - there are no additional steps needed in the creation to enable mutual authentication. For more information on how to create an Application Gateway in portal, check out our [portal quickstart tutorial](./quick-create-portal.md).
 
-## Enable mutual authentication on an existing Application Gateway
+## Configure mutual authentication on an existing Application Gateway
 
 To configure an existing Application Gateway with mutual authentication, you'll need to first go to the **SSL settings (Preview)** tab in the Portal and create a new SSL profile. When you create an SSL profile, you'll see two tabs: **Client Authentication** and **SSL Policy**. The **Client Authentication** tab is where you'll upload your client certificate(s). The **SSL Policy** tab is to configure a listener specific SSL policy - for more information, check out [Configuring a listener specific SSL policy](./application-gateway-configure-listener-specific-ssl-policy.md).
 
 > [!IMPORTANT]
-> Please ensure that you upload the entire client CA certificate chain in one file. 
+> Please ensure that you upload the entire client CA certificate chain in one file, and only one chain per file.
 
 1. Search for **Application Gateway** in portal, select **Application gateways**, and click on your existing Application Gateway.
 
@@ -42,12 +42,16 @@ To configure an existing Application Gateway with mutual authentication, you'll 
 
 5. Stay in the **Client Authentication** tab. Upload the PEM certificate you intend to use for mutual authentication between the client and the Application Gateway using the **Upload a new certificate** button. 
 
+    For more information on how to extract trusted client CA certificate chains to upload here, see [how to extract trusted client CA certificate chains](./mutual-authentication-certificate-management.md).
+
    > [!NOTE]
    > If this isn't your first SSL profile and you've uploaded other client certificates onto your Application Gateway, you can choose to reuse an existing certificate on your gateway through the dropdown menu. 
 
 6. Check the **Verify client certificate issuer's DN** box only if you want Application Gateway to verify the client certificate's immediate issuer Distinguished Name. 
 
-7. Select **Add** to save.
+7. Consider adding a listener specific policy. See instructions at [setting up listener specific SSL policies](./application-gateway-configure-listener-specific-ssl-policy.md).
+
+8. Select **Add** to save.
 
 ![Add client authentication to SSL profile](./media/mutual-authentication-portal/mutual-authentication-portal.png)
 
@@ -85,7 +89,7 @@ In the case that your client CA certificate has expired, you can update the cert
  
 1. Select the trash can icon next to the expired certificate. This will remove the association of that certificate from the SSL profile. 
 
-1. Repeat steps 2-4 with any other SSL profile that was using the same expired client certificate. You will be able to choose the new certificate you uploaded in step 3 from the dropdown menu in other SSL profiles.
+1. Repeat steps 2-4 above with any other SSL profile that was using the same expired client certificate. You will be able to choose the new certificate you uploaded in step 3 from the dropdown menu in other SSL profiles.
 
 ## Next steps
 

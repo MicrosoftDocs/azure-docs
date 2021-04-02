@@ -75,6 +75,8 @@ There are a number of potential causes for failures in the access logs. Below is
 * **Unable to verify the first certificate:** Unable to verify the client certificate. This error occurs specifically when the client presents only the leaf certificate, whose issuer is not trusted. Validate that the trusted client CA certificate chain uploaded on the Application Gateway is complete.
 * **Unable to verify the client certificate issuer:** This error occurs when the configuration *VerifyClientCertIssuerDN* is set to true. This typically happens when the Issuer DN of the client certificate doesn't match the *ClientCertificateIssuerDN* extracted from the trusted client CA certificate chain uploaded by the customer. For more information about how Application Gateway extracts the *ClientCertificateIssuerDN*, check out [Application Gateway extracting issuer DN](./mutual-authentication-overview.md#verify-client-certificate-dn). As best practice, make sure you're uploading one certificate chain per file to Application Gateway. 
 
+For more information on how to extract the entire trusted client CA certificate chain to upload to Application Gateway, see [how to extract trusted client CA certificate chains](./mutual-authentication-certificate-management.md).
+
 ## Error code troubleshooting
 If you're seeing any of the following error codes, we have a few recommended solutions to help resolve the problem you might be facing. 
 

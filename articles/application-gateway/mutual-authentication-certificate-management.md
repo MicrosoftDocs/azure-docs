@@ -1,7 +1,7 @@
 ---
-title: Generate self-signed certificate for mutual authentication
+title: Export trusted client CA certificate chain for client authentication
 titleSuffix: Azure Application Gateway
-description: Learn how to generate an Azure Application Gateway self-signed certificate with a custom root CA for mutual authentication.
+description: Learn how to export a trusted client CA certificate chain for client authentication on Azure Application Gateway
 services: application-gateway
 author: mscatyao
 ms.service: application-gateway
@@ -10,79 +10,102 @@ ms.date: 03/31/2021
 ms.author: caya
 ---
 
-# Generate a self-signed certificate for mutual authentication 
-You can generate a self-signed CA certificate to upload onto your Application Gateway to use to verify client certificates. The self-signed CA certificate will be treated as a trusted root CA certificate by Application Gateway and will be used to verify client certificates presented to the gateway. 
-
-> [!NOTE]
-> Self-signed certificates are not trusted by default and they can be difficult to maintain. Also, they may use outdated hash and cipher suites that may not be strong. For better security, purchase a certificate signed by a well-known certificate authority.
-
-In this article, you will learn how to:
-- Create a key
-- Create a certificate
-- Verify the certificate
-- Deploy the certificate 
+# Export a trusted client CA certificate chain to use with client authentication
+In order to configure mutual authentication with the client, or client authentication, Application Gateway requires a trusted client CA certificate chain to be uploaded to the gateway. If you have multiple certificate chains, you'll need to create the chains separately and upload them as different files on the Application Gateway. In this article, you'll learn how to export a trusted client CA certificate chain that you can use in your client authentication configuration on your gateway.  
 
 ## Prerequisites
-- **[OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux** 
 
-   While there could be other tools available for certificate management, this tutorial uses OpenSSL. You can find OpenSSL bundled with many Linux distributions, such as Ubuntu.
+An existing client certificate is required to generate the trusted client CA certificate chain. 
 
-- **An Application Gateway v2 SKU**
-   
-  If you don't have an existing Application Gateway, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md).
+## Export trusted client CA certificate
 
-## Create a key 
-Create a private key in OpenSSL.
+Trusted client CA certificate is required to allow client authentication on Application Gateway. In this example, we will use a TLS/SSL certificate for the client certificate, export its public key and then export the CA certificates from the public key to get the trusted client CA certificates. We'll then concatenate all the client CA certificates into one trusted client CA certificate chain. 
 
-```
-cd /root/ca
-openssl genrsa -aes256 \
-    -out intermediate/private/www.contoso.com.key.pem 2048
-chmod 400 intermediate/private/www.contoso.com.key.pem
-```
+The following steps help you export the .pem or .cer file for your certificate:
 
-## Create a certificate
-Use the private key you created in the last step to create a certificate signing request (CSR). The Common Name can't be the same as either your root or intermediate certificate. 
+### Export public certificate 
 
-```
-cd /root/ca
-openssl req -config intermediate/openssl.cnf \
-    -key intermediate/private/www.contoso.com.key.pem \
-    -new -sha256 -out intermediate/csr/www.contoso.com.csr.pem
-```
+1. To obtain a .cer file from the certificate, open **Manage user certificates**. Locate the certificate, typically in 'Certificates - Current User\Personal\Certificates', and right-click. Click **All Tasks**, and then click **Export**. This opens the **Certificate Export Wizard**. If you can't find the certificate under Current User\Personal\Certificates, you may have accidentally opened "Certificates - Local Computer", rather than "Certificates - Current User"). If you want to open Certificate Manager in current user scope using PowerShell, you type *certmgr* in the console window.
 
-Use the intermediate CA to sign teh CSR. Use the `usr_cert` extension for user authentication.
+   ![Screenshot shows the Certificate Manager with Certificates selected and a contextual menu with All tasks, then Export selected.](./media/certificates-for-backend-authentication/export.png)
 
-```
-cd /root/ca
-openssl ca -config intermediate/openssl.cnf \
-    -extensions server_cert -days 375 -notext -md sha256 \
-    -in intermediate/csr/www.contoso.com.csr.pem \
-    -out intermediate/certs/www.contoso.com.cert.pem
-chmod 444 intermediate/certs/www.contoso.com.cert.pem
-``` 
+2. In the Wizard, click **Next**.
 
-## Verify the certificate 
-Verify the certificate you generated. 
+   ![Export certificate](./media/certificates-for-backend-authentication/exportwizard.png)
 
-```
-openssl x509 -noout -text \
-    -in intermediate/certs/www.contoso.com.cert.pem
-```
+3. Select **No, do not export the private key**, and then click **Next**.
 
-The **Issuer** is the intermediate CA, and the **Subject** refers to the certificate itself. 
+   ![Do not export the private key](./media/certificates-for-backend-authentication/notprivatekey.png)
 
-Use the CA certificate chain you created earlier to verify that the new certificate has a valid chain of trust. 
+4. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).**, and then click **Next**.
 
-```
-openssl verify -CAfile intermediate/certs/ca-chain.cert.pem \
-    intermediate/certs/www.contoso.com.cert.pem
+   ![Base-64 encoded](./media/certificates-for-backend-authentication/base64.png)
 
-www.contoso.com.cert.pem: OK
-```
+5. For **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then, click **Next**.
 
-## Deploy the certificate
-Deploy your new certificate to a client. 
+   ![Screenshot shows the Certificate Export Wizard where you specify a file to export.](./media/certificates-for-backend-authentication/browse.png)
+
+6. Click **Finish** to export the certificate.
+
+   ![Screenshot shows the Certificate Export Wizard after you complete the file export.](./media/certificates-for-backend-authentication/finish.png)
+
+7. Your certificate is successfully exported.
+
+   ![Screenshot shows the Certificate Export Wizard with a success message.](./media/certificates-for-backend-authentication/success.png)
+
+   The exported certificate looks similar to this:
+
+   ![Screenshot shows a certificate symbol.](./media/certificates-for-backend-authentication/exported.png)
+
+### Export CA certificate(s) from the public certificate
+
+Now that you've exported your public certificate, you will now export the CA certificate(s) from your public certificate. If you only have a root CA, you'll only need to export that certificate. However, if you have 1+ intermediate CAs, you'll need to export each of those as well. 
+
+1. Once the public key has been exported, open the file.
+
+   ![Open authorization certificate](./media/certificates-for-backend-authentication/openAuthcert.png)
+
+   ![about certificate](./media/mutual-authentication-certificate-management/general.png)
+
+1. Select the Certification Path tab to view the certification authority.
+
+   ![cert details](./media/mutual-authentication-certificate-management/certdetails.png) 
+
+1. Select the root certificate and click on **View Certificate**.
+
+   ![cert path](./media/mutual-authentication-certificate-management/rootcert.png) 
+
+   You should see the root certificate details.
+
+   ![cert info](./media/mutual-authentication-certificate-management/rootcertdetails.png)
+
+1. Select the **Details** tab and click **Copy to File...**
+
+   ![copy root cert](./media/mutual-authentication-certificate-management/rootcertcopytofile.png)
+
+1. At this point, you've extracted the details of the root CA certificate from the public certificate. You'll see the **Certificate Export Wizard**. Follow steps 2-7 from the previous section ([Export public certificate](./mutual-authentication-certificate-management.md#export-public-certificate)) to complete the Certificate Export Wizard. 
+
+1. Now repeat steps 2-6 from this current section ([Export CA certificate(s) from the public certificate](./mutual-authentication-certificate-management.md#export-ca-certificate(s)-from-the-public-certificate)) for all intermediate CAs to export all intermediate CA certificates in the Base-64 encoded X.509(.CER) format.
+
+    ![intermediate cert](./media/mutual-authentication-certificate-management/intermediatecert.png)
+
+    For example, you would repeat steps 2-6 from this section on the *MSIT CAZ2* intermediate CA to extract it as its own certificate. 
+
+### Concatenate all your CA certificates into one file
+
+15. Run the following command with all the CA certificates you extracted earlier. 
+
+    Windows:
+    ```console
+    type intermediateCA.cer rootCA.cer > combined.cer
+    ```
+    
+    Linux:
+    ```console
+    cat intermediateCA.cer rootCA.cer >> combined.cer
+    ```
 
 ## Next steps
-For more about mutual authentication on Application Gateway, see [Overview of mutual authentication](./mutual-authentication-overview.md).
+
+Now you have the trusted client CA certificate chain. You can add this to your client authentication configuration on the Application Gateway to allow mutual authentication with your gateway. See [configure mutual authentication using Application Gateway with Portal](./mutual-authentication-portal.md) or [configure mutual authentication using Application Gateway with PowerShell](./mutual-authentication-powershell.md).
+

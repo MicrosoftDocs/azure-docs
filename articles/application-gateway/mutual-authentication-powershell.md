@@ -52,30 +52,30 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name $publicIpName
 
 ## Create the Application Gateway IP configuration
 
-Create the Application Gateway IP configuration. 
+Create the IP configurations and frontend port. 
 
 ```azurepowershell
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name $gipconfigname -Subnet $gwSubnet
+$fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name $fipconfigName -PublicIPAddress $publicip
+$port = New-AzApplicationGatewayFrontendPort -Name $frontendPortName  -Port 443
 ```
 
 ## Configure frontend SSL 
 
-Configure the frontend portion of your Application Gateway.
+Configure the SSL certificates for your Application Gateway.
 
 ```azurepowershell
 $password = ConvertTo-SecureString "P@ssw0rd" -AsPlainText -Force
 $sslCertPath = $basedir + "/ScenarioTests/Data/ApplicationGatewaySslCert1.pfx"
 $sslCert = New-AzApplicationGatewaySslCertificate -Name $sslCertName -CertificateFile $sslCertPath -Password $password
-$fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name $fipconfigName -PublicIPAddress $publicip
-$port = New-AzApplicationGatewayFrontendPort -Name $frontendPortName  -Port 443
 ```
 
 ## Configure client authentication 
 
-Configure client authentication on your Application Gateway. Make sure the trusted client CA certificate chain you upload, if you upload a chain, is complete and contains all intermediate certificates (if any).  
+Configure client authentication on your Application Gateway. For more information on how to extract trusted client CA certificate chains to use here, see [how to extract trusted client CA certificate chains](./mutual-authentication-certificate-management.md).
 
 > [!IMPORTANT]
-> Please ensure that you upload the entire client CA certificate chain in one file. 
+> Please ensure that you upload the entire client CA certificate chain in one file, and only one chain per file.  
 
 > [!NOTE]
 > We recommend using TLS 1.2 with mutual authentication as TLS 1.2 will be mandated in the future. 
@@ -83,15 +83,15 @@ Configure client authentication on your Application Gateway. Make sure the trust
 ```azurepowershell
 $clientCertFilePath = $basedir + "/ScenarioTests/Data/TrustedClientCertificate.cer"
 $trustedClient01 = New-AzApplicationGatewayTrustedClientCertificate -Name $trustedClientCert01Name -CertificateFile $clientCertFilePath
-$sslPolicy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401"
+$sslPolicy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S"
 $clientAuthConfig = New-AzApplicationGatewayClientAuthConfiguration -VerifyClientCertIssuerDN
 $sslProfile01 = New-AzApplicationGatewaySslProfile -Name $sslProfile01Name -SslPolicy $sslPolicy -ClientAuthConfiguration $clientAuthConfig -TrustedClientCertificates $trustedClient01
 $listener = New-AzApplicationGatewayHttpListener -Name $listenerName -Protocol Https -SslCertificate $sslCert -FrontendIPConfiguration $fipconfig -FrontendPort $port -SslProfile $sslProfile01
 ```
 
-## Configure the backend trusted root certificate 
+## Configure the backend pool and settings
 
-Set up the backend trusted root certificate on your Application Gateway for end-to-end SSL encryption. 
+Set up backend pool and settings for your Application Gateway. Optionally, set up the backend trusted root certificate for end-to-end SSL encryption.  
 
 ```azurepowershell
 $certFilePath = $basedir + "/ScenarioTests/Data/ApplicationGatewayAuthCert.cer"
@@ -106,8 +106,13 @@ Set up a rule on your Application Gateway.
 
 ```azurepowershell
 $rule = New-AzApplicationGatewayRequestRoutingRule -Name $ruleName -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-$sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
-$autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
+```
+
+## Set up default SSL policy for future listeners
+
+You've set up a listener specific SSL policy while setting up mutual authentication. In this step, you can optionally set the default SSL policy for future listeners you create. 
+
+```azurepowershell
 $sslPolicyGlobal = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401"
 ```
 
@@ -116,6 +121,7 @@ $sslPolicyGlobal = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -Pol
 Using everything we created above, deploy your Application Gateway.
 
 ```azurepowershell
+$sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
 $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname -Zone 1,2 -Location $location -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $port -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslPolicy $sslPolicyGlobal -TrustedRootCertificate $trustedRoot -AutoscaleConfiguration $autoscaleConfig -TrustedClientCertificates $trustedClient01 -SslProfiles $sslProfile01 -SslCertificates $sslCert
 ```
 
