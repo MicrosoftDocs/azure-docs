@@ -46,6 +46,9 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
 >* East US 2
 >* North Europe
 
+>[!NOTE]
+> If you want to use custom locations on the cluster, then use East US or West Europe regions for connecting your cluster as custom locations is only available in these regions as of now. All other Azure Arc enabled Kubernetes features are available in all regions listed above.
+
 ## Meet network requirements
 
 >[!IMPORTANT]
@@ -67,11 +70,13 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
     ```azurecli
     az provider register --namespace Microsoft.Kubernetes
     az provider register --namespace Microsoft.KubernetesConfiguration
+    az provider register --namespace Microsoft.ExtendedLocation
     ```
 2. Monitor the registration process. Registration may take up to 10 minutes.
     ```azurecli
     az provider show -n Microsoft.Kubernetes -o table
-    az provider show -n Microsoft.KubernetesConfiguration -o table    
+    az provider show -n Microsoft.KubernetesConfiguration -o table
+    az provider show -n Microsoft.ExtendedLocation -o table
     ```
 
 ## Create a resource group

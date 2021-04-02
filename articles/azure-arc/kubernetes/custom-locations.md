@@ -63,7 +63,7 @@ Similar to Azure locations, end users within the tenant with access to Custom Lo
 To enable this feature on your cluster, execute the following command:
 
 ```console
-az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect,custom-locations
+az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
 ```
 
 > [!NOTE]
