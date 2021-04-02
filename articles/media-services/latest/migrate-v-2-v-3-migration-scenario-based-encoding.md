@@ -132,7 +132,7 @@ For customers using the Indexer v1 processor in the v2 API, you need to create a
 - With REST
   - [How to encode with a custom transform - REST](encode-custom-preset-rest-how-to.md)
   - [How to generate thumbnails using Encoder Standard with REST](transform-generate-thumbnails-rest-how-to.md)
-- [Subclip a video when encoding with Media Services - .NET](trasnform-subclip-video-dotnet-how-to.md)
+- [Subclip a video when encoding with Media Services - .NET](transform-subclip-video-dotnet-how-to.md)
 - [Subclip a video when encoding with Media Services - REST](transform-subclip-video-rest-how-to.md)
 
 ## Samples

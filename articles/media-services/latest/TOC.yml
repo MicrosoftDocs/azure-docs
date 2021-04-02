@@ -268,7 +268,7 @@
     - name: Error codes
       items:
       - name: Streaming endpoint error codes  
-        href: streaming-endpoint-error-codes.md
+        href: stream-streaming-endpoint-error-codes-reference.md
       - name: Live event error codes
         href: live-event-error-codes-reference.md
       - name: Job error codes
@@ -387,7 +387,7 @@
     - name: Subclip a video
       items:
       - name: With .NET
-        href: trasnform-subclip-video-dotnet-how-to.md
+        href: transform-subclip-video-dotnet-how-to.md
         displayName: subclipping, clip, edit, trim, clipping
       - name: With REST
         href: transform-subclip-video-rest-how-to.md

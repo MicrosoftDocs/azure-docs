@@ -82,7 +82,7 @@ You can specify to create a [Job](/rest/api/media/jobs/create) with a single cli
 
 See examples:
 
-* [Subclip a video with .NET](trasnform-subclip-video-dotnet-how-to.md)
+* [Subclip a video with .NET](transform-subclip-video-dotnet-how-to.md)
 * [Subclip a video with REST](transform-subclip-video-rest-how-to.md)
 
 ## Built-in presets
