@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 04/01/2021
+ms.date: 04/02/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -91,7 +91,7 @@ local computer.
 
 ### Start VM on Connect public preview
 
-The new host pool setting, Start VM on Connect, is now available in public preview. This setting keeps your VMs deallocated when you're not using them to save costs and allow the VM to start up automatically when users connect to it. For more information, check out [our blog post](https://aka.ms/wvdstartvmonconnect) and [our documentation](start-virtual-machine-connect.md).
+The new host pool setting, Start VM on Connect, is now available in public preview. This setting can help you keep your VMs deallocated when you're not using them to save costs and allow the VM to start up automatically when users connect to it. For more information, check out [our blog post](https://aka.ms/wvdstartvmonconnect) and [our documentation](start-virtual-machine-connect.md).
 
 ### Windows Virtual Desktop Specialty certification
 
