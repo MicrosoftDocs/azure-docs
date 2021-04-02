@@ -59,7 +59,7 @@ Sample code for this article is available at [Azure-Samples/media-services-3rdpa
     ```
 
 3. Replace `manifestUrl` with the HLS or DASH URL from the streaming locator of your asset which can be found on the streaming locator page in the Azure portal.
-    ![streaming locator URLs](media/how-to-shaka-player/streaming-urls.png)
+    ![streaming locator URLs](media/player-shaka-player-how-to/streaming-urls.png)
 
 4. Replace `protocolType` with the following options:
 
