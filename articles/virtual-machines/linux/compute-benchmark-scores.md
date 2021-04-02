@@ -9,7 +9,11 @@ ms.date: 03/31/2021
 ms.reviewer: davberg
 
 ---
-## azure (Coremark) TOC
+
+# Compute benchmark scores for Linux VMs
+The following CoreMark benchmark scores show compute performance for Azure's high-performance VM lineup running Ubuntu. Compute benchmark scores are also available for [Windows VMs](../windows/compute-benchmark-scores.md).
+
+
 | Type | Families | 
 | ---- | -------- | 
 | [Compute optimized](#Compute-optimized) | [Fsv2](#fsv2---compute---storage-optimized)  | TBD |
@@ -18,7 +22,6 @@ ms.reviewer: davberg
 | [Memory optimized](#Memory-optimized) | [DSv2](#dsv2---storage-optimized) [Dv2](#dv2---general-compute) [Esv3](#esv3---memory-optimized---premium-storage) [Ev3](#ev3---memory-optimized) [Easv4](#easv4) [Eav4](#eav4) [Edsv4](#edsv4) [Edv4](#edv4) [Esv4](#esv4) [Ev4](#ev4) [Msv2](#msv2-high-memory) [Ms](#m-series-medium-memory) [Msv2 Medium Memory Diskless](#msv2-medium-memory)  | TBD |
 | [Storage optimized](#Storage-optimized) | [Lv2](#lv2---storage-optimized)  | TBD |
 
-# azure (Coremark)
 
 ## Compute optimized
 ### Fsv2 - Compute + Storage Optimized
