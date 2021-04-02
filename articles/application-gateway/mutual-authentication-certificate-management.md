@@ -105,6 +105,10 @@ Now that you've exported your public certificate, you will now export the CA cer
     cat intermediateCA.cer rootCA.cer >> combined.cer
     ```
 
+    Your resulting combined certificate should look something like the following:
+    
+    ![combined cert](./media/mutual-authentication-certificate-management/combinedcert.png)
+
 ## Next steps
 
 Now you have the trusted client CA certificate chain. You can add this to your client authentication configuration on the Application Gateway to allow mutual authentication with your gateway. See [configure mutual authentication using Application Gateway with Portal](./mutual-authentication-portal.md) or [configure mutual authentication using Application Gateway with PowerShell](./mutual-authentication-powershell.md).
