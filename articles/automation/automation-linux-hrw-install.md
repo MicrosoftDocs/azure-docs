@@ -112,15 +112,17 @@ The runbook uses the following parameters.
 
 | Parameter | Status | Description |
 | ------- | ----- | ----------- |
-| `location` | Mandatory | The location for the Log Analytics workspace. |
+| `Location` | Mandatory | The location for the Log Analytics workspace. |
 | `ResourceGroupName` | Mandatory | The resource group for your Automation account. |
 | `AccountName` | Mandatory | The Automation account name in which the Hybrid Run Worker will be registered. |
-| `CreateLA` |  | If true, uses the value of `WorkspaceName` to create a Log Analytics workspace. If false, the value of `WorkspaceName` must refer to an existing workspace. |
-| `lalocation` |  | The location where the Log Analytics workspace will be created, or already exists. Defaults to the value of `location`. |
-| `WorkspaceName` | Optional | The name of the Log Analytics workspace to use. Defaults to `LAWorkspaceForAutomationHW`. |
+| `CreateLA` | Mandatory | If true, uses the value of `WorkspaceName` to create a Log Analytics workspace. If false, the value of `WorkspaceName` must refer to an existing workspace. |
+| `LAlocation` | Optional | The location where the Log Analytics workspace will be created, or already exists. |
+| `WorkspaceName` | Optional | The name of the Log Analytics workspace to be created or used. |
 | `CreateVM` | Mandatory | If true, use the value of `vmName` as the name of a new VM. If false,  use `vmName` to find and register existing VM. |
-| `vmName` | Optional | The name of the virtual machine that's either created or registered, depending on the value of `CreateVM`. Defaults to `VMForLHW`.|
-| `vmlocation` | Optional | Location of the VM that's either created or registered. If this location is not specified, the value of `location` is used. |
+| `VMName` | Optional | The name of the virtual machine that's either created or registered, depending on the value of `CreateVM`. |
+| `VMImage` | Optional | The name of the VM image to be created.
+| `VMlocation` | Optional | Location of the VM that's either created or registered. If this location is not specified, the value of `location` is used. |
+| `RegisterHW` | Mandatory | If true, register the VM as a hybrid worker. |
 | `WorkerGroupName` | Mandatory | Name of the Hybrid Worker Group. |
 
 ### Manually run PowerShell commands
