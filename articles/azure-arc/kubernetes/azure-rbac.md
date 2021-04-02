@@ -131,7 +131,7 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 4. Create a role assignment on the server application as assignee using the role created above:
 
     ```azurecli
-    az role assignment create --role <roleId> --assignee <serverApplicationId> --scope /subscriptions/<subscription-id>/*
+    az role assignment create --role <roleId> --assignee <serverApplicationId> --scope /subscriptions/<subscription-id>
     ```
 
 ## Enable Azure RBAC on cluster
