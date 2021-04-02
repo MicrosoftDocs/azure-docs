@@ -282,7 +282,7 @@
         href: enable-identity-system-topics.md
       - name: Grant managed identity the access to Event Grid destination
         href: add-identity-roles.md
-      - name: Deliver events using a managed identity 
+      - name: Create an event subscription that uses the managed identity
         href: managed-service-identity.md
     - name: Deliver events securely over a private link
       href: consume-private-endpoints.md      
