@@ -83,7 +83,7 @@
   items:
   - name: Region support
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: LEARN modules
+  - name: Learn modules
     href: https://docs.microsoft.com/learn/modules/detect-analyze-faces/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
