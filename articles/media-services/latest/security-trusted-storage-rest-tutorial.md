@@ -49,7 +49,7 @@ You need an Azure subscription to get started.  If you don't have an Azure subsc
 
 ### Get your tenant ID and subscription ID
 
-If you don't know how to get your tenant ID and subscription ID, see [How to find your tenant ID](how-to-set-azure-tenant.md) and [Find your tenant ID](how-to-set-azure-tenant.md).
+If you don't know how to get your tenant ID and subscription ID, see [How to find your tenant ID](setup-azure-tenant-how-to.md) and [Find your tenant ID](setup-azure-tenant-how-to.md).
 
 ### Create a service principal and secret
 
