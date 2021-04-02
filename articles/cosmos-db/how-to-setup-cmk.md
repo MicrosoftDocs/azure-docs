@@ -240,16 +240,16 @@ Because a system-assigned managed identity can only be retrieved after the creat
 
 1. Update your Azure Cosmos DB account to specify that you want to use the system-assigned managed identity when accessing your encryption keys in Azure Key Vault. You can do this by specifying this property in your account's Azure Resource Manager template:
 
-```json
-{
-    "type": " Microsoft.DocumentDB/databaseAccounts",
-    "properties": {
-        "defaultIdentity": "SystemAssignedIdentity",
-        // ...
-    },
-    // ...
-}
-```
+   ```json
+   {
+       "type": " Microsoft.DocumentDB/databaseAccounts",
+       "properties": {
+           "defaultIdentity": "SystemAssignedIdentity",
+           // ...
+       },
+       // ...
+   }
+   ```
 
 1. Optionally, you can then remove the Azure Cosmos DB first-party identity from your Azure Key Vault access policy.
 
