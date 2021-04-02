@@ -69,7 +69,7 @@ Calling **Undelete Blob** on a blob that has not been deleted has no effect. The
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
 
-To recover to a specific blob version, first call Undelete on a blob, then copy the desired snapshot over the blob. The following example recovers a block blob to its most recently generated snapshot:
+To restore a specific version, first call the **Undelete Blob** operation on the base blob or version, then copy the desired version over the base blob. The following example restores a block blob to the most recently saved version:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobSnapshot":::
 
@@ -87,7 +87,7 @@ foreach (CloudBlob blob in container.ListBlobs(useFlatBlobListing: true, blobLis
 }
 ```
 
-To restore a specific snapshot, first call the **Undelete Blob** operation, then copy the desired snapshot to the base blob. The following example restores a block blob to its most recently generated snapshot:
+To restore a specific snapshot, first call the **Undelete Blob** operation on the base blob, then copy the desired snapshot over the base blob. The following example restores a block blob to its most recently generated snapshot:
 
 ```csharp
 // Restore the block blob.
