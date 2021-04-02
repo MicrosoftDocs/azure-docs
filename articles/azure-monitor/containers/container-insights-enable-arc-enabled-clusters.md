@@ -161,7 +161,7 @@ curl -L https://aka.ms/arc-k8s-azmon-extension-arm-template-params -o  arc-k8s-a
 ```console
 az login
 az account set --subscription "Subscription Name"
-az deployment group create --resource-group <clusterResourceGroup> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json
+az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json
 ```
 
 ## Delete extension instance
@@ -169,7 +169,7 @@ az deployment group create --resource-group <clusterResourceGroup> --template-fi
 The following command only deletes the extension instance, but doesn't delete the Log Analytics workspace. The data within the Log Analytics resource is left intact.
 
 ```bash
-az k8s-extension delete --cluster-type connectedClusters --cluster-name myCluster --resource-group myRG --name Microsoft.AzureMonitor.Containers
+az k8s-extension delete --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group> --name Microsoft.AzureMonitor.Containers
 ```
 
 ## Disconnected cluster
