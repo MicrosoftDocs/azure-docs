@@ -1532,6 +1532,8 @@
         href: roadmunk-tutorial.md
       - name: Robin
         href: robin-tutorial.md
+      - name: RSA Archer Suite
+        href: rsa-archer-suite-tutorial.md
       - name: RStudio Connect SAML Authentication
         href: rstudio-connect-tutorial.md
       - name: RStudio Server Pro SAML Authentication
