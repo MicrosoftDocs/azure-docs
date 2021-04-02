@@ -1,9 +1,9 @@
-- name: LUIS Documentation
+- name: Language Understanding (LUIS) documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: Overview of Language Understanding (LUIS)
+  - name: Overview of LUIS
     href: what-is-luis.md
   - name: Language support
     href: luis-language-support.md
@@ -11,7 +11,7 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: What's new
     href: whats-new.md
-  - name: FAQ
+  - name: LUIS FAQ
     href: troubleshooting.md
     displayName: Troubleshooting, import
 - name: LUIS quickstarts
