@@ -66,7 +66,7 @@ Finally, email your recorded settings and live archive parameters to Azure Media
 
 ## See also
 
-[Tested on-premises encoders](recommended-on-premises-live-encoders.md)
+[Tested on-premises encoders](encode-recommended-on-premises-live-encoders.md)
 
 ## Next steps
 
