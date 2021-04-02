@@ -36,8 +36,8 @@ The remaining sections of this article identify the prerequisites.
 ## Add extensions for Azure CLI
 
 Additionally, the following az extensions are also required:
-- Azure CLI k8s-extension extension (0.2.0)
-- Azure CLI customlocation (0.1.0)
+- Azure CLI `k8s-extension` extension (0.2.0)
+- Azure CLI `customlocation` (0.1.0)
 
 Sample `az` and its CLI extensions would be:
 
