@@ -25,7 +25,7 @@ Automanage supports the following Linux distributions and versions:
 - CentOS 7.3+
 - RHEL 7.4+
 - Ubuntu 16.04 and 18.04
-- SLES 12 (SP3-SP5 only) and 15 (up to SP1 only)
+- SLES 12 (SP3-SP5 only)
 
 >[!NOTE]
 > Ensure that Python 3 is installed on your SLES 15 machines
