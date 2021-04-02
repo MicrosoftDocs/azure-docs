@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 03/29/2021
 ms.author: aahi
 ---
 
@@ -116,7 +116,7 @@ For information about request definition, see [How to call the Text Analytics AP
 
 ## Step 2: Post the request
 
-Analysis is performed upon receipt of the request. For information about the size and number of requests you can send per minute or per second, see the [data limits](../overview.md#data-limits) section in the overview.
+Analysis is performed upon receipt of the request. For information about the size and number of requests you can send per minute or per second, see the [data limits](../concepts/data-limits.md) article.
 
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 

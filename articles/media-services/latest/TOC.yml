@@ -15,9 +15,9 @@
   - name: Set up your environment
     items:
     - name: Find your tenant ID
-      href: how-to-set-azure-tenant.md
+      href: setup-azure-tenant-how-to.md
     - name: Find your Azure subscription
-      href: how-to-set-azure-subscription.md
+      href: setup-azure-subscription-how-to.md
     - name: Create a Media Services account
       href: account-create-how-to.md
     - name: Access the API
@@ -27,7 +27,7 @@
     - name: Connect to Media Services
       items:
       - name: Connect with REST and Postman
-        href: media-rest-apis-with-postman.md
+        href: setup-postman-rest-how-to.md
       - name: Connect with Java
         href: configure-connect-java-howto.md
       - name: Connect with .NET 
@@ -235,7 +235,7 @@
   - name: Compatible players
     items:
     - name: Media players for Media Services
-      href: media-players-overview.md
+      href: player-media-players-concept.md
   - name: Developing with v3 APIs
     items:
     - name: Overview
@@ -323,9 +323,9 @@
   - name: Find your tenant and subscription
     items:
     - name: Find your tenant ID
-      href: how-to-set-azure-tenant.md
+      href: setup-azure-tenant-how-to.md
     - name: Find your subscription ID
-      href: how-to-set-azure-subscription.md
+      href: setup-azure-subscription-how-to.md
   - name: Create assets and upload media
     items:
     - name: Create an asset
@@ -337,15 +337,15 @@
   - name: Create transforms and jobs
     items:
     - name: Create transforms
-      href: how-to-create-transform.md
+      href: transform-create-transform-how-to.md
     - name: Create a basic audio transform with REST
-      href: how-to-create-basic-audio-transform.md
+      href: transform-create-basic-audio-how-to.md
     - name: Create thumbnail sprites
-      href: how-to-create-thumbnail-sprites.md 
+      href: transform-create-thumbnail-sprites-how-to.md 
     - name: Create a copyAllBitrateNonInterleaved transform with REST
-      href: how-to-create-copyallbitratenoninterleaved-transform.md
+      href: transform-create-copyallbitratenoninterleaved-how-to.md
     - name: Copy videos without encoding with REST
-      href: how-to-create-copy-video-audio-transform.md
+      href: transform-create-copy-video-audio-how-to.md
     - name: Create jobs with CLI
       href: job-create-cli-how-to.md
     - name: Create job input with a local file and .NET
@@ -369,7 +369,7 @@
         - name: Customize encoder presets
           href: encode-custom-presets-how-to.md
         - name: Create an overlay transform
-          href: how-to-create-overlay.md
+          href: transform-create-overlay-how-to.md
         - name: Generate thumbnails with .NET
           href: media-services-generate-thumbnails-dotnet.md
         - name: Crop videos with .NET
@@ -444,7 +444,7 @@
   - name: Deliver content
     items:
     - name: Manage streaming endpoints
-      href: manage-streaming-endpoints-howto.md
+      href: stream-manage-streaming-endpoints-how-to.md
     - name: Create a streaming locator and build URLs
       href: create-streaming-locator-build-url.md
     - name: Download results
@@ -462,9 +462,9 @@
     - name: Azure Media Player full set up
       href: ../azure-media-player/azure-media-player-full-setup.md
     - name: Use the Video.js player
-      href: how-to-video-js-player.md
+      href: player-how-to-video-js-player.md
     - name: Use the Shaka video player
-      href: how-to-shaka-player.md
+      href: player-shaka-player-how-to.md
     - name: Pass authentication tokens
       href: media-services-pass-authentication-tokens.md
 - name: Reference
