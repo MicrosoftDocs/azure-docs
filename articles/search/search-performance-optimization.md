@@ -70,6 +70,10 @@ Another reason for high latency rates is a single query taking too long to compl
 
   Moving up to a higher Azure Cognitive Search tier can be another way to improve performance of slow queries. Each higher tier provides faster CPUs and more memory, both of which have a positive impact on query performance. -->
 
+## Service configuration for high availability
+
+Microsoft guarantees at least 99.9% availability for query requests when a search service is configured with two or more replicas, and index update requests when a service is configured with three or more replicas. No SLA is provided for the Free tier. For more information, see [SLA for Azure Cognitive Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+
 <a name="scale-for-availability"></a>
 
 ## High availability

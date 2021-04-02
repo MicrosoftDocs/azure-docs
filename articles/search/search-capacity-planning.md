@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 04/06/2021
 ---
 
 # Estimate and manage capacity of an Azure Cognitive Search service
@@ -44,7 +44,7 @@ In Cognitive Search, shard management is an implementation detail and non-config
 
 + Autocomplete anomalies: Autocomplete queries, where matches are made on the first several characters of a partially entered term, accept a fuzzy parameter that forgives small deviations in spelling. For autocomplete, fuzzy matching is constrained to terms within the current shard. For example, if a shard contains "Microsoft" and a partial term of "micor" is entered, the search engine will match on "Microsoft" in that shard, but not in other shards that hold the remaining parts of the index.
 
-## How to evaluate capacity requirements
+## Evaluating capacity requirements
 
 Capacity and the costs of running the service go hand in hand. Tiers impose limits on two levels: storage and content (a count of indexes on a service, for example). It's important to consider both because whichever limit you reach first is the effective limit.
 
@@ -107,7 +107,7 @@ The Storage Optimized tiers are useful for large data workloads, supporting more
 
 **Service-level agreements**
 
-The Free tier and preview features don't provide [service-level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. You need to have two or more replicas for query (read) SLAs. You need to have three or more replicas for query and indexing (read-write) SLAs. The number of partitions doesn't affect SLAs.
+The Free tier and preview features do not come with [service-level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. You need to have two or more replicas for query (read) SLAs. You need to have three or more replicas for query and indexing (read-write) SLAs. The number of partitions doesn't affect SLAs.
 
 ## Tips for capacity planning
 
@@ -121,7 +121,7 @@ Initially, a service is allocated a minimal level of resources consisting of one
 
 A single service must have sufficient resources to handle all workloads (indexing and queries). Neither workload runs in the background. You can schedule indexing for times when query requests are naturally less frequent, but the service will not otherwise prioritize one task over another. Additionally, a certain amount of redundancy smooths out query performance when services or nodes are updated internally.
 
-As a general rule, search applications tend to need more replicas than partitions, particularly when the service operations are biased toward query workloads. The section on [high availability](#HA) explains why.
+As a general rule, search applications tend to need more replicas than partitions, particularly when the service operations are biased toward query workloads.
 
 The [tier you choose](search-sku-tier.md) determines partition size and speed, and each tier is optimized around a set of characteristics that fit various scenarios. If you choose a higher-end tier, you might need fewer partitions than if you go with S1. One of the questions you'll need to answer through self-directed testing is whether a larger and more expensive partition yields better performance than two cheaper partitions on a service provisioned at a lower tier.
 
@@ -132,7 +132,7 @@ Larger indexes take longer to query. As such, you might find that every incremen
 > [!NOTE]
 > Adding more replicas or partitions increases the cost of running the service, and can introduce slight variations in how results are ordered. Be sure to check the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to understand the billing implications of adding more nodes. The [chart below](#chart) can help you cross-reference the number of search units required for a specific configuration. For more information on how additional replicas impact query processing, see [Ordering results](search-pagination-page-layout.md#ordering-results).
 
-## How to allocate replicas and partitions
+## Add or reduce replicas and partitions
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the search service.
 
@@ -154,7 +154,7 @@ Larger indexes take longer to query. As such, you might find that every incremen
 
    :::image type="content" source="media/search-capacity-planning/3-save-confirm.png" alt-text="Save changes" border="true":::
 
-   Changes in capacity can take up to several hours to complete. You cannot cancel once the process has started and there is no real-time monitoring for replica and partition adjustments. However, the following message remains visible while changes are underway.
+   Changes in capacity can take anywhere from 15 minutes up to several hours to complete. You cannot cancel once the process has started and there is no real-time monitoring for replica and partition adjustments. However, the following message remains visible while changes are underway.
 
    :::image type="content" source="media/search-capacity-planning/4-updating.png" alt-text="Status message in the portal" border="true":::
 
@@ -188,31 +188,7 @@ SUs, pricing, and capacity are explained in detail on the Azure website. For mor
 > The number of replicas and partitions divides evenly into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Cognitive Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create an index, each partition will contain four shards of the index. How Azure Cognitive Search shards an index is an implementation detail, subject to change in future releases. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
 >
 
-<a id="HA"></a>
-
-## High availability
-
-Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build. Query workloads run primarily on replicas. If you need more throughput or high availability, you will probably require additional replicas.
-
-General recommendations for high availability are:
-
-+ Two replicas for high availability of read-only workloads (queries)
-
-+ Three or more replicas for high availability of read/write workloads (queries plus indexing as individual documents are added, updated, or deleted)
-
-Service level agreements (SLA) for Azure Cognitive Search are targeted at query operations and at index updates that consist of adding, updating, or deleting documents.
-
-Basic tier tops out at one partition and three replicas. If you want the flexibility to immediately respond to fluctuations in demand for both indexing and query throughput, consider one of the Standard tiers.  If you find your storage requirements are growing much more rapidly than your query throughput, consider one of the Storage Optimized tiers.
-
-## About queries per second (QPS)
-
-Due to the large number of factors that go into query performance, Microsoft doesn't publish expected QPS numbers. QPS estimates must be developed independently by every customer using the service tier, configuration, index, and query constructs that are valid for your application. Index size and complexity, query size and complexity, and the amount of traffic are primary determinants of QPS. There is no way to offer meaningful estimates when such factors are unknown.
-
-Estimates are more predictable when calculated on services running on dedicated resources (Basic and Standard tiers). You can estimate QPS more closely because you have control over more of the parameters. For guidance on how to approach estimation, see [Azure Cognitive Search performance and optimization](search-performance-optimization.md).
-
-For the Storage Optimized tiers (L1 and L2), you should expect a lower query throughput and higher latency than the Standard tiers.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to estimate and manage costs](search-sku-manage-costs.md)
+> [Manage costs](search-sku-manage-costs.md)

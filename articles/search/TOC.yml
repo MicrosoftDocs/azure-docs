@@ -148,6 +148,8 @@
       href: search-capacity-planning.md
     - name: Manage costs
       href: search-sku-manage-costs.md
+    - name: High availability
+      href: search-performance-optimization.md
     - name: Multi-tenant architecture
       href: search-modeling-multitenant-saas-applications.md
     - name: Portal management
@@ -388,18 +390,16 @@
       href: index-add-scoring-profiles.md
   - name: Performance and monitoring
     items:
-    - name: Overview
-      href: search-monitor-usage.md
-    - name: Tips for better performance
-      href: search-performance-tips.md
     - name: Performance Analysis
       href: search-performance-analysis.md
-    - name: Scale for performance
-      href: search-performance-optimization.md
+    - name: Tips for better performance
+      href: search-performance-tips.md
     - name: Diagnostic logging
       href: search-monitor-logs.md
     - name: Visualize diagnostic logs
       href: search-monitor-logs-powerbi.md
+    - name: Monitoring overview
+      href: search-monitor-usage.md
     - name: Monitor queries
       href: search-monitor-queries.md
     - name: Monitor indexer-based indexing
@@ -408,7 +408,7 @@
       href: search-traffic-analytics.md
   - name: Security
     items:
-    - name: Role-based admin access
+    - name: Admin rights
       href: search-security-rbac.md
     - name: Data encryption
       items:
