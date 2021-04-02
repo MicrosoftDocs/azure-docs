@@ -17,6 +17,7 @@ Kubernetes objects of the type [ClusterRoleBinding and RoleBinding](https://kube
 
 ## Prerequisites
 
+- An understanding of the benefits and architecture of this feature. Read more in [Azure RBAC - Azure Arc enabled Kubernetes article](conceptual-azure-rbac.md).
 - [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
 - Install the `connectedk8s` Azure CLI extension of version >= 1.1.0:
 

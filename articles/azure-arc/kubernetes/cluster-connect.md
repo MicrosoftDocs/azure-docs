@@ -17,6 +17,7 @@ Cluster Connect allows you to securely connect to Azure Arc enabled Kubernetes c
 
 ## Prerequisites
 
+- An understanding of the benefits and architecture of this feature. Read more in [Cluster connect - Azure Arc enabled Kubernetes article](conceptual-cluster-connect.md).
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0

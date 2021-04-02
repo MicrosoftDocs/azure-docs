@@ -20,6 +20,7 @@ The Kubernetes extensions feature enables the following on Azure Arc enabled Kub
 
 ## Prerequisites
 
+- An understanding of the benefits and architecture of this feature. Read more in [Cluster extensions - Azure Arc enabled Kubernetes article](conceptual-extensions.md).
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
 - An existing Azure Arc enabled Kubernetes connected cluster.
