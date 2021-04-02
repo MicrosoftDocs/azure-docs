@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 03/31/2021
 ms.author: inhenkel
 ---
 # Get credentials to access Media Services API
@@ -33,7 +33,7 @@ This article describes steps for getting credentials to access Media Services AP
 ## Prerequisites
 
 - An Azure account. If you don't have an account, start with an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- A Media Services account. For more information, see [Create an Azure Media Services account by using the Azure portal](create-account-howto.md).
+- A Media Services account. For more information, see [Create an Azure Media Services account by using the Azure portal](account-create-how-to.md).
 
 ## [Portal](#tab/portal/)
 

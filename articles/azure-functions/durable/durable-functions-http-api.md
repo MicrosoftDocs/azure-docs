@@ -123,6 +123,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 In version 2.x of the Functions runtime, the URL format has all the same parameters but with a slightly different prefix:
@@ -135,6 +136,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 Request parameters for this API include the default set mentioned previously as well as the following unique parameters:
@@ -148,16 +150,17 @@ Request parameters for this API include the default set mentioned previously as 
 | **`createdTimeFrom`**   | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or after the given ISO8601 timestamp.|
 | **`createdTimeTo`**     | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or before the given ISO8601 timestamp.|
 | **`runtimeStatus`**     | Query string    | Optional parameter. When specified, filters the list of returned instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) article. |
+| **`returnInternalServerErrorOnFailure`**  | Query string    | Optional parameter. If set to `true`, this API will return an HTTP 500 response instead of a 200 if the instance is in a failure state. This parameter is intended for automated status polling scenarios. |
 
 ### Response
 
 Several possible status code values can be returned.
 
-* **HTTP 200 (OK)**: The specified instance is in a completed state.
+* **HTTP 200 (OK)**: The specified instance is in a completed or failed state.
 * **HTTP 202 (Accepted)**: The specified instance is in progress.
 * **HTTP 400 (Bad Request)**: The specified instance failed or was terminated.
 * **HTTP 404 (Not Found)**: The specified instance doesn't exist or has not started running.
-* **HTTP 500 (Internal Server Error)**: The specified instance failed with an unhandled exception.
+* **HTTP 500 (Internal Server Error)**: Returned only when the `returnInternalServerErrorOnFailure` is set to `true` and the specified instance failed with an unhandled exception.
 
 The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON object with the following fields:
 

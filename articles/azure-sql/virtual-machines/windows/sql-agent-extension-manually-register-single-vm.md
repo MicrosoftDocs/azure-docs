@@ -45,9 +45,9 @@ To register your SQL Server VM with the extension, you'll need:
 - The latest version of [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell (5.0 minimum)](/powershell/azure/install-az-ps). 
 
 
-## Register subscription with RP
+## Register subscription with Resource Provider
 
-To register your SQL Server VM with the SQL IaaS Agent extension, you must first register your subscription with **Microsoft.SqlVirtualMachine** provider. This gives the SQL IaaS Agent extension the ability to create resources within your subscription.  You can do so by using the Azure portal, the Azure CLI, or Azure PowerShell.
+To register your SQL Server VM with the SQL IaaS Agent extension, you must first register your subscription with **Microsoft.SqlVirtualMachine** resource provider. This gives the SQL IaaS Agent extension the ability to create resources within your subscription.  You can do so by using the Azure portal, the Azure CLI, or Azure PowerShell.
 
 ### Azure portal
 

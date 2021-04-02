@@ -237,6 +237,7 @@ Rules that you create by using the API appear in the **Exclusion Rule** window a
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Screenshot of the Edit Exclusion Rule view.":::
 
-## See also
+## Next steps
 
-[Work with alerts on your sensor](how-to-work-with-alerts-on-your-sensor.md)
+[Work with alerts on your sensor](how-to-work-with-alerts-on-your-sensor.md).
+Review the [Defender for IoT Engine alerts](alert-engine-messages.md).

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Policy to use built-in policies for Azure Machine Learning to make sure your workspaces are compliant with your requirements.
 author: aashishb
 ms.author: aashishb 
-ms.date: 03/12/2021
+ms.date: 03/25/2021
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,10 +16,13 @@ ms.reviewer: larryfr
 
 [Azure Policy](../governance/policy/index.yml) is a governance tool that allows you to ensure that Azure resources are compliant with your policies. With Azure Machine Learning, you can assign the following policies:
 
-* **Customer-managed key**: Audit or enforce whether workspaces must use a customer-managed key.
-* **Private link**: Audit or enforce whether workspaces use a private endpoint to communicate with a virtual network.
-* **Private endpoint**: Configure the Azure Virtual Network subnet where the private endpoint should be created.
-* **Private DNS zone**: Configure the private DNS zone to use for the private link.
+| Policy | Description |
+| ----- | ----- |
+| **Customer-managed key** | Audit or enforce whether workspaces must use a customer-managed key. |
+| **Private link** | Audit or enforce whether workspaces use a private endpoint to communicate with a virtual network. |
+| **Private endpoint** | Configure the Azure Virtual Network subnet where the private endpoint should be created. |
+| **Private DNS zone** | Configure the private DNS zone to use for the private link. |
+| **User-assigned managed identity** | Audit or enforce whether workspaces use a user-assigned managed identity. |
 
 Policies can be set at different scopes, such as at the subscription or resource group level. For more information, see the [Azure Policy documentation](../governance/policy/overview.md).
 
@@ -57,12 +60,20 @@ If the policy is set to __deny__, then you cannot create a workspace unless it u
 
 Configures a workspace to create a private endpoint within the specified subnet of an Azure Virtual Network.
 
-To configure this policy, set the effect parameter to __DeployIfNotExists__. Set the the __privateEndpointSubnetID__ to the Azure Resource Manager ID of the subnet.
+To configure this policy, set the effect parameter to __DeployIfNotExists__. Set the __privateEndpointSubnetID__ to the Azure Resource Manager ID of the subnet.
 ## Workspace should use private DNS zones
 
 Configures a workspace to use a private DNS zone, overriding the default DNS resolution for a private endpoint.
 
 To configure this policy, set the effect parameter to __DeployIfNotExists__. Set the __privateDnsZoneId__ to the Azure Resource Manager ID of the private DNS zone to use. 
+
+## Workspace should use user-assigned managed identity
+
+Controls whether a workspace is created using a system-assigned managed identity (default) or a user-assigned managed identity. The managed identity for the workspace is used to access associated resources such as Azure Storage, Azure Container Registry, Azure Key Vault, and Azure Application Insights. For more information, see [Use managed identities with Azure Machine Learning](how-to-use-managed-identities.md).
+
+To configure this policy, set the effect parameter to __audit__, __deny__, or __disabled__. If set to __audit__, you can create a workspace without specifying a user-assigned managed identity. A system-assigned identity is used and a warning event is created in the activity log.
+
+If the policy is set to __deny__, then you cannot create a workspace unless you provide a user-assigned identity during the creation process. Attempting to create a workspace without providing a user-assigned identity results in an error. The error is also logged to the activity log. The policy identifier is returned as part of this error.
 
 ## Next steps
 
