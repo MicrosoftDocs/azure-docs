@@ -11,7 +11,9 @@ description: "Use Cluster Connect to securely connect to Azure Arc enabled Kuber
 
 # Use Cluster Connect to connect to Azure Arc enabled Kubernetes clusters
 
-Cluster Connect allows you to securely connect to Azure Arc enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall. Access to the `apiserver` of the Arc enabled Kubernetes cluster is important to enable interactive debugging, troubleshooting, and in providing access to external services.
+With Cluster Connect, you can securely connect to Azure Arc enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall. Access to the `apiserver` of the Arc enabled Kubernetes cluster enables the following scenarios:
+* Enable interactive debugging and troubleshooting.
+* Provide access to external services.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -28,7 +30,7 @@ Cluster Connect allows you to securely connect to Azure Arc enabled Kubernetes c
     az extension add --name connectedk8s
     ```
   
-    If you've already installed the `connectedk8s` extension, you can update the extension to the latest version:
+    If you've already installed the `connectedk8s` extension, update the extension to the latest version:
     
     ```azurecli
     az extension update --name connectedk8s
@@ -38,7 +40,7 @@ Cluster Connect allows you to securely connect to Azure Arc enabled Kubernetes c
     - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
     - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
 
-- If the Cluster Connect feature is currently disabled on any Azure Arc enabled Kubernetes cluster, it can be enabled by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
+- Enable the Cluster Connect on any Azure Arc enabled Kubernetes cluster by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
 
     ```azurecli
     az connectedk8s enable-features --features cluster-connect -n <clusterName> -g <resourceGroupName>
@@ -53,11 +55,13 @@ Cluster Connect allows you to securely connect to Azure Arc enabled Kubernetes c
 
 ## Usage
 
-The two authentication options are supported with the Cluster Connect feature - Azure Active Directory and service account token are described below.
+Two authentication options are supported with the Cluster Connect feature: 
+* Azure Active Directory (AAD) 
+* Service account token
 
 ### Option 1: Azure Active Directory
 
-1. With kubeconfig file pointing to the `apiserver` of your Kubernetes cluster, create a ClusterRoleBinding or RoleBinding to the AAD entity (service principal or user) that needs to access this cluster:
+1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, create a ClusterRoleBinding or RoleBinding to the AAD entity (service principal or user) requiring access:
 
     **For user:**
     
@@ -67,7 +71,7 @@ The two authentication options are supported with the Cluster Connect feature - 
 
     **For AAD application:**
 
-    1. Fetch the `objectId` associated with your AAD application:
+    1. Get the `objectId` associated with your AAD application:
 
         ```azurecli
         az ad sp show --id <id> --query objectId -o tsv
@@ -79,7 +83,7 @@ The two authentication options are supported with the Cluster Connect feature - 
         kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --user=<objectId>
         ```
 
-1. After logging into Azure CLI using the AAD entity of interest, fetch the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
+1. After logging into Azure CLI using the AAD entity of interest, get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
 
     ```azurecli
     az connectedk8s proxy -n <cluster-name> -g <resource-group-name>
@@ -95,7 +99,7 @@ The two authentication options are supported with the Cluster Connect feature - 
 
 ### Option 2: Service Account Bearer Token
 
-1. With kubeconfig file pointing to the `apiserver` of your Kubernetes cluster, create a service account in any namespace (following command creates it in the default namespace):
+1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, create a service account in any namespace (following command creates it in the default namespace):
 
     ```console
     kubectl create serviceaccount admin-user
@@ -117,7 +121,7 @@ The two authentication options are supported with the Cluster Connect feature - 
     TOKEN=$(kubectl get secret ${SECRET_NAME} -o jsonpath='{$.data.token}' | base64 -d | sed $'s/$/\\\n/g')
     ```
 
-1. Fetch the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
+1. Get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
 
     ```azurecli
     az connectedk8s proxy -n <cluster-name> -g <resource-group-name> --auth-token $TOKEN
