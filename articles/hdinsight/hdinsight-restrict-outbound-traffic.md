@@ -79,7 +79,7 @@ Create an application rule collection that allows the cluster to send and receiv
 
 ### Configure the firewall with network rules
 
-Create the network rules to correctly configure your HDInsight cluster.
+Create the network rules to correctly configure your HDInsight cluster. 
 
 1. Continuing from the prior step, navigate to **Network rule collection** > **+ Add network rule collection**.
 
