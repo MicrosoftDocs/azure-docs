@@ -4,7 +4,7 @@ description: This article provides reference information for AzCopy V10 configur
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 03/23/2021
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft

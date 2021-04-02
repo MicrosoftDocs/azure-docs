@@ -4,7 +4,7 @@ description: Transfer data with AzCopy and file storage. AzCopy is a command-lin
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ---
