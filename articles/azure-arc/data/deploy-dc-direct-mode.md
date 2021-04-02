@@ -114,7 +114,7 @@ kubectl get pods -n arc
 
 ## Create a custom location using `customlocation` CLI extension
 
-A custom location is an Azure resource that is equivalent to a namespace in a Kubernetes cluster.  Custom locations are used as a target to deploy resources to or from Azure. Learn more about in the [custom locations](../kubernetes/overview.md).
+A custom location is an Azure resource that is equivalent to a namespace in a Kubernetes cluster.  Custom locations are used as a target to deploy resources to or from Azure. Learn more about custom locations in the [Arc enabled Kubernetes documentation](../kubernetes/overview.md).
 
 ### Set environment variables
 
