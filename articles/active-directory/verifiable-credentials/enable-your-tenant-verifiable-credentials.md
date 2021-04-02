@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configure your Azure Active Directory to issue verifiable credentials (Preview)"
+title: Tutorial - Configure your Azure Active Directory to issue verifiable credentials (Preview)
 description: In this tutorial, you build the environment needed to deploy verifiable credentials in your tenant
 documentationCenter: ''
 author: barclayn
@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 03/31/2021
+ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: 
 
@@ -15,7 +15,7 @@ ms.reviewer:
 
 ---
 
-# Tutorial: Configure your Azure Active Directory to issue verifiable credentials (Preview)
+# Tutorial - Configure your Azure Active Directory to issue verifiable credentials (Preview)
 
 In this tutorial, we build on the work done as part of the [get started](get-started-verifiable-credentials.md) article and set up your Azure Active Directory (Azure AD) with its own [decentralized identifier](https://www.microsoft.com/security/business/identity-access-management/decentralized-identity-blockchain?rtc=1#:~:text=Decentralized%20identity%20is%20a%20trust,protect%20privacy%20and%20secure%20transactions.) (DID). We use the decentralized identifier to issue a verifiable credential using the sample app and your issuer; however, in this tutorial, we still use the sample Azure B2C tenant for authentication.  In our next tutorial, we will take additional steps to get the app configured to work with your Azure AD.
 
@@ -89,7 +89,7 @@ Take note of the two properties listed below:
 >[!IMPORTANT]
 > During the Azure Active Directory Verifiable Credentials preview, keys and secrets created in your vault should not be modified once created. Deleting, disabling, or updating your keys and secrets invalidates any issued credentials. Do not modify your keys or secrets during the preview.
 
-## Create a Modified Rules and Display File
+## Create a modified rules and display file
 
 In this section, we use the rules and display files from the Sample issuer app and modify them slightly to create your tenant's first verifiable credential.
 
@@ -250,7 +250,7 @@ Now we need to take the last step to set up your tenant for verifiable credentia
 
 Congratulations, your tenant is now enabled for the Verifiable Credential preview!
 
-## Create your VC in the Portal
+## Create your VC in the portal
 
 The previous step leaves you in the **Create a new credential** page. 
 

@@ -29,15 +29,15 @@ There are two easy ways to create a free Azure Active Directory with a P2 trial 
 
 If you decide to sign up for the free Microsoft 365 developer program, you need to follow a few easy steps:
 
-1. Click on the Join Now button on the screen
+1. Click on the **Join Now** button on the screen.
 
 2. Sign in with a new Microsoft Account or use an existing (work) account you already have.
 
-3. On the sign-up page select your region, enter a company name and accept the terms and conditions of the program before you click next
+3. On the sign-up page select your region, enter a company name and accept the terms and conditions of the program before you click **Next**.
 
-4. Click on set up subscription. Specify the region where you want to create your new tenant, create a username, domain, and enter a password. This will create a new tenant and the first administrator of the tenant
+4. Click on **set up subscription**. Specify the region where you want to create your new tenant, create a username, domain, and enter a password. This will create a new tenant and the first administrator of the tenant.
 
-5. Enter the security information needed to protect the administrator account of your new tenant. This will setup MFA authentication for the account
+5. Enter the security information needed to protect the administrator account of your new tenant. This will setup MFA authentication for the account.
 
 
 At this point, you have created a tenant with 25 E5 user licenses. The E5 licenses include Azure AD P2 licenses. Optionally, you can add sample data packs with users, groups, mail, and SharePoint to help you test in your development environment. For the Verifiable Credential Issuing service, they are not required.
