@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/05/2020
+ms.date: 03/31/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -19,106 +19,6 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 Azure Storage encrypts all data in a storage account at rest. By default, Queue storage and Table storage use a key that is scoped to the service and managed by Microsoft. You can also opt to use customer-managed keys to encrypt queue or table data. To use customer-managed keys with queues and tables, you must first create a storage account that uses an encryption key that is scoped to the account, rather than to the service. After you have created an account that uses the account encryption key for queue and table data, you can configure customer-managed keys for that storage account.
 
 This article describes how to create a storage account that relies on a key that is scoped to the account. When the account is first created, Microsoft uses the account key to encrypt the data in the account, and Microsoft manages the key. You can subsequently configure customer-managed keys for the account to take advantage of those benefits, including the ability to provide your own keys, update the key version, rotate the keys, and revoke access controls.
-
-## About the feature
-
-To create a storage account that relies on the account encryption key for Queue and Table storage, you must first register to use this feature with Azure. Due to limited capacity, be aware that it may take several months before requests for access are approved.
-
-You can create a storage account that relies on the account encryption key for Queue and Table storage in the following regions:
-
-- East US
-- South Central US
-- West US 2  
-
-### Register to use the account encryption key
-
-To register to use the account encryption key with Queue or Table storage, use PowerShell or Azure CLI.
-
-# [PowerShell](#tab/powershell)
-
-To register with PowerShell, call the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
-
-```powershell
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForQueues
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForTables
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
-
-```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForQueues
-az feature register --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForTables
-```
-
-# [Template](#tab/template)
-
-N/A
-
----
-
-### Check the status of your registration
-
-To check the status of your registration for Queue or Table storage, use PowerShell or Azure CLI.
-
-# [PowerShell](#tab/powershell)
-
-To check the status of your registration with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForQueues
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForTables
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show) command.
-
-```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForQueues
-az feature show --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForTables
-```
-
-# [Template](#tab/template)
-
-N/A
-
----
-
-### Re-register the Azure Storage resource provider
-
-After your registration is approved, you must re-register the Azure Storage resource provider. Use PowerShell or Azure CLI to re-register the resource provider.
-
-# [PowerShell](#tab/powershell)
-
-To re-register the resource provider with PowerShell, call the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
-
-```powershell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To re-register the resource provider with Azure CLI, call the [az provider register](/cli/azure/provider#az-provider-register) command.
-
-```azurecli
-az provider register --namespace 'Microsoft.Storage'
-```
-
-# [Template](#tab/template)
-
-N/A
-
----
 
 ## Create an account that uses the account encryption key
 
@@ -243,6 +143,10 @@ az storage account show /
 N/A
 
 ---
+
+## Pricing and billing
+
+A storage account that is created to use an encryption key scoped to the account is billed for Table storage capacity and transactions at a different rate than an account that uses the default service-scoped key. For details, see [Azure Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
 
 ## Next steps
 

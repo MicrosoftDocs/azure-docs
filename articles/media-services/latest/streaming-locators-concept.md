@@ -26,7 +26,7 @@ When creating a **Streaming Locator**, you must specify an **Asset** name and a 
 
 * [Assets](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md)
-* [Content Key Policies](content-key-policy-concept.md)
+* [Content Key Policies](drm-content-key-policy-concept.md)
 
 You can also specify the start and end time on your Streaming Locator, which will only let your user play the content between these times (for example, between 5/1/2019 to 5/5/2019).  
 
@@ -34,7 +34,7 @@ You can also specify the start and end time on your Streaming Locator, which wil
 
 * **Streaming Locators** are not updatable. 
 * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
-* You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limits](limits-quotas-constraints.md).
+* You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limits](limits-quotas-constraints-reference.md).
 
 ## Create Streaming Locators  
 
@@ -82,7 +82,7 @@ See [Filters: associate with Streaming Locators](filters-concept.md#associating-
 
 ## Filter, order, page Streaming Locator entities
 
-See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
+See [Filtering, ordering, paging of Media Services entities](filter-order-page-entitites-how-to.md).
 
 ## List Streaming Locators by Asset name
 
@@ -91,8 +91,8 @@ To get Streaming Locators based on the associated Asset name, use the following 
 |Language|API|
 |---|---|
 |REST|[liststreaminglocators](/rest/api/media/assets/liststreaminglocators)|
-|CLI|[az ams asset list-streaming-locators](/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
-|.NET|[ListStreamingLocators](/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
+|CLI|[az ams asset list-streaming-locators](/cli/azure/ams/asset#az-ams-asset-list-streaming-locators)|
+|.NET|[ListStreamingLocators](/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
 |Java|[AssetStreamingLocator](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
@@ -100,7 +100,7 @@ To get Streaming Locators based on the associated Asset name, use the following 
 
 * [Assets](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md)
-* [Content Key Policies](content-key-policy-concept.md)
+* [Content Key Policies](drm-content-key-policy-concept.md)
 * [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
 
 ## Next steps

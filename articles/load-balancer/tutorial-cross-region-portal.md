@@ -38,7 +38,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Sign in to Azure portal
 
-[Sign in](https://preview.portal.azure.com) to the Azure preview portal.
+[Sign in](https://portal.azure.com) to the Azure portal.
 
 ## Create cross-region load balancer
 
@@ -102,34 +102,6 @@ Create the backend address pool **myBackendPool-CR** to include the regional sta
 8. Select **Add**.
 
     :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="Add regional load balancers to backendpool" border="true":::
-
-## Create a health probe
-
-In this section, you'll create a health probe to create the load-balancing rule:
-
-* Named **myHealthProbe**.
-* Protocol **TCP**.
-* Interval of **5** seconds.
-* Unhealthy threshold of **two** failures.
-
-1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer-CR** from the resources list.
-
-2. Under **Settings**, select **Health probes**.
-
-3. Use these values to configure the health probe:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **myHealthProbe**. |
-    | Protocol | Select **TCP**. |
-    | Port | Enter **80**. |
-    | Interval | Enter **5**. |
-    | Unhealthy threshold | Enter **2**. |
-
-4. Select **OK**.
-
-    > [!NOTE]
-    > Cross region load balancer has a built-in health probe. This probe is a placeholder for the load balancing rule creation to function.  For more information, see **[Limitations of cross-region load balancer](cross-region-overview.md#limitations)**.
 
 ## Create a load balancer rule
 
@@ -197,9 +169,6 @@ In this tutorial, you:
 * Created a load-balancing rule.
 * Tested the load balancer.
 
-For more information on cross-region load balancer, see [Cross-region load balancer (Preview)](cross-region-overview.md).
-
-
-Advance to the next article to learn how to:
+For more information on cross-region load balancer, see:
 > [!div class="nextstepaction"]
-> [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Cross-region load balancer (Preview)](cross-region-overview.md)

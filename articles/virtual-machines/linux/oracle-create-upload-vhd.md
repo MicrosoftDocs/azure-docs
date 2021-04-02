@@ -2,7 +2,9 @@
 title: Create and upload an Oracle Linux VHD 
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains an Oracle Linux operating system.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020

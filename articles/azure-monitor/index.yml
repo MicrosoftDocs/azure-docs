@@ -100,11 +100,11 @@ landingContent:
       - linkListType: reference
         links:
           - text: Metrics, Autoscale, Diagnostic settings, Alerts
-            url: /powershell/module/az.monitor/?view=azps-2.6.0
+            url: /powershell/module/az.monitor
           - text: Log Analytics
             url: /powershell/module/az.operationalinsights
           - text: Application Insights
-            url: /powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.7.0&viewFallbackFrom=azps-2.5.0 
+            url: /powershell/module/az.applicationinsights/new-azapplicationinsights
 
   - title: Reference - REST API
     linkLists: 

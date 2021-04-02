@@ -11,7 +11,14 @@ services: iot-edge
 ---
 # Create and provision an IoT Edge device with a TPM on Linux
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 This article shows how to test auto-provisioning on a Linux IoT Edge device using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices with the [Device Provisioning Service](../iot-dps/index.yml). If you're unfamiliar with the process of auto-provisioning, review the [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) overview before continuing.
+
+:::moniker range=">=iotedge-2020-11"
+> [!NOTE]
+> Currently, automatic provisioning using TPM authentication is not supported in IoT Edge version 1.2.
+:::moniker-end
 
 The tasks are as follows:
 
@@ -21,7 +28,7 @@ The tasks are as follows:
 1. Install the IoT Edge runtime and connect the device to IoT Hub.
 
 > [!TIP]
-> This article describes how to test DPS provisioning using a TPM simulator, but much of it applies to physical TPM hardware such as the [Infineon OPTIGA&trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), an Azure Certified for IoT device.
+> This article describes how to test DPS provisioning using a TPM simulator, but much of it applies to physical TPM hardware such as the [Infineon OPTIGA&trade; TPM](https://devicecatalog.azure.com/devices/3f52cdee-bbc4-d74e-6c79-a2546f73df4e), an Azure Certified for IoT device.
 >
 > If you're using a physical device, you can skip ahead to the [Retrieve provisioning information from a physical device](#retrieve-provisioning-information-from-a-physical-device) section in this article.
 

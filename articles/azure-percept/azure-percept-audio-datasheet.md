@@ -19,8 +19,8 @@ ms.date: 02/16/2021
 |External Dimensions             |90mm x170mm x 25mm   |
 |Product Weight                  |0.42 Kg   |
 |Management Control Plane        |Azure Device Update (ADU)          |
-|Supported Software and Services |Customizable Keywords and Commands <br> Azure Speech Devices SDK <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) |
-|Audio Processing                 |XMOS XUF208 Codec        |
+|Supported Software and Services |Customizable Keywords and Commands <br> Azure Speech SDK <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) |
+|Audio Codec                     |XMOS XUF208 Codec        |
 |Sensors, Visual Indicators, and Components   |4x MEM Sensing Microsystems Microphones (MSM261D3526Z1CM) <br> 2x Buttons <br> USB Hub <br> DAC <br> 3x LEDs <br> LED Driver          |
 |Security Crypto-Controller      |ST-Microelectronics STM32L462CE       |
 |Ports                           |1x USB 2.0 Type Micro B <br> 3.5mm Audio Out     |

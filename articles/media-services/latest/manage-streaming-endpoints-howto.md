@@ -21,7 +21,7 @@ ms.custom: devx-track-azurecli, devx-track-csharp
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-When your Media Services account is created a **default** [Streaming Endpoint](streaming-endpoint-concept.md) is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and [dynamic encryption](content-protection-overview.md), the streaming endpoint from which you want to stream content has to be in the **Running** state.
+When your Media Services account is created a **default** [Streaming Endpoint](streaming-endpoint-concept.md) is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](encode-dynamic-packaging-concept.md) and [dynamic encryption](drm-content-protection-concept.md), the streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 This article shows you how to execute the [start](/rest/api/media/streamingendpoints/start) command on your streaming endpoint using different technologies. 
  
@@ -34,7 +34,7 @@ Review:
 
 * [Media Services concepts](concepts-overview.md)
 * [Streaming Endpoint concept](streaming-endpoint-concept.md)
-* [Dynamic packaging](dynamic-packaging-overview.md)
+* [Dynamic packaging](encode-dynamic-packaging-concept.md)
 
 ## Use REST
 
@@ -68,7 +68,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-For more information, see [az ams streaming-endpoint start](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
+For more information, see [az ams streaming-endpoint start](/cli/azure/ams/streaming-endpoint#az-ams-streaming-endpoint-start).
 
 ## Use SDKs
 
@@ -97,7 +97,7 @@ if (streamingEndpoint != null)
     }
 ```
 
-See the complete [.NET code sample](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/Program.cs#L112).
+See the complete [.NET code sample](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Streaming/StreamHLSAndDASH/Program.cs#L112).
 
 ---
 

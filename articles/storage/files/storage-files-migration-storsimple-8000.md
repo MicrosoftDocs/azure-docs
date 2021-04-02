@@ -60,11 +60,11 @@ When you first set up your StorSimple appliance, it generated a "service data en
 
 The "service data encryption key" is necessary for a successful migration. Now is a good time to retrieve this key from your records, one for each of the appliances in your inventory.
 
-If you can't find the keys in your records, you can retrieve the key from the appliance. Each appliance has a unique encryption key. To retrieve the key:
+If you can't find the keys in your records, you can generate a new key from the appliance. Each appliance has a unique encryption key.
 
-* File a support request with Microsoft Azure through the Azure portal. The request should contain your StorSimple device serial number(s) and a request to retrieve the "service data encryption key."
-* A StorSimple support engineer will contact you with a request for a virtual meeting.
-* Ensure that before the meeting begins, you connect to your StorSimple appliance [via a serial console](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) or through a [remote PowerShell session](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple).
+#### Change the service data encryption key
+
+[!INCLUDE [storage-files-migration-generate-key](../../../includes/storage-files-migration-generate-key.md)]
 
 > [!CAUTION]
 > When you're deciding how to connect to your StorSimple appliance, consider the following:
@@ -422,7 +422,7 @@ Your registered on-premises Windows Server instance must be ready and connected 
 
 :::row:::
     :::column:::
-        [![Step-by-step guide and demo for how to securely expose Azure file shares directly to information workers and apps - click to play!](./media/storage-files-migration-storsimple-8000/azure-files-direct-access-video-placeholder.png)](https://youtu.be/a-Twfus0HWE)
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     :::column-end:::
     :::column:::
         This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps.</br>
@@ -632,6 +632,6 @@ Your migration is complete.
 ## Next steps
 
 * Get more familiar with [Azure File Sync: aka.ms/AFS](./storage-sync-files-planning.md).
-* Understand the flexibility of [cloud tiering](storage-sync-cloud-tiering.md) policies.
+* Understand the flexibility of [cloud tiering](storage-sync-cloud-tiering-overview.md) policies.
 * [Enable Azure Backup](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) on your Azure file shares to schedule snapshots and define backup retention schedules.
 * If you see in the Azure portal that some files are permanently not syncing, review the [Troubleshooting guide](storage-sync-files-troubleshoot.md) for steps to resolve these issues.

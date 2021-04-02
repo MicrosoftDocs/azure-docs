@@ -1,17 +1,11 @@
 ---
 title: Permissions in Azure Security Center | Microsoft Docs
 description: This article explains how Azure Security Center uses role-based access control to assign permissions to users and identifies the allowed actions for each role.
-services: security-center
-cloud: na
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 12/01/2020
+ms.date: 01/03/2021
 ms.author: memildin
 
 ---
@@ -35,15 +29,15 @@ In addition to these roles, there are two specific Security Center roles:
 
 The following table displays roles and allowed actions in Security Center.
 
-|Action|Security Reader / <br> Reader |Security Admin  |Resource Group Contributor / <br> Resource Group Owner  |Subscription Contributor  |Subscription Owner  |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-|Edit security policy|-|✔|-|-|✔|
-|Add/assign initiatives (including) regulatory compliance standards)|-|-|-|-|✔|
-|Enable / disable Azure Defender|-|✔|-|-|✔|
-|Enable / disable auto-provisioning|-|✔|-|✔|✔|
-|Apply security recommendations for a resource</br> (and use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
-|Dismiss alerts|-|✔|-|✔|✔|
-|View alerts and recommendations|✔|✔|✔|✔|✔|
+| Action                                                                                                                                        | Security Reader / <br> Reader | Security Admin | Resource Group Contributor / <br> Resource Group Owner | Subscription Contributor | Subscription Owner |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------:|:--------------:|:------------------------------------------------------:|:------------------------:|:------------------:|
+| Edit security policy                                                                                                                          | -                             | ✔             | -                                                      | -                        | ✔                 |
+| Add/assign initiatives (including) regulatory compliance standards)                                                                           | -                             | -              | -                                                      | -                        | ✔                 |
+| Enable / disable Azure Defender                                                                                                               | -                             | ✔             | -                                                      | -                        | ✔                 |
+| Enable / disable auto-provisioning                                                                                                            | -                             | ✔             | -                                                      | ✔                       | ✔                  |
+| Apply security recommendations for a resource</br> (and use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation)) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
+| Dismiss alerts                                                                                                                                | -                             | ✔             | -                                                      | ✔                       | ✔                  |
+| View alerts and recommendations                                                                                                               | ✔                            | ✔              | ✔                                                     | ✔                        | ✔                 |
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Reader role to users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies.

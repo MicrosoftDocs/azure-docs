@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a device builder, I want to know about the options for implementing IoT Plug and Play on constrained devices.
+#Customer intent: As a device builder, I want to know about the options for implementing IoT Plug and Play on constrained devices.
 ---
 
 # Implement IoT Plug and Play on constrained devices

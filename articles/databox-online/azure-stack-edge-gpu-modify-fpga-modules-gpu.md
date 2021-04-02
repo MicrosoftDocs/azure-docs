@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Run existing IoT Edge modules from Azure Stack Edge Pro FPGA devices on Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 This article details the changes needed for a docker-based IoT Edge module that runs on Azure Stack Edge Pro FPGA so it can run on a Kubernetes-based IoT Edge platform on Azure Stack Edge Pro GPU device. 
 
@@ -242,4 +244,4 @@ For the Kubernetes-based IoT Edge setups on GPU devices, you'll need to configur
 
 ## Next steps
 
-- Learn more about how to [Configure GPU to use a module](azure-stack-edge-j-series-configure-gpu-modules.md).
+- Learn more about how to [Configure GPU to use a module](./azure-stack-edge-gpu-configure-gpu-modules.md).

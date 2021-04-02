@@ -27,12 +27,12 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 ## Prerequisites
 
-[Create a Media Services account](./create-account-howto.md).
+[Create a Media Services account](./account-create-how-to.md).
 
 ## [CLI](#tab/cli/)
 
 > [!NOTE]
-> You can only specify a path to a custom Standard Encoder preset JSON file for [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset), see the [encode with a custom transform](custom-preset-cli-howto.md) example.
+> You can only specify a path to a custom Standard Encoder preset JSON file for [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset), see the [encode with a custom transform](encode-custom-preset-cli-how-to.md) example.
 >
 > You cannot pass a file name when using [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset).
 

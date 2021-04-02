@@ -75,7 +75,7 @@ The domain hint query string parameter can set to one of the following domains:
 
 ::: zone pivot="b2c-custom-policy"
 
-To support domain hing parameter, you can configure the domain name using the `<Domain>domain name</Domain>` XML element of any `<ClaimsProvider>`.
+To support domain hint parameter, you can configure the domain name using the `<Domain>domain name</Domain>` XML element of any `<ClaimsProvider>`.
 
 ```xml
 <ClaimsProvider>

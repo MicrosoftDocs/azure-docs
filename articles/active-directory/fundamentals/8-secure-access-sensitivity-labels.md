@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 
 # Control access with sensitivity labels 
 
-[Sensitivity labels](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) help you control access to your content in Office 365 applications, and in containers like Microsoft Teams, Microsoft 365 Groups, and SharePoint sites. They can protect your content without hindering your users’ collaboration and production abilities. Sensitivity labels allow you to send your organization’s content across devices, apps, and services, while protecting your data and meeting your compliance and security policies. 
+[Sensitivity labels](/microsoft-365/compliance/sensitivity-labels) help you control access to your content in Office 365 applications, and in containers like Microsoft Teams, Microsoft 365 Groups, and SharePoint sites. They can protect your content without hindering your users’ collaboration and production abilities. Sensitivity labels allow you to send your organization’s content across devices, apps, and services, while protecting your data and meeting your compliance and security policies. 
 
 With sensitivity labels you can:
 
 * **Classify content without adding any protection settings**. You can assign a classification to content (like a sticker) that persists and roams with your content as it’s used and shared. You can use this classification to generate usage reports and see activity data for your sensitive content.
 
-* **Enforce protection settings such as encryption, watermarks, and access restrictions**. For example, users can apply a Confidential label to a document or email, and that label can [encrypt the content](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) and add a “Confidential” watermark. In addition, you can [apply a sensitivity label to a container](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide) like a SharePoint site, and enforce whether external users can access the content it contains.
+* **Enforce protection settings such as encryption, watermarks, and access restrictions**. For example, users can apply a Confidential label to a document or email, and that label can [encrypt the content](/microsoft-365/compliance/encryption-sensitivity-labels) and add a “Confidential” watermark. In addition, you can [apply a sensitivity label to a container](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites) like a SharePoint site, and enforce whether external users can access the content it contains.
 
 Sensitivity labels on email and other content travel with the content. Sensitivity labels on containers can restrict access to the container, but content in the container doesn't inherit the label. For example, a user could take content from a protected site, download it, and then share it without restrictions unless the content also had a sensitivity label.
 
@@ -47,7 +47,7 @@ As you think about governing external access to your content, determine the foll
 
 * How will you define what is High, Medium, or Low Business Impact (HBI, MBI, LBI)? Consider the impact to your organization if specific types of content are shared inappropriately.
 
-   * Content with specific types of inherently [sensitive content](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide), such as credit cards or passport numbers
+   * Content with specific types of inherently [sensitive content](/microsoft-365/compliance/apply-sensitivity-label-automatically), such as credit cards or passport numbers
 
    * Content created by specific groups or people (for example, compliance officers, financial officers, or executives)
 
@@ -61,21 +61,21 @@ As you think about governing external access to your content, determine the foll
 
 * What defaults should be in place for HBI data, sites, or Microsoft 365 Groups?
 
-* Where will you use sensitivity labels to [label and monitor](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide), versus to [enforce encryption](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) or to [enforce container access restrictions](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)?
+* Where will you use sensitivity labels to [label and monitor](/microsoft-365/compliance/sensitivity-labels), versus to [enforce encryption](/microsoft-365/compliance/encryption-sensitivity-labels) or to [enforce container access restrictions](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)?
 
 **For email and content**
 
-* Do you want to [automatically apply sensitivity labels](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) to content, or do so manually?
+* Do you want to [automatically apply sensitivity labels](/microsoft-365/compliance/apply-sensitivity-label-automatically) to content, or do so manually?
 
-   * If you choose to do so manually, do you want to [recommend that users apply a label](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide)?
+   * If you choose to do so manually, do you want to [recommend that users apply a label](/microsoft-365/compliance/apply-sensitivity-label-automatically)?
 
 **For containers**
 
 * What criteria will determine if M365 Groups, Teams, or SharePoint sites require access to be restricted by using sensitivity labels?
 
-* Do you want to only label content in these containers moving forward, or do you want to [automatically label](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) existing files in SharePoint and OneDrive?
+* Do you want to only label content in these containers moving forward, or do you want to [automatically label](/microsoft-365/compliance/apply-sensitivity-label-automatically) existing files in SharePoint and OneDrive?
 
-See these [common scenarios for sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide) for other ideas on how you can use sensitivity labels.
+See these [common scenarios for sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels) for other ideas on how you can use sensitivity labels.
 
 ### Sensitivity labels on email and content
 
@@ -95,7 +95,7 @@ When you assign a sensitivity label to a document or email, it's like a stamp th
 
 ### Sensitivity labels on containers
 
-You can apply sensitivity labels on containers such as [Microsoft 365 Groups](../enterprise-users/groups-assign-sensitivity-labels.md), [Microsoft Teams](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide), and [SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide). When you apply this sensitivity label to a supported container, the label automatically applies the classification and protection settings to the connected site or group. Sensitivity labels on these containers can control the following aspects of containers:
+You can apply sensitivity labels on containers such as [Microsoft 365 Groups](../enterprise-users/groups-assign-sensitivity-labels.md), [Microsoft Teams](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites), and [SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites). When you apply this sensitivity label to a supported container, the label automatically applies the classification and protection settings to the connected site or group. Sensitivity labels on these containers can control the following aspects of containers:
 
 * **Privacy**. You can choose who can see the site: specific users, all internal users, or anyone.
 
@@ -111,25 +111,25 @@ You can apply sensitivity labels on containers such as [Microsoft 365 Groups](..
 
 When you apply a sensitivity label to a container such as a SharePoint site, it is not applied to content there: sensitivity labels on containers control access to the content within the container. 
 
-* If you want to automatically apply labels to the content within the container, see [Apply a sensitivity to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide).
+* If you want to automatically apply labels to the content within the container, see [Apply a sensitivity to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically).
 
-* If you want users to be able to manually apply labels to this content, be sure that you‘ve [enabled sensitivity labels for Office files in SharePoint and OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide).
+* If you want users to be able to manually apply labels to this content, be sure that you‘ve [enabled sensitivity labels for Office files in SharePoint and OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files).
 
 ### Plan to implement sensitivity labels
 
 Once you have determined how you want to use sensitivity labels, and to what content and sites you want to apply them, see the following documentation to help you perform your implementation.
 
-1. [Get started with sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
+1. [Get started with sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels)
 
-2. [Create a deployment strategy](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
+2. [Create a deployment strategy](/microsoft-365/compliance/get-started-with-sensitivity-labels)
 
-3. [Create and publish sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide)
+3. [Create and publish sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels)
 
-4. [Restrict access to content using sensitivity labels to apply encryption](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide)
+4. [Restrict access to content using sensitivity labels to apply encryption](/microsoft-365/compliance/encryption-sensitivity-labels)
 
-5. [Use sensitivity labels with teams, groups, and sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)
+5. [Use sensitivity labels with teams, groups, and sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 
-6. [Enable sensitivity labels for Office files in SharePoint and OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide)
+6. [Enable sensitivity labels for Office files in SharePoint and OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files)
 
 ### Next steps
 

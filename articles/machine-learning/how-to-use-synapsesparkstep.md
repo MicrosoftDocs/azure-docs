@@ -9,7 +9,7 @@ ms.author: laobri
 author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, synapse-azureml
 
 # Customer intent: As a user of both Azure Machine Learning pipelines and Azure Synapse Analytics, I'd like to use Apache Spark for the data preparation of my pipeline
 
@@ -18,6 +18,8 @@ ms.custom: how-to
 # How to use Apache Spark (powered by Azure Synapse Analytics) in your machine learning pipeline (preview)
 
 In this article, you'll learn how to use Apache Spark pools powered by Azure Synapse Analytics as the compute target for a data preparation step in an Azure Machine Learning pipeline. You'll learn how a single pipeline can use compute resources suited for the specific step, such as data preparation or training. You'll see how data is prepared for the Spark step and how it's passed to the next step. 
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -29,7 +31,7 @@ In this article, you'll learn how to use Apache Spark pools powered by Azure Syn
 
 ## Link your Azure Machine Learning workspace and Azure Synapse Analytics workspace 
 
-You create and administer your Apache Spark pools in an Azure Synapse Analytics workspace. To integrate an Apache Spark pool with an Azure Machine Learning workspace, you must link to the Azure Synapse Analytics workspace. 
+You create and administer your Apache Spark pools in an Azure Synapse Analytics workspace. To integrate an Apache Spark pool with an Azure Machine Learning workspace, you must [link to the Azure Synapse Analytics workspace](how-to-link-synapse-ml-workspaces.md). 
 
 You can attach an Apache Spark pool via Azure Machine Learning studio UI by using the **Linked Services** page. You may also do it via the **Compute** page with the **Attach compute** option.
 
@@ -89,7 +91,7 @@ Once the configuration is created, you create a machine learning `ComputeTarget`
 
 ## Create a `SynapseSparkStep` that uses the linked Apache Spark pool
 
-The sample notebook [Spark job on Apache spark pool](https://github.com/azure/machinelearningnotebooks) defines a simple machine learning pipeline. First, the notebook defines a data preparation step powered by the `synapse_compute` defined in the previous step. Then,  the notebook defines a training step powered by a compute target better suited for training. The sample notebook uses the Titanic survival database to demonstrate data input and output; it doesn't actually clean the data or make a predictive model. Since there's no real training in this sample, the training step uses an inexpensive, CPU-based compute resource.
+The sample notebook [Spark job on Apache spark pool](https://github.com/azure/machinelearningnotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) defines a simple machine learning pipeline. First, the notebook defines a data preparation step powered by the `synapse_compute` defined in the previous step. Then,  the notebook defines a training step powered by a compute target better suited for training. The sample notebook uses the Titanic survival database to demonstrate data input and output; it doesn't actually clean the data or make a predictive model. Since there's no real training in this sample, the training step uses an inexpensive, CPU-based compute resource.
 
 Data flows into a machine learning pipeline by way of `DatasetConsumptionConfig` objects, which can hold tabular data or sets of files. The data often comes from files in blob storage in a workspace's datastore. The following code shows some typical code for creating input for a machine learning pipeline:
 
@@ -226,7 +228,7 @@ The code above creates the new compute resource if necessary. Then, the `step1_o
 
 Once you've defined all of your steps, you can create and run your pipeline. 
 
-```
+```python
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[step_1, step_2])

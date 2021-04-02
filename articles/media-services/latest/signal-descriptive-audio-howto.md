@@ -18,15 +18,15 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-You can add a  narration track to your video to help visually impaired clients to follow the video recording by listening to the narration. In Media Services v3, you signal descriptive audio tracks by annotating the audio track in the manifest file.
+You can add a narration track to your video to help visually impaired clients to follow the video recording by listening to the narration. In Media Services v3, you signal descriptive audio tracks by annotating the audio track in the manifest file.
 
 This article shows how to encode a video, upload an audio-only MP4 file (AAC codec) containing descriptive audio into the output asset, and edit the .ism file to include the descriptive audio.
 
 ## Prerequisites
 
-- [Create a Media Services account](./create-account-howto.md).
+- [Create a Media Services account](./account-create-how-to.md).
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You will need to use them to access the API.
-- Review [Dynamic packaging](dynamic-packaging-overview.md).
+- Review [Dynamic packaging](encode-dynamic-packaging-concept.md).
 - Review the [Upload, encode, and stream videos](stream-files-tutorial-with-api.md) tutorial.
 
 ## Create an input asset and upload a local file into it 
@@ -75,7 +75,7 @@ The job takes some time to complete and when it does you want to be notified. We
 
 The job usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
-For more information, see [Handling Event Grid events](reacting-to-media-services-events.md).
+For more information, see [Handling Event Grid events](monitoring/reacting-to-media-services-events.md).
 
 ## Upload the audio-only MP4 file
 
@@ -240,4 +240,4 @@ Azure Media Player can be used for testing but should not be used in a productio
 
 ## Next steps
 
-[Analyze videos](analyze-videos-tutorial-with-api.md)
+[Analyze videos](analyze-videos-tutorial.md)
