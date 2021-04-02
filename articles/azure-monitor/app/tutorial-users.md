@@ -34,7 +34,7 @@ To complete this tutorial:
 - Download and install the [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
 - Deploy a .NET application to Azure and [enable the Application Insights SDK](../app/asp-net.md). 
 - [Send telemetry from your application](../app/usage-overview.md#send-telemetry-from-your-app) for adding custom events/page views
-- Send [user context](../app/usage-send-user-context.md) to track what a user does over time and fully utilize the usage features.
+- Send [user context](./usage-overview.md) to track what a user does over time and fully utilize the usage features.
 
 ## Log in to Azure
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -161,4 +161,3 @@ Now that you've learned how to analyze your users, advance to the next tutorial 
 
 > [!div class="nextstepaction"]
 > [Create custom dashboards](./tutorial-app-dashboards.md)
-

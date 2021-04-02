@@ -27,6 +27,9 @@ Triton is a framework that is *optimized for inference*. It provides better util
 > [!TIP]
 > The code snippets in this document are for illustrative purposes and may not show a complete solution. For working example code, see the [end-to-end samples of Triton in Azure Machine Learning](https://aka.ms/triton-aml-sample).
 
+> [!NOTE]
+> [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning.
+
 ## Prerequisites
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
@@ -92,7 +95,7 @@ models
         - model_1
             - model_version
                 - model_file
-                - config_file
+            - config_file
         - model_2
             ...
 ```
@@ -109,6 +112,11 @@ az ml model register -n my_triton_model -p models --model-framework=Multi
 ```
 
 For more information on `az ml model register`, consult the [reference documentation](/cli/azure/ext/azure-cli-ml/ml/model).
+
+When registering the model in Azure Machine Learning, the value for the `--model-path  -p` parameter must be the name of the parent folder of the Triton.  
+In the example above,  `--model-path` is 'models'.
+
+The value for `--name  -n` parameter, ‘my_triton_model’ in the example, will be the model name known to Azure Machine Learning Workspace. 
 
 # [Python](#tab/python)
 
@@ -359,13 +367,17 @@ local_service.delete()
 
 
 ---
+## Troubleshoot
+
+* [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md), learn how to troubleshoot and solve, or work around, common errors you may encounter when deploying a model.
+
+* If deployment logs show that **TritonServer failed to start**, please refer to [Nvidia’s open source documentation.](https://github.com/triton-inference-server/server)
 
 ## Next steps
 
 * [See end-to-end samples of Triton in Azure Machine Learning](https://aka.ms/aml-triton-sample)
 * Check out [Triton client examples](https://aka.ms/nvidia-client-examples)
 * Read the [Triton Inference Server documentation](https://aka.ms/nvidia-triton-docs)
-* [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Update web service](how-to-deploy-update-web-service.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)

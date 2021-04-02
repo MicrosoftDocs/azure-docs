@@ -2,17 +2,13 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Transforms and Jobs in Media Services
 : Azure Media Services
-description: Learn how to create a Transforms to describe the rules for processing your videos in Azure Media Services.
+description: Transforms describe the rules for processing your videos in Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
-
 ms.service: media-services
-ms.workload: 
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/22/2021
 ms.author: inhenkel
 ---
 
@@ -101,12 +97,6 @@ Click the image to view it full size.
 
 [![Diagram showing the Job object and the objects it references, including the class derivation relationships between the objects.](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox)
 
-## Configure Media Reserved Units
-
-For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it's highly recommended to provision your account with 10 S3 Media Reserved Units (MRUs). If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
-
-For details, see [Scale media processing with CLI](media-reserved-units-cli-how-to.md).
-
 ## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
@@ -114,7 +104,7 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 ## See also
 
 * [Error codes](/rest/api/media/jobs/get#joberrorcode)
-* [Filtering, ordering, paging of Media Services entities](entities-overview.md)
+* [Filtering, ordering, paging of Media Services entities](filter-order-page-entitites-how-to.md)
 
 ## Next steps
 
@@ -123,4 +113,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
     - [Tutorial: Encode a remote file based on URL and stream the video](stream-files-tutorial-with-rest.md)
     - [Tutorial: Upload, encode, and stream videos](stream-files-tutorial-with-api.md)
-    - [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial-with-api.md)
+    - [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial.md)

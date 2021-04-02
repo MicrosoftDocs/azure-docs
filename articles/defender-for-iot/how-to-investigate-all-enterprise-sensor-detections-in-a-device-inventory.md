@@ -1,12 +1,8 @@
 ---
 title: Learn about devices discovered by all enterprise sensors
 description: Use the device inventory in the on-premises management console to get a comprehensive view of device information from connected sensors. Use import, export, and filtering tools to manage this information. 
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Investigate all enterprise sensor detections in the device inventory
