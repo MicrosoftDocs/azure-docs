@@ -21,7 +21,7 @@ Currently you can create the Azure Arc data controller from Azure portal. Other 
 
 ## Complete prerequisites
 
-Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](direct-connected-mode-prerequisites.md).
+Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](deploy-dc-direct-mode-prerequisites.md).
 
 From a high level, this article explains how to complete these tasks:
 
@@ -114,7 +114,7 @@ kubectl get pods -n arc
 
 ## Create a custom location using `customlocation` CLI extension
 
-A custom location is an Azure resource that is equivalent to a namespace in a kubernetes cluster.  Custom locations are used as a target to deploy resources to or from Azure. Learn more about [Custom locations](../kubernetes/custom-locations.md).
+A custom location is an Azure resource that is equivalent to a namespace in a Kubernetes cluster.  Custom locations are used as a target to deploy resources to or from Azure. Learn more about in the [custom locations](../kubernetes/overview.md).
 
 ### Set environment variables
 
