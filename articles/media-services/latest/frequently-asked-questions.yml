@@ -4,6 +4,17 @@ metadata:
 title: Common questions about Azure Media Services
 summary: This article answers commonly asked questions about Azure Media.
 sections:
+  - name: Troubleshooting
+    questions:
+      - question: Where can I find Media Services troubleshooting information?
+        answer: |
+          Someone else may have run into the same problem you are having.  There are a list of these questions in the [Troubleshooting questions collection](https://docs.microsoft.com/azure/media-services/latest/questions-collection). We update these questions periodically based on frequent support ticket issues. If you can't find answers there, please create a support ticket.
+      - question: How do I find out what this error code means?
+        answer: |
+          We have documented error codes in the following references: [streaming endpoint error codes](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-endpoint-error-codes-reference), [live event error codes](https://docs.microsoft.com/azure/media-services/latest/live-event-error-codes-reference), [job error codes](https://docs.microsoft.com/azure/media-services/latest/job-error-codes-reference).  If you can't find answers there, please create a support ticket.
+      - question: How do I reset my account credentials?
+        answer: |
+          You can [reset your account credentials](https://docs.microsoft.com/azure/media-services/latest/account-reset-account-credentials) with the CLI.
   - name: General
     questions:
       - question: What is Azure Media Services?
@@ -108,14 +119,3 @@ sections:
       - question: How do I migrate from Media Services v2 to Media Services v3? 
         answer: |
           We have created a [comprehensive guide for migration from v3 to v3](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-introduction).  We are very interested in knowing about your migration experience and needs so please feel free to provide feedback via GitHub issue or support ticket.
-  - name: Troubleshooting
-    questions:
-      - question: Where can I find Media Services troubleshooting information?
-        answer: |
-          Someone else may have run into the same problem you are having.  There are a list of these questions in the [Troubleshooting questions collection](https://docs.microsoft.com/azure/media-services/latest/questions-collection). We update these questions periodically based on frequent support ticket issues. If you can't find answers there, please create a support ticket.
-      - question: How do I find out what this error code means?
-        answer: |
-          We have documented error codes in the following references: [streaming endpoint error codes](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-endpoint-error-codes-reference), [live event error codes](https://docs.microsoft.com/azure/media-services/latest/live-event-error-codes-reference), [job error codes](https://docs.microsoft.com/azure/media-services/latest/job-error-codes-reference).  If you can't find answers there, please create a support ticket.
-      - question: How do I reset my account credentials?
-        answer: |
-          You can [reset your account credentials](https://docs.microsoft.com/azure/media-services/latest/account-reset-account-credentials) with the CLI.
