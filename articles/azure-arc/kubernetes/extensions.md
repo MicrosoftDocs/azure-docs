@@ -13,7 +13,7 @@ description: "Deploy and manage lifecycle of extensions on Azure Arc enabled Kub
 
 The Kubernetes extensions feature enables the following on Azure Arc enabled Kubernetes clusters:
 
-* Azure Resource Manager-based deployment of cluster extension
+* Azure Resource Manager-based deployment of cluster extension.
 * Lifecycle management of extension Helm charts.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
