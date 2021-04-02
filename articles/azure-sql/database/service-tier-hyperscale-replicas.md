@@ -87,7 +87,7 @@ Just like for HA replicas, even though the primary, HA, and named replicas share
 
 ### Modifying a named replica
 
-You can define the service level objective of a named replica when you create it, via the `ALTER DATABASE` command or in any other supported way. If you need to change the service level objective after the named replica has been created, you can do it using the regular `ALTER DATABASE…MODIFY` command on the named replica itself. For example, if "WideWorldImporters_NR" is the named replica of "WideWorldImporters" database, you can do it as shown below (it will take up to a minute max).
+You can define the service level objective of a named replica when you create it, via the `ALTER DATABASE` command or in any other supported way. If you need to change the service level objective after the named replica has been created, you can do it using the regular `ALTER DATABASE…MODIFY` command on the named replica itself. For example, if `WideWorldImporters_NR` is the named replica of `WideWorldImporters` database, you can do it as shown below (it will take up to a minute max).
 
 # [T-SQL](#tab/tsql)
 ```sql
@@ -143,7 +143,7 @@ Named replicas will still be available for read-only access, as usual.
 You can execute the following T-SQL query:
 
 ```sql
-SELECT @@SERVERNAME, DB_NAME(), DATABASEPROPERTYEX (DB_NAME(), 'Updateability')
+SELECT @@SERVERNAME, DB_NAME(), DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
 The result is `READ_ONLY` if you are connected to a read-only secondary replica, and `READ_WRITE` if you are connected to the primary replica. Note that the database context must be set to the name of the Hyperscale database, not to the `master` database.
