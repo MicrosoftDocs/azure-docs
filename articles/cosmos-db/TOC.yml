@@ -1411,6 +1411,8 @@
           href: how-to-restrict-user-data.md
         - name: Configure customer-managed keys
           href: how-to-setup-cmk.md
+        - name: Use a managed identity
+          href: how-to-setup-managed-identity.md
     - name: Enterprise readiness
       items:
         - name: Request quota increase

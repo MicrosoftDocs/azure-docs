@@ -437,10 +437,10 @@ Table 5 summarizes available security guidance for customer virtual machines pro
 
 **Table 5.**  Security guidance for Azure virtual machines
 
-|VM|||Security guidance||
-|---|---|---|---|---|
-|**Windows**|[Secure policies](../virtual-machines/security-policy.md)|[Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md)|[Built-in security controls](../virtual-machines/windows/security-baseline.md)|[Security recommendations](../virtual-machines/security-recommendations.md)|
-|**Linux**|[Secure policies](../virtual-machines/security-policy.md)|[Azure Disk Encryption](../virtual-machines/linux/disk-encryption-overview.md)|[Built-in security controls](../virtual-machines/linux/security-baseline.md)|[Security recommendations](../virtual-machines/security-recommendations.md)|
+|VM|Security guidance|
+|---|---|
+|**Windows**|[Secure policies](../virtual-machines/security-policy.md) <br/>[Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md) <br/> [Built-in security controls](../virtual-machines/windows/security-baseline.md) <br/> [Security recommendations](../virtual-machines/security-recommendations.md)|
+|**Linux**|[Secure policies](../virtual-machines/security-policy.md) <br/> [Azure Disk Encryption](../virtual-machines/linux/disk-encryption-overview.md) <br/> [Built-in security controls](../virtual-machines/linux/security-baseline.md) <br/> [Security recommendations](../virtual-machines/security-recommendations.md)|
 
 #### Isolated Virtual Machines
 Azure Compute offers virtual machine sizes that are [isolated to a specific hardware type](../virtual-machines/isolation.md) and dedicated to a single customer. These VM instances allow customer workloads to be deployed on dedicated physical servers. Utilizing Isolated VMs essentially guarantees that a customer VM will be the only one running on that specific server node. Customers can also choose to further subdivide the resources on these Isolated VMs by using [Azure support for nested Virtual Machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
@@ -650,7 +650,7 @@ Transferring large volumes of data across the Internet is inherently unreliable.
 :::image type="content" source="./media/secure-isolation-fig13.png" alt-text="Block blob partitioning of data into individual blocks":::
 **Figure 13.**  Block blob partitioning of data into individual blocks
 
-Customers can upload blocks in any order and determine their sequence in the final block list commitment step. Customers can also upload a new block to replace an existing uncommitted block of the same block ID.
+Customers can upload blocks in any order and determine their sequence in the final blocklist commitment step. Customers can also upload a new block to replace an existing uncommitted block of the same block ID.
 
 #### Partition layer
 The partition layer is responsible for a) managing higher-level data abstractions (Blob, Table, Queue), b) providing a scalable object namespace, c) providing transaction ordering and strong consistency for objects, d) storing object data on top of the stream layer, and e) caching object data to reduce disk I/O. This layer also provides asynchronous geo-replication of data and is focused on replicating data across stamps. Inter-stamp replication is done in the background to keep a copy of the data in two locations for disaster recovery purposes.
