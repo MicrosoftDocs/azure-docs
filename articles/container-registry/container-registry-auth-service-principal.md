@@ -47,7 +47,7 @@ Once you have a service principal that you've granted access to your container r
 * **User name** - service principal application ID (also called *client ID*)
 * **Password** - service principal password (also called *client secret*)
 
-Each value is a GUID of the form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
+Each value has the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
 > You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command.

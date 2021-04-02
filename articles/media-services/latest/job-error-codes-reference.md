@@ -19,7 +19,7 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-This topic links to a REST reference document for detailed description of [Job](transforms-jobs-concept.md) error codes and messages.
+This topic links to a REST reference document for detailed description of [Job](transform-jobs-concept.md) error codes and messages.
 
 ## Job error codes
 
@@ -31,7 +31,7 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## See also
 
-- [Streaming Endpoint error codes](streaming-endpoint-error-codes.md)
+- [Streaming Endpoint error codes](stream-streaming-endpoint-error-codes-reference.md)
 - [Azure Media Services concepts](concepts-overview.md)
 - [Quotas and limits](limits-quotas-constraints-reference.md)
 
