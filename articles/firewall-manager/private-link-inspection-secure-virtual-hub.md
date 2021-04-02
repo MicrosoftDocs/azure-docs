@@ -57,7 +57,7 @@ These steps only work when the clients and private endpoints are deployed in dif
 
 The following diagram illustrates the DNS and data traffic flows for the different clients to connect to a private endpoint deployed in Azure virtual WAN:
 
-:::image type="content" source="./media/private-link-inspection-secure-vhub/filter-private-link-secured-virtual-hub.png" alt-text="Traffic Flows" border="true":::
+:::image type="content" source="./media/private-link-inspection-secure-virtual-hub/filter-private-link-secured-virtual-hub.png" alt-text="Traffic Flows" border="true":::
 
 ## Troubleshooting
 
@@ -108,15 +108,15 @@ In most cases, these problems are caused by one of the following issues:
 
 1. Verify *Security configuration* in the firewall policy associated with the Azure Firewall deployed in the secured virtual hub. Make sure under the **PRIVATE TRAFFIC** column it shows as **Secured by Azure Firewall** for all the virtual network and branches connections you want to filter traffic for.
 
-   :::image type="content" source="./media/private-link-inspection-secure-vhub/firewall-policy-private-traffic-configuration.png" alt-text="Private Traffic Secured by Azure Firewall" border="true":::
+   :::image type="content" source="./media/private-link-inspection-secure-virtual-hub/firewall-policy-private-traffic-configuration.png" alt-text="Private Traffic Secured by Azure Firewall" border="true":::
 
 2. Verify **Security configuration** in the firewall policy associated with the Azure Firewall deployed in the secured virtual hub. Make sure there's a /32 entry for each private endpoint private IP address you want to filter traffic for under **Private traffic prefixes**.
 
-   :::image type="content" source="./media/private-link-inspection-secure-vhub/firewall-manager-security-configuration.png" alt-text="Firewall Manager Security Configuration - Private Traffic Prefixes" border="true":::
+   :::image type="content" source="./media/private-link-inspection-secure-virtual-hub/firewall-manager-security-configuration.png" alt-text="Firewall Manager Security Configuration - Private Traffic Prefixes" border="true":::
 
 3. In the secured virtual hub under virtual WAN, inspect effective routes for the route tables associated with the virtual networks and branches connections you want to filter traffic for. Make sure there are /32 entries for each private endpoint private IP address you want to filter traffic for.
 
-   :::image type="content" source="./media/private-link-inspection-secure-vhub/secured-virtual-hub-effective-routes.png" alt-text="Secured Virtual Hub Effective Routes" border="true":::
+   :::image type="content" source="./media/private-link-inspection-secure-virtual-hub/secured-virtual-hub-effective-routes.png" alt-text="Secured Virtual Hub Effective Routes" border="true":::
 
 4. Inspect the effective routes on the NICs attached to the virtual machines deployed in the virtual networks you want to filter traffic for. Make sure there are /32 entries for each private endpoint private IP address you want to filter traffic for.
  
