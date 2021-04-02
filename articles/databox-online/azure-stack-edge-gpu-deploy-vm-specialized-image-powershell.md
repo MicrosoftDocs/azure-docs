@@ -26,8 +26,8 @@ A Windows VHD or VHDX can be used to create a *specialized* image or a *generali
 |Image type  |Generalized  |Specialized  |
 |---------|---------|---------|
 |Target     |Deployed on any system         | Targeted to a specific system        |
-|Setup after boot     | Setup required at first boot of the VM.          | Setup not needed. <br> Platform turns the VM on.        |
-|Configuration     |Hostname, admin-user, and other VM-specific settings required.         |Completely pre-configured.         |
+|Setup after boot     | Setup required at first boot of the VM.          | Setup not needed. <br> Platform turns on the VM.        |
+|Configuration     |Hostname, admin-user, and other VM-specific settings required.         |Pre-configured.         |
 |Used to     |Create multiple new VMs from the same image.         |Migrate a specific machine or restoring a VM from previous backup.         |
 
 
@@ -40,7 +40,7 @@ The high-level workflow to deploy a VM from a specialized image is:
 
 1. Copy the VHD to a local storage account on your Azure Stack Edge Pro GPU device.
 1. Create a new managed disk from the VHD.
-1. Create a new virtual machine and attach the managed disk.
+1. Create a new virtual machine from the managed disk and attach the managed disk.
 
 
 ## Prerequisites
@@ -61,10 +61,12 @@ Verify that your client can connect to the local Azure Resource Manager.
     Login-AzureRMAccount -EnvironmentName <Environment Name>
     ```
 
-2. Provide the username `EdgeARMuser` and the password to connect via Azure Resource Manager. If you do not recall the password, [Reset the password for Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) and use this password to sign in.
+2. Provide the username `EdgeArmUser` and the password to connect via Azure Resource Manager. If you do not recall the password, [Reset the password for Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) and use this password to sign in.
  
 
 ## Deploy VM from specialized image
+
+The following sections contain step-by-step instructions to deploy a VM from a specialized image.
 
 ## Copy VHD to local storage account on device
 
@@ -87,7 +89,13 @@ Follow these steps to create a managed disk from a VHD that you uploaded to the 
     $DiskRG = <managed disk resource group>
     $DiskName = <managed disk name>    
     ```
+    Here is an example output.
 
+    ```powershell
+    PS C:\WINDOWS\system32> $VHDURI = "https://myasevmsa.blob.myasegpudev.wdshcsso.com/vhds/WindowsServer2016Datacenter.vhd"
+    PS C:\WINDOWS\system32> $DiskRG = "myasevm1rg"
+    PS C:\WINDOWS\system32> $DiskName = "myasemd1"
+    ```
 1. Create a new managed disk.
 
     ```powershell
@@ -95,6 +103,13 @@ Follow these steps to create a managed disk from a VHD that you uploaded to the 
     $disk = New-AzureRMDisk -ResourceGroupName $DiskRG -DiskName $DiskName -Disk $DiskConfig
     ```
 
+    Here is an example output. The location here is set to the location of the local storage account and is always `DBELocal` for all local storage accounts on your Azure Stack Edge Pro GPU device. 
+
+    ```powershell
+    PS C:\WINDOWS\system32> $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri $VHDURI
+    PS C:\WINDOWS\system32> $disk = New-AzureRMDisk -ResourceGroupName $DiskRG -DiskName $DiskName -Disk $DiskConfig
+    PS C:\WINDOWS\system32>    
+    ```
 ## Create a VM from managed disk
 
 Follow these steps to create a VM from a managed disk:
@@ -113,37 +128,58 @@ Follow these steps to create a VM from a managed disk:
     ```
 
     >[!NOTE]
-    > The PrivateIP parameter is optional. Using it will give a static IP to your network interface. Otherwise, it will default to a dynamic IP using DHCP.
+    > The `PrivateIP` parameter is optional. Use this parameter to assign a static IP else the default is a dynamic IP using DHCP.
 
-1. Get the virtual network info and create a new network interface.
+    Here is an example output. In this example, the same resource group is specified for all the VM resources though you can create and specify separate resource groups for the resources if needed.
 
-    This sample assumes you are creating a single network interface on the default VNET. If needed, you could specify an alternate VNET, or create multiple network interfaces. For more information, see [Add a network interface to a VM via the Azure portal](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
+    ```powershell
+    PS C:\WINDOWS\system32> $NicRG = "myasevm1rg"
+    PS C:\WINDOWS\system32> $NicName = "myasevmnic1"
+    PS C:\WINDOWS\system32> $IPConfigName = "myaseipconfig1" 
+
+    PS C:\WINDOWS\system32> $VMRG = "myasevm1rg"
+    PS C:\WINDOWS\system32> $VMName = "myasetestvm1"
+    PS C:\WINDOWS\system32> $VMSize = "Standard_D1_v2"   
+    ```
+
+1. Get the virtual network information and create a new network interface.
+
+    This sample assumes you are creating a single network interface on the default virtual network `ASEVNET` that is associated with the default resource group `ASERG`. If needed, you could specify an alternate virtual network, or create multiple network interfaces. For more information, see [Add a network interface to a VM via the Azure portal](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
 
     ```powershell
     $armVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG
-    $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName -SubnetId $armVN.Subnets[0].Id [-PrivateIpAddress $PrivateIP  ]
+    $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName -SubnetId $armVN.Subnets[0].Id [-PrivateIpAddress $PrivateIP]
     $nic = New-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $NicRG -Location DBELocal -IpConfiguration $ipConfig
     ```
 
+    Here is an example output.
+
+    ```powershell
+    PS C:\WINDOWS\system32> $armVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG
+    PS C:\WINDOWS\system32> $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name $IPConfigName -SubnetId $armVN.Subnets[0].Id
+    PS C:\WINDOWS\system32> $nic = New-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $NicRG -Location DBELocal -IpConfiguration $ipConfig
+    WARNING: The output object type of this cmdlet will be modified in a future release.
+    PS C:\WINDOWS\system32>    
+    ```
 1. Create a new VM configuration object.
 
     ```powershell
     $vmConfig = New-AzureRmVMConfig -VMName $VMName -VMSize $VMSize
     ```
 
+    
 1. Add the network interface to the VM.
 
     ```powershell
     $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```
 
-1. Set the OS Disk.
-
-    The last flag in this command will be either `-Windows` or `-Linux` depending on which OS you are using.
+1. Set the OS disk properties on the VM.
 
     ```powershell
     $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $disk.Id -StorageAccountType StandardLRS -CreateOption Attach –[Windows/Linux]
     ```
+    The last flag in this command will be either `-Windows` or `-Linux` depending on which OS you are using for your VM.
 
 1. Create the VM.
 
@@ -151,6 +187,114 @@ Follow these steps to create a VM from a managed disk:
     New-AzureRmVM -ResourceGroupName $VMRG -Location DBELocal -VM $vm 
     ```
 
+    Here is an example output. 
+
+    ```powershell
+    PS C:\WINDOWS\system32> $vmConfig = New-AzureRmVMConfig -VMName $VMName -VMSize $VMSize
+    PS C:\WINDOWS\system32> $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+    PS C:\WINDOWS\system32> $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $disk.Id -StorageAccountType StandardLRS -CreateOption Attach -Windows
+    PS C:\WINDOWS\system32> New-AzureRmVM -ResourceGroupName $VMRG -Location DBELocal -VM $vm
+    WARNING: Since the VM is created using premium storage or managed disk, existing standard storage account, myasevmsa, is used for
+    boot diagnostics.    
+    RequestId IsSuccessStatusCode StatusCode ReasonPhrase
+    --------- ------------------- ---------- ------------
+                             True         OK OK        
+    PS C:\WINDOWS\system32>
+    ```
+
+## Delete VM and resources
+
+This article used only one resource group to create all the VM resource. Deleting that resource group will delete the VM and all the associated resources. 
+
+1. First view all the resources created under the resource group.
+
+    ```powershell
+    Get-AzureRmResource -ResourceGroupName <Resource group name>
+    ```
+    Here is an example output.
+    
+    ```powershell
+    PS C:\WINDOWS\system32> Get-AzureRmResource -ResourceGroupName myasevm1rg
+    
+    
+    Name              : myasemd1
+    ResourceGroupName : myasevm1rg
+    ResourceType      : Microsoft.Compute/disks
+    Location          : dbelocal
+    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myasevm1rg/providers/Microsoft.Compute/disk
+                        s/myasemd1
+    
+    Name              : myasetestvm1
+    ResourceGroupName : myasevm1rg
+    ResourceType      : Microsoft.Compute/virtualMachines
+    Location          : dbelocal
+    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myasevm1rg/providers/Microsoft.Compute/virt
+                        ualMachines/myasetestvm1
+    
+    Name              : myasevmnic1
+    ResourceGroupName : myasevm1rg
+    ResourceType      : Microsoft.Network/networkInterfaces
+    Location          : dbelocal
+    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myasevm1rg/providers/Microsoft.Network/netw
+                        orkInterfaces/myasevmnic1
+    
+    Name              : myasevmsa
+    ResourceGroupName : myasevm1rg
+    ResourceType      : Microsoft.Storage/storageaccounts
+    Location          : dbelocal
+    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myasevm1rg/providers/Microsoft.Storage/stor
+                        ageaccounts/myasevmsa
+    
+    PS C:\WINDOWS\system32>
+    ```
+
+1. Delete the resource group and all the associated resources.
+
+    ```powershell
+    Remove-AzureRmResourceGroup -ResourceGroupName <Resource group name>
+    ```
+    Here is an example output.
+    
+    ```powershell
+    PS C:\WINDOWS\system32> Remove-AzureRmResourceGroup -ResourceGroupName myasevm1rg
+    
+    Confirm
+    Are you sure you want to remove resource group 'myasevm1rg'
+    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+    True
+    PS C:\WINDOWS\system32>
+    ```powershell
+
+1. Verify that the resource group has deleted. Get all the resource groups that exist on the device. 
+
+    ```powershell
+    Get-AzureRmResourceGroup
+    ```
+    Here is an example output.
+
+    ```powershell
+    PS C:\WINDOWS\system32> Get-AzureRmResourceGroup
+
+    ResourceGroupName : ase-image-resourcegroup
+    Location          : dbelocal
+    ProvisioningState : Succeeded
+    Tags              :
+    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/ase-image-resourcegroup
+    
+    ResourceGroupName : ASERG
+    Location          : dbelocal
+    ProvisioningState : Succeeded
+    Tags              :
+    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/ASERG
+    
+    ResourceGroupName : myaserg
+    Location          : dbelocal
+    ProvisioningState : Succeeded
+    Tags              :
+    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myaserg
+        
+    PS C:\WINDOWS\system32>
+    ```
 
 ## Next steps
 
