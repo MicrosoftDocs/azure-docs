@@ -71,8 +71,8 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 ## Create custom location
 
 1. Create an Azure Arc enabled Kubernetes cluster.
-    - If you haven't connected a cluster yet, walk through our [Connect an Azure Arc enabled Kubernetes cluster quickstart](quickstart-connect-cluster.md).
-    - If you had already created an Azure Arc enabled Kubernetes cluster but had disabled auto upgrade of agents, then you need to [upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
+    - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
+    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
 
 1. Deploy the cluster extension of the Azure service whose instance you want to eventually on top of the custom location:
 

@@ -11,7 +11,7 @@ description: "Use Azure RBAC for authorization checks on Azure Arc enabled Kuber
 
 # Azure RBAC for Azure Arc enabled Kubernetes clusters
 
-Kubernetes objects of the type [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) provide a way to define authorization in a Kubernetes native way. Instead, this feature allows for usage of Azure Active Directory (AAD) and role assignments in Azure to control authorization checks on the cluster.
+Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) objects type help to define authorization in Kubernetes natively. With Azure RBAC, you can use Azure Active Directory (AAD) and role assignments in Azure to control authorization checks on the cluster.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -32,8 +32,8 @@ Kubernetes objects of the type [ClusterRoleBinding and RoleBinding](https://kube
     ```
 
 - An existing Azure Arc enabled Kubernetes connected cluster.
-    - If you haven't connected a cluster yet, walk through our [Connect an Azure Arc enabled Kubernetes cluster quickstart](quickstart-connect-cluster.md).
-    - If you had already created an Azure Arc enabled Kubernetes cluster but had disabled auto upgrade of agents, then you need to [upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
+    - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
+    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
 
 - Self-managed Kubernetes cluster where access to `apiserver` of the cluster is available.
 
@@ -44,7 +44,7 @@ Kubernetes objects of the type [ClusterRoleBinding and RoleBinding](https://kube
 
 ### Create server application
 
-1. Create a new AAD application and fetch its `appId` value, which is used in later steps as `serverApplicationId`:
+1. Create a new AAD application and get its `appId` value, which is used in later steps as `serverApplicationId`:
 
 ```azurecli
 az ad app create --display-name "<clusterName>Server" --identifier-uris "https://<clusterName>Server" --query appId -o tsv
@@ -56,7 +56,7 @@ az ad app create --display-name "<clusterName>Server" --identifier-uris "https:/
 az ad app update --id <serverApplicationId> --set groupMembershipClaims=All
 ```
 
-1. Create a service principal and fetch its `password` field value, which is required later as `serverApplicationSecret` when enabling this feature on the cluster:
+1. Create a service principal and get its `password` field value, which is required later as `serverApplicationSecret` when enabling this feature on the cluster:
 
 ```azurecli
 az ad sp create --id <serverApplicationId>
@@ -72,7 +72,7 @@ az ad app permission grant --id <serverApplicationId> --api 00000003-0000-0000-c
 
 ### Create client application
 
-1. Create a new AAD application and fetch its 'appId' value, which is used in later steps as `clientApplicationId`:
+1. Create a new AAD application and get its 'appId' value, which is used in later steps as `clientApplicationId`:
 
 ```azurecli
 az ad app create --display-name "<clusterName>Client" --native-app --reply-urls "https://<clusterName>Client" --query appId -o tsv
@@ -84,7 +84,7 @@ az ad app create --display-name "<clusterName>Client" --native-app --reply-urls 
 az ad sp create --id <clientApplicationId>
 ```
 
-3. Fetch the `oAuthPermissionId` for the server application:
+3. Get the `oAuthPermissionId` for the server application:
 
 ```azurecli
 az ad app show --id <serverApplicationId> --query "oauth2Permissions[0].id" -o tsv
@@ -97,9 +97,9 @@ az ad app permission add --id <clientApplicationId> --api <serverApplicationId> 
 az ad app permission grant --id <clientApplicationId> --api <serverApplicationId>
 ```
 
-## Create role assignment for server application
+## Create a role assignment for the server application
 
-The server application needs the `Microsoft.Authorization/*/read` permissions to check if the user making the request is authorized (or not) on the Kubernetes objects that are a part of the request.
+The server application needs the `Microsoft.Authorization/*/read` permissions to check if the user making the request is authorized on the Kubernetes objects that are a part of the request.
 
 1. Create a file named accessCheck.json with the following contents:
 
@@ -118,15 +118,15 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
     }
     ```
 
-    Don't forget to replace the `<subscription-id>` with the actual subscription ID.
+    Replace the `<subscription-id>` with the actual subscription ID.
 
-2. Run the following command to create the new custom role:
+2. Execute the following command to create the new custom role:
 
     ```azurecli
     az role definition create --role-definition ./accessCheck.json
     ```
 
-3. From the output of above command, note down the value of `id` field, which is used in later steps as `roleId`.
+3. From the output of above command, store the value of `id` field, which is used in later steps as `roleId`.
 
 4. Create a role assignment on the server application as assignee using the role created above:
 
@@ -143,8 +143,8 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
     ```
     
     > [!NOTE]
-    > 1. Before running the above command you need to ensure that the `kubeconfig` file on the machine is pointing to the cluster on which the Azure RBAC feature needs to be enabled.
-    > 2. The optional `--skip-azure-rbac-list` can be used with above command to provide a comma separated list of usernames/email/oid of the users for whom authorization checks should not be done using Azure RBAC, but instead using Kubernetes native ClusterRoleBinding and RoleBinding objects.
+    > 1. Before running the above command, ensure that the `kubeconfig` file on the machine is pointing to the cluster on which to enable the Azure RBAC feature.
+    > 2. Use `--skip-azure-rbac-list` with the above command for a comma-separated list of usernames/email/oid undergoing authorization checks using Kubernetes native ClusterRoleBinding and RoleBinding objects instead of Azure RBAC.
 
 1. Update `apiserver` to run in webhook mode for authentication and authorization by running `kubectl edit pod <apiserver pod name>`:
 
@@ -183,7 +183,7 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 
     1. Save and exit the editor to update the `apiserver` pod.
     
-## Create role assignments for users to access cluster
+## Create role assignments for users to access the cluster
 
 Owners of the Azure Arc enabled Kubernetes resource can either use built-in roles or custom roles to grant other users access to the Kubernetes cluster.
 
@@ -193,10 +193,10 @@ Owners of the Azure Arc enabled Kubernetes resource can either use built-in role
 |---|---|
 | Azure Arc Kubernetes Viewer | Allows read-only access to see most objects in a namespace. This role doesn't allow viewing secrets. This is because `read` permission on secrets would enable access to `ServiceAccount` credentials in the namespace, which would in turn allow API access using that `ServiceAccount` (a form of privilege escalation). |
 | Azure Arc Kubernetes Writer | Allows read/write access to most objects in a namespace. This role doesn't allow viewing or modifying roles or role bindings. However, this role allows accessing secrets and running pods as any `ServiceAccount` in the namespace, so it can be used to gain the API access levels of any `ServiceAccount` in the namespace. |
-| Azure Arc Kubernetes Admin | Allows admin access, intended to be granted within a namespace using a RoleBinding. If used in a RoleBinding, allows read/write access to most resources in a namespace, including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
+| Azure Arc Kubernetes Admin | Allows admin access. Intended to be granted within a namespace using a RoleBinding. If used in a RoleBinding, allows read/write access to most resources in a namespace, including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
 | Azure Arc Kubernetes Cluster Admin | Allows super-user access to execute any action on any resource. When used in a ClusterRoleBinding, it gives full control over every resource in the cluster and in all namespaces. When used in a RoleBinding, it gives full control over every resource in the role binding's namespace, including the namespace itself.|
 
-Roles assignments scoped to the Arc enabled Kubernetes cluster can be created on the `Access Control (IAM)` blade of the cluster resource on Azure portal. An alternative option is to use Azure CLI commands as shown below:
+You can create role assignments scoped to the Arc enabled Kubernetes cluster on the `Access Control (IAM)` blade of the cluster resource on Azure portal. You can also use Azure CLI commands, as shown below:
 
 ```azurecli
 az role assignment create --role "Azure Arc Kubernetes Cluster Admin" --assignee <AAD-ENTITY-ID> --scope $ARM_ID
@@ -211,15 +211,15 @@ az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee <AAD-E
 ```
 
 > [!NOTE]
-> While role assignments that are scoped to the cluster can be created using either the Azure portal or CLI, currently role assignments scoped to namespaces can only be created using the CLI.
+> While role assignments scoped to the cluster can be created using either the Azure portal or CLI, role assignments scoped to namespaces can only be created using the CLI.
 
 ### Custom roles
 
-Optionally you may choose to create your own role definition for usage in role assignments.
+You may choose to create your own role definition for usage in role assignments.
 
-Below is an example of a role definition that allows a user to only read deployments. The full list of data actions that can be used to construct a role definition is available [here](../../role-based-access-control/resource-provider-operations.md#microsoftkubernetes).
+Walk through the below example of a role definition that allows a user to only read deployments. For more information, see [the full list of data actions you can use to construct a role definition](../../role-based-access-control/resource-provider-operations.md#microsoftkubernetes).
 
-Copy the below JSON object into a file called custom-role.json and replace `<subscription-id>` placeholder with the actual subscription ID. The below custom role uses one of the data actions and lets you view all deployments in the scope (cluster/namespace) the role assignment is created at.
+Copy the below JSON object into a file called custom-role.json. Replace the `<subscription-id>` placeholder with the actual subscription ID. The below custom role uses one of the data actions and lets you view all deployments in the scope (cluster/namespace) where the role assignment is created.
 
 ```json
 {
@@ -237,23 +237,23 @@ Copy the below JSON object into a file called custom-role.json and replace `<sub
 }
 ```
 
-Create the role definition by running the below command from the folder where you saved custom-role.json
+1. Create the role definition by running the below command from the folder where you saved `custom-role.json`:
 
-```bash
-az role definition create --role-definition @custom-role.json
-```
+    ```bash
+    az role definition create --role-definition @custom-role.json
+    ```
 
-Create a role assignment using this custom role definition:
+1. Create a role assignment using this custom role definition:
 
-```bash
-az role assignment create --role "Arc Deployment Viewer" --assignee <AAD-ENTITY-ID> --scope $ARM_ID/namespaces/<namespace-name>
-```
+    ```bash
+    az role assignment create --role "Arc Deployment Viewer" --assignee <AAD-ENTITY-ID> --scope $ARM_ID/namespaces/<namespace-name>
+    ```
 
 ## Configure kubectl with user credentials
 
-Every user who wants to access the Kubernetes cluster needs to execute the following steps on their machine:
+Users who need access the Kubernetes cluster needs to execute the following steps on their machine:
 
-1. Run the following command to set credentials for user:
+1. Execute the following command to set credentials for user:
 
     ```console
     kubectl config set-credentials <testuser>@<mytenant.onmicrosoft.com> \
@@ -264,9 +264,9 @@ Every user who wants to access the Kubernetes cluster needs to execute the follo
     --auth-provider-arg=apiserver-id=<serverApplicationId>
     ```
 
-2. Open your kubeconfig file you created earlier. Under contexts, update the context associated with cluster to point to the credentials created in step #1.
+1. Open the `kubeconfig` file you created earlier. Under `contexts`, verify the context associated with cluster points to the credentials created in step #1.
 
-3. Add **config-mode** setting under user config:
+1. Add **config-mode** setting under user config:
   
     ```console
     name: testuser@mytenant.onmicrosoft.com
@@ -281,18 +281,20 @@ Every user who wants to access the Kubernetes cluster needs to execute the follo
         name: azure
     ```
 
-4. Run any `kubectl` command (for example `kubectl get nodes` or `kubectl get pods`).
+1. Run any `kubectl` command. For example:
+  * `kubectl get nodes` 
+  * `kubectl get pods`
 
-5. You'll be prompted for a browser-based authentication. Copy the device login URL `https://microsoft.com/devicelogin` and open the same on one of your web browsers.
+1. Once prompted for a browser-based authentication, copy the device login URL `https://microsoft.com/devicelogin` and open on your web browser.
 
-6. You'll now be prompted to enter the code printed on your console. Copy the code on your terminal and paste the same in the device authentication input prompt.
+1. Enter the code printed on your console, copy and paste the code on your terminal into the device authentication input prompt.
 
-7. You'll then be prompted to enter the username (testuser@mytenant.onmicrosoft.com) and associated password.
+1. Enter the username (testuser@mytenant.onmicrosoft.com) and associated password.
 
-8. After successful validation, one of two things can happen:
-    * You'll see the response returned back successfully, implying that Azure gave back a confirmation that you are authorized to access the requested resource (namespace/pod/...).
-    * You'll see an error message:
+1. If you see an error message like this, it means you are unauthorized to access the requested resource:
 
-        `Error from server (Forbidden): nodes is forbidden: User "testuser@mytenant.onmicrosoft.com" cannot list resource "nodes" in API group "" at the cluster scope: User doesn't have access to the resource in Azure. Update role assignment to allow access.`
+    ```console
+    Error from server (Forbidden): nodes is forbidden: User "testuser@mytenant.onmicrosoft.com" cannot list resource "nodes" in API group "" at the cluster scope: User doesn't have access to the resource in Azure. Update role assignment to allow access.
+    ```
 
-    In this case, the user making the request wasn't authorized to access the requested resource. An administrator would have to create a new role assignment authorizing this user to have access on the resource.
+    An administrator needs to create a new role assignment authorizing this user to have access on the resource.
