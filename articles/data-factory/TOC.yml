@@ -111,8 +111,6 @@
         href: tutorial-data-flow.md
       - name: Mapping data flow video tutorials
         href: data-flow-tutorials.md
-      - name: Best practice for writing to data lake
-        href: tutorial-data-flow-write-to-lake.md
     - name: Prepare data with wrangling
       href: wrangling-tutorial.md
     - name: Using external services
