@@ -146,7 +146,13 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
     > 1. Before running the above command, ensure that the `kubeconfig` file on the machine is pointing to the cluster on which to enable the Azure RBAC feature.
     > 2. Use `--skip-azure-rbac-list` with the above command for a comma-separated list of usernames/email/oid undergoing authorization checks using Kubernetes native ClusterRoleBinding and RoleBinding objects instead of Azure RBAC.
 
-1. Update `apiserver` to run in webhook mode for authentication and authorization by running `kubectl edit pod <apiserver pod name>`:
+1. SSH into every master node of the cluster and execute the following steps:
+
+    1. Open `apiserver` manifest in edit mode:
+        
+        ```console
+        sudo vi /etc/kubernetes/manifests/kube-apiserver.yaml
+        ```
 
     1. Add the following specification under `volumes`:
         
