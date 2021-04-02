@@ -9,7 +9,7 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.date: 12/22/2020
+ms.date: 4/2/2021
 ---
 
 # Azure Machine Learning Curated Environments
@@ -21,58 +21,23 @@ This article lists the curated environments in Azure Machine Learning. Curated e
 
 ## Minimal
 
-- AzureML-Minimal
+- AzureML-Minimal-Inference-CPU
 
 ## PyTorch
 - AzureML-Pytorch1.7-Cuda11-OpenMpi4.1.0-py36
-     - Version: 1.7
+     - PyTorch version: 1.7
      - Base image: mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
      - CUDA: 11
      - OpenMPI: 4.1.0
-     - Dependencies:
-        - python
-        - pip
-        - pytorch
-        - torchvision
-        - torchaudio
-        - cudatoolkit
-        - nvidia-apex
-        - azureml-core
-        - azureml-defaults
-        - azureml-mlflow
-        - azureml-telemetry
-        - azureml-train-restclients-hyperdrive
-        - azureml-train-core
-        - matplotlib
-        - psutil
-        - tqdm
-        - pandas
-        - theano
-        - scipy
-        - numpy
-        - tensorboard
-        - horovod
-        - onnxruntime-gpu
-        - future
-        - deepspeed
+     
+- AzureML-Pytorch-1.6-Inference-CPU
 
 
 ## Scikit
-
-- AzureML-Scikit-learn-0.20.3
+- AzureML-Scikit-learn0.20.3-Cuda11-OpenMpi4.1.0-py36
 
 ## TensorFlow
+- AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36
 
-- AzureML-TensorFlow-1.10-CPU
-
-## Triton
-
-- AzureML-Triton
-
-## Tutorial
-
-- AzureML-Tutorial
-
-## VowpalWabbit
-
-- AzureML-VowpalWabbit-8.8.0
+## XGBoost
+- AzureML-XGBoost-0.9-Inference-CPU
