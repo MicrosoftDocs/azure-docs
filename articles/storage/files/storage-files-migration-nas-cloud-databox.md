@@ -71,8 +71,8 @@ For a standard migration, one or a combination of these three DataBox options sh
 
 While you wait for your Azure DataBox(es) to arrive, you can already deploy one or more Windows Servers you will need for running RoboCopy jobs. 
 
-1. The first use of these servers will be to copy files onto the DataBox.
-1. The second use of these servers will be to catch-up with changes that have occurred on the NAS appliance while DataBox was in transport. This approach keeps downtime on the source side to a minimum.
+- The first use of these servers will be to copy files onto the DataBox.
+- The second use of these servers will be to catch-up with changes that have occurred on the NAS appliance while DataBox was in transport. This approach keeps downtime on the source side to a minimum.
 
 The speed in which your RoboCopy jobs work depend on mainly these factors:
 
@@ -87,10 +87,10 @@ It is important to keep the referenced details in mind when deciding on the RAM 
 
 To save time, you should proceed with this phase while you wait for your DataBox to arrive. With the information in this phase, you will be able to decide how your servers and users in Azure and outside of Azure will be enabled to utilize your Azure file shares. The most critical decisions are:
 
-1. **Networking:** Enable your networks to route SMB traffic.
-1. **Authentication:** Configure Azure storage accounts for Kerberos authentication. AdConnect and Domain joining your storage account will allow your apps and users to use their AD identity to for authentication
-1. **Authorization:** Share-level ACLs for each Azure file share will allow AD users and groups to access a given share and within an Azure file share, native NTFS ACLs will take over. Authorization based on file and folder ACLs then works like it does for on-premises SMB shares.
-1. **Business continuity:** Integration of Azure file shares into an existing environment often entails to preserve existing share addresses. If you are not already using DFS-Namespaces, consider establishing that in your environment. You'd be able to keep share addresses your users and scripts use, unchanged. You would use DFS-N as a namespace routing service for SMB, by redirecting DFS-Namespace targets to Azure file shares after their migration.
+- **Networking:** Enable your networks to route SMB traffic.
+- **Authentication:** Configure Azure storage accounts for Kerberos authentication. AdConnect and Domain joining your storage account will allow your apps and users to use their AD identity to for authentication
+- **Authorization:** Share-level ACLs for each Azure file share will allow AD users and groups to access a given share and within an Azure file share, native NTFS ACLs will take over. Authorization based on file and folder ACLs then works like it does for on-premises SMB shares.
+- **Business continuity:** Integration of Azure file shares into an existing environment often entails to preserve existing share addresses. If you are not already using DFS-Namespaces, consider establishing that in your environment. You'd be able to keep share addresses your users and scripts use, unchanged. You would use DFS-N as a namespace routing service for SMB, by redirecting DFS-Namespace targets to Azure file shares after their migration.
 
 :::row:::
     :::column:::
