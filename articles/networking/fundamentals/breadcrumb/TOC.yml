@@ -2,14 +2,14 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure
-    tocHref: /azure/networking/fundamentals/
+  - name: Networking
+    tocHref: /azure/networking/
     topicHref: /azure/networking/fundamentals/index
     items:
     - name: Fundamentals
-      tocHref: /azure/virtual-network/
+      tocHref: /azure/networking/fundamentals
       topicHref: /azure/networking/fundamentals/index
     - name: Fundamentals
-      tocHref: /azure/networking/
+      tocHref: /azure/virtual-network/
       topicHref: /azure/networking/fundamentals/index
   
