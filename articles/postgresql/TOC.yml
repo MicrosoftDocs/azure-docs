@@ -640,14 +640,6 @@
       href: concepts-hyperscale-versions.md
     - name: PostgreSQL extensions
       href: concepts-hyperscale-extensions.md
-  - name: API Reference
-    items:
-      - name: SQL API functions
-        href: reference-hyperscale-functions.md
-      - name: Server parameters
-        href: reference-hyperscale-parameters.md
-      - name: System tables
-        href: reference-hyperscale-metadata.md
   - name: How-to guides
     items:
     - name: Server group size
@@ -693,6 +685,14 @@
         displayName: connection errors, hyperscale
       - name: Useful diagnostic queries
         href: howto-hyperscale-useful-diagnostic-queries.md
+  - name: API Reference
+    items:
+      - name: SQL API functions
+        href: reference-hyperscale-functions.md
+      - name: Server parameters
+        href: reference-hyperscale-parameters.md
+      - name: System tables
+        href: reference-hyperscale-metadata.md
 - name: Reference
   items:
    - name: Azure CLI
