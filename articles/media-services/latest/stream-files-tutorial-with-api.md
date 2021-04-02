@@ -100,7 +100,7 @@ The output [Asset](/rest/api/media/assets) stores the result of your encoding jo
 
 ### Create a Transform and a Job that encodes the uploaded file
 
-When encoding or processing content in Media Services, it's a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you're applying that recipe to all the videos in your library. A recipe in Media Services is called a **Transform**. For more information, see [Transforms and Jobs](./transforms-jobs-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices.
+When encoding or processing content in Media Services, it's a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you're applying that recipe to all the videos in your library. A recipe in Media Services is called a **Transform**. For more information, see [Transforms and Jobs](./transform-jobs-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices.
 
 #### Transform
 
