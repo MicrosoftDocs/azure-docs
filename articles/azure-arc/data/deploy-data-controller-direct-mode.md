@@ -153,8 +153,8 @@ az customlocation list -o table
 
 After the extension and custom location are created, proceed to Azure portal to deploy the Azure Arc data controller.
 
-1. Log into the Azure Portal.
-1. Search for "Azure Arc data controller" in the Azure marketplace and initiate the Create flow.
+1. Log into the Azure portal.
+1. Search for "Azure Arc data controller" in the Azure Marketplace and initiate the Create flow.
 1. In the **Prerequisites** section, ensure that the Azure Arc enabled Kubernetes cluster (direct mode) is selected and proceed to the next step.
 1. In the **Data controller details** section, choose a subscription and resource group.
 1. Enter a name for the data controller.

@@ -18,7 +18,7 @@ ms.topic: conceptual
 
 ## March 2021
 
-## Data controller
+### Data controller
 
 - You can create a data controller in direct connect mode with the Azure portal. Deployment with other Azure Arc enabled data services tools are not supported. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
    - Azure Data Studio
@@ -27,7 +27,7 @@ ms.topic: conceptual
 
    [Deploy Azure Arc data controller | Direct connect mode](deploy-dc-direct-mode.md) explains how to create the data controller in the portal. 
 
-## Azure Arc enabled PostgreSQL Hyperscale
+### Azure Arc enabled PostgreSQL Hyperscale
 
 - Passing  an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
 - Point in time restore is not supported for now on NFS storage.

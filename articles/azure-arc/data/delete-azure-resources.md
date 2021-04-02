@@ -13,13 +13,14 @@ ms.topic: how-to
 
 # Delete resources from Azure
 
-> [!NOTE]
->  The options to delete resources in this article are irreversible!
+This article describes how to delete resources from Azure.
 
-> [!NOTE]
->  In indirect connect mode, deleting an instance from Kubernetes will not remove it from Azure and deleting an instance from Azure will not remove it from Kubernetes. For indirect connect mode, deleting a resource is a two step process and this will be improved in the future. Kubernetes will be the source of truth and Azure will be updated to reflect it.
+> [!WARNING]
+> When you delete resources as described in this article, these actions are irreversible.
 
-In some cases, you may need to manually delete Azure Arc enabled data services resources in Azure Resource Manager (ARM).  You can delete these resources using any of the following options.
+In indirect connect mode, deleting an instance from Kubernetes will not remove it from Azure and deleting an instance from Azure will not remove it from Kubernetes. For indirect connect mode, deleting a resource is a two step process and this will be improved in the future. Kubernetes will be the source of truth and the portal will be updated to reflect it.
+
+In some cases, you may need to manually delete Azure Arc enabled data services resources in Azure.  You can delete these resources using any of the following options.
 
 - [Delete resources from Azure](#delete-resources-from-azure)
   - [Delete an entire resource group](#delete-an-entire-resource-group)
@@ -33,6 +34,7 @@ In some cases, you may need to manually delete Azure Arc enabled data services r
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Delete an entire resource group
+
 If you have been using a specific and dedicated resource group for Azure Arc enabled data services and you want to delete *everything* inside of the resource group you can delete the resource group which will delete everything inside of it.  
 
 You can delete a resource group in the Azure portal by doing the following:

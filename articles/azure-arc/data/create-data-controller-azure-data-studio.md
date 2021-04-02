@@ -17,7 +17,7 @@ You can create a data controller using Azure Data Studio through the deployment 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-At the current time, you can create a data controller using this method
+At the current time, you can create a data controller using the method described in this article.
 
 ## Prerequisites
 

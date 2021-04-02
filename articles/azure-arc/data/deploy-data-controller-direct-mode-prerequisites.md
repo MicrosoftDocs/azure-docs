@@ -11,7 +11,7 @@ ms.date: 03/31/2021
 ms.topic: overview
 ---
 
-# Deploy data controller - direct connect mode - prerequisites
+# Deploy data controller - direct connect mode (prerequisites)
 
 This article describes how to prepare to deploy a data controller for Azure Arc enabled data services in direct connect mode.
 
