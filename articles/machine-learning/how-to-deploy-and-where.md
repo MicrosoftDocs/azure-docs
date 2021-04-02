@@ -316,7 +316,7 @@ You are now ready to deploy your model.
 If you registered your model in your Azure Machine Learning workspace, replace "mymodel:1" with the name of your model and its version number.
 
 ```azurecli-interactive
-az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
+az ml model deploy -n tutorial -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
 ```
 
 ### Using a local model
