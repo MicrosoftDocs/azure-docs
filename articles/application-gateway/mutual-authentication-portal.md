@@ -1,6 +1,6 @@
 ---
-title: Configure mutual authentication on Azure Application Gateway through Portal
-description: Learn how to configure an Application Gateway to have mutual authentication through Portal 
+title: Configure mutual authentication on Azure Application Gateway through portal
+description: Learn how to configure an Application Gateway to have mutual authentication through portal 
 services: application-gateway
 author: mscatyao
 ms.service: application-gateway
@@ -9,7 +9,7 @@ ms.date: 03/30/2021
 ms.author: caya
 ---
 
-# Configure mutual authentication with Application Gateway through Portal (Preview)
+# Configure mutual authentication with Application Gateway through portal (Preview)
 
 This article describes how to use the Azure portal to configure mutual authentication on your Application Gateway. Mutual authentication means Application Gateway authenticates the client sending the request using the client certificate you upload onto the Application Gateway. 
 
@@ -25,7 +25,7 @@ To learn more, especially about what kind of client certificates you can upload,
 
 First create a new Application Gateway as you would usually through the portal - there are no additional steps needed in the creation to enable mutual authentication. For more information on how to create an Application Gateway in portal, check out our [portal quickstart tutorial](./quick-create-portal.md).
 
-## Configure mutual authentication on an existing Application Gateway
+## Configure mutual authentication 
 
 To configure an existing Application Gateway with mutual authentication, you'll need to first go to the **SSL settings (Preview)** tab in the Portal and create a new SSL profile. When you create an SSL profile, you'll see two tabs: **Client Authentication** and **SSL Policy**. The **Client Authentication** tab is where you'll upload your client certificate(s). The **SSL Policy** tab is to configure a listener specific SSL policy - for more information, check out [Configuring a listener specific SSL policy](./application-gateway-configure-listener-specific-ssl-policy.md).
 
@@ -52,8 +52,8 @@ To configure an existing Application Gateway with mutual authentication, you'll 
 7. Consider adding a listener specific policy. See instructions at [setting up listener specific SSL policies](./application-gateway-configure-listener-specific-ssl-policy.md).
 
 8. Select **Add** to save.
-
-![Add client authentication to SSL profile](./media/mutual-authentication-portal/mutual-authentication-portal.png)
+    > [!div class="mx-imgBorder"]
+    > ![Add client authentication to SSL profile](./media/mutual-authentication-portal/mutual-authentication-portal.png)
 
 ## Associate the SSL profile with a listener
 
@@ -75,7 +75,8 @@ Now that we've created an SSL profile with mutual authentication configured, we 
 
 8. Click **Add** to save your new listener with the SSL profile associated to it. 
 
-![Associate SSL profile to new listener](./media/mutual-authentication-portal/mutual-authentication-listener-portal.png)
+    > [!div class="mx-imgBorder"]
+    > ![Associate SSL profile to new listener](./media/mutual-authentication-portal/mutual-authentication-listener-portal.png)
 
 ## Renew expired client CA certificates
 

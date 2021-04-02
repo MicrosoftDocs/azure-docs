@@ -111,8 +111,8 @@ There are two potential causes behind this error code.
 #### Solution
 
 Depending on the cause of this error, there are two potential solutions. 
-1. Validate that the certificate chain uploaded was in the right format (PEM) and that the certificate data was properly delimited. 
-2. Check that the certificate file uploaded contained the certificate data in addition to the delimiters. 
+* Validate that the certificate chain uploaded was in the right format (PEM) and that the certificate data was properly delimited. 
+* Check that the certificate file uploaded contained the certificate data in addition to the delimiters. 
 
 ### Error code: ApplicationGatewayTrustedClientCertificateDoesNotContainAnyCACertificate
 

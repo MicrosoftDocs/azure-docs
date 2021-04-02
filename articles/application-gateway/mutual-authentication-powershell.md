@@ -138,26 +138,26 @@ Remove-AzResourceGroup -Name $rgname
 In the case that your client CA certificate has expired, you can update the certificate on your gateway through the following steps: 
 
 1. Sign in to Azure
-```azurepowershell
-Connect-AzAccount
-Select-AzSubscription -Subscription "<sub name>"
-```
+    ```azurepowershell
+    Connect-AzAccount
+    Select-AzSubscription -Subscription "<sub name>"
+    ```
 2. Get your Application Gateway configuration
-```azurepowershell
-$gateway = Get-AzApplicationGateway -Name "<gateway-name>" -ResourceGroupName "<resource-group-name>"
-```
+    ```azurepowershell
+    $gateway = Get-AzApplicationGateway -Name "<gateway-name>" -ResourceGroupName "<resource-group-name>"
+    ```
 3. Remove the trusted client certificate from the gateway 
-```azurepowershell
-Remove-AzApplicationGatewayTrustedClientCertificate -Name "<name-of-client-certificate>" -ApplicationGateway $gateway
-``` 
+    ```azurepowershell
+    Remove-AzApplicationGatewayTrustedClientCertificate -Name "<name-of-client-certificate>" -ApplicationGateway $gateway
+    ``` 
 4. Add the new certificate onto the gateway 
-```azurepowershell
-Add-AzApplicationGatewayTrustedClientCertificate -ApplicationGateway $gateway -Name "<name-of-new-cert>" -CertificateFile "<path-to-certificate-file>"
-```
+    ```azurepowershell
+    Add-AzApplicationGatewayTrustedClientCertificate -ApplicationGateway $gateway -Name "<name-of-new-cert>" -CertificateFile "<path-to-certificate-file>"
+    ```
 5. Update the gateway with the new certificate 
-```azurepowershell
-Set-AzApplicationGateway -ApplicationGateway $gateway
-```
+    ```azurepowershell
+    Set-AzApplicationGateway -ApplicationGateway $gateway
+    ```
 
 ## Next steps
 

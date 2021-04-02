@@ -27,35 +27,40 @@ The following steps help you export the .pem or .cer file for your certificate:
 
 1. To obtain a .cer file from the certificate, open **Manage user certificates**. Locate the certificate, typically in 'Certificates - Current User\Personal\Certificates', and right-click. Click **All Tasks**, and then click **Export**. This opens the **Certificate Export Wizard**. If you can't find the certificate under Current User\Personal\Certificates, you may have accidentally opened "Certificates - Local Computer", rather than "Certificates - Current User"). If you want to open Certificate Manager in current user scope using PowerShell, you type *certmgr* in the console window.
 
-   ![Screenshot shows the Certificate Manager with Certificates selected and a contextual menu with All tasks, then Export selected.](./media/certificates-for-backend-authentication/export.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot shows the Certificate Manager with Certificates selected and a contextual menu with All tasks, then Export selected.](./media/certificates-for-backend-authentication/export.png)
 
 2. In the Wizard, click **Next**.
-
-   ![Export certificate](./media/certificates-for-backend-authentication/exportwizard.png)
+    > [!div class="mx-imgBorder"]
+    > ![Export certificate](./media/certificates-for-backend-authentication/exportwizard.png)
 
 3. Select **No, do not export the private key**, and then click **Next**.
-
-   ![Do not export the private key](./media/certificates-for-backend-authentication/notprivatekey.png)
+    > [!div class="mx-imgBorder"]
+    > ![Do not export the private key](./media/certificates-for-backend-authentication/notprivatekey.png)
 
 4. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).**, and then click **Next**.
-
-   ![Base-64 encoded](./media/certificates-for-backend-authentication/base64.png)
+    > [!div class="mx-imgBorder"]
+    > ![Base-64 encoded](./media/certificates-for-backend-authentication/base64.png)
 
 5. For **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then, click **Next**.
 
-   ![Screenshot shows the Certificate Export Wizard where you specify a file to export.](./media/certificates-for-backend-authentication/browse.png)
+    > [!div class="mx-imgBorder"]
+   > ![Screenshot shows the Certificate Export Wizard where you specify a file to export.](./media/certificates-for-backend-authentication/browse.png)
 
 6. Click **Finish** to export the certificate.
 
-   ![Screenshot shows the Certificate Export Wizard after you complete the file export.](./media/certificates-for-backend-authentication/finish.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot shows the Certificate Export Wizard after you complete the file export.](./media/certificates-for-backend-authentication/finish.png)
 
 7. Your certificate is successfully exported.
 
-   ![Screenshot shows the Certificate Export Wizard with a success message.](./media/certificates-for-backend-authentication/success.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot shows the Certificate Export Wizard with a success message.](./media/certificates-for-backend-authentication/success.png)
 
    The exported certificate looks similar to this:
 
-   ![Screenshot shows a certificate symbol.](./media/certificates-for-backend-authentication/exported.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot shows a certificate symbol.](./media/certificates-for-backend-authentication/exported.png)
 
 ### Export CA certificate(s) from the public certificate
 
@@ -63,37 +68,44 @@ Now that you've exported your public certificate, you will now export the CA cer
 
 1. Once the public key has been exported, open the file.
 
-   ![Open authorization certificate](./media/certificates-for-backend-authentication/openAuthcert.png)
+    > [!div class="mx-imgBorder"]
+    > ![Open authorization certificate](./media/certificates-for-backend-authentication/openAuthcert.png)
 
-   ![about certificate](./media/mutual-authentication-certificate-management/general.png)
+    > [!div class="mx-imgBorder"]
+    > ![about certificate](./media/mutual-authentication-certificate-management/general.png)
 
 1. Select the Certification Path tab to view the certification authority.
 
-   ![cert details](./media/mutual-authentication-certificate-management/certdetails.png) 
+    > [!div class="mx-imgBorder"]
+    > ![cert details](./media/mutual-authentication-certificate-management/cert-details.png) 
 
 1. Select the root certificate and click on **View Certificate**.
 
-   ![cert path](./media/mutual-authentication-certificate-management/rootcert.png) 
+    > [!div class="mx-imgBorder"]
+    > ![cert path](./media/mutual-authentication-certificate-management/root-cert.png) 
 
    You should see the root certificate details.
 
-   ![cert info](./media/mutual-authentication-certificate-management/rootcertdetails.png)
+    > [!div class="mx-imgBorder"]
+    > ![cert info](./media/mutual-authentication-certificate-management/root-cert-details.png)
 
 1. Select the **Details** tab and click **Copy to File...**
 
-   ![copy root cert](./media/mutual-authentication-certificate-management/rootcertcopytofile.png)
+    > [!div class="mx-imgBorder"]
+    > ![copy root cert](./media/mutual-authentication-certificate-management/root-cert-copy-to-file.png)
 
 1. At this point, you've extracted the details of the root CA certificate from the public certificate. You'll see the **Certificate Export Wizard**. Follow steps 2-7 from the previous section ([Export public certificate](./mutual-authentication-certificate-management.md#export-public-certificate)) to complete the Certificate Export Wizard. 
 
 1. Now repeat steps 2-6 from this current section ([Export CA certificate(s) from the public certificate](./mutual-authentication-certificate-management.md#export-ca-certificates-from-the-public-certificate)) for all intermediate CAs to export all intermediate CA certificates in the Base-64 encoded X.509(.CER) format.
 
-    ![intermediate cert](./media/mutual-authentication-certificate-management/intermediatecert.png)
+    > [!div class="mx-imgBorder"]
+    > ![intermediate cert](./media/mutual-authentication-certificate-management/intermediate-cert.png)
 
     For example, you would repeat steps 2-6 from this section on the *MSIT CAZ2* intermediate CA to extract it as its own certificate. 
 
 ### Concatenate all your CA certificates into one file
 
-15. Run the following command with all the CA certificates you extracted earlier. 
+1. Run the following command with all the CA certificates you extracted earlier. 
 
     Windows:
     ```console
@@ -107,7 +119,8 @@ Now that you've exported your public certificate, you will now export the CA cer
 
     Your resulting combined certificate should look something like the following:
     
-    ![combined cert](./media/mutual-authentication-certificate-management/combinedcert.png)
+    > [!div class="mx-imgBorder"]
+    > ![combined cert](./media/mutual-authentication-certificate-management/combined-cert.png)
 
 ## Next steps
 

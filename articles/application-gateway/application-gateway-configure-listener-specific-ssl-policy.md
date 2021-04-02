@@ -1,6 +1,6 @@
 ---
-title: Configure listener-specific SSL policies on Azure Application Gateway through Portal
-description: Learn how to configure listener-specific SSL policies on Application Gateway through Portal 
+title: Configure listener-specific SSL policies on Azure Application Gateway through portal
+description: Learn how to configure listener-specific SSL policies on Application Gateway through portal 
 services: application-gateway
 author: mscatyao
 ms.service: application-gateway
@@ -9,7 +9,7 @@ ms.date: 03/30/2021
 ms.author: caya
 ---
 
-# Configure listener-specific SSL policies on Application Gateway through Portal (Preview)
+# Configure listener-specific SSL policies on Application Gateway through portal (Preview)
 
 This article describes how to use the Azure portal to configure listener-specific SSL policies on your Application Gateway. Listener-specific SSL policies allow you to configure specific listeners to use different SSL policies from each other. You'll still be able to set a default SSL policy that all listeners will use unless overwritten by the listener-specific SSL policy. 
 
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 First create a new Application Gateway as you would usually through the portal - there are no additional steps needed in the creation to configure listener-specific SSL policies. For more information on how to create an Application Gateway in portal, check out our [portal quickstart tutorial](./quick-create-portal.md).
 
-## Set up a listener-specific SSL policy on an existing Application Gateway
+## Set up a listener-specific SSL policy
 
 To set up a listener-specific SSL policy, you'll need to first go to the **SSL settings (Preview)** tab in the Portal and create a new SSL profile. When you create an SSL profile, you'll see two tabs: **Client Authentication** and **SSL Policy**. The **SSL Policy** tab is to configure a listener-specific SSL policy. The **Client Authentication** tab is where to upload a client certificate(s) for mutual authentication - for more information, check out [Configuring a mutual authentication](./mutual-authentication-portal.md).
 
@@ -45,11 +45,11 @@ To set up a listener-specific SSL policy, you'll need to first go to the **SSL s
 
 7. Select **Add** to save.
 
-> [!NOTE]
-> You don't have to configure client authentication on an SSL profile to associate it to a listener. You can have only client authentication configure, or only listener specific SSL policy configured, or both configured in your SSL profile.  
+    > [!NOTE]
+    > You don't have to configure client authentication on an SSL profile to associate it to a listener. You can have only client authentication configure, or only listener specific SSL policy configured, or both configured in your SSL profile.  
 
-![Add listener specific SSL policy to SSL profile](./media/application-gateway-configure-listener-specific-ssl-policy/listener-specific-ssl-policy-ssl-profile.png)
-
+    ![Add listener specific SSL policy to SSL profile](./media/application-gateway-configure-listener-specific-ssl-policy/listener-specific-ssl-policy-ssl-profile.png)
+    
 ## Associate the SSL profile with a listener
 
 Now that we've created an SSL profile with a listener-specific SSL policy, we need to associate the SSL profile to the listener to put the listener-specific policy in action. 
@@ -70,7 +70,7 @@ Now that we've created an SSL profile with a listener-specific SSL policy, we ne
 
 8. Click **Add** to save your new listener with the SSL profile associated to it. 
 
-![Associate SSL profile to new listener](./media/mutual-authentication-portal/mutual-authentication-listener-portal.png)
+    ![Associate SSL profile to new listener](./media/mutual-authentication-portal/mutual-authentication-listener-portal.png)        
 
 ## Next steps
 
