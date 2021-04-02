@@ -109,6 +109,9 @@ The following parameters are supported:
   * `%d` is the day formatted as `dd`
   * `%h` is the hour formatted as `HH`
   * `%M` is the minute formatted as `mm`
+  ![image](https://user-images.githubusercontent.com/81400625/113393064-b1c2ad80-93c8-11eb-9349-4200beee9200.png)
+  In this dataset, the blob template should be "%Y/%m/%d/00/JsonFormatV2.json".
+
 
 * **JSON format version**: Defines the data schema in the JSON files. Currently Metrics Advisor supports two versions, you can choose one to fill in the field:
   
