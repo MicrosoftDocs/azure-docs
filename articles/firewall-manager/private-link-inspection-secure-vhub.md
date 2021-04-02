@@ -5,7 +5,7 @@ services: firewall-manager
 author: jocortems
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 04/01/2021
+ms.date: 04/02/2021
 ms.author: jocorte
 ---
 
@@ -51,23 +51,23 @@ The following steps enable Azure Firewall to filter traffic using FQDN in networ
    > [!IMPORTANT]
    > If these /32 prefixes are not configured, traffic destined to private endpoints will bypass Azure Firewall.
 
-:::image type="content" source="./media/private-link-inspection-secure-vhub/firewall-manager-security-configuration.png" alt-text="Firewall Manager Security Configuration" border="true":::
+   :::image type="content" source="./media/private-link-inspection-secure-vhub/firewall-manager-security-configuration.png" alt-text="Firewall Manager Security Configuration" border="true":::
 
 These steps only work when the clients and private endpoints are deployed in different virtual networks connected to the same secured virtual hub and for on premises clients. If the clients and private endpoints are deployed in the same virtual network, a UDR with /32 routes for the private endpoints must be created. Configure these routes with **Next hop type**  set to **Virtual appliance** and **Next hop address** set to the private IP address of the Azure Firewall deployed in the secured virtual hub. **Propagate gateway routes** must be set to **Yes**.
 
 The following diagram illustrates the DNS and data traffic flows for the different clients to connect to a private endpoint deployed in Azure virtual WAN:
 
-:::image type="content" source="./media/private-link-inspection-secure-vhub/privatelink-vwan.png" alt-text="Traffic Flows" border="true":::
+:::image type="content" source="./media/private-link-inspection-secure-vhub/privatelink-vwan.png" alt-text="Traffic Flows":::
 
 ## Troubleshooting
 
-The main problems that might be experienced when attempting to filter traffic destined to private endpoints via secured virtual hub are:
+The main problems that you might have when you attempt to filter traffic destined to private endpoints via secured virtual hub are:
 
 - Clients are unable to connect to private endpoints.
 
 - Azure Firewall is bypassed. This symptom can be validated by the absence of network or application rules log entries in Azure Firewall.
 
-In most cases these problems are caused by one of the following issues:
+In most cases, these problems are caused by one of the following issues:
 
 - Incorrect DNS name resolution
 
@@ -110,7 +110,7 @@ In most cases these problems are caused by one of the following issues:
 
    :::image type="content" source="./media/private-link-inspection-secure-vhub/firewall-policy-private-traffic-configuration.png" alt-text="Private Traffic Secured by Azure Firewall" border="true":::
 
-2. Verify *Security configuration* in the firewall policy associated with the Azure Firewall deployed in the secured virtual hub. Make sure there's a /32 entry for each private endpoint private IP address you want to filter traffic for under **Private traffic prefixes**.
+2. Verify **Security configuration** in the firewall policy associated with the Azure Firewall deployed in the secured virtual hub. Make sure there's a /32 entry for each private endpoint private IP address you want to filter traffic for under **Private traffic prefixes**.
 
    :::image type="content" source="./media/private-link-inspection-secure-vhub/firewall-manager-security-configuration.png" alt-text="Firewall Manager Security Configuration - Private Traffic Prefixes" border="true":::
 
@@ -131,7 +131,7 @@ In most cases these problems are caused by one of the following issues:
 
 6. Inspect **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule** Azure Firewall logs. Make sure traffic destined to the private endpoints is being logged.
 
-   *AzureFirewallNetworkRule* log entries don't include FQDN information. Filter by IP address and port when inspecting network rules.
+   **AzureFirewallNetworkRule** log entries don't include FQDN information. Filter by IP address and port when inspecting network rules.
 
    When filtering traffic destined to [Azure Files](../storage/files/storage-files-introduction.md) private endpoints, **AzureFirewallNetworkRule** log entries will only be generated when a client first mounts or connects to the file share. Azure Firewall won't generate logs for [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations for files in the file share. This is because CRUD operations are carried over the persistent TCP channel opened when the client first connects or mounts to the file share.
 
