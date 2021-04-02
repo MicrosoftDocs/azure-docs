@@ -5,15 +5,13 @@ services: application-gateway
 author: mscatyao
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 03/30/2021
+ms.date: 04/02/2021
 ms.author: caya
 ---
 
 # Troubleshooting mutual authentication errors in Application Gateway (Preview)
 
 Learn how to troubleshoot problems with mutual authentication when using Application Gateway. 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Overview 
 
