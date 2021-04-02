@@ -203,7 +203,7 @@ Speed and success rate of a given RoboCopy run will depend on several factors:
 
 * IOPS on the source and target storage
 * the available network bandwidth between them
-* the ability to quickly process files and folders in a namespaces
+* the ability to quickly process files and folders in a namespace
 * the number of changes between RoboCopy runs
 
 
@@ -214,7 +214,7 @@ In this category you need to consider abilities of the **source** (your NAS), th
 > [!CAUTION]
 > While copying as fast as possible is often most desireable, consider the utilization of your local network and NAS appliance for other, often business critical tasks.
 
-It is possible that copying as fast as possible is really not desirable and it is more important that the migration does not monopolize available resources. 
+Copying as fast as possible might not desirable when there is a risk that the migration could monopolize available resources.
 
 * Consider when it's best in your environment to run migrations: during the day, off-hours, or during weekends.
 * Also consider networking QoS on a Windows Server to throttle the RoboCopy speed and thus the impact on NAS and network.
