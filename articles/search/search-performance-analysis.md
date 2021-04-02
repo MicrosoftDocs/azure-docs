@@ -12,7 +12,7 @@ ms.date: 04/06/2021
 
 # Analyze performance in Azure Cognitive Search
 
-INTRO TBD
+This article describes the tools, behaviors, and approaches for analyzing query and indexing performance in Cognitive Search.
 
 ## Use diagnostic logging
 
@@ -103,7 +103,7 @@ If queries are slowing down, look at the timing of indexing activity to see if i
 
 This section provides a set of queries that can help you visualize the search and indexing rates. For these examples, the time range is set in the query. Be sure to indicate **Set in query** when running the queries in Azure portal.
 
-:::image type="content" source="media/search-performance/perf-set-query-time-range.png" alt-text="Chart showing queries per minute" border="true":::
+:::image type="content" source="media/search-performance/perf-set-query-time-range.png" alt-text="Setting time ranges in the query tool" border="true":::
 
 <a name="average-query-latency"></a>
 

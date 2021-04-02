@@ -136,6 +136,28 @@
       href: security-baseline.md
 - name: How-to guides
   items:
+  - name: Services
+    items:
+    - name: Create a service
+      href: search-create-service-portal.md
+    - name: Choose a tier
+      href: search-sku-tier.md
+    - name: Service limits
+      href: search-limits-quotas-capacity.md
+    - name: Manage capacity
+      href: search-capacity-planning.md
+    - name: Manage costs
+      href: search-sku-manage-costs.md
+    - name: Multi-tenant architecture
+      href: search-modeling-multitenant-saas-applications.md
+    - name: Portal management
+      href: search-manage.md
+    - name: PowerShell management
+      href: search-manage-powershell.md
+    - name: Azure CLI management
+      href: search-manage-azure-cli.md
+    - name: Move service across regions
+      href: search-howto-move-across-regions.md
   - name: Development
     items:
     - name: API versions
@@ -168,28 +190,6 @@
         href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
-  - name: Services
-    items:
-    - name: Create a service
-      href: search-create-service-portal.md
-    - name: Choose a tier
-      href: search-sku-tier.md
-    - name: Service limits
-      href: search-limits-quotas-capacity.md
-    - name: Manage capacity
-      href: search-capacity-planning.md
-    - name: Manage costs
-      href: search-sku-manage-costs.md
-    - name: Multi-tenant architecture
-      href: search-modeling-multitenant-saas-applications.md
-    - name: Portal management
-      href: search-manage.md
-    - name: PowerShell management
-      href: search-manage-powershell.md
-    - name: Azure CLI management
-      href: search-manage-azure-cli.md
-    - name: Move service across regions
-      href: search-howto-move-across-regions.md
   - name: Indexes
     items:
     - name: Create an index
@@ -391,7 +391,7 @@
     - name: Overview
       href: search-monitor-usage.md
     - name: Tips for better performance
-      href: search-performance-fundamentals.md
+      href: search-performance-tips.md
     - name: Performance Analysis
       href: search-performance-analysis.md
     - name: Scale for performance
