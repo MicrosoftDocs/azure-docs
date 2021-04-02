@@ -1,22 +1,21 @@
 ---
-title: Scale for performance
+title: Scale for availability 
 titleSuffix: Azure Cognitive Search
 description: Learn techniques and best practices for tuning Azure Cognitive Search performance and configuring optimum scale.
 
-manager: nitinme
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 04/06/2021
 ms.custom: references_regions
 ---
 
-# Scale for performance on Azure Cognitive Search
+# Scale for service availability on Azure Cognitive Search
 
-This article describes best practices for advanced scenarios with sophisticated requirements for scalability and availability.
+This article describes best practices for advanced scenarios with sophisticated requirements for availability and operations at scale.
 
-## Start with baseline numbers
+<!-- ## Start with baseline numbers
 
 Before undertaking a larger deployment effort, make sure you know what a typical query load looks like. The following guidelines can help you arrive at baseline query numbers.
 
@@ -39,9 +38,9 @@ While creating these test workloads, there are some characteristics of Azure Cog
 + Azure Cognitive Search does not run indexing tasks in the background. If your service handles query and indexing workloads concurrently, take this into account by either introducing indexing jobs into your query tests, or by exploring options for running indexing jobs during off peak hours.
 
 > [!Tip]
-> You can simulate a realistic query load using load testing tools. Try [load testing with Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) or use one of these [alternatives](/azure/devops/test/load-test/overview#alternatives).
+> You can simulate a realistic query load using load testing tools. Try [load testing with Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) or use one of these [alternatives](/azure/devops/test/load-test/overview#alternatives). -->
 
-## Scale for high query volume
+<!-- ## Scale for high query volume
 
 A service is overburdened when queries take too long or when the service starts dropping requests. If this happens, you can address the problem in one of two ways:
 
@@ -69,9 +68,11 @@ Another reason for high latency rates is a single query taking too long to compl
 
 + **Increase Search Tier**  
 
-  Moving up to a higher Azure Cognitive Search tier can be another way to improve performance of slow queries. Each higher tier provides faster CPUs and more memory, both of which have a positive impact on query performance.
+  Moving up to a higher Azure Cognitive Search tier can be another way to improve performance of slow queries. Each higher tier provides faster CPUs and more memory, both of which have a positive impact on query performance. -->
 
-## Scale for availability
+<a name="scale-for-availability"></a>
+
+## High availability
 
 Replicas not only help reduce query latency, but can also allow for high availability. With a single replica, you should expect periodic downtime due to server reboots after software updates or for other maintenance events that will occur. As a result, it is important to consider if your application requires high availability of searches (queries) as well as writes (indexing events). Azure Cognitive Search offers SLA options on all the paid search offerings with the following attributes:
 
@@ -108,7 +109,7 @@ Azure Cognitive Search currently supports Availability Zones for Standard tier o
 
 Availability Zones do not impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/). You still need 3 or more replicas for query high availability.
 
-## Scale for geo-distributed workloads and geo-redundancy
+## Geo-distribution of workloads and redundancy
 
 For geo-distributed workloads, users who are located far from the host data center will have higher latency rates. One mitigation is to provision multiple search services in regions with closer proximity to these users.
 
@@ -134,7 +135,7 @@ Here is a high-level visual of what that architecture would look like.
 
 If you are using the Azure Cognitive Search REST API to [push content in your Azure Cognitive Search index](/rest/api/searchservice/update-index), you can keep your various search services in sync by pushing changes to all search services whenever an update is required. In your code, make sure to handle cases where an update to one search service fails but succeeds for other search services.
 
-## Leverage Azure Traffic Manager
+### Use Azure Traffic Manager to coordinate requests
 
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) allows you to route requests to multiple geo-located websites that are then backed by multiple search services. One advantage of the Traffic Manager is that it can probe Azure Cognitive Search to ensure that it is available and route users to alternate search services in the event of downtime. In addition, if you are routing search requests through Azure Web Sites, Azure Traffic Manager allows you to load balance cases where the Website is up but not Azure Cognitive Search. Here is an example of what the architecture that leverages Traffic Manager.
 

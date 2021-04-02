@@ -390,7 +390,7 @@
     items:
     - name: Overview
       href: search-monitor-usage.md
-    - name: Performance fundamentals
+    - name: Tips for better performance
       href: search-performance-fundamentals.md
     - name: Performance Analysis
       href: search-performance-analysis.md

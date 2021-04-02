@@ -1,0 +1,104 @@
+---
+title: Performance tips
+titleSuffix: Azure Cognitive Search
+description: Learn about tips and best practices for maximizing performance on a search service.
+
+author: LiamCavanagh
+ms.author: liamca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 04/06/2021
+---
+
+# Performance tips in Azure Cognitive Search
+
+This article is a collection of tips and best practices that are often recommended for boosting performance.
+
+## Develop baseline numbers
+
+In any large implementation, it is critical to do a performance benchmarking test of your Cognitive Search service before you roll it into production. You should test both the search query load that you expect, but also the expected data ingestion workloads (if possible, run these simultaneously). Having benchmark numbers helps to validate the proper [search tier](search-sku-tier.md), [service configuration](search-capacity-planning.md), and expected [query latency](search-performance-analysis.md#average-query-latency).
+
+To perform this benchmarking, we recommend the [azure-search-performance-testing (GitHub)](https://github.com/Azure-Samples/azure-search-performance-testing) tool.
+
+## Be selective when assigning field attributes
+
+A common mistake that administrators and developer make when creating a search index is selecting all available properties for the fields, as opposed to only selecting just the properties that are needed. For example, if a field doesn't need to be full text searchable, skip that field when setting the searchable attribute.
+
+:::image type="content" source="media/search-performance/perf-selective-field-attributes.png" alt-text="Selective attribution" border="true":::
+
+Support for filters, facets, and sorting can quadruple storage requirements. If you add suggesters, storage requirements go up even more. For more information about the impact of attributes on storage, see [Attributes and index size](search-what-is-an-index.md#attributes-and-index-size-storage-implications).
+
+The ramifications of over attribution include:
+
++ Degradation of indexing performance due to the extra work required to process the content in the field, and then store it within the search inverted index. Only set the searchable attribute on fields that contain searchable content.
+
++ Creates a larger surface that each query has to cover. All fields marked as searchable are scanned in a full text search.
+
++ Increases operational costs by wasting storage. Filtering and sorting requires additional space for storing original (non-analyzed) strings. Avoid setting filterable or sortable on fields that don't need it.
+
++ In many cases, over attribution limits the capabilities of the field. For example, if a field is facetable, filterable, and searchable, you can only store 16 KB of text within a field, whereas a searchable can hold up to 16 MB of text.
+
+> [!NOTE]
+> Only unnecessary attribution should be avoided. Filters and facets are often essential to the search experience, and in cases where filters are used, you might need sorting so that you can order the results (filters by themselves return unordered results).
+
+## Use alternatives to complex types
+
+Complex data types are useful when data has a complicated nested structure, such as the parent-child elements found in JSON documents. The downside of complex types is the extra storage requirements and additional resources required to index the content, in comparison to non-complex data types. 
+
+In some cases, you can avoid these tradeoffs by mapping a complex data structure to a simpler field type, such as a Collection. Alternatively, you might opt for flattening a field hierarchy into individual root-level fields.
+
+:::image type="content" source="media/search-performance/perf-flattened-field-hierarchy.png" alt-text="flattened field structure" border="true":::
+
+## Use search functions instead overloading filter criteria
+
+As a query uses increasingly [complex filter criteria](search-query-odata-filter.md#filter-size-limitations), the performance of the search query will degrade. Consider the following example that demonstrates the use of filters to trim results based on a user identity:
+
+```json
+$filter= userid eq 123 or userid eq 234 or userid eq 345 or userid eq 456 or userid eq 567
+```
+
+In this case, the filter expressions are used to check whether a single field in each document is equal to one of many possible values of a user identity. You are most likely to find this pattern in applications that implement [security trimming](search-security-trimming-for-azure-search.md) (checking a field containing one or more principal IDs against a list of principal IDs representing the user issuing the query).
+
+A more efficient way to execute filters that contain a large number of values is to use [`search.in` function](search-query-odata-search-in-function.md), as shown in this example:
+
+```json
+search.in(userid, '123,234,345,456,567', ',')
+```
+
+## Upgrade to a Standard S2 tier
+
+The Standard S1 search tier is often where customers start. A common pattern for S1 services is that indexes grow over time, which requires more partitions. More partitions lead to slower response times, so more replicas are added to handle the query load. As you can imagine, the cost of running an S1 service has now progressed to levels beyond the initial configuration.
+
+At this juncture, an important question to ask is whether it would be beneficial to move to a higher tier, as opposed to progressively increasing the number of partitions or replicas of the current service. 
+
+Consider the following topology as an example of a service that has taken on increasing levels of capacity:
+
++ Standard S1 tier
++ Index Size: 190 GB
++ Partition Count: 8 (on S1, partition size is 25 GB per partition)
++ Replica Count: 2
++ Total Search Units: 16 (8 partitions x 2 replicas)
++ Hypothetical Retail Price: ~$4,000 USD / month (assume $250 USD x 16 search units)
+
+Suppose the service administrator is still seeing higher latency rates and is considering adding another replica. This would change the replica count from 2 to 3 and as a result change the Search Unit count to 24 and a resulting price of $6,000 USD/month.
+
+However, if the administrator chose to move to a Standard S2 tier the topology would look like:
+
++ Standard S2 tier
++ Index Size: 190 GB
++ Partition Count: 2 (on S2, partition size is 100 GB per partition)
++ Replica Count: 2
++ Total Search Units: 4 (2 partitions x 2 replicas)
++ Hypothetical Retail Price: ~$4,000 USD / month ($1000 USD x 4 search units)
+
+As this hypothetical scenario illustrates, you can have configurations on lower tiers that result in similar costs as if you had opted for a higher tier in the first place. However, higher tiers come with premium storage, which makes indexing faster. Higher tiers also have much more compute power, as well as extra memory. For the same costs, you could have more powerful infrastructure backing the same index.
+
+An important benefit of added memory is that more of the index can be cached, resulting in lower search latency, and a greater number of queries per second. With this extra power, the administrator may not need to even need to increase the replica count and could potentially pay less than by staying on the S1 service.
+
+## Next steps
+
+Review these additional articles related to service performance.
+
++ [Analyze performance](search-performance-analysis.md)
++ [Choose a service tier](search-sku-tier.md)
++ [Manage capacity](search-capacity-planning.md)
