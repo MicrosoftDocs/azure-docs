@@ -65,7 +65,7 @@ see [Access Azure Media Services API](./access-api-howto.md).
 
 See the following samples that show how to connect with Azure AD service principal:
 
-* [Connect with REST](media-rest-apis-with-postman.md)  
+* [Connect with REST](setup-postman-rest-how-to.md)  
 * [Connect with Java](configure-connect-java-howto.md)
 * [Connect with .NET](configure-connect-dotnet-howto.md)
 * [Connect with Node.js](configure-connect-nodejs-howto.md)
@@ -141,7 +141,7 @@ AMSE is an Open Source project, support is provided by the community (issues can
 
 ## Filtering, ordering, paging of Media Services entities
 
-See [Filtering, ordering, paging of Azure Media Services entities](entities-overview.md).
+See [Filtering, ordering, paging of Azure Media Services entities](filter-order-page-entitites-how-to.md).
 
 ## Ask questions, give feedback, get updates
 

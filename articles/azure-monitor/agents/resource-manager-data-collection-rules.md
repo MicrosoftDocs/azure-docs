@@ -9,7 +9,7 @@ ms.date: 11/17/2020
 ---
 
 # Resource Manager template samples for data collection rules in Azure Monitor
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to deploy and configure the [Log Analytics agent](./log-analytics-agent.md) and [diagnostic extension](./diagnostics-extension-overview.md) for virtual machines in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create an association between a [data collection rule](data-collection-rule-overview.md) and the [Azure Monitor agent](./azure-monitor-agent-overview.md). Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

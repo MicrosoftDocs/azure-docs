@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
@@ -102,6 +102,8 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
 1. Select **Save**.
 
 ## Add Azure AD identity provider to a user flow 
+
+At this point, the Azure AD identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Azure AD identity provider to a user flow:
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Azure AD identity provider.

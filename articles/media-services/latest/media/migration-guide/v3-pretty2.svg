@@ -52,7 +52,7 @@
 				<title>Nothing to see here.</title>
 				<rect x="0" y="0.499976" width="684" height="1044" class="st1"/>
 			</g>
-			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/manage-assets-quickstart" target="__blank">
+			<a xlink:href="https://docs.microsoft.com/azure/media-services/latest/asset-create-asset-upload-portal-quickstart" target="__blank">
 				<g id="shape129-4" transform="translate(268.144,-720)">
 					<title>See uploading content documentation</title>
 					<desc>Upload content</desc>

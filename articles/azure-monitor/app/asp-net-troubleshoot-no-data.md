@@ -222,7 +222,7 @@ Follow these instructions to capture troubleshooting logs for your framework.
 
     ```xml
     <TelemetryModules>
-      <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
+      <Add Type="Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.FileDiagnosticsTelemetryModule, Microsoft.ApplicationInsights">
         <Severity>Verbose</Severity>
         <LogFileName>mylog.txt</LogFileName>
         <LogFilePath>C:\\SDKLOGS</LogFilePath>
@@ -280,7 +280,9 @@ For more information,
 
 ## Collect logs with dotnet-trace
 
-An alternate method of collecting logs for troubleshooting that may be particularly helpful for linux-based environments is [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)
+Alternatively, customers can also use a cross-platform .NET Core tool, [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace) for collecting logs that can further help in troubleshooting. This may be particularly helpful for linux-based environments.
+
+After installation of [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace), execute the command below in bash.
 
 ```bash
 dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-LoggerProvider,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore
@@ -292,4 +294,3 @@ Learn how to remove Application Insights in Visual Studio by following the steps
 
 ## Still not working...
 * [Microsoft Q&A question page for Application Insights](/answers/topics/azure-monitor.html)
-
