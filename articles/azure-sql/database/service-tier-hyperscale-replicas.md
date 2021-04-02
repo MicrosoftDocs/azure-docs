@@ -154,13 +154,13 @@ Data latency from the time a transaction is committed on the primary to the time
 
 ## Geo Replica  (in Preview)
 
-With [Active Geo-replication](active-geo-replication-overview), you can create a readable secondary replica of the primary Hyperscale database in the same or in a different region. Geo-replicas must always be created on a different logical server. The database name of a geo-replica always matches the database name of the primary.
+With [active Geo-replication](active-geo-replication-overview), you can create a readable secondary replica of the primary Hyperscale database in the same or in a different region. Geo-replicas must always be created on a different logical server. The database name of a geo-replica always matches the database name of the primary.
 
 When creating a geo-replica, all data is copied from the primary to a different set of page servers. A geo-replica does not share page servers with the primary, even if they are in the same region. This provides the necessary redundancy for geo-failovers.
 
 Geo-replicas are primarily used to maintain a transactionally consistent copy of the database via asynchronous replication in a different geographical region for disaster recovery in case of a disaster or outage in the primary region. Geo-replicas can also be used for geographic read scale-out scenarios.
 
-With [active geo-replication on Hyperscale](active-geo-replication-overview), failover must be initiated manually. After failover, the new primary will have a different connection end point, referencing the logical server name hosting the new primary replica. For more details, see [Active geo-replication](active-geo-replication-overview).
+With [active geo-replication on Hyperscale](active-geo-replication-overview), failover must be initiated manually. After failover, the new primary will have a different connection end point, referencing the logical server name hosting the new primary replica. For more details, see [active geo-replication](active-geo-replication-overview).
 
 Geo-replication for Hyperscale databases is currently in preview, with the following limitations:
 - Only 1 geo-replica can be created (in the same or different region).
