@@ -114,7 +114,7 @@ event.
 
 ## See also
 
-[Streaming Endpoint (Origin) error codes](streaming-endpoint-error-codes.md)
+[Streaming Endpoint (Origin) error codes](stream-streaming-endpoint-error-codes-reference.md)
 
 ## Next steps
 
