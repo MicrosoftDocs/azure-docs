@@ -47,20 +47,11 @@ Many of the services such as self-service provisioning, automated backups/restor
 
 The following table describes the scenarios that are currently supported for Arc enabled data services.
 
-|Azure Regions  |Connected Mode  |Indirect connect Mode  |
+|Azure Regions  |Direct connected mode  |Indirect connected mode  |
 |---------|---------|---------|
 |East US|Available|Available
 |West Europe |Available |Available
 |North Europe|Available|Available
-|Australia East|Not Available |Available
-|Southeast Asia|Not Available |Available
-|East US 2|Not Available |Available
-|West US 2|Not Available |Available
-|Central US |Not Available |Available
-|Japan East|Not Available |Available
-|East Asia|Not Available |Available
-|UK South |Not Available |Not Available 
-|South Central US |Not Available |Not Available 
 
 ## Next steps
 
