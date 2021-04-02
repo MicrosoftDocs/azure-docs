@@ -46,56 +46,56 @@ Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/refer
 
 1. Create a new AAD application and get its `appId` value, which is used in later steps as `serverApplicationId`:
 
-```azurecli
-az ad app create --display-name "<clusterName>Server" --identifier-uris "https://<clusterName>Server" --query appId -o tsv
-```
+    ```azurecli
+    az ad app create --display-name "<clusterName>Server" --identifier-uris "https://<clusterName>Server" --query appId -o tsv
+    ```
 
 1. Update the application group membership claims:
 
-```azurecli
-az ad app update --id <serverApplicationId> --set groupMembershipClaims=All
-```
+    ```azurecli
+    az ad app update --id <serverApplicationId> --set groupMembershipClaims=All
+    ```
 
 1. Create a service principal and get its `password` field value, which is required later as `serverApplicationSecret` when enabling this feature on the cluster:
 
-```azurecli
-az ad sp create --id <serverApplicationId>
-az ad sp credential reset --name <serverApplicationId> --credential-description "ArcSecret" --query password -o tsv
-```
+    ```azurecli
+    az ad sp create --id <serverApplicationId>
+    az ad sp credential reset --name <serverApplicationId> --credential-description "ArcSecret" --query password -o tsv
+    ```
 
 1. Grant the application API permissions:
 
-```azurecli
-az ad app permission add --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
-az ad app permission grant --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000
-```
+    ```azurecli
+    az ad app permission add --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
+    az ad app permission grant --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000
+    ```
 
 ### Create client application
 
 1. Create a new AAD application and get its 'appId' value, which is used in later steps as `clientApplicationId`:
 
-```azurecli
-az ad app create --display-name "<clusterName>Client" --native-app --reply-urls "https://<clusterName>Client" --query appId -o tsv
-```
+    ```azurecli
+    az ad app create --display-name "<clusterName>Client" --native-app --reply-urls "https://<clusterName>Client" --query appId -o tsv
+    ```
 
 2. Create a service principal for this client application:
 
-```azurecli
-az ad sp create --id <clientApplicationId>
-```
+    ```azurecli
+    az ad sp create --id <clientApplicationId>
+    ```
 
 3. Get the `oAuthPermissionId` for the server application:
 
-```azurecli
-az ad app show --id <serverApplicationId> --query "oauth2Permissions[0].id" -o tsv
-```
+    ```azurecli
+    az ad app show --id <serverApplicationId> --query "oauth2Permissions[0].id" -o tsv
+    ```
 
 4. Grant the required permissions for the client application:
 
-```azurecli
-az ad app permission add --id <clientApplicationId> --api <serverApplicationId> --api-permissions <oAuthPermissionId>=Scope
-az ad app permission grant --id <clientApplicationId> --api <serverApplicationId>
-```
+    ```azurecli
+    az ad app permission add --id <clientApplicationId> --api <serverApplicationId> --api-permissions <oAuthPermissionId>=Scope
+    az ad app permission grant --id <clientApplicationId> --api <serverApplicationId>
+    ```
 
 ## Create a role assignment for the server application
 

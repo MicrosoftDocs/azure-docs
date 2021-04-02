@@ -30,7 +30,7 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
   ```
 
 >[!TIP]
-> If the `connectedk8s` extension is already installed, you can update it to the latest version using the following command - `az extension update --name connectedk8s`
+> If the `connectedk8s` extension is already installed, update it to the latest version using the following command - `az extension update --name connectedk8s`
 
 
 >[!NOTE]
