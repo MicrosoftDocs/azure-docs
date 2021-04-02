@@ -21,7 +21,7 @@ Currently you can create the Azure Arc data controller from Azure portal. Other 
 
 ## Complete prerequisites
 
-Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connected mode - prerequisites](direct-connected-mode-prerequisites.md).
+Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](direct-connected-mode-prerequisites.md).
 
 From a high level, this article explains how to complete these tasks:
 

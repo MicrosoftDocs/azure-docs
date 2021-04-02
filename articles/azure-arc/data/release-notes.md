@@ -20,13 +20,22 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ## March 2021
 
-The March, 2021 release is introduced on April 6, 2021.
-
-- Deploy Azure Arc enabled data services data controller in direct connect mode from the portal. Start from [Deploy data controller - direct connected mode - prerequisites](deploy-dc-direct-mode-prerequisites.md).
-
+The March 2021 release is introduced on April 6, 2021.
 
 Review limitations of this release in [Known issues - Azure Arc enabled data services (Preview)](known-issues.md).
 
+### Data controller
+
+- Deploy Azure Arc enabled data services data controller in direct connect mode from the portal. Start from [Deploy data controller - direct connect mode - prerequisites](deploy-dc-direct-mode-prerequisites.md).
+
+### Azure Arc enabled PostgreSQL Hyperscale
+
+- Both custom resource definitions (CRD) for PostgreSQL have been consolidated into a single CRD.
+   |Release |CRD |
+   |-----|-----|
+   |February 2021 and prior| postgresql-11s.arcdata.microsoft.com<br/>postgresql-12s.arcdata.microsoft.com |
+   |Beginning March 2021 | postgresqls.arcdata.microsoft.com
+- 
 ## February 2021
 
 ### New capabilities and features
@@ -132,14 +141,6 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 - AKS clusters that span [multiple availability zones](../../aks/availability-zones.md) are not currently supported for Azure Arc enabled data services. To avoid this issue, when you create the AKS cluster in Azure portal, if you select a region where zones are available, clear all the zones from the selection control. See the following image:
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Clear the checkboxes for each zone to specify none.":::
-
-#### PostgreSQL
-
-- Azure Arc enabled PostgreSQL Hyperscale returns an inaccurate error message when it cannot restore to the relative point in time you indicate. For example, if you specified a point in time to restore that is older than what your backups contain, the restore will fail with an error message like:
-ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}
-When this happens, restart the command after indicating a point in time that is within the range of dates for which you have backups. You will determine this range by listing your backups and by looking at the dates at which they were taken.
-- Point in time restore is supported only across server groups. The target server of a point in time restore operation cannot be the server from which you took the backup. It has to be a different server group. However, full restore is supported to the same server group.
-- A backup-id is required when doing a full restore. By default, if you are not indicating a backup-id the latest backup will be used. This does not work in this release.
 
 ## October 2020 
 

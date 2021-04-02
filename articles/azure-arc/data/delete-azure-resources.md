@@ -17,7 +17,7 @@ ms.topic: how-to
 >  The options to delete resources in this article are irreversible!
 
 > [!NOTE]
->  Since the only connectivity mode that is offered for Azure Arc enabled data services currently is the Indirect Connected mode, deleting an instance from Kubernetes will not remove it from Azure and deleting an instance from Azure will not remove it from Kubernetes.  For now deleting a resource is a two step process and this will be improved in the future.  Going forward, Kubernetes will be the source of truth and Azure will be updated to reflect it.
+>  In indirect connect mode, deleting an instance from Kubernetes will not remove it from Azure and deleting an instance from Azure will not remove it from Kubernetes. For indirect connect mode, deleting a resource is a two step process and this will be improved in the future. Kubernetes will be the source of truth and Azure will be updated to reflect it.
 
 In some cases, you may need to manually delete Azure Arc enabled data services resources in Azure Resource Manager (ARM).  You can delete these resources using any of the following options.
 
@@ -37,7 +37,7 @@ If you have been using a specific and dedicated resource group for Azure Arc ena
 
 You can delete a resource group in the Azure portal by doing the following:
 
-- Browse to the Resource Group in the Azure portal where the Azure Arc enabled data services resources have been created.
+- Browse to the resource group in the Azure portal where the Azure Arc enabled data services resources have been created.
 - Click the **Delete resource group** button.
 - Confirm the deletion by entering the resource group name and click **Delete**.
 
@@ -45,7 +45,7 @@ You can delete a resource group in the Azure portal by doing the following:
 
 You can delete specific Azure Arc enabled data services resources in a resource group in the Azure portal by doing the following:
 
-- Browse to the Resource Group in the Azure portal where the Azure Arc enabled data services resources have been created.
+- Browse to the resource group in the Azure portal where the Azure Arc enabled data services resources have been created.
 - Select all the resources to be deleted.
 - Click on the Delete button.
 - Confirm the deletion by typing 'yes' and click **Delete**.
