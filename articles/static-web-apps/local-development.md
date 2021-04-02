@@ -40,15 +40,15 @@ The following chart shows how requests are handled locally.
 > [!IMPORTANT]
 > Navigate to [http://localhost:4280](http://localhost:4280) to access the application served by the CLI.
 
-1. **Requests** made to port `4280` are forwarded to the appropriate server depending on the type of request.
+- **Requests** made to port `4280` are forwarded to the appropriate server depending on the type of request.
 
-2. **Static content** requests, such as HTML or CSS,  are either handled by the internal CLI static content server, or by the front-end framework server for debugging.
+- **Static content** requests, such as HTML or CSS,  are either handled by the internal CLI static content server, or by the front-end framework server for debugging.
 
-3. **Authentication and authorization** requests are handled by an emulator, which provides a fake identity profile to your app.
+- **Authentication and authorization** requests are handled by an emulator, which provides a fake identity profile to your app.
 
-4. **Functions Core Tools runtime** handles requests to the site's API.
+- **Functions Core Tools runtime** handles requests to the site's API.
 
-5. **Responses** from all services are returned to the browser as if they were all a single application.
+- **Responses** from all services are returned to the browser as if they were all a single application.
 
 ## Prerequisites
 
