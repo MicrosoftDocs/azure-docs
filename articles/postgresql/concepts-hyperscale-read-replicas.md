@@ -103,7 +103,12 @@ another read replica.
 
 A replica is created by using the same compute, storage, and worker node
 settings as the primary. After a replica is created, several settings can be
-changed including storage and backup retention period.
+changed, including storage and backup retention period. Other settings can't be
+changed in replicas, such as storage size and number of worker nodes.
+
+Remember to keep replicas strong enough to keep up changes arriving from the
+primary. For instance, be sure to upscale compute power in replicas if you
+upscale it on the primary.
 
 Firewall rules and parameter settings are not inherited from the primary server
 to the replica when the replica is created or afterwards.
