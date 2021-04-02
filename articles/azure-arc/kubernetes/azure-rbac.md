@@ -75,7 +75,7 @@ az ad app permission grant --id <serverApplicationId> --api 00000003-0000-0000-c
 1. Create a new AAD application and fetch its 'appId' value, which is used in later steps as `clientApplicationId`:
 
 ```azurecli
-az ad app create --display-name "ArcAzureADClient" --native-app --reply-urls "https://ArcAzureADClient" --query appId -o tsv
+az ad app create --display-name "<clusterName>Client" --native-app --reply-urls "https://<clusterName>Client" --query appId -o tsv
 ```
 
 2. Create a service principal for this client application:
