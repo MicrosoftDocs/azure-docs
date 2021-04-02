@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 For this tutorial, you need a web app deployed to App Service. You can use an existing web app, or you can follow the [ASP.NET Core quickstart](quickstart-dotnetcore.md) to create and publish a new web app to App Service.
 
-Whether you use an existing web app or create a new one, take note of the web app name and the name of the resource group that the web app is deployed to. You need these names throughout this tutorial. Throughout this tutorial, example names in procedures and screenshots contain *SecureWebApp*.
+Whether you use an existing web app or create a new one, take note of the web app name and the name of the resource group that the web app is deployed to. You need these names throughout this tutorial. 
 
 ## Configure authentication and authorization
 
