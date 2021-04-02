@@ -86,7 +86,7 @@ This option uses the following defaults:
 - Auto-upgrade is enabled for the Azure Monitor cluster extension
 
 ```console
-az k8s-extension create --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --name azuremonitor-containers
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers
 ```
 
 ### Option 2 - With existing Azure Log Analytics workspace
@@ -94,7 +94,7 @@ az k8s-extension create --cluster-name <cluster-name> --resource-group <resource
 You can use an existing Azure Log Analytics workspace in any subscription on which you have *Contributor* or a more permissive role assignment.
 
 ```console
-az k8s-extension create --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --name azuremonitor-containers --configuration-settings logAnalyticsWorkspaceResourceID=<armResourceIdOfExistingWorkspace>
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID=<armResourceIdOfExistingWorkspace>
 ```
 
 ### Option 3 - With advanced configuration
@@ -102,7 +102,7 @@ az k8s-extension create --cluster-name <cluster-name> --resource-group <resource
 If you want to tweak the default resource requests and limits, you can use the advanced configurations settings:
 
 ```console
-az k8s-extension create --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --name azuremonitor-containers --configuration-settings  omsagent.resources.daemonset.limits.cpu=150m omsagent.resources.daemonset.limits.memory=600Mi omsagent.resources.deployment.limits.cpu=1 omsagent.resources.deployment.limits.memory=750Mi
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  omsagent.resources.daemonset.limits.cpu=150m omsagent.resources.daemonset.limits.memory=600Mi omsagent.resources.deployment.limits.cpu=1 omsagent.resources.deployment.limits.memory=750Mi
 ```
 
 Checkout the [resource requests and limits section of Helm chart](https://github.com/helm/charts/blob/master/incubator/azuremonitor-containers/values.yaml) for the available configuration settings.
@@ -112,7 +112,7 @@ Checkout the [resource requests and limits section of Helm chart](https://github
 If the Azure Arc enabled Kubernetes cluster is on Azure Stack Edge, then a custom mount path `/home/data/docker` needs to be used.
 
 ```console
-az k8s-extension create --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --name azuremonitor-containers --configuration-settings omsagent.logsettings.custommountpath=/home/data/docker
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.logsettings.custommountpath=/home/data/docker
 ```
 
 >[!NOTE]
@@ -169,7 +169,7 @@ az deployment group create --resource-group <resource-group> --template-file ./a
 The following command only deletes the extension instance, but doesn't delete the Log Analytics workspace. The data within the Log Analytics resource is left intact.
 
 ```bash
-az k8s-extension delete --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group> --name Microsoft.AzureMonitor.Containers
+az k8s-extension delete --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group>
 ```
 
 ## Disconnected cluster
