@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/31/2021
+ms.date: 04/06/2021
 ms.topic: overview
 ---
 
@@ -32,11 +32,11 @@ After the extension and custom location are created, proceed to Azure portal to 
 1. Search for "Azure Arc data controller" in the Azure marketplace and initiate the Create flow.
 1. In the **Prerequisites** section, ensure that the Azure Arc enabled Kubernetes cluster (direct mode) is selected and proceed to the next step.
 1. In the **Data controller details** section, choose a subscription and resource group.
-1. Enter a name for the data controller
+1. Enter a name for the data controller.
 1. Choose a configuration profile based on the Kubernetes distribution provider you are deploying to.
 1. Choose the Custom Location that you created in the previous step.
-1. Provide details for the data controller administrator login and password
-1. Provide details for ClientId, TenantId and Client Secret for the Service Principal that would be used to create the Azure objects. [Upload metrics](upload-metrics-and-logs-to-azure-monitor.md) article that has detailed instructions on creating a Service Principal account and the roles that needed to be granted for the account.
+1. Provide details for the data controller administrator login and password.
+1. Provide details for ClientId, TenantId, and Client Secret for the Service Principal that would be used to create the Azure objects. See [Upload metrics](upload-metrics-and-logs-to-azure-monitor.md) for detailed instructions on creating a Service Principal account and the roles that needed to be granted for the account.
 1. Click **Next**, review the summary page for all the details and click on **Create**.
 
 ## Monitor the creation
@@ -46,3 +46,9 @@ When the Azure portal deployment status shows the deployment was successful, you
 ```console
 kubectl get datacontrollers -n arc
 ```
+
+## Next steps
+
+[Create an Azure Arc enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md)
+
+[Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md)
