@@ -190,7 +190,7 @@
       href: delivery-and-retry.md
     - name: Webhook event delivery
       href: webhook-event-delivery.md
-    - name: Delivery properties
+    - name: Custom delivery properties
       href: delivery-properties.md
   - name: Disaster recovery
     items:
