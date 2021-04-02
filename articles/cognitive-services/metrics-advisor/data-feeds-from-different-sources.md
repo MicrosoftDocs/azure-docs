@@ -48,7 +48,7 @@ Use this article to find the settings and requirements for connecting different 
 |[**PostgreSQL**](#pgsql)| Basic|
 |[**Local files(CSV)**](#csv)| Basic|
 
-You can create a **Credential entity** to store, update, and use it for authenticating to your data sources easily. It can be created in *Adding data feed page* or *Credential entity page*. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new datafeeed, and it will be really convenient when creating multiple data feeds. The procedure of creating and using a credential entity is following:
+You can create a **Credential entity** to store, update, and use it for authenticating to your data sources easily. It can be created in *Adding data feed page* or *Credential entity page*. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new datafeeed, and it will be really convenient when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
 
 1. Click "+" to create a new credential entity when adding data feed (you can also create one in *Credential entity page*).
  ![image](https://user-images.githubusercontent.com/81400625/113384375-78824180-93b8-11eb-9bdd-cda07f3bbfa1.png)
