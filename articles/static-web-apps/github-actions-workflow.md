@@ -150,6 +150,8 @@ The deployment always calls `npm install` before any custom command.
 
 If you need full control over how your front-end application is built, you can add custom build steps in your workflow. Since the app is built separately, you can configure the Static Web Apps action to bypass the automatic build process and just deploy the app.
 
+To skip building the app, set `skip_app_build` to `true` and `app_location` to the location of the build output to deploy.
+
 ```yml
 with:
     azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
@@ -163,7 +165,7 @@ with:
     ###### End of Repository/Build Configurations ######
 ```
 
-| Command            | Description |
+| Property            | Description |
 |---------------------|-------------|
 | `skip_app_build` | Set the value to `true` to skip building the front-end app. |
 
