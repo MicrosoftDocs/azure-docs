@@ -27,7 +27,7 @@ A summary of the steps to lock down egress from your existing HDInsight with Azu
 
 1. Create a subnet.
 1. Create a firewall.
-1. Add application rules to the firewall
+1. Add application rules to the firewall.
 1. Add network rules to the firewall.
 1. Create a routing table.
 
