@@ -14,17 +14,15 @@ ms.reviewer: davberg
 # Compute benchmark scores for Windows VMs
 The following CoreMark benchmark scores show compute performance for select Azure VMs running Windows Server. Compute benchmark scores are also available for [Linux VMs](../linux/compute-benchmark-scores.md).
 
+| Type | Families |
+| ---- | -------- |
+| [Compute optimized](#compute-optimized) | [Fsv2](#fsv2---compute---premium-storage)  |
+| [General purpose](#general-purpose) | [Dasv4](#dasv4) [Dav4](#dav4) [Ddsv4](#ddsv4) [Ddv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4)  |
+| [Memory optimized](#memory-optimized) | [Easv4](#easv4) [Eav4](#eav4) [Edsv4](#edsv4) [Edv4](#edv4) [Esv4](#esv4) [Ev4](#ev4)  |
 
-
-| Type | Families | Description (from docs) |
-| ---- | -------- | ----------------------- |
-| Compute optimized | [Fsv2](#fsv2---compute---storage-optimized)  | TBD |
-| General purpose | [Dasv4](#dasv4) [Dav4](#dav4) [Ddsv4](#ddsv4) [Ddv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4)  | TBD |
-| Memory optimized | [Easv4](#easv4) [Eav4](#eav4) [Edsv4](#edsv4) [Edv4](#edv4) [Esv4](#esv4) [Ev4](#ev4)  | TBD |
-
-
+# azure (Coremark)
 ## Compute optimized
-### Fsv2 - Compute + Storage Optimized
+### Fsv2 - Compute + Premium Storage
 (03/29/2021 PBIID:9198755)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
@@ -267,8 +265,6 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_E32_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 1 | 256.0 | 486,051 | 28,085 | 5.78% | 378 |
 | Standard_E48_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 48 | 2 | 384.0 | 686,812 | 20,561 | 2.99% | 378 |
 | Standard_E64_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 64 | 2 | 504.0 | 919,491 | 15,261 | 1.66% | 378 |
-
-
 
 
 ## About CoreMark
