@@ -205,7 +205,7 @@ A single streaming endpoint can stream both live and on-demand videos and most c
 See the following articles:
 
 - [CDN overview](../../cdn/cdn-overview.md)
-- [Scaling streaming with CDN](scale-streaming-cdn.md)
+- [Scaling streaming with CDN](stream-scale-streaming-cdn-concept.md)
 
 ## Ask questions and  get updates
 

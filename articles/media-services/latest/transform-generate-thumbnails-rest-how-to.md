@@ -269,4 +269,4 @@ For information about schema, see [this](../previous/media-services-mes-schema.m
 ```
 
 ## Next steps
-[Generate thumbnails using .NET](media-services-generate-thumbnails-dotnet.md)
+[Generate thumbnails using .NET](transform-generate-thumbnails-dotnet-how-to.md)

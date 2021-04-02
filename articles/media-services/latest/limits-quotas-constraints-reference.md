@@ -59,10 +59,10 @@ The following table shows the limits on the media reserved units S1, S2, and S3.
 
 | Resource | Default Limit | 
 | --- | --- | 
-| [Jobs](transforms-jobs-concept.md) per Media Services account | 500,000 <sup>(3)</sup> (fixed)|
+| [Jobs](transform-jobs-concept.md) per Media Services account | 500,000 <sup>(3)</sup> (fixed)|
 | Job inputs per Job | 50  (fixed)|
 | Job outputs per Job | 20 (fixed) |
-| [Transforms](transforms-jobs-concept.md) per Media Services account | 100  (fixed)|
+| [Transforms](transform-jobs-concept.md) per Media Services account | 100  (fixed)|
 | Transform outputs in a Transform | 20 (fixed) |
 | Files per job input|10 (fixed)|
 
@@ -86,11 +86,11 @@ Any Job record in your account older than 90 days will be automatically deleted,
 
 | Resource | Default Limit |
 | --- | --- |
-| [Streaming Endpoints](streaming-endpoint-concept.md) (stopped or running) per Media Services account | 2 |
+| [Streaming Endpoints](stream-streaming-endpoint-concept.md) (stopped or running) per Media Services account | 2 |
 | Premium streaming units | 10 |
 | [Dynamic Manifest Filters](filters-dynamic-manifest-concept.md)|100|
-| [Streaming Policies](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
-| Unique [Streaming Locators](streaming-locators-concept.md) associated with an Asset at one time | 100<sup>(7)</sup> (fixed) |
+| [Streaming Policies](stream-streaming-policy-concept.md) | 100 <sup>(6)</sup> |
+| Unique [Streaming Locators](stream-streaming-locators-concept.md) associated with an Asset at one time | 100<sup>(7)</sup> (fixed) |
 
 <sup>6</sup> When using a custom [Streaming Policy](/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. You should not be creating a new Streaming Policy for each Streaming Locator.
 
