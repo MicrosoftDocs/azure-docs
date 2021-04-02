@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 03/25/2021
 ---
 
-# Add an identity to Azure roles on Azure Event Grid destinations
+# Grant managed identity the access to Event Grid destination
 This section describes how to add the identity for your system topic, custom topic, or domain to an Azure role. 
 
 ## Prerequisites
