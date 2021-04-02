@@ -41,7 +41,7 @@ Cluster Connect allows you to securely connect to Azure Arc enabled Kubernetes c
 - If the Cluster Connect feature is currently disabled on any Azure Arc enabled Kubernetes cluster, it can be enabled by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
 
     ```azurecli
-    az connectedk8s enable-features --features cluster-connect
+    az connectedk8s enable-features --features cluster-connect -n <clusterName> -g <resourceGroupName>
     ```
 
 - Enable the below endpoints for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md#meet-network-requirements):
@@ -130,3 +130,13 @@ The two authentication options are supported with the Cluster Connect feature - 
     ```
 
     You should now see a response from the cluster containing the list of all pods under the `default` namespace.
+
+## Known limitations
+
+When making requests to the Kubernetes cluster, if the AAD entity used is a part of more than 200 groups, the following error is observed as this is a known limitation:
+
+```console
+You must be logged in to the server (Error:Error while retrieving group info. Error:Overage claim (users with more than 200 group membership) is currently not supported. 
+```
+
+To get past this error, one can create a [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli), which is less likely to be a part of more than 200 groups, and [sign in](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI using the same before running `az connectedk8s proxy` command.
