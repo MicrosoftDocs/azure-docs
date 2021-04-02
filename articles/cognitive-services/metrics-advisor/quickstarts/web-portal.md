@@ -66,7 +66,7 @@ This quickstart uses a SQL Database as an example. You can also ingest your own 
 
 
 Next, specify the **Connection string** with the credentials for your data source, and a custom **Query**. 
-Here is something you must know: The query is aimed to return some records for each dimension combination in each granularity, so you should specify the granularity according to your data timestamps. Metrics Advisor will run this query for each timestamp to ingest your data.
+Here is something you must know: The query is aimed to return some records for each dimension combination in each granularity, so you should specify the granularity to indicate how often for data ingestion. Metrics Advisor will run this query for each timestamp to ingest your data.
 
 [!INCLUDE [query requirements](../includes/query-requirements.md)]
 
