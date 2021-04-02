@@ -14,7 +14,9 @@ ms.author: heikora
 
 # Model and endpoint lifecycle
 
-Our standard (not customized) speech is built upon AI models that we call base models. In most cases, we train a different base model for each spoken language we support.  We update the speech service with new base models every few months to improve accuracy and quality.  With Custom Speech, custom models are created by adapting a chosen base model with data from your particular customer scenario. Once you create a custom model, that model will not be updated or changed, even if the corresponding base model from which it was adapted gets updated in the standard speech service.  This policy allows you to keep using a particular custom model for a long time after you have a custom model that meets your needs.  But we recommend that you periodically recreate your custom model so you can adapt from the latest base model to take advantage of the improved accuracy and quality.
+Our standard (not customized) speech is built upon AI models that we call base models. In most cases, we train a different base model for each spoken language we support.  We update the speech service with new base models every few months to improve accuracy and quality.  
+With Custom Speech, custom models are created by adapting a chosen base model with data from your particular customer scenario. Once you create a custom model, that model will not be updated or changed, even if the corresponding base model from which it was adapted gets updated in the standard speech service.  
+This policy allows you to keep using a particular custom model for a long time after you have a custom model that meets your needs.  But we recommend that you periodically recreate your custom model so you can adapt from the latest base model to take advantage of the improved accuracy and quality.
 
 Other key terms related to the model lifecycle include:
 
@@ -53,7 +55,7 @@ And also from the model training detail page:
 
 You can also check the expiration dates via the [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) and [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) custom speech APIs under the `deprecationDates` property in the JSON response.
 
-Here is an example of the expiration data from the GetModel API call. The "DEPRECATIONDATES" show when the model expires: 
+Here is an example of the expiration data from the GetModel API call. The **DEPRECATIONDATES** show when the model expires: 
 ```json
 {
     "SELF": "HTTPS://WESTUS2.API.COGNITIVE.MICROSOFT.COM/SPEECHTOTEXT/V3.0/MODELS/{id}",
