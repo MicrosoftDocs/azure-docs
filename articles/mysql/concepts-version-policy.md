@@ -18,7 +18,7 @@ Azure Database for MySQL has been developed from [MySQL Community Edition](https
 
 Azure Database for MySQL currently supports the following major and minor versions of MySQL:
 
-| Version | [Single Server](overview.md) <br/> Current minor version |[Flexible Server (Preview)](/flexible-server/overview.md) <br/> Current minor version  |
+| Version | [Single Server](overview.md) <br/> Current minor version |[Flexible Server (Preview)](/../flexible-server/overview.md) <br/> Current minor version  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL Version 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(Retired) | Not supported|
 |MySQL Version 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
@@ -28,7 +28,7 @@ Azure Database for MySQL currently supports the following major and minor versio
 > In the Single Server deployment option, a gateway is used to redirect the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt. If your application has a requirement to connect to specific major version say v5.7 or v8.0, you can do so by changing the port in your server connection string as explained in our documentation [here.](concepts-supported-versions.md#connect-to-a-gateway-node-that-is-running-a-specific-mysql-version)
 
 > [!IMPORTANT]
-> MySQL v5.6 is retired on single server as of Febuary 2021. Starting from September 1st 2021, you will not be able to create new v5.6 servers on Azure Database for MySQL - Single server deployment option. However, you will be able to perform point-in-time recoveries and create read replicas for your existing servers.
+> MySQL v5.6 is retired on Single Server as of Febuary 2021. Starting from September 1st 2021, you will not be able to create new v5.6 servers on Azure Database for MySQL - Single Server deployment option. However, you will be able to perform point-in-time recoveries and create read replicas for your existing servers.
 
 Read the version support policy for retired versions in [version support policy documentation.](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql)
 

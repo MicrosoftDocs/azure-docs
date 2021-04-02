@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2021
+ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
 ---
@@ -45,14 +45,6 @@ If the CLI can open your default browser, it will do so and load a sign-in page.
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
-
-## Install the machine learning extension
-
-To install the machine learning extension, use the following command:
-
-```azurecli-interactive
-az extension add -n azure-cli-ml
-```
 
 ## Create a workspace
 

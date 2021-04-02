@@ -12,6 +12,7 @@ metadata:
   ms.author: v-patsho 
   ms.date: 03/30/2021 
 
+
 # card 1
 landingContent:
   - title: About Azure VMware Solution
@@ -22,8 +23,6 @@ landingContent:
             url: introduction.md
           - text: Platform updates
             url: azure-vmware-solution-platform-updates.md
-          - text: FAQ
-            url: faq.yml
       - linkListType: concept
         links:
           - text: Private cloud and clusters
@@ -38,6 +37,28 @@ landingContent:
             url: concepts-monitor-repair-private-cloud.md
           - text: Private cloud upgrades
             url: concepts-upgrades.md
+
+# faq card
+  - title: FAQ
+    linkLists:
+      - linkListType: reference
+        links:
+        - text: General
+          url: /azure/azure-vmware/faq#general
+        - text: Compute, network, storage, and backup
+          url: /azure/azure-vmware/faq#compute,-network,-storage,-and-backup
+        - text: Hosts, clusters, and private clouds
+          url: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
+        - text: Azure VMware Solution and VMware software
+          url: /azure/azure-vmware/faq#azure-vmware-solution-and-vmware-software
+        - text: Connectivity
+          url: /azure/azure-vmware/faq#connectivity
+        - text: Accounts and privileges
+          url: /azure/azure-vmware/faq#accounts-and-privileges
+        - text: Billing and support
+          url: /azure/azure-vmware/faq#billing-and-support
+        - text: Customer communication
+          url: /azure/azure-vmware/faq#customer-communication
 
 # card 2
   - title: Get started
@@ -166,6 +187,8 @@ landingContent:
             url: https://youtu.be/BoQYvqzb6Y8
           - text: Migration and capacity planning
             url: https://youtu.be/NoNG-hkksrA
+          - text: Rotate vCenter & NSX-T passwords using Azure Logic App
+            url: https://youtu.be/cK1qY3knj88
                             
 
 # card 8
