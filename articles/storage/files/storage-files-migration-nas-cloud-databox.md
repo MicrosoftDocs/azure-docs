@@ -214,7 +214,7 @@ In this category you need to consider abilities of the **source** (your NAS), th
 > [!CAUTION]
 > While copying as fast as possible is often most desireable, consider the utilization of your local network and NAS appliance for other, often business critical tasks.
 
-Copying as fast as possible might not desirable when there is a risk that the migration could monopolize available resources.
+Copying as fast as possible might not be desirable when there is a risk that the migration could monopolize available resources.
 
 * Consider when it's best in your environment to run migrations: during the day, off-hours, or during weekends.
 * Also consider networking QoS on a Windows Server to throttle the RoboCopy speed and thus the impact on NAS and network.
