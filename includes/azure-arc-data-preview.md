@@ -2,10 +2,12 @@
 author: MikeRayMSFT
 ms.service: azure-arc
 ms.topic: include
-ms.date: 09/05/2020
+ms.date: 04/02/2021
 ms.author: mikeray
 ---
 > [!NOTE]
 > As a preview feature, the technology presented in this article is subject to [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
->For current limitations, check the [known issues](../articles/azure-arc/data/known-issues.md) in the release notes.
+> For the current update, deployment of Arc data controller in direct connectivity mode is only supported from Azure portal.
+>
+> For additional limitations and more details, check the [known issues](../articles/azure-arc/data/known-issues.md) in the release notes.
