@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Migration Guide
+title: Azure Storage migration guide
 description: Storage migration overview guide describes basic guidance for storage migration 
 author: dukicn
 ms.author: nikoduki
@@ -99,9 +99,9 @@ Open-source tools are well suited for small-scale migrations. For migration from
 
 The migration phase is the final migration step that does data movement and migration. Typically, you'll run through the migration phase several times to accomplish an easier switchover. The migration phase consists of the following steps:
 
-- **Initial migration.** The initial migration step migrates all the data from the source to the target. This step migrates the bulk of the data that needs to be migrated.
-- **Resync.** A resync operation migrates any data that was changed after the initial migration step. You can repeat this step several times if there are numerous changes. The goal of running multiple resync operations is to reduce the time it takes for the final step. For inactive data and for data that has no changes (like backup or archive data), you can skip this step.
-- **Final switchover**. The final switchover step switches the active usage of the data from the source to the target and retires the source.
+1. **Initial migration.** The initial migration step migrates all the data from the source to the target. This step migrates the bulk of the data that needs to be migrated.
+2. **Resync.** A resync operation migrates any data that was changed after the initial migration step. You can repeat this step several times if there are numerous changes. The goal of running multiple resync operations is to reduce the time it takes for the final step. For inactive data and for data that has no changes (like backup or archive data), you can skip this step.
+3. **Final switchover**. The final switchover step switches the active usage of the data from the source to the target and retires the source.
 
 The duration of the migration for unstructured data depends on several aspects. Outside of the chosen method, the most critical factors are the total size of the data and file size distribution. The bigger the total data set, the longer the migration time. The smaller the average file size, the longer the migration time. If you have a large number of small files consider archiving them in larger files (like to a .tar or .zip file), if applicable, to reduce the total migration time.
 
