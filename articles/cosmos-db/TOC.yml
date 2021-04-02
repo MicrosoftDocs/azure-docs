@@ -915,6 +915,8 @@
               href: sql-api-sdk-java-spark.md
             - name: Java bulk executor library v2
               href: sql-api-sdk-bulk-executor-java.md
+        - name: Azure CLI
+          href: /cli/azure/cosmosdb
         - name: Node.js
           href: sql-api-sdk-node.md
         - name: Python
