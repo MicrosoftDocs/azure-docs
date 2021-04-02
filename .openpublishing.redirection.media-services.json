@@ -36,31 +36,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/media-services/latest/access-api-cli-how-to.md",
-            "redirect_url": "access-api-howto",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/media-services/latest/access-api-portal.md",
-            "redirect_url": "access-api-howto",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-transform.md",
-            "redirect_url": "cli-create-transform",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/media-services/latest/scripts/cli-publish-asset.md",
-            "redirect_url": "cli-publish-asset",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/media-services/latest/scripts/cli-upload-file-asset.md",
-            "redirect_url": "cli-upload-file-asset",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/media-services/latest/cae-experimental.md",
             "redirect_url": "content-aware-encoding",
             "redirect_document_id": false
@@ -433,6 +408,71 @@
         {
             "source_path_from_root": "/articles/media-services/latest/download-results-howto.md",
             "redirect_url": "job-download-results-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/how-to-set-azure-subscription.md",
+            "redirect_url": "setup-azure-subscription-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/media-players-overview.md",
+            "redirect_url": "player-media-players-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/how-to-set-azure-tenant.md",
+            "redirect_url": "setup-azure-tenant-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/how-to-create-transform.md",
+            "redirect_url": "transform-create-transform-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/how-to-create-thumbnail-sprites.md",
+            "redirect_url": "transform-create-thumbnail-sprites-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/how-to-create-copyallbitratenoninterleaved-transform.md",
+            "redirect_url": "transform-create-copyallbitratenoninterleaved-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/how-to-create-copy-video-audio-transform.md",
+            "redirect_url": "transform-create-copy-video-audio-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/how-to-create-overlay.md",
+            "redirect_url": "transform-create-overlay-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/manage-streaming-endpoints-howto.md",
+            "redirect_url": "stream-manage-streaming-endpoints-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/how-to-video-js-player.md",
+            "redirect_url": "player-how-to-video-js-player",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/how-to-shaka-player.md",
+            "redirect_url": "player-shaka-player-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/how-to-create-basic-audio-transform.md",
+            "redirect_url": "transform-create-basic-audio-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/media-rest-apis-with-postman.md",
+            "redirect_url": "setup-postman-rest-how-to",
             "redirect_document_id": false
         }
     ]
