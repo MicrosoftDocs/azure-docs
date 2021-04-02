@@ -22,17 +22,17 @@ The Custom Locations is an extension of Azure location. It provides a way for te
 
 - [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
 
-- Provider registration is complete for `Microsoft.ExtendedLocations`
+- Provider registration is complete for `Microsoft.ExtendedLocation`
     1. Enter the following commands:
     
     ```azurecli
-    az provider register --namespace Microsoft.ExtendedLocations
+    az provider register --namespace Microsoft.ExtendedLocation
     ```
 
     2. Monitor the registration process. Registration may take up to 10 minutes.
     
     ```azurecli
-    az provider show -n Microsoft.ExtendedLocations -o table
+    az provider show -n Microsoft.ExtendedLocation -o table
     ```
 
 - `connectedk8s` (version >= 1.1.0), `k8s-extension` (version >= 0.2.0) and `customlocation` (version >= 0.1.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
