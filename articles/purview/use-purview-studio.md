@@ -5,7 +5,7 @@ author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/02/2021
 ---
 

@@ -87,7 +87,7 @@ You should be able to export terms from glossary as long as the selected terms b
 
 2. Select **Export** to download the selected terms.
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Screenshot of the Glossary terms page, select file for Export.":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Screenshot of the Glossary terms page, select file for Export.":::
 
    > [!Important]
    > If the terms in a hierarchy belong to different term templates then you need to split them into different .CSV files for import. Also, updating a parent of a term is currently not supported using import process.
