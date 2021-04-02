@@ -47,7 +47,7 @@ Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](
 
 Here's what changed in March 2021.
 
-### A new version of the Azure portal
+### Updates to the Azure portal UI for Windows Virtual Desktop
 
 We've made the following updates to Windows Virtual Desktop for the Azure portal:
 
