@@ -128,23 +128,20 @@ Now that you have a destination to export your data to, set up data export in yo
     | :------------- | :---------- | :----------- |
     |  Telemetry | Export telemetry messages from devices in near-real time. Each exported message contains the full contents of the original device message, normalized.   |  [Telemetry message format](#telemetry-format)   |
     | Property changes | Export changes to device and cloud properties in near-real time. For read-only device properties, changes to the reported values are exported. For read-write properties, both reported and desired values are exported. | [Property change message format](#property-changes-format) |
-    | Device lifecycle changes | Export device registered, provisioned, enabled, disabled, display name changed, device template changed, and deleted events. | [Device lifecycle changes message format](#device-lifecycle-changes-format) |
-    | Device template lifecycle changes | Export published device template changes including created, updated, and deleted. | [Device template lifecyle changes message format](#device-template-lifecycle-changes-format) | 
+    | Device lifecycle | Export device registered and deleted events. | [Device lifecycle changes message format](#device-lifecycle-changes-format) |
+    | Device template lifecycle | Export published device template changes including created, updated, and deleted. | [Device template lifecyle changes message format](#device-template-lifecycle-changes-format) | 
 
-<a name="DataExportFilters"></a>
 1. Optionally, add filters to reduce the amount of data exported. There are different types of filter available for each data export type:
-
-    To filter telemetry, you can:
-
-    - **Filter** the exported stream to only contain telemetry from devices that match the device name, device ID, and device template filter condition.
-    - **Filter** over capabilities: If you choose a telemetry item in the **Name** dropdown, the exported stream only contains telemetry that meets the filter condition. If you choose a device or cloud property item in the **Name** dropdown, the exported stream only contains telemetry from devices with properties matching the filter condition.
-    - **Message property filter**: Devices that use the device SDKs can send *message properties* or *application properties* on each telemetry message. The properties are a bag of key-value pairs that tag the message with custom identifiers. To create a message property filter, enter the message property key you're looking for, and specify a condition. Only telemetry messages with properties that match the specified filter condition are exported. The following string comparison operators are supported: equals, does not equal, contains, does not contain, exists, does not exist. [Learn more about application properties from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md).
-
-    To filter property and device lifecycle changes, use a **Capability filter**. Choose a property item in the dropdown. The exported stream only contains changes to the selected property that meets the filter condition.
-
-<a name="DataExportEnrichmnents"></a>
+    <a name="DataExportFilters"></a>
+    | Type of data | Available filters| 
+    |--------------|------------------|
+    |Telemetry|<ul><li>Filter by device name, device ID, and device template</li><li>Filter stream to only contain telemetry that meets the filter conditions</li><li>Filter stream to only contain telemetry from devices with properties matching the filter conditions</li><li>Filter stream to only contain telemetry that have *message properties* meeting the filter condition. *Message properties* (also known as *application properties*) are sent in a bag of key-value pairs on each telemetry message optionally sent by devices that use the device SDKs. To create a message property filter, enter the message property key you're looking for, and specify a condition. Only telemetry messages with properties that match the specified filter condition are exported. [Learn more about application properties from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
+    |Property changes|<ul><li>Filter by device name, device ID, and device template</li><li>Filter stream to only contain property changes that meet the filter conditions</li></ul>|
+    |Device lifecycle|<ul><li>Filter by device name, device ID, and device template</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
+    |Device template lifecycle|<ul><li>Filter by device template</li></ul>|
+    
 1. Optionally, enrich exported messages with additional key-value pair metadata. The following enrichments are available for the telemetry and property changes data export types:
-
+<a name="DataExportEnrichmnents"></a>
     - **Custom string**: Adds a custom static string to each message. Enter any key, and enter any string value.
     - **Property**: Adds the current device reported property or cloud property value to each message. Enter any key, and choose a device or cloud property. If the exported message is from a device that doesn't have the specified property, the exported message doesn't get the enrichment.
 
@@ -382,11 +379,11 @@ Each message or record represents one change to a single device. Information in 
 
 - `applicationId`: The ID of the IoT Central application.
 - `messageSource`: The source for the message - `deviceLifecycle`.
-- `messageType`: Either `registered`, `provisioned`, `enabled`, `disabled`, `displayNameChanged`, `deviceTemplateChanged`, or `deleted`.
-- `deviceId`:  The ID of the device that sent the telemetry message.
+- `messageType`: Either `registered` or `deleted`.
+- `deviceId`:  The ID of the device that was changed.
 - `schema`: The name and version of the payload schema.
 - `templateId`: The ID of the device template associated with the device.
-- `enqueuedTime`: The time at which this change was detected by IoT Central.
+- `enqueuedTime`: The time at which this change occurred in IoT Central.
 - `enrichments`: Any enrichments set up on the export.
 
 For Event Hubs and Service Bus, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
@@ -418,7 +415,7 @@ Each message or record represents one change to a single published device templa
 - `messageType`: Either `created`, `updated`, or `deleted`.
 - `schema`: The name and version of the payload schema.
 - `templateId`: The ID of the device template associated with the device.
-- `enqueuedTime`: The time at which this change was detected by IoT Central.
+- `enqueuedTime`: The time at which this change occurred in IoT Central.
 - `enrichments`: Any enrichments set up on the export.
 
 For Event Hubs and Service Bus, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
@@ -432,7 +429,6 @@ The following example shows an exported device lifecycle message received in Azu
   "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
   "messageSource": "deviceTemplateLifecycle",
   "messageType": "created",
-  "deviceId": "1vzb5ghlsg1",
   "schema": "default@v1",
   "templateId": "urn:qugj6vbw5:___qbj_27r",
   "enqueuedTime": "2021-01-01T22:26:55.455Z",
