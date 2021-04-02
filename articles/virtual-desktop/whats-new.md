@@ -34,10 +34,13 @@ Check out these articles to learn about updates for our clients for Windows Virt
 
 The Windows Virtual Desktop agent updates at least once per month.
 
-Here's what's changed in Windows Virtual Desktop Agent:
+Here's what's changed in the Windows Virtual Desktop Agent:
 
-- Version 1.0.2800.2800: This update was released in March 2021 and fixed a reverse connection issue.
-- Version 1.0.2800.2700: This update was released in February 2021 and fixed an access denied orchestration issue.
+- Version 1.0.2866.1500: This update was released March 26, 2021 and fixed an issue with the stack health check.
+- Version 1.0.2800.2802: This update was released March 10, 2021 and has general improvements and bug fixes.
+- Version 1.0.2800.2800: This update was released March 2, 2021 and fixed a reverse connection issue.
+- Version 1.0.2800.2700: This update was released February 10, 2021 and has general improvements and bug fixes.
+- Version 1.0.2800.2700: This update was released February 4, 2021 and fixed an access denied orchestration issue.
 
 ## FSLogix updates
 
