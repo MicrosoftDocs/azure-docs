@@ -48,9 +48,16 @@ Use this article to find the settings and requirements for connecting different 
 |[**PostgreSQL**](#pgsql)| Basic|
 |[**Local files(CSV)**](#csv)| Basic|
 
-You can create a **Credential entity** to store, update, and use it for authenticating to your data sources easily. It can be created in *Adding data feed page* or *Credential entity page*. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new datafeeed, and it will be really convenient when creating multiple data feeds.
+You can create a **Credential entity** to store, update, and use it for authenticating to your data sources easily. It can be created in *Adding data feed page* or *Credential entity page*. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new datafeeed, and it will be really convenient when creating multiple data feeds. The procedure of creating and using a credential entity is following:
 
-![image](https://user-images.githubusercontent.com/81400625/113379484-3c48e400-93ac-11eb-8622-5f00bac95c06.png)
+1. Click "+" to create a new credential entity when adding data feed (you can also create one in *Credential entity page*).
+ ![image](https://user-images.githubusercontent.com/81400625/113384375-78824180-93b8-11eb-9bdd-cda07f3bbfa1.png)
+ 
+2. Set the credentail entity name, description (if needed) and credential type (equals to authentication types).
+ ![image](https://user-images.githubusercontent.com/81400625/113384478-b3847500-93b8-11eb-85ec-b5a7ad58695d.png)
+ 
+3. After createing a credentail key, you can choose it when specifying authentication type.
+ ![image](https://user-images.githubusercontent.com/81400625/113379484-3c48e400-93ac-11eb-8622-5f00bac95c06.png)
 
 
 The following sections specify the parameters required for all authentication types within different data source scenarios. 
@@ -87,7 +94,7 @@ The following sections specify the parameters required for all authentication ty
 
 * **Connection String**: There are two Authentication types for Auzre Blob Storage(JSON), one is **Basic**, the other is **Managed Identity**.
 
-1.For **Basic** authentication type: See the Azure Blob Storage [connection string](../../storage/common/storage-configure-connection-string.md#configure-a-        connection-string-for-an-azure-storage-account) article for information on retrieving this string. Also, you can just go to Azure portal for your Azure Blob Storage resource, and find connection string directly in **Access keys** in **Settings** section.
+1.For **Basic** authentication type: See the Azure Blob Storage [connection string](../../storage/common/storage-configure-connection-string.md#configure-a-        connection-string-for-an-azure-storage-account) article for information on retrieving this string. Also, you can just go to Azure portal for your Azure Blob Storage resource, and find connection string directly in **Settings > Access keys** section.
 
 2.For **Manaaged Identity**: Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with managed identities for Azure resources. Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm.md).
 
@@ -144,7 +151,7 @@ Only one timestamp is allowed per JSON file.
 
 1.For **Basic** authentication type: Metrics Advisor supports accessing Azure Data Explorer(Kusto) by using Azure AD application authentication. You will need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database. To get your connection string, see the [Azure Data Explorer](/azure/data-explorer/provision-azure-ad-app) documentation.
 
-2.For **Service Principal** authentication type:   
+2.For **Service Principal** authentication type: 
 
 3.For **Service Principal From KeyVault** authentication type:
 
