@@ -129,10 +129,11 @@ Now that you have a destination to export your data to, set up data export in yo
     |  Telemetry | Export telemetry messages from devices in near-real time. Each exported message contains the full contents of the original device message, normalized.   |  [Telemetry message format](#telemetry-format)   |
     | Property changes | Export changes to device and cloud properties in near-real time. For read-only device properties, changes to the reported values are exported. For read-write properties, both reported and desired values are exported. | [Property change message format](#property-changes-format) |
     | Device lifecycle | Export device registered and deleted events. | [Device lifecycle changes message format](#device-lifecycle-changes-format) |
-    | Device template lifecycle | Export published device template changes including created, updated, and deleted. | [Device template lifecyle changes message format](#device-template-lifecycle-changes-format) | 
+    | Device template lifecycle | Export published device template changes including created, updated, and deleted. | [Device template lifecycle changes message format](#device-template-lifecycle-changes-format) | 
 
 1. Optionally, add filters to reduce the amount of data exported. There are different types of filter available for each data export type:
     <a name="DataExportFilters"></a>
+    
     | Type of data | Available filters| 
     |--------------|------------------|
     |Telemetry|<ul><li>Filter by device name, device ID, and device template</li><li>Filter stream to only contain telemetry that meets the filter conditions</li><li>Filter stream to only contain telemetry from devices with properties matching the filter conditions</li><li>Filter stream to only contain telemetry that have *message properties* meeting the filter condition. *Message properties* (also known as *application properties*) are sent in a bag of key-value pairs on each telemetry message optionally sent by devices that use the device SDKs. To create a message property filter, enter the message property key you're looking for, and specify a condition. Only telemetry messages with properties that match the specified filter condition are exported. [Learn more about application properties from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
