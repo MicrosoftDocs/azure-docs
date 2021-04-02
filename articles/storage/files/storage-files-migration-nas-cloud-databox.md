@@ -16,7 +16,7 @@ This migration article is one of several involving the keywords NAS and Azure Da
 > [!div class="checklist"]
 > * Data source: Network Attached Storage (NAS)
 > * Migration route: NAS &rArr; DataBox &rArr; Azure file share
-> * Caching files on-premises: No, the final goal is to use the Azure file shares directly in the cloud. Checkout the guide for[ migration from a NAS appliance with Azure File Sync as the final goal](storage-files-migration-nas-hybrid-databox.md).
+> * Caching files on-premises: No, the final goal is to use the Azure file shares directly in the cloud. There is no plan to use Azure File Sync.
 
 If your scenario is different, look through the [table of migration guides](storage-files-migration-overview.md#migration-guides).
 
@@ -203,18 +203,18 @@ Speed and success rate of a given RoboCopy run will depend on several factors:
 
 * IOPS on the source and target storage
 * the available network bandwidth between them
-* the ability to quickly process files and folders in a namespaceas well as catch-up copi
+* the ability to quickly process files and folders in a namespaces
 * the number of changes between RoboCopy runs
 
 
 ### IOPS and Bandwidth considerations
 
-In this category you need to consider abilities of the **source** (your NAS), the **target** (Azure DataBox and later Azure file share), and the **network** connecting them. The maximum possible throughput is determined by the slowest of these three components. A standard DataBox comes with dual 10 Gbps network interfaces. Depending on your NAS, you may be able to match that. Make sure your network infrastructure is configured to support optimal transfer speeds to its best abilities.
+In this category you need to consider abilities of the **source** (your NAS), the **target** (Azure DataBox and later Azure file share), and the **network** connecting them. The maximum possible throughput is determined by the slowest of these three components. A standard DataBox comes with dual 10-Gbps network interfaces. Depending on your NAS, you may be able to match that. Make sure your network infrastructure is configured to support optimal transfer speeds to its best abilities.
 
 > [!CAUTION]
 > While copying as fast as possible is often most desireable, consider the utilization of your local network and NAS appliance for other, often business critical tasks.
 
-It is possible that copying as fast as possible is actually not desirable and it is more important that the migration does not monopolize available resources. 
+It is possible that copying as fast as possible is really not desirable and it is more important that the migration does not monopolize available resources. 
 
 * Consider when it's best in your environment to run migrations: during the day, off-hours, or during weekends.
 * Also consider networking QoS on a Windows Server to throttle the RoboCopy speed and thus the impact on NAS and network.
@@ -250,7 +250,7 @@ You should be prepared to run multiple rounds of RoboCopy against a given namesp
 * `/R:n` n = how often you retry to copy a failed file and 
 * `/W:n` n = how many seconds to wait between retries
 
-`/R:5 /W:5` is a reasonable setting that you can adjust to your liking. In this example, a failed file will be retried five times, with five second wait time between retries. If the file still fails to copy, the next RoboCopy job will try again and often files that failed because they are in use or because of timeout issues might eventually be copied successfully this way.
+`/R:5 /W:5` is a reasonable setting that you can adjust to your liking. In this example, a failed file will be retried five times, with five-second wait time between retries. If the file still fails to copy, the next RoboCopy job will try again and often files that failed because they are in use or because of timeout issues might eventually be copied successfully this way.
 
 
 ## Next steps
