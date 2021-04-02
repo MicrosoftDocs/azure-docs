@@ -123,7 +123,7 @@ You can tweak your sync operation by using optional flags. Here's a few examples
 
 For a complete list of flags, see [options](storage-ref-azcopy-sync.md#options).
 
-> [NOTE]
+> [!NOTE]
 > The `--recursive` flag is set to `true` by default. The `--exclude-pattern` and `--include-pattern` flags apply to only to file names and not other parts of the file path. 
 
 ## Next steps

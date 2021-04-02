@@ -98,7 +98,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 **--list-of-files** string  Defines the location of a file, which contains the list of files and directories to be deleted. The relative paths should be 
 delimited by line breaks, and the paths should NOT be URL-encoded. 
 
-**--list-of-versions** string   Specifies a file where each version id is listed on a separate line. Ensure that the source must point to a single blob and all the version ids specified in the file using this flag must belong to the source blob only. Specified version ids of the given blob will get deleted from Azure Storage. 
+**--list-of-versions** string   Specifies a file where each version ID is listed on a separate line. Ensure that the source must point to a single blob and all the version IDs specified in the file using this flag must belong to the source blob only. Specified version IDs of the given blob will get deleted from Azure Storage. 
 
 **--log-level** string   Define the log verbosity for the log file. Available levels include: `INFO`(all requests/responses), `WARNING`(slow responses), `ERROR`(only failed requests), and `NONE`(no output logs). (default `INFO`) (default `INFO`)
 
