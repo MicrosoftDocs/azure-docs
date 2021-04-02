@@ -101,7 +101,7 @@ A live event can be set to either a *pass-through* (an on-premises live encoder 
 
 Here's a common workflow for live streaming with *dynamic packaging*:
 
-1. Create a [live event](live-events-outputs-concept.md).
+1. Create a [live event](live-event-outputs-concept.md).
 1. Get the ingest URL and configure your on-premises encoder to use the URL to send the contribution feed.
 1. Get the preview URL and use it to verify that the input from the encoder is being received.
 1. Create a new asset.
@@ -115,7 +115,7 @@ This diagram shows the workflow for live streaming with *dynamic packaging*:
 
 ![Diagram of a workflow for pass-through encoding with dynamic packaging](./media/live-streaming/pass-through.svg)
 
-For information about live streaming in Media Services v3, see [Live streaming overview](live-streaming-overview.md).
+For information about live streaming in Media Services v3, see [Live streaming overview](stream-live-streaming-concept.md).
 
 ## Video codecs supported by Dynamic Packaging
 

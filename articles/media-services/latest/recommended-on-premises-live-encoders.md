@@ -28,7 +28,7 @@ In Azure Media Services, a [Live Event](/rest/api/media/liveevents) (channel) re
 
 This article discusses verified on-premises live streaming encoders. The verification is done through vendor self-verification or customer verification. Microsoft Azure Media Services does not do full or rigorous testing of each encoder, and does not continually re-verify on updates. For instructions on how to verify your on-premises live encoder, see [verify your on-premises encoder](encode-on-premises-encoder-partner.md)
 
-For detailed information about live encoding with Media Services, see [Live streaming with Media Services v3](live-streaming-overview.md).
+For detailed information about live encoding with Media Services, see [Live streaming with Media Services v3](stream-live-streaming-concept.md).
 
 ## Encoder requirements
 
@@ -89,7 +89,7 @@ Media Services recommends using one of the following live encoders that have mul
 
 ## Configuring on-premises live encoder settings
 
-For information about what settings are valid for your live event type, see [Live Event types comparison](live-event-types-comparison.md).
+For information about what settings are valid for your live event type, see [Live Event types comparison](live-event-types-comparison-reference.md).
 
 ### Playback requirements
 
@@ -114,7 +114,7 @@ To play back content, both an audio and video stream must be present. Playback o
 
 ## See also
 
-[Live streaming with Media Services v3](live-streaming-overview.md)
+[Live streaming with Media Services v3](stream-live-streaming-concept.md)
 
 ## Next steps
 
