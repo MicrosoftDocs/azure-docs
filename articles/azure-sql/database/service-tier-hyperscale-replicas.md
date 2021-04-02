@@ -141,7 +141,11 @@ Named replicas will still be available for read-only access, as usual.
 
 #### How do I validate if I have successfully connected to secondary compute replica using SSMS or other client tools?
 You can execute the following T-SQL query:
-`SELECT @@SERVERNAME, DB_NAME(), DATABASEPROPERTYEX (DB_NAME(), 'Updateability')`.
+
+```sql
+SELECT @@SERVERNAME, DB_NAME(), DATABASEPROPERTYEX (DB_NAME(), 'Updateability')
+```
+
 The result is `READ_ONLY` if you are connected to a read-only secondary replica, and `READ_WRITE` if you are connected to the primary replica. Note that the database context must be set to the name of the Hyperscale database, not to the `master` database.
 
 ### Can I add create any object or indexes on my secondary compute replicas
