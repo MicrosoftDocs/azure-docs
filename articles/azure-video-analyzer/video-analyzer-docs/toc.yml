@@ -6,6 +6,10 @@
     href: overview.md
   - name: Terminology
     href: terminology.md
+- quickstarts:
+  items:
+  - name: Analyze live video with your own model - HTTP
+    href: analyze-live-video-use-your-model-http.md
 - name: Resources
   items:
   - name: Azure roadmap
