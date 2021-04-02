@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -120,6 +120,21 @@ To ensure that the token size doesn't exceed HTTP header size limits, Azure AD l
   ...
 }
 ```
+
+## Token lifetime configuration
+
+ID tokens are passed to websites and native clients. ID tokens contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until their expiry. Usually, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user. You can adjust the lifetime of an ID token to control how often the web application expires the application session, and how often it requires the user to be re-authenticated with the Microsoft identity platform (either silently or interactively).
+
+You can specify the lifetime of an ID token using a token lifetime policy, which contains token lifetime rules. This policy controls how long access, SAML, and ID tokens for this resource are considered valid. If no policy is set, the system enforces the default lifetime value.
+
+| Property | Policy property string | Affects | Default | Minimum | Maximum |
+| --- | --- | --- | --- | --- | --- |
+| Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
+
+> [!NOTE]
+> To ensure the Microsoft Teams Web client works, it is recommended to keep AccessTokenLifetime to greater than 15 minutes for Microsoft Teams.
+
+For an example, see [Create a policy for web sign-in](configure-token-lifetimes.md#create-a-policy-for-web-sign-in). For more information, read [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
 
 ## Validating an id_token
 
