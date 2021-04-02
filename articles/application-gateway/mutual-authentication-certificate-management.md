@@ -85,7 +85,7 @@ Now that you've exported your public certificate, you will now export the CA cer
 
 1. At this point, you've extracted the details of the root CA certificate from the public certificate. You'll see the **Certificate Export Wizard**. Follow steps 2-7 from the previous section ([Export public certificate](./mutual-authentication-certificate-management.md#export-public-certificate)) to complete the Certificate Export Wizard. 
 
-1. Now repeat steps 2-6 from this current section ([Export CA certificate(s) from the public certificate](./mutual-authentication-certificate-management.md#export-ca-certificate(s)-from-the-public-certificate)) for all intermediate CAs to export all intermediate CA certificates in the Base-64 encoded X.509(.CER) format.
+1. Now repeat steps 2-6 from this current section ([Export CA certificate(s) from the public certificate](./mutual-authentication-certificate-management.md#export-ca-certificates-from-the-public-certificate)) for all intermediate CAs to export all intermediate CA certificates in the Base-64 encoded X.509(.CER) format.
 
     ![intermediate cert](./media/mutual-authentication-certificate-management/intermediatecert.png)
 
