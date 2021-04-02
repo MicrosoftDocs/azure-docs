@@ -99,7 +99,7 @@ Follow these steps to deploy the service with IntelliTrace enabled:
 6.	Choose View IntelliTrace logs. The IntelliTrace Summary will open.
 7.	Locate the exceptions section of the summary. If there are exceptions, the section will be labeled Exception Data.
 8.	Expand the Exception Data and look for System.IO.FileNotFoundException errors similar to the following:
-:::image type="content" source="media/role-startup-failure-4.png" alt-text="Image shows exception data on role startup failure":::
+:::image type="content" source="media/role-startup-failure-4.png" alt-text="Image shows exception data on role startup failure" lightbox="media/role-startup-failure-4.png":::
 
 ## Address missing DLLs and assemblies
 To address missing DLL and assembly errors, follow these steps:
