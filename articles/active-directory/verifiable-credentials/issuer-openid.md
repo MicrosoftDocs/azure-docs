@@ -1,5 +1,5 @@
 ---
-title: Issuer service communication examples (preview)
+title: Issuer service communication examples (preview) - Azure Active Directory Verifiable Credentials
 description: Details of communication between identity provider and issuer service
 author: barclayn
 manager: davba
@@ -139,3 +139,7 @@ The ID token must use the JWT compact serialization format, and must not be encr
 | `iat` | Must contain the time at which the ID token was issued. |
 | `nonce` | The value included in the authorization request. |
 | Additional claims | The ID token should contain any additional claims whose values will be included in the Verifiable Credential that will be issued. This section is where you should include any attributes about the user, such as their name. |
+
+## Next steps
+
+- [How to customize your Azure Active Directory Verifiable Credentials](credential-design.md)
