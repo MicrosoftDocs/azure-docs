@@ -168,7 +168,7 @@ We recommend that you use your existing Continuous Integration (CI) and Continuo
 If that's not possible, export resource definitions from your existing Kubernetes cluster and then apply them to AKS. You can use `kubectl` to export objects.
 
 ```console
-kubectl get deployment -o=yaml --export > deployments.yaml
+kubectl get deployment -o=yaml > deployments.yaml
 ```
 
 ### Moving existing resources to another region
