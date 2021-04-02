@@ -5,10 +5,10 @@ services: storage
 author: mhopkins-msft
 
 ms.service: storage
-ms.date: 03/29/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
 ms.author: mhopkins
-ms.reviewer: yzheng
+ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
 ---
