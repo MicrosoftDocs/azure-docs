@@ -181,5 +181,5 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 > [OCR API reference (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
 
 
-* [What is Optical character recognition?](../../overview-ocr.md)
+* [OCR overview](../../overview-ocr.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

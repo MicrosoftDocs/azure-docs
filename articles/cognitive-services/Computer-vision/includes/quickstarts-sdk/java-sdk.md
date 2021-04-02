@@ -210,5 +210,5 @@ In this quickstart, you learned how to use the OCR Java library to do basis task
 >[OCR SDK reference (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
 
 
-* [What is Optical character recognition?](../../overview-ocr.md)
+* [OCR overview](../../overview-ocr.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).
