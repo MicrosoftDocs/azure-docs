@@ -65,7 +65,7 @@ see [Access Azure Media Services API](./access-api-howto.md).
 
 See the following samples that show how to connect with Azure AD service principal:
 
-* [Connect with REST](media-rest-apis-with-postman.md)  
+* [Connect with REST](setup-postman-rest-how-to.md)  
 * [Connect with Java](configure-connect-java-howto.md)
 * [Connect with .NET](configure-connect-dotnet-howto.md)
 * [Connect with Node.js](configure-connect-nodejs-howto.md)
