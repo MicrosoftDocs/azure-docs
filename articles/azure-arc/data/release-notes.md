@@ -31,6 +31,7 @@ Review limitations of this release in [Known issues - Azure Arc enabled data ser
 ### Azure Arc enabled PostgreSQL Hyperscale
 
 - Both custom resource definitions (CRD) for PostgreSQL have been consolidated into a single CRD.
+
    |Release |CRD |
    |-----|-----|
    |February 2021 and prior| postgresql-11s.arcdata.microsoft.com<br/>postgresql-12s.arcdata.microsoft.com |
