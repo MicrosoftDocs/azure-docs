@@ -27,28 +27,25 @@
       href: Vision-API-How-to-Topics/call-read-api.md
     - name: Upgrade from Read 2.x to Read 3.x
       href: upgrade-api-versions.md
-    - name: Deploy OCR
+    - name: Use the Read container
       items:
-      - name: Containers
-        expanded: true
-        items:
-        - name: Install and run containers
-          href: computer-vision-how-to-install-containers.md
-          displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises
-        - name: Configure containers
-          href: computer-vision-resource-container-config.md
-        - name: Migrate to v3 of the Read OCR container
-          href: read-container-migration-guide.md
-          displayName: docker, container, billing, apikey, pull, logging, on-premises
-        - name: Use with Kubernetes and Helm
-          href: deploy-computer-vision-on-premises.md
-          displayName: kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises
-        - name: Use container instances
-          maintainContext: true
-          href: ../containers/azure-container-instance-recipe.md
-          displayName: container instances, container, containers, images
-        - name: All Cognitive Services containers
-          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+      - name: Install and run containers
+        href: computer-vision-how-to-install-containers.md
+        displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises
+      - name: Configure containers
+        href: computer-vision-resource-container-config.md
+      - name: Migrate to v3 of the Read OCR container
+        href: read-container-migration-guide.md
+        displayName: docker, container, billing, apikey, pull, logging, on-premises
+      - name: Use with Kubernetes and Helm
+        href: deploy-computer-vision-on-premises.md
+        displayName: kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises
+      - name: Use container instances
+        maintainContext: true
+        href: ../containers/azure-container-instance-recipe.md
+        displayName: container instances, container, containers, images
+      - name: All Cognitive Services containers
+        href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
   - name: Reference
     items:
     - name: OCR REST API v3.2 preview
@@ -171,7 +168,7 @@
       href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides
     items:
-    - name: Deploy Spatial Analysis
+    - name: Use the Spatial Analysis container
       items:
       - name: Configure operations
         href: spatial-analysis-operations.md
