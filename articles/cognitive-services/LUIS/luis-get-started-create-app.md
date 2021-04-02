@@ -27,7 +27,7 @@ In the window that appears, enter the following information:
 
 |Name  |Description  |
 |---------|---------|
-|AName     | A name for the your app. For example "home automation".        |
+|AName     | A name for your app. For example "home automation".        |
 |Culture     | The language that your app understands and speaks.   |
 |Description | A description for your app.
 |Prediction resource | The prediction resource that will receive queries. |
