@@ -5,7 +5,7 @@ author: stevevi
 ms.author: stevevi
 ms.service: azure-government
 ms.topic: quickstart
-ms.date: 03/16/2021
+ms.date: 04/02/2021
 ---
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
@@ -89,7 +89,7 @@ Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government
 
     b. Enter Log Analytics workspace (optional, required to store log analytics).
 
-    c. Enter Custom data (optional, only applicable for RHEL 7.7/7.8, CentOS 7.7/7.8/7.9 and Ubuntu 18.04).
+    c. Enter Custom data (optional, only applicable for RHEL 7.7/7.8, CentOS 7.7/7.8/7.9, and Ubuntu 18.04).
 
     :::image type="content" source="./media/stig-linux-diagnostic-settings.png" alt-text="Management section showing where you select the diagnostic settings for the virtual machine" border="false":::
 
