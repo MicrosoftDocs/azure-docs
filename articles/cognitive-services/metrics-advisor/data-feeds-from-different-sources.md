@@ -1,5 +1,5 @@
 ---
-title: How to add data feeds from different sources to Metrics Advisor
+title: How to: Connect different data sources
 titleSuffix: Azure Cognitive Services
 description: add different data feeds to Metrics Advisor
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 10/12/2020
 ms.author: mbullwin
 ---
 
-# How-to: Connect different data feed sources
+# How-to: Connect different data sources
 
 Use this article to find the settings and requirements for connecting different types of data sources to Metrics Advisor. Make sure to read how to [Onboard your data](how-tos/onboard-your-data.md) to learn about the key concepts for using your data with Metrics Advisor. 
 
