@@ -53,7 +53,7 @@ You can create a **Credential entity** to store, update, and use it for authenti
 ![image](https://user-images.githubusercontent.com/81400625/113379484-3c48e400-93ac-11eb-8622-5f00bac95c06.png)
 
 
-The following sections specify the parameters required for *Basic* authentication within different data source scenarios. 
+The following sections specify the parameters required for all authentication types within different data source scenarios. 
 
 ## <span id="appinsights">Azure Application Insights</span>
 
