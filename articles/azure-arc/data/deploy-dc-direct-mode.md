@@ -1,5 +1,5 @@
 ---
-title: Create Azure Arc data controller | Direct connect mode
+title: Deploy Azure Arc data controller | Direct connect mode
 description: Explains how to deploy the data controller in direct connect mode. 
 author: twright-msft
 ms.author: twright
@@ -11,7 +11,7 @@ ms.date: 03/31/2021
 ms.topic: overview
 ---
 
-#  Create Azure Arc data controller | Direct connect mode
+#  Deploy Azure Arc data controller | Direct connect mode
 
 [!NOTE] The steps described in this article apply to the preview release.
 

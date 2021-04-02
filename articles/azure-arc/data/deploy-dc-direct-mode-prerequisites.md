@@ -17,17 +17,24 @@ This article describes how to prepare to deploy a data controller for Azure Arc 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Summary steps
+At a high level summary, the prerequisites include:
 
+1. Install tools
+1. Add extensions
+1. Create the service principal and configure roles for metrics
+1. Connect Kubernetes cluster to Azure using Azure Arc enabled Kubernetes
 1. Connect a Kubernetes cluster to Azure using Azure Arc enabled Kubernetes
 1. Create an Azure Arc enabled data services extension
 1. Create a custom location
-1. Deploy the data controller to the custom location
+
+After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode](deploy-dc-direct-mode.md).
+
+The remaining sections of this article identify the prerequisites.
 
 ## Install tools
 
 - Helm version 3.3+ ([install](https://helm.sh/docs/intro/install/))
-- Azure CLI ([install](https://docs.microsoft.com/en-us/sql/azdata/install/deploy-install-azdata?view=sql-server-ver15))
+- Azure CLI ([install](/sql/azdata/install/deploy-install-azdata))
 
 ## Add extensions for Azure CLI
 
@@ -35,7 +42,7 @@ Additionally, the following az extensions are also required:
 - Azure CLI k8s-extension extension (0.2.0)
 - Azure CLI customlocation (0.1.0)
 
-Sample ```az``` and its CLI extentions would be:
+Sample `az` and its CLI extensions would be:
 
 ```console
 $ az version
@@ -54,11 +61,13 @@ $ az version
 
 ## Create service principal and configure roles for metrics
 
-Follow the steps detailed in the [Upload metrics](upload-metrics-and-logs-to-azure-monitor.md) article and create a Service Principal and grant the roles as described the article. The SPN ClientID, TenantID, and Client Secret information will be required in Step 4. 
+Follow the steps detailed in the [Upload metrics](upload-metrics-and-logs-to-azure-monitor.md) article and create a Service Principal and grant the roles as described the article. 
+
+The SPN ClientID, TenantID, and Client Secret information will be required when you [deploy Azure Arc data controller](deploy-dc-direct-mode.md). 
 
 ## Connect Kubernetes cluster to Azure using Azure Arc enabled Kubernetes
 
-First, [Connect an existing Kubernetes cluster to Azure arc](../kubernetes/quickstart-connect-cluster.md) following the steps described in this article.
+To complete this task, follow the steps in [Connect an existing Kubernetes cluster to Azure arc](../kubernetes/quickstart-connect-cluster.md).
 
 ## Create an Azure Arc enabled data services extension
 
@@ -75,7 +84,7 @@ Set the following environment variables which will be then used in next step.
 export subscription=<Your subscription ID>
 export resourceGroup=<Your resource group>
 export resourceName=<name of your connected kubernetes cluster>
-export location=eastus2euap
+export location=<Azure location>
 ```
 
 #### Windows PowerShell
@@ -84,7 +93,7 @@ export location=eastus2euap
 $ENV:subscription="<Your subscription ID>"
 $ENV:resourceGroup="<Your resource group>"
 $ENV:resourceName="<name of your connected kubernetes cluster>"
-$ENV:location="eastus2euap"
+$ENV:location="<Azure location>"
 ```
 
 ### Create the Arc data services extension
@@ -117,32 +126,35 @@ az k8s-extension show -g "$ENV:resourceGroup" -c "$ENV:resourceName" --name "$EN
 
 ### Verify the Arc data services extension is created
 
-You can verify if  the Arc enabled data services extension is created either from portal or by connecting directly to the Arc enabled kubernetes cluster. 
+You can verify if  the Arc enabled data services extension is created either from the portal or by connecting directly to the Arc enabled Kubernetes cluster. 
 
-**Azure portal**
-- Login to the Azure portal and browse to the resource group where the Kubernetes connected cluster resource is located.
-- Select the Arc enabled kubernetes cluster (Type = "Kubernetes - Azure Arc") where the extension was deployed.
-- In the navigation on the left side, under **Settings**, select "Extensions (preview)".
-- You should see the extension that was just created earlier in an "Installed" state.
+#### Azure portal
+1. Login to the Azure portal and browse to the resource group where the Kubernetes connected cluster resource is located.
+1. Select the Arc enabled kubernetes cluster (Type = "Kubernetes - Azure Arc") where the extension was deployed.
+1. In the navigation on the left side, under **Settings**, select "Extensions (preview)".
+1. You should see the extension that was just created earlier in an "Installed" state.
 
-![Arc data services extension](Extensions.jpg)
+:::image type="content" source="media/deploy-dc-direct-mode-prerequisites/dc-extensions-dashboard.png" alt-text="Extensions dashboard":::
 
-**kubectl CLI**
+#### kubectl CLI
 
-Connect to your Kubernetes cluster via a Terminal window.
+1. Connect to your Kubernetes cluster via a Terminal window.
+1. Run the below command and ensure the (1) namespace mentioned above is created and (2) the `bootstrapper` pod is in 'running' state before proceeding to the next step.
 
-Run the below command and ensure the (1) namespace mentioned above is created and (2) the bootstrapper pod is in 'running' state before proceeding to the next step.
-
-``` terminal
+``` console
 kubectl get pods -n <name of namespace used in the json template file above>
+```
 
+For example, the following gets the pods from `arc` namespace.
+
+```console
 #Example:
 kubectl get pods -n arc
 ```
 
-## Create a Custom Location using customlocation CLI extension
+## Create a custom location using `customlocation` CLI extension
 
-A custom location is an Azure resource that is equivalent to a namespace in a kubernetes cluster.  Custom locations are used as a target to deploy resources to from Azure. Learn more about [Custom locations](../kubernetes/custom-locations.md).
+A custom location is an Azure resource that is equivalent to a namespace in a kubernetes cluster.  Custom locations are used as a target to deploy resources to or from Azure. Learn more about [Custom locations](../kubernetes/custom-locations.md).
 
 ### Set environment variables
 
@@ -157,7 +169,6 @@ export extensionId=$(az k8s-extension show -g ${resourceGroup} -c ${resourceName
 az customlocation create -g ${resourceGroup} -n ${clName} --namespace ${clNamespace} \
   --host-resource-id ${hostClusterId} \
   --cluster-extension-ids ${extensionId} --location eastus2euap
-
 ```
 
 #### Windows PowerShell
@@ -168,7 +179,6 @@ $ENV:hostClusterId = az connectedk8s show -g "$ENV:resourceGroup" -n "$ENV:resou
 $ENV:extensionId = az k8s-extension show -g "$ENV:resourceGroup" -c "$ENV:resourceName" --cluster-type connectedClusters --name "$ENV:ADSExtensionName" --query id -o tsv
 
 az customlocation create -g "$ENV:resourceGroup" -n "$ENV:clName" --namespace "$ENV:clNamespace" --host-resource-id "$ENV:hostClusterId" --cluster-extension-ids "$ENV:extensionId"
-
 ```
 
 ## Validate  the custom location is created
@@ -178,3 +188,7 @@ From the terminal, run the below command to list the custom locations, and valid
 ```
 az customlocation list -o table
 ```
+
+## Next steps
+
+After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode](deploy-dc-direct-mode.md).
