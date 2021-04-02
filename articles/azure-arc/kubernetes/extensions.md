@@ -55,7 +55,7 @@ The Kubernetes extensions feature enables the following on Azure Arc enabled Kub
 Create a new extension instance with `k8s-extension create`, passing in values for the mandatory parameters. The below command creates an Azure Monitor for containers extension instance on your Azure Arc enabled Kubernetes cluster:
 
 ```azurecli
-az k8s-extension create --name myExtInstanceName  --extension-type Microsoft.AzureMonitor.Containers --scope cluster --cluster-name myCluster --resource-group myRG --cluster-type connectedClusters
+az k8s-extension create --name azuremonitor-containers  --extension-type Microsoft.AzureMonitor.Containers --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters
 ```
 
 **Output:**
@@ -63,28 +63,34 @@ az k8s-extension create --name myExtInstanceName  --extension-type Microsoft.Azu
 ```json
 {
   "autoUpgradeMinorVersion": true,
-  "creationTime": "2020-09-15T02:26:03.5519523+00:00",
+  "configurationProtectedSettings": null,
+  "configurationSettings": {
+    "logAnalyticsWorkspaceResourceID": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx-eus"
+  },
+  "creationTime": "2021-04-02T12:13:06.7534628+00:00",
   "errorInfo": {
     "code": null,
     "message": null
   },
-  "extensionType": "Microsoft.AzureMonitor.Containers",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myRg/providers/Microsoft.Kubernetes/connectedClusters/myCluster/providers/Microsoft.KubernetesConfiguration/extensions/myExtInstanceName",
+  "extensionType": "microsoft.azuremonitor.containers",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/demo/providers/Microsoft.Kubernetes/connectedClusters/demo/providers/Microsoft.KubernetesConfiguration/extensions/azuremonitor-containers",
   "identity": null,
   "installState": "Pending",
-  "lastModifiedTime": "2020-09-15T02:48:45.6469664+00:00",
+  "lastModifiedTime": "2021-04-02T12:13:06.753463+00:00",
   "lastStatusTime": null,
-  "name": "myExtInstanceName",
+  "name": "azuremonitor-containers",
   "releaseTrain": "Stable",
-  "resourceGroup": "myRG",
+  "resourceGroup": "demo",
   "scope": {
     "cluster": {
-      "releaseNamespace": "myExtInstanceName"
-    }
+      "releaseNamespace": "azuremonitor-containers"
+    },
+    "namespace": null
   },
   "statuses": [],
+  "systemData": null,
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "2.7.6"
+  "version": "2.8.2"
 }
 ```
 
@@ -122,7 +128,7 @@ az k8s-extension create --name myExtInstanceName  --extension-type Microsoft.Azu
 View details of a currently installed extension instance with `k8s-extension show`, passing in values for the mandatory parameters:
 
 ```azurecli
-az k8s-extension show --name myExtInstanceName --cluster-name myCluster --resource-group myRG --cluster-type connectedClusters
+az k8s-extension show --name azuremonitor-containers --cluster-name myCluster --resource-group myRG --cluster-type connectedClusters
 ```
 
 **Output:**
@@ -130,28 +136,34 @@ az k8s-extension show --name myExtInstanceName --cluster-name myCluster --resour
 ```json
 {
   "autoUpgradeMinorVersion": true,
-  "creationTime": "2020-09-15T02:26:03.5519523+00:00",
+  "configurationProtectedSettings": null,
+  "configurationSettings": {
+    "logAnalyticsWorkspaceResourceID": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx-eus"
+  },
+  "creationTime": "2021-04-02T12:13:06.7534628+00:00",
   "errorInfo": {
     "code": null,
     "message": null
   },
-  "extensionType": "Microsoft.AzureMonitor.Containers",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myRg/providers/Microsoft.Kubernetes/connectedClusters/myCluster/providers/Microsoft.KubernetesConfiguration/extensions/myExtInstanceName",
+  "extensionType": "microsoft.azuremonitor.containers",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/demo/providers/Microsoft.Kubernetes/connectedClusters/demo/providers/Microsoft.KubernetesConfiguration/extensions/azuremonitor-containers",
   "identity": null,
-  "installState": "Pending",
-  "lastModifiedTime": "2020-09-15T02:48:45.6469664+00:00",
-  "lastStatusTime": null,
-  "name": "myExtInstanceName",
+  "installState": "Installed",
+  "lastModifiedTime": "2021-04-02T12:13:06.753463+00:00",
+  "lastStatusTime": "2021-04-02T12:13:49.636+00:00",
+  "name": "azuremonitor-containers",
   "releaseTrain": "Stable",
-  "resourceGroup": "myRG",
+  "resourceGroup": "demo",
   "scope": {
     "cluster": {
-      "releaseNamespace": "myExtInstanceName"
-    }
+      "releaseNamespace": "azuremonitor-containers"
+    },
+    "namespace": null
   },
   "statuses": [],
+  "systemData": null,
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "2.7.6"
+  "version": "2.8.2"
 }
 ```
 
