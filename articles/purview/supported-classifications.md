@@ -6,7 +6,7 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 3/1/2021
+ms.date: 4/1/2021
 ## Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
