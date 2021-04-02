@@ -156,7 +156,7 @@ If you're using the out-of-box monitoring dashboard for HDInsight clusters like 
 
 You'll see that there's an HDInsight option in Azure Monitor.
 
-<![alt-text-description]()>
+   :::image type="content" source="./media/log-analytics-migration/hdinsight-azure-monitor.png" alt-text="Screenshot that shows the HDInsight option in Azure Monitor." border="false":::
 
 The HDInsight Monitor portal provides you the capability of monitoring multiple HDInsight clusters in one place. We organize the clusters based on the workload type, so you see types like Spark, HBase, and Hive. Instead of going to multiple dashboards, now you can monitor all your HDInsight clusters in this view.
 
@@ -182,7 +182,7 @@ Creating new clusters with classic Azure Monitor integration is available after 
 
 ## Release and support timeline
 
-- Classic Azure Monitoring integration will be unavailable after <TBD>. You can't enable classic Azure Monitoring integration after that date.
+- Classic Azure Monitoring integration will be unavailable after October 15, 2021. You can't enable classic Azure Monitoring integration after that date.
 - Existing classic Azure monitoring integrations will continue to work. There will be limited support for the classic Azure Monitoring integration. 
   - Issues will be investigated once customers submit the support ticket.
   - If solution requires image change, customers should move to the new integration.
