@@ -194,7 +194,7 @@ On the **Add package store** pane, complete the following steps.
 
       1. If you select **Azure SQL Managed Instance**, complete the following steps. 
 
-         1. Select **Connection string** to enter it manually or your **Azure Key Vault** where it's stored as a secret.
+         1. Select **Connection string** or your **Azure Key Vault** where it's stored as a secret.
          
          1. If you select **Connection string**, complete the following steps. 
              1. For **Account selection method**, if you choose **From Azure subscription**, select the relevant **Azure subscription**, **Server name**, and **Database name**. If you choose Enter manually, complete the following steps. 
