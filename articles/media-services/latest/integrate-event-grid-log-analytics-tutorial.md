@@ -34,7 +34,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-> * An [Azure subscription](how-to-set-azure-subscription.md)
+> * An [Azure subscription](setup-azure-subscription-how-to.md)
 > * A [Media Services](account-create-how-to.md) account and resource group.
 > * An installation of [FFmpeg](https://ffmpeg.org/download.html) for your OS.
 > * A [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md) workspace

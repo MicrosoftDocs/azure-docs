@@ -98,8 +98,8 @@ If users decide to quickly turn video on/off while call is in `Connecting` state
 #### Possible causes
 Under investigation.
 
-### "Fail to place call: No camera device found" error on Safari on desktop and on iOS 
-If camera access was already granted after some time end-user will see the error:"Fail to place call: No camera device found". Safari on desktop and on iOS does not keep permissions for very long time unless there is a stream acquired. The simplest way to work around this is to call ADP before actually joining the call as well. If the permissions are there, then user will not see anything, if not, it will re-prompt.
+### Enumerating/accessing devices for Safari on MacOS and iOS 
+If access to devices are granted, after some time, device permissions are reset. Safari on MacOS and on iOS does not keep permissions for very long time unless there is a stream acquired. The simplest way to work around this is to call DeviceManager.askDevicePermission() API before calling the device manager's device enumeration APIs (DeviceManager.getCameras(), DeviceManager.getSpeakers(), and DeviceManager.getMicrophones()). If the permissions are there, then user will not see anything, if not, it will re-prompt.
 
 <br/>Devices affected: iPhone
 <br/>Client library: Calling (JavaScript)

@@ -25,7 +25,7 @@ The process of creating a **Streaming Locator** is called publishing. By default
 When creating a **Streaming Locator**, you must specify an **Asset** name and a **Streaming Policy** name. For more information, see the following topics:
 
 * [Assets](assets-concept.md)
-* [Streaming Policies](streaming-policy-concept.md)
+* [Streaming Policies](stream-streaming-policy-concept.md)
 * [Content Key Policies](drm-content-key-policy-concept.md)
 
 You can also specify the start and end time on your Streaming Locator, which will only let your user play the content between these times (for example, between 5/1/2019 to 5/5/2019).  
@@ -99,7 +99,7 @@ To get Streaming Locators based on the associated Asset name, use the following 
 ## See also
 
 * [Assets](assets-concept.md)
-* [Streaming Policies](streaming-policy-concept.md)
+* [Streaming Policies](stream-streaming-policy-concept.md)
 * [Content Key Policies](drm-content-key-policy-concept.md)
 * [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
 

@@ -1,9 +1,9 @@
 ---
 title: Optimize costs by automating Azure Blob Storage access tiers
 description: Create automated rules for moving data between hot, cool, and archive tiers.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 10/29/2020
 ms.service: storage
 ms.subservice: common

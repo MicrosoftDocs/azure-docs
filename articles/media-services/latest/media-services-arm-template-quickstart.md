@@ -191,7 +191,7 @@ You should see a JSON response similar to the below:
 
 In the Azure portal, confirm that your resources have been created.
 
-![quickstart resources created](./media/quickstart-arm-template-account/quickstart-arm-template-resources.png)
+![quickstart resources created](./media/media-services-arm-template-quickstart/quickstart-arm-template-resources.png)
 
 ## Clean up resources
 
