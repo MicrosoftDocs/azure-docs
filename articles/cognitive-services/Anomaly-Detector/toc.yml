@@ -63,7 +63,7 @@
   items:
     - name: Region support
       href: https://aka.ms/adregion
-    - name: LEARN modules
+    - name: Learn modules
       href: https://docs.microsoft.com/learn/modules/intro-to-anomaly-detector/
     - name: Support & help
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
