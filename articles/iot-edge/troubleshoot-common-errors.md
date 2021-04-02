@@ -289,7 +289,7 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 <!-- end 1.2 -->
 
 <!-- 1.1 -->
-:::moniker range="iotedge-2018-11"
+:::moniker range="iotedge-2018-06"
 
 ## Can't get the IoT Edge daemon logs on Windows
 
