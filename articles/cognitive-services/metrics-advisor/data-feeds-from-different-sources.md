@@ -81,7 +81,10 @@ Create a **Credential entity** and use it for authenticating to your data source
       
 ## <span id="blob">Azure Blob Storage (JSON)</span>
 
-* **Connection String**: See the Azure Blob Storage [connection string](../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account) article for information on retrieving this string. Also, you can just go to Azure portal for your Azure Blob Storage resource, and find connection string directly in **Access keys** in **Settings** section.
+* **Connection String**: There are two Authentication types for Auzre Blob Storage(JSON), one is **Basic**, the other is **Managed Identity**.
+1.For **Basic** authentication type: See the Azure Blob Storage [connection string](../../storage/common/storage-configure-connection-string.md#configure-a-        connection-string-for-an-azure-storage-account) article for information on retrieving this string. Also, you can just go to Azure portal for your Azure Blob Storage resource, and find connection string directly in **Access keys** in **Settings** section.
+
+2.For **Manaaged Identity**: Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with managed identities for Azure resources. Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm.md).
 
 * **Container**: Metrics Advisor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
 
