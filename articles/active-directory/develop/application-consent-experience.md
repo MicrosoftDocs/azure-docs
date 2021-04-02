@@ -11,9 +11,9 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 04/02/2021
 ms.author: ryanwi
-ms.reviewer: zachowd
+ms.reviewer: jesakowi, asteen
 ---
 
 # Understanding Azure AD application consent experiences
@@ -24,7 +24,7 @@ Learn more about the Azure Active Directory (Azure AD) application consent user 
 
 Consent is the process of a user granting authorization to an application to access protected resources on their behalf. An admin or user can be asked for consent to allow access to their organization/individual data.
 
-The actual user experience of granting consent will differ depending on policies set on the user's tenant, the user's scope of authority (or role), and the type of [permissions](../azuread-dev/v1-permissions-consent.md) being requested by the client application. This means that application developers and tenant admins have some control over the consent experience. Admins have the flexibility of setting and disabling policies on a tenant or app to control the consent experience in their tenant. Application developers can dictate what types of permissions are being requested and if they want to guide users through the user consent flow or  the admin consent flow.
+The actual user experience of granting consent will differ depending on policies set on the user's tenant, the user's scope of authority (or role), and the type of [permissions](v2-permissions-and-consent.md) being requested by the client application. This means that application developers and tenant admins have some control over the consent experience. Admins have the flexibility of setting and disabling policies on a tenant or app to control the consent experience in their tenant. Application developers can dictate what types of permissions are being requested and if they want to guide users through the user consent flow or  the admin consent flow.
 
 - **User consent flow** is when an application developer directs users to the authorization endpoint with the intent to record consent for only the current user.
 - **Admin consent flow** is when an application developer directs users to the admin consent endpoint with the intent to record consent for the entire tenant. To ensure the admin consent flow works properly, application developers must list all permissions in the `RequiredResourceAccess` property in the application manifest. For more info, see [Application manifest](./reference-app-manifest.md).
@@ -44,10 +44,13 @@ The following diagram and table provide information about the building blocks of
 | 3 | App logo | This image should help users have a visual cue of whether this app is the app they intended to access. This image is provided by application developers and the ownership of this image isn't validated. |
 | 4 | App name | This value should inform users which application is requesting access to their data. Note this name is provided by the developers and the ownership of this app name isn't validated. |
 | 5 | Publisher domain | This value should provide users with a domain they may be able to evaluate for trustworthiness. This domain is provided by the developers and the ownership of this publisher domain is validated. |
-| 6 | Permissions | This list contains the permissions being requested by the client application. Users should always evaluate the types of permissions being requested to understand what data the client application will be authorized to access on their behalf if they accept. As an application developer it is best to request access, to the permissions with the least privilege. |
-| 7 | Permission description | This value is provided by the service exposing the permissions. To see the permission descriptions, you must toggle the chevron next to the permission. |
-| 8 | App terms | These terms contain links to the terms of service and privacy statement of the application. The publisher is responsible for outlining their rules in their terms of service. Additionally, the publisher is responsible for disclosing the way they use and share user data in their privacy statement. If the publisher doesn't provide links to these values for multi-tenant applications, there will be a bolded warning on the consent prompt. |
-| 9 | https://myapps.microsoft.com | This is the link where users can review and remove any non-Microsoft applications that currently have access to their data. |
+| 6 | Publisher verified | The blue "verified" badge means that the app publisher has verified their identity using a Microsoft Partner Network account and has completed the verification process.|
+| 7 | Publisher information  | Displays whether the application is published by Microsoft or your organization. |
+| 8 | Permissions | This list contains the permissions being requested by the client application. Users should always evaluate the types of permissions being requested to understand what data the client application will be authorized to access on their behalf if they accept. As an application developer it is best to request access, to the permissions with the least privilege. |
+| 9 | Permission description | This value is provided by the service exposing the permissions. To see the permission descriptions, you must toggle the chevron next to the permission. |
+| 10| App terms | These terms contain links to the terms of service and privacy statement of the application. The publisher is responsible for outlining their rules in their terms of service. Additionally, the publisher is responsible for disclosing the way they use and share user data in their privacy statement. If the publisher doesn't provide links to these values for multi-tenant applications, there will be a bolded warning on the consent prompt. |
+| 11 | https://myapps.microsoft.com | This is the link where users can review and remove any non-Microsoft applications that currently have access to their data. |
+| 12 | Report suspicious app | This link is used to report the app if you don't trust the app, if you believe the app is impersonating another app, if you believe the app will misuse your data, or for some other reason. |
 
 ## Common consent scenarios
 
