@@ -90,7 +90,7 @@ To set up host pool diagnostics using the resource diagnostic settings section i
     
     >[!NOTE]
     > If you don't see the error message, you don't need to do steps 2 through 4.
-sn
+
 2. Select **Configure host pool**.
 3. Select **Deploy**.
 4. Refresh the configuration workbook.
