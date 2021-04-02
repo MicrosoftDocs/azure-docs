@@ -102,7 +102,7 @@ az k8s-extension create --cluster-name <cluster-name> --resource-group <resource
 If you want to tweak the default resource requests and limits, you can use the advanced configurations settings:
 
 ```console
-az k8s-extension create --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --name azuremonitor-containers --configuration-settings  omsagent.resources.daemonset.limits.cpu=150m omsagent.resources.daemonset.limits.memory=600m omsagent.resources.deployment.limits.cpu=1 omsagent.resources.deployment.limits.memory=750m
+az k8s-extension create --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --name azuremonitor-containers --configuration-settings  omsagent.resources.daemonset.limits.cpu=150m omsagent.resources.daemonset.limits.memory=600Mi omsagent.resources.deployment.limits.cpu=1 omsagent.resources.deployment.limits.memory=750Mi
 ```
 
 Checkout the [resource requests and limits section of Helm chart](https://github.com/helm/charts/blob/master/incubator/azuremonitor-containers/values.yaml) for the available configuration settings.
@@ -112,7 +112,7 @@ Checkout the [resource requests and limits section of Helm chart](https://github
 If the Azure Arc enabled Kubernetes cluster is on Azure Stack Edge, then a custom mount path `/home/data/docker` needs to be used.
 
 ```console
-az k8s-extension create --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --name azuremonitor-containers --configuration-settings  omsagent.logsettings.custommountpath=/home/data/docker
+az k8s-extension create --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --name azuremonitor-containers --configuration-settings omsagent.logsettings.custommountpath=/home/data/docker
 ```
 
 >[!NOTE]

@@ -128,7 +128,7 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 View details of a currently installed extension instance with `k8s-extension show`, passing in values for the mandatory parameters:
 
 ```azurecli
-az k8s-extension show --name azuremonitor-containers --cluster-name myCluster --resource-group myRG --cluster-type connectedClusters
+az k8s-extension show --name azuremonitor-containers --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters
 ```
 
 **Output:**
@@ -172,7 +172,7 @@ az k8s-extension show --name azuremonitor-containers --cluster-name myCluster --
 List all extensions installed on a cluster with `k8s-extension list`, passing in values for the mandatory parameters.
 
 ```azurecli
-az k8s-extension list --cluster-name myCluster --resource-group myRG --cluster-type connectedClusters
+az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters
 ```
 
 **Output:**
@@ -238,19 +238,19 @@ Update an extension instance on a cluster with `k8s-extension update`, passing i
 - **Update release train:**
 
     ```azurecli
-    az k8s-extension update --cluster-type connectedClusters --cluster-name myCluster --resource-group myRG --release-train Preview
+    az k8s-extension update --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --release-train Preview
     ```
 
 - **Turn off auto-upgrade and pin extension instance to a specific version:**
 
     ```azurecli
-    az k8s-extension update --cluster-type connectedClusters --cluster-name myCluster --resource-group myRG --auto-upgrade-minor-version false --version 2.2.2
+    az k8s-extension update --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version false --version 2.2.2
     ```
 
 - **Turn on auto-upgrade for the extension instance:**
 
     ```azurecli
-    az k8s-extension update --cluster-type connectedClusters --cluster-name myCluster --resource-group myRG --auto-upgrade-minor-version true
+    az k8s-extension update --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version true
     ```
 
 > [!NOTE]
@@ -261,7 +261,7 @@ Update an extension instance on a cluster with `k8s-extension update`, passing i
 Delete an extension instance on a cluster with `k8s-extension delete`, passing in values for the mandatory parameters.
 
 ```azurecli
-az k8s-extension delete --name myExtInstanceName --cluster-name myCluster  --resource-group myRG --cluster-type connectedClusters
+az k8s-extension delete --name myExtInstanceName --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters
 ```
 
 >[!NOTE]
