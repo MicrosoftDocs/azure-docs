@@ -25,9 +25,9 @@ The REST example in this topic creates a job that trims a video as it submits an
 To complete the steps described in this topic, you have to:
 
 - [Create an Azure Media Services account](./account-create-how-to.md).
-- [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).
+- [Configure Postman for Azure Media Services REST API calls](setup-postman-rest-how-to.md).
     
-    Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
+    Make sure to follow the last step in the topic [Get Azure AD Token](setup-postman-rest-how-to.md#get-azure-ad-token). 
 - Create a Transform and an output Assets. You can see how to create a Transform and an output Assets in the [Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md) tutorial.
 - Review the [Encoding concept](encode-concept.md) topic.
 
