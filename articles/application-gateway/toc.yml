@@ -148,8 +148,6 @@
         href: mutual-authentication-portal.md
       - name: Mutual authentication - PowerShell
         href: mutual-authentication-powershell.md
-      - name: Mutual authentication - Azure CLI 
-        href: mutual-authentication-cli.md
     - name: Manage certificates
       items:             
       - name: Certificates for the backend
