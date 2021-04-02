@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 03/16/2021
+ms.date: 04/01/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -21,6 +21,10 @@ ms.collection: M365-identity-device-management
 
 The need for access to privileged Azure resource roles by employees changes over time. To reduce the risk associated with stale role assignments, you should regularly review access. You can use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) to create access reviews for privileged access to Azure resource roles. You can also configure recurring access reviews that occur automatically. This article describes how to create one or more access reviews.
 
+## Prerequisite license
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
+
 ## Prerequisite role
 
  To create access reviews, you must be assigned to the [Owner](../../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) Azure role for the resource.
@@ -29,9 +33,9 @@ The need for access to privileged Azure resource roles by employees changes over
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is assigned to one of the prerequisite roles.
 
-1. Open **Azure AD Privileged Identity Management**.
-
-1. In the left menu, select **Azure resources**.
+1. Select **Identity Governance**
+ 
+1. In the left menu, select **Azure resources** under **Azure AD Privileged Identity Management**.
 
 1. Select the resource you want to manage, such as a subscription.
 
@@ -57,8 +61,6 @@ The need for access to privileged Azure resource roles by employees changes over
 
     ![Users scope to review role membership of](./media/pim-resource-roles-start-access-review/users.png)
 
-    > [!NOTE]
-    > Selecting (Preview) Service Principals as the scope of the review is available to all Azure Active Directory Premium (P1 and P2) customers to evaluate during the preview period. The optimal licensing model  is still being finalized and will be released before this feature is in general availability. 
 
 1. Under **Review role membership**, select the privileged Azure roles to review. 
 

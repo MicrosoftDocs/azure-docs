@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 08/06/2020
+ms.date: 04/01/2021
 ms.author: curtand
 ms.custom: pim
 
@@ -26,7 +26,7 @@ To use Azure Active Directory (Azure AD) Privileged Identity Management (PIM), a
 
 ## Valid licenses
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+You will need [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] to use PIM and all of it's settings. Currently, you can use service principals (Preview) as a scope with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
 
 ## Licenses you must have
 
