@@ -1,4 +1,5 @@
 ---
+title: Analyze live video with your own model - HTTP
 description: This quickstart describes how to analyze live video with your own model (HTTP) with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
@@ -10,34 +11,34 @@ ms.date: 04/01/2021
 
 This quickstart shows you how to use Azure Video Analyzer to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed is sent to an inference service. The results are sent to IoT Edge Hub.
 
-The quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the Detect motion and emit events quickstart.
+The quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events]() <!--TODO: add a link once the topic is staged --> quickstart.
 
 ## Prerequisites
 
-* An Azure account that includes an active subscription. [Create an account for free]() if you don't already have one.
+* An Azure account that includes an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 
 > [!NOTE]
 > You will need an Azure subscription with at least a Contributor role. If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.
 
-* [Visual Studio Code](), with the following extensions:
+* [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
 
-    * [Azure IoT Tools]()
+    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     
     > [!TIP]
     > When installing Azure IoT Tools, you might be prompted to install Docker. Feel free to ignore the prompt.
     
-    * [C#]()
-* [.NET Core 3.1 SDK]().
-* If you didn't complete the [Detect motion and emit events]() quickstart, then be sure to set up Azure resources.
+    * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+* If you didn't complete the [Detect motion and emit events]()<!--detect-motion-emit-events-quickstart?pivots=programming-language-csharp--> quickstart, then be sure to [set up Azure resources]() <!--TODO: add a link once the topic is staged --> .
 
 > [!TIP]
-> If you run into issues with Azure resources that get created, please view our troubleshooting guide to resolve some commonly encountered issues.
+> If you run into issues with Azure resources that get created, please view our [troubleshooting guide]() <!--TODO: add a link once the topic is staged --> to resolve some commonly encountered issues.
 
 ### Review the sample video
 
 When you set up the Azure resources, a short video of highway traffic is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
 
-Open an application such as [VLC media player](). Select Ctrl+N and then paste a link to [the highway intersection sample video]() to start playback. You see the footage of many vehicles moving in highway traffic.
+Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the highway intersection sample video](https://www.videolan.org/vlc/) to start playback. You see the footage of many vehicles moving in highway traffic.
 
 In this quickstart, you'll use Azure Video Analyzer to detect objects such as vehicles and persons. You'll publish associated inference events to IoT Edge Hub.
 
@@ -46,8 +47,9 @@ In this quickstart, you'll use Azure Video Analyzer to detect objects such as ve
 
 <!-- TODO: Replace the picture above -->
 
-This above diagram shows how the signals flow in this quickstart. An edge module simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An RTSP source node pulls the video feed from this server and sends video frames to the HTTP extension processor node.
-The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by the samplingOptions field and converts the video frames to the specified image type. Then it relays the images over REST to another edge module that runs an AI model behind an HTTP endpoint. In this example, that edge module is built by using the YOLOv3 model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and publishes events to the IoT Hub sink node. The node then sends those events to IoT Edge Hub.
+This above diagram shows how the signals flow in this quickstart. An [edge module]() <!--TODO: add a link once the topic is staged -->  simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source node]() <!--TODO: add a link once the topic is staged -->  pulls the video feed from this server and sends video frames to the [HTTP extension processor node]() <!--TODO: add a link once the topic is staged --> .
+
+The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by the samplingOptions field and converts the video frames to the specified image type. Then it relays the images over REST to another edge module that runs an AI model behind an HTTP endpoint. In this example, that edge module is built by using the YOLOv3 model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub sink node]() <!--TODO: add a link once the topic is staged --> . The node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2018-06#iot-edge-hub).
 
 In this quickstart, you will:
 
@@ -71,7 +73,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     * **Program.cs** - The sample program code. This code:
 
         * Loads the app settings.
-        * Invokes direct methods that the Azure Video Analyzer module exposes. You can use the module to analyze live video streams by invoking its direct methods.
+        * Invokes direct methods that the Azure Video Analyzer module exposes. You can use the module to analyze live video streams by invoking its [direct methods]().
         * Pauses so that you can examine the program's output in the **TERMINAL** window and examine the events that were generated by the module in the **OUTPUT** window.
         * Invokes direct methods to clean up resources.
 1. Edit the *operations.json* file:
@@ -90,9 +92,9 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
  
 The deployment.yolov3.amd64.json manifest file is created in the src/edge/config folder.
-1. If you completed the Detect motion and emit events quickstart, then skip this step.
+1. If you completed the [Detect motion and emit events]() quickstart, then skip this step.
 
-    Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command]().
+    Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/analyze-live-video-use-your-model-http/set-connection-string.png" alt-text="Set IoT Hub Connection String":::
@@ -144,7 +146,7 @@ The deployment.yolov3.amd64.json manifest file is created in the src/edge/config
 
     > [!NOTE]
     > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under Event Hub compatible endpoint section. Copy and use the text in the box. The endpoint will look something like this: `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`
-    
+        
 ### Run the sample program
 
 1. To start a debugging session, select the F5 key. You see messages printed in the TERMINAL window.
@@ -211,7 +213,7 @@ The deployment.yolov3.amd64.json manifest file is created in the src/edge/config
 
 ### Interpret results
 
-When you run the live pipeline, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages]().
+When you run the live pipeline, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
 In the following messages, the Live Video Analytics module defines the application properties and the content of the body.
 
@@ -241,7 +243,7 @@ In this message, notice these details:
 * In applicationProperties, subject indicates that the message was generated from the RTSP source node in the media graph.
 * In applicationProperties, eventType indicates that this event is a diagnostics event.
 * The eventTime indicates the time when the event occurred.
-* The body contains data about the diagnostics event. In this case, the data comprises the [Session Description Protocol (SDP)]() details.
+* The body contains data about the diagnostics event. In this case, the data comprises the [Session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
 
 ### Inference event
 
@@ -302,8 +304,8 @@ If you intend to try other quickstarts, keep the resources you created. Otherwis
 
 ## Next steps
 
-* Try a [secured version of the YoloV3 model]() and deploy it to the IoT Edge device.
+* Try a [secured version of the YoloV3 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) and deploy it to the IoT Edge device.
 Review additional challenges for advanced users:
-* Use an [IP camera]() that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant]() products page. Look for devices that conform with profiles G, S, or T.
-* Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device]().
+* Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
+* Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2018-06). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux?view=iotedge-2018-06).
 
