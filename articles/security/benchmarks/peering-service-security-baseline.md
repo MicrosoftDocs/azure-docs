@@ -4,7 +4,7 @@ description: The Microsoft Azure Peering Service security baseline provides proc
 author: msmbaldwin
 ms.service: peering-service
 ms.topic: conceptual
-ms.date: 01/01/2000
+ms.date: 04/02/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -18,73 +18,11 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 To see how Microsoft Azure Peering Service completely maps to the Azure Security Benchmark, see the [full Microsoft Azure Peering Service security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
->[!WARNING]
->This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
-
 ## Network Security
 
 *For more information, see the [Azure Security Benchmark: Network Security](/azure/security/benchmarks/security-controls-v2-network-security).*
 
-### NS-1: Implement security for internal traffic
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40724).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Peering Service is an optimized routing resource via dedicated service providers over the internet.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### NS-2: Connect private networks together
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40725).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Peering Service is route optimization solution via service providers and partners over the internet.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### NS-3: Establish private network access to Azure services
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40726).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Peering Service is route optimization solution via service providers/partners over the internet.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### NS-4: Protect applications and services from external network attacks
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40727).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40728).
 
 **Guidance**: Peering Service does not offer native intrusion detection or prevention services. Customers should follow security best practices, such as using threat intelligence-based filtering from Azure Firewall to alert and block traffic from and to known-malicious IP addresses and domains, as applicable to their business requirements. These IP addresses and domains are sourced from the Microsoft Threat-Intelligence feed. 
 
@@ -103,42 +41,11 @@ If you have a regulatory requirement to utilize an intrusion detection or intrus
 
 **Azure Security Center monitoring**: None
 
-### NS-6: Simplify network security rules
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40729).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Peering Service itself is not an endpoint where you can filter or allow traffic with service tags or network security groups.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### NS-7: Secure Domain Name Service (DNS)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40730).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Peering Service does not process or produce DNS-related logs.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ## Identity Management
 
 *For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
 
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40710).
 
 **Guidance**: Maintain an inventory of the user accounts with administrative access to the control plane (such as, Azure portal) of your Microsoft Azure Peering Service resources.
 
@@ -151,9 +58,6 @@ Use the Identity and Access control (IAM) pane in the Azure portal for your subs
 **Azure Security Center monitoring**: None
 
 ### IM-2: Manage application identities securely and automatically
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40711).
 
 **Guidance**: Managed identities are not supported for Peering Service. For services that do not support managed identities like Peering Service, use Azure Active Directory (Azure AD) to create a service principal with restricted permissions at the resource level instead. 
 
@@ -171,9 +75,6 @@ Use the Identity and Access control (IAM) pane in the Azure portal for your subs
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40712).
-
 **Guidance**: Microsoft Azure Peering Service uses Azure Active Directory (Azure AD) to provide identity and access management to Azure resources. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. 
 
 Use single sign-on to manage and secure access to your organization’s data and resources on-premises and in the cloud. Connect all your users, applications, and devices to the Azure AD for seamless, secure access and greater visibility and control.
@@ -185,9 +86,6 @@ Use single sign-on to manage and secure access to your organization’s data and
 **Azure Security Center monitoring**: None
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40713).
 
 **Guidance**: Enable multifactor authentication with Azure Active Directory (Azure AD) and follow Identity and Access Management recommendations from Azure Security Center.
 
@@ -201,9 +99,6 @@ How to monitor identity and access within Azure Security Center https://docs.mic
 
 ### IM-5: Monitor and alert on account anomalies
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40714).
-
 **Guidance**: Use Privileged Identity Management (PIM) with Azure Active Directory (Azure AD) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. In addition, use Azure AD risk detections to view alerts and reports on risky user behavior.
 
 How to deploy Privileged Identity Management (PIM) https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
@@ -215,9 +110,6 @@ Understand Azure AD risk detections https://docs.microsoft.com/azure/active-dire
 **Azure Security Center monitoring**: None
 
 ### IM-6: Restrict Azure resource access based on conditions
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40715).
 
 **Guidance**: Use conditional access with Azure Active Directory (Azure AD) for more granular access control based on user-defined conditions, such as requiring user logins from certain IP ranges to use multifactor authentication. A granular authentication session management can also be used through Azure AD conditional access policy for different use cases. 
 
@@ -233,9 +125,6 @@ Understand Azure AD risk detections https://docs.microsoft.com/azure/active-dire
 
 ### IM-7: Eliminate unintended credential exposure
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40716).
-
 **Guidance**: Implement Credential Scanner within Azure DevOps to identify credentials used within the code. Credential Scanner also encourages moving discovered credentials to more secure locations such as Azure Key Vault.
 
 For GitHub, you can use native secret scanning feature to identify credentials or other form of secrets within the code.
@@ -248,28 +137,11 @@ For GitHub, you can use native secret scanning feature to identify credentials o
 
 **Azure Security Center monitoring**: None
 
-### IM-8: Secure user access to legacy applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40752).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Microsoft Azure Peering Service is not intended to host customer applications.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ## Privileged Access
 
 *For more information, see the [Azure Security Benchmark: Privileged Access](/azure/security/benchmarks/security-controls-v2-privileged-access).*
 
 ### PA-1: Protect and limit highly privileged users
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40717).
 
 **Guidance**: Limit the number of highly privileged user accounts, and protect these accounts at an elevated level. 
 
@@ -297,9 +169,6 @@ Enable just-in-time (JIT) privileged access to Azure resources and Azure AD usin
 
 ### PA-2: Restrict administrative access to business-critical systems
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40718).
-
 **Guidance**: Isolate access to business-critical systems by restricting accounts which have been granted privileged access to the subscriptions and management groups they belong to. 
 
 Restrict access to the management, identity, and security systems that have administrative access to your business critical assets, such as Active Directory Domain Controllers (DC), security tools, and system management tools with agents installed on business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business critical assets. 
@@ -320,9 +189,6 @@ Ensure to assign separate privileged accounts that are distinct from the standar
 
 ### PA-3: Review and reconcile user access regularly
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40719).
-
 **Guidance**: Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
 - [Find Azure AD activity reports](../../active-directory/reports-monitoring/howto-find-activity-reports.md)
@@ -332,9 +198,6 @@ Ensure to assign separate privileged accounts that are distinct from the standar
 **Azure Security Center monitoring**: None
 
 ### PA-4: Set up emergency access in Azure AD
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40720).
 
 **Guidance**: Set up an emergency account for access, when the regular administrative accounts are unavailable, to prevent being accidentally locked out of your Azure Active Directory (Azure AD) organization. Emergency access accounts may contain higher-level privileges and should not be assigned to specific individuals. Limit emergency access accounts to emergency or 'break glass' scenarios.
 
@@ -348,9 +211,6 @@ Ensure that the credentials (such as password, certificate, or smart card) for e
 
 ### PA-5: Automate entitlement management 
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40721).
-
 **Guidance**: Use Azure Active Directory (Azure AD) entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
 
 - [What are Azure Active Directory (Azure AD) access reviews](../../active-directory/governance/access-reviews-overview.md)
@@ -363,9 +223,6 @@ Ensure that the credentials (such as password, certificate, or smart card) for e
 
 ### PA-6: Use privileged access workstations
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40722).
-
 **Guidance**: Use a Privileged Access Workstation (PAW) with  multifactor authentication from Azure Active Directory (Azure AD), enabled to log into and configure your Azure Sentinel-related resources.
 
 - [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
@@ -377,9 +234,6 @@ Ensure that the credentials (such as password, certificate, or smart card) for e
 **Azure Security Center monitoring**: None
 
 ### PA-7: Follow just enough administration (least privilege principle) 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40723).
 
 **Guidance**: Azure role-based access control (Azure RBAC) allows you to manage Azure resource access through role assignments. You can assign these roles to users, group service principals, and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell, and the Azure portal.
 
@@ -397,112 +251,11 @@ Use built-in roles to allocate permission and only create custom role when requi
 
 **Azure Security Center monitoring**: None
 
-### PA-8: Choose approval process for Microsoft support  
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40779).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Microsoft Azure Peering Service doesn't store customer data, or doesn't support the Customer Lockbox solution.
-
-- [Supported services and scenarios in general availability](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-## Data Protection
-
-*For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
-
-### DP-1: Discovery, classify and label sensitive data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40731).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this control applies to classification and labeling inside of Office and Office 365/Microsoft 365 or services that persist customer content.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### DP-2: Protect sensitive data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40732).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Peering Service does not store customer data.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### DP-3: Monitor for unauthorized transfer of sensitive data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40733).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Microsoft manages the underlying Azure infrastructure and related resources for Peering Service and has implemented strict controls to prevent the loss or exposure of sensitive customer data.
-
-- [Azure customer data protection](../fundamentals/protection-customer-data.md)
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
-### DP-4: Encrypt sensitive information in transit
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40734).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: By default, Azure provides encryption for data in transit between Azure data centers. 
-
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
-
-- [Information on TLS Security](/security/engineering/solving-tls1-problem)
-
-- [Double encryption for Azure data in transit](https://docs.microsoft.com/azure/security/fundamentals/double-encryption#data-in-transit)
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
-### DP-5: Encrypt sensitive data at rest
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40735).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Peering Service does not store customer data.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ## Asset Management
 
 *For more information, see the [Azure Security Benchmark: Asset Management](/azure/security/benchmarks/security-controls-v2-asset-management).*
 
 ### AM-1: Ensure security team has visibility into risks for assets
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40753).
 
 **Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
@@ -522,9 +275,6 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40754).
-
 **Guidance**: Ensure that security teams have access to a continuously updated inventory of assets on Azure. Security teams often need this inventory to evaluate their organization's potential exposure to emerging risks, and as an input to continuously security improvements. 
 
 The Azure Security Center inventory feature and Azure Resource Graph can query for and discover all resources  in your subscriptions, including Azure services, applications, and network resources.  
@@ -543,9 +293,6 @@ Logically organize assets according to your organization’s taxonomy using Tags
 
 ### AM-3: Use only approved Azure services
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40755).
-
 **Guidance**: Microsoft Azure Peering Service supports Azure Resource Manager based deployments and configuration enforcement using Azure Policy in the 'Microsoft.Peering/peerings' namespace. Use Azure Policy to audit and restrict which services users can provision in your environment. Use Azure Resource Graph to query for and discover resources within their subscriptions. You can also use Azure Monitor to create rules to trigger alerts when a non-approved service is detected.
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
@@ -558,24 +305,7 @@ Logically organize assets according to your organization’s taxonomy using Tags
 
 **Azure Security Center monitoring**: None
 
-### AM-4: Ensure security of asset lifecycle management
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40756).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40757).
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
@@ -585,28 +315,11 @@ Logically organize assets according to your organization’s taxonomy using Tags
 
 **Azure Security Center monitoring**: None
 
-### AM-6: Use only approved applications in compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40758).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ## Logging and Threat Detection
 
 *For more information, see the [Azure Security Benchmark: Logging and Threat Detection](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
 
 ### LT-1: Enable threat detection for Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40736).
 
 **Guidance**: Ensure you are monitoring different types of Azure assets for potential threats and anomalies. Focus on getting high-quality alerts to reduce false positives for analysts to sort through. Alerts can be sourced from log data, agents, or other data.
 
@@ -627,9 +340,6 @@ In addition, use Azure Sentinel to build analytics rules, which hunt threats tha
 **Azure Security Center monitoring**: None
 
 ### LT-2: Enable threat detection for Azure identity and access management
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40737).
 
 **Guidance**: Azure Active Directory (Azure AD) provides user logs that can be viewed with Azure AD reporting or integrated with Azure Monitor. These logs can also be integrated with Azure Sentinel or other security information and event management (SIEM) solution or monitoring tools for more sophisticated monitoring and analytics use cases:
 
@@ -655,9 +365,6 @@ Azure Security Center can also alert on certain suspicious activities such as an
 
 ### LT-3: Enable logging for Azure network activities
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40738).
-
 **Guidance**: Configure connection telemetry to provides insight into the connectivity between your connection location and the
 
 Microsoft network via Microsoft Azure Peering Service.
@@ -670,9 +377,6 @@ Microsoft network via Microsoft Azure Peering Service.
 
 ### LT-4: Enable logging for Azure resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40739).
-
 **Guidance**: Enable Azure Activity Log and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archival 
 
 Activity logs provide insight into the operations that were performed on your Azure ExpressRoute resources at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your  resources.
@@ -684,9 +388,6 @@ Activity logs provide insight into the operations that were performed on your Az
 **Azure Security Center monitoring**: None
 
 ### LT-5: Centralize security log management and analysis
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40740).
 
 **Guidance**: Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements.
 
@@ -706,9 +407,6 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 ### LT-6: Configure log storage retention
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40741).
-
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure resources according to your organization's compliance regulations.
 
 How to set log retention parameters /azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
@@ -717,28 +415,11 @@ How to set log retention parameters /azure/azure-monitor/platform/manage-cost-st
 
 **Azure Security Center monitoring**: None
 
-### LT-7: Use approved time synchronization sources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40742).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Microsoft maintains the time-provider sources used for Azure resources, such as Azure Sentinel, for timestamps noted in the logs.
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
 ## Incident Response
 
 *For more information, see the [Azure Security Benchmark: Incident Response](/azure/security/benchmarks/security-controls-v2-incident-response).*
 
 ### IR-1: Preparation – update incident response process for Azure
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40743).
 
 **Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
@@ -752,9 +433,6 @@ How to set log retention parameters /azure/azure-monitor/platform/manage-cost-st
 
 ### IR-2: Preparation – setup incident notification
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40744).
-
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
 - [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md)
@@ -764,9 +442,6 @@ How to set log retention parameters /azure/azure-monitor/platform/manage-cost-st
 **Azure Security Center monitoring**: None
 
 ### IR-3: Detection and analysis – create incidents based on high-quality alerts 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40745).
 
 **Guidance**: Ensure you have a process to create high-quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
 
@@ -785,9 +460,6 @@ Export your Azure Security Center alerts and recommendations using the export fe
 **Azure Security Center monitoring**: None
 
 ### IR-4: Detection and analysis – investigate an incident
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40746).
 
 **Guidance**: Ensure analysts can query and use diverse data sources, as they investigate potential incidents to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
 
@@ -819,9 +491,6 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 ### IR-5: Detection and analysis – prioritize incidents
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40747).
-
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
 Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
@@ -837,9 +506,6 @@ Additionally, mark resources using tags and create a naming system to identify a
 **Azure Security Center monitoring**: None
 
 ### IR-6: Containment, eradication and recovery – automate the incident handling
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40748).
 
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
 Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
@@ -859,9 +525,6 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 *For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
 
 ### PV-1: Establish secure configurations for Azure services 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40763).
 
 **Guidance**: Define security guardrails for infrastructure and DevOps teams by making it easy to securely configure the Azure services they use. 
 
@@ -885,89 +548,13 @@ You can use Azure Blueprints to automate deployment and configuration of service
 
 ### PV-2: Sustain secure configurations for Azure services
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40764).
-
 **Guidance**: Not applicable;  this recommendation is intended for compute resources.
 
 **Responsibility**: Customer
 
 **Azure Security Center monitoring**: None
 
-### PV-3: Establish secure configurations for compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40765).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable;  this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### PV-4: Sustain secure configurations for compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40766).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### PV-5: Securely store custom operating system and container images
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40767).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### PV-6: Perform software vulnerability assessments
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40768).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Microsoft performs vulnerability management on the underlying systems that support Azure
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
-### PV-7: Rapidly and automatically remediate software vulnerabilities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40769).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Microsoft performs vulnerability management on the underlying systems that support Peering Service
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
 ### PV-8: Conduct regular attack simulation
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40770).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
@@ -982,124 +569,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 **Azure Security Center monitoring**: None
 
-## Endpoint Security
-
-*For more information, see the [Azure Security Benchmark: Endpoint Security](/azure/security/benchmarks/security-controls-v2-endpoint-security).*
-
-### ES-1: Use Endpoint Detection and Response (EDR)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40749).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### ES-2: Use centrally managed modern anti-malware software
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40750).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
-### ES-3: Ensure anti-malware software and signatures are updated
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40751).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
-## Backup and Recovery
-
-*For more information, see the [Azure Security Benchmark: Backup and Recovery](/azure/security/benchmarks/security-controls-v2-backup-recovery).*
-
-### BR-1: Ensure regular automated backups
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40759).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Peering Service does not store customer data.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### BR-2: Encrypt backup data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40760).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Peering Service does not store customer data.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### BR-3: Validate all backups including customer-managed keys
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40761).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: If using Azure Key Vault to store your MACsec secrets, ensure regular automated backups of your keys.
-
-- [Backup keys in Azure Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### BR-4: Mitigate risk of lost keys
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40762).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion
-
-- [Enable soft-delete for Azure Key Vault](../../storage/blobs/soft-delete-blob-overview.md)
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ## Governance and Strategy
 
 *For more information, see the [Azure Security Benchmark: Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
 
 ### GS-1: Define asset management and data protection strategy 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40771).
 
 **Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
 
@@ -1138,9 +612,6 @@ For more information, see the following references:
 
 ### GS-2: Define enterprise segmentation strategy 
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40778).
-
 **Guidance**: Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
 
 Carefully balance the need for security separation with the need to enable daily operation of the systems that need to communicate with each other and access data.
@@ -1159,9 +630,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-3: Define security posture management strategy
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40772).
-
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
 - [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
@@ -1171,9 +639,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 **Azure Security Center monitoring**: None
 
 ### GS-4: Align organization roles, responsibilities, and accountabilities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40773).
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
@@ -1188,9 +653,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 **Azure Security Center monitoring**: None
 
 ### GS-5: Define network security strategy
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40774).
 
 **Guidance**: Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
 
@@ -1223,9 +685,6 @@ For more information, see the following references:
 
 ### GS-6: Define identity and privileged access strategy
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40775).
-
 **Guidance**: Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
@@ -1255,9 +714,6 @@ For more information, see the following references:
 **Azure Security Center monitoring**: None
 
 ### GS-7: Define logging and threat response strategy
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40776).
 
 **Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high-quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
 
