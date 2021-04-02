@@ -5,7 +5,7 @@
   items:
   - name: Face service overview
     href: Overview.md
-  - name: Pricing and limits
+  - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
   - name: What's new?
     href: releasenotes.md
@@ -36,6 +36,7 @@
   - name: Deploy the Face service
     items:
     - name: Containers
+      expanded: true
       items:
       - name: Cognitive Services containers documentation
         href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
@@ -84,7 +85,7 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: LEARN modules
     href: https://docs.microsoft.com/learn/modules/detect-analyze-faces/
-  - name: Support & help
+  - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
