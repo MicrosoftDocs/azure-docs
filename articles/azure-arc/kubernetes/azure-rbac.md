@@ -47,22 +47,27 @@ Kubernetes objects of the type [ClusterRoleBinding and RoleBinding](https://kube
 1. Create a new AAD application and fetch its `appId` value, which is used in later steps as `serverApplicationId`:
 
 ```azurecli
-az ad app create --display-name "ArcAzureADServer" --identifier-uris "https://ArcAzureADServer" --query appId -o tsv
+az ad app create --display-name "<clusterName>Server" --identifier-uris "https://<clusterName>Server" --query appId -o tsv
 ```
 
-2. Update this application so that it can query for user's group membership claims:
+1. Update the application group membership claims:
 
 ```azurecli
 az ad app update --id <serverApplicationId> --set groupMembershipClaims=All
-az ad app permission add --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
-az ad app permission grant --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000
 ```
 
-3. Create a service principal and fetch its `password` field value, which is required later as `serverApplicationSecret` when enabling this feature on the cluster:
+1. Create a service principal and fetch its `password` field value, which is required later as `serverApplicationSecret` when enabling this feature on the cluster:
 
 ```azurecli
 az ad sp create --id <serverApplicationId>
 az ad sp credential reset --name <serverApplicationId> --credential-description "ArcSecret" --query password -o tsv
+```
+
+1. Grant the application API permissions:
+
+```azurecli
+az ad app permission add --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
+az ad app permission grant --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000
 ```
 
 ### Create client application
