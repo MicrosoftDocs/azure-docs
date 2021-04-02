@@ -140,24 +140,24 @@ The following [az network nic show][az-network-nic-show] commands get the privat
 ```azurecli
 REGISTRY_PRIVATE_IP=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
-  --query 'ipConfigurations[1].privateIpAddress' \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry'].privateIpAddress" \
   --output tsv)
 
 DATA_ENDPOINT_PRIVATE_IP=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
-  --query 'ipConfigurations[0].privateIpAddress' \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REGISTRY_LOCATION'].privateIpAddress" \
   --output tsv)
 
 # An FQDN is associated with each IP address in the IP configurations
 
 REGISTRY_FQDN=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
-  --query 'ipConfigurations[1].privateLinkConnectionProperties.fqdns' \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry'].privateLinkConnectionProperties.fqdns" \
   --output tsv)
 
 DATA_ENDPOINT_FQDN=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
-  --query 'ipConfigurations[0].privateLinkConnectionProperties.fqdns' \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REGISTRY_LOCATION'].privateLinkConnectionProperties.fqdns" \
   --output tsv)
 ```
 
@@ -385,7 +385,7 @@ az acr private-endpoint-connection list \
 When you set up a private endpoint connection using the steps in this article, the registry automatically accepts connections from clients and services that have Azure RBAC permissions on the registry. You can set up the endpoint to require manual approval of connections. For information about how to approve and reject private endpoint connections, see [Manage a Private Endpoint Connection](../private-link/manage-private-endpoint.md).
 
 > [!IMPORTANT]
-> If you delete a private endpoint from a registry, make sure you delete the virtual network's link to the private zone. If the link isn't deleted, you may see an error similar to `unresolvable host`.
+> Currently, if you delete a private endpoint from a registry, you might also need to delete the virtual network's link to the private zone. If the link isn't deleted, you may see an error similar to `unresolvable host`.
 
 ## DNS configuration options
 

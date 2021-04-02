@@ -45,14 +45,14 @@ See publishing concepts, tutorials and how to guides below for specific steps.
 
 ### How to guides
 
-- [Manage streaming endpoints with Media Services v3](manage-streaming-endpoints-howto.md)
+- [Manage streaming endpoints with Media Services v3](stream-manage-streaming-endpoints-how-to.md)
 - [CLI example: Publish an asset](cli-publish-asset.md)
 - [Create a streaming locator and build URLs](create-streaming-locator-build-url.md)
-- [Download the results of a job](download-results-howto.md)
+- [Download the results of a job](job-download-results-how-to.md)
 - [Signal descriptive audio tracks](signal-descriptive-audio-howto.md)
 - [Azure Media Player full setup](../azure-media-player/azure-media-player-full-setup.md)
-- [How to use the Video.js player with Azure Media Services](how-to-video-js-player.md)
-- [How to use the Shaka player with Azure Media Services](how-to-shaka-player.md)
+- [How to use the Video.js player with Azure Media Services](player-how-to-video-js-player.md)
+- [How to use the Shaka player with Azure Media Services](player-shaka-player-how-to.md)
 
 ## Samples
 
