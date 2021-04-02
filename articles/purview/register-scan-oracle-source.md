@@ -171,7 +171,7 @@ To create and run a new scan, do the following:
 
 3. Select the scan whose results you are interested to view.
 
-4. This page will show you all of the previous scan runs along with metrics and status for each scan run. It will also display whether your scan was scheduled or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan, and the total scan duration.
+4. This page will show you all of the previous scan runs along with metrics and status for each scan run. It will also display whether your scan was scheduled or manual, how many total assets were discovered, the start and end time of the scan, and the total scan duration.
 
 ## Manage your scans
 
