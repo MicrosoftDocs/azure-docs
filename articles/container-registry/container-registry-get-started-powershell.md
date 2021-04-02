@@ -50,7 +50,7 @@ In this quickstart you create a *Basic* registry, which is a cost-optimized opti
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to your registry. In production scenarios you should use an alternative [authentication method](container-registry-authentication.md) for registry access, such as a service principal. But to keep this quickstart brief, enable the admin user on your registry with the [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] command:
+Before pushing and pulling container images, you must log in to your registry. To keep this quickstart brief, enable the admin user on your registry with the [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] command. In production scenarios you should use an alternative [authentication method](container-registry-authentication.md) for registry access, such as a service principal. 
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
