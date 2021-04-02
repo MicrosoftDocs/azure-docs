@@ -84,6 +84,6 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbust
 ```
 
 ## Next steps
-Now that you have assigned a system-assigned identity to your system topic, custom topic, or domain, and added the identity to appropriate roles on destinations, see [Devlier events using identity](managed-service-identity.md) on delivering events to destinations using the identity.
+Now that you have assigned a system-assigned identity to your system topic, custom topic, or domain, and added the identity to appropriate roles on destinations, see [Deliver events using the managed identity](managed-service-identity.md) on delivering events to destinations using the identity.
 
 
