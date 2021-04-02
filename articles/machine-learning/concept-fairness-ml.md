@@ -19,9 +19,6 @@ Learn about machine learning fairness and how the [Fairlearn](https://fairlearn.
 
 ## What is machine learning fairness?
 
->[!NOTE]
-> Fairness is a socio-technical challenge. Many aspects of fairness, such as justice and due process, are not captured in quantitative fairness metrics. Also, many quantitative fairness metrics can't all be satisfied simultaneously. The goal with the Fairlearn open-source package is to enable humans to assess different impact and mitigation strategies. Ultimately, it is up to the human users building artificial intelligence and machine learning models to make trade-offs that are appropriate to their scenario.
-
 Artificial intelligence and machine learning systems can display unfair behavior. One way to define unfair behavior is by its harm, or impact on people. There are many types of harm that AI systems can give rise to. See the [NeurIPS 2017 keynote by Kate Crawford](https://www.youtube.com/watch?v=fMym_BKWQzk) to learn more.
 
 Two common types of AI-caused harms are:
@@ -35,6 +32,9 @@ To reduce unfair behavior in AI systems, you have to assess and mitigate these h
 ## Fairness assessment and mitigation with Fairlearn
 
 Fairlearn is an open-source Python package that allows machine learning systems developers to assess their systems' fairness and mitigate unfairness.
+
+>[!NOTE]
+> Fairness is a socio-technical challenge. Many aspects of fairness, such as justice and due process, are not captured in quantitative fairness metrics. Also, many quantitative fairness metrics can't all be satisfied simultaneously. The goal with the Fairlearn open-source package is to enable humans to assess different impact and mitigation strategies. Ultimately, it is up to the human users building artificial intelligence and machine learning models to make trade-offs that are appropriate to their scenario.
 
 The Fairlearn open-source package has two components:
 
