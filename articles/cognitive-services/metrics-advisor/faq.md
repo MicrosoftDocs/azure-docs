@@ -15,10 +15,6 @@ ms.author: mbullwin
 
 # Metrics Advisor frequently asked questions
 
-### What is the cost of my instance?
-
-Currently, there isn't a cost to use your instance during the preview.
-
 ### Why can't I create the resource? The "Pricing tier" is unavailable and it says "You have already created 1 S0 for this subscription"?
 
 :::image type="content" source="media/pricing.png" alt-text="Message when an F0 resource already exists":::
@@ -30,6 +26,9 @@ If you already have an instance created in the same region using the same subscr
 If you have already deleted the existing instance but still see the error, please wait for about 20 minutes after resource deletion before you create a new instance.
 
 ## Basic concepts
+
+### What is multi-dimensional time-series data?
+See the [Multi-dimensional metric](glossary.md#multi-dimensional-metric)  definition in the glossary.
 
 ### How much data is needed for Metrics Advisor to start anomaly detection?
 
@@ -59,26 +58,6 @@ Based on the granularity of your data, the lengths of the historical data that w
 | 1 day | Onboard time - 28 days  |
 | Greater than 1 day, less than 31 days | Onboard time - 2 years  |
 | Greater than 31 days | Onboard time - 24 years   |
-
-###  How do I write a valid query for ingesting my data?  
-
-For Metrics Advisor to ingest your data, you will need to create a query that returns the dimensions of your data at a single timestamp. Metrics advisor will run this query multiple times to get the data from each timestamp. 
-
-Note that the query should return at most one record for each dimension combination at a given timestamp (which means there should be no duplicate records). All records returned must have the same timestamp.
-
-Take SQL query for example, for a daily metric you can create a query like this: 
- 
-`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(DAY, 1, @StartTime)`
-
-As for an hourly metric: 
-
-`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(hour, 1, @StartTime)`
-
-Be sure to use the correct granularity for your time series. Note that these queries only return data at a single timestamp, and contain all of the dimension combinations to be ingested by Metrics Advisor. 
-
-Here is an example showing what you get after one query execution. The table on the right contains data for all dimension combinations at a single timestamp(with no duplicate records).
-
-:::image type="content" source="media/query-result.png" alt-text="A query result with one timestamp" lightbox="media/query-result.png":::
 
 
 ### How do I detect spikes & dips as anomalies?
