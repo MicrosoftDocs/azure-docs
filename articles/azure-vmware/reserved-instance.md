@@ -1,8 +1,8 @@
 ---
-title: Save costs with Azure VMware Solution reserved instance
-description: Learn how to buy a reserved instance for Azure VMware Solution.
+title: Reserved instances of Azure VMware Solution
+description: Learn how to buy a reserved instance for Azure VMware Solution. The reserved instance covers only the compute part of your usage and includes software licensing costs.
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 04/09/2021
 ---
 
 # Save costs with Azure VMware Solution
@@ -130,7 +130,7 @@ CSPs can cancel, exchange, or refund reservations, with certain limitations, pur
 
 ## Next steps
 
-Now that you've covered buying a reserved instance of Azure VMware Solution, you may want to learn about:
+Now that you've covered reserved instance of Azure VMware Solution, you may want to learn about:
 
 - [Creating an Azure VMware Solution assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md).
 - [Managing DHCP for Azure VMware Solution](manage-dhcp.md).
