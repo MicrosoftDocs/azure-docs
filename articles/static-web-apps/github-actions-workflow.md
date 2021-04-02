@@ -146,6 +146,17 @@ The deployment always calls `npm install` before any custom command.
 | `app_build_command` | Defines a custom command to run during deployment of the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:azure` commands.  |
 | `api_build_command` | Defines a custom command to run during deployment of the Azure Functions API application. |
 
+## Skip app build
+
+If you need full control of how your front-end application is built, you can add custom build steps in your workflow. Since the app is built separately, you can configure the `skip_app_build` option Static Web Apps action to bypass the automatic build process and just deploy the app.
+
+| Command            | Description |
+|---------------------|-------------|
+| `skip_app_build` | Set the value to `true` to skip building the front-end app. |
+
+> [!NOTE]
+> You can only skip the build for the front-end app. If your app has an API, it'll still be built by the Static Web Apps GitHub Action.
+
 ## Route file location
 
 You can customize the workflow to look for the [routes.json](routes.md) in any folder in your repository. The following property can be defined under a job's `with` section.
