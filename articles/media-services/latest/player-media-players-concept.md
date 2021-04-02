@@ -22,13 +22,13 @@ See the [Azure Media Player documentation](../azure-media-player/azure-media-pla
 
 Shaka Player is an open-source JavaScript library for adaptive media. It plays adaptive media formats (such as DASH and HLS) in a browser, without using plugins or Flash. Instead, the Shaka Player uses the open web standards Media Source Extensions and Encrypted Media Extensions.
 
-See [How to use the Shaka player with Azure Media Services](how-to-shaka-player.md).
+See [How to use the Shaka player with Azure Media Services](player-shaka-player-how-to.md).
 
 ## Video.js
 
 Video.js is a video player that plays adaptive media formats (such as DASH and HLS) in a browser. Video.js uses the open web standards MediaSource Extensions and Encrypted Media Extensions. It supports video playback on desktops and mobile devices. Its official documentation can be found at https://docs.videojs.com/.
 
-See [How to use the Video.js player with Azure Media Services](how-to-video-js-player.md).
+See [How to use the Video.js player with Azure Media Services](player-how-to-video-js-player.md).
 
 
 ## Next steps ##
