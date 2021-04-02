@@ -8,7 +8,7 @@ ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/05/2020
+ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
 ---
@@ -65,12 +65,6 @@ The easiest way to create an SP and grant access to your workspace is by using t
     If you have multiple Azure subscriptions, you can use the `az account set -s <subscription name or ID>` command to set the subscription. For more information, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
-
-1. Install the Azure Machine Learning extension:
-
-    ```azurecli-interactive
-    az extension add -n azure-cli-ml
-    ```
 
 1. Create the service principal. In the following example, an SP named **ml-auth** is created:
 
