@@ -5,7 +5,7 @@ services: application-gateway
 author: mscatyao
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/02/2021
 ms.author: caya
 ---
 
@@ -94,5 +94,4 @@ In the case that your client CA certificate has expired, you can update the cert
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Manage web traffic with an application gateway using the Azure CLI](./tutorial-manage-web-traffic-cli.md)
+- [Manage web traffic with an application gateway using the Azure CLI](./tutorial-manage-web-traffic-cli.md)
