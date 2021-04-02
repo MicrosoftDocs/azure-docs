@@ -6,6 +6,10 @@
     href: overview.md
   - name: Terminology
     href: terminology.md
+- name: Concepts
+  items:
+  - name: Record video for playback
+    href: video-recording.md    
 - name: Resources
   items:
   - name: Azure roadmap
