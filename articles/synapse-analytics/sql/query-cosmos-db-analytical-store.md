@@ -28,22 +28,29 @@ Serverless SQL pool enables you to query Azure Cosmos DB analytical storage usin
 
 ### [OPENROWSET with key](#tab/openrowset-key)
 
-To support querying and analyzing data in an Azure Cosmos DB analytical store, a serverless SQL pool uses the following `OPENROWSET` syntax:
+To support querying and analyzing data in an Azure Cosmos DB analytical store, a serverless SQL pool is used. This uses the `OPENROWSET` SQL syntax, so it is necessary to convert your Azure Cosmos DB connection string into this format:
 
 ```sql
 OPENROWSET( 
        'CosmosDB',
-       '<Azure Cosmos DB connection string>',
+       '<SQL connection string for Azure Cosmos DB>',
        <Container name>
     )  [ < with clause > ] AS alias
 ```
 
-The Azure Cosmos DB connection string specifies the Azure Cosmos DB account name, database name, database account master key, and an optional region name to the `OPENROWSET` function.
+The SQL connection string for Azure Cosmos DB specifies the Azure Cosmos DB account name, database name, database account master key, and an optional region name to the `OPENROWSET` function. Some of this information can be taken from the standard Azure Cosmos DB connection string.
 
-The connection string has the following format:
+Converting from the standard Azure Cosmos DB connection string format:
+```
+AccountEndpoint=https://<database account name>.documents.azure.com:443/;AccountKey=<database account master key>;
+```
+
+The SQL connection string has the following format:
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
+
+The region is optional. If omitted, the containers primary region is used.
 
 The Azure Cosmos DB container name is specified without quotation marks in the `OPENROWSET` syntax. If the container name has any special characters, for example, a dash (-), the name should be wrapped within square brackets (`[]`) in the `OPENROWSET` syntax.
 
@@ -54,13 +61,13 @@ You can use `OPENROWSET` syntax that references credential:
 ```sql
 OPENROWSET( 
        PROVIDER = 'CosmosDB',
-       CONNECTION = '<Azure Cosmos DB connection string without account key>',
+       CONNECTION = '<SQL connection string for Azure Cosmos DB without account key>',
        OBJECT = '<Container name>',
        [ CREDENTIAL | SERVER_CREDENTIAL ] = '<credential name>'
     )  [ < with clause > ] AS alias
 ```
 
-The Azure Cosmos DB connection string doesn't contain key in this case. The connection string has the following format:
+The SQL connection string for Azure Cosmos DB doesn't contain key in this case. The connection string has the following format:
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>'
 ```
