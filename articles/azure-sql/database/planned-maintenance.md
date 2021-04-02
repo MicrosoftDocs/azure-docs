@@ -30,7 +30,7 @@ Maintenance event can produce single or multiple reconfigurations, depending on 
 
 ## How to simulate a planned maintenance event
 
-Ensuring that your client application is resilient to maintenance events prior to deploying to production will help mitigate the risk of application faults and will contribute to application availability for your end users. You can test behavior of your client application during planned maintenance events by [initiating manual failover](https://aka.ms/mifailover-techblog) via PowerShell, CLI, or REST API. It will produce identical behavior as maintenance event bringing primary replica offline.
+Ensuring that your client application is resilient to maintenance events prior to deploying to production will help mitigate the risk of application faults and will contribute to application availability for your end users. You can test behavior of your client application during planned maintenance events by [initiating manual failover](https://aka.ms/mifailover-techblog) or [Testing Application Fault Resiliency](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla#testing-application-fault-resiliency) via PowerShell, CLI, or REST API. It will produce identical behavior as maintenance event bringing primary replica offline.
 
 ## Retry logic
 
