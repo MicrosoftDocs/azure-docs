@@ -59,7 +59,7 @@ To perform the steps described in this article, you must have:
 
         ![Private peering][api-management-vnet-private]
 
-6. If you selected **External** or **Internal**, you will see a list of all regions where your API Management service is provisioned. Choose a **Location**, and then pick its **Virtual network** and **Subnet**. The virtual network list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are set up in the region you are configuring.
+6. If you selected **External** or **Internal**, you will see a list of all locations (regions) where your API Management service is provisioned. Choose a **Location**, and then pick its **Virtual network** and **Subnet**. The virtual network list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are set up in the region you are configuring.
 
     > [!IMPORTANT]
     > * When your client uses **API version 2020-12-01 or earlier** to deploy an Azure API Management instance in a Resource Manager VNET, the service must be in a dedicated subnet that contains no resources except Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
@@ -67,9 +67,13 @@ To perform the steps described in this article, you must have:
 
     Then select **Apply**. The **Virtual network** page of your API Management instance is updated with your new virtual network and subnet choices.
 
+    Continue configuring virtual network settings for the remaining locations of your API Management instance.
+
     :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Virtual network settings in the portal.":::
 
 7. In the top navigation bar, select **Save**, and then select **Apply network configuration**.
+
+    It can take 15 to 45 minutes to update the API Management instance.
 
 > [!NOTE]
 > With clients using API version 2020-12-01 and earlier, the VIP address of the API Management instance will change each time the VNET is enabled or disabled. The VIP address will also change when API Management is moved from **External** to **Internal** virtual network, or vice versa.
