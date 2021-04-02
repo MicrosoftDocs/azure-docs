@@ -1,6 +1,6 @@
 ---
-title: Swap/Switch between two Cloud Services (Extended Support)
-description: Swap/Switch between two Cloud Services (Extended Support)
+title: Swap/Switch between two Azure Cloud Services (Extended Support)
+description: Swap/Switch between two Azure Cloud Services (Extended Support)
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: surbhijain
