@@ -17,7 +17,7 @@ This article describes the authentication requirements to configure an Azure SQL
 
 ## Create a new login on the master database
 
-In the primary database that you want to share with another user, create a new login that will be used to manage access to the primary and the named replica (make sure you run the scripts in the `master` database):
+In the primary replica of the database that you want to share with another user, create a new login that will be used to manage access to the primary and the named replica (make sure you run the scripts in the `master` database):
 
 ```sql
 create login [third-party-login] with password = 'Just4STRONG_PAZzW0rd!';
@@ -71,4 +71,45 @@ Done. Now the `third-party-login` can connect to the named replica database, but
 
 ## Test access
 
-TDB
+You can try the security configuration by using any client tool to connect to the primary and the named replica. For example using `sqlcmd`, you can try to connect to the primary replica using the `third-party-login` user:
+
+```
+sqlcmd -S WideWorldImporterServer.database.windows.net -U third-party-login -P Just4STRONG_PAZzW0rd! -d WideWorldImporters
+```
+
+this will result in an error as the user is not allowed to connect to the server:
+
+```
+Sqlcmd: Error: Microsoft ODBC Driver 13 for SQL Server : Login failed for user 'third-party-login'. Reason: The account is disabled..
+```
+
+the same user can connect to the named replica instead:
+
+```
+sqlcmd -S WideWorldImporterServer2.database.windows.net -U third-party-login -P Just4STRONG_PAZzW0rd! -d WideWorldImporters02
+```
+
+and connection will succeed without errors.
+
+
+## Next steps
+
+Once you have setup security in this way, you can use the regular `grant`, `deny` and `revoke` command to manage access to resources. Remember to use these commands on the primary replica: their effect will be applied also to all named replicas, allowing you to decide who can access what, as it would happen normally. 
+
+Remember that by default a newly created user doesn't have access to anything, so if you want to allow `` to access a table, you need to explicitly grant this permission:
+
+```sql
+grant select on [Application].[Cities] to [third-party-user]
+```
+
+Or you can add the user to the `db_datareaders` [database role](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles) to allow access to all tables, or you can use [schemas](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-schema) to [allow access](https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-schema-permissions-transact-sql) to all tables in a schema.
+
+For more information:
+
+* Azure SQL logical Servers, see [What is a server in Azure SQL Database](logical-servers.md)
+* Managing database access and logins, see [SQL Database security: Manage database access and login security](logins-create-manage.md).
+* [Permissions](https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-database-engine) 
+* [GRANT Object Permissions ](https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-object-permissions-transact-sql)
+
+
+
