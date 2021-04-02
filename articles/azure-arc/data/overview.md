@@ -1,6 +1,7 @@
 ---
 title: What are Azure Arc enabled data services
-description: Introduces Azure Arc enabled data services 
+description: Introduces Azure Arc enabled data services
+ms.custom: references_regions
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
