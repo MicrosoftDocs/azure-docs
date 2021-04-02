@@ -16,6 +16,9 @@ Learn how to configure TLS/SSL policy versions and cipher suites on Application 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+> [!NOTE]
+> We recommend using TLS 1.2 as your minimum TLS protocol version for better security on your Application Gateway. 
+
 ## Get available TLS options
 
 The `Get-AzApplicationGatewayAvailableSslOptions` cmdlet provides a listing of available pre-defined policies, available cipher suites, and protocol versions that can be configured. The following example shows an example output from running the cmdlet.
@@ -212,4 +215,6 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## Next steps
 
-Visit [Application Gateway redirect overview](./redirect-overview.md) to learn how to redirect HTTP traffic to an HTTPS endpoint.
+Visit [Application Gateway redirect overview](./redirect-overview.md) to learn how to redirect HTTP traffic to an HTTPS endpoint. 
+
+Check out setting up listener specific SSL policies at [setting up SSL listener specific policy through Portal](./application-gateway-configure-listener-specific-ssl-policy.md)

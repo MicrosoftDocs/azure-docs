@@ -151,7 +151,13 @@ You can use a [route rule](./configuration.md#routes) to map a default provider 
 
 ### Post login redirect
 
-If you want a user to return to a specific page after login, provide a URL in `post_login_redirect_uri` query string parameter.
+If you want a user to return to a specific page after login, provide a full qualified URL in `post_login_redirect_uri` query string parameter.
+
+For example:
+
+```html
+<a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
+```
 
 ## Logout
 
