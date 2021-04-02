@@ -32,7 +32,7 @@ New versions of the agent are deployed at regular intervals in weeklong periods 
 
 
 >[!NOTE]
->- Because VMs in your host pool may receive agent updates at different times, you will need to distinguish between flighted discrepancy and failed agent updates. If there is an event with ID 3277 in your **Event Viewer** > **Windows Logs** > **Application** logs for a particular VM, the agent upgrade failed. If not, the VM may be in a different flight and will receive the update at a later time.
+>Because VMs in your host pool may receive agent updates at different times, you'll need to be able to tell the difference between flighting issues and failed agent updates. If you go to the event logs for your VM at **Event Viewer** > **Windows Logs** > **Application** and see an event labeled "ID 3277," that means the Agent update didn't work. If you don't see that event, then the VM is in a different flight and will be updated later.
 >- When the Geneva Monitoring agent updates to the latest version, the old GenevaTask task is located and disabled before creating a new task for the new monitoring agent. The earlier version of the monitoring agent isn't deleted in case that the most recent version of the monitoring agent has a problem that requires reverting to the earlier version to fix. If the latest version has a problem, the old monitoring agent will be re-enabled to continue delivering monitoring data. All versions of the monitor that are earlier than the last one you installed before the update will be deleted from your VM.
 >- Your VM keeps three versions of the side-by-side stack at a time. This allows for quick recovery if something goes wrong with the update. The earliest version of the stack is removed from the VM whenever the stack updates.
 
