@@ -26,7 +26,7 @@ Major changes to the way content is published in v3 API. The new publishing mode
 ## Packaging and delivery in v3
 
 1. Create [Content Key Policies](drm-content-key-policy-concept.md).
-1. Create [Streaming Locators](streaming-locators-concept.md).
+1. Create [Streaming Locators](stream-streaming-locators-concept.md).
 1. Get the [Streaming paths](create-streaming-locator-build-url.md) 
     1. Configure it for a [DASH](encode-dynamic-packaging-concept.md#mpeg-dash-protocol) or [HLS](encode-dynamic-packaging-concept.md#hls-protocol) player.
 
@@ -39,9 +39,9 @@ See publishing concepts, tutorials and how to guides below for specific steps.
 - [Dynamic packaging in Media Services v3](encode-dynamic-packaging-concept.md)
 - [Filters](filters-concept.md)
 - [Filter your manifests using Dynamic Packager](filters-dynamic-manifest-concept.md)
-- [Streaming Endpoints (Origin) in Azure Media Services](streaming-endpoint-concept.md)
-- [Stream content with CDN integration](scale-streaming-cdn.md)
-- [Streaming Locators](streaming-locators-concept.md)
+- [Streaming Endpoints (Origin) in Azure Media Services](stream-streaming-endpoint-concept.md)
+- [Stream content with CDN integration](stream-scale-streaming-cdn-concept.md)
+- [Streaming Locators](stream-streaming-locators-concept.md)
 
 ### How to guides
 
