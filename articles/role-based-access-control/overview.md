@@ -75,7 +75,7 @@ A *role assignment* is the process of attaching a role definition to a user, gro
 
 The following diagram shows an example of a role assignment. In this example, the Marketing group has been assigned the [Contributor](built-in-roles.md#contributor) role for the pharma-sales resource group. This means that users in the Marketing group can create or manage any Azure resource in the pharma-sales resource group. Marketing users do not have access to resources outside the pharma-sales resource group, unless they are part of another role assignment.
 
-![Role assignment to control access](./media/overview/rbac-overview.png)
+![Role assignment to control access](./media/overview/security-rbac-concept.png)
 
 You can assign roles using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs.
 

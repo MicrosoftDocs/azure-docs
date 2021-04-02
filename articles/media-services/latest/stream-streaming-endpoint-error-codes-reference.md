@@ -19,7 +19,7 @@ ms.author: inhenkel
 
 # Streaming Endpoint (Origin) errors
 
-This topic describes errors that you may receive from the Azure Media Services [Streaming Endpoint service](streaming-endpoint-concept.md).
+This topic describes errors that you may receive from the Azure Media Services [Streaming Endpoint service](stream-streaming-endpoint-concept.md).
 
 ## 400 Bad Request
 
@@ -142,7 +142,7 @@ For encryption articles and examples, see:
 
 - [Concept: content protection](drm-content-protection-concept.md)
 - [Concept: Content Key Policies](drm-content-key-policy-concept.md)
-- [Concept: Streaming Policies](streaming-policy-concept.md)
+- [Concept: Streaming Policies](stream-streaming-policy-concept.md)
 - [Sample: protect with AES encryption](drm-playready-license-template-concept.md)
 - [Sample: protect with DRM](drm-protect-with-drm-tutorial.md)
 
