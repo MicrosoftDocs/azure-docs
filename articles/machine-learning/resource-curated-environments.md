@@ -17,58 +17,45 @@ ms.date: 12/22/2020
 This article lists the curated environments in Azure Machine Learning. Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They are backed by cached Docker images that use the latest version of the Azure Machine Learning SDK, reducing the run preparation cost and allowing for faster deployment time. Use these environments to quickly get started with various machine learning frameworks.
 
 > [!NOTE]
-> This list is updated as of December 2020. Use the Python SDK to get the most updated list of environments and their dependencies. For more information, see the [environments article](./how-to-use-environments.md#use-a-curated-environment).
-
-## AutoML
-
-- AzureML-AutoML
-- AzureML-AutoML-DNN
-- AzureML-AutoML-DNN-GPU
-- AzureML-AutoML-DNN-Vision-GPU
-- AzureML-AutoML-GPU
-
-## Chainer
-
-- AzureML-Chainer-5.1.0-CPU
-- AzureML-Chainer-5.1.0-GPU
-
-## Dask
-
-- AzureML-Dask-CPU
-- AzureML-Dask-GPU
-
-## DeepSpeed
-
-- AzureML-DeepSpeed-0.3-GPU
-
-## Hyperdrive
-
-- AzureML-Hyperdrive-ForecastDNN
+> This list is updated as of April 2021. Use the Python SDK to get the most updated list of environments and their dependencies. For more information, see the [environments article](./how-to-use-environments.md#use-a-curated-environment). Upon release of the new set of curated environments, previous ones have been hidden in the product but can still be used. 
 
 ## Minimal
 
 - AzureML-Minimal
 
-## PySpark
-
-- AzureML-PySpark-MmlSpark-0.15
-
 ## PyTorch
+- AzureML-Pytorch1.7-Cuda11-OpenMpi4.1.0-py36
+     - Version: 1.7
+     - Base image: mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
+     - CUDA: 11
+     - OpenMPI: 4.1.0
+     - Dependencies:
+        - python
+        - pip
+        - pytorch
+        - torchvision
+        - torchaudio
+        - cudatoolkit
+        - nvidia-apex
+        - azureml-core
+        - azureml-defaults
+        - azureml-mlflow
+        - azureml-telemetry
+        - azureml-train-restclients-hyperdrive
+        - azureml-train-core
+        - matplotlib
+        - psutil
+        - tqdm
+        - pandas
+        - theano
+        - scipy
+        - numpy
+        - tensorboard
+        - horovod
+        - onnxruntime-gpu
+        - future
+        - deepspeed
 
-- AzureML-PyTorch-1.0-CPU
-- AzureML-PyTorch-1.0-GPU
-- AzureML-PyTorch-1.1-CPU
-- AzureML-PyTorch-1.1-GPU
-- AzureML-PyTorch-1.2-CPU
-- AzureML-PyTorch-1.2-GPU
-- AzureML-PyTorch-1.3-CPU
-- AzureML-PyTorch-1.3-GPU
-- AzureML-PyTorch-1.4-CPU
-- AzureML-PyTorch-1.4-GPU
-- AzureML-PyTorch-1.5-CPU
-- AzureML-PyTorch-1.5-GPU
-- AzureML-PyTorch-1.6-CPU
-- AzureML-PyTorch-1.6-GPU
 
 ## Scikit
 
@@ -77,19 +64,6 @@ This article lists the curated environments in Azure Machine Learning. Curated e
 ## TensorFlow
 
 - AzureML-TensorFlow-1.10-CPU
-- AzureML-TensorFlow-1.10-GPU
-- AzureML-TensorFlow-1.12-CPU
-- AzureML-TensorFlow-1.12-GPU
-- AzureML-TensorFlow-1.13-CPU
-- AzureML-TensorFlow-1.13-GPU
-- AzureML-TensorFlow-2.0-CPU
-- AzureML-TensorFlow-2.0-GPU
-- AzureML-TensorFlow-2.1-CPU
-- AzureML-TensorFlow-2.1-GPU
-- AzureML-TensorFlow-2.2-CPU
-- AzureML-TensorFlow-2.2-GPU
-- AzureML-TensorFlow-2.3-CPU
-- AzureML-TensorFlow-2.3-GPU
 
 ## Triton
 
