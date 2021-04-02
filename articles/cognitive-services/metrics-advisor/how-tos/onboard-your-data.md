@@ -19,7 +19,7 @@ Use this article to learn about onboarding your data to Metrics Advisor.
 ## Data schema requirements and configuration
 
 [!INCLUDE [data schema requirements](../includes/data-schema-requirements.md)]
-For more glossaries that may confuse you, refer to [Glossary](../glossary.md).
+If you are not sure about some of the terms, please feter to [Glossary](../glossary.md).
 
 ## Avoid loading partial data
 
@@ -48,27 +48,23 @@ After signing into your Metrics Advisor portal and choosing your workspace, clic
 #### 1.Basic settings
 Next you'll input a set of parameters to connect your time-series data source. 
 * **Source Type**: The type of data source where your time series data is stored.
-* **Granularity**: The interval between consecutive data points in your time series data. Currently Metrics Advisor supports: Yearly, Monthly, Weekly, Daily, Hourly, and Custom. The lowest interval the customization option supports is 60 seconds.
+* **Granularity**: The interval between consecutive data points in your time series data. Currently Metrics Advisor supports: Yearly, Monthly, Weekly, Daily, Hourly, and Custom. The lowest interval the customization option supports is 300 seconds.
   * **Seconds**: The number of seconds when *granularityName* is set to *Customize*.
 * **Ingest data since (UTC)**: The baseline start time for data ingestion. *startOffsetInSeconds* is often used to add an offset to help with data consistency.
 
 #### 2.Specify Connection String
-Next, you'll need to specify the connection information for the data source. For details on the other fields and connecting different types of data sources, see [Add data feeds from different data sources](../data-feeds-from-different-sources.md).
+Next, you'll need to specify the connection information for the data source. For details on the other fields and connecting different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
 
 #### 3.Specify Query for a single timestamp
-Next, you'll need to specify custom queries to convert the data into the required schema. For Metrics Advisor to ingest your data, you will need to create a query that returns the dimension combinations of your data at a single timestamp. Metrics advisor will run this query multiple times to get the data from each timestamp. 
+Next, you'll need to specify custom queries to convert the data into the required schema. Metrics Advisor runs the query every time to fetch metric data for each interval (equals to metric granularity). Please use @IntervalStart and @IntervalEnd in your query to limit query results. Also, please aggregate your metric data by its dimensions, and ensure there's no duplicate values for each dimension combination within each interval. 
 
 Note that the query should return at most one record for each dimension combination at a given timestamp (which means every dimension combination can only returen 1 metric value after one query execution). All records returned must have the same timestamp.
 
 [!INCLUDE [query requirements](../includes/query-requirements.md)]
 
-Take SQL query for example, for a daily metric you can create a query like this: 
+Take SQL query for example, for a metric you can create a query like this: 
  
-`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(DAY, 1, @StartTime)`
-
-As for an hourly metric: 
-
-`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(hour, 1, @StartTime)`
+`select [TimestampColumn], [Dimension1Column], [Dimension2Column], [MetricColumn] from [TableName] where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd`
 
 Be sure to use the correct granularity for your time series. Note that these queries only return data at a single timestamp, and contain all of the dimension combinations to be ingested by Metrics Advisor. 
 
@@ -76,7 +72,7 @@ Here is an example showing what you get after one query execution. The table on 
 
 :::image type="content" source="media/query-result.png" alt-text="A query result with one timestamp" lightbox="media/query-result.png":::
 
-For details of different types of data sources, see [Add data feeds from different data sources](../data-feeds-from-different-sources.md).
+For details of different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
 
 ### Verify and get schema
 
