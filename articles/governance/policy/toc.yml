@@ -32,6 +32,8 @@
   - name: Assign a policy - ARM template
     displayName: assign, compliance, resource manager
     href: ./assign-policy-template.md
+  - name: Assign a policy - Bicep
+    href: ./assign-policy-bicep.md
   - name: Assign a policy - Terraform
     displayName: assign, compliance, hcl, provider
     href: ./assign-policy-terraform.md
@@ -46,6 +48,9 @@
   - name: Manage tag governance
     displayName: modify, append, effects
     href: ./tutorials/govern-tags.md
+  - name: Route policy state change events
+    displayName: event grid, subject, topic, subscription
+    href: ./tutorials/route-state-change-events.md
   - name: Implement Azure Policy as Code with GitHub
     displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
     href: ./tutorials/policy-as-code-github.md
@@ -126,6 +131,9 @@
   - name: Assignment structure
     displayName: parameters, enforcementmode, policyDefinitionId
     href: ./concepts/assignment-structure.md
+  - name: React to policy state change events
+    displayName: event grid, subject, topic, subscription
+    href: ./concepts/event-overview.md
   - name: Exemption structure
     displayName: waiver, mitigated, compliance
     href: ./concepts/exemption-structure.md
@@ -265,22 +273,8 @@
       href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
   - name: REST
     items:
-    - name: Events
-      href: /rest/api/policy-insights/policyevents
-    - name: States
-      href: /rest/api/policy-insights/policystates
-    - name: Assignments
-      href: /rest/api/resources/policyassignments
-    - name: Policy Definitions
-      href: /rest/api/resources/policydefinitions
-    - name: Policy Exemptions
-      href: /rest/api/resources/policyexemptions
-    - name: Initiatives Definitions
-      href: /rest/api/resources/policysetdefinitions
-    - name: Policy Tracked Resources
-      href: /rest/api/policy-insights/policytrackedresources
-    - name: Remediations
-      href: /rest/api/policy-insights/remediations
+    - name: Policy
+      href: /rest/api/policy/
     - name: Guest Configuration
       href: /rest/api/guestconfiguration/
   - name: Resource Manager templates

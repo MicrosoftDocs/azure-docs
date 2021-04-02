@@ -122,7 +122,7 @@ Azure Backup Server can protect cluster workloads that are located in the same d
   * File Server
   * Hyper-V
 
-  These workloads can be running on a single server or in a cluster configuration. To protect a workload that isn't in a trusted domain, see [Prepare computers in workgroups and untrusted domains](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm) for exact details of what's supported and what authentication is required.
+  These workloads can be running on a single server or in a cluster configuration. To protect a workload that isn't in a trusted domain, see [Prepare computers in workgroups and untrusted domains](/system-center/dpm/prepare-environment-for-dpm) for exact details of what's supported and what authentication is required.
 
 ## Unsupported data types
 

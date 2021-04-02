@@ -181,7 +181,7 @@ Your transparent gateway is now configured and ready to start forwarding telemet
 
 ## Provision a downstream device
 
-Currently, IoT Edge can't automatically provision a downstream device to your IoT Central application. The following steps show you how to provision the `thermostat1` device. To complete these steps, you need an environment with Python 3.5 (or higher) installed and internet connectivity. The [Azure Cloud Shell](https://shell.azure.com/) has Python 3.5 pre-installed:
+Currently, IoT Edge can't automatically provision a downstream device to your IoT Central application. The following steps show you how to provision the `thermostat1` device. To complete these steps, you need an environment with Python 3.6 (or higher) installed and internet connectivity. The [Azure Cloud Shell](https://shell.azure.com/) has Python 3.7 pre-installed:
 
 1. Run the following command to install the `azure.iot.device` module:
 

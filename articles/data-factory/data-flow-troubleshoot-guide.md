@@ -6,12 +6,12 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/15/2021
+ms.date: 03/25/2021
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article explores common troubleshooting methods for mapping data flows in Azure Data Factory.
 
@@ -21,12 +21,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Message**: Data preview, debug, and pipeline data flow execution failed because container does not exist
 - **Cause**: A dataset contains a container that doesn't exist in storage.
 - **Recommendation**: Make sure that the container referenced in your dataset exists and can be accessed.
-
-### Error code: DF-Executor-SystemImplicitCartesian
-
-- **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
-- **Cause**: Implicit cartesian products for INNER joins between logical plans aren't supported. If you're using columns in the join, create a unique key with at least one column from both sides of the relationship.
-- **Recommendation**: For non-equality based joins, use CUSTOM CROSS join.
 
 ### Error code: DF-Executor-SystemInvalidJson
 
@@ -77,11 +71,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Cause**: The data type for the declared type isn't compatible with the actual parameter value.
 - **Recommendation**: Check that the parameter values passed into the data flow match the declared type.
 
-### Error code: DF-Executor-ColumnUnavailable
-- **Message**: Column name used in expression is unavailable or invalid
-- **Cause**: An invalid or unavailable column name used in an expression.
-- **Recommendation**: Check column names in expressions.
-
 ### Error code: DF-Executor-ParseError
 - **Message**: Expression cannot be parsed
 - **Cause**: An expression generated parsing errors because of incorrect formatting.
@@ -91,29 +80,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
 - **Cause**: Implicit cartesian products for INNER joins between logical plans aren't supported. If you're using columns in the join, create a unique key.
 - **Recommendation**: For non-equality based joins, use CROSS JOIN.
-
-### Error code: DF-Executor-SystemInvalidJson
-- **Message**: JSON parsing error, unsupported encoding or multiline
-- **Cause**: Possible problems with the JSON file: unsupported encoding, corrupt bytes, or using JSON source as a single document on many nested lines.
-- **Recommendation**: Verify that the JSON file's encoding is supported. On the source transformation that's using a JSON dataset, expand **JSON Settings** and turn on **Single Document**.
-
-
-
-### Error code: DF-Executor-Conversion
-- **Message**: Converting to a date or time failed due to an invalid character
-- **Cause**: Data isn't in the expected format.
-- **Recommendation**: Use the correct data type.
-
-
-### Error code: DF-Executor-BlockCountExceedsLimitError
-- **Message**: The uncommitted block count cannot exceed the maximum limit of 100,000 blocks. Check blob configuration.
-- **Cause**: The maximum number of uncommitted blocks in a blob is 100,000.
-- **Recommendation**: Contact the Microsoft product team for more details about this problem.
-
-### Error code: DF-Executor-PartitionDirectoryError
-- **Message**: The specified source path has either multiple partitioned directories (for e.g. *<Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/<Partition Root Directory 2>/c=10/d=30*) or partitioned directory with other file or non-partitioned directory (for e.g. *<Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/Directory 2/file1*), remove partition root directory from source path and read it through separate source transformation.
-- **Cause**: The source path has either multiple partitioned directories or a partitioned directory that has another file or non-partitioned directory. 
-- **Recommendation**: Remove the partitioned root directory from the source path and read it through separate source transformation.
 
 ### Error code: GetCommand OutputAsync failed
 - **Message**: During Data Flow debug and data preview: GetCommand OutputAsync failed with ...
@@ -132,22 +98,10 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Cause**: The account name or access key is incorrect.
 - **Recommendation**: Ensure the account name or access key specified in your linked service is correct. 
 
-### Error code: DF-Executor-InvalidType
-- **Message**: Please make sure that the type of parameter matches with type of value passed in. Passing float parameters from pipelines isn't currently supported.
-- **Cause**: The data type for the declared type isn't compatible with the actual parameter value. 
-- **Recommendation**: Supply the correct data types.
-
 ### Error code: DF-Executor-ColumnUnavailable
 - **Message**: Column name used in expression is unavailable or invalid.
 - **Cause**: An invalid or unavailable column name is used in an expression.
 - **Recommendation**: Check the column names used in expressions.
-
-
-### Error code: DF-Executor-ParseError
-- **Message**: Expression cannot be parsed.
-- **Cause**: An expression generated parsing errors because of incorrect formatting. 
-- **Recommendation**: Check the formatting in the expression.
-
 
  ### Error code: DF-Executor-OutOfDiskSpaceError
 - **Message**: Internal server error
@@ -343,7 +297,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Error code: DF-Excel-InvalidRange
 - **Message**: Invalid range is provided.
-- **Recommendation**: Check the parameter value and specify the valid range by the following reference: [Excel format in Azure Data Factory-Dataset properties](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **Recommendation**: Check the parameter value and specify the valid range by the following reference: [Excel format in Azure Data Factory-Dataset properties](./format-excel.md#dataset-properties).
 
 ### Error code: DF-Excel-WorksheetNotExist
 - **Message**: Excel worksheet does not exist.
@@ -358,24 +312,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 ### Error code: DF-Excel-InvalidFile
 - **Message**: Invalid excel file is provided while only .xlsx and .xls are supported.
 
-### Error code: DF-AdobeIntegration-InvalidMapToFilter
-- **Message**: Custom resource can only have one Key/Id mapped to filter.
-
-### Error code: DF-AdobeIntegration-InvalidPartitionConfiguration
-- **Message**: Only single partition is supported. Partition schema may be RoundRobin or Hash.
-- **Recommendation**: In AdobeIntegration settings, confirm you only have single partitions. The partition schema may be RoundRobin or Hash.
-
-### Error code: DF-AdobeIntegration-KeyColumnMissed
-- **Message**: Key must be specified for non-insertable operations.
-- **Recommendation**: Specify your key columns in AdobeIntegration settings for non-insertable operations.
-
-### Error code: DF-AdobeIntegration-InvalidPartitionType
-- **Message**: Partition type has to be roundRobin.
-- **Recommendation**: Confirm the partition type is roundRobin in AdobeIntegration settings.
-
-### Error code: DF-AdobeIntegration-InvalidPrivacyRegulation
-- **Message**: Only privacy regulation supported currently is gdpr.
-- **Recommendation**: Confirm the privacy regulation in AdobeIntegration settings is **'GDPR'**.
 
 ## Miscellaneous troubleshooting tips
 - **Issue**: Unexpected exception occurred and execution failed.
@@ -401,6 +337,110 @@ This article explores common troubleshooting methods for mapping data flows in A
 2. Check the status of your file and table connections in the data flow designer. In debug mode, select **Data Preview** on your source transformations to ensure that you can access your data.
 3. If everything looks correct in data preview, go into the Pipeline designer and put your data flow in a Pipeline activity. Debug the pipeline for an end-to-end test.
 
+### Improvement on CSV/CDM format in Data Flow 
+
+If you use the **Delimited Text or CDM formatting for mapping data flow in Azure Data Factory V2**, you may face the behavior changes to your existing pipelines because of the improvement for Delimited Text/CDM in data flow starting from **1 May 2021**. 
+
+You may encounter the following issues before the improvement, but after the improvement, the issues were fixed. Read the following content to determine whether this improvement affects you. 
+
+#### Scenario 1: Encounter the unexpected row delimiter issue
+
+ You are affected if you are in the following conditions:
+ - Using the Delimited Text with the Multiline setting set to True or CDM as the source.
+ - The first row has more than 128 characters. 
+ - The row delimiter in data files is not `\n`.
+
+ Before the improvement, the default row delimiter `\n` may be unexpectedly used to parse delimited text files, because when Multiline setting is set to True, it invalidates the row delimiter setting, and the row delimiter is automatically detected based on the first 128 characters. If you fail to detect the actual row delimiter, it would fall back to `\n`.  
+
+ After the improvement, any one of the three row delimiters: `\r`, `\n`, `\r\n` should be worked.
+ 
+ The following example shows you one pipeline behavior change after the improvement:
+
+ **Example**:<br/>
+   For the following column:<br/>
+    `C1, C2, {long first row}, C128\r\n `<br/>
+    `V1, V2, {values………………….}, V128\r\n `<br/>
+ 
+   Before the improvement, `\r` is kept in the column value. The parsed column result is:<br/>
+   `C1 C2 {long first row} C128`**`\r`**<br/>
+   `V1 V2 {values………………….} V128`**`\r`**<br/> 
+
+   After the improvement, the parsed column result should be:<br/>
+   `C1 C2 {long first row} C128`<br/>
+   `V1 V2 {values………………….} V128`<br/>
+  
+#### Scenario 2: Encounter an issue of incorrectly reading column values containing '\r\n'
+
+ You are affected if you are in the following conditions:
+ - Using the Delimited Text with the Multiline setting set to True or CDM as a source. 
+ - The row delimiter is `\r\n`.
+
+ Before the improvement, when reading the column value, the `\r\n` in it may be incorrectly replaced by `\n`. 
+
+ After the improvement, `\r\n` in the column value will not be replaced by `\n`.
+
+ The following example shows you one pipeline behavior change after the improvement:
+ 
+ **Example**:<br/>
+  
+ For the following column：<br/>
+  **`"A\r\n"`**`, B, C\r\n`<br/>
+
+ Before the improvement, the parsed column result is:<br/>
+  **`A\n`**` B C`<br/>
+
+ After the improvement, the parsed column result should be:<br/>
+  **`A\r\n`**` B C`<br/>  
+
+#### Scenario 3: Encounter an issue of incorrectly writing column values containing '\n'
+
+ You are affected if you are in the following conditions:
+ - Using the Delimited Text as a sink.
+ - The column value contains `\n`.
+ - The row delimiter is set to `\r\n`.
+ 
+ Before the improvement, when writing the column value, the `\n` in it may be incorrectly replaced by `\r\n`. 
+
+ After the improvement, `\n` in the column value will not be replaced by `\r\n`.
+ 
+ The following example shows you one pipeline behavior change after the improvement:
+
+ **Example**:<br/>
+
+ For the following column:<br/>
+ **`A\n`**` B C`<br/>
+
+ Before the improvement, the CSV sink is:<br/>
+  **`"A\r\n"`**`, B, C\r\n` <br/>
+
+ After the improvement, the CSV sink should be:<br/>
+  **`"A\n"`**`, B, C\r\n`<br/>
+
+#### Scenario 4: Encounter an issue of incorrectly reading empty string as NULL
+ 
+ You are affected if you are in the following conditions:
+ - Using the Delimited Text as a source. 
+ - NULL value is set to non-empty value. 
+ - The column value is empty string and is unquoted. 
+ 
+ Before the improvement, the column value of unquoted empty string is read as NULL. 
+
+ After the improvement, empty string will not be parsed as NULL value. 
+ 
+ The following example shows you one pipeline behavior change after the improvement:
+
+ **Example**:<br/>
+
+ For the following column:<br/>
+  `A, ,B, `<br/>
+
+ Before the improvement, the parsed column result is:<br/>
+  `A null B null`<br/>
+
+ After the improvement, the parsed column result should be:<br/>
+  `A "" (empty string) B "" (empty string)`<br/>
+
+
 ## Next steps
 
 For more help with troubleshooting, see these resources:
@@ -410,4 +450,3 @@ For more help with troubleshooting, see these resources:
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-

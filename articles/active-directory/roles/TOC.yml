@@ -22,6 +22,8 @@
     href: groups-concept.md
   - name: Administrative units  
     href: administrative-units.md
+  - name: Best practices
+    href: best-practices.md
   - name: Security
     items:
     - name: Role security planning

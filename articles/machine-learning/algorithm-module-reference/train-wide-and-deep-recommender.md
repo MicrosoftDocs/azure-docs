@@ -134,6 +134,7 @@ For an example, a typical set of item features might look like this:
 
 17.  Run the pipeline.
 
+
 ## Distributed training
 
 In distributed training the workload to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. Currently the designer support distributed training for **Train Wide & Deep Recommender** module.
@@ -172,6 +173,11 @@ If the module enabled distributed training fails without any `70_driver` logs, y
 The following example shows a common error that is **Process count per node** is larger than **Processing Unit** of the compute.
 
 ![Screenshot showing mpi log](./media/module/distributed-training-error-mpi-log.png)
+
+## Results
+
+After pipeline run is completed, to use the model for scoring, connect the [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md) to [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md), to predict values for new input examples.
+
 
 ##  Technical notes
 
