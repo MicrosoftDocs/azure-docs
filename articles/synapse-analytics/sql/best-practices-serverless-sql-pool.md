@@ -18,14 +18,14 @@ In this article, you'll find a collection of best practices for using serverless
 
 Serverless SQL pool allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities. So all files that the query targets are external to serverless SQL pool. Everything related to reading files from storage might have an impact on query performance.
 
-some generic guidelines are:
+Some generic guidelines are:
 - Make sure that your client applications are collocated with the serverless SQL pool.
-  - If you are using client applications outside of Azure (for example PowerBI Desktop, SSMS, ADS), make sure that you are using the serverless pool in some region that is close to your client computer.
+  - If you are using client applications outside of Azure (for example Power BI Desktop, SSMS, ADS), make sure that you are using the serverless pool in some region that is close to your client computer.
 - Make sure that the storage (Azure Data Lake, Cosmos DB) and serverless SQL pool are in the same region.
 - Try to [optimize storage layout](#prepare-files-for-querying) using partitioning and keeping your files in the range between 100 MB and 10 GB.
 - If you are returning a large number of results, make sure that you are using SSMS or ADS and not Synapse Studio. Synapse Studio is a web tool that is not designed for large result-sets. 
 - If you are filtering results by string column, try to use some `BIN2_UTF8` collation.
-- Try to cache the results on the client side by using PowerBI import mode or analytis services, and periodically refresh them. The serverless SQL pools cannot provide interactive experience in Power BI Direct Query mode if you are using complex queries or processing alarge amount of data.
+- Try to cache the results on the client side by using Power BI Import mode or Azure Analysis Services, and periodically refresh them. The serverless SQL pools cannot provide interactive experience in Power BI Direct Query mode if you are using complex queries or processing a large amount of data.
 
 ## Client applications and network connections
 
