@@ -140,5 +140,5 @@ In this quickstart, you learned how to use the OCR library for Python to do basi
 > [!div class="nextstepaction"]
 >[OCR API reference (Python)](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-* [What is Optical character recognition?](../../overview.md)
+* [OCR overview](../../overview-ocr.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

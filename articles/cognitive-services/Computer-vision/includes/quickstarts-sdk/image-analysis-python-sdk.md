@@ -198,5 +198,5 @@ In this quickstart, you learned how to use the Image Analysis library for Python
 > [!div class="nextstepaction"]
 >[Image Analysis API reference (Python)](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-* [What is Image Analysis?](../../overview-image-analysis.md)
+* [Image Analysis overview](../../overview-image-analysis.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

@@ -278,5 +278,5 @@ In this quickstart, you learned how to use the Image Analysis Java library to do
 >[Image Analysis reference (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
 
 
-* [What is Image Analysis?](../../overview-image-analysis.md)
+* [Image Analysis overview](../../overview-image-analysis.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).
