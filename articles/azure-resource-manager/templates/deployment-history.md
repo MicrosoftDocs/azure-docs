@@ -75,13 +75,13 @@ az deployment group show --resource-group ExampleGroup --name ExampleDeployment 
 
 # [HTTP](#tab/http)
 
-To list the deployments for a resource group, use the following operation. For the latest API version number to use in the request, see  [Deployments - List By Resource Group](/rest/api/resources/resources/deployments/listbyresourcegroup).
+To list the deployments for a resource group, use the following operation. For the latest API version number to use in the request, see  [Deployments - List By Resource Group](/rest/api/resources/deployments/listbyresourcegroup).
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
 ```
 
-To get a specific deployment. use the following operation. For the latest API version number to use in the request, see [Deployments - Get](/rest/api/resources/resources/deployments/get).
+To get a specific deployment. use the following operation. For the latest API version number to use in the request, see [Deployments - Get](/rest/api/resources/deployments/get).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -161,7 +161,7 @@ az deployment operation group list --resource-group ExampleGroup --name ExampleD
 
 # [HTTP](#tab/http)
 
-To get deployment operations, use the following operation. For the latest API version number to use in the request, see [Deployment Operations - List](/rest/api/resources/resources/deploymentoperations/list).
+To get deployment operations, use the following operation. For the latest API version number to use in the request, see [Deployment Operations - List](/rest/api/resources/deploymentoperations/list).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

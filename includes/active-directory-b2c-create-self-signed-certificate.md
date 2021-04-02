@@ -5,7 +5,7 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 01/27/2021
 ms.author: mimart
-# Used by the identity provider (IdP) setup articles under "Custom policy"
+# Used by the identity provider (IdP) setup articles under "Custom policy".
 ---
 
 If you don't already have a certificate, you can use a self-signed certificate. A self-signed certificate is a security certificate that is not signed by a certificate authority (CA) and doesn't provide the security guarantees of a certificate signed by a CA. 

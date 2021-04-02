@@ -41,11 +41,11 @@ The table shows the Azure Maps service APIs, which have a similar functionality 
 | Geocoding               | [Search](/rest/api/maps/search)                                   |                         
 | Places Search           | [Search](/rest/api/maps/search)                                   |                         
 | Place Autocomplete      | [Search](/rest/api/maps/search)                                   |                         
-| Snap to Road            | See [Calculate routes and directions](#calculate-routes-and-directions) section.            
-| Speed Limits            | See [Reverse geocode a coordinate](#reverse-geocode-a-coordinate) section.                  
+| Snap to Road            | See [Calculate routes and directions](#calculate-routes-and-directions) section.  |        
+| Speed Limits            | See [Reverse geocode a coordinate](#reverse-geocode-a-coordinate) section.         |         
 | Static Map              | [Render](/rest/api/maps/render/getmapimage)                       |                         
 | Time Zone               | [Time Zone](/rest/api/maps/timezone)                              |                         
-| Elevation               | [Elevation (Preview)](/rest/api/maps/elevation)                   |                         |
+| Elevation               | [Elevation (Preview)](/rest/api/maps/elevation)                   | 
 
 The following service APIs aren't currently available in Azure Maps:
 
