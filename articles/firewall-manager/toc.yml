@@ -52,7 +52,7 @@
   - name: Deploy security partner providers
     href: deploy-trusted-security-partner.md
   - name: Secure private endpoints
-    href: private-link-inspection-secure-vhub.md
+    href: private-link-inspection-secure-virtual-hub.md
   - name: Migrate to Firewall policy - PowerShell
     href: migrate-to-policy.md
   - name: DNS settings
