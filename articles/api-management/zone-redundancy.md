@@ -3,7 +3,7 @@ title: Availability zone support for Azure API Management
 description: Learn how to deploy your Azure API Management service instance so that it is zone redundant.
 author: dlepow
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.date: 04/02/2021
 ms.author: apimpm
 
 ---
@@ -22,16 +22,24 @@ API Management also supports [multi-region deployments](api-management-howto-dep
 
 * If you have not yet created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md)
 * If your API Management is deployed in a [virtual network](api-management-using-with-vnet.md), ensure that the virtual network is configured with a public IP address resource.
+    > [!IMPORTANT]
+    > Configuring or updating the availability zone configuration for a service instance in a virtual net
 
-## Deploy in an availability zone 
+## Configure zone redundancy - portal
 
+In the portal, configure zone redundancy when you deploy your API Management service to a new location, or you update the configuration of an existing location.
 
+1. In the Azure portal, navigate to your API Management service and select **Locations** in the menu. .
+1. Select an existing location (Azure region), or select **+ Add** in the top bar. Select a location that [supports availability zones](../availability-zones/az-region.md).
+1. Select the number of [units](upgrade-and-scale.md) in the location.
+1. In **Availability zones**, select one or more zones. The number of units selected must distribute evenly across the availability zones.
+1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings. Select an existing virtual network, subnet, and public IP address that are available in the location.
+1. Select **Apply**.
 
-1. In the Azure portal, navigate to your API Management service and click on the **Locations** entry in the menu.
-2. Click **+ Add** in the top bar.
+:::image type="content" source="media/zone-redundancy/add-location-zones.png" alt-text="Enable zone redundancy":::
 
 > [!NOTE]
-> 
+> It can take 15 to 45 minutes to apply the change to your API Management instance.
 
 ## Next steps
 
