@@ -15,14 +15,14 @@ ms.reviewer: davberg
 The following CoreMark benchmark scores show compute performance for select Azure VMs running Windows Server. Compute benchmark scores are also available for [Linux VMs](../linux/compute-benchmark-scores.md).
 
 
-## azure (Coremark) TOC
+
 | Type | Families | Description (from docs) |
 | ---- | -------- | ----------------------- |
 | Compute optimized | [Fsv2](#fsv2---compute---storage-optimized)  | TBD |
 | General purpose | [Dasv4](#dasv4) [Dav4](#dav4) [Ddsv4](#ddsv4) [Ddv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4)  | TBD |
 | Memory optimized | [Easv4](#easv4) [Eav4](#eav4) [Edsv4](#edsv4) [Edv4](#edv4) [Esv4](#esv4) [Ev4](#ev4)  | TBD |
 
-# azure (Coremark)
+
 ## Compute optimized
 ### Fsv2 - Compute + Storage Optimized
 (03/29/2021 PBIID:9198755)
