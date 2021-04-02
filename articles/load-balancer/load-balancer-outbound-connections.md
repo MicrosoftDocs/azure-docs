@@ -60,14 +60,16 @@ To maintain unique flows, the host rewrites the source port of each outbound pac
   * Virtual machine without public IP.
   * Virtual machine without public IP and without standard load balancer.
 		
- ### <a name="scenario1"></a> Scenario 1: Virtual machine with public IP
+ ### <a name="scenario1"></a> Scenario 1: Virtual machine with public IP either with or without a load balancer.
 
  | Associations | Method | IP protocols |
  | ---------- | ------ | ------------ |
- | Public load balancer or stand-alone | [SNAT (Source Network Address Translation)](#snat) </br> not used. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
+ | Public load balancer or stand-alone | [SNAT (Source Network Address Translation)](#snat) </br> is not used. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
 
  #### Description
 
+ All traffic will return to the requesting client from the virtual machine's public IP address (Instance Level IP).
+ 
  Azure uses the public IP assigned to the IP configuration of the instance's NIC for all outbound flows. The instance has all ephemeral ports available. It doesn't matter whether the VM is load balanced or not. This scenario takes precedence over the others. 
 
  A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.
