@@ -75,7 +75,7 @@ Navigating to the website will now return more explicit error messages:
 * Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
 * Exception Details: System.IO.FIleNotFoundException: Could not load file or assembly ‘Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ or one of its dependencies. The system cannot find the file specified.
 For example:
-:::image type="content" source="media/role-startup-failure-3.png" alt-text="Image shows exception on role startup failure":::
+  :::image type="content" source="media/role-startup-failure-3.png" alt-text="Image shows exception on role startup failure":::
   
 ## Diagnose issues by using the compute emulator
 You can use the Azure Compute Emulator to diagnose and troubleshoot issues of missing dependencies and web.config errors.
