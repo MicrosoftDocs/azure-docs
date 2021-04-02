@@ -55,7 +55,7 @@ The following list summarizes the main features of **Home page**. Each number in
 
     - For *data curator*, the buttons are **Home**, **Glossary**, **Insights**, and **Management center**.
     - For *data reader*, the buttons are **Home**, **Glossary**, **Insights**, and **Management center**.
-    - For *data source administrator* + *data curator/reader*, the buttons are **Home**, **Sources**, **Glossary**, **Insights**, and **Management Center**.
+    - For *data source administrator* or *data curator/reader*, the buttons are **Home**, **Sources**,**Glossary**, **Insights**, and **Management Center**.
   
 6. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the Data Catalog](how-to-search-catalog.md) and [Browse by asset type](how-to-browse-catalog.md#browse-experience).  **My items** tab is a list of data assets owned by the logged-on user.
 7. **Useful Links** contains links to region status, documentation, pricing, overview, and Purview status
@@ -72,7 +72,7 @@ Each UX in Azure Purview Studio will have guided tours to give overview of the p
 :::image type="content" source="./media/use-purview-studio/guided-tour.png" alt-text="Screenshot of the guided tour.":::
 
 > [!Important]
-   > Data Source Administrator role by itself does not have access to Purview Studio.
+> The *Data Source Administrator* role by iteself does not have access to Purview Studio.
 
 ## Next steps
 
