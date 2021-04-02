@@ -5,7 +5,6 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
@@ -300,7 +299,7 @@ If you create a VM and then update your secret in the key vault, the new certifi
 
 To deploy .cer public keys to a virtual machine scale set, you can generate a .pfx file that contains only .cer files. To do this, use `X509ContentType = Pfx`. For example, load the .cer file as an x509Certificate2 object in C# or PowerShell, and then call the method.
 
-For more information, see [X509Certificate.Export Method (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?view=netcore-3.1#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
+For more information, see [X509Certificate.Export Method (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
 
 ### How do I pass in certificates as base64 strings?
 
@@ -511,7 +510,7 @@ If you have two virtual machine scale sets with Azure Load Balancer front-ends, 
 
 IP addresses are selected from a subnet that you specify.
 
-The allocation method of virtual machine scale set IP addresses is always “dynamic,” but that doesn't mean that these IP addresses can change. In this case, "dynamic" only means that you do not specify the IP address in a PUT request. Specify the static set by using the subnet.
+The allocation method of virtual machine scale set IP addresses is always "dynamic," but that doesn't mean that these IP addresses can change. In this case, "dynamic" only means that you do not specify the IP address in a PUT request. Specify the static set by using the subnet.
 
 ### How do I deploy a virtual machine scale set to an existing Azure virtual network?
 
@@ -568,7 +567,7 @@ Yes. You can add the resource IDs for multiple Application Gateway backend addre
 
 ### In what case would I create a virtual machine scale set with fewer than two VMs?
 
-One reason to create a virtual machine scale set with fewer than two VMs would be to use the elastic properties of a virtual machine scale set. For example, you could deploy a virtual machine scale set with zero VMs to define your infrastructure without paying VM running costs. Then, when you are ready to deploy VMs, increase the “capacity” of the virtual machine scale set to the production instance count.
+One reason to create a virtual machine scale set with fewer than two VMs would be to use the elastic properties of a virtual machine scale set. For example, you could deploy a virtual machine scale set with zero VMs to define your infrastructure without paying VM running costs. Then, when you are ready to deploy VMs, increase the "capacity" of the virtual machine scale set to the production instance count.
 
 Another reason you might create a virtual machine scale set with fewer than two VMs is if you're concerned less with availability than in using an availability set with discrete VMs. Virtual machine scale sets give you a way to work with undifferentiated compute units that are fungible. This uniformity is a key differentiator for virtual machine scale sets versus availability sets. Many stateless workloads do not track individual units. If the workload drops, you can scale down to one compute unit, and then scale up to many when the workload increases.
 
@@ -696,7 +695,7 @@ You can set this property to **false**. For small virtual machine scale sets, th
 
 ### What is the difference between deleting a VM in a virtual machine scale set and deallocating the VM? When should I choose one over the other?
 
-The main difference between deleting a VM in a virtual machine scale set and deallocating the VM is that `deallocate` doesn’t delete the virtual hard disks (VHDs). There are storage costs associated with running `stop deallocate`. You might use one or the other for one of the following reasons:
+The main difference between deleting a VM in a virtual machine scale set and deallocating the VM is that `deallocate` doesn't delete the virtual hard disks (VHDs). There are storage costs associated with running `stop deallocate`. You might use one or the other for one of the following reasons:
 
 - You want to stop paying compute costs, but you want to keep the disk state of the VMs.
 - You want to start a set of VMs more quickly than you could scale out a virtual machine scale set.

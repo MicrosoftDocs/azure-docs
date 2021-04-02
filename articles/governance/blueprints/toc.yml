@@ -78,6 +78,9 @@
   - name: CIS Microsoft Azure Foundations Benchmark v1.1.0
     displayName: standards, cis
     href: ./samples/cis-azure-1-1-0.md
+  - name: CMMC Level 3
+    displayName: standards, cmmc
+    href: ./samples/cmmc-l3.md
   - name: DoD Impact Level 4
     items:
     - name: Overview
@@ -172,6 +175,9 @@
     - name: Steps to deploy
       displayName: standards, Media
       href: ./samples/media/deploy.md
+  - name: New Zealand ISM Restricted
+    displayName: standards, NZISM
+    href: ./samples/new-zealand-ism.md
   - name: NIST SP 800-53 R4
     displayName: standards, nist, 800-53, rev 4
     href: ./samples/nist-sp-800-53-r4.md

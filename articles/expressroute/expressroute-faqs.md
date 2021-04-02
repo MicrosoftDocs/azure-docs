@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/29/2021
 ms.author: duau
 
 ---
@@ -167,7 +167,7 @@ See [here](./designing-for-high-availability-with-expressroute.md) for designing
 
 ### How do I ensure high availability on a virtual network connected to ExpressRoute?
 
-You can achieve high availability by connecting up to four ExpressRoute circuits in the same peering location to your virtual network, or by connecting ExpressRoute circuits in different peering locations (for example, Singapore, Singapore2) to your virtual network. If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. For more information, see [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
+You can achieve high availability by connecting up to 16 ExpressRoute circuits in the same peering location to your virtual network, or by connecting ExpressRoute circuits in different peering locations (for example, Singapore, Singapore2) to your virtual network. If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. For more information, see [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
 
 ### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering or public peering is preferred on the ExpressRoute path?
 
@@ -200,7 +200,7 @@ If your service provider offers ExpressRoute at both sites, you can work with yo
 
 Yes. You can have multiple ExpressRoute circuits with the same or different service providers. If the metro has multiple ExpressRoute peering locations and the circuits are created at different peering locations, you can link them to the same virtual network. If the circuits are created at the same peering location, you can link up to four circuits to the same virtual network.
 
-### How do I connect my virtual networks to an ExpressRoute circuit
+### How do I connect my virtual networks to an ExpressRoute circuit?
 
 The basic steps are:
 
@@ -261,7 +261,7 @@ Yes. ExpressRoute can coexist with site-to-site VPNs. See [Configure ExpressRout
 
 ### How do I enable routing between my site-to-site VPN connection and my ExpressRoute?
 
-If you want to enable routing between your branch connected to Expressoute and your branch connected to a site-to-site VPN connection, you'll need to set up [Azure Route Server](../route-server/expressroute-vpn-support.md).
+If you want to enable routing between your branch connected to ExpressRoute and your branch connected to a site-to-site VPN connection, you'll need to set up [Azure Route Server](../route-server/expressroute-vpn-support.md).
 
 ### Why is there a public IP address associated with the ExpressRoute gateway on a virtual network?
 
@@ -294,6 +294,15 @@ You will also have to follow up with your connectivity provider to ensure that t
 ### How do I change the bandwidth of an ExpressRoute circuit?
 
 You can update the bandwidth of the ExpressRoute circuit using the REST API or PowerShell cmdlet.
+
+### I received a notification about maintenance on my ExpressRoute circuit. What is the technical impact of this maintenance?
+
+You should experience minimal to no impact during maintenance if you operate your circuit in [active-active mode](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections). We perform maintenance on the primary and secondary connections of your circuit separately. Scheduled maintenance will usually be performed outside of business hours in the time zone of the peering location, and you cannot select a maintenance time.
+
+### I received a notification about a software upgrade or maintenance on my ExpressRoute gateway. What is the technical impact of this maintenance?
+
+You should experience minimal to no impact during a software upgrade or maintenance on your gateway. The ExpressRoute gateway is comprised of multiple instance and during upgrades, instances are taken offline one at a time. While this may cause your gateway to temporarily support lower network throughput to the virtual network, the gateway itself will not experience any downtime.
+
 
 ## ExpressRoute premium
 

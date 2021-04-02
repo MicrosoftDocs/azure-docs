@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/11/2021
+ms.date: 03/22/2021
 ms.author: memildin
 
 ---
@@ -22,7 +22,6 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
 
 
-
 ## March 2021
 
 Updates in March include:
@@ -34,6 +33,7 @@ Updates in March include:
 - [Recommendation data can be viewed in Azure Resource Graph with "Explore in ARG"](#recommendation-data-can-be-viewed-in-azure-resource-graph-with-explore-in-arg)
 - [Updates to the policies for deploying workflow automation](#updates-to-the-policies-for-deploying-workflow-automation)
 - [Two legacy recommendations no longer write data directly to Azure activity log](#two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log)
+- [Recommendations page enhancements](#recommendations-page-enhancements)
 
 
 ### Azure Firewall management integrated into Security Center
@@ -136,6 +136,22 @@ The two legacy recommendations are:
 
 If you've been accessing information for these two recommendations in activity log's "Recommendation of type TaskDiscovery" category, this is no longer available.
 
+
+### Recommendations page enhancements 
+
+We've released an improved version of the recommendations list to present more information at a glance.
+
+Now on the page you'll see:
+
+1. The maximum score and current score for each security control.
+1. Icons replacing tags such as **Quick fix** and **Preview**.
+1. A new column showing the [Policy initiative](security-policy-concept.md) related to each recommendation - visible when "Group by controls" is disabled.
+
+:::image type="content" source="media/release-notes/recommendations-grid-enhancements.png" alt-text="Enhancements to Azure Security Center's recommendations page - March 2021" lightbox="media/release-notes/recommendations-grid-enhancements.png":::
+
+:::image type="content" source="media/release-notes/recommendations-grid-enhancements-initiatives.png" alt-text="Enhancements to Azure Security Center's recommendations 'flat' list - March 2021" lightbox="media/release-notes/recommendations-grid-enhancements-initiatives.png":::
+
+Learn more in [Security recommendations in Azure Security Center](security-center-recommendations.md).
 
 
 ## February 2021

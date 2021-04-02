@@ -1,12 +1,8 @@
 ---
 title: System prerequisites
 description: Get system prerequisites needed to run Azure Defender for IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: quickstart
-ms.service: azure
 ---
 
 # System prerequisites

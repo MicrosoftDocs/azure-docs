@@ -1,5 +1,5 @@
 - name: Azure Storage validated partner solutions
-  href: /azure/storage/solution-integration
+  href: ./index.yml
 - name: Analytics and big data partners
   items:
   - name: Overview of validated partners
@@ -23,6 +23,8 @@
   items:
   - name: Overview of validated partners
     href: .\validated-partners\data-management\partner-overview.md
+  - name: Migration tools comparison
+    href: ./validated-partners/data-management/migration-tools-comparison.md
   expanded: false
 - name: Primary and secondary storage partners
   items:

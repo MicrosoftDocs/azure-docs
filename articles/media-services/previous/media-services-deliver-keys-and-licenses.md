@@ -49,7 +49,7 @@ The following diagram shows the main steps you need to take to use Media Service
     ```
  
 ## .NET code example
-The following code example shows how to create a common content key and get PlayReady or Widevine license acquisition URLs. To configure your on-premises server, you need a content key, the key ID, and the license acquisition URL. After you configure your on-premises server, you can stream from your own streaming server. Because the encrypted stream points to a Media Services license server, your player requests a license from Media Services. If you choose token authentication, the Media Services license server validates the token you sent through HTTPS. If the token is valid, the license server delivers the license back to your player. The following code example only shows how to create a common content key and get PlayReady or Widevine license acquisition URLs. If you want to deliver AES-128 keys, you need to create an envelope content key and get a key acquisition URL. For more information, see [Use AES-128 dynamic encryption and key delivery service](media-services-protect-with-aes128.md).
+The following code example shows how to create a common content key and get PlayReady or Widevine license acquisition URLs. To configure your on-premises server, you need a content key, the key ID, and the license acquisition URL. After you configure your on-premises server, you can stream from your own streaming server. Because the encrypted stream points to a Media Services license server, your player requests a license from Media Services. If you choose token authentication, the Media Services license server validates the token you sent through HTTPS. If the token is valid, the license server delivers the license back to your player. The following code example only shows how to create a common content key and get PlayReady or Widevine license acquisition URLs. If you want to deliver AES-128 keys, you need to create an envelope content key and get a key acquisition URL. For more information, see [Use AES-128 dynamic encryption and key delivery service](media-services-playready-license-template-overview.md).
 
 ```csharp
 using System;
@@ -352,4 +352,4 @@ namespace DeliverDRMLicenses
 
 ## See also
 * [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md)
-* [Use AES-128 dynamic encryption and the key delivery service](media-services-protect-with-aes128.md)
+* [Use AES-128 dynamic encryption and the key delivery service](media-services-playready-license-template-overview.md)

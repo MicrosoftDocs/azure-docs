@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 03/22/2021
 ms.author: jeedes
 
 ---
@@ -36,19 +36,19 @@ To get started, you need the following items:
     2. F5 BIG-IP Access Policy Manager™ (APM) standalone license 
     3. F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM).
     4. In addition to the above license, the F5 system may also be licensed with: 
-        * A URL Filtering subscription to use the URL category database 
-        * An F5 IP Intelligence subscription to detect and block known attackers and malicious traffic 
-        * A network hardware security module (HSM) to safeguard and manage digital keys for strong authentication
-1. F5 BIG-IP system is provisioned with APM modules (LTM is optional) 
+        * A URL Filtering subscription to use the URL category database. 
+        * An F5 IP Intelligence subscription to detect and block known attackers and malicious traffic. 
+        * A network hardware security module (HSM) to safeguard and manage digital keys for strong authentication.
+1. F5 BIG-IP system is provisioned with APM modules (LTM is optional).
 1. Although optional, it is highly recommended to Deploy the F5 systems in a [sync/failover device group](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), which includes the active standby pair, with a floating IP address for high availability (HA). Further interface redundancy can be achieved using the Link Aggregation Control Protocol (LACP). LACP manages the connected physical interfaces as a single virtual interface (aggregate group) and detects any interface failures within the group.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Oracle PeopleSoft - Protected by F5 BIG-IP APM supports **SP and IDP** initiated SSO
+* Oracle PeopleSoft - Protected by F5 BIG-IP APM supports **SP and IDP** initiated SSO.
 
-## Adding Oracle PeopleSoft - Protected by F5 BIG-IP APM from the gallery
+## Add Oracle PeopleSoft - Protected by F5 BIG-IP APM from the gallery
 
 To configure the integration of Oracle PeopleSoft - Protected by F5 BIG-IP APM into Azure AD, you need to add Oracle PeopleSoft - Protected by F5 BIG-IP APM from the gallery to your list of managed SaaS apps.
 
@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Oracle PeopleSoft - Protected by F5 BIG-IP APM** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -231,7 +231,7 @@ Navigate to **Local Traffic > Profiles > SSL > Client > +**, complete the follow
 >[!Note]
 > Reference https://docs.oracle.com/cd/E12530_01/oam.1014/e10356/people.htm
 
-1. Logon to Peoplesoft Console `https://<FQDN>.peoplesoft.f5.com/:8000/psp/ps/?cmd=start` using Admin credentials(Example: PS/PS)
+1. Logon to Peoplesoft Console `https://<FQDN>.peoplesoft.f5.com/:8000/psp/ps/?cmd=start` using Admin credentials(Example: PS/PS).
 
     ![Manager self services](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-console.png)
 
@@ -310,7 +310,7 @@ To add single logout support for all PeopleSoft users,please follow these steps:
 
     * Navigate to **Local Traffic > Virtual Servers > Virtual Server List > PeopleSoftApp > Resources**. Click the **Manage…** button:   
 
-    * Specify `<Name>` as Enabled iRule and click **Finished**
+    * Specify `<Name>` as Enabled iRule and click **Finished**.
 
         ![_iRule_PeopleSoftApp ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/irule-people-soft.png)
 
@@ -335,11 +335,10 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Oracle PeopleSoft-Protected by F5 BIG-IP APM for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Oracle PeopleSoft-Protected by F5 BIG-IP APM for which you set up the SSO. 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Oracle PeopleSoft-Protected by F5 BIG-IP APM tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Oracle PeopleSoft-Protected by F5 BIG-IP APM for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
-
+You can also use Microsoft My Apps to test the application in any mode. When you click the Oracle PeopleSoft-Protected by F5 BIG-IP APM tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Oracle PeopleSoft-Protected by F5 BIG-IP APM for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next steps
 
-Once you configure Oracle PeopleSoft - Protected by F5 BIG-IP APM you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Oracle PeopleSoft-Protected by F5 BIG-IP APM you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

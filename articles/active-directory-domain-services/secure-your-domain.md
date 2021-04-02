@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 03/08/2021
 ms.author: justinha
 
 ---
@@ -30,14 +30,25 @@ To complete this article, you need the following resources:
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
-* Install and configure Azure PowerShell.
-    * If needed, follow the instructions to [install the Azure PowerShell module and connect to your Azure subscription](/powershell/azure/install-az-ps).
-    * Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet.
-* Install and configure Azure AD PowerShell.
-    * If needed, follow the instructions to [install the Azure AD PowerShell module and connect to Azure AD](/powershell/azure/active-directory/install-adv2).
-    * Make sure that you sign in to your Azure AD tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
 
-## Disable weak ciphers and NTLM password hash sync
+## Use Security settings to disable weak ciphers and NTLM password hash sync
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and select **Azure AD Domain Services**.
+1. Choose your managed domain, such as *aaddscontoso.com*.
+1. On the left-hand side, select **Security settings**.
+1. Click **Disable** for the following settings:
+   - **TLS 1.2 only mode**
+   - **NTLM authentication**
+   - **NTLM password synchronization from on-premises**
+
+   ![Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/security-settings.png)
+
+## Use PowerShell to disable weak ciphers and NTLM password hash sync
+
+If needed, [install and configure Azure PowerShell](/powershell/azure/install-az-ps). Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet. 
+
+Also if needed, [install and configure Azure AD PowerShell](/powershell/azure/active-directory/install-adv2). Make sure that you sign in to your Azure AD tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
 
 To disable weak cipher suites and NTLM credential hash synchronization, sign in to your Azure account, then get the Azure AD DS resource using the [Get-AzResource][Get-AzResource] cmdlet:
 

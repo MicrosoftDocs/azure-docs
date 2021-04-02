@@ -11,7 +11,7 @@ ms.date: 04/28/2020
 
 The Azure Monitor Application Insights .NET and .NET Core SDKs have two different methods of collecting custom metrics, `TrackMetric()`, and `GetMetric()`. The key difference between these two methods is local aggregation. `TrackMetric()` lacks pre-aggregation while `GetMetric()` has pre-aggregation. The recommended approach is to use aggregation, therefore, `TrackMetric()` is no longer the preferred method of collecting custom metrics. This article will walk you through using the GetMetric() method, and some of the rationale behind how it works.
 
-## TrackMetric versus GetMetric
+## Pre-aggregating vs non pre-aggregating API
 
 `TrackMetric()` sends raw telemetry denoting a metric. It is inefficient to send a single telemetry item for each value. `TrackMetric()` is also inefficient in terms of performance since every `TrackMetric(item)` goes through the full SDK pipeline of telemetry initializers and processors. Unlike `TrackMetric()`, `GetMetric()` handles local pre-aggregation for you and then only submits an aggregated summary metric at a fixed interval of one minute. So if you need to closely monitor some custom metric at the second or even millisecond level you can do so while only incurring the storage and network traffic cost of only monitoring every minute. This also greatly reduces the risk of throttling occurring since the total number of telemetry items that need to be sent for an aggregated metric are greatly reduced.
 
@@ -282,7 +282,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit` is the max number of data time series a metric can contain. Once this limit is reached, calls to `TrackValue()` will not be tracked.
+* `seriesCountLimit` is the max number of data time series a metric can contain. Once this limit is reached, calls to `TrackValue()` that would normally result in a new series will return false.
 * `valuesPerDimensionLimit` limits the number of distinct values per dimension in a similar manner.
 * `restrictToUInt32Values` determines whether or not only non-negative integer values should be tracked.
 

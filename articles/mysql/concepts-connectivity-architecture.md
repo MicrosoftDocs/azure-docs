@@ -79,7 +79,7 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 | West Central US | 13.78.145.25	 | | |
 | West Europe |13.69.105.208, 104.40.169.187 | 40.68.37.158 | 191.237.232.75 |
 | West US |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
-| West US 2 | 13.66.226.202	 | | |
+| West US 2 | 13.66.136.192 | 13.66.226.202	 | | 
 ||||
 
 ## Connection redirection
@@ -105,7 +105,7 @@ Only Gateway nodes will be decommissioned. When users connect to their servers, 
 ### How can you validate if your connections are going to old gateway nodes or new gateway nodes?
 Ping your server’s FQDN, for example  ``ping xxx.mysql.database.azure.com``. If the returned IP address is one of the IPs listed under Gateway IP addresses (decommissioning) in the document above, it means your connection is going through the old gateway. Contrarily, if the returned Ip address is one of the IPs listed under Gateway IP addresses, it means your connection is going through the new gateway.
 
-You may also test by [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) or TCPPing the database server from your client application with port 3306 and ensure that return IP address isn't one of the decommissioning IP addresses
+You may also test by [PSPing](/sysinternals/downloads/psping) or TCPPing the database server from your client application with port 3306 and ensure that return IP address isn't one of the decommissioning IP addresses
 
 ### How do I know when the maintenance is over and will I get another notification when old IP addresses are decommissioned?
 You will receive an email to inform you when we will start the maintenance work. The maintenance can take up to one month depending on the number of servers we need to migrate in al regions. Please prepare your client to connect to the database server using the FQDN or using the new IP address from the table above. 
