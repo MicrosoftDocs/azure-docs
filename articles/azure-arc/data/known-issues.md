@@ -16,6 +16,15 @@ ms.topic: conceptual
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+## March 2021
+
+- You can create a data controller in direct connected mode with the Azure portal. Deployment with other Azure Arc enabled data services tools are not supported. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
+   - Azure Data Studio
+   - Azure Data CLI (`azdata`)
+   - Kubernetes native tools
+
+   [Deploy Azure Arc data controller | Direct connect mode](deploy-dc-direct-mode.md) explains how to create the data controller in the portal. 
+
 ## February 2021
 
 - Connected cluster mode is disabled

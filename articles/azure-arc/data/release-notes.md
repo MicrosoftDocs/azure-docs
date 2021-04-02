@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
@@ -17,6 +17,15 @@ ms.topic: conceptual
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc enabled data services. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## March 2021
+
+The March, 2021 release is introduced on April 6, 2021.
+
+- Deploy Azure Arc enabled data services data controller in direct connect mode from the portal. Start from [Deploy data controller - direct connected mode - prerequisites](deploy-dc-direct-mode-prerequisites.md).
+
+
+Review limitations of this release in [Known issues - Azure Arc enabled data services (Preview)](known-issues.md).
 
 ## February 2021
 
