@@ -17,7 +17,8 @@ On Windows and macOS, Storage Explorer supports URIs with the `storageexplorer:/
 
 Storage Explorer uses the tree view to visualize resources in Azure. A direct link contains the hierarchical information for the linked resource node in the tree. When a direct link is followed, Storage Explorer opens and receives the parameters in the direct link. Storage Explorer then uses these parameters to navigate to the linked resource in the tree view.
 
-> [!IMPORTANT] You must be signed in and have the necessary permissions to access the linked resource for a direct link to work.
+> [!IMPORTANT]
+> You must be signed in and have the necessary permissions to access the linked resource for a direct link to work.
 
 ## Parameters
 
