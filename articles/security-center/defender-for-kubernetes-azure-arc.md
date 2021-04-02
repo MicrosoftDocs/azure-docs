@@ -80,7 +80,7 @@ A dedicated recommendation in Azure Security Center provides visibility about wh
 1. Run the following command to deploy the extension on top of your Azure Arc enabled Kubernetes cluster:
 
     ```azurecli
-    az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group> --extension-type microsoft.azuredefender.kubernetes --name microsoft.azuredefender.kubernetes
+    az k8s-extension create --name microsoft.azuredefender.kubernetes --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group> --extension-type microsoft.azuredefender.kubernetes
     ```
 
     A description of all the supported configuration settings on the Azure Defender for Kubernetes extension type is given below:
@@ -93,7 +93,7 @@ A dedicated recommendation in Azure Security Center provides visibility about wh
     The below command shows an example usage of all optional fields:
 
     ```azurecli
-    az k8s-extension create --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-rg> --extension-type microsoft.azuredefender.kubernetes --name microsoft.azuredefender.kubernetes --configuration-settings logAnalyticsWorkspaceResourceID=<log-analytics-workspace-resource-id> auditLogPath=<your-auditlog-path>
+    az k8s-extension create --name microsoft.azuredefender.kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-rg> --extension-type microsoft.azuredefender.kubernetes --configuration-settings logAnalyticsWorkspaceResourceID=<log-analytics-workspace-resource-id> auditLogPath=<your-auditlog-path>
     ```
 
 ### [**Resource Manager**](#tab/k8s-deploy-resource-manager)
