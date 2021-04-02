@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/18/2021
+ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -172,6 +172,21 @@ Microsoft identities can authenticate in different ways, which may be relevant t
 | `ngcmfa` | Equivalent to `mfa`, used for provisioning of certain advanced credential types. |
 | `wiaormfa`| The user used Windows or an MFA credential to authenticate. |
 | `none` | No authentication was done. |
+
+## Token lifetime configuration
+
+Clients use access tokens to access a protected resource. An access token can be used only for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime. Adjusting the lifetime of an access token is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled. Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token. The default is 1 hour - after 1 hour, the client must use the refresh token to (usually silently) acquire a new refresh token and access token.
+
+You can specify the lifetime of an access token using a token lifetime policy, which contains token lifetime rules. This policy controls how long access, SAML, and ID tokens for this resource are considered valid. If no policy is set, the system enforces the default lifetime value.
+
+| Property | Policy property string | Affects | Default | Minimum | Maximum |
+| --- | --- | --- | --- | --- | --- |
+| Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
+
+> [!NOTE]
+> To ensure the Microsoft Teams Web client works, it is recommended to keep AccessTokenLifetime to greater than 15 minutes for Microsoft Teams.
+
+For an example, see [Create a policy for web sign-in](configure-token-lifetimes.md#create-a-policy-for-web-sign-in). For more information, read [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
 
 ## Validating tokens
 
