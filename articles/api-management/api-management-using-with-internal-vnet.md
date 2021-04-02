@@ -53,7 +53,7 @@ To perform the steps described in this article, you must have:
 When an API Management service is deployed in a virtual network, a [list of ports](./api-management-using-with-vnet.md#required-ports) are used and need to be opened. 
 
 ## <a name="enable-vpn"> </a>Creating an API Management in an internal virtual network
-The API Management service in an internal virtual network is hosted behind an [internal load balancer (classic)](/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). This is the only option available and can't be changed.
+The API Management service in an internal virtual network is hosted behind an internal load balancer Basic SKU if the service is created with client API version 2020-12-01. For service created with clients having API version 2021-01-01-preview and having a public IP address from the customer's subscription, it is hosted behind [internal load balancer Standard SKU). See [Azure Load Balancer SKUs](../load-balancer/skus.md).
 
 ### Enable a virtual network connection using the Azure portal
 
