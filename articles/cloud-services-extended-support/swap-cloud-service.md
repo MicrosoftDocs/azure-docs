@@ -10,7 +10,7 @@ ms.date: 04/01/2021
 ms.custom: 
 ---
 
-# Swap/Switch between two Cloud Services (Extended Support)
+# Swap/Switch between two Azure Cloud Services (Extended Support)
 With cloud services (extended support) you can swap between two independent cloud service deployments. Unlike cloud services (classic), the concept of slots does not exist with the Azure Resource Manager(ARM) model. When you decide to deploy a new release of a cloud service (extended support), you can make it “swappable” with another existing cloud service (extended support) enabling you to stage and test your new release using this deployment. A cloud service can be made ‘swappable’ with another cloud service only at the time of deploying the second cloud service (of the pair). When using the ARM template-based deployment method, this is done by setting the SwappableCloudService property within the Network Profile of the Cloud Service object to the ID of the paired cloud service. 
 
 ```
