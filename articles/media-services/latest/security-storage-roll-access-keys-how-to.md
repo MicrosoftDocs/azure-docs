@@ -64,4 +64,4 @@ Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountNam
 
 ## Steps to add storage accounts to your AMS account
 
-The following article shows how to add storage accounts to your AMS account: [Attach multiple storage accounts to a Media Services account](media-services-managing-multiple-storage-accounts.md).
+The following article shows how to add storage accounts to your AMS account: [Attach multiple storage accounts to a Media Services account](storage-managing-multiple-storage-accounts-how-to.md).
