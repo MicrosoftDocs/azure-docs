@@ -24,7 +24,7 @@ Our digital and physical lives are increasingly linked to the apps, services, an
 
 But identity data has too often been exposed in security breaches. These breaches are impactful to people's lives affecting our social, professional, and financial lives. Microsoft believes that there’s a better way. Every person has a right to an identity that they own and control, one that securely stores elements of their digital identity and preserves privacy. This primer explains how we are joining hands with a diverse community to build an open, trustworthy, interoperable, and standards-based Decentralized Identity (DID) solution for individuals and organizations.
 
-## Why we need Decentralized Identity 
+## Why we need Decentralized Identity
 
 Today we use our digital identity at work, at home, and across every app, service, and device we use. It’s made up of everything we say, do, and experience in our lives—purchasing tickets for an event, checking into a hotel, or even ordering lunch. Currently, our identity and all our digital interactions are owned and controlled by other parties, some of whom we aren’t even aware of.
 
@@ -32,7 +32,7 @@ Generally, users grant consent to several apps and devices. This approach requir
 
 We believe a standards-based Decentralized Identity system can unlock a new set of experiences that give users and organizations to have greater control over their data—and deliver a higher degree of trust and security for apps, devices, and service providers
 
-## Lead with open standards 
+## Lead with open standards
 
 We’re committed to working closely with customers, partners, and the community to unlock the next generation of Decentralized Identity–based experiences, and we’re excited to partner with the individuals and organizations that are making incredible contributions in this space. If the DID ecosystem is to grow, standards, technical components, and code deliverables must be open source and accessible to all.
 
@@ -46,21 +46,21 @@ Microsoft is actively collaborating with members of the Decentralized Identity F
 * [DIF Presentation Exchange](https://identity.foundation/presentation-exchange/)
 
 
-## What are DIDs 
+## What are DIDs?
 
 Before we can understand DIDs, it helps to compare them with current identity systems. Email addresses and social network IDs are human-friendly aliases for collaboration but are now overloaded to serve as the control points for data access across many scenarios beyond collaboration. This creates a potential problem, because access to these IDs can be removed at any time by external parties.
 
 Decentralized Identifiers (DIDs) are different. DIDs are user-generated, self-owned, globally unique identifiers rooted in decentralized systems like ION. They possess unique characteristics, like greater assurance of immutability, censorship resistance, and tamper evasiveness. These attributes are critical for any ID system that is intended to provide self-ownership and user control. 
 
 Microsoft’s verifiable credential solution uses decentralized credentials (DIDs) to cryptographically sign as proof that a relying party (verifier) is attesting to information proving they are the owners of a verifiable credential. Therefore, a basic understanding of decentralized identifiers is recommended for anyone creating a verifiable credential solution based on the Microsoft offering.
-## What are Verifiable Credentials 
+## What are Verifiable Credentials?
 
  We use IDs in our daily lives. We have drivers licenses that we use as evidence of our ability to operate a car. Universities issue diplomas that prove we attained a level of education. We use passports to prove who we are to authorities as we arrive to other countries. The data model describes how we could handle these types of scenarios when working over the internet but in a secure manner that respects user's privacy. You can get additional information in The [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/)
 
 In short, verifiable credentials are data objects consisting of claims made by the issuer attesting information about a subject. These claims are identified by schema and include the DID the issuer and subject. The issuer's DID creates a digital signature as proof that they attest to this information.
 
 
-## How does Decentralized Identity work? 
+## How does Decentralized Identity work?
 
 We need a new form of identity. We need an identity that brings together technologies and standards to deliver key identity attributes like self-ownership, and censorship resistance. These capabilities are difficult to achieve using existing systems.
 
