@@ -33,7 +33,7 @@ The diagram includes the Azure Security Benchmark program, a collection of high-
 ![End to end security in Azure](./media/end-to-end/end-to-end-security.png)
 
 ## Security controls and baselines
-The [Azure Security Benchmark](../../benchmarks/introduction.md) program includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
+The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
 
 - Security controls - These recommendations are generally applicable across your Azure tenant and Azure services. Each recommendation identifies a list of stakeholders that are typically involved in planning, approval, or implementation of the benchmark.
 - Service baselines - These apply the controls to individual Azure services to provide recommendations on that service’s security configuration.
@@ -66,10 +66,10 @@ The [Azure Security Benchmark](../../benchmarks/introduction.md) program include
 | **Data & Application** |  |
 | [Azure Backup](../../backup/backup-overview.md) | Provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud. |
 | [Azure Storage Service Encryption](../../storage/common/storage-service-encryption.md) | Automatically encrypts data before it is stored and automatically decrypts the data when you retrieve it. |
-| [Azure Information Protection](../../information-protection/what-is-information-protection.md) | A cloud-based solution that enables organizations to discover, classify, and protect documents and emails by applying labels to content. |
+| [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) | A cloud-based solution that enables organizations to discover, classify, and protect documents and emails by applying labels to content. |
 | [API Management](../../api-management/api-management-key-concepts.md) | A way to create consistent and modern API gateways for existing back-end services. |
 | [Azure confidential computing](../../confidential-computing/overview.md) | Allows you to isolate your sensitive data while it's being processed in the cloud. |
-| [Azure DevOps](../../devops/user-guide/what-is-azure-devops.md) | Your development projects benefit from multiple layers of security and governance technologies, operational practices, and compliance policies when stored in Azure DevOps. |
+| [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops) | Your development projects benefit from multiple layers of security and governance technologies, operational practices, and compliance policies when stored in Azure DevOps. |
 | **Customer Access** |  |
 | [Azure AD External Identities](../../active-directory/external-identities/compare-with-b2c.md) | With External Identities in Azure AD, you can allow people outside your organization to access your apps and resources, while letting them sign in using whatever identity they prefer. |
 |  | You can share your apps and resources with external users via [Azure AD B2B](../../active-directory/external-identities/what-is-b2b.md) collaboration. |
@@ -107,10 +107,10 @@ The [Azure Security Benchmark](../../benchmarks/introduction.md) program include
 | [Azure Sentinel](../../sentinel/hunting.md) | Powerful search and query tools to hunt for security threats across your organization's data sources. |
 | [Azure&nbsp;Monitor&nbsp;logs&nbsp;and&nbsp;metrics](../../azure-monitor/overview.md) | Delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor [collects and aggregates data](../../azure-monitor/data-platform.md#observability-data-in-azure-monitor) from a variety of sources into a common data platform where it can be used for analysis, visualization, and alerting. |
 | **Identity&nbsp;&&nbsp;Access&nbsp;Management** |  |
-| [Azure&nbsp;AD&nbsp;reports&nbsp;and&nbsp;monitoring](../../active-directory/reports-monitoring.yml) | [Azure AD reports](../../active-directory/reports-monitoring/overview-reports.md) provide a comprehensive view of activity in your environment. |
+| [Azure&nbsp;AD&nbsp;reports&nbsp;and&nbsp;monitoring](https://docs.microsoft.com/azure/active-directory/reports-monitoring/) | [Azure AD reports](../../active-directory/reports-monitoring/overview-reports.md) provide a comprehensive view of activity in your environment. |
 |  | [Azure AD monitoring](../../active-directory/reports-monitoring/overview-monitoring.md) lets you route your Azure AD activity logs to different endpoints.|
 | [Azure AD PIM audit history](../../active-directory/privileged-identity-management/pim-how-to-use-audit-log.md) | Shows all role assignments and activations within the past 30 days for all privileged roles. |
 | **Data & Application** |  |
-| [Microsoft Cloud App Security](https://docs.microsoft.com/en-us/cloud-app-security/investigate) | Provides tools to gain a deeper understanding of what's happening in your cloud environment. |
+| [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/investigate) | Provides tools to gain a deeper understanding of what's happening in your cloud environment. |
 
 ## Next steps
