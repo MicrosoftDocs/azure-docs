@@ -6,7 +6,7 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
+# Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
