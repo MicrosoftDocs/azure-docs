@@ -53,18 +53,43 @@ You'll need to explain to your customers how to perform these operations. For mo
 
     ![topology](media/scenario-daemon-app/damon-app-sample-web.svg)
 
+# [Java](#tab/java)
+
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Java console app using app's identity](quickstart-v2-java-daemon.md).
+
+# [Node.js](#tab/nodejs)
+
+- For more information, see:
+  - Understanding [Configuration](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md)
+  - Instantiating [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md)
+  - [FAQ](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/faq.md)
+- Other samples/tutorials:
+  - [MSAL Node console daemon sample](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console)
+
+# [Python](#tab/python)
+
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Python console app using app's identity](quickstart-v2-python-daemon.md).
+
 ---
 
 ## Next steps
 
 Here are a few links to help you learn more:
 
-# [Python](#tab/python)
+# [.NET](#tab/dotnet)
 
-Try the quickstart [Acquire a token and call Microsoft Graph API from a Python console app using app's identity](./quickstart-v2-python-daemon.md).
+Try the quickstart [Acquire a token and call Microsoft Graph API from a .NET Core console app using app's identity](quickstart-v2-netcore-daemon.md).
 
 # [Java](#tab/java)
 
-Try the quickstart [Acquire a token and call Microsoft Graph API from a Java console app using app's identity](./quickstart-v2-java-daemon.md).
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Java console app using app's identity](quickstart-v2-java-daemon.md).
+
+# [Node.js](#tab/nodejs)
+
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Node.js console app using app's identity](quickstart-v2-nodejs-console.md).
+
+# [Python](#tab/python)
+
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Python console app using app's identity](quickstart-v2-python-daemon.md).
 
 ---

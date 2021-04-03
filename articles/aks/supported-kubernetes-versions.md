@@ -149,7 +149,7 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 **How often should I expect to upgrade Kubernetes versions to stay in support?**
 
-Stating with Kubernetes 1.19, the [open source community has expanded support to 1 year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS commits to enabling patches and support matching the upstream commitments, at a minimum. This means starting with AKS clusters on 1.19, you will be able to upgrade at a minimum of once a year to stay on a supported version. For versions on 1.18 or below, the window of support remains at 9 months which requires an upgrade once every 9 months to stay on a supported version. It is highly recommended to regularly test new versions and be prepared to upgrade to newer versions to capture the latest stable enhancements within Kubernetes.
+Starting with Kubernetes 1.19, the [open source community has expanded support to 1 year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS commits to enabling patches and support matching the upstream commitments, at a minimum. This means starting with AKS clusters on 1.19, you will be able to upgrade at a minimum of once a year to stay on a supported version. For versions on 1.18 or below, the window of support remains at 9 months which requires an upgrade once every 9 months to stay on a supported version. It is highly recommended to regularly test new versions and be prepared to upgrade to newer versions to capture the latest stable enhancements within Kubernetes.
 
 **What happens when a user upgrades a Kubernetes cluster with a minor version that isn't supported?**
 
@@ -183,6 +183,14 @@ When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be sk
 To upgrade, from *1.12.x* -> *1.14.x*, first upgrade from *1.12.x* -> *1.13.x*, then upgrade from *1.13.x* -> *1.14.x*.
 
 Skipping multiple versions can only be done when upgrading from an unsupported version back into a supported version. For example, upgrade from an unsupported *1.10.x* --> a supported *1.15.x* can be completed.
+
+**Can I create a new 1.xx.x cluster during its 30 day support window?**
+
+No. Once a version is deprecated/removed, you cannot create a cluster with that version. As the change rolls out, you will start to see the old version removed from your version list. This process may take up to two weeks from announcement, progressively by region.
+
+**I am on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?**
+
+No. You will not be allowed to add node pools of the deprecated version to your cluster. You can add node pools of a new version. However, this may require you to update the control plane first. 
 
 ## Next steps
 

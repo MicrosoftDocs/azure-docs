@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -82,9 +82,11 @@ The following is an example of an Azure AD metadata single sign-on service with 
 </IDPSSODescriptor>
 ```
 
-SAML responses are transmitted to Azure AD B2C via HTTP POST binding. Azure AD B2C policy metadata sets the `AssertionConsumerService` binding to `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`.
+### Assertion consumer service
 
-The following is an example of an Azure AD B2C policy metadata assertion consumer service element.
+The Assertion Consumer Service (or ACS) is where the identity provider SAML responses can be sent and received by Azure AD B2C. SAML responses are transmitted to Azure AD B2C via HTTP POST binding. The ACS location points to your relying party's base policy. For example, if the relying policy is *B2C_1A_signup_signin*, the ACS is the base policy of the *B2C_1A_signup_signin*, such as *B2C_1A_TrustFrameworkBase*.
+
+The following is an example of an Azure AD B2C policy metadata assertion consumer service element. 
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">

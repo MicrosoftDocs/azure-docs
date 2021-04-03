@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/01/2021
+ms.date: 03/17/2021
 ms.author: radeltch
 ---
 
@@ -594,6 +594,15 @@ In this example each cluster node has its own HANA NFS filesystems /hana/shared,
     nc_HN1_03  (ocf::heartbeat:azure-lb):  Started hanadb1
     vip_HN1_03 (ocf::heartbeat:IPaddr2):   Started hanadb1
     ```
+
+## Configure HANA active/read enabled system replication in Pacemaker cluster
+
+Starting with SAP HANA 2.0 SPS 01 SAP allows Active/Read-Enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA system replication can be used actively for read-intense workloads. To support such setup in a cluster a second virtual IP address is required which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
+
+The additional configuration, required to manage HANA Active/Read enabled system replication in a Red Hat high availability cluster with second virtual IP is described in [Configure HANA Active/Read Enabled System Replication in Pacemaker cluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
+
+Before proceeding further, make sure you have fully configured Red Hat High Availability Cluster managing SAP HANA database as described in above segments of the documentation.    
+
 
 ## Test the cluster setup
 

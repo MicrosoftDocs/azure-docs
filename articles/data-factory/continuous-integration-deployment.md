@@ -4,9 +4,9 @@ description: Learn how to use continuous integration and delivery to move Data F
 ms.service: data-factory
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 04/01/2021
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -330,7 +330,7 @@ Here's an explanation of how the preceding template is constructed, broken down 
 * Although type-specific customization is available for datasets, you can provide configuration without explicitly having a \*-level configuration. In the preceding example, all dataset properties under `typeProperties` are parameterized.
 
 > [!NOTE]
-> **Azure alerts and matrices**  if configured for a pipeline are not currently supported as parameters for ARM deployments. To reapply the alerts and matrices in new environment, please follow [Data Factory Monitoring, Alerts and Matrices.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> **Azure alerts and matrices**  if configured for a pipeline are not currently supported as parameters for ARM deployments. To reapply the alerts and matrices in new environment, please follow [Data Factory Monitoring, Alerts and Matrices.](./monitor-using-azure-monitor.md#data-factory-metrics)
 > 
 
 ### Default parameterization template
@@ -693,6 +693,9 @@ When running a post-deployment script, you will need to specify a variation of t
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
+> [!NOTE]
+> The `-deleteDeployment` flag is used to specify the deletion of the ADF deployment entry from the deployment history in ARM.
+
 ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 Here is the script that can be used for pre- and post-deployment. It accounts for deleted resources and resource references.
@@ -868,7 +871,7 @@ if ($predeployment -eq $true) {
     #Stop all triggers
     Write-Host "Stopping deployed triggers`n"
     $triggersToStop | ForEach-Object {
-        if ($_.TriggerType -eq "BlobEventsTrigger") {
+        if ($_.TriggerType -eq "BlobEventsTrigger" -or $_.TriggerType -eq "CustomEventsTrigger") {
             Write-Host "Unsubscribing" $_.Name "from events"
             $status = Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name
             while ($status.Status -ne "Disabled"){
@@ -918,7 +921,7 @@ else {
         Write-Host "Deleting trigger "  $_.Name
         $trig = Get-AzDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
         if ($trig.RuntimeState -eq "Started") {
-            if ($_.TriggerType -eq "BlobEventsTrigger") {
+            if ($_.TriggerType -eq "BlobEventsTrigger" -or $_.TriggerType -eq "CustomEventsTrigger") {
                 Write-Host "Unsubscribing trigger" $_.Name "from events"
                 $status = Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name
                 while ($status.Status -ne "Disabled"){
@@ -977,7 +980,7 @@ else {
     #Start active triggers - after cleanup efforts
     Write-Host "Starting active triggers"
     $triggersToStart | ForEach-Object { 
-        if ($_.TriggerType -eq "BlobEventsTrigger") {
+        if ($_.TriggerType -eq "BlobEventsTrigger" -or $_.TriggerType -eq "CustomEventsTrigger") {
             Write-Host "Subscribing" $_.Name "to events"
             $status = Add-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name
             while ($status.Status -ne "Enabled"){

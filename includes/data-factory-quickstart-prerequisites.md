@@ -54,7 +54,8 @@ In this section, you create a blob container named **adftutorial** in Azure Blob
 2. On the *\<Account name>* - **Containers** page's toolbar, select **Container**.
 3. In the **New container** dialog box, enter **adftutorial** for the name, and then select **OK**. The *\<Account name>* - **Containers** page is updated to include **adftutorial** in the list of containers.
 
-   ![List of containers](media/data-factory-quickstart-prerequisites/list-of-containers.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/list-of-containers.png" alt-text="List of containers":::
+
 
 #### Add an input folder and file for the blob container
 
@@ -77,7 +78,8 @@ Save the file in the **C:\ADFv2QuickStartPSH** folder. (If the folder doesn't al
 3. In the **Upload blob** page, select the **Files** box, and then browse to and select the **emp.txt** file.
 4. Expand the **Advanced** heading. The page now displays as shown:
 
-   ![Select Advanced link](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/upload-blob-advanced.png" alt-text="Select Advanced link":::
+
 5. In the **Upload to folder** box, enter **input**.
 6. Select the **Upload** button. You should see the **emp.txt** file and the status of the upload in the list.
 7. Select the **Close** icon (an **X**) to close the **Upload blob** page.

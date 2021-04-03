@@ -17,8 +17,7 @@ You can add IPs to App service allow list to restrict access or Configure App Se
 
 #### Add IPs to App Service allow list
 
-1. 
-traffic only from Cognitive Services IPs. These are already included in Service Tag `CognitiveServicesManagement`. This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly. Check out [more information about service tags.](../../../virtual-network/service-tags-overview.md)
+1. Allow traffic only from Cognitive Services IPs. These are already included in Service Tag `CognitiveServicesManagement`. This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly. Check out [more information about service tags.](../../../virtual-network/service-tags-overview.md)
 2. Make sure you also allow other entry points like Azure Bot Service, QnA Maker portal, etc. for prediction "GenerateAnswer" API access.
 3. Please follow these steps to add the IP Address ranges to an allow list:
 
@@ -56,7 +55,7 @@ Cognitive Search instance can be isolated via a Private Endpoint after the QnA M
 
 If the QnA Maker App Service is restricted using an App Service Environment, use the same VNet to create a Private Endpoint connection to the Cognitive Search instance. Create a new DNS entry in the VNet to map the Cognitive Search endpoint to the Cognitive Search Private Endpoint IP address. 
 
-If an App Service Environment is not used for the QnAMaker App Service, create a new VNet resource first and then create the Private Endpoint connection to the Cognitive Search instance. In this case, the QnA Maker App Service needs [to be integrated with the VNet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) to connect to the Cognitive Search instance. 
+If an App Service Environment is not used for the QnAMaker App Service, create a new VNet resource first and then create the Private Endpoint connection to the Cognitive Search instance. In this case, the QnA Maker App Service needs [to be integrated with the VNet](../../../app-service/web-sites-integrate-with-vnet.md) to connect to the Cognitive Search instance. 
 
 #  [QnA Maker managed (preview release)](#tab/v2)
 

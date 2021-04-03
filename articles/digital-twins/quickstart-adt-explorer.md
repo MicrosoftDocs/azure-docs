@@ -96,9 +96,8 @@ Open a console window to the folder location **Azure_Digital_Twins__ADT__explore
 
 > [!TIP]
 > If a `SignalRService.subscribe` error message appears when you connect, make sure that your Azure Digital Twins URL begins with *https://*.
-
-> [!TIP]
-> If an authentication error appears, you may want to check your environment variables to make sure any credentials included there are valid for Azure Digital Twins. The DefaultAzureCredential attempts to authenticate against [Credential Types](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) in a specific order, and environment variables are evaluated first.
+>
+> If an authentication error appears, you may want to check your **environment variables** to make sure any credentials included there are valid for Azure Digital Twins. The `DefaultAzureCredential` attempts to authenticate against credential types in a [specific order](/dotnet/api/overview/azure/identity-readme#defaultazurecredential), and environment variables are evaluated first.
 
 If you see a **Permissions requested** pop-up window from Microsoft, grant consent for this application and accept to continue.
 

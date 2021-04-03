@@ -10,10 +10,10 @@ ms.date: 06/23/2020
 This article provides some of the errors you receive when using AMQP with Azure Event Hubs. They are all standard behaviors of the service. You can avoid them by making send/receive calls on the connection/link, which automatically recreates the connection/link.
 
 ## Link is closed 
-You see the following error when the AMQP connection and link are active but no calls (for example, send or receive) are made using the link for 10 minutes. So, the link is closed. The connection is still open.
+You see the following error when the AMQP connection and link are active but no calls (for example, send or receive) are made using the link for 30 minutes. So, the link is closed. The connection is still open.
 
 "
-AMQP:link: detach-forced: The link 'G2:7223832:user.tenant0.cud_00000000000-0000-0000-0000-00000000000000' is force detached by the broker because of errors occurred in publisher(link164614). Detach origin: AmqpMessagePublisher.IdleTimerExpired: Idle timeout: 00:10:00. TrackingId:00000000000000000000000000000000000000_G2_B3, SystemTracker:mynamespace:Topic:MyTopic, Timestamp: 2/16/2018 11:10:40 PM
+AMQP:link: detach-forced: The link 'G2:7223832:user.tenant0.cud_00000000000-0000-0000-0000-00000000000000' is force detached by the broker because of errors occurred in publisher(link164614). Detach origin: AmqpMessagePublisher.IdleTimerExpired: Idle timeout: 00:30:00. TrackingId:00000000000000000000000000000000000000_G2_B3, SystemTracker:mynamespace:Topic:MyTopic, Timestamp: 2/16/2018 11:10:40 PM
 "
 
 ## Connection is closed
