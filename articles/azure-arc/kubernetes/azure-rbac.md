@@ -70,6 +70,9 @@ Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/refer
     az ad app permission grant --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000
     ```
 
+    > [!NOTE]
+    > This step has to be executed by an Azure tenant administrator.
+
 ### Create client application
 
 1. Create a new AAD application and get its 'appId' value, which is used in later steps as `clientApplicationId`:
