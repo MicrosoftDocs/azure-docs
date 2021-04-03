@@ -33,7 +33,7 @@ Service administration is lightweight by design, scoped to the following tasks:
 
 The same tasks performed in the portal can also be handled programmatically through the [Management REST APIs](/rest/api/searchmanagement/) and [Az.Search PowerShell module](search-manage-powershell.md). Administrative tasks are fully represented across portal and programmatic interfaces. There is no specific administrative task that is available in only one modality.
 
-Cognitive Search leverages other Azure services for deeper monitoring and management. By itself, the only data stored within the search service is object content (indexes, indexer and data source definitions, and other objects). Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and additional events, you will need [Azure Monitor](../azure-monitor/index.yml). For more information about setting up diagnostic logging for a search service, see []().
+Cognitive Search leverages other Azure services for deeper monitoring and management. By itself, the only data stored within the search service is object content (indexes, indexer and data source definitions, and other objects). Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and additional events, you will need [Azure Monitor](../azure-monitor/index.yml). For more information about setting up diagnostic logging for a search service, see [Collect and analyze log data](search-monitor-logs.md).
 
 ## Read-only service properties
 
