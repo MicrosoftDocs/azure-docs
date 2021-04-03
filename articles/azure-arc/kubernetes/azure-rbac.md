@@ -212,47 +212,47 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
     
     1. Add the following snippet under `files:`:
     
-    ```console
-    - contentFrom:
-        secret:
-          key: guard-authn-webhook.yaml
-          name: azure-arc-guard-manifests
-      owner: root:root
-      path: /etc/kubernetes/guard-authn-webhook.yaml
-      permissions: "0644"
-    - contentFrom:
-        secret:
-          key: guard-authz-webhook.yaml
-          name: azure-arc-guard-manifests
-      owner: root:root
-      path: /etc/kubernetes/guard-authz-webhook.yaml
-      permissions: "0644"
-    ```
+        ```console
+        - contentFrom:
+            secret:
+              key: guard-authn-webhook.yaml
+              name: azure-arc-guard-manifests
+          owner: root:root
+          path: /etc/kubernetes/guard-authn-webhook.yaml
+          permissions: "0644"
+        - contentFrom:
+            secret:
+              key: guard-authz-webhook.yaml
+              name: azure-arc-guard-manifests
+          owner: root:root
+          path: /etc/kubernetes/guard-authz-webhook.yaml
+          permissions: "0644"
+        ```
 
     1. Add the following snippet under `apiServer:` -> `extraVolumes:`:
     
-    ```console
-    - hostPath: /etc/kubernetes/guard-authn-webhook.yaml
-        mountPath: /etc/guard/guard-authn-webhook.yaml
-        name: guard-authn
-        readOnly: true
-    - hostPath: /etc/kubernetes/guard-authz-webhook.yaml
-        mountPath: /etc/guard/guard-authz-webhook.yaml
-        name: guard-authz
-        readOnly: true
-    ```
+        ```console
+        - hostPath: /etc/kubernetes/guard-authn-webhook.yaml
+            mountPath: /etc/guard/guard-authn-webhook.yaml
+            name: guard-authn
+            readOnly: true
+        - hostPath: /etc/kubernetes/guard-authz-webhook.yaml
+            mountPath: /etc/guard/guard-authz-webhook.yaml
+            name: guard-authz
+            readOnly: true
+        ```
 
     1. Add the following snippet under `apiServer:` -> `extraArgs:`:
     
-    ```console
-    authentication-token-webhook-cache-ttl: 5m0s
-    authentication-token-webhook-config-file: /etc/guard/guard-authn-webhook.yaml
-    authentication-token-webhook-version: v1
-    authorization-mode: Node,Webhook,RBAC
-    authorization-webhook-cache-authorized-ttl: 5m0s
-    authorization-webhook-config-file: /etc/guard/guard-authz-webhook.yaml
-    authorization-webhook-version: v1
-    ```
+        ```console
+        authentication-token-webhook-cache-ttl: 5m0s
+        authentication-token-webhook-config-file: /etc/guard/guard-authn-webhook.yaml
+        authentication-token-webhook-version: v1
+        authorization-mode: Node,Webhook,RBAC
+        authorization-webhook-cache-authorized-ttl: 5m0s
+        authorization-webhook-config-file: /etc/guard/guard-authz-webhook.yaml
+        authorization-webhook-version: v1
+        ```
 
     1. Save and exit to update the `KubeadmControlPlane` object. Wait for the these changes to be realized on the workload cluster.
 
