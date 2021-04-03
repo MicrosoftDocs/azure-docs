@@ -22,9 +22,33 @@ ms.date: 04/06/2021
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the service administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already provisioned. 
+Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already created.
 
-Service administration is lightweight by design, scoped to the following tasks:
+Each search service is managed as a standalone resource. The following image shows the portal pages for a single free search service called "demo-search-svc". Although you might be accustomed to using PowerShell or CLI for service management, it makes sense to become familiar with the tools and capabilities that the portal pages provide. Some tasks are just easier and faster to perform in the portal than through code. Areas on the screen enclosed in red boxes indicate tasks, tools, and tiles that you might use often, especially if you are new to the service.
+
+:::image type="content" source="media/search-manage/search-portal-overview-page.png" alt-text="Portal pages for a search service" border="true":::
+
+## Overview (home) page
+
+The service overview page includes an **Essentials** section, where you can find service properties including the endpoint used when setting up connections.
+
+Above the **Essentials** section are a series of commands for invoking interactive tools or managing the service.
+
+Below the **Essentials** section are a series of tabbed subpages for quick access to usage statistics, service health metrics, and lists of existing indexes, indexers, data sources, and skillsets on your service. If you select an index or another object, additional pages become available to show object composition, settings, and status (if applicable).
+
+To the left, you can access links that open additional pages for configuring the service, monitoring  operations, automating tasks, and getting support.
+
+### Read-only service properties
+
+Several aspects of a search service are determined when the service is provisioned and cannot be changed:
+
+* Service name (you cannot rename a search service)
+* Service location (you cannot easily move an intact search service to another region. Although there is a template, moving the content is a manual process.)
+* Service tier (you cannot switch from S1 to S2, for example, without creating a new service)
+
+## Management tasks
+
+Service administration is lightweight by design, and is often defined by the tasks you can perform relative to the service itself:
 
 * [Monitor service health](search-monitor-usage.md): storage, query volumes, and latency
 * [Manage API keys](search-security-api-keys.md) used for admin and query operations
@@ -35,36 +59,14 @@ The same tasks performed in the portal can also be handled programmatically thro
 
 Cognitive Search leverages other Azure services for deeper monitoring and management. By itself, the only data stored within the search service is object content (indexes, indexer and data source definitions, and other objects). Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and additional events, you will need [Azure Monitor](../azure-monitor/index.yml). For more information about setting up diagnostic logging for a search service, see [Collect and analyze log data](search-monitor-logs.md).
 
-## Read-only service properties
-
-Several aspects of a search service are determined when the service is provisioned and cannot be changed later:
-
-* Service name (you cannot rename a search service)
-* Service location (you cannot easily move an intact search service to another region)
-* Service tier (you cannot switch from S1 to S2, for example, without creating a new service)
-
 ## Administrator permissions
+
+When you open the search service overview page, the permissions assigned to your account determine what pages are available to you. The overview page at the beginning of the article shows the portal pages an administrator or contributor will see.
 
 In Azure resource, administrative rights are granted through role assignments. In the context of Azure Cognitive Search, [role assignments](search-security-rbac.md) will determine who can allocate replicas and partitions or manage API keys, regardless of whether they are using the portal, [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md),or the [Management REST APIs](/rest/api/searchmanagement/search-howto-management-rest-api):
 
 > [!TIP]
 > Provisioning or decommissioning the service itself can be done by an Azure subscription administrator or co-administrator. Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
-
-## Disaster recovery and service outages
-
-Although we can salvage your data, Azure Cognitive Search does not provide instant failover of the service if there is an outage at the cluster or data center level. If a cluster fails in the data center, the operations team will detect and work to restore service. You will experience downtime during service restoration, but you can request service credits to compensate for service unavailability per the [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
-
-If continuous service is required in the event of catastrophic failures outside of Microsoft’s control, you could [provision an additional service](search-create-service-portal.md) in a different region and implement a geo-replication strategy to ensure indexes are fully redundant across all services.
-
-Customers who use [indexers](search-indexer-overview.md) to populate and refresh indexes can handle disaster recovery through geo-specific indexers leveraging the same data source. Two services in different regions, each running an indexer, could index the same data source to achieve geo-redundancy. If you are indexing from data sources that are also geo-redundant, be aware that Azure Cognitive Search indexers can only perform incremental indexing (merging updates from new, modified, or deleted documents) from primary replicas. In a failover event, be sure to re-point the indexer to the new primary replica. 
-
-If you do not use indexers, you would use your application code to push objects and data to different search services in parallel. For more information, see [Performance and optimization in Azure Cognitive Search](search-performance-optimization.md).
-
-## Backup and restore alternatives
-
-Because Azure Cognitive Search is not a primary data storage solution, Microsoft does not provide a formal mechanism for self-service backup and restore. However, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to backup your index definition and snapshot to a series of JSON files, and then use these files to restore the index, if needed. This tool can also move indexes between service tiers.
-
-Otherwise, your application code used for creating and populating an index is the de facto restore option if you delete an index by mistake. To rebuild an index, you would delete it (assuming it exists), recreate the index in the service, and reload by retrieving data from your primary data store.
 
 ## Next steps
 
