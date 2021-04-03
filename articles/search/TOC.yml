@@ -150,7 +150,7 @@
       href: search-sku-manage-costs.md
     - name: High availability
       href: search-performance-optimization.md
-    - name: Multi-tenant architecture
+    - name: Multi-tenancy
       href: search-modeling-multitenant-saas-applications.md
     - name: Manage in the portal
       href: search-manage.md

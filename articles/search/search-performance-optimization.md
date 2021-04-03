@@ -123,6 +123,8 @@ The goal of a geo-distributed set of search services is to have two or more inde
 
 You can implement this architecture by creating multiple services and designing a strategy for data synchronization. Alternatively, you can use a resource like Azure Traffic Manager.
 
+<a name="data-sync"></a>
+
 ### Keep data synchronized across multiple services
 
 There are two options for keeping two or more distributed search services in sync, which consist of either using the [Azure Cognitive Search Indexer](search-indexer-overview.md) or the Push API (also referred to as the [Azure Cognitive Search REST API](/rest/api/searchservice/)). 
