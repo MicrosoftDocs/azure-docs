@@ -168,7 +168,7 @@ Press any key to exit...
 
 ## Verify the output
 
-Go to the **Purview accounts** page in the Azure portal and verify the account created using the above code. 
+Go to the **Purview accounts** page in the [Azure portal](https://portal.azure.com) and verify the account created using the above code. 
 
 ## Delete Purview account
 

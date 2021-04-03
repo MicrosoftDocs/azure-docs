@@ -77,6 +77,9 @@ EventHub namespace. For more information refer to [Create Catalog Portal](create
     # The purview name. It must be globally unique.
     purview_name = '<purview account name>'
 
+    # Location name, where Purview account must be created.
+    location = '<location name>'    
+
     # Specify your Active Directory client ID, client secret, and tenant ID
     credentials = ClientSecretCredential(client_id='<service principal ID>', client_secret='<service principal key>', tenant_id='<tenant ID>') 
     # resource_client = ResourceManagementClient(credentials, subscription_id)
@@ -95,11 +98,11 @@ Add the following code to the **Main** method that creates a **purview account**
     #Create a purview
     identity = Identity(type= "SystemAssigned")
     sku = AccountSku(name= 'Standard', capacity= 4)
-    purview_resource = Account(identity=identity,sku=sku,location ="southcentralus" )
+    purview_resource = Account(identity=identity,sku=sku,location =location )
        
     try:
 	    pa = (purview_client.accounts.begin_create_or_update(rg_name, purview_name, purview_resource)).result()
-	    print("location:", pa.location, " Purview Account Name: ", purview_name, " Id: " , pa.id ," tags: " , pa.tags)  
+	    print("location:", pa.location, " Purview Account Name: ", pa.name, " Id: " , pa.id ," tags: " , pa.tags)  
     except:
 	    print("Error")
 	    print_item(pa)
