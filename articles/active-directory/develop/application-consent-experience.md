@@ -35,7 +35,7 @@ The consent prompt is designed to ensure users have enough information to determ
 
 The following diagram and table provide information about the building blocks of the consent prompt.
 
-![Building blocks of the consent prompt](./media/application-consent-experience/consent_prompt.png)
+:::image type="content" source="./media/application-consent-experience/consent_prompt.png" alt-text="Building blocks of the consent prompt":::
 
 | # | Component | Purpose |
 | ----- | ----- | ----- |
@@ -60,22 +60,22 @@ Here are the consent experiences that a user may see in the common consent scena
     
     1. Admins will see an additional control on the traditional consent prompt that will allow them consent on behalf of the entire tenant. The control will be defaulted to off, so only when admins explicitly check the box will consent be granted on behalf of the entire tenant. As of today, this check box will only show for the Global Admin role, so Cloud Admin and App Admin will not see this checkbox.
 
-        ![Consent prompt for scenario 1a](./media/application-consent-experience/consent_prompt_1a.png)
+        :::image type="content" source="./media/application-consent-experience/consent_prompt_1a.png" alt-text="Consent prompt for scenario 1a":::
     
     2. Users will see the traditional consent prompt.
 
-        ![Screenshot that shows the traditional consent prompt.](./media/application-consent-experience/consent_prompt_1b.png)
+        :::image type="content" source="./media/application-consent-experience/consent_prompt_1b.png" alt-text="Screenshot that shows the traditional consent prompt.":::
 
 2. Individuals accessing an app that requires at least one permission that is outside their scope of authority.
     1. Admins will see the same prompt as 1.i shown above.
     2. Users will be blocked from granting consent to the application, and they will be told to ask their admin for access to the app. 
                 
-        ![Screenshot of the consent prompt telling the user to ask an admin for access to the app.](./media/application-consent-experience/consent_prompt_2b.png)
+        :::image type="content" source="./media/application-consent-experience/consent_prompt_2b.png" alt-text="Screenshot of the consent prompt telling the user to ask an admin for access to the app.":::
 
 3. Individuals that navigate or are directed to the admin consent flow.
     1. Admin users will see the admin consent prompt. The title and the permission descriptions changed on this prompt, the changes highlight the fact that accepting this prompt will grant the app access to the requested data on behalf of the entire tenant.
         
-        ![Consent prompt for scenario 1b](./media/application-consent-experience/consent_prompt_3a.png)
+        :::image type="content" source="./media/application-consent-experience/consent_prompt_3a.png" alt-text="Consent prompt for scenario 3a":::
         
     1. Non-admin users will see the same screen as 2.ii shown above.
 
