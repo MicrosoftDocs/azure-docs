@@ -21,7 +21,7 @@ ms.author: inhenkel
 
 Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world.  
 
-CDN caches content streamed from a Media Services [Streaming Endpoint (origin)](streaming-endpoint-concept.md) per codec, per streaming protocol, per bitrate, per container format, and per encryption/DRM. For each combination of codec-streaming protocol-container format-bitrate-encryption, there will be a separate CDN cache.
+CDN caches content streamed from a Media Services [Streaming Endpoint (origin)](stream-streaming-endpoint-concept.md) per codec, per streaming protocol, per bitrate, per container format, and per encryption/DRM. For each combination of codec-streaming protocol-container format-bitrate-encryption, there will be a separate CDN cache.
 
 The popular content will be served directly from the CDN cache as long as the video fragment is cached. Live content is likely to be cached because you typically have many people watching the exact same thing. On-demand content can be a bit trickier because you could have some content that's popular and some that isn't. If you have millions of video assets where none of them are popular (only one or two viewers a week) but you have thousands of people watching all different videos, the CDN becomes much less effective.
 
@@ -38,7 +38,7 @@ This topic discusses enabling [CDN integration](#enable-azure-cdn-integration). 
 
 ## Considerations
 
-- The [streaming endpoint](streaming-endpoint-concept.md) `hostname` and the streaming URL remain the same whether or not you enable CDN.
+- The [streaming endpoint](stream-streaming-endpoint-concept.md) `hostname` and the streaming URL remain the same whether or not you enable CDN.
 - If you need the ability to test your content with or without CDN, create another streaming endpoint that isn't CDN enabled.
 
 ## Enable Azure CDN integration
@@ -159,5 +159,5 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## Next steps
 
-* Make sure to review the [Streaming Endpoint (origin)](streaming-endpoint-concept.md) document.
+* Make sure to review the [Streaming Endpoint (origin)](stream-streaming-endpoint-concept.md) document.
 * The sample [in this repository](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) shows how to start the default streaming endpoint with .NET.

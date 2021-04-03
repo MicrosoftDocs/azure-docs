@@ -321,8 +321,8 @@ This functionality works with any [Transform](/rest/api/media/transforms) that i
 
 See examples:
 
-* [Subclip a video with .NET](subclip-video-dotnet-howto.md)
-* [Subclip a video with REST](subclip-video-rest-howto.md)
+* [Subclip a video with .NET](transform-subclip-video-dotnet-how-to.md)
+* [Subclip a video with REST](transform-subclip-video-rest-how-to.md)
 
 ## May 2019
 
@@ -331,7 +331,7 @@ See examples:
 You can now use Azure Monitor to view telemetry data emitted by Media Services.
 
 * Use the Azure Monitor diagnostic logs to monitor requests sent by the Media Services Key Delivery endpoint. 
-* Monitor metrics emitted by Media Services [Streaming Endpoints](streaming-endpoint-concept.md).   
+* Monitor metrics emitted by Media Services [Streaming Endpoints](stream-streaming-endpoint-concept.md).   
 
 For details, see [Monitor Media Services metrics and diagnostic logs](monitoring/monitor-media-services-data-reference.md).
 

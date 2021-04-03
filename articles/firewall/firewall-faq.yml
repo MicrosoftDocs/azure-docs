@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 03/26/2021
+  ms.date: 04/02/2021
   ms.author: victorh
     
 title: Azure Firewall FAQ
@@ -95,6 +95,7 @@ sections:
           
           Set-AzFirewall -AzureFirewall $azfw
           ```
+          When you allocate and deallocate, [firewall billing](https://azure.microsoft.com/pricing/details/azure-firewall) stops and starts accordingly.
           
           > [!NOTE]
           > You must reallocate a firewall and public IP to the original resource group and subscription.
