@@ -53,12 +53,6 @@
       href: schema-cscfg-networkconfiguration.md
 - name: How To
   items:
-  - name: Apply extensions
-    items:
-    - name: Apply Remote Desktop extension
-      href: enable-rdp.md
-    - name: Apply WAD extension
-      href: enable-wad.md
   - name: Migrate to Cloud Services (extended support)
     items:
     - name: Migration overview
@@ -71,6 +65,12 @@
       href: in-place-migration-powershell.md
     - name: Common errors and known issues
       href: in-place-migration-common-errors.md
+  - name: Apply extensions
+    items:
+    - name: Apply Remote Desktop extension
+      href: enable-rdp.md
+    - name: Apply WAD extension
+      href: enable-wad.md
   - name: Enable alerts
     href: enable-alerts.md
   - name: Configure scaling
