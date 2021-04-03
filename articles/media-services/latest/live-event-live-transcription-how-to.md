@@ -185,7 +185,7 @@ PATCH: ```https://management.azure.com/subscriptions/:subscriptionId/resourceGro
 
 ## Transcription delivery and playback
 
-Review the [Dynamic packaging overview](encode-dynamic-packaging-concept.md#to-prepare-your-source-files-for-delivery) article of how our service uses dynamic packaging to deliver video, audio, and text in different protocols. When you publish your live stream using MPEG-DASH or HLS/CMAF, then along with video and audio, our service delivers the transcribed text in IMSC1.1 compatible TTML. This delivery is packaged into MPEG-4 Part 30 (ISO/IEC 14496-30) fragments. If using delivery via HLS/TS, then the text is delivered as chunked VTT. You can use a web player such as the [Azure Media Player](use-azure-media-player.md) to play the stream.  
+Review the [Dynamic packaging overview](encode-dynamic-packaging-concept.md#to-prepare-your-source-files-for-delivery) article of how our service uses dynamic packaging to deliver video, audio, and text in different protocols. When you publish your live stream using MPEG-DASH or HLS/CMAF, then along with video and audio, our service delivers the transcribed text in IMSC1.1 compatible TTML. This delivery is packaged into MPEG-4 Part 30 (ISO/IEC 14496-30) fragments. If using delivery via HLS/TS, then the text is delivered as chunked VTT. You can use a web player such as the [Azure Media Player](player-use-azure-media-player-how-to.md) to play the stream.  
 
 > [!NOTE]
 > If using Azure Media Player, use version 2.3.3 or later.
