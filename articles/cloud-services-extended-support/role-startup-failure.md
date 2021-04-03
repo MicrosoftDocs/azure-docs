@@ -1,6 +1,6 @@
 ---
-title: Role instance startup failure for Cloud Services (extended support)
-description: Troubleshoot Role Instance Startup Failure
+title: Role instance startup failure for Azure Cloud Services (extended support)
+description: Troubleshoot Role instance startup failure for Azure Cloud Services (extended support)
 ms.topic: article
 ms.service: cloud-services-extended-support
 author: surbhijain
