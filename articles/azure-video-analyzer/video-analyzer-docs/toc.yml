@@ -10,7 +10,7 @@
   items:
   - name: Analyze live video
     items:
-      name: with your own model - HTTP
+    - name: with your own model - HTTP
       href: analyze-live-video-use-your-model-http.md
 - name: Concepts
   items:
