@@ -129,7 +129,7 @@ Some guidelines for determining whether to add capacity include:
 + The frequency of HTTP 503 errors is increasing
 + Large query volumes are expected
 
-As a general rule, search applications tend to need more replicas than partitions, particularly when the service operations are biased toward query workloads.
+As a general rule, search applications tend to need more replicas than partitions, particularly when the service operations are biased toward query workloads. Each replica is a copy of your index, allowing the service to load balance requests against multiple copies. All load balancing and replication of an index is managed by Azure Cognitive Search and you can alter the number of replicas allocated for your service at any time. You can allocate up to 12 replicas in a Standard search service and 3 replicas in a Basic search service. Replica allocation can be made either from the [Azure portal](search-create-service-portal.md) or one of the programmatic options.
 
 Search applications that require near real-time data refresh will need proportionally more partitions than replicas. Adding partitions spreads read/write operations across a larger number of compute resources. It also gives you more disk space for storing additional indexes and documents.
 

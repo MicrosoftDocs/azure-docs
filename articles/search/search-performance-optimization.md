@@ -11,64 +11,9 @@ ms.date: 04/06/2021
 ms.custom: references_regions
 ---
 
-# High availability and business continuity for an Azure Cognitive Search service
+# Availability and business continuity for an Azure Cognitive Search service
 
 This article describes best practices for advanced scenarios with sophisticated requirements for availability and business continuity, including strategies for deploy search services across multiple regions while keeping content synchronized.
-
-<!-- ## Start with baseline numbers
-
-Before undertaking a larger deployment effort, make sure you know what a typical query load looks like. The following guidelines can help you arrive at baseline query numbers.
-
-1. Pick a target latency (or maximum amount of time) that a typical search request should take to complete.
-
-1. Create and test a real workload against your search service with a realistic data set to measure these latency rates.
-
-1. Start with a low number of queries per second (QPS) and then gradually increase the number executed in the test until the query latency drops below the predefined target. This is an important benchmark to help you plan for scale as your application grows in usage.
-
-1. Wherever possible, reuse HTTP connections. If you are using the Azure Cognitive Search .NET SDK, this means you should reuse an instance or [SearchClient](/dotnet/api/azure.search.documents.searchclient) instance, and if you are using the REST API, you should reuse a single HttpClient.
-
-1. Vary the substance of query requests so that search occurs over different parts of your index. Variation is important because if you continually execute the same search requests, caching of data will start to make performance look better than it might with a more disparate query set.
-
-1. Vary the structure of query requests so that you get different types of queries. Not every search query performs at the same level. For example, a document lookup or search suggestion is typically faster than a query with a significant number of facets and filters. Test composition should include various queries, in roughly the same ratios as you would expect in production.  
-
-While creating these test workloads, there are some characteristics of Azure Cognitive Search to keep in mind:
-
-+ It is possible overload your service by pushing too many search queries at one time. When this happens, you will see HTTP 503 response codes. To avoid a 503 during testing, start with various ranges of search requests to see the differences in latency rates as you add more search requests.
-
-+ Azure Cognitive Search does not run indexing tasks in the background. If your service handles query and indexing workloads concurrently, take this into account by either introducing indexing jobs into your query tests, or by exploring options for running indexing jobs during off peak hours.
-
-> [!Tip]
-> You can simulate a realistic query load using load testing tools. Try [load testing with Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) or use one of these [alternatives](/azure/devops/test/load-test/overview#alternatives). -->
-
-<!-- ## Scale for high query volume
-
-A service is overburdened when queries take too long or when the service starts dropping requests. If this happens, you can address the problem in one of two ways:
-
-+ **Add replicas**  
-
-  Each replica is a copy of your data, allowing the service to load balance requests against multiple copies.  All load balancing and replication of data is managed by Azure Cognitive Search and you can alter the number of replicas allocated for your service at any time. You can allocate up to 12 replicas in a Standard search service and 3 replicas in a Basic search service. Replicas can be adjusted either from the [Azure portal](search-create-service-portal.md) or [PowerShell](search-manage-powershell.md).
-
-+ **Create a new service at a higher tier**  
-
-  Azure Cognitive Search comes in a [number of tiers](https://azure.microsoft.com/pricing/details/search/) and each one offers different levels of performance. In some cases, you may have so many queries that the tier you are on cannot provide sufficient turnaround, even when replicas are maxed out. In this case, consider moving to a higher performing tier, such as the Standard S3 tier, designed for scenarios having large numbers of documents and extremely high query workloads.
-
-## Scale for slow individual queries
-
-Another reason for high latency rates is a single query taking too long to complete. In this case, adding replicas will not help. Two possible options that might help include the following:
-
-+ **Increase Partitions**
-
-  A partition splits data across extra computing resources. Two partitions split data in half, a third partition splits it into thirds, and so forth. One positive side-effect is that slower queries sometimes perform faster due to parallel computing. We have noted parallelization on low selectivity queries, such as queries that match many documents, or facets providing counts over a large number of documents. Since significant computation is required to score the relevancy of the documents, or to count the numbers of documents, adding extra partitions helps queries complete faster.  
-   
-  There can be a maximum of 12 partitions in Standard search service and 1 partition in the Basic search service. Partitions can be adjusted either from the [Azure portal](search-create-service-portal.md) or [PowerShell](search-manage-powershell.md).
-
-+ **Limit High Cardinality Fields**
-
-  A high cardinality field consists of a facetable or filterable field that has a significant number of unique values, and as a result, consumes significant resources when computing results. For example, setting a Product ID or Description field as facetable/filterable would count as high cardinality because most of the values from document to document are unique. Wherever possible, limit the number of high cardinality fields.
-
-+ **Increase Search Tier**  
-
-  Moving up to a higher Azure Cognitive Search tier can be another way to improve performance of slow queries. Each higher tier provides faster CPUs and more memory, both of which have a positive impact on query performance. -->
 
 <a name="scale-for-availability"></a>
 
@@ -88,7 +33,7 @@ No SLA is provided for the Free tier. For more information, see [SLA for Azure C
 
 ## Availability Zones
 
-[Availability Zones](../availability-zones/az-overview.md) divide a region's data centers into distinct physical location groups to provide high-availability, within the same region. For Cognitive Search, individual replicas are the units for zone assignment. A search service runs within one region; its replicas run in different zones.
+[Availability Zones](../availability-zones/az-overview.md) are an Azure platform capability that divides a region's data centers into distinct physical location groups to provide high-availability, within the same region. If you use Availability Zones for Cognitive Search, individual replicas are the units for zone assignment. A search service runs within one region; its replicas run in different zones.
 
 You can utilize Availability Zones with Azure Cognitive Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region. If you have more replicas than Availability Zones, the replicas will be distributed across Availability Zones as evenly as possible.
 
@@ -153,11 +98,11 @@ If continuous service is required in the event of catastrophic failures outside 
 
 Customers who use [indexers](search-indexer-overview.md) to populate and refresh indexes can handle disaster recovery through geo-specific indexers leveraging the same data source. Two services in different regions, each running an indexer, could index the same data source to achieve geo-redundancy. If you are indexing from data sources that are also geo-redundant, be aware that Azure Cognitive Search indexers can only perform incremental indexing (merging updates from new, modified, or deleted documents) from primary replicas. In a failover event, be sure to re-point the indexer to the new primary replica. 
 
-If you do not use indexers, you would use your application code to push objects and data to different search services in parallel. For more information, see [Performance and optimization in Azure Cognitive Search](search-performance-optimization.md).
+If you do not use indexers, you would use your application code to push objects and data to different search services in parallel. For more information, see [Keep data synchronized across multiple services](#data-sync).
 
 ## Back up and restore alternatives
 
-Because Azure Cognitive Search is not a primary data storage solution, Microsoft does not provide a formal mechanism for self-service backup and restore. However, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to back up your index definition and snapshot to a series of JSON files, and then use these files to restore the index, if needed. This tool can also move indexes between service tiers.
+Because Azure Cognitive Search is not a primary data storage solution, Microsoft does not provide a formal mechanism for self-service back up and restore. However, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to back up your index definition and snapshot to a series of JSON files, and then use these files to restore the index, if needed. This tool can also move indexes between service tiers.
 
 Otherwise, your application code used for creating and populating an index is the de facto restore option if you delete an index by mistake. To rebuild an index, you would delete it (assuming it exists), recreate the index in the service, and reload by retrieving data from your primary data store.
 

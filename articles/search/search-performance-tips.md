@@ -69,6 +69,8 @@ A more efficient way to execute filters that contain a large number of values is
 search.in(userid, '123,234,345,456,567', ',')
 ```
 
+A service is overburdened when queries take too long or when the service starts dropping requests. If this happens, you can address the problem in one of two ways:
+
 ## Upgrade to a Standard S2 tier
 
 The Standard S1 search tier is often where customers start. A common pattern for S1 services is that indexes grow over time, which requires more partitions. More partitions lead to slower response times, so more replicas are added to handle the query load. As you can imagine, the cost of running an S1 service has now progressed to levels beyond the initial configuration.
@@ -98,6 +100,24 @@ However, if the administrator chose to move to a Standard S2 tier the topology w
 As this hypothetical scenario illustrates, you can have configurations on lower tiers that result in similar costs as if you had opted for a higher tier in the first place. However, higher tiers come with premium storage, which makes indexing faster. Higher tiers also have much more compute power, as well as extra memory. For the same costs, you could have more powerful infrastructure backing the same index.
 
 An important benefit of added memory is that more of the index can be cached, resulting in lower search latency, and a greater number of queries per second. With this extra power, the administrator may not need to even need to increase the replica count and could potentially pay less than by staying on the S1 service.
+
+## Add partitions for slow individual queries
+
+One reason for high latency rates is a single query taking too long to complete. In this case, adding replicas will not help. Any of the following options might mitigate the problem:
+
++ **Increase Partitions**
+
+  A partition splits data across extra computing resources. Two partitions split data in half, a third partition splits it into thirds, and so forth. One positive side-effect is that slower queries sometimes perform faster due to parallel computing. We have noted parallelization on low selectivity queries, such as queries that match many documents, or facets providing counts over a large number of documents. Since significant computation is required to score the relevancy of the documents, or to count the numbers of documents, adding extra partitions helps queries complete faster.  
+
+  There can be a maximum of 12 partitions in Standard search service and 1 partition in the Basic search service. Partitions can be adjusted either from the [Azure portal](search-create-service-portal.md) or [PowerShell](search-manage-powershell.md).
+
++ **Limit High Cardinality Fields**
+
+  A high cardinality field consists of a facetable or filterable field that has a significant number of unique values, and as a result, consumes significant resources when computing results. For example, setting a Product ID or Description field as facetable/filterable would count as high cardinality because most of the values from document to document are unique. Wherever possible, limit the number of high cardinality fields.
+
++ **Upgrade the Service Tier**  
+
+  Moving up to a higher Azure Cognitive Search tier can be another way to improve performance of slow queries. Each higher tier provides faster CPUs and more memory, both of which have a positive impact on query performance.
 
 ## Next steps
 
