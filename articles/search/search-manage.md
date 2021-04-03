@@ -53,8 +53,8 @@ Service administration is lightweight by design, and is often defined by the tas
 * [Adjust capacity](search-capacity-planning.md) by adding or removing replicas and partitions
 * [Manage API keys](search-security-api-keys.md) used for admin and query operations
 * [Control access to admin operations](search-security-rbac.md) through role-based security
-* [Configure IP firewall rules](service-configure-firewall) to restrict access by IP address
-* [Configure a private endpoint](service-create-private-endpoint) using Azure Private Link and a private virtual network
+* [Configure IP firewall rules](service-configure-firewall.md) to restrict access by IP address
+* [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network
 * [Monitor service health](search-monitor-usage.md): storage, query volumes, and latency
 
 You can also enumerate all of the objects created on the service: indexes, indexers, data sources, skillsets, and so forth. The portal's overview page shows you all of the content that exists on your service. The vast majority of operations on a search service are content-related.

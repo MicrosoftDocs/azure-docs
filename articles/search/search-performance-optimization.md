@@ -58,7 +58,7 @@ Availability Zones do not impact the [Azure Cognitive Search Service Level Agree
 
 Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 
-+ [Business continuity and disaster recovery (BCDR)](./best-practices-availability-paired-regions.md). Azure Cognitive Search does not provide instant failover in the event of an outage.
++ [Business continuity and disaster recovery (BCDR)](../best-practices-availability-paired-regions.md). Azure Cognitive Search does not provide instant failover in the event of an outage.
 + Globally deployed applications, where multiple search services in each geography can minimize latency. If query and indexing requests come from all over the world, users who are located closest to the host data center will have faster performance. Creating multiple search services in regions with closer proximity to these users can equalize performance for all users.
 + [Multi-tenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
 
@@ -88,7 +88,7 @@ Here is a high-level visual of what that architecture would look like.
 
 #### Option 2: Use REST APIs for pushing content updates on multiple services
 
-If you are using the Azure Cognitive Search REST API to [push content in your Azure Cognitive Search index](/rest/api/searchservice/update-index), you can keep your various search services in sync by pushing changes to all search services whenever an update is required. In your code, make sure to handle cases where an update to one search service fails but succeeds for other search services.
+If you are using the Azure Cognitive Search REST API to [push content to your search index](tutorial-optimize-indexing-push-api.md), you can keep your various search services in sync by pushing changes to all search services whenever an update is required. In your code, make sure to handle cases where an update to one search service fails but succeeds for other search services.
 
 ### Use Azure Traffic Manager to coordinate requests
 
