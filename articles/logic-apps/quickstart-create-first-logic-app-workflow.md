@@ -142,54 +142,68 @@ To have your workflow respond to the triggered event or condition and perform a 
 
    ![Screenshot that shows the "Choose an operation" list with the selected email service, "Office 365 Outlook".](./media/quickstart-create-first-logic-app-workflow/select-connector.png)
 
-   You can now more easily find and select the action that you want to use, for example, `send an email`:
+   You can now more easily find and select the action that you want, for example, **Send an email**:
 
-   ![Screenshot of the Logic Apps Designer, showing list of filtered actions for the email connector, "Office 365 Outlook".](./media/quickstart-create-first-logic-app-workflow/filtered-actions-list.png)
+   ![Screenshot that shows filtered actions for the email service, "Office 365 Outlook".](./media/quickstart-create-first-logic-app-workflow/filtered-actions-list.png)
 
-1. If your selected email connector prompts you to authenticate your identity, complete that step now. You must create a connection between your logic app and your email service for this example to work. 
+1. If your selected email service prompts you to sign in and authenticate your identity, complete that step now. This example requires that you create a connection between your logic app and your email service before you can continue.
 
-    > [!NOTE]
-    > This example shows manual authentication to the Office 365 Outlook connector. However, other connectors might support different authentication types.
-    > You can also handle authentication for your logic apps in different ways, depending on your use case. For example, if you use use Azure Resource Manager templates for deployment, you can parameterize to improve security on inputs that change frequently, such as connection details. For more information, see these topics:
+   ![Screenshot that shows sign-in prompt for Office 365 Outlook.](./media/quickstart-create-first-logic-app-workflow/email-service-authentication.png)
+
+   > [!NOTE]
+   > This example shows manual authentication for connecting to Office 365 Outlook. However, other services might 
+   > support or use different authentication types. Based on your scenario, you can handle logic app authentication 
+   > in various ways. 
+   > 
+   > For example, if you use use Azure Resource Manager templates for deployment, you can increase security on inputs 
+   > that change often by parameterizing values such as connection details. For more information, review these topics:
+   >
    > * [Template parameters for deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
    > * [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)
    > * [Authenticate access with managed identities](../logic-apps/create-managed-service-identity.md)
    > * [Authenticate connections for logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections)
 
-1. In the **Send an email** action, specify what information to include in the email notification.
+1. In the **Send an email** action, specify the information to include in the email notification.
 
-   1. In the **To** box, enter the recipient's email address. For this example, use your email address.
+   1. In the **To** box, enter the receiver's email address. For this example, use your email address.
 
-        > [!NOTE]
-        > The **Add dynamic content** list appears when you click inside the **To** box, and certain other input boxes in the Logic Apps Designer. This example uses dynamic content in a later step. The **Add dynamic content** list shows any available outputs from the previous step, which you can use as inputs for the current action.
+      > [!NOTE]
+      > The **Add dynamic content** list appears when you click inside the **To** box and other boxes 
+      > for certain input types. This list shows any outputs from previous steps that are available for 
+      > you to select as inputs for the current action. You can ignore this list for now. The next step 
+      > uses the dynamic content list.
 
-   1. In the **Subject** box, enter the subject for your email notification. For this example, enter the following text with a trailing blank space: `New RSS item: `
+   1. In the **Subject** box, enter the email subject. For this example, enter the following text with a trailing blank space: `New RSS item: `
 
-      ![Screenshot of the Logic Apps Designer, showing the "Send an email" action and cursor inside the "Subject" property box.](./media/quickstart-create-first-logic-app-workflow/send-email-subject.png)
+      ![Screenshot that shows the "Send an email" action and cursor inside the "Subject" property box.](./media/quickstart-create-first-logic-app-workflow/send-email-subject.png)
 
-   1. From the **Add dynamic content** list, select **Feed title**, which is output from the trigger, **When a feed item is published**. Your email notification uses this output to get the title of the RSS item.
+   1. From the **Add dynamic content** list, select **Feed title**, which is a trigger output that references the title for the RSS item. Your email uses this trigger output to show this title.
 
-      ![Screenshot of the Logic Apps Designer, showing the "Send an email" action and cursor inside the "Subject" property box with an open dynamic content list and selected output, "Feed title".](./media/quickstart-create-first-logic-app-workflow/send-email-subject-dynamic-content.png)
+      ![Screenshot that shows the "Send an email" action and cursor inside the "Subject" property box with the open dynamic content list and selected trigger output, "Feed title".](./media/quickstart-create-first-logic-app-workflow/send-email-subject-dynamic-content.png)
 
       > [!TIP]
       > In the dynamic content list, if no outputs appear from the **When a feed item is published** trigger, 
       > next to the action's header, select **See more**.
       > 
-      > ![Screenshot of the Logic Apps Designer, showing an opened dynamic content list and "See more" selected for the trigger.](./media/quickstart-create-first-logic-app-workflow/dynamic-content-list-see-more-actions.png)
+      > ![Screenshot that shows the opened dynamic content list and "See more" selected for the trigger.](./media/quickstart-create-first-logic-app-workflow/dynamic-content-list-see-more-actions.png)
 
       When you're done, the email subject looks like this example:
 
-      ![Screenshot of the Logic Apps Designer, showing the "Send an email" action and an example email subject with the included "Feed title" property.](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
+      ![Screenshot that shows the "Send an email" action and an example email subject with the included "Feed title" property.](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
 
-      If a "For each" loop appears on the designer, then you selected a token for an array; for example, the **categories-Item** token. For these kinds of tokens, the designer automatically adds this loop around the action that references that token. That way, your logic app performs the same action on each array item. To remove the loop, select the **ellipses** (**...**) on the loop's title bar, then select **Delete**.
+      > [!NOTE]
+      > If a **For each** loop appears on the designer, then you selected an output that references an array, such as 
+      > the **categories-Item** property. For this output type, the designer automatically adds the **For each** loop 
+      > around the action that references the output. That way, your workflow performs the same action on each array item. 
+      > To remove the loop, on the loop's title bar, select the ellipses (**...**) button, then select **Delete**.
 
-   1. In the **Body** box, enter content for the email body. In this example, the content includes three properties with descriptive text for each: `Title:`, the **feed title** property; `Date published:`, the **Feed published on** property; and `Link:`, the **Primary feed link** property. To add blank lines in an edit box, press Shift + Enter.
+   1. In the **Body** box, enter email body content. For this example, the body includes the following properties, preceded by descriptive text for each property. To add blank lines in an edit box, press Shift + Enter.
 
-      | Property | Description |
-      |----------|-------------|
-      | **Feed title** | The item's title |
-      | **Feed published on** | The item's publishing date and time |
-      | **Primary feed link** | The URL for the item |
+      | Descriptive text | Property | Description |
+      |------------------|----------|-------------|
+      | `Title:` | **Feed title** | The item's title |
+      | `Date published:` | **Feed published on** | The item's publishing date and time |
+      | `Link:` | **Primary feed link** | The URL for the item |
       |||
 
       ![Screenshot of the Logic Apps Designer, showing "Send an email" action and selected properties inside the "Body" box.](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
