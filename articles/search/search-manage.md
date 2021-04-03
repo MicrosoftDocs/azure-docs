@@ -22,9 +22,9 @@ ms.date: 04/06/2021
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already created.
+Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already created. The portal allows you to perform all [management tasks](#management-tasks) related to the service, as well as content management and exploration. As such, the portal provides broad spectrum access to all aspects of search service operations.
 
-Each search service is managed as a standalone resource. The following image shows the portal pages for a single free search service called "demo-search-svc". Although you might be accustomed to using PowerShell or CLI for service management, it makes sense to become familiar with the tools and capabilities that the portal pages provide. Some tasks are just easier and faster to perform in the portal than through code. Areas on the screen enclosed in red boxes indicate tasks, tools, and tiles that you might use often, especially if you are new to the service.
+Each search service is managed as a standalone resource. The following image shows the portal pages for a single free search service called "demo-search-svc". Although you might be accustomed to using Azure PowerShell or Azure CLI for service management, it makes sense to become familiar with the tools and capabilities that the portal pages provide. Some tasks are just easier and faster to perform in the portal than through code. Below, the areas on the screen enclosed in red boxes indicate tasks, tools, and tiles that you might use often, especially if you are new to the service.
 
 :::image type="content" source="media/search-manage/search-portal-overview-page.png" alt-text="Portal pages for a search service" border="true":::
 
@@ -43,19 +43,23 @@ To the left, you can access links that open additional pages for configuring the
 Several aspects of a search service are determined when the service is provisioned and cannot be changed:
 
 * Service name (you cannot rename a search service)
-* Service location (you cannot easily move an intact search service to another region. Although there is a template, moving the content is a manual process.)
+* Service location (you cannot easily move an intact search service to another region. Although there is a template, moving the content is a manual process)
 * Service tier (you cannot switch from S1 to S2, for example, without creating a new service)
 
 ## Management tasks
 
 Service administration is lightweight by design, and is often defined by the tasks you can perform relative to the service itself:
 
-* [Monitor service health](search-monitor-usage.md): storage, query volumes, and latency
-* [Manage API keys](search-security-api-keys.md) used for admin and query operations
 * [Adjust capacity](search-capacity-planning.md) by adding or removing replicas and partitions
-* [Control access](search-security-rbac.md) to admin operations through role-based security
+* [Manage API keys](search-security-api-keys.md) used for admin and query operations
+* [Control access to admin operations](search-security-rbac.md) through role-based security
+* [Configure IP firewall rules](service-configure-firewall) to restrict access by IP address
+* [Configure a private endpoint](service-create-private-endpoint) using Azure Private Link and a private virtual network
+* [Monitor service health](search-monitor-usage.md): storage, query volumes, and latency
 
-The same tasks performed in the portal can also be handled programmatically through the [Management REST APIs](/rest/api/searchmanagement/) and [Az.Search PowerShell module](search-manage-powershell.md). Administrative tasks are fully represented across portal and programmatic interfaces. There is no specific administrative task that is available in only one modality.
+You can also enumerate all of the objects created on the service: indexes, indexers, data sources, skillsets, and so forth. The portal's overview page shows you all of the content that exists on your service. The vast majority of operations on a search service are content-related.
+
+The same management tasks performed in the portal can also be handled programmatically through the [Management REST APIs](/rest/api/searchmanagement/), [Az.Search PowerShell module](search-manage-powershell.md), [az search Azure CLI module](search-manage-azure-cli.md), and the Azure SDKs for .NET, Python, Java, and JavaScript. Administrative tasks are fully represented across portal and all programmatic interfaces. There is no specific administrative task that is available in only one modality.
 
 Cognitive Search leverages other Azure services for deeper monitoring and management. By itself, the only data stored within the search service is object content (indexes, indexer and data source definitions, and other objects). Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and additional events, you will need [Azure Monitor](../azure-monitor/index.yml). For more information about setting up diagnostic logging for a search service, see [Collect and analyze log data](search-monitor-logs.md).
 
