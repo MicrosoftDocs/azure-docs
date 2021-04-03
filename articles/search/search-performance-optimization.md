@@ -76,7 +76,7 @@ Another reason for high latency rates is a single query taking too long to compl
 
 Replicas not only help reduce query latency, but can also allow for high availability. With a single replica, you should expect periodic downtime due to server reboots after software updates or other maintenance tasks.  
 
-Microsoft guarantees at least 99.9% availability for search service configurations that meet these criteria: 
+For each individual search service, Microsoft guarantees at least 99.9% availability for configurations that meet these criteria: 
 
 + Two replicas for high availability of read-only workloads (queries)
 
@@ -88,7 +88,7 @@ Since replicas are copies of your data, having multiple replicas allows Azure Co
 
 <a name="availability-zones"></a>
 
-### Availability Zones
+## Availability Zones
 
 [Availability Zones](../availability-zones/az-overview.md) divide a region's data centers into distinct physical location groups to provide high-availability, within the same region. For Cognitive Search, individual replicas are the units for zone assignment. A search service runs within one region; its replicas run in different zones.
 
@@ -111,9 +111,9 @@ Azure Cognitive Search currently supports Availability Zones for Standard tier o
 
 Availability Zones do not impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/). You still need 3 or more replicas for query high availability.
 
-## Geo-distribution of workloads and redundancy
+## Multiple services in separate geographic regions
 
-For geo-distributed workloads, users who are located far from the host data center will have higher latency rates. One mitigation is to provision multiple search services in regions with closer proximity to these users.
+If query and indexing requests come from all over the world, users who are located closest to the host data center will have faster performance. One mitigation is to provision multiple search services in regions with closer proximity to these users.
 
 Azure Cognitive Search does not currently provide an automated method of geo-replicating Azure Cognitive Search indexes across regions, but there are some techniques that can be used that can make this process simple to implement and manage. These are outlined in the next few sections.
 
@@ -121,9 +121,11 @@ The goal of a geo-distributed set of search services is to have two or more inde
 
    ![Cross-tab of services by region][1]
 
+You can implement this architecture by creating multiple services and designing a strategy for data synchronization. Alternatively, you can use a resource like Azure Traffic Manager.
+
 ### Keep data synchronized across multiple services
 
-There are two options for keeping your distributed search services in sync, which consist of either using the [Azure Cognitive Search Indexer](search-indexer-overview.md) or the Push API (also referred to as the [Azure Cognitive Search REST API](/rest/api/searchservice/)). You might also consider additional resources designed for request redirection.
+There are two options for keeping two or more distributed search services in sync, which consist of either using the [Azure Cognitive Search Indexer](search-indexer-overview.md) or the Push API (also referred to as the [Azure Cognitive Search REST API](/rest/api/searchservice/)). 
 
 #### Option 1: Use indexers for updating content on multiple services
 
@@ -133,11 +135,11 @@ Here is a high-level visual of what that architecture would look like.
 
    ![Single data source with distributed indexer and service combinations][2]
 
-#### Option 2: se REST APIs for pushing content updates on multiple services
+#### Option 2: Use REST APIs for pushing content updates on multiple services
 
 If you are using the Azure Cognitive Search REST API to [push content in your Azure Cognitive Search index](/rest/api/searchservice/update-index), you can keep your various search services in sync by pushing changes to all search services whenever an update is required. In your code, make sure to handle cases where an update to one search service fails but succeeds for other search services.
 
-#### Option 3: Use Azure Traffic Manager to coordinate requests
+### Use Azure Traffic Manager to coordinate requests
 
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) allows you to route requests to multiple geo-located websites that are then backed by multiple search services. One advantage of the Traffic Manager is that it can probe Azure Cognitive Search to ensure that it is available and route users to alternate search services in the event of downtime. In addition, if you are routing search requests through Azure Web Sites, Azure Traffic Manager allows you to load balance cases where the Website is up but not Azure Cognitive Search. Here is an example of what the architecture that leverages Traffic Manager.
 

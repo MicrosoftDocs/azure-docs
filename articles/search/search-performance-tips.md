@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 04/06/2021
 ---
 
-# Performance tips in Azure Cognitive Search
+# Tips for better performance in Azure Cognitive Search
 
 This article is a collection of tips and best practices that are often recommended for boosting performance.
 
