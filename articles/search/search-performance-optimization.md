@@ -1,7 +1,7 @@
 ---
-title: Scale for availability 
+title: Availability and continuity
 titleSuffix: Azure Cognitive Search
-description: Learn techniques and best practices for tuning Azure Cognitive Search performance and configuring optimum scale.
+description: learn how to make a search service highly available and resilient against period disruptions or even catastrophic failures.
 
 author: LiamCavanagh
 ms.author: liamca
@@ -11,9 +11,9 @@ ms.date: 04/06/2021
 ms.custom: references_regions
 ---
 
-# Service availability on Azure Cognitive Search
+# High availability and business continuity for an Azure Cognitive Search service
 
-This article describes best practices for advanced scenarios with sophisticated requirements for availability and operations at scale.
+This article describes best practices for advanced scenarios with sophisticated requirements for availability and business continuity, including strategies for deploy search services across multiple regions while keeping content synchronized.
 
 <!-- ## Start with baseline numbers
 
@@ -72,19 +72,17 @@ Another reason for high latency rates is a single query taking too long to compl
 
 <a name="scale-for-availability"></a>
 
-## Service configurations supporting high availability
+## High availability
 
-Replicas not only help reduce query latency, but can also allow for high availability. With a single replica, you should expect periodic downtime due to server reboots after software updates or other maintenance tasks.  
+In Cognitive Search, replicas are copies of your index. Having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas.
 
 For each individual search service, Microsoft guarantees at least 99.9% availability for configurations that meet these criteria: 
 
 + Two replicas for high availability of read-only workloads (queries)
 
-+ Three or more replicas for high availability of read-write workloads (queries and indexing)
++ Three or more replicas for high availability of read-write workloads (queries and indexing) 
 
 No SLA is provided for the Free tier. For more information, see [SLA for Azure Cognitive Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-
-Since replicas are copies of your data, having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. Conversely, if you take replicas away, you'll incur query performance degradation, assuming those replicas were an under-utilized resource.
 
 <a name="availability-zones"></a>
 
@@ -157,9 +155,9 @@ Customers who use [indexers](search-indexer-overview.md) to populate and refresh
 
 If you do not use indexers, you would use your application code to push objects and data to different search services in parallel. For more information, see [Performance and optimization in Azure Cognitive Search](search-performance-optimization.md).
 
-## Backup and restore alternatives
+## Back up and restore alternatives
 
-Because Azure Cognitive Search is not a primary data storage solution, Microsoft does not provide a formal mechanism for self-service backup and restore. However, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to backup your index definition and snapshot to a series of JSON files, and then use these files to restore the index, if needed. This tool can also move indexes between service tiers.
+Because Azure Cognitive Search is not a primary data storage solution, Microsoft does not provide a formal mechanism for self-service backup and restore. However, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to back up your index definition and snapshot to a series of JSON files, and then use these files to restore the index, if needed. This tool can also move indexes between service tiers.
 
 Otherwise, your application code used for creating and populating an index is the de facto restore option if you delete an index by mistake. To rebuild an index, you would delete it (assuming it exists), recreate the index in the service, and reload by retrieving data from your primary data store.
 

@@ -148,7 +148,7 @@
       href: search-capacity-planning.md
     - name: Manage costs
       href: search-sku-manage-costs.md
-    - name: High availability
+    - name: Availability and recovery
       href: search-performance-optimization.md
     - name: Multi-tenancy
       href: search-modeling-multitenant-saas-applications.md
