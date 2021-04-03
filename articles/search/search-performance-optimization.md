@@ -70,21 +70,19 @@ Another reason for high latency rates is a single query taking too long to compl
 
   Moving up to a higher Azure Cognitive Search tier can be another way to improve performance of slow queries. Each higher tier provides faster CPUs and more memory, both of which have a positive impact on query performance. -->
 
-## Service configuration for high availability
-
-Microsoft guarantees at least 99.9% availability for query requests when a search service is configured with two or more replicas, and index update requests when a service is configured with three or more replicas. No SLA is provided for the Free tier. For more information, see [SLA for Azure Cognitive Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-
 <a name="scale-for-availability"></a>
 
-## High availability
+## Service configurations supporting high availability
 
-Replicas not only help reduce query latency, but can also allow for high availability. With a single replica, you should expect periodic downtime due to server reboots after software updates or for other maintenance events that will occur. As a result, it is important to consider if your application requires high availability of searches (queries) as well as writes (indexing events). Azure Cognitive Search offers SLA options on all the paid search offerings with the following attributes:
+Replicas not only help reduce query latency, but can also allow for high availability. With a single replica, you should expect periodic downtime due to server reboots after software updates or other maintenance tasks.  
+
+Microsoft guarantees at least 99.9% availability for search service configurations that meet these criteria: 
 
 + Two replicas for high availability of read-only workloads (queries)
 
 + Three or more replicas for high availability of read-write workloads (queries and indexing)
 
-For more details on this, please visit the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+No SLA is provided for the Free tier. For more information, see [SLA for Azure Cognitive Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 Since replicas are copies of your data, having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. Conversely, if you take replicas away, you'll incur query performance degradation, assuming those replicas were an under-utilized resource.
 
@@ -125,9 +123,9 @@ The goal of a geo-distributed set of search services is to have two or more inde
 
 ### Keep data synchronized across multiple services
 
-There are two options for keeping your distributed search services in sync, which consist of either using the [Azure Cognitive Search Indexer](search-indexer-overview.md) or the Push API (also referred to as the [Azure Cognitive Search REST API](/rest/api/searchservice/)).  
+There are two options for keeping your distributed search services in sync, which consist of either using the [Azure Cognitive Search Indexer](search-indexer-overview.md) or the Push API (also referred to as the [Azure Cognitive Search REST API](/rest/api/searchservice/)). You might also consider additional resources designed for request redirection.
 
-### Use indexers for updating content on multiple services
+#### Option 1: Use indexers for updating content on multiple services
 
 If you are already using indexer on one service, you can configure a second indexer on a second service to use the same data source object, pulling data from the same location. Each service in each region has its own indexer and a target index (your search index is not shared, which means data is duplicated), but each indexer references the same data source.
 
@@ -135,11 +133,11 @@ Here is a high-level visual of what that architecture would look like.
 
    ![Single data source with distributed indexer and service combinations][2]
 
-### Use REST APIs for pushing content updates on multiple services
+#### Option 2: se REST APIs for pushing content updates on multiple services
 
 If you are using the Azure Cognitive Search REST API to [push content in your Azure Cognitive Search index](/rest/api/searchservice/update-index), you can keep your various search services in sync by pushing changes to all search services whenever an update is required. In your code, make sure to handle cases where an update to one search service fails but succeeds for other search services.
 
-### Use Azure Traffic Manager to coordinate requests
+#### Option 3: Use Azure Traffic Manager to coordinate requests
 
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) allows you to route requests to multiple geo-located websites that are then backed by multiple search services. One advantage of the Traffic Manager is that it can probe Azure Cognitive Search to ensure that it is available and route users to alternate search services in the event of downtime. In addition, if you are routing search requests through Azure Web Sites, Azure Traffic Manager allows you to load balance cases where the Website is up but not Azure Cognitive Search. Here is an example of what the architecture that leverages Traffic Manager.
 

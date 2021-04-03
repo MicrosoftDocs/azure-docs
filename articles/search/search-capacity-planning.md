@@ -44,17 +44,19 @@ In Cognitive Search, shard management is an implementation detail and non-config
 
 + Autocomplete anomalies: Autocomplete queries, where matches are made on the first several characters of a partially entered term, accept a fuzzy parameter that forgives small deviations in spelling. For autocomplete, fuzzy matching is constrained to terms within the current shard. For example, if a shard contains "Microsoft" and a partial term of "micor" is entered, the search engine will match on "Microsoft" in that shard, but not in other shards that hold the remaining parts of the index.
 
-## Evaluating capacity requirements
+## Approaching estimation
 
-Capacity and the costs of running the service go hand in hand. Tiers impose limits on two levels: storage and content (a count of indexes on a service, for example). It's important to consider both because whichever limit you reach first is the effective limit.
+Capacity and the costs of running the service go hand in hand. Tiers impose limits on two levels: content (a count of indexes on a service, for example) and storage. It's important to consider both because whichever limit you reach first is the effective limit.
 
-Quantities of indexes and other objects are typically dictated by business and engineering requirements. For example, you might have multiple versions of the same index for active development, testing, and production.
+Counts of indexes and other objects are typically dictated by business and engineering requirements. For example, you might have multiple versions of the same index for active development, testing, and production.
 
 Storage needs are determined by the size of the indexes you expect to build. There are no solid heuristics or generalities that help with estimates. The only way to determine the size of an index is [build one](search-what-is-an-index.md). Its size will be based on imported data, text analysis, and index configuration such as whether you enable suggesters, filtering, and sorting.
 
 For full text search, the primary data structure is an [inverted index](https://en.wikipedia.org/wiki/Inverted_index) structure, which has different characteristics than source data. For an inverted index, size and complexity are determined by content, not necessarily by the amount of data that you feed into it. A large data source with high redundancy could result in a smaller index than a smaller dataset that contains highly variable content. So it's rarely possible to infer index size based on the size of the original dataset.
 
-> [!NOTE] 
+Attributes on the index, such as enabling filters and sorting, will impact storage requirements. The use of suggesters also has storage implications. For more information, see [Attributes and index size](search-what-is-an-index.md#index-size).
+
+> [!NOTE]
 > Even though estimating future needs for indexes and storage can feel like guesswork, it's worth doing. If a tier's capacity turns out to be too low, you'll need to provision a new service at a higher tier and then [reload your indexes](search-howto-reindex.md). There's no in-place upgrade of a service from one tier to another.
 >
 

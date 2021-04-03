@@ -152,11 +152,11 @@
       href: search-performance-optimization.md
     - name: Multi-tenant architecture
       href: search-modeling-multitenant-saas-applications.md
-    - name: Portal management
+    - name: Manage in the portal
       href: search-manage.md
-    - name: PowerShell management
+    - name: Manage with PowerShell
       href: search-manage-powershell.md
-    - name: Azure CLI management
+    - name: Manage with Azure CLI
       href: search-manage-azure-cli.md
     - name: Move service across regions
       href: search-howto-move-across-regions.md

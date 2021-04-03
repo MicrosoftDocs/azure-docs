@@ -30,7 +30,7 @@ A common mistake that administrators and developer make when creating a search i
 
 :::image type="content" source="media/search-performance/perf-selective-field-attributes.png" alt-text="Selective attribution" border="true":::
 
-Support for filters, facets, and sorting can quadruple storage requirements. If you add suggesters, storage requirements go up even more. For more information about the impact of attributes on storage, see [Attributes and index size](search-what-is-an-index.md#attributes-and-index-size-storage-implications).
+Support for filters, facets, and sorting can quadruple storage requirements. If you add suggesters, storage requirements go up even more. For more information about the impact of attributes on storage, see [Attributes and index size](search-what-is-an-index.md#index-size).
 
 The ramifications of over attribution include:
 
