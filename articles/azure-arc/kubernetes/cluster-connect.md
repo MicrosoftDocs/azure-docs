@@ -124,7 +124,7 @@ Two authentication options are supported with the Cluster Connect feature:
 1. Get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
 
     ```azurecli
-    az connectedk8s proxy -n <cluster-name> -g <resource-group-name> --auth-token $TOKEN
+    az connectedk8s proxy -n <cluster-name> -g <resource-group-name> --token $TOKEN
     ```
 
 1. Use `kubectl` to send requests to the cluster:
