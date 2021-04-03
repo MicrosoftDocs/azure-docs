@@ -30,9 +30,9 @@ Each search service is managed as a standalone resource. The following image sho
 
 ## Overview (home) page
 
-The service overview page includes an **Essentials** section, where you can find service properties including the endpoint used when setting up connections.
+The service overview page includes an **Essentials** section, where you can find service properties including the endpoint used when setting up connections. It also shows you tier, replica, and partition counts at a glance.
 
-Above the **Essentials** section are a series of commands for invoking interactive tools or managing the service.
+Above the **Essentials** section are a series of commands for invoking interactive tools or managing the service. Both [Import data](search-get-started-portal.md) and [Search explorer](search-explorer.md) are commonly used for prototyping and exploration.
 
 Below the **Essentials** section are a series of tabbed subpages for quick access to usage statistics, service health metrics, and lists of existing indexes, indexers, data sources, and skillsets on your service. If you select an index or another object, additional pages become available to show object composition, settings, and status (if applicable).
 
