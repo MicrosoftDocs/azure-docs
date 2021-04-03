@@ -12,47 +12,47 @@ ms.topic: tutorial
 ms.date: 04/02/2021 
 ---
 
-# Explore the Synapse Knowledge center
+# Add an administrator to your Synapse workspace
 
-In this tutorial, you'll learn how to use the Synapse Studio Knowledge Center.
+In this tutorial, you'll learn how to add an administrator to your Synapse workspace. This user will have full control over the workspace.
 
-## Getting to the Knowledge Center
+## Assign the user to the Azure RBAC Owner role at the Synapse workspace level
 
-There are two ways of finding the Knowledge Center in Synapse Studio:
+1. Open the Azure portal.
+1. Navigate to your workspace.
+1. On the left side, select **Access Control (IAM)**.
+1. Click **Add > Add role assignment**.
+1. For **Role**, select **Owner**.
+1. Pick the user you want to assign. In this example, we will use `ryan@contoso.com`.
+1. Click Save.
+ 
+ 
+## Assign the user to the Synapse Administrator role in the Synapse workspace
+1. Open your workspace in Synapse Studio.
+1. On the left side, click **Manage** to open the Manage hub.
+1. Under **Security**, click **Access control**.
+1. Click **Add**.
+1. Leave **Scope** set to Workspace.
+1. For **Role**, choose **Synapse Administrator**.
+1. Then select the user `ryan@contoso.com`.
+1. Then click **Apply**.
+ 
+## Assign storage permissions on the Workspace's default storage account
+You need to grant access to the Administrator to use that filesystem
 
-  1. In the Home hub, near the top-right of the page click on **Learn**.
-  2. In the menu bar at the top, click **?** and then **Knowledge Center**.
+1. Open the workspace's primary storage account in the Azure portal.
+1. On the left side, click **Access Control (IAM)**.
+1. Add `ryan@contoso.com` to the **Owner** role. 
+3. Add `ryan@contoso.com` to the **Azure Storage Blob Data Contributor** role
 
-Pick either method and open the **Knowledge Center**.
+## Add the user to the dbowner role for all dedicated SQL pools
 
-## Overview
+For all dedicated SQL pools, run the following T-SQL script against the corresponding SQL database.
 
-The **Knowledge center** allows you to do three things:
-* **Use samples immediately**. If you want a quick example of how Synapse works, choose this option.
-* **Browse gallery**. This option lets you link sample data sets and add sample code in the form of SQL scripts, notebooks, and pipelines.
-* **Tour Synapse Studio**. This option takes you on a brief tour of the basic parts of Synapse Studio. This is useful if you have never used Synapse Studio before.
-
-## Exploring blob storage with serverless SQL pool
-
-1. Go to the **Knowledge center**, click **Use samples immediately**.
-1. Select **Query data with SQL**.
-1. Click **Use sample**.
-1. A new sample SQL script will open.
-1. Scroll to the first query (lines 28 to 32) and select the query text.
-1. Click Run. It will run only code you have selected.
-
-## Loading more NYC Taxi Data
-1. Go to the **Knowledge Center**, click **Browse gallery**.
-1. Select the **SQL scripts** tab at the top.
-1. Select **Load the New York Taxicab dataset** Data ingestion sample, click **Continue**.
-1. Under **SQL pool**, choose **Select an existing pool** and select **SQLPOOL1**, and select the **SQLPOOL1** database you created earlier.
-1. Click **Open Script**.
-1. A new sample SQL script will open.
-1. Click **Run**
-1. This will create several tables for all of the NYC Taxi data and load them using the T-SQL COPY command. If you had created these tables in the previous quick start steps, select and execute only code to CREATE and COPY for tables that do not exist.
-
-    > [!NOTE] 
-    > When using the sample gallery for SQL script with a dedicated SQL pool (formerly SQL DW), you will only be able to use an existing dedicated SQL pool (formerly SQL DW).
+```
+CREATE USER [ryan@contoso.com] FROM EXTERNAL PROVIDER; 
+EXEC sp_addrolemember 'db_owner', 'ryan@contoso.com'
+```
 
 ## Next steps
 
