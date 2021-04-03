@@ -13,13 +13,13 @@ ms.custom: references_regions
 
 # Availability and business continuity for an Azure Cognitive Search service
 
-This article describes best practices for advanced scenarios with sophisticated requirements for availability and business continuity, including strategies for deploy search services across multiple regions while keeping content synchronized.
+In Cognitive Search, availability is achieved through multiple replicas, whereas business continuity (and disaster recovery) is achieved through multiple search services. This article provides guidance that you can use as a starting point for developing a strategy that meets your business requirements for both availability and continuous operations.
 
 <a name="scale-for-availability"></a>
 
 ## High availability
 
-In Cognitive Search, replicas are copies of your index. Having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas.
+In Cognitive Search, replicas are copies of your index. Having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. For more information about adding replicas, see [Add or reduce replicas and partitions](search-capacity-planning.md#adjust-capacity).
 
 For each individual search service, Microsoft guarantees at least 99.9% availability for configurations that meet these criteria: 
 
@@ -35,7 +35,7 @@ No SLA is provided for the Free tier. For more information, see [SLA for Azure C
 
 [Availability Zones](../availability-zones/az-overview.md) are an Azure platform capability that divides a region's data centers into distinct physical location groups to provide high-availability, within the same region. If you use Availability Zones for Cognitive Search, individual replicas are the units for zone assignment. A search service runs within one region; its replicas run in different zones.
 
-You can utilize Availability Zones with Azure Cognitive Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region. If you have more replicas than Availability Zones, the replicas will be distributed across Availability Zones as evenly as possible.
+You can utilize Availability Zones with Azure Cognitive Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region. If you have more replicas than Availability Zones, the replicas will be distributed across Availability Zones as evenly as possible. There is no specific action on your part, except to [create a search service](search-create-service-portal.md) in a region that provides Availability Zones, and then to configure the service to [use multiple replicas](search-capacity-planning.md#adjust-capacity).
 
 Azure Cognitive Search currently supports Availability Zones for Standard tier or higher search services that were created in one of the following regions:
 
@@ -56,7 +56,13 @@ Availability Zones do not impact the [Azure Cognitive Search Service Level Agree
 
 ## Multiple services in separate geographic regions
 
-If query and indexing requests come from all over the world, users who are located closest to the host data center will have faster performance. One mitigation is to provision multiple search services in regions with closer proximity to these users.
+Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
+
++ [Business continuity and disaster recovery (BCDR)](./best-practices-availability-paired-regions.md). Azure Cognitive Search does not provide instant failover in the event of an outage.
++ Globally deployed applications, where multiple search services in each geography can minimize latency. If query and indexing requests come from all over the world, users who are located closest to the host data center will have faster performance. Creating multiple search services in regions with closer proximity to these users can equalize performance for all users.
++ [Multi-tenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
+
+If you need two more search services, creating them in different regions can meet application requirements for continuity and recovery, as well as faster response times for a global user base.
 
 Azure Cognitive Search does not currently provide an automated method of geo-replicating Azure Cognitive Search indexes across regions, but there are some techniques that can be used that can make this process simple to implement and manage. These are outlined in the next few sections.
 
