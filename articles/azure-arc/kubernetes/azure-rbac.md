@@ -146,6 +146,8 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
     > 1. Before running the above command, ensure that the `kubeconfig` file on the machine is pointing to the cluster on which to enable the Azure RBAC feature.
     > 2. Use `--skip-azure-rbac-list` with the above command for a comma-separated list of usernames/email/oid undergoing authorization checks using Kubernetes native ClusterRoleBinding and RoleBinding objects instead of Azure RBAC.
 
+### For a generic cluster where there is no reconciler running on apiserver specification:
+
 1. SSH into every master node of the cluster and execute the following steps:
 
     1. Open `apiserver` manifest in edit mode:
@@ -178,7 +180,7 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
         - --authorization-webhook-cache-authorized-ttl=5m0s
         - --authorization-webhook-config-file=/etc/guard/guard-authz-webhook.yaml
         - --authorization-webhook-version=v1
-        - --authentication-token-webhook-config-file=/etc/guard/guard-authn-webhook.yaml
+        - --authorization-mode=Node,Webhook,RBAC
         ```
     
         If the Kubernetes cluster is of version >= 1.19.0, then the following `apiserver argument` needs to be set as well:
@@ -188,7 +190,73 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
         ```
 
     1. Save and exit the editor to update the `apiserver` pod.
+
+
+### For a cluster created using Cluster API
+
+1. Copy the guard secret containing authentication and authorization webhook config files `from the workload cluster` on to your machine:
+
+    ```console
+    kubectl get secret azure-arc-guard-manifests -n kube-system -o yaml > azure-arc-guard-manifests.yaml
+    ```
+
+1. Change the `namespace` field in the `azure-arc-guard-manifests.yaml` file to the namespace within the management cluster where you are applying the custom resources for creation of workload clusters.
+
+1. Apply this manifest:
+
+    ```console
+    kubectl apply -f `azure-arc-guard-manifests.yaml`
+    ```
+
+1. Edit the `KubeadmControlPlane` object by executing `kubectl edit kcp <clustername>-control-plane`:
     
+    1. Add the following snippet under `files:`:
+    
+    ```console
+    - contentFrom:
+        secret:
+          key: guard-authn-webhook.yaml
+          name: azure-arc-guard-manifests
+      owner: root:root
+      path: /etc/kubernetes/guard-authn-webhook.yaml
+      permissions: "0644"
+    - contentFrom:
+        secret:
+          key: guard-authz-webhook.yaml
+          name: azure-arc-guard-manifests
+      owner: root:root
+      path: /etc/kubernetes/guard-authz-webhook.yaml
+      permissions: "0644"
+    ```
+
+    1. Add the following snippet under `apiServer:` -> `extraVolumes:`:
+    
+    ```console
+    - hostPath: /etc/kubernetes/guard-authn-webhook.yaml
+        mountPath: /etc/guard/guard-authn-webhook.yaml
+        name: guard-authn
+        readOnly: true
+    - hostPath: /etc/kubernetes/guard-authz-webhook.yaml
+        mountPath: /etc/guard/guard-authz-webhook.yaml
+        name: guard-authz
+        readOnly: true
+    ```
+
+    1. Add the following snippet under `apiServer:` -> `extraArgs:`:
+    
+    ```console
+    authentication-token-webhook-cache-ttl: 5m0s
+    authentication-token-webhook-config-file: /etc/guard/guard-authn-webhook.yaml
+    authentication-token-webhook-version: v1
+    authorization-mode: Node,Webhook,RBAC
+    authorization-webhook-cache-authorized-ttl: 5m0s
+    authorization-webhook-config-file: /etc/guard/guard-authz-webhook.yaml
+    authorization-webhook-version: v1
+    ```
+
+    1. Save and exit to update the `KubeadmControlPlane` object. Wait for the these changes to be realized on the workload cluster.
+
+
 ## Create role assignments for users to access the cluster
 
 Owners of the Azure Arc enabled Kubernetes resource can either use built-in roles or custom roles to grant other users access to the Kubernetes cluster.
@@ -257,7 +325,21 @@ Copy the below JSON object into a file called custom-role.json. Replace the `<su
 
 ## Configure kubectl with user credentials
 
-Users who need access the Kubernetes cluster needs to execute the following steps on their machine:
+There are two ways to obtain `kubeconfig` file needed to access the cluster:
+1. Use [Cluster Connect](cluster-connect.md) feature (`az connectedk8s proxy`) of the Azure Arc enabled Kubernetes cluster.
+1. Cluster admin shares `kubeconfig` file with every other user.
+
+### If you want to use Cluster Connect feature
+
+Execute the following command to start the proxy process:
+
+```console
+az connectedk8s proxy -n <clusterName> -g <resourceGroupName>
+```
+
+After the proxy process is running, you can open another tab in your console to [start sending your requests to cluster](#sending-requests-to-cluster).
+
+### If cluster admin shared the `kubeconfig` file with you 
 
 1. Execute the following command to set credentials for user:
 
@@ -270,7 +352,7 @@ Users who need access the Kubernetes cluster needs to execute the following step
     --auth-provider-arg=apiserver-id=<serverApplicationId>
     ```
 
-1. Open the `kubeconfig` file you created earlier. Under `contexts`, verify the context associated with cluster points to the credentials created in step #1.
+1. Open the `kubeconfig` file you created earlier. Under `contexts`, verify the context associated with cluster points to the user credentials created in previous step.
 
 1. Add **config-mode** setting under user config:
   
@@ -286,6 +368,8 @@ Users who need access the Kubernetes cluster needs to execute the following step
             config-mode: "1"
         name: azure
     ```
+
+## Sending requests to cluster
 
 1. Run any `kubectl` command. For example:
   * `kubectl get nodes` 
