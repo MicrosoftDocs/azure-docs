@@ -354,6 +354,15 @@ If you prefer to use an on-premises backup solution, backups should be performed
 > [!Note]  
 > With Version 9 of the Azure File Sync agent, VSS snapshots (including Previous Versions tab) are now supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
+## Data Classification
+If you have data classification software installed, enabling cloud tiering may result in increased cost for two reasons:
+
+1. With cloud tiering enabled, your hottest files are cached locally and coolest files are tiered to the Azure file share in the cloud. If your data classification regularly scans all files in the file share, the files tiered to the cloud must be recalled whenever scanned. 
+
+2. If the data classification software uses the metadata in the data stream of a file, the file must be fully recalled in order for the software to see the classification. 
+
+These increases in both the number of recalls and the amount of data being recalled can increase costs.
+
 ## Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 

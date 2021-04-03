@@ -19,22 +19,6 @@ ms.custom:
 
 To ensure a successful Cloud Services (extended support) deployment review the below steps and complete each item prior to attempting any deployments. 
 
-## Register the CloudServices feature
-Register the feature for your subscription. The registration may take several minutes to complete. 
-
-```powershell
-Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
-```
-
-Check the status of registration using the following:  
-```powershell
-Get-AzProviderFeature 
-
-#Sample output
-FeatureName               ProviderName      RegistrationState
-CloudServices           Microsoft.Compute    Registered
-```
-
 ## Required Service Configuration (.cscfg) file updates
 
 ### 1) Virtual Network
