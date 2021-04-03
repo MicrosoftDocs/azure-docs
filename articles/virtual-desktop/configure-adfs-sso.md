@@ -46,7 +46,7 @@ You must properly create the following certificate templates so that AD FS can u
 
 After you create these certificate templates, you'll need to enable the templates on the certificate authority so AD FS can request them.
 
-### To configure the enrollment agent certificate template:
+### To create the enrollment agent certificate template:
 
 Depending on your environment, you may already have configured an enrollment agent certificate template for other purposes like Windows Hello for Business, Logon certificates or VPN certificates. If so, you will need to modify it to support SSO. If not, you can create a new template.
 
@@ -84,7 +84,7 @@ Import-Module adfs
    * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$".
 7. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll" in the **Permissions for the AD FS service account** pane, then select **OK** to save.
 
-### To configure the Smartcard Logon certificate template:
+### To create the Smartcard Logon certificate template:
 
 1. On the certificate authority, run **mmc.exe** from the Start menu to launch the **Microsoft Management Console**.
 2. Select **File...** > **Add/Remote Snap-in...** > **Certificate Templates** > **Add** > **OK** to view the list of certificate templates.
