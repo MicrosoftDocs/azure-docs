@@ -36,7 +36,7 @@ This tutorial requires the following Azure resources:
 * IoT Hub.
 * Storage account.
 * Azure Media Services account.
-* A Linux VM in Azure, with [IoT Edge runtime installed](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2018-06).
+* A Linux VM in Azure, with [IoT Edge runtime installed](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2018-06&preserve-view=true).
 
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
@@ -103,7 +103,7 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 1. Right-click and select **Extension Settings**.
  
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/get-started-detect-motion-emit-events/extensions-setting.png" alt-text="Select Extension Settings":::
+    > :::image type="content" source="./media/get-started-detect-motion-emit-events/extension-settings.png" alt-text="Select Extension Settings":::
 1. Search and enable "Show Verbose Message".
 
     > [!div class="mx-imgBorder"]
@@ -577,7 +577,7 @@ To observe the results, follow these steps.
 1. Right-click **lva-sample-device** and then select **Start Monitoring Built-in Event Monitoring**.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/get-started-detect-motion-emit-events/start-monitoring.png.png" alt-text="Start Monitoring Built-in Event Monitoring":::
+> :::image type="content" source="./media/get-started-detect-motion-emit-events/start-monitoring.png" alt-text="Start Monitoring Built-in Event Monitoring":::
 
 > [!NOTE]
 > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`.
