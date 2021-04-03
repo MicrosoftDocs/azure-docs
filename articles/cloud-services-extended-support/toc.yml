@@ -68,7 +68,7 @@
   - name: Apply Remote Desktop extension
     href: enable-rdp.md
   - name: Apply WAD extension
-      href: enable-wad.md
+    href: enable-wad.md
   - name: Enable alerts
     href: enable-alerts.md
   - name: Configure scaling
