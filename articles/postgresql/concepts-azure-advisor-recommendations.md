@@ -27,7 +27,8 @@ Azure Database for PostgreSQL prioritize the following types of recommendations:
 * **Cost**: To optimize and reduce your overall Azure spending. This includes server right-sizing recommendations. For more information, see [Advisor Cost recommendations](../advisor/advisor-cost-recommendations.md).
 
 ## Understanding your recommendations
-For Azure PostgreSQL databases, we check server telemetry and issue recommendations on a daily schedule. If you make a change to your server configuration, the recommendation will remain visible until we re-examine telemetry on the following day. 
-Some of our recommendations are based on performance history. These recommendations will only appear after a server has been operating with the same configuration for 7 days. If you provision a new server or change to a new v-core configuration, these recommendations will be paused temporarily. This prevents legacy telemetry from triggering recommendations on a newly reconfigured server. However, this also means that some optimizations may not be identified until some time has passed.
+* **Daily schedule**: For Azure PostgreSQL databases, we check server telemetry and issue recommendations on a daily schedule. If you make a change to your server configuration, the recommendation will remain visible until we re-examine telemetry on the following day. 
+* **Performance history**: Some of our recommendations are based on performance history. These recommendations will only appear after a server has been operating with the same configuration for 7 days. If you provision a new server or change to a new v-core configuration, these recommendations will be paused temporarily. This prevents legacy telemetry from triggering recommendations on a newly reconfigured server. However, this also means that some optimizations may not be identified until some time has passed.
+
 ## Next Steps
 For more information, see [Azure Advisor Overview](../advisor/advisor-overview.md).
