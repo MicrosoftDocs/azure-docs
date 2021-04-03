@@ -176,7 +176,7 @@ The following RoboCopy command will copy only the differences (updated files and
 
 When you run the RoboCopy command for the first time, your users and applications are still accessing files on the NAS and potentially change them. It is possible, that RoboCopy has processed a directory, moves on to the next and then a user on the source location (NAS) adds, changes, or deletes a file that will now not be processed in this current RoboCopy run. This behavior is expected.
 
-The first run is about moving the bulk of the churned data to your Azure file share. This first copy can take a while. Checkout the [Troubleshooting section](#troubleshoot) for more insight into what can affect RoboCopy speeds.
+The first run is about moving the bulk of the churned data to your Azure file share. This first copy can take a while. Check out the [Troubleshooting section](#troubleshoot) for more insight into what can affect RoboCopy speeds.
 
 Once the initial run is complete, run the command again.
 
