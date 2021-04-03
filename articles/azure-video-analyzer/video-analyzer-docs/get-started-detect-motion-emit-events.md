@@ -29,7 +29,7 @@ After completing the setup steps, you'll be able to run a simulated live video s
 > [!TIP] 
 > You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
 
-### Set up Azure resources
+## Set up Azure resources
 
 This tutorial requires the following Azure resources:
 
@@ -57,18 +57,18 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
 
 Upon successful completion of the script, you should see all of the required resources in your subscription. A total of 12 resources will be setup by the script:
 
-1. Streaming Endpoint - This will help in the playing the recorded AMS asset.
-1. Virtual machine - This is a virtual machine that will act as your edge device.
-1. Disk - This is a storage disk that is attached to the virtual machine to store media and artifacts.
-1. Network security group - This is used to filter network traffic to and from Azure resources in an Azure virtual network.
-1. Network interface - This enables an Azure Virtual Machine to communicate with internet, Azure, and other resources.
-1. Bastion connection - This lets you connect to your virtual machine using your browser and the Azure portal.
-1. Public IP address - This enables Azure resources to communicate to Internet and public-facing Azure services
-1. Virtual network - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about Virtual networks.
-1. IoT Hub - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
-1. Media service account - This helps with managing and streaming media content in Azure.
-1. Storage account - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see Azure Storage accounts with Azure Media Services accounts.
-1. Container registry - This helps in storing and managing your private Docker container images and related artifacts.
+1. **Streaming Endpoint** - This will help in the playing the recorded AMS asset.
+1. **Virtual machine** - This is a virtual machine that will act as your edge device.
+1. **Disk** - This is a storage disk that is attached to the virtual machine to store media and artifacts.
+1. **Network security group** - This is used to filter network traffic to and from Azure resources in an Azure virtual network.
+1. **Network interface** - This enables an Azure Virtual Machine to communicate with internet, Azure, and other resources.
+1. **Bastion connection** - This lets you connect to your virtual machine using your browser and the Azure portal.
+1. **Public IP address** - This enables Azure resources to communicate to Internet and public-facing Azure services
+1. **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about Virtual networks.
+1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
+1. **Media service account** - This helps with managing and streaming media content in Azure.
+1. **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see Azure Storage accounts with Azure Media Services accounts.
+1. **Container registry** - This helps in storing and managing your private Docker container images and related artifacts.
 
 In the script output, a table of resources lists the IoT hub name. Look for the resource type Microsoft.Devices/IotHubs, and note down the name. You'll need this name in the next step.
 
@@ -78,7 +78,7 @@ In the script output, a table of resources lists the IoT hub name. Look for the 
 > [!TIP]
 > If you run into issues with Azure resources that get created, please view our troubleshooting guide to resolve some commonly encountered issues.
 
-Deploy modules on your edge device
+## Deploy modules on your edge device
 
 Run the following command from Cloud Shell.
 
@@ -95,28 +95,27 @@ The RTSP simulator module simulates a live video stream by using a video file th
 
 Now the modules are deployed, but no pipelines are active.
 
-Configure the Azure IoT Tools extension
+## Configure the Azure IoT Tools extension
 
 Follow these instructions to connect to your IoT hub by using the Azure IoT Tools extension.
 
-1. In Visual Studio Code, open the Extensions tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
-1. Right-click and select Extension Settings.
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for **Azure IoT Hub**.
+1. Right-click and select **Extension Settings**.
  
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/get-started-detect-motion-emit-events/extensions-setting.png" alt-text="Select Extension Settings":::
-1. Search and enable “Show Verbose Message”.
+1. Search and enable "Show Verbose Message".
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/get-started-detect-motion-emit-events/verbose-message.png" alt-text="Show Verbose Message":::
-1. Select View > Explorer. Or, select Ctrl+Shift+E.
-1. In the lower-left corner of the Explorer tab, select Azure IoT Hub.
-1. Select the More Options icon to see the context menu. Then select Set IoT Hub Connection String.
-1. When an input box appears, enter your IoT Hub connection string. In Cloud Shell, you can get the connection string from ~/clouddrive/lva-sample/appsettings.json.
+1. Select **View** > **Explorer**. Or, select Ctrl+Shift+E.
+1. In the lower-left corner of the **Explorer** tab, select **Azure IoT Hub**.
+1. Select the **More Options** icon to see the context menu. Then select **Set IoT Hub Connection String**.
+1. When an input box appears, enter your IoT Hub connection string. In Cloud Shell, you can get the connection string from `~/clouddrive/lva-sample/appsettings.json`.
 
 > [!NOTE]
-> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for Built-in endpoints option in the left navigation pane. Click there and look for the Event Hub-compatible endpoint under Event Hub compatible endpoint section. Copy and use the text in the box. The endpoint will look something like this:
-Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-If the connection succeeds, the list of edge devices appears. You should see at least one device named lva-sample-device. You can now manage your IoT Edge devices and interact with Azure IoT Hub through the context menu. To view the modules deployed on the edge device, under lva-sample-device, expand the Modules node.
+> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`
+If the connection succeeds, the list of edge devices appears. You should see at least one device named **lva-sample-device**. You can now manage your IoT Edge devices and interact with Azure IoT Hub through the context menu. To view the modules deployed on the edge device, under **lva-sample-device**, expand the **Modules** node.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/get-started-detect-motion-emit-events/modules-node.png" alt-text="Expand the Modules node":::
@@ -132,7 +131,7 @@ You can use the module to analyze live video streams by invoking direct methods.
 
 To enumerate all of the pipelines  in the module:
 
-1. In the Visual Studio Code, right-click the avaEdge module and select Invoke Module Direct Method.
+1. In the Visual Studio Code, right-click the **avaEdge** module and select **Invoke Module Direct Method**.
 1. In the box that appears, enter topologyList.
 1. Copy the following JSON payload and then paste it in the box. Then select the Enter key.
 
@@ -157,9 +156,9 @@ This response is expected because no topologies have been created.
 
 ### Invoke topologySet
 
-Like we did before, you can now invoke topologySet to set a pipeline topology. Use the following JSON as the payload.
+Like we did before, you can now invoke topologySet to set a [pipeline topology]()<!-- TODO: add a link later-->. Use the following JSON as the payload.
 
-```
+```json
 {
     "@apiVersion": "3.0",
     "name": "MotionDetection",
@@ -231,9 +230,9 @@ Like we did before, you can now invoke topologySet to set a pipeline topology. U
 
 This JSON payload creates a topology that defines three parameters. The topology has one source (RTSP source) node, one processor (motion detection processor) node, and one sink (IoT Hub sink) node.
 
-Within a few seconds, you see the following response in the OUTPUT window.
+Within a few seconds, you see the following response in the **OUTPUT** window.
 
-```
+```json
 {
   "status": 201,
   "payload": {
@@ -330,9 +329,9 @@ Invoke GraphTopologyGet by using the following payload.
 }
 ```
 
-Within a few seconds, you see the following response in the OUTPUT window:
+Within a few seconds, you see the following response in the **OUTPUT** window:
 
-```
+```json
 {
   "status": 200,
   "payload": {
@@ -413,14 +412,15 @@ Within a few seconds, you see the following response in the OUTPUT window:
 In the response payload, notice these details:
 
 * The status code is 200, indicating success.
-* The payload includes the created time stamp and the lastModified time stamp.
+* The payload includes the `created` time stamp and the `lastModified` time stamp.
 
 ### Invoke streamSet
 
-Create a stream instance that references the preceding topology. Stream instances let you analyze live video streams from many cameras by using the same pipeline topology. For more information, see Pipeline topologies and instances.
-Invoke the direct method streamSet by using the following payload.
+Create a stream instance that references the preceding topology. Stream instances let you analyze live video streams from many cameras by using the same pipeline topology. For more information, see [Pipeline topologies and instances]()<!--TODO:add a link later-->.
 
-```
+Invoke the direct method `streamSet` by using the following payload.
+
+```json
 {
     "@apiVersion" : "3.0",
     "name": "mdgraph2",
@@ -447,10 +447,10 @@ Invoke the direct method streamSet by using the following payload.
 
 Notice that this payload:
 
-* Specifies the topology name (MotionDetection) for which the instance needs to be created.
+* Specifies the topology name (`MotionDetection`) for which the instance needs to be created.
 * Contains a parameter value for parameters which didn't have a default value in the graph topology payload. This value is a link to the below sample video:
 
-Within few seconds, you see the following response in the OUTPUT window:
+Within few seconds, you see the following response in the **OUTPUT** window:
 
 ```
 {
@@ -487,13 +487,13 @@ Within few seconds, you see the following response in the OUTPUT window:
 In the response payload, notice that:
 
 * The status code is 201, indicating a new instance was created.
-* The state is Inactive, indicating that the stream instance was created but not activated. For more information, see Pipeline states.
+* The state is Inactive, indicating that the stream instance was created but not activated. For more information, see [Pipeline states]()<!--TODO:add a link later-->.
 
 Try the following next steps:
 
-1. Invoke streamSet again by using the same payload. Notice that the returned status code is 200.
-1. Invoke streamSet again, but use a different description. Notice the updated description in the response payload, indicating that the instance was successfully updated.
-1. Invoke streamSet, but change the name to Sample-Graph-2. In the response payload, notice the newly created graph instance (that is, status code 201).
+1. Invoke `streamSet` again by using the same payload. Notice that the returned status code is 200.
+1. Invoke `streamSet` again, but use a different description. Notice the updated description in the response payload, indicating that the instance was successfully updated.
+1. Invoke `streamSet`, but change the name to `Sample-Graph-2`. In the response payload, notice the newly created graph instance (that is, status code 201).
 
 ### Invoke streamStart
 
@@ -565,7 +565,7 @@ Within a few seconds, you see the following response in the OUTPUT window.
 In the response payload, notice the following details:
 
 * The status code is 200, indicating success.
-* The state is Active, indicating the graph instance is now active.
+* The state is `Active`, indicating the graph instance is now active.
 
 ## Observe results
 
