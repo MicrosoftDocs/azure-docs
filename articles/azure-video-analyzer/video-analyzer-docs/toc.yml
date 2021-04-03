@@ -6,6 +6,10 @@
     href: overview.md
   - name: Terminology
     href: terminology.md
+- name: Quickstarts
+  items:
+  - name: Get Started - Azure Video Analytics
+    href: get-started-detect-motion-emit-events.md
 - name: Concepts
   items:
   - name: Record video for playback
