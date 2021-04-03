@@ -22,6 +22,8 @@ We know that security is job one in the cloud and how important it is that you f
 
 The following diagram and documentation introduces you to the security services in Azure. These security services help you meet the security needs of your business and protect your users, devices, resources, data, and applications in the cloud.
 
+## End to end diagram
+
 The diagram organizes services by the resources they protect (column). The diagram also groups services into the following categories (row):
 
 - Secure and protect - Services that let you implement a layered, defense in-depth strategy across identity, hosts, networks, and data. This collection of security services and capabilities provides a way to understand and improve your security posture across your Azure environment.
