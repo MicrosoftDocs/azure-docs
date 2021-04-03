@@ -8,8 +8,10 @@
     href: terminology.md
 - name: Quickstarts
   items:
-  - name: Analyze live video with your own model - HTTP
-    href: analyze-live-video-use-your-model-http.md
+  - name: Analyze live video
+    items:
+      name: with your own model - HTTP
+      href: analyze-live-video-use-your-model-http.md
 - name: Concepts
   items:
   - name: Record video for playback
