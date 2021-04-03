@@ -208,7 +208,7 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 1. Apply this manifest:
 
     ```console
-    kubectl apply -f `azure-arc-guard-manifests.yaml`
+    kubectl apply -f azure-arc-guard-manifests.yaml
     ```
 
 1. Edit the `KubeadmControlPlane` object by executing `kubectl edit kcp <clustername>-control-plane`:
