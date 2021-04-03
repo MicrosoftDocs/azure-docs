@@ -332,7 +332,7 @@ There are two ways to obtain `kubeconfig` file needed to access the cluster:
 1. Use [Cluster Connect](cluster-connect.md) feature (`az connectedk8s proxy`) of the Azure Arc enabled Kubernetes cluster.
 1. Cluster admin shares `kubeconfig` file with every other user.
 
-### If you want to use Cluster Connect feature
+### If you are accessing cluster using Cluster Connect feature
 
 Execute the following command to start the proxy process:
 
