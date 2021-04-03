@@ -3,7 +3,7 @@ title: Alert schema definitions in Azure Monitor
 description: Understanding the common alert schema definitions for Azure Monitor
 author: ofirmanor
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/02/2021
 
 ---
 
@@ -68,7 +68,7 @@ Any alert instance describes the resource that was affected and the cause of the
 
 | Field | Description|
 |:---|:---|
-| alertId | The GUID uniquely identifying the alert instance. |
+| alertId | The unique resource ID identifying the alert instance. |
 | alertRule | The name of the alert rule that generated the alert instance. |
 | Severity | The severity of the alert. Possible values: Sev0, Sev1, Sev2, Sev3, or Sev4. |
 | signalType | Identifies the signal on which the alert rule was defined. Possible values: Metric, Log, or Activity Log. |
