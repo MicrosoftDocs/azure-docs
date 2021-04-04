@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 03/16/2021
+ms.date: 04/04/2021
 ---
 
 # CEF and CommonSecurityLog field mapping
@@ -113,7 +113,7 @@ For more information, see [Connect your external solution using Common Event For
 | requestCookies | RequestCookies |Cookies associated with the request. |
 | requestMethod | RequestMethod | The method used to access a URL. <br><br>Valid values include methods such as `POST`, `GET`, and so on. |
 | rt | ReceiptTime | The time at which the event related to the activity was received. |
-|Severity     |  <a name="logseverity"></a> LogSeverity       |  A string or integer that describes the importance of the event.<br><br> Valid string values: `Unknown` , `Low`, `Medium`, `High`, `Very-High` <br><br>Valid integer values are: `0`-`3` = Low, `4`-`6` = Medium, `7`-`8` = High, `9`-`10` = Very-High |
+|Severity     |  <a name="logseverity"></a> LogSeverity       |  A string or integer that describes the importance of the event.<br><br> Valid string values: `Unknown` , `Low`, `Medium`, `High`, `Very-High` <br><br>Valid integer values are:<br> - `0`-`3` = Low <br>- `4`-`6` = Medium<br>- `7`-`8` = High<br>- `9`-`10` = Very-High |
 | shost    | SourceHostName        |Identifies the source that event refers to in an IP network. Format should be a fully qualified domain name (DQDN) associated with the source node, when a node is available. For example, `host` or `host.domain.com`. |
 | smac | SourceMacAddress | Source MAC address. |
 | sntdom | SourceNTDomain | The Windows domain name for the source address. |
@@ -128,8 +128,105 @@ For more information, see [Connect your external solution using Common Event For
 | src | SourceIP |The source that an event refers to in an IP network, as an IPv4 address. |
 | start | StartTime | The time when the activity that the event refers to started. |
 | suid | SourceUserID | Identifies the source user by ID. |
+| suser | SourceUserName | Identifies the source user by name. |
 | type | EventType | Event type. Value values include: <br>- `0`: base event <br>- `1`: aggregated <br>- `2`: correlation event <br>- `3`: action event <br><br>**Note**: This event can be omitted for base events. |
 | | | |
+
+## Custom fields
+
+The following table maps the names of CEF keys and CommonSecurityLog fields that are available for customers to use for data that does not apply to any of the built-in fields.
+
+### Custom IPv6 address fields
+
+The following table maps CEF key and CommonSecurityLog names for the IPv6 address fields available for custom data.
+
+|CEF key name  |CommonSecurityLog name  |
+|---------|---------|
+|     c6a1    |     DeviceCustomIPv6Address1       |
+|     c6a1Label    |     DeviceCustomIPv6Address1Label    |
+|     c6a2    |     DeviceCustomIPv6Address2    |          |
+|     c6a2Label    |     DeviceCustomIPv6Address2Label    |
+|     c6a3    |     DeviceCustomIPv6Address3    |
+|     c6a3Label    |     DeviceCustomIPv6Address3Label    |
+|     c6a4    |     DeviceCustomIPv6Address4    |
+|     c6a4Label    |     DeviceCustomIPv6Address4Label    |
+|     cfp1    |     DeviceCustomFloatingPoint1    |
+|     cfp1Label    |     deviceCustomFloatingPoint1Label    |
+|     cfp2    |     DeviceCustomFloatingPoint2    |
+|     cfp2Label    |     deviceCustomFloatingPoint2Label    |
+|     cfp3    |     DeviceCustomFloatingPoint3    |
+|     cfp3Label    |     deviceCustomFloatingPoint3Label    |
+|     cfp4    |     DeviceCustomFloatingPoint4    |
+|     cfp4Label    |     deviceCustomFloatingPoint4Label    |
+| | |
+
+### Custom number fields
+
+The following table maps CEF key and CommonSecurityLog names for the number fields available for custom data.
+
+|CEF key name  |CommonSecurityLog name  |
+|---------|---------|
+|     cn1    |     DeviceCustomNumber1       |
+|     cn1Label    |     DeviceCustomNumber1Label       |
+|     cn2    |     DeviceCustomNumber2       |
+|     cn2Label    |     DeviceCustomNumber2Label       |
+|     cn3    |     DeviceCustomNumber3       |
+|     cn3Label    |     DeviceCustomNumber3Label       |
+| | |
+
+### Custom string fields
+
+The following table maps CEF key and CommonSecurityLog names for the string fields available for custom data.
+
+|CEF key name  |CommonSecurityLog name  |
+|---------|---------|
+|     cs1    |     DeviceCustomString1 <sup>[1](#use-sparingly)</sup>    |
+|     cs1Label    |     DeviceCustomString1Label <sup>[1](#use-sparingly)</sup>    |
+|     cs2    |     DeviceCustomString2 <sup>[1](#use-sparingly)</sup>   |
+|     cs2Label    |     DeviceCustomString2Label   <sup>[1](#use-sparingly)</sup> |
+|     cs3    |     DeviceCustomString3  <sup>[1](#use-sparingly)</sup>  |
+|     cs3Label    |     DeviceCustomString3Label   <sup>[1](#use-sparingly)</sup> |
+|     cs4    |     DeviceCustomString4   <sup>[1](#use-sparingly)</sup> |
+|     cs4Label    |     DeviceCustomString4Label  <sup>[1](#use-sparingly)</sup>  |
+|     cs5    |     DeviceCustomString5 <sup>[1](#use-sparingly)</sup>   |
+|     cs5Label    |     DeviceCustomString5Label <sup>[1](#use-sparingly)</sup>    |
+|     cs6    |     DeviceCustomString6   <sup>[1](#use-sparingly)</sup> |
+|     cs6Label    |     DeviceCustomString6Label   <sup>[1](#use-sparingly)</sup> |
+|     flexString1    |     FlexString1    |
+|     flexString1Label    |     FlexString1Label    |
+|     flexString2    |     FlexString2    |
+|     flexString2Label    |     FlexString2Label    |
+| | |
+
+> [!TIP]
+> <a name="use-sparingly"></a><sup>1</sup> We recommend that you use the **DeviceCustomString** fields sparingly and use more specific, built-in fields when possible.
+> 
+
+### Custom timestamp fields
+
+The following table maps CEF key and CommonSecurityLog names for the timestamp fields available for custom data.
+
+|CEF key name  |CommonSecurityLog name  |
+|---------|---------|
+|     deviceCustomDate1    |     DeviceCustomDate1    |
+|     deviceCustomDate1Label    |     DeviceCustomDate1Label    |
+|     deviceCustomDate2       |     DeviceCustomDate2    |
+|     deviceCustomDate2Label    |     DeviceCustomDate2Label    |
+|     flexDate1    |     FlexDate1    |
+|     flexDate1Label    |     FlexDate1Label    |          |
+| | |
+
+### Custom timestamp fields
+
+The following table maps CEF key and CommonSecurityLog names for the long data fields available for custom data.
+
+|CEF key name  |CommonSecurityLog name  |
+|---------|---------|
+|     flexNumber1    |     FlexNumber1    |
+|     flexNumber1Label    |     FlexNumber1Label    |
+|     flexNumber2    |     FlexNumber2    |
+|     flexNumber2Label    |     FlexNumber2Label    |
+| | |
 
 ## Unmapped fields
 
@@ -138,12 +235,21 @@ The following **CommonSecurityLog** field names don't have mappings in CEF keys:
 
 |CommonSecurityLog field name  |Description  |
 |---------|---------|
+|   **IndicatorThreatType**  |  The [MaliciousIP](#MaliciousIP) threat type, according to the threat intelligence feed.       |
+| <a name="MaliciousIP"></a>**MaliciousIP** | Lists any IP addresses in the message that correlates with the current threat intelligence feed. |
+|  **MaliciousIPCountry**   | The [MaliciousIP](#MaliciousIP) country, according to the geographic information at the time of the record ingestion.        |
+| **MaliciousIPLatitude**    |   The [MaliciousIP](#MaliciousIP) longitude, according to the geographic information at the time of the record ingestion.      |
+| **MaliciousIPLongitude**    |  The [MaliciousIP](#MaliciousIP) longitude, according to the geographic information at the time of the record ingestion.       |
 |**OriginalLogSeverity**     |  Always empty, supported for integration with CiscoASA. <br>For details about log severity values, see the [LogSeverity](#logseverity) field.       |
 |**RemoteIP**     |     The remote IP address. <br>This value is based on [CommunicationDirection](#communicationdirection) field, if possible.     |
 |**RemotePort**     |   The remote port. <br>This value is based on [CommunicationDirection](#communicationdirection) field, if possible.      |
+| **ReportReferenceLink**    |    Link to the threat intelligence report.     |
 |**SimplifiedDeviceAction**     |   Simplifies the [DeviceAction](#deviceaction) value to a static set of values, while keeping the original value in the [DeviceAction](#deviceaction) field. <br>For example:  `Denied` > `Deny`.      |
+|**SourceSystem**     | Always defined as **OpsManager**.        |
+|  **ThreatConfidence**   |   The [MaliciousIP](#MaliciousIP) threat confidence, according to the threat intelligence feed.      |
+| **ThreatDescription**    |   The [MaliciousIP](#MaliciousIP) threat description, according to the threat intelligence feed.      |
+| **ThreatSeverity** | The threat severity for the [MaliciousIP](#MaliciousIP), according to the threat intelligence feed at the time of the record ingestion. |
 |     |         |
-
 
 ## Next steps
 
