@@ -10,6 +10,8 @@
   items:
   - name: Continuous video recording
     href: continuous-video-recording.md
+  - name: Record video for playback
+    href: video-recording.md    
 - name: Resources
   items:
   - name: Azure roadmap

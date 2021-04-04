@@ -20,7 +20,7 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-When delivering your content to customers (Live Streaming events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services offers [Dynamic Manifests](filters-dynamic-manifest-overview.md) based on pre-defined filters. 
+When delivering your content to customers (Live Streaming events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services offers [Dynamic Manifests](filters-dynamic-manifest-concept.md) based on pre-defined filters. 
 
 Filters are server-side rules that allow your customers to do things like: 
 
@@ -137,12 +137,12 @@ The following example defines a Live Streaming filter:
 
 ## Associating filters with Streaming Locator
 
-You can specify a list of [asset or account filters](filters-concept.md) on your [Streaming Locator](/rest/api/media/streaminglocators/create#request-body). The [Dynamic Packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on the Streaming Locator. 
+You can specify a list of [asset or account filters](filters-concept.md) on your [Streaming Locator](/rest/api/media/streaminglocators/create#request-body). The [Dynamic Packager](encode-dynamic-packaging-concept.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-concept.md), which is based on filters in the URL + filters you specify on the Streaming Locator. 
 
 See the following examples:
 
-* [Associate filters with Streaming Locator - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
-* [Associate filters with Streaming Locator - CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+* [Associate filters with Streaming Locator - .NET](filters-dynamic-manifest-dotnet-how-to.md#associate-filters-with-streaming-locator)
+* [Associate filters with Streaming Locator - CLI](filters-dynamic-manifest-cli-how-to.md#associate-filters-with-streaming-locator)
 
 ## Updating filters
  
@@ -157,5 +157,5 @@ If the filter definition needs to be changed consider creating a new filter and 
 The following articles show how to create filters programmatically.  
 
 - [Create filters with REST APIs](filters-dynamic-manifest-rest-howto.md)
-- [Create filters with .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Create filters with CLI](filters-dynamic-manifest-cli-howto.md)
+- [Create filters with .NET](filters-dynamic-manifest-dotnet-how-to.md)
+- [Create filters with CLI](filters-dynamic-manifest-cli-how-to.md)

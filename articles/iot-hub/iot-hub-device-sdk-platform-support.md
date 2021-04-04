@@ -17,7 +17,7 @@ In addition to the device SDKs, Microsoft provides several other avenues to empo
 
 * Microsoft collaborates with several partner companies to help them publish development kits, based on the Azure IoT C SDK, for their hardware platforms.
 
-* Microsoft works with Microsoft trusted partners to provide an ever-expanding set of devices that have been tested and certified for Azure IoT. For a current list of these devices, see the [Azure certified for IoT device catalog](https://catalog.azureiotsolutions.com/).
+* Microsoft works with Microsoft trusted partners to provide an ever-expanding set of devices that have been tested and certified for Azure IoT. For a current list of these devices, see the [Azure certified for IoT device catalog](https://devicecatalog.azure.com/).
 
 * Microsoft provides a platform abstraction layer (PAL) in the Azure IoT Hub Device C SDK that helps developers to easily port the SDK to their platform. To learn more, see the [C SDK porting guidance](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
 
@@ -109,9 +109,9 @@ If your device platform isn't covered by one of the previous sections, you can c
 
 Microsoft works with a number of partners to continually expand the Azure IoT universe with Azure IoT tested and certified devices.
 
-* To browse Azure IoT certified devices, see [Microsoft Azure Certified for IoT Device Catalog](https://catalog.azureiotsolutions.com/).
+* To browse Azure IoT certified devices, see [Microsoft Azure Certified for IoT Device Catalog](https://devicecatalog.azure.com/).
 
-* To learn more about the Azure Certified for IoT ecosystem, see [Join the Certified for IoT ecosystem](https://catalog.azureiotsolutions.com/register).
+* To learn more about the Azure Certified for IoT ecosystem, see [Join the Certified for IoT ecosystem](../certification/overview.md).
 
 ## Connecting to IoT Hub without an SDK
 
