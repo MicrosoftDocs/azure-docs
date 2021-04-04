@@ -108,7 +108,7 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
     $azureArcClusterResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
     ```
 
-3. Configure the `$kubeContext` variable with the **kube-context** of your cluster by running the command `kubectl config get-contexts`. If you want to use the current context, set the value to `""`.
+3. Configure the `$kubeContext` variable with the **kube-context** of your cluster by running the command `kubectl config get-contexts`. 
 
     ```powershell
     $kubeContext = "<kubeContext name of your k8s cluster>"
@@ -173,7 +173,7 @@ Perform the following steps to enable monitoring using the provided bash script.
     export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
     ```
 
-3. Configure the `kubeContext` variable with the **kube-context** of your cluster by running the command `kubectl config get-contexts`. If you want to use the current context, set the value to `""`.
+3. Configure the `kubeContext` variable with the **kube-context** of your cluster by running the command `kubectl config get-contexts`. 
 
     ```bash
     export kubeContext="<kubeContext name of your k8s cluster>"

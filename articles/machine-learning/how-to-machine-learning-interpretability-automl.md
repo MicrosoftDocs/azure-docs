@@ -129,6 +129,41 @@ You can call the `explain()` method in MimicWrapper with the transformed test sa
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
 ```
+For models trained with automated ML, you can get the best model using the `get_output()` method and compute explanations locally.  You can visualize the explanation results with `ExplanationDashboard` from `interpret-community` package.
+
+```python
+best_run, fitted_model = remote_run.get_output()
+
+from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
+automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_train,
+                                                             X_test=X_test, y=y_train,
+                                                             task='regression')
+
+from interpret.ext.glassbox import LGBMExplainableModel
+from azureml.interpret.mimic_wrapper import MimicWrapper
+
+explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel,
+                         init_dataset=automl_explainer_setup_obj.X_transform, run=best_run,
+                         features=automl_explainer_setup_obj.engineered_feature_names,
+                         feature_maps=[automl_explainer_setup_obj.feature_map],
+                         classes=automl_explainer_setup_obj.classes)
+                         
+pip install interpret-community[visualization]
+
+engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
+print(engineered_explanations.get_feature_importance_dict()),
+from interpret_community.widget import ExplanationDashboard
+ExplanationDashboard(engineered_explanations, automl_explainer_setup_obj.automl_estimator, datasetX=automl_explainer_setup_obj.X_test_transform)
+
+ 
+
+raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
+                                     raw_feature_names=automl_explainer_setup_obj.raw_feature_names,
+                                     eval_dataset=automl_explainer_setup_obj.X_test_transform)
+print(raw_explanations.get_feature_importance_dict()),
+from interpret_community.widget import ExplanationDashboard
+ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipeline, datasetX=automl_explainer_setup_obj.X_test_raw)
+```
 
 ### Use Mimic Explainer for computing and visualizing raw feature importance
 
