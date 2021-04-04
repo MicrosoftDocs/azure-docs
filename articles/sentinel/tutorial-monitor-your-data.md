@@ -37,7 +37,7 @@ You must have at least Workbook reader or Workbook contributor permissions on th
 
 1. Go to **Workbooks** and then select **Templates** to see the full list of Azure Sentinel built-in workbooks. To see which are relevant to the data types you have connected, the **Required data types** field in each workbook will list the data type next to a green check mark if you already stream relevant data to Azure Sentinel.
 
-  :::image type="content" source="media/tutorial-monitor-data/access-workbooks.png" alt-text="Go to workbooks.":::
+      :::image type="content" source="media/tutorial-monitor-data/access-workbooks.png" alt-text="Go to workbooks.":::
 
 1. Click **View template** to see the template populated with your data.
 
@@ -49,7 +49,7 @@ You must have at least Workbook reader or Workbook contributor permissions on th
 
 1. Select **View saved workbook**. Then, click the **Edit** button at the top. You can now edit the workbook and customize it according to your needs.
 
-    :::image type="content" source="media/tutorial-monitor-data/workbook-graph.png" alt-text="View workbooks.":::
+        :::image type="content" source="media/tutorial-monitor-data/workbook-graph.png" alt-text="View workbooks.":::
 
     For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md).
 
@@ -63,7 +63,7 @@ You must have at least Workbook reader or Workbook contributor permissions on th
 
 1. Go to **Workbooks** and then select **Add workbook** to create a new workbook from scratch.
 
-  :::image type="content" source="media/tutorial-monitor-data/create-workbook.png" alt-text="New workbook.":::
+      :::image type="content" source="media/tutorial-monitor-data/create-workbook.png" alt-text="New workbook.":::
 
 1. To edit the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). 
 
@@ -73,9 +73,11 @@ You must have at least Workbook reader or Workbook contributor permissions on th
 
 1. If you want to let others in your organization use the workbook, under **Save to** select **Shared reports**. If you want this workbook to be available only to you, select **My reports**.
 
-1. To switch between workbooks in your workspace, select **Open** ![Icon for opening a workbook.](./media/tutorial-monitor-data/switch.png) in the toolbar of any workbook. The screen switches to a list of other workbooks you can switch to. Click the workbook you want to open.
+1. To switch between workbooks in your workspace, select **Open** ![Icon for opening a workbook.](./media/tutorial-monitor-data/switch.png) in the toolbar of any workbook. The screen switches to a list of other workbooks you can switch to. 
 
-  :::image type="content" source="media/tutorial-monitor-data/switch-workbooks.png" alt-text="Switch workbooks.":::
+    Click the workbook you want to open:
+
+    :::image type="content" source="media/tutorial-monitor-data/switch-workbooks.png" alt-text="Switch workbooks.":::
 
 ## Refresh your workbook data
 
