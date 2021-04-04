@@ -97,7 +97,7 @@ Create the network rules to correctly configure your HDInsight cluster.
 
     | Name | Protocol | Source Addresses | Service Tags | Destination Ports | Notes |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_5 | TCP | * | SQL | 1433 , 11000-11999 | If you are using the default sql servers provided by HDInsight, configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic. Unless you configured Service Endpoints for SQL Server on the HDInsight subnet, which will bypass the firewall. If you are using custom SQL server for Ambari, Oozie, Ranger and Hive metastores then you only need to allow the traffic to your own custom SQL Servers.|
+    | Rule_5 | TCP | * | SQL | 1433 , 11000-11999 | If you are using the default sql servers provided by HDInsight, configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic. Unless you configured Service Endpoints for SQL Server on the HDInsight subnet, which will bypass the firewall. If you are using custom SQL server for Ambari, Oozie, Ranger and Hive metastores then you only need to allow the traffic to your own custom SQL Servers. Refer to "Connection policy" section in [Azure SQL Database and Azure Synapse Analytics connectivity architecture](../azure-sql/database/connectivity-architecture.md) to see the reason for 11000-11999 port range is also needed in addition to 1433. |
     | Rule_6 | TCP | * | Azure Monitor | * | (optional) Customers who plan to use auto scale feature should add this rule. |
     
    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="Title: Enter application rule collection":::
