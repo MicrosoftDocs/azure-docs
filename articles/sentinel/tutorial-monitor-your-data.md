@@ -41,7 +41,7 @@ You must have at least **Workbook reader** or **Workbook contributor** permissio
 
       :::image type="content" source="media/tutorial-monitor-data/access-workbooks.png" alt-text="Go to workbooks.":::
 
-1. Click **View template** to see the template populated with your data.
+1. Select **View template** to see the template populated with your data.
 
 1. To edit the workbook, select **Save**, and then select the location where you want to save the JSON file for the template.
 
@@ -53,14 +53,12 @@ You must have at least **Workbook reader** or **Workbook contributor** permissio
 
       :::image type="content" source="media/tutorial-monitor-data/workbook-graph.png" alt-text="View workbooks.":::
 
-    Click the **Edit** button at the top to customize the workbook according to your needs.
+    Select the **Edit** button in the workbook toolbar to customize the workbook according to your needs. When you're done, select **Save** to save your changes.
 
     For more information, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md).
 
-1. After you make your changes, you can save the workbook.
-
 > [!TIP]
-> To clone your workbook, select **Edit** and then **Save as**, making sure to save it with another name, under the same subscription and resource group. 
+> To clone your workbook, select **Edit** and then **Save as**, making sure to save it with another name, under the same subscription and resource group.
 > Cloned workbooks are displayed under the **My workbooks** tab.
 >
 ## Create new workbook
@@ -77,9 +75,9 @@ You must have at least **Workbook reader** or **Workbook contributor** permissio
 
 1. If you want to let others in your organization use the workbook, under **Save to** select **Shared reports**. If you want this workbook to be available only to you, select **My reports**.
 
-1. To switch between workbooks in your workspace, select **Open** ![Icon for opening a workbook.](./media/tutorial-monitor-data/switch.png) in the toolbar of any workbook. The screen switches to a list of other workbooks you can switch to. 
+1. To switch between workbooks in your workspace, select **Open** ![Icon for opening a workbook.](./media/tutorial-monitor-data/switch.png) in the toolbar of any workbook. The screen switches to a list of other workbooks you can switch to.
 
-    Click the workbook you want to open:
+    Select the workbook you want to open:
 
     :::image type="content" source="media/tutorial-monitor-data/switch-workbooks.png" alt-text="Switch workbooks.":::
 
