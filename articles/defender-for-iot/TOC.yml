@@ -27,9 +27,6 @@
     - name: Onboard to Defender for IoT agent-based solution
       displayName: IoT Hub, existing, enable
       href: quickstart-onboard-iot-hub.md
-    - name: Install Defender for IoT micro agent (Preview)
-      displayName: package, authentication, methods, certificate, authenticate, version
-      href: quickstart-standalone-agent-binary-installation.md
     - name: Create a Defender IoT micro agent module twin (Preview)
       href: quickstart-create-micro-agent-module-twin.md
     - name: Build the Defender for IoT micro agent from source code (Preview)
@@ -248,6 +245,12 @@
         href: integration-splunk.md
   - name: Agent-based solution for device builders
     items:
+    - name: Install Defender for IoT micro agent (Preview)
+      displayName: package, authentication, methods, certificate, authenticate, version
+      href: quickstart-standalone-agent-binary-installation.md
+    - name: Install Defender for IoT micro agent for Edge (Preview)
+      displayName: Edge, micro agent, 
+      href: how-to-install-micro-agent-for-edge.md
     - name: Connect to Azure Sentinel
       displayName: log analytics, service notes
       href: how-to-configure-with-sentinel.md
