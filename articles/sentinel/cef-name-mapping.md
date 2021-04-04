@@ -32,13 +32,13 @@ For more information, see [Connect your external solution using Common Event For
 |Device Vendor     |  DeviceVendor       | String that, together with device product and version definitions, uniquely identifies the type of sending device.       |
 |Device Product     |   DeviceProduct      |   String that, together with device vendor and version definitions, uniquely identifies the type of sending device.        |
 |Device Version     |   DeviceVersion      |      String that, together with device product and vendor definitions, uniquely identifies the type of sending device.     |
-|DeviceEventClassID     |   DeviceEventClassID     |   String or integer that serves as a unique identifier per event type.      |
 | destinationDnsDomain    | DestinationDnsDomain        |   The DNS part of the fully qualified domain name (FQDN).      |
 | destinationServiceName | DestinationServiceName | The service that is targeted by the event. For example, `sshd`.|
 | destinationTranslatedAddress | DestinationTranslatedAddress | Identifies the translated destination referred to by the event in an IP network, as an IPv4 IP address. |
 | destinationTranslatedPort | DestinationTranslatedPort | Port, after translation, such as a firewall. <br>Valid port numbers: `0` - `65535` |
 | deviceDirection | <a name="communicationdirection"></a> CommunicationDirection | Any information about the direction the observed communication has taken. Valid values: <br>- `0` = Inbound <br>- `1` = Outbound |
 | deviceDnsDomain | DeviceDnsDomain | The DNS domain part of the full qualified domain name (FQDN) |
+|DeviceEventClassID     |   DeviceEventClassID     |   String or integer that serves as a unique identifier per event type.      |
 | deviceExternalID | DeviceExternalID | A name that uniquely identifies the device generating the event. |
 | deviceFacility | DeviceFacility | The facility generating the event.|
 | deviceInboundInterface | DeviceInboundInterface |The interface on which the packet or data entered the device.  |
@@ -134,7 +134,7 @@ For more information, see [Connect your external solution using Common Event For
 
 ## Custom fields
 
-The following table maps the names of CEF keys and CommonSecurityLog fields that are available for customers to use for data that does not apply to any of the built-in fields.
+The following tables map the names of CEF keys and CommonSecurityLog fields that are available for customers to use for data that does not apply to any of the built-in fields.
 
 ### Custom IPv6 address fields
 
@@ -144,7 +144,7 @@ The following table maps CEF key and CommonSecurityLog names for the IPv6 addres
 |---------|---------|
 |     c6a1    |     DeviceCustomIPv6Address1       |
 |     c6a1Label    |     DeviceCustomIPv6Address1Label    |
-|     c6a2    |     DeviceCustomIPv6Address2    |          |
+|     c6a2    |     DeviceCustomIPv6Address2    |
 |     c6a2Label    |     DeviceCustomIPv6Address2Label    |
 |     c6a3    |     DeviceCustomIPv6Address3    |
 |     c6a3Label    |     DeviceCustomIPv6Address3Label    |
@@ -213,7 +213,7 @@ The following table maps CEF key and CommonSecurityLog names for the timestamp f
 |     deviceCustomDate2       |     DeviceCustomDate2    |
 |     deviceCustomDate2Label    |     DeviceCustomDate2Label    |
 |     flexDate1    |     FlexDate1    |
-|     flexDate1Label    |     FlexDate1Label    |          |
+|     flexDate1Label    |     FlexDate1Label    |
 | | |
 
 ### Custom timestamp fields
