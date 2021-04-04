@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 tags: connectors
 ---
 
@@ -34,8 +34,6 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   * MessageWay
   * OpenText Secure MFT
   * OpenText GXS
-
-* The SFTP-SSH connector supports either private key authentication or password authentication, not both.
 
 * SFTP-SSH actions that support [chunking](../logic-apps/logic-apps-handle-large-messages.md) can handle files up to 1 GB, while SFTP-SSH actions that don't support chunking can handle files up to 50 MB. Although the default chunk size is 15 MB, this size can dynamically change, starting from 5 MB and gradually increasing to the 50-MB maximum, based on factors such as network latency, server response time, and so on.
 
@@ -87,28 +85,19 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* Your SFTP server address and account credentials, which let your logic app access your SFTP account. You also need access to an SSH private key and the SSH private key password. To use chunking when uploading large files, you need both read and write permissions for the root folder on your SFTP server. Otherwise, you get a "401 Unauthorized" error.
+* Your SFTP server address and account credentials, which let your workflow access your SFTP account. You also need access to an SSH private key and the SSH private key password. To use chunking when uploading large files, you need both read and write permissions for the root folder on your SFTP server. Otherwise, you get a "401 Unauthorized" error.
 
-  > [!IMPORTANT]
-  >
-  > The SFTP-SSH connector supports *only* these private key formats, algorithms, and fingerprints:
-  >
-  > * **Private key formats**: RSA (Rivest Shamir Adleman) and DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats. If your private key is in PuTTY (.ppk) file format, first [convert the key to the OpenSSH (.pem) file format](#convert-to-openssh).
-  >
-  > * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC, and AES-256-CBC
-  >
-  > * **Fingerprint**: MD5
-  >
-  > After you add the SFTP-SSH trigger or action you want to your logic app, 
-  > you have to provide connection information for your SFTP server. When you 
-  > provide your SSH private key for this connection, ***don't manually enter or edit the key***, 
-  > which might cause the connection to fail. Instead, make sure that you ***copy the key*** from 
-  > your SSH private key file, and ***paste*** that key into the connection details. 
-  > For more information, see the [Connect to SFTP with SSH](#connect) section later this article.
+  The SFTP-SSH connector supports both private key authentication and password authentication. However, the SFTP-SSH connector supports *only* these private key formats, algorithms, and fingerprints:
+
+  * **Private key formats**: RSA (Rivest Shamir Adleman) and DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats. If your private key is in PuTTY (.ppk) file format, first [convert the key to the OpenSSH (.pem) file format](#convert-to-openssh).
+  * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC, and AES-256-CBC
+  * **Fingerprint**: MD5
+
+  After you add an SFTP-SSH trigger or action to your workflow, you have to provide connection information for your SFTP server. When you provide your SSH private key for this connection, ***don't manually enter or edit the key***, which might cause the connection to fail. Instead, make sure that you ***copy the key*** from your SSH private key file, and ***paste*** that key into the connection details. For more information, see the [Connect to SFTP with SSH](#connect) section later this article.
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* The logic app where you want to access your SFTP account. To start with an SFTP-SSH trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use an SFTP-SSH action, start your logic app with another trigger, for example, the **Recurrence** trigger.
+* The logic app workflow where you want to access your SFTP account. To start with an SFTP-SSH trigger, [create a blank logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use an SFTP-SSH action, start your workflow with another trigger, for example, the **Recurrence** trigger.
 
 ## How SFTP-SSH triggers work
 
@@ -130,7 +119,7 @@ When a trigger finds a new file, the trigger checks that the new file is complet
 
 ### Trigger recurrence shift and drift
 
-Connection-based triggers where you need to create a connection first, such as the SFTP-SSH trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). In recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior, for example, not maintaining the specified schedule when daylight saving time (DST) starts and ends. To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence so that your logic app continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
+Connection-based triggers where you need to create a connection first, such as the SFTP-SSH trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). In recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior, for example, not maintaining the specified schedule when daylight saving time (DST) starts and ends. To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence so that your workflow continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="convert-to-openssh"></a>
 
