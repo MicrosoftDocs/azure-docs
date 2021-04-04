@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Getting started"
-description: In this quickstart you will learn how to get started with understanding the basic workflow for Defender for IoT deployment.
+title: 'Quickstart: Getting started'
+description: In this quickstart, learn how to get started with understanding the basic workflow for Defender for IoT deployment.
 ms.topic: quickstart
 ms.date: 2/18/2021
 ---
@@ -15,7 +15,7 @@ This article provides an overview of the steps you'll take to set up Azure Defen
 
 ## Prerequisites
 
-None
+- None
 
 ## Permission requirements
 

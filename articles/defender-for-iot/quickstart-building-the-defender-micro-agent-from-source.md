@@ -1,11 +1,11 @@
 ---
-title: Build the Defender micro agent from source code (Preview)
-description: Micro Agent includes an infrastructure, which can be used to customize your distribution.
+title: 'Quickstart: Build the Defender micro agent from source code (Preview)'
+description: In this quickstart, learn about the Micro Agent which includes an infrastructure that can be used to customize your distribution.
 ms.date: 1/18/2021
 ms.topic: quickstart
 ---
 
-# Build the Defender micro agent from source code (Preview)
+# Quickstart: Build the Defender micro agent from source code (Preview)
 
 The Micro Agent includes an infrastructure, which can be used to customize your distribution. To see a list of the available configuration parameters look at the `configs/LINUX_BASE.conf` file.
 
@@ -26,6 +26,10 @@ To override the values:
 1. Give the `.dist` file a reference when building. For example, 
 
     `cmake -DCMAKE_BUILD_TYPE=Debug -Dlog_level=DEBUG -Dlog_level_cmdline:BOOL=ON -DIOT_SECURITY_MODULE_DIST_TARGET=UBUNTU1804 ..` 
+
+## Prerequisites
+
+- None
 
 ## Baseline Configuration signing 
 
