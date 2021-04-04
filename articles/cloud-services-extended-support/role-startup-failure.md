@@ -29,6 +29,7 @@ Statuses           PlatformFaultDomain PlatformUpdateDomain
 ```
 
 * Azure portal: Go to your cloud service and select Roles and Instances tab. Click on the role instance to get its status details 
+ 
    :::image type="content" source="media/role-startup-failure-1.png" alt-text="Image shows role startup failure on portal.":::
    
 Here are some common problems and solutions related to Azure Cloud Services (extended support) roles that fail to start or it cycles between the initializing, busy, and stopping states.
