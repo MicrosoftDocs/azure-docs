@@ -148,9 +148,9 @@ The deployment always calls `npm install` before any custom command.
 
 ## Skip app build
 
-If you need full control over how your front-end application is built, you can add custom build steps in your workflow. Since the app is built separately, you can configure the Static Web Apps action to bypass the automatic build process and just deploy the app.
+If you need full control over how your front-end application is built, you can add custom build steps in your workflow. Then you can configure the Static Web Apps action to bypass the automatic build process and just deploy the app that was built in a previous step.
 
-To skip building the app, set `skip_app_build` to `true` and `app_location` to the location of the build output to deploy.
+To skip building the app, set `skip_app_build` to `true` and `app_location` to the location of the folder to deploy.
 
 ```yml
 with:
@@ -167,7 +167,7 @@ with:
 
 | Property            | Description |
 |---------------------|-------------|
-| `skip_app_build` | Set the value to `true` to skip building the front-end app. |
+| `skip_app_build`    | Set the value to `true` to skip building the front-end app. |
 
 > [!NOTE]
 > You can only skip the build for the front-end app. If your app has an API, it'll still be built by the Static Web Apps GitHub Action.
