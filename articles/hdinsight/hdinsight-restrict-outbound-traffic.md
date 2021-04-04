@@ -104,7 +104,7 @@ Create the network rules to correctly configure your HDInsight cluster.
 
 1. Select **Add**.
 
-### Create and configure a route table
+### Create and configure a route table 
 
 Create a route table with the following entries:
 
