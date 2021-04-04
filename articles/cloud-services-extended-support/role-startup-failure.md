@@ -62,7 +62,7 @@ Once the service is redeployed, you will see an error message with the name of t
 
 ## Diagnose issues by viewing the error remotely
 You can use Remote Desktop to access the role and view more complete error information remotely. Use the following steps to view the errors by using Remote Desktop:
-1.	Enable remote desktop extension for Cloud Service (extended support). For more information, see [Apply Remote Desktop extension to Cloud Services (extended support) using Azure Portal](enable-rdp.md)
+1.	Enable remote desktop extension for Cloud Service (extended support). For more information, see [Apply Remote Desktop extension to Cloud Services (extended support) using Azure portal](enable-rdp.md)
 2.	On the Azure portal, once the instance shows a status of Ready, remote into the instance. For more information on using the remote desktop with Cloud Services (extended support), see [Connect to role instances with Remote Desktop](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-rdp#connect-to-role-instances-with-remote-desktop-enabled)
 3.	Sign in to the virtual machine by using the credentials that were specified during the Remote Desktop configuration.
 4.	Open a command window.
