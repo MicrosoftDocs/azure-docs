@@ -49,7 +49,7 @@ You must have at least Workbook reader or Workbook contributor permissions on th
 
 1. Select **View saved workbook**. Then, click the **Edit** button at the top. You can now edit the workbook and customize it according to your needs.
 
-        :::image type="content" source="media/tutorial-monitor-data/workbook-graph.png" alt-text="View workbooks.":::
+      :::image type="content" source="media/tutorial-monitor-data/workbook-graph.png" alt-text="View workbooks.":::
 
     For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md).
 
