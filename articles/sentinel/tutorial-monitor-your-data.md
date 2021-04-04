@@ -90,7 +90,9 @@ Refresh your workbook to display updated data. In the toolbar, select one of the
 - :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false"::: **Auto refresh**, to set your workbook to automatically refresh at a configured interval.
 
     - Supported auto refresh intervals range from **5 minutes** to **1 day**.
+
     - Auto refresh is paused while you're editing a workbook, and intervals are restarted each time you switch back to view mode from edit mode.
+
     - Auto refresh intervals are also restarted if you manually refresh your data.
 
     > [!TIP]
