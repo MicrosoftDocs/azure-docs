@@ -47738,7 +47738,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/Computer-vision/concept-recognizing-text",
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/concept-recognizing-text.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/overview-ocr",
       "redirect_document_id": true
     },
