@@ -24,7 +24,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change                                                                                                                                                        | Estimated date for change |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | March 2021                |
+| [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | April 2021                |
 | [21 recommendations moving between security controls](#21-recommendations-moving-between-security-controls)                                                           | April 2021                |
 | [Two further recommendations from "Apply system updates" security control being deprecated](#two-further-recommendations-from-apply-system-updates-security-control-being-deprecated)                                                                                         | April 2021                |
 | [Recommendations from AWS will be released for general availability (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | April 2021                |
@@ -34,9 +34,9 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ### Two recommendations from "Apply system updates" security control being deprecated 
 
-**Estimated date for change:** March 2021
+**Estimated date for change:** April 2021
 
-The following two recommendations are scheduled to be deprecated in February 2021:
+The following two recommendations are scheduled to be deprecated in April 2021:
 
 - **Your machines should be restarted to apply system updates**. This might result in a slight impact on your secure score.
 - **Monitoring agent should be installed on your machines**. This recommendation relates to on-premises machines only and some of its logic will be transferred to another recommendation, **Log Analytics agent health issues should be resolved on your machines**. This might result in a slight impact on your secure score.
