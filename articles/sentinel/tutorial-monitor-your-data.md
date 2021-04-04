@@ -28,14 +28,16 @@ This tutorial helps you visualize your data in Azure Sentinel.
 
 ## Prerequisites
 
-You must have at least Workbook reader or Workbook contributor permissions on the resource group of the Azure Sentinel workspace.
+You must have at least **Workbook reader** or **Workbook contributor** permissions on the resource group of the Azure Sentinel workspace.
 
 > [!NOTE]
 > The workbooks that you can see in Azure Sentinel are saved within the Azure Sentinel workspace's resource group and are tagged by the workspace in which they were created.
 
 ## Use built-in workbooks
 
-1. Go to **Workbooks** and then select **Templates** to see the full list of Azure Sentinel built-in workbooks. To see which are relevant to the data types you have connected, the **Required data types** field in each workbook will list the data type next to a green check mark if you already stream relevant data to Azure Sentinel.
+1. Go to **Workbooks** and then select **Templates** to see the full list of Azure Sentinel built-in workbooks. 
+
+    To see which are relevant to the data types you have connected, the **Required data types** field in each workbook will list the data type next to a green check mark if you already stream relevant data to Azure Sentinel.
 
       :::image type="content" source="media/tutorial-monitor-data/access-workbooks.png" alt-text="Go to workbooks.":::
 
@@ -47,11 +49,13 @@ You must have at least Workbook reader or Workbook contributor permissions on th
    > This creates an Azure resource based on the relevant template and saves the JSON file of the workbook and not the data.
 
 
-1. Select **View saved workbook**. Then, click the **Edit** button at the top. You can now edit the workbook and customize it according to your needs.
+1. Select **View saved workbook**. 
 
       :::image type="content" source="media/tutorial-monitor-data/workbook-graph.png" alt-text="View workbooks.":::
 
-    For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md).
+    Click the **Edit** button at the top to customize the workbook according to your needs.
+
+    For more information, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md).
 
 1. After you make your changes, you can save the workbook.
 
