@@ -14,16 +14,17 @@ ms.topic: how-to
 
 For Debian 9, the instructions do not include the repository that needs to be added, use the following commands to add the repository: 
 
-    ```azurecli
-    curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -  
+```azurecli
+curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -  
     
-    sudo apt-get install software-properties-common 
+sudo apt-get install software-properties-common 
     
-    sudo apt-add-repository https://packages.microsoft.com/debian/9/multiarch/prod 
+sudo apt-add-repository https://packages.microsoft.com/debian/9/multiarch/prod 
     
-    sudo apt-get update 
-    ```
-1. Install and configure [Edge runtime version 1.2](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true ). 
+sudo apt-get update 
+```
+
+1. Install and configure [Edge runtime version 1.2](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true ). 
 
 ## Installation
 
