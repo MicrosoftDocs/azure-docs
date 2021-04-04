@@ -125,32 +125,46 @@ To do this, the script has to authenticate using the credentials from your Autom
 2. Add the following code to authenticate to Azure:
 
     ```python
+    import os  
+    import azure.mgmt.resource  
+    import azure.mgmt.compute  
+    import automationassets  
     from OpenSSL import crypto 
     import binascii 
     from msrestazure import azure_active_directory 
     import adal 
 
-    # Get the Azure Automation RunAs service principal certificate 
-    cert = automationassets.get_automation_certificate("AzureRunAsCertificate") 
-    pks12_cert = crypto.load_pkcs12(cert) 
-    pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM,pks12_cert.get_privatekey()) 
-    
-    # Get run as connection information for the Azure Automation service principal 
-    application_id = runas_connection["ApplicationId"] 
-    thumbprint = runas_connection["CertificateThumbprint"] 
-    tenant_id = runas_connection["TenantId"] 
-    
-    # Authenticate with service principal certificate 
-    resource ="https://management.core.windows.net/" 
-    authority_url = ("https://login.microsoftonline.com/"+tenant_id) 
-    context = adal.AuthenticationContext(authority_url) 
-    return azure_active_directory.AdalAuthentication( 
-      lambda: context.acquire_token_with_client_certificate( 
-          resource, 
-          application_id, 
-          pem_pkey, 
-          thumbprint) 
-    ) 
+    def get_automation_runas_credential(runas_connection):  
+        from OpenSSL import crypto  
+        import binascii  
+        from msrestazure import azure_active_directory  
+        import adal 
+
+        # Get the Azure Automation RunAs service principal certificate  
+        cert = automationassets.get_automation_certificate("AzureRunAsCertificate")  
+        pks12_cert = crypto.load_pkcs12(cert)  
+        pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM,pks12_cert.get_privatekey())  
+
+        # Get run as connection information for the Azure Automation service principal 
+        application_id = runas_connection["ApplicationId"]  
+        thumbprint = runas_connection["CertificateThumbprint"]  
+        tenant_id = runas_connection["TenantId"]  
+
+        # Authenticate with service principal certificate  
+        resource ="https://management.core.windows.net/"  
+        authority_url = ("https://login.microsoftonline.com/"+tenant_id)  
+        context = adal.AuthenticationContext(authority_url)  
+        return azure_active_directory.AdalAuthentication(  
+        lambda: context.acquire_token_with_client_certificate(  
+                resource,  
+                application_id,  
+                pem_pkey,  
+                thumbprint) 
+        ) 
+
+    # Authenticate to Azure using the Azure Automation RunAs service principal  
+    runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")  
+    azure_credential = get_automation_runas_credential(runas_connection)  
     ```
 
 ## Add code to create Python Compute client and start the VM
