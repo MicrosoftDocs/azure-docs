@@ -85,7 +85,7 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* Your SFTP server address and account credentials, which let your workflow access your SFTP account. You also need access to an SSH private key and the SSH private key password. To use chunking when uploading large files, you need both read and write permissions for the root folder on your SFTP server. Otherwise, you get a "401 Unauthorized" error.
+* Your SFTP server address and account credentials, so your workflow can access your SFTP account. You also need access to an SSH private key and the SSH private key password. To use chunking when uploading large files, you need both read and write permissions for the root folder on your SFTP server. Otherwise, you get a "401 Unauthorized" error.
 
   The SFTP-SSH connector supports both private key authentication and password authentication. However, the SFTP-SSH connector supports *only* these private key formats, algorithms, and fingerprints:
 
@@ -195,9 +195,8 @@ To create a file on your SFTP server, you can use the SFTP-SSH **Create file** a
 
    > [!IMPORTANT]
    >
-   > When you enter your SSH private key in the **SSH private key** property, 
-   > follow these additional steps, which help make sure you provide the 
-   > complete and correct value for this property. An invalid key causes the connection to fail.
+   > When you enter your SSH private key in the **SSH private key** property, follow these additional steps, which help 
+   > make sure you provide the complete and correct value for this property. An invalid key causes the connection to fail.
 
    Although you can use any text editor, here are sample steps that show how to correctly copy and paste your key by using Notepad.exe as an example.
 
