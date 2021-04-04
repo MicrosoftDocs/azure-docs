@@ -25,7 +25,9 @@ In the example above, `/user/yourlongdomainuserna/.staging` displays the truncat
 
 ## Cause
 
-The length of the username exceeds 20 characters in length.
+The length of the username exceeds 20 characters in length. 
+
+Refer to [How objects and credentials are synchronized in an Azure Active Directory Domain Services managed domain](../active-directory-domain-services/synchronization.md) for further details.
 
 ## Workaround
 
