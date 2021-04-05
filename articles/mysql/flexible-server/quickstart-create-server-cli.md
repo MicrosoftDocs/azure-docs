@@ -91,6 +91,13 @@ Make a note of your password. If you forget, you would have to reset your passwo
 
 If you'd like to change any defaults, please refer to the Azure CLI [reference documentation](/cli/azure/mysql/flexible-server) for the complete list of configurable CLI parameters. 
 
+## Create a database
+Run the following command to create a database, **newdatabase** if you have not already created one.
+
+```azurecli
+az mysql flexible-server db create -d newdatabase
+```
+
 > [!NOTE]
 > Connections to Azure Database for MySQL communicate over port 3306. If you try to connect from within a corporate network, outbound traffic over port 3306 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 3306.
 
@@ -134,6 +141,44 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
   "version": "5.7"
 }
 ```
+
+## Connect and test the connection using Azure CLI
+
+Azure Database for MySQL Flexible Server enables you to connect to your mysql server with Azure CLI ```az mysql flexible-server connect``` command. This command allows you test connectivity to your database server, create a quick starter database and run queries directly against your server without having to install mysql.exe or MySQL Workbench.  You can also use run the command in an interactive mode for running multiple queries.
+
+Run the following script to test and validate the connection to the database from your development environment.
+
+```azurecli
+az mysql flexible-server connect -n <servername> -u <username> -p <password> -d <databasename>
+```
+**Example:**
+```azurecli
+az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase
+```
+You should see the following output for successful connection:
+
+```output
+Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+Connecting to newdatabase database.
+Successfully connected to mysqldemoserver1.
+```
+If the connection failed, try these solutions:
+- Check if port 3306 is open on your client machine.
+- if your server administrator user name and password are correct
+- if you have configured firewall rule for your client machine
+- if you have configured your server with private access in virtual networking, make sure your client machine is in the same virtual network.
+
+Run the following command to execute a single query using ```--querytext``` argument, ```-q```.
+
+```azurecli
+az mysql flexible-server connect -n <server-name> -u <username> -p "<password>" -d <database-name> --querytext "<query text>"
+```
+
+**Example:**
+```azurecli
+az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase -q "select * from table1;" --output table
+```
+To learn more about using ```az mysql flexible-server connect``` command, refer to the [connect and query](connect-azure-cli.md) documentation.
 
 ## Connect using mysql command-line client
 
