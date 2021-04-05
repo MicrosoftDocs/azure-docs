@@ -1,12 +1,8 @@
 ---
 title: Manage individual sensors
 description: Learn how to manage individual sensors, including managing activation files, performing backups, and updating a standalone sensor. 
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 02/02/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Manage individual sensors

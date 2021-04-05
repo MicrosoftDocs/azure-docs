@@ -21,11 +21,11 @@ Azure Communication Services UI Framework makes it easy for you to build modern 
 - **Composite Components** - These components are turn-key solutions that implement common communication scenarios. You can quickly add video calling or chat experiences to their applications. Composites are open-source components built using base components.
 - **Base Components** - These components are open-source building blocks that let you build custom communications experience. Components are offered for both calling and chat capabilities that can be combined to build experiences. 
 
-These UI client libraries all use [Microsoft's Fluent design language](https://developer.microsoft.com/fluentui/) and assets. Fluent UI provides a foundational layer for the UI Framework that has been battle tested across Microsoft products.
+These UI SDKs all use [Microsoft's Fluent design language](https://developer.microsoft.com/fluentui/) and assets. Fluent UI provides a foundational layer for the UI Framework that has been battle tested across Microsoft products.
 
 ## **Differentiating Components and Composites**
 
-**Base Components** are built on top of core Azure Communication Services client libraries and implement basic actions such as initializing the core client libraries, rendering video, and providing user controls for muting, video on/off, etc. You can use these **Base Components** to build your own custom layout experiences using pre-built, production ready communication components.
+**Base Components** are built on top of core Azure Communication Services SDKs and implement basic actions such as initializing the core SDKs, rendering video, and providing user controls for muting, video on/off, etc. You can use these **Base Components** to build your own custom layout experiences using pre-built, production ready communication components.
 
 :::image type="content" source="../media/ui-framework/component-overview.png" alt-text="Overview of component for UI Framework":::
 
@@ -35,19 +35,19 @@ These UI client libraries all use [Microsoft's Fluent design language](https://d
 
 ## What UI Framework is best for my project?
 
-Understanding these requirements will help you choose the right client library:
+Understanding these requirements will help you choose the right SDK:
 
-- **How much customization do you desire?** Azure Communication core client libraries don't have a UX and are designed so you can build whatever UX you want. UI Framework components provide UI assets at the cost of reduced customization.
-- **Do you require Meeting features?** The Meeting system has several unique capabilities not currently available in the core Azure Communication Services client libraries, such as blurred background and raised hand.
+- **How much customization do you desire?** Azure Communication core SDKs don't have a UX and are designed so you can build whatever UX you want. UI Framework components provide UI assets at the cost of reduced customization.
+- **Do you require Meeting features?** The Meeting system has several unique capabilities not currently available in the core Azure Communication Services SDKs, such as blurred background and raised hand.
 - **What platforms are you targeting?** Different platforms have different capabilities.
 
 Details about feature availability in the varied [UI SDKs is available here](ui-sdk-features.md), but key trade-offs are summarized below.
 
-|Client library / SDK|Implementation Complexity|	Customization Ability|	Calling| Chat| [Teams Interop](./../teams-interop.md)
+|SDK / SDK|Implementation Complexity|	Customization Ability|	Calling| Chat| [Teams Interop](./../teams-interop.md)
 |---|---|---|---|---|---|---|
 |Composite Components|Low|Low|✔|✔|✕
 |Base Components|Medium|Medium|✔|✔|✕
-|Core client libraries|High|High|✔|✔ |✔
+|Core SDKs|High|High|✔|✔ |✔
 
 ## Cost
 
@@ -76,7 +76,7 @@ An Azure Communication Services identity is required to initialize the UI Framew
 Composite and Base Components are initialized using an Azure Communication Services access token. Access tokens should be procured from Azure Communication Services through a
 trusted service that you manage. See [Quickstart: Create Access Tokens](../../quickstarts/access-tokens.md) and [Trusted Service Tutorial](../../tutorials/trusted-service-tutorial.md) for more information.
 
-These client libraries also require the context for the call or chat they will join. Similar to user access tokens, this context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
+These SDKs also require the context for the call or chat they will join. Similar to user access tokens, this context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
 
 | Contoso Responsibilities                                 | UI Framework Responsibilities                         |
 |----------------------------------------------------------|-----------------------------------------------------------------|

@@ -15,7 +15,7 @@ ms.author: lajanuar
 
 # Form Recognizer Layout service
 
-Azure Form Recognizer can extract text, tables, selection marks, and structure information from documents using its Layout service. The Layout API enables customers to take documents in a variety of formats and return structured data representations of the documents. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure. 
+Azure Form Recognizer can extract text, tables, selection marks, and structure information from documents using its Layout service. The Layout API enables customers to take documents in a variety of formats and return structured data representations of the documents. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure. 
 
 ## What does the Layout service do?
 

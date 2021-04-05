@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 04/02/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -171,10 +171,6 @@ The following table shows which access tiers are available for blobs in each typ
 > [!IMPORTANT]
 > Changing the access tier for an existing storage account or blob may result in additional charges. For more information, see [Storage account billing](#storage-account-billing).
 
-## Encryption
-
-All data in your storage account is encrypted on the service side. For more information about encryption, see [Azure Storage Service Encryption for data at rest](storage-service-encryption.md).
-
 ## Storage account endpoints
 
 A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account.
@@ -196,22 +192,17 @@ Construct the URL for accessing an object in a storage account by appending the 
 
 You can also configure your storage account to use a custom domain for blobs. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).  
 
-## Control access to account data
+## Migrating a storage account
 
-By default, the data in your account is available only to you, the account owner. You have control over who may access your data and what permissions they have.
+The following table summarizes and points to guidance on moving, upgrading, or migrating a storage account:
 
-Every request made against your storage account must be authorized. At the level of the service, the request must include a valid *Authorization* header. Specifically, this header includes all of the information necessary for the service to validate the request before executing it.
-
-You can grant access to the data in your storage account using any of the following approaches:
-
-- **Azure Active Directory:** Use Azure Active Directory (Azure AD) credentials to authenticate a user, group, or other identity for access to blob and queue data. If authentication of an identity is successful, then Azure AD returns a token to use in authorizing the request to Azure Blob storage or Queue storage. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).
-- **Shared Key authorization:** Use your storage account access key to construct a connection string that your application uses at runtime to access Azure Storage. The values in the connection string are used to construct the *Authorization* header that is passed to Azure Storage. For more information, see [Configure Azure Storage connection strings](storage-configure-connection-string.md).
-- **Shared access signature:** A shared access signature (SAS) is a token that permits delegated access to resources in your storage account. The SAS token encapsulates all of the information needed to authorize a request to Azure Storage on the URL. When you create a SAS, you can specify which permissions the SAS grants to a resource and the interval over which the permissions are valid. A SAS token can be signed with either Azure AD credentials or with Shared Key. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
-
-> [!NOTE]
-> Authenticating users or applications using Azure AD credentials provides superior security and ease of use over other means of authorization. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS.
->
-> Microsoft recommends using Azure AD authorization for your Azure Storage blob and queue applications when possible.
+| Migration scenario | Details |
+|--|--|
+| Move a storage account to a different subscription | Azure Resource Manager provides options for moving a resource to a different subscription. For more information, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). |
+| Move a storage account to a different resource group | Azure Resource Manager provides options for moving a resource to a different resource group. For more information, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). |
+| Move a storage account to a different region | To move a storage account, create a copy of your storage account in another region. Then, move your data to that account by using AzCopy, or another tool of your choice. For more information, see [Move an Azure Storage account to another region](storage-account-move.md). |
+| Upgrade to a general-purpose v2 storage account | You can upgrade a general-purpose v1 storage account or Blob storage account to a general-purpose v2 account. Note that this action cannot be undone. For more information, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). |
+| Migrate a classic storage account to Azure Resource Manager | The Azure Resource Manager deployment model is superior to the classic deployment model in terms of functionality, scalability, and security. For more information about migrating a classic storage account to Azure Resource Manager, see [Migration of storage accounts](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts) in **Platform-supported migration of IaaS resources from classic to Azure Resource Manager**. |
 
 ## Copying data into a storage account
 
@@ -235,6 +226,10 @@ For more information about the Azure Storage REST API, see [Azure Storage Servic
 
 > [!IMPORTANT]
 > Blobs encrypted using client-side encryption store encryption-related metadata with the blob. If you copy a blob that is encrypted with client-side encryption, ensure that the copy operation preserves the blob metadata, and especially the encryption-related metadata. If you copy a blob without the encryption metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+## Encryption
+
+All data in your storage account is encrypted on the service side. For more information about encryption, see [Azure Storage Service Encryption for data at rest](storage-service-encryption.md).
 
 ## Storage account billing
 

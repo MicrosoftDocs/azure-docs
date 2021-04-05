@@ -1,12 +1,8 @@
 ---
 title: Define global user access control
 description: In large organizations, user permissions can be complex and might be determined by a global organizational structure, in addition to the standard site and zone structure.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
-ms.service: azure
 ---
 
 # Define global access control

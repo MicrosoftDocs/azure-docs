@@ -30,6 +30,8 @@ Container insights supports monitoring Azure Red Hat OpenShift v4.x as described
 
 - The [Helm 3](https://helm.sh/docs/intro/install/) CLI tool
 
+- Latest version of [OpenShift CLI](https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html)
+
 - [Bash version 4](https://www.gnu.org/software/bash/)
 
 - The [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) command-line tool

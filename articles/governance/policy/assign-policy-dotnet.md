@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with .NET Core"
 description: In this quickstart, you use .NET Core to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ---

@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 04/05/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
@@ -34,6 +34,7 @@ For more information, see the documented Purview limits at:
 
 - [Manage and increase quotas for resources with Azure Purview](how-to-manage-quotas.md)
 - [Supported data sources and file types in Azure Purview](sources-and-scans.md)
+- [Use private endpoints for your Purview account](catalog-private-link.md)
 ### Storage and scanning regions
 
 The following table maps the regions where you data is stored to the region where it would be scanned by Azure Purview.
@@ -45,36 +46,41 @@ The following table maps the regions where you data is stored to the region wher
 | Storage region | Scanning region |
 | ------------------------------- | ------------------------------------- |
 | US East (Ohio)                  | US East (Ohio)                        |
-| US East (N. Virginia)           | US East (Ohio)                        |
+| US East (N. Virginia)           | US East (Ohio) or US East (N. Virginia)                       |
 | US West (N. California)         | US East (Ohio)                        |
 | US West (Oregon)                | US East (Ohio)                        |
 | Africa (Cape Town)              | Europe (Frankfurt)                    |
-| Asia Pacific (Hong Kong)        | Europe (Frankfurt)                    |
-| Asia Pacific (Mumbai)           | Europe (Frankfurt)                    |
-| Asia Pacific (Osaka-Local)      | Europe (Frankfurt)                    |
-| Asia Pacific (Seoul)            | Europe (Frankfurt)                    |
-| Asia Pacific (Singapore)        | Europe (Frankfurt)                    |
-| Asia Pacific (Sydney)           | Europe (Frankfurt)                    |
-| Asia Pacific (Tokyo)            | Europe (Frankfurt)                    |
+| Asia Pacific (Hong Kong)        | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
+| Asia Pacific (Mumbai)           | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
+| Asia Pacific (Osaka-Local)      | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
+| Asia Pacific (Seoul)            | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
+| Asia Pacific (Singapore)        | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
+| Asia Pacific (Sydney)           | Europe (Frankfurt)  or Asia Pacific (Sydney)                  |
+| Asia Pacific (Tokyo)            | Europe (Frankfurt) or Asia Pacific (Sydney)                 |
 | Canada (Central)                | US East (Ohio)                        |
 | China (Beijing)                 | Not supported                    |
 | China (Ningxia)                 | Not supported                   |
 | Europe (Frankfurt)              | Europe (Frankfurt)                    |
-| Europe (Ireland)                | Europe (Frankfurt)                    |
-| Europe (London)                 | Europe (Frankfurt)                    |
+| Europe (Ireland)                | Europe (Frankfurt) or Europe (Ireland)                   |
+| Europe (London)                 | Europe (Frankfurt) or Europe (Ireland)                   |
 | Europe (Milan)                  | Europe (Frankfurt)                    |
 | Europe (Paris)                  | Europe (Frankfurt)                    |
 | Europe (Stockholm)              | Europe (Frankfurt)                    |
 | Middle East (Bahrain)           | Europe (Frankfurt)                    |
 | South America (São Paulo)       | US East (Ohio)                        |
 | | |
+
 ## Prerequisites
 
 Ensure that you've performed the following prerequisites before adding your Amazon S3 buckets as Purview data sources and scanning your S3 data.
 
-- You need to be an Azure Purview Data Source Admin.
-
-- When adding your buckets as Purview resources, you'll need the values of your [AWS ARN](#retrieve-your-new-role-arn), [bucket name](#retrieve-your-amazon-s3-bucket-name), and sometimes your [AWS account ID](#locate-your-aws-account-id).
+> [!div class="checklist"]
+> * You need to be an Azure Purview Data Source Admin.
+> * [Create a Purview account](#create-a-purview-account) if you don't yet have one
+> * [Create a Purview credential for your AWS bucket scan](#create-a-purview-credential-for-your-aws-bucket-scan)
+> * [Create a new AWS role for use with Purview](#create-a-new-aws-role-for-purview)
+> * [Configure scanning for encrypted Amazon S3 buckets](#configure-scanning-for-encrypted-amazon-s3-buckets), if relevant
+> * When adding your buckets as Purview resources, you'll need the values of your [AWS ARN](#retrieve-your-new-role-arn), [bucket name](#retrieve-your-amazon-s3-bucket-name), and sometimes your [AWS account ID](#locate-your-aws-account-id).
 
 ### Create a Purview account
 
@@ -133,6 +139,13 @@ For more information about Purview credentials, see the [Azure Purview public pr
 1. In the **Create role > Attach permissions policies** area, filter the permissions displayed to **S3**. Select **AmazonS3ReadOnlyAccess**, and then select **Next: Tags**.
 
     ![Select the ReadOnlyAccess policy for the new Amazon S3 scanning role.](./media/register-scan-amazon-s3/aws-permission-role-amazon-s3.png)
+
+    > [!IMPORTANT]
+    > The **AmazonS3ReadOnlyAccess** policy provides minimum permissions required for scanning your S3 buckets, and may include other permissions as well.
+    >
+    >To apply only the minimum permissions required for scanning your buckets, create a new policy with the permissions listed in [Minimum permissions for your AWS policy](#minimum-permissions-for-your-aws-policy), depending on whether you want to scan a single bucket or all the buckets in your account. 
+    >
+    >Apply your new policy to the role instead of **AmazonS3ReadOnlyAccess.**
 
 1. In the **Add tags (optional)** area, you can optionally choose to create a meaningful tag for this new role. Useful tags enable you to organize, track, and control access for each role you create.
 
@@ -391,6 +404,91 @@ Use the other areas of Purview to find out details about the content in your dat
     All Purview Insight reports include the Amazon S3 scanning results, along with the rest of the results from your Azure data sources. When relevant, an additional **Amazon S3** asset type was added to the report filtering options.
 
     For more information, see the [Understand Insights in Azure Purview](concept-insights.md).
+
+## Minimum permissions for your AWS policy
+
+The default procedure for [creating an AWS role for Purview](#create-a-new-aws-role-for-purview) to use when scanning your S3 buckets uses the **AmazonS3ReadOnlyAccess** policy.
+
+The **AmazonS3ReadOnlyAccess** policy provides minimum permissions required for scanning your S3 buckets, and may include other permissions as well.
+
+To apply only the minimum permissions required for scanning your buckets, create a new policy with the permissions listed in the following sections, depending on whether you want to scan a single bucket or all the buckets in your account.
+
+Apply your new policy to the role instead of **AmazonS3ReadOnlyAccess.**
+
+### Individual buckets
+
+When scanning individual S3 buckets, minimum AWS permissions include:
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListBucket`
+
+Make sure to define your resource with the specific bucket name. 
+For example:
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:s3:::<bucketname>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3::: <bucketname>/*"
+        }
+    ]
+}
+```
+
+### All buckets in your account
+
+When scanning all the buckets in your AWS account, minimum AWS permissions include:
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListAllMyBuckets`
+- `ListBucket`.
+
+Make sure to define your resource with a wildcard. For example:
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListAllMyBuckets",
+                "s3:ListBucket"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 ## Next steps
 

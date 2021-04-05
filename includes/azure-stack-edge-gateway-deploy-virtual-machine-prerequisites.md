@@ -6,7 +6,7 @@ ms.date: 01/15/2021
 ms.author: alkohli
 ---
 
-Before you can deploy VMs on your Azure Stack Edge device, you must configure your client to connect to the device via Azure Resource Manager over Azure PowerShell. For detailed instructions, see [Connect to Azure Resource Manager on your Azure Stack Edge device](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md).
+Before you can deploy VMs on your Azure Stack Edge device, you must configure your client to connect to the device via Azure Resource Manager over Azure PowerShell. For detailed instructions, see [Connect to Azure Resource Manager on your Azure Stack Edge device](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).
 
 Make sure that you can use the following steps to access the device from your client. You've already done this configuration when you connected to Azure Resource Manager, and now you're verifying that the configuration was successful. 
 
@@ -33,5 +33,3 @@ Make sure that you can use the following steps to access the device from your cl
 
     > [!NOTE]
     > If you're creating GPU VMs, select a network interface that's connected to the internet. Doing so enables you to install a GPU extension on your device.
-
-
