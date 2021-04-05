@@ -189,7 +189,9 @@ Once your VM is created, you can SSH into the machine and install the popular cl
 With mysql.exe, connect using the below command. Replace values with your actual server name and password. 
 
 ```bash
- mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
+sudo apt-get install mysql-client
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUIRED --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
 
 ## Clean up resources
