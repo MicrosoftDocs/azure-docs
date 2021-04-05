@@ -3,9 +3,9 @@ title: Use Monitor Windows Virtual Desktop Monitor - Azure
 description: How to use Azure Monitor for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 03/31/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Use Azure Monitor for Windows Virtual Desktop to monitor your deployment
 
@@ -37,7 +37,7 @@ Anyone monitoring Azure Monitor for Windows Virtual Desktop for your environment
 
 You can open Azure Monitor for Windows Virtual Desktop with one of the following methods:
 
-- Go to [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks).
+- Go to [aka.ms/azmonwvdi](https://aka.ms/azmonwvdi).
 - Search for and select **Windows Virtual Desktop** from the Azure portal, then select **Insights**.
 - Search for and select **Azure Monitor** from the Azure portal. Select **Insights Hub** under **Insights**, then select **Windows Virtual Desktop**.
 Once you have the page open, enter the **Subscription**, **Resource group**, **Host pool**, and **Time range** of the environment you want to monitor.
@@ -56,7 +56,7 @@ To start using Azure Monitor for Windows Virtual Desktop, you'll need at least o
 
 If it's your first time opening Azure Monitor for Windows Virtual Desktop, you'll need set up Azure Monitor for your Windows Virtual Desktop environment. To configure your resources:
 
-1. Open Azure Monitor for Windows Virtual Desktop in the Azure portal at [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), then select **configuration workbook**.
+1. Open Azure Monitor for Windows Virtual Desktop in the Azure portal at [aka.ms/azmonwvdi](https://aka.ms/azmonwvdi), then select **configuration workbook**.
 2. Select an environment to configure under **Subscription**, **Resource Group**, and **Host Pool**.
 
 The configuration workbook sets up your monitoring environment and lets you check the configuration after you've finished the setup process. It's important to check your configuration if items in the dashboard aren't displaying correctly, or when the product group publishes updates that require new settings.
@@ -187,4 +187,5 @@ For more information about data collection and usage, see the [Microsoft Online 
 Now that you’ve configured Azure Monitor for your Windows Virtual Desktop environment, here are some resources that might help you start monitoring your environment:
 
 - Check out our [glossary](azure-monitor-glossary.md) to learn more about terms and concepts related to Azure Monitor for Windows Virtual Desktop.
+- To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](azure-monitor-costs.md).
 - If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-monitor.md) for help and known issues.

@@ -81,6 +81,7 @@ If your computer has a slow connection to the Face service, that will impact the
 Mitigations:
 - When you create your Face subscription, make sure to choose the region closest to where your application is hosted.
 - If you need to call multiple service methods, consider calling them in parallel if your application design allows for it. See the previous section for an example.
+- If longer latencies impact the user experience, choose a timeout threshold (e.g. maximum 5s) before retrying the API call 
 
 ## Next steps
 
