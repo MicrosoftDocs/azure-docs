@@ -64,20 +64,17 @@ You can optionally enable disaster recovery when you create a VM.
 2. On the **Management** tab, select **Enable disaster recovery**.
 3. In **Secondary region**, select the target region to which you want to replicate a VM for disaster recovery.
 4. In **Secondary subscription**, select the target subscription in which the target VM will be created. The target VM is created when you fail over the source VM from the source region to the target region.
-
-    :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Enable replication on the VM management properties page.":::
-
 5. In **Recovery Services vault**, select the vault you want to use for the replication. If you don't have a vault, select **Create new**. Select a resource group in which to place the vault, and a vault name.
-
-    :::image type="content" source="./media/tutorial-disaster-recovery/disaster-recovery.png" alt-text="Enable replication on the VM properties Disaster Recovery page.":::
-
-6. In **Site Recovery policy**, leave the default policy, or set custom values.
+6. In **Site Recovery policy**, leave the default policy, or select **Create new** to set custom values.
 
     - Recovery points are created from snapshots of VM disks taken at a specific point in time. When you fail over a VM, you use a recovery point to restore the VM in the target region. 
     - A crash-consistent recovery point is created every five minutes. This setting can't be modified. A crash-consistent snapshot captures data that was on the disk when the snapshot was taken. It doesn't include anything in memory. 
     - By default Site Recovery keeps crash-consistent recovery points for 24 hours. You can set a custom value between 0 and 72 hours.
     - An app-consistent snapshot is taken every 4 hours. An app-consistent snapshot 
   - By default Site Recovery stores recovery points for 24 hours.
+
+    :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Enable replication on the VM management properties page."
+
  
 ## Enable disaster recovery for an existing VM
 
@@ -90,7 +87,11 @@ If you want to enable disaster recovery on an existing VM instead of for a new V
 
 3. In **Basics**, if the VM is deployed in an availability zone, you can select disaster recovery between availability zones.
 4. In **Target region**, select the region to which you want to replicate the VM. The source and target regions must be in the same Azure Active Directory tenant.
-5. In **Advanced settings**, you can review settings, and modify values to custom settings. By default, Site Recovery mirrors the source settings to create target resources.
+5. Select **Next: Advanced settings**.
+
+    :::image type="content" source="./media/tutorial-disaster-recovery/existing-vm.png" alt-text="Set the basic disaster recovery options for a VM.":::
+
+6. In **Advanced settings**, you can review settings, and modify values to custom settings. By default, Site Recovery mirrors the source settings to create target resources.
 
     - **Target subscription**. The subscription in which the target VM is created after failover.
     - **Target VM resource group**. The resource group in which the target VM is created after failover.
