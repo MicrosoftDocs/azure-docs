@@ -17,6 +17,8 @@ ms.author: pafarley
 
 In this guide, you'll learn how to call the Read API to extract text from images. You'll learn the different ways you can configure the behavior of this API to meet your needs.
 
+This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> and obtained a subscription key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
+
 ## Submit data to the service
 
 The Read API's [Read call](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously.
@@ -139,4 +141,4 @@ The [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/servi
 
 ## Next steps
 
-To use the REST API, go to the [Read API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005).
+To try out the REST API, go to the [Read API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005).
