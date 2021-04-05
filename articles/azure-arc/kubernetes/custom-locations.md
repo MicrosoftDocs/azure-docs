@@ -81,6 +81,9 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
     az k8s-extension create --name <extensionInstanceName> --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
     ```
 
+    > [!NOTE]
+    > Outbound proxy without authentication and outbound proxy with basic authentication are supported by the Arc enabled Data Services cluster extension. Outbound proxy that expects trusted certificates is currently not supported.
+
 1. Get the Azure Resource Manager identifier of the Azure Arc enabled Kubernetes cluster, referenced in later steps as `connectedClusterId`:
 
     ```azurecli
