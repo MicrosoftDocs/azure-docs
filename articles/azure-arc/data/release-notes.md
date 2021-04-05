@@ -24,6 +24,8 @@ The March 2021 release is introduced on April 6, 2021.
 
 Review limitations of this release in [Known issues - Azure Arc enabled data services (Preview)](known-issues.md).
 
+Azure Data CLI (`azdata`) version number: 20.3.2. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+
 ### Data controller
 
 - Deploy Azure Arc enabled data services data controller in direct connect mode from the portal. Start from [Deploy data controller - direct connect mode - prerequisites](deploy-data-controller-direct-mode-prerequisites.md).
