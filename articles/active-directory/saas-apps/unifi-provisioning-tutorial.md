@@ -49,56 +49,57 @@ This section guides you through connecting your Azure AD to UNIFI's user account
 
 1.	Sign in to the [Azure portal](https://portal.azure.com/) and select **Enterprise Applications**, select **All applications**, then select **UNIFI** in the applications list.
 
-	![Screenshot shows Users selected from the UNIFI site.](https://user-images.githubusercontent.com/63358567/112865744-ed2e4680-906d-11eb-9725-6595b39fa6b0.png)
+	![Screenshot shows Application selection in Azure Portal.](https://user-images.githubusercontent.com/63358567/112865744-ed2e4680-906d-11eb-9725-6595b39fa6b0.png)
  
 2.	Select the **Provisioning** tab.
 
-	![Screenshot shows Users selected from the UNIFI site.](https://user-images.githubusercontent.com/63358567/112865763-ef90a080-906d-11eb-8d71-2c73cd44d970.png)
+	![Screenshot shows Applications selection in Azure Portal.](https://user-images.githubusercontent.com/63358567/112865763-ef90a080-906d-11eb-8d71-2c73cd44d970.png)
  
 3.	Set the **Provisioning Mode** to **Automatic**.
 
-	![Screenshot shows Users selected from the UNIFI site.](https://user-images.githubusercontent.com/63358567/112865745-edc6dd00-906d-11eb-8431-633575b13132.png)
+	![Screenshot shows Provisioning configuration.](https://user-images.githubusercontent.com/63358567/112865745-edc6dd00-906d-11eb-8431-633575b13132.png)
  
 4.	Under the **Admin Credentials** section, input the **Secret Token** of your UNIFI account as described in Step 5.
-* **Tenant URL** - https://licensing.inviewcloud.com/api/scim/v2
+* **Tenant URL** - https://licensing.inviewcloud.com/api/scim/v2/
 
-	![Screenshot shows Users selected from the UNIFI site.](https://user-images.githubusercontent.com/63358567/112865747-edc6dd00-906d-11eb-90db-e01d14af86c6.png)
+	![Screenshot shows Provisioning configuration.](https://user-images.githubusercontent.com/63358567/112865747-edc6dd00-906d-11eb-90db-e01d14af86c6.png)
  
-
 5.	The **Secret Token** for your UNIFI account is located in **Users > Configure SSO > Azure > Token**. In case if you have not setup the Single Sign-On (SSO) for Azure please refer to this [tutorial](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/unifi-tutorial).
+	![Screenshot shows SSO provider configuration on UNIFI side.](https://user-images.githubusercontent.com/63358567/113638394-99060200-962b-11eb-9455-1dab75d57d31.png)
+	
+	* Login URL: Use Login URL from Azure SSO Tutorial (step 7)
+	* Paste Certificate (Base64 string) from Azure
 
-	![Screenshot shows Users selected from the UNIFI site.](https://user-images.githubusercontent.com/63358567/112865749-edc6dd00-906d-11eb-9f1a-c75fa2c5cf7b.png)
- 
 
 6.	Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to UNIFI. If the connection fails, ensure your UNIFI account has Admin permissions and try again.
 
-	![Screenshot shows Users selected from the UNIFI site.](https://user-images.githubusercontent.com/63358567/112865750-ee5f7380-906d-11eb-8a2b-18ff90be424d.png)
+	![Screenshot shows connection testing screen.](https://user-images.githubusercontent.com/63358567/112865750-ee5f7380-906d-11eb-8a2b-18ff90be424d.png)
  
 
 7.	In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
-	![Screenshot shows Users selected from the UNIFI site.](https://user-images.githubusercontent.com/63358567/112865751-ee5f7380-906d-11eb-95de-816638556090.png)
+	![Screenshot shows notification configuration screen.](https://user-images.githubusercontent.com/63358567/112865751-ee5f7380-906d-11eb-95de-816638556090.png)
  
 
 8.	Click **Save**.
 9.	Under the **Mappings section, select Provision Azure Active Directory Users & Groups to UNIFI**.
 
-	![Screenshot shows Users selected from the UNIFI site.](https://user-images.githubusercontent.com/63358567/112865754-ee5f7380-906d-11eb-981c-cd0ba14c827f.png)
+	![Screenshot shows Mappings configuration screen.](https://user-images.githubusercontent.com/63358567/112865754-ee5f7380-906d-11eb-981c-cd0ba14c827f.png)
  
 10.	Review the **User & Group** attributes that are synchronized from Azure AD to UNIFI in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in UNIFI for update operations. Select the **Save** button to commit any changes.
  
- 	![Screenshot shows Users selected from the UNIFI site.](https://user-images.githubusercontent.com/63358567/112865755-eef80a00-906d-11eb-9f51-93d8b4a4e6e3.png)
+ 	![Screenshot shows Mappings configuration screen.](https://user-images.githubusercontent.com/63358567/112865755-eef80a00-906d-11eb-9f51-93d8b4a4e6e3.png)
 	
-	![Screenshot shows Users selected from the UNIFI site.](https://user-images.githubusercontent.com/63358567/112865757-eef80a00-906d-11eb-8502-cf7dc4791424.png)
+	![Screenshot shows Mappings configuration screen.](https://user-images.githubusercontent.com/63358567/112865757-eef80a00-906d-11eb-8502-cf7dc4791424.png)
  
 11.	To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts).
 12.	To enable the Azure AD provisioning service for UNIFI, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Screenshot shows Users selected from the UNIFI site.](https://user-images.githubusercontent.com/63358567/112865760-eef80a00-906d-11eb-9c0b-e72ac21882aa.png)
+	![Screenshot shows Status screen.](https://user-images.githubusercontent.com/63358567/112865760-eef80a00-906d-11eb-9c0b-e72ac21882aa.png)
  
 13.	Define the users and/or groups that you would like to provision to UNIFI by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Screenshot shows Users selected from the UNIFI site.](https://user-images.githubusercontent.com/63358567/112865761-eef80a00-906d-11eb-84c4-aa2cb5e59d3e.png)
+	![Screenshot shows Sync Scope settings.](https://user-images.githubusercontent.com/63358567/112865761-eef80a00-906d-11eb-84c4-aa2cb5e59d3e.png)
  
 14.	When you are ready to provision, click **Save**.
 
