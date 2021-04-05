@@ -59,6 +59,18 @@ Get-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "Exampl
 
 Now, you have created a Key Vault, stored a certificate, and retrieved it.
 
+**Troubleshooting**:
+
+Operation returned an invalid status code 'Forbidden'
+
+If you receive this error, the account accessing the Azure Key Vault does not have the proper permissions to create certificates.
+
+Run the following Azure PowerShell command to assign the proper permissions:
+
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> -ObjectId <AzureObjectID> -PermissionsToCertificates get,list,update,create
+```
+
 ## Clean up resources
 
 [!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-delete-resources.md)]
