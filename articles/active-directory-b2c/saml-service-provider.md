@@ -79,11 +79,30 @@ To build a trust relationship between your application and Azure AD B2C, both se
 
 In a production environment, we recommend using certificates issued by a public certificate authority. However, you can also complete this procedure with self-signed certificates.
 
-### Prepare a self-signed certificate for SAML response signing
+### Create a policy key
 
-You must create a SAML response signing certificate so that your application can trust the assertion from Azure AD B2C.
+To have a trust relationship between your application and Azure AD B2C, create a SAML response signing certificate. Azure AD B2C uses this certificate to sign the SAML response sent to your application. Your application reads the Azure AD B2C metadata public key to validate the signature of the SAML response. 
+
+> [!TIP]
+> You can use the policy key that you create in this section, for other purposes, such as sign-in the [SAML assertion](saml-serivce-provider.md#saml-assertions-signature). 
+
+### Obtain a certificate
 
 [!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
+
+### Upload the certificate
+
+You need to store your certificate in your Azure AD B2C tenant.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. On the Overview page, select **Identity Experience Framework**.
+1. Select **Policy Keys** and then select **Add**.
+1. For **Options**, choose `Upload`.
+1. Enter a **Name** for the policy key. For example, `SamlIdpCert`. The prefix `B2C_1A_` is added automatically to the name of your key.
+1. Browse to and select your certificate .pfx file with the private key.
+1. Click **Create**.
 
 ## Enable your policy to connect with a SAML application
 

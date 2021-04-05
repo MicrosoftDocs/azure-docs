@@ -35,7 +35,7 @@ This article describes the configuration options that are available when connect
 
 You can specify a certificate to be used to sign the SAML messages. The message is the `<samlp:Response>` element within the SAML response sent to the application.
 
-To specify a certificate, generate and upload a policy key as shown in [Prepare a self-signed certificate for SAML response signing](saml-service-provider.md#prepare-a-self-signed-certificate-for-saml-response-signing). Then configure the `SamlMessageSigning` Metadata item in the SAML Token Issuer technical profile. The `StorageReferenceId` must reference the Policy Key name.
+If you don't already have a policy key, [create one](saml-service-provider.md#create-a-policy-key). Then configure the `SamlMessageSigning` Metadata item in the SAML Token Issuer technical profile. The `StorageReferenceId` must reference the Policy Key name.
 
 ```xml
 <ClaimsProvider>
@@ -77,7 +77,7 @@ Configure the signature algorithm using the `XmlSignatureAlgorithm` metadata key
 
 ## SAML assertions signature
 
-When your application expects SAML assertion section to be signed, make sure the SAML service provider set the `WantAssertionsSigned` to `true`. If set to `false`, or doesn't exist, the assertion section will not sign. The following example shows a SAML service provider metadata with the `WantAssertionsSigned` set to `true`.
+When your application expects SAML assertion section to be signed, make sure the SAML service provider set the `WantAssertionsSigned` to `true`. If set to `false`, or doesn't exist, the assertion section won't be sign. The following example shows a SAML service provider metadata with the `WantAssertionsSigned` set to `true`.
 
 ```xml
 <EntityDescriptor ID="id123456789" entityID="https://samltestapp2.azurewebsites.net" validUntil="2099-12-31T23:59:59Z" xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
@@ -89,7 +89,7 @@ When your application expects SAML assertion section to be signed, make sure the
 
 ### SAML assertions signature certificate
 
-To specify a certificate, generate and upload a policy key as shown in [Prepare a self-signed certificate for SAML response signing](saml-service-provider.md#prepare-a-self-signed-certificate-for-saml-response-signing). Then configure the `SamlAssertionSigning` Metadata item in the SAML Token Issuer technical profile. The `StorageReferenceId` must reference the Policy Key name.
+Your policy must specify a certificate to be used to sign the SAML assertions section of the SAML response. If you don't already have a policy key, [create one](saml-service-provider.md#create-a-policy-key). Then configure the `SamlAssertionSigning` Metadata item in the SAML Token Issuer technical profile. The `StorageReferenceId` must reference the Policy Key name.
 
 ```xml
 <ClaimsProvider>
@@ -334,9 +334,9 @@ Example:
 
 You can manage the session between Azure AD B2C and the SAML relying party application using the `UseTechnicalProfileForSessionManagement` element and the [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider).
 
-## Force users to re-authenticate 
+## Force users to reauthenticate 
 
-To force users to re-authenticate, the application can include the `ForceAuthn` attribute in the SAML authentication request. The `ForceAuthn` attribute is a Boolean value. When set to true, the users session will be invalidated at Azure AD B2C, and the user is forced to re-authenticate. The following SAML authentication request demonstrates how to set the `ForceAuthn` attribute to true. 
+To force users to reauthenticate, the application can include the `ForceAuthn` attribute in the SAML authentication request. The `ForceAuthn` attribute is a Boolean value. When set to true, the users' session will be invalidated at Azure AD B2C, and the user is forced to reauthenticate. The following SAML authentication request demonstrates how to set the `ForceAuthn` attribute to true. 
 
 
 ```xml
@@ -349,7 +349,7 @@ To force users to re-authenticate, the application can include the `ForceAuthn` 
 
 ## Sign the Azure AD B2C IdP SAML Metadata
 
-You can instruct Azure AD B2C to sign its SAML IdP metadata document, if required by the application. To do so, generate and upload a SAML IdP metadata signing policy key as shown in [Prepare a self-signed certificate for SAML response signing](saml-service-provider.md#prepare-a-self-signed-certificate-for-saml-response-signing). Then configure the `MetadataSigning` metadata item in the SAML token issuer technical profile. The `StorageReferenceId` must reference the policy key name.
+You can instruct Azure AD B2C to sign its SAML IdP metadata document, if required by the application. If you don't already have a policy key, [create one](saml-service-provider.md#create-a-policy-key). Then configure the `MetadataSigning` metadata item in the SAML token issuer technical profile. The `StorageReferenceId` must reference the policy key name.
 
 ```xml
 <ClaimsProvider>
