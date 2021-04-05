@@ -92,7 +92,7 @@ AzureDiagnostics
 
 :::image type="content" source="media/search-performance/perf-line-chart-queries-per-minute.png" alt-text="Chart showing queries per minute" border="true":::
 
-> [!TIP
+> [!TIP]
 > To reveal the data behind this chart, remove the line `| render timechart` and then rerun the query.
 
 ## Impact of indexing on queries
