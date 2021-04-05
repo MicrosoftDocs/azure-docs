@@ -14,10 +14,10 @@ ROBOTS: NOINDEX
 ---
 
 # What is Block T-SQL CRUD feature?
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
 
 
-This feature allows Azure administrators to block the creation or modification of Azure SQL resources through T-SQL. 
+This feature allows Azure administrators to block the creation or modification of Azure SQL resources through T-SQL. This is enforced at the subscription level to block T-SQL commands from affecting SQL resources in any Azure SQL database or managed instance.
 
 ## Overview
 
