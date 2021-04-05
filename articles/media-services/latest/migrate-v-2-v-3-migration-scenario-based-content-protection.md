@@ -40,25 +40,23 @@ If you need to update, change or alter content stored on v2 entities, update the
 
 ## Asset identifier differences
 
-To migrate, you'll need to access properties or content keys from your v2 Assets.  It's important to understand that the v2 API uses the `AssetId` as the primary identification key but the new v3 API uses the *Azure Resource Management name* of the entity as the primary identifier.  (The v2 **Asset.Name** property is not used as a unique identifier.) With the v3 API, your v2 Asset name now appears as the **Asset.Description**.
+To migrate, you'll need to access properties or content keys from your v2 Assets.  It's important to understand that the v2 API uses the `AssetId` as the primary identification key but the new v3 API uses the *Azure Resource Management name* of the entity as the primary identifier.  (The v2 `Asset.Name` property is not used as a unique identifier.) With the v3 API, your v2 Asset name now appears as the `Asset.Description`.
 
-For example, if you previously had a v2 Asset with the ID of `nb:cid:UUID:8cb39104-122c-496e-9ac5-7f9e2c2547b8`, the identifier is now end of the GUID `8cb39104-122c-496e-9ac5-7f9e2c2547b8`. You'll see this when listing your v2 assets through the v3 API.
+For example, if you previously had a v2 Asset with the ID of `nb:cid:UUID:8cb39104-122c-496e-9ac5-7f9e2c2547b8`, the identifier is now at the end of the GUID `8cb39104-122c-496e-9ac5-7f9e2c2547b8`. You'll see this when listing your v2 assets through the v3 API.
 
 Any Assets that were created and published using the v2 API will have both a `ContentKeyPolicy` and a `ContentKey` in the v3 API instead of a default content key policy on the `StreamingPolicy`.
 
-For more information about v3 ContenKeyPolicy see the [Content key policy](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) documentation.
-
-For more information about the StreamingPolicy, see the [Streaming Policy](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-policy-concept) documentation.
+For more information, see the [Content key policy](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) documentation and the [Streaming Policy](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-policy-concept) documentation.
 
 ## List the Streaming Locators
 
-You can query the **StreamingLocators** associated with the Assets created in the v2 API using the new v3 method [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) on the Asset entity.  Also reference the .NET client SDK version of [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
+You can query the `StreamingLocators` associated with the Assets created in the v2 API using the new v3 method [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) on the Asset entity.  Also reference the .NET client SDK version of [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
 
-The results of the **ListStreamingLocators** method will provide you the **Name** and **StreamingLocatorId** of the locator along with the **StreamingPolicyName**.
+The results of the `ListStreamingLocators` method will provide you the `Name` and `StreamingLocatorId` of the locator along with the `StreamingPolicyName`.
 
 ## Find the content keys
 
-To find the **ContentKeys** used with your **StreamingLocators**, you can call the [StreamingLocator.ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true) method.  
+To find the `ContentKeys` used with your `StreamingLocators`, you can call the [StreamingLocator.ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true) method.  
 
 For more information on content protection in the v3 API, see the article [Protect your content with Media Services dynamic encryption.](https://docs.microsoft.com/azure/media-services/latest/drm-content-protection-concept)
 
@@ -67,16 +65,16 @@ For more information on content protection in the v3 API, see the article [Prote
 You should first unpublish (remove all Streaming Locators) on the Asset via the v2 SDK. Here's how:
 
 1. Delete the locator
-1. Unlink the Content Key Authorization Policy.
-1. Unlink the Asset Delivery Policy.
-1. Unlink the Content Key.
-1. Delete the Content Key.
-1. Create a new `StreamingLocator` in v3 using a v3 `StreamingPolicy` and `ContentKeyPolicy`, specifing the specific content key identifier and key value needed.
+1. Unlink the `ContentKeyAuthorizationPolicy`.
+1. Unlink the `AssetDeliveryPolicy`.
+1. Unlink the `ContentKey`.
+1. Delete the `ContentKey`.
+1. Create a new `StreamingLocator` in v3 using a v3 `StreamingPolicy` and `ContentKeyPolicy`, specifying the specific content key identifier and key value needed.
 
 > [!NOTE]
 > It is possible to delete the v2 locator using the v3 API, but this won't remove the content key or the content key policy if they were created in the v2 API.  
 
-## Use AMSE v2 and AMSE v3 side by side
+## Use Azure Media Services Explorer (AMSE) v2 and AMSE v3 tools side by side
 
 Use the [v2 Azure Media Services Explorer tool](https://github.com/Azure/Azure-Media-Services-Explorer/releases/tag/v4.3.15.0) along with the [v3 Azure Media Services Explorer tool](https://github.com/Azure/Azure-Media-Services-Explorer) to compare the data side by side for an Asset created and published via v2 APIs. The properties should all be visible, but in different locations.
 
@@ -110,7 +108,7 @@ You can find a code sample to compare the differences in Asset identifiers using
 ## Samples
 
 - [v2tov3MigrationSample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/v2tov3Migration)
-- - You can also [compare the V2 and V3 code in the code samples](migrate-v-2-v-3-migration-samples.md).
+- You can also [compare the V2 and V3 code in the code samples](migrate-v-2-v-3-migration-samples.md).
 
 ## Tools
 
