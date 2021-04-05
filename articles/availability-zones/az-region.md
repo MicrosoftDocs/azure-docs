@@ -46,10 +46,10 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
 | Brazil South       | France Central       | South Africa North* | Australia East |
-| Canada Central     | Germany West Central |                     | Japan East     |
-| Central US         | North Europe         |                     | Korea Central* |
-| East US            | UK South             |                     | Southeast Asia |
-| East US 2          | West Europe          |                     |                |
+| Canada Central     | Germany West Central |                     | Central India* |
+| Central US         | North Europe         |                     | Japan East     |
+| East US            | UK South             |                     | Korea Central* |
+| East US 2          | West Europe          |                     | Southeast Asia |
 | South   Central US |                      |                     |                |
 | US Gov Virginia    |                      |                     |                |
 | West   US 2        |                      |                     |                |
