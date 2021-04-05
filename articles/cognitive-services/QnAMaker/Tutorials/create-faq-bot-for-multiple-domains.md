@@ -28,7 +28,17 @@ Let's say are trying to create a Knowledgebase
 
 Adding metadata to the knowlegdebase helps you add categories to the QnA pairs. However, to restrict the system to search for a response across a particluar category of QnA pairs, you would need to pass that category as a strict filter in the generate Answer API. 
 
-``
+The GenerateAnswer URL has the following format:
+
+```
+https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
+```
+
+Remember to set the HTTP header property of `Authorization` with a value of the string `EndpointKey` with a trailing space then the endpoint key found on the **Settings** page.
+
+An example JSON body looks like:
+
+```json
 {
     "question": "qna maker and luis",
     "top": 6,
@@ -42,7 +52,7 @@ Adding metadata to the knowlegdebase helps you add categories to the QnA pairs. 
     }],
     "userId": "sd53lsY="
 }
-``
+```
 
 You can fetch metadata/category from user query in the following ways - 
 
