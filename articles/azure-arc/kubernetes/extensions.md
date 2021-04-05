@@ -22,11 +22,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 
 ## Prerequisites
 
-- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
-- An existing Azure Arc enabled Kubernetes connected cluster.
-    - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
-
+- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0.
 - `connectedk8s` (version >= 1.1.0) and `k8s-extension` (version >= 0.2.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
   
     ```azurecli
@@ -40,6 +36,10 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
     az extension update --name connectedk8s
     az extension update --name k8s-extension
     ```
+
+- An existing Azure Arc enabled Kubernetes connected cluster.
+    - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
+    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
 
 ## Currently available extensions
 

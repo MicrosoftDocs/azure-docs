@@ -18,11 +18,20 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-* Verify you have:
-    * An up-and-running Kubernetes cluster.
-    * A `kubeconfig` file pointing to the cluster you want to connect to Azure Arc.
-    * 'Read' and 'Write' permissions for the user or service principal connecting creating the Azure Arc enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
+* An up-and-running Kubernetes cluster. If you don't have one, you can create a cluster using one of these options:
+    * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
+    * Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
+    * Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
+
+    >[!NOTE]
+    > The cluster needs to have at least one node of operating system and architecture type `linux/amd64`. Clusters with only `linux/arm64` nodes aren't yet supported.
+    
+* A `kubeconfig` file and context pointing to your cluster.
+* 'Read' and 'Write' permissions on the Azure Arc enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
+
 * Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
+
+- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
 * Install the `connectedk8s` Azure CLI extension of version >= 1.0.0:
   
   ```azurecli

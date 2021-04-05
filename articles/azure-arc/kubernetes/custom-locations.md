@@ -23,19 +23,6 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
 
 - [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0.
 
-- Provider registration is complete for `Microsoft.ExtendedLocation`.
-    1. Enter the following commands:
-    
-    ```azurecli
-    az provider register --namespace Microsoft.ExtendedLocation
-    ```
-
-    2. Monitor the registration process. Registration may take up to 10 minutes.
-    
-    ```azurecli
-    az provider show -n Microsoft.ExtendedLocation -o table
-    ```
-
 - `connectedk8s` (version >= 1.1.0), `k8s-extension` (version >= 0.2.0) and `customlocation` (version >= 0.1.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
   
     ```azurecli
@@ -50,6 +37,19 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
     az extension update --name connectedk8s
     az extension update --name k8s-extension
     az extension update --name customlocation
+    ```
+
+- Provider registration is complete for `Microsoft.ExtendedLocation`.
+    1. Enter the following commands:
+    
+    ```azurecli
+    az provider register --namespace Microsoft.ExtendedLocation
+    ```
+
+    2. Monitor the registration process. Registration may take up to 10 minutes.
+    
+    ```azurecli
+    az provider show -n Microsoft.ExtendedLocation -o table
     ```
 
 >[!NOTE]
