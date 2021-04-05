@@ -29,7 +29,16 @@ The detailed activity logs described here should be enabled **ONLY** during the 
 If you don't already have one, create an instance of Application Insights in your subscription.
 
 > [!TIP]
-> A single instance of Application Insights can be used for multiple Azure AD B2C tenants. Then in your query, you can filter by the tenant ID, or policy name. For more information, [see the logs in Application Insights](#see-the-logs-in-application-insights) samples.
+> A single instance of Application Insights can be used for multiple Azure AD B2C tenants. Then in your query, you can filter by the tenant, or policy name. For more information, [see the logs in Application Insights](#see-the-logs-in-application-insights) samples.
+
+To use an exiting instance of Application Insights in your subscription, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure subscription (not your Azure AD B2C directory).
+1. Open the Application Insights resource that you created earlier.
+1. On the **Overview** page, and record the **Instrumentation Key**
+
+To create an instance of Application Insights in your subscription, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure subscription (not your Azure AD B2C directory).
