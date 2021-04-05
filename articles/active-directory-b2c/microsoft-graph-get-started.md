@@ -66,14 +66,16 @@ You can grant your application multiple application permissions. For example, if
 
 ## [Optional] Grant user administrator role
 
-If your application or script needs to update users' passwords, assign the *User administrator* role to your application:
+If your application or script needs to update users' passwords, you need to assign the *User administrator* role to your application. The [User administrator](../active-directory/roles/permissions-reference.md#user-administrator) role has a fixed set of permissions you grant to your application. 
+
+To add the *User administrator* role, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and use the **Directory + Subscription** filter to switch to your Azure AD B2C tenant.
 1. Search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Roles and administrators**.
-1. Select the **User administrator** role.
+1. Select the **User administrator** role. 
 1. Select **Add assignments**.
-1. In the **Select** text box, enter the name of the application you registered earlier, for example, *managementapp1*. Select your application when it appears in the search results.
+1. In the **Select** text box, enter the name or the ID of the application you registered earlier, for example, *managementapp1*. When it appears in the search results, select your application.
 1. Select **Add**. It might take a few minutes to for the permissions to fully propagate.
 
 ## Create client secret
