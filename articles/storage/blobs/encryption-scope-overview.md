@@ -40,7 +40,7 @@ Infrastructure encryption in Azure Storage enables double encryption of data. Wi
 
 Infrastructure encryption is supported for an encryption scope, as well as at the level of the storage account. If infrastructure encryption is enabled for an account, then any encryption scope created on that account automatically uses infrastructure encryption. If infrastructure encryption is not enabled at the account level, then you have the option to enable it for an encryption scope at the time that you create the scope. The infrastructure encryption setting for an encryption scope cannot be changed after the scope is created.
 
-For more information about infrastructure encryption, see [Create a storage account with infrastructure encryption enabled for double encryption of data](../common/infrastructure-encryption-enable.md).
+For more information about infrastructure encryption, see [Enable infrastructure encryption for double encryption of data](../common/infrastructure-encryption-enable.md).
 
 ### Encryption scopes for containers and blobs
 

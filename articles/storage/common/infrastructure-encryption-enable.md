@@ -203,3 +203,4 @@ If infrastructure encryption is enabled for an account, then any encryption scop
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
 - [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
+- [Encryption scopes for Blob storage](../blobs/encryption-scope-overview.md)

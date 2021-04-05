@@ -170,6 +170,8 @@ To learn how to configure Azure Storage encryption with customer-managed keys in
 - [Configure encryption with customer-managed keys stored in Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md)
 - [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview)](../common/customer-managed-keys-configure-key-vault-hsm.md).
 
+To learn more about infrastructure encryption, see [Enable infrastructure encryption for double encryption of data](../common/infrastructure-encryption-enable.md).
+
 ## List encryption scopes for storage account
 
 # [Portal](#tab/portal)
@@ -415,3 +417,4 @@ az storage account encryption-scope update \
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
 - [Encryption scopes for Blob storage](encryption-scope-overview.md)
 - [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md)
+- [Enable infrastructure encryption for double encryption of data](../common/infrastructure-encryption-enable.md)
