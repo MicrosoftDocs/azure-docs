@@ -7,7 +7,7 @@ author: rishabv90
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: rishabv90
+ms.author: risverma
 ---
 
 # B-series burstable virtual machine sizes
