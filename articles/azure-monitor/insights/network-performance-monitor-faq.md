@@ -31,7 +31,7 @@ Listed below are the platform requirements for NPM's various capabilities:
 - NPM's Performance Monitor and Service Connectivity Monitor capabilities support both Windows server and Windows desktops/client operating systems. Windows server OS versions supported are 2008 SP1 or later. Windows desktops/client versions supported are Windows 10, Windows 8.1, Windows 8, and Windows 7. 
 - NPM's ExpressRoute Monitor capability supports only Windows server (2008 SP1 or later) operating system.
 
-### Can I use Linux machines as monitoring nodes in NPM?
+### Can I use machines as monitoring nodes in NPM?
 The capability to monitor networks using Linux-based nodes is now generally available. Access the agent [here](../../virtual-machines/extensions/oms-linux.md). 
 
 ### What are the size requirements of the nodes to be used for monitoring by NPM?
@@ -300,6 +300,12 @@ You can view the health status of the nodes being used for monitoring from the f
 
 ### Can NPM report latency numbers in microseconds?
 NPM rounds the latency numbers in the UI and in milliseconds. The same data is stored at a higher granularity (sometimes up to four decimal places).
+
+### Does NPM support multi-homed nodes? 
+No. Each NPM node requires a dedicated log analytics workspace. 
+
+### What additional requirements does the NPM have for Linux? 
+The OMS agent for Linux also requires the use of GLIBC 2.14 or above. 
 
 ## Next steps
 
