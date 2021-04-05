@@ -71,6 +71,7 @@ The following release notes are for version 12.0.0.0 of the Azure File Sync agen
 	- Improved change detection performance to detect files that have changed in the Azure file share.
 	- Performance improvements for reconciliation sync sessions. 
 	- Sync improvements to reduce ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED and ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED errors.
+	- Fixed a bug that causes data corruption if cloud tiering is enabled and tiered files are copied using Robocopy with the /B parameter.
 	- Fixed a bug that can cause files to fail to tier on Server 2019 if Data Deduplication is enabled on the volume.
 	- Fixed a bug that can cause AFSDiag to fail to compress files if a file is larger than 2GiB.
 
@@ -126,8 +127,6 @@ The following items don't sync, but the rest of the system continues to operate 
 ### Cloud tiering
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
 - When copying files using robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
-    > [!Warning]  
-    > Robocopy /B switch is not supported with Azure File Sync. Using the Robocopy /B switch with an Azure File Sync server endpoint as the source may lead to file corruption.
 
 ## Agent version 11.2.0.0
 The following release notes are for version 11.2.0.0 of the Azure File Sync agent released February 2, 2021. These notes are in addition to the release notes listed for version 11.1.0.0.
