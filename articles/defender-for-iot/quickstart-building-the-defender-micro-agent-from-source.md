@@ -29,20 +29,6 @@ To override the values:
 
 ## Prerequisites
 
-- None
-
-## Baseline Configuration signing 
-
-The agent verifies the authenticity of configuration files that are placed on the disk to mitigate tampering, by default.
-
-You can stop this process by defining the preprocessor flag `ASC_BASELINE_CONF_SIGN_CHECK_DISABLE`.
-
-We don't recommend turning off the signature check for production environments. 
-
-If you require a different configuration for production scenarios, contact the Defender for IoT team. 
-
-## Prerequisites 
-
 1. Contact your account manager to ask for access to Defender for IoT source code.
  
 1. Clone, or extract the source code to a folder on the disk.
@@ -76,7 +62,17 @@ If you require a different configuration for production scenarios, contact the D
 
 1. (Optional) Download and install [VSCode](https://code.visualstudio.com/download ) 
 
-1. (Optional) Install the [C/C++ extension](https://code.visualstudio.com/docs/languages/cpp ) for VSCode.
+1. (Optional) Install the [C/C++ extension](https://code.visualstudio.com/docs/languages/cpp ) for VSCode.- None
+
+## Baseline Configuration signing 
+
+The agent verifies the authenticity of configuration files that are placed on the disk to mitigate tampering, by default.
+
+You can stop this process by defining the preprocessor flag `ASC_BASELINE_CONF_SIGN_CHECK_DISABLE`.
+
+We don't recommend turning off the signature check for production environments. 
+
+If you require a different configuration for production scenarios, contact the Defender for IoT team. 
 
 ## Building the Defender IoT Micro Agent 
 
