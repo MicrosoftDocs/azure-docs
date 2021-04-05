@@ -108,14 +108,14 @@ Remember that by default a newly created user has a very minimal set of permissi
 grant select on [Application].[Cities] to [third-party-user]
 ```
 
-Or you can add the user to the `db_datareaders` [database role](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles) to allow access to all tables, or you can use [schemas](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-schema) to [allow access](https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-schema-permissions-transact-sql) to all tables in a schema.
+Or you can add the user to the `db_datareaders` [database role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) to allow access to all tables, or you can use [schemas](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-database-schema) to [allow access](https://docs.microsoft.com/sql/t-sql/statements/grant-schema-permissions-transact-sql) to all tables in a schema.
 
 For more information:
 
 * Azure SQL logical Servers, see [What is a server in Azure SQL Database](logical-servers.md)
 * Managing database access and logins, see [SQL Database security: Manage database access and login security](logins-create-manage.md)
-* Database engine permissions, see [Permissions](https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-database-engine) 
-* Granting object permissions, see [GRANT Object Permissions](https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-object-permissions-transact-sql)
+* Database engine permissions, see [Permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) 
+* Granting object permissions, see [GRANT Object Permissions](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql)
 
 
 
