@@ -29,7 +29,7 @@ Let's say are trying to create a Knowledgebase
 
 #### How large can our knowledgebases be? 
 
-You can add upto 50k QnA pairs to a single knowledgebase for optimal performance. 
+You add upto 50000 QnA pairs to a single knowledgebase.If your data exceeds 50,000 QnA pairs, you should consider splitting the knowledgebase.
 
 ### Create a separate knowledge base for each domain
 
