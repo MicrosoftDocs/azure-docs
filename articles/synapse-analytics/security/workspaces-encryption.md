@@ -47,7 +47,7 @@ Workspaces can be configured to enable double encryption with a customer-managed
 
 ### Key access and workspace activation
 
-The Azure Synapse encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or [Azure Key Vault RBAC access](../../key-vault/general/rbac-guide.md). When granting permissions via an Azure Key Vault access policy, choose the [“Application-only”](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) option during policy creation (select the workspace's managed identity and do not add it as an authorized application).
+The Azure Synapse encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or [Azure Key Vault RBAC access](../../key-vault/general/rbac-guide.md). When granting permissions via an Azure Key Vault access policy, choose the [“Application-only”](../../key-vault/general/security-overview.md#key-vault-authentication-options) option during policy creation (select the workspace's managed identity and do not add it as an authorized application).
 
  The workspace managed identity must be granted the permissions it needs on the key vault before the workspace can be activated. This phased approach to workspace activation ensures that data in the workspace is encrypted with the customer-managed key. Note that encryption can be enabled or disabled for dedicated SQL Pools- each pool is not enabled for encryption by default.
 

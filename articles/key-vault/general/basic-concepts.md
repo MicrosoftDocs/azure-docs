@@ -76,7 +76,7 @@ Developers can also manage the keys directly, by using APIs. For more informatio
 
 ## Next steps
 
-- Learn how to [secure your vault](secure-your-key-vault.md).
+- Learn how to [secure your vault](security-overview.md).
 - Learn how to [secure your managed HSM pools](../managed-hsm/access-control.md)
 
 <!--Image references-->

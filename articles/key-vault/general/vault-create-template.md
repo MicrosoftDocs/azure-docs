@@ -216,6 +216,6 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-- [Secure access to a key vault](secure-your-key-vault.md)
+- [Secure access to a key vault](security-overview.md)
 - [Authenticate to a key vault](authentication.md)
 - [Azure Key Vault Developer's Guide](developers-guide.md)

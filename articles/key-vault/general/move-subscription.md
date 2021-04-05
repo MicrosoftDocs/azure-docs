@@ -121,5 +121,5 @@ If you are using managed identity, you'll also have to update the identity becau
 - Learn more about [keys, secrets, and certificates](about-keys-secrets-certificates.md)
 - For conceptual information, including how to interpret Key Vault logs, see [Key Vault logging](logging.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)
-- [Secure your key vault](secure-your-key-vault.md)
+- [Secure your key vault](security-overview.md)
 - [Configure Azure Key Vault firewalls and virtual networks](network-security.md)
