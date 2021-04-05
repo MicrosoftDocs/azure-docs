@@ -1,6 +1,6 @@
 ---
 title: Configure named replicas security to allow isolated access
-description: Learn the security considerations for configuring and managing named replica so that a user can access the named replica but not the primary replica.
+description: Learn the security considerations for configuring and managing named replica so that a user can access the named replica but not other replicas.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -13,7 +13,7 @@ ms.date: 3/29/2021
 # Configure Security to allow isolated access to Azure SQL Database Hyperscale Named Replicas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article describes the authentication requirements to configure an Azure SQL Hyperscale [named replica](service-tier-hyperscale-replicas.md) so that a user will be allowed to access to specify replicas only. This scenario allows complete isolation of named replica from the primary - as the named replica will be running using its own compute node - and it is useful whenever an isolated read only access to an Azure SQL Hyperscale database is needed. Isolated, in this context, means that CPU and memory are not shared between the primary and the named replica, and queries running on the named replica will not take any lock or use any compute resource of the primary or of any other replica.
+This article describes the authentication requirements to configure an Azure SQL Hyperscale [named replica](service-tier-hyperscale-replicas.md) so that a user will be allowed to access to specific replicas only. This scenario allows complete isolation of named replica from the primary - as the named replica will be running using its own compute node - and it is useful whenever an isolated read only access to an Azure SQL Hyperscale database is needed. Isolated, in this context, means that CPU and memory are not shared between the primary and the named replica, and queries running on the named replica will not take any lock or use any compute resource of the primary or of any other replica.
 
 ## Create a new login on the master database
 
@@ -100,9 +100,9 @@ and connection will succeed without errors.
 
 ## Next steps
 
-Once you have setup security in this way, you can use the regular `grant`, `deny` and `revoke` command to manage access to resources. Remember to use these commands on the primary replica: their effect will be applied also to all named replicas, allowing you to decide who can access what, as it would happen normally. 
+Once you have setup security in this way, you can use the regular `grant`, `deny` and `revoke` commands to manage access to resources. Remember to use these commands on the primary replica: their effect will be applied also to all named replicas, allowing you to decide who can access what, as it would happen normally. 
 
-Remember that by default a newly created user doesn't have access to anything, so if you want to allow `` to access a table, you need to explicitly grant this permission:
+Remember that by default a newly created user has a very minimal set of permission granted (for example they cannot access any user table), so if you want to allow `third-party-user` to access a table, you need to explicitly grant this permission:
 
 ```sql
 grant select on [Application].[Cities] to [third-party-user]
