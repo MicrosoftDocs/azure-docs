@@ -407,7 +407,7 @@ Use the other areas of Purview to find out details about the content in your dat
 
 ## Minimum permissions for your AWS policy
 
-The default procedure for creating an AWS role for Purview to use when scanning your S3 buckets uses the **AmazonS3ReadOnlyAccess** policy.
+The default procedure for [creating an AWS role for Purview](#create-a-new-aws-role-for-purview) to use when scanning your S3 buckets uses the **AmazonS3ReadOnlyAccess** policy.
 
 The **AmazonS3ReadOnlyAccess** policy provides minimum permissions required for scanning your S3 buckets, and may include other permissions as well.
 
