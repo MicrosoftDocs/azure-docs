@@ -49,11 +49,11 @@ To create a storage account via the Azure portal, select **+ Create a resource**
 #### Basics
 The first section to complete to create a storage account is labeled **Basics**. This contains all of the required fields to create a storage account. To create a GPv2 storage account, ensure the **Performance** radio button is set to *Standard* and the **Account kind** drop-down list is selected to *StorageV2 (general purpose v2)*.
 
-![A screenshot of the Performance radio button with Standard selected and Account kind with StorageV2 selected](media/storage-how-to-create-file-share/create-storage-account-1.png)
+:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-standard.png" alt-text="A screenshot of the performance radio button with standard selected and account kind with storagev2 selected.":::
 
 To create a FileStorage storage account, ensure the **Performance** radio button is set to *Premium* and the **Account kind** drop-down list is selected to *FileStorage*.
 
-![A screenshot of the Performance radio button with Premium selected and Account kind with FileStorage selected](media/storage-how-to-create-file-share/create-storage-account-2.png)
+:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="A screenshot of the performance radio button with premium selected and account kind with filestorage selected.":::
 
 The other basics fields are independent from the choice of storage account:
 - **Storage account name**: The name of the storage account resource to be created. This name must be globally unique, but otherwise can any name you desire. The storage account name will be used as the server name when you mount an Azure file share via SMB.
@@ -70,9 +70,12 @@ The data protection section allows you to configure the soft-delete policy for A
 The advanced section contains several important settings for Azure file shares:
 
 - **Secure transfer required**: This field indicates whether the storage account requires encryption in transit for communication to the storage account. If you require SMB 2.1 support, you must disable this.
+
+    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-secure-transfer.png" alt-text="A screenshot of secure transfer enabled in the advanced settings for the storage account.":::
+
 - **Large file shares**: This field enables the storage account for file shares spanning up to 100 TiB. Enabling this feature will limit your storage account to only locally redundant and zone redundant storage options. Once a GPv2 storage account has been enabled for large file shares, you cannot disable the large file share capability. FileStorage storage accounts (storage accounts for premium file shares) do not have this option, as all premium file shares can scale up to 100 TiB. 
 
-![A screenshot of the important advanced settings that apply to Azure Files](media/storage-how-to-create-file-share/create-storage-account-3.png)
+    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-large-file-shares.png" alt-text="A screenshot of the large file share setting in the storage account's advanced blade.":::
 
 The other settings that are available in the advanced tab (hierarchical namespace for Azure Data Lake storage gen 2, default blob tier, NFSv3 for blob storage, etc.) do not apply to Azure Files.
 
