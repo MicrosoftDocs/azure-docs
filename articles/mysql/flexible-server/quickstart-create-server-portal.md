@@ -99,7 +99,9 @@ mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUI
 
 If you have provisioned your flexible server using **public access**, you can also use [Azure Cloud Shell](https://shell.azure.com/bash) to connect to your flexible server using pre-installed mysql client as shown below:
 
-In order to use Azure Cloud Shell to connect to your flexible server, you will need to allow networking access from Azure Cloud Shell to your flexible server. To achieve this, you can go to **Networking** blade on Azure portal for your MySQL flexible server and check the box under **Firewall** section which says, "Allow public access from any Azure service within Azure to this server" and click Save to persist the setting.
+In order to use Azure Cloud Shell to connect to your flexible server, you will need to allow networking access from Azure Cloud Shell to your flexible server. To achieve this, you can go to **Networking** blade on Azure portal for your MySQL flexible server and check the box under **Firewall** section which says, "Allow public access from any Azure service within Azure to this server" as shown in the screenshot below and click Save to persist the setting.
+
+ > :::image type="content" source="./media/quickstart-create-server-portal/Allow-access-to-any-azure-service.png" alt-text="Screenshot that shows how to allow Azure Cloud Shell access to MySQL flexible server for public access network configuration.":::
 
 > [!NOTE]
 > Checking the **Allow public access from any Azure service within Azure to this server** should be used for development or testing only. It configures the firewall to allow connections from IP addresses allocated to any Azure service or asset, including connections from the subscriptions of other customers.
