@@ -39,7 +39,8 @@ System node pools have the following restrictions:
 * System pools osType must be Linux.
 * User node pools osType may be Linux or Windows.
 * System pools must contain at least one node, and user node pools may contain zero or more nodes.
-* System node pools require a VM SKU of at least 2 vCPUs and 4GB memory.
+* System node pools require a VM SKU of at least 2 vCPUs and 4GB memory. But burstable-VM(B series) is not recommended.
+* A minimum of two nodes 4 vCPUs is recommended(e.g. Standard_DS4_v2), especially for large clusters (Multiple CoreDNS Pod replicas, 3-4+ add-ons, etc.).
 * System node pools must support at least 30 pods as described by the [minimum and maximum value formula for pods][maximum-pods].
 * Spot node pools require user node pools.
 * Adding an additional system node pool or changing which node pool is a system node pool will *NOT* automatically move system pods. System pods can continue to run on the same node pool even if you change it to a user node pool. If you delete or scale down a node pool running system pods that was previously a system node pool, those system pods are redeployed with preferred scheduling to the new system node pool.

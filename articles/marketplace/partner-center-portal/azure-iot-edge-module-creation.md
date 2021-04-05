@@ -167,7 +167,7 @@ Provide supplemental online documents about your offer. You can add up to 25 lin
 - **Title** - Customers will see the title on your offer's details page.
 - **Link (URL)** - Enter a link for customers to view your online document. The link must start with `http://` or `https://`.
 
-Make sure to add at least one link to your documentation and one link to the compatible IoT Edge devices from the [Azure IoT device catalog](https://catalog.azureiotsolutions.com/).
+Make sure to add at least one link to your documentation and one link to the compatible IoT Edge devices from the [Azure IoT device catalog](https://devicecatalog.azure.com/).
 
 ### Contact information
 
