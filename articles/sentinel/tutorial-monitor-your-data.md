@@ -39,7 +39,7 @@ You must have at least **Workbook reader** or **Workbook contributor** permissio
 
     To see which are relevant to the data types you have connected, the **Required data types** field in each workbook will list the data type next to a green check mark if you already stream relevant data to Azure Sentinel.
 
-      :::image type="content" source="media/tutorial-monitor-data/access-workbooks.png" alt-text="Go to workbooks.":::
+    [ ![Go to workbooks.](media/tutorial-monitor-data/access-workbooks.png) ](media/tutorial-monitor-data/access-workbooks.png#lightbox)
 
 1. Select **View template** to see the template populated with your data.
 
@@ -51,7 +51,7 @@ You must have at least **Workbook reader** or **Workbook contributor** permissio
 
 1. Select **View saved workbook**. 
 
-      :::image type="content" source="media/tutorial-monitor-data/workbook-graph.png" alt-text="View workbooks.":::
+    [ ![View workbooks](media/tutorial-monitor-data/workbook-graph.png) ](media/tutorial-monitor-data/workbook-graph.png#lightbox)
 
     Select the **Edit** button in the workbook toolbar to customize the workbook according to your needs. When you're done, select **Save** to save your changes.
 
@@ -79,13 +79,13 @@ You must have at least **Workbook reader** or **Workbook contributor** permissio
 
     Select the workbook you want to open:
 
-    :::image type="content" source="media/tutorial-monitor-data/switch-workbooks.png" alt-text="Switch workbooks.":::
+    [ ![Switch workbooks.](media/tutorial-monitor-data/switch-workbooks.png) ](media/tutorial-monitor-data/switch-workbooks.png#lightbox)
 
 ## Refresh your workbook data
 
 Refresh your workbook to display updated data. In the toolbar, select one of the following options:
 
-- :::image type="icon" source="media/whats-new/refresh-button.PNG" border="false"::: **Refresh**, to manually refresh your workbook data.
+- :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: **Refresh**, to manually refresh your workbook data.
 
 - :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false"::: **Auto refresh**, to set your workbook to automatically refresh at a configured interval.
 

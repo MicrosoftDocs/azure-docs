@@ -46,7 +46,7 @@ In each workbook or workbook template, select :::image type="icon" source="media
 - By default, auto refresh is turned off. To optimize performance, auto refresh is also turned off each time you close a workbook, and does not run in the background. Turn auto refresh back on as needed the next time you open the workbook.
 - Auto refresh is paused while you're editing a workbook, and auto refresh intervals are restarted each time you switch back to view mode from edit mode.
 
-    Intervals are also restarted if you manually refresh the workbook by selecting the :::image type="icon" source="media/whats-new/refresh-button.PNG" border="false"::: **Refresh** button.
+    Intervals are also restarted if you manually refresh the workbook by selecting the :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: **Refresh** button.
 
 For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md) and the [Azure Monitor documentation](../azure-monitor/visualize/workbooks-overview.md).
 
