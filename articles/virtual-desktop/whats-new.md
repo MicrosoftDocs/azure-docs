@@ -84,7 +84,7 @@ We've made the following updates for Teams on Windows Virtual Desktop:
 
 ### Start VM on Connect public preview
 
-The new host pool setting, Start VM on Connect, is now available in public preview. This setting can help you keep your VMs deallocated when you're not using them to save costs and allow the VM to start up automatically when users connect to it. For more information, check out [our blog post](https://aka.ms/wvdstartvmonconnect) and [our documentation](start-virtual-machine-connect.md).
+The new host pool setting, Start VM on Connect, is now available in public preview. For more information, check out [our blog post](https://aka.ms/wvdstartvmonconnect) and [our documentation](start-virtual-machine-connect.md).
 
 ### Windows Virtual Desktop Specialty certification
 
