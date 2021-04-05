@@ -20,10 +20,9 @@ In this tutorial, you'll learn how to add an administrator to your Synapse works
 
 So far in the get started guide, we've focused on activities *you* do in the workspace. Because you created the workspace in STEP 1, you are an administrator of the Synapse workspace. Now, we will make another user Ryan (`ryan@contoso.com`) an administrator. When we are done, Ryan will be able to do everything you can do in the workspace.
 
-## Assign the user to the Azure RBAC Owner role at the Synapse workspace level
+## Azure RBAC: Owner role for the workspace
 
-1. Open the Azure portal.
-1. Navigate to your workspace.
+1. Open the Azure portal and open you Synapse workspace.
 1. On the left side, select **Access Control (IAM)**.
 1. Click **Add > Add role assignment**.
 1. For **Role**, select **Owner**.
@@ -31,7 +30,7 @@ So far in the get started guide, we've focused on activities *you* do in the wor
 1. Click Save.
  
  
-## Assign the user to the Synapse Administrator role in the Synapse workspace
+## Synapse RBAC: Synapse Administrator role for the workspace
 1. Open your workspace in Synapse Studio.
 1. On the left side, click **Manage** to open the Manage hub.
 1. Under **Security**, click **Access control**.
@@ -41,7 +40,7 @@ So far in the get started guide, we've focused on activities *you* do in the wor
 1. Then select the user `ryan@contoso.com`.
 1. Then click **Apply**.
  
-## Assign storage permissions on the Workspace's default storage account
+## Primary Storage account: Storage Read/Write permissions
 You need to grant access to the Administrator to use that filesystem
 
 1. Open the workspace's primary storage account in the Azure portal.
@@ -49,7 +48,7 @@ You need to grant access to the Administrator to use that filesystem
 1. Add `ryan@contoso.com` to the **Owner** role. 
 3. Add `ryan@contoso.com` to the **Azure Storage Blob Data Contributor** role
 
-## Add the user to the dbowner role for all dedicated SQL pools
+## Dedicated SQL pools: dbowner role
 
 For all dedicated SQL pools, run the following T-SQL script against the corresponding SQL database.
 
