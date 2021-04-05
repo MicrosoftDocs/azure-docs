@@ -63,9 +63,9 @@ You will also need sufficient Azure Active Directory permissions for the tooling
     az provider register -n Microsoft.Authorization --wait
     ```
 
-### Get a Red Hat pull secret (optional)
+### Get a Red Hat pull secret (required for full access to OperatorHub)
 
-A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended.
+A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content on the OperatorHub. This step is optional but recommended.
 
 1. [Navigate to your Red Hat OpenShift cluster manager portal](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and log in.
 
