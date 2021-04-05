@@ -43,8 +43,6 @@ To offboard a subscription:
 
 1. Select the **Offboard** button. 
 
-The on-premises environment is not affected, but you should uninstall the sensor from the on-premises environment, or reassign the sensor to another subscription, so as to prevent any related data from flowing to the on-premises management console. 
-
 ## Next steps
 
 [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
