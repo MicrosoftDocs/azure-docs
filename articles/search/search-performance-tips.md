@@ -20,7 +20,7 @@ This article is a collection of tips and best practices that are often recommend
 
 ## Index size and schema
 
-Queries run faster on smaller indexes. This is partly a function of having fewer fields to scan, but it's also due to how the system caches content for future queries. After the first query, some content remains in memory where it's searched more efficiently. Because index size tends to grow over time, one best practice is to periodically revisit index composition, both schema and documents, to look for content reduction opportunities. A more common approach for query degradation due to index growth is to increase capacity: either [add replicas](search-capacity-planning.md#adjust-capacity) or [upgrade the service tier](#upgrade-to-a-standard-s2-tier).
+Queries run faster on smaller indexes. This is partly a function of having fewer fields to scan, but it's also due to how the system caches content for future queries. After the first query, some content remains in memory where it's searched more efficiently. Because index size tends to grow over time, one best practice is to periodically revisit index composition, both schema and documents, to look for content reduction opportunities. A more common approach for query degradation due to index growth is to increase capacity: either [add replicas](search-capacity-planning.md#adjust-capacity) or [upgrade the service tier](#tip-upgrade-to-a-standard-s2-tier).
 
 Schema complexity can also have adverse effects on both indexing and query performance. Excessive field attribution builds in limitations and processing requirements. [Complex types](search-howto-complex-data-types.md) take longer to index and query.
 
