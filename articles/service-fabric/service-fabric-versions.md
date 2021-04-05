@@ -212,3 +212,10 @@ The following table lists the version names of Service Fabric and their correspo
 | 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |
 | 7.2 CU6 | 7.2.457.9590 | 7.2.456.1 |
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
+
+## Supported dotnet runtimes
+The following table lists the dotnet runtimes supported by Service Fabric.
+
+| Service Fabric runtime | Supported dotnet runtimes for Windows |Supported dotnet runtimes for Linux |
+| --- | --- | --- |
+| 8.0 RTO | .Net5.0, .Net Core 3.1, .Net Core 2.1, All >=4.5 .Net Full Framework | .Net Core 3.1, .Net Core 2.1|
