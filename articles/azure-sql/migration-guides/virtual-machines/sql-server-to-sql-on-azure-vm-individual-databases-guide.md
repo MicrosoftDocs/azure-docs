@@ -1,6 +1,6 @@
 ---
-title: SQL Server to SQL Server on Azure VMs (Migration guide)
-description: Follow this guide to migrate your individual SQL Server databases to SQL Server on Azure Virtual Machines (VMs). 
+title: "SQL Server to SQL Server on Azure VMs: Migration guide"
+description: This guide teaches you to migrate your individual SQL Server databases to SQL Server on Azure VMs.  
 ms.custom: ""
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
@@ -9,7 +9,7 @@ ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
-ms.date: 11/06/2020
+ms.date: 03/19/2021
 ---
 
 # Migration guide: SQL Server to SQL Server on Azure VMs 
@@ -24,7 +24,7 @@ You can migrate SQL Server running on-premises or on:
 - Amazon Relational Database Service (AWS RDS) 
 - Compute Engine (Google Cloud Platform - GCP)
 
-For information about additional migration strategies, see the [SQL Server VM migration overview](sql-server-to-sql-on-azure-vm-migration-overview.md).
+For information about additional migration strategies, see the [SQL Server VM migration overview](sql-server-to-sql-on-azure-vm-migration-overview.md). For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
 
 :::image type="content" source="media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="Migration process flow":::
 
@@ -190,7 +190,7 @@ The test approach for database migration consists of performing the following ac
 
 > [!TIP]
 > Use the [Database Experimentation Assistant (DEA)](/sql/dea/database-experimentation-assistant-overview) to assist with evaluating the target SQL Server performance.
->
+
 
 ### Optimize
 

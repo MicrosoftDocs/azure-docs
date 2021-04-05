@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 01/29/2021
+ms.date: 03/17/2021
 ms.topic: conceptual
 ---
 # Azure Policy assignment structure
@@ -22,7 +22,8 @@ You use JSON to create a policy assignment. The policy assignment contains eleme
 - non-compliance messages
 - parameters
 
-For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic parameters:
+For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic
+parameters:
 
 ```json
 {
@@ -101,10 +102,14 @@ often assigned together, to use an [initiative](./initiative-definition-structur
 
 ## Non-compliance messages
 
-To set a custom message that describe why a resource is non-compliant with the policy or initiative
+To set a custom message that describes why a resource is non-compliant with the policy or initiative
 definition, set `nonComplianceMessages` in the assignment definition. This node is an array of
 `message` entries. This custom message is in addition to the default error message for
 non-compliance and is optional.
+
+> [!IMPORTANT]
+> Custom messages for non-compliance are only supported on definitions or initiatives with
+> [Resource Manager modes](./definition-structure.md#resource-manager-modes) definitions.
 
 ```json
 "nonComplianceMessages": [

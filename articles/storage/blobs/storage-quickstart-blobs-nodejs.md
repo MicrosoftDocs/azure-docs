@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Azure Blob storage library v12 - JavaScript"
 description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for JavaScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 09/17/2020
 ms.service: storage
 ms.subservice: blobs

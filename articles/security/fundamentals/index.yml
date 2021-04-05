@@ -44,7 +44,7 @@ landingContent:
           - text: Security services and technologies
             url: services-technologies.md
           - text: Built-in security controls
-            url: security-controls.md
+            url: ../benchmarks/index.yml
 
   # Card
   - title: Mitigate threats

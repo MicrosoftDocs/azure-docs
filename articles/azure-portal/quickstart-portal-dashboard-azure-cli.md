@@ -8,7 +8,11 @@ ms.date: 12/4/2020
 
 # Quickstart: Create an Azure portal dashboard with Azure CLI
 
-A dashboard in the Azure portal is a focused and organized view of your cloud resources.
+A dashboard in the Azure portal is a focused and organized view of your cloud resources. This
+article focuses on the process of using Azure CLI to create a dashboard.
+The dashboard shows the performance of a virtual machine (VM), as well as some static information
+and links.
+
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -99,20 +103,7 @@ az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Da
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Verify that you can see data about the virtual machine from within the Azure portal.
-
-1. In the Azure portal, select **Dashboard**.
-
-   ![Azure portal navigation to dashboard](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. On the dashboard page, select **Simple VM Dashboard**.
-
-   ![Navigate to Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Review the dashboard. You can see that some of the content is static, but there are also charts
-   that show the performance of the VM.
-
-   ![Review Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## Clean up resources
 

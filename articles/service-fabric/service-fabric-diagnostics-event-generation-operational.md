@@ -1,11 +1,8 @@
 ---
 title: Azure Service Fabric Event List 
 description: Comprehensive list of events provided by Azure Service Fabric to help monitor clusters.
-author: srrengar
-
 ms.topic: reference
 ms.date: 2/25/2019
-ms.author: srrengar
 ---
 
 # List of Service Fabric events 
@@ -35,6 +32,12 @@ More details on cluster upgrades can be found [here](service-fabric-cluster-upgr
 | 29630 | ClusterUpgradeRollbackCompleted | Upgrade | A cluster upgrade has completed rolling back | CM | Warning | 
 | 29631 | ClusterUpgradeDomainCompleted | Upgrade | An upgrade domain has finished upgrading during a cluster upgrade | CM | Informational | 
 
+**Placement events**
+| EventId | Name | Category | Description |Source (Task) | Level |
+| --- | --- | ---| --- | --- | --- |
+| 17616 | Decision |StateTransition | Placement operation was scheduled to decide on placement of new replicas. | CRM | Informational |
+
+
 ## Node events
 
 **Node lifecycle events** 
@@ -51,6 +54,13 @@ More details on cluster upgrades can be found [here](service-fabric-cluster-upgr
 | 25622 | NodeOpenFailed | StateTransition |  A node failed to start and join the ring | FabricNode | Error | 
 | 25624 | NodeClosed | StateTransition |  A node shut down successfully | FabricNode | Informational | 
 | 25626 | NodeAborted | StateTransition |  A node has ungracefully shut down | FabricNode | Error | 
+
+**Ktl Logger Node events** 
+
+| EventId | Name | Category | Description |Source (Task) | Level |
+| --- | --- | --- | --- | --- | --- | 
+| 50187 | SharedLogWriteThrottled | Health | Writes to Shared log are throttling | KtlLoggerNode | Informational | 
+| 50188 | SharedLogWriteUnthrottled | Health | Writes to Shared log have unthrottled | KtlLoggerNode | Informational | 
 
 ## Application events
 

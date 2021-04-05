@@ -16,7 +16,7 @@ ms.custom: references_regions
 Blob storage now supports the Network File System (NFS) 3.0 protocol. This support provides Linux file system compatibility at object storage scale and prices and enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. 
 
 > [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance in the following regions: Australia East, Korea Central, and South Central US. The preview also supports block blob with premium performance tier in all public regions.
+> NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance in the following regions: Australia East, Korea Central, East US, and South Central US. The preview also supports block blob with premium performance tier in all public regions.
 
 It's always been a challenge to run large-scale legacy workloads, such as High Performance Computing (HPC) in the cloud. One reason is that applications often use traditional file protocols such as NFS or Server Message Block (SMB) to access data. Also, native cloud storage services focused on object storage that have a flat namespace and extensive metadata instead of file systems that provide a hierarchical namespace and efficient metadata operations. 
 
@@ -107,7 +107,7 @@ The following Azure Storage features aren't supported when you enable the NFS 3.
   
 ## NFS 3.0 features not yet supported
 
-The following NFS 3.0 features aren't yet supported with Azure Data Lake Storage Gen2.
+The following NFS 3.0 features aren't yet supported.
 
 - NFS 3.0 over UDP. Only NFS 3.0 over TCP is supported.
 
@@ -122,6 +122,12 @@ The following NFS 3.0 features aren't yet supported with Azure Data Lake Storage
 - Hard link
 
 - Exporting a container as read-only
+
+## NFS 3.0 clients not yet supported
+
+The following NFS 3.0 clients aren't yet supported.
+
+- Windows client for NFS
 
 ## Pricing
 
