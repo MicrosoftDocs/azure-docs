@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -39,7 +39,7 @@ To allow users to sign in, the identity provider requires developers to register
 
 ## Scope
 
-Scope defines the information and permissions you are looking to gather from your custom identity provider. OpenID Connect requests must contain the `openid` scope value in order to receive the ID token from the identity provider. Without the ID token, users are not able to sign in to Azure AD B2C using the custom identity provider. Other scopes can be appended separated by space. Refer to the custom identity provider's documentation to see what other scopes may be available.
+Scope defines the information and permissions you are looking to gather from your identity provider, for example `openid profile`. In order to receive the ID token from the identity provider, the `openid` scope must be specified. Without the ID token, users are not able to sign in to Azure AD B2C using the custom identity provider. Other scopes can be appended separated by space. Refer to the custom identity provider's documentation to see what other scopes may be available.
 
 ## Response type
 
