@@ -16,7 +16,7 @@ ms.reviewer: sngun
 The HTTP status code 400 represents the request contains invalid data or it's missing required parameters.
 
 ## Missing the 'id' property
-On this scenario, it's common to see errors like the ones below:
+On this scenario, it's common to see the error:
 
 ```
 The input content is invalid because the required properties - 'id; ' - are missing
@@ -24,6 +24,26 @@ The input content is invalid because the required properties - 'id; ' - are miss
 
 ### Solution
 This error means the Json document being sent to the service is lacking this required property. You need to specify an `id` property with a String value as per the [REST specification](https://docs.microsoft.com/rest/api/cosmos-db/documents), the SDKs do not auto-generate values for this property.
+
+## Invalid partition key type
+On this scenario, it's common to see errors like:
+
+```
+Partition key ... is invalid.
+```
+
+### Solution
+This error means the value provided as partition key is invalid. The value of the partition key should be a String.
+
+## Wrong partition key value
+On this scenario, it's common to see the error:
+
+```
+PartitionKey extracted from document doesn’t match the one specified in the header
+```
+
+### Solution
+This error means you are executing an operation and passing a partition key value that does not match the document's body value for the expected property. If the collection's partition key path is `/myPartitionKey`, this means that the document has a property called `myPartitionKey` with a value that does not match what was provided as partition key value when calling the SDK method.
 
 ## Next steps
 * [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
