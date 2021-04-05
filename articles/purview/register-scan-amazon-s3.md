@@ -175,25 +175,26 @@ You'll need the following permissions in your AWS policy, depending on whether y
     {
     "Version": "2012-10-17",
     "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:ListBucket",
-                "s3:GetBucketLocation",
-                "s3:GetBucketPublicAccessBlock"
-            ],
-            "Resource": "arn:aws:s3:::<bucketname>"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": "arn:aws:s3::: <bucketname>/*"
-        }
-    ]
-}
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "s3:GetObject",
+                    "s3:ListBucket",
+                    "s3:GetBucketLocation",
+                    "s3:GetBucketPublicAccessBlock"
+                ],
+                "Resource": "arn:aws:s3:::<bucketname>"
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "s3:GetObject"
+                ],
+                "Resource": "arn:aws:s3::: <bucketname>/*"
+            }
+        ]
+    }
+    ```
 
 - **All buckets in your account**: `GetObject`, `GetBucketLocation`, `ListBucket`, and `ListAllMyBuckets`.
 
@@ -203,26 +204,27 @@ You'll need the following permissions in your AWS policy, depending on whether y
     {
     "Version": "2012-10-17",
     "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:ListAllMyBuckets",
-                "s3:ListBucket",
-                "s3:GetBucketLocation",
-                "s3:GetBucketPublicAccessBlock"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "s3:GetObject",
+                    "s3:ListAllMyBuckets",
+                    "s3:ListBucket",
+                    "s3:GetBucketLocation",
+                    "s3:GetBucketPublicAccessBlock"
+                ],
+                "Resource": "*"
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "s3:GetObject"
+                ],
+                "Resource": "*"
+            }
+        ]
+    }
+    ```
 
 ### Configure scanning for encrypted Amazon S3 buckets
 
