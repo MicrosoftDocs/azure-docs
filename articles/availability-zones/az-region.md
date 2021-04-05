@@ -117,6 +117,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     Azure Active Directory Domain Services                      | :large_blue_diamond:  |
 |     Azure Bastion                                               | :large_blue_diamond:  |
 |     Azure Cache for Redis                                       | :large_blue_diamond:  |
+|     Azure Cognitive Search                                      | :large_blue_diamond:  |
 |     Azure Cognitive Services: Text Analytics                    | :large_blue_diamond:  |
 |     Azure Data Explorer                                         | :large_blue_diamond:  |
 |     Azure Database for MySQL – Flexible Server                  | :large_blue_diamond:  |
@@ -129,7 +130,6 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     Azure Private Link                                          | :large_blue_diamond:  |
 |     Azure Site Recovery                                         | :large_blue_diamond:  |
 |     Azure SQL: Virtual Machine                                  | :large_blue_diamond:  |
-|     Azure Search                                                | :large_blue_diamond:  |
 |     Azure Web Application Firewall                              | :large_blue_diamond:  |
 |     Container Registry                                          | :large_blue_diamond:  |
 |     Event Grid                                                  | :large_blue_diamond:  |
