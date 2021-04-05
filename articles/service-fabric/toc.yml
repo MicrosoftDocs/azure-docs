@@ -356,6 +356,8 @@
         href: service-fabric-cluster-resource-manager-movement-cost.md
       - name: Autoscaling services
         href: service-fabric-cluster-resource-manager-autoscaling.md
+      - name: Node tagging
+        href: service-fabric-cluster-resource-manager-node-tagging.md
   - name: Monitoring and diagnostics
     items:
     - name: Monitoring overview

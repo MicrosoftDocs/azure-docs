@@ -7211,6 +7211,26 @@ Base type that defines a Microsoft Azure Service Fabric service.
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="TagsRequiredToPlace" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Declares tags required for placement of a service. </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TagRequiredToPlace" type="xs:string" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="TagsRequiredToRun" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Declares tags required for placement and running of a service. <xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TagRequiredToRun" type="xs:string" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
         </xs:sequence>
         <xs:attribute name="ServiceTypeName" use="required">
             <xs:annotation>
@@ -7297,6 +7317,22 @@ Declares scaling policies for a service. Useful for dynamically scaling the serv
 |Attribute|Value|
 |---|---|
 |name|ServiceScalingPolicies|
+|minOccurs|0|
+
+#### TagsRequiredToPlace
+Declares tags required for placement of a service. Useful for dynamically influencing service placement. 
+
+|Attribute|Value|
+|---|---|
+|name|TagsRequiredToPlace|
+|minOccurs|0|
+
+#### TagRequiredToRun
+Declares tags required for placement and running of a service. Useful for dynamically influencing service placement and running. 
+
+|Attribute|Value|
+|---|---|
+|name|TagRequiredToRun|
 |minOccurs|0|
 
 ## ServiceTypeExtensionPolicyPropertiesType complexType
