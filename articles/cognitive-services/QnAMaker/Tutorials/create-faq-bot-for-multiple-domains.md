@@ -15,19 +15,21 @@ When building a FAQ bot, you may encounter use cases that require you to address
 * FAQ bot for employees across multiple departments such as HR, Marketing, Engineering, Sales, etc.
 * FAQ bot for customers that are looking for information across multiple product categories.
 
-Many a times, users would have similar questions but on a different domain. You can design your bot to handle queries across multiple domains with QnA Maker in the following ways:
+You can design your bot to handle queries across multiple domains with QnA Maker in the following ways:
 
-* Create a single knowledge base and tag QnA pairs categorically with metadata.
+* Create a single knowledge base and tag QnA pairs into distinct domains with metadata.
 * Create a separate knowledge base for each domain.
-* Create a separate resource per domain.
+* Create a separate QnA Maker resource per domain.
 
-### Create a single knowledge base and tag QnA pairs categorically with metadata
+### Create a single knowledge base and tag QnA pairs into distinct domains with metadata.
 
-The content authors can use documents/URLs to extract QnAs or add custom QnAs to the knowledgebase. In order to group these QnAs by a category, you can add [metadata](../How-To/query-knowledge-base-with-metadata.md) to the QnA pairs.
+The content authors can use documents/URLs to extract QnAs or add custom QnAs to the knowledgebase. In order to group these QnAs into specific domains or categories, you can add [metadata](../How-To/query-knowledge-base-with-metadata.md) to the QnA pairs.
 
-Let's say are trying to create a Knowledgebase 
+Take for example
 
-Adding metadata to the knowlegdebase helps you add categories to the QnA pairs. However, to restrict the system to search for a response across a particluar category of QnA pairs, you would need to pass that category as a strict filter in the generate Answer API. 
+are trying to create a Knowledgebase 
+
+Adding metadata to the knowlegdebase helps you define distinct domains for the QnA pairs. However, to restrict the system to search for a response across a particluar domain you would need to pass that domain as a strict filter in the generate Answer API. 
 
 The GenerateAnswer URL has the following format:
 
@@ -55,11 +57,11 @@ An example JSON body looks like:
 }
 ```
 
-You can fetch metadata/category from user query in the following ways - 
+You can obtain metadata to be passed based on user input in the following ways: 
 
-* Explicitly take category as input from the user through the bot interface. For instance, you can take as input from the user a product category they are interested in before they ask questions.
-* Identify catgory based on any other input. For instance, in case of an empoloyee FAQ bot, you can identify department from employee id which can then be set as filter for metadata.
-* Extract entity from user query to identify category.
+* Explicitly take the domain as input from the user through the bot interface. For instance, you can take as input from the user a product category they are interested in before they ask questions.
+* Identify domain based on any other input. For instance, in case of an empoloyee FAQ bot, you can identify department from employee id which can then be set as filter for metadata.
+* Extract entity from user query to identify domain to be used for metadata filter.
 
 #### How large can our knowledgebases be? 
 
@@ -67,8 +69,8 @@ You add upto 50000 QnA pairs to a single knowledgebase. If your data exceeds 50,
 
 ### Create a separate knowledge base for each domain
 
-You can also create a separate knowledge base for each domain, however you will then have to write some logic to decide which KB answers the user query. [All APIs](https://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Alterations) require for the user to pass on the Knowledgebase ID. The content authors can update the different KBs directly from the portal. However, you will have to pass on the KB id to the generateAnswer API that returns response to the user query. As you can see in the Generate Answer API above, the KB id is passed on in the endpoint, and the user will have to pass that on along with the user query. Hence, we advise you to instead add all content in the same knowledgebase using metadata, instead of creating multiple knowledgebases.
+You can also create a separate knowledge base for each domain, however you will then have to write some logic to decide which KB answers the user query. [All APIs](https://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Alterations) require for the user to pass on the Knowledgebase ID. As you can see in the Generate Answer API above, the KB id is passed on in the endpoint, and the user will have to pass that on along with the user query. Hence, we advise you to instead add all content in the same knowledgebase using metadata, instead of creating multiple knowledgebases.
 
 ### Create a separate QnA Maker resource per domain
 
-If you want to grant different permissions for KB operations to content authors, you can do so by granting [resource level acccess](../How-To/manage-qna-maker-app.md). For instance, if the user is granted the 'Publisher' role for a QnA Maker resource, he will be able to publish all knowledgebases in that resource. He will be able to update data across all domains. However, if your content authors require exlusive access for the different domains while editing knowledgebases on the portal, you should create a distinct QnA Maker resource for each domain.
+If you want to grant different permissions for KB operations to content authors, you can do so by granting [resource level acccess](../How-To/manage-qna-maker-app.md) to the content authors. However, the user is granted access across all knowledgebases for the resource. For instance, if the user is granted the 'Publisher' role for a QnA Maker resource, he will be able to publish all knowledgebases in that resource. So, if you add data on all the domains in the same resource, all content authors will be able ti view them as per their role. So, if your content authors require exlusive access for the different domains while editing knowledgebases on the portal, you should create a distinct QnA Maker resource for each domain.
