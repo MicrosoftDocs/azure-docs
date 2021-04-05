@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Migrate manually from Windows Virtual Desktop (classic)
 
