@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Quickstart: Building your first static site with Azure Static Web Apps
 
-Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the Visual Studio Code extension.
+Azure Static Web Apps publishes a website by building apps from a code repository. In this quickstart, you deploy an  application to Azure Static Web apps using the Visual Studio Code extension.
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 [!INCLUDE [clone the repository](../../includes/static-web-apps-get-started-clone-repo.md)]
 
-Next, open Visual Studio Code and go to **File > Open Folder** to open the repository you just cloned to your machine in the editor.
+Next, open Visual Studio Code and go to **File > Open Folder** to open the repository you cloned to your machine in the editor.
 
 ## Create a static web app
 
@@ -48,7 +48,7 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Create Static Web App":::
 
-1. Select the presets which matches your application type.
+1. Select the presets that match your application type.
 
     # [No Framework](#tab/vanilla-javascript)
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: No framework":::
