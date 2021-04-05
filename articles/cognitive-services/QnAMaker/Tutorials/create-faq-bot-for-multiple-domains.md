@@ -36,7 +36,7 @@ You can fetch metadata/category from user query in the following ways -
 
 #### How large can our knowledgebases be? 
 
-You add upto 50000 QnA pairs to a single knowledgebase.If your data exceeds 50,000 QnA pairs, you should consider splitting the knowledgebase.
+You add upto 50000 QnA pairs to a single knowledgebase. If your data exceeds 50,000 QnA pairs, you should consider splitting the knowledgebase.
 
 ### Create a separate knowledge base for each domain
 
