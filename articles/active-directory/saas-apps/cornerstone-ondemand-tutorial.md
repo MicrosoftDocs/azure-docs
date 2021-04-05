@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/09/2021
+ms.date: 04/02/2021
 ms.author: jeedes
 ---
 
@@ -121,49 +121,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Cornerstone Single Sign-On SSO
 
-1. Sign in to the Cornerstone Single Sign-On as an administrator.
-
-1. Go to the **Admin -> Tools**.
-
-    ![screeenshot for Admin page.](./media/cornerstone-ondemand-tutorial/admin.png)
-
-1. Select **EDGE** panel in **Configuration Tools**.
-
-    ![screeenshot for EDGE panel.](./media/cornerstone-ondemand-tutorial/edge-panel.png)
-
-1. Select Single Sign-On in the **Integrate** section.
-
-    ![screeenshot for Single Sign-On option.](./media/cornerstone-ondemand-tutorial/single-sign-on.png)
-
-1. Click on **Add SSO** button. Select **Inbound SAML** in the below shown pop up window and then click **Add**.
-
-    ![screeenshot for Inbound SAML.](./media/cornerstone-ondemand-tutorial/inbound.png)
-
-1. Perform the below steps in the following page:
-
-    ![screeenshot for Configuration section for Cornerstone.](./media/cornerstone-ondemand-tutorial/configuration.png)
-
-    a. In the **General Properties**, click on **Upload File** to upload the **Certificate (Base64)** file, which you have downloaded from the Azure portal.
-
-    b. Select the **Enable** checkbox and in the **IDP URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
-
-    c. Click **Save**.
+To configure single sign-on on **Cornerstone Single Sign-On** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Cornerstone Single Sign-On support team](mailto:moreinfo@csod.com) or please contact your partner. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Cornerstone Single Sign-On test user
 
 The objective of this section is to create a user called B.Simon in Cornerstone Single Sign-On. Cornerstone Single Sign-On supports automatic user provisioning, which is by default enabled. You can find more details [here](./cornerstone-ondemand-provisioning-tutorial.md) on how to configure automatic user provisioning.
-
-**If you need to create user manually, perform following steps:**
-
-1. Sign in to the Cornerstone Single Sign-On as an administrator.
-
-1. Go to the **Admin -> Users** and click on **Add User** in the bottom of the page.
-
-    ![screeenshot for test user creation of Cornerstone.](./media/cornerstone-ondemand-tutorial/user-1.png)
-
-1. Fill the required fields in **Add new user** page and click on **Save**.
-
-    ![screeenshot for test user creation with the required fields.](./media/cornerstone-ondemand-tutorial/user-2.png)
 
 ## Test SSO 
 
