@@ -227,7 +227,7 @@ The OutputClaim element contains the following attributes:
 
 ## Authorization code lifetime
 
-When using the [OAuth 2.0 authorization code flow](authorization-code-flow.md), the app can use the authorization code to request an access token for a target resource. Authorization codes are very short-lived that expire after about 10 minutes. The authorization code lifetime cannot be changed. Make sure your application redeems the authorization codes within 10 minutes. 
+When using the [OAuth 2.0 authorization code flow](authorization-code-flow.md), the app can use the authorization code to request an access token for a target resource. Authorization codes are short-lived that expire after about 10 minutes. The authorization code lifetime cannot be configured. Make sure your application redeems the authorization codes within 10 minutes. 
 
 ## Next steps
 
