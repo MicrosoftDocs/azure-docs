@@ -6,7 +6,7 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 04/05/2021
 ms.author: punagpal
 ---
 
