@@ -80,14 +80,7 @@ We've made the following updates for Teams on Windows Virtual Desktop:
 - Older machines can now use XVP and hardware decoding to display more incoming video streams smoothly in 2x2 mode.
 - We've updated the WebRTC stack from M74 to M88 for better AV sync performance and fewer transient issues.
 - We've replaced our software H264 encoder with OpenH264 (OSS used in Teams on the web), which increased the video quality of the outgoing camera.
-- We enabled 2x2 mode for Teams Server for the general public on March 30. 2x2 mode shows up to four incoming video streams at the same time. 
-
-### Web client now supports file transfer
-
-Beginning with web client version 1.0.24.7, users can transfer files between the
-remote session and local computer. To upload files to the remote session, simply
-select the **Upload icon** in the menu at the top of the window. To download files, search for **Remote Desktop Virtual Drive** in the remote session, then drop your files in the **Downloads** folder. The browser will do the rest, downloading the files to your
-local computer.
+- We enabled 2x2 mode for Teams Server for the general public on March 30. 2x2 mode shows up to four incoming video streams at the same time.
 
 ### Start VM on Connect public preview
 
