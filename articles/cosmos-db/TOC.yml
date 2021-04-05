@@ -126,6 +126,8 @@
       items:
         - name: Compliance
           href: compliance.md
+        - name: Data residency
+          href: data-residency.md
     - name: Automatic recommendations
       href: automated-recommendations.md
 - name: SQL/Core API
