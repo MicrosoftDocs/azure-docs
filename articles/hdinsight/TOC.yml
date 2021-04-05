@@ -274,6 +274,8 @@
         href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
   - name: Reference
     items:
+    - name: Azure CLI
+      href: /cli/azure/hdinsight
     - name: Azure PowerShell
       href: /powershell/module/az.hdinsight
     - name: SDK for .NET
