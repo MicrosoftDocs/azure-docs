@@ -502,12 +502,11 @@ Examples include `LinuxSyslog20170410` and `LinuxSyslog20170609`.
 
 ### sinksConfig
 
-The `sinksConfig` optional section controls enabling sending metrics to the Azure Monitor sink in addition to the Storage account and the default Guest Metrics blade.
+The `sinksConfig` optional section enables sending metrics to the Azure Monitor sink in addition to the Storage account and the default Guest Metrics blade.
 
 > [!NOTE]
-> This requires System Assigned Identity to be enabled on the VMs/VMSS. 
-> This can be done through portal, CLI, PowerShell, and resource manager. Steps are listed in detail [here](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
-> The steps to enable this are also listed in the installation samples for AZ CLI, PowerShell etc. above. 
+> The `sinksConfig` section requires system-assigned identity to be enabled on the VMs or virtual machine scale set. 
+> You can enable system-assigned identity through the Azure portal, CLI, PowerShell, or Azure Resource Manager. Follow the [detailed instructions](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) or see the previous installations samples in this article. 
 
 ```json
   "sinksConfig": {
@@ -524,10 +523,10 @@ The `sinksConfig` optional section controls enabling sending metrics to the Azur
 
 ### fileLogs
 
-Controls the capture of log files. LAD captures new text lines as they are written to the file and writes them to table rows and/or any specified sinks (JsonBlob or EventHub).
+The `fileLogs` section controls the capture of log files. LAD captures new text lines as they are written to the file. It writes them to table rows and/or any specified sinks, such as `JsonBlob` and `EventHub`.
 
 > [!NOTE]
-> fileLogs are captured by a subcomponent of LAD called `omsagent`. In order to collect fileLogs, you must ensure that the `omsagent` user has read permissions on the files you specify, as well as execute permissions on all directories in the path to that file. You can check this by running `sudo su omsagent -c 'cat /path/to/file'` after LAD is installed.
+> The `fileLogs` are captured by a subcomponent of LAD called `omsagent`. To collect `fileLogs`, ensure that the `omsagent` user has read permissions on the files you specify. It must also have execute permissions on all directories in the path to that file. After LAD is installed, you can check permissions by running `sudo su omsagent -c 'cat /path/to/file'`.
 
 ```json
 "fileLogs": [
@@ -541,88 +540,92 @@ Controls the capture of log files. LAD captures new text lines as they are writt
 
 Element | Value
 ------- | -----
-file | The full pathname of the log file to be watched and captured. The pathname must name a single file; it cannot name a directory or contain wildcards. The 'omsagent' user account must have read access to the file path.
-table | (optional) The Azure storage table, in the designated storage account (as specified in the protected configuration), into which new lines from the "tail" of the file are written.
-sinks | (optional) A comma-separated list of names of additional sinks to which log lines sent.
+file | The full path name of the log file to be watched and captured. The path name is for a single file. It can't name a directory or contain wildcard characters. The `omsagent` user account must have read access to the file path.
+table | (Optional) The Azure Storage table, into which new lines from the "tail" of the file are written. The table must be in the designated storage account, as specified in the protected configuration. 
+sinks | (Optional) A comma-separated list of names of more sinks to which log lines are sent.
 
-Either "table" or "sinks", or both, must be specified.
+Either `"table"` or `"sinks"`, or both, must be specified.
 
 ## Metrics supported by the builtin provider
 
 > [!NOTE]
-> The default metrics supported by LAD are aggregated across all file-systems/disks/name. For non-aggregated metrics, kindly refer to the newer Azure Monitor sink metrics support.
+> The default metrics that LAD supports are aggregated across all file systems, disks, or names. For nonaggregated metrics, refer to the newer Azure Monitor sink metrics support.
 
-The builtin metric provider is a source of metrics most interesting to a broad set of users. These metrics fall into five broad classes:
+The `builtin` metric provider is a source of metrics that are the most interesting to a broad set of users. These metrics fall into five broad classes:
 
 * Processor
 * Memory
 * Network
-* Filesystem
+* File system
 * Disk
 
 ### builtin metrics for the Processor class
 
-The Processor class of metrics provides information about processor usage in the VM. When aggregating percentages, the result is the average across all CPUs. In a two-vCPU VM, if one vCPU was 100% busy and the other was 100% idle, the reported PercentIdleTime would be 50. If each vCPU was 50% busy for the same period, the reported result would also be 50. In a four-vCPU VM, with one vCPU 100% busy and the others idle, the reported PercentIdleTime would be 75.
+The Processor class of metrics provides information about processor usage in the VM. When percentages are aggregated, the result is the average across all CPUs. 
 
-counter | Meaning
+In a two-vCPU VM, if one vCPU is 100 percent busy and the other is 100 percent idle, the reported `PercentIdleTime` would be 50. If each vCPU is 50 percent busy for the same period, the reported result is also 50. In a four-vCPU VM, when one vCPU is 100 percent busy and the others are idle, the reported `PercentIdleTime` is 75.
+
+Counter | Meaning
 ------- | -------
-PercentIdleTime | Percentage of time during the aggregation window that processors were executing the kernel idle loop
-PercentProcessorTime | Percentage of time executing a non-idle thread
-PercentIOWaitTime | Percentage of time waiting for IO operations to complete
-PercentInterruptTime | Percentage of time executing hardware/software interrupts and DPCs (deferred procedure calls)
-PercentUserTime | Of non-idle time during the aggregation window, the percentage of time spent in user more at normal priority
+PercentIdleTime | Percentage of time during the aggregation window that processors ran the kernel idle loop
+PercentProcessorTime | Percentage of time running a non-idle thread
+PercentIOWaitTime | Percentage of time waiting for IO operations to finish
+PercentInterruptTime | Percentage of time running hardware or software interrupts and DPCs (deferred procedure calls)
+PercentUserTime | Of non-idle time during the aggregation window, the percentage of time spent in user mode at normal priority
 PercentNiceTime | Of non-idle time, the percentage spent at lowered (nice) priority
 PercentPrivilegedTime | Of non-idle time, the percentage spent in privileged (kernel) mode
 
-The first four counters should sum to 100%. The last three counters also sum to 100%; they subdivide the sum of PercentProcessorTime, PercentIOWaitTime, and PercentInterruptTime.
+The first four counters should sum to 100 percent. The last three counters also sum to 100 percent. They subdivide the sum of `PercentProcessorTime`, `PercentIOWaitTime`, and `PercentInterruptTime`.
 
 ### builtin metrics for the Memory class
 
-The Memory class of metrics provides information about memory utilization, paging, and swapping.
+The Memory class of metrics provides information about memory use, paging, and swapping.
 
 counter | Meaning
 ------- | -------
 AvailableMemory | Available physical memory in MiB
-PercentAvailableMemory | Available physical memory as a percent of total memory
+PercentAvailableMemory | Available physical memory as a percentage of total memory
 UsedMemory | In-use physical memory (MiB)
-PercentUsedMemory | In-use physical memory as a percent of total memory
+PercentUsedMemory | In-use physical memory as a percentage of total memory
 PagesPerSec | Total paging (read/write)
-PagesReadPerSec | Pages read from backing store (swap file, program file, mapped file, etc.)
-PagesWrittenPerSec | Pages written to backing store (swap file, mapped file, etc.)
+PagesReadPerSec | Pages read from the backing store, such as swap file, program file, and mapped file
+PagesWrittenPerSec | Pages written to the backing store, such as swap file and mapped file
 AvailableSwap | Unused swap space (MiB)
-PercentAvailableSwap | Unused swap space as a percentage of total swap
+PercentAvailableSwap | Unused swap space as a percentage of the total swap
 UsedSwap | In-use swap space (MiB)
-PercentUsedSwap | In-use swap space as a percentage of total swap
+PercentUsedSwap | In-use swap space as a percentage of the total swap
 
-This class of metrics has only a single instance. The "condition" attribute has no useful settings and should be omitted.
+This class of metrics has only one instance. The `"condition"` attribute has no useful settings and should be omitted.
 
 ### builtin metrics for the Network class
 
-The Network class of metrics provides information about network activity on an individual network interface since boot. LAD does not expose bandwidth metrics, which can be retrieved from host metrics.
+The Network class of metrics provides information about network activity on an individual network interface since the startup. 
 
-counter | Meaning
+LAD doesn't expose bandwidth metrics. You can get these metrics from host metrics.
+
+Counter | Meaning
 ------- | -------
-BytesTransmitted | Total bytes sent since boot
-BytesReceived | Total bytes received since boot
-BytesTotal | Total bytes sent or received since boot
-PacketsTransmitted | Total packets sent since boot
-PacketsReceived | Total packets received since boot
-TotalRxErrors | Number of receive errors since boot
-TotalTxErrors | Number of transmit errors since boot
-TotalCollisions | Number of collisions reported by the network ports since boot
+BytesTransmitted | Total bytes sent since startup
+BytesReceived | Total bytes received since startup
+BytesTotal | Total bytes sent or received since startup
+PacketsTransmitted | Total packets sent since startup
+PacketsReceived | Total packets received since startup
+TotalRxErrors | Number of receive errors since startup
+TotalTxErrors | Number of transmit errors since startup
+TotalCollisions | Number of collisions reported by the network ports since startup
 
 ### builtin metrics for the File system class
 
-The File system class of metrics provides information about filesystem usage. Absolute and percentage values are reported as they'd be displayed to an ordinary user (not root).
+The File system class of metrics provides information about file system usage. Absolute and percentage values are reported as they would be displayed to an ordinary user (not root).
 
-counter | Meaning
+Counter | Meaning
 ------- | -------
 FreeSpace | Available disk space in bytes
 UsedSpace | Used disk space in bytes
 PercentFreeSpace | Percentage free space
 PercentUsedSpace | Percentage used space
-PercentFreeInodes | Percentage of unused inodes
-PercentUsedInodes | Percentage of allocated (in use) inodes summed across all filesystems
+PercentFreeInodes | Percentage of unused index nodes (inodes)
+PercentUsedInodes | Percentage of allocated (in use) inodes summed across all file systems
 BytesReadPerSecond | Bytes read per second
 BytesWrittenPerSecond | Bytes written per second
 BytesPerSecond | Bytes read or written per second
@@ -632,9 +635,11 @@ TransfersPerSecond | Read or write operations per second
 
 ### builtin metrics for the Disk class
 
-The Disk class of metrics provides information about disk device usage. These statistics apply to the entire drive. If there are multiple file systems on a device, the counters for that device are, effectively, aggregated across all of them.
+The Disk class of metrics provides information about disk device usage. These statistics apply to the entire drive. 
 
-counter | Meaning
+When a device has multiple file systems, the counters for that device are, effectively, aggregated across all file systems.
+
+Counter | Meaning
 ------- | -------
 ReadsPerSecond | Read operations per second
 WritesPerSecond | Write operations per second
@@ -653,17 +658,19 @@ You can install and configure LAD 4.0 in the Azure CLI or in PowerShell.
 
 ### Azure CLI
 
-Assuming your protected settings are in the file ProtectedSettings.json and your public configuration information is in PublicSettings.json, run this command:
+If your protected settings are in the file *ProtectedSettings.json* and your public configuration information is in *PublicSettings.json*, run this command:
 
 ```azurecli
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-The command assumes you are using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli).
+The command assumes you're using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. 
+
+For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli).
 
 ### PowerShell
 
-Assuming your protected settings are in the `$protectedSettings` variable and your public configuration information is in the `$publicSettings` variable, run this command:
+If your protected settings are in the `$protectedSettings` variable and your public configuration information is in the `$publicSettings` variable, run this command:
 
 ```powershell
 Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0
@@ -671,18 +678,21 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 
 ## Example LAD 4.0 configuration
 
-Based on the preceding definitions, here's a sample LAD 4.0 extension configuration with some explanation. To apply this sample to your case, you should use your own storage account name, account SAS token, and EventHubs SAS tokens.
+Based on the preceding definitions, this section provides a sample LAD 4.0 extension configuration and some explanation. To apply this sample to your case, use your own storage account name, account SAS token, and Event Hubs SAS tokens.
 
 > [!NOTE]
-> Depending on whether you use the Azure CLI or PowerShell to install LAD, the method for providing public and protected settings will differ. If using the Azure CLI, save the following settings to ProtectedSettings.json and PublicSettings.json to use with the sample command above. If using PowerShell, save the settings to `$protectedSettings` and `$publicSettings` by running `$protectedSettings = '{ ... }'`.
+> Depending on whether you use the Azure CLI or PowerShell to install LAD, the method for providing public and protected settings differs: 
+>
+> * If you're using the Azure CLI, save the following settings to *ProtectedSettings.json* and *PublicSettings.json* to use the preceding sample command. 
+> * If you're using PowerShell, save the following settings to `$protectedSettings` and `$publicSettings` by running `$protectedSettings = '{ ... }'`.
 
 ### Protected settings
 
 These protected settings configure:
 
-* a storage account
-* a matching account SAS token
-* several sinks (JsonBlob or EventHubs with SAS tokens)
+* A storage account.
+* A matching account SAS token.
+* Several sinks (`JsonBlob` or `EventHub` with SAS tokens).
 
 ```json
 {
@@ -730,14 +740,14 @@ These protected settings configure:
 
 These public settings cause LAD to:
 
-* Upload percent-processor-time and used-disk-space metrics to the `WADMetrics*` table
-* Upload messages from syslog facility "user" and severity "info" to the `LinuxSyslog*` table
-* Upload appended lines in file `/var/log/myladtestlog` to the `MyLadTestLog` table
+* Upload percent-processor-time metrics and used-disk-space metrics to the `WADMetrics*` table,
+* Upload messages from syslog facility `"user"` and severity `"info"` to the `LinuxSyslog*` table.
+* Upload appended lines in file `/var/log/myladtestlog` to the `MyLadTestLog` table.
 
 In each case, data is also uploaded to:
 
-* Azure Blob storage (container name is as defined in the JsonBlob sink)
-* EventHubs endpoint (as specified in the EventHubs sink)
+* Azure Blob Storage. The container name is as defined in the `JsonBlob` sink.
+* Event Hubs endpoint, as specified in the `EventHubs` sink.
 
 ```json
 {
@@ -819,33 +829,33 @@ In each case, data is also uploaded to:
 
 The `resourceId` in the configuration must match that of the VM or the virtual machine scale set.
 
-* Azure platform metrics charting and alerting knows the resourceId of the VM you're working on. It expects to find the data for your VM using the resourceId the lookup key.
-* If you use Azure autoscale, the resourceId in the autoscale configuration must match the resourceId used by LAD.
-* The resourceId is built into the names of JsonBlobs written by LAD.
+* Azure platform metrics charting and alerting knows the `resourceId` of the VM you're working on. It expects to find the data for your VM by using the `resourceId` the lookup key.
+* If you use Azure Autoscale, the `resourceId` in the autoscale configuration must match the `resourceId` that LAD uses.
+* The `resourceId` is built in to the names of JSON blobs written by LAD.
 
 ## View your data
 
 Use the Azure portal to view performance data or set alerts:
 
-:::image type="content" source="./media/diagnostics-linux/graph_metrics.png" alt-text="Screenshot shows the Azure portal with the Used disk space on metric selected and the resulting chart.":::
+:::image type="content" source="./media/diagnostics-linux/graph_metrics.png" alt-text="Screenshot shows the Azure portal. The Used disk space on metric is selected. The resulting chart is shown.":::
 
-The `performanceCounters` data are always stored in an Azure Storage table. Azure Storage APIs are available for many languages and platforms.
+The `performanceCounters` data is always stored in an Azure Storage table. Azure Storage APIs are available for many languages and platforms.
 
-Data sent to JsonBlob sinks is stored in blobs in the storage account named in the [Protected settings](#protected-settings). You can consume the blob data using any Azure Blob Storage APIs.
+Data sent to `JsonBlob` sinks is stored in blobs in the storage account named in the [protected settings](#protected-settings). You can consume the blob data in any Azure Blob Storage APIs.
 
-In addition, you can use these UI tools to access the data in Azure Storage:
+You also can use these UI tools to access the data in Azure Storage:
 
-* Visual Studio Server Explorer.
-* [Screenshot shows containers and tables in Azure Storage Explorer.](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+* Visual Studio Server Explorer
+* [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
 
-This snapshot of a Microsoft Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't match exactly with the [sample LAD 3.0 configuration](#an-example-lad-40-configuration).
+The following screenshot of an Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't exactly match the [sample LAD 3.0 configuration](#an-example-lad-40-configuration).
 
-:::image type="content" source="./media/diagnostics-linux/stg_explorer.png" alt-text="Screenshot shows the Azure Storage Explorer.":::
+:::image type="content" source="./media/diagnostics-linux/stg_explorer.png" alt-text="Screenshot shows Azure Storage Explorer.":::
 
-See the relevant [EventHubs documentation](../../event-hubs/event-hubs-about.md) to learn how to consume messages published to an EventHubs endpoint.
+For more information about how to consume messages published to an Event Hubs endpoint, see the relevant [Event Hubs documentation](../../event-hubs/event-hubs-about.md).
 
 ## Next steps
 
-* Create metric alerts in [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) for the metrics you collect.
-* Create [monitoring charts](../../azure-monitor/data-platform.md) for your metrics.
-* Learn how to [create a virtual machine scale set](../linux/tutorial-create-vmss.md) using your metrics to control autoscaling.
+* In [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md), create alerts for the metrics you collect.
+* [Create monitoring charts](../../azure-monitor/data-platform.md) for your metrics.
+* [Create a virtual machine scale set](../linux/tutorial-create-vmss.md) by using your metrics to control autoscaling.

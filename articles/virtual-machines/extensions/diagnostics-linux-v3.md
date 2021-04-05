@@ -446,7 +446,7 @@ The `eventVolume` setting causes entries to be spread across 1 (small), 10 (medi
 The Azure Metrics feature of the Azure portal uses the data in this table to produce graphs or to trigger alerts. The table name is the concatenation of these strings:
 
 * `WADMetrics`
-* The `scheduledTransferPeriod` for the aggregated values stored in the table
+* The `"scheduledTransferPeriod"` for the aggregated values stored in the table
 * `P10DV2S`
 * A date, in the form "YYYYMMDD", which changes every 10 days
 
@@ -533,7 +533,7 @@ file | The full path name of the log file to be watched and captured. The path n
 table | (Optional) The Azure Storage table into which new lines from the "tail" of the file are written. The table must be in the designated storage account, as specified in the protected configuration. 
 sinks | (Optional) A comma-separated list of names of more sinks to which log lines are sent.
 
-Either `"table"` or `"sinks"` or both must be specified.
+Either `"table"` or `"sinks"`, or both, must be specified.
 
 ## Metrics supported by the builtin provider
 
@@ -553,7 +553,7 @@ In a two-vCPU VM, if one vCPU is 100 percent busy and the other is 100 percent i
 
 Counter | Meaning
 ------- | -------
-PercentIdleTime | Percentage of time during the aggregation window that processors were running the kernel idle loop
+PercentIdleTime | Percentage of time during the aggregation window that processors ran the kernel idle loop
 PercentProcessorTime | Percentage of time running a non-idle thread
 PercentIOWaitTime | Percentage of time waiting for IO operations to finish
 PercentInterruptTime | Percentage of time running hardware or software interrupts and DPCs (deferred procedure calls)
@@ -583,7 +583,7 @@ PercentAvailableSwap | Unused swap space as a percentage of the total swap
 UsedSwap | In-use swap space (MiB)
 PercentUsedSwap | In-use swap space as a percentage of the total swap
 
-This class of metrics has only a single instance. The `"condition"` attribute has no useful settings and should be omitted.
+This class of metrics has only one instance. The `"condition"` attribute has no useful settings and should be omitted.
 
 ### builtin metrics for the Network class
 
@@ -653,19 +653,19 @@ You can get aggregated values across all disks by setting `"condition": "IsAggre
 
 ### Azure CLI
 
-Assuming your protected settings are in the file *ProtectedSettings.json* and your public configuration information is in *PublicSettings.json*, run the following command.
+If your protected settings are in the file *ProtectedSettings.json* and your public configuration information is in *PublicSettings.json*, run the following command.
 
 ```azurecli
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-The command assumes you're using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`). Also omit the resource group name in the command. 
+The command assumes you're using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. 
 
 For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli).
 
 ### PowerShell
 
-Assuming your protected settings are in the `$protectedSettings` variable and your public configuration information is in the `$publicSettings` variable, run this command:
+If your protected settings are in the `$protectedSettings` variable and your public configuration information is in the `$publicSettings` variable, run this command:
 
 ```powershell
 Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0
@@ -673,7 +673,7 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 
 ## Example LAD 3.0 configuration
 
-Based on the preceding definitions, here's a sample LAD 3.0 extension configuration with some explanation. To apply this sample to your case, use your own storage account name, account SAS token, and Event Hubs SAS tokens.
+Based on the preceding definitions, here's a sample LAD 3.0 extension configuration and some explanation. To apply this sample to your case, use your own storage account name, account SAS token, and Event Hubs SAS tokens.
 
 > [!NOTE]
 > Depending on whether you use the Azure CLI or PowerShell to install LAD, the method for providing public and protected settings differs: 
