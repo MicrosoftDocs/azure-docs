@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.devlang:
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/06/2020
+ms.date: 04/05/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 
@@ -30,7 +30,7 @@ What can a managed identity be used for?
 Here are some of the benefits of using Managed identities:
 
 - You don't need to manage credentials. Credentials are not even accessible to you.
-- You can use managed identities to authenticate to any Azure service that supports Azure AD authentication including Azure Key Vault.
+- You can use managed identities to authenticate to any resource that supports Azure Active Directory authentication including your own applications.
 - Managed identities can be used without any additional cost.
 
 > [!NOTE]

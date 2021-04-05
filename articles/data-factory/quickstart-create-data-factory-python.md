@@ -70,7 +70,9 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
     ```
     > [!NOTE] 
     > The "azure-identity" package might have conflicts with "azure-cli" on some common dependencies. If you meet any authentication issue, remove "azure-cli" and its dependencies, or use a clean machine without installing "azure-cli" package to make it work.
-    
+    > 1.  For Sovereign clouds, you must use the appropriate cloud-specific constants.  Please refer to Connect to all regions using Azure libraries for Python Multi-cloud | Microsoft Docs for instructions to connect with Python in Sovereign clouds. 
+    > 2. Update our Python Quickstart to use DefaultAzureCredential instead of ClientSecretCredential, and to connect using the pre-defined AZURE_PUBLIC_CLOUD constant
+   
 ## Create a data factory client
 
 1. Create a file named **datafactory.py**. Add the following statements to add references to namespaces.
