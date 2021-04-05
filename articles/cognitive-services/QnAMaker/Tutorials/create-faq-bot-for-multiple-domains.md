@@ -19,7 +19,6 @@ You can design your bot to handle queries across multiple domains with QnA Maker
 
 * Create a single knowledge base and tag QnA pairs into distinct domains with metadata.
 * Create a separate knowledge base for each domain.
-* Create a separate QnA Maker resource per domain.
 
 ### Create a single knowledge base and tag QnA pairs into distinct domains with metadata.
 
@@ -70,7 +69,3 @@ You add upto 50000 QnA pairs to a single knowledgebase. If your data exceeds 50,
 ### Create a separate knowledge base for each domain
 
 You can also create a separate knowledge base for each domain, however you will then have to write some logic to decide which KB answers the user query. [All APIs](https://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Alterations) require for the user to pass on the Knowledgebase ID. As you can see in the Generate Answer API above, the KB id is passed on in the endpoint, and the user will have to pass that on along with the user query. Hence, we advise you to instead add all content in the same knowledgebase using metadata, instead of creating multiple knowledgebases.
-
-### Create a separate QnA Maker resource per domain
-
-If you want to grant different permissions for KB operations to content authors, you can do so by granting [resource level acccess](../How-To/manage-qna-maker-app.md) to the content authors. However, the user is granted access across all knowledgebases for the resource. For instance, if the user is granted the 'Publisher' role for a QnA Maker resource, he will be able to publish all knowledgebases in that resource. So, if you add data on all the domains in the same resource, all content authors will be able ti view them as per their role. So, if your content authors require exlusive access for the different domains while editing knowledgebases on the portal, you should create a distinct QnA Maker resource for each domain.
