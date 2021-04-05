@@ -13,15 +13,13 @@ description: "Use Cluster Connect to securely connect to Azure Arc enabled Kuber
 
 With Cluster Connect, you can securely connect to Azure Arc enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall. Access to the `apiserver` of the Arc enabled Kubernetes cluster enables the following scenarios:
 * Enable interactive debugging and troubleshooting.
-* Provide access to external services.
+* Provide cluster access to Azure services for [custom locations](custom-locations.md) and other resources created on top of it.
 
-A conceptual overview of this feature is available in [Cluster connect - Azure Arc enabled Kubernetes article](conceptual-cluster-connect.md).
+A conceptual overview of this feature is available in [Cluster connect - Azure Arc enabled Kubernetes](conceptual-cluster-connect.md) article.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+## Prerequisites   
 
 - [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
 
@@ -144,4 +142,6 @@ When making requests to the Kubernetes cluster, if the AAD entity used is a part
 You must be logged in to the server (Error:Error while retrieving group info. Error:Overage claim (users with more than 200 group membership) is currently not supported. 
 ```
 
-To get past this error, one can create a [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli), which is less likely to be a part of more than 200 groups, and [sign in](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI using the same before running `az connectedk8s proxy` command.
+To get past this error:
+1. Create a [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli), which is less likely to be a member of more than 200 groups.
+1. [Sign in](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI with the service principal before running `az connectedk8s proxy` command.

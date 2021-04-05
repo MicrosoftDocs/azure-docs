@@ -15,17 +15,15 @@ As an Azure location extension, *Custom Locations* provides a way for tenant adm
 
 Similar to Azure locations, end users within the tenant with access to Custom Locations can deploy resources there using their company's private compute.
 
-A conceptual overview of this feature is available in [Custom locations - Azure Arc enabled Kubernetes article](conceptual-custom-locations.md).
+A conceptual overview of this feature is available in [Custom locations - Azure Arc enabled Kubernetes](conceptual-custom-locations.md) article.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0.
 
-- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
-
-- Provider registration is complete for `Microsoft.ExtendedLocation`
+- Provider registration is complete for `Microsoft.ExtendedLocation`.
     1. Enter the following commands:
     
     ```azurecli

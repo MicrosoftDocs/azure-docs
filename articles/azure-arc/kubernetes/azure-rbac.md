@@ -11,9 +11,9 @@ description: "Use Azure RBAC for authorization checks on Azure Arc enabled Kuber
 
 # Azure RBAC for Azure Arc enabled Kubernetes clusters
 
-Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) objects type help to define authorization in Kubernetes natively. With Azure RBAC, you can use Azure Active Directory (AAD) and role assignments in Azure to control authorization checks on the cluster. This implies you can now use Azure role assignments to granularly control who can read, write, delete your Kubernetes objects such as Deployment, Pod and Service
+Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. With Azure RBAC, you can use Azure Active Directory (AAD) and role assignments in Azure to control authorization checks on the cluster. This implies you can now use Azure role assignments to granularly control who can read, write, delete your Kubernetes objects such as Deployment, Pod and Service
 
-A conceptual overview of this feature is available in [Azure RBAC - Azure Arc enabled Kubernetes article](conceptual-azure-rbac.md).
+A conceptual overview of this feature is available in [Azure RBAC - Azure Arc enabled Kubernetes](conceptual-azure-rbac.md) article.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -70,7 +70,8 @@ A conceptual overview of this feature is available in [Azure RBAC - Azure Arc en
     ```
 
     > [!NOTE]
-    > This step has to be executed by an Azure tenant administrator.
+    > 1. This step has to be executed by an Azure tenant administrator.
+    > 2. For usage of this feature in production, it is recommended to create a different server application for every cluster.
 
 ### Create client application
 
