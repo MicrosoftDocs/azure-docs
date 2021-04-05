@@ -118,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. On the **Single Sign-On** dialog, perform the following steps
 	
-	![Configure Single Sign-On](./media/workfront-tutorial/work-1.png)
+	![Configure Single Sign-On](./media/workfront-tutorial/single-sign-on.png)
    
     a. As **Type**, select **SAML 2.0**.
    
@@ -146,7 +146,7 @@ The objective of this section is to create a user called Britta Simon in Workfro
 
 4. On the New Person dialog, perform the following steps:
    
-    ![Create an Workfront test user](./media/workfront-tutorial/work-2.png)
+    ![Create an Workfront test user](./media/workfront-tutorial/add-person.png)
    
     a. In the **First Name** textbox, type "Britta."
    

@@ -121,11 +121,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open the **M-Files Desktop Settings** window. Then, click **Add**.
    
-    ![Screenshot shows M-Files Desktop Settings where you can select Add.](./media/m-files-tutorial/file-1.png)
+    ![Screenshot shows M-Files Desktop Settings where you can select Add.](./media/m-files-tutorial/settings.png)
 
 1. On the **Document Vault Connection Properties** window, perform the following steps:
    
-    ![Screenshot shows Document Vault Connection Properties where you can enter the values described.](./media/m-files-tutorial/file-2.png)  
+    ![Screenshot shows Document Vault Connection Properties where you can enter the values described.](./media/m-files-tutorial/general.png)  
 
     Under the Server section type, the values as follows:  
 
