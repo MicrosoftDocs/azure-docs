@@ -75,17 +75,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://cs.cloudsds.com/saml/<ID>/Login`
-
-    b. In the **Identifier** box, type a URL using the following pattern:
+    a. In the **Identifier** box, type a URL using the following pattern:
     `https://cs.cloudsds.com/saml/<ID>`
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://cs.cloudsds.com/saml/<ID>/consumeAssertion`
+    
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://cs.cloudsds.com/saml/<ID>/Login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [SDS & Chemical Information Management Client support team](mailto:info@cloudsds.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [SDS & Chemical Information Management Client support team](mailto:info@cloudsds.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
