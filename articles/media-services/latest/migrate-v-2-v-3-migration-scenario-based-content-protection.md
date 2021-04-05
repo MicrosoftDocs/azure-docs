@@ -72,7 +72,7 @@ For more information on content protection in the v3 API, see the article [Prote
 
 You should first unpublish (remove all Streaming Locators) on the Asset via the v2 SDK. Here's how:
 
-1. Delete the locator
+1. Delete the locator.
 1. Unlink the `ContentKeyAuthorizationPolicy`.
 1. Unlink the `AssetDeliveryPolicy`.
 1. Unlink the `ContentKey`.
