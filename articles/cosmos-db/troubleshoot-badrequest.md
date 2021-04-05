@@ -23,7 +23,7 @@ The input content is invalid because the required properties - 'id; ' - are miss
 ```
 
 ### Solution
-This error means the Json document being sent to the service is lacking this required property. You need to specify an `id` property with a String value as per the [REST specification](https://docs.microsoft.com/rest/api/cosmos-db/documents), the SDKs do not auto-generate values for this property.
+This error means the Json document being sent to the service is lacking this required property. Specify an `id` property with a String value as per the [REST specification](https://docs.microsoft.com/rest/api/cosmos-db/documents), the SDKs do not autogenerate values for this property.
 
 ## Invalid partition key type
 On this scenario, it's common to see errors like:
@@ -43,7 +43,7 @@ PartitionKey extracted from document doesn’t match the one specified in the he
 ```
 
 ### Solution
-This error means you are executing an operation and passing a partition key value that does not match the document's body value for the expected property. If the collection's partition key path is `/myPartitionKey`, this means that the document has a property called `myPartitionKey` with a value that does not match what was provided as partition key value when calling the SDK method.
+This error means you are executing an operation and passing a partition key value that does not match the document's body value for the expected property. If the collection's partition key path is `/myPartitionKey`, the document has a property called `myPartitionKey` with a value that does not match what was provided as partition key value when calling the SDK method.
 
 ## Next steps
 * [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
