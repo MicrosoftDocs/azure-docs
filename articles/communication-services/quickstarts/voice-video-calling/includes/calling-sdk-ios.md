@@ -78,7 +78,7 @@ The following classes and interfaces handle some of the major features of the Az
 | `CommunicationIdentifier` | `CommunicationIdentifier` is used to represent the identity of the user. The identity can be `CommunicationUserIdentifier`, `PhoneNumberIdentifier`, or `CallingApplication`. |
 
 > [!NOTE]
-> When the application is implementing event delegates, it has to hold a strong reference to the objects that require event subscriptions. For example, when a `RemoteParticipant` object is returned on invoking the `call.addParticipant` method and the application sets the delegate to listen on `RemoteParticipantDelegate`, the application must hold a strong reference to the `RemoteParticipant` object. Otherwise, if this object gets collected, the delegate will throw a fatal exception when the Calling SDK tries to invoke the object.
+> When the application implements event delegates, it has to hold a strong reference to the objects that require event subscriptions. For example, when a `RemoteParticipant` object is returned on invoking the `call.addParticipant` method and the application sets the delegate to listen on `RemoteParticipantDelegate`, the application must hold a strong reference to the `RemoteParticipant` object. Otherwise, if this object gets collected, the delegate will throw a fatal exception when the Calling SDK tries to invoke the object.
 
 ## Initialize CallAgent
 
