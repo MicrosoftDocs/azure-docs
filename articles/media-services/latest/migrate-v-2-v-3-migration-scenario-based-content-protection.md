@@ -48,6 +48,14 @@ Any Assets that were created and published using the v2 API will have both a `Co
 
 For more information, see the [Content key policy](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) documentation and the [Streaming Policy](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-policy-concept) documentation.
 
+## Use Azure Media Services Explorer (AMSE) v2 and AMSE v3 tools side by side
+
+Use the [v2 Azure Media Services Explorer tool](https://github.com/Azure/Azure-Media-Services-Explorer/releases/tag/v4.3.15.0) along with the [v3 Azure Media Services Explorer tool](https://github.com/Azure/Azure-Media-Services-Explorer) to compare the data side by side for an Asset created and published via v2 APIs. The properties should all be visible, but in different locations.
+
+## Use the .NET content protection migration sample
+
+You can find a code sample to compare the differences in Asset identifiers using the [v2tov3MigrationSample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/v2tov3Migration) under ContentProtection in the Media Services code samples.
+
 ## List the Streaming Locators
 
 You can query the `StreamingLocators` associated with the Assets created in the v2 API using the new v3 method [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) on the Asset entity.  Also reference the .NET client SDK version of [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
@@ -72,15 +80,7 @@ You should first unpublish (remove all Streaming Locators) on the Asset via the 
 1. Create a new `StreamingLocator` in v3 using a v3 `StreamingPolicy` and `ContentKeyPolicy`, specifying the specific content key identifier and key value needed.
 
 > [!NOTE]
-> It is possible to delete the v2 locator using the v3 API, but this won't remove the content key or the content key policy if they were created in the v2 API.  
-
-## Use Azure Media Services Explorer (AMSE) v2 and AMSE v3 tools side by side
-
-Use the [v2 Azure Media Services Explorer tool](https://github.com/Azure/Azure-Media-Services-Explorer/releases/tag/v4.3.15.0) along with the [v3 Azure Media Services Explorer tool](https://github.com/Azure/Azure-Media-Services-Explorer) to compare the data side by side for an Asset created and published via v2 APIs. The properties should all be visible, but in different locations.
-
-## Use the .NET content protection migration sample
-
-You can find a code sample to compare the differences in Asset identifiers using the [v2tov3MigrationSample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/v2tov3Migration) under ContentProtection in the Media Services code samples.
+> It is possible to delete the v2 locator using the v3 API, but this won't remove the content key or the content key policy if they were created in the v2 API.
 
 ## Content protection concepts, tutorials and how to guides
 
