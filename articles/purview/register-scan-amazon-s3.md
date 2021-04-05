@@ -167,31 +167,62 @@ For more information about Purview credentials, see the [Azure Purview public pr
 
 You'll need the following permissions in your AWS policy, depending on whether you want to scan individual buckets or all the buckets in your account:
 
-- **Individual buckets**: `GetObject`, `GetBucketLocation`, and `ListBucket`
-    
-- **All buckets in your account**: `GetObject`, `GetBucketLocation`, `ListBucket`, and `ListAllMyBuckets`
+- **Individual buckets**: `GetObject`, `GetBucketLocation`, and `ListBucket`. 
 
-For example, edit the policy to include the following, as needed:
+    Make sure to define your resource with the specific bucket name. For example:
 
-```json
-{
+    ```json
+    {
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock"
+            ],
+            "Resource": "arn:aws:s3:::<bucketname>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3::: <bucketname>/*"
+        }
+    ]
+}
+
+- **All buckets in your account**: `GetObject`, `GetBucketLocation`, `ListBucket`, and `ListAllMyBuckets`.
+
+    Make sure to define your resource with a wildcard. For example:
+
+    ```json
+    {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
             "Effect": "Allow",
             "Action": [
                 "s3:GetObject",
                 "s3:ListAllMyBuckets",
                 "s3:ListBucket",
-                "s3:GetBucketLocation"
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
             ],
             "Resource": "*"
         }
     ]
 }
-```
-
 
 ### Configure scanning for encrypted Amazon S3 buckets
 
