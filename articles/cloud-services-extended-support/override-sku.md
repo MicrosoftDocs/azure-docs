@@ -25,7 +25,8 @@ Default value is set to be false. If the property is reset to false back from tr
 
 Please go through the below samples to apply the property in PowerShell, template and SDK
 
-1. ARM Template: Setting the property “allowModelOverride” = true here will update the cloud service with the role properties defined in the roleProfile section
+### ARM Template
+Setting the property “allowModelOverride” = true here will update the cloud service with the role properties defined in the roleProfile section
 ```json
 "properties": {
         "packageUrl": "[parameters('packageSasUri')]",
@@ -52,7 +53,8 @@ Please go through the below samples to apply the property in PowerShell, templat
         },
 
 ```
-2. PowerShell  : Setting the switch “AllowModelOverride” on the new New-AzCloudService cmdlet, will update the cloud service with the SKU properties defined in the RoleProfile
+### PowerShell
+Setting the switch “AllowModelOverride” on the new New-AzCloudService cmdlet, will update the cloud service with the SKU properties defined in the RoleProfile
 ```powershell
 New-AzCloudService ` 
 -Name “ContosoCS” ` 
@@ -68,7 +70,8 @@ New-AzCloudService `
 -OSProfile $osProfile `
 -Tag $tag
 ```
-3. SDK: Setting the variable AllowModelOverride= true will update the cloud service with the SKU properties defined in the RoleProfile
+### SDK
+Setting the variable AllowModelOverride= true will update the cloud service with the SKU properties defined in the RoleProfile
 
 ```csharp
 CloudService cloudService = new CloudService
@@ -88,7 +91,8 @@ CloudService cloudService = new CloudService
             };
 CloudService createOrUpdateResponse = m_CrpClient.CloudServices.CreateOrUpdate(“ContosOrg”, “ContosoCS”, cloudService);
 ```
-4.	Azure portal: The portal does not allow the above property to override the role size and instance count in the csdef and cscfg. 
+### Azure portal
+The portal does not allow the above property to override the role size and instance count in the csdef and cscfg. 
 
 
 ## Next steps 
