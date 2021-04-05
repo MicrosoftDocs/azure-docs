@@ -10,23 +10,20 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 ---
 
-
 # Azure Cognitive Search performance benchmarks
 
 Azure Cognitive Search's performance depends on a variety of factors including the size of your search service and the types of queries you're sending. In order to help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the level of performance you can expect.
 
-To cover a range of different use cases we ran benchmarks for three main scenarios:
+To cover a range of different use cases we ran benchmarks for two main scenarios:
 
 * **E-commerce search** - This benchmark emulates a real e-commerce scenario and is based on the Nordic e-commerce company [CDON](https://cdon.com).
 * **Document search** - This scenario is comprised of keyword search over full text documents representing typical document search.
-* **Application search** - Simpler than the e-commerce scenario, this benchmark emulates searching over SQL or Cosmos DB data from within an application.
-
 
 While these scenarios reflect different use cases, every scenario is different so we always recommend performance testing your individual workload. We've published a [performance testing solution using JMeter](https://github.com/Azure-Samples/azure-search-performance-testing) so you can run similar tests against your own service. You can follow this tutorial
 
 ## Testing methodology
 
-To benchmark Azure Cognitive Search's performance, we ran tests for three different scenarios at different SKUs and replica/partition combinations.
+To benchmark Azure Cognitive Search's performance, we ran tests for two different scenarios at different SKUs and replica/partition combinations.
 
 To create these benchmarks, the following methodology was used:
 
@@ -41,7 +38,7 @@ The graph below gives a visual example of what the test's query load looks like:
 Each scenario used at least 10,000 unique queries to avoid tests being overly skewed by caching.
 
 > [!IMPORTANT]
-> These tests only include query workloads so when planning you'll also need to consider how high your indexing load will be. 
+> These tests only include query workloads. If you expect to have a high volumne of indexing operations, be sure to factor that into your estimation and performance testing. Sample code for simulating indexing can be found in this [tutorial](tutorial-optimize-indexing-push-api).
 
 ### Definitions
 
@@ -131,20 +128,37 @@ In this case, we see that adding a second partition significantly increases the 
 Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
-|---|---|---|---| --- | --- | --- | 
+|---|---|---|---| --- | --- | --- |
 | 20%  | 50 ms  | 20 ms  | 64 ms   | 83 ms | 98 ms | 160 ms |
 | 50%  | 62 ms  | 24 ms  | 80 ms   | 107 ms | 130 ms | 253 ms |
-| 80%  | 115 ms  | 38 ms  | 121 ms   | 218 ms | 352 ms | 828 ms | 
+| 80%  | 115 ms  | 38 ms  | 121 ms   | 218 ms | 352 ms | 828 ms |
 
 ## Benchmark 2: Document search
-
 
 ### Scenario Details
 
 - **Document Count**: 7.5 million
 - **Index Size**: 22 GB
 - **Index Schema**: 23 fields; 8 searchable, 10 filterable/facetable
-- **Query Types**: key word searches with facets and hit highlighting
+- **Query Types**: keyword searches with facets and hit highlighting
+
+### S1 Performance
+
+#### Queries per second
+
+The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+
+![Highest maintainable QPS doc search s1](./media/performance-benchmarks/s1-docsearch-qps.png)
+
+#### Query latency
+
+Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+
+| Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
+|---|---|---|---| --- | --- | --- |
+| 20%  | 67 ms  | 44 ms  | 77 ms   | 103 ms | 126 ms | 216 ms |
+| 50%  | 93 ms  | 59 ms  | 110 ms   | 150 ms | 184 ms | 304 ms |
+| 80%  | 150 ms  | 96 ms  | 184 ms   | 248 ms | 297 ms | 424 ms |
 
 ### S2 Performance
 
@@ -159,16 +173,7 @@ The chart below shows the highest query load a service could handle for an exten
 Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
-|---|---|---|---| --- | --- | --- | 
-| 20%  | 44 ms  | 31 ms  | 54 ms   | 73 ms | 83 ms | 108 ms |
-| 50%  | 63 ms  | 39 ms  | 81 ms   | 105 ms | 122 ms | 163 ms |
-| 80%  | 115 ms  | 73 ms  | 144 ms   | 190 ms | 222 ms | 289 ms | 
-## Benchmark 3: Application search
-
-
-### Scenario Details
-
-- **Document Count**: 
-- **Index Size**: 
-- **Index Schema**: 
-- **Query Types**: 
+|---|---|---|---| --- | --- | --- |
+| 20%  | 45 ms  | 31 ms  | 55 ms   | 73 ms | 84 ms | 109 ms |
+| 50%  | 63 ms  | 39 ms  | 81 ms   | 106 ms | 123 ms | 163 ms |
+| 80%  | 115 ms  | 73 ms  | 145 ms   | 191 ms | 224 ms | 291 ms |
