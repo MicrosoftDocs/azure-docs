@@ -678,6 +678,8 @@
       - name: Access database logs
         href: howto-hyperscale-logging.md
         displayName: log, hyperscale
+    - name: Major version upgrades
+      href: howto-hyperscale-upgrade.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot connection errors
