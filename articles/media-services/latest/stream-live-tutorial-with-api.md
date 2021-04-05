@@ -44,7 +44,7 @@ The following items are required to complete the tutorial:
 - [Create a Media Services account](./account-create-how-to.md).<br/>Make sure to copy the API Access details in JSON format or store the values needed to connect to the Media Services account in the .env file format used in this sample.
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You'll need to use them to access the API in this sample, or enter them into the .env file format. 
 - A camera or a device (like a laptop) that's used to broadcast an event.
-- An on-premises software encoder that encodes your camera stream and sends it to the Media Services live streaming service using the RTMP protocol, see [recommended on-premises live encoders](recommended-on-premises-live-encoders.md). The stream has to be in **RTMP** or **Smooth Streaming** format.  
+- An on-premises software encoder that encodes your camera stream and sends it to the Media Services live streaming service using the RTMP protocol, see [recommended on-premises live encoders](encode-recommended-on-premises-live-encoders.md). The stream has to be in **RTMP** or **Smooth Streaming** format.  
 - For this sample, it is recommended to start with a software encoder like the free [Open Broadcast Software OBS Studio](https://obsproject.com/download) to make it simple to get started. 
 
 > [!TIP]
