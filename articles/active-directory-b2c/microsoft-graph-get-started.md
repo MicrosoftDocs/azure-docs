@@ -54,12 +54,12 @@ Before your scripts and applications can interact with the [Microsoft Graph API]
 
 ## Grant API access
 
-For your application to access data in Microsoft Graph, grant the registered application the relevant [application permissions](https://docs.microsoft.com/graph/permissions-reference). The the effective permissions of your application are the full level of privileges implied by the permission. For example, to *create*, *read*, *update*, and *delete* every user in your Azure AD B2C tenant, add the **User.ReadWrite.All** permission. 
+For your application to access data in Microsoft Graph, grant the registered application the relevant [application permissions](https://docs.microsoft.com/graph/permissions-reference). The effective permissions of your application are the full level of privileges implied by the permission. For example, to *create*, *read*, *update*, and *delete* every user in your Azure AD B2C tenant, add the **User.ReadWrite.All** permission. 
 
 > [!NOTE]
-> The **User.ReadWrite.All** permission does not include the ability update user account passwords. If your application needs to update user account passwords, you can skip to the next section [grant user administrator role](#optional-grant-user-administrator-role).
+> The **User.ReadWrite.All** permission does not include the ability update user account passwords. If your application needs to update user account passwords, [grant user administrator role](#optional-grant-user-administrator-role). When granting [user administrator](../active-directory/roles/permissions-reference.md#user-administrator) role, the **User.ReadWrite.All** is not required. The user administrator role includes everything needed to manage users.
 
-You can grant your application multiple application permissions. For example, if you application also needs to mange groups in your Azure AD B2C tenant, add the **Group.ReadWrite.All** permission as well. 
+You can grant your application multiple application permissions. For example, if your application also needs to manage groups in your Azure AD B2C tenant, add the **Group.ReadWrite.All** permission as well. 
 
 [!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
