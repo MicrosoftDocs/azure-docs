@@ -87,7 +87,7 @@ You can have multiple enterprise administrators in an enterprise enrollment. You
 
 ### EA purchaser
 
-Users with this role have permissions purchase Azure services, but are not allowed to manage accounts. They can:
+Users with this role have permissions to purchase Azure services, but are not allowed to manage accounts. They can:
 
 - Purchase Azure services, including reservations.
 - View usage across all accounts.
