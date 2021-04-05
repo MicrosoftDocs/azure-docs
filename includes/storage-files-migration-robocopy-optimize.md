@@ -18,7 +18,7 @@ Speed and success rate of a given RoboCopy run will depend on several factors:
 * the number of changes between RoboCopy runs
 
 
-### IOPS and Bandwidth considerations
+### IOPS and bandwidth considerations
 
 In this category, you need to consider abilities of the **source storage**, the **target storage**, and the **network** connecting them. The maximum possible throughput is determined by the slowest of these three components. Make sure your network infrastructure is configured to support optimal transfer speeds to its best abilities.
 
