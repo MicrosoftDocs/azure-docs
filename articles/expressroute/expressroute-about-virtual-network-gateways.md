@@ -34,8 +34,8 @@ The following table shows the gateway types and the estimated performances. This
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> Application performance depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment.
->
+> * Number of VMs in the virtual network also includes VMs in peered virtual networks that uses remote ExpressRoute gateway.
+> * Application performance depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment.
 >
 
 ## <a name="gwsub"></a>Gateway subnet
