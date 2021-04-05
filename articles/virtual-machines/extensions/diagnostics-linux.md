@@ -453,10 +453,16 @@ For `builtin` metrics, we recommend `counterSpecifier` values that begin with `/
 
 Neither LAD nor the Azure portal expects the `counterSpecifier` value to match any pattern. Be consistent in how you construct `counterSpecifier` values.
 
-When you specify `performanceCounters`, LAD always writes data to a table in Azure storage. You can have the same data written to JSON blobs and/or Event Hubs, but you cannot disable storing data to a table. All instances of the diagnostic extension configured to use the same storage account name and endpoint add their metrics and logs to the same table. If too many VMs are writing to the same table partition, Azure can throttle writes to that partition. The eventVolume setting causes entries to be spread across 1 (Small), 10 (Medium), or 100 (Large) different partitions. Usually, "Medium" is sufficient to ensure traffic is not throttled. The Azure Metrics feature of the Azure portal uses the data in this table to produce graphs or to trigger alerts. The table name is the concatenation of these strings:
+When you specify `performanceCounters`, LAD always writes data to a table in Azure Storage. The same data can be written to JSON blobs or Event Hubs or both. But you can't disable storing data to a table. 
+
+All instances of LAD that use the same storage account name and endpoint add their metrics and logs to the same table. If too many VMs write to the same table partition, Azure can throttle writes to that partition. 
+
+The `eventVolume` setting causes entries to be spread across 1 (small), 10 (medium), or 100 (large) partitions. Usually, medium partitions are sufficient to avoid traffic throttling. 
+
+The Azure Metrics feature of the Azure portal uses the data in this table to produce graphs or to trigger alerts. The table name is the concatenation of these strings:
 
 * `WADMetrics`
-* The "scheduledTransferPeriod" for the aggregated values stored in the table
+* The `"scheduledTransferPeriod"` for the aggregated values stored in the table
 * `P10DV2S`
 * A date, in the form "YYYYMMDD", which changes every 10 days
 
@@ -475,17 +481,19 @@ Examples include `WADMetricsPT1HP10DV2S20170410` and `WADMetricsPT1MP10DV2S20170
 }
 ```
 
-This optional section controls the collection of log events from syslog. If the section is omitted, syslog events are not captured at all.
+The `syslogEvents` optional section controls the collection of log events from syslog. If the section is omitted, syslog events aren't captured at all.
 
-The syslogEventConfiguration collection has one entry for each syslog facility of interest. If minSeverity is "NONE" for a particular facility, or if that facility does not appear in the element at all, no events from that facility are captured.
+The `syslogEventConfiguration` collection has one entry for each syslog facility of interest. If `minSeverity` is `"NONE"` for a particular facility, or if that facility doesn't appear in the element at all, no events from that facility are captured.
 
 Element | Value
 ------- | -----
-sinks | A comma-separated list of names of sinks to which individual log events are published. All log events matching the restrictions in syslogEventConfiguration are published to each listed sink. Example: "EHforsyslog"
-facilityName | A syslog facility name (such as "LOG\_USER" or "LOG\_LOCAL0"). See the "facility" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list.
-minSeverity | A syslog severity level (such as "LOG\_ERR" or "LOG\_INFO"). See the "level" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list. The extension captures events sent to the facility at or above the specified level.
+sinks | A comma-separated list of names of sinks to which individual log events are published. All log events that match the restrictions in `syslogEventConfiguration` are published to each listed sink. Example: `"EHforsyslog"`
+facilityName | A syslog facility name, such as `"LOG\_USER"` or `"LOG\_LOCAL0"`. For more information, see the "facility" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html).
+minSeverity | A syslog severity level, such as `"LOG\_ERR"` or `"LOG\_INFO"`. For more information, see the "level" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html). The extension captures events sent to the facility at or above the specified level.
 
-When you specify `syslogEvents`, LAD always writes data to a table in Azure storage. You can have the same data written to JSON blobs and/or Event Hubs, but you cannot disable storing data to a table. The partitioning behavior for this table is the same as described for `performanceCounters`. The table name is the concatenation of these strings:
+When you specify `syslogEvents`, LAD always writes data to a table in Azure Storage. The same data can be written to JSON blobs or Event Hubs or both. But you can't disable storing data to a table. 
+
+The partitioning behavior for this table is the same as described for `performanceCounters`. The table name is the concatenation of these strings:
 
 * `LinuxSyslog`
 * A date, in the form "YYYYMMDD", which changes every 10 days
@@ -494,7 +502,7 @@ Examples include `LinuxSyslog20170410` and `LinuxSyslog20170609`.
 
 ### sinksConfig
 
-This optional section controls enabling sending metrics to the Azure Monitor sink in addition to the Storage account and the default Guest Metrics blade.
+The `sinksConfig` optional section controls enabling sending metrics to the Azure Monitor sink in addition to the Storage account and the default Guest Metrics blade.
 
 > [!NOTE]
 > This requires System Assigned Identity to be enabled on the VMs/VMSS. 
