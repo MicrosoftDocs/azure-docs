@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Run the migration.
 > * Monitor the migration.
 
-In this tutorial, you migrate a dataset in MongoDB that is hosted in an Azure virtual machine. Using the Azure Database Migration Service, you migrate the dataset to the Azure Cosmos DB API for MongoDB. If you don't have a MongoDB source set up already, see [Install and configure MongoDB on a Windows VM in Azure](/previous-versions/azure/virtual-machines/windows/install-mongodb).
+In this tutorial, you migrate a dataset in MongoDB that is hosted in an Azure virtual machine. By using Azure Database Migration Service, you migrate the dataset to the Azure Cosmos DB API for MongoDB. If you don't have a MongoDB source set up already, see [Install and configure MongoDB on a Windows VM in Azure](/previous-versions/azure/virtual-machines/windows/install-mongodb).
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ If the feature is disabled, select **Enable**.
 
    ![Screenshot that shows portal subscriptions.](media/tutorial-mongodb-to-cosmosdb/portal-select-subscription1.png)
 
-2. Select the subscription in which you want to create the instance of the Azure Database Migration Service, and then select **Resource providers**.
+2. Select the subscription in which you want to create the instance of Azure Database Migration Service, and then select **Resource providers**.
 
     ![Screenshot that shows resource providers.](media/tutorial-mongodb-to-cosmosdb/portal-select-resource-provider.png)
 
@@ -152,7 +152,7 @@ After you create the service, locate it within the Azure portal, and open it. Th
      * For JSON dumps, the files in the blob container must be placed into folders named after the containing databases. Within each database folder, data files must be placed in a subfolder called *data*, and named by using the format *collection.json*. Place any metadata files in a subfolder called *metadata*, and named by using the same format, *collection.json*. The metadata files must be in the same format as produced by the MongoDB bsondump tool.
 
     > [!IMPORTANT]
-    > It's not recommended to use a self-signed certificate on the Mongo server. If you must use one, connect to the server by using the connection string mode, and ensure that your connection string has “”
+    > We don't recommend that you use a self-signed certificate on the MongoDB server. If you must use one, connect to the server by using the connection string mode, and ensure that your connection string has quotation marks ("").
     >
     >```
     >&sslVerifyCertificate=false
@@ -221,7 +221,7 @@ On the migration activity screen, select **Refresh** to update the display until
 
 ## Verify data in Azure Cosmos DB
 
-After the migration completes, you can check your Azure Cosmos DB account to verify that all the collections were migrated successfully.
+After the migration finishes, you can check your Azure Cosmos DB account to verify that all the collections were migrated successfully.
 
 ![Screenshot that shows where to check your Azure Cosmos DB account to verify that all the collections were migrated successfully.](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
 
