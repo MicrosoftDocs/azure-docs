@@ -59,7 +59,7 @@ Jupyter notebooks| Create a `.amlignore` file or move your notebook into a new, 
 
 Due to the isolation of training experiments, the changes to files that happen during runs are not necessarily persisted outside of your environment. If your script modifies the files local to compute, the changes are not persisted for your next experiment run, and they're not propagated back to the client machine automatically. Therefore, the changes made during the first experiment run don't and shouldn't affect those in the second.
 
-When writing changes, we recommend writing files to storage via an Azure Machine Learning dataset with an [OutputFileDatasetConfig object](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py). See [how to create an OutputFileDatasetConfig](how-to-train-with-datasets.md#where-to-write-training-output).
+When writing changes, we recommend writing files to storage via an Azure Machine Learning dataset with an [OutputFileDatasetConfig object](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig). See [how to create an OutputFileDatasetConfig](how-to-train-with-datasets.md#where-to-write-training-output).
 
 Otherwise, write files to the `./outputs` and/or `./logs` folder.
 

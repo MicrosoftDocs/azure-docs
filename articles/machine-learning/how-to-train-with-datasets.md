@@ -42,7 +42,7 @@ To create and train with datasets, you need:
 
 If you have structured data not yet registered as a dataset, create a TabularDataset and use it directly in your training script for your local or remote experiment.
 
-In this example, you create an unregistered [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) and specify it as a script argument in the [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) object for training. If you want to reuse this TabularDataset with other experiments in your workspace, see [how to register datasets to your workspace](how-to-create-register-datasets.md#register-datasets).
+In this example, you create an unregistered [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) and specify it as a script argument in the [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) object for training. If you want to reuse this TabularDataset with other experiments in your workspace, see [how to register datasets to your workspace](how-to-create-register-datasets.md#register-datasets).
 
 ### Create a TabularDataset
 
@@ -148,7 +148,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 ```
 ### Where to write training output
 
-You can specify where to write your training results with an [OutputFileDatasetConfig object](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py). 
+You can specify where to write your training results with an [OutputFileDatasetConfig object](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig). 
 
 OutputFileDatasetConfig objects allow you to: 
 
