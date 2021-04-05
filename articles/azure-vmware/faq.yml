@@ -3,7 +3,7 @@ metadata:
   title: Microsoft Azure VMware Solution FAQ
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: conceptual
-  ms.date:  03/26/2021
+  ms.date:  04/09/2021
 
     
 title: Common questions about Azure VMware Solution
@@ -43,7 +43,7 @@ sections:
       - question: What does the change control process look like?
         answer: Updates made to the service itself follows Microsoft Azure's standard change management process. Customers are responsible for any workload administration tasks and the associated change management processes.
 
-      - question: How is this different from Azure VMware Solution by CloudSimple?
+      - question: How is this version different from Azure VMware Solution by CloudSimple?
         answer: With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is entirely designed, built, and supported by Microsoft, and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on a dedicated Azure infrastructure.
 
       - question: Can Azure VMware Solution VMs be managed by VMRC?
@@ -168,9 +168,6 @@ sections:
       - question: What is the RAID configuration of the disk groups?
         answer: The disk groups are not RAID configured. Instead, they are just a bunch of disks (JBOD) and are [directly controlled by vSAN](https://core.vmware.com/vsan-learn-and-evaluate).
 
-      - question: If a cluster is scaled up and then workload demand falls, can it be scaled back down? 
-        answer: Yes, as long as you have the quota allocated against your private cloud, you can scale out your clusters. When workload demand falls, you can delete nodes from the cluster to scale it down. You can do this through the Azure VMware Solution portal.
-
       - question: What network IP address planning is required to incorporate private clouds with on-premises environments?
         answer: A private network /22 address space is required to deploy an Azure VMware Solution private cloud. This private address space shouldn't overlap with other virtual networks in a subscription or with on-premises networks.
 
@@ -205,6 +202,10 @@ sections:
 
   - name: Hosts, clusters, and private clouds
     questions:
+
+      - question: If a cluster is scaled up, and then workload demand falls, can it be scaled back down? 
+        answer: Yes, as long as you have the quota allocated against your private cloud, you can scale out your clusters. When workload demand falls, you can delete nodes from the cluster to scale it down. You can do this through the Azure VMware Solution portal.
+
       - question: Is the underlying infrastructure shared?
         answer: No, private cloud hosts and clusters are dedicated and securely erased before and after use.
 
@@ -253,7 +254,7 @@ sections:
       - question: Who supports Azure VMware Solution?
         answer: Microsoft delivers support for Azure VMware Solution. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
           
-          For CSP-managed subscriptions, the first level of support provides the Solution Provider in the same fashion as CSP does for other Azure services.
+          For Cloud Solution Provider (CSP) managed subscriptions, the first level of support provides the Solution Provider in the same fashion as CSP does for other Azure services.
           
       - question: What accounts do I need to create an Azure VMware Solution private cloud?
         answer: You'll need an Azure account in an Azure subscription.
@@ -267,7 +268,7 @@ sections:
       - question: How do I request a host quota increase for Azure VMware Solution?
         answer: Whether you want more hosts for an existing private cloud or you're creating a new private cloud, you'll need to submit a support ticket to have your hosts allocated.  For more information, see [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
           
-      - question: Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+      - question: Are Reserved Instances available for purchasing through the CSP program?
         answer: Yes. CSPs can purchase reserved instances for their customers. For more information, see [Save costs with a reserved instance](reserved-instance.md). 
           
       - question: Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
