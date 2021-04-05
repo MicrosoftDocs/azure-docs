@@ -38,7 +38,16 @@ These are the available licensing options for Dynamics 365 offers:
 
 ## Legal contracts
 
-[!INCLUDE [Legal contracts section](includes/legal-contracts.md)]
+[!INCLUDE [Legal contracts section](includes/legal-contracts-intro.md)]
+
+### Standard contract
+
+[!INCLUDE [Legal contracts section](includes/legal-contracts-standard.md)]
+[!INCLUDE [Legal contracts section](includes/legal-contracts-amendments.md)]
+
+### Custom terms and conditions
+
+[!INCLUDE [Legal contracts section](includes/legal-contracts-custom.md)]
 
 ## Offer listing details
 
@@ -84,5 +93,5 @@ After you've considered the planning items described above, select one of the fo
 | [Dynamics 365 for Business Central](./partner-center-portal/create-new-business-central-offer.md) |   |
 | [Dynamics 365 for Customer Engagement](./partner-center-portal/create-new-customer-engagement-offer.md) | First review the [publishing process and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
 | Power Apps | <font color="red">[ If this is a D365 offer, where should it link to? ] </font>|
-| [Power BI](partner-center-portal/create-power-bi-app-offer.md) | Review the publishing process and guidelines](/power-bi/developer/office-store). |
+| [Power BI](power-bi-app-offer-setup.md) | [Review the publishing process and guidelines](/power-bi/developer/office-store). |
 |
