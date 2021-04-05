@@ -10,7 +10,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Azure Cosmos DB forbidden exceptions
+# Diagnose and troubleshoot Azure Cosmos DB bad request exceptions
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The HTTP status code 400 represents the request contains invalid data or it's missing required parameters.
