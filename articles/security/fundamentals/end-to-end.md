@@ -1,5 +1,5 @@
 ---
-title: End to end security in Azure | Microsoft Docs
+title: End-to-end security in Azure | Microsoft Docs
 description: The article introduces you to Azure services that help you secure and protect your cloud resources and detect and investigate threats.
 services: security
 documentationcenter: na
@@ -17,12 +17,12 @@ ms.date: 4/05/2021
 ms.author: terrylan
 
 ---
-# End to end security in Azure
-We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of its wide array of security tools and capabilities. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform. Microsoft Azure provides confidentiality, integrity, and availability of customer data, while also enabling transparent accountability.
+# End-to-end security in Azure
+One of the best reasons to use Azure for your applications and services is to take advantage of its wide array of security tools and capabilities. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform. Microsoft Azure provides confidentiality, integrity, and availability of customer data, while also enabling transparent accountability.
 
 The following diagram and documentation introduces you to the security services in Azure. These security services help you meet the security needs of your business and protect your users, devices, resources, data, and applications in the cloud.
 
-## End to end diagram
+## Microsoft security services map
 
 The diagram organizes services by the resources they protect (column). The diagram also groups services into the following categories (row):
 
@@ -32,7 +32,7 @@ The diagram organizes services by the resources they protect (column). The diagr
 
 The diagram includes the Azure Security Benchmark program, a collection of high-impact security recommendations you can use to help secure the services you use in Azure.
 
-![End to end security in Azure](./media/end-to-end/end-to-end-security.png)
+![End-to-end security in Azure](./media/end-to-end/end-to-end-security.png)
 
 ## Security controls and baselines
 The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
@@ -116,3 +116,7 @@ The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a
 | [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/investigate) | Provides tools to gain a deeper understanding of what's happening in your cloud environment. |
 
 ## Next steps
+
+- Understand your [shared responsibility in the cloud](shared-responsibility.md).
+
+- Understand the [isolation choices in the Azure cloud](isolation-choices.md) against both malicious and non-malicious users.
