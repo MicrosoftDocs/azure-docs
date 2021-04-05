@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # What are managed identities for Azure resources?
 
-A common challenge for developers is the management of secrets and credentials to secure communication between different components part of a solution. Managed identities eliminate the need for developers to manage credentials. Manage identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. Applications may use the managed identity to obtain Azure AD tokens. For example, an application may use a managed identity to access resources like [Azure Key Vault](../../key-vault/general/overview.md) where developers can store credentials in a secure manner or to access storage accounts.
+A common challenge for developers is the management of secrets and credentials used to secure communication between different components making up a solution. Managed identities eliminate the need for developers to manage credentials. Manage identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. Applications may use the managed identity to obtain Azure AD tokens. For example, an application may use a managed identity to access resources like [Azure Key Vault](../../key-vault/general/overview.md) where developers can store credentials in a secure manner or to access storage accounts.
 
 What can a managed identity be used for?
 
