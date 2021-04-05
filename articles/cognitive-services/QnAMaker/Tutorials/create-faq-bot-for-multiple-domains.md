@@ -44,7 +44,7 @@ An example JSON body looks like:
     "top": 6,
     "isTest": true,
     "scoreThreshold": 30,
-    "rankerType": "" // values: QuestionOnly
+    "rankerType": ""  // values: QuestionOnly
     "strictFilters": [
     {
         "name": "category",
