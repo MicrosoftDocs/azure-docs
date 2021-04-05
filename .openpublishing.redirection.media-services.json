@@ -585,5 +585,15 @@
             "redirect_url": "security-pass-authentication-tokens-how-to",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/media-services/azure-media-player/azure-media-player-changelog.md",
+            "redirect_url": "https://amp.azure.net/libs/amp/latest/docs/changelog.html",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/azure-media-player/azure-media-player-release-notes.md",
+            "redirect_url": "https://amp.azure.net/libs/amp/latest/docs/changelog.html",
+            "redirect_document_id": false
+        }
     ]
 }
