@@ -82,65 +82,68 @@ The following sample payload is for a standard webhook action that's used for al
 
 ```json
 {
-    "SubscriptionId": "12345a-1234b-123c-123d-12345678e",
-    "AlertRuleName": "AcmeRule",
-    "SearchQuery": "Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
-    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 2,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "LinkToFilteredSearchResultsUI": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "LinkToSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
-    "LinkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
-    "Description": "log alert rule",
-    "Severity": "Warning",
-    "AffectedConfigurationItems": [
-        "INC-Gen2Alert"
-    ],
-    "Dimensions": [
-        {
-            "name": "Computer",
-            "value": "INC-Gen2Alert"
-        }
-    ],
-    "SearchResult": {
-        "tables": [
+   "schemaId":"Microsoft.Insights/LogAlert",
+   "data":{
+      "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
+      "AlertRuleName":"AcmeRule",
+      "SearchQuery":"Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
+      "SearchIntervalStartTimeUtc":"2018-03-26T08:10:40Z",
+      "SearchIntervalEndtimeUtc":"2018-03-26T09:10:40Z",
+      "AlertThresholdOperator":"Greater Than",
+      "AlertThresholdValue":0,
+      "ResultCount":2,
+      "SearchIntervalInSeconds":3600,
+      "LinkToSearchResults":"https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+      "LinkToFilteredSearchResultsUI":"https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+      "LinkToSearchResultsAPI":"https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+      "LinkToFilteredSearchResultsAPI":"https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+      "Description":"log alert rule",
+      "Severity":"Warning",
+      "AffectedConfigurationItems":[
+         "INC-Gen2Alert"
+      ],
+      "Dimensions":[
+         {
+            "name":"Computer",
+            "value":"INC-Gen2Alert"
+         }
+      ],
+      "SearchResult":{
+         "tables":[
             {
-                "name": "PrimaryResult",
-                "columns": [
-                    {
-                        "name": "$table",
-                        "type": "string"
-                    },
-                    {
-                        "name": "Computer",
-                        "type": "string"
-                    },
-                    {
-                        "name": "TimeGenerated",
-                        "type": "datetime"
-                    }
-                ],
-                "rows": [
-                    [
-                        "Fabrikam",
-                        "33446677a",
-                        "2018-02-02T15:03:12.18Z"
-                    ],
-                    [
-                        "Contoso",
-                        "33445566b",
-                        "2018-02-02T15:16:53.932Z"
-                    ]
-                ]
+               "name":"PrimaryResult",
+               "columns":[
+                  {
+                     "name":"$table",
+                     "type":"string"
+                  },
+                  {
+                     "name":"Computer",
+                     "type":"string"
+                  },
+                  {
+                     "name":"TimeGenerated",
+                     "type":"datetime"
+                  }
+               ],
+               "rows":[
+                  [
+                     "Fabrikam",
+                     "33446677a",
+                     "2018-02-02T15:03:12.18Z"
+                  ],
+                  [
+                     "Contoso",
+                     "33445566b",
+                     "2018-02-02T15:16:53.932Z"
+                  ]
+               ]
             }
-        ]
-    },
-    "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
-    "AlertType": "Metric measurement"
+         ]
+      },
+      "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
+      "AlertType":"Metric measurement"
+   }
 }
 ```
 
