@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using one of the following patterns:
+    a. In the **Sign-on URL** text box, type a URL using one of the following patterns:
 
     | Sign-on URL |
     |--------------|
@@ -83,8 +83,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | ` https://<SUBDOMAIN>.staging-app.codility.net` |
     |
 
+    b. In the **Relay State** text box, type a value using the following pattern: `<UNIQUE_IDENTIFIER>`
+
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Contact [Codility Client support team](mailto:support@codility.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-on URL and Relay State. Contact [Codility Client support team](mailto:support@codility.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -93,6 +95,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Codility** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
