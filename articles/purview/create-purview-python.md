@@ -63,7 +63,7 @@ EventHub namespace. For more information refer to [Create Catalog Portal](create
 	import time
     ```
 
-2. Add the following code to the **Main** method that creates an instance of PurviewManagementClient class. You use this object to create a purview account, delete purview account, check name availablity and other resource provider operations.
+2. Add the following code to the **Main** method that creates an instance of PurviewManagementClient class. You use this object to create a purview account, delete purview account, check name availability and other resource provider operations.
  
  ```python
     def main():
