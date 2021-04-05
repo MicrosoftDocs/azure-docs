@@ -22,10 +22,16 @@ Many a times, users would have similar questions but on a different domain. You 
 
 ### Create a single knowledge base and tag QnA pairs categorically with metadata
 
-The content authors can use documents/URLs to extract QnAs or add custom QnAs to the knowledgebase. In order to group these QnAs by a category, you can add [metadata](../How-To/query-knowledge-base-with-metadata.md) to the QnA pairs. 
+The content authors can use documents/URLs to extract QnAs or add custom QnAs to the knowledgebase. In order to group these QnAs by a category, you can add [metadata](../How-To/query-knowledge-base-with-metadata.md) to the QnA pairs.
 
 Let's say are trying to create a Knowledgebase 
 
+Adding metadata to the knowlegdebase helps you add categories to the QnA pairs. However, to restrict the system to search for a response across a particluar category of QnA pairs, you would need to pass that category as a strict filter in the generate Answer API. 
+
+You can fetch metadata/category from user query in the following ways - 
+
+* Explicitly take category as input from the user through the bot interface. For instance, you can take as input from the user a product category they are interested in before they ask questions.
+* Identify catgory based on any other input. For instance, in case of an empoloyee FAQ bot, you can identify department from employee id which can then be set as filter for metadata.
 
 #### How large can our knowledgebases be? 
 
