@@ -41,8 +41,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Input start date and end date type validation and error indication if it's not datetime type.
   + **azureml-parallel-run**
     + [Experimental feature] Add `partition_keys` parameter to ParallelRunConfig, if specified, the input dataset(s) would be partitioned into mini-batches by the keys specified by it. It requires all input datasets to be partitioned dataset.
-  + **azureml-pipeline-core**
-    + Bugfix - supporting path_on_compute while passing dataset configuration as download.
   + **azureml-pipeline-steps**
     + Bugfix - supporting path_on_compute while passing dataset configuration as download.
     + Deprecate RScriptStep in favor of using CommandStep for running R scripts in pipelines. 
