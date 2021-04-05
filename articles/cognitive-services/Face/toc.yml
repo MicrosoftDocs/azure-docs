@@ -15,11 +15,11 @@
   href: /samples/browse/?products=azure&term=face
 - name: How-to guides
   items:
-  - name: Detect faces
+  - name: Detect and analyze faces
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: Specify a face recognition model
+  - name: Specify a face recognition model version
     href: Face-API-How-to-Topics/specify-recognition-model.md
-  - name: Specify a face detection model
+  - name: Specify a face detection model version
     href: Face-API-How-to-Topics/specify-detection-model.md
   - name: Add faces to a group
     href: Face-API-How-to-Topics/how-to-add-faces.md
@@ -56,11 +56,11 @@
   items:
   - name: Create a face detector app
     href: Tutorials/FaceAPIinCSharpTutorial.md
-  - name: Face enrollment tutorial
+  - name: Add users to a Face service
     items:
-    - name: Face enrollment overview
+    - name: Best practices for adding users
       href: enrollment-overview.md
-    - name: Build an enrollment app with React
+    - name: Build a react app to add users
       href: build-enrollment-app.md
 - name: Reference
   items:
