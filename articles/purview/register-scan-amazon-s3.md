@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/04/2021
+ms.date: 04/05/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
@@ -74,9 +74,13 @@ The following table maps the regions where you data is stored to the region wher
 
 Ensure that you've performed the following prerequisites before adding your Amazon S3 buckets as Purview data sources and scanning your S3 data.
 
-- You need to be an Azure Purview Data Source Admin.
-
-- When adding your buckets as Purview resources, you'll need the values of your [AWS ARN](#retrieve-your-new-role-arn), [bucket name](#retrieve-your-amazon-s3-bucket-name), and sometimes your [AWS account ID](#locate-your-aws-account-id).
+> [!div class="checklist"]
+> * You need to be an Azure Purview Data Source Admin.
+> * [Create a Purview account](#create-a-purview-account) if you don't yet have one
+> * [Create a Purview credential for your AWS bucket scan](#create-a-purview-credential-for-your-aws-bucket-scan)
+> * [Create a new AWS role for use with Purview](#create-a-new-aws-role-for-purview)
+> * [Configure scanning for encrypted Amazon S3 buckets](#configure-scanning-for-encrypted-amazon-s3-buckets), if relevant
+> * When adding your buckets as Purview resources, you'll need the values of your [AWS ARN](#retrieve-your-new-role-arn), [bucket name](#retrieve-your-amazon-s3-bucket-name), and sometimes your [AWS account ID](#locate-your-aws-account-id).
 
 ### Create a Purview account
 
@@ -136,6 +140,11 @@ For more information about Purview credentials, see the [Azure Purview public pr
 
     ![Select the ReadOnlyAccess policy for the new Amazon S3 scanning role.](./media/register-scan-amazon-s3/aws-permission-role-amazon-s3.png)
 
+    > [!IMPORTANT]
+    > The permissions required for the policy depend on whether you want to use it to scan individual buckets or all the buckets in your AWS account, and you may need to edit the policy and add additional permissions. 
+    >
+    > For more information, see [Required permissions for your AWS policy](#required-permissions-for-your-aws-policy).
+
 1. In the **Add tags (optional)** area, you can optionally choose to create a meaningful tag for this new role. Useful tags enable you to organize, track, and control access for each role you create.
 
     Enter a new key and value for your tag as needed. When you're done, or if you want to skip this step, select **Next: Review** to review the role details and complete the role creation.
@@ -153,6 +162,35 @@ For more information about Purview credentials, see the [Azure Purview public pr
     For example:
 
     ![Review details before creating your role.](./media/register-scan-amazon-s3/review-role.png)
+
+#### Required permissions for your AWS policy
+
+You'll need the following permissions in your AWS policy, depending on whether you want to scan individual buckets or all the buckets in your account:
+
+- **Individual buckets**: `GetObject`, `GetBucketLocation`, and `ListBucket`
+    
+- **All buckets in your account**: `GetObject`, `GetBucketLocation`, `ListBucket`, and `ListAllMyBuckets`
+
+For example, edit the policy to include the following, as needed:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:ListAllMyBuckets",
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 
 ### Configure scanning for encrypted Amazon S3 buckets
