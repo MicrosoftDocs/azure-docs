@@ -119,6 +119,14 @@
         - name: Install software
           displayName: setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate
           href: how-to-install-software.md
+    - name: Prepare your sensors
+      items:
+      - name: Manage sensors
+        displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions, offboarding
+        href: how-to-manage-sensors-on-the-cloud.md
+      - name: Activate and set up your sensor
+        displayName: deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
+        href: how-to-activate-and-set-up-your-sensor.md
     - name: Prepare your on-premises management console
       items:
       - name: Manage subscriptions

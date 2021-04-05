@@ -16,6 +16,10 @@ ms.date: 04/02/2021
 
 In this tutorial, you'll learn how to add an administrator to your Synapse workspace. This user will have full control over the workspace.
 
+## Overview
+
+So far in the get started guide, we've focused on activities *you* do in the workspace. Because you created the workspace in STEP 1, you are an administrator of the Synapse workspace. Now, we will make another user Ryan (`ryan@contoso.com`) an administrator. When we are done, Ryan will be able to do everything you can do in the workspace.
+
 ## Assign the user to the Azure RBAC Owner role at the Synapse workspace level
 
 1. Open the Azure portal.
