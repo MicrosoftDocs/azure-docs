@@ -238,4 +238,5 @@ az mysql flexible-server delete --resource-group myresourcegroup --name mydemose
 
 >[!div class="nextstepaction"]
 > [Connect and query using Azure CLI](connect-azure-cli.md)
+> [Connect to Azure Database for MySQL - Flexible Server with encrypted connections](how-to-connect-tls-ssl.md)
 > [Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md)
