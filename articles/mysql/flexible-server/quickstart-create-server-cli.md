@@ -35,7 +35,7 @@ az login
 
 Select the specific subscription under your account using [az account set](/cli/azure/account#az-account-set) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az-account-list).
 
-```azurecli
+```azurecli-interactive
 az account set --subscription <subscription id>
 ```
 
@@ -49,7 +49,7 @@ az group create --name myresourcegroup --location eastus2
 
 Create a flexible server with the `az mysql flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's [local context](/cli/azure/local-context): 
 
-```azurecli
+```azurecli-interactive
 az mysql flexible-server create
 ```
 
@@ -94,7 +94,7 @@ If you'd like to change any defaults, please refer to the Azure CLI [reference d
 ## Create a database
 Run the following command to create a database, **newdatabase** if you have not already created one.
 
-```azurecli
+```azurecli-interactive
 az mysql flexible-server db create -d newdatabase
 ```
 
@@ -148,11 +148,11 @@ Azure Database for MySQL Flexible Server enables you to connect to your mysql se
 
 Run the following script to test and validate the connection to the database from your development environment.
 
-```azurecli
+```azurecli-interactive
 az mysql flexible-server connect -n <servername> -u <username> -p <password> -d <databasename>
 ```
 **Example:**
-```azurecli
+```azurecli-interactive
 az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase
 ```
 You should see the following output for successful connection:
@@ -170,12 +170,12 @@ If the connection failed, try these solutions:
 
 Run the following command to execute a single query using ```--querytext``` argument, ```-q```.
 
-```azurecli
+```azurecli-interactive
 az mysql flexible-server connect -n <server-name> -u <username> -p "<password>" -d <database-name> --querytext "<query text>"
 ```
 
 **Example:**
-```azurecli
+```azurecli-interactive
 az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase -q "select * from table1;" --output table
 ```
 To learn more about using ```az mysql flexible-server connect``` command, refer to the [connect and query](connect-azure-cli.md) documentation.
