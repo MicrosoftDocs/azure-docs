@@ -25,7 +25,7 @@ Metrics Advisor is a part of Azure Cognitive Services that uses AI to perform da
 
 This documentation contains the following types of articles:
 * The [quickstarts](./Quickstarts/web-portal.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
-* The [how-to guides](./how-to/onboard-your-data.md) contain instructions for using the service in more specific or customized ways.
+* The [how-to guides](./how-tos/onboard-your-data.md) contain instructions for using the service in more specific or customized ways.
 * The [conceptual articles](glossary.md) provide in-depth explanations of the service's functionality and features.
 
 ## Connect to a variety of data sources
