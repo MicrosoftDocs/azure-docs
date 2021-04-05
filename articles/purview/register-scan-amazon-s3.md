@@ -163,68 +163,6 @@ For more information about Purview credentials, see the [Azure Purview public pr
 
     ![Review details before creating your role.](./media/register-scan-amazon-s3/review-role.png)
 
-#### Required permissions for your AWS policy
-
-You'll need the following permissions in your AWS policy, depending on whether you want to scan individual buckets or all the buckets in your account:
-
-- **Individual buckets**: `GetBucketLocation`, `GetBucketPublicAccessBlock`, `GetObject` and `ListBucket`. 
-
-    Make sure to define your resource with the specific bucket name. For example:
-
-    ```json
-    {
-    "Version": "2012-10-17",
-    "Statement": [
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "s3:GetBucketLocation",
-                    "s3:GetBucketPublicAccessBlock",
-                    "s3:GetObject",
-                    "s3:ListBucket"
-                ],
-                "Resource": "arn:aws:s3:::<bucketname>"
-            },
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "s3:GetObject"
-                ],
-                "Resource": "arn:aws:s3::: <bucketname>/*"
-            }
-        ]
-    }
-    ```
-
-- **All buckets in your account**: `GetBucketLocation`, `GetBucketPublicAccessBlock`, `GetObject`, `ListAllMyBuckets`, and `ListBucket`.
-
-    Make sure to define your resource with a wildcard. For example:
-
-    ```json
-    {
-    "Version": "2012-10-17",
-    "Statement": [
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "s3:GetBucketLocation",
-                    "s3:GetBucketPublicAccessBlock",
-                    "s3:GetObject",
-                    "s3:ListAllMyBuckets",
-                    "s3:ListBucket"
-                ],
-                "Resource": "*"
-            },
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "s3:GetObject"
-                ],
-                "Resource": "*"
-            }
-        ]
-    }
-    ```
 
 ### Configure scanning for encrypted Amazon S3 buckets
 
@@ -464,6 +402,85 @@ Use the other areas of Purview to find out details about the content in your dat
     All Purview Insight reports include the Amazon S3 scanning results, along with the rest of the results from your Azure data sources. When relevant, an additional **Amazon S3** asset type was added to the report filtering options.
 
     For more information, see the [Understand Insights in Azure Purview](concept-insights.md).
+
+## Required permissions for your AWS policy
+
+You'll need the following permissions in your AWS policy, depending on whether you want to scan individual buckets or all the buckets in your account:
+
+### Individual buckets
+
+When scanning individual S3 buckets, required AWS permissions include:
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListBucket`
+
+Make sure to define your resource with the specific bucket name. 
+For example:
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:s3:::<bucketname>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3::: <bucketname>/*"
+        }
+    ]
+}
+```
+
+### All buckets in your account
+
+When scanning all the buckets in your AWS account, required AWS permissions include:
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListAllMyBuckets`
+- `ListBucket`.
+
+Make sure to define your resource with a wildcard. For example:
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListAllMyBuckets",
+                "s3:ListBucket"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 ## Next steps
 
