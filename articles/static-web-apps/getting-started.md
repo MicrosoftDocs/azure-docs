@@ -87,7 +87,11 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Created confirmation":::
 
-1. Right-click on the project in the Static Web Apps extension, and select **Browser Site**.
+    Next, click on the button **Open Actions in GitHub**. This page shows you the build status of the application.
+
+    Once the GitHub Action is complete, then you can browse to the published website.
+
+1. To view the website in the browser, right-click on the project in the Static Web Apps extension, and select **Browse Site**.
 
     :::image type="content" source="media/getting-started/extension-browse-site.png" alt-text="Browse site":::
 

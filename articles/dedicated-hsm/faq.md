@@ -306,7 +306,7 @@ The [Thales Luna 7 HSM model A790](https://cpl.thalesgroup.com/encryption/hardwa
 
 ### Q: How many keys can be supported in Dedicated HSM?
 
-The maximum number of keys is a function of the memory available. The SafeNet Luna 7 model A790 in use has 32MB of memory. The following numbers are also applicable to key pairs if using asymmetric keys.
+The maximum number of keys is a function of the memory available. The Thales Luna 7 model A790 in use has 32MB of memory. The following numbers are also applicable to key pairs if using asymmetric keys.
 
 * RSA-2048 - 19,000
 * ECC-P256 - 91,000
