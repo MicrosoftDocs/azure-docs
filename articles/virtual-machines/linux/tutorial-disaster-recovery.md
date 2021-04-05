@@ -70,7 +70,7 @@ You can optionally enable disaster recovery when you create a VM.
     - Recovery points are created from snapshots of VM disks taken at a specific point in time. When you fail over a VM, you use a recovery point to restore the VM in the target region. 
     - A crash-consistent recovery point is created every five minutes. This setting can't be modified. A crash-consistent snapshot captures data that was on the disk when the snapshot was taken. It doesn't include anything in memory. 
     - By default Site Recovery keeps crash-consistent recovery points for 24 hours. You can set a custom value between 0 and 72 hours.
-    - An app-consistent snapshot is taken every 4 hours. An app-consistent snapshot 
+    - An app-consistent snapshot is taken every 4 hours.
     - By default Site Recovery stores recovery points for 24 hours.
 
 7. In **Availability options**, specify whether the VM is deploy as standalone, in an availability zone, or in an availability set.
