@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Create a profile container for a host pool using a file share
 

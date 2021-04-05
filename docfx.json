@@ -1079,6 +1079,7 @@
           "articles/active-directory/hybrid/reference-connect-government-cloud.md",
           "articles/active-directory/saas-apps/g-suite-provisioning-tutorial.md",
           "articles/application-gateway/application-gateway-backend-health-troubleshooting.md",
+          "articles/cognitive-services/content-moderator/review-tool-user-guide/configure.md",
           "articles/event-hubs/event-hubs-kafka-connect-debezium.md",
           "articles/event-hubs/event-hubs-kafka-mirror-maker-tutorial.md",
           "articles/governance/blueprints/**/*.md",
