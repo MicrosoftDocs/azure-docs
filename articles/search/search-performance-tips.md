@@ -45,6 +45,14 @@ The ramifications of over-attribution include:
 > [!NOTE]
 > Only unnecessary attribution should be avoided. Filters and facets are often essential to the search experience, and in cases where filters are used, you might need sorting so that you can order the results (filters by themselves return unordered results).
 
+### Tip: Consider alternatives to complex types
+
+Complex data types are useful when data has a complicated nested structure, such as the parent-child elements found in JSON documents. The downside of complex types is the extra storage requirements and additional resources required to index the content, in comparison to non-complex data types. 
+
+In some cases, you can avoid these tradeoffs by mapping a complex data structure to a simpler field type, such as a Collection. Alternatively, you might opt for flattening a field hierarchy into individual root-level fields.
+
+:::image type="content" source="media/search-performance/perf-flattened-field-hierarchy.png" alt-text="flattened field structure" border="true":::
+
 ## Types of queries
 
 The types of queries you send are one of the most important factors for performance, and query optimization can drastically improve performance. When designing queries, think about the following points:
@@ -56,14 +64,6 @@ The types of queries you send are one of the most important factors for performa
 + **Use of partial term searches.** [Partial term searches](search-query-partial-matching.md), such as prefix search, fuzzy search, and regular expression search, are more computationally expensive than typical keyword searches, as they require full index scans to produce results.
 
 + **Number of facets.** Adding facets to queries requires aggregations for each query. In general, only add the facets that you plan to render in your app.
-
-### Tip: Consider alternatives to complex types
-
-Complex data types are useful when data has a complicated nested structure, such as the parent-child elements found in JSON documents. The downside of complex types is the extra storage requirements and additional resources required to index the content, in comparison to non-complex data types. 
-
-In some cases, you can avoid these tradeoffs by mapping a complex data structure to a simpler field type, such as a Collection. Alternatively, you might opt for flattening a field hierarchy into individual root-level fields.
-
-:::image type="content" source="media/search-performance/perf-flattened-field-hierarchy.png" alt-text="flattened field structure" border="true":::
 
 ### Tip: Use search functions instead overloading filter criteria
 
