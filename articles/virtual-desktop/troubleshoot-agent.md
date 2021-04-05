@@ -310,7 +310,7 @@ To resolve this issue:
 
 If you can't find your issue in this article or the instructions didn't help you, we recommend you uninstall, reinstall, and re-register Windows Virtual Desktop Agent. The instructions in this section will show you how to reregister your VM to the Windows Virtual Desktop service by uninstalling all agent, boot loader, and stack components, removing the session host from the host pool, generating a new registration key for the VM, and reinstalling the agent and boot loader. If one or more of the following scenarios apply to you, follow these instructions:
 - Your VM is stuck in **Upgrading** or **Unavailable**
-- Your stack listener isn't working and you're running on Windows 10 1809, 1903, or 1904
+- Your stack listener isn't working and you're running on Windows 10 1809, 1903, or 1909
 - You're receiving an **EXPIRED_REGISTRATION_TOKEN** error
 - You're not seeing your VMs show up in the session hosts list
 - You don't see the **Remote Desktop Agent Loader** in the Services window
