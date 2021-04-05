@@ -6,7 +6,7 @@ ms.topic: overview
 ms.date: 04/02/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
-manager: lizross
+manager: femila
 ms.custom: references_regions
 ---
 # What's new in Windows Virtual Desktop?
