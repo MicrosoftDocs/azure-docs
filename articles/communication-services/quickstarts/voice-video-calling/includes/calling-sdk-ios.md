@@ -21,7 +21,7 @@ ms.author: mikben
 
 In Xcode, create a new iOS project and select the **Single View App** template. This quickstart uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the **Language** to **Swift** and **User Interface** to **SwiftUI**. 
 
-You're not going to create unit tests or UI tests during this quickstart. Feel free to clear the **Include Unit Tests** and **Include UI Tests** texboxes.
+You're not going to create unit tests or UI tests during this quickstart. Feel free to clear the **Include Unit Tests** and **Include UI Tests** text boxes.
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot that shows the window for creating a project within Xcode.":::
 
@@ -44,7 +44,7 @@ You're not going to create unit tests or UI tests during this quickstart. Feel f
 
 ### Request access to the microphone
 
-To access the device's microphone, you need to update your app's information property list with `NSMicrophoneUsageDescription`. You set the associated value to a `string` that will be included in the dialog that the system uses to request request access from the user.
+To access the device's microphone, you need to update your app's information property list with `NSMicrophoneUsageDescription`. You set the associated value to a `string` that will be included in the dialog that the system uses to request access from the user.
 
 Right-click the `Info.plist` entry of the project tree and select **Open As** > **Source Code**. Add the following lines in the top-level `<dict>` section, and then save the file.
 
@@ -172,7 +172,7 @@ let call = self.callAgent?.call(participants: [callee], options: startCallOption
 ```
 
 ### Join a group call
-To join a call, you need to call one of the APIs on *CallAgent*.
+To join a call, you need to call one of the APIs on `CallAgent`.
 
 ```swift
 
@@ -235,21 +235,21 @@ if let incomingCall = CallHandler().incomingCall {
 
 ## Set up push notifications
 
-A mobile push notification is the pop-up notification that you get in the mobile device. For calling, we'll focus on VoIP (Voice over Internet Protocol) push notifications. We'll offer you the capabilities to register for push notification, to handle push notification, and to unregister push notification.
+A mobile push notification is the pop-up notification that you get in the mobile device. For calling, we'll focus on VoIP (voice over Internet Protocol) push notifications. 
 
-Before you start the tasks in the following sections, complete these prerequisites:
+The following sections describe how to register for, handle, and unregister push notifications. Before you start those tasks, complete these prerequisites:
 
 1. In Xcode, go to **Signing & Capabilities**. Add a capability by selecting **+ Capability**, and then select **Push Notifications**.
-2. In Xcode, go to **Signing & Capabilities**.  Add a capability by selecting **+ Capability**, and then select **Background Modes**.
+2. Add another capability by selecting **+ Capability**, and then select **Background Modes**.
 3. Under **Background Modes**, select the **Voice over IP** and **Remote notifications** checkboxes.
 
-:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Screenshot showing how to add capabilities in Xcode." lightbox="../media/ios/xcode-push-notification.png":::
+:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Screenshot that shows how to add capabilities in Xcode." lightbox="../media/ios/xcode-push-notification.png":::
 
 ### Register for push notifications
 
-To register for push notification, call `registerPushNotification()` on a `CallAgent` instance with a device registration token.
+To register for push notifications, call `registerPushNotification()` on a `CallAgent` instance with a device registration token.
 
-Register for push notification needs to be called after successful initialization. When the `callAgent` object is destroyed, `logout` will be called which will automatically unregister push notifications.
+Registration for push notifications needs to happen after successful initialization. When the `callAgent` object is destroyed, `logout` will be called, which will automatically unregister push notifications.
 
 
 ```swift
@@ -266,7 +266,7 @@ callAgent.registerPushNotifications(deviceToken: deviceToken) { (error) in
 ```
 
 ### Handle push notifications
-In order to receive incoming calls push notifications, call `handlePushNotification()` on a `CallAgent` instance with a dictionary payload.
+To receive push notifications for incoming calls, call `handlePushNotification()` on a `CallAgent` instance with a dictionary payload.
 
 ```swift
 
@@ -286,7 +286,7 @@ callAgent.handlePush(notification: callNotification) { (error) in
 Applications can unregister push notification at any time. Simply call the `unregisterPushNotification` method on `CallAgent`.
 
 > [!NOTE]
-> Applications are not automatically unregistered from push notification on logout.
+> Applications are not automatically unregistered from push notifications on logout.
 
 ```swift
 
@@ -306,7 +306,7 @@ You can perform various operations during a call to manage settings related to v
 
 ### Mute and unmute
 
-To mute or unmute the local endpoint you can use the `mute` and `unmute` asynchronous APIs:
+To mute or unmute the local endpoint, you can use the `mute` and `unmute` asynchronous APIs.
 
 ```swift
 call!.mute { (error) in
@@ -319,7 +319,7 @@ call!.mute { (error) in
 
 ```
 
-[Asynchronous] Local unmute
+Use the following code to unmute the local endpoint asynchronously.
 
 ```swift
 call!.unmute { (error) in
@@ -333,7 +333,7 @@ call!.unmute { (error) in
 
 ### Start and stop sending local video
 
-To start sending local video to other participants in the call, use `startVideo` API and pass `localVideoStream` with `camera`.
+To start sending local video to other participants in a call, use the `startVideo` API and pass `localVideoStream` with `camera`.
 
 ```swift
 
@@ -350,7 +350,7 @@ call!.startVideo(stream: localVideoStream) { (error) in
 
 ```
 
-After you start sending video, the `LocalVideoStream` instance is added the `localVideoStreams` collection on a call instance:
+After you start sending video, the `LocalVideoStream` instance is added the `localVideoStreams` collection on a call instance.
 
 ```swift
 
@@ -358,7 +358,7 @@ call.localVideoStreams[0]
 
 ```
 
-[Asynchronous] To stop local video, pass the `localVideoStream` returned from the invocation of `call.startVideo`:
+To stop local video, pass the `localVideoStream` instance returned from the invocation of `call.startVideo`. This is an asynchronous action.
 
 ```swift
 
@@ -391,7 +391,7 @@ call.remoteParticipants
 // [RemoteParticipantDelegate] delegate - an object you provide to receive events from this RemoteParticipant instance
 var remoteParticipantDelegate = remoteParticipant.delegate
 
-// [CommunicationIdentifier] identity - same as the one used to provision token for another user
+// [CommunicationIdentifier] identity - same as the one used to provision a token for another user
 var identity = remoteParticipant.identity
 
 // ParticipantStateIdle = 0, ParticipantStateEarlyMedia = 1, ParticipantStateConnecting = 2, ParticipantStateConnected = 3, ParticipantStateOnHold = 4, ParticipantStateInLobby = 5, ParticipantStateDisconnected = 6
@@ -413,7 +413,7 @@ var videoStreams = remoteParticipant.videoStreams // [RemoteVideoStream, RemoteV
 
 ### Add a participant to a call
 
-To add a participant to a call (either a user or a phone number), you can invoke `addParticipant`. This will synchronously return a remote participant instance.
+To add a participant to a call (either a user or a phone number), you can invoke `addParticipant`. This command will synchronously return a remote participant instance.
 
 ```swift
 
@@ -440,9 +440,9 @@ call!.remove(participant: remoteParticipantAdded) { (error) in
 
 Remote participants can initiate video or screen sharing during a call.
 
-### Handle remote participant video/screen sharing streams
+### Handle video-sharing or screen-sharing streams of remote participants
 
-To list the streams of remote participants, inspect the `videoStreams` collections:
+To list the streams of remote participants, inspect the `videoStreams` collections.
 
 ```swift
 
@@ -464,7 +464,7 @@ var id: Int = remoteParticipantVideoStream.id // id of remoteParticipantStream
 
 ### Render remote participant streams
 
-To start rendering remote participant streams:
+To start rendering remote participant streams, use the following code.
 
 ```swift
 
@@ -484,7 +484,7 @@ remoteVideoRenderer.dispose()
 
 ## Manage devices
 
-`DeviceManager` lets you enumerate local devices that can be used in a call to transmit audio/video streams. It also allows you to request permission from a user to access microphone/camera. You can access `deviceManager` on the `callClient` object:
+`DeviceManager` lets you enumerate local devices that can be used in a call to transmit audio or video streams. It also allows you to request permission from a user to access a microphone or camera. You can access `deviceManager` on the `callClient` object.
 
 ```swift
 
@@ -511,9 +511,9 @@ var localMicrophones = deviceManager.microphones! // [AudioDeviceInfo, AudioDevi
 var localSpeakers = deviceManager.speakers! // [AudioDeviceInfo, AudioDeviceInfo...]
 ``` 
 
-### Set default microphone/speaker
+### Set the default microphone or speaker
 
-The device manager allows you to set a default device that will be used when starting a call. If stack defaults are not set, Communication Services will fall back to OS defaults.
+You can use the device manager to set a default device that will be used when a call is started. If stack defaults aren't set, Communication Services will fall back to OS defaults.
 
 ```swift
 // get first microphone
@@ -528,7 +528,7 @@ deviceManager.setSpeaker(speakerDevice: firstSpeaker)
 
 ### Get a local camera preview
 
-You can use `Renderer` to begin rendering a stream from your local camera. This stream won't be send to other participants; it's a local preview feed. This is an asynchronous action.
+You can use `Renderer` to begin rendering a stream from your local camera. This stream won't be sent to other participants; it's a local preview feed. This is an asynchronous action.
 
 ```swift
 
@@ -541,7 +541,7 @@ self.view = try renderer!.createView()
 
 ### Get local camera preview properties
 
-The renderer has set of properties and methods that allow you to control the rendering:
+The renderer has set of properties and methods that allow you to control the rendering.
 
 ```swift
 
@@ -571,11 +571,11 @@ localRenderer.dispose()
 You can subscribe to most of the properties and collections to be notified when values change.
 
 ### Properties
-To subscribe to `property changed` events:
+To subscribe to `property changed` events, use the following code.
 
 ```swift
 call.delegate = self
-// Get the property of the call state by doing get on the call's state member
+// Get the property of the call state by getting on the call's state member
 public func onCallStateChanged(_ call: Call!,
                                args: PropertyChangedEventArgs!)
 {
@@ -588,7 +588,7 @@ public func onCallStateChanged(_ call: Call!,
 ```
 
 ### Collections
-To subscribe to `collection updated` events:
+To subscribe to `collection updated` events, use the following code.
 
 ```swift
 call.delegate = self
