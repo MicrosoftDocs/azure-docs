@@ -33,7 +33,7 @@ You can add upto 50k QnA pairs to a single knowledgebase for optimal performance
 
 ### Create a separate knowledge base for each domain
 
-You can also create a separate knowledge base for each domain, however you will then have to write a logic to decide which KB answers the user query. All APIs require for the user to pass on the Knowledgebase ID. The content authors can update the different KBs directly from the portal. However, you will have to pass on the KB id to the generateAnswer API that returns response to the user query. As you can see in the Generate Answer API below, the KB id is passed on in the endpoint, and the user will have to pass that on along with the user query. Hence, we advise you to instead add all content in the same knowledgebase using metadata, instead of creating multiple knowledgebases.
+You can also create a separate knowledge base for each domain, however you will then have to write some logic to decide which KB answers the user query. All APIs require for the user to pass on the Knowledgebase ID. The content authors can update the different KBs directly from the portal. However, you will have to pass on the KB id to the generateAnswer API that returns response to the user query. As you can see in the Generate Answer API below, the KB id is passed on in the endpoint, and the user will have to pass that on along with the user query. Hence, we advise you to instead add all content in the same knowledgebase using metadata, instead of creating multiple knowledgebases.
 
 The GenerateAnswer URL has the following format:
 ```
