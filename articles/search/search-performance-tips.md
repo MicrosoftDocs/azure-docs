@@ -12,29 +12,27 @@ ms.date: 04/06/2021
 
 # Tips for better performance in Azure Cognitive Search
 
-This article is a collection of tips and best practices that are often recommended for boosting performance.
+This article is a collection of tips and best practices that are often recommended for boosting performance. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Key factors include:
 
-## Develop baseline numbers
++ Index composition (schema and size)
++ Query types
++ Service capacity (tier, and the number of replicas and partitions)
 
-In any large implementation, it is critical to do a performance benchmarking test of your Cognitive Search service before you roll it into production. You should test both the search query load that you expect, but also the expected data ingestion workloads (if possible, run these simultaneously). Having benchmark numbers helps to validate the proper [search tier](search-sku-tier.md), [service configuration](search-capacity-planning.md), and expected [query latency](search-performance-analysis.md#average-query-latency).
+## Index size and schema
 
-To develop benchmarks, we recommend the [azure-search-performance-testing (GitHub)](https://github.com/Azure-Samples/azure-search-performance-testing) tool.
+Queries run faster on smaller indexes. This is partly a function of having fewer fields to scan, but it's also due to how the system caches content for future queries. After the first query, some content remains in memory where it's searched more efficiently. Because index size tends to grow over time, one best practice is to periodically revisit index composition, both schema and documents, to look for content reduction opportunities. A more common approach for query degradation due to index growth is to increase capacity: either [add replicas](search-capacity-planning.md#adjust-capacity) or [upgrade the service tier](#upgrade-to-a-standard-s2-tier).
 
-To isolate the effects of a distributed service architecture, try testing on service configurations of one replica and one partition.
+Schema complexity can also have adverse effects on both indexing and query performance. Excessive field attribution builds in limitations and processing requirements. [Complex types](search-performance-tips#use-alternatives-to-complex-types) take longer to index and query.
 
-> [!NOTE]
-> For the Storage Optimized tiers (L1 and L2), you should expect a lower query throughput and higher latency than the Standard tiers.
->
-
-## Be selective when assigning field attributes
+### Selectively assign field attributes
 
 A common mistake that administrators and developer make when creating a search index is selecting all available properties for the fields, as opposed to only selecting just the properties that are needed. For example, if a field doesn't need to be full text searchable, skip that field when setting the searchable attribute.
 
 :::image type="content" source="media/search-performance/perf-selective-field-attributes.png" alt-text="Selective attribution" border="true":::
 
-Support for filters, facets, and sorting can quadruple storage requirements. If you add suggesters, storage requirements go up even more. For more information about the impact of attributes on storage, see [Attributes and index size](search-what-is-an-index.md#index-size).
+Support for filters, facets, and sorting can quadruple storage requirements. If you add suggesters, storage requirements go up even more. For an illustration on the impact of attributes on storage, see [Attributes and index size](search-what-is-an-index.md#index-size).
 
-The ramifications of over attribution include:
+The ramifications of over-attribution include:
 
 + Degradation of indexing performance due to the extra work required to process the content in the field, and then store it within the search inverted index. Only set the searchable attribute on fields that contain searchable content.
 
@@ -47,7 +45,19 @@ The ramifications of over attribution include:
 > [!NOTE]
 > Only unnecessary attribution should be avoided. Filters and facets are often essential to the search experience, and in cases where filters are used, you might need sorting so that you can order the results (filters by themselves return unordered results).
 
-## Use alternatives to complex types
+## Types of queries
+
+The types of queries you send are one of the most important factors for performance, and query optimization can drastically improve performance. When designing queries, think about the following points:
+
++ **Number of searchable fields.** Each additional searchable field requires additional work by the search service. You can limit the fields being searched at query time using the "searchFields" parameter. It's best to specify only the fields that you care about to improve performance.
+
++ **Amount of data being returned.** Retrieving a lot of content can make queries slower. When structuring a query, return only those fields that you need to render the results page, and then retrieve remaining fields using the [Lookup API](rest/api/searchservice/lookup-document) once a user selects a match.
+
++ **Use of partial term searches.** [Partial term searches](search-query-partial-matching), such as prefix search, fuzzy search, and regular expression search, are more computationally expensive than typical keyword searches, as they require full index scans to produce results.
+
++ **Number of facets.** Adding facets to queries requires aggregations for each query. In general, only add the facets that you plan to render in your app.
+
+### Consider alternatives to complex types
 
 Complex data types are useful when data has a complicated nested structure, such as the parent-child elements found in JSON documents. The downside of complex types is the extra storage requirements and additional resources required to index the content, in comparison to non-complex data types. 
 
@@ -55,7 +65,7 @@ In some cases, you can avoid these tradeoffs by mapping a complex data structure
 
 :::image type="content" source="media/search-performance/perf-flattened-field-hierarchy.png" alt-text="flattened field structure" border="true":::
 
-## Use search functions instead overloading filter criteria
+### Consider search functions instead overloading filter criteria
 
 As a query uses increasingly [complex filter criteria](search-query-odata-filter.md#filter-size-limitations), the performance of the search query will degrade. Consider the following example that demonstrates the use of filters to trim results based on a user identity:
 
@@ -71,9 +81,13 @@ A more efficient way to execute filters that contain a large number of values is
 search.in(userid, '123,234,345,456,567', ',')
 ```
 
-A service is overburdened when queries take too long or when the service starts dropping requests. If this happens, you can address the problem in one of two ways:
+## Service capacity
 
-## Upgrade to a Standard S2 tier
+A service is overburdened when queries take too long or when the service starts dropping requests. If this happens, you can address the problem by upgrading the service or by adding capacity.
+
+The tier of your search service and the number of replicas/partitions also have a big impact on performance. Each higher tier provides faster CPUs and more memory, both of which have a positive impact on performance.
+
+### Upgrade to a Standard S2 tier
 
 The Standard S1 search tier is often where customers start. A common pattern for S1 services is that indexes grow over time, which requires more partitions. More partitions lead to slower response times, so more replicas are added to handle the query load. As you can imagine, the cost of running an S1 service has now progressed to levels beyond the initial configuration.
 
@@ -103,7 +117,7 @@ As this hypothetical scenario illustrates, you can have configurations on lower 
 
 An important benefit of added memory is that more of the index can be cached, resulting in lower search latency, and a greater number of queries per second. With this extra power, the administrator may not need to even need to increase the replica count and could potentially pay less than by staying on the S1 service.
 
-## Add partitions for slow individual queries
+### Add partitions for slow individual queries
 
 One reason for high latency rates is a single query taking too long to complete. In this case, adding replicas will not help. Any of the following options might mitigate the problem:
 
@@ -127,4 +141,4 @@ Review these additional articles related to service performance.
 
 + [Analyze performance](search-performance-analysis.md)
 + [Choose a service tier](search-sku-tier.md)
-+ [Manage capacity](search-capacity-planning.md)
++ [Add capacity (replicas and partitions)](search-capacity-planning.md#adjust-capacity)

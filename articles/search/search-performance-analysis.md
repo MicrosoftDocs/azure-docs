@@ -14,6 +14,18 @@ ms.date: 04/06/2021
 
 This article describes the tools, behaviors, and approaches for analyzing query and indexing performance in Cognitive Search.
 
+## Develop baseline numbers
+
+In any large implementation, it is critical to do a performance benchmarking test of your Cognitive Search service before you roll it into production. You should test both the search query load that you expect, but also the expected data ingestion workloads (if possible, run these simultaneously). Having benchmark numbers helps to validate the proper [search tier](search-sku-tier.md), [service configuration](search-capacity-planning.md), and expected [query latency](search-performance-analysis.md#average-query-latency).
+
+To develop benchmarks, we recommend the [azure-search-performance-testing (GitHub)](https://github.com/Azure-Samples/azure-search-performance-testing) tool.
+
+To isolate the effects of a distributed service architecture, try testing on service configurations of one replica and one partition.
+
+> [!NOTE]
+> For the Storage Optimized tiers (L1 and L2), you should expect a lower query throughput and higher latency than the Standard tiers.
+>
+
 ## Use diagnostic logging
 
 The most important tool that an administrator has in diagnosing potential performance issues is diagnostics logging that allows for logging and monitoring of operations and aggregated metrics within the search service. Diagnostic logging is enabled through Azure Monitor. When it's available, it becomes the main tool used by support engineers to investigate customer performance questions. It is important to note that there is an additional cost associated with Azure Monitor and persistent log storage.
