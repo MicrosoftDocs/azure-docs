@@ -22,8 +22,7 @@ So far in the get started guide, we've focused on activities *you* do in the wor
 
 ## Azure RBAC: Owner role for the workspace
 
-1. Open the Azure portal.
-1. Navigate to your workspace.
+1. Open the Azure portal and open you Synapse workspace.
 1. On the left side, select **Access Control (IAM)**.
 1. Click **Add > Add role assignment**.
 1. For **Role**, select **Owner**.
@@ -49,7 +48,7 @@ You need to grant access to the Administrator to use that filesystem
 1. Add `ryan@contoso.com` to the **Owner** role. 
 3. Add `ryan@contoso.com` to the **Azure Storage Blob Data Contributor** role
 
-## Add the user to the dbowner role for all dedicated SQL pools
+## Dedicated SQL pools: dbowner role
 
 For all dedicated SQL pools, run the following T-SQL script against the corresponding SQL database.
 
