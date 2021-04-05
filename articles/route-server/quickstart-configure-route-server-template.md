@@ -6,7 +6,7 @@ author: duongau
 ms.service: route-server
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 03/30/2021
+ms.date: 04/05/2021
 ms.author: duau
 ---
 
@@ -28,14 +28,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-route-server).
 
-In this quickstart, you'll create an ExpressRoute circuit with *Equinix* as the service provider. The circuit will be using a *Premium SKU*, with a bandwidth of *50 Mbps*, and the peering location of *Washington DC*. Private peering will be enabled with a primary and secondary subnet of *192.168.10.16/30* and *192.168.10.20/30* respectively. A virtual network will also be created along with a *HighPerformance ExpressRoute gateway*.
+In this quickstart, you'll deploy an Azure Route Server into a new or existing virtual network. A dedicated subnet named `RouteServerSubnet` will be created to host the Route Server. The Route Server will also be configured with the Peer ASN and Peer IP to establish a BGP peering.
 
-:::code language="json" source="~/quickstart-templates/101-route-server/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-route-server/azuredeploy.json" range="001-145" highlight="105-142":::
 
 Multiple Azure resources have been defined in the template:
 
 * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks)
-* [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualNetworks/subnets) (2 subnets, one named `routeserversubnet`)
+* [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualNetworks/subnets) (two subnets, one named `routeserversubnet`)
 * [**Microsoft.Network/virtualHubs**](/azure.templates/microsoft.network/virtualhubs) (Route Server deployment)
 * [**Microsoft.Network/virtualHubs/ipConfigurations**](/azure.templates/microsoft.network/virtualhubs/ipConfigurations)
 * [**Microsoft.Network/virtualHubs/bgpConnections**](/azure.templates/microsoft.network/virtualhubs/bgpConnections) (Peer ASN and Peer IP configuration)
@@ -72,7 +72,7 @@ To find more templates that are related to ExpressRoute, see [Azure Quickstart T
 
     It takes about 20 minutes to deploy the template. When completed, the output is similar to:
 
-    :::image type="content" source="./media/quickstart-create-route-server/powershell-output.png" alt-text="Route Server Resource Manager template PowerShell deployment output":::
+    :::image type="content" source="./media/quickstart-configure-route-server-template/powershell-output.png" alt-text="Route Server Resource Manager template PowerShell deployment output.":::
 
 Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
@@ -84,13 +84,15 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 1. Select the resource group that you created in the previous section. The default resource group name is the project name with **rg** appended.
 
-1. The resource group should contain the following resources seen here:
+1. The resource group should contain only the virtual network:
 
-     :::image type="content" source="./media/quickstart-create-route-server-templater/resource-group.png" alt-text="Route Server deployment resource group":::
+     :::image type="content" source="./media/quickstart-configure-route-server-template/resource-group.png" alt-text="Route Server deployment resource group with virtual network.":::
 
-1. Select the Route Server **routeserver** to verify that the deployment was successful.
+1. Go to https://aka.ms/routeserver.
 
-    :::image type="content" source="./media/quickstart-create-route-server-template/deployment.png" alt-text="Route Server deployment":::
+1. Select the Route Server named **routeserver** to verify that the deployment was successful.
+
+    :::image type="content" source="./media/quickstart-configure-route-server-template/deployment.png" alt-text="Screenshot of Route Server overview page.":::
 
 ## Clean up resources
 
