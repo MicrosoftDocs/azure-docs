@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Create a Windows Virtual Desktop host pool with PowerShell
 
