@@ -334,6 +334,8 @@
           href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/ext/automation/automation
   - name: Azure PowerShell Az
     href: /powershell/module/az.automation
   - name: Azure PowerShell AzureRM
