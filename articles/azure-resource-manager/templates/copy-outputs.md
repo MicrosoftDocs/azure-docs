@@ -8,7 +8,7 @@ ms.date: 04/01/2021
 
 This article shows you how to create more than one value for an output in your Azure Resource Manager template (ARM template). By adding copy loop to the outputs section of your template, you can dynamically return a number of items during deployment.
 
-You can also use copy with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [variables](copy-variables.md).
+You can also use copy loop with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [variables](copy-variables.md).
 
 ## Syntax
 
@@ -29,7 +29,7 @@ The `input` property specifies the properties that you want to repeat. You creat
 
 # [Bicep](#tab/bicep)
 
-Loops can be used declare multiple outputs by:
+Loops can be used to return a number of items during deployment:
 
 - Iterating over an array:
 
@@ -127,7 +127,7 @@ param storageCount int = 2
 var baseName_var = 'storage${uniqueString(resourceGroup().id)}'
 
 resource baseName 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, storageCount): {
-  name: concat(i, baseName_var)
+  name: '${i}${baseName_var}'
   location: resourceGroup().location
   sku: {
     name: 'Standard_LRS'
@@ -136,7 +136,7 @@ resource baseName 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in ran
   properties: {}
 }]
 
-output storageEndpoints array = [for i in range(0, storageCount): reference(concat(i, baseName_var)).primaryEndpoints.blob]
+output storageEndpoints array = [for i in range(0, storageCount): reference(${i}${baseName_var}).primaryEndpoints.blob]
 ```
 
 ---
@@ -208,7 +208,7 @@ param storageCount int = 2
 var baseName_var = 'storage${uniqueString(resourceGroup().id)}'
 
 resource baseName 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, storageCount): {
-  name: concat(i, baseName_var)
+  name: '${i}${baseName_var}'
   location: resourceGroup().location
   sku: {
     name: 'Standard_LRS'
@@ -246,7 +246,7 @@ The preceding example returns an array with the following values:
 ## Next steps
 
 - To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
-- For other uses of the copy element, see:
+- For other uses of the copy loop, see:
   - [Resource iteration in ARM templates](copy-resources.md)
   - [Property iteration in ARM templates](copy-properties.md)
   - [Variable iteration in ARM templates](copy-variables.md)

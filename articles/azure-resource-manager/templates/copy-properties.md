@@ -10,7 +10,7 @@ This article shows you how to create more than one instance of a property in you
 
 You can only use copy loop with top-level resources, even when applying copy loop to a property. To learn about changing a child resource to a top-level resource, see [Iteration for a child resource](copy-resources.md#iteration-for-a-child-resource).
 
-You can also use copy with [resources](copy-resources.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
+You can also use copy loop with [resources](copy-resources.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
 
 ## Syntax
 
@@ -338,6 +338,7 @@ You can use resource and property iteration together. Reference the property ite
 
 # [Bicep](#tab/bicep)
 
+```bicep
 resource vnetname_resource 'Microsoft.Network/virtualNetworks@2018-04-01' = [for i in range(0, 2): {
   name: concat(vnetname, i)
   location: resourceGroup().location
@@ -355,6 +356,7 @@ resource vnetname_resource 'Microsoft.Network/virtualNetworks@2018-04-01' = [for
     }]
   }
 }]
+```
 
 ---
 
@@ -369,7 +371,7 @@ The following example shows a common scenario for creating more than one value f
 ## Next steps
 
 - To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
-- For other uses of the copy element, see:
+- For other uses of the copy loop, see:
   - [Resource iteration in ARM templates](copy-resources.md)
   - [Variable iteration in ARM templates](copy-variables.md)
   - [Output iteration in ARM templates](copy-outputs.md)

@@ -77,7 +77,7 @@ The count can't be a negative number. It can be zero if you deploy the template 
 
 Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
 
-Be careful using [complete mode deployment](deployment-modes.md) with copy. If you redeploy with complete mode to a resource group, any resources that aren't specified in the template after resolving the copy loop are deleted.
+Be careful using [complete mode deployment](deployment-modes.md) with copy loop. If you redeploy with complete mode to a resource group, any resources that aren't specified in the template after resolving the copy loop are deleted.
 
 ## Resource iteration
 
@@ -370,7 +370,7 @@ The following examples show common scenarios for creating more than one instance
 - To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md).
 - To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
 - For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
-- For other uses of the copy element, see:
+- For other uses of the copy loop, see:
   - [Property iteration in ARM templates](copy-properties.md)
   - [Variable iteration in ARM templates](copy-variables.md)
   - [Output iteration in ARM templates](copy-outputs.md)
