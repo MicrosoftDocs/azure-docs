@@ -33,29 +33,31 @@ Use the `mode` and `batchSize` properties to specify if the resources are deploy
 
 # [Bicep](#tab/bicep)
 
-Loops may be used to iterate over an array to declare multiple resources or to set an array property inside a resource declaration. Iteration over the array occurs over the elements of the array. The index of the iteration is also available.
+Loops can be used declare multiple resources by:
 
-- Loop over an array:
+- Iterating over an array:
 
   ```bicep
   @batchSize(<number>)
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <element> in <array>: {
+  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
     <resource-properties>
   }
   ```
 
-- Use loop index
+- Iterating over the elements of an array
+
+  ```bicep
+  @batchSize(<number>)
+  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
+    <resource-properties>
+  }
+  ```
+
+- Using loop index
 
   ```bicep
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <index> in range(<start>, <stop>): {
-    <resource-properties>
-  }
-  ```
-
-  ```bicep
-  @batchSize(<number>)
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<element>, <index>) in <array>: {
     <resource-properties>
   }
   ```
@@ -109,8 +111,7 @@ The following example creates the number of storage accounts specified in the `s
         "count": "[parameters('storageCount')]"
       }
     }
-  ],
-  "outputs": {}
+  ]
 }
 ```
 
@@ -268,7 +269,7 @@ The `mode` property also accepts **parallel**, which is the default value.
 
 # [Bicep](#tab/bicep)
 
-To serially deploy more than one instance of a resource, set `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
+To serially deploy more than one instance of a resource, set the `batchSize` [decorator](./bicep-file.md#resource-and-module-decorators) to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 ```bicep
 @batchSize(2)
@@ -291,8 +292,6 @@ You can't use a copy loop for a child resource. To create more than one instance
 
 For example, suppose you typically define a dataset as a child resource within a data factory.
 
-# [JSON](#tab/json)
-
 ```json
 "resources": [
 {
@@ -310,12 +309,6 @@ For example, suppose you typically define a dataset as a child resource within a
     }
   ]
 ```
-
-# [Bicep](#tab/bicep)
-
-
-
----
 
 To create more than one data set, move it outside of the data factory. The dataset must be at the same level as the data factory, but it's still a child resource of the data factory. You preserve the relationship between data set and data factory through the type and name properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 

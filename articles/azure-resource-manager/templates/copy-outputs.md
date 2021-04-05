@@ -6,13 +6,15 @@ ms.date: 04/01/2021
 ---
 # Output iteration in ARM templates
 
-This article shows you how to create more than one value for an output in your Azure Resource Manager template (ARM template). By adding the `copy` element to the outputs section of your template, you can dynamically return a number of items during deployment.
+This article shows you how to create more than one value for an output in your Azure Resource Manager template (ARM template). By adding copy loop to the outputs section of your template, you can dynamically return a number of items during deployment.
 
 You can also use copy with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [variables](copy-variables.md).
 
 ## Syntax
 
-The copy element has the following general format:
+# [JSON](#tab/json)
+
+Add the `copy` element to the output section of your template to return a number of items. The copy element has the following general format:
 
 ```json
 "copy": {
@@ -25,16 +27,47 @@ The `count` property specifies the number of iterations you want for the output 
 
 The `input` property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the `input` property. It can be a single property (like a string), or an object with several properties.
 
+# [Bicep](#tab/bicep)
+
+Loops can be used declare multiple outputs by:
+
+- Iterating over an array:
+
+  ```bicep
+  output <output-name> array = [for <item> in <collection>: {
+    <properties>
+  }]
+
+  ```
+
+- Iterating over the elements of an array
+
+  ```bicep
+  output <output-name> array = [for <item>, <index> in <collection>: {
+    <properties>
+  }]
+  ```
+
+- Using loop index
+
+  ```bicep
+  output <output-name> array = [for <index> in range(<start>, <stop>): {
+    <properties>
+  }]
+  ```
+
+---
+
 ## Copy limits
 
 The count can't exceed 800.
 
 The count can't be a negative number. It can be zero if you deploy the template with a recent version of Azure CLI, PowerShell, or REST API. Specifically, you must use:
 
-* Azure PowerShell **2.6** or later
-* Azure CLI **2.0.74** or later
-* REST API version **2019-05-10** or later
-* [Linked deployments](linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
+- Azure PowerShell **2.6** or later
+- Azure CLI **2.0.74** or later
+- REST API version **2019-05-10** or later
+- [Linked deployments](linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
 
 Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
 
@@ -212,10 +245,10 @@ The preceding example returns an array with the following values:
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
-* For other uses of the copy element, see:
-  * [Resource iteration in ARM templates](copy-resources.md)
-  * [Property iteration in ARM templates](copy-properties.md)
-  * [Variable iteration in ARM templates](copy-variables.md)
-* If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
-* To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
+- To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
+- For other uses of the copy element, see:
+  - [Resource iteration in ARM templates](copy-resources.md)
+  - [Property iteration in ARM templates](copy-properties.md)
+  - [Variable iteration in ARM templates](copy-variables.md)
+- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+- To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

@@ -34,10 +34,10 @@ The count can't exceed 800.
 
 The count can't be a negative number. It can be zero if you deploy the template with a recent version of Azure CLI, PowerShell, or REST API. Specifically, you must use:
 
-* Azure PowerShell **2.6** or later
-* Azure CLI **2.0.74** or later
-* REST API version **2019-05-10** or later
-* [Linked deployments](linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
+- Azure PowerShell **2.6** or later
+- Azure CLI **2.0.74** or later
+- REST API version **2019-05-10** or later
+- [Linked deployments](linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
 
 Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
 
@@ -315,10 +315,10 @@ The following examples show common scenarios for creating more than one value fo
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
-* For other uses of the copy element, see:
-  * [Resource iteration in ARM templates](copy-resources.md)
-  * [Property iteration in ARM templates](copy-properties.md)
-  * [Output iteration in ARM templates](copy-outputs.md)
-* If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
-* To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
+- To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
+- For other uses of the copy element, see:
+  - [Resource iteration in ARM templates](copy-resources.md)
+  - [Property iteration in ARM templates](copy-properties.md)
+  - [Output iteration in ARM templates](copy-outputs.md)
+- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+- To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
