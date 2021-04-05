@@ -19,6 +19,7 @@ Many a times, users would have similar questions but on a different domain. You 
 
 * Create a single knowledge base and tag QnA pairs categorically with metadata.
 * Create a separate knowledge base for each domain.
+* Create a separate resource per domain.
 
 ### Create a single knowledge base and tag QnA pairs categorically with metadata
 
@@ -73,6 +74,6 @@ The GenerateAnswer URL has the following format:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-### Content Authoring Access
+### Create a separate QnA Maker resource per domain
 
 If you want to grant different permissions for KB operations to content authors, you can do so by granting [resource level acccess](../How-To/manage-qna-maker-app.md). For instance, if the user is granted the 'Publisher' role for a QnA Maker resource, he will be able to publish all knowledgebases in that resource. He will be able to update data across all domains. However, if your content authors require exlusive access for the different domains while editing knowledgebases on the portal, you should create a distinct QnA Maker resource for each domain.
