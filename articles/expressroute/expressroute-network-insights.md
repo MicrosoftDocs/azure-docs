@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 04/05/2021
 ms.author: duau
 ---
 
@@ -13,13 +13,13 @@ ms.author: duau
 
 This article explains how Network Insights can help you view  your ExpressRoute metrics and configurations all in one place. Through Network Insights, you can view topological maps and health dashboards containing important ExpressRoute information without needing to complete any extra setup.
 
-:::image type="content" source="./media/expressroute-network-insights/network-monitor-page.png" alt-text="Screenshot of ExpressRoute monitor landing page." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png":::
+:::image type="content" source="./media/expressroute-network-insights/network-monitor-page.png" alt-text="Screenshot of Networks monitor landing page." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png":::
 
 ## Visualize functional dependencies
 
 1. Navigate to the *Azure Monitor* page, then select *Networks*.
 
-    :::image type="content" source="./media/expressroute-network-insights/monitor-page.png" alt-text="Screenshot of the Networks landing page.":::
+    :::image type="content" source="./media/expressroute-network-insights/monitor-page.png" alt-text="Screenshot of the Monitor landing page.":::
 
 1. Select the *ExpressRoute Circuits* card. 
 
