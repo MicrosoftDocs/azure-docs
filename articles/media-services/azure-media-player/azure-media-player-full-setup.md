@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
 ---
 
@@ -28,7 +28,7 @@ With Azure Media Player, you can access the scripts from the CDN hosted version.
 ```
 
 > [!IMPORTANT]
-> You should **NOT** use the `latest` version in production, as this is subject to change on demand. Replace `latest` with a version of Azure Media Player. For example, replace `latest` with `2.1.1`. Azure Media Player versions can be queried from [here](azure-media-player-changelog.md).
+> You should **NOT** use the `latest` version in production, as this is subject to change on demand. Replace `latest` with a version of Azure Media Player. For example, replace `latest` with `2.1.1`. Azure Media Player versions can be queried from [here](https://amp.azure.net/libs/amp/latest/docs/changelog.html).
 
 > [!NOTE]
 > Since the `1.2.0` release, it is no longer required to include the location to the fallback techs (it will automatically pick up the location from the relative path of the azuremediaplayer.min.js file). You can modify the location of the fallback techs by adding the following script in the `<head>` after the above scripts.
