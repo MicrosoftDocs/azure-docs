@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 04/04/2021
+ms.date: 04/05/2021
 ---
 
 # CEF and CommonSecurityLog field mapping
@@ -228,10 +228,9 @@ The following table maps CEF key and CommonSecurityLog names for the long data f
 |     flexNumber2Label    |     FlexNumber2Label    |
 | | |
 
-## Unmapped fields
+## Enrichment fields
 
-The following **CommonSecurityLog** field names don't have mappings in CEF keys:
-
+The following **CommonSecurityLog** fields are added by Azure Sentinel to enrich the original events received from the source devices, and don't have mappings in CEF keys:
 
 |CommonSecurityLog field name  |Description  |
 |---------|---------|
