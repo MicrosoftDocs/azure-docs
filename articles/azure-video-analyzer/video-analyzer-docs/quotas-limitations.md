@@ -48,7 +48,7 @@ You can only use IP Cameras that support RTSP protocol. You can find IP cameras 
 Further, you should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported.
 
 ## Support for video AI
-The extension nodes (HTTP or gRPC extension processors) only support sending of image/video frame data with an external AI module. Thus, running inferencing on audio data is not supported.
+The extension nodes (HTTP or gRPC extension processors) only support sending of image/video frame data with an external AI module. Thus, running inferencing on audio data is not supported. As a result, processor nodes in pipeline topologies that have an RTSP source node as one of the `inputs` also make use of an `outputSelectors` property to ensure that only video is passed into the processor. See [this]()<!-- https://github.com/Azure/video-analyzer/blob/master/topologies/live/evr-grpcExtension-assets/2.0/topology.json --> topology as an example.
 
 # Quotas and limitations - Service
 
