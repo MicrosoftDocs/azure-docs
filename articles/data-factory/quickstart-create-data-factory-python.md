@@ -74,6 +74,11 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
     
 ## Create a data factory client
 
+[!NOTE]
+>  Specify following for Soverign Clouds, import right cloud constant and then use it to connect.
+>  from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD as CLOUD
+>  credentials = DefaultAzureCredential(authority=CLOUD.endpoints.active_directory, tenant_id=tenant_id)
+>  
 1. Create a file named **datafactory.py**. Add the following statements to add references to namespaces.
 
     ```python
@@ -118,10 +123,6 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
     ```
 3. Add the following code to the **Main** method that creates an instance of DataFactoryManagementClient class. You use this object to create the data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details. Set **subscription_id** variable to the ID of your Azure subscription. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
-[!NOTE]
-> Specify following for Soverign Clouds, import right cloud constant and then use it to connect.
->  from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD as CLOUD
->  credentials = DefaultAzureCredential(authority=CLOUD.endpoints.active_directory, tenant_id=tenant_id)
         
     ```python
     def main():
