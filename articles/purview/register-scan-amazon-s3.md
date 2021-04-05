@@ -141,9 +141,11 @@ For more information about Purview credentials, see the [Azure Purview public pr
     ![Select the ReadOnlyAccess policy for the new Amazon S3 scanning role.](./media/register-scan-amazon-s3/aws-permission-role-amazon-s3.png)
 
     > [!IMPORTANT]
-    > The permissions required for the policy depend on whether you want to use it to scan individual buckets or all the buckets in your AWS account, and you may need to edit the policy and add additional permissions. 
+    > The **AmazonS3ReadOnlyAccess** policy provides minimum permissions required for scanning your S3 buckets, and may include other permissions as well.
     >
-    > For more information, see [Required permissions for your AWS policy](#required-permissions-for-your-aws-policy).
+    >To apply only the minimum permissions required for scanning your buckets, create a new policy with the permissions listed in [Minimum permissions for your AWS policy](#minimum-permissions-for-your-aws-policy), depending on whether you want to scan a single bucket or all the buckets in your account. 
+    >
+    >Apply your new policy to the role instead of **AmazonS3ReadOnlyAccess.**
 
 1. In the **Add tags (optional)** area, you can optionally choose to create a meaningful tag for this new role. Useful tags enable you to organize, track, and control access for each role you create.
 
@@ -403,13 +405,19 @@ Use the other areas of Purview to find out details about the content in your dat
 
     For more information, see the [Understand Insights in Azure Purview](concept-insights.md).
 
-## Required permissions for your AWS policy
+## Minimum permissions for your AWS policy
 
-You'll need the following permissions in your AWS policy, depending on whether you want to scan individual buckets or all the buckets in your account:
+The default procedure for creating an AWS role for Purview to use when scanning your S3 buckets uses the **AmazonS3ReadOnlyAccess** policy.
+
+The **AmazonS3ReadOnlyAccess** policy provides minimum permissions required for scanning your S3 buckets, and may include other permissions as well.
+
+To apply only the minimum permissions required for scanning your buckets, create a new policy with the permissions listed in the following sections, depending on whether you want to scan a single bucket or all the buckets in your account.
+
+Apply your new policy to the role instead of **AmazonS3ReadOnlyAccess.**
 
 ### Individual buckets
 
-When scanning individual S3 buckets, required AWS permissions include:
+When scanning individual S3 buckets, minimum AWS permissions include:
 
 - `GetBucketLocation`
 - `GetBucketPublicAccessBlock`
@@ -446,7 +454,7 @@ For example:
 
 ### All buckets in your account
 
-When scanning all the buckets in your AWS account, required AWS permissions include:
+When scanning all the buckets in your AWS account, minimum AWS permissions include:
 
 - `GetBucketLocation`
 - `GetBucketPublicAccessBlock`
