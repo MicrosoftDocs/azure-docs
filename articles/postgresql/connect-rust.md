@@ -17,8 +17,8 @@ In this article, you will learn how to use the [PostgreSQL driver for Rust](http
 For this quickstart you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- Install [Rust](https://www.rust-lang.org/tools/install) (preferably a recent version)
-- Create an Azure Database for PostgreSQL single server using [Azure portal](./quickstart-create-server-database-portal.md) <br/> or [Azure CLI](./quickstart-create-server-database-azure-cli.md).
+- A recent version of [Rust](https://www.rust-lang.org/tools/install) installed.
+- An Azure Database for PostgreSQL single server - create one using [Azure portal](./quickstart-create-server-database-portal.md) <br/> or [Azure CLI](./quickstart-create-server-database-azure-cli.md).
 - Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 
   |Action| Connectivity method|How-to guide|
@@ -27,7 +27,7 @@ For this quickstart you need:
   | **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
   | **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- Install [Git](https://git-scm.com/downloads)
+- [Git](https://git-scm.com/downloads) installed.
 
 ## Get database connection information
 Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can get this information from the Azure portal.
@@ -269,57 +269,57 @@ fn delete(pg_client: &mut postgres::Client) {
 
 ## Run the application
 
-To begin with, run the following command to clone the sample repository:
+1. To begin with, run the following command to clone the sample repository:
 
-```bash
-git clone https://github.com/Azure-Samples/azure-postgresql-rust-quickstart.git
-```
+    ```bash
+    git clone https://github.com/Azure-Samples/azure-postgresql-rust-quickstart.git
+    ```
 
-Set the required environment variables with the values you copied from the Azure portal:
+2. Set the required environment variables with the values you copied from the Azure portal:
 
-```bash
-export POSTGRES_HOST=<server name e.g. my-server.postgres.database.azure.com>
-export POSTGRES_USER=<admin username e.g. my-admin-user@my-server>
-export POSTGRES_PASSWORD=<admin password>
-export POSTGRES_DBNAME=<database name. it is optional and defaults to postgres>
-```
+    ```bash
+    export POSTGRES_HOST=<server name e.g. my-server.postgres.database.azure.com>
+    export POSTGRES_USER=<admin username e.g. my-admin-user@my-server>
+    export POSTGRES_PASSWORD=<admin password>
+    export POSTGRES_DBNAME=<database name. it is optional and defaults to postgres>
+    ```
 
-To run the application, change into the directory where you cloned it and execute `cargo run`:
+3. To run the application, change into the directory where you cloned it and execute `cargo run`:
 
-```bash
-cd azure-postgresql-rust-quickstart
-cargo run
-```
+    ```bash
+    cd azure-postgresql-rust-quickstart
+    cargo run
+    ```
 
-You should see an output similar to this:
+    You should see an output similar to this:
 
-```bash
-dropped 'inventory' table
-inserted item with id 1
-inserted item with id 2
-inserted item with id 3 
-inserted item with id 4 
-inserted item with id 5 
-quantity for item item-1 = 42
-listing items...
-item info: id = 1, name = item-1, quantity = 42 
-item info: id = 2, name = item-2, quantity = 43 
-item info: id = 3, name = item-3, quantity = 11 
-item info: id = 4, name = item-4, quantity = 32 
-item info: id = 5, name = item-5, quantity = 24 
-updated item id 1 to quantity = 27
-updated item id 2 to quantity = 14
-updated item id 3 to quantity = 31
-updated item id 4 to quantity = 16
-updated item id 5 to quantity = 10
-deleted item info: id = 4, name = item-4, quantity = 16 
-```
+    ```bash
+    dropped 'inventory' table
+    inserted item with id 1
+    inserted item with id 2
+    inserted item with id 3 
+    inserted item with id 4 
+    inserted item with id 5 
+    quantity for item item-1 = 42
+    listing items...
+    item info: id = 1, name = item-1, quantity = 42 
+    item info: id = 2, name = item-2, quantity = 43 
+    item info: id = 3, name = item-3, quantity = 11 
+    item info: id = 4, name = item-4, quantity = 32 
+    item info: id = 5, name = item-5, quantity = 24 
+    updated item id 1 to quantity = 27
+    updated item id 2 to quantity = 14
+    updated item id 3 to quantity = 31
+    updated item id 4 to quantity = 16
+    updated item id 5 to quantity = 10
+    deleted item info: id = 4, name = item-4, quantity = 16 
+    ```
 
-To confirm, you can also connect to Azure Database for PostgreSQL [using psql](./quickstart-create-server-database-portal.md#connect-to-the-server-with-psql) and run queries against the database, for example:
+4. To confirm, you can also connect to Azure Database for PostgreSQL [using psql](./quickstart-create-server-database-portal.md#connect-to-the-server-with-psql) and run queries against the database, for example:
 
-```sql
-select * from inventory;
-```
+    ```sql
+    select * from inventory;
+    ```
 
 [Having issues? Let us know](https://aka.ms/postgres-doc-feedback)
 
