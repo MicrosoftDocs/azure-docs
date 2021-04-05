@@ -55,7 +55,7 @@ Next, create a C# .NET console application in Visual Studio:
 ## Install NuGet packages
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Microsoft.Azure.Management.Purview nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.Purview/).
+2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Microsoft.Azure.Management.Purview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Management.Purview/).
 
     ```powershell
     Install-Package Microsoft.Azure.Management.Purview
@@ -179,9 +179,9 @@ To programmatically delete a Purview Account, add the following lines of code to
 	client.Accounts.Delete(resourceGroup, purviewAccountName);
 ```
 
-## Check if Purview account name is availble
+## Check if Purview account name is available
 
-To check availablity of a purview account, use the following code: 
+To check availability of a purview account, use the following code: 
 
 ```csharp
 	CheckNameAvailabilityRequest checkNameAvailabilityRequest = new CheckNameAvailabilityRequest()
@@ -198,7 +198,7 @@ The above code with print 'True' if the name is available and 'False' if the nam
 
 ## Next steps
 
-The code in this tutorial creates a purview account, deletes a purview account and checks for name availablilty of purview account. You can now download the .NET SDK and learn about other resource provider actions you can perform for a Purview account.
+The code in this tutorial creates a purview account, deletes a purview account and checks for name availability of purview account. You can now download the .NET SDK and learn about other resource provider actions you can perform for a Purview account.
 
 Advance to the next article to learn how to allow users to access your Azure Purview Account. 
 
