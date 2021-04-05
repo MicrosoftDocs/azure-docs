@@ -3,7 +3,7 @@
   - name: Azure Media Player overview
     href: azure-media-player-overview.md
   - name: Changelog
-    href: to https://amp.azure.net/libs/amp/latest/docs/changelog.html
+    href: https://amp.azure.net/libs/amp/latest/docs/changelog.html
 - name: Quickstarts
   items:
   - name: Azure Media Player quickstart
