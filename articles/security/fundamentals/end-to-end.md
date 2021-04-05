@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/02/2021
+ms.date: 4/05/2021
 ms.author: terrylan
 
 ---
@@ -86,7 +86,7 @@ The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a
 | [Azure Defender](../../security-center/azure-defender.md) | Brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. The Azure Defender dashboard in Security Center provides visibility and control of the cloud workload protection features for your environment. |
 | [Azure Sentinel](../../sentinel/overview.md) | A scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. |
 | **Identity&nbsp;&&nbsp;Access&nbsp;Management** |  |
-| [Microsoft Threat Protection](https://techcommunity.microsoft.com/t5/microsoft-security-and/announcing-microsoft-threat-protection/ba-p/262783) | Helps secure the modern workplace across its entire attack surface, securing identities, endpoints, cloud apps, and infrastructure. |
+| [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/defender/microsoft-365-defender) | A unified pre- and post-breach enterprise defense suite that natively coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications to provide integrated protection against sophisticated attacks. |
 |  | [Microsoft Defender for Endpoint](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint.md) is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. |
 |  | [Microsoft Defender for Identity](https://docs.microsoft.com/defender-for-identity/what-is) is a cloud-based security solution that leverages your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions directed at your organization. |
 | [Azure AD Identity Protection](../../active-directory/identity-protection/howto-identity-protection-configure-notifications.md) | Sends two types of automated notification emails to help you manage user risk and risk detections: Users at risk detected email and Weekly digest email. |
