@@ -170,8 +170,8 @@ Add the following dependencies in the pom.xml file.
     > - `<Storage container name>` with the name of your container in your Azure blob storage. 
 
     ```java
-	private static final String connectionString = "<Event Hubs namespace connection string>";
-	private static final String eventHubName = "<Event hub name>";
+    private static final String connectionString = "<Event Hubs namespace connection string>";
+    private static final String eventHubName = "<Event hub name>";
     private static final String storageConnectionString = "<Storage connection string>";
     private static final String storageContainerName = "<Storage container name>";
     ```
