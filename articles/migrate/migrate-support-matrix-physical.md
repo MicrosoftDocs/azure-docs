@@ -1,6 +1,6 @@
 ---
-title: Support for physical server assessment in Azure Migrate
-description: Learn about support for physical server assessment with Azure Migrate Discovery and assessment
+title: Support for physical discovery and assessment in Azure Migrate
+description: Learn about support for physical discovery and assessment with Azure Migrate Discovery and assessment
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
@@ -10,7 +10,7 @@ ms.date: 03/18/2021
 
 # Support matrix for physical server discovery and assessment 
 
-This article summarizes prerequisites and support requirements when you assess physical servers for migration to Azure, using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. If you want to migrate physical servers to Azure, review the [migration support matrix](migrate-support-matrix-physical-migration.md).
+This article summarizes prerequisites and support requirements when you assess physical servers for migration to Azure, using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. If you want to migrate physical servers to Azure, review the [migration support matrix](migrate-support-matrix-physical-migration.md).
 
 To assess physical servers, you create a project, and add the Azure Migrate: Discovery and assessment tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises servers, and sends servers metadata and performance data to Azure. After discovery is complete, you gather discovered servers into groups, and run an assessment for a group.
 
@@ -18,7 +18,7 @@ To assess physical servers, you create a project, and add the Azure Migrate: Dis
 
 **Support** | **Details**
 --- | ---
-**Assessment limits** | You can discover and assess up to 35,000 physical servers in a single [project](migrate-support-matrix.md#azure-migrate-projects).
+**Assessment limits** | You can discover and assess up to 35,000 physical servers in a single [project](migrate-support-matrix.md#project).
 **Project limits** | You can create multiple projects in an Azure subscription. In addition to physical servers, a project can include servers on VMware and on Hyper-V, up to the assessment limits for each.
 **Discovery** | The Azure Migrate appliance can discover up to 1000 physical servers.
 **Assessment** | You can add up to 35,000 servers in a single group.<br/><br/> You can assess up to 35,000 servers in a single assessment.
@@ -34,6 +34,8 @@ To assess physical servers, you create a project, and add the Azure Migrate: Dis
 **Permissions:**
 
 - For Windows servers, use a domain account for domain-joined servers, and a local account for servers that are not domain-joined. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
+    > [!Note]
+    > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers and the domain/local account used to access the servers is added to these groups: Performance Monitor Users, Performance Log Users and WinRMRemoteWMIUsers.
 - For Linux servers, you need a root account on the Linux servers that you want to discover. Alternately, you can set a non-root account with the required capabilities using the following commands:
 
 **Command** | **Purpose**
@@ -79,4 +81,4 @@ The following table summarizes port requirements for assessment.
 
 ## Next steps
 
-[Prepare for physical server assessment](./tutorial-discover-physical.md).
+[Prepare for physical Discovery and assessment](./tutorial-discover-physical.md).

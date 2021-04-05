@@ -8,7 +8,7 @@ ms.date: 03/15/2021
 
 # Action rules (preview)
 
-Action rules help you define or suppress actions at any Azure Resource Manager scope (Azure subscription, resource group, or target resource). They have various filters that help you narrow down the specific subset of alert instances that you want to act on.
+Action rules let you add or suppress the action groups on your fired alerts. A single rule can cover different scopes of target resources, for example - any alert on a specific resource (like a specific virtual machine) or any alert fired on any resource in a subscription. You can optionally add various filters to control which alerts are covered by a rule and define a schedule for it, for example for it to be in effect only outside business hours or during a planned maintenance window.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
@@ -27,7 +27,7 @@ Although alert rules help you define the action group that triggers when the ale
 Action rules help you simplify this process. By defining actions at scale, an action group can be triggered for any alert that's generated on the configured scope. In the previous example, the team can define one action rule on **ContosoRG** that will trigger the same action group for all alerts generated within it.
 
 > [!NOTE]
-> Action rules currently don't apply to Azure Service Health alerts.
+> Action rules do not apply to Azure Service Health alerts.
 
 ## Configuring an action rule
 
@@ -304,7 +304,7 @@ In the [alerts list page](./alerts-managing-alert-instances.md), you can choose 
 
 Suppression always takes precedence on the same scope.
 
-### What happens if I have a resource that's monitored in two separate action rules? Do I get one or two notifications? For example, **VM2** in the following scenario:
+### What happens if I have a resource that is covered by two action rules? Do I get one or two notifications? For example, **VM2** in the following scenario:
 
    `action rule AR1 defined for VM1 and VM2 with action group AG1`
 

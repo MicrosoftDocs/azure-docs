@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Micro Focus Enterprise Server on Azure VMs
+  titleSuffix: Azure Example Scenarios
+  description: Optimize, modernize, and streamline IBM z/OS mainframe applications by using Micro Focus Enterprise Server 6.0 on Azure VMs.
+  author: EdPrice-MSFT
+  ms.author: jfrost
+  ms.date: 03/01/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+    - example-scenario
+name: Micro Focus Enterprise Server on Azure VMs
+summary: Optimize, modernize, and streamline IBM z/OS mainframe applications by using Micro Focus Enterprise Server 6.0 on Azure VMs.
+azureCategories:
+  - compute
+  - hybrid
+products:
+  - azure-site-recovery
+  - azure-sqlserver-vm
+  - azure-virtual-machines
+  - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/micro-focus-enterprise-server.png
+content: |
+   [!include[](micro-focus-server-content.md)]
