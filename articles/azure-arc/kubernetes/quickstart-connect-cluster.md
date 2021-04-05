@@ -6,8 +6,7 @@ ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 03/03/2021
-ms.custom: template-quickstart
-ms.custom: references_regions
+ms.custom: template-quickstart, references_regions
 keywords: "Kubernetes, Arc, Azure, cluster"
 ---
 
