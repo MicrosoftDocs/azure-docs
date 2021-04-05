@@ -6,7 +6,7 @@ author: msangapu-msft
 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 02/23/2021
 ms.author: msangapu
 ms.custom: seodec18
 
@@ -35,9 +35,9 @@ See [Configure SSH in a custom container](configure-custom-container.md#enable-s
 
 Using TCP tunneling you can create a network connection between your development machine and Web App for Containers over an authenticated WebSocket connection. It enables you to open an SSH session with your container running in App Service from the client of your choice.
 
-To get started, you need to install [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). To see how it works without installing Azure CLI, open [Azure Cloud Shell](../cloud-shell/overview.md). 
+To get started, you need to install [Azure CLI](/cli/azure/install-azure-cli). To see how it works without installing Azure CLI, open [Azure Cloud Shell](../cloud-shell/overview.md). 
 
-Open a remote connection to your app using the [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) command. Specify _\<subscription-id>_, _\<group-name>_ and \_\<app-name>_ for your app.
+Open a remote connection to your app using the [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection#ext-webapp-az-webapp-remote-connection-create) command. Specify _\<subscription-id>_, _\<group-name>_ and \_\<app-name>_ for your app.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
@@ -45,6 +45,13 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 
 > [!TIP]
 > `&` at the end of the command is just for convenience if you are using Cloud Shell. It runs the process in the background so that you can run the next command in the same shell.
+
+> [!NOTE]
+> If this command fails, make sure [remote debugging](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0) is *disabled* with the following command:
+>
+> ```azurecli-interactive
+> az webapp config set --resource-group <resource-group-name> -n <app-name> --remote-debugging-enabled=false
+> ```
 
 The command output gives you the information you need to open an SSH session.
 

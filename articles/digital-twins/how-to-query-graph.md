@@ -6,9 +6,9 @@ description: See how to query the Azure Digital Twins twin graph for information
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 11/19/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -22,50 +22,41 @@ This article offers query examples and more detailed instructions for using the 
 
 This article begins with sample queries that illustrate the query language structure and common query operations for digital twins. It then describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
 
-> [!TIP]
+> [!NOTE]
 > If you're running the sample queries below with an API or SDK call, you'll need to condense the query text into a single line.
 
 ## Show all digital twins
 
 Here is the basic query that will return a list of all digital twins in the instance:
 
-```sql
-SELECT *
-FROM DIGITALTWINS
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
 
 ## Query by property
 
 Get digital twins by **properties** (including ID and metadata):
 
-```sql
-SELECT  *
-FROM DigitalTwins T  
-WHERE T.firmwareVersion = '1.1'
-AND T.$dtId in ['123', '456']
-AND T.Temperature = 70
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!TIP]
-> The ID of a digital twin is queried using the metadata field `$dtId`.
+As shown in the query above, the ID of a digital twin is queried using the metadata field `$dtId`.
+
+>[!TIP]
+> If you are using Cloud Shell to run a query with metadata fields that begin with `$`, you should escape the `$` with a backtick to let Cloud Shell know it's not a variable and should be consumed as a literal in the query text.
 
 You can also get twins based on **whether a certain property is defined**. Here is a query that gets twins that have a defined *Location* property:
 
-```sql
-SELECT *​ FROM DIGITALTWINS WHERE IS_DEFINED(Location)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty2":::
 
 This can help you to get twins by their *tag* properties, as described in [Add tags to digital twins](how-to-use-tags.md). Here is a query that gets all twins tagged with *red*:
 
-```sql
-SELECT * FROM DIGITALTWINS WHERE IS_DEFINED(tags.red)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
 
 You can also get twins based on the **type of a property**. Here is a query that gets twins whose *Temperature* property is a number:
 
-```sql
-SELECT * FROM DIGITALTWINS​ T WHERE IS_NUMBER(T.Temperature)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty3":::
+
+>[!TIP]
+> If a property is of type `Map`, you can use the map keys and values directly in the query, like this:
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty4":::
 
 ## Query by model
 
@@ -83,30 +74,22 @@ So for example, if you query for twins of the model `dtmi:example:widget;4`, the
 The simplest use of `IS_OF_MODEL` takes only a `twinTypeName` parameter: `IS_OF_MODEL(twinTypeName)`.
 Here is a query example that passes a value in this parameter:
 
-```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1')
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByModel1":::
 
 To specify a twin collection to search when there is more than one (like when a `JOIN` is used), add the `twinCollection` parameter: `IS_OF_MODEL(twinCollection, twinTypeName)`.
 Here is a query example that adds a value for this parameter:
 
-```sql
-SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1')
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByModel2":::
 
 To do an exact match, add the `exact` parameter: `IS_OF_MODEL(twinTypeName, exact)`.
 Here is a query example that adds a value for this parameter:
 
-```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1', exact)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByModel3":::
 
 You can also pass all three arguments together: `IS_OF_MODEL(twinCollection, twinTypeName, exact)`.
 Here is a query example specifying a value for all three parameters:
 
-```sql
-SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1', exact)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByModel4":::
 
 ## Query by relationship
 
@@ -128,12 +111,7 @@ To get a dataset that includes relationships, use a single `FROM` statement foll
 
 Here is a sample relationship-based query. This code snippet selects all digital twins with an *ID* property of 'ABC', and all digital twins related to these digital twins via a *contains* relationship.
 
-```sql
-SELECT T, CT
-FROM DIGITALTWINS T
-JOIN CT RELATED T.contains
-WHERE T.$dtId = 'ABC'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationship1":::
 
 > [!NOTE]
 > The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.
@@ -145,13 +123,7 @@ The Azure Digital Twins query language allows filtering and projection of relati
 
 As an example, consider a *servicedBy* relationship that has a *reportedCondition* property. In the below query, this relationship is given an alias of 'R' in order to reference its property.
 
-```sql
-SELECT T, SBT, R
-FROM DIGITALTWINS T
-JOIN SBT RELATED T.servicedBy R
-WHERE T.$dtId = 'ABC'
-AND R.reportedCondition = 'clean'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationship2":::
 
 In the example above, note how *reportedCondition* is a property of the *servicedBy* relationship itself (NOT of some digital twin that has a *servicedBy* relationship).
 
@@ -161,58 +133,27 @@ Up to five `JOIN`s are supported in a single query. This allows you to traverse 
 
 Here is an example of a multi-join query, which gets all the light bulbs contained in the light panels in rooms 1 and 2.
 
-```sql
-SELECT LightBulb
-FROM DIGITALTWINS Room
-JOIN LightPanel RELATED Room.contains
-JOIN LightBulb RELATED LightPanel.contains
-WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')
-AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')
-AND Room.$dtId IN ['room1', 'room2']
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationship3":::
 
 ## Count items
 
 You can count the number of items in a result set using the `Select COUNT` clause:
 
-```sql
-SELECT COUNT()
-FROM DIGITALTWINS
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="SelectCount1":::
 
 Add a `WHERE` clause to count the number of items that meet a certain criteria. Here are some examples of counting with an applied filter based on the type of twin model (for more on this syntax, see [*Query by model*](#query-by-model) below):
 
-```sql
-SELECT COUNT()
-FROM DIGITALTWINS
-WHERE IS_OF_MODEL('dtmi:sample:Room;1')
-
-SELECT COUNT()
-FROM DIGITALTWINS c
-WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="SelectCount2":::
 
 You can also use `COUNT` along with the `JOIN` clause. Here is a query that counts all the light bulbs contained in the light panels of rooms 1 and 2:
 
-```sql
-SELECT COUNT()  
-FROM DIGITALTWINS Room  
-JOIN LightPanel RELATED Room.contains  
-JOIN LightBulb RELATED LightPanel.contains  
-WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
-AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
-AND Room.$dtId IN ['room1', 'room2']
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="SelectCount3":::
 
 ## Filter results: select top items
 
 You can select the several "top" items in a query using the `Select TOP` clause.
 
-```sql
-SELECT TOP (5)
-FROM DIGITALTWINS
-WHERE ...
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="SelectTop":::
 
 ## Filter results: specify return set with projections
 
@@ -223,54 +164,25 @@ By using projections in the `SELECT` statement, you can choose which columns a q
 
 Here is an example of a query that uses projection to return twins and relationships. The following query projects the *Consumer*, *Factory* and *Edge* from a scenario where a *Factory* with an ID of *ABC* is related to the *Consumer* through a relationship of *Factory.customer*, and that relationship is presented as the *Edge*.
 
-```sql
-SELECT Consumer, Factory, Edge
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections1":::
 
 You can also use projection to return a property of a twin. The following query projects the *Name* property of the *Consumers* that are related to the *Factory* with an ID of *ABC* through a relationship of *Factory.customer*.
 
-```sql
-SELECT Consumer.name
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Consumer.name)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections2":::
 
 You can also use projection to return a property of a relationship. Like in the previous example, the following query projects the *Name* property of the *Consumers* related to the *Factory* with an ID of *ABC* through a relationship of *Factory.customer*; but now it also returns two properties of that relationship, *prop1* and *prop2*. It does this by naming the relationship *Edge* and gathering its properties.  
 
-```sql
-SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections3":::
 
 You can also use aliases to simplify queries with projection.
 
 The following query does the same operations as the previous example, but it aliases the property names to `consumerName`, `first`, `second`, and `factoryArea`.
 
-```sql
-SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections4":::
 
 Here is a similar query that queries the same set as above, but projects only the *Consumer.name* property as `consumerName`, and projects the complete *Factory* as a twin.
 
-```sql
-SELECT Consumer.name AS consumerName, Factory
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="Projections5":::
 
 ## Build efficient queries with the IN operator
 
@@ -280,12 +192,7 @@ For example, consider a scenario in which *Buildings* contain *Floors* and *Floo
 
 1. Find floors in the building based on the `contains` relationship.
 
-    ```sql
-    SELECT Floor
-    FROM DIGITALTWINS Building
-    JOIN Floor RELATED Building.contains
-    WHERE Building.$dtId = @buildingId
-    ```
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="INOperatorWithout":::
 
 2. To find rooms, instead of considering the floors one-by-one and running a `JOIN` query to find the rooms for each one, you can query with a collection of the floors in the building (named *Floor* in the query below).
 
@@ -297,26 +204,18 @@ For example, consider a scenario in which *Buildings* contain *Floors* and *Floo
     
     In query:
     
-    ```sql
-    
-    SELECT Room
-    FROM DIGITALTWINS Floor
-    JOIN Room RELATED Floor.contains
-    WHERE Floor.$dtId IN ['floor1','floor2', ..'floorn']
-    AND Room. Temperature > 72
-    AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
-    
-    ```
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="INOperatorWith":::
 
 ## Other compound query examples
 
 You can **combine** any of the above types of query using combination operators to include more detail in a single query. Here are some additional examples of compound queries that query for more than one type of twin descriptor at once.
 
-| Description | Query |
-| --- | --- |
-| Out of the devices that *Room 123* has, return the MxChip devices that serve the role of Operator | `SELECT device​`<br>​`FROM DigitalTwins space​`​<br>​`JOIN device RELATED space.has​`<br>​`WHERE space.$dtid = 'Room 123'`​<br>​`AND device.$metadata.model = 'dtmi:contoso:com:DigitalTwins:MxChip:3'`<br>​`AND has.role = 'Operator'` ​|
-| Get twins that have a relationship named *Contains* with another twin that has an ID of *id1* | ​`​SELECT Room​`​<br>​`FROM DIGITALTWINS Room​​`​<br>​`JOIN Thermostat RELATED Room.Contains​​`​<br>​`WHERE Thermostat.$dtId = 'id1'`​ |
-| Get all the rooms of this room model that are contained by *floor11* | `SELECT Room`​<br>​`FROM DIGITALTWINS Floor​`​<br>​`JOIN Room RELATED Floor.Contains​`​<br>​`WHERE Floor.$dtId = 'floor11'​`​<br>​`AND IS_OF_MODEL(Room, 'dtmi:contoso:com:DigitalTwins:Room;1')​` |
+* Out of the devices that *Room 123* has, return the MxChip devices that serve the role of Operator
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="OtherExamples1":::
+* Get twins that have a relationship named *Contains* with another twin that has an ID of *id1*
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="OtherExamples2":::
+* Get all the rooms of this room model that are contained by *floor11*
+    :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="OtherExamples3":::
 
 ## Run queries with the API
 
@@ -324,44 +223,20 @@ Once you have decided on a query string, you execute it by making a call to the 
 
 You can call the API directly, or use one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) available for Azure Digital Twins.
 
-The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) call from a client app:
+The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) call from a client app:
 
-```csharp
-    string adtInstanceEndpoint = "https://<your-instance-hostname>";
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-    var credential = new DefaultAzureCredential();
-    DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceEndpoint), credential);
+The query used in this call returns a list of digital twins, which the above example represents with [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin) objects. The return type of your data for each query will depend on what terms you specify with the `SELECT` statement:
+* Queries that begin with `SELECT * FROM ...` will return a list of digital twins (which can be serialized as `BasicDigitalTwin` objects, or other custom digital twin types that you may have created).
+* Queries that begin in the format `SELECT <A>, <B>, <C> FROM ...` will return a dictionary with keys `<A>`, `<B>`, and `<C>`.
+* Other formats of `SELECT` statements can be crafted to return custom data. You might consider creating your own classes to handle very customized result sets. 
 
-    // Run a query for all twins   
-    string query = "SELECT * FROM DIGITALTWINS";
-    AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
-```
-
-This call returns query results in the form of a [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) object.
+### Query with paging
 
 Query calls support paging. Here is a complete example using `BasicDigitalTwin` as query result type with error handling and paging:
 
-```csharp
-try
-{
-    await foreach(BasicDigitalTwin twin in result)
-        {
-            // You can include your own logic to print the result
-            // The logic below prints the twin's ID and contents
-            Console.WriteLine($"Twin ID: {twin.Id} \nTwin data");
-            IDictionary<string, object> contents = twin.Contents;
-            foreach (KeyValuePair<string, object> kvp in contents)
-            {
-                Console.WriteLine($"{kvp.Key}  {kvp.Value}");
-            }
-        }
-}
-catch (RequestFailedException e)
-{
-    Console.WriteLine($"Error {e.Status}: {e.Message}");
-    throw;
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="FullQuerySample":::
 
 ## Next steps
 

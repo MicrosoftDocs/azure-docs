@@ -19,7 +19,11 @@ If your storage account lacks the proper permissions, you aren't able to expand 
 
 The detailed error message may vary, but the general meaning of the error message is: "This request is not authorized to perform this operation.".
 
-![Storage connectivity issue 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.1.png)
+In the linked storage node:  
+![Storage connectivity issue 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1.png)
+
+In the storage container node:  
+![Storage connectivity issue 1a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1a.png)
 
 **SOLUTION**: To assign your account to the proper role, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md)
 
@@ -28,7 +32,11 @@ The detailed error message may vary, but the general meaning of the error messag
 
 When selecting the arrow to expand the storage structure in "Data" --> "Linked" in Synapse Studio, you may see the "REQUEST_SEND_ERROR" issue in the left panel. See the issue symptom screenshot below:
 
-![Storage connectivity issue 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.2.png)
+In the linked storage node:  
+![Storage connectivity issue 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2.png)
+
+In the storage container node:  
+![Storage connectivity issue 2a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2a.png)
 
 There might be several possible reasons behind this issue:
 
@@ -46,7 +54,8 @@ You can use the command "nslookup \<storage-account-name\>.dfs.core.windows.net"
 
 * The storage resource you are accessing is Azure Data Lake Storage Gen2 and is behind a firewall and vNet (with storage private endpoint configured) at the same time.
 * The container resource you are accessing has been deleted or doesn't exist.
+* Crossing-tenant: the workspace tenant that user used to login is not same with the tenant of the storage account. 
 
 
 ## Next steps
-If the previous steps don't help to resolve your issue, [create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+If the previous steps don't help to resolve your issue, [create a support ticket](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

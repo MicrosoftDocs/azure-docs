@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
-ms.custom: monitoring
+ms.custom: subject-monitoring
 ---
 
 # Azure Blob storage monitoring data reference
@@ -31,7 +31,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 #### Blob storage
 
-This table shows [Blob storage metrics](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
+This table shows [Blob storage metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |
@@ -171,4 +171,4 @@ The following table lists the properties for Azure Storage resource logs when th
 ## See also
 
 - See [Monitoring Azure Storage](monitor-blob-storage.md) for a description of monitoring Azure Storage.
-- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

@@ -8,9 +8,9 @@ ms.author: chgrego
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2, automl
+ms.custom: how-to, contperf-fy21q2, automl
 ---
 
 # Evaluate automated machine learning experiment results
@@ -40,7 +40,7 @@ For example, automated ML generates the following charts based on experiment typ
 
 After your automated ML experiment completes, a history of the runs can be found via:
   - A browser with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md)
-  - A Jupyter notebook using the [RunDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true)
+  - A Jupyter notebook using the [RunDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails)
 
 The following steps and video, show you how to view the run history and model evaluation metrics and charts in the studio:
 
@@ -76,7 +76,7 @@ balanced_accuracy|Balanced accuracy is the arithmetic mean of recall for each cl
 f1_score|F1 score is the harmonic mean of precision and recall. It is a good balanced measure of both false positives and false negatives. However, it does not take true negatives into account. <br> <br>**Objective:** Closer to 1 the better <br> **Range:** [0, 1]<br> <br>Supported metric names include,<li>  `f1_score_macro`: the arithmetic mean of F1 score for each class. <li> `f1_score_micro`: computed by counting the total true positives, false negatives, and false positives. <li> `f1_score_weighted`: weighted mean by class frequency of F1 score for each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|
 log_loss|This is the loss function used in (multinomial) logistic regression and extensions of it such as neural networks, defined as the negative log-likelihood of the true labels given a probabilistic classifier's predictions. <br><br> **Objective:** Closer to 0 the better <br> **Range:** [0, inf)|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|
 norm_macro_recall| Normalized macro recall is recall macro-averaged and normalized, so that random performance has a score of 0, and perfect performance has a score of 1. <br> <br>**Objective:** Closer to 1 the better <br> **Range:** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>where, `R` is the expected value of `recall_score_macro` for random predictions.<br><br>`R = 0.5`&nbsp;for&nbsp; binary&nbsp;classification. <br>`R = (1 / C)` for C-class classification problems.|
-Matthews correlation coefficient | Matthews correlation coefficient is a balanced measure of accuracy, which can be used even if one class has many more samples than another. A coefficient of 1 indicates perfect prediction, 0 random prediction, and -1 inverse prediction.<br><br> **Objective:** Closer to 1 the better <br> **Range:** [-1, 1]|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
+matthews_correlation | Matthews correlation coefficient is a balanced measure of accuracy, which can be used even if one class has many more samples than another. A coefficient of 1 indicates perfect prediction, 0 random prediction, and -1 inverse prediction.<br><br> **Objective:** Closer to 1 the better <br> **Range:** [-1, 1]|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
 precision|Precision is the ability of a model to avoid labeling negative samples as positive. <br><br> **Objective:** Closer to 1 the better <br> **Range:** [0, 1]<br> <br>Supported metric names include, <li> `precision_score_macro`, the arithmetic mean of precision for each class. <li> `precision_score_micro`, computed globally by counting the total true positives and false positives. <li> `precision_score_weighted`, the arithmetic mean of precision for each class, weighted by number of true instances in each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|
 recall| Recall is the ability of a model to detect all positive samples. <br><br> **Objective:** Closer to 1 the better <br> **Range:** [0, 1]<br> <br>Supported metric names include, <li>`recall_score_macro`: the arithmetic mean of recall for each class. <li> `recall_score_micro`: computed globally by counting the total true positives, false negatives and false positives.<li> `recall_score_weighted`: the arithmetic mean of recall for each class, weighted by number of true instances in each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
 weighted_accuracy|Weighted accuracy is accuracy where each sample is weighted by the total number of samples belonging to the same class. <br><br>**Objective:** Closer to 1 the better <br>**Range:** [0, 1]|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
@@ -86,6 +86,8 @@ weighted_accuracy|Weighted accuracy is accuracy where each sample is weighted by
 Automated ML doesn't differentiate between binary and multiclass metrics. The same validation metrics are reported whether a dataset has two classes or more than two classes. However, some metrics are intended for multiclass classification. When applied to a binary dataset, these metrics won't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`.
 
 For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately, and then taking the average of the two.
+
+Automated ML doesn't calculate binary metrics, that is metrics for binary classification datasets. However, these metrics can be manually calculated using the [confusion matrix](#confusion-matrix) that Automated ML generated for that particular run. For example, you can calculate precision, `tp / (tp + fp)`,  with the true positive and false positive values shown in a 2x2 confusion matrix chart.
 
 ## Confusion matrix
 
@@ -177,7 +179,7 @@ An over-confident model will over-predict probabilities close to zero and one, r
 
 ## Regression/forecasting metrics
 
-Automated ML calculates the same performance metrics for each  model generated, regardless if it is a regression or forecasting experiment. These metrics also undergo normalization to enable comparison between models trained on data with different ranges. To learn more, see [metric normalization](#metric-normalization)  
+Automated ML calculates the same performance metrics for each  model generated, regardless if it is a regression or forecasting experiment. These metrics also undergo normalization to enable comparison between models trained on data with different ranges. To learn more, see [metric normalization](#metric-normalization).  
 
 The following table summarizes the model performance metrics generated for regression and forecasting experiments. Like classification metrics, these metrics are also based on the scikit learn implementations. The appropriate scikit learn documentation is linked accordingly, in the **Calculation** field.
 
@@ -185,8 +187,9 @@ The following table summarizes the model performance metrics generated for regre
 --|--|--|
 explained_variance|Explained variance measures the extent to which a model accounts for the variation in the target variable. It is the percent decrease in variance of the original data to the variance of the errors. When the mean of the errors is 0, it is equal to the coefficient of determination (see r2_score below). <br> <br> **Objective:** Closer to 1 the better <br> **Range:** (-inf, 1]|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|
 mean_absolute_error|Mean absolute error is the expected value of absolute value of difference between the target and the prediction.<br><br> **Objective:** Closer to 0 the better <br> **Range:** [0, inf) <br><br> Types: <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`,  the mean_absolute_error divided by the range of the data. | [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
+mean_absolute_percentage_error|Mean absolute percentage error (MAPE) is a measure of the average difference between a predicted value and the actual value.<br><br> **Objective:** Closer to 0 the better <br> **Range:** [0, inf) ||
 median_absolute_error|Median absolute error is the median of all absolute differences between the target and the prediction. This loss is robust to outliers.<br><br> **Objective:** Closer to 0 the better <br> **Range:** [0, inf)<br><br>Types: <br> `median_absolute_error`<br> `normalized_median_absolute_error`: the median_absolute_error divided by the range of the data. |[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
-r2_score|R^2 is the coefficient of determination or the percent reduction in squared errors compared to a baseline model that outputs the mean. <br> <br> **Objective:** Closer to 1 the better <br> **Range:** (-inf, 1]|[Calculation](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+r2_score|R<sup>2</sup> (the coefficient of determination) measures the proportional reduction in mean squared error (MSE) relative to the total variance of the observed data. <br> <br> **Objective:** Closer to 1 the better <br> **Range:** [-1, 1]<br><br>Note: R<sup>2</sup> often has the range (-inf, 1]. The MSE can be larger than the observed variance, so R<sup>2</sup> can have arbitrarily large negative values, depending on the data and the model predictions. Automated ML clips reported R<sup>2</sup> scores at -1, so a value of -1 for R<sup>2</sup> likely means that the true R<sup>2</sup> score is less than -1. Consider the other metrics values and the properties of the data when interpreting a negative R<sup>2</sup> score.|[Calculation](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |Root mean squared error (RMSE) is the square root of the expected squared difference between the target and the prediction. For an unbiased estimator, RMSE is equal to the standard deviation.<br> <br> **Objective:** Closer to 0 the better <br> **Range:** [0, inf)<br><br>Types:<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: the root_mean_squared_error divided by the range of the data. |[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
 root_mean_squared_log_error|Root mean squared log error is the square root of the expected squared logarithmic error.<br><br>**Objective:** Closer to 0 the better <br> **Range:** [0, inf) <br> <br>Types: <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: the root_mean_squared_log_error divided by the range of the data.  |[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
 spearman_correlation| Spearman correlation is a nonparametric measure of the monotonicity of the relationship between two datasets. Unlike the Pearson correlation, the Spearman correlation does not assume that both datasets are normally distributed. Like other correlation coefficients, Spearman varies between -1 and 1 with 0 implying no correlation. Correlations of -1 or 1 imply an exact monotonic relationship. <br><br> Spearman is a rank-order correlation metric meaning that changes to predicted or actual values will not change the Spearman result if they do not change the rank order of predicted or actual values.<br> <br> **Objective:** Closer to 1 the better <br> **Range:** [-1, 1]|[Calculation](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|
@@ -228,10 +231,7 @@ In this example, note that the better model has a predicted vs. true line that i
 
 While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model interpretability dashboard to measure and report the relative contributions of dataset features.
 
-![Feature importances](./media/how-to-understand-automated-ml/how-to-feature-importance.gif)
-
 To view the interpretability dashboard in the studio:
-
 1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace
 2. In the left menu, select **Experiments**
 3. Select your experiment from the list of experiments
@@ -240,10 +240,11 @@ To view the interpretability dashboard in the studio:
 6. In the **Explanations** tab, you may see an explanation was already created if the model was the best
 7. To create a new explanation, select **Explain model** and select the remote compute with which to compute explanations
 
+[Learn more about model explanations in automated ML](how-to-machine-learning-interpretability-automl.md).
+
 > [!NOTE]
 > The ForecastTCN model is not currently supported by automated ML explanations and other forecasting models may have limited access to interpretability tools.
 
 ## Next steps
 * Try the [automated machine learning model explanation sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
-* Learn more about [responsible AI offerings in automated ML](how-to-machine-learning-interpretability-automl.md).
 * For automated ML specific questions, reach out to askautomatedml@microsoft.com.

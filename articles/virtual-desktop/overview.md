@@ -118,13 +118,13 @@ To learn more about URLs you must unblock to use the clients, see the [Safe URL 
 Windows Virtual Desktop supports the following x64 operating system images:
 
 * Windows 10 Enterprise multi-session, version 1809 or later
-* Windows 10 Enterprise, version 1809 or later
+* Windows 10 Enterprise, version 1809 or later (Semi-Annual Channel only)
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, or Windows 10 Enterprise KN operating system images. Windows 7 also doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
+Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, Windows 10 Pro, or Windows 10 Enterprise KN operating system images. Windows 7 also doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table:
 

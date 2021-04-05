@@ -3,7 +3,7 @@ title: Understand Azure AD Application Proxy connectors | Microsoft Docs
 description: Learn about the Azure AD Application Proxy connectors.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -20,7 +20,7 @@ Connectors are what make Azure AD Application Proxy possible. They're simple, ea
 
 ## What is an Application Proxy connector?
 
-Connectors are lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. Connectors must be installed on a Windows Server that has access to the backend application. You can organize connectors into connector groups, with each group handling traffic to specific applications.
+Connectors are lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. Connectors must be installed on a Windows Server that has access to the backend application. You can organize connectors into connector groups, with each group handling traffic to specific applications. For more infromation on Application proxy and a diagrammatic representation of application proxy architecture see [Using Azure AD Application Proxy to publish on-premises apps for remote users](what-is-application-proxy.md#application-proxy-connectors)
 
 ## Requirements and deployment
 
@@ -32,7 +32,7 @@ You need a server running Windows Server 2012 R2 or later on which you can insta
 The windows server needs to have TLS 1.2 enabled before you install the Application Proxy connector. To enable TLS 1.2 on the server:
 
 1. Set the following registry keys:
-	
+
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001

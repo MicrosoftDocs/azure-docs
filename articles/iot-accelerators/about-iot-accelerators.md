@@ -9,9 +9,7 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-
-
-# Intent: As a developer or IT Pro, I need to know what the IoT solution accelerators do, so I can understand if they can help me to build and manage my IoT solution.
+# Customer intent: As a developer or IT Pro, I need to know what the IoT solution accelerators do, so I can understand if they can help me to build and manage my IoT solution.
 ---
 
 # What are Azure IoT solution accelerators?
@@ -27,7 +25,7 @@ You can also use the solution accelerators as learning tools before building a c
 The application code in each solution accelerator includes a web app that lets you manage the solution accelerator.
 
 > [!NOTE]
-> The remote monitoring and predictive maintenance solutions have been removed from the [Azure IoT solution accelerators](https://www.azureiotsolutions.com/Accelerators) site. To learn more, see [What are Azure IoT solution accelerators? (previous version)](/previous-versions/azure/iot-accelerators/about-iot-accelerators.md).
+> The remote monitoring and predictive maintenance solutions have been removed from the [Azure IoT solution accelerators](https://www.azureiotsolutions.com/Accelerators) site. To learn more, see [What are Azure IoT solution accelerators? (previous version)](/previous-versions/azure/iot-accelerators/about-iot-accelerators).
 
 ## Supported IoT scenarios
 

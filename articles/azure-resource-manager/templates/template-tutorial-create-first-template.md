@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Create & deploy template
-description: Create your first Azure Resource Manager template. In the tutorial, you learn about the template file syntax and how to deploy a storage account.
+description: Create your first Azure Resource Manager template (ARM template). In the tutorial, you learn about the template file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 09/28/2020
+ms.date: 12/17/2020
 ms.topic: tutorial
-ms.author: jgao 
+ms.author: jgao
 ms.custom:
 
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
@@ -17,7 +17,7 @@ This tutorial introduces you to Azure Resource Manager templates (ARM templates)
 
 This tutorial is the first of a series. As you progress through the series, you modify the starting template step by step until you've explored all of the core parts of an ARM template. These elements are the building blocks for much more complex templates. We hope by the end of the series you're confident creating your own templates and ready to automate your deployments with templates.
 
-If you want to learn about the benefits of using templates and why you should automate deployment with templates, see [Azure Resource Manager templates](overview.md).
+If you want to learn about the benefits of using templates and why you should automate deployment with templates, see [ARM template overview](overview.md). To learn about ARM templates through a guided set of modules on Microsoft Learn, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -27,7 +27,7 @@ Let's start by making sure you have the tools you need to create and deploy temp
 
 ### Editor
 
-Templates are JSON files. To create templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+Templates are JSON files. To create templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ### Command-line deployment
 
@@ -50,7 +50,7 @@ Okay, you're ready to start learning about templates.
 1. Open Visual Studio Code with the Resource Manager Tools extension installed.
 1. From the **File** menu, select **New File** to create a new file.
 1. From the **File** menu, select **Save as**.
-1. Name the file **azuredeploy** and select the **JSON** file extension. The complete name of the file **azuredeploy.json**.
+1. Name the file _azuredeploy_ and select the _json_ file extension. The complete name of the file is _azuredeploy.json_.
 1. Save the file to your workstation. Select a path that is easy to remember because you'll provide that path later when deploying the template.
 1. Copy and paste the following JSON into the file:
 
@@ -62,17 +62,17 @@ Okay, you're ready to start learning about templates.
     }
     ```
 
-    Here's what your VS Code environment looks like:
+    Here's what your Visual Studio Code environment looks like:
 
-    ![Resource Manager template visual studio code first template](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
+    ![ARM template Visual Studio Code first template](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
 
     This template doesn't deploy any resources. We're starting with a blank template so you can get familiar with the steps to deploy a template while minimizing the chance of something going wrong.
 
     The JSON file has these elements:
 
-    - **$schema**: Specifies the location of the JSON schema file. The schema file describes the properties that are available within a template. For example, the schema defines **resources** as one of the valid properties for a template. Don't worry that the date for the schema is 2019-04-01. This schema version is up to date and includes all of the latest features. The schema date hasn't been changed because there have been no breaking changes since its introduction.
-    - **contentVersion**: Specifies the version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used.
-    - **resources**: Contains the resources you want to deploy or update. Currently, it's empty, but you'll add resources later.
+    - `$schema`: Specifies the location of the JSON schema file. The schema file describes the properties that are available within a template. For example, the schema defines `resources` as one of the valid properties for a template. Don't worry that the date for the schema is 2019-04-01. This schema version is up to date and includes all of the latest features. The schema date hasn't been changed because there have been no breaking changes since its introduction.
+    - `contentVersion`: Specifies the version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used.
+    - `resources`: Contains the resources you want to deploy or update. Currently, it's empty, but you'll add resources later.
 
 1. Save the file.
 
@@ -81,6 +81,8 @@ Congratulations, you've created your first template.
 ## Sign in to Azure
 
 To start working with Azure PowerShell/Azure CLI, sign in with your Azure credentials.
+
+Select the tabs in the following code sections to choose between Azure PowerShell and Azure CLI. The CLI examples in this article are written for the Bash shell.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -96,7 +98,7 @@ az login
 
 ---
 
-If you have multiple Azure subscriptions, select the subscription you want to use:
+If you have multiple Azure subscriptions, select the subscription you want to use. Replace `[SubscriptionID/SubscriptionName]` and the square brackets `[]` with your subscription information:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -112,10 +114,9 @@ az account set --subscription [SubscriptionID/SubscriptionName]
 
 ---
 
-
 ## Create resource group
 
-When you deploy a template, you specify a resource group that will contain the resources. Before running the deployment command, create the resource group with either Azure CLI or Azure PowerShell. Select the tabs in the following code section to choose between Azure PowerShell and Azure CLI. The CLI examples in this article are written for the Bash shell.
+When you deploy a template, you specify a resource group that will contain the resources. Before running the deployment command, create the resource group with either Azure CLI or Azure PowerShell.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -137,7 +138,7 @@ az group create \
 
 ## Deploy template
 
-To deploy the template, use either Azure CLI or Azure PowerShell. Use the resource group you created. Give a name to the deployment so you can easily identify it in the deployment history. For convenience, also create a variable that stores the path to the template file. This variable makes it easier for you to run the deployment commands because you don't have to retype the path every time you deploy.
+To deploy the template, use either Azure CLI or Azure PowerShell. Use the resource group you created. Give a name to the deployment so you can easily identify it in the deployment history. For convenience, also create a variable that stores the path to the template file. This variable makes it easier for you to run the deployment commands because you don't have to retype the path every time you deploy. Replace `{provide-the-path-to-the-template-file}` and the curly braces `{}` with the path to your template file.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -176,7 +177,7 @@ The deployment command returns results. Look for `ProvisioningState` to see whet
 ---
 
 > [!NOTE]
-> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
+> If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
 ## Verify deployment
 

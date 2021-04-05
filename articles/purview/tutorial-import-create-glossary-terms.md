@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Create and import glossary terms in Azure Purview (preview)'
 description: This tutorial describes how to create glossary terms, add glossary terms to an asset, and import glossary terms. 
-author: hophan
-ms.author: hophan
+author: shsandeep123
+ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
@@ -132,10 +132,10 @@ On the **New term template** screen, do the following steps:
 
    |Setting|Suggested value|
    |---------|-----------|
-   |Attribute name|is sensitive information|
-   |Field type|dropdown|Single choice|
-   |Mark as required|Check this box.|
-   |+ Add a choice| Add two choices. "Yes" and "No".|
+   |Attribute name |is sensitive information|
+   |Field type | Single choice|
+   |Mark as required | Check this box.|
+   |+ Add a choice | Add two choices. "Yes" and "No".|
 
    :::image type="content" source="./media/tutorial-import-create-glossary-terms/add-new-attribute.png" alt-text="add a new attribute.":::
 

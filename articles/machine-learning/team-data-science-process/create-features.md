@@ -1,5 +1,5 @@
 ---
-title: Feature engineering in data science - Team Data Science Process
+title: Feature engineering in machine learning - Team Data Science Process
 description: Learn about feature engineering and its role in the data enhancement process of machine learning.
 services: machine-learning
 author: marktab
@@ -10,9 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
 ---
-# Feature engineering in data science
+# Feature engineering in machine learning
 
 In this article, you learn about feature engineering and its role in enhancing data in machine learning. Learn from illustrative examples drawn from [Azure Machine Learning Studio (classic)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) experiments. 
 

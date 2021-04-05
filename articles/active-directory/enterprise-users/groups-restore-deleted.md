@@ -26,7 +26,7 @@ The permissions required to restore a group can be any of the following:
 Role | Permissions
 --------- | ---------
 Global administrator, Group administrator, Partner Tier2 support, and Intune administrator | Can restore any deleted Microsoft 365 group
-User administrator and Partner Tier1 support | Can restore any deleted Microsoft 365 group except those groups assigned to the Company Administrator role
+User administrator and Partner Tier1 support | Can restore any deleted Microsoft 365 group except those groups assigned to the Global Administrator role
 User | Can restore any deleted Microsoft 365 group that they own
 
 ## View and manage the deleted Microsoft 365 groups that are available to restore

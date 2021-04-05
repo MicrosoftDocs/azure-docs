@@ -28,7 +28,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 - [Filer network traffic with a network security group](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Firewall requirements for using the Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Firewall requirements for using the Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [Understand Azure Private Link](../private-link/private-link-overview.md) 
 
@@ -44,7 +44,7 @@ You can also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 - [Data collection in Azure Security Center](security-center-enable-data-collection.md)
 
-- [Firewall requirements for using the Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Firewall requirements for using the Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
@@ -68,7 +68,7 @@ You can use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 - [Data collection in Azure Security Center](security-center-enable-data-collection.md)
 
-- [Firewall requirements for using the Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Firewall requirements for using the Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md) 
 
@@ -84,9 +84,9 @@ You can use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 **Guidance**: Use Azure Activity log to monitor resource configurations and detect changes for network resources related to Azure Security Center. Create alerts in Azure Monitor to notify you when changes to critical resources take place.
 
-- [How to view and retrieve Azure Activity log events](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
+- [How to view and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log) 
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -111,9 +111,9 @@ Alternatively, you can send data produced by Security Center to Azure Sentinel o
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -125,11 +125,11 @@ Alternatively, you can send data produced by Security Center to Azure Sentinel o
 
 **Guidance**: Azure Monitor Activity logs are automatically available, these logs contain all write operations for your resource like Azure Security Center including what operations were made, who started the operation, and when they occurred. Send your Azure Activity logs to a Log Analytics workspace for log consolidation and increased retention.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Send Activity logs to a Log Analytics workspace](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace)
+- [Send Activity logs to a Log Analytics workspace](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -139,9 +139,9 @@ Alternatively, you can send data produced by Security Center to Azure Sentinel o
 
 **Guidance**: In Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage accounts for long-term and archival storage. 
 
-- [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
-- [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -155,9 +155,9 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Getting started with Log Analytics queries](../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Getting started with Log Analytics queries](../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -173,11 +173,11 @@ Alternatively, you can enable and on-board data related to and produced by Azure
 
 - [How to manage alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) 
 
-- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 - [Set up automated threat responses in Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 
-- [Log alerts in Azure Monitor](../azure-monitor/platform/alerts-unified-log.md)
+- [Log alerts in Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -247,7 +247,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -367,7 +367,7 @@ By default Azure Security Center data is stored in the Security Center backend s
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable. 
 
-- [Sending data securely to Log Analytics](../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)
+- [Sending data securely to Log Analytics](../azure-monitor/logs/data-security.md#sending-data-securely-using-tls-12)
 
 - [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
@@ -393,7 +393,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Guidance**: Azure Security Center uses a configured Log Analytics workspace to store the data, alerts, and recommendations it generates. Configure a customer-managed key (CMK) for the workspace that you have configured for Security Center data collection. CMK enables all data saved or sent to the workspace to be encrypted with an Azure Key Vault key created and owned by you. 
 
-- [Azure Monitor customer-managed key](../azure-monitor/platform/customer-managed-keys.md)
+- [Azure Monitor customer-managed key](../azure-monitor/logs/customer-managed-keys.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -403,7 +403,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Guidance**: Use Azure Monitor to create alerts when changes take place to critical Azure resources related to Azure Security Center. These changes may include any actions that modify configurations related to security center like the disabling of alerts or recommendations, or the update or deletion of data stores.
 
-- [How to create alerts for Azure Activity log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -595,7 +595,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Azure Security Center uses a configured Log Analytics workspace to store the data, alerts, and recommendations it generates. Configure a customer-managed key (CMK) for the workspace that you have configured for Security Center data collection. CMK enables all data saved or sent to the workspace to be encrypted with an Azure Key Vault key created and owned by you. 
 
-- [Azure Monitor customer-managed key](../azure-monitor/platform/customer-managed-keys.md)
+- [Azure Monitor customer-managed key](../azure-monitor/logs/customer-managed-keys.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -655,7 +655,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: Ensure ability to periodically perform restoration using Azure Resource Manager backed template files. Test restoration of backed up customer-managed keys.
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](../azure-monitor/samples/resource-manager-workspace.md)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](../azure-monitor/logs/resource-manager-workspace.md)
 
 - [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 

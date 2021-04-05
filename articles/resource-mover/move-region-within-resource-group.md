@@ -53,6 +53,9 @@ In this article, learn how to move resources in a specific resource group to a d
 
 Select resources you want to move. You move resources to a target region in the source region subscription. If you want to change the subscription, you can do that after the resources are moved.
 
+> [!NOTE]
+>  Don't select associated disks or the operation will fail. Associated disks are automatically included in a VM move.
+
 1. In the Azure portal, open the relevant resource group.
 2. In the resource group page, select the resources that you want to move.
 3. Select **Move** > **Move to another region**.

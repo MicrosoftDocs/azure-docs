@@ -50,7 +50,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     ![Azure tables](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    You can use [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) or any other tool to see the data in your storage table. You can also export the data in the Azure table.
+    You can use [Azure Storage Explorer](https://www.storageexplorer.com) or any other tool to see the data in your storage table. You can also export the data in the Azure table.
 
 ## (Optional) Use Power Automate to get lead notifications
 
@@ -198,3 +198,7 @@ To make sure you have successfully connected to a lead destination, select the *
 >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
 
 When leads are generated, Microsoft sends leads to the Azure table. If you configured a flow, an email will also be sent to the email address you configured.
+
+## Next steps
+
+- [Lead management FAQ and troubleshooting](../lead-management-faq.md)

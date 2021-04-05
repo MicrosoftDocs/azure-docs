@@ -81,6 +81,18 @@ Visual Studio doesn't automatically upload the settings in local.settings.json w
 
 Your code can also read the function app settings values as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
 
+## Configure your build output settings
+
+When building an Azure Functions project, the build tools optimize the output so that only one copy of any assemblies that are shared with the functions runtime are preserved. The result is an optimized build that saves as much space as possible. However, when you move to a more recent version of any of your project assemblies, the build tools might not know that these assemblies must be preserved. To make sure that these assemblies are preserved during the optimization process, you can specify them using `FunctionsPreservedDependencies` elements in the project (.csproj) file:
+
+```xml
+  <ItemGroup>
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Extensions.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Features.dll" />
+  </ItemGroup>
+```
+
 ## Configure the project for local development
 
 The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, set the `Values.AzureWebJobsStorage` key to a valid Azure Storage account connection string. Your function app can also use the [Azure Storage Emulator](../storage/common/storage-use-emulator.md) for the `AzureWebJobsStorage` connection setting that's required by the project. To use the emulator, set the value of `AzureWebJobsStorage` to `UseDevelopmentStorage=true`. Change this setting to an actual storage account connection string before deployment.

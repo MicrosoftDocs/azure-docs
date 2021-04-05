@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Azure DDoS Protection Standard?
-    href: ddos-protection-overview.md    
+    href: ddos-protection-overview.md
 - name: Quickstarts
   items:
   - name: Create a DDoS protection plan - Portal
@@ -12,12 +12,17 @@
     href: manage-ddos-protection-powershell.md
   - name: Create a DDoS protection plan - CLI
     href: manage-ddos-protection-cli.md
+  - name: Create a DDoS protection plan - ARM template
+    displayName: Resource Manager
+    href: manage-ddos-protection-template.md
 - name: Tutorials
   items:
   - name: View and configure DDoS protection telemetry
-    href: telemetry-monitoring-alerting.md
-  - name: Configure DDoS attack mitigation reports and flow logs
-    href: reports-and-flow-logs.md
+    href: telemetry.md
+  - name: View and configure DDoS diagnostic logging
+    href: diagnostic-logging.md
+  - name: View and configure DDoS protection alerts
+    href: alerts.md
 - name: Concepts
   items:
   - name: Types of attacks
@@ -33,7 +38,7 @@
   - name: Security baseline
     href: ../security/fundamentals/ddos-protection-security-baseline.md?toc=%2fazure%2fddos-protection%2ftoc.json
 - name: How-to guides
-  items:  
+  items:
     - name: Test through simulations
       href: test-through-simulations.md
     - name: Manage permissions and restrictions
@@ -41,13 +46,13 @@
     - name: Engage DDoS Rapid Response (DRR)
       href: ddos-rapid-response.md
     - name: Onboard partners
-      href: ddos-protection-partner-onboarding.md  
+      href: ddos-protection-partner-onboarding.md
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/network/ddos-protection?view=azure-cli-latest
+    href: /cli/azure/network/ddos-protection
   - name: Azure PowerShell
-    href: /powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0
+    href: /powershell/module/Az.Network/New-AzDdosProtectionPlan
   - name: .NET
     href: /dotnet/api/
   - name: Java

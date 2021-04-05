@@ -117,8 +117,8 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI developer reference
-            url: /rest/api/mariadb/
+            url: /cli/azure/mariadb/
           - text: REST API developer reference
-            url: /cli/azure/mariadb
+            url: /rest/api/mariadb/
           - text: Azure Resource Manager templates
             url: /azure/templates/microsoft.dbformariadb/allversions

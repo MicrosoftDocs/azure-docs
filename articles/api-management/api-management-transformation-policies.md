@@ -209,7 +209,7 @@ or
 ```
 
 > [!NOTE]
-> Backend entities can be managed via management [API](/rest/api/apimanagement/2019-12-01/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### Example
 
@@ -264,7 +264,7 @@ In this example the policy routes the request to a service fabric backend, using
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |base-url|New backend service base URL.|One of `base-url` or `backend-id` must be present.|N/A|
-|backend-id|Identifier of the backend to route to. (Backend entities are managed via [API](/rest/api/apimanagement/2019-12-01/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|One of `base-url` or `backend-id` must be present.|N/A|
+|backend-id|Identifier of the backend to route to. (Backend entities are managed via [Azure portal](how-to-configure-service-fabric-backend.md), [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|One of `base-url` or `backend-id` must be present.|N/A|
 |sf-partition-key|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Used to resolve a specific partition from the name resolution service.|No|N/A|
 |sf-replica-type|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Controls if the request should go to the primary or secondary replica of a partition. |No|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution.|No|N/A|
@@ -668,18 +668,18 @@ OriginalUrl.
 <xsl-transform>
     <parameter name="User-Agent">@(context.Request.Headers.GetValueOrDefault("User-Agent","non-specified"))</parameter>
     <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    	<xsl:output method="xml" indent="yes" />
-    	<xsl:param name="User-Agent" />
-    	<xsl:template match="* | @* | node()">
-    		<xsl:copy>
-    			<xsl:if test="self::* and not(parent::*)">
-    				<xsl:attribute name="User-Agent">
-    					<xsl:value-of select="$User-Agent" />
-    				</xsl:attribute>
-    			</xsl:if>
-    			<xsl:apply-templates select="* | @* | node()" />
-    		</xsl:copy>
-    	</xsl:template>
+        <xsl:output method="xml" indent="yes" />
+        <xsl:param name="User-Agent" />
+        <xsl:template match="* | @* | node()">
+            <xsl:copy>
+                <xsl:if test="self::* and not(parent::*)">
+                    <xsl:attribute name="User-Agent">
+                        <xsl:value-of select="$User-Agent" />
+                    </xsl:attribute>
+                </xsl:if>
+                <xsl:apply-templates select="* | @* | node()" />
+            </xsl:copy>
+        </xsl:template>
     </xsl:stylesheet>
   </xsl-transform>
 ```
@@ -694,15 +694,15 @@ OriginalUrl.
   <outbound>
       <base />
       <xsl-transform>
-      	<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    		<xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />
-    		<!-- Copy all nodes directly-->
-    		<xsl:template match="node()| @*|*">
-    			<xsl:copy>
-    				<xsl:apply-templates select="@* | node()|*" />
-    			</xsl:copy>
-    		</xsl:template>
-      	</xsl:stylesheet>
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+            <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />
+            <!-- Copy all nodes directly-->
+            <xsl:template match="node()| @*|*">
+                <xsl:copy>
+                    <xsl:apply-templates select="@* | node()|*" />
+                </xsl:copy>
+            </xsl:template>
+          </xsl:stylesheet>
     </xsl-transform>
   </outbound>
 </policies>

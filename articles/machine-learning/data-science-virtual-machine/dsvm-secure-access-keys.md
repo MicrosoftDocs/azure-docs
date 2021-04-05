@@ -4,8 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn how to securely store access credentials on the Data Science Virtual Machine. You'll learn how to use managed service identities and Azure Key Vault to store access credentials.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
 author: vijetajo
 ms.author: vijetaj

@@ -6,7 +6,7 @@ manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 2/3/2021
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
@@ -136,36 +136,13 @@ We can use the Update() loop to check if there is an Action queued. If so, we wi
 
 ## Get the Azure Spatial Anchors SDK
 
-## [Via Unity Package Manager (UPM) Package](#tab/UPMPackage)
+### Download packages
+[!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
 
-This method is compatible with Unity versions 2019.1+.
+### Import packages
+[!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
-### Add the registry to your Unity project
-
-1. In a file explorer, navigate to your Unity project's `Packages` folder. Open the project manifest file, `manifest.json`, in a text editor.
-2. At the top of the file, at the same level as the `dependencies` section, add the following entry to include the Azure Spatial Anchors registry to your project. The `scopedRegistries` entry tells Unity where to look for the Azure Spatial Anchors SDK packages.
-
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=2-10)]
-
-### Add the SDK package to your Unity project
-
-1. Add an entry with the Azure Spatial Anchors Windows SDK package name (`com.microsoft.azure.spatial-anchors-sdk.windows`) and package version to the `dependencies` section in your project manifest. See below for an example.
-
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-20&highlight=12)]
-
-2. Save and close the `manifest.json` file. When you return to Unity, Unity should automatically detect the project manifest change and retrieve the specified packages. You can expand the `Packages` folder in your Project view to verify that the right packages have been imported.
-
-## [Via Unity Asset Package](#tab/UnityAssetPackage)
-
-> [!WARNING]
-> The Unity Asset Package distribution of the Azure Spatial Anchors SDK will be deprecated after SDK version 2.5.0.
-
-Let's download the Azure Spatial Anchors SDK. Go to the [Azure Spatial Anchors GitHub releases page](https://github.com/Azure/azure-spatial-anchors-samples/releases). Under **Assets**, download the **AzureSpatialAnchors.unitypackage**. In Unity, go to **Assets**, select **Import Package** > **Custom Package...**. Navigate to the package and select **Open**.
-
-In the new **Import Unity Package** window that pops up, unselect **Plugins** and then select **Import** in the bottom-right corner.
-
----
-
+### Prepare code
 In your **Visual Studio** solution, add the following import into your `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs`:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18-21&highlight=1)]

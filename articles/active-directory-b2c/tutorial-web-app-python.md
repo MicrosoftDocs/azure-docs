@@ -181,4 +181,4 @@ In this tutorial, you configured a Python Flask web application to work with a u
 Next, learn how to customize the UI of the user flow pages displayed to your users by Azure AD B2C:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Customize the interface of user experiences in Azure AD B2C >](tutorial-customize-ui.md)
+> [Customize the interface of user experiences in Azure AD B2C >](customize-ui.md)

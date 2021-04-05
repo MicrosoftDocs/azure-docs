@@ -11,7 +11,7 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
-ms.custom: contperfq4, tracking-python
+ms.custom: contperf-fy20q4, tracking-python
 
 ---
 
@@ -35,7 +35,6 @@ See the other articles in this series:
 
 > [!IMPORTANT]
 > If your workspace is in a __sovereign cloud__, such as Azure Government or Azure China 21Vianet, integrated notebooks _do not_ support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) section.
-
 
 ## Prerequisites
 
@@ -68,7 +67,7 @@ The studio supports reading data from the following datastore types in a virtual
 
 ### Configure datastores to use workspace-managed identity
 
-After you add an Azure storage account to your virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your datastore to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) authentication. Doing so lets the studio access data in your storage account.
+After you add an Azure storage account to your virtual network with a either a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your datastore to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) authentication. Doing so lets the studio access data in your storage account.
 
 Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect to storage accounts. Use the following steps to configure a datastore to use managed identity:
 
@@ -86,7 +85,9 @@ These steps add the workspace-managed identity as a __Reader__ to the storage se
 
 ### Enable managed identity authentication for default storage accounts
 
-Each Azure Machine Learning workspace comes with two default storage accounts, which are defined when you create your workspace. The studio uses the default storage accounts to store experiment and model artifacts, which are critical to certain features in the studio.
+Each Azure Machine Learning workspace has two default storage accounts, a default blob storage account and a default file store account, which are defined when you create your workspace. You can also set new defaults in the **Datastore** management page.
+
+![Screenshot showing where default datastores can be found](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
 The following table describes why you must enable managed identity authentication for your workspace default storage accounts.
 
@@ -95,9 +96,12 @@ The following table describes why you must enable managed identity authenticatio
 |Workspace default blob storage| Stores model assets from the designer. You must enable managed identity authentication on this storage account to deploy models in the designer. <br> <br> You can visualize and run a designer pipeline if it uses a non-default datastore that has been configured to use managed identity. However, if you try to deploy a trained model without managed identity enabled on the default datastore, deployment will fail regardless of any other datastores in use.|
 |Workspace default file store| Stores AutoML experiment assets. You must enable managed identity authentication on this storage account to submit AutoML experiments. |
 
-
-![Screenshot showing where default datastores can be found](./media/how-to-enable-studio-virtual-network/default-datastores.png)
-
+> [!WARNING]
+> There's a known issue where the default file store does not automatically create the `azureml-filestore` folder, which is required to submit AutoML experiments. This occurs when users bring an existing filestore to set as the default filestore during workspace creation.
+> 
+> To avoid this issue, you have two options: 1) Use the default filestore which is automatically created for you doing workspace creation. 2) To bring your own filestore, make sure the filestore is outside of the VNet during workspace creation. After the workspace is created, add the storage account to the virtual network.
+>
+> To resolve this issue, remove the filestore account from the virtual network then add it back to the virtual network.
 
 ### Grant workspace managed identity __Reader__ access to storage private link
 
@@ -153,9 +157,11 @@ You should also [enable managed identity authentication](#configure-datastores-t
 
 ## Next steps
 
-This article is an optional part of a four-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+This article is part five of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
 
 * [Part 1: Virtual network overview](how-to-network-security-overview.md)
 * [Part 2: Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
 * [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
+
+Also see the article on using [custom DNS](how-to-custom-dns.md) for name resolution.

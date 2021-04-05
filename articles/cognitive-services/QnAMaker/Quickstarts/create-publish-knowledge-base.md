@@ -44,7 +44,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
     |**Multi-turn default text**| Select and option|
-    |**+ Add URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Add URL**|`https://www.microsoft.com/en-us/software-download/faq`|
     |**Chit-chat**|Select **Professional**|
 
 7. In **Step 5**, Select **Create your KB**.
@@ -79,7 +79,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
     |**Multi-turn default text**| Select and option|
-    |**+ Add URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Add File**| Download Surface laptop manual from: 'https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf' 
     |**Chit-chat**|Select **Professional**|
 
 8. In **Step 5**, Select **Create your KB**.
@@ -118,9 +118,9 @@ In the upper right, select **Save and train** to save your edits and train QnA M
 1. In the QnA Maker portal, in the upper right, select **Test** to test that the changes you made took effect.
 2. Enter an example user query in the textbox.
 
-    `How many Azure services are used by a knowledge base?`
+    `I want to know the difference between 32 bit and 64 bit Windows`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Enter an example user query in the textbox.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/query-dialogue.png" alt-text="Enter an example user query in the textbox.":::
 
 3. Select **Inspect** to examine the response in more detail. The test window is used to test your changes to the knowledge base before publishing your knowledge base.
 
@@ -208,4 +208,4 @@ If you are not continuing to the next quickstart, delete the QnA Maker and Bot f
 For more information:
 
 * [Markdown format in answers](../reference-markdown-format.md)
-* QnA Maker [data sources](../index.yml).
+* QnA Maker [data sources](../Concepts/data-sources-and-content.md).

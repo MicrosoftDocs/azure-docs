@@ -1,120 +1,140 @@
 ---
-title: Register a Teradata source and setup scans (preview)
+title: Register a Teradata source and setup scans (preview) in Azure Purview
 description: This article outlines how to register a Teradata source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
-ms.date: 12/06/2020
+ms.date: 2/25/2021
 ---
 # Register and scan Teradata source (preview)
 
-This article outlines how to register a Teradata source in Purview and set up a scan.
-
-> [!IMPORTANT]
-> This data source is currently in preview. You can try it out and give us feedback.
+This article outlines how to register a Teradata source in Purview and
+set up a scan.
 
 ## Supported capabilities
 
-The Teradata source supports **Full scan** to extract metadata from a Teradata database and fetches **Lineage** between data assets.
+The Teradata source supports **Full scan** to extract metadata from a
+Teradata database and fetches **Lineage** between data assets.
 
 ## Prerequisites
 
-- The connector supports data store located only inside an on-premises network, an Azure virtual network, or Amazon Virtual Private Cloud. Hence you need to set up a [self-hosted integration
-runtime](manage-integration-runtimes.md) to connect to it.
+1.  Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717).
+    For more information, see [Create and configure a self-hosted    integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
-- Make sure the Java Runtime Environment (JRE) is installed on your virtual machine where self-hosted integration runtime is installed.
- 
-- Make sure "Visual C++ Redistributable 2012 Update 4" is installed on the self-hosted integration runtime machine. If you don't yet have it installed, download it from [here](https://www.microsoft.com/download/details.aspx?id=30679).
+2.  Make sure the [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+    is installed on your virtual machine where self-hosted integration
+    runtime is installed.
 
-- You will have to manually install a driver named Teradata JDBC
-    Driver on your on-premises virtual machine. The executable JAR file can be downloaded from the [Teradata website](https://downloads.teradata.com/).
+3.  Make sure \"Visual C++ Redistributable 2012 Update 4\" is installed
+    on the self-hosted integration runtime machine. If you don\'t yet
+    have it installed, download it from
+    [here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-    > [!Note] 
+4.  You will have to manually download Teradata's JDBC Driver on your
+    virtual machine where self-hosted integration runtime is running.
+    The executable JAR file can be downloaded from the Teradata
+    [website](https://downloads.teradata.com/).
+
+    > [!Note]
     > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
-- Supported Teradata database versions are **12.x to 16.x**. Make sure to have Read access to the Teradata source being scanned.
-
-### Feature flag
-
-Registration and scanning of a Teradata source is available behind a
-feature flag. Append the following to your URL:
-*?feature.ext.datasource=%7b"teradata":"true"%7d* 
-
-E.g.,  full URL [https://web.purview.azure.com/?feature.ext.datasource=%7b"metadata":"true"%7d](https://web.purview.azure.com/?feature.ext.datasource=%7b"teradata":"true"%7d)
+5.  Supported Teradata database versions are 12.x to 16.x. Make sure to
+    have Read access to the Teradata source being scanned.
 
 ## Setting up authentication for a scan
-The only way supported to set up authentication for a Teradata source is **Basic database** authentication
+
+The only supported authentication for a Teradata source is **Basic authentication**.
 
 ## Register a Teradata source
 
-To register a new Teradata source in your data catalog, do the following:
+To register a new Teradata source in your data catalog, do the
+following:
 
-1. Navigate to your Purview account
-2. Select **Sources** on the left navigation
-3. Select **Register**
-4. On **Register sources**, select **Teradata**
-5. Select **Continue**
+1.  Navigate to your Purview account.
+2.  Select **Sources** on the left navigation.
+3.  Select **Register**
+4.  On Register sources, select **Teradata**. Select **Continue**
+
+    :::image type="content" source="media/register-scan-teradata-source/register-sources.png" alt-text="register Teradata options" border="true":::
 
 On the **Register sources (Teradata)** screen, do the following:
 
-1. Enter a **Name** that the data source will be listed with in the Catalog.
-2. Enter the **Host** name to connect to a Teradata source. It can also be an IP address or a fully qualified connection string to the server.
-3. Select a collection or create a new one (Optional)
-4. **Finish** to register the data source.
+1.  Enter a **Name** that the data source will be listed with in the
+    Catalog.
 
-    :::image type="content" source="media/register-scan-teradata-source/register-sources.png" alt-text="register sources options" border="true":::
+2.  Enter the **Host** name to connect to a Teradata source. It can also
+    be an IP address or a fully qualified connection string to the
+    server.
+
+3.  Select a collection or create a new one (Optional)
+
+4.  Finish to register the data source.
+
+    :::image type="content" source="media/register-scan-teradata-source/register-sources-2.png" alt-text="register Teradata" border="true":::
 
 ## Creating and running a scan
 
 To create and run a new scan, do the following:
-1. In the Management Center, click on *Integration runtimes*. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
 
-2. Next, navigate **Sources**
+1.  In the Management Center, click on **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to setup a self-hosted integration runtime
 
-3. Select the registered Teradata source.
+2.  Navigate to the **Sources**
 
-4. Select + New scan
- 
-5. Provide the below details:
+3.  Select the registered Teradata source.
 
-    - Name: The name of the scan
+4.  Select **+ New scan**
 
-    - Connect via integration runtime: Select the configured self-hosted integration runtime
+5.  Provide the below details:
 
-    - Authentication method: Database authentication is the only option supported for now. This will be selected by default
+    a.  **Name**: The name of the scan
 
-    - User name: A user name to connect to database server. This username should have read access to the server
+    b.  **Connect via integration runtime**: Select the configured
+        self-hosted integration runtime.
 
-    - Password: The user password used to connect to database server
+    c.  **Credential**: Select the credential to connect to your data
+        source. Make sure to:
 
-    - Schema: List subset of schemas to import expressed as a semicolon separated list. e.g.schema1; schema2. All user schemas are imported if that list is  empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
+    -   Select Basic Authentication while creating a credential.
+    -   Provide a user name to connect to database server in the User name input field
+    -   Store the database server password in the secret key.
 
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
-        - start with A or    
-        - end with B or    
-        - contain C or    
-        - equal D
+        To understand more on credentials, refer to the link [here](./manage-credentials.md)
 
-        Usage of NOT and special characters are not acceptable
+6.  **Schema**: List subset of schemas to import expressed as a
+    semicolon separated list. e.g., schema1; schema2. All user schemas
+    are imported if that list is empty. All system schemas (for example,
+    SysAdmin) and objects are ignored by default. When the list is
+    empty, all available schemas are imported.
 
-    - Driver location: Complete path to Teradata driver location on customer’s VM. The Teradata JDBC driver name must be: com.teradata.jdbc.TeraDriver
+    Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
+    - start with A or    
+    - end with B or    
+    - contain C or    
+    - equal D
 
-    - Maximum memory available: Maximum memory(in GB) available on customer’s VM to be used by scanning processes. This is dependent on the size of Teradata source to be scanned.
+    Usage of NOT and special characters are not acceptable
+
+7.  **Driver location**: Specify the path to the JDBC driver location in
+    your VM where self-host integration runtime is running. This should
+    be the path to valid JAR folder location.
+
+8.  **Maximum memory available:** Maximum memory (in GB) available on
+    customer's VM to be used by scanning processes. This is dependent on
+    the size of Teradata source to be scanned.
 
     > [!Note] 
     > As a thumb rule, please provide 2GB memory for every 1000 tables
 
     :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="setup scan" border="true":::
 
-6. Click on *Continue.*
+6.  Click on **Continue**.
 
-7. Choose your scan trigger. You can set up a schedule or ran the scan once.
+7.  Choose your **scan trigger**. You can set up a schedule or ran the
+    scan once.
 
-    :::image type="content" source="media/register-scan-teradata-source/scan-trigger.png" alt-text="scan trigger" border="true":::
-
-8. Review your scan and click on *Save and Run.*
+8.  Review your scan and click on **Save and Run**.
 
 ## Viewing your scans and scan runs
 

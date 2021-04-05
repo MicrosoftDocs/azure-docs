@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Red Hat OpenShift 4 cluster application backup using Velero
 description: Learn how to create a backup of your Azure Red Hat OpenShift cluster applications using Velero
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/22/2020
 author: troy0820
@@ -19,10 +19,7 @@ In this article, you'll prepare your environment to create an Azure Red Hat Open
 > * Setup the prerequisites and install the necessary tools
 > * Create an Azure Red Hat OpenShift 4 application backup
 
-> [!NOTE] 
-> Velero does not back up Azure Red Hat OpenShift etcd key-value store data. If you need to backup etcd, see [Backing up etcd](https://docs.openshift.com/container-platform/4.5/backup_and_restore/backing-up-etcd.html).
-
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Before you begin
 

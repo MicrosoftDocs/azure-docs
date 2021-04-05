@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-
+ROBOTS: NOINDEX
 ---
 
 # How to select permissions for a given API
@@ -25,4 +25,4 @@ ms.author: ryanwi
 
 ## Next steps
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

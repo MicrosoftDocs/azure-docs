@@ -1,9 +1,6 @@
 ---
 title: Safely manage jar dependencies - Azure HDInsight  
 description: This article discusses best practices for managing Java Archive (JAR) dependencies for HDInsight applications.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to

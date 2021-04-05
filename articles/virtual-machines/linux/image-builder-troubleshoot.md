@@ -6,7 +6,8 @@ ms.author: danis
 ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ---
 
 # Troubleshoot Azure Image Builder Service
@@ -582,7 +583,7 @@ Write-Host / Echo “Sleep” – this will allow you to search in the log
 
 If the build was not canceled by a user, it was canceled by Azure DevOps User Agent. Most likely the 1-hour timeout has occurred due to Azure DevOps capabilities. If you are using a private project and agent, you get 60 minutes of build time. If the build exceeds the timeout, DevOps cancels the running task.
 
-For more information on Azure DevOps capabilities and limitations, see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
+For more information on Azure DevOps capabilities and limitations, see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted#capabilities-and-limitations)
  
 #### Solution
 
@@ -670,4 +671,4 @@ Support Subtopic: Azure Image Builder
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](image-builder-overview.md).
+For more information, see [Azure Image Builder overview](../image-builder-overview.md).
