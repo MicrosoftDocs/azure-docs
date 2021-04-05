@@ -22,6 +22,7 @@ ms.author: aahi
 | English               |     `en`      |     ✓      |         2019-10-01         |                    |
 | French                |     `fr`      |     ✓      |         2019-10-01         |                    |
 | German                |     `de`      |     ✓      |         2019-10-01         |                    |
+| Hindi                 |    `hi`       |     ✓      |         2020-04-01         |                    |
 | Italian               |     `it`      |     ✓      |         2019-10-01         |                    |
 | Japanese              |     `ja`      |     ✓      |         2019-10-01         |                    |
 | Korean                |     `ko`      |    ✓      |         2019-10-01         |                    |

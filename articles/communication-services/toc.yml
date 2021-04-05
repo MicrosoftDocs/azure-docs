@@ -153,6 +153,8 @@
   items:
   - name: Reference documentation overview
     href: concepts/reference.md
+  - name: Azure CLI
+    href: /cli/azure/ext/communication/communication
   - name: REST API documentation
     href: /rest/api/communication/
   - name: Calling libraries

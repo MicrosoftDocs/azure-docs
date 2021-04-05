@@ -61,7 +61,7 @@ If you need to assign administrator roles in Azure Active Directory, see [View a
 
     The Add role assignment pane opens.
 
-   ![Add role assignment pane](./media/shared/add-role-assignment.png)
+   ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Step 3: Select the appropriate role
 

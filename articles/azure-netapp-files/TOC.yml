@@ -147,6 +147,8 @@
     href: /rest/api/netapp/
   - name: Resource Manager template
     href: /azure/templates/microsoft.netapp/allversions
+  - name: Azure CLI
+    href: /cli/azure/netappfiles
   - name: Azure Application Consistent Snapshot Tool (AzAcSnap)
     items:
     - name: Release Notes for AzAcSnap
