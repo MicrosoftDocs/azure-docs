@@ -60,7 +60,7 @@
     items:
     - name: Best practices for adding users
       href: enrollment-overview.md
-    - name: Build a react app to add users
+    - name: Build a React app to add users
       href: build-enrollment-app.md
 - name: Reference
   items:
