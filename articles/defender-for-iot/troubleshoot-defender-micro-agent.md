@@ -1,7 +1,7 @@
 ---
 title: Defender IoT micro agent troubleshooting (Preview)
 description: Learn how to handle unexpected or unexplained errors.
-ms.date: 1/24/2021
+ms.date: 4/5/2021
 ms.topic: reference
 ---
 
@@ -31,7 +31,7 @@ systemctl start defender-iot-micro-agent.service
 
 You will know that the service is crashing if the process uptime is too short. To resolve this issue, you must review the logs.
 
-## Review logs 
+## Validate micro agent root privileges
 
 Use the following command to verify that the Defender IoT micro agent service is running with root privileges.
 
@@ -40,12 +40,25 @@ ps -aux | grep " defender-iot-micro-agent"
 ```
 
 :::image type="content" source="media/troubleshooting/root-privileges.png" alt-text="Verify the Defender for IoT micro agent service is running with root privileges.":::
+## Review logs 
 
-To view the logs, use the following command:  
+To review the logs, use the following command:  
 
 ```azurecli
 sudo journalctl -u defender-iot-micro-agent | tail -n 200 
 ```
+
+### Quick log review
+
+If an issue occurs when the micro agent is run, you can run the micro agent in a temporary state which will allow you to view the logs using the following command:
+
+```azurecli
+sudo systectl stop defender-iot-micro-agent
+cd /var/defender_iot_micro_agent/
+sudo ./defender_iot_micro_agent
+```
+
+## Restart the service
 
 To restart the service, use the following command: 
 
