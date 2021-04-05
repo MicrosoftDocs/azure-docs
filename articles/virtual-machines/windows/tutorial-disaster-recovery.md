@@ -71,11 +71,14 @@ You can optionally enable disaster recovery when you create a VM.
     - A crash-consistent recovery point is created every five minutes. This setting can't be modified. A crash-consistent snapshot captures data that was on the disk when the snapshot was taken. It doesn't include anything in memory. 
     - By default Site Recovery keeps crash-consistent recovery points for 24 hours. You can set a custom value between 0 and 72 hours.
     - An app-consistent snapshot is taken every 4 hours. An app-consistent snapshot 
-  - By default Site Recovery stores recovery points for 24 hours.
+    - By default Site Recovery stores recovery points for 24 hours.
+
+7. In **Availability options**, specify whether the VM is deploy as standalone, in an availability zone, or in an availability set.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Enable replication on the VM management properties page."
 
- 
+8. Finish creating the VM.
+
 ## Enable disaster recovery for an existing VM
 
 If you want to enable disaster recovery on an existing VM instead of for a new VM, use this procedure.
@@ -87,6 +90,9 @@ If you want to enable disaster recovery on an existing VM instead of for a new V
 
 3. In **Basics**, if the VM is deployed in an availability zone, you can select disaster recovery between availability zones.
 4. In **Target region**, select the region to which you want to replicate the VM. The source and target regions must be in the same Azure Active Directory tenant.
+
+    :::image type="content" source="./media/tutorial-disaster-recovery/basics.png" alt-text="Set the basic disaster recovery options for a VM.":::
+
 5. Select **Next: Advanced settings**.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/existing-vm.png" alt-text="Set the basic disaster recovery options for a VM.":::
