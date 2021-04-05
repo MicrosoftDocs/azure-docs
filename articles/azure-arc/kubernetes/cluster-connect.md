@@ -55,12 +55,12 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 ## Usage
 
 Two authentication options are supported with the Cluster Connect feature: 
-* Azure Active Directory (AAD) 
+* Azure Active Directory (Azure AD) 
 * Service account token
 
 ### Option 1: Azure Active Directory
 
-1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, create a ClusterRoleBinding or RoleBinding to the AAD entity (service principal or user) requiring access:
+1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, create a ClusterRoleBinding or RoleBinding to the Azure AD entity (service principal or user) requiring access:
 
     **For user:**
     
@@ -68,21 +68,21 @@ Two authentication options are supported with the Cluster Connect feature:
     kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --user=<testuser>@<mytenant.onmicrosoft.com>
     ```
 
-    **For AAD application:**
+    **For Azure AD application:**
 
-    1. Get the `objectId` associated with your AAD application:
+    1. Get the `objectId` associated with your Azure AD application:
 
         ```azurecli
         az ad sp show --id <id> --query objectId -o tsv
         ```
 
-    1. Create a ClusterRoleBinding or RoleBinding to the AAD entity (service principal or user) that needs to access this cluster:
+    1. Create a ClusterRoleBinding or RoleBinding to the Azure AD entity (service principal or user) that needs to access this cluster:
        
         ```console
         kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --user=<objectId>
         ```
 
-1. After logging into Azure CLI using the AAD entity of interest, get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
+1. After logging into Azure CLI using the Azure AD entity of interest, get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
 
     ```azurecli
     az connectedk8s proxy -n <cluster-name> -g <resource-group-name>
@@ -136,7 +136,7 @@ Two authentication options are supported with the Cluster Connect feature:
 
 ## Known limitations
 
-When making requests to the Kubernetes cluster, if the AAD entity used is a part of more than 200 groups, the following error is observed as this is a known limitation:
+When making requests to the Kubernetes cluster, if the Azure AD entity used is a part of more than 200 groups, the following error is observed as this is a known limitation:
 
 ```console
 You must be logged in to the server (Error:Error while retrieving group info. Error:Overage claim (users with more than 200 group membership) is currently not supported. 
@@ -145,3 +145,8 @@ You must be logged in to the server (Error:Error while retrieving group info. Er
 To get past this error:
 1. Create a [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli), which is less likely to be a member of more than 200 groups.
 1. [Sign in](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI with the service principal before running `az connectedk8s proxy` command.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> Set up [Azure AD RBAC](azure-rbac.md) on your clusters

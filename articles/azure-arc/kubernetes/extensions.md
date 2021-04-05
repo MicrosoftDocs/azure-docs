@@ -266,3 +266,11 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 
 >[!NOTE]
 > The Azure resource representing this extension gets deleted immediately. The Helm release on the cluster associated with this extension is only deleted when the agents running on the Kubernetes cluster have network connectivity and can reach out to Azure services again to fetch the desired state.
+
+
+## Next steps
+
+Learn more about the cluster extensions currently available for Azure Arc enabled Kubernetes:
+> [!div class="nextstepaction"]
+> [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
+> [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)

@@ -6,6 +6,7 @@ ms.date: 04/05/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
+ms.custom: references_regions
 description: "Use custom locations to deploy Azure PaaS services on Azure Arc enabled Kubernetes clusters"
 ---
 
@@ -101,3 +102,8 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
     ```azurecli
     az customlocation create -n <customLocationName> -g <resourceGroupName> --namespace arc --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionId>
     ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> Securely connect to the cluster using [Cluster Connect](cluster-connect.md)

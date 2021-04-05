@@ -26,14 +26,14 @@ On the cluster side, a reverse proxy agent called `clusterconnect-agent` deploye
 When the user calls `az connectedk8s proxy`:
 1. Azure Arc proxy binary is downloaded and spun up as a process on the client machine. 
 1. Azure Arc proxy fetches a `kubeconfig` file associated with the Azure Arc enabled Kubernetes cluster on which the `az connectedk8s proxy` is invoked.
-  * Azure Arc proxy uses the caller's Azure access token and the Azure Resource Manager ID name. 
+    * Azure Arc proxy uses the caller's Azure access token and the Azure Resource Manager ID name. 
 1. The `kubeconfig` file, saved on the machine by Azure Arc proxy, points the server URL to an endpoint on the Azure Arc proxy process.
 
 When a user sends a request using this `kubeconfig` file:
 1. Azure Arc proxy maps the endpoint receiving the request to the Azure Arc service. 
 1. Azure Arc service then forwards the request to the `clusterconnect-agent` running on the cluster. 
-1. The `clusterconnect-agent` passes on the request to the `kube-aad-proxy` component, which performs AAD authentication on the calling entity. 
-1. After AAD authentication, `kube-aad-proxy` uses Kubernetes [user impersonation](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#user-impersonation) feature to forward the request to the cluster's `apiserver`.
+1. The `clusterconnect-agent` passes on the request to the `kube-aad-proxy` component, which performs Azure AD authentication on the calling entity. 
+1. After Azure AD authentication, `kube-aad-proxy` uses Kubernetes [user impersonation](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#user-impersonation) feature to forward the request to the cluster's `apiserver`.
 
 ## Next steps
 

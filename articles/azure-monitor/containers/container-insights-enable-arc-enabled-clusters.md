@@ -46,8 +46,8 @@ description: "Collect metrics and logs of Azure Arc enabled Kubernetes clusters 
 
 - If you had previously deployed Azure Monitor Container Insights on this cluster using script without cluster extensions, follow the instructions listed [here](container-insights-optout-hybrid.md) to delete this Helm chart. You can then continue to creating a cluster extension instance for Azure Monitor Container Insights.
 
->[!NOTE]
-> The script-based version of deploying Azure Monitor Container Insights (preview) is being replaced by the [cluster extension](../../azure-arc/kubernetes/extensions.md) form of deployment. Azure Monitor deployed previously via script is only supported till June 2021 and it is thus advised to migrate to the cluster extension form of deployment at the earliest.
+    >[!NOTE]
+    > The script-based version of deploying Azure Monitor Container Insights (preview) is being replaced by the [cluster extension](../../azure-arc/kubernetes/extensions.md) form of deployment. Azure Monitor deployed previously via script is only supported till June 2021 and it is thus advised to migrate to the cluster extension form of deployment at the earliest.
 
 ### Identify workspace resource ID
 
@@ -73,10 +73,10 @@ Run the following commands to locate the full Azure Resource Manager identifier 
 
     In the output, find the workspace name of interest. The `id` field of that represents the Azure Resource Manager identifier of that Log Analytics workspace.
 
->[!TIP]
-> This `id` can also be found in the *Overview* blade of the Log Analytics workspace through the Azure Portal.
+    >[!TIP]
+    > This `id` can also be found in the *Overview* blade of the Log Analytics workspace through the Azure portal.
 
-## Create Azure Monitor extension instance using Azure CLI
+## Create extension instance using Azure CLI
 
 ### Option 1 - With default values
 
@@ -118,7 +118,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 >[!NOTE]
 > If you are explicitly specifying the version of the extension to be installed in the create command, then ensure that the version specified is >= 2.8.2.
 
-## Create Azure Monitor extension instance using Azure portal
+## Create extension instance using Azure portal
 
 >[!IMPORTANT]
 >  If you are deploying Azure Monitor on a Kubernetes cluster running on top of Azure Stack Edge, then the Azure CLI option needs to be followed instead of the Azure portal option as a custom mount path needs to be set for these clusters.    
@@ -137,7 +137,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 ### Onboarding from Azure Monitor blade
 
-1. In the Azure Portal, navigate to the 'Monitor' blade, and select the 'Containers' option under the 'Insights' menu.
+1. In the Azure portal, navigate to the 'Monitor' blade, and select the 'Containers' option under the 'Insights' menu.
 
 2. Select the 'Unmonitored clusters' tab to view the Azure Arc enabled Kubernetes clusters that you can enable monitoring for.
 
@@ -145,24 +145,24 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 4. Choose the Log Analytics workspace and select the 'Configure' button to continue.
 
-## Create Azure Monitor extension instance
+## Create extension instance using Azure Resource Manager
 
 1. Download Azure Resource Manager template and parameter:
 
-```console
-curl -L https://aka.ms/arc-k8s-azmon-extension-arm-template -o arc-k8s-azmon-extension-arm-template.json
-curl -L https://aka.ms/arc-k8s-azmon-extension-arm-template-params -o  arc-k8s-azmon-extension-arm-template-params.json
-```
+    ```console
+    curl -L https://aka.ms/arc-k8s-azmon-extension-arm-template -o arc-k8s-azmon-extension-arm-template.json
+    curl -L https://aka.ms/arc-k8s-azmon-extension-arm-template-params -o  arc-k8s-azmon-extension-arm-template-params.json
+    ```
 
 2. Update parameter values in arc-k8s-azmon-extension-arm-template-params.json file.For Azure public cloud, `opinsights.azure.com` needs to be used as the value of workspaceDomain.
 
 3. Deploy the template to create Azure Monitor Container Insights extension 
 
-```console
-az login
-az account set --subscription "Subscription Name"
-az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json
-```
+    ```console
+    az login
+    az account set --subscription "Subscription Name"
+    az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json
+    ```
 
 ## Delete extension instance
 

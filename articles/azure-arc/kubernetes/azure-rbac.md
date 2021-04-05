@@ -11,7 +11,7 @@ description: "Use Azure RBAC for authorization checks on Azure Arc enabled Kuber
 
 # Azure RBAC for Azure Arc enabled Kubernetes clusters
 
-Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. With Azure RBAC, you can use Azure Active Directory (AAD) and role assignments in Azure to control authorization checks on the cluster. This implies you can now use Azure role assignments to granularly control who can read, write, delete your Kubernetes objects such as Deployment, Pod and Service
+Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. With Azure RBAC, you can use Azure Active Directory and role assignments in Azure to control authorization checks on the cluster. This implies you can now use Azure role assignments to granularly control who can read, write, delete your Kubernetes objects such as Deployment, Pod and Service
 
 A conceptual overview of this feature is available in [Azure RBAC - Azure Arc enabled Kubernetes](conceptual-azure-rbac.md) article.
 
@@ -40,11 +40,11 @@ A conceptual overview of this feature is available in [Azure RBAC - Azure Arc en
 > [!NOTE]
 > This feature can't be set up for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to `apiserver` of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc.
 
-## Set up AAD applications
+## Set up Azure AD applications
 
 ### Create server application
 
-1. Create a new AAD application and get its `appId` value, which is used in later steps as `serverApplicationId`:
+1. Create a new Azure AD application and get its `appId` value, which is used in later steps as `serverApplicationId`:
 
     ```azurecli
     az ad app create --display-name "<clusterName>Server" --identifier-uris "https://<clusterName>Server" --query appId -o tsv
@@ -71,12 +71,12 @@ A conceptual overview of this feature is available in [Azure RBAC - Azure Arc en
     ```
 
     > [!NOTE]
-    > 1. This step has to be executed by an Azure tenant administrator.
-    > 2. For usage of this feature in production, it is recommended to create a different server application for every cluster.
+    > * This step has to be executed by an Azure tenant administrator.
+    > * For usage of this feature in production, it is recommended to create a different server application for every cluster.
 
 ### Create client application
 
-1. Create a new AAD application and get its 'appId' value, which is used in later steps as `clientApplicationId`:
+1. Create a new Azure AD application and get its 'appId' value, which is used in later steps as `clientApplicationId`:
 
     ```azurecli
     az ad app create --display-name "<clusterName>Client" --native-app --reply-urls "https://<clusterName>Client" --query appId -o tsv
@@ -277,15 +277,15 @@ Owners of the Azure Arc enabled Kubernetes resource can either use built-in role
 You can create role assignments scoped to the Arc enabled Kubernetes cluster on the `Access Control (IAM)` blade of the cluster resource on Azure portal. You can also use Azure CLI commands, as shown below:
 
 ```azurecli
-az role assignment create --role "Azure Arc Kubernetes Cluster Admin" --assignee <AAD-ENTITY-ID> --scope $ARM_ID
+az role assignment create --role "Azure Arc Kubernetes Cluster Admin" --assignee <AZURE-AD-ENTITY-ID> --scope $ARM_ID
 ```
 
-where `AAD-ENTITY-ID` could be a username (for example, testuser@mytenant.onmicrosoft.com) or even the `appId` of a service principal.
+where `AZURE-AD-ENTITY-ID` could be a username (for example, testuser@mytenant.onmicrosoft.com) or even the `appId` of a service principal.
 
 Here's another example of creating a role assignment scoped to a specific namespace within the cluster -
 
 ```azurecli
-az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee <AAD-ENTITY-ID> --scope $ARM_ID/namespaces/<namespace-name>
+az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee <AZURE-AD-ENTITY-ID> --scope $ARM_ID/namespaces/<namespace-name>
 ```
 
 > [!NOTE]
@@ -324,7 +324,7 @@ Copy the below JSON object into a file called custom-role.json. Replace the `<su
 1. Create a role assignment using this custom role definition:
 
     ```bash
-    az role assignment create --role "Arc Deployment Viewer" --assignee <AAD-ENTITY-ID> --scope $ARM_ID/namespaces/<namespace-name>
+    az role assignment create --role "Arc Deployment Viewer" --assignee <AZURE-AD-ENTITY-ID> --scope $ARM_ID/namespaces/<namespace-name>
     ```
 
 ## Configure kubectl with user credentials
@@ -392,3 +392,9 @@ After the proxy process is running, you can open another tab in your console to 
     ```
 
     An administrator needs to create a new role assignment authorizing this user to have access on the resource.
+
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> Securely connect to the cluster using [Cluster Connect](cluster-connect.md)

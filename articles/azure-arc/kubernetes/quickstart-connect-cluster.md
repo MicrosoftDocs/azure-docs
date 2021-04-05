@@ -7,6 +7,7 @@ ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 03/03/2021
 ms.custom: template-quickstart
+ms.custom: references_regions
 keywords: "Kubernetes, Arc, Azure, cluster"
 ---
 
@@ -43,17 +44,7 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
 
 
 >[!NOTE]
->**Supported regions:**
->* East US
->* West Europe
->* West Central US
->* South Central US
->* Southeast Asia
->* UK South
->* West US 2
->* Australia East
->* East US 2
->* North Europe
+>The list of regions supported by Azure Arc enabled Kubernetes can be found [here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
 >[!NOTE]
 > If you want to use custom locations on the cluster, then use East US or West Europe regions for connecting your cluster as custom locations is only available in these regions as of now. All other Azure Arc enabled Kubernetes features are available in all regions listed above.

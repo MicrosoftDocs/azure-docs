@@ -31,8 +31,8 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc ena
   az extension add --name k8s-configuration
   ```
 
->[!TIP]
-> If the `k8s-configuration` extension is already installed, you can update it to the latest version using the following command - `az extension update --name k8s-configuration`
+    >[!TIP]
+    > If the `k8s-configuration` extension is already installed, you can update it to the latest version using the following command - `az extension update --name k8s-configuration`
 
 ## Create a configuration
 
