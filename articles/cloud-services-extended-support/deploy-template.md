@@ -345,7 +345,7 @@ If you are using a Static IP, it needs to be referenced as a Reserved IP in Serv
           }
         },
         {
-          "apiVersion": "2020-10-01-preview",
+          "apiVersion": "2021-03-01",
           "type": "Microsoft.Compute/cloudServices",
           "name": "[variables('cloudServiceName')]",
           "location": "[parameters('location')]",
