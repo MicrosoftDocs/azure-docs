@@ -55,6 +55,8 @@ landingContent:
             url: use-gitops-with-helm.md
           - text: Enforce GitOps using Azure Policy
             url: use-azure-policy.md
+          - text: Deploy extensions on clusters
+            url: extensions.md
           - text: Deploy Azure IoT edge workloads
             url: deploy-azure-iot-edge-workloads.md
  
