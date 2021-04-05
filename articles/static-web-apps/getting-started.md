@@ -38,7 +38,7 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
     > [!NOTE]
     > Azure and GitHub sign in are required. If you are not already signed in to Azure and GitHub from Visual Studio Code, the extension will prompt you to sign in to both during the creation process.
 
-1. Place your mouse over the _Static Web Apps_ label and select the **plus sign**.
+1. Under the _Static Web Apps_ label, select the **plus sign**.
 
     :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Application name":::
 
@@ -48,46 +48,39 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Create Static Web App":::
 
-1. Select the **main** branch and press **Enter**.
-
-    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Branch name":::
-
-1. Select **/** as the location for the application code and press **Enter**.
-
-    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application code location":::
-
-1. The extension is looking for the location of the API in your application. This article doesn't implement an API.
-
-    Select **Skip for now** and press **Enter**.
-
-    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API location":::
-
-1. Select the location where files are built for production in your app.
+1. Select the presets which matches your application type.
 
     # [No Framework](#tab/vanilla-javascript)
+    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: No framework":::
 
-    Clear the box and press **Enter**.
-
-    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="App files path":::
+    - Enter **./** as the build location
+    - Select **Skip for now** as the location for the Azure Functions api
+    - Enter **./** as the output location
 
     # [Angular](#tab/angular)
 
-    Type **dist/angular-basic** and press **Enter**.
-
-    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Angular app files path":::
+    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="Application presets: Angular":::
 
     # [React](#tab/react)
 
-    Type **build** and press **Enter**.
-
-    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="React app files path":::
+    :::image type="content" source="media/getting-started/extension-presets-react.png" alt-text="Application presets: React":::
 
     # [Vue](#tab/vue)
 
-    Type **dist** and press **Enter**.
+    :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="Application presets: Vue":::
 
-    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Vue app files path":::
+    ---
 
+1. Select **/** as the location for the application code and press **Enter**.
+
+    # [No Framework](#tab/vanilla-javascript)
+    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: No framework":::
+    # [Angular](#tab/angular)
+    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="Application presets: Angular":::
+    # [React](#tab/react)
+    :::image type="content" source="media/getting-started/extension-presets-react.png" alt-text="Application presets: React":::
+    # [Vue](#tab/vue)
+    :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="Application presets: Vue":::
     ---
 
 1. Select a location nearest you and press **Enter**.
@@ -98,11 +91,9 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Created confirmation":::
 
-1. In the Visual Studio Code Explorer window, navigate to the node that has your subscription name and expand it. Please note that it might take a few minutes for the deployment to complete. Then return to the Static Web Apps section and select the name of your app and then right-click on my-first-static-web-app and select Open in Portal to view app in the Azure portal.
+1. Right-click on the project in the Static Web Apps extension, and select **Browser Site**.
 
-    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Open portal":::
-
-[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
+    :::image type="content" source="media/getting-started/extension-browse-site.png" alt-text="Browse site":::
 
 ## Clean up resources
 
