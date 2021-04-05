@@ -27,7 +27,7 @@ The process of deleting unused IT service management (ITSM) connectors has two p
    
     ![Screenshot of the Manage Actions selection.](media/itsmc-connector-deletion/itsmc-actions-selection.png)
 
-4. Select an action group that's associated with the ITSM connector that you want to delete. In this example, it's the Cherwell connector.
+4. Select an action group that's associated with the ITSM connector that you want to delete. This article uses the example of a Cherwell connector.
    
     ![Screenshot of actions that are associated with the Cherwell connector.](media/itsmc-connector-deletion/itsmc-actions-screen.png)
 
