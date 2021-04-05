@@ -43,7 +43,7 @@ You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI s
 Use the installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) to configure LAD 4.0 to:
 
 * Capture and store the same metrics that LAD versions 2.3 and 3.x provided.
-* Send metrics to Azure Monitor Sink along with the usual sink to Azure Storage. This functionality is new in LAD 4.0.
+* Send metrics to the Azure Monitor sink along with the usual sink to Azure Storage. This functionality is new in LAD 4.0.
 * Capture a useful set of file system metrics, as in LAD 3.0.
 * Capture the default syslog collection enabled by LAD 2.3.
 * Enable the Azure portal experience for charting and alerting on VM metrics.
@@ -108,7 +108,7 @@ In these examples, the sample configuration collects a set of standard data and 
 In most cases, you should download a copy of the portal settings JSON file and customize it for your needs. Then use templates or your own automation to use a customized version of the configuration file rather than downloading from the URL each time.
 
 > [!NOTE]
-> When you enable the new Azure Monitor Sink, the VMs need to have system-assigned identity enabled to generate MSI auth tokens. You can add these settings during or after VM creation. 
+> When you enable the new Azure Monitor sink, the VMs need to have system-assigned identity enabled to generate MSI auth tokens. You can add these settings during or after VM creation. 
 >
 > For instructions for the Azure portal, the Azure CLI, PowerShell, and Azure Resource Manager, see [Configure managed identities](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
 
@@ -219,7 +219,7 @@ After you change your protected or public settings, deploy them to the VM by run
 The latest version of the extension is *4.0, which is currently in public preview*. Older versions of 3.x are still supported. But 2.x versions have been deprecated since July 31, 2018.
 
 > [!IMPORTANT]
-> To migrate from 3.x to the newest version of the extension, uninstall the old extension. Then install version 4, which includes the updated configuration for system-assigned identity and sinks for sending metrics to Azure Monitor Sink.
+> To migrate from 3.x to the newest version of the extension, uninstall the old extension. Then install version 4, which includes the updated configuration for system-assigned identity and sinks for sending metrics to the Azure Monitor sink.
 
 When you install the new extension, enable automatic minor version upgrades:
 * On classic deployment model VMs, specify version `4.*` if you're installing the extension through the Azure Xplat CLI or PowerShell.
@@ -301,17 +301,17 @@ Linux Diagnostic Extension 4.0 supports two sink types: `EventHub` and `JsonBlob
 
 The `"sasURL"` entry contains the full URL, including the SAS token, for the event hub to which data should be published. LAD requires a SAS to name a policy that enables the send claim. Here's an example:
 
-* Create an Event Hubs namespace called `contosohub`
-* Create an Event Hub in the namespace called `syslogmsgs`
-* Create a Shared access policy on the Event Hub named `writer` that enables the Send claim
+* Create an Event Hubs namespace called `contosohub`.
+* Create an event hub in the namespace called `syslogmsgs`.
+* Create a shared access policy on the event hub named `writer` that enables the send claim.
 
-If you created a SAS good until midnight UTC on January 1, 2018, the sasURL value might be:
+If you created a SAS that's good until midnight UTC on January 1, 2018, the sasURL value might be like the following example.
 
 ```https
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-For more information about generating and retrieving information on SAS tokens for Event Hubs, see [this web page](/rest/api/eventhub/generate-sas-token#powershell).
+For more information about generating and retrieving information on SAS tokens for Event Hubs, see [Generate a SAS token](/rest/api/eventhub/generate-sas-token#powershell).
 
 #### JsonBlob sink
 
@@ -325,11 +325,13 @@ For more information about generating and retrieving information on SAS tokens f
 ]
 ```
 
-Data directed to a JsonBlob sink is stored in blobs in Azure storage. Each instance of LAD creates a blob every hour for each sink name. Each blob always contains a syntactically valid JSON array of object. New entries are atomically added to the array. Blobs are stored in a container with the same name as the sink. The Azure storage rules for blob container names apply to the names of JsonBlob sinks: between 3 and 63 lower-case alphanumeric ASCII characters or dashes.
+Data directed to a `JsonBlob` sink is stored in blobs in Azure Storage. Each instance of LAD creates a blob every hour for each sink name. Each blob always contains a syntactically valid JSON array of objects. New entries are atomically added to the array. 
+
+Blobs are stored in a container that has the same name as the sink. The Azure Storage rules for blob container names apply to the names of `JsonBlob` sinks. That is, names must have between 3 and 63 lowercase alphanumeric ASCII characters or dashes.
 
 ## Public settings
 
-This structure contains various blocks of settings that control the information collected by the extension. Each setting (except ladCfg) is optional. If you specify metric or syslog collection in `ladCfg`, you must also specify `StorageAccount`. sinksConfig element needs to be specified in order to enable Azure Monitor Sink for metrics from LAD 4.0
+The public settings structure contains various blocks of settings that control the information that the extension collects. Each setting, except `ladCfg`, is optional. If you specify metric or syslog collection in `ladCfg`, you must also specify `StorageAccount`. You must specify the `sinksConfig` element to enable the Azure Monitor sink for metrics from LAD 4.0
 
 ```json
 {
@@ -343,10 +345,10 @@ This structure contains various blocks of settings that control the information 
 
 Element | Value
 ------- | -----
-StorageAccount | The name of the storage account in which data is written by the extension. Must be the same name as is specified in the [Protected settings](#protected-settings).
-mdsdHttpProxy | (optional) Same as in the [Protected settings](#protected-settings). The public value is overridden by the private value, if set. Place proxy settings that contain a secret, such as a password, in the [Protected settings](#protected-settings).
+StorageAccount | The name of the storage account in which the extension writes data. Must be the name specified in the [protected settings](#protected-settings).
+mdsdHttpProxy | (Optional) The proxy specified in the [protected settings](#protected-settings). If the private value is set, it overrides the public value. Put proxy settings that contain a secret, such as a password, in the [protected settings](#protected-settings).
 
-The remaining elements are described in detail in the following sections.
+The following sections provide details about the remaining elements.
 
 ### ladCfg
 
@@ -362,9 +364,9 @@ The remaining elements are described in detail in the following sections.
 }
 ```
 
-This structure controls the gathering of metrics and logs for delivery to the Azure Metrics service and to other data sinks. You must specify either `performanceCounters` or `syslogEvents` or both. You must specify the `metrics` structure.
+The `ladCfg` structure controls the gathering of metrics and logs for delivery to the Azure Metrics service and to other data sinks. Specify either `performanceCounters` or `syslogEvents` or both. Also specify the `metrics` structure.
 
-If you don't want to enable syslog or metrics collection, then you can simply specify an empty structure for ladCfg element as shown below - 
+If you don't want to enable syslog or metrics collection, simply specify an empty structure for the `ladCfg` element, like in this example: 
 
 ```json
 "ladCfg": {
@@ -374,8 +376,8 @@ If you don't want to enable syslog or metrics collection, then you can simply sp
 
 Element | Value
 ------- | -----
-eventVolume | (optional) Controls the number of partitions created within the storage table. Must be one of `"Large"`, `"Medium"`, or `"Small"`. If not specified, the default value is `"Medium"`.
-sampleRateInSeconds | (optional) The default interval between collection of raw (unaggregated) metrics. The smallest supported sample rate is 15 seconds. If not specified, the default value is `15`.
+eventVolume | (Optional) Controls the number of partitions created within the storage table. Must be `"Large"`, `"Medium"`, or `"Small"`. If the value isn't specified, the default value is `"Medium"`.
+sampleRateInSeconds | (Optional) The default interval between the collection of raw (unaggregated) metrics. The smallest supported sample rate is 15 seconds. If the value isn't specified, the default is `15`.
 
 #### metrics
 
@@ -391,10 +393,10 @@ sampleRateInSeconds | (optional) The default interval between collection of raw 
 
 Element | Value
 ------- | -----
-resourceId | The Azure Resource Manager resource ID of the VM or of the virtual machine scale set to which the VM belongs. This setting must be also specified if any JsonBlob sink is used in the configuration.
-scheduledTransferPeriod | The frequency at which aggregate metrics are to be computed and transferred to Azure Metrics, expressed as an IS 8601 time interval. The smallest transfer period is 60 seconds, that is, PT1M. You must specify at least one scheduledTransferPeriod.
+resourceId | The Azure Resource Manager resource ID of the VM or of the virtual machine scale set to which the VM belongs. You must also specify this setting if the configuration uses any `JsonBlob` sink.
+scheduledTransferPeriod | The frequency at which aggregate metrics are computed and transferred to Azure Metrics. The frequency is expressed as an IS 8601 time interval. The smallest transfer period is 60 seconds, that is, PT1M. You must specify at least one `scheduledTransferPeriod`.
 
-Samples of the metrics specified in the performanceCounters section are collected every 15 seconds or at the sample rate explicitly defined for the counter. If multiple scheduledTransferPeriod frequencies appear (as in the example), each aggregation is computed independently.
+Samples of the metrics specified in the `performanceCounters` section are collected every 15 seconds or at the sample rate explicitly defined for the counter. If multiple `scheduledTransferPeriod` frequencies appear, as in the example, each aggregation is computed independently.
 
 #### performanceCounters
 
@@ -421,33 +423,35 @@ Samples of the metrics specified in the performanceCounters section are collecte
 }
 ```
 
-This optional section controls the collection of metrics. Raw samples are aggregated for each [scheduledTransferPeriod](#metrics) to produce these values:
+The `performanceCounters` optional section controls the collection of metrics. Raw samples are aggregated for each [`scheduledTransferPeriod`](#metrics) to produce these values:
 
-* mean
-* minimum
-* maximum
-* last-collected value
-* count of raw samples used to compute the aggregate
+* Mean
+* Minimum
+* Maximum
+* Last-collected value
+* Count of raw samples used to compute the aggregate
 
 Element | Value
 ------- | -----
-sinks | (optional) A comma-separated list of names of sinks to which LAD sends aggregated metric results. All aggregated metrics are published to each listed sink. See [sinksConfig](#sinksconfig). Example: `"EHsink1, myjsonsink"`.
+sinks | (Optional) A comma-separated list of names of sinks to which LAD sends aggregated metric results. All aggregated metrics are published to each listed sink. Example: `"EHsink1, myjsonsink"`.For more information, see [`sinksConfig`](#sinksconfig). 
 type | Identifies the actual provider of the metric.
-class | Together with "counter", identifies the specific metric within the provider's namespace.
-counter | Together with "class", identifies the specific metric within the provider's namespace.
+class | Together with `"counter"`, identifies the specific metric within the provider's namespace.
+counter | Together with `"class"`, identifies the specific metric within the provider's namespace.
 counterSpecifier | Identifies the specific metric within the Azure Metrics namespace.
-condition | (optional) Selects a specific instance of the object to which the metric applies or selects the aggregation across all instances of that object. For more information, see the `builtin` metric definitions.
-sampleRate | IS 8601 interval that sets the rate at which raw samples for this metric are collected. If not set, the collection interval is set by the value of [sampleRateInSeconds](#ladcfg). The shortest supported sample rate is 15 seconds (PT15S).
-unit | Should be one of these strings: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Defines the unit for the metric. Consumers of the collected data expect the collected data values to match this unit. LAD ignores this field.
-displayName | The label (in the language specified by the associated locale setting) to be attached to this data in Azure Metrics. LAD ignores this field.
+condition | (Optional) Selects an instance of the object to which the metric applies. Or selects the aggregation across all instances of that object. For more information, see the `builtin` metric definitions.
+sampleRate | The IS 8601 interval that sets the rate at which raw samples for this metric are collected. If the value isn't set, the collection interval is set by the value of [`sampleRateInSeconds`](#ladcfg). The shortest supported sample rate is 15 seconds (PT15S).
+unit | Defines the unit for the metric. Should be one of these strings: `"Count"`, `"Bytes"`, `"Seconds"`, `"Percent"`, `"CountPerSecond"`, `"BytesPerSecond"`, `"Millisecond"`. Consumers of the collected data expect the collected data values to match this unit. LAD ignores this field.
+displayName | The label to be attached to the data in Azure Metrics. This label is in the language specified by the associated locale setting. LAD ignores this field.
 
-The counterSpecifier is an arbitrary identifier. Consumers of metrics, like the Azure portal charting and alerting feature, use counterSpecifier as the "key" that identifies a metric or an instance of a metric. For `builtin` metrics, we recommend you use counterSpecifier values that begin with `/builtin/`. If you are collecting a specific instance of a metric, we recommend you attach the identifier of the instance to the counterSpecifier value. Some examples:
+The `counterSpecifier` is an arbitrary identifier. Consumers of metrics, like the Azure portal charting and alerting feature, use `counterSpecifier` as the "key" that identifies a metric or an instance of a metric. 
+
+For `builtin` metrics, we recommend `counterSpecifier` values that begin with `/builtin/`. If you're collecting a specific instance of a metric, attach the identifier of the instance to the `counterSpecifier` value. Here are some examples:
 
 * `/builtin/Processor/PercentIdleTime` - Idle time averaged across all vCPUs
-* `/builtin/Disk/FreeSpace(/mnt)` - Free space for the /mnt filesystem
-* `/builtin/Disk/FreeSpace` - Free space averaged across all mounted filesystems
+* `/builtin/Disk/FreeSpace(/mnt)` - Free space for the */mnt* file system
+* `/builtin/Disk/FreeSpace` - Free space averaged across all mounted file systems
 
-Neither LAD nor the Azure portal expects the counterSpecifier value to match any pattern. Be consistent in how you construct counterSpecifier values.
+Neither LAD nor the Azure portal expects the `counterSpecifier` value to match any pattern. Be consistent in how you construct `counterSpecifier` values.
 
 When you specify `performanceCounters`, LAD always writes data to a table in Azure storage. You can have the same data written to JSON blobs and/or Event Hubs, but you cannot disable storing data to a table. All instances of the diagnostic extension configured to use the same storage account name and endpoint add their metrics and logs to the same table. If too many VMs are writing to the same table partition, Azure can throttle writes to that partition. The eventVolume setting causes entries to be spread across 1 (Small), 10 (Medium), or 100 (Large) different partitions. Usually, "Medium" is sufficient to ensure traffic is not throttled. The Azure Metrics feature of the Azure portal uses the data in this table to produce graphs or to trigger alerts. The table name is the concatenation of these strings:
 
@@ -490,7 +494,7 @@ Examples include `LinuxSyslog20170410` and `LinuxSyslog20170609`.
 
 ### sinksConfig
 
-This optional section controls enabling sending metrics to the Azure Monitor Sink in addition to the Storage account and the default Guest Metrics blade.
+This optional section controls enabling sending metrics to the Azure Monitor sink in addition to the Storage account and the default Guest Metrics blade.
 
 > [!NOTE]
 > This requires System Assigned Identity to be enabled on the VMs/VMSS. 
@@ -538,7 +542,7 @@ Either "table" or "sinks", or both, must be specified.
 ## Metrics supported by the builtin provider
 
 > [!NOTE]
-> The default metrics supported by LAD are aggregated across all file-systems/disks/name. For non-aggregated metrics, kindly refer to the newer Azure Monitor Sink metrics support.
+> The default metrics supported by LAD are aggregated across all file-systems/disks/name. For non-aggregated metrics, kindly refer to the newer Azure Monitor sink metrics support.
 
 The builtin metric provider is a source of metrics most interesting to a broad set of users. These metrics fall into five broad classes:
 

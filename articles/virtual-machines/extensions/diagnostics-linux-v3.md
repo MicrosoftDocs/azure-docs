@@ -314,7 +314,7 @@ For more information about generating and retrieving information on SAS tokens f
 
 Data directed to a `JsonBlob` sink is stored in blobs in Azure Storage. Each instance of LAD creates a blob every hour for each sink name. Each blob always contains a syntactically valid JSON array of objects. New entries are atomically added to the array. 
 
-Blobs are stored in a container that has the same name as the sink. The Azure Storage rules for blob container names apply to the names of `JsonBlob` sinks. The name must be between 3 and 63 lowercase alphanumeric ASCII characters or dashes.
+Blobs are stored in a container that has the same name as the sink. The Azure Storage rules for blob container names apply to the names of `JsonBlob` sinks. The name must have between 3 and 63 lowercase alphanumeric ASCII characters or dashes.
 
 ## Public settings
 
@@ -359,7 +359,7 @@ The `ladCfg` structure is optional. It controls the gathering of metrics and log
 Element | Value
 ------- | -----
 eventVolume | (Optional) Controls the number of partitions created within the storage table. It must be `"Large"`, `"Medium"`, or `"Small"`. If a value isn't specified, the default is `"Medium"`.
-sampleRateInSeconds | (Optional) The default interval between collections of raw (unaggregated) metrics. The smallest supported sample rate is 15 seconds. If the value isn't specified, the default is `15`.
+sampleRateInSeconds | (Optional) The default interval between the collection of raw (unaggregated) metrics. The smallest supported sample rate is 15 seconds. If the value isn't specified, the default is `15`.
 
 #### metrics
 
@@ -376,7 +376,7 @@ sampleRateInSeconds | (Optional) The default interval between collections of raw
 Element | Value
 ------- | -----
 resourceId | The Azure Resource Manager resource ID of the VM or of the scale set to which the VM belongs. This setting must be also specified if any `JsonBlob` sink is used in the configuration.
-scheduledTransferPeriod | The frequency at which aggregate metrics will be computed and transferred to Azure Metrics. The frequency is expressed as an IS 8601 time interval. The smallest transfer period is 60 seconds, that is, PT1M. Specify at least one `scheduledTransferPeriod`.
+scheduledTransferPeriod | The frequency at which aggregate metrics are computed and transferred to Azure Metrics. The frequency is expressed as an IS 8601 time interval. The smallest transfer period is 60 seconds, that is, PT1M. Specify at least one `scheduledTransferPeriod`.
 
 Samples of the metrics specified in the `performanceCounters` section are collected every 15 seconds or at the sample rate explicitly defined for the counter. If multiple `scheduledTransferPeriod` frequencies appear, as in the example, each aggregation is computed independently.
 
@@ -417,13 +417,13 @@ Element | Value
 ------- | -----
 sinks | (Optional) A comma-separated list of names of sinks to which LAD sends aggregated metric results. All aggregated metrics are published to each listed sink. Example: `"EHsink1, myjsonsink"`. For more information, see [`sinksConfig`](#sinksconfig).
 type | Identifies the actual provider of the metric.
-class | Together with `counter`, identifies the specific metric within the provider's namespace.
-counter | Together with `class`, identifies the specific metric within the provider's namespace.
+class | Together with `"counter"`, identifies the specific metric within the provider's namespace.
+counter | Together with `"class"`, identifies the specific metric within the provider's namespace.
 counterSpecifier | Identifies the specific metric within the Azure Metrics namespace.
 condition | (Optional) Selects a specific instance of the object to which the metric applies. Or it selects the aggregation across all instances of that object. For more information, see the `builtin` metric definitions.
-sampleRate | IS 8601 interval that sets the rate at which raw samples for this metric are collected. If the value isn't set, the collection interval is set by the value of [`sampleRateInSeconds`](#ladcfg). The shortest supported sample rate is 15 seconds (PT15S).
-unit | Should be one of these strings: `"Count"`, `"Bytes"`, `"Seconds"`, `"Percent"`, `"CountPerSecond"`, `"BytesPerSecond"`, `"Millisecond"`. Defines the unit for the metric. Consumers of the collected data expect the collected data values to match this unit. LAD ignores this field.
-displayName | The label (in the language specified by the associated locale setting) to be attached to this data in Azure Metrics. LAD ignores this field.
+sampleRate | The IS 8601 interval that sets the rate at which raw samples for this metric are collected. If the value isn't set, the collection interval is set by the value of [`sampleRateInSeconds`](#ladcfg). The shortest supported sample rate is 15 seconds (PT15S).
+unit | Defines the unit for the metric. Should be one of these strings: `"Count"`, `"Bytes"`, `"Seconds"`, `"Percent"`, `"CountPerSecond"`, `"BytesPerSecond"`, `"Millisecond"`. Consumers of the collected data expect the collected data values to match this unit. LAD ignores this field.
+displayName | The label to be attached to the data in Azure Metrics. This label is in the language specified by the associated locale setting. LAD ignores this field.
 
 The `counterSpecifier` is an arbitrary identifier. Consumers of metrics, like the Azure portal charting and alerting feature, use `counterSpecifier` as the "key" that identifies a metric or an instance of a metric. 
 
@@ -432,7 +432,7 @@ For `builtin` metrics, we recommend `counterSpecifier` values that begin with `/
 Here are some examples:
 
 * `/builtin/Processor/PercentIdleTime` - Idle time averaged across all vCPUs
-* `/builtin/Disk/FreeSpace(/mnt)` - Free space for the /mnt file system
+* `/builtin/Disk/FreeSpace(/mnt)` - Free space for the */mnt* file system
 * `/builtin/Disk/FreeSpace` - Free space averaged across all mounted file systems
 
 LAD and the Azure portal don't expect the `counterSpecifier` value to match any pattern. Be consistent in how you construct `counterSpecifier` values.
