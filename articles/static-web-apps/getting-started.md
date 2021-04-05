@@ -91,7 +91,7 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     Once the GitHub Action is complete, then you can browse to the published website.
 
-1. To view the website in the browser, right-click on the project in the Static Web Apps extension, and select **Browser Site**.
+1. To view the website in the browser, right-click on the project in the Static Web Apps extension, and select **Browse Site**.
 
     :::image type="content" source="media/getting-started/extension-browse-site.png" alt-text="Browse site":::
 
