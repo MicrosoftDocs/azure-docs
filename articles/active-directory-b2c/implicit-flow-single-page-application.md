@@ -248,5 +248,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 This sample on GitHub is intended to help get you started to Azure AD B2C in a simple web application built with [msal.js][github-msal-js] and using pop-up-style authentication.
 
 <!-- Links - EXTERNAL -->
-[github-msal-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
 [github-msal-js]: https://github.com/AzureAD/microsoft-authentication-library-for-js

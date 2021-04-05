@@ -51768,11 +51768,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md",
-      "redirect_url": "/azure/active-directory/develop/tutorial-v2-javascript-spa",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/active-directory/develop/GuidedSetups/active-directory-mobileanddesktopapp-windowsdesktop-configure-arp.md",
       "redirect_url": "/azure/active-directory/develop/tutorial-v2-windows-desktop",
       "redirect_document_id": false
