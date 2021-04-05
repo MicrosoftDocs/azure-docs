@@ -24,7 +24,7 @@ The following diagram and documentation introduces you to the security services 
 
 ## Microsoft security services map
 
-The diagram organizes services by the resources they protect (column). The diagram also groups services into the following categories (row):
+The security services map organizes services by the resources they protect (column). The diagram also groups services into the following categories (row):
 
 - Secure and protect - Services that let you implement a layered, defense in-depth strategy across identity, hosts, networks, and data. This collection of security services and capabilities provides a way to understand and improve your security posture across your Azure environment.
 - Detect threats – Services that identify suspicious activities and facilitate mitigating the threat.
