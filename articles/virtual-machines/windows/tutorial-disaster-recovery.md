@@ -94,9 +94,6 @@ If you want to enable disaster recovery on an existing VM instead of for a new V
     :::image type="content" source="./media/tutorial-disaster-recovery/basics.png" alt-text="Set the basic disaster recovery options for a VM.":::
 
 5. Select **Next: Advanced settings**.
-
-    :::image type="content" source="./media/tutorial-disaster-recovery/existing-vm.png" alt-text="Set the basic disaster recovery options for a VM.":::
-
 6. In **Advanced settings**, you can review settings, and modify values to custom settings. By default, Site Recovery mirrors the source settings to create target resources.
 
     - **Target subscription**. The subscription in which the target VM is created after failover.
