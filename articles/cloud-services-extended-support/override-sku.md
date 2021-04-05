@@ -11,7 +11,7 @@ ms.custom:
 ---
 
 # Override SKU information over CSCFG/CSDEF in Cloud Services (extended support) 
-This feature will allow the user to update the role size and instance count in their Cloud Service using the allowModelOverride property without having to update the service configuration and service definition files, thereby allowing the cloud service to scale up/down/in/out without doing a repackage and redeploy.
+This feature will allow the user to update the role size and instance count in their Cloud Service using the **allowModelOverride** property without having to update the service configuration and service definition files, thereby allowing the cloud service to scale up/down/in/out without doing a repackage and redeploy.
 The allowModelOverride property can be set in the following ways:
 * When allowModelOverride = true , the API call will update the role size and instance count for the cloud service without validating the values with the csdef and cscfg files. 
 > [!Note]
