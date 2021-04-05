@@ -20,6 +20,8 @@ articles/azure-monitor/insights @bwren @rboucher @lgayhardt
 articles/azure-monitor/logs @bwren
 articles/azure-monitor/visualize @bwren @lgayhardt
 articles/azure-monitor/vm @bwren
+articles/advisor @rboucher
+articles/service-health @rboucher
 
 # Azure Active Directory
 
