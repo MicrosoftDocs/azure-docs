@@ -22,7 +22,7 @@ Many a times, users would have similar questions but on a different domain. You 
 
 ### Create a single knowledge base and tag QnA pairs categorically with metadata
 
-The content authors can use documents/URLs to extract QnAs or add custom QnAs to the knowledgebase. In order to group these QnAs by a category, you can add metadata to the QnA pairs. 
+The content authors can use documents/URLs to extract QnAs or add custom QnAs to the knowledgebase. In order to group these QnAs by a category, you can add [metadata](../How-To/query-knowledge-base-with-metadata.md) to the QnA pairs. 
 
 Let's say are trying to create a Knowledgebase 
 
