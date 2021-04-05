@@ -83,7 +83,7 @@ For the complete list of Azure NetApp Files permissions, see Azure resource prov
 
 ### Are Azure Activity Logs supported on Azure NetApp Files?
 
-Azure NetApp Files is an Azure native service. Therefore, like other Azure services, all PUT, POST, and DELETE APIs against Azure NetApp Files are logged. For example, the logs show activities such as who created the snapshot, who modified the volume, and so on.
+Azure NetApp Files is an Azure native service. All PUT, POST, and DELETE APIs against Azure NetApp Files are logged. For example, the logs show activities such as who created the snapshot, who modified the volume, and so on.
 
 For the complete list of API operations, see [Azure NetApp Files REST API](/rest/api/netapp/).
 
