@@ -177,9 +177,10 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [OCR API reference (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
+In this quickstart, you learned how to install the OCR client library and use the Read API. Next, learn more about the Read API features.
 
+> [!div class="nextstepaction"]
+>[Call the Read API](../../Vision-API-How-to-Topics/call-read-api.md)
 
 * [OCR overview](../../overview-ocr.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).
