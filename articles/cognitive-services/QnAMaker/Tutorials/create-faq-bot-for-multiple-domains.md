@@ -28,6 +28,21 @@ Let's say are trying to create a Knowledgebase
 
 Adding metadata to the knowlegdebase helps you add categories to the QnA pairs. However, to restrict the system to search for a response across a particluar category of QnA pairs, you would need to pass that category as a strict filter in the generate Answer API. 
 
+
+{
+    "question": "qna maker and luis",
+    "top": 6,
+    "isTest": true,
+    "scoreThreshold": 30,
+    "rankerType": "" // values: QuestionOnly
+    "strictFilters": [
+    {
+        "name": "category",
+        "value": ""
+    }],
+    "userId": "sd53lsY="
+}
+
 You can fetch metadata/category from user query in the following ways - 
 
 * Explicitly take category as input from the user through the bot interface. For instance, you can take as input from the user a product category they are interested in before they ask questions.
