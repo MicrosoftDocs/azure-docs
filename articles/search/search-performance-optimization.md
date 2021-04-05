@@ -58,19 +58,19 @@ Availability Zones do not impact the [Azure Cognitive Search Service Level Agree
 
 Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 
-+ [Business continuity and disaster recovery (BCDR)](../best-practices-availability-paired-regions.md). Azure Cognitive Search does not provide instant failover in the event of an outage.
-+ Globally deployed applications, where multiple search services in each geography can minimize latency. If query and indexing requests come from all over the world, users who are located closest to the host data center will have faster performance. Creating multiple search services in regions with closer proximity to these users can equalize performance for all users.
++ [Business continuity and disaster recovery (BCDR)](../best-practices-availability-paired-regions.md) (Cognitive Search does not provide instant failover in the event of an outage).
++ Globally deployed applications. If query and indexing requests come from all over the world, users who are closest to the host data center will have faster performance. Creating additional services in regions with close proximity to these users can equalize performance for all users.
 + [Multi-tenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
 
 If you need two more search services, creating them in different regions can meet application requirements for continuity and recovery, as well as faster response times for a global user base.
 
-Azure Cognitive Search does not currently provide an automated method of geo-replicating Azure Cognitive Search indexes across regions, but there are some techniques that can be used that can make this process simple to implement and manage. These are outlined in the next few sections.
+Azure Cognitive Search does not currently provide an automated method of geo-replicating search indexes across regions, but there are some techniques that can be used that can make this process simple to implement and manage. These are outlined in the next few sections.
 
-The goal of a geo-distributed set of search services is to have two or more indexes available in two or more regions, where a user is routed to the Azure Cognitive Search service that provides the lowest latency as seen in this example:
+The goal of a geo-distributed set of search services is to have two or more indexes available in two or more regions, where a user is routed to the Azure Cognitive Search service that provides the lowest latency:
 
    ![Cross-tab of services by region][1]
 
-You can implement this architecture by creating multiple services and designing a strategy for data synchronization. Alternatively, you can use a resource like Azure Traffic Manager.
+You can implement this architecture by creating multiple services and designing a strategy for data synchronization. Optionally, you can include a resource like Azure Traffic Manager for routing requests.
 
 <a name="data-sync"></a>
 
