@@ -17,12 +17,12 @@ When building a FAQ bot, you may encounter use cases that require you to address
 
 Many a times, users would have similar questions but on a different domain. You can design your bot to handle queries across multiple domains with QnA Maker in the following ways:
 
-* Create a single knowledge base and define distinct domains for QnA pairs.
+* Create a single knowledge base and tag QnA pairs categorically with metadata.
 * Create a separate knowledge base for each domain.
 
-### Create a single knowledge base and define distinct domains for QnA pairs
+### Create a single knowledge base and tag QnA pairs categorically with metadata
 
-The content authors can use documents/URLs to extract QnAs or add custom QnAs to the knowledgebase. In order to group these QnAs by domain, you can add metadata to the QnA pairs. 
+The content authors can use documents/URLs to extract QnAs or add custom QnAs to the knowledgebase. In order to group these QnAs by a category, you can add metadata to the QnA pairs. 
 
 ### Create a separate knowledge base for each domain
 
