@@ -16,21 +16,32 @@ Before you can build [enterprise integration and B2B solutions](../logic-apps/lo
 
 For example, you can create, store, and manage B2B artifacts, such as trading partners, agreements, maps, schemas, certificates, and batch configurations. Also, before your logic app can work with these artifacts and use the Logic Apps B2B connectors, you must [link your integration account](#link-account) to your logic app. Both your integration account and logic app must exist in the *same* location or region.
 
-> [!TIP]
-> To create an integration account inside an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
+> [!IMPORTANT]
+> Based on the integration account type that you select, creating an integration account incurs costs. 
+> For more information, see [Logic Apps pricing and billing models](logic-apps-pricing.md#integration-accounts) 
+> and [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 This topic shows you how to perform these tasks:
 
 * Create your integration account.
+
+  > [!TIP]
+  > To create an integration account inside an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+  > see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
+
 * Link your integration account to a logic app.
+
 * Change the pricing tier for your integration account.
+
 * Unlink your integration account from a logic app.
+
 * Move your integration account to another Azure resource group or subscription.
+
 * Delete your integration account.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 ## Create integration account
 

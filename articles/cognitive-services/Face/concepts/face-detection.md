@@ -60,7 +60,9 @@ Use the following tips to make sure that your input images give the most accurat
 
 * The supported input image formats are JPEG, PNG, GIF for the first frame, and BMP.
 * The image file size should be no larger than 6 MB.
-* The detectable face size range is 36 x 36 to 4096 x 4096 pixels. Faces outside of this range won't be detected.
+* The minimum detectable face size is 36 x 36 pixels in an image that is no larger than 1920 x 1080 pixels. Images with larger than 1920 x 1080 pixels have a proportionally larger minimum face size. Reducing the face size might cause some faces not to be detected, even if they are larger than the minimum detectable face size.
+* The maximum detectable face size is 4096 x 4096 pixels.
+* Faces outside the size range of 36 x 36 to 4096 x 4096 pixels will not be detected.
 * Some faces might not be detected because of technical challenges. Extreme face angles (head pose) or face occlusion (objects such as sunglasses or hands that block part of the face) can affect detection. Frontal and near-frontal faces give the best results.
 
 If you're detecting faces from a video feed, you may be able to improve performance by adjusting certain settings on your video camera:

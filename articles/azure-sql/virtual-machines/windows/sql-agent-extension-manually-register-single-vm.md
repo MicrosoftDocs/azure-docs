@@ -31,7 +31,7 @@ Registering with the [SQL Server IaaS Agent extension](sql-server-iaas-agent-ext
 
 Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the extension. However, if you choose to self-install SQL Server on an Azure virtual machine, or provision an Azure virtual machine from a custom VHD, then you must register your SQL Server VM with the SQL IaaS Agent extension to to unlock full feature benefits and manageability. 
 
-To utilize the SQL IaaS Agent extension, you must first [register your subscription with the **Microsoft.SqlVirtualMachine** provider](#register-subscription-with-rp), which gives the SQL IaaS extension the ability to create resources within that specific subscription.
+To utilize the SQL IaaS Agent extension, you must first [register your subscription with the **Microsoft.SqlVirtualMachine** provider](#register-subscription-with-resource-provider), which gives the SQL IaaS extension the ability to create resources within that specific subscription.
 
 > [!IMPORTANT]
 > The SQL IaaS Agent extension collects data for the express purpose of giving customers optional benefits when using SQL Server within Azure Virtual Machines. Microsoft will not use this data for licensing audits without the customer's advance consent. See the [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy#non-personal-data) for more information.
@@ -45,9 +45,9 @@ To register your SQL Server VM with the extension, you'll need:
 - The latest version of [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell (5.0 minimum)](/powershell/azure/install-az-ps). 
 
 
-## Register subscription with RP
+## Register subscription with Resource Provider
 
-To register your SQL Server VM with the SQL IaaS Agent extension, you must first register your subscription with **Microsoft.SqlVirtualMachine** provider. This gives the SQL IaaS Agent extension the ability to create resources within your subscription.  You can do so by using the Azure portal, the Azure CLI, or Azure PowerShell.
+To register your SQL Server VM with the SQL IaaS Agent extension, you must first register your subscription with **Microsoft.SqlVirtualMachine** resource provider. This gives the SQL IaaS Agent extension the ability to create resources within your subscription.  You can do so by using the Azure portal, the Azure CLI, or Azure PowerShell.
 
 ### Azure portal
 
@@ -185,6 +185,9 @@ $sqlvm.SqlManagementType
 
 SQL Server VMs that have registered the extension in *lightweight* mode can upgrade to _full_ using the Azure portal, the Azure CLI, or Azure PowerShell. SQL Server VMs in _NoAgent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-from-extension) the SQL Server VM from the SQL IaaS Agent extension. Doing so will remove the **SQL virtual machine** _resource_, but will not delete the actual virtual machine. 
 
+> [!NOTE]
+> When you upgrade the management mode for the SQL IaaS extension to full, it will restart the SQL Server service. In some cases, the restart may cause the service principal names (SPNs) associated with the SQL Server service to change to the wrong user account. If you have connectivity issues after upgrading the management mode to full, [unregister and reregister your SPNs](/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections).
+
 
 ### Azure portal
 
@@ -297,7 +300,7 @@ To unregister your SQL Server VM from the extension using the Azure portal, foll
 
 # [Azure CLI](#tab/azure-cli)
 
-To unregister your SQL Server VM from the extension with Azure CLI, use the [az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest&preserve-view=true#az-sql-vm-delete) command. This will remove the SQL Server VM *resource* but will not delete the virtual machine. 
+To unregister your SQL Server VM from the extension with Azure CLI, use the [az sql vm delete](/cli/azure/sql/vm#az-sql-vm-delete) command. This will remove the SQL Server VM *resource* but will not delete the virtual machine. 
 
 
 ```azurecli-interactive

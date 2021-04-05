@@ -3,13 +3,13 @@ title: Known issues for application provisioning in Azure AD
 description: Learn about known issues when working with automated application provisioning in Azure AD.
 author: kenwith
 ms.author: kenwith
-manager: celestedg
+manager: daveba
 services: active-directory
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 12/14/2020
+ms.date: 01/05/2021
 ms.reviewer: arvinh
 ---
 
@@ -77,6 +77,10 @@ The [time](./application-provisioning-when-will-provisioning-finish-specific-use
 **Changes not moving from target app to Azure AD**
 
 The app provisioning service isn't aware of changes made in external apps. So, no action is taken to roll back. The app provisioning service relies on changes made in Azure AD. 
+
+**Switching from sync all to sync assigned not working**
+
+After changing scope from 'Sync All' to 'Sync Assigned', please make sure to also perform a restart to ensure that the change takes effect. You can do the restart from the UI.
 
 **Provisioning cycle continues until completion**
 

@@ -1,5 +1,5 @@
 ---
-title: Transition to governed collaboration with Azure Active Directory B2B Collaboration
+title: Transition to governed collaboration with Azure Active Directory B2B Collaboration 
 description: Move to governed collaboration with Azure Ad B2B collaboration.
 services: active-directory
 author: BarbaraSelden
@@ -95,7 +95,7 @@ Determine who can invite guest users to access resources.
 
 If you use Azure AD entitlement management, you can configure questions for external users to answer. The questions will then be shown to approvers to help them make a decision. You can configure different sets of questions for each [access package policy](../governance/entitlement-management-access-package-approval-policy.md) so that approvers can have relevant information for the access they're approving. For example, if one access package is intended for vendor access, then the requestor may be asked for their vendor contract number. A different access package intended for suppliers, may ask for their country of origin.
 
-If you use a self-service portal, you can use [API connectors](../external-identities/api-connectors-overview.md) to collect additional attributes about users as they sign up. You can then potentially use those attributes to assign access. For example, if during the sign-up process you collect their supplier ID, you could use that attribute to dynamically assign them to a group or access package for that supplier. You can create custom attributes in the Azure portal and use them in your self-service sign-up user flows. You can also read and write these attributes by using the [Microsoft Graph API](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). 
+If you use a self-service portal, you can use [API connectors](../external-identities/api-connectors-overview.md) to collect additional attributes about users as they sign up. You can then potentially use those attributes to assign access. For example, if during the sign-up process you collect their supplier ID, you could use that attribute to dynamically assign them to a group or access package for that supplier. You can create custom attributes in the Azure portal and use them in your self-service sign-up user flows. You can also read and write these attributes by using the [Microsoft Graph API](../../active-directory-b2c/microsoft-graph-operations.md). 
 
 ### Troubleshoot invitation redemption to Azure AD users
 
@@ -127,7 +127,7 @@ We recommend the following restrictions for guest users.
 
 * **Block access to the Azure portal. You can make rare necessary exceptions**. 
 
-   * Create a Conditional Access policy that includes either All guest and external users and then [implement a policy to block access](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management).
+   * Create a Conditional Access policy that includes either All guest and external users and then [implement a policy to block access](../../role-based-access-control/conditional-access-azure-management.md).
 
  
 
@@ -181,7 +181,7 @@ By default Teams allows external access, which means that organization can comm
 ### Direct sharing through SharePoint and OneDrive
 
 Direct sharing through SharePoint and OneDrive can add users outside of the Entitlement Management process. For an in-depth look at these configurations see [Manage Access with Microsoft Teams, SharePoint, and OneDrive for business](9-secure-access-teams-sharepoint.md)
-You can also [block the use of user’s personal OneDrive](https://docs.microsoft.com/office365/troubleshoot/group-policy/block-onedrive-use-from-office) if desired.
+You can also [block the use of user’s personal OneDrive](/office365/troubleshoot/group-policy/block-onedrive-use-from-office) if desired.
 
 ### Sending documents through email
 
@@ -193,9 +193,9 @@ The landscape of collaboration tools is vast. Your users likely use many outside
 
 For more information on managing unsanctioned applications, see:
 
-* [Governing connected apps](https://docs.microsoft.com/cloud-app-security/governance-actions)
+* [Governing connected apps](/cloud-app-security/governance-actions)
 
-* [Sanctioning and unsanctioning an application.](https://docs.microsoft.com/cloud-app-security/governance-discovery)
+* [Sanctioning and unsanctioning an application.](/cloud-app-security/governance-discovery)
 
  
 ### Next steps

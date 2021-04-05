@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/20/2020
+ms.date: 03/12/2021
 ms.author: curtand
 ms.reviewer: sumitp
 
@@ -40,7 +40,7 @@ You can change the primary domain name for your organization to be any verified 
 
 ## Add custom domain names to your Azure AD organization
 
-You can add up to 900 managed domain names. If you're configuring all your domains for federation with on-premises Active Directory, you can add up to 450 domain names in each organization.
+You can add up to 5000 managed domain names. If you're configuring all your domains for federation with on-premises Active Directory, you can add up to 2500 domain names in each organization.
 
 ## Add subdomains of a custom domain
 
@@ -108,7 +108,7 @@ If you find that any of the conditions haven’t been met, manually clean up the
 Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using the Microsoft Graph API.
 
 * [Using PowerShell to manage domain names in Azure AD](/powershell/module/azuread/#domains&preserve-view=true)
-* [Domain resource type](/graph/api/resources/domain?view=graph-rest-1.0&preserve-view=true)
+* [Domain resource type](/graph/api/resources/domain)
 
 ## Next steps
 

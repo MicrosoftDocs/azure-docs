@@ -1,9 +1,8 @@
 ---
 title: Azure Data Lake Storage Gen 1 output from Azure Stream Analytics
 description: This article describes Azure Data Lake Storage Gen 1 as an output option for Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020

@@ -1,5 +1,5 @@
 ---
-title: Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure Active Directory
+title: Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure Active Directory 
 description: Secure access to Microsoft 365 services as a part of your overall external access security.
 services: active-directory
 author: BarbaraSelden
@@ -72,7 +72,7 @@ There are three choices under collaboration restrictions. Your business requirem
 
 ## Govern access in Teams
 
-[Teams differentiates between external users (anyone outside your organization) and guest users (those with guest accounts)](https://docs.microsoft.com/microsoftteams/communicate-with-users-from-other-organizations?WT.mc_id=TeamsAdminCenterCSH​)). You manage collaboration setting in the [Teams Admin portal](https://admin.teams.microsoft.com/company-wide-settings/external-communications) under Org-wide settings. 
+[Teams differentiates between external users (anyone outside your organization) and guest users (those with guest accounts)](/microsoftteams/communicate-with-users-from-other-organizations?WT.mc_id=TeamsAdminCenterCSH%e2%80%8b)). You manage collaboration setting in the [Teams Admin portal](https://admin.teams.microsoft.com/company-wide-settings/external-communications) under Org-wide settings. 
 
 > [!NOTE]
 > External identities collaboration settings in Azure Active Directory control the effective permissions. You can increase restrictions in Teams, but not decrease them from what is set in Azure AD.
@@ -83,13 +83,13 @@ There are three choices under collaboration restrictions. Your business requirem
 
 To learn more about managing external access in Teams, see the following resources.
 
-* [Manage external access in Microsoft Teams](https://docs.microsoft.com/microsoftteams/manage-external-access)
+* [Manage external access in Microsoft Teams](/microsoftteams/manage-external-access)
 
-* [Microsoft 365 identity models and Azure Active Directory](https://docs.microsoft.com/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
+* [Microsoft 365 identity models and Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity)
 
-* [Identity models and authentication for Microsoft Teams](https://docs.microsoft.com/MicrosoftTeams/identify-models-authentication)
+* [Identity models and authentication for Microsoft Teams](/MicrosoftTeams/identify-models-authentication)
 
-* [Sensitivity labels for Microsoft Teams](https://docs.microsoft.com/MicrosoftTeams/sensitivity-labels)
+* [Sensitivity labels for Microsoft Teams](/MicrosoftTeams/sensitivity-labels)
 
 ## Govern access in SharePoint and OneDrive
 
@@ -97,9 +97,9 @@ SharePoint administrators have many settings available for collaboration. Organi
 
 ### Integrating SharePoint and One-drive with Azure AD B2B
 
-As a part of your overall strategy for governing external collaboration, we recommend that you [enable the Preview of SharePoint and OneDrive integration with Azure AD B2B](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration-preview) .
+As a part of your overall strategy for governing external collaboration, we recommend that you [enable the Preview of SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview) .
 
-Azure AD B2B provides authentication and management of guest users. With SharePoint and OneDrive integration, [Azure AD B2B one-time passcodes](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) are used for external sharing of files, folders, list items, document libraries, and sites. This feature provides an upgraded experience from the existing [secure external sharing recipient experience](https://docs.microsoft.com/sharepoint/what-s-new-in-sharing-in-targeted-release).
+Azure AD B2B provides authentication and management of guest users. With SharePoint and OneDrive integration, [Azure AD B2B one-time passcodes](../external-identities/one-time-passcode.md) are used for external sharing of files, folders, list items, document libraries, and sites. This feature provides an upgraded experience from the existing [secure external sharing recipient experience](/sharepoint/what-s-new-in-sharing-in-targeted-release).
 
 > [!NOTE]
 > If you enable the preview for Azure AD B2B integration, then SharePoint and OneDrive sharing is subject to the Azure AD organizational relationships settings, such as **Members can invite** and **Guests can invite**.
@@ -166,9 +166,9 @@ We do not recommend enabling anyone links. If you do, we recommend setting an ex
 
 To learn more about governing external access to SharePoint see the following:
 
-* [SharePoint external sharing overview](https://docs.microsoft.com/sharepoint/external-sharing-overview)
+* [SharePoint external sharing overview](/sharepoint/external-sharing-overview)
 
-* [SharePoint and OneDrive integration with Azure AD B2B](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration-preview)
+* [SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview)
 
 #### Next steps
 

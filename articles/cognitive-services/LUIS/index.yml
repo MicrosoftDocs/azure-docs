@@ -60,9 +60,9 @@ landingContent:
           - text: "Portal: Create a new LUIS app"
             url: get-started-portal-build-app.md
           - text: Using C# SDK
-            url: azure-sdk-quickstart.md?pivots=programming-language-csharp
+            url: ./client-libraries-rest-api.md?pivots=rest-api
           - text: Using Python SDK
-            url: azure-sdk-quickstart.md?pivots=programming-language-python
+            url: ./client-libraries-rest-api.md?pivots=rest-api
 
       - linkListType: how-to-guide
         links:
@@ -84,14 +84,14 @@ landingContent:
           - text: Interactive testing
             url: luis-concept-test.md
           - text: Batch testing
-            url: luis-concept-batch-test.md
+            url: ./luis-how-to-batch-test.md
 
       - linkListType: quickstart
         links:
           - text: "Portal: Deploy app to prediction endpoint"
             url: get-started-portal-deploy-app.md
           - text: Using SDK
-            url: azure-sdk-quickstart.md
+            url: ./client-libraries-rest-api.md?pivots=rest-api
 
       - linkListType: how-to-guide
         links:
@@ -111,7 +111,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using SDK
-            url: azure-sdk-quickstart.md
+            url: ./client-libraries-rest-api.md?pivots=rest-api
       - linkListType: quickstart
         links:
           - text: With C# using REST

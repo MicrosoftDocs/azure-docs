@@ -21,14 +21,14 @@ You can specify the number of partitions at the time of creating an event hub. I
 This section shows you how to update partition count of an event hub in different ways (PowerShell, CLI, and so on.).
 
 ### PowerShell
-Use the [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub?view=azurermps-6.13.0) PowerShell command to update partitions in an event hub. 
+Use the [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub) PowerShell command to update partitions in an event hub. 
 
 ```azurepowershell-interactive
 Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespaceName -Name MyEventHubName -partitionCount 12
 ```
 
 ### CLI
-Use the [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) CLI command to update partitions in an event hub. 
+Use the [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub#az-eventhubs-eventhub-update) CLI command to update partitions in an event hub. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12
@@ -66,7 +66,7 @@ Event Hubs provides three sender options:
 
 - **Partition sender** – In this scenario, clients send events directly to a partition. Although partitions are identifiable and events can be sent directly to them, we don't recommend this pattern. Adding partitions doesn't impact this scenario. We recommend that you restart applications so that they can detect newly added partitions. 
 - **Partition key sender** – in this scenario, clients sends the events with a key so that all events belonging to that key end up in the same partition. In this case, service hashes the key and routes to the corresponding partition. The partition count update can cause out-of-order issues because of hashing change. So, if you care about ordering, ensure that your application consumes all events from existing partitions before you increase the partition count.
-- **Round-robin sender (default)** – In this scenario, the Event Hubs service round robins the events across partitions. Event Hubs service is aware of partition count changes and will send to new partitions within seconds of altering partition count.
+- **Round-robin sender (default)** – In this scenario, the Event Hubs service round robins the events across partitions, and also uses a load-balancing algorithm. Event Hubs service is aware of partition count changes and will send to new partitions within seconds of altering partition count.
 
 ### Receiver/consumer clients
 Event Hubs provides direct receivers and an easy consumer library called the [Event Processor Host (old SDK)](event-hubs-event-processor-host.md)  or [Event Processor (new SDK)](event-processor-balance-partition-load.md).
@@ -94,7 +94,7 @@ When a consumer group member performs a metadata refresh and picks up the newly 
     > [!IMPORTANT]
     > While the existing data preserves ordering, partition hashing will be broken for messages hashed after the partition count changes due to addition of partitions.
 - Adding partition to an existing topic or event hub instance is recommended in the following cases:
-    - When you use the round robin (default) method of sending events
+    - When you use the default method of sending events
 	 - Kafka default partitioning strategies, example – Sticky Assignor strategy
 
 

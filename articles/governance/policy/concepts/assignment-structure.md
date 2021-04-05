@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 09/22/2020
+ms.date: 03/17/2021
 ms.topic: conceptual
 ---
 # Azure Policy assignment structure
@@ -19,9 +19,11 @@ You use JSON to create a policy assignment. The policy assignment contains eleme
 - enforcement mode
 - excluded scopes
 - policy definition
+- non-compliance messages
 - parameters
 
-For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic parameters:
+For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic
+parameters:
 
 ```json
 {
@@ -34,6 +36,11 @@ For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode
         "enforcementMode": "DoNotEnforce",
         "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+        "nonComplianceMessages": [
+            {
+                "message": "Resource names must start with 'DeptA' and end with '-LC'."
+            }
+        ],
         "parameters": {
             "prefix": {
                 "value": "DeptA"
@@ -58,7 +65,7 @@ characters and **description** a maximum length of _512_ characters.
 
 The **enforcementMode** property provides customers the ability to test the outcome of a policy on
 existing resources without initiating the policy effect or triggering entries in the
-[Azure Activity log](../../../azure-monitor/platform/platform-logs-overview.md). This scenario is
+[Azure Activity log](../../../azure-monitor/essentials/platform-logs-overview.md). This scenario is
 commonly referred to as "What If" and aligns to safe deployment practices. **enforcementMode** is
 different from the [Disabled](./effects.md#disabled) effect, as that effect prevents resource
 evaluation from happening at all.
@@ -92,6 +99,42 @@ after creation of the initial assignment.
 This field must be the full path name of either a policy definition or an initiative definition.
 `policyDefinitionId` is a string and not an array. It's recommended that if multiple policies are
 often assigned together, to use an [initiative](./initiative-definition-structure.md) instead.
+
+## Non-compliance messages
+
+To set a custom message that describes why a resource is non-compliant with the policy or initiative
+definition, set `nonComplianceMessages` in the assignment definition. This node is an array of
+`message` entries. This custom message is in addition to the default error message for
+non-compliance and is optional.
+
+> [!IMPORTANT]
+> Custom messages for non-compliance are only supported on definitions or initiatives with
+> [Resource Manager modes](./definition-structure.md#resource-manager-modes) definitions.
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    }
+]
+```
+
+If the assignment is for an initiative, different messages can be configured for each policy
+definition in the initiative. The messages use the `policyDefinitionReferenceId` value configured in
+the initiative definition. For details, see
+[policy definitions properties](./initiative-definition-structure.md#policy-definition-properties).
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    },
+    {
+        "message": "Message for just this policy definition by reference ID",
+        "policyDefinitionReferenceId": "10420126870854049575"
+    }
+]
+```
 
 ## Parameters
 

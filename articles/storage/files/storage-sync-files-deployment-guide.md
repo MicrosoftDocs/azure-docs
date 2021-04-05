@@ -501,7 +501,7 @@ If you'd like to configure your Azure File sync to work with firewall and virtua
 ![Configuring firewall and virtual network settings to work with Azure File sync](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 
 ## Onboarding with Azure File Sync
-The recommended steps to onboard on Azure File Sync for the first with zero downtime while preserving full file fidelity and access control list (ACL) are as follows:
+The recommended steps to onboard on Azure File Sync for the first time with zero downtime while preserving full file fidelity and access control list (ACL) are as follows:
  
 1. Deploy a Storage Sync Service.
 1. Create a sync group.
@@ -519,7 +519,7 @@ The recommended steps to onboard on Azure File Sync for the first with zero down
 If you don't have extra storage for initial onboarding and would like to attach to the existing shares, you can pre-seed the data in the Azure files shares. This approach is suggested, if and only if you can accept downtime and absolutely guarantee no data changes on the server shares during the initial onboarding process. 
  
 1. Ensure that data on any of the servers can't change during the onboarding process.
-1. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB. Robocopy, for example. YOu can also use AzCopy over REST. Be sure to use AzCopy with the appropriate switches to preserve ACLs timestamps and attributes.
+1. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB. Robocopy, for example. You can also use AzCopy over REST. Be sure to use AzCopy with the appropriate switches to preserve ACLs timestamps and attributes.
 1. Create Azure File Sync topology with the desired server endpoints pointing to the existing shares.
 1. Let sync finish reconciliation process on all endpoints. 
 1. Once reconciliation is complete, you can open shares for changes.

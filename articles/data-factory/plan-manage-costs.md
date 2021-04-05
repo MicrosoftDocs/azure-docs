@@ -1,11 +1,9 @@
 ---
 title: Plan and manage costs for Azure Data Factory
 description: This article describes how you can plan and manage costs for Azure Data Factory
-documentationcenter: ''
 author: shirleywangmsft
 ms.author: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
 ---

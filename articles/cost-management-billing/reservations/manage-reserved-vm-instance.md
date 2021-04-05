@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 03/29/2021
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -29,7 +29,7 @@ To view a Reservation Order, go to **Reservations** > select the reservation, an
 
 ![Example of reservation order details showing Reservation order ID ](./media/manage-reserved-vm-instance/reservation-order-details.png)
 
-A reservation inherits permissions from its reservation order.
+A reservation inherits permissions from its reservation order. To exchange or refund a reservation, the user should be added to the reservation order.
 
 ## Change the reservation scope
 
@@ -51,8 +51,8 @@ The scope only applies to individual subscriptions with pay-as-you-go rates (off
 
 By default, the following users can view and manage reservations:
 
-- The person who buys a reservation and the account administrator of the billing subscription used to buy the reservation are added to the reservation order.
-- Enterprise Agreement and Microsoft Customer Agreement billing administrators.
+- The person who bought the reservation and the account owner for the billing subscription get Azure RBAC access to the reservation order.
+-  Enterprise Agreement and Microsoft Customer Agreement billing contributors can manage all reservations from Cost Management + Billing > Reservation Transactions > select the blue banner.
 
 To allow other people to manage reservations, you have two options:
 

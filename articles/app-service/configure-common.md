@@ -5,7 +5,7 @@ keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 12/07/2020
-ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
+ms.custom: "devx-track-csharp, seodec18"
 
 ---
 # Configure an App Service app in the Azure portal
@@ -266,8 +266,6 @@ You can [add custom storage for your containerized app](configure-connect-to-azu
 For more information, see [Access Azure Storage as a network share from a container in App Service](configure-connect-to-azure-storage.md).
 
 ## Configure language stack settings
-
-For Linux apps, see:
 
 - [ASP.NET Core](configure-language-dotnetcore.md)
 - [Node.js](configure-language-nodejs.md)

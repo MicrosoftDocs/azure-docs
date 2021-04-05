@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 11/05/2019
+ms.date: 01/19/2021
 ms.author: tamram
 ms.custom: "include file"
 ---
@@ -25,7 +25,7 @@ Blob storage is designed for:
 
 Users or client applications can access objects in Blob storage via HTTP/HTTPS, from anywhere in the world. Objects in Blob storage are accessible via the [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/az.storage), [Azure CLI](/cli/azure/storage), or an Azure Storage client library. Client libraries are available for different languages, including:
 
-* [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [.NET](/dotnet/api/overview/azure/storage)
 * [Java](/java/api/overview/azure/storage)
 * [Node.js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage)
 * [Python](../articles/storage/blobs/storage-quickstart-blobs-python.md)

@@ -5,7 +5,6 @@ description: Learn how to collect data from models deployed to web service endpo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
 ms.date: 09/15/2020

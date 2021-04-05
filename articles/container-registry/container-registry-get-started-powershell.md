@@ -50,7 +50,7 @@ In this quickstart you create a *Basic* registry, which is a cost-optimized opti
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to your registry. In production scenarios you should use an individual identity or service principal for container registry access, but to keep this quickstart brief, enable the admin user on your registry with the [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] command:
+Before pushing and pulling container images, you must log in to your registry. To keep this quickstart brief, enable the admin user on your registry with the [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] command. In production scenarios you should use an alternative [authentication method](container-registry-authentication.md) for registry access, such as a service principal. 
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
@@ -63,6 +63,10 @@ $creds.Password | docker login $registry.LoginServer -u $creds.Username --passwo
 ```
 
 The command returns `Login Succeeded` once completed.
+
+> [!TIP]
+> The Azure CLI provides the `az acr login` command, a convenient way to log in to a container registry using your [individual identity](container-registry-authentication.md#individual-login-with-azure-ad), without passing docker credentials.
+
 
 [!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 

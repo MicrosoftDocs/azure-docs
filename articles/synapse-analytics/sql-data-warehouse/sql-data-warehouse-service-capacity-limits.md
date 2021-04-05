@@ -39,7 +39,7 @@ Maximum values allowed for various components of dedicated SQL pool in Azure Syn
 | Table |Tables per database | 100,000 |
 | Table |Columns per table |1024 columns |
 | Table |Bytes per column |Dependent on column [data type](sql-data-warehouse-tables-data-types.md). Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types. |
-| Table |Bytes per row, defined size |8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, row-overflow storage is supported, which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see [Row-Overflow Data Exceeding 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Table |Bytes per row, defined size |8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, row-overflow storage is supported, which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see [Row-Overflow Data Exceeding 8 KB](/previous-versions/sql/sql-server-2008-r2/ms186981(v=sql.105)). |
 | Table |Partitions per table |15,000<br/><br/>For high performance, we recommend minimizing the number of partitions you need while still supporting your business requirements. As the number of partitions grows, the overhead for Data Definition Language (DDL) and Data Manipulation Language (DML) operations grows and causes slower performance. |
 | Table |Characters per partition boundary value. |4000 |
 | Index |Non-clustered indexes per table. |50<br/><br/>Applies to rowstore tables only. |
@@ -80,17 +80,17 @@ Maximum values allowed for various components of dedicated SQL pool in Azure Syn
 
 ## Metadata
 
+DMV's will reset when a dedicated SQL pool is paused or when it is scaled.
+
 | System view | Maximum rows |
 |:--- |:--- |
-| sys.dm_pdw_component_health_alerts |10,000 |
-| sys.dm_pdw_dms_cores |100 |
-| sys.dm_pdw_dms_workers |Total number of DMS workers for the most recent 1000 SQL requests. |
-| sys.dm_pdw_errors |10,000 |
-| sys.dm_pdw_exec_requests |10,000 |
-| sys.dm_pdw_exec_sessions |10,000 |
-| sys.dm_pdw_request_steps |Total number of steps for the most recent 1000 SQL requests that are stored in sys.dm_pdw_exec_requests. |
-| sys.dm_pdw_os_event_logs |10,000 |
-| sys.dm_pdw_sql_requests |The most recent 1000 SQL requests that are stored in sys.dm_pdw_exec_requests. |
+| [sys.dm_pdw_dms_cores](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-cores-transact-sql?view=azure-sqldw-latest&preserve-view=true) |100 |
+| [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Total number of DMS workers for the most recent 1000 SQL requests. |
+| [sys.dm_pdw_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-errors-transact-sql?view=azure-sqldw-latest&preserve-view=true) |10,000 |
+| [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true) |10,000 |
+| [sys.dm_pdw_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-sessions-transact-sql?view=azure-sqldw-latest&preserve-view=true) |10,000 |
+| [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?view=azure-sqldw-latest&preserve-view=true) |Total number of steps for the most recent 1000 SQL requests that are stored in sys.dm_pdw_exec_requests. |
+| [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true) |The most recent 1000 SQL requests that are stored in sys.dm_pdw_exec_requests. |
 |||
 
 ## Next steps

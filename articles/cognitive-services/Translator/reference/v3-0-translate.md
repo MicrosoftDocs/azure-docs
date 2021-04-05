@@ -3,14 +3,14 @@ title: Translator Translate Method
 titleSuffix: Azure Cognitive Services
 description: Understand the parameters, headers, and body messages for the Translate method of Azure Cognitive Services Translator to translate text.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Translator 3.0: Translate

@@ -4,7 +4,7 @@ description: Learn to build an in-store analytics application using Checkout app
 author: avneets
 ms.author: avneets
 ms.date: 10/13/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central

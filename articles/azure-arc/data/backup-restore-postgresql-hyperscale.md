@@ -13,95 +13,11 @@ ms.topic: how-to
 
 # Back up and restore Azure Arc enabled PostgreSQL Hyperscale server groups
 
-When you backup or restore your Azure Arc enabled PostgreSQL Hyperscale server group, the entire set of databases on all the PostgreSQL nodes of your server group is backed-up and/or restored.
-
-To take a backup and restore it, you need to make sure that a backup storage class is configured for your server group. For now, you need to indicate a backup storage class at the time you create the server group. It is not yet possible to configure your server group to use a backup storage class after it has been created.
+[!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Verify configuration
-
-First, verify that your server group has been configured to use backup storage class. To do this, run the following command after setting the name of your server group:
-```console
- azdata arc postgres server show -n postgres01
-```
-Look at the storage section of the output. For example:
-```console
-...
-"storage": {
-      "backups": {
-        "className": "local-storage"
-      },
-      "data": {
-        "className": "local-storage",
-        "size": "5Gi"
-      },
-      "logs": {
-        "className": "local-storage",
-        "size": "5Gi"
-      }
-    }
-...
-```
-or
-```console
-...
-"storage": {
-      "backups": {
-        "size": "5Gi"
-      },
-      "data": {
-        "size": "5Gi"
-      },
-      "logs": {
-        "size": "5Gi"
-      },
-      "volumeClaimMounts": [
-        {
-          "volumeClaimName": "backup-pvc",
-          "volumeType": "backup"
-        }
-...
-```
-If you see  the name of a storage class indicated in the "backups" section or a volume of type "backup" indicated in the "VolumeClaimMounts" section, it means your server group is ready for backups and restores. If not, you need to delete and recreate your server group to configure backup storage class. At this point, it is not yet possible to configure a backup storage class after the server group has been created.
-
->[!IMPORTANT]
->If your server group is already configured to use a backup storage class, skip the next step and go directly to step "Take manual full backup".
-
-## Create a server group that is ready for backups and restores
-
-This section guides you to create a server group with a storage class dedicated to backups and restores. In this example, it assumes that your server group is hosted in an Azure Kubernetes Service (AKS) cluster. This example uses azurefile-premium as storage class name. You may adjust the below example to match your environment. Note that it is required to use ReadWriteMany as accessModes.  
-
-First, create a YAML file that contains the below description of the backup PVC and name it CreateBackupPVC.yml for example:
-```console
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: backup-pvc
-  namespace: arc
-spec:
-  accessModes:
-    - ReadWriteMany
-  volumeMode: Filesystem
-  resources:
-    requests:
-      storage: 100Gi
-  storageClassName: azurefile-premium
-```
-
-Next create a PVC using the definition stored in the YAML file:
-
-```console
-kubectl create -f e:\CreateBackupPVC.yml -n arc
-``` 
-
-Next, create a server group configured for backup/restore. For example:
-
-```console
-azdata arc postgres server create -n postgres01 --workers 2 -vcm backup-pvc:backup
-```
-
-The general format of create server group command is documented [here](/sql/azdata/reference/reference-azdata-arc-postgres-server?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json).
+When you back up or restore your Azure Arc enabled PostgreSQL Hyperscale server group, the entire set of databases on all the PostgreSQL nodes of your server group is backed-up and/or restored.
 
 ## Take a manual full backup
 

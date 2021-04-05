@@ -10,8 +10,9 @@ ms.date: 11/06/2020
 ms.author: jlian
 ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technical Support', fasttrack-edit, iot]
 
-# As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away
+#Customer intent: As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away.
 ---
+
 # Monitor, diagnose, and troubleshoot disconnects with Azure IoT Hub
 
 Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failure. Application logic, physical networks, protocols, hardware, IoT Hub, and other cloud services can all cause problems. The ability to detect and pinpoint the source of an issue is critical. However, an IoT solution at scale could have thousands of devices, so it's not practical to check individual devices manually. IoT Hub integrates with two Azure services to help you:
@@ -72,7 +73,7 @@ The [*Connected devices (preview)*](monitor-iot-hub-reference.md#device-metrics)
 
 You can use metric alert rules to monitor for device disconnect anomalies at-scale. That is, when a significant number of devices unexpectedly disconnect. When such an occurrence is detected, you can look at logs to help troubleshoot the issue. To monitor per-device disconnects and disconnects for critical devices; however, you must use Event Grid. Event Grid also provides a more real-time experience than Azure metrics.
 
-To learn more about alerts with IoT Hub, see [Alerts in Monitor IoT Hub](monitor-iot-hub.md#alerts). For a walk-through of creating alerts in IoT Hub, see the [Use metrics and logs tutorial](tutorial-use-metrics-and-diags.md). For a more detailed overview of alerts, see [Overview of alerts in Microsoft Azure](../azure-monitor/platform/alerts-overview.md) in the Azure Monitor documentation.
+To learn more about alerts with IoT Hub, see [Alerts in Monitor IoT Hub](monitor-iot-hub.md#alerts). For a walk-through of creating alerts in IoT Hub, see the [Use metrics and logs tutorial](tutorial-use-metrics-and-diags.md). For a more detailed overview of alerts, see [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md) in the Azure Monitor documentation.
 
 ## Azure Monitor: Use logs to resolve connectivity errors
 

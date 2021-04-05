@@ -26,7 +26,7 @@ zone_pivot_groups: programming-languages-set-twenty-six
 #  - id: programming-language-python
 #    title: Python
 
-# As a device developer, I want to try out using device code that uses one of the the Azure IoT device SDKs. I want to understand how to send telemetry from a device, synchronize properties with the device, and control the device using commands.
+#Customer intent: As a device developer, I want to try out using device code that uses one of the the Azure IoT device SDKs. I want to understand how to send telemetry from a device, synchronize properties with the device, and control the device using commands.
 ---
 
 # Tutorial: Create and connect a client application to your Azure IoT Central application
@@ -82,6 +82,10 @@ As a device developer, you can use the **Raw data** view to examine the raw data
 :::image type="content" source="media/tutorial-connect-device/raw-data.png" alt-text="The raw data view":::
 
 On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
+
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## Next steps
 

@@ -74,4 +74,4 @@ private SilentAuthenticationCallback getAuthSilentCallback() {
 
 ## Next steps
 
-Learn more about [logging errors](./msal-logging.md?tabs=android)
+Learn more about [Logging in MSAL for Android](msal-logging-android.md).

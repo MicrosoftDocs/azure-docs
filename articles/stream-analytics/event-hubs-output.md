@@ -1,9 +1,8 @@
 ---
 title: Event Hubs output from Azure Stream Analytics
 description: This article describes how to output data from Azure Stream Analytics to Azure Event Hubs.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
@@ -32,7 +31,7 @@ The following table has the parameters needed to configure data streams from eve
 
 ## Partitioning
 
-Partitioning varies depending on partition alignment. When the partition key for event hub output is equally aligned with the upstream (previous) query step, the number of writers is the same as the number of partitions in event hub output. Each writer uses the [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet&preserve-view=true) to send events to the specific partition. When the partition key for event hub output is not aligned with the upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses the [SendBatchAsync class](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet&preserve-view=true) in **EventHubClient** to send events to all the output partitions. 
+Partitioning varies depending on partition alignment. When the partition key for event hub output is equally aligned with the upstream (previous) query step, the number of writers is the same as the number of partitions in event hub output. Each writer uses the [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender) to send events to the specific partition. When the partition key for event hub output is not aligned with the upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses the [SendBatchAsync class](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync) in **EventHubClient** to send events to all the output partitions. 
 
 ## Output batch size
 

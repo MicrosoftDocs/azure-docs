@@ -14,7 +14,7 @@ If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md
 To complete this quickstart, you need the following prerequisites:
 
 - **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
-- Python 2.7 or 3.5 or later, with PIP installed and updated.
+- Python 2.7 or 3.6 or later, with PIP installed and updated.
 - The Python package for Event Hubs. 
 
     To install the package, run this command in a command prompt that has Python in its path:

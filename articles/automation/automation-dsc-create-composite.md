@@ -58,7 +58,7 @@ you can increment the version and add release notes each time you make changes
 and publish it to your own
 [PowerShellGet repository](https://powershellexplained.com/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
 
-Once you have create a composite resource module containing your configuration
+Once you have created a composite resource module containing your configuration
 (or multiple configurations),
 you can use them in the
 [Composable Authoring Experience](./compose-configurationwithcompositeresources.md)

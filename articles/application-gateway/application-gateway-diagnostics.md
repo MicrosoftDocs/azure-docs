@@ -217,7 +217,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |serverRouted| The backend server that application gateway routes the request to.|
 |serverStatus| HTTP status code of the backend server.|
 |serverResponseLatency| Latency of the response from the backend server.|
-|host| Address listed in the host header of the request. If rewritten, this field contains the updated host name|
+|host| Address listed in the host header of the request. If rewritten using header rewrite, this field contains the updated host name|
 |originalRequestUriWithArgs| This field contains the original request URL |
 |requestUri| This field contains the URL after the rewrite operation on Application Gateway |
 |originalHost| This field contains the original request host name
@@ -301,7 +301,7 @@ The firewall log is generated only if you have enabled it for each application g
 |ruleSetVersion     | Rule set version used. Available values are 2.2.9 and 3.0.     |
 |ruleId     | Rule ID of the triggering event.        |
 |message     | User-friendly message for the triggering event. More details are provided in the details section.        |
-|action     |  Action taken on the request. Available values are Matched and Blocked.      |
+|action     |  Action taken on the request. Available values are Blocked and Allowed (for custom rules), Matched (when a rule matches a part of the request), and Detected and Blocked (these are both for mandatory rules, depending on if the WAF is in detection or prevention mode).      |
 |site     | Site for which the log was generated. Currently, only Global is listed because rules are global.|
 |details     | Details of the triggering event.        |
 |details.message     | Description of the rule.        |

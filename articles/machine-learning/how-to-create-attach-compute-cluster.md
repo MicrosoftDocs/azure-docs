@@ -29,7 +29,7 @@ In this article, learn how to:
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
 
 ## What is a compute cluster?
 
@@ -39,11 +39,9 @@ Compute clusters can run jobs securely in a [virtual network environment](how-to
 
 ## Limitations
 
-* **Do not create multiple, simultaneous attachments to the same compute** from your workspace. For example, attaching one compute cluster to a workspace using two different names. Each new attachment will break the previous existing attachment(s).
-
-    If you want to re-attach a compute target, for example to change cluster configuration settings, you must first remove the existing attachment.
-
 * Some of the scenarios listed in this document are marked as __preview__. Preview functionality is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+* We currently support only creation (and not updating) of clusters through ARM templates [https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/workspaces/computes?tabs=json]. For updating compute, we recommend using the SDK, CLI or UX for now.
 
 * Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](how-to-manage-quotas.md).
 
@@ -75,7 +73,7 @@ To create a persistent Azure Machine Learning Compute resource in Python, specif
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) for details.
+You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) for details.
 
 
 # [Azure CLI](#tab/azure-cli)
@@ -85,7 +83,7 @@ You can also configure several advanced properties when you create Azure Machine
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-For more information, see [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true).
+For more information, see [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
 # [Studio](#tab/azure-studio)
 
@@ -95,7 +93,7 @@ For information on creating a compute cluster in the studio, see [Create compute
 
  ## <a id="low-pri-vm"></a> Lower your compute cluster cost
 
-You may also choose to use [low-priority VMs](concept-plan-manage-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. A preempted job is restarted, not resumed. 
+You may also choose to use [low-priority VMs](concept-plan-manage-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. You will have to restart a preempted job. 
 
 Use any of these ways to specify a low-priority VM:
     

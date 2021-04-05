@@ -43,7 +43,7 @@ The following table lists Azure resources for which you can create outbound priv
 
 You can also query the Azure resources for which outbound private endpoint connections are supported by using the [list of supported APIs](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-In the remainder of this article, a mix of [ARMClient](https://github.com/projectkudu/ARMClient) and [Postman](https://www.postman.com/) APIs is used to demonstrate the REST API calls.
+In the remainder of this article, a mix of the [Azure CLI](/cli/azure/) (or [ARMClient](https://github.com/projectkudu/ARMClient) if you prefer) and [Postman](https://www.postman.com/) (or any other HTTP client like [curl](https://curl.se/) if you prefer) is used to demonstrate the REST API calls.
 
 > [!NOTE]
 > The examples in this article are based on the following assumptions:
@@ -65,7 +65,11 @@ Configure the storage account to [allow access only from specific subnets](../st
 
 ### Step 1: Create a shared private link resource to the storage account
 
-To request Azure Cognitive Search to create an outbound private endpoint connection to the storage account, make the following API call: 
+To request Azure Cognitive Search to create an outbound private endpoint connection to the storage account, make the following API call, for example with the [Azure CLI](/cli/azure/): 
+
+`az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json`
+
+Or if you prefer to use [ARMClient](https://github.com/projectkudu/ARMClient):
 
 `armclient PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 create-pe.json`
 
@@ -95,6 +99,10 @@ As in all asynchronous Azure operations, the `PUT` call returns an `Azure-AsyncO
 `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
 You can poll this URI periodically to obtain the status of the operation. Before you proceed, we recommend that you wait until the status of the shared private link resource operation has reached a terminal state (that is, the operation's status is *succeeded*).
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01`
+
+Or using ARMClient:
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
@@ -126,6 +134,10 @@ After the private endpoint connection request is approved, traffic is *capable* 
 ### Step 2b: Query the status of the shared private link resource
 
 To confirm that the shared private link resource has been updated after approval, obtain its status by using the [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get).
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
+
+Or using ARMClient:
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 

@@ -86,6 +86,9 @@ Hybrid Azure AD join requires devices to have access to the following Microsoft 
 
 Beginning with Windows 10 1803, if the instantaneous hybrid Azure AD join for a federated environment by using AD FS fails, we rely on Azure AD Connect to sync the computer object in Azure AD that's subsequently used to complete the device registration for hybrid Azure AD join. Verify that Azure AD Connect has synced the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OUs), you must also configure the OUs to sync in Azure AD Connect. To learn more about how to sync computer objects by using Azure AD Connect, see [Configure filtering by using Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
+> [!NOTE]
+> To get device registration sync join to succeed, as part of the device registration configuration, do not exclude the default device attributes from your Azure AD Connect sync configuration. To learn more about default device attributes synced to AAD, see [Attributes synchronized by Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
+
 If your organization requires access to the internet via an outbound proxy, Microsoft recommends [implementing Web Proxy Auto-Discovery (WPAD)](/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) to enable Windows 10 computers for device registration with Azure AD. If you encounter issues configuring and managing WPAD, see [Troubleshoot automatic detection](/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 If you don't use WPAD and want to configure proxy settings on your computer, you can do so beginning with Windows 10 1709. For more information, see [Configure WinHTTP settings by using a group policy object (GPO)](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
@@ -95,7 +98,7 @@ If you don't use WPAD and want to configure proxy settings on your computer, you
 
 If your organization requires access to the internet via an authenticated outbound proxy, you must make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration by using machine context, you must configure outbound proxy authentication by using machine context. Follow up with your outbound proxy provider on the configuration requirements.
 
-To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) script.
+To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) script.
 
 ## Configure hybrid Azure AD join
 

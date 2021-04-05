@@ -2,21 +2,15 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/01/2020	
+ms.date: 01/28/2021	
 ms.author: glenga
 ---
 ## Run the function in Azure
 
-1. Back in the **Azure: Functions** area in the side bar, expand the new function app under your subscription. Expand **Functions**, right-click (Windows) or <kbd>Ctrl -</kbd> click (macOS) on **HttpExample**, and then choose **Copy function URL**.
+1. Back in the **Azure: Functions** area in the side bar, expand your subscription, your new function app, and **Functions**. Right-click (Windows) or <kbd>Ctrl -</kbd> click (macOS) the `HttpExample` function and choose **Execute Function Now...**.
 
-    ![Copy the function URL for the new HTTP trigger](./media/functions-vs-code-run-remote/function-copy-endpoint-url.png)
+    :::image type="content" source="media/functions-vs-code-run-remote/execute-function-now.png" alt-text="Execute function now in Azure from Visual Studio Code":::
 
-1. Paste this URL for the HTTP request into your browser's address bar, add the `name` query string as `?name=Functions` to the end of this URL, and then execute the request. The URL that calls your HTTP-triggered function should be in the following format:
+1. In **Enter request body** you see the request message body value of `{ "name": "Azure" }`. Press Enter to send this request message to your function.  
 
-    ```http
-    http://<FUNCTION_APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions
-    ```
-
-    The following example shows the response in the browser to the remote GET request returned by the function:
-
-    ![Function response in the browser](./media/functions-vs-code-run-remote/functions-test-remote-browser.png)
+1. When the function executes in Azure and returns a response, a notification is raised in Visual Studio Code.

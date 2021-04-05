@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/)
 - The Xamarin workload for Visual Studio (see [Installing Xamarin](/xamarin/cross-platform/get-started/installation/windows))
 - An iOS or Android emulator for Visual Studio
-- The [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (optional)
+- The [Azure CLI](/cli/azure/install-azure-cli-windows) (optional)
 
 ## Get the source code
 

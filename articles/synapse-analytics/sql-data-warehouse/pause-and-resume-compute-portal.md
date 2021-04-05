@@ -2,13 +2,13 @@
 title: 'Quickstart: Pause and resume compute in dedicated SQL pool via the Azure portal'
 description: Use the Azure portal to pause compute for dedicated SQL pool to save costs. Resume compute when you are ready to use the data warehouse.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw 
 ms.date: 11/23/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
@@ -93,5 +93,4 @@ Follow these steps to clean up resources as you desire.
 
 ## Next steps
 
-You have now paused and resumed compute for your dedicated SQL pool. Continue to the next article to learn more about how to [Load data into a dedicated SQL pool](load-data-from-azure-blob-storage-using-polybase.md). For additional information about managing compute capabilities, see the [Manage compute overview](sql-data-warehouse-manage-compute-overview.md) article. 
-
+You have now paused and resumed compute for your dedicated SQL pool. Continue to the next article to learn more about how to [Load data into a dedicated SQL pool](./load-data-from-azure-blob-storage-using-copy.md). For additional information about managing compute capabilities, see the [Manage compute overview](sql-data-warehouse-manage-compute-overview.md) article.

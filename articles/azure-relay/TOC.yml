@@ -37,7 +37,7 @@
     - name: Authentication and authorization
       href: relay-authentication-and-authorization.md
     - name: Built-in security controls
-      href: service-bus-relay-security-controls.md
+      href: ../service-bus-messaging/security-baseline.md
     - name: Network security
       href: network-security.md      
   - name: Hybrid Connections protocol
@@ -65,9 +65,9 @@
         href: relay-hybrid-connections-node-ws-api-overview.md
   - name: Secure
     items: 
-    - name: Configure IP firewall (preview)
+    - name: Configure IP firewall
       href: ip-firewall-virtual-networks.md
-    - name: Configure private endpoints (preview)
+    - name: Configure private endpoints
       href: private-link-service.md        
   - name: Manage and monitor
     items:

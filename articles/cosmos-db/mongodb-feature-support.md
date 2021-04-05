@@ -12,12 +12,12 @@ ms.author: sivethe
 # Azure Cosmos DB's API for MongoDB (3.2 version): supported features and syntax
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](distribute-data-globally.md), [automatic sharding](partitioning-overview.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
 
 > [!NOTE]
-> This article is for Azure Cosmos DB's API for MongoDB 3.2. For MongoDB 3.6 version, see [MongoDB 3.6 supported features and syntax](mongodb-feature-support-36.md).
+> Version 3.2 of the Cosmos DB API for MongoDB has no current plans for end-of-life (EOL). The minimum notice for a future EOL is three years.
 
 ## Protocol Support
 
@@ -27,11 +27,14 @@ Azure Cosmos DB's API for MongoDB also offers a seamless upgrade experience for 
 
 ## Query language support
 
-Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands and options.
+Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands, and options.
 
 ## Database commands
 
 Azure Cosmos DB's API for MongoDB supports the following database commands:
+
+> [!NOTE]
+> This article only lists the supported server commands and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally utilize the `delete()` and `update()` server commands. Functions utilizing supported server commands are compatible with Azure Cosmos DB's API for MongoDB.
 
 ### Query and write operation commands
 
@@ -226,24 +229,24 @@ Following operators are supported with corresponding examples of their use. Cons
 }
 ```
 
-Operator | Example |
---- | --- |
-$eq | `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
-$gt | `{ "Elevation": { $gt: 4000 } }` |  | -
-$gte | `{ "Elevation": { $gte: 4392 } }` |  | -
-$lt | `{ "Elevation": { $lt: 5000 } }` |  | -
-$lte | `{ "Elevation": { $lte: 5000 } }` | | -
-$ne | `{ "Elevation": { $ne: 1 } }` |  | -
-$in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |  | -
-$nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` | | -
-$or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$not | `{ "Elevation": { $not: { $gt: 5000 } } }`|  | -
-$nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |  | -
-$exists | `{ "Status": { $exists: true } }`|  | -
-$type | `{ "Status": { $type: "string" } }`|  | -
-$mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |  | -
-$regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
+| Operator | Example |
+| --- | --- |
+| $eq | `{ "Volcano Name": { $eq: "Rainier" } }` |
+| $gt | `{ "Elevation": { $gt: 4000 } }` | 
+| $gte | `{ "Elevation": { $gte: 4392 } }` | 
+| $lt | `{ "Elevation": { $lt: 5000 } }` | 
+| $lte | `{ "Elevation": { $lte: 5000 } }` | 
+| $ne | `{ "Elevation": { $ne: 1 } }` | 
+| $in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |
+| $nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` |
+| $or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` | 
+| $and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |
+| $not | `{ "Elevation": { $not: { $gt: 5000 } } }`| 
+| $nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |
+| $exists | `{ "Status": { $exists: true } }`|
+| $type | `{ "Status": { $type: "string" } }`| 
+| $mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` | 
+| $regex | `{ "Volcano Name": { $regex: "^Rain"} }`| 
 
 ### Notes
 
@@ -305,7 +308,7 @@ $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon",
 
 When using the `findOneAndUpdate` operation, sort operations on a single field are supported but sort operations on multiple fields are not supported.
 
-## Additional operators
+## Other operators
 
 Operator | Example | Notes
 --- | --- | --- |
@@ -349,7 +352,7 @@ Cosmos DB supports automatic, native replication at the lowest layers. This logi
 
 ## Write Concern
 
-Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) which specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
+Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) that specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
 
 ## Sharding
 
@@ -360,5 +363,3 @@ Azure Cosmos DB supports automatic, server-side sharding. It manages shard creat
 - Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
 - Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
 - Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.
-
-<sup>Note: This article describes a feature of Azure Cosmos DB that provides wire protocol compatibility with MongoDB databases. Microsoft does not run MongoDB databases to provide this service. Azure Cosmos DB is not affiliated with MongoDB, Inc.</sup>

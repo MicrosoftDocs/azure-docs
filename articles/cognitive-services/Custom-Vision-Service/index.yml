@@ -41,7 +41,7 @@ landingContent:
         links:
           - text: Using the web portal
             url: getting-started-build-a-classifier.md
-          - text: Using the Custom Vision SDK
+          - text: Using the Custom Vision SDK or REST API
             url: quickstarts/image-classification.md
       - linkListType: how-to-guide
         links:
@@ -108,11 +108,11 @@ landingContent:
           - text: Prediction API
             url: https://go.microsoft.com/fwlink/?linkid=865445
           - text: .NET SDK
-            url: /dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
+            url: /dotnet/api/overview/azure/cognitiveservices/client/customvision
           - text: Python SDK
-            url: /python/api/azure-cognitiveservices-vision-customvision/?view=azure-python
+            url: /python/api/azure-cognitiveservices-vision-customvision/
           - text: Java SDK
-            url: /java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/customvision
           - text: Go SDK (training)
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
           - text: Go SDK (prediction)
@@ -120,7 +120,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: /cli/azure/cognitiveservices?view=azure-cli-latest
+            url: /cli/azure/cognitiveservices
 
   - title: Help and feedback
     linkLists:

@@ -27,6 +27,10 @@ In this diagram:
 
 This section shows you the network traffic between the user and Azure Bastion, and through to target VMs in your virtual network:
 
+> [!IMPORTANT]
+> If you choose to use an NSG with your Azure Bastion resource, you **must** create all of the following ingress and egress traffic rules. Omitting any of the following rules in your NSG will block your Azure Bastion resource from receiving necessary updates in the future and therefore open up your resource to future security vulnerabilities.
+> 
+
 ### <a name="apply"></a>AzureBastionSubnet
 
 Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
@@ -46,7 +50,7 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
    * **Egress Traffic to target VMs:** Azure Bastion will reach the target VMs over private IP. The NSGs need to allow egress traffic to other target VM subnets for port 3389 and 22.
    * **Egress Traffic to Azure Bastion data plane:** For data plane communication between the underlying components of Azure Bastion, enable ports 8080, 5701 outbound from the **VirtualNetwork** service tag to the **VirtualNetwork** service tag. This enables the components of Azure Bastion to talk to each other.
    * **Egress Traffic to other public endpoints in Azure:** Azure Bastion needs to be able to connect to various public endpoints within Azure (for example, for storing diagnostics logs and metering logs). For this reason, Azure Bastion needs outbound to 443 to **AzureCloud** service tag.
-   * **Egress Traffic to Internet:** Azure Bastion needs to be able to communicate with the Internet for session and certificate validation. For this reason, we recommend enabling port 80 outbound to the **Internet**.
+   * **Egress Traffic to Internet:** Azure Bastion needs to be able to communicate with the Internet for session and certificate validation. For this reason, we recommend enabling port 80 outbound to the **Internet.**
 
 
    :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Screenshot shows outbound security rules for Azure Bastion connectivity.":::
