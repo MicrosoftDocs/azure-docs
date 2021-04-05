@@ -104,7 +104,7 @@ If you want to enable disaster recovery on an existing VM, use this procedure.
     - **Storage settings-Cache storage account**. Recovery uses a storage account in the source region as a temporary data store. Source VM changes are cached in this account, before being replicated to the target location.
         - By default one cache storage account is created per vault and reused.
         - You can select a different storage account if you want to customize the cache account for the VM.
-    - **Storage settings-Replica managed disk. By default, Site Recovery creates replica managed disks in the target region.
+    - **Storage settings-Replica managed disk**. By default, Site Recovery creates replica managed disks in the target region.
         -  By default the target managed disk mirror the source VM managed disks, using the same storage type (standard HDD/SSD, or premium SSD).
         - You can customize the storage type as needed.
     - **Replication settings**. Shows the vault in which the VM is located, and the replication policy used for the VM. By default, recovery points created by Site Recovery for the VM are kept for 24 hours.
@@ -116,7 +116,6 @@ If you want to enable disaster recovery on an existing VM, use this procedure.
 
 6. Select **Review + Start replication**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/disaster-recovery.png" alt-text="Enable replication on the VM properties Disaster Recovery page.":::
 7. Select **Start replication**. Deployment starts, and Site Recovery starts creating target resources. You can monitor replication progress in the notifications.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/notifications.png" alt-text="Notification for replication progress.":::
