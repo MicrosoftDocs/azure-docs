@@ -22,7 +22,7 @@ This article is a collection of tips and best practices that are often recommend
 
 Queries run faster on smaller indexes. This is partly a function of having fewer fields to scan, but it's also due to how the system caches content for future queries. After the first query, some content remains in memory where it's searched more efficiently. Because index size tends to grow over time, one best practice is to periodically revisit index composition, both schema and documents, to look for content reduction opportunities. A more common approach for query degradation due to index growth is to increase capacity: either [add replicas](search-capacity-planning.md#adjust-capacity) or [upgrade the service tier](#upgrade-to-a-standard-s2-tier).
 
-Schema complexity can also have adverse effects on both indexing and query performance. Excessive field attribution builds in limitations and processing requirements. [Complex types](search-performance-tips#use-alternatives-to-complex-types) take longer to index and query.
+Schema complexity can also have adverse effects on both indexing and query performance. Excessive field attribution builds in limitations and processing requirements. [Complex types](search-howto-complex-data-types.md) take longer to index and query.
 
 ### Selectively assign field attributes
 
@@ -51,9 +51,9 @@ The types of queries you send are one of the most important factors for performa
 
 + **Number of searchable fields.** Each additional searchable field requires additional work by the search service. You can limit the fields being searched at query time using the "searchFields" parameter. It's best to specify only the fields that you care about to improve performance.
 
-+ **Amount of data being returned.** Retrieving a lot of content can make queries slower. When structuring a query, return only those fields that you need to render the results page, and then retrieve remaining fields using the [Lookup API](rest/api/searchservice/lookup-document) once a user selects a match.
++ **Amount of data being returned.** Retrieving a lot of content can make queries slower. When structuring a query, return only those fields that you need to render the results page, and then retrieve remaining fields using the [Lookup API](/rest/api/searchservice/lookup-document) once a user selects a match.
 
-+ **Use of partial term searches.** [Partial term searches](search-query-partial-matching), such as prefix search, fuzzy search, and regular expression search, are more computationally expensive than typical keyword searches, as they require full index scans to produce results.
++ **Use of partial term searches.** [Partial term searches](search-query-partial-matching.md), such as prefix search, fuzzy search, and regular expression search, are more computationally expensive than typical keyword searches, as they require full index scans to produce results.
 
 + **Number of facets.** Adding facets to queries requires aggregations for each query. In general, only add the facets that you plan to render in your app.
 
