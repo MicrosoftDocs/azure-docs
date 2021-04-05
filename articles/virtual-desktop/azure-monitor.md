@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Use Azure Monitor for Windows Virtual Desktop to monitor your deployment
 
