@@ -67,10 +67,9 @@ This section discusses embedding the public and private content into apps.
 
 The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter. For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
-> [!IMPORTANT]
-> Sharing a link for the **Player** or **Insights** widget will include the access token and grant the read-only permissions to your account.
+### The portal experience
 
-### Public content
+To embed a public video, use the portal as described below:
 
 1. Sign in to the [Video Indexer](https://www.videoindexer.ai/) website.
 1. Select the video that you want to work with and press **Play**.
@@ -79,18 +78,18 @@ The `location` parameter must be included in the embedded links, see [how to get
 5. Copy the embed code (appears in **Copy the embedded code** in the **Share & Embed** dialog).
 6. Add the code to your app.
 
-### Private content
+> [!NOTE]
+> Sharing a link for the **Player** or **Insights** widget will include the access token and grant the read-only permissions to your account.
 
-To embed a private video, you must pass an access token in the `src` attribute of the iframe:
+### Assemble the URL manually
+
+To embed a private video, you must pass an access token (use [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?) in the `src` attribute of the iframe:
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
-    
-To get the Cognitive Insights widget content, use one of the following methods:
+  
+### Provide editing insights capabilities
 
-- The [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API.<br/>
-- The [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Add it as a query parameter to the URL. Specify this URL as the `src` value for the iframe, as shown earlier.
-
-To provide editing insights capabilities in your embedded widget, you must pass an access token that includes editing permissions. Use [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) or [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) with `&allowEdit=true`.
+To provide editing insights capabilities in your embedded widget, you must pass an access token that includes editing permissions. Use [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) with `&allowEdit=true`.
 
 ## Widgets interaction
 
