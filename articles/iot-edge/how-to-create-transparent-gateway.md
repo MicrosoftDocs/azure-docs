@@ -13,6 +13,8 @@ ms.custom:  [amqp, mqtt]
 
 # Configure an IoT Edge device to act as a transparent gateway
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 This article provides detailed instructions for configuring an IoT Edge device to function as a transparent gateway for other devices to communicate with IoT Hub. This article uses the term *IoT Edge gateway* to refer to an IoT Edge device configured as a transparent gateway. For more information, see [How an IoT Edge device can be used as a gateway](./iot-edge-as-gateway.md).
 
 <!-- 1.1 -->

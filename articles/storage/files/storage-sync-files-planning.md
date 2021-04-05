@@ -242,7 +242,7 @@ No other HSM solutions should be used with Azure File Sync.
 
 Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance depends upon a number of factors in your infrastructure: Windows Server and the underlying disk configuration, network bandwidth between the server and the Azure storage, file size, total dataset size, and the activity on the dataset. Since Azure File Sync works on the file level, the performance characteristics of an Azure File Sync-based solution is better measured in the number of objects (files and directories) processed per second.
 
-Changes made to the Azure file share by using the Azure portal or SMB are not immediately detected and replicated like changes to the server endpoint. Azure Files does not yet have change notifications or journaling, so there's no way to automatically initiate a sync session when files are changed. On Windows Server, Azure File Sync uses [Windows USN journaling](https://docs.microsoft.com/windows/win32/fileio/change-journals) to automatically initiate a sync session when files change
+Changes made to the Azure file share by using the Azure portal or SMB are not immediately detected and replicated like changes to the server endpoint. Azure Files does not yet have change notifications or journaling, so there's no way to automatically initiate a sync session when files are changed. On Windows Server, Azure File Sync uses [Windows USN journaling](/windows/win32/fileio/change-journals) to automatically initiate a sync session when files change
 
 To detect changes to the Azure file share, Azure File Sync has a scheduled job called a change detection job. A change detection job enumerates every file in the file share, and then compares it to the sync version for that file. When the change detection job determines that files have changed, Azure File Sync initiates a sync session. The change detection job is initiated every 24 hours. Because the change detection job works by enumerating every file in the Azure file share, change detection takes longer in larger namespaces than in smaller namespaces. For large namespaces, it might take longer than once every 24 hours to determine which files have changed.
 
@@ -346,13 +346,22 @@ If cloud tiering is enabled, solutions that directly back up the server endpoint
 If you prefer to use an on-premises backup solution, backups should be performed on a server in the sync group that has cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.  Volume-level restores will not replace newer file versions in the Azure file share or other server endpoints.
 
 > [!WARNING]
-> Robocopy /B switch is not supported with Azure File Sync. Using the Robocopy /B switch with an Azure File Sync server endpoint as the source may lead to file corruption.
+> If you need to use Robocopy /B with an Azure File Sync agent running on either source or target server, please upgrade to Azure File Sync agent version v12.0 or above. Using Robocopy /B with agent versions less than v12.0 will lead to the corruption of tiered files during the copy.
 
 > [!Note]  
 > Bare-metal (BMR) restore can cause unexpected results and is not currently supported.
 
 > [!Note]  
 > With Version 9 of the Azure File Sync agent, VSS snapshots (including Previous Versions tab) are now supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
+
+## Data Classification
+If you have data classification software installed, enabling cloud tiering may result in increased cost for two reasons:
+
+1. With cloud tiering enabled, your hottest files are cached locally and coolest files are tiered to the Azure file share in the cloud. If your data classification regularly scans all files in the file share, the files tiered to the cloud must be recalled whenever scanned. 
+
+2. If the data classification software uses the metadata in the data stream of a file, the file must be fully recalled in order for the software to see the classification. 
+
+These increases in both the number of recalls and the amount of data being recalled can increase costs.
 
 ## Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

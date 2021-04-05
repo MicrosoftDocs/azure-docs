@@ -6,7 +6,7 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
+# Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart

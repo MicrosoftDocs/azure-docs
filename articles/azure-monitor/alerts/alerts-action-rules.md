@@ -2,13 +2,13 @@
 title: Action rules for Azure Monitor alerts
 description: Understanding what action rules in Azure Monitor are and how to configure and manage them.
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 03/15/2021
 
 ---
 
 # Action rules (preview)
 
-Action rules help you define or suppress actions at any Azure Resource Manager scope (Azure subscription, resource group, or target resource). They have various filters that help you narrow down the specific subset of alert instances that you want to act on.
+Action rules let you add or suppress the action groups on your fired alerts. A single rule can cover different scopes of target resources, for example - any alert on a specific resource (like a specific virtual machine) or any alert fired on any resource in a subscription. You can optionally add various filters to control which alerts are covered by a rule and define a schedule for it, for example for it to be in effect only outside business hours or during a planned maintenance window.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
@@ -27,7 +27,7 @@ Although alert rules help you define the action group that triggers when the ale
 Action rules help you simplify this process. By defining actions at scale, an action group can be triggered for any alert that's generated on the configured scope. In the previous example, the team can define one action rule on **ContosoRG** that will trigger the same action group for all alerts generated within it.
 
 > [!NOTE]
-> Action rules currently don't apply to Azure Service Health alerts.
+> Action rules do not apply to Azure Service Health alerts.
 
 ## Configuring an action rule
 
@@ -61,21 +61,29 @@ You can optionally define filters so the rule will apply to a specific subset of
 
 The available filters are:
 
-* **Severity**: this rule will apply only to alerts with the selected severities.  
-For example, **Severity = Sev1** means that the rule will apply only to alerts with Sev1 severity.
-* **Monitor Service**: this rule will apply only to alerts coming from the selected monitoring services.  
-For example, **Monitor Service = “Azure Backup”** means that the rule will apply only to backup alerts (coming from  Azure Backup).
-* **Resource Type**:  this rule will apply only to alerts on the selected resource types.  
-For example, **Resource Type = “Virtual Machines”** means that the rule will apply only to alerts on virtual machines.
-* **Alert Rule ID**: this rule will apply only to alerts coming from a specific alert rule. The value should be the Resource Manager ID of the alert rule.  
-For example, **Alert Rule ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/providers/microsoft.insights/metricalerts/MyAPI-highLatency"** means this rule will apply only to alerts coming from "MyAPI-highLatency" metric alert rule.
-* **Monitor Condition**:  this rule will apply only to alert events with the specified monitor condition -  either **Fired** or **Resolved**.
-* **Description**: this rule will apply only to alerts that contains a specific string in the alert description field. That field contains the alert rule description.  
-For example, **Description contains 'prod'** means that the rule will only match alerts that contain the string "prod" in their description.
-* **Alert Context (payload)**: this rule will apply only to alerts that contain any of one or more specific values in the alert context fields.  
-For example, **Alert context (payload) contains 'Computer-01'** means that the rule will only apply to alerts whose payload contain the string "Computer-01".
+* **Severity**  
+This rule will apply only to alerts with the selected severities.  
+For example, **severity = Sev1** means that the rule will apply only to alerts with Sev1 severity.
+* **Monitor service**  
+This rule will apply only to alerts coming from the selected monitoring services.  
+For example, **monitor service = “Azure Backup”** means that the rule will apply only to backup alerts (coming from  Azure Backup).
+* **Resource type**  
+This rule will apply only to alerts on the selected resource types.  
+For example, **resource type = “Virtual Machines”** means that the rule will apply only to alerts on virtual machines.
+* **Alert rule ID**  
+This rule will apply only to alerts coming from a specific alert rule. The value should be the Resource Manager ID of the alert rule.  
+For example, **alert rule ID = "/subscriptions/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** means this rule will apply only to alerts coming from "API-Latency" metric alert rule.  
+_NOTE - you can get the proper alert rule ID by listing your alert rules from the CLI, or by opening a specific alert rule in the portal, clicking "Properties", and copying the "Resource ID" value._
+* **Monitor condition**  
+This rule will apply only to alert events with the specified monitor condition - either **Fired** or **Resolved**.
+* **Description**  
+This rule will apply only to alerts that contains a specific string in the alert description field. That field contains the alert rule description.  
+For example, **description contains 'prod'** means that the rule will only match alerts that contain the string "prod" in their description.
+* **Alert context (payload)**  
+This rule will apply only to alerts that contain any of one or more specific values in the alert context fields.  
+For example, **alert context (payload) contains 'Computer-01'** means that the rule will only apply to alerts whose payload contain the string "Computer-01".
 
-If you set multiple filters in a rule, all of them apply. For example, if you set **Resource type' = Virtual Machines** and **Severity' = Sev0**, then the rule will apply only for Sev0 alerts on virtual machines.
+If you set multiple filters in a rule, all of them apply. For example, if you set **resource type' = Virtual Machines** and **severity' = Sev0**, then the rule will apply only for Sev0 alerts on virtual machines.
 
 ![Action rule filters](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
@@ -296,7 +304,7 @@ In the [alerts list page](./alerts-managing-alert-instances.md), you can choose 
 
 Suppression always takes precedence on the same scope.
 
-### What happens if I have a resource that's monitored in two separate action rules? Do I get one or two notifications? For example, **VM2** in the following scenario:
+### What happens if I have a resource that is covered by two action rules? Do I get one or two notifications? For example, **VM2** in the following scenario:
 
    `action rule AR1 defined for VM1 and VM2 with action group AG1`
 

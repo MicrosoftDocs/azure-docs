@@ -123,6 +123,18 @@ You can also set the sampling percentage using the environment variable `APPLICA
 > [!NOTE]
 > For the sampling percentage, choose a percentage that is close to 100/N where N is an integer. Currently sampling doesn't support other values.
 
+## Sampling overrides (preview)
+
+This feature is in preview, starting from 3.0.3-BETA.2.
+
+Sampling overrides allow you to override the [default sampling percentage](#sampling), for example:
+* Set the sampling percentage to 0 (or some small value) for noisy health checks.
+* Set the sampling percentage to 0 (or some small value) for noisy dependency calls.
+* Set the sampling percentage to 100 for an important request type (e.g. `/login`)
+  even though you have the default sampling configured to something lower.
+
+For more information, check out the [sampling overrides](./java-standalone-sampling-overrides.md) documentation.
+
 ## JMX metrics
 
 If you want to collect some additional JMX metrics:
@@ -179,19 +191,28 @@ This feature is in preview.
 It allows you to configure rules that will be applied to request, dependency and trace telemetry, for example:
  * Mask sensitive data
  * Conditionally add custom dimensions
- * Update the telemetry name used for aggregation and display
+ * Update the span name, which is used to aggregate similar telemetry in the Azure portal.
+ * Drop specific span attributes to control ingestion costs.
 
 For more information, check out the [telemetry processor](./java-standalone-telemetry-processors.md) documentation.
+
+> [!NOTE]
+> If you are looking to drop specific (whole) spans for controlling ingestion cost,
+> see [sampling overrides](./java-standalone-sampling-overrides.md).
 
 ## Auto-collected logging
 
 Log4j, Logback, and java.util.logging are auto-instrumented, and logging performed via these logging frameworks
 is auto-collected.
 
-Logging is only captured if it first meets the logging frameworks' configured threshold,
-and second also meets the Application Insights configured threshold.
+Logging is only captured if it first meets the level that is configured for the logging framework,
+and second, also meets the level that is configured for Application Insights.
 
-The default Application Insights threshold is `INFO`. If you want to change this level:
+For example, if your logging framework is configured to log `WARN` (and above) from package `com.example`,
+and Application Insights is configured to capture `INFO` (and above),
+then Application Insights will only capture `WARN` (and above) from package `com.example`.
+
+The default level configured for Application Insights is `INFO`. If you want to change this level:
 
 ```json
 {
@@ -277,6 +298,11 @@ Starting from version 3.0.2, specific auto-collected telemetry can be suppressed
   }
 }
 ```
+
+> NOTE
+> If you are looking for more fine-grained control, e.g. to suppress some redis calls but not all redis calls,
+> see [sampling overrides](./java-standalone-sampling-overrides.md).
+
 
 ## Heartbeat
 

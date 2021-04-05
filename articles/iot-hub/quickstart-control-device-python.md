@@ -10,7 +10,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: [mvc, mqtt, devx-track-python, devx-track-azurecli]
 ms.date: 09/14/2020
-# As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
+#Customer intent: As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
 # Quickstart: Control a device connected to an IoT hub (Python)

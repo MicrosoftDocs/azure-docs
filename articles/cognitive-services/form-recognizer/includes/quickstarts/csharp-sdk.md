@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/12/2021
+ms.date: 03/19/2021
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -60,7 +60,7 @@ dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
 ```
 
 > [!NOTE]
-> The Form Recognizer 3.1.0 SDK reflects API version 2.1 preview
+> The Form Recognizer 3.1.0 SDK reflects _API version 2.1 preview.2_. Please use the [**REST API**](../../quickstarts/client-library.md) for _API version 2.1 preview.3_.
 
 #### [v2.0](#tab/ga)
 
