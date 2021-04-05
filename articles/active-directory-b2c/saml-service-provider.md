@@ -84,7 +84,7 @@ In a production environment, we recommend using certificates issued by a public 
 To have a trust relationship between your application and Azure AD B2C, create a SAML response signing certificate. Azure AD B2C uses this certificate to sign the SAML response sent to your application. Your application reads the Azure AD B2C metadata public key to validate the signature of the SAML response. 
 
 > [!TIP]
-> You can use the policy key that you create in this section, for other purposes, such as sign-in the [SAML assertion](saml-serivce-provider.md#saml-assertions-signature). 
+> You can use the policy key that you create in this section, for other purposes, such as sign-in the [SAML assertion](saml-service-provider-options.md#saml-assertions-signature). 
 
 ### Obtain a certificate
 
