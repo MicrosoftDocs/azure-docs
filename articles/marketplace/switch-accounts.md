@@ -1,23 +1,23 @@
 ---
-title: Switch seller accounts in Partner Center
-description: Learn how switch between seller accounts in the commercial marketplace program of Partner Center.
+title: Switch accounts in Partner Center
+description: Learn how switch between accounts in the commercial marketplace program of Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/31/2021
-author: parthpandyaMSFT
-ms.author: parthp
+author: varsha-sarah
+ms.author: vavargh
 ms.custom: contperf-fy21q2
+ms.date: 04/06/2021
 ---
 
-# Switch seller accounts in Partner Center
+# Switch accounts in Partner Center
 
 **Appropriate roles**
 
 - Owner
 - Manager
 
-You can be part of more than one seller account. You can check to see if you are part of multiple accounts by the presence of the *account picker* in the left navigation menu, as seen highlighted in the following screenshot.
+You can be part of more than one account. You can check to see if you are part of multiple accounts by the presence of the *account picker* in the left navigation menu, as seen highlighted in the following screenshot.
 
 [ ![Screenshot of the account picker in the left-nav of Partner Center.](./media/manage-accounts/account-picker.png) ](./media/manage-accounts/account-picker.png#lightbox)
 

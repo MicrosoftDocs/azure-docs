@@ -4,10 +4,10 @@ description: Learn how to assign roles and permissions to users in the commercia
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/31/2021
-author: parthpandyaMSFT
-ms.author: parthp
+author: varsha-sarah
+ms.author: vavargh
 ms.custom: contperf-fy21q2
+ms.date: 04/06/2021
 ---
 
 # Assign user roles and permissions
@@ -35,4 +35,4 @@ In order to access capabilities related to marketplace or your developer account
 For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](/partner-center/permissions-overview).
 
 > [!NOTE]
-> Any user management, role assignment activities done on these lines will be in context of the seller account you are on. Refer to section on switching between seller if you need to manage a different account.
+> Any user management, role assignment activities done on these lines will be in context of the account you are on. Refer to section on switching between seller if you need to manage a different account.

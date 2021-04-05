@@ -4,10 +4,10 @@ description: Learn how to manage users in the commercial marketplace program for
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/31/2021
-author: parthpandyaMSFT
-ms.author: parthp
+author: varsha-sarah
+ms.author: vavargh
 ms.custom: contperf-fy21q2
+ms.date: 04/05/2021
 ---
 
 # Add and manage users

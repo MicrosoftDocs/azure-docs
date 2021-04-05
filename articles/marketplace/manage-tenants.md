@@ -4,10 +4,10 @@ description: Learn how to manage tenants for the commercial marketplace program 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/31/2021
-author: parthpandyaMSFT
-ms.author: parthp
+author: varsha-sarah
+ms.author: vavargh
 ms.custom: contperf-fy21q2
+ms.date: 04/06/2021
 ---
 
 # Manage tenants in the commercial marketplace

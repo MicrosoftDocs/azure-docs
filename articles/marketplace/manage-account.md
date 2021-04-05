@@ -4,9 +4,9 @@ description: Learn how to manage a commercial marketplace account in Microsoft P
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: parthpandyaMSFT
-ms.author: parthp
-ms.date: 03/31/2021
+author: varsha-sarah
+ms.author: vavargh
+ms.date: 04/06/2021
 ---
 
 # Manage your commercial marketplace account in Partner Center
@@ -22,7 +22,7 @@ Once you've [created a Partner Center account](./create-account.md), you can use
 
 If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/management) for your Partner Center account.
 
-1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-seller-accounts.md).
+1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
 1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
 
     [ ![Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account.png) ](./media/manage-accounts/settings-account.png#lightbox)
@@ -33,27 +33,25 @@ If you have not already done so, you (or your organization's administrator) shou
 
 ### Account settings page
 
-The _Account settings_ page is the default page, if your company is part of the CSP program. This page can have up to three tabs, depending on the programs you have enrolled in: _Partner_, _Reseller_, and _Developer_.
+When you select **Settings** and expand **Account settings**, the default view is **Legal info**. This page can have up to three tabs, depending on the programs you have enrolled in: _Partner_, _Reseller_, and _Developer_.
 
-The **Partner** tab may include:
+The **Partner** tab, for partners enrolled in MPN, includes:
 
 - All the legal business information such as registered legal name and address for your company
 - Primary contact
 - Business locations.
 
-The **Reseller** tab for partners doing CSP business includes:
+The **Reseller** tab, for partners doing CSP business, includes:
 
 - Primary contact information
 - Customer support profile
 - Program information
 
-The **Developer** tab has the following information:
+The **Developer** tab, for partners enrolled in any developer program, has the following information:
 
 - **Account details**: Account type and Account status
 - **Publisher IDs**: Seller ID, User ID, Publisher ID, Azure AD tenants, and more
 - **Contact info**: Publisher display name, seller contact (name, email, phone, and address) and Company approver (name, email, phone)
-
-If your company doesn't participate in CSP, the default view will show only the **Partner** tab, which will include the *Customer support profile*.
 
 ### Account settings - Developer tab
 

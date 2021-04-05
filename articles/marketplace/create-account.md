@@ -4,10 +4,10 @@ description: Learn how to create a Microsoft commercial marketplace account in P
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: parthpandyaMSFT
-ms.author: parthp
+author: varsha-sarah
+ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.date: 04/02/2021
+ms.date: 04/06/2021
 ---
 
 # Create a commercial marketplace account in Partner Center
@@ -53,21 +53,6 @@ Sign in with a work account so that you can link your company's work email accou
 
 As part of the commercial marketplace registration process, you need to agree to the terms and conditions in the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). If you’re new to Microsoft Partner Network, you also need to agree to the terms and conditions in the Microsoft Partner Network Agreement.
 
-#### Provide your publisher profile
-
-Your publisher profile includes your company name and MPN ID. If you haven't yet done so, join the [Microsoft Partner Network](https://partner.microsoft.com/commercial). After you join the Microsoft Partner Network, you'll be provided with an MPN ID.
-
-1. Create a Publisher ID. Your Publisher ID uniquely identifies your company and your offers on Azure Marketplace and AppSource.
-
-1. After you've confirmed your publisher profile information, agree to the terms and conditions, and then create your Partner Center account by selecting **Accept and continue**.
-
-    > [!IMPORTANT]
-    > To accept these terms, you must be authorized to act on your company's behalf.
-
-    After you're enrolled, you're taken to the commercial marketplace overview page.
-
-1. To verify that the commercial marketplace account is listed as registered, select **Settings** (gear icon) in the top-right corner > **Account settings** > **Programs**.
-
 You've now created a commercial marketplace account in Partner Center. Continue to [Add new publishers to the commercial marketplace](add-publishers.md).
 
 ### Use an existing Partner Center account to enroll in the commercial marketplace
@@ -97,7 +82,7 @@ You can then assign the appropriate user roles and permissions to your users, so
 
 1. In the top-right, select **Settings** > **Account settings** > **Programs**.
 
-1. Under **Commercial Marketplace***, select **Get Started**.
+1. Under **Commercial Marketplace**, select **Get Started**.
 
    Microsoft Partner Network detects your subscription and displays the **Publisher profile** pane.
 
