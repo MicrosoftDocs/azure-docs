@@ -62,14 +62,14 @@ public class Sender {
 }
 ```
 ### Add code to publish events to the event hub
-Add a method named `publishEvents` with the following code. 
+Add a method named `publishEvents` to the `Sender` class as shown below. 
 
 ```java
     /**
      * Code sample for publishing events.
      * @throws IllegalArgumentException if the event data is bigger than max batch size.
      */
-    public void publishEvents() {
+    public static void publishEvents() {
         // create a producer client
         EventHubProducerClient producer = new EventHubClientBuilder()
             .connectionString(connectionString, eventHubName)
@@ -158,7 +158,6 @@ Add the following dependencies in the pom.xml file.
     import com.azure.storage.blob.BlobContainerAsyncClient;
     import com.azure.storage.blob.BlobContainerClientBuilder;
     import java.util.function.Consumer;
-    import java.util.concurrent.TimeUnit;
     ```
 2. Create a class named `Receiver`, and add the following string variables to the class. Replace the placeholders with the correct values. 
 
