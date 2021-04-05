@@ -58,9 +58,10 @@ An example JSON body looks like:
 
 You can obtain metadata to be passed based on user input in the following ways: 
 
-* Explicitly take the domain as input from the user through the bot interface. For instance, you can take as input from the user a product category they are interested in before they ask questions.
+* Explicitly take the domain as input from the user through the bot interface. For instance, you can take as input from the user a product category they are interested in before they ask questions. 
+If you are using Bot composer for conversation modelling, you can connect QnA Maker to your bot in composer and model it to take input from the user and 
 * Identify domain based on any other input. For instance, in case of an empoloyee FAQ bot, you can identify department from employee id which can then be set as filter for metadata.
-* Extract entity from user query to identify domain to be used for metadata filter.
+* Extract entity from user query to identify domain to be used for metadata filter. You can use other cognitive services such as Text Analytics and LUIS for entity extraction.
 
 #### How large can our knowledgebases be? 
 
