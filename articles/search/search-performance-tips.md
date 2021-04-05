@@ -24,7 +24,7 @@ Queries run faster on smaller indexes. This is partly a function of having fewer
 
 Schema complexity can also have adverse effects on both indexing and query performance. Excessive field attribution builds in limitations and processing requirements. [Complex types](search-howto-complex-data-types.md) take longer to index and query.
 
-### Selectively assign field attributes
+### Tip: Be selective in field attribution
 
 A common mistake that administrators and developer make when creating a search index is selecting all available properties for the fields, as opposed to only selecting just the properties that are needed. For example, if a field doesn't need to be full text searchable, skip that field when setting the searchable attribute.
 
@@ -57,7 +57,7 @@ The types of queries you send are one of the most important factors for performa
 
 + **Number of facets.** Adding facets to queries requires aggregations for each query. In general, only add the facets that you plan to render in your app.
 
-### Consider alternatives to complex types
+### Tip: Consider alternatives to complex types
 
 Complex data types are useful when data has a complicated nested structure, such as the parent-child elements found in JSON documents. The downside of complex types is the extra storage requirements and additional resources required to index the content, in comparison to non-complex data types. 
 
@@ -65,7 +65,7 @@ In some cases, you can avoid these tradeoffs by mapping a complex data structure
 
 :::image type="content" source="media/search-performance/perf-flattened-field-hierarchy.png" alt-text="flattened field structure" border="true":::
 
-### Consider search functions instead overloading filter criteria
+### Tip: Use search functions instead overloading filter criteria
 
 As a query uses increasingly [complex filter criteria](search-query-odata-filter.md#filter-size-limitations), the performance of the search query will degrade. Consider the following example that demonstrates the use of filters to trim results based on a user identity:
 
@@ -87,7 +87,7 @@ A service is overburdened when queries take too long or when the service starts 
 
 The tier of your search service and the number of replicas/partitions also have a big impact on performance. Each higher tier provides faster CPUs and more memory, both of which have a positive impact on performance.
 
-### Upgrade to a Standard S2 tier
+### Tip: Upgrade to a Standard S2 tier
 
 The Standard S1 search tier is often where customers start. A common pattern for S1 services is that indexes grow over time, which requires more partitions. More partitions lead to slower response times, so more replicas are added to handle the query load. As you can imagine, the cost of running an S1 service has now progressed to levels beyond the initial configuration.
 
@@ -117,7 +117,7 @@ As this hypothetical scenario illustrates, you can have configurations on lower 
 
 An important benefit of added memory is that more of the index can be cached, resulting in lower search latency, and a greater number of queries per second. With this extra power, the administrator may not need to even need to increase the replica count and could potentially pay less than by staying on the S1 service.
 
-### Add partitions for slow individual queries
+### Tip: Add partitions for slow individual queries
 
 One reason for high latency rates is a single query taking too long to complete. In this case, adding replicas will not help. Any of the following options might mitigate the problem:
 
