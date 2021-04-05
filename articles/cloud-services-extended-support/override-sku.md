@@ -15,7 +15,7 @@ This feature will allow the user to update the role size and instance count in t
 The allowModelOverride property can be set in the following ways:
 * When allowModelOverride = true , the API call will update the role size and instance count for the cloud service without validating the values with the csdef and cscfg files. 
 > [!Note]
-> Regarding the artefacts - The cscfg will be updated  to reflect the role instance count but the csdef (within the cspkg) will retain the old values
+> The cscfg will be updated  to reflect the role instance count but the csdef (within the cspkg) will retain the old values
 * When allowModelOverride = false , the API call would throw an error when the role size and instance count values do not match with the csdef and cscfg files   respectively
 Default value is set to be false. If the property is reset to false back from true, the csdef and cscfg files would again be checked for validation.
 
