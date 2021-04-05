@@ -135,7 +135,7 @@ Allow up to one hour for the recommendation to appear in the hub.
 
 ## Micro agent versioning 
 
-To install a specific version of the Defender IoT micro agent, run the following command: 
+Run the following command, to install a specific version of the Defender IoT micro agent:
 
 ```azurecli
 sudo apt-get install defender-iot-micro-agent=<version>

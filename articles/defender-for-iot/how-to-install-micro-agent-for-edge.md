@@ -1,7 +1,7 @@
 ---
 title: Install Defender for IoT micro agent for Edge (Preview)
-description: 
-ms.date: 4/4/2021
+description: Learn how to install, and authenticate the Defender Micro agent for Edge.
+ms.date: 4/5/2021
 ms.topic: how-to
 ---
 
@@ -33,7 +33,7 @@ This article provides an explanation of how to install, and authenticate the Def
 
 1. Install the Defender micro agent package on Debian, and Ubuntu based Linux distributions, useing the following command: 
 
-    ```azurecli-interactive
+    ```azurecli
     sudo apt-get install defender-iot-micro-agent-edge 
     ```
 
@@ -74,7 +74,7 @@ Allow up to one hour for the recommendation to appear in the hub.
 
 ## Micro agent versioning 
 
-To install a specific version of the Defender IoT micro agent, run the following command: 
+Run the following command, to install a specific version of the Defender IoT micro agent: 
 
 ```azurecli
 sudo apt-get install defender-iot-micro-agent=<version>
