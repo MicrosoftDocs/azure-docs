@@ -50,36 +50,50 @@ The following diagram and table provide information about the building blocks of
 | 9 | Permission description | This value is provided by the service exposing the permissions. To see the permission descriptions, you must toggle the chevron next to the permission. |
 | 10| App terms | These terms contain links to the terms of service and privacy statement of the application. The publisher is responsible for outlining their rules in their terms of service. Additionally, the publisher is responsible for disclosing the way they use and share user data in their privacy statement. If the publisher doesn't provide links to these values for multi-tenant applications, there will be a bolded warning on the consent prompt. |
 | 11 | https://myapps.microsoft.com | This is the link where users can review and remove any non-Microsoft applications that currently have access to their data. |
-| 12 | Report suspicious app | This link is used to report the app if you don't trust the app, if you believe the app is impersonating another app, if you believe the app will misuse your data, or for some other reason. |
+| 12 | Report it here | This link is used to report a suspicious app if you don't trust the app, if you believe the app is impersonating another app, if you believe the app will misuse your data, or for some other reason. |
 
 ## Common consent scenarios
 
 Here are the consent experiences that a user may see in the common consent scenarios:
 
-1. Individuals accessing an app that directs them to the user consent flow while requiring a permission set that is within their scope of authority.
-    
-    1. Admins will see an additional control on the traditional consent prompt that will allow them consent on behalf of the entire tenant. The control will be defaulted to off, so only when admins explicitly check the box will consent be granted on behalf of the entire tenant. As of today, this check box will only show for the Global Admin role, so Cloud Admin and App Admin will not see this checkbox.
+### Requires a permission within the user's scope of authority
 
-        :::image type="content" source="./media/application-consent-experience/consent_prompt_1a.png" alt-text="Consent prompt for scenario 1a":::
-    
-    2. Users will see the traditional consent prompt.
+The user is accessing an app that directs them to the user consent flow while requiring a permission set that is within their scope of authority.
 
-        :::image type="content" source="./media/application-consent-experience/consent_prompt_1b.png" alt-text="Screenshot that shows the traditional consent prompt.":::
+Admins will see an additional control on the traditional consent prompt that will allow them consent on behalf of the entire tenant. The control will be defaulted to off, so only when admins explicitly check the box will consent be granted on behalf of the entire tenant. As of today, this check box will only show for the Global Admin role, so Cloud Admin and App Admin will not see this checkbox.
 
-2. Individuals accessing an app that requires at least one permission that is outside their scope of authority.
-    1. Admins will see the same prompt as 1.i shown above.
-    2. Users will be blocked from granting consent to the application, and they will be told to ask their admin for access to the app. 
-                
-        :::image type="content" source="./media/application-consent-experience/consent_prompt_2b.png" alt-text="Screenshot of the consent prompt telling the user to ask an admin for access to the app.":::
+:::image type="content" source="./media/application-consent-experience/consent_prompt_1a.png" alt-text="Consent prompt for scenario 1a":::
 
-3. Individuals that navigate or are directed to the admin consent flow.
-    1. Admin users will see the admin consent prompt. The title and the permission descriptions changed on this prompt, the changes highlight the fact that accepting this prompt will grant the app access to the requested data on behalf of the entire tenant.
-        
-        :::image type="content" source="./media/application-consent-experience/consent_prompt_3a.png" alt-text="Consent prompt for scenario 3a":::
-        
-    1. Non-admin users will see the same screen as 2.ii shown above.
+Users will see the traditional consent prompt.
+
+:::image type="content" source="./media/application-consent-experience/consent_prompt_1b.png" alt-text="Screenshot that shows the traditional consent prompt.":::
+
+### Requires a permission outside of the user's scope of authority
+
+The user is accessing an app that requires at least one permission that is outside their scope of authority.
+
+Admins will see an additional control on the traditional consent prompt that will allow them consent on behalf of the entire tenant.
+
+:::image type="content" source="./media/application-consent-experience/consent_prompt_1a.png" alt-text="Consent prompt for scenario 1a":::
+
+Non-admin users will be blocked from granting consent to the application, and they will be told to ask their admin for access to the app. 
+
+:::image type="content" source="./media/application-consent-experience/consent_prompt_2b.png" alt-text="Screenshot of the consent prompt telling the user to ask an admin for access to the app.":::
+
+### User is directed to the admin consent flow
+
+The user navigates to or is directed to the admin consent flow.
+
+Admin users will see the admin consent prompt. The title and the permission descriptions changed on this prompt, the changes highlight the fact that accepting this prompt will grant the app access to the requested data on behalf of the entire tenant.
+
+:::image type="content" source="./media/application-consent-experience/consent_prompt_3a.png" alt-text="Consent prompt for scenario 3a":::
+
+Non-admin users will be blocked from granting consent to the application, and they will be told to ask their admin for access to the app.
+
+:::image type="content" source="./media/application-consent-experience/consent_prompt_2b.png" alt-text="Screenshot of the consent prompt telling the user to ask an admin for access to the app.":::
 
 ## Next steps
+
 - Get a step-by-step overview of [how the Azure AD consent framework implements consent](./quickstart-register-app.md).
 - For more depth, learn [how a multi-tenant application can use the consent framework](./howto-convert-app-to-be-multi-tenant.md) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
 - Learn [how to configure the app's publisher domain](howto-configure-publisher-domain.md).
