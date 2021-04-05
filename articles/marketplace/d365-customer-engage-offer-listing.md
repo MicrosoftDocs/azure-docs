@@ -30,7 +30,6 @@ Here's an example of how offer information appears in Microsoft AppSource (any l
 1. Support address (link)
 1. Terms of use
 1. Offer name
-1. Offer name
 1. Description
 1. Screenshots/videos
 
