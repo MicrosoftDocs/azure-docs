@@ -39,7 +39,7 @@ The results of the **ListStreamingLocators** method will provide you the **Name*
 
 To find the **ContentKeys** used in your **StreamingLocators** for content protection, you can call the [StreamingLocator.ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true) method.  
 
-Any **Assets** that were created and published using the v2 API will have both a [Content Key Policy](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) and a Content Key defined on them in the v3 API, instead of using a default content key policy on the [Streaming Policy](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept).
+Any **Assets** that were created and published using the v2 API will have both a [Content Key Policy](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) and a Content Key defined on them in the v3 API, instead of using a default content key policy on the [Streaming Policy](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-policy-concept).
 
 For more information on content protection in the v3 API, see the article [Protect your content with Media Services dynamic encryption.](https://docs.microsoft.com/azure/media-services/latest/drm-content-protection-concept)
 
@@ -55,9 +55,9 @@ If you need to update, change or alter content stored on v2 entities, you will n
 
 ## How do I change the ContentKeyPolicy used for a v2 Asset that is published and keep the same content key?
 
-In this situation, you should first unpublish (remove all Streaming Locators) on the Asset via the v2 SDK (delete the locator, unlink the Content Key Authorization Policy, unlink the Asset Delivery Policy, unlink the Content Key, delete the Content Key) then create a new **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)** in v3 using a v3 [StreamingPolicy](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept) and [ContentKeyPolicy](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept).
+In this situation, you should first unpublish (remove all Streaming Locators) on the Asset via the v2 SDK (delete the locator, unlink the Content Key Authorization Policy, unlink the Asset Delivery Policy, unlink the Content Key, delete the Content Key) then create a new **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-locators-concept)** in v3 using a v3 [StreamingPolicy](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-policy-concept) and [ContentKeyPolicy](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept).
 
-You would need to specify the specific content key identifier and key value needed when you are creating the **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)**.
+You would need to specify the specific content key identifier and key value needed when you are creating the **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-locators-concept)**.
 
 Note that it is possible to delete the v2 locator using the v3 API, but this will not remove the content key or the content key policy used if they were created in the v2 API.  
 
@@ -75,7 +75,7 @@ When migrating your content from v2 to v3, it is advised to install the [v2 Azur
 - [Media Services v3 with PlayReady license template](drm-playready-license-template-concept.md)
 - [Media Services v3 with Widevine license template overview](drm-widevine-license-template-concept.md)
 - [Apple FairPlay license requirements and configuration](drm-fairplay-license-overview.md)
-- [Streaming Policies](streaming-policy-concept.md)
+- [Streaming Policies](stream-streaming-policy-concept.md)
 - [Content Key Policies](drm-content-key-policy-concept.md)
 
 ### Tutorials
