@@ -15,7 +15,7 @@ ms.reviewer: sngun
 
 The HTTP status code 400 represents the request contains invalid data or it's missing required parameters.
 
-## Missing required properties
+## Missing the 'id' property
 On this scenario, it's common to see errors like the ones below:
 
 ```
