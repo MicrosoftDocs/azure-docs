@@ -3,7 +3,6 @@ title: Quickstart - Set & view Azure Key Vault certificates with Azure PowerShel
 description: Quickstart showing how to set and retrieve a certificate from Azure Key Vault using Azure PowerShell
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault

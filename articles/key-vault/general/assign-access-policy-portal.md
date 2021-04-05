@@ -3,7 +3,6 @@ title: Assign an Azure Key Vault access policy (Portal)
 description: How to use the Azure portal to assign a Key Vault access policy to a security principal or application identity.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault

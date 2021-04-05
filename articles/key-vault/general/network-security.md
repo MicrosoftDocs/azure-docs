@@ -3,7 +3,6 @@ title: Configure Azure Key Vault firewalls and virtual networks - Azure Key Vaul
 description: Step-by-step instructions to configure Key Vault firewalls and virtual networks
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial

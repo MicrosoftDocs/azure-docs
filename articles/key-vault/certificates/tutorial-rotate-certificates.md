@@ -3,7 +3,6 @@ title: Tutorial - Updating certificate auto-rotation frequency in Key Vault | Mi
 description: Tutorial showing how to update a certificate's auto-rotation frequency in Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault

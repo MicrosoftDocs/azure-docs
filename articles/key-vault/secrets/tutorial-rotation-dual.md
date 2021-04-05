@@ -3,7 +3,6 @@ title: Rotation tutorial for resources with two sets of credentials
 description: Use this tutorial to learn how to automate the rotation of a secret for resources that use two sets of authentication credentials.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: 'rotation'
 ms.service: key-vault
 ms.subservice: secrets

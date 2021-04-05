@@ -3,7 +3,6 @@ title: Create an Azure key vault and a vault access policy by using ARM template
 description: This article shows how to create Azure key vaults and vault access policies by using an Azure Resource Manager template.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
