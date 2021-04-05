@@ -25,7 +25,7 @@ When launching training runs on a [compute target](concept-compute-target.md), t
 
 Before you can initiate an experiment on a compute target or your local machine, you must ensure that the necessary files are available to that compute target, such as dependency files and data files your code needs to run.
 
-Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using a [datastore](/python/api/azureml-core/azureml.data).
+Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory. Instead, access your data using a [datastore](/python/api/azureml-core/azureml.data).
 
 The storage limit for experiment snapshots is 300 MB and/or 2000 files.
 
@@ -59,7 +59,7 @@ Jupyter notebooks| Create a `.amlignore` file or move your notebook into a new, 
 
 Due to the isolation of training experiments, the changes to files that happen during runs are not necessarily persisted outside of your environment. If your script modifies the files local to compute, the changes are not persisted for your next experiment run, and they're not propagated back to the client machine automatically. Therefore, the changes made during the first experiment run don't and shouldn't affect those in the second.
 
-When writing changes, we recommend writing files to an Azure Machine Learning dataset with an [OutputFileDatasetConfig object](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py). See [how to create an OutputFileDatasetConfig](how-to-train-with-datasets.md#where-to-write-training-output).
+When writing changes, we recommend writing files to storage via an Azure Machine Learning dataset with an [OutputFileDatasetConfig object](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py). See [how to create an OutputFileDatasetConfig](how-to-train-with-datasets.md#where-to-write-training-output).
 
 Otherwise, write files to the `./outputs` and/or `./logs` folder.
 
@@ -72,6 +72,6 @@ Otherwise, write files to the `./outputs` and/or `./logs` folder.
 
 ## Next steps
 
-* Learn more about [accessing data from your datastores](how-to-access-data.md).
+* Learn more about [accessing data from storage](how-to-access-data.md).
 
 * Learn more about [Create compute targets for model training and deployment](how-to-create-attach-compute-studio.md)

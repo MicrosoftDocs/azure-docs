@@ -21,7 +21,7 @@ ms.custom: how-to, devx-track-python, data4ml
 
 In this article, you learn how to work with [Azure Machine Learning datasets](/python/api/azureml-core/azureml.core.dataset%28class%29) to train machine learning models.  You can use datasets in your local or remote compute target without worrying about connection strings or data paths. 
 
-Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive) and [Azure Machine Learning pipelines](./how-to-create-machine-learning-pipelines.md).
+Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive), and [Azure Machine Learning pipelines](./how-to-create-machine-learning-pipelines.md).
 
 If you are not ready to make your data available for model training, but want to load your data to your notebook for data exploration, see how to [explore the data in your dataset](how-to-create-register-datasets.md#explore-data). 
 
@@ -153,7 +153,7 @@ You can specify where to write your training results with an [OutputFileDatasetC
 OutputFileDatasetConfig objects allow you to: 
 
 * Copy the output of a run.
-* Save the output as a FileDataset to supported storage types
+* Save the output as a FileDataset to these supported storage types:
     * Azure blob
     * Azure file share
     * Azure Data Lake Storage generations 1 and 2
@@ -173,7 +173,7 @@ output = OutputFileDatasetConfig(destination=(def_blob_store, 'sample/outputdata
 
 ### Configure the training run
 
-We recommend passing the dataset as an argument when mounting via the `arguments` parameter of the `ScriptRunConfig` constructor. By doing so, you get the data path (mounting point) in your training script via arguments. This way, you are be able use the same training script for local debugging and remote training on any cloud platform.
+We recommend passing the dataset as an argument when mounting via the `arguments` parameter of the `ScriptRunConfig` constructor. By doing so, you get the data path (mounting point) in your training script via arguments. This way, you are able to use the same training script for local debugging and remote training on any cloud platform.
 
 The following example creates a ScriptRunConfig that passes in the FileDataset via `arguments`. After you submit the run, data files referred to by the dataset `mnist_ds` are mounted to the compute target, and training results are saved to the specified `outputdataset` folder in the default datastore.
 
