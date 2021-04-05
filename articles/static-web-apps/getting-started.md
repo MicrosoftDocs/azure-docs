@@ -53,9 +53,17 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
     # [No Framework](#tab/vanilla-javascript)
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: No framework":::
 
-    - Enter **./** as the build location
-    - Select **Skip for now** as the location for the Azure Functions api
-    - Enter **./** as the output location
+    Enter **./** as the location for the application files
+
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application files location":::
+
+    Select **Skip for now** as the location for the Azure Functions api
+
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API location":::
+
+    Enter **./** as the build output location
+
+    :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Application build output location":::
 
     # [Angular](#tab/angular)
 
@@ -69,18 +77,6 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="Application presets: Vue":::
 
-    ---
-
-1. Select **/** as the location for the application code and press **Enter**.
-
-    # [No Framework](#tab/vanilla-javascript)
-    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: No framework":::
-    # [Angular](#tab/angular)
-    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="Application presets: Angular":::
-    # [React](#tab/react)
-    :::image type="content" source="media/getting-started/extension-presets-react.png" alt-text="Application presets: React":::
-    # [Vue](#tab/vue)
-    :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="Application presets: Vue":::
     ---
 
 1. Select a location nearest you and press **Enter**.
