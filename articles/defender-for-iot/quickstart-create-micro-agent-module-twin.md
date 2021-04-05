@@ -13,7 +13,7 @@ You can create individual **DefenderIotMicroAgent** module twins for new devic
 
 - None
 
-- ## Device twins 
+## Device twins 
 
 For IoT solutions built in Azure, device twins play a key role in both device management and process automation. 
 
