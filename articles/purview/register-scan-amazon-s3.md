@@ -167,7 +167,7 @@ For more information about Purview credentials, see the [Azure Purview public pr
 
 You'll need the following permissions in your AWS policy, depending on whether you want to scan individual buckets or all the buckets in your account:
 
-- **Individual buckets**: `GetObject`, `GetBucketLocation`, and `ListBucket`. 
+- **Individual buckets**: `GetBucketLocation`, `GetBucketPublicAccessBlock`, `GetObject` and `ListBucket`. 
 
     Make sure to define your resource with the specific bucket name. For example:
 
@@ -178,10 +178,10 @@ You'll need the following permissions in your AWS policy, depending on whether y
             {
                 "Effect": "Allow",
                 "Action": [
-                    "s3:GetObject",
-                    "s3:ListBucket",
                     "s3:GetBucketLocation",
-                    "s3:GetBucketPublicAccessBlock"
+                    "s3:GetBucketPublicAccessBlock",
+                    "s3:GetObject",
+                    "s3:ListBucket"
                 ],
                 "Resource": "arn:aws:s3:::<bucketname>"
             },
@@ -196,7 +196,7 @@ You'll need the following permissions in your AWS policy, depending on whether y
     }
     ```
 
-- **All buckets in your account**: `GetObject`, `GetBucketLocation`, `ListBucket`, and `ListAllMyBuckets`.
+- **All buckets in your account**: `GetBucketLocation`, `GetBucketPublicAccessBlock`, `GetObject`, `ListAllMyBuckets`, and `ListBucket`.
 
     Make sure to define your resource with a wildcard. For example:
 
@@ -207,11 +207,11 @@ You'll need the following permissions in your AWS policy, depending on whether y
             {
                 "Effect": "Allow",
                 "Action": [
+                    "s3:GetBucketLocation",
+                    "s3:GetBucketPublicAccessBlock",
                     "s3:GetObject",
                     "s3:ListAllMyBuckets",
-                    "s3:ListBucket",
-                    "s3:GetBucketLocation",
-                    "s3:GetBucketPublicAccessBlock"
+                    "s3:ListBucket"
                 ],
                 "Resource": "*"
             },
