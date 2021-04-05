@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/21/2021
+ms.date: 04/04/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
@@ -34,6 +34,7 @@ For more information, see the documented Purview limits at:
 
 - [Manage and increase quotas for resources with Azure Purview](how-to-manage-quotas.md)
 - [Supported data sources and file types in Azure Purview](sources-and-scans.md)
+- [Use private endpoints for your Purview account](catalog-private-link.md)
 ### Storage and scanning regions
 
 The following table maps the regions where you data is stored to the region where it would be scanned by Azure Purview.
