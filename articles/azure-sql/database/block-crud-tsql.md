@@ -27,7 +27,7 @@ T-SQL CRUD operations can be blocked via Azure portal, [PowerShell](/powershell/
 
 ## Permissions
 
-
+In order to register or remove this feature, the Azure user must be a member of the Owner or Contributor role of the subscription.
 
 ## Examples
 
