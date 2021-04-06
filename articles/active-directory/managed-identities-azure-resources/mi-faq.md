@@ -120,8 +120,6 @@ No, there are no plans to support managed identities for Azure resources in Azur
 
 The security boundary of the identity is the resource to which it is attached to. For example, the security boundary for a Virtual Machine with managed identities for Azure resources enabled, is the Virtual Machine. Any code running on that VM, is able to call the managed identities for Azure resources endpoint and request tokens. It is the similar experience with other resources that support managed identities for Azure resources.
 
-
-
 ### Will managed identities be recreated automatically if I move a subscription to another directory?
 
 No. If you move a subscription to another directory, you will have to manually re-create them and grant Azure role assignments again.
@@ -132,7 +130,14 @@ No. If you move a subscription to another directory, you will have to manually r
 
 No. Managed identities do not currently support cross-directory scenarios. 
 
+### Are there any rate limits that apply to managed identities?
+
+Managed identities limits depend on Azure service limits, Azure Instance Metadata Service (IMDS) limits and Azure Active Directory service limits.
+
+**Azure service limits** define the number of create operations that can be performed at the tenant and subscription levels. User assigned managed identities also have [limitations](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits) around how they may be named.
+**IMDS** In general, requests to IMDS are limited to 5 requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the Managed Identity category are limited to 20 requests per second and 5 concurrent requests. You can read more at the [Azure Instance Metadata Serice (Wiindows)](../../virtual-machines/windows/instance-metadata-service.md?tabs=windows#managed-identity) article.
+**Azure Active Directory service** Each managed identity counts towards the object quota limit in an Azure AD tenant as described in Azure [AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
 
 ## Next steps
 
-- 
+- Learn [how managed identities work with virtual machines](how-managed-identities-work-vm.md)
