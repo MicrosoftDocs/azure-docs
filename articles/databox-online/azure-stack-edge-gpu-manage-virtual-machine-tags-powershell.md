@@ -18,7 +18,7 @@ This article describes how to tag virtual machines (VMs) running on your Azure S
 
 ## About tags
 
-Tags are user-defined key-value pairs that can be assigned to a resource or a resource group. You can apply tags to VMs running on your device to logically organize them into a taxonomy. You can placed tags on a resource at the time of creation or add it to an existing resource. For example, you can apply the name `Organization` and the value `Engineering` to all VMs that are used by the Engineering department in your organization.
+Tags are user-defined key-value pairs that can be assigned to a resource or a resource group. You can apply tags to VMs running on your device to logically organize them into a taxonomy. You can place tags on a resource at the time of creation or add it to an existing resource. For example, you can apply the name `Organization` and the value `Engineering` to all VMs that are used by the Engineering department in your organization.
 
 For more information on tags, see how to [Manage tags via AzureRM PowerShell](/powershell/module/azurerm.tags/?view=azurermps-6.13.0&preserve-view=true).
 
