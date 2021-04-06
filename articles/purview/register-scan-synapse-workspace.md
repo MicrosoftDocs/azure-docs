@@ -1,6 +1,6 @@
 ---
 title: 'How to scan Azure Synapse Workspaces'
-description: Learn how to scan a SYnapse Workspace in your Azure Purview data catalog. 
+description: Learn how to scan a Synapse Workspace in your Azure Purview data catalog. 
 author: viseshag
 ms.author: viseshag
 ms.service: purview

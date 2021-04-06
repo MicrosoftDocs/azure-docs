@@ -1,6 +1,6 @@
 ---
 title: 'How to scan Dedicated SQL pools'
-description: This how to guide describes details of how to scan Azure Synapse Analytics. 
+description: This how to guide describes details of how to scan Dedicated SQL pools. 
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
 ---
-# Register and scan Dedicated SQL Pools (formerly SQL DW)
+# Register and scan Dedicated SQL pools (formerly SQL DW)
 
 > [!NOTE]
 > If you are looking to register and scan a dedicated SQL database within a Synapse workspace, you must follow instructions [here](register-scan-synapse-workspace.md).
