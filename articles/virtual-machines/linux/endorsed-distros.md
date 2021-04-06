@@ -30,7 +30,7 @@ The Azure Linux Agent is already pre-installed on Azure Marketplace images and i
 
 | Distribution | Version | Drivers | Agent |
 | --- | --- | --- | --- |
-| CentOS by Rogue Wave Software |CentOS 6.x, 7.x, 8.x |CentOS 6.3: [LIS download](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: In kernel |Package: In [repo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under "WALinuxAgent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| CentOS by Rogue Wave Software(also known as OpenLogic) |CentOS 6.x, 7.x, 8.x |CentOS 6.3: [LIS download](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: In kernel |Package: In [repo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under "WALinuxAgent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS is now [end of life](https://coreos.com/os/eol/) as of May 26, 2020. |No Longer Available | | |
 | Debian by Credativ |8.x, 9.x, 10.x |In kernel |Package: In repo under "waagent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 |Flatcar Container Linux by Kinvolk| Pro, Stable, Beta| In kernel | wa-linux-agent is installed already in /usr/share/oem/bin/waagent |
