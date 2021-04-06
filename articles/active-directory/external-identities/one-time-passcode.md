@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 
 ms.author: mimart
 author: msmimart
@@ -62,7 +62,7 @@ You can see whether a guest user authenticates using one-time passcodes by viewi
 ![Screenshot showing a one-time passcode user with Source value of OTP](media/one-time-passcode/guest-user-properties.png)
 
 > [!NOTE]
-> When a user redeems a one-time passcode and later obtains an MSA, Azure AD account, or other federated account, they'll continue to be authenticated using a one-time passcode. If you want to update their authentication method, you can delete their guest user account and reinvite them.
+> When a user redeems a one-time passcode and later obtains an MSA, Azure AD account, or other federated account, they'll continue to be authenticated using a one-time passcode. If you want to update the user's authentication method, you can [reset their redemption status](reset-redemption-status.md).
 
 ### Example
 
@@ -74,7 +74,7 @@ Starting October 2021, the email one-time passcode feature will be turned on for
 
 > [!NOTE]
 >
-> If the email one-time passcode feature has been enabled in your tenant and you turn it off, any guest users who have redeemed a one-time passcode will not be able to sign in. You can delete the guest user and reinvite them so they can sign in again using another authentication method.
+> If the email one-time passcode feature has been enabled in your tenant and you turn it off, any guest users who have redeemed a one-time passcode will not be able to sign in. You can [reset their redemption status](reset-redemption-status.md) so they can sign in again using another authentication method.
 
 ### To disable the email one-time passcode feature
 

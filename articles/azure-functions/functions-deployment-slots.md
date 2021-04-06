@@ -15,9 +15,6 @@ The following reflect how functions are affected by swapping slots:
 - Traffic redirection is seamless; no requests are dropped because of a swap.
 - If a function is running during a swap, execution continues and the next triggers are routed to the swapped app instance.
 
-> [!NOTE]
-> Slots are currently not available for the Linux Consumption plan.
-
 ## Why use slots?
 
 There are a number of advantages to using deployment slots. The following scenarios describe common uses for slots:
@@ -223,7 +220,7 @@ There are two levels of support for deployment slots:
 | Windows Consumption       | General availability |
 | Windows Premium           | General availability  |
 | Windows Dedicated         | General availability |
-| Linux Consumption         | Unsupported          |
+| Linux Consumption         | Preview          |
 | Linux Premium             | General availability  |
 | Linux Dedicated           | General availability |
 

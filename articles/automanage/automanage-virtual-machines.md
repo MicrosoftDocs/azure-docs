@@ -65,12 +65,14 @@ If you are enabling Automanage with a new Automanage account:
 If you are enabling Automanage with an existing Automanage account:
 * **Contributor** role on the resource group containing your VMs
 
+The Automanage account will be granted **Contributor** and **Resource Policy Contributor** permissions to perform actions on Automanaged machines.
+
 > [!NOTE]
 > If you want to use Automanage on a VM that is connected to a workspace in a different subscription, you must have the permissions described above on each subscription.
 
 ## Participating services
 
-:::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services.png" alt-text="Intelligently onboard services.":::
+:::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services-1.png" alt-text="Intelligently onboard services.":::
 
 For the complete list of participating Azure services, as well as their supported environment, see the following:
 - [Automanage for Linux](automanage-linux.md)
@@ -89,6 +91,19 @@ If it is your first time enabling Automanage for your VM, you can search in the 
 
 The only time you might need to interact with this VM to manage these services is in the event we attempted to remediate your VM, but failed to do so. If we successfully remediate your VM, we will bring it back into compliance without even alerting you. For more details, see [Status of VMs](#status-of-vms).
 
+## Enabling Automanage for VMs using Azure Policy
+You can also enable Automanage on VMs at scale using the built-in Azure Policy. The policy has a DeployIfNotExists effect, which means that all eligible VMs located within the scope of the policy will be automatically onboarded to Automanage VM Best Practices.
+
+A direct link to the policy is [here](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3).
+
+### How to apply the policy
+1. Click the **Assign** button when viewing the policy definition
+1. Select the scope at which you want to apply the policy (can be management group, subscription, or resource group)
+1. Under **Parameters**, specify parameters for the Automanage account, Configuration profile, and Effect (the effect should usually be DeployIfNotExists)
+    1. If you don't have an Automanage account, you will have to [create one](#create-an-automanage-account).
+1. Under **Remediation**, check the "Click a remediation task" checkbox. This will perform onboarding to Automanage.
+1. Click **Review + create** and ensure that all settings look good.
+1. Click **Create**.
 
 ## Environment configuration
 
@@ -137,6 +152,44 @@ If you are enabling Automanage with an existing Automanage Account, you need to 
 > [!NOTE]
 > When you disable Automanage Best Practices, the Automanage Account's permissions on any associated subscriptions will remain. Manually remove the permissions by going to the subscription's IAM page or delete the Automanage Account. The Automanage Account cannot be deleted if it is still managing any machines.
 
+### Create an Automanage Account
+You may create an Automanage Account using the portal or using an ARM template.
+
+#### Portal
+1. Navigate to the **Automanage** blade in the portal
+1. Click **Enable on existing machine**
+1. Under **Advanced**, click "Create a new account"
+1. Fill in the required fields and click **Create**
+
+#### ARM template
+Save the following ARM template as `azuredeploy.json` and run the following command:
+`az deployment group create --resource-group <resource group name> --template-file azuredeploy.json`
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "automanageAccountName": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2020-06-30-preview",
+            "type": "Microsoft.Automanage/accounts",
+            "name": "[parameters('automanageAccountName')]",
+            "location": "[parameters('location')]",
+            "identity": {
+                "type": "SystemAssigned"
+            }
+        }
+    ]
+}
+```
 
 ## Status of VMs
 

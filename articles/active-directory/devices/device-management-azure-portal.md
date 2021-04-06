@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/23/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -30,6 +30,7 @@ The **All devices** page enables you to:
 - Configure your device identity settings.
 - Enable or disable Enterprise State Roaming.
 - Review device-related audit logs
+- Download devices (preview)
 
 [![All devices view in the Azure portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
@@ -62,7 +63,7 @@ Both options allow administrators the ability to:
 > [!TIP]
 > - Hybrid Azure AD Joined Windows 10 devices do not have an owner. If you are looking for a device by owner and didn't find it, search by the device ID.
 >
-> - If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the REGISTERED column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](hybrid-azuread-join-plan.md). Additional information can be found in the article, [Devices frequently asked questions](faq.md).
+> - If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the REGISTERED column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](hybrid-azuread-join-plan.md). Additional information can be found in the article, [Devices frequently asked questions](faq.yml).
 >
 > - For some iOS devices, the device names containing apostrophes can potentially use different characters that look like apostrophes. So searching for such devices is a little tricky - if you are not seeing search results correctly, ensure that the search string contains matching apostrophe character.
 
@@ -141,6 +142,14 @@ To enable the preview filtering functionality in the **All devices** view:
 1. Select the banner that says, **Try out the new devices filtering improvements. Click to enable the preview.**
 
 You will now have the ability to **Add filters** to your **All devices** view.
+
+### Download devices (preview)
+
+Cloud device administrators, Intune administrators, and Global administrators can use the **Download devices (preview)** option to export a CSV file of devices based on any applied filters. If no filters are applied to the list then all devices will be exported. An export may run for a period of up to one hour depending on the 
+
+The exported list includes the following device identity attributes:
+
+`accountEnabled, approximateLastLogonTimeStamp, deviceOSType, deviceOSVersion, deviceTrustType, dirSyncEnabled, displayName, isCompliant, isManaged, lastDirSyncTime, objectId, profileType, registeredOwners, systemLabels, registrationTime, mdmDisplayName`
 
 ## Configure device settings
 

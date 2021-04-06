@@ -2,7 +2,7 @@
 title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
-ms.date: 11/11/2020
+ms.date: 03/24/2021
 ---
 
 # What is Azure VMware Solution?
@@ -50,6 +50,9 @@ In your private cloud, you can:
 
 Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs within the IaaS platform. For more information and how-tos, see [Monitoring Azure VMs with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md).
 
+## Customer communication
+[!INCLUDE [customer-communications](includes/customer-communications.md)]
+
 ## Next steps
 
 The next step is to learn key [private cloud and cluster concepts](concepts-private-clouds-clusters.md).
@@ -58,3 +61,5 @@ The next step is to learn key [private cloud and cluster concepts](concepts-priv
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
+
+

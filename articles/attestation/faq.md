@@ -28,7 +28,7 @@ Azure PCK caching service:
 
 ## Is SGX attestation supported by Azure Attestation in non-Azure environments
 
-Azure Attestation depends on the security baseline stated by Azure PCK caching service to validate the TEEs. Azure PCK caching service is currently designed to support only Azure Confidential computing nodes. 
+No. Azure Attestation depends on the security baseline stated by Azure PCK caching service to validate the TEEs. Azure PCK caching service is currently designed to support only Azure Confidential computing nodes. 
 
 ## What validations does Azure Attestation perform for attesting SGX enclaves
 

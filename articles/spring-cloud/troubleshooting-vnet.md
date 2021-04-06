@@ -33,7 +33,6 @@ To set up the Azure Spring Cloud service instance by using the Resource Manager 
 | Error Message | How to fix |
 |------|------|
 | Resources created by Azure Spring Cloud were disallowed by policy. | Network resources will be created when deploy Azure Spring Cloud in your own virtual network. Please check whether you have [Azure Policy](../governance/policy/overview.md) defined to block those creation. Resources failed to be created can be found in error message. |
-| Provided subnets have associated with route tables, please disassociate them. | Currently it is not supported to deploy Azure Spring Cloud in subnet associated with existing route tables, please dissociate them and try again. |
 | Required traffic is not allowlisted. | Please refer to [Customer Responsibilities for Running Azure Spring Cloud in VNET](spring-cloud-vnet-customer-responsibilities.md) to ensure required traffic is allowlisted. |
 
 ## My application can't be registered

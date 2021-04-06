@@ -13,6 +13,10 @@ The JSON syntax for creating template can be verbose and require complicated exp
 
 Bicep is currently in preview. To track the status of the work, see the [Bicep project repository](https://github.com/Azure/bicep).
 
+To learn about Bicep, see the following video.
+
+> [!VIDEO https://www.youtube.com/embed/sc1kJfcRQgY]
+
 ## Get started
 
 To start with Bicep, [install the tools](bicep-install.md).

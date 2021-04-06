@@ -6,12 +6,12 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article explores common troubleshooting methods for mapping data flows in Azure Data Factory.
 
@@ -297,7 +297,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Error code: DF-Excel-InvalidRange
 - **Message**: Invalid range is provided.
-- **Recommendation**: Check the parameter value and specify the valid range by the following reference: [Excel format in Azure Data Factory-Dataset properties](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **Recommendation**: Check the parameter value and specify the valid range by the following reference: [Excel format in Azure Data Factory-Dataset properties](./format-excel.md#dataset-properties).
 
 ### Error code: DF-Excel-WorksheetNotExist
 - **Message**: Excel worksheet does not exist.
@@ -312,24 +312,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 ### Error code: DF-Excel-InvalidFile
 - **Message**: Invalid excel file is provided while only .xlsx and .xls are supported.
 
-### Error code: DF-AdobeIntegration-InvalidMapToFilter
-- **Message**: Custom resource can only have one Key/Id mapped to filter.
-
-### Error code: DF-AdobeIntegration-InvalidPartitionConfiguration
-- **Message**: Only single partition is supported. Partition schema may be RoundRobin or Hash.
-- **Recommendation**: In AdobeIntegration settings, confirm you only have single partitions. The partition schema may be RoundRobin or Hash.
-
-### Error code: DF-AdobeIntegration-KeyColumnMissed
-- **Message**: Key must be specified for non-insertable operations.
-- **Recommendation**: Specify your key columns in AdobeIntegration settings for non-insertable operations.
-
-### Error code: DF-AdobeIntegration-InvalidPartitionType
-- **Message**: Partition type has to be roundRobin.
-- **Recommendation**: Confirm the partition type is roundRobin in AdobeIntegration settings.
-
-### Error code: DF-AdobeIntegration-InvalidPrivacyRegulation
-- **Message**: Only privacy regulation supported currently is gdpr.
-- **Recommendation**: Confirm the privacy regulation in AdobeIntegration settings is **'GDPR'**.
 
 ## Miscellaneous troubleshooting tips
 - **Issue**: Unexpected exception occurred and execution failed.
@@ -355,6 +337,110 @@ This article explores common troubleshooting methods for mapping data flows in A
 2. Check the status of your file and table connections in the data flow designer. In debug mode, select **Data Preview** on your source transformations to ensure that you can access your data.
 3. If everything looks correct in data preview, go into the Pipeline designer and put your data flow in a Pipeline activity. Debug the pipeline for an end-to-end test.
 
+### Improvement on CSV/CDM format in Data Flow 
+
+If you use the **Delimited Text or CDM formatting for mapping data flow in Azure Data Factory V2**, you may face the behavior changes to your existing pipelines because of the improvement for Delimited Text/CDM in data flow starting from **1 May 2021**. 
+
+You may encounter the following issues before the improvement, but after the improvement, the issues were fixed. Read the following content to determine whether this improvement affects you. 
+
+#### Scenario 1: Encounter the unexpected row delimiter issue
+
+ You are affected if you are in the following conditions:
+ - Using the Delimited Text with the Multiline setting set to True or CDM as the source.
+ - The first row has more than 128 characters. 
+ - The row delimiter in data files is not `\n`.
+
+ Before the improvement, the default row delimiter `\n` may be unexpectedly used to parse delimited text files, because when Multiline setting is set to True, it invalidates the row delimiter setting, and the row delimiter is automatically detected based on the first 128 characters. If you fail to detect the actual row delimiter, it would fall back to `\n`.  
+
+ After the improvement, any one of the three row delimiters: `\r`, `\n`, `\r\n` should be worked.
+ 
+ The following example shows you one pipeline behavior change after the improvement:
+
+ **Example**:<br/>
+   For the following column:<br/>
+    `C1, C2, {long first row}, C128\r\n `<br/>
+    `V1, V2, {values………………….}, V128\r\n `<br/>
+ 
+   Before the improvement, `\r` is kept in the column value. The parsed column result is:<br/>
+   `C1 C2 {long first row} C128`**`\r`**<br/>
+   `V1 V2 {values………………….} V128`**`\r`**<br/> 
+
+   After the improvement, the parsed column result should be:<br/>
+   `C1 C2 {long first row} C128`<br/>
+   `V1 V2 {values………………….} V128`<br/>
+  
+#### Scenario 2: Encounter an issue of incorrectly reading column values containing '\r\n'
+
+ You are affected if you are in the following conditions:
+ - Using the Delimited Text with the Multiline setting set to True or CDM as a source. 
+ - The row delimiter is `\r\n`.
+
+ Before the improvement, when reading the column value, the `\r\n` in it may be incorrectly replaced by `\n`. 
+
+ After the improvement, `\r\n` in the column value will not be replaced by `\n`.
+
+ The following example shows you one pipeline behavior change after the improvement:
+ 
+ **Example**:<br/>
+  
+ For the following column：<br/>
+  **`"A\r\n"`**`, B, C\r\n`<br/>
+
+ Before the improvement, the parsed column result is:<br/>
+  **`A\n`**` B C`<br/>
+
+ After the improvement, the parsed column result should be:<br/>
+  **`A\r\n`**` B C`<br/>  
+
+#### Scenario 3: Encounter an issue of incorrectly writing column values containing '\n'
+
+ You are affected if you are in the following conditions:
+ - Using the Delimited Text as a sink.
+ - The column value contains `\n`.
+ - The row delimiter is set to `\r\n`.
+ 
+ Before the improvement, when writing the column value, the `\n` in it may be incorrectly replaced by `\r\n`. 
+
+ After the improvement, `\n` in the column value will not be replaced by `\r\n`.
+ 
+ The following example shows you one pipeline behavior change after the improvement:
+
+ **Example**:<br/>
+
+ For the following column:<br/>
+ **`A\n`**` B C`<br/>
+
+ Before the improvement, the CSV sink is:<br/>
+  **`"A\r\n"`**`, B, C\r\n` <br/>
+
+ After the improvement, the CSV sink should be:<br/>
+  **`"A\n"`**`, B, C\r\n`<br/>
+
+#### Scenario 4: Encounter an issue of incorrectly reading empty string as NULL
+ 
+ You are affected if you are in the following conditions:
+ - Using the Delimited Text as a source. 
+ - NULL value is set to non-empty value. 
+ - The column value is empty string and is unquoted. 
+ 
+ Before the improvement, the column value of unquoted empty string is read as NULL. 
+
+ After the improvement, empty string will not be parsed as NULL value. 
+ 
+ The following example shows you one pipeline behavior change after the improvement:
+
+ **Example**:<br/>
+
+ For the following column:<br/>
+  `A, ,B, `<br/>
+
+ Before the improvement, the parsed column result is:<br/>
+  `A null B null`<br/>
+
+ After the improvement, the parsed column result should be:<br/>
+  `A "" (empty string) B "" (empty string)`<br/>
+
+
 ## Next steps
 
 For more help with troubleshooting, see these resources:
@@ -364,4 +450,3 @@ For more help with troubleshooting, see these resources:
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-
