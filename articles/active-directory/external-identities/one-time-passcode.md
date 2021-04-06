@@ -74,7 +74,7 @@ Starting October 2021, the email one-time passcode feature will be turned on for
 
 > [!NOTE]
 >
-> If the email one-time passcode feature has been enabled in your tenant and you turn it off, any guest users who have redeemed a one-time passcode will not be able to sign in. You can [reset a guest user's redemption status](reset-redemption-status.md) so they can sign in again using another authentication method.
+> If the email one-time passcode feature has been enabled in your tenant and you turn it off, any guest users who have redeemed a one-time passcode will not be able to sign in. You can [reset their redemption status](reset-redemption-status.md) so they can sign in again using another authentication method.
 
 ### To disable the email one-time passcode feature
 
