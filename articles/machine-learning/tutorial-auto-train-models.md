@@ -1,5 +1,5 @@
 ---
-title: 'Regression tutorial: Automated ML'
+title: 'Tutorial: Regression with automated machine learning'
 titleSuffix: Azure Machine Learning
 description: Write code with the Python SDK to create an automated machine learning experiment that generates a regression model for you.
 services: machine-learning
@@ -15,12 +15,11 @@ ms.custom: devx-track-python, automl
 
 # Tutorial: Use automated machine learning to predict taxi fares
 
-In this tutorial, you use automated machine learning in Azure Machine Learning to create a regression model to predict NYC taxi fare prices. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
+In this tutorial, you use automated machine learning in the Azure Machine Learning SDK to create a [regression model](concept-automated-ml.md#regression) to predict NYC taxi fare prices. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
 ![Flow diagram](./media/tutorial-auto-train-models/flow2.png)
 
-You'll write code using the Python SDK in this tutorial.  For a low or no-code experience, see the [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md) and [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md).
-
+You'll write code using the Python SDK in this tutorial.  
 In this tutorial you learn the following tasks:
 
 > [!div class="checklist"]
@@ -28,9 +27,13 @@ In this tutorial you learn the following tasks:
 > * Train an automated machine learning regression model
 > * Calculate model accuracy
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://aka.ms/AMLFree) of Azure Machine Learning today.
+Automated machine learning is used for multiple model types. For a no-code experiences, see:
+* [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md) *and
+* [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md).
 
 ## Prerequisites
+
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://aka.ms/AMLFree) of Azure Machine Learning today.
 
 * Complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine.
 * After you complete the setup tutorial, open the *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* notebook using the same notebook server.

@@ -27,15 +27,16 @@ In part 1 of this tutorial series, you will:
 > * Configure your local development environment.
 > * Set up a compute cluster, a cloud-based resource for training your models.
 
-This tutorial series focuses on the Azure Machine Learning concepts required to submit **batch jobs** - this is where the code is submitted to the cloud to run in the background without any user interaction. This is useful for finished scripts or code you wish to run repeatedly, or for compute-intensive machine learning tasks. 
+This tutorial series focuses on the Azure Machine Learning concepts required to submit **batch jobs** - this is where the code is submitted to the cloud to run in the background without any user interaction. This is useful for finished scripts or code you wish to run repeatedly, or for compute-intensive machine learning tasks.
 
-If you are more interested in use Jupyter notebooks for an exploratory workflow, see [Tutorial: Get started with Azure Machine Learning in Jupyter Notebooks](tutorial-1st-experiment-sdk-setup.md).
+Another great way to start using Azure Machine Learning is with a Jupyter notebooks.  See [Tutorial: Get started with Azure Machine Learning in Jupyter Notebooks](tutorial-1st-experiment-sdk-setup.md).
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try [Azure Machine Learning](https://aka.ms/AMLFree).
 - [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://www.anaconda.com/download/) to manage Python virtual environments and install packages.  
 - If you're not familiar with using conda, see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html).
+- Any IDE or text editor to create your Python scripts.
 
 ## Install the Azure Machine Learning SDK
 
