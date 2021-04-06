@@ -25,7 +25,7 @@ Azure Defender provides threat protection at different levels:
     To generate alerts at this level, Azure Defender monitors your AKS-managed services using the logs retrieved by AKS. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts.
 
     >[!NOTE]
-    > Security Center generates security alerts for Azure Kubernetes Service actions and deployments occurring after the Kubernetes option is enabled on the subscription settings. 
+    > Azure Defender generates security alerts for Azure Kubernetes Service actions and deployments occurring after the Kubernetes option is enabled on the subscription settings. 
 
     For a list of the cluster level alerts, see the [Reference table of alerts](../articles/security-center/alerts-reference.md#alerts-akscluster).
 

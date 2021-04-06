@@ -80,7 +80,7 @@ A dedicated recommendation in Azure Security Center provides:
 
 ### Use Azure CLI to deploy the Azure Defender extension
 
-1. Login to Azure:
+1. Log in to Azure:
 
     ```azurecli
     az login
@@ -269,7 +269,7 @@ A full list of supported alerts is available in the [reference table of all secu
 
 ## Removing the Azure Defender extension
 
-You can remove the extension using Azure portal, Azure CLI or REST API as explained in the tabs below.
+You can remove the extension using Azure portal, Azure CLI, or REST API as explained in the tabs below.
 
 ### [**Azure portal - Arc**](#tab/k8s-remove-arc)
 
