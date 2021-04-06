@@ -19,8 +19,7 @@ In this tutorial, you use automated machine learning in the Azure Machine Learni
 
 ![Flow diagram](./media/tutorial-auto-train-models/flow2.png)
 
-You'll write code using the Python SDK in this tutorial.  
-In this tutorial you learn the following tasks:
+You'll write code using the Python SDK in this tutorial.  You'll learn the following tasks:
 
 > [!div class="checklist"]
 > * Download, transform, and clean data using Azure Open Datasets

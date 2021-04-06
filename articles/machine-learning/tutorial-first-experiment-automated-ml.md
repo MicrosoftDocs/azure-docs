@@ -20,8 +20,7 @@ Learn how to create a [simple classification model](concept-automated-ml.md#clas
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
-You won't write any code in this tutorial, you'll use the studio interface to perform training.  
-In this tutorial, you learn how to do the following tasks:
+You won't write any code in this tutorial, you'll use the studio interface to perform training.  You'll learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create an Azure Machine Learning workspace.

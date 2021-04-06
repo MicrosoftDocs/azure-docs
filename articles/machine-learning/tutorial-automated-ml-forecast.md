@@ -18,8 +18,7 @@ ms.custom: automl
 
 Learn how to create a [time-series forecasting model](concept-automated-ml.md#time-series-forecasting) without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This model will predict rental demand for a bike sharing service.  
 
-You won't write any code in this tutorial, you'll use the studio interface to perform training.  
-In this tutorial, you learn how to do the following tasks:
+You won't write any code in this tutorial, you'll use the studio interface to perform training.  You'll learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create and load a dataset.
