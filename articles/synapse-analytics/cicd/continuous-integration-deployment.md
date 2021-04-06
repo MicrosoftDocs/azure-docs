@@ -21,9 +21,45 @@ For Azure Synapse workspace, continuous integration and delivery (CI/CD) move al
 This article will outline using Azure release pipeline to automate the deployment of a Synapse workspace to multiple environments.
 
 ## Prerequisites
+Azure Devops: 
+-   An Azure DevOps project has been prepared for running release pipeline
+-   [Grant any users who will check in code "Basic" access at the organisation level](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page) so they can see the repo
+-   Grant Owner Rights to the Synapse Repo
+-   Make sure you have created a self hosted Azure Devops VM Agent or are happy to use an Azure Devops hosted Agent
+-   You will need permissions to [create an an Azure Resource Manager Service Connection for the resource group](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
+-   An Azure AD Admin will need to [install the Azure Devops Synapse Workspace Deployment Agent Extension in the Azure DevOps organisation](https://docs.microsoft.com/en-us/azure/devops/marketplace/install-extension)
+-   Create or nominate an existing service account for the pipeline to run as OR
+A PAT (personal access token) can be used but your pipelines will not continue to work once the users account has been deleted
 
--   The workspace used for development has been configured with a Git repository in Studio, see [Source control in Synapse Studio](source-control.md).
--   An Azure DevOps project has been prepared for running release pipeline.
+Azure AD
+-    In Azure AD, create a Service Principal that will be used for deployment. The Synapse Workspace Deployment task does not support using a managed identity in verion 1* and below
+-    Azure AD Admin rights are required for this action
+
+Synapse: 
+
+(NB: these pre-requisites can be automated and deployed using the same pipeline, ARM templates and the Azure CLI but that is not detailed here)
+-    The "source" workspace used for development needs to be configured with a Git repository in Synapse Studio, see [Source control in Synapse Studio](https://docs.microsoft.com/en-us/azure/synapse-analytics/cicd/source-control#:~:text=Go%20to%20the%20Manage%20hub,no%20repository%20connected%2C%20click%20Configure.&text=You%20can%20connect%20either%20Azure,git%20repository%20in%20your%20workspace)
+
+A blank workspace to deploy into needs to be configured as follows:
+-    Create a new Synapse workspace
+-    Grant the VM Agent and the Service Principal contributor rights to the resource group where the new workspace is hosted
+-    In the new/empty workspace, do not configure the git repo connection
+-    In the Azure portal, find the new Synapse workspace, grant yourself and whoever will run the Azure Devops pipeline Synapse workspace owner rights 
+-    Add the Azure Devops Vm Agent and the Service Principal to the Contributor role for the workspace (this should have inherited but check)
+-    In the Synapse Workspace, open studio, manage, IAM. Add the Azure Devops Vm Agent and the Service Principal to the workspace admins group
+-    Open the storage account used for the workspace. In IAM, add the Vm Agent and the Service Principal to the the Select Storage Blob Data Contributor role
+-    Create a key vault in the support subscription and ensure both the existing and new workspaces have at least GET and LIST permissions to the vault
+-    Any connection strings that are specified in your linked services need to be in keyvault for the automated deployment to work
+
+In addition, 
+ -    Spark Pools and Self Hosted Integration Runtimes are not created in a pipeline. If you have a Linked Service that uses a Self-Hosted Integration Runtime please manually create that in the new workspace
+ -    If you are developing Notebooks and have them connected to a Spark Pool, please recreate that Spark Pool in the new workspace
+ -    Notebooks that are linked to a Spark Pool that does not exist in an environment will fail to deploy
+ -    The spark pool names must be the same in both workspaces
+ -    Name all database/sql pool etc resources the same thing in both workspaces
+ -    If you are doing a deployment and your Provisioned SQL Pools are Paused then the deployment may fail
+ -    See [https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434] 
+
 
 ## Set up a release pipelines
 
@@ -55,7 +91,7 @@ This article will outline using Azure release pipeline to automate the deploymen
 
 ## Set up a stage task for ARM resource create and update 
 
-Add an Azure Resource Manager Deployment task to create or update resources, including workspace, and pools:
+If you have ARM templates to deploy Synapse workspace, Spark and SQL pools, Key vault etc, add an Azure Resource Manager Deployment task to create or update those resources
 
 1. In the stage view, select **View stage tasks**.
 
@@ -84,7 +120,7 @@ Add an Azure Resource Manager Deployment task to create or update resources, inc
  > [!WARNING]
 > In Complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](../../azure-resource-manager/templates/deployment-modes.md)
 
-## Set up a stage task for artifacts deployment 
+## Set up a stage task for Synapse artifacts deployment 
 
 Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) extension to deploy other items in Synapse workspace, like dataset, SQL script, notebook, spark job definition, dataflow, pipeline,linked service, credentials and IR (Integration Runtime).  
 
@@ -108,7 +144,7 @@ Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?it
 
 1. Select the connection, resource group, and name of the target workspace. 
 
-1. Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target workspace. 
+1. Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target workspace including connection strings and account keys that are used in your linked services. [Click here for more info] (https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)
 
     ![Synapse workspace deploy](media/create-release-artifacts-deployment.png)
 
