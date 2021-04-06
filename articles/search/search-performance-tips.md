@@ -65,7 +65,7 @@ The types of queries you send are one of the most important factors for performa
 
 + **Number of facets.** Adding facets to queries requires aggregations for each query. In general, only add the facets that you plan to render in your app.
 
-+ **Limit high cardinality fields.**  A *high cardinality field* refers to a facetable or filterable field that has a significant number of unique values, and as a result, consumes significant resources when computing results. For example, setting a Product ID or Description field as facetable and filterable would count as high cardinality because most of the values from document to document are unique. Wherever possible, limit the number of high cardinality fields to just those that need it.
++ **Limit high cardinality fields.**  A *high cardinality field* refers to a facetable or filterable field that has a significant number of unique values, and as a result, consumes significant resources when computing results. For example, setting a Product ID or Description field as facetable and filterable would count as high cardinality because most of the values from document to document are unique.
 
 ### Tip: Use search functions instead overloading filter criteria
 
