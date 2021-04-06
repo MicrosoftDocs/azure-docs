@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix bad request exceptions.
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 04/05/2021
+ms.date: 04/06/2021
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -15,7 +15,7 @@ ms.reviewer: sngun
 
 The HTTP status code 400 represents the request contains invalid data or it's missing required parameters.
 
-## Missing the 'id' property
+## <a name="missing-id-property"></a>Missing the 'id' property
 On this scenario, it's common to see the error:
 
 ```
@@ -25,7 +25,7 @@ The input content is invalid because the required properties - 'id; ' - are miss
 ### Solution
 This error means the Json document being sent to the service is lacking this required property. Specify an `id` property with a String value as per the [REST specification](https://docs.microsoft.com/rest/api/cosmos-db/documents), the SDKs do not autogenerate values for this property.
 
-## Invalid partition key type
+## <a name="invalid-partition-key-type"></a>Invalid partition key type
 On this scenario, it's common to see errors like:
 
 ```
@@ -33,9 +33,9 @@ Partition key ... is invalid.
 ```
 
 ### Solution
-This error means the value provided as partition key is invalid. The value of the partition key should be a String.
+This error means the value provided as partition key is invalid. The value of the partition key should be a string or a number.
 
-## Wrong partition key value
+## <a name="wrong-partition-key-value"></a>Wrong partition key value
 On this scenario, it's common to see the error:
 
 ```
