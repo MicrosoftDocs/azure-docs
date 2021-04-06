@@ -132,14 +132,14 @@ To enable stateless node types, you should configure the underlying virtual mach
 }
 ```
 
-## Configuring Stateless nodetypes with multiple Availability Zones
+## Configuring Stateless node types with multiple Availability Zones
 To configure Stateless nodetype spanning across multiple availability zones follow the documentation [here](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cross-availability-zones#preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set), along with the few changes as follows:
 
 * Set **singlePlacementGroup** :  **false**  if multiple placement groups is required to be enabled.
 * Set  **upgradeMode** : **Rolling**   and add Application Health Extension/Health Probes as mentioned above.
-* Set **platformFaultDomainCount** : **5** for the VMSS. 
+* Set **platformFaultDomainCount** : **5** for virtual machine scale set.
 
-For reference, look at the [template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) for configuring Stateless nodetypes with multiple Availability Zones
+For reference, look at the [template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) for configuring Stateless node types with multiple Availability Zones
 
 ## Networking requirements
 ### Public IP and Load Balancer Resource
