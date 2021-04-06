@@ -2,7 +2,7 @@
 title: Microsoft Azure Recovery Services (MARS) Agent – FAQ
 description: Addresses common questions about backing up files and folders with Azure Backup.
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 04/05/2021
 
 ---
 
@@ -96,6 +96,10 @@ This warning can appear even though you've configured a backup policy, when the 
 
 * When the server or the settings have been recovered to a known good state, backup schedules can become unsynchronized.
 * If you receive this warning, [configure](backup-azure-manage-windows-server.md) the backup policy again, and then run an on-demand backup to resynchronize the local server with Azure.
+
+### I see a few jobs are stuck in the In Progress state for a long time under Backup Jobs in the Azure portal. How can I resolve these?
+
+This can happen if a job was unable to complete due to reasons, such as network connectivity issues, machine shutdown, or process termination. No user action is required here. These jobs will automatically be marked as **Failed** after 30 days. [Learn more](backup-windows-with-mars-agent.md#run-an-on-demand-backup) to run an on-demand backup job using the MARS agent.
 
 ## Manage the backup cache folder
 
@@ -205,7 +209,7 @@ As a safety measure, Azure Backup will preserve the most recent recovery point, 
 
 If an ongoing restore job is canceled, the restore process stops. All files restored before the cancellation stay in configured destination (original or alternate location), without any rollbacks.
 
-### Does the MARS agent back up and restore ACLs set on files, folders, and volumes?
+### Does the MARS agent backup and restore ACLs set on files, folders, and volumes?
 
 * The MARS agent backs up ACLs set on files, folders, and volumes
 * For Volume Restore recovery option, the MARS agent provides an option to skip restoring ACL permissions to the file or folder being recovered
