@@ -8,6 +8,8 @@
     href: terminology.md
 - name: Concepts
   items:
+  - name: Pipeline extension
+    href: pipeline-extension.md
   - name: Continuous video recording
     href: continuous-video-recording.md
   - name: Record video for playback
