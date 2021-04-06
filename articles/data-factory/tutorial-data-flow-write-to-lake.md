@@ -86,12 +86,12 @@ First, let's set up the data flow environment for each of the mechanisms describ
 
 It is very common to use unique values in your data to create folder hierarchies to partition your data in the lake. This is a very optimal way to organize and process data in the lake and in Spark (the compute engine behind data flows). However, there will be a small performance cost to organize your output in this way. Expect to see a small decrease in overall pipeline performance using this mechanism in the sink.
 
-1. Go back to the data flow designer and edit the data flow create aboved. Click on the sink transformation.
+1. Go back to the data flow designer and edit the data flow create above. Click on the sink transformation.
 1. Click Optimize > Set partitioning > Key
 1. Pick the column(s) you wish to use to set your hierarchical folder structure.
 1. Note the example below uses year and month as the columns for folder naming. The results will be folders of the form ```releaseyear=1990/month=8```.
 1. When accessing the data partitions in a data flow source, you will point to just the top-level folder above ```releaseyear``` and use a wildcard pattern for each subsequent folder, ex: ```**/**/*.parquet```
-1. To manipulate the data values, or even if need to generate synthentic values for folder names, use the Derived Column transformation to create the values you wish to use in your folder names.
+1. To manipulate the data values, or even if need to generate synthetic values for folder names, use the Derived Column transformation to create the values you wish to use in your folder names.
 
 ![Key partitioning](media/data-flow/key-parts.png "Key partitioning")
    
@@ -99,11 +99,11 @@ It is very common to use unique values in your data to create folder hierarchies
 
 A slightly better performing sink technique for lake data using ADLS Gen2 that does not offer the same benefit as key/value partitioning, is ```Name folder as column data```. Whereas the key partitioning style of hierarchical structure will allow you to process data slices easier, this technique is a flattened folder structure that can write data quicker.
 
-1. Go back to the data flow designer and edit the data flow create aboved. Click on the sink transformation.
+1. Go back to the data flow designer and edit the data flow create above. Click on the sink transformation.
 1. Click Optimize > Set partitioning > Use current partitioning.
 1. Click Settings > Name folder as column data.
 1. Pick the column that you wish to use for generating folder names.
-1. To manipulate the data values, or even if need to generate synthentic values for folder names, use the Derived Column transformation to create the values you wish to use in your folder names.
+1. To manipulate the data values, or even if need to generate synthetic values for folder names, use the Derived Column transformation to create the values you wish to use in your folder names.
 
 ![Folder option](media/data-flow/folders.png "Folders")
 
@@ -111,11 +111,11 @@ A slightly better performing sink technique for lake data using ADLS Gen2 that d
 
 The techniques listed in the above tutorials are good use cases for creating folder categories in your data lake. The default file naming scheme being employed by those techniques is to use the Spark executor job ID. Sometimes you may wish to set the name of the output file in a data flow text sink. This technique is only suggested for use with small files. The process of merging partition files into a single output file is a long-running process.
 
-1. Go back to the data flow designer and edit the data flow create aboved. Click on the sink transformation.
+1. Go back to the data flow designer and edit the data flow create above. Click on the sink transformation.
 1. Click Optimize > Set partitioning > Single partition. It is this single partition requirement that creates a bottleneck in the execution process as files are merged. This option is only recommended for small files.
 1. Click Settings > Name file as column data.
 1. Pick the column that you wish to use for generating file names.
-1. To manipulate the data values, or even if need to generate synthentic values for file names, use the Derived Column transformation to create the values you wish to use in your file names.
+1. To manipulate the data values, or even if need to generate synthetic values for file names, use the Derived Column transformation to create the values you wish to use in your file names.
 
 ## Next steps
 
