@@ -12,7 +12,7 @@ ms.date: 04/06/2021
 
 # Tips for better performance in Azure Cognitive Search
 
-This article is a collection of tips and best practices that are often recommended for boosting performance. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Key factors include:
+This article is a collection of tips and best practices that are often recommended for boosting performance. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Some key factors include:
 
 + Index composition (schema and size)
 + Query types
@@ -20,9 +20,9 @@ This article is a collection of tips and best practices that are often recommend
 
 ## Index size and schema
 
-Queries run faster on smaller indexes. This is partly a function of having fewer fields to scan, but it's also due to how the system caches content for future queries. After the first query, some content remains in memory where it's searched more efficiently. Because index size tends to grow over time, one best practice is to periodically revisit index composition, both schema and documents, to look for content reduction opportunities. A more common approach for query degradation due to index growth is to increase capacity: either [add replicas](search-capacity-planning.md#adjust-capacity) or [upgrade the service tier](#tip-upgrade-to-a-standard-s2-tier).
+Queries run faster on smaller indexes. This is partly a function of having fewer fields to scan, but it's also due to how the system caches content for future queries. After the first query, some content remains in memory where it's searched more efficiently. Because index size tends to grow over time, one best practice is to periodically revisit index composition, both schema and documents, to look for content reduction opportunities. However, if the index is right-sized, the only other calibration you can make is to increase capacity: either by [adding replicas](search-capacity-planning.md#adjust-capacity) or upgrading the service tier. The section ["Tip: Upgrade to a Standard S2 tier"]](#tip-upgrade-to-a-standard-s2-tier) shows you how to evaluate the scale up versus scale out decision.
 
-Schema complexity can also have adverse effects on both indexing and query performance. Excessive field attribution builds in limitations and processing requirements. [Complex types](search-howto-complex-data-types.md) take longer to index and query.
+Schema complexity can also adversely effect indexing and query performance. Excessive field attribution builds in limitations and processing requirements. [Complex types](search-howto-complex-data-types.md) take longer to index and query. The next few sections explore each condition.
 
 ### Tip: Be selective in field attribution
 
@@ -32,18 +32,18 @@ A common mistake that administrators and developer make when creating a search i
 
 Support for filters, facets, and sorting can quadruple storage requirements. If you add suggesters, storage requirements go up even more. For an illustration on the impact of attributes on storage, see [Attributes and index size](search-what-is-an-index.md#index-size).
 
-The ramifications of over-attribution include:
+Summarized, the ramifications of over-attribution include:
 
-+ Degradation of indexing performance due to the extra work required to process the content in the field, and then store it within the search inverted index. Only set the searchable attribute on fields that contain searchable content.
++ Degradation of indexing performance due to the extra work required to process the content in the field, and then store it within the search inverted index (set the "searchable" attribute only on fields that contain searchable content).
 
 + Creates a larger surface that each query has to cover. All fields marked as searchable are scanned in a full text search.
 
-+ Increases operational costs by wasting storage. Filtering and sorting requires additional space for storing original (non-analyzed) strings. Avoid setting filterable or sortable on fields that don't need it.
++ Increases operational costs due to extra storage. Filtering and sorting requires additional space for storing original (non-analyzed) strings. Avoid setting filterable or sortable on fields that don't need it.
 
-+ In many cases, over attribution limits the capabilities of the field. For example, if a field is facetable, filterable, and searchable, you can only store 16 KB of text within a field, whereas a searchable can hold up to 16 MB of text.
++ In many cases, over attribution limits the capabilities of the field. For example, if a field is facetable, filterable, and searchable, you can only store 16 KB of text within a field, whereas a searchable field can hold up to 16 MB of text.
 
 > [!NOTE]
-> Only unnecessary attribution should be avoided. Filters and facets are often essential to the search experience, and in cases where filters are used, you might need sorting so that you can order the results (filters by themselves return unordered results).
+> Only unnecessary attribution should be avoided. Filters and facets are often essential to the search experience, and in cases where filters are used, you frequently need sorting so that you can order the results (filters by themselves return in an unordered set).
 
 ### Tip: Consider alternatives to complex types
 
@@ -65,6 +65,8 @@ The types of queries you send are one of the most important factors for performa
 
 + **Number of facets.** Adding facets to queries requires aggregations for each query. In general, only add the facets that you plan to render in your app.
 
++ **Limit high cardinality fields.**  A *high cardinality field* refers to a facetable or filterable field that has a significant number of unique values, and as a result, consumes significant resources when computing results. For example, setting a Product ID or Description field as facetable and filterable would count as high cardinality because most of the values from document to document are unique. Wherever possible, limit the number of high cardinality fields to just those that need it.
+
 ### Tip: Use search functions instead overloading filter criteria
 
 As a query uses increasingly [complex filter criteria](search-query-odata-filter.md#filter-size-limitations), the performance of the search query will degrade. Consider the following example that demonstrates the use of filters to trim results based on a user identity:
@@ -80,6 +82,14 @@ A more efficient way to execute filters that contain a large number of values is
 ```json
 search.in(userid, '123,234,345,456,567', ',')
 ```
+
+### Tip: Add partitions for slow individual queries
+
+When query performance is slowing down in general, adding more replicas frequently solves the issue. But what if the problem is a single query that takes too long to complete? In this scenario, adding replicas will not help, but additional partitions might. A partition splits data across extra computing resources. Two partitions split data in half, a third partition splits it into thirds, and so forth. 
+
+One positive side-effect of adding partitions is that slower queries sometimes perform faster due to parallel computing. We have noted parallelization on low selectivity queries, such as queries that match many documents, or facets providing counts over a large number of documents. Since significant computation is required to score the relevancy of the documents, or to count the numbers of documents, adding extra partitions helps queries complete faster.  
+
+To add partitions, use [Azure portal](search-create-service-portal.md), [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md), or a management SDK.
 
 ## Service capacity
 
@@ -116,24 +126,6 @@ However, if the administrator chose to move to a Standard S2 tier the topology w
 As this hypothetical scenario illustrates, you can have configurations on lower tiers that result in similar costs as if you had opted for a higher tier in the first place. However, higher tiers come with premium storage, which makes indexing faster. Higher tiers also have much more compute power, as well as extra memory. For the same costs, you could have more powerful infrastructure backing the same index.
 
 An important benefit of added memory is that more of the index can be cached, resulting in lower search latency, and a greater number of queries per second. With this extra power, the administrator may not need to even need to increase the replica count and could potentially pay less than by staying on the S1 service.
-
-### Tip: Add partitions for slow individual queries
-
-One reason for high latency rates is a single query taking too long to complete. In this case, adding replicas will not help. Any of the following options might mitigate the problem:
-
-+ **Increase Partitions**
-
-  A partition splits data across extra computing resources. Two partitions split data in half, a third partition splits it into thirds, and so forth. One positive side-effect is that slower queries sometimes perform faster due to parallel computing. We have noted parallelization on low selectivity queries, such as queries that match many documents, or facets providing counts over a large number of documents. Since significant computation is required to score the relevancy of the documents, or to count the numbers of documents, adding extra partitions helps queries complete faster.  
-
-  There can be a maximum of 12 partitions in Standard search service and 1 partition in the Basic search service. Partitions can be adjusted either from the [Azure portal](search-create-service-portal.md) or [PowerShell](search-manage-powershell.md).
-
-+ **Limit High Cardinality Fields**
-
-  A high cardinality field consists of a facetable or filterable field that has a significant number of unique values, and as a result, consumes significant resources when computing results. For example, setting a Product ID or Description field as facetable/filterable would count as high cardinality because most of the values from document to document are unique. Wherever possible, limit the number of high cardinality fields.
-
-+ **Upgrade the Service Tier**  
-
-  Moving up to a higher Azure Cognitive Search tier can be another way to improve performance of slow queries. Each higher tier provides faster CPUs and more memory, both of which have a positive impact on query performance.
 
 ## Next steps
 
