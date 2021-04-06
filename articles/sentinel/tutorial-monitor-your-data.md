@@ -51,7 +51,7 @@ You must have at least **Workbook reader** or **Workbook contributor** permissio
 
 1. Select **View saved workbook**. 
 
-    [ ![View workbooks](media/tutorial-monitor-data/workbook-graph.png) ](media/tutorial-monitor-data/workbook-graph.png#lightbox)
+    [ ![View workbooks.](media/tutorial-monitor-data/workbook-graph.png) ](media/tutorial-monitor-data/workbook-graph.png#lightbox)
 
     Select the **Edit** button in the workbook toolbar to customize the workbook according to your needs. When you're done, select **Save** to save your changes.
 
@@ -65,7 +65,7 @@ You must have at least **Workbook reader** or **Workbook contributor** permissio
 
 1. Go to **Workbooks** and then select **Add workbook** to create a new workbook from scratch.
 
-      :::image type="content" source="media/tutorial-monitor-data/create-workbook.png" alt-text="New workbook.":::
+    [ ![New workbook.](media/tutorial-monitor-data/create-workbook.png) ](media/tutorial-monitor-data/create-workbook.png#lightbox)
 
 1. To edit the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). 
 
