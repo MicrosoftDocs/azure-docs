@@ -1,5 +1,5 @@
 ---
-title: 'How to scan Azure Synapse Analytics'
+title: 'How to scan Dedicated SQL pools'
 description: This how to guide describes details of how to scan Azure Synapse Analytics. 
 author: viseshag
 ms.author: viseshag
@@ -8,9 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
 ---
-# Register and scan Azure Synapse Analytics
+# Register and scan Dedicated SQL Pools (formerly SQL DW)
 
-This article discusses how to register and scan an instance of Azure Synapse Analytics (formerly SQL DW) in Purview.
+> [!NOTE]
+> If you are looking to register and scan a dedicated SQL database within a Synapse workspace, you must follow instructions [here](register-scan-synapse-workspace.md).
+
+This article discusses how to register and scan an instance of Dedicated SQL pool (formerly SQL DW) in Purview.
 
 ## Supported capabilities
 
@@ -108,14 +111,14 @@ When authentication method selected is **SQL Authentication**, you need to get y
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to setup your scan
 
-## Register an Azure Synapse Analytics instance (formerly SQL DW)
+## Register a SQL dedicated pool (formerly SQL DW)
 
 To register a new Azure Synapse Analytics server in your Data Catalog, do the following:
 
 1. Navigate to your Purview account
 1. Select **Sources** on the left navigation
 1. Select **Register**
-1. On **Register sources**, select **Azure Synapse Analytics (formerly SQL DW)**
+1. On **Register sources**, select **SQL dedicated pool (formerly SQL DW)**
 1. Select **Continue**
 
 On the **Register sources (Azure Synapse Analytics)** screen, do the following:
