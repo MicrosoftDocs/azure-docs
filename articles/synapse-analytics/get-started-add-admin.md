@@ -22,7 +22,7 @@ So far in the get started guide, we've focused on activities *you* do in the wor
 
 ## Azure RBAC: Owner role for the workspace
 
-Assign to `ryan@contoso.com` to Azure RBAC **Ownwer** role on the worksspace.
+Assign to `ryan@contoso.com` to Azure RBAC **Owner** role on the workspace.
 
 1. Open the Azure portal and open you Synapse workspace.
 1. On the left side, select **Access Control (IAM)**.
@@ -32,7 +32,7 @@ Assign to `ryan@contoso.com` to Azure RBAC **Ownwer** role on the worksspace.
  
 ## Synapse RBAC: Synapse Administrator role for the workspace
 
-Assign to `ryan@contoso.com` to Synapse RBAC **Synapse Adminstrator** role on the worksspace.
+Assign to `ryan@contoso.com` to Synapse RBAC **Synapse Administrator** role on the workspace.
 
 1. Open your workspace in Synapse Studio.
 1. On the left side, click **Manage** to open the Manage hub.
@@ -42,7 +42,7 @@ Assign to `ryan@contoso.com` to Synapse RBAC **Synapse Adminstrator** role on th
 1. Add `ryan@contoso.com` to the **Synapse Administrator** role. 
 1. Then click **Apply**.
  
-## Azure RBAC: Role assignements on the primary storage account
+## Azure RBAC: Role assignments on the primary storage account
 
 Assign to `ryan@contoso.com` to **Owner** role on the workspace's primary storage account.
 Assign to `ryan@contoso.com` to **Azure Storage Blob Data Contributor** role on the workspace's primary storage account.
