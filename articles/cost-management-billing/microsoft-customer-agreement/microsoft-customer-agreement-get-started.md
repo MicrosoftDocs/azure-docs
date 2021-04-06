@@ -28,7 +28,7 @@ When you or your organization signed the Microsoft Customer Agreement, a billing
 - [Get started with your Microsoft Azure billing account](../understand/mca-overview.md).
 - [Organize your costs](https://www.youtube.com/watch?v=7RxTfShGHwU) and [customize billing to meet your needs](../manage/mca-section-invoice.md).
 
-## **Start building your solutions in Azure**
+## Start building your solutions in Azure
 
 When you move existing subscriptions to your Microsoft Customer Agreement billing profile, service isn't changed and there's no service downtime.
 
@@ -42,7 +42,7 @@ After your subscriptions are moved, access to the subscriptions is unchanged for
 
 When you start consuming Azure services, your new invoice under the Microsoft Customer Agreement is generated on the fifth day of every month – ensure you [update your PO number in your billing profile](../manage/change-azure-account-profile.md). Your default payment method is wire transfer. To learn how to set up your payment method to avoid delays, see [How to pay for your subscription](../understand/pay-bill.md#wire-bank-details). The article explains how to get the required bank payment information.
 
-**Confirm payment details**
+## Confirm payment details
 
 When you move from a pay-as-you-go or an enterprise agreement to a Microsoft Customer Agreement, your payment method changes. The following table compares your previous payment method against your new one.
 
