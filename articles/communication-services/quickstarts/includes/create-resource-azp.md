@@ -20,7 +20,7 @@ Enter **Communication** into either the **Search the Marketplace** input or the 
 
 :::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Screenshot showing a search for communication services in the search bar.":::
 
-Select **Communication Services** in the results, and then select **Add**.
+Select **Communication Services** in the results, and then select **Create**.
 
 :::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Screenshot showing the Azure panel, highlighting the add button.":::
 
