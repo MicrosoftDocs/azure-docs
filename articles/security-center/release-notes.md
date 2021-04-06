@@ -63,7 +63,7 @@ This integration between Azure Security Center, Azure Defender, and Azure Arc en
 - Identified security threats from Azure Defender are reported in the new Security page of the Azure Arc Portal
 - Azure Arc enabled Kubernetes clusters are integrated into the Azure Security Center platform and experience
 
-Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters](defender-for-kubernetes-arc.md).
+Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters](defender-for-kubernetes-azure-arc.md).
 
 ### 11 Azure Defender alerts deprecated
 
