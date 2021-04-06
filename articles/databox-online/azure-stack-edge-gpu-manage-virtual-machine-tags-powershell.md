@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 04/06/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, XXXX.
 ---
@@ -20,52 +20,51 @@ This article describes how to tag virtual machines (VMs) running on your Azure S
 
 Tags are user-defined key-value pairs that can be assigned to a resource or a resource group. You can apply tags to VMs running on your device to logically organize them into a taxonomy. You can placed tags on a resource at the time of creation or add it to an existing resource. For example, you can apply the name `Organization` and the value `Engineering` to all VMs that are used by the Engineering department in your organization.
 
-For more information on tags, see how to [Manage tags via AzureRM PowerShell](/powershell/module/azurerm.tags/?view=azurermps-6.13.0).
+For more information on tags, see how to [Manage tags via AzureRM PowerShell](/powershell/module/azurerm.tags/?view=azurermps-6.13.0&preserve-view=true).
 
 ## Prerequisites
 
-Before you can manage tags on your Azure Stack Edge device, you must have configured your client to the Azure Stack Edge device via Azure Resource Manager over Azure PowerShell. For detailed steps, go to [Connect to Azure Resource Manager on your Azure Stack Edge device](azure-stack-edge-gpu-connect-resource-manager.md).<!--Target link: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-connect-resource-manager-->
+Before you can deploy a VM on your device via PowerShell, make sure that:
+
+- You have access to a client that you'll use to connect to your device.
+    - Your client runs a [Supported OS](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
+    - Your client is configured to connect to the local Azure Resource Manager of your device as per the instructions in [Connect to Azure Resource Manager for your device](azure-stack-edge-gpu-connect-resource-manager.md).
+
+
+## Verify connection to local Azure Resource Manager
 
 Make sure that the following steps can be used to access the device from your client.
 
-1. Verify that Azure Resource Manager communication is working. Enter:
+Verify that your client can connect to the local Azure Resource Manager. 
 
-   ```powershell
-   Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
-   ```
+1. Call local device APIs to authenticate:
 
-1. Call local device APIs to authenticate. Enter:
+    ```powershell
+    Login-AzureRMAccount -EnvironmentName <Environment Name>
+    ```
 
-      ```powershell
-   login-AzureRMAccount -EnvironmentName <Environment Name>
-   ```
-
-   Provide the username - EdgeARMuser - and the password to connect via Azure Resource Manager.
-
-
-
-
-## View all existing tags on the device
-
-To view the current list of tags for all the resources in the local Azure Resource Manager subscription of your device, use the `Get-AzureRMTag` command.
-
-```powershell
-Get-AzureRmTag
-```
-Here is an example output:
-
+1. Provide the username `EdgeArmUser` and the password to connect via Azure Resource Manager. If you do not recall the password, [Reset the password for Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) and use this password to sign in.
 
 
 ## Add a tag to a VM
 
 1. Set some parameters.
 
-   ```powershell
-   $VMName = <VM Name>
-   $VMRG = <VM Resource Group>
-   $TagName = <Tag Name>
-   $TagValue = <Tag Value>   
-   ```
+    ```powershell
+    $VMName = <VM Name>
+    $VMRG = <VM Resource Group>
+    $TagName = <Tag Name>
+    $TagValue = <Tag Value>   
+    ```
+
+    Here is an example output:
+
+    ```powershell
+    PS C:\WINDOWS\system32> $VMName = "myasetestvm1"
+    PS C:\WINDOWS\system32> $VMRG = "myaserg2"
+    PS C:\WINDOWS\system32> $TagName = "Organization"
+    PS C:\WINDOWS\system32> $TagValue = "Sales"
+    ```
 
 2. Get the VM object and its tags.
 
@@ -76,30 +75,118 @@ Here is an example output:
 
 3. Add the tag and update the VM. Updating the VM may take a few minutes.
 
-   You can use the optional **-Force** flag to run the command without user confirmation.
+    You can use the optional **-Force** flag to run the command without user confirmation.
 
-   ```powershell
-   $tags.Add($TagName, $TagValue)
-   Set-AzureRmResource -ResourceId $VirtualMachine.Id -Tag $tags [-Force]
-   ```
+    ```powershell
+    $tags.Add($TagName, $TagValue)
+    Set-AzureRmResource -ResourceId $VirtualMachine.Id -Tag $tags [-Force]
+    ```
 
-For more information, see [Add-AzureRMTag](/powershell/module/azurerm.tags/remove-azurermtag?view=azurermps-6.13.0).
+    Here is an example output:
+
+    ```powershell
+    PS C:\WINDOWS\system32> $VirtualMachine = Get-AzureRMVM -ResourceGroupName $VMRG -Name $VMName
+    PS C:\WINDOWS\system32> $tags = $VirtualMachine.Tags
+    PS C:\WINDOWS\system32> $tags.Add($TagName, $TagValue)
+    PS C:\WINDOWS\system32> Set-AzureRmResource -ResourceID $VirtualMachine.ID -Tag $tags -Force
+    
+    Name              : myasetestvm1
+    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myaserg2/providers/Microsoft.Compute/virtua
+                        lMachines/myasetestvm1
+    ResourceName      : myasetestvm1
+    ResourceType      : Microsoft.Compute/virtualMachines
+    ResourceGroupName : myaserg2
+    Location          : dbelocal
+    SubscriptionId    : 992601bc-b03d-4d72-598e-d24eac232122
+    Tags              : {Organization}
+    Properties        : @{vmId=958c0baa-e143-4d8a-82bd-9c6b1ba45e86; hardwareProfile=; storageProfile=; osProfile=; networkProfile=;
+                        provisioningState=Succeeded}
+    
+    PS C:\WINDOWS\system32>
+    ```
+
+For more information, see [Add-AzureRMTag](/powershell/module/azurerm.tags/remove-azurermtag?view=azurermps-6.13.0&preserve-view=true).
 
 ## View tags of a VM
 
-1. Define the parameters of the VM.
+You can view the tags applied to a specific virtual machine running on your device. 
+
+1. Define the parameters associated with the VM whose tags you want to view.
 
    ```powershell
    $VMName = <VM Name>
    $VMRG = <VM Resource Group>
    ```
+    Here is an example output:
 
+    ```powershell
+    PS C:\WINDOWS\system32> $VMName = "myasetestvm1"
+    PS C:\WINDOWS\system32> $VMRG = "myaserg2"
+    PS C:\WINDOWS\system32> $TagName = "Organization"
+    PS C:\WINDOWS\system32> $TagValue = "Sales"
+    ```
 1. Get the VM object and view its tags.
 
    ```powershell
    $VirtualMachine = Get-AzureRmVM -ResourceGroupName $VMRG -Name $VMName
    $VirtualMachine.Tags
    ```
+    Here is an example output:
+
+    ```powershell
+    PS C:\WINDOWS\system32> $VirtualMachine = Get-AzureRMVM -ResourceGroupName $VMRG -Name $VMName
+    PS C:\WINDOWS\system32> $VirtualMachine
+
+    ResourceGroupName : myaserg2
+    Id                : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myaserg2/providers/Microsoft.Compute/virtua
+    lMachines/myasetestvm1
+    VmId              : 958c0baa-e143-4d8a-82bd-9c6b1ba45e86
+    Name              : myasetestvm1
+    Type              : Microsoft.Compute/virtualMachines
+    Location          : dbelocal
+    Tags              : {"Organization":"Sales"}
+    HardwareProfile   : {VmSize}
+    NetworkProfile    : {NetworkInterfaces}
+    OSProfile         : {ComputerName, AdminUsername, LinuxConfiguration, Secrets}
+    ProvisioningState : Succeeded
+    StorageProfile    : {ImageReference, OsDisk, DataDisks}
+    
+    PS C:\WINDOWS\system32>
+    ```
+## View tags in all resources
+
+To view the current list of tags for all the resources in the local Azure Resource Manager subscription (different from your Azure subscription) of your device, use the `Get-AzureRMTag` command.
+
+
+Here is an example output when multiple VMs are running on your device and you want to view all the tags on all the VMs.
+
+```powershell
+PS C:\WINDOWS\system32> Get-AzureRMTag
+
+Name         Count
+----         -----
+Organization 3
+
+PS C:\WINDOWS\system32>
+```
+
+To view details, use the `-Detailed` parameter.
+
+```powershell
+PS C:\WINDOWS\system32> Get-AzureRMTag -Detailed |fl
+
+Name        : Organization
+ValuesTable :
+              Name         Count
+              ===========  =====
+              Engineering  2
+              Sales        1
+
+Count       : 3
+Values      : {Engineering, Sales}
+
+PS C:\WINDOWS\system32>
+```
 
 ## Remove a tag from a VM
 
@@ -140,7 +227,7 @@ For more information, see [Add-AzureRMTag](/powershell/module/azurerm.tags/remov
     OSProfile         : {ComputerName, AdminUsername, LinuxConfiguration, Secrets}
     ProvisioningState : Succeeded
     StorageProfile    : {ImageReference, OsDisk, DataDisks}
-                                                                                  PS C:\WINDOWS\system32> 
+                                                                              PS C:\WINDOWS\system32> 
     ```
 3. Remove the tag and update the VM. Use the optional `-Force` flag to run the command without user confirmation.
 
@@ -179,4 +266,4 @@ For more information, see [Add-AzureRMTag](/powershell/module/azurerm.tags/remov
 
 ## Next steps
 
-Learn how to [Manage tags via AzureRM PowerShell](/powershell/module/azurerm.tags/?view=azurermps-6.13.0).
+Learn how to [Manage tags via AzureRM PowerShell](/powershell/module/azurerm.tags/?view=azurermps-6.13.0&preserve-view=true).
