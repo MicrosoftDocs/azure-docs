@@ -350,29 +350,27 @@
     - name: Subclip a video REST
       href: transform-subclip-video-rest-how-to.md
       displayName: subclipping, clip, edit, trim, clipping
-    - name: Create a custom transform
-      items:
-        - name: Customize encoder presets .NET
-          href: transform-custom-presets-how-to.md
-        - name: Create an overlay transform .NET
-          href: transform-create-overlay-how-to.md
-        - name: Generate thumbnails .NET
-          href: transform-generate-thumbnails-dotnet-how-to.md
-        - name: Crop videos with .NET
-          href: crop-howto.md
-        - name: Customize encoder presets CLI
-          href: transform-custom-preset-cli-how-to.md
-        - name: Customize encoder presets REST
-          displayName: encode, encoding, custom, transform
-          href: transform-custom-preset-rest-how-to.md
-        - name: Generate thumbnails REST
-          href: transform-generate-thumbnails-rest-how-to.md
-        - name: Scale media reserved units
-          href: media-reserved-units-cli-how-to.md
-        - name: Create a copyAllBitrateNonInterleaved transform with REST
-          href: transform-create-copyallbitratenoninterleaved-how-to.md
-        - name: Copy videos without encoding with REST
-          href: transform-create-copy-video-audio-how-to.md
+    - name: Customize encoder presets .NET
+      href: transform-custom-presets-how-to.md
+    - name: Create an overlay transform .NET
+      href: transform-create-overlay-how-to.md
+    - name: Generate thumbnails .NET
+      href: transform-generate-thumbnails-dotnet-how-to.md
+    - name: Crop videos with .NET
+      href: crop-howto.md
+    - name: Customize encoder presets CLI
+      href: transform-custom-preset-cli-how-to.md
+    - name: Customize encoder presets REST
+      displayName: encode, encoding, custom, transform
+      href: transform-custom-preset-rest-how-to.md
+    - name: Generate thumbnails REST
+      href: transform-generate-thumbnails-rest-how-to.md
+    - name: Scale media reserved units
+      href: media-reserved-units-cli-how-to.md
+    - name: Create a copyAllBitrateNonInterleaved transform with REST
+      href: transform-create-copyallbitratenoninterleaved-how-to.md
+    - name: Copy videos without encoding with REST
+      href: transform-create-copy-video-audio-how-to.md
   - name: Create jobs
     items:
     - name: Create jobs with CLI
