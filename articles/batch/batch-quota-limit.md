@@ -128,7 +128,7 @@ For details and examples, see [Request a quota increase using the Azure Support 
 
 ## Related quotas for VM pools
 
-[Batch pools in the Virtual Machine Configuration deployed in an Azure virtual network](batch-virtual-network) automatically allocate additional Azure networking resources. These resources are created in the subscription that contains the virtual network supplied when creating the Batch pool.
+[Batch pools in the Virtual Machine Configuration deployed in an Azure virtual network](batch-virtual-network.md) automatically allocate additional Azure networking resources. These resources are created in the subscription that contains the virtual network supplied when creating the Batch pool.
 
 The following resources are created for each 100 pool nodes in a virtual network:
 
