@@ -112,6 +112,26 @@ description.tags[] |    `string`    | The list of tags. If there is insufficient
 description.captions[].text    | `string`    | A phrase describing the image.
 description.captions[].confidence    | `number`    | The confidence score for the phrase.
 
+### Error codes
+
+See the following list of possible errors and their causes:
+
+* 400
+    * InvalidImageUrl - Image URL is badly formatted or not accessible.
+    * InvalidImageFormat - Input data is not a valid image.
+    * InvalidImageSize - Input image is too large.
+    * NotSupportedVisualFeature - Specified feature type is not valid.
+    * NotSupportedImage - Unsupported image, e.g. child pornography.
+    * InvalidDetails - Unsupported `detail` parameter value.
+    * NotSupportedLanguage - The requested operation is not supported in the language specified.
+    * BadArgument - Additional details are provided in the error message.
+* 415 - Unsupported media type error. The Content-Type is not in the allowed types:
+    * For an image URL: Content-Type should be application/json
+    * For a binary image data: Content-Type should be application/octet-stream or multipart/form-data
+* 500
+    * FailedToProcess
+    * Timeout - Image processing timed out.
+    * InternalServerError
 
 ## Next steps
 
