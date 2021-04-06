@@ -167,9 +167,9 @@ Configure the Azure WAF to run in Prevention mode after baselining the network t
 
 Apply rules and rule groups to Azure Web Application Firewall (WAF) policies based on the applied tag metadata.
 
-- [WAF policy on Application Gateway](https://docs.microsoft.com/cli/azure/network/application-gateway/waf-policy?view=azure-cli-latest&amp;preserve-view=true)
+- [WAF policy on Application Gateway](/cli/azure/network/application-gateway/waf-policy)
 
-- [WAF policy on Front Door](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest&amp;preserve-view=true)
+- [WAF policy on Front Door](/cli/azure/ext/front-door/network/front-door/waf-policy)
 
 **Responsibility**: Customer
 
@@ -217,9 +217,9 @@ Choose Azure PowerShell or Azure CLI to look up or perform actions on resources 
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network settings and resources related to your Azure Web Application Firewall (WAF) deployments. Create alerts within Azure Monitor that will trigger when changes to critical network settings or resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -247,7 +247,7 @@ Choose Azure PowerShell or Azure CLI to look up or perform actions on resources 
 
 **Guidance**: Configure Azure Web Application Firewall (WAF) logs to be sent to a central security log management solution such as Azure Sentinel, or a third-party SIEM. These logs include Azure Activity, Diagnostic, and real-time WAF logs, these logs can then be viewed in different tools, such as Azure Monitor, Excel, and Power BI. Azure Web Application Firewall logs give insight to what data the Azure WAF is evaluating, matching, and blocking.
 
-Azure Sentinel has a built-in Azure WAF workbook, which provides an overview of the security events on the Azure WAF. This workbook includes events, matched and blocked rules, and everything else that gets logged in the firewall logs. This telemetry can be used to kick off playbook automation to notify or take remediation actions based on WAF events collected by Sentinel.
+Azure Sentinel has a built-in Azure WAF workbook, which provides an overview of the security events on the Azure WAF. This workbook includes events, matched and blocked rules, and everything else that gets logged in the firewall logs. This telemetry can be used to kick off playbook automation to notify or take remediation actions based on WAF events collected by Azure Sentinel.
 
 - [View Activity Logs](../azure-resource-manager/management/view-activity-logs.md)
 
@@ -268,9 +268,9 @@ Azure Sentinel has a built-in Azure WAF workbook, which provides an overview of 
 
 - [Logging overview](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#logging)
 
-- [Azure Monitor log query overview](/azure/azure-monitor/log-query/log-query-overview)
+- [Azure Monitor log query overview](../azure-monitor/logs/log-query-overview.md)
 
-- [Overview of Azure Platform logs](/azure/azure-monitor/platform/platform-logs-overview)
+- [Overview of Azure Platform logs](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsibility**: Customer
 
@@ -296,7 +296,7 @@ Azure Sentinel has a built-in Azure WAF workbook, which provides an overview of 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22652).
 
 **Guidance**: Send the Azure Web Application Firewall (WAF) logs to a custom storage account and define the retention policy. Use Azure Monitor to set your Log Analytics workspace retention period based on your organization's compliance requirements.
-- [Configure monitoring for a storage account](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Configure monitoring for a storage account](https://docs.microsoft.com/azure/storage/common/manage-storage-analytics-logs#configure-logging)
 
 **Responsibility**: Customer
 
@@ -330,9 +330,9 @@ Azure Sentinel has a built-in WAF - firewall events workbook, which provides an 
 
 **Guidance**: Enable Azure Activity Log diagnostic settings, as well as the diagnostic settings for your Azure WAF, and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the collected data. Create alerts for anomalous activity based on WAF metrics. For example, if blocked number of requests exceeding 'X,' do 'Y'.
 
-- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/essentials/diagnostic-settings-legacy)
 
-- [How to create alerts within Azure](/azure/azure-monitor/learn/tutorial-response)
+- [How to create alerts within Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsibility**: Customer
 
@@ -474,8 +474,8 @@ Wherever possible, use Azure Active Directory (Azure AD) SSO rather than configu
 
 **Guidance**: Use Privileged Access Workstation (PAW) with multifactor authentication configured to log into and configure Azure Web Application Firewall (WAF) and related resources.
 
-- [Learn about Privileged Access Workstations](/security/compass/privileged-access-devices) 
- 
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+
 - [How to enable multifactor authentication in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsibility**: Customer
@@ -722,7 +722,7 @@ Microsoft manages the underlying infrastructure for Azure WAF and has implemente
 
 The Azure WAF, in Prevention mode, blocks intrusions and attacks that are detected by the rules. The attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records such attacks in the WAF logs.
 
-- [Overview of integration between Application Gateway and Azure Security Center](/azure/application-gateway/application-gateway-integration-security-center#overview)
+- [Overview of integration between Application Gateway and Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration#overview)
 
 - [WAF modes on Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-modes)
 
@@ -1344,7 +1344,8 @@ Azure Application Gateway supports integration with Key Vault for server certifi
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22719).
 
-**Guidance**: Security Center assigns a severity to each alert to help prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+**Guidance**: Security Center assigns a severity to each alert to help prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the metric used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+
 Clearly mark subscriptions (for example, production, non-production) and create a naming system to clearly identify and categorize Azure resources.
 
 **Responsibility**: Customer

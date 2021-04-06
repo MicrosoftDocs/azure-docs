@@ -146,9 +146,9 @@ To see how Stream Analytics completely maps to the Azure Security Benchmark, see
 
 **Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes for your Stream Analytics resources. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -179,7 +179,7 @@ To see how Stream Analytics completely maps to the Azure Security Benchmark, see
 
 **Guidance**: Ingest logs via Azure Monitor to aggregate security data such as audit events and requests. Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accountyfor long-term/archival storage, optionally with security features such as immutable storage and enforced retention holds. 
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Responsibility**: Customer
 
@@ -222,9 +222,9 @@ To see how Stream Analytics completely maps to the Azure Security Benchmark, see
 
 - [Azure Stream Analytics provides diagnostic logs and activity data for review](stream-analytics-job-diagnostic-logs.md)
 
-- [How to configure retention policy for Azure Storage account logs](/azure/storage/common/storage-monitor-storage-account#configure-logging) 
+- [How to configure retention policy for Azure Storage account logs](https://docs.microsoft.com/azure/storage/common/manage-storage-analytics-logs#configure-logging) 
 
-- [Change the data retention period in Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -239,9 +239,9 @@ To see how Stream Analytics completely maps to the Azure Security Benchmark, see
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [For more information about the Log Analytics Workspace](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [For more information about the Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsibility**: Customer
 
@@ -256,7 +256,7 @@ To see how Stream Analytics completely maps to the Azure Security Benchmark, see
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [How to alert on log analytics log data](/azure/azure-monitor/learn/tutorial-response)  
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)  
 
 - [Azure Stream Analytics provides diagnostic logs and activity data for review](stream-analytics-job-diagnostic-logs.md)
 
@@ -612,7 +612,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Stream Analytics resources.
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -1190,7 +1190,7 @@ Customer-managed / provided keys can be backed within Azure Key Vault using Azur
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/2978).
 
-**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
+**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the metric used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
 
 Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 

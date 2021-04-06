@@ -33,7 +33,7 @@ See [Create custom Azure Resource Manager role](create-custom-azure-resource-man
 
 ### Set up a premium streaming endpoint
 
-If you intend to use Live Video Analytics to record video continuously to the cloud, and subsequently use [query APIs](playback-recordings-how-to.md#query-api) before playing it back, then we recommend updating your Media Service to use a [premium streaming endpoint](../latest/streaming-endpoint-concept.md#types).  
+If you intend to use Live Video Analytics to record video continuously to the cloud, and subsequently use [query APIs](playback-recordings-how-to.md#query-api) before playing it back, then we recommend updating your Media Service to use a [premium streaming endpoint](../latest/stream-streaming-endpoint-concept.md#types).  
 
 This is an optional step. You can use this Azure CLI command to do so:
 

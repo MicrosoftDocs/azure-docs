@@ -100,7 +100,7 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
    > ![Screenshot of unsuccessful loaded broker global access](media/unsuccessful-broker-global.png)
 
 8. If the network is blocking these URLs, you will need to unblock the required URLs. For more information, see [Required URL List](safe-url-list.md).
-9. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection. Windows Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](../frontdoor/front-door-faq.MD#what-are-the-current-cipher-suites-supported-by-azure-front-door). For more information, see [Connection Security](network-connectivity.md#connection-security).
+9. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection. Windows Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). For more information, see [Connection Security](network-connectivity.md#connection-security).
 
 ## Error: 3703
 
@@ -310,7 +310,7 @@ To resolve this issue:
 
 If you can't find your issue in this article or the instructions didn't help you, we recommend you uninstall, reinstall, and re-register Windows Virtual Desktop Agent. The instructions in this section will show you how to reregister your VM to the Windows Virtual Desktop service by uninstalling all agent, boot loader, and stack components, removing the session host from the host pool, generating a new registration key for the VM, and reinstalling the agent and boot loader. If one or more of the following scenarios apply to you, follow these instructions:
 - Your VM is stuck in **Upgrading** or **Unavailable**
-- Your stack listener isn't working and you're running on Windows 10 1809, 1903, or 1904
+- Your stack listener isn't working and you're running on Windows 10 1809, 1903, or 1909
 - You're receiving an **EXPIRED_REGISTRATION_TOKEN** error
 - You're not seeing your VMs show up in the session hosts list
 - You don't see the **Remote Desktop Agent Loader** in the Services window

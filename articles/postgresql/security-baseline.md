@@ -187,7 +187,7 @@ Note: Azure Database for PostgreSQL uses the "Microsoft.Sql" service tag.
 
 Use any of the built-in Azure Policy definitions related to tagging, such as, "Require tag and its value," to ensure that all resources are created with tags and to notify you of existing untagged resources.
 
-You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
+You may use Azure PowerShell or Azure CLI to look up or perform actions on resources based on their tags.
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -202,9 +202,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Database for PostgreSQL instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -256,7 +256,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [How to configure and access audit logs for Azure Database for PostgreSQL](concepts-audit.md)
 
-- [How to configure Diagnostic Settings for the Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 **Responsibility**: Customer
 
@@ -283,9 +283,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Within Azure Monitor, for the Log Analytics Workspace being used to hold your Azure Database for PostgreSQL logs, set the retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-- [How to set log retention parameters for Log Analytics Workspaces](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters for Log Analytics Workspaces](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
 
-- [Storing resource logs in an Azure Storage Account](/azure/azure-monitor/platform/resource-logs#send-to-azure-storage)
+- [Storing resource logs in an Azure Storage Account](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage)
 
 **Responsibility**: Customer
 
@@ -296,13 +296,13 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3817).
 
-**Guidance**: Analyze and monitor logs from your Azure Database for PostgreSQL instances for anomalous behavior. Use Azure Monitor's Log Analytics to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
+**Guidance**: Analyze and monitor logs from your Azure Database for PostgreSQL instances for anomalous behavior. Use Azure Monitor's Log Analytics to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [For more information about the Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [For more information about the Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsibility**: Customer
 
@@ -323,7 +323,7 @@ In addition, you may enable Server Logs and Diagnostic Settings for PostgreSQL a
 
 - [How to configure and access audit logs for Azure Database for PostgreSQL](concepts-audit.md)
 
-- [How to configure Diagnostic Settings for the Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -353,7 +353,7 @@ In addition, you may enable Server Logs and Diagnostic Settings for PostgreSQL a
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Database for PostgreSQL does not process or produce DNS related logs.
+**Guidance**: Not applicable; Azure Database for PostgreSQL does not process or produce DNS-related logs.
 
 **Responsibility**: Not applicable
 
@@ -471,8 +471,8 @@ Separately, control plane access for PostgreSQL is available via REST API and su
 
 **Guidance**: Use Privileged Access Workstations (PAWs) with multifactor authentication configured to log into and configure Azure resources. 
 
-- [Learn about Privileged Access Workstations](/security/compass/privileged-access-devices)
- 
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+
 - [How to enable multifactor authentication in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsibility**: Customer
@@ -662,7 +662,7 @@ Microsoft manages the underlying infrastructure for Azure Database for PostgreSQ
 
 **Guidance**: Azure Database for PostgreSQL supports connecting your PostgreSQL server to client applications using Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL). Enforcing TLS connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. In the Azure portal, ensure "Enforce SSL connection" is enabled for all of your Azure Database for PostgreSQL instances by default.
 
-Currently the TLS version supported for Azure Database for PostgreSQL are TLS 1.0, TLS 1.1, TLS 1.2.
+Currently the TLS versions supported for Azure Database for PostgreSQL are TLS 1.0, TLS 1.1, TLS 1.2.
 
 - [How to configure encryption in transit for Azure Database for PostgreSQL](concepts-ssl-connection-security.md)
 
@@ -751,7 +751,7 @@ AskAzureDBforPostgreSQL@service.microsoft.com.
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to production instances of Azure Database for PostgreSQL and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -1380,7 +1380,7 @@ Periodically test restoration of your Azure Database for PostgreSQL instances.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3883).
 
-**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the metric used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, clearly mark subscriptions (for ex. production, non-prod) and create a naming system to clearly identify and categorize Azure resources.
 
@@ -1419,7 +1419,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3886).
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Azure Sentinel.
 
 - [How to configure continuous export](../security-center/continuous-export.md)
 

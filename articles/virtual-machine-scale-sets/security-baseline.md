@@ -218,9 +218,9 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 Use Azure Policy to validate (and/or remediate) configurations for network resource related to Virtual Machine Scale Set.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -266,7 +266,7 @@ Use Azure Security Center to provide Security Event log monitoring for Azure Vir
 
 If your organization would like to retain the security event log data from the virtual machine, it can be stored within a Log Analytics Workspace at the desired data collection tier configured within Azure Security Center.
 
-- [How to collect platform logs and metrics with Azure Monitor ](/azure/azure-monitor/platform/diagnostic-settings)
+- [How to collect platform logs and metrics with Azure Monitor ](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -274,7 +274,7 @@ If your organization would like to retain the security event log data from the v
 
 - [Data collection in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) 
 
-- [How to monitor virtual machines in Azure](/azure/azure-monitor/insights/monitor-vm-azure)
+- [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 **Responsibility**: Customer
 
@@ -295,11 +295,11 @@ Enable the collection of guest OS diagnostic data by deploying the diagnostic ex
 
 For advanced visibility of the applications and services supported by the Azure Virtual Machine Scale Set you can enable both Azure Monitor for VMs and Application insights. With Application Insights, you can monitor your application and capture telemetry such as HTTP requests, exceptions, etc. so you can correlate issues between the VMs and your application.
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [View and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [View and retrieve Azure Activity log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
-- [How to monitor virtual machines in Azure](/azure/azure-monitor/insights/monitor-vm-azure)
+- [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 - [Application Insights overview](../azure-monitor/app/app-insights-overview.md)
 
@@ -322,7 +322,7 @@ If your organization would like to retain the security event log data from the v
 
 - [Data collection in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) 
 
-- [How to monitor virtual machines in Azure](/azure/azure-monitor/insights/monitor-vm-azure)
+- [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 **Responsibility**: Customer
 
@@ -339,9 +339,9 @@ If your organization would like to retain the security event log data from the v
 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing virtual machine logs has the log retention period set according to your organization's compliance regulations.
 
-- [How to monitor virtual machines in Azure](/azure/azure-monitor/insights/monitor-vm-azure)
+- [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
-- [How to configure Log Analytics Workspace Retention Period](/azure/azure-monitor/platform/manage-cost-storage)
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
 **Responsibility**: Customer
 
@@ -358,9 +358,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Understand Log Analytics Workspace](/azure/azure-monitor/log-query/get-started-portal)
+- [Understand Log Analytics Workspace](/azure/azure-monitor/logs/get-started-portal)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
 **Responsibility**: Customer
 
@@ -379,7 +379,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [How to alert on log analytics log data](/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsibility**: Customer
 
@@ -424,15 +424,15 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/2106).
 
-**Guidance**: The Azure Security Center provides Security Event log monitoring for Azure Virtual Machines(VM). Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created if automatic provisioning is enabled OR you can install the agent manually.  The agent enables the process creation event 4688 and the CommandLine field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Security Center’s detection services.
+**Guidance**: The Azure Security Center provides Security Event log monitoring for Azure Virtual Machines (VM). Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created if automatic provisioning is enabled OR you can install the agent manually.  The agent enables the process creation event 4688 and the CommandLine field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Security Center’s detection services.
 
 For Linux Virtual machines, you can manually configure console logging on a per-node basis and use syslogs to store the data.  Also, use Azure Monitor's Log Analytics workspace to review logs and perform queries on syslog data from Azure Virtual machines.
 
 - [Data collection in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
-- [Syslog data sources in Azure Monitor](/azure/azure-monitor/platform/data-sources-syslog)
+- [Syslog data sources in Azure Monitor](../azure-monitor/agents/data-sources-syslog.md)
 
 **Responsibility**: Customer
 
@@ -545,7 +545,7 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [How to configure action groups for custom alerting and notification](/azure/azure-monitor/platform/action-groups)
+- [How to configure action groups for custom alerting and notification](../azure-monitor/alerts/action-groups.md)
 
 **Responsibility**: Customer
 
@@ -599,13 +599,13 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 **Guidance**: Configure diagnostic settings for Azure Active Directory (Azure AD) to send the audit logs and sign-in logs to a Log Analytics workspace. Also, use Azure Monitor to review logs and perform queries on log data from Azure Virtual machines.
 
-- [Understand Log Analytics Workspace](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
-- [How to monitor virtual machines in Azure](/azure/azure-monitor/insights/monitor-vm-azur)
+- [How to monitor virtual machines in Azure](/azure/azure-monitor/vm/monitor-vm-azur)
 
 **Responsibility**: Customer
 
@@ -703,7 +703,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/2124).
 
-**Guidance**: Data in transit to, from, and between Virtual Machines(VM) that are running Windows is encrypted in a number of ways, depending on the nature of the connection such as when connecting to a VM in a RDP or SSH session.
+**Guidance**: Data in transit to, from, and between Virtual Machines (VM) that are running Windows is encrypted in a number of ways, depending on the nature of the connection such as when connecting to a VM in an RDP or SSH session.
 
 Microsoft uses the Transport Layer Security (TLS) protocol to protect data when it's traveling between the cloud services and customers.
 
@@ -755,7 +755,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/2128).
 
-**Guidance**: Virtual disks on Virtual Machines(VM) are encrypted at rest using either Server-side encryption or Azure disk encryption (ADE). Azure Disk Encryption leverages the DM-Crypt feature of Linux to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
+**Guidance**: Virtual disks on Virtual Machines (VM) are encrypted at rest using either Server-side encryption or Azure disk encryption (ADE). Azure Disk Encryption leverages the DM-Crypt feature of Linux to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
 
 - [Azure Disk Encryption for Virtual Machine Scale Sets](disk-encryption-overview.md)
 
@@ -774,7 +774,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Virtual machines scale sets and related resources.  
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Azure Storage analytics logging](../storage/common/storage-analytics-logging.md)
 
@@ -934,7 +934,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 - Allowed resource types
 
-In addition, use the Azure Resource Graph to query/discover resources within the subscription(s). This can help in high security based environments, such as those with Storage accounts.
+In addition, use the Azure Resource Graph to query/discover resources within the subscription(s). This can help in high security-based environments, such as those with Storage accounts.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -1049,7 +1049,7 @@ Currently Adaptive Application controls are not available for Virtual Machine Sc
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/2145).
 
-**Guidance**: Depending on the type of scripts, you may use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
+**Guidance**: Depending on the type of scripts, you may use operating system-specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
 
 - [How to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7&amp;preserve-view=true)
 
@@ -1095,7 +1095,7 @@ Currently Adaptive Application controls are not available for Virtual Machine Sc
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Information on how to download the VM template](/azure/virtual-machines/windows/download-template)
+- [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Responsibility**: Customer
 
@@ -1138,7 +1138,7 @@ Currently Adaptive Application controls are not available for Virtual Machine Sc
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/2150).
 
-**Guidance**: There are several options for maintaining a secure configuration for Azure Virtual Machines(VM) for deployment:
+**Guidance**: There are several options for maintaining a secure configuration for Azure Virtual Machines (VM) for deployment:
 
 1. Azure Resource Manager templates: These are JSON-based files used to deploy a VM from the Azure portal, and custom template will need to be maintained. Microsoft performs the maintenance on the base templates.
 
@@ -1148,7 +1148,7 @@ Currently Adaptive Application controls are not available for Virtual Machine Sc
 
 For most scenarios, the Microsoft base VM templates combined with the Azure Automation Desired State Configuration can assist in meeting and maintaining the security requirements.
 
-- [Information on how to download the VM template](/azure/virtual-machines/windows/download-template)
+- [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
 - [Information on creating ARM templates](../virtual-machines/windows/ps-template.md)
 
@@ -1210,7 +1210,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/2154).
 
-**Guidance**: Azure Automation State Configuration is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified. 
+**Guidance**: Azure Automation State Configuration is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance with the desired state you specified. 
 
 - [Onboarding machines for management by Azure Automation State Configuration](../automation/automation-dsc-onboarding.md)
 
@@ -1238,7 +1238,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/2156).
 
-**Guidance**: Azure Automation State Configuration is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified.
+**Guidance**: Azure Automation State Configuration is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance with the desired state you specified.
 
 - [Onboarding machines for management by Azure Automation State Configuration](../automation/automation-dsc-onboarding.md)
 
@@ -1463,7 +1463,7 @@ If you are using Azure disk encryption, you can restore your virtual machine sca
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/2170).
 
-**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
+**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the metric used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
 
 Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
