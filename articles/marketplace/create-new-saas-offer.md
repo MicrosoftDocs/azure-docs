@@ -66,7 +66,7 @@ Connect your customer relationship management (CRM) system with your commercial 
 > [!NOTE]
 > You must configure lead management if you’re selling your offer through Microsoft or you selected the **Contact Me** listing option. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
-### To configure the connection details in Partner Center
+### Configure the connection details in Partner Center
 
 1.	Under **Customer leads**, select the **Connect** link.
 1. In the **Connection details** dialog box, select a lead destination from the list.
@@ -81,23 +81,23 @@ Connect your customer relationship management (CRM) system with your commercial 
 1. To validate the configuration you provided, select the **Validate** link.
 1. To close the dialog box, select **OK**.
 
-## Configure Microsoft 365 App integration 
+## Configure Microsoft 365 App integration
 
-You can light up [unified discovery and delivery](./plan-a-SaaS-offer#Microsoft 365 App integration) of your SaaS offer and any related Microsoft 365 App consumption by linking them. 
+You can light up [unified discovery and delivery](./plan-a-SaaS-offer) of your SaaS offer and any related Microsoft 365 App consumption by linking them.
 
-### Integrate with Microsoft API 
+### Integrate with Microsoft API
 
 1. If your SaaS offer does not integrate with Microsoft Graph API, select **No**. Continue to Link published Microsoft 365 App consumption clients.  
 
 1. If your SaaS offer integrates with Microsoft Graph API, select **Yes**, and then provide the Azure Active Directory App ID you have created and registered to integrate with Microsoft Graph API. 
 
-### Link published Microsoft 365 App consumption clients 
+### Link published Microsoft 365 App consumption clients
 
-1. If you do not have published Office add-in, Teams app, or SharePoint Framework solutions that works with your SaaS offer, select **No**. 
+1. If you do not have published Office add-in, Teams app, or SharePoint Framework solutions that works with your SaaS offer, select **No**.
 
 1. If you have published Office add-in, Teams app, or SharePoint Framework solutions that works with your SaaS offer, select **Yes**, then select **+Add another AppSource link** to add new links.  
 
-1. Provide a valid AppSource link. 
+1. Provide a valid AppSource link.
 
 1. Continue adding all the links by select **+Add another AppSource link** and provide valid AppSource links.  
 
