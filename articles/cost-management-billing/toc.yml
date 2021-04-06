@@ -388,6 +388,8 @@
       href: ../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/billing
   - name: Azure Cost Management REST API
     href: /rest/api/cost-management
   - name: Azure Consumption REST API

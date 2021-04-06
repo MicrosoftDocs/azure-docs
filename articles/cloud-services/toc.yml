@@ -198,6 +198,8 @@
           href: cloud-services-deployment-faq.md
   - name: Reference
     items:
+    - name: Azure CLI
+      href: /cli/azure/cloud
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=cloud-services
     - name: .csdef XML Schema
