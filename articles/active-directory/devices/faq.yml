@@ -93,7 +93,7 @@ sections:
                 For Azure AD joined devices Windows 10 devices, take the following steps:
           
                 1. Open the command prompt as an administrator
-                1. Enter `dsregcmd /forcerecovery` (Note: You need to be an administrator to perform this action).
+                1. Enter `dsregcmd /forcerecovery` (You need to be an administrator to perform this action).
                 1. Click "Sign in" in the dialog that opens up and continue with the sign in process.
                 1. Sign out and sign in back to the device to complete the recovery.
           
