@@ -366,7 +366,7 @@
         - name: Customize encoder presets REST
           displayName: encode, encoding, custom, transform
           href: transform-custom-preset-rest-how-to.md
-        - name: Generate thumbnails with REST
+        - name: Generate thumbnails REST
           href: transform-generate-thumbnails-rest-how-to.md
         - name: Scale media reserved units
           href: media-reserved-units-cli-how-to.md
