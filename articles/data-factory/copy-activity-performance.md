@@ -59,7 +59,7 @@ This full utilization means you can estimate the overall throughput by measuring
 The table below shows the calculation of data movement duration. The duration in each cell is calculated based on a given network and data store bandwidth and a given data payload size.
 
 > [!NOTE]
-> The duration provided below are meant to represent achievable performance in an end-to-end data integration solution implemented using ADF, by using one or more performance optimization techniques described in [Copy performance optimization features](#copy-performance-optimization-features), including using ForEach to partition and spawn off multiple concurrent copy activities. We recommend you to follow steps laid out in [Performance tuning steps](#performance-tuning-steps) to optimize copy performance for your specific dataset and system configuration. You should use the numbers obtained in your performance tuning tests for your reference.
+> The duration provided below are meant to represent achievable performance in an end-to-end data integration solution implemented using ADF, by using one or more performance optimization techniques described in [Copy performance optimization features](#copy-performance-optimization-features), including using ForEach to partition and spawn off multiple concurrent copy activities. We recommend you to follow steps laid out in [Performance tuning steps](#performance-tuning-steps) to optimize copy performance for your specific dataset and system configuration. You should use the numbers obtained in your performance tuning tests for production deployment planning, capacity planning, and billing projection.
 
 &nbsp;
 
