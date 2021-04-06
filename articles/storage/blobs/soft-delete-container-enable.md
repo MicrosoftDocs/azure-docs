@@ -14,27 +14,25 @@ ms.subservice: blobs
 
 # Enable and manage soft delete for containers
 
-Container soft delete protects your data from being accidentally or erroneously modified or deleted. When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify.
+Container soft delete protects your data from being accidentally or erroneously modified or deleted. When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. For more details about container soft delete, see [Soft delete for containers](soft-delete-container-overview.md).
 
-If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on container soft delete. This article shows how to enable soft delete for containers. For more details about container soft delete, see [Soft delete for containers](soft-delete-container-overview.md).
-
-For end-to-end data protection, Microsoft recommends that you also enable soft delete for blobs and Blob versioning. To learn how to also enable soft delete for blobs, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md). To learn how to enable blob versioning, see [Blob versioning](versioning-overview.md).
+For end-to-end data protection, Microsoft recommends that you also enable soft delete for blobs and blob versioning. To learn how to also enable soft delete for blobs, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md). To learn how to enable blob versioning, see [Blob versioning](versioning-overview.md).
 
 ## Enable container soft delete
 
-You can enable or disable container soft delete for the storage account at any time by using the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template.
+You can enable or disable container soft delete for the storage account at any time by using the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template. Microsoft recommends setting the retention period for container soft delete to a minimum of seven days.
 
 # [Portal](#tab/azure-portal)
 
 To enable container soft delete for your storage account by using Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
-1. Locate the **Data Protection** settings under **Blob service**.
-1. Set the **Container soft delete** property to *Enabled*.
-1. Under **Retention policies**, specify how long soft-deleted containers are retained by Azure Storage.
+1. Locate the **Data protection** settings under **Data management**.
+1. Select **Enable soft delete for containers**.
+1. Specify a retention period between 1 and 365 days.
 1. Save your changes.
 
-:::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-configure.png" alt-text="Screenshot showing how to enable container soft delete in Azure portal":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-configure.png" alt-text="Screenshot showing how to enable container soft delete in Azure portal":::
 
 # [PowerShell](#tab/powershell)
 
