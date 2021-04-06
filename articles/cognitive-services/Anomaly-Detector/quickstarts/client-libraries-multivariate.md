@@ -15,7 +15,7 @@ ms.author: mbullwin
 keywords: anomaly detection, algorithms
 ---
 
-# Quickstart: Use the Anomaly Detector client library
+# Quickstart: Use the Anomaly Detector multivariate client library
 
 ::: zone pivot="programming-language-csharp"
 
