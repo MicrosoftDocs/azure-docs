@@ -58,7 +58,7 @@ Once you have computed the total number of Request Units and GB of storage you'r
 > [!NOTE]
 > The costs shown in the previous example are for demonstration purposes only. See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
 
-## Understand the full billing model for Azure Cosmos DB
+## Understand the full billing model
 
 Azure Cosmos DB runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue.
 
@@ -74,7 +74,7 @@ When you create or use Azure Cosmos DB resources, you might get charged for the 
 
 There is an additional charge in case you are using the Azure Cosmos DB features like backup storage, analytical storage, Availability zones, Multi-region writes. At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Cosmos DB costs. There's a separate line item for each meter. To learn more, see the [Pricing model](how-pricing-works.md) article.
 
-### Using Azure Prepayment with Azure Cosmos DB
+### Using Azure Prepayment
 
 You can pay for Azure Cosmos DB charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
