@@ -86,8 +86,8 @@ landingContent:
       links:
       - text: What is Active Directory?
         url: ../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-#      - text: Manage multiple tenants (placeholder)
-#        url: ../manage/create-subscription.md
+      - text: Manage multiple tenants
+        url: manage-tenants.md
 #      - text: Manage subscriptions in multiple tenants (placeholder)
 #        url: ../manage/create-subscription.md
 

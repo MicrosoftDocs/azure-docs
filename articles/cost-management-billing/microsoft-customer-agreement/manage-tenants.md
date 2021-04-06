@@ -21,7 +21,7 @@ A tenant is a digital representation of your organization and is primarily assoc
 
 Each tenant is distinct and separate from other tenants, yet you can guest users from other tenants to access your tenant to track your costs and manage billing.
 
-## How tenants and subscriptions relate to your MCA billing account
+## How tenants and subscriptions relate to billing account
 
 You use your Microsoft Customer Agreement (billing account) to track costs and manage billing. Each billing account has at least one billing profile. The billing profile allows you to manage your invoice and payment method. Each billing profile includes one invoice section, by default. You can create additional invoice sections to group, track, and manage costs at a more granular level if needed.
 
@@ -61,7 +61,7 @@ After they accept, they can [view the Microsoft Customer Agreement billing accou
 
 :::image type="content" source="./media/manage-tenants/billing-microsoft-customer-agreement-in-list.png" alt-text="Screenshot showing the Microsoft Customer Agreement in the list of billing accounts." lightbox="./media/manage-tenants/billing-microsoft-customer-agreement-in-list.png" :::
 
-Authorization to invite guest users is controlled by your Azure AD settings. The value of the settings is shown under **Settings** on the **Organizational relationships** page. Ensure that the setting is selected, otherwise the invitation fails.For more information, see [Restrict guest user access permissions](../../azure/active-directory/enterprise-users/users-restrict-guest-permissions.md).
+Authorization to invite guest users is controlled by your Azure AD settings. The value of the settings is shown under **Settings** on the **Organizational relationships** page. Ensure that the setting is selected, otherwise the invitation fails.For more information, see [Restrict guest user access permissions](../../active-directory/enterprise-users/users-restrict-guest-permissions.md).
 
 :::image type="content" source="./media/manage-tenants/external-collaboration-settings.png" alt-text="Screenshot showing External collaboration settings." lightbox="./media/manage-tenants/external-collaboration-settings.png" :::
 
