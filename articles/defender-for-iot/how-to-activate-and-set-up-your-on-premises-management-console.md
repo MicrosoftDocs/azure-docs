@@ -1,7 +1,7 @@
 ---
 title: Activate and set up your on-premises management console 
 description: Activating the management console ensures that sensors are registered with Azure and send information to the on-premises management console, and that the on-premises management console carries out management tasks on connected sensors.
-ms.date: 3/18/2021
+ms.date: 4/6/2021
 ms.topic: how-to
 ---
 
@@ -212,6 +212,10 @@ To set up a site:
 5. [Connect the sensors](how-to-manage-individual-sensors.md#connect-a-sensor-to-the-management-console).
 
 6. [Assign sensor to site zones](#assign-sensors-to-zones).
+
+### Delete a site
+
+If you no longer need a site, you can delete it from your on-premises management console.
 
 To delete a site:
 
