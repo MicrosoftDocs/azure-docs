@@ -39,9 +39,11 @@ Azure Arc enabled Kubernetes supports the following scenarios:
 
 * Deploy applications and apply configuration using GitOps-based configuration management. 
 
-* View and monitor your clusters using Azure Monitor for containers. 
+* View and monitor your clusters using Azure Monitor for containers.
 
-* Apply policies using Azure Policy for Kubernetes. 
+* Enforce threat protection using Azure Defender for Kubernetes.
+
+* Apply policies using Azure Policy for Kubernetes.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

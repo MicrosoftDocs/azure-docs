@@ -151,17 +151,17 @@ To delete either a real or simulated device from your Azure IoT Central applicat
 
 ## Change a property
 
-Cloud properties are the device metadata associated with the device, such as city and serial number. Cloud properties only exist in the IoT Central application and aren't synchronized to your devices. Writeable properties control the behavior of a device and let you set the state of a device remotely, for example by setting the target temperature of a thermostat device.  Device properties are set by the device and are read-only within IoT Central. You can view and update properties on the **Device Details** views for your device.
+Cloud properties are the device metadata associated with the device, such as city and serial number. Cloud properties only exist in the IoT Central application and aren't synchronized to your devices. Writable properties control the behavior of a device and let you set the state of a device remotely, for example by setting the target temperature of a thermostat device.  Device properties are set by the device and are read-only within IoT Central. You can view and update properties on the **Device Details** views for your device.
 
 1. Choose **Devices** on the left pane.
 
 1. Choose the device template of the device whose properties you want to change and select the target device.
 
-1. Choose the view that contains properties for your device, this view enables you to input values and select **Save** at the top of the page. Here you see the properties your device has and their current values. Cloud properties and writeable properties have editable fields, while device properties are read-only. For writeable properties, you can see their sync status at the bottom of the field. 
+1. Choose the view that contains properties for your device, this view enables you to input values and select **Save** at the top of the page. Here you see the properties your device has and their current values. Cloud properties and writable properties have editable fields, while device properties are read-only. For writable properties, you can see their sync status at the bottom of the field. 
 
 1. Modify the properties to the values you need. You can modify multiple properties at a time and update them all at the same time.
 
-1. Choose **Save**. If you saved writeable properties, the values are sent to your device. When the device confirms the change for the writeable property, the status returns back to **synced**. If you saved a cloud property, the value is updated.
+1. Choose **Save**. If you saved writable properties, the values are sent to your device. When the device confirms the change for the writable property, the status returns back to **synced**. If you saved a cloud property, the value is updated.
 
 ## Next steps
 
