@@ -131,7 +131,7 @@ Type                          : External
 
 After you have created the new virtual switch, Azure Stack Edge Pro GPU automatically creates a virtual network and subnet that corresponds to it. You can use this virtual network when creating VMs.
 
-To identify the virtual network and subnet associated with the new switch that you created, use the ` ` command.
+<!--To identify the virtual network and subnet associated with the new switch that you created, use the ` ` command.-->
 
 ## Next steps
 
