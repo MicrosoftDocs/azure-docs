@@ -149,7 +149,7 @@ az account set --subscription <your_azure_subscription_id>
 # Download the sample public settings. (You could also use curl or any web browser.)
 wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
 
-# Build the VMSS resource ID. Replace the storage account name and resource ID in the public settings.
+# Build the virtual machine scale set resource ID. Replace the storage account name and resource ID in the public settings.
 $my_vmss_resource_id=$(az vmss show -g $my_resource_group -n $my_linux_vmss --query "id" -o tsv)
 sed -i "s#__DIAGNOSTIC_STORAGE_ACCOUNT__#$my_diagnostic_storage_account#g" portal_public_settings.json
 sed -i "s#__VM_RESOURCE_ID__#$my_vmss_resource_id#g" portal_public_settings.json
@@ -432,7 +432,7 @@ For `builtin` metrics, we recommend `counterSpecifier` values that begin with `/
 Here are some examples:
 
 * `/builtin/Processor/PercentIdleTime` - Idle time averaged across all vCPUs
-* `/builtin/Disk/FreeSpace(/mnt)` - Free space for the */mnt* file system
+* `/builtin/Disk/FreeSpace(/mnt)` - Free space for the `/mnt` file system
 * `/builtin/Disk/FreeSpace` - Free space averaged across all mounted file systems
 
 LAD and the Azure portal don't expect the `counterSpecifier` value to match any pattern. Be consistent in how you construct `counterSpecifier` values.

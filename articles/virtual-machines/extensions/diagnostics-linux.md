@@ -134,7 +134,7 @@ az vm identity assign -g $my_resource_group -n $my_linux_vm
 # Download the sample public settings. (You could also use curl or any web browser.)
 wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
 
-# Build the VM resource ID. Replace storage account name and resource ID in the public settings.
+# Build the VM resource ID. Replace the storage account name and resource ID in the public settings.
 my_vm_resource_id=$(az vm show -g $my_resource_group -n $my_linux_vm --query "id" -o tsv)
 sed -i "s#__DIAGNOSTIC_STORAGE_ACCOUNT__#$my_diagnostic_storage_account#g" portal_public_settings.json
 sed -i "s#__VM_RESOURCE_ID__#$my_vm_resource_id#g" portal_public_settings.json
@@ -149,7 +149,7 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 #### Azure CLI sample for installing LAD 4.0 on a virtual machine scale set instance
 
 ```azurecli
-# Set your Azure VMSS diagnostic variables. 
+# Set your Azure virtual machine scale set diagnostic variables. 
 $my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 $my_linux_vmss=<your_azure_linux_vmss_name>
 $my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>
@@ -160,13 +160,13 @@ az login
 # Select the subscription that contains the storage account.
 az account set --subscription <your_azure_subscription_id>
 
-# Enable system-assigned identity on the existing VMSS.
+# Enable system-assigned identity on the existing virtual machine scale set.
 az vmss identity assign -g $my_resource_group -n $my_linux_vmss
 
 # Download the sample public settings. (You could also use curl or any web browser.)
 wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
 
-# Build the VMSS resource ID. Replace storage account name and resource ID in the public settings.
+# Build the virtual machine scale set resource ID. Replace the storage account name and resource ID in the public settings.
 $my_vmss_resource_id=$(az vmss show -g $my_resource_group -n $my_linux_vmss --query "id" -o tsv)
 sed -i "s#__DIAGNOSTIC_STORAGE_ACCOUNT__#$my_diagnostic_storage_account#g" portal_public_settings.json
 sed -i "s#__VM_RESOURCE_ID__#$my_vmss_resource_id#g" portal_public_settings.json
@@ -193,7 +193,7 @@ $vm = Get-AzVM -Name $vmName -ResourceGroupName $VMresourceGroup
 # Enable system-assigned identity on an existing VM
 Update-AzVM -ResourceGroupName $VMresourceGroup -VM $vm -IdentityType SystemAssigned
 
-# Get the public settings template from GitHub and update the templated values for storage account and resource ID
+# Get the public settings template from GitHub and update the templated values for the storage account and resource ID
 $publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json).Content
 $publicSettings = $publicSettings.Replace('__DIAGNOSTIC_STORAGE_ACCOUNT__', $storageAccountName)
 $publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
@@ -229,7 +229,7 @@ You can use the same storage account you used for LAD 3.x.
 
 ## Protected settings
 
-This set of configuration information contains sensitive information that should be protected from public view. It contains, for example, storage credentials. These settings are transmitted to and stored by the extension in encrypted form.
+This set of configuration information contains sensitive information that should be protected from public view. It contains, for example, storage credentials. The settings are transmitted to and stored by the extension in encrypted form.
 
 ```json
 {
@@ -244,7 +244,7 @@ This set of configuration information contains sensitive information that should
 Name | Value
 ---- | -----
 storageAccountName | The name of the storage account in which the extension writes data.
-storageAccountEndPoint | (Optional) The endpoint identifying the cloud in which the storage account exists. If this setting is absent, by default, LAD uses the Azure public cloud, `https://core.windows.net`. To use a storage account in Azure Germany, Azure Government, or Azure China 21Vianet, set this value as required.
+storageAccountEndPoint | (Optional) The endpoint that identifies the cloud in which the storage account exists. If this setting is absent, by default, LAD uses the Azure public cloud, `https://core.windows.net`. To use a storage account in Azure Germany, Azure Government, or Azure China 21Vianet, set this value as required.
 storageAccountSasToken | An [Account SAS token](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) for blob and table services (`ss='bt'`). This token applies to containers and objects (`srt='co'`). It grants add, create, list, update, and write permissions (`sp='acluw'`). Do *not* include the leading question-mark (?).
 mdsdHttpProxy | (Optional) HTTP proxy information the extension needs to connect to the specified storage account and endpoint.
 sinksConfig | (Optional) Details of alternative destinations to which metrics and events can be delivered. The following sections provide details about each data sink the extension supports.
@@ -305,7 +305,7 @@ The `"sasURL"` entry contains the full URL, including the SAS token, for the eve
 * Create an event hub in the namespace called `syslogmsgs`.
 * Create a shared access policy on the event hub named `writer` that enables the send claim.
 
-If you created a SAS that's good until midnight UTC on January 1, 2018, the sasURL value might be like the following example.
+If you created a SAS that's good until midnight UTC on January 1, 2018, the `sasURL` value might be like the following example.
 
 ```https
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
@@ -366,7 +366,7 @@ The following sections provide details about the remaining elements.
 
 The `ladCfg` structure controls the gathering of metrics and logs for delivery to the Azure Metrics service and to other data sinks. Specify either `performanceCounters` or `syslogEvents` or both. Also specify the `metrics` structure.
 
-If you don't want to enable syslog or metrics collection, simply specify an empty structure for the `ladCfg` element, like in this example: 
+If you don't want to enable syslog or metrics collection, specify an empty structure for the `ladCfg` element, like in this example: 
 
 ```json
 "ladCfg": {
@@ -376,7 +376,7 @@ If you don't want to enable syslog or metrics collection, simply specify an empt
 
 Element | Value
 ------- | -----
-eventVolume | (Optional) Controls the number of partitions created within the storage table. Must be `"Large"`, `"Medium"`, or `"Small"`. If the value isn't specified, the default value is `"Medium"`.
+eventVolume | (Optional) Controls the number of partitions created within the storage table. The value must be `"Large"`, `"Medium"`, or `"Small"`. If the value isn't specified, the default value is `"Medium"`.
 sampleRateInSeconds | (Optional) The default interval between the collection of raw (unaggregated) metrics. The smallest supported sample rate is 15 seconds. If the value isn't specified, the default is `15`.
 
 #### metrics
@@ -393,8 +393,8 @@ sampleRateInSeconds | (Optional) The default interval between the collection of 
 
 Element | Value
 ------- | -----
-resourceId | The Azure Resource Manager resource ID of the VM or of the virtual machine scale set to which the VM belongs. You must also specify this setting if the configuration uses any `JsonBlob` sink.
-scheduledTransferPeriod | The frequency at which aggregate metrics are computed and transferred to Azure Metrics. The frequency is expressed as an IS 8601 time interval. The smallest transfer period is 60 seconds, that is, PT1M. You must specify at least one `scheduledTransferPeriod`.
+resourceId | The Azure Resource Manager resource ID of the VM or of the virtual machine scale set to which the VM belongs. Also specify this setting if the configuration uses any `JsonBlob` sink.
+scheduledTransferPeriod | The frequency at which aggregate metrics are computed and transferred to Azure Metrics. The frequency is expressed as an IS 8601 time interval. The smallest transfer period is 60 seconds, that is, PT1M. Specify at least one `scheduledTransferPeriod`.
 
 Samples of the metrics specified in the `performanceCounters` section are collected every 15 seconds or at the sample rate explicitly defined for the counter. If multiple `scheduledTransferPeriod` frequencies appear, as in the example, each aggregation is computed independently.
 
@@ -433,7 +433,7 @@ The `performanceCounters` optional section controls the collection of metrics. R
 
 Element | Value
 ------- | -----
-sinks | (Optional) A comma-separated list of names of sinks to which LAD sends aggregated metric results. All aggregated metrics are published to each listed sink. Example: `"EHsink1, myjsonsink"`.For more information, see [`sinksConfig`](#sinksconfig). 
+sinks | (Optional) A comma-separated list of names of sinks to which LAD sends aggregated metric results. All aggregated metrics are published to each listed sink. Example: `"EHsink1, myjsonsink"`. For more information, see [`sinksConfig`](#sinksconfig). 
 type | Identifies the actual provider of the metric.
 class | Together with `"counter"`, identifies the specific metric within the provider's namespace.
 counter | Together with `"class"`, identifies the specific metric within the provider's namespace.
@@ -448,10 +448,10 @@ The `counterSpecifier` is an arbitrary identifier. Consumers of metrics, like th
 For `builtin` metrics, we recommend `counterSpecifier` values that begin with `/builtin/`. If you're collecting a specific instance of a metric, attach the identifier of the instance to the `counterSpecifier` value. Here are some examples:
 
 * `/builtin/Processor/PercentIdleTime` - Idle time averaged across all vCPUs
-* `/builtin/Disk/FreeSpace(/mnt)` - Free space for the */mnt* file system
+* `/builtin/Disk/FreeSpace(/mnt)` - Free space for the `/mnt` file system
 * `/builtin/Disk/FreeSpace` - Free space averaged across all mounted file systems
 
-Neither LAD nor the Azure portal expects the `counterSpecifier` value to match any pattern. Be consistent in how you construct `counterSpecifier` values.
+LAD and the Azure portal don't expect the `counterSpecifier` value to match any pattern. Be consistent in how you construct `counterSpecifier` values.
 
 When you specify `performanceCounters`, LAD always writes data to a table in Azure Storage. The same data can be written to JSON blobs or Event Hubs or both. But you can't disable storing data to a table. 
 
@@ -523,7 +523,7 @@ The `sinksConfig` optional section enables sending metrics to the Azure Monitor 
 
 ### fileLogs
 
-The `fileLogs` section controls the capture of log files. LAD captures new text lines as they are written to the file. It writes them to table rows and/or any specified sinks, such as `JsonBlob` and `EventHub`.
+The `fileLogs` section controls the capture of log files. LAD captures new text lines as they're written to the file. It writes them to table rows and/or any specified sinks, such as `JsonBlob` and `EventHub`.
 
 > [!NOTE]
 > The `fileLogs` are captured by a subcomponent of LAD called `omsagent`. To collect `fileLogs`, ensure that the `omsagent` user has read permissions on the files you specify. It must also have execute permissions on all directories in the path to that file. After LAD is installed, you can check permissions by running `sudo su omsagent -c 'cat /path/to/file'`.
@@ -541,10 +541,10 @@ The `fileLogs` section controls the capture of log files. LAD captures new text 
 Element | Value
 ------- | -----
 file | The full path name of the log file to be watched and captured. The path name is for a single file. It can't name a directory or contain wildcard characters. The `omsagent` user account must have read access to the file path.
-table | (Optional) The Azure Storage table, into which new lines from the "tail" of the file are written. The table must be in the designated storage account, as specified in the protected configuration. 
+table | (Optional) The Azure Storage table into which new lines from the "tail" of the file are written. The table must be in the designated storage account, as specified in the protected configuration. 
 sinks | (Optional) A comma-separated list of names of more sinks to which log lines are sent.
 
-Either `"table"` or `"sinks"`, or both, must be specified.
+Either `"table"` or `"sinks"` or both must be specified.
 
 ## Metrics supported by the builtin provider
 
@@ -563,7 +563,7 @@ The `builtin` metric provider is a source of metrics that are the most interesti
 
 The Processor class of metrics provides information about processor usage in the VM. When percentages are aggregated, the result is the average across all CPUs. 
 
-In a two-vCPU VM, if one vCPU is 100 percent busy and the other is 100 percent idle, the reported `PercentIdleTime` would be 50. If each vCPU is 50 percent busy for the same period, the reported result is also 50. In a four-vCPU VM, when one vCPU is 100 percent busy and the others are idle, the reported `PercentIdleTime` is 75.
+In a two-vCPU VM, if one vCPU is 100 percent busy and the other is 100 percent idle, the reported `PercentIdleTime` is 50. If each vCPU is 50 percent busy for the same period, the reported result is also 50. In a four-vCPU VM, when one vCPU is 100 percent busy and the others are idle, the reported `PercentIdleTime` is 75.
 
 Counter | Meaning
 ------- | -------
@@ -575,7 +575,7 @@ PercentUserTime | Of non-idle time during the aggregation window, the percentage
 PercentNiceTime | Of non-idle time, the percentage spent at lowered (nice) priority
 PercentPrivilegedTime | Of non-idle time, the percentage spent in privileged (kernel) mode
 
-The first four counters should sum to 100 percent. The last three counters also sum to 100 percent. They subdivide the sum of `PercentProcessorTime`, `PercentIOWaitTime`, and `PercentInterruptTime`.
+The first four counters should sum to 100 percent. The last three counters also sum to 100 percent. These three counters subdivide the sum of `PercentProcessorTime`, `PercentIOWaitTime`, and `PercentInterruptTime`.
 
 ### builtin metrics for the Memory class
 
@@ -622,8 +622,8 @@ Counter | Meaning
 ------- | -------
 FreeSpace | Available disk space in bytes
 UsedSpace | Used disk space in bytes
-PercentFreeSpace | Percentage free space
-PercentUsedSpace | Percentage used space
+PercentFreeSpace | Percentage of free space
+PercentUsedSpace | Percentage of used space
 PercentFreeInodes | Percentage of unused index nodes (inodes)
 PercentUsedInodes | Percentage of allocated (in use) inodes summed across all file systems
 BytesReadPerSecond | Bytes read per second
@@ -688,7 +688,7 @@ Based on the preceding definitions, this section provides a sample LAD 4.0 exten
 
 ### Protected settings
 
-These protected settings configure:
+The protected settings configure:
 
 * A storage account.
 * A matching account SAS token.
@@ -738,7 +738,7 @@ These protected settings configure:
 
 ### Public settings
 
-These public settings cause LAD to:
+The public settings cause LAD to:
 
 * Upload percent-processor-time metrics and used-disk-space metrics to the `WADMetrics*` table,
 * Upload messages from syslog facility `"user"` and severity `"info"` to the `LinuxSyslog*` table.
@@ -747,7 +747,7 @@ These public settings cause LAD to:
 In each case, data is also uploaded to:
 
 * Azure Blob Storage. The container name is as defined in the `JsonBlob` sink.
-* Event Hubs endpoint, as specified in the `EventHubs` sink.
+* An Event Hubs endpoint, as specified in the `EventHubs` sink.
 
 ```json
 {
