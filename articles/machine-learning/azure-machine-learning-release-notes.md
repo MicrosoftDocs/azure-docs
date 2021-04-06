@@ -106,8 +106,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Added functionality to filter Tabular Datasets by column values and File Datasets by metadata.
   + **azureml-contrib-fairness**
     + Include JSON schema in wheel for `azureml-contrib-fairness`
-  + **azureml-contrib-k8s**
-    + Must now provide resource_id to attach instead of resource group and cluster name.
   + **azureml-contrib-mir**
     + With setting show_output to True when deploy models, inference configuration and deployment configuration will be replayed before sending the request to server.
   + **azureml-core**
