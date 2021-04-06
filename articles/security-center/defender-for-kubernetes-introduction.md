@@ -3,7 +3,7 @@ title: Azure Defender for Kubernetes - the benefits and features
 description: Learn about the benefits and features of Azure Defender for Kubernetes.
 author: memildin
 ms.author: memildin
-ms.date: 02/07/2021
+ms.date: 04/05/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -12,13 +12,19 @@ manager: rkarlin
 
 # Introduction to Azure Defender for Kubernetes
 
-Azure Kubernetes Service (AKS) is Microsoft's managed service for developing, deploying, and managing containerized applications.
+Azure Defender for Kubernetes is the Azure Defender plan providing protections for your Kubernetes clusters wherever they're running. 
+
+We can defend clusters in:
+
+- **Azure Kubernetes Service (AKS)** - Microsoft's managed service for developing, deploying, and managing containerized applications
+
+- **On-premises and multi-cloud environments** - Using an [extension for Arc enabled Kubernetes](defender-for-kubernetes-azure-arc.md)
 
 Azure Security Center and AKS form a cloud-native Kubernetes security offering with environment hardening, workload protection, and run-time protection as outlined in [Container security in Security Center](container-security.md).
 
-For threat detection for your Kubernetes clusters, enable **Azure Defender for Kubernetes**.
+Host-level threat detection for your Linux AKS nodes is available if you enable [Azure Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on a virtual machine scale set, the Log Analytics agent is not currently supported.
 
-Host-level threat detection for your Linux AKS nodes is available if you enable [Azure Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your AKS cluster is deployed on a virtual machine scale set, the Log Analytics agent is not currently supported.
+
 
 ## Availability
 
