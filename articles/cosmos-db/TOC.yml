@@ -757,6 +757,8 @@
                   href: troubleshoot-unauthorized.md
                 - name: Troubleshoot forbidden
                   href: troubleshoot-forbidden.md
+                - name: Troubleshoot bad request
+                  href: troubleshoot-bad-request.md
                 - name: Availability issues in multiregional environments
                   href: troubleshoot-sdk-availability.md
             - name: .NET

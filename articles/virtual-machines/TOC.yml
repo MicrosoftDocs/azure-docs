@@ -234,6 +234,8 @@
         href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
       - name: NP-series
         href: np-series.md
+      - name: FPGA Attestation Service
+        href: field-programmable-gate-arrays-attestation.md
     - name: High performance compute
       items:
       - name: Overview
