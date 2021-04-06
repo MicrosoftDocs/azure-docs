@@ -153,7 +153,7 @@ You can view the tags applied to a specific virtual machine running on your devi
     
     PS C:\WINDOWS\system32>
     ```
-## View tags in all resources
+## View tags for all resources
 
 To view the current list of tags for all the resources in the local Azure Resource Manager subscription (different from your Azure subscription) of your device, use the `Get-AzureRMTag` command.
 
@@ -170,7 +170,9 @@ Organization 3
 PS C:\WINDOWS\system32>
 ```
 
-To view details, use the `-Detailed` parameter.
+The preceding output indicates that there are three `Organization` tags on the VMs running on your device.
+
+To view further details, use the `-Detailed` parameter.
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRMTag -Detailed |fl
@@ -187,6 +189,8 @@ Values      : {Engineering, Sales}
 
 PS C:\WINDOWS\system32>
 ```
+
+The preceding output indicates that out of the three tags, 2 VMs are tagged as `Engineering` and one is tagged as belonging to `Sales`.
 
 ## Remove a tag from a VM
 
