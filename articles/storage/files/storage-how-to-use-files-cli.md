@@ -69,14 +69,14 @@ export storageAccountKey=$(az storage account keys list \
 ```
 
 ## Create an Azure file share
-Now, you can create your first Azure file share. Create file shares by using the [az storage share create](/cli/azure/storage/share) command. This example creates an Azure file share named *myshare*: 
+Now, you can create your first Azure file share. Create file shares by using the [az storage share-rm create](/cli/azure/storage/share-rm?view=azure-cli-latest#az_storage_share_rm_create) command. This example creates an Azure file share named *myshare*: 
 
 ```azurecli-interactive
 shareName="myshare"
 
-az storage share create \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
     --name $shareName \
     --quota 1024 \
     --enabled-protocols SMB \
@@ -166,17 +166,17 @@ A common task is to copy files from one file share to another file share. To dem
 ```azurecli-interactive
 otherShareName="myshare2"
 
-az storage share create \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
     --name $otherShareName \
     --quota 1024 \
     --enabled-protocols SMB \
     --output none
 
 az storage directory create \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
     --share-name $otherShareName \
     --name "myDirectory2" \
     --output none
@@ -277,7 +277,7 @@ az storage file copy start \
 You can delete a share snapshot by using the [`az storage share delete`](/cli/azure/storage/share) command. Use the variable that contains the `$SNAPSHOT` reference to the `--snapshot` parameter:
 
 ```azurecli-interactive
-az storage share delete \
+az storage share-rm delete \
     --account-name $storageAccountName \
     --account-key $storageAccountKey \
     --name $shareName \
