@@ -215,7 +215,7 @@ To set up a site:
 
 ### Delete a site
 
-If you no longer need a site you can delete it from your on-premises management console.
+If you no longer need a site, you can delete it from your on-premises management console.
 
 To delete a site:
 
