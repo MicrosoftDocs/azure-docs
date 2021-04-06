@@ -99,7 +99,7 @@ This warning can appear even though you've configured a backup policy, when the 
 
 ### I see a few jobs are stuck in the In Progress state for a long time under Backup Jobs in the Azure portal. How can I resolve these?
 
-This can happen if a job was unable to complete due to reasons, such as network connectivity issues, machine shutdown, or process termination. No user action is required here. These jobs will automatically be marked as **Failed** after 30 days.
+This can happen if a job was unable to complete due to reasons, such as network connectivity issues, machine shutdown, or process termination. No user action is required here. These jobs will automatically be marked as **Failed** after 30 days. [Learn more](backup-windows-with-mars-agent.md#run-an-on-demand-backup) to run an on-demand backup job using the MARS agent.
 
 ## Manage the backup cache folder
 
