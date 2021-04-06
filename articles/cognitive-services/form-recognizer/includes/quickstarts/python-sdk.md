@@ -71,7 +71,7 @@ Create variables for your resource's Azure endpoint and key.
 
 ## Object model
 
-With Form Recognizer, you can create two different client types. The first, `form_recognizer_client` is used to query the service to recognize form fields and content. The second, `form_training_client` is use to create and manage custom models that you can use to improve recognition. 
+With Form Recognizer, you can create two different client types. The first, `form_recognizer_client` is used to query the service to recognize form fields and content. The second, `form_training_client` is used to create and manage custom models that you can use to improve recognition. 
 
 ### FormRecognizerClient
 
