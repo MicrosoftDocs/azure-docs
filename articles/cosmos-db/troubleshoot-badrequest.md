@@ -18,32 +18,30 @@ The HTTP status code 400 represents the request contains invalid data or it's mi
 ## <a name="missing-id-property"></a>Missing the ID property
 On this scenario, it's common to see the error:
 
-```
-The input content is invalid because the required properties - 'id; ' - are missing
-```
+*The input content is invalid because the required properties - 'id; ' - are missing*
+
+This error means the JSON document that is being sent to the service is lacking the required ID property. 
 
 ### Solution
-This error means the JSON document that is being sent to the service is lacking the required ID property. Specify an ID property with a string value as per the [REST specification](/rest/api/cosmos-db/documents), the SDKs do not autogenerate values for this property.
+Specify an `id` property with a string value as per the [REST specification](/rest/api/cosmos-db/documents) as part of your document, the SDKs do not autogenerate values for this property.
 
 ## <a name="invalid-partition-key-type"></a>Invalid partition key type
 On this scenario, it's common to see errors like:
 
-```
-Partition key ... is invalid.
-```
+*Partition key ... is invalid.*
 
 ### Solution
-This error means the value provided as partition key is invalid. The value of the partition key should be a string or a number.
+The value of the partition key should be a string or a number, make sure the value is of the expected types.
 
 ## <a name="wrong-partition-key-value"></a>Wrong partition key value
 On this scenario, it's common to see the error:
 
-```
-PartitionKey extracted from document doesn’t match the one specified in the header
-```
+*PartitionKey extracted from document doesn’t match the one specified in the header*
+
+This error means you are executing an operation and passing a partition key value that does not match the document's body value for the expected property. If the collection's partition key path is `/myPartitionKey`, the document has a property called `myPartitionKey` with a value that does not match what was provided as partition key value when calling the SDK method.
 
 ### Solution
-This error means you are executing an operation and passing a partition key value that does not match the document's body value for the expected property. If the collection's partition key path is `/myPartitionKey`, the document has a property called `myPartitionKey` with a value that does not match what was provided as partition key value when calling the SDK method. Make sure to correct it and execute the request.
+Send the partition key value parameter that matches the document property value.
 
 ## Next steps
 * [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
