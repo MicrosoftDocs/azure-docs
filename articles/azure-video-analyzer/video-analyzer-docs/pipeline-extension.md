@@ -33,23 +33,23 @@ Use HTTP extension processor node when:
 
 gRPC extension processor enables extensibility scenarios using gRPC based, highly performant [structured protocol]() <!--TODO: add the right topic-->. It is ideal for scenarios where performance and/or optimal resource utilization is a priority. The gRPC extension processor enables you to get the full benefit of the structured data definitions. gRPC offers high content transfer performance using:
 
-* [in-box shared memory]() <!--TODO: add the right topic--> or
+* [in-box shared memory](https://en.wikipedia.org/wiki/Shared_memory) or
 * directly embedding the content into the body of gRPC messages.
 
 The gRPC extension processor can be used for sending media properties along with exchanging inference messages. So, use a gRPC extension processor node when you:
 
 * Want to use a structured contract (for example, structured messages for requests and responses)
-* Want to use Protocol Buffers (protobuf) as its underlying message interchange format for communication.
+* Want to use [Protocol Buffers (protobuf)](https://developers.google.com/protocol-buffers) as its underlying message interchange format for communication.
 * Want to communicate with a gRPC server in single stream session instead of the traditional request-response model needing a custom request handler to parse incoming requests and call the right implementation functions.
 * Want low latency and high throughput communication between Azure Video Analyzer and your module.
 
 ## Cognitive Services extension processor
 
-Cognitive Services extension processor is a custom-built extension processor that allows Azure Video Analyzer to work well with our Computer Vision [spatial analysis]() <!--TODO: add the right topic--> capabilities, using gRPC based, highly performant [structured protocol]() <!--TODO: add the right topic-->. 
+Cognitive Services extension processor is a custom-built extension processor that allows Azure Video Analyzer to work well with the [Computer Vision spatial analysis](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) capabilities, using gRPC based, highly performant [structured protocol]() <!--TODO: add the right topic-->. 
 
 Use Cognitive Services extension processor node when:
 
-* You want better interoperability with existing [spatial analysis operations]() <!--TODO: add the right topic-->.
+* You want better interoperability with existing [spatial analysis operations](https://docs.microsoft.com/azure/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview).
 * Want to use all the benefits if gRPC protocol, accuracy, and performance of Microsoft built and supported AI.
 * Analyze multiple camera feeds at low latency and high throughput.
 
@@ -76,4 +76,4 @@ For advanced users, you can check out some of our [Jupyter notebook](https://git
 
 ## Next steps 
 
-check out some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Azure Video Analyzer
+check out some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Azure Video Analyzer.
