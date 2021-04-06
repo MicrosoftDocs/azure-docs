@@ -40,7 +40,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 
 
 ## Azure regions with Availability Zones
-
+ 
 
 | Americas           | Europe               | Africa              | Asia Pacific   |
 |--------------------|----------------------|---------------------|----------------|
