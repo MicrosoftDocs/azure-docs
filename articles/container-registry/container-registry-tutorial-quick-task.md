@@ -4,9 +4,7 @@ description: In this tutorial, you learn how to build a Docker container image i
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: "seodec18, mvc, devx-track-azurecli"
-# Customer intent: As a developer or devops engineer, I want to quickly build
-# container images in Azure, without having to install dependencies like Docker
-# Engine, so that I can simplify my inner-loop development pipeline.
+# Customer intent: As a developer or devops engineer, I want to quickly build container images in Azure, without having to install dependencies like Docker Engine, so that I can simplify my inner-loop development pipeline.
 ---
 
 # Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks

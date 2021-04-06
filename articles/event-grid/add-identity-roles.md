@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 03/25/2021
 ---
 
-# Add an identity to Azure roles on Azure Event Grid destinations
+# Grant managed identity the access to Event Grid destination
 This section describes how to add the identity for your system topic, custom topic, or domain to an Azure role. 
 
 ## Prerequisites
@@ -84,6 +84,6 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbust
 ```
 
 ## Next steps
-Now that you have assigned a system-assigned identity to your system topic, custom topic, or domain, and added the identity to appropriate roles on destinations, see [Devlier events using identity](managed-service-identity.md) on delivering events to destinations using the identity.
+Now that you have assigned a system-assigned identity to your system topic, custom topic, or domain, and added the identity to appropriate roles on destinations, see [Deliver events using the managed identity](managed-service-identity.md) on delivering events to destinations using the identity.
 
 

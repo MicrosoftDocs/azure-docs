@@ -49,7 +49,7 @@
   - name: DDoS protection
     href: front-door-ddos.md
   - name: Front Door FAQ
-    href: front-door-faq.md
+    href: front-door-faq.yml
   - name: Geo-filtering
     href: front-door-geo-filtering.md
   - name: Health probes
@@ -99,7 +99,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/front-door/
+    href: /cli/azure/afd/
   - name: Azure PowerShell
     href: /powershell/module/az.frontdoor
   - name: REST API

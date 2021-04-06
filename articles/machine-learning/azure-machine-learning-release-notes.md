@@ -18,6 +18,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+
 ## 2021-04-05
 
 ### Azure Machine Learning SDK for Python v1.26.0
@@ -92,6 +93,23 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + 1. Add '&tid=<tenant_id>` to end of portal URLs so that UI does not have to guess which tenant to authenticate against. 2. Remove experiment name from run URLs to stop unnecessary redirects. 3. Change experiment URL to use the experiment id instead of experiment name.
     +  Use Azure Open Datasets for MNIST dataset
     + Hyperdrive error messages have been updated.
+
+
+## 2021-03-31
+### Azure Machine Learning Studio Notebooks Experience (March Update)
++ **New features**
+  + Render CSV/TSV. Users will be able to render and TSV/CSV file in a grid format for easier data analysis. 
+  + SSO Authentication for Compute Instance. Users can now easily authenticate any new compute instances directly in the Notebook UI, making it easier to authenticate and use Azure SDKs directly in AzureML. 
+  + Compute Instance Metrics. Users will be able to view compute metrics like CPU usage and memory via terminal.
+  + File Details. Users can now see file details including the last modified time, and file size by clicking the 3 dots beside a file.
+
++ **Bug fixes and improvements**
+  + Improved page load times.
+  + Improved performance.
+  + Improved speed and kernel reliability.
+  + Gain vertical real estate by permanently moving Notebook file pane up
+  + Links are now clickable in Terminal
+  + Improved Intellisense performance
 
 
 ## 2021-03-08

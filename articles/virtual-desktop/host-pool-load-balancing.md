@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Host pool load-balancing methods
 

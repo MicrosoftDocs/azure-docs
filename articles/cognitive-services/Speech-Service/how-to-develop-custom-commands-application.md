@@ -208,7 +208,7 @@ Start by editing the existing `TurnOn` command to turn on and turn off multiple 
     | **Is Global**          | Unselected             |
     | **Required**           | Selected               |
     | **Response for required parameter**     | **Simple editor** > `Which device do you want to control?`    | 
-    | **Type**               | **String**                |          |
+    | **Type**               | **String**                |     
     | **Configuration**      | **Accept predefined input values from an internal catalog** | 
     | **Predefined input values** | `tv`, `fan`               |
     | **Aliases** (`tv`)      | `television`, `telly`     |

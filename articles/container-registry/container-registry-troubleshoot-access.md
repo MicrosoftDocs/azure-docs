@@ -2,21 +2,22 @@
 title: Troubleshoot network issues with registry
 description: Symptoms, causes, and resolution of common problems when accessing an Azure container registry in a virtual network or behind a firewall
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 03/30/2021
 ---
 
 # Troubleshoot network issues with registry
 
-This article helps you troubleshoot problems you might encounter when accessing an Azure container registry in a virtual network or behind a firewall. 
+This article helps you troubleshoot problems you might encounter when accessing an Azure container registry in a virtual network or behind a firewall or proxy server. 
 
 ## Symptoms
 
 May include one or more of the following:
 
 * Unable to push or pull images and you receive error `dial tcp: lookup myregistry.azurecr.io`
+* Unable to push or pull images and you receive error `Client.Timeout exceeded while awaiting headers`
 * Unable to push or pull images and you receive Azure CLI error `Could not connect to the registry login server`
 * Unable to pull images from registry to Azure Kubernetes Service or another Azure service
-* Unable to access a registry behind an HTTPS proxy and you receive error `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* Unable to access a registry behind an HTTPS proxy and you receive error `Error response from daemon: login attempt failed with status: 403 Forbidden` or `Error response from daemon: Get <registry>: proxyconnect tcp: EOF Login failed`
 * Unable to configure virtual network settings and you receive error `Failed to save firewall and virtual network settings for container registry`
 * Unable to access or view registry settings in Azure portal or manage registry using the Azure CLI
 * Unable to add or modify virtual network settings or public access rules
@@ -36,7 +37,7 @@ Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get
 
 See [Check the health of an Azure container registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
 
-If you're experiencing problems using the registry wih Azure Kubernetes Service, run the [az aks check-acr](/cli/azure/aks#az_aks_check_acr) command to validate that the registry is accessible from the AKS cluster.
+If you're experiencing problems using an Azure Kubernetes Service with an integrated registry, run the [az aks check-acr](/cli/azure/aks#az_aks_check_acr) command to validate that the AKS cluster can reach the registry.
 
 > [!NOTE]
 > Some network connectivity symptoms can also occur when there are issues with registry authentication or authorization. See [Troubleshoot registry login](container-registry-troubleshoot-login.md).
@@ -52,7 +53,7 @@ To access a registry from behind a client firewall or proxy server, configure fi
 
 For a geo-replicated registry, configure access to the data endpoint for each regional replica.
 
-Behind an HTTPS proxy, ensure that both your Docker client and Docker daemon are configured for proxy behavior.
+Behind an HTTPS proxy, ensure that both your Docker client and Docker daemon are configured for proxy behavior. If you change your proxy settings for the Docker daemon, be sure to restart the daemon. 
 
 Registry resource logs in the ContainerRegistryLoginEvents table may help diagnose an attempted connection that is blocked.
 
