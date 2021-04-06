@@ -381,7 +381,7 @@
     - name: HTTPS as job input
       href: job-input-from-http-how-to.md
   - name: Scale media reserved units CLI
-      href: media-reserved-units-cli-how-to.md       
+    href: media-reserved-units-cli-how-to.md       
   - name: Stream live
     items:
     - name: Live event with portal and Wirecast
