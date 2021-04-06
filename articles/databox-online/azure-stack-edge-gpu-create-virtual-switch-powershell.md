@@ -1,0 +1,101 @@
+---
+title: Create a new virtual switch in Azure Stack Edge via PowerShell
+description: Describes how to create a virtual switch on an Azure Stack Edge device by using PowerShell.
+services: databox
+author: alkohli
+
+ms.service: databox
+ms.subservice: edge
+ms.topic: how-to
+ms.date: 04/06/2021
+ms.author: alkohli
+---
+
+# Create a new virtual switch in Azure Stack Edge via PowerShell
+
+This article describes how to create a new virtual switch on your Azure Stack Edge device. For example, you would create a new virtual switch if you want your virtual machines to connect through a different physical network port.
+
+## VM deployment workflow
+
+1. Connect to the PowerShell interface on your device.
+2. Query available physical network interfaces.
+3. Create a virtual switch.
+4. Verify the virtual network and subnet that are automatically created.
+
+## Prerequisites
+
+Before you begin, make sure that:
+
+1. You've access to a client machine that can access the PowerShell interface of your device. See [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface). 
+
+    1. The client machine should run a [Supported OS for clients connected to device](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
+
+1. Use the local UI to enable compute on one of the physical network interfaces on your device as per the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network) on your device. 
+
+
+## Connect to the PowerShell interface
+
+[Connect to the PowerShell interface of your device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
+
+## Query available physical network interfaces
+
+1. Use the following command to display a list of physical network interfaces on which you can create a new virtual switch. You will select one of these network interfaces.
+
+    ```powershell
+    Get-NetAdapter -Physical
+    ```
+    Here is an example output:
+    
+    ```powershell
+        [10.57.51.94]: PS>Get-NetAdapter -Physical
+        
+        Name                      InterfaceDescription                    ifIndex Status       MacAddress       LinkSpeed
+        ----                      --------------------                    ------- ------       ----------        -----
+        Port2                     QLogic 2x1GE+2x25GE QL41234HMCU NIC ...      12 Up           34-80-0D-05-26-EA ...ps
+        Ethernet                  Remote NDIS Compatible Device                11 Up           F4-02-70-CD-41-39 ...ps
+        Port1                     QLogic 2x1GE+2x25GE QL41234HMCU NI...#3       9 Up           34-80-0D-05-26-EB ...ps
+        Port5                     Mellanox ConnectX-4 Lx Ethernet Ad...#2       8 Up           0C-42-A1-C0-E3-99 ...ps
+        Port3                     QLogic 2x1GE+2x25GE QL41234HMCU NI...#4       7 Up           34-80-0D-05-26-E9 ...ps
+        Port6                     Mellanox ConnectX-4 Lx Ethernet Adapter       6 Up           0C-42-A1-C0-E3-98 ...ps
+        Port4                     QLogic 2x1GE+2x25GE QL41234HMCU NI...#2       4 Up           34-80-0D-05-26-E8 ...ps
+        
+        [10.57.51.94]: PS>
+    ```
+2. Choose a network interface that is:
+
+    - In the **Up** status, and 
+    - Not used by any existing virtual switches.To check the existing virtual switch and network interface association, run the `Get-HcsExternalVirtualSwitch` command.
+ 
+    Here is an example output.
+
+    ```powershell
+    [10.57.51.94]: PS>Get-HcsExternalVirtualSwitch
+
+    Name                          : vSwitch1
+    InterfaceAlias                : {Port2}
+    EnableIov                     : True
+    MacAddressPools               :
+    IPAddressPools                : {}
+    ConfigurationSource           : Dsc
+    EnabledForCompute             : True
+    SupportsAcceleratedNetworking : False
+    DbeDhcpHostVnicName           : f4a92de8-26ed-4597-a141-cb233c2ba0aa
+    Type                          : External
+    
+    [10.57.51.94]: PS>
+    ```
+    In this instance, Port 2 is associated with an existing virtual switch and shouldn't be used.
+
+## Create a virtual switch
+
+Use the following cmdlet to create a new virtual switch on your specified network adapter. Once this operation is completed, your compute instances can use the new virtual network.
+
+`Add-HcsExternalVirtualSwitch -InterfaceAlias <network adapter name> -WaitForSwitchCreation $true`
+
+## Verify switch, network, subnet 
+
+Once you have created the new virtual switch, Azure Stack Edge automatically creates a virtual network and subnet that corresponds to it. You can use this virtual network when creating VMs.
+
+## Next steps
+
+TBD
