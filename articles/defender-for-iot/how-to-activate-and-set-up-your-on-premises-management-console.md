@@ -213,6 +213,10 @@ To set up a site:
 
 6. [Assign sensor to site zones](#assign-sensors-to-zones).
 
+### Delete a site
+
+If you no longer need a site you can delete it from your on-premises management console.
+
 To delete a site:
 
 1. In the **Site Management** window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the site name, and then select **Delete Site**. The confirmation box appears, verifying that you want to delete the site.
