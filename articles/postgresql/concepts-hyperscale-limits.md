@@ -40,33 +40,38 @@ Attempts to connect beyond these limits will fail with an error. The system
 reserves three connections for monitoring nodes, which is why there are three
 fewer connections available for user queries than connections total.
 
+### Connection pooling
+
 Establishing new connections takes time. That works against most applications,
 which request many short-lived connections. We recommend using a connection
 pooler, both to reduce idle transactions and reuse existing connections. To
 learn more, visit our [blog
 post](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
 
-### Managed pgBouncer (preview)
+You can run your own connection pooler, or use PgBouncer managed by Azure.
+
+#### Managed PgBouncer (preview)
 
 > [!IMPORTANT]
-> The managed pgBouncer connection pooler in Hyperscale (Citus) is currently in
+> The managed PgBouncer connection pooler in Hyperscale (Citus) is currently in
 > preview. This preview version is provided without a service level agreement,
 > and it's not recommended for production workloads. Certain features might not
-> be supported or might have constrained capabilities.  For more information,
-> see [Supplemental Terms of Use for Microsoft Azure
-> Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> be supported or might have constrained capabilities.
+>
+> You can see a complete list of other new features in [preview features for
+> Hyperscale (Citus)](hyperscale-preview-features.md).
 
-Connection poolers such as pgBouncer allow more clients to connect to the
+Connection poolers such as PgBouncer allow more clients to connect to the
 coordinator node at once. Applications connect to the pooler, and the pooler
 relays commands to the destination database.
 
-When clients connect through pgBouncer, the number of connections that can
-actively run in the database doesn't change. Instead, pgBouncer queues excess
+When clients connect through PgBouncer, the number of connections that can
+actively run in the database doesn't change. Instead, PgBouncer queues excess
 connections and runs them when the database is ready.
 
-Hyperscale (Citus) is now offering a managed instance of pgBouncer for server
+Hyperscale (Citus) is now offering a managed instance of PgBouncer for server
 groups (in preview). It supports up to 2,000 simultaneous client connections.
-To connect through pgBouncer, follow these steps:
+To connect through PgBouncer, follow these steps:
 
 1. Go to the **Connection strings** page for your server group in the Azure
    portal.

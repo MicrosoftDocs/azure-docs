@@ -24,6 +24,13 @@ The following tables list the standard PostgreSQL extensions that are currently 
 
 The versions of each extension installed in a server group sometimes differ based on the version of PostgreSQL (11, 12, or 13). The tables list extension versions per database version.
 
+### Citus extension
+
+> [!div class="mx-tableFixed"]
+> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** |
+> |---|---|---|---|---|
+> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5-1 | 9.5-1 | 10.0-2 |
+
 ### Data types extensions
 
 > [!div class="mx-tableFixed"]
@@ -70,13 +77,6 @@ The versions of each extension installed in a server group sometimes differ base
 > | [tcn](https://www.postgresql.org/docs/current/tcn.html) | Triggered change notifications. | 1.0 | 1.0 | 1.0 |
 > | [timetravel](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | Functions for implementing time travel. | 1.0 | | |
 > | [uuid-ossp](https://www.postgresql.org/docs/current/static/uuid-ossp.html) | Generates universally unique identifiers (UUIDs). | 1.1 | 1.1 | 1.1 |
-
-### Hyperscale (Citus) extensions
-
-> [!div class="mx-tableFixed"]
-> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** |
-> |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5-1 | 9.5-1 | 10.0-2 |
 
 ### Index types extensions
 
