@@ -263,7 +263,7 @@ This article used only one resource group to create all the VM resource. Deletin
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
     True
     PS C:\WINDOWS\system32>
-    ```powershell
+    ```
 
 1. Verify that the resource group has deleted. Get all the resource groups that exist on the device. 
 
@@ -302,4 +302,3 @@ Depending on the nature of deployment, you can choose one of the following proce
 
 - [Deploy a VM from a generalized image via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)  
 - [Deploy a VM via Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
-
