@@ -53,7 +53,7 @@ conceptualContent:
         - url: ./computer-vision/index.yml
           itemType: overview
           text: Computer Vision
-        - url: ./Custom-Vision-Service/index.yml
+        - url: ./custom-vision-service/index.yml
           itemType: overview
           text: Custom Vision
         - url: ./face/index.yml
@@ -62,9 +62,6 @@ conceptualContent:
         - url: ./form-recognizer/index.yml
           itemType: overview
           text: Form Recognizer
-        - url: ./ink-recognizer/index.yml
-          itemType: overview
-          text: Ink Recognizer (Retiring)
         - url: ../media-services/video-indexer/index.yml
           itemType: overview
           text: Video Indexer
@@ -95,7 +92,7 @@ conceptualContent:
           text: Speech service
         - url: https://speech.microsoft.com/
           itemType: overview
-          text: " - Customize with Speech Studio"
+          text: "Customize with Speech Studio"
 #        - url: ./speech/home.md
 #          itemType: overview
 #          text: Bing Speech (Retiring)
@@ -144,7 +141,7 @@ conceptualContent:
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
-        - url: ./containers/container-faq.md
+        - url: ./containers/container-faq.yml
           itemType: reference
           text: Cognitive Services containers FAQ
     - title: Cognitive Services for Big Data
@@ -155,7 +152,7 @@ conceptualContent:
           text: Cognitive Services for Big Data
         - url: ./big-data/getting-started.md
           itemType: get-started
-          text: Use Cognitive Services within Azure Databricks and Synapse Analytics
+          text: Use Cognitive Services within Azure Databricks and Azure Synapse Analytics
         - url: ./big-data/samples-python.md
           itemType: reference
           text: Python Samples   
@@ -181,15 +178,15 @@ additionalContent:
         - title: SDKs & REST APIs
           links:
             - text: C#
-              url: /dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+              url: /dotnet/api/overview/azure/cognitiveservices/client
             - text: Go
               url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
             - text: Java
-              url: /java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+              url: /java/api/overview/azure/cognitiveservices/client
             - text: JavaScript
-              url: /javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+              url: /javascript/api/overview/azure/cognitive-services
             - text: Python
-              url: /python/api/overview/azure/cognitive-services?view=azure-python
+              url: /python/api/overview/azure/cognitive-services
             - text: R 
               url: https://github.com/Azure/AzureCognitive
             - text: Apache Spark and Databases 
@@ -199,6 +196,6 @@ additionalContent:
         - title: Tools
           links:
             - text: Azure CLI
-              url: /cli/azure/cognitiveservices?view=azure-cli-latest
+              url: /cli/azure/cognitiveservices
             - text: PowerShell
-              url: /powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+              url: /powershell/module/az.cognitiveservices/#cognitive_services

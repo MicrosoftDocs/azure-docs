@@ -1,14 +1,9 @@
 ---
 title: Copy activity performance optimization features
 description: Learn about the key features that help you optimize the copy activity performance in Azure Data Factory。
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020
@@ -121,7 +116,7 @@ When you specify a value for the `parallelCopies` property, take the load increa
 
 When you copy data from a source data store to a sink data store, you might choose to use Azure Blob storage or Azure Data Lake Storage Gen2 as an interim staging store. Staging is especially useful in the following cases:
 
-- **You want to ingest data from various data stores into Azure Synapse Analytics (formerly SQL Data Warehouse) via PolyBase, copy data from/to Snowflake, or ingest data from Amazon Redshift/HDFS performantly.** Learn more details from:
+- **You want to ingest data from various data stores into Azure Synapse Analytics via PolyBase, copy data from/to Snowflake, or ingest data from Amazon Redshift/HDFS performantly.** Learn more details from:
   - [Use PolyBase to load data into Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
   - [Snowflake connector](connector-snowflake.md)
   - [Amazon Redshift connector](connector-amazon-redshift.md)

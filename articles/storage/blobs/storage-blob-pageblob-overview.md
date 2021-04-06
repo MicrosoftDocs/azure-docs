@@ -27,7 +27,7 @@ Page blobs can only use the **Hot** access tier, they cannot use either the **Co
 
 ## Sample use cases
 
-Let's discuss a couple of use cases for page blobs starting with Azure IaaS Disks. Azure page blobs are the backbone of the virtual disks platform for Azure IaaS. Both Azure OS and data disks are implemented as virtual disks where data is durably persisted in the Azure Storage platform and then delivered to the virtual machines for maximum performance. Azure Disks are persisted in Hyper-V [VHD format](https://technet.microsoft.com/library/dd979539.aspx) and stored as a [page blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) in Azure Storage. In addition to using virtual disks for Azure IaaS VMs, page blobs also enable PaaS and DBaaS scenarios such as Azure SQL DB service, which currently uses page blobs for storing SQL data, enabling fast random read-write operations for the database. Another example would be if you have a PaaS service for shared media access for collaborative video editing applications, page blobs enable fast access to random locations in the media. It also enables fast and efficient editing and merging of the same media by multiple users. 
+Let's discuss a couple of use cases for page blobs starting with Azure IaaS Disks. Azure page blobs are the backbone of the virtual disks platform for Azure IaaS. Both Azure OS and data disks are implemented as virtual disks where data is durably persisted in the Azure Storage platform and then delivered to the virtual machines for maximum performance. Azure Disks are persisted in Hyper-V [VHD format](/previous-versions/windows/it-pro/windows-7/dd979539(v=ws.10)) and stored as a [page blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) in Azure Storage. In addition to using virtual disks for Azure IaaS VMs, page blobs also enable PaaS and DBaaS scenarios such as Azure SQL DB service, which currently uses page blobs for storing SQL data, enabling fast random read-write operations for the database. Another example would be if you have a PaaS service for shared media access for collaborative video editing applications, page blobs enable fast access to random locations in the media. It also enables fast and efficient editing and merging of the same media by multiple users. 
 
 First party Microsoft services like Azure Site Recovery, Azure Backup, as well as many third-party developers have implemented industry-leading innovations using page blob's REST interface. Following are some of the unique scenarios implemented on Azure: 
 
@@ -43,7 +43,7 @@ Both types of storage offered with page blobs have their own pricing model. Prem
 
 ### REST API
 
-Refer to the following document to get started with [developing using page blobs](storage-dotnet-how-to-use-blobs.md). As an example, look at how to access page blobs using Storage Client Library for .NET. 
+Refer to the following document to get started with [developing using page blobs](./storage-quickstart-blobs-dotnet.md). As an example, look at how to access page blobs using Storage Client Library for .NET. 
 
 The following diagram describes the overall relationships between account, containers, and page blobs.
 
@@ -53,7 +53,7 @@ The following diagram describes the overall relationships between account, conta
 
 # [.NET v12](#tab/dotnet)
 
-First, get a reference to a container. To create a page blob, call the [GetPageBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getpageblobclient) method, and then call the [PageBlobClient.Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) method. Pass in the max size for the blob to create. That size must be a multiple of 512 bytes.
+First, get a reference to a container. To create a page blob, call the GetPageBlobClient method, and then call the [PageBlobClient.Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) method. Pass in the max size for the blob to create. That size must be a multiple of 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 
@@ -137,7 +137,7 @@ The below diagram shows 2 separate write operations:
 
 # [.NET v12](#tab/dotnet)
 
-To read pages, use the [PageBlobClient.Download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.download) method to read a range of bytes from the page blob. 
+To read pages, use the [PageBlobClient.Download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadto) method to read a range of bytes from the page blob. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadFromPageBlob":::
 

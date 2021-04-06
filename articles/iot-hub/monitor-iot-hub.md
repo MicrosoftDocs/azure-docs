@@ -5,7 +5,9 @@ author: robinsh
 ms.author: robinsh
 ms.topic: conceptual 
 ms.service: iot-hub
+ms.custom: subject-monitoring
 ms.date: 11/06/2020
+
 ---
 
 # Monitoring Azure IoT Hub
@@ -24,9 +26,9 @@ The information presented on the Overview pane is useful, but represents only a 
 
 ## What is Azure Monitor?
 
-Azure IoT Hub creates monitoring data using [Azure Monitor](/azure/azure-monitor/overview), which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
+Azure IoT Hub creates monitoring data using [Azure Monitor](../azure-monitor/overview.md), which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
 
-Start with the article [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource), which describes the following concepts:
+Start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md), which describes the following concepts:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -38,7 +40,7 @@ The following sections build on this article by describing the specific data gat
 
 ## Monitoring data
 
-Azure IoT Hub collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources).
+Azure IoT Hub collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 See [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md) for detailed information on the metrics and logs created by Azure IoT Hub.
 
@@ -62,31 +64,31 @@ The following screenshot shows a diagnostic setting for routing the resource log
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Diagnostic Settings pane for an IoT hub.":::
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure IoT Hub are listed  under [Resource logs in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure IoT Hub are listed  under [Resource logs in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#resource-logs).
 
 When routing IoT Hub platform metrics to other locations, be aware that:
 
 - The following platform metrics are not exportable via diagnostic settings: *Connected devices (preview)* and *Total devices (preview)*.
 
-- Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
+- Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](../azure-monitor/essentials/metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure IoT Hub with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
+You can analyze metrics for Azure IoT Hub with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
 
 In Azure portal, you can select **Metrics** under **Monitoring** on the left-pane of your IoT hub to open metrics explorer scoped, by default, to the platform metrics emitted by your IoT hub:
 
 :::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Metrics explorer page for an IoT hub.":::
 
-For a list of the platform metrics collected for Azure IoT Hub, see [Metrics in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#metrics). For a list of the platform metrics collected for all Azure services, see [Supported metrics with Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+For a list of the platform metrics collected for Azure IoT Hub, see [Metrics in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#metrics). For a list of the platform metrics collected for all Azure services, see [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 For IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#supported-aggregations).
 
-Some IoT Hub metrics, like [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are multi-dimensional. For these metrics, you can apply [filters](/azure/azure-monitor/platform/metrics-charts#apply-filters-to-charts) and [splitting](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) to your charts based on a dimension.
+Some IoT Hub metrics, like [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are multi-dimensional. For these metrics, you can apply [filters](../azure-monitor/essentials/metrics-charts.md#filters) and [splitting](../azure-monitor/essentials/metrics-charts.md#apply-splitting) to your charts based on a dimension.
 
 ## Analyzing logs
 
-Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties. The data in these tables are associated with a Log Analytics workspace and can be queried in Log Analytics. To learn more about Azure Monitor Logs, see [Azure Monitor Logs overview](/azure/azure-monitor/platform/data-platform-logs) in the Azure Monitor documentation. 
+Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties. The data in these tables are associated with a Log Analytics workspace and can be queried in Log Analytics. To learn more about Azure Monitor Logs, see [Azure Monitor Logs overview](../azure-monitor/logs/data-platform-logs.md) in the Azure Monitor documentation. 
 
 To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Collection and routing](#collection-and-routing).
 
@@ -96,17 +98,17 @@ In Azure portal, you can select **Logs** under **Monitoring** on the left-pane o
 
 For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Azure Monitor Logs tables in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#azure-monitor-logs-tables).
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#top-level-resource-logs-schema). You can find the schema and categories of resource logs collected for Azure IoT Hub in [Resource logs in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#resource-logs).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). You can find the schema and categories of resource logs collected for Azure IoT Hub in [Resource logs in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#resource-logs).
 
-The [Activity log](/azure/azure-monitor/platform/activity-log) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 When routing IoT Hub platform metrics to Azure Monitor Logs, be aware that:
 
 - The following platform metrics are not exportable via diagnostic settings: *Connected devices (preview)* and *Total devices (preview)*.
 
-- Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
+- Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](../azure-monitor/essentials/metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
-For some common queries with IoT Hub, see [Sample Kusto queries](#sample-kusto-queries). For detailed information on using Log Analytics queries, see [Overview of log queries in Azure Monitor](/azure/azure-monitor/log-query/log-query-overview).
+For some common queries with IoT Hub, see [Sample Kusto queries](#sample-kusto-queries). For detailed information on using Log Analytics queries, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ### SDK version in IoT Hub logs
 
@@ -147,7 +149,7 @@ AzureDiagnostics
 ### Sample Kusto queries
 
 > [!IMPORTANT]
-> When you select **Logs** from the IoT hub menu, Log Analytics is opened with the query scope set to the current IoT hub. This means that log queries will only include data from that resource. If you want to run a query that includes data from other IoT hubs or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
+> When you select **Logs** from the IoT hub menu, Log Analytics is opened with the query scope set to the current IoT hub. This means that log queries will only include data from that resource. If you want to run a query that includes data from other IoT hubs or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
 
 Following are queries that you can use to help you monitor your IoT hub.
 
@@ -283,13 +285,13 @@ class Program
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks.
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
 
 When creating an alert rule based on platform metrics, be aware that for IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#supported-aggregations).
 
 ## Monitor per-device disconnects with Event Grid
 
-Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub and trigger an alert when number of connected devices drops below a threshold value. While this may be sufficient for some scenarios, [Azure Event Grid](/azure/event-grid/) provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure.
+Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub and trigger an alert when number of connected devices drops below a threshold value. While this may be sufficient for some scenarios, [Azure Event Grid](../event-grid/index.yml) provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure.
 
 With Event Grid, you can subscribe to the IoT Hub [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) to trigger alerts and monitor device connection state. Event Grid provides much lower event latency than Azure Monitor, and you can monitor on a per-device basis, rather than for the total number of connected devices. These factors make Event Grid the preferred method for monitoring connections for critical devices and infrastructure. We highly recommend using Event Grid to monitor device connections in production environments.
 
@@ -299,4 +301,4 @@ For more detailed information about monitoring device connections with Event Gri
 
 - See [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
 
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

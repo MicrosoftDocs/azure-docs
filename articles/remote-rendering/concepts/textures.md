@@ -30,66 +30,54 @@ Loading a texture with the same URI twice will return the same texture object, a
 
 Similar to loading models, there are two variants of addressing a texture asset in source blob storage:
 
-* The texture asset can be addressed by its SAS URI. Relevant loading function is `LoadTextureFromSASAsync` with parameter `LoadTextureFromSASParams`. Use this variant also when loading [built-in textures](../overview/features/sky.md#built-in-environment-maps).
-* The texture can be addressed by blob storage parameters directly, in case the [blob storage is linked to the account](../how-tos/create-an-account.md#link-storage-accounts). Relevant loading function in this case is `LoadTextureAsync` with parameter `LoadTextureParams`.
+* The texture can be addressed by blob storage parameters directly, in case the [blob storage is linked to the account](../how-tos/create-an-account.md#link-storage-accounts). Relevant loading function in this case is `LoadTextureAsync` with parameter `LoadTextureOptions`.
+* The texture asset can be addressed by its SAS URI. Relevant loading function is `LoadTextureFromSasAsync` with parameter `LoadTextureFromSasOptions`. Use this variant also when loading [built-in textures](../overview/features/sky.md#built-in-environment-maps).
 
-The following sample code shows how to load a texture via its SAS URI (or built-in texture) - note that only the loading function/parameter differs for the other case:
+The following sample code shows how to load a texture:
 
 ```cs
-LoadTextureAsync _textureLoad = null;
-void LoadMyTexture(AzureSession session, string textureUri)
+async void LoadMyTexture(RenderingSession session, string storageContainer, string blobName, string assetPath)
 {
-    _textureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams(textureUri, TextureType.Texture2D));
-    _textureLoad.Completed +=
-        (LoadTextureAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                //use res.Result
-            }
-            else
-            {
-                System.Console.WriteLine("Texture loading failed!");
-            }
-            _textureLoad = null;
-        };
+    try
+    {
+        LoadTextureOptions options = new LoadTextureOptions(storageContainer, blobName, assetPath, TextureType.Texture2D);
+        Texture texture = await session.Connection.LoadTextureAsync(options);
+    
+        // use texture...
+    }
+    catch (RRException ex)
+    {
+    }
 }
 ```
 
 ```cpp
-void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
+void LoadMyTexture(ApiHandle<RenderingSession> session, std::string storageContainer, std::string blobName, std::string assetPath)
 {
-    LoadTextureFromSASParams params;
+    LoadTextureOptions params;
     params.TextureType = TextureType::Texture2D;
-    params.TextureUrl = std::move(textureUri);
-    ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
-    textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
+    params.Blob.StorageAccountName = std::move(storageContainer);
+    params.Blob.BlobContainerName = std::move(blobName);
+    params.Blob.AssetPath = std::move(assetPath);
+    session->Connection()->LoadTextureAsync(params, [](Status status, ApiHandle<Texture> texture)
     {
-        if (res->GetIsRanToCompletion())
-        {
-            //use res->Result()
-        }
-        else
-        {
-            printf("Texture loading failed!");
-        }
+        // use texture...
     });
 }
 ```
 
-Depending on what the texture is supposed to be used for, there may be restrictions for the texture type and content. For example, the roughness map of a [PBR material](../overview/features/pbr-materials.md) must be grayscale.
+Note that in case of using its SAS variant only the loading function/parameter differs.
 
-> [!CAUTION]
-> All *Async* functions in ARR return asynchronous operation objects. You must store a reference to those objects until the operation is completed. Otherwise the C# garbage collector may delete the operation early and it can never finish. In the sample code above the member variable '_textureLoad' is used to hold a reference until the *Completed* event arrives.
+Depending on what the texture is supposed to be used for, there may be restrictions for the texture type and content. For example, the roughness map of a [PBR material](../overview/features/pbr-materials.md) must be grayscale.
 
 ## API documentation
 
 * [C# Texture class](/dotnet/api/microsoft.azure.remoterendering.texture)
-* [C# RemoteManager.LoadTextureAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtextureasync)
-* [C# RemoteManager.LoadTextureFromSASAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtexturefromsasasync)
+* [C# RenderingConnection.LoadTextureAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadtextureasync)
+* [C# RenderingConnection.LoadTextureFromSasAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadtexturefromsasasync)
 * [C++ Texture class](/cpp/api/remote-rendering/texture)
-* [C++ RemoteManager::LoadTextureAsync()](/cpp/api/remote-rendering/remotemanager#loadtextureasync)
-* [C++ RemoteManager::LoadTextureFromSASAsync()](/cpp/api/remote-rendering/remotemanager#loadtexturefromsasasync)
+* [C++ RenderingConnection::LoadTextureAsync()](/cpp/api/remote-rendering/renderingconnection#loadtextureasync)
+* [C++ RenderingConnection::LoadTextureFromSasAsync()](/cpp/api/remote-rendering/renderingconnection#loadtexturefromsasasync)
 
 ## Next steps
 

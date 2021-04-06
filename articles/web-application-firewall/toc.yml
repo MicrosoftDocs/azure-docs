@@ -67,6 +67,8 @@
       href: ./ag/application-gateway-waf-faq.md
   - name: Front Door
     items:
+    - name: Tuning
+      href: ./afds/waf-front-door-tuning.md
     - name: Custom rules
       href: ./afds/waf-front-door-custom-rules.md
     - name: Exclusion lists
@@ -152,17 +154,17 @@
   - name: Azure CLI
     items:
     - name: Front Door
-      href: /cli/azure/ext/front-door/network?view=azure-cli-latest
+      href: /cli/azure/ext/front-door/network
     - name: Application Gateway
-      href: /cli/azure/network/application-gateway?view=azure-cli-latest
+      href: /cli/azure/network/application-gateway
     - name: CDN
-      href: /cli/azure/cdn/waf?view=azure-cli-latest
+      href: /cli/azure/cdn/waf
   - name: Azure PowerShell
     items:
     - name: Front Door
-      href: /powershell/module/az.frontdoor/?view=azps-3.3.0
+      href: /powershell/module/az.frontdoor/
     - name: Application Gateway
-      href: /powershell/module/az.network/?view=azps-3.3.0#application_gateway
+      href: /powershell/module/az.network/#application_gateway
     - name: CDN
       href: https://www.powershellgallery.com/packages/Az.Cdn/1.5.0-preview
   - name: REST API

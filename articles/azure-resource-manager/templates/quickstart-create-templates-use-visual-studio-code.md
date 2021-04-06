@@ -1,6 +1,6 @@
 ---
 title: Create template - Visual Studio Code
-description: Use Visual Studio Code and the Azure Resource Manager tools extension to work on Resource Manager templates.
+description: Use Visual Studio Code and the Azure Resource Manager tools extension to work on Azure Resource Manager templates (ARM templates).
 author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
@@ -10,11 +10,11 @@ ms.author: nepeters
 
 ---
 
-# Quickstart: Create Azure Resource Manager templates with Visual Studio Code
+# Quickstart: Create ARM templates with Visual Studio Code
 
-The Azure Resource Manager Tools for Visual Studio Code provide language support, resource snippets, and resource autocompletion. These tools help create and validate Azure Resource Manager templates. In this quickstart, you use the extension to create an Azure Resource Manager template from scratch. While doing so you experience the extensions capabilities such as ARM template snippets, validation, completions, and parameter file support.
+The Azure Resource Manager Tools for Visual Studio Code provide language support, resource snippets, and resource autocompletion. These tools help create and validate Azure Resource Manager templates (ARM templates). In this quickstart, you use the extension to create an ARM template from scratch. While doing so you experience the extensions capabilities such as ARM template snippets, validation, completions, and parameter file support.
 
-To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Azure Resource Manager tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installed. You also need either the [Azure CLI](/cli/azure/?view=azure-cli-latest) or the [Azure PowerShell module](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) installed and authenticated.
+To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Azure Resource Manager tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installed. You also need either the [Azure CLI](/cli/azure/) or the [Azure PowerShell module](/powershell/azure/new-azureps-module-az) installed and authenticated.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -52,7 +52,7 @@ The **tab** key can be used to tab through configurable properties on the storag
 
 ## Completion and validation
 
-One of the most powerful capabilities of the extension is its integration with Azure schemas. Azure schemas provide the extension with validation and resource-aware completion capabilities. Let's modify the storage account to see validation and completion in action. 
+One of the most powerful capabilities of the extension is its integration with Azure schemas. Azure schemas provide the extension with validation and resource-aware completion capabilities. Let's modify the storage account to see validation and completion in action.
 
 First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this action produces a warning indicating that `megaStorage` is not a valid value.
 
@@ -78,7 +78,7 @@ Azure storage account names have a minimum length of 3 characters and a maximum 
 
 ![Image showing minLength and maxLength being added to an ARM template parameter](./media/quickstart-create-templates-use-visual-studio-code/11.png)
 
-Now, on the storage resource, update the name property to use the parameter. To do so, remove the current name. Enter a double quote and an opening square bracket `[`, which produces a list of ARM template functions. Select *parameters* from the list. 
+Now, on the storage resource, update the name property to use the parameter. To do so, remove the current name. Enter a double quote and an opening square bracket `[`, which produces a list of ARM template functions. Select *parameters* from the list.
 
 ![Image showing auto-completion when using parameters in ARM template resources](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 

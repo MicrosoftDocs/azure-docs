@@ -14,7 +14,10 @@ As a Python developer, you may also be interested in one of the following articl
 
 | Getting started | Concepts| Scenarios/Samples |
 | -- | -- | -- | 
-| <ul><li>[Python function using Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-python)</li><li>[Python function with terminal/command prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+
+> [!NOTE]
+> While you can [develop your Python based Azure Functions locally on Windows](create-first-function-vs-code-python.md#run-the-function-locally), Python is only supported on a Linux based hosting plan when running in Azure. See the list of supported [operating system/runtime](functions-scale.md#operating-systemruntime) combinations.
 
 ## Programming model
 
@@ -43,7 +46,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true) package to bind input and outputs to your methods.
+Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions) package to bind input and outputs to your methods.
 
 ## Alternate entry point
 
@@ -191,7 +194,7 @@ Output can be expressed both in return value and output parameters. If there's o
 
 To use the return value of a function as the value of an output binding, the `name` property of the binding should be set to `$return` in `function.json`.
 
-To produce multiple outputs, use the `set()` method provided by the [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) interface to assign a value to the binding. For example, the following function can push a message to a queue and also return an HTTP response.
+To produce multiple outputs, use the `set()` method provided by the [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out) interface to assign a value to the binding. For example, the following function can push a message to a queue and also return an HTTP response.
 
 ```json
 {
@@ -294,91 +297,11 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ## Scaling and Performance
 
-It's important to understand how your functions perform and how that performance affects the way your function app gets scaled. This is particularly important when designing highly performant apps. The following are several factors to consider when designing, writing and configuring your functions apps.
-
-### Horizontal scaling
-By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. These thresholds aren't user configurable. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
-
-### Improving throughput performance
-
-A key to improving performance is understanding how your app uses resources and being able to configure your function app accordingly.
-
-#### Understanding your workload
-
-The default configurations are suitable for most of Azure Functions applications. However, you can improve the performance of your applications' throughput by employing configurations based on your workload profile. The first step is to understand the type of workload that you are running.
-
-| | I/O-bound workload | CPU-bound workload |
-|--| -- | -- |
-|**Function app characteristics**| <ul><li>App needs to handle many concurrent invocations.</li> <li> App processes a large number of I/O events, such as network calls and disk read/writes.</li> </ul>| <ul><li>App does long-running computations, such as image resizing.</li> <li>App does data transformation.</li> </ul> |
-|**Examples**| <ul><li>Web APIs</li><ul> | <ul><li>Data processing</li><li> Machine learning inference</li><ul>|
-
-
-> [!NOTE]
->  As real world functions workload are most of often a mix of I/O and CPU bound, we recommend to profile the workload under realistic production loads.
-
-
-#### Performance-specific configurations
-
-After understanding the workload profile of your function app, the following are configurations that you can use to improve the throughput performance of your functions.
-
-##### Async
-
-Because [Python is a single-threaded runtime](https://wiki.python.org/moin/GlobalInterpreterLock), a host instance for Python can process only one function invocation at a time. For applications that process a large number of I/O events and/or is I/O bound, you can improve performance significantly by running functions asynchronously.
-
-To run a function asynchronously, use the `async def` statement, which runs the function with [asyncio](https://docs.python.org/3/library/asyncio.html) directly:
-
-```python
-async def main():
-    await some_nonblocking_socket_io_op()
-```
-Here is an example of a function with HTTP trigger that uses [aiohttp](https://pypi.org/project/aiohttp/) http client:
-
-```python
-import aiohttp
-
-import azure.functions as func
-
-async def main(req: func.HttpRequest) -> func.HttpResponse:
-    async with aiohttp.ClientSession() as client:
-        async with client.get("PUT_YOUR_URL_HERE") as response:
-            return func.HttpResponse(await response.text())
-
-    return func.HttpResponse(body='NotFound', status_code=404)
-```
-
-
-A function without the `async` keyword is run automatically in an asyncio thread-pool:
-
-```python
-# Runs in an asyncio thread-pool
-
-def main():
-    some_blocking_socket_io()
-```
-
-In order to achieve the full benefit of running functions asynchronously, the I/O operation/library that is used in your code needs to have async implemented as well. Using synchronous I/O operations in functions that are defined as asynchronous **may hurt** the overall performance.
-
-Here are a few examples of client libraries that has implemented async pattern:
-- [aiohttp](https://pypi.org/project/aiohttp/) - Http client/server for asyncio 
-- [Streams API](https://docs.python.org/3/library/asyncio-stream.html) - High-level async/await-ready primitives to work with network connection
-- [Janus Queue](https://pypi.org/project/janus/) - Thread-safe asyncio-aware queue for Python
-- [pyzmq](https://pypi.org/project/pyzmq/) - Python bindings for ZeroMQ
- 
-
-##### Use multiple language worker processes
-
-By default, every Functions host instance has a single language worker process. You can increase the number of worker processes per host (up to 10) by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers.
-
-For CPU bound apps, you should set the number of language worker to be the same as or higher than the number of cores that are available per function app. To learn more, see [Available instance SKUs](functions-premium-plan.md#available-instance-skus). 
-
-I/O-bound apps may also benefit from increasing the number of worker processes beyond the number of cores available. Keep in mind that setting the number of workers too high can impact overall performance due to the increased number of required context switches. 
-
-The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates when scaling out your application to meet demand.
-
+For scaling and performance best practices for Python function apps, please refer to the [Python scale and performance article](python-scale-performance-reference.md).
 
 ## Context
 
-To get the invocation context of a function during execution, include the [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) argument in its signature.
+To get the invocation context of a function during execution, include the [`context`](/python/api/azure-functions/azure.functions.context) argument in its signature.
 
 For example:
 
@@ -391,7 +314,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-The [**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) class has the following string attributes:
+The [**Context**](/python/api/azure-functions/azure.functions.context) class has the following string attributes:
 
 `function_directory`
 The directory in which the function is running.
@@ -444,7 +367,7 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python<sup>*</sup> versions |
 | ----- | ----- |
-| 3.x | 3.8<br/>3.7<br/>3.6 |
+| 3.x | 3.9 (Preview) <br/> 3.8<br/>3.7<br/>3.6 |
 | 2.x | 3.7<br/>3.6 |
 
 <sup>*</sup>Official CPython distributions
@@ -489,7 +412,7 @@ func azure functionapp publish <APP_NAME>
 
 Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
-The [Azure Functions Extension for Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) also requests a remote build by default.
+The [Azure Functions Extension for Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) also requests a remote build by default.
 
 ### Local build
 
@@ -666,6 +589,7 @@ To view the full details of the list of these libraries, please visit the links 
 * [Python 3.6 Standard Library](https://docs.python.org/3.6/library/)
 * [Python 3.7 Standard Library](https://docs.python.org/3.7/library/)
 * [Python 3.8 Standard Library](https://docs.python.org/3.8/library/)
+* [Python 3.9 Standard Library](https://docs.python.org/3.9/library/)
 
 ### Azure Functions Python worker dependencies
 
@@ -693,7 +617,7 @@ For a list of preinstalled system libraries in Python worker Docker images, plea
 |  Functions runtime  | Debian version | Python versions |
 |------------|------------|------------|
 | Version 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
-| Version 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+| Version 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
 
 ## Cross-origin resource sharing
 
@@ -714,7 +638,7 @@ All known issues and feature requests are tracked using [GitHub issues](https://
 
 For more information, see the following resources:
 
-* [Azure Functions package API documentation](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true)
+* [Azure Functions package API documentation](/python/api/azure-functions/azure.functions)
 * [Best practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 * [Blob storage bindings](functions-bindings-storage-blob.md)
@@ -725,5 +649,5 @@ For more information, see the following resources:
 [Having issues? Let us know.](https://aka.ms/python-functions-ref-survey)
 
 
-[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true
-[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python&preserve-view=true
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse

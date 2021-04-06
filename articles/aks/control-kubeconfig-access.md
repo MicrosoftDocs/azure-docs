@@ -66,6 +66,22 @@ az role assignment create \
     --role "Azure Kubernetes Service Cluster Admin Role"
 ```
 
+> [!IMPORTANT]
+> In some cases, the *user.name* in the account is different than the *userPrincipalName*, such as with Azure AD guest users:
+>
+> ```output
+> $ az account show --query user.name -o tsv
+> user@contoso.com
+> $ az ad user list --query "[?contains(otherMails,'user@contoso.com')].{UPN:userPrincipalName}" -o tsv
+> user_contoso.com#EXT#@contoso.onmicrosoft.com
+> ```
+>
+> In this case, set the value of *ACCOUNT_UPN* to the *userPrincipalName* from the Azure AD user. For example, if your account *user.name* is *user\@contoso.com*:
+> 
+> ```azurecli-interactive
+> ACCOUNT_UPN=$(az ad user list --query "[?contains(otherMails,'user@contoso.com')].{UPN:userPrincipalName}" -o tsv)
+> ```
+
 > [!TIP]
 > If you want to assign permissions to an Azure AD group, update the `--assignee` parameter shown in the previous example with the object ID for the *group* rather than a *user*. To obtain the object ID for a group, use the [az ad group show][az-ad-group-show] command. The following example gets the object ID for the Azure AD group named *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 

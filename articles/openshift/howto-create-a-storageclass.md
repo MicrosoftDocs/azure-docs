@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Files StorageClass on Azure Red Hat OpenShift 4
 description: Learn how to create an Azure Files StorageClass on Azure Red Hat OpenShift
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 10/16/2020
 author: grantomation
@@ -19,7 +19,7 @@ In this article, you’ll create a StorageClass for Azure Red Hat OpenShift 4 th
 > * Setup the prerequisites and install the necessary tools
 > * Create an Azure Red Hat OpenShift 4 StorageClass with the Azure File provisioner
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Before you begin
 
@@ -48,14 +48,14 @@ az storage account create \
 ## Set permissions
 ### Set resource group permissions
 
-The ARO service principal requires 'listKeys' permission on the new Azure storage account resource group. Assign the ‘Contributor’ role to achieve this. 
+The ARO service principal requires 'listKeys' permission on the new Azure storage account resource group. Assign the ‘Contributor’ role to achieve this.
 
 ```bash
 ARO_RESOURCE_GROUP=aro-rg
 CLUSTER=cluster
-ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER –-query servicePrincipalProfile.clientId -o tsv)
+ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER --query servicePrincipalProfile.clientId -o tsv)
 
-az role assignment create –-role Contributor -–assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES_RESOURCE_GROUP
+az role assignment create --role Contributor --assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES_RESOURCE_GROUP
 ```
 
 ### Set ARO cluster permissions
@@ -77,6 +77,8 @@ oc adm policy add-cluster-role-to-user azure-secret-reader system:serviceaccount
 
 This step will create a StorageClass with an Azure Files provisioner. Within the StorageClass manifest, the details of the storage account are required so that the ARO cluster knows to look at a storage account outside of the current resource group.
 
+During storage provisioning, a secret named by secretName is created for the mounting credentials. In a multi-tenancy context, it is strongly recommended to set the value for secretNamespace explicitly, otherwise the storage account credentials may be read by other users.
+
 ```bash
 cat << EOF >> azure-storageclass-azure-file.yaml
 kind: StorageClass
@@ -86,7 +88,8 @@ metadata:
 provisioner: kubernetes.io/azure-file
 parameters:
   location: $LOCATION
-  skuName: Standard_LRS 
+  secretNamespace: kube-system
+  skuName: Standard_LRS
   storageAccount: $AZURE_STORAGE_ACCOUNT_NAME
   resourceGroup: $AZURE_FILES_RESOURCE_GROUP
 reclaimPolicy: Delete
@@ -112,7 +115,7 @@ Create a new application and assign storage to it.
 
 ```bash
 oc new-project azfiletest
-oc new-app –template httpd-example
+oc new-app -template httpd-example
 
 #Wait for the pod to become Ready
 curl $(oc get route httpd-example -n azfiletest -o jsonpath={.spec.host})
@@ -127,7 +130,7 @@ oc exec $POD -- bash -c "echo 'azure file storage' >> /data/test.txt"
 oc exec $POD -- bash -c "cat /data/test.txt"
 azure file storage
 ```
-The test.txt file will also be visible via the Storage Explorer in the Azure portal. 
+The test.txt file will also be visible via the Storage Explorer in the Azure portal.
 
 ## Next steps
 

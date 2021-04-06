@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 10/05/2020
+ms.date: 01/14/2021
 ms.topic: overview
 ---
 # What is Azure Policy?
@@ -57,7 +57,7 @@ For detailed information about when and how policy evaluation happens, see
 ### Control the response to an evaluation
 
 Business rules for handling non-compliant resources vary widely between organizations. Examples of
-how an organization wants the platform to respond to a non-complaint resource include:
+how an organization wants the platform to respond to a non-compliant resource include:
 
 - Deny the resource change
 - Log the change to the resource
@@ -126,8 +126,9 @@ If none of the Built-in roles have the permissions required, create a
 
 ### Resources covered by Azure Policy
 
-Azure Policy evaluates all resources in Azure and Arc enabled resources. For certain resource
-providers such as [Guest Configuration](./concepts/guest-configuration.md),
+Azure Policy evaluates all Azure resources at or below subscription-level, including Arc enabled
+resources. For certain resource providers such as
+[Guest Configuration](./concepts/guest-configuration.md),
 [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and
 [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing
 settings and objects. To find out more, see

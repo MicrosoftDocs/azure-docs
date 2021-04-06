@@ -4,8 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to manage feature flags separately from your application by using Azure App Configuration.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 
 ms.assetid: 
@@ -14,7 +13,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/19/2019
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to control feature availability in my app by using App Configuration.

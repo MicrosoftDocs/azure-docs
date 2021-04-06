@@ -1,5 +1,5 @@
 ---
-title: Partner Center Orders dashboard in Commercial Marketplace analytics, Microsoft AppSource and Azure Marketplace
+title: Partner Center Orders dashboard in Commercial Marketplace analytics | Microsoft AppSource and Azure Marketplace
 description: Learn how to access analytic reports about your commercial marketplace offer orders in a graphical and downloadable format.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -16,7 +16,7 @@ This article provides information on the Orders dashboard in Partner Center. Thi
 To access the Orders dashboard in the Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Orders**.
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./partner-center-portal/faq-terminology.md).
+> For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).
 
 ## Orders dashboard
 
@@ -49,7 +49,7 @@ You can find a month range selection at the top-right corner of each page. Custo
 
 In this section, you will find the **Orders** chart that shows the trend of your active and canceled orders for the selected computation period. Metrics and growth trends are represented by a line chart and will display the value for each month by hovering over the line on the chart. The percentage value below the Orders metrics in the widget represents the amount of growth or decline during the selected computation period.
 
-There are two Orders counters: _Active_ and _Cancelled_.
+There are two Orders counters: _Active_ and _Canceled_.
 
 - **Active** equals the number of orders that are currently in use by customers during the selected date range.
 - **Canceled** equals the number of orders that were previously purchased and then canceled during the selected date range.
@@ -68,7 +68,7 @@ SaaS offers can use one of two pricing models with each plan: either flat rate (
 - **Per user**: Enable access to your offer with a price based on the number of users who can access the offer or occupy seats. With this usage-based model, you can set the minimum and maximum number of users supported by the plan. You can create multiple plans to configure different price points based on the number of users. These fields are optional. If left unselected, the number of users will be interpreted as not having a limit (min of 1 and max of as many as your service can support). These fields can be edited as part of an update to your plan.
 - **Metered Billing**: On top of Flat Rate pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers for usage that isn't covered by the flat rate.
 
-For more details on seat, site and metered based billing, see [How to plan a SaaS offer for the commercial marketplace](plan-saas-offer.md).
+For more details on seat, site, and metered based billing, see [How to plan a SaaS offer for the commercial marketplace](plan-saas-offer.md).
 
 ### Orders by offers and SKUs
 
@@ -104,35 +104,34 @@ The Order details table displays a numbered list of the 1,000 top orders sorted 
 - The data can be extracted to a .CSV or .TSV file if the count of the records is less than 1,000.
 - If records number over 1,000, exported data will be asynchronously placed in a downloads page for the next 30 days.
 - Apply filters to the **Order details** table to display only the data you're interested in. Filter by Country/Region, Azure license type, commercial marketplace license type, Offer type, Order status, Free trails, commercial marketplace subscription ID, Customer ID, and Company name.
-- Because SaaS offers purchased through Azure Marketplace or Microsoft AppSource, do not require an Azure subscription, the Marketplace Subscription ID will appear in the form 00000000-0000-0000-0000-000000000000 in the **Detailed orders data** section.
 - When an order is purchased by a protected customer, information in **Orders Detailed Data** is masked (************).
 
 ***Table 1: Dictionary of data terms***
 
-| Column name | Attribute name | Definition |
-| ------------ | ------------- | ------------- |
-| Marketplace Subscription Id | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. ID was formerly the Azure Subscription GUID. |
-| MonthStartDate | Month Start Date | Month Start Date represents month of Purchase. |
-| Offer Type | Offer Type | The type of commercial marketplace offering. |
-| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as Channel. The possible values are:<ul><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> |
-| Marketplace License Type | Marketplace License Type | The billing method of the commercial marketplace offer. The different values are:<ul><li>Billed Through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> |
-| SKU | SKU | The plan associated with the offer |
-| Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. |
-| Is Preview SKU | Is Preview SKU | The value will let you know if you have tagged the SKU as "preview". Value will be "Yes" if the SKU has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value will be "No" if the SKU has not been identified as "preview". |
-| Order Id | Order ID | The unique identifier of the customer order for your commercial marketplace service. Virtual Machine usage-based offers are not associated with an order. |
-| Order Quantity | Order Quantity | Number of assets associated with the order ID for active orders |
-| Cloud Instance Name | Cloud Instance Name | The Microsoft Cloud in which a VM deployment occurred. |
-| Is New Customer | Is New Customer | The value identifies whether a new customer acquired one or more of your offers for the first time. Value will be "Yes" if within the same calendar month for "Date Acquired". Value will be "No" if the customer has purchased any of your offers prior to the calendar month reported. |
-| Order Status | Order Status | The status of a commercial marketplace order at the time the data was last refreshed. |
-| Order Cancel Date | Order Cancel Date | The date the commercial marketplace order was canceled. |
-| Customer Company Name | Customer Company Name | The company name provided by the customer. Name could be different than the city in a customer's Azure subscription. |
-| Order Purchase Date | Order Purchase Date | The date the commercial marketplace order was created. |
-| Offer Name | Offer Name | The name of the commercial marketplace offering. |
-| Trial End Date | Trial End Date | The date the trial period for this order will end or has ended. |
-| Customer Id | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. |
-| Billing Account Id | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. |
-| AssetCount | Asset Count | The number of assets associated with the order ID. |
-||||
+| Column name in<br>user interface | Attribute name | Definition | Column name in programmatic<br>access reports |
+| ------------ | ------------- | ------------- | ------------- |
+| Marketplace Subscription ID | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. For infrastructure offers, this is the customer's Azure subscription GUID. For SaaS offers, this is shown as zeros since SaaS purchases do not require an Azure subscription. | Marketplace Subscription ID |
+| MonthStartDate | Month Start Date | Month Start Date represents month of Purchase. The format is yyyy-mm-dd. | MonthStartDate |
+| Offer Type | Offer Type | The type of commercial marketplace offering. | OfferType |
+| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as Channel. The possible values are:<ul><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> | AzureLicenseType |
+| Marketplace License Type | Marketplace License Type | The billing method of the commercial marketplace offer. The different values are:<ul><li>Billed Through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | The plan associated with the offer | SKU |
+| Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. | CustomerCountry |
+| Is Preview SKU | Is Preview SKU | The value will let you know if you have tagged the SKU as "preview". Value will be "Yes" if the SKU has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value will be "No" if the SKU has not been identified as "preview". | IsPreviewSKU |
+| Order ID | Order ID | The unique identifier of the customer order for your commercial marketplace service. Virtual Machine usage-based offers are not associated with an order. | OrderId |
+| Order Quantity | Order Quantity | Number of assets associated with the order ID for active orders | OrderQuantity |
+| Cloud Instance Name | Cloud Instance Name | The Microsoft Cloud in which a VM deployment occurred. | CloudInstanceName |
+| Is New Customer | Is New Customer | The value identifies whether a new customer acquired one or more of your offers for the first time. Value will be "Yes" if within the same calendar month for "Date Acquired". Value will be "No" if the customer has purchased any of your offers prior to the calendar month reported. | IsNewCustomer |
+| Order Status | Order Status | The status of a commercial marketplace order at the time the data was last refreshed. | OrderStatus |
+| Order Cancel Date | Order Cancel Date | The date the commercial marketplace order was canceled. | OrderCancelDate |
+| Customer Company Name | Customer Company Name | The company name provided by the customer. Name could be different than the city in a customer's Azure subscription. | CustomerCompanyName |
+| Order Purchase Date | Order Purchase Date | The date the commercial marketplace order was created. The format is yyyy-mm-dd. | OrderPurchaseDate |
+| Offer Name | Offer Name | The name of the commercial marketplace offering. | OfferName |
+| Trial End Date | Trial End Date | The date the trial period for this order will end or has ended. | TrialEndDate |
+| Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerId |
+| Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
+| AssetCount | Asset Count | The number of assets associated with the order ID. | Deprecated |
+|||||
 
 ### Orders page filters
 
@@ -149,4 +148,4 @@ The **Orders** page filters are applied at the Orders page level. You can select
 - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](./usage-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](./partner-center-portal/downloads-dashboard.md).
 - To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings & Reviews analytics dashboard in Partner Center](./partner-center-portal/ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./partner-center-portal/faq-terminology.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).

@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor service limits | Microsoft Docs
 description: Lists limits in different areas of Azure Monitor.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -25,6 +24,10 @@ This article lists limits in different areas of Azure Monitor.
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-autoscale.md)]
 
+
+## Data collection rules
+
+[!INCLUDE [data-collection-rules](../../includes/azure-monitor-limits-data-collection-rules.md)]
 ## Log queries and language
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]
@@ -40,5 +43,5 @@ This article lists limits in different areas of Azure Monitor.
 ## Next Steps
 
 - [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
-- [Monitoring usage and estimated costs in Azure Monitor](platform/usage-estimated-costs.md)
+- [Monitoring usage and estimated costs in Azure Monitor](/azure/azure-monitor/usage-estimated-costs)
 - [Manage usage and costs for Application Insights](app/pricing.md)

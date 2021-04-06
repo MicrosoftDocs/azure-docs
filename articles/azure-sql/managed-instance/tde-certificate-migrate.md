@@ -4,7 +4,7 @@ description: Migrate a certificate protecting the database encryption key of a d
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: sqldbrb=1, devx-track-azurecli
+ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: how-to
 author: MladjoA

@@ -1,14 +1,11 @@
 ---
 title: Data Flow activity
 description: How to execute data flows from inside a data factory pipeline. 
-services: data-factory
-documentationcenter: ''
 author: kromerm
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 10/28/2020
+ms.date: 01/03/2021
 ---
 
 # Data Flow activity in Azure Data Factory
@@ -32,6 +29,9 @@ Use the Data Flow activity to transform and move data via mapping data flows. If
          "coreCount": 8,
          "computeType": "General"
       },
+      "traceLevel": "Fine",
+      "runConcurrently": true,
+      "continueOnError": true,      
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -55,8 +55,9 @@ dataflow | The reference to the Data Flow being executed | DataFlowReference | Y
 integrationRuntime | The compute environment the data flow runs on. If not specified, the auto-resolve Azure integration runtime will be used. | IntegrationRuntimeReference | No
 compute.coreCount | The number of cores used in the spark cluster. Can only be specified if the auto-resolve Azure Integration runtime is used | 8, 16, 32, 48, 80, 144, 272 | No
 compute.computeType | The type of compute used in the spark cluster. Can only be specified if the auto-resolve Azure Integration runtime is used | "General", "ComputeOptimized", "MemoryOptimized" | No
-staging.linkedService | If you're using an Azure Synapse Analytics source or sink, specify the storage account used for PolyBase staging.<br/><br/>If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Also learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.<br/> | LinkedServiceReference | Only if the data flow reads or writes to an Azure Synapse Analytics
+staging.linkedService | If you're using an Azure Synapse Analytics source or sink, specify the storage account used for PolyBase staging.<br/><br/>If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Also learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.<br/> | LinkedServiceReference | Only if the data flow reads or writes to an Azure Synapse Analytics
 staging.folderPath | If you're using an Azure Synapse Analytics source or sink, the folder path in blob storage account used for PolyBase staging | String | Only if the data flow reads or writes to Azure Synapse Analytics
+traceLevel | Set logging level of your data flow activity execution | Fine, Coarse, None | No
 
 ![Execute Data Flow](media/data-flow/activity-data-flow.png "Execute Data Flow")
 
@@ -81,7 +82,21 @@ For pipeline executions, the cluster is a job cluster, which takes several minut
 
 ### PolyBase
 
-If you're using an Azure Synapse Analytics (formerly SQL Data Warehouse) as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into Azure Synapse Analytics.
+If you're using an Azure Synapse Analytics as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into Azure Synapse Analytics.
+
+## Logging level
+
+If you do not require every pipeline execution of your data flow activities to fully log all verbose telemetry logs, you can optionally set your logging level to "Basic" or "None". When executing your data flows in "Verbose" mode (default), you are requesting ADF to fully log activity at each individual partition level during your data transformation. This can be an expensive operation, so only enabling verbose when troubleshooting can improve your overall data flow and pipeline performance. "Basic" mode will only log transformation durations while "None" will only provide a summary of durations.
+
+![Logging level](media/data-flow/logging.png "Set logging level")
+
+## Sink properties
+
+The grouping feature in data flows allow you to both set the order of execution of your sinks as well as to group sinks together using the same group number. To help manage groups, you can ask ADF to run sinks, in the same group, in parallel. You can also set the sink group to continue even after one of the sinks encounters an error.
+
+The default behavior of data flow sinks is to execute each sink sequentially, in a serial manner, and to fail the data flow when an error is encountered in the sink. Additionally, all sinks are defaulted to the same group unless you go into the data flow properties and set different priorities for the sinks.
+
+![Sink properties](media/data-flow/sink-properties.png "Set sink properties")
 
 ## Parameterizing Data Flows
 

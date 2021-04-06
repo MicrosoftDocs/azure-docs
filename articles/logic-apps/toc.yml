@@ -57,6 +57,14 @@
       href: security-baseline.md
 - name: How-to guides
   items:
+  - name: Azure Logic Apps Preview
+    items:
+    - name: Overview for Azure Logic Apps Preview
+      href: logic-apps-overview-preview.md
+    - name: Create stateful and stateless workflows - Azure portal
+      href: create-stateful-stateless-workflows-azure-portal.md
+    - name: Create stateful and stateless workflows - Visual Studio Code
+      href: create-stateful-stateless-workflows-visual-studio-code.md
   - name: Develop
     items:
     - name: Create from prebuilt templates
@@ -67,8 +75,6 @@
       href: logic-apps-move-from-mabs.md
     - name: Export flows from Power Automate and deploy to Azure Logic Apps
       href: export-from-microsoft-flow-logic-app-template.md
-    - name: Create stateful or stateless workflows in Visual Studio Code
-      href: create-stateful-stateless-workflows-visual-studio-code.md
     - name: Call logic apps from Power Automate and Power Apps
       href: call-from-power-automate-power-apps.md
     - name: Control workflow execution
@@ -208,14 +214,16 @@
       href: ../connectors/connectors-create-api-azureblobstorage.md
     - name: Azure Container Instances
       href: ../connectors/connectors-create-api-container-instances.md
+    - name: Azure Event Grid
+      href: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md
     - name: Azure Event Hubs
-      href: ../connectors/connectors-create-api-azure-event-hubs.md      
+      href: ../connectors/connectors-create-api-azure-event-hubs.md
     - name: Azure Functions
       href: logic-apps-azure-functions.md
     - name: Azure Logic Apps
       href: logic-apps-http-endpoint.md
     - name: Azure Service Bus
-      href: ../connectors/connectors-create-api-servicebus.md        
+      href: ../connectors/connectors-create-api-servicebus.md
     - name: Azure SQL Database
       href: ../connectors/connectors-create-api-sqlazure.md
     - name: Bing Search
@@ -324,6 +332,8 @@
       href: logic-apps-enterprise-integration-create-integration-account.md
     - name: Manage integration service environments
       href: ise-manage-integration-service-environment.md
+    - name: Plan and manage costs
+      href: plan-manage-costs.md
     - name: Move logic app resources
       href: move-logic-app-resources.md
     - name: Migrate to latest schema
@@ -346,6 +356,8 @@
         href: monitor-logic-apps.md
       - name: Monitor logic apps with Azure Monitor logs
         href: monitor-logic-apps-log-analytics.md
+      - name: Monitor logic apps in Azure Security Center
+        href: healthy-unhealthy-resource.md
       - name: Monitor B2B messages with Azure Monitor logs
         href: monitor-b2b-messages-log-analytics.md
       - name: Create monitoring and tracking queries
@@ -378,7 +390,7 @@
   - name: Pricing model & usage metering
     href: logic-apps-pricing.md
   - name: Azure CLI
-    href: /cli/azure/ext/logic/logic?view=azure-cli-latest
+    href: /cli/azure/ext/logic/logic
   - name: Azure PowerShell
     href: /powershell/module/az.logicapp
   - name: REST API

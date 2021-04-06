@@ -1,8 +1,8 @@
 ---
-title: Azure App Configuration REST API - Locks
-description: Reference pages for working with key-value locks using the Azure App Configuration REST API
-author: lisaguthrie
-ms.author: lcozzens
+title: Azure App Configuration REST API - locks
+description: Reference pages for working with key-value locks by using the Azure App Configuration REST API
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
@@ -10,23 +10,21 @@ ms.date: 08/17/2020
 
 # Locks
 
-api-version: 1.0
-
-This API provides lock/unlock semantics for the key-value resource. It supports the following operations:
+This API (version 1.0) provides lock and unlock semantics for the key-value resource. It supports the following operations:
 
 - Place lock
 - Remove lock
 
-If present, `label` must be an explicit label value (**not** a wildcard). For all operations it's an optional parameter. If omitted, it implies no label.
+If present, `label` must be an explicit label value (not a wildcard). For all operations, it's an optional parameter. If omitted, it implies no label.
 
 ## Prerequisites
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
-## Lock Key-Value
+## Lock key-value
 
-- **Required:** ``{key}``, ``{api-version}``  
-- *Optional:* ``label``
+- Required: ``{key}``, ``{api-version}``  
+- Optional: ``label``
 
 ```http
 PUT /locks/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -58,10 +56,10 @@ If the key-value doesn't exist, the following response is returned:
 HTTP/1.1 404 Not Found
 ```
 
-## Unlock Key-Value
+## Unlock key-value
 
-- **Required:** ``{key}``, ``{api-version}``  
-- *Optional:* ``label``
+- Required: ``{key}``, ``{api-version}``  
+- Optional: ``label``
 
 ```http
 DELETE /locks/{key}?label={label}?api-version={api-version} HTTP/1.1
@@ -93,9 +91,9 @@ If the key-value doesn't exist, the following response is returned:
 HTTP/1.1 404 Not Found
 ```
 
-## Conditional Lock/Unlock
+## Conditional lock and unlock
 
-To prevent race conditions, use `If-Match` or `If-None-Match` request headers. The `etag` argument is part of the key representation. If `If-Match` or `If-None-Match` are omitted, the operation will be unconditional.
+To prevent race conditions, use `If-Match` or `If-None-Match` request headers. The `etag` argument is part of the key representation. If `If-Match` or `If-None-Match` are omitted, the operation is unconditional.
 
 The following request applies the operation only if the current key-value representation matches the specified `etag`:
 

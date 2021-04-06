@@ -2,17 +2,13 @@
 title: Plan an Azure Active Directory Application Proxy Deployment
 description: An end-to-end guide for planning the deployment of Application proxy within your organization
 services: active-directory
-documentationcenter: 'azure'
 author: kenwith
-manager: celestedg
-ms.assetid:
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 12/31/2020
 ms.author: kenwith
 ---
 
@@ -172,7 +168,7 @@ The steps to deploy your Application Proxy are covered in this [tutorial for add
 
 Publishing applications assumes that you have satisfied all the pre-requisites and that you have several connectors showing as registered and active in the Application Proxy page.
 
-You can also publish applications by using [PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview).
+You can also publish applications by using [PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true).
 
 Below are some best practices to follow when publishing an application:
 
@@ -302,7 +298,7 @@ The connectors and the service take care of all the high availability tasks. You
 
 #### Windows event logs and performance counters
 
-Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs for more information see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#under-the-hood). Follow this [tutorial to configure event log data sources in Azure Monitor](../../azure-monitor/platform/data-sources-windows-events.md).
+Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs for more information see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#under-the-hood). Follow this [tutorial to configure event log data sources in Azure Monitor](../../azure-monitor/agents/data-sources-windows-events.md).
 
 ### Troubleshooting guide and steps
 
@@ -319,7 +315,7 @@ The following articles cover common scenarios that can also be used to create tr
 * [Configure single sign-on to my app](application-proxy-config-sso-how-to.md)
 * [Problem creating an app in admin portal](application-proxy-config-problem.md)
 * [Configure Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Configure with PingAccess](/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide)
+* [Configure with PingAccess](./application-proxy-ping-access-publishing-guide.md)
 * [Can't Access this Corporate Application error](application-proxy-sign-in-bad-gateway-timeout-error.md)
 * [Problem installing the Application Proxy Agent Connector](application-proxy-connector-installation-problem.md)
 * [Sign-in problem](application-sign-in-problem-on-premises-application-proxy.md)

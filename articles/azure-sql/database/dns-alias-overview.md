@@ -55,7 +55,7 @@ The following properties apply to each DNS alias for your server:
   - When you drop a server, the Azure system also drops all DNS aliases that refer to the server.
 - *Not bound to any region:* DNS aliases are not bound to a region. Any DNS aliases can be updated to refer to a server that resides in any geographic region.
   - However, when updating an alias to refer to another server, both servers must exist in the same Azure *subscription*.
-- *Permissions:* To manage a DNS alias, the user must have *Server Contributor* permissions, or higher. For more information, see [Get started with Role-Based Access Control in the Azure portal](../../role-based-access-control/overview.md).
+- *Permissions:* To manage a DNS alias, the user must have *Server Contributor* permissions, or higher. For more information, see [Get started with Azure role-based access control in the Azure portal](../../role-based-access-control/overview.md).
 
 ## Manage your DNS aliases
 
@@ -92,7 +92,7 @@ The cmdlets used in the code example are the following:
 - [Set-AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifies the server name that the alias is configured to refer to, from server 1 to server 2.
 - [Remove-AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove the DNS alias from server 2, by using the name of the alias.
 
-## Limitations during preview
+## Limitations
 
 Presently, a DNS alias has the following limitations:
 
@@ -107,7 +107,7 @@ Presently, a DNS alias has the following limitations:
 
 - [Overview of business continuity with Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md), including disaster recovery.
 - [Azure REST API reference](/rest/api/azure/)
-- [Server Dns Aliases API](/rest/api/sql/serverdnsaliases)
+- [Server Dns Aliases API](/rest/api/sql/2020-11-01-preview/serverdnsaliases)
 
 ## Next steps
 

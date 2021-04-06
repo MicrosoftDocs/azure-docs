@@ -1,19 +1,14 @@
 ---
 title: Azure Desired State Configuration Extension Handler 
 description: Upload and apply a PowerShell DSC configuration on an Azure VM using DSC Extension
-services: virtual-machines-windows 
-documentationcenter: ''
-author: bobbytreed 
-manager: carmonm 
-editor: ''
-ms.assetid: 
-ms.service: virtual-machines-windows 
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: windows
-ms.workload: 
-ms.date: 03/26/2018
+ms.service: virtual-machines
+ms.subservice: extensions
+author: bobbytreed  
 ms.author: robreed
+ms.collection: windows
+ms.date: 03/26/2018
+
 ---
 # PowerShell DSC Extension
 
@@ -50,7 +45,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
     "typeHandlerVersion": "2.77",
     "autoUpgradeMinorVersion": true,
     "settings": {
-    	"wmfVersion": "latest",
+        "wmfVersion": "latest",
         "configuration": {
             "url": "http://validURLToConfigLocation",
             "script": "ConfigurationScript.ps1",
@@ -66,13 +61,13 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
         "privacy": {
             "dataCollection": "enable"
         },
-    	"advancedOptions": {
-			"forcePullAndApply": false,
-        	"downloadMappings": {
-            	"specificDependencyKey": "https://myCustomDependencyLocation"
-        	}
-    	} 
-	},
+        "advancedOptions": {
+            "forcePullAndApply": false,
+            "downloadMappings": {
+             "specificDependencyKey": "https://myCustomDependencyLocation"
+            }
+        } 
+    },
     "protectedSettings": {
         "configurationArguments": {
             "parameterOfTypePSCredential1": {
@@ -84,9 +79,9 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
                 "password": "PasswordValue2"
             }
         },
-    	"configurationUrlSasToken": "?g!bber1sht0k3n",
-    	"configurationDataUrlSasToken": "?dataAcC355T0k3N"
-	}
+        "configurationUrlSasToken": "?g!bber1sht0k3n",
+        "configurationDataUrlSasToken": "?dataAcC355T0k3N"
+    }
   }
 }
 ```

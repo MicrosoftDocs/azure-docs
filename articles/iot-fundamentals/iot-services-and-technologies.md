@@ -13,9 +13,8 @@ ms.author: dobett
 
 Azure IoT technologies and services provide you with options to create a wide variety of IoT solutions that enable digital transformation for your organization. For example, you can:
 
-- Use [Azure IoT Central](https://apps.azureiotcentral.com), a managed IoT application platform, to build and deploy a secure, enterprise-grade IoT solution. IoT Central features a collection of industry-specific application templates, such as retail and healthcare, to accelerate your solution development process.
-- Extend the open-source code base for an Azure IoT [solution accelerator](https://www.azureiotsolutions.com) to implement a common IoT scenario such as remote monitoring or predictive maintenance.
-- Use Azure IoT platform services such as [Azure IoT Hub](../iot-hub/about-iot-hub.md) and the [Azure IoT device SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build a custom IoT solution from scratch.
+* Use [Azure IoT Central](https://apps.azureiotcentral.com), a managed IoT application platform, to build and deploy a secure, enterprise-grade IoT solution. IoT Central features a collection of industry-specific application templates, such as retail and healthcare, to accelerate your solution development process.
+* Use Azure IoT platform services such as [Azure IoT Hub](../iot-hub/about-iot-hub.md) and the [Azure IoT device SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build a custom IoT solution from scratch.
 
 ![Azure IoT technologies, services, and solutions](./media/iot-services-and-technologies/iot-technologies-services.png)
 
@@ -25,7 +24,7 @@ The [IoT Central application platform](https://apps.azureiotcentral.com) reduces
 
 Azure IoT Central is a fully managed application platform that you can use to create custom IoT solutions. IoT Central uses application templates to create solutions. There are templates for generic solutions and for specific industries such as energy, healthcare, government, and retail. IoT Central application templates let you deploy an IoT Central application in minutes that you can then customize with themes, dashboards, and views.
 
-Choose devices from the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com) to quickly connect to your solution. Use the IoT Central web UI to monitor and manage your devices to keep them healthy and connected. Use connectors and APIs to integrate your IoT Central application with other business applications.
+Choose devices from the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com) to quickly connect to your solution. Use the IoT Central web UI to monitor and manage your devices to keep them healthy and connected. Use connectors and APIs to integrate your IoT Central application with other business applications.
 
 As a fully managed application platform, IoT Central has a simple, predictable pricing model.
 
@@ -35,10 +34,8 @@ The [Azure IoT solution accelerators](https://www.azureiotsolutions.com) are a c
 
 Azure IoT solution accelerators provide a high level of control over your IoT solution. The solution accelerators include prebuilt solutions for common IoT scenarios that you can deploy to your Azure subscription in minutes. The scenarios include:
 
-  - Remote monitoring
-  - Connected factory
-  - Predictive maintenance
-  - Device simulation
+* Connected factory
+* Device simulation
 
 The open-source code base for all the solution accelerators is available on GitHub. Download the code to customize a solution accelerator to meet your specific IoT requirements.
 
@@ -50,7 +47,7 @@ To build an IoT solution from scratch, or extend a solution created using IoT Ce
 
 ### Devices
 
-Develop your IoT devices using one of the [Azure IoT Starter Kits](https://catalog.azureiotsolutions.com/kits) or choose a device to use from the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com). Implement your embedded code using the open-source [device SDKs](../iot-hub/iot-hub-devguide-sdks.md). The device SDKs support multiple operating systems, such as Linux, Windows, and real-time operating systems. There are SDKs for multiple programming languages, such as [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), and [Python](https://github.com/Azure/azure-iot-sdk-python).
+Develop your IoT devices using one of the [Azure IoT Starter Kits](https://devicecatalog.azure.com/kits) or choose a device to use from the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com). Implement your embedded code using the open-source [device SDKs](../iot-hub/iot-hub-devguide-sdks.md). The device SDKs support multiple operating systems, such as Linux, Windows, and real-time operating systems. There are SDKs for multiple programming languages, such as [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), and [Python](https://github.com/Azure/azure-iot-sdk-python).
 
 You can further simplify how you create the embedded code for your devices by using the [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) service. IoT Plug and Play enables solution developers to integrate devices with their solutions without writing any embedded code. At the core of IoT Plug and Play, is a _device capability model_ schema that describes device capabilities. Use the device capability model to generate your embedded device code and configure a cloud-based solution such as an IoT Central application.
 
@@ -87,4 +84,3 @@ For a hands-on experience, try one of the quickstarts:
 
 - [Create an Azure IoT Central application](../iot-central/core/quick-deploy-iot-central.md)
 - [Send telemetry from a device to an IoT hub](../iot-hub/quickstart-send-telemetry-cli.md)
-- [Try a cloud-based remote monitoring solution](../iot-accelerators/quickstart-remote-monitoring-deploy.md)

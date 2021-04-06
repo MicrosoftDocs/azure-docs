@@ -1,13 +1,9 @@
 ---
 title: Transformation with Azure Databricks
 description:  Learn how to use a solution template to transform data by using a Databricks notebook in Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
@@ -23,7 +19,7 @@ In this tutorial, you create an end-to-end pipeline that contains the **Validati
 
 - **Copy data** duplicates the source dataset to the sink storage, which is mounted as DBFS in the Azure Databricks notebook. In this way, the dataset can be directly consumed by Spark.
 
-- **Notebook** triggers the Databricks notebook that transforms the dataset. It also adds the dataset to a processed folder or Azure Azure Synapse Analytics (formerly SQL Data Warehouse).
+- **Notebook** triggers the Databricks notebook that transforms the dataset. It also adds the dataset to a processed folder or Azure Azure Synapse Analytics.
 
 For simplicity, the template in this tutorial doesn't create a scheduled trigger. You can add one if necessary.
 

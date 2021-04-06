@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 09/15/2020
+ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, azure content moderator, online moderator, content filtering software, content moderation service, content moderation
@@ -24,6 +24,13 @@ keywords: content moderator, azure content moderator, online moderator, content 
 Azure Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. It includes the AI-powered content moderation service which scans text, image, and videos and applies content flags automatically, as well as the Review tool, an online moderator environment for a team of human reviewers.
 
 You may want to build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
+
+This documentation contains the following article types:  
+
+* [**Quickstarts**](client-libraries.md) are getting-started instructions to guide you through making requests to the service.  
+* [**How-to guides**](try-text-api.md) contain instructions for using the service in more specific or customized ways.  
+* [**Concepts**](text-moderation-api.md) provide in-depth explanations of the service functionality and features.  
+* [**Tutorials**](ecommerce-retail-catalog-moderation.md) are longer guides that show you how to use the service as a component in broader business solutions.  
 
 ## Where it's used
 
@@ -79,4 +86,4 @@ As with all of the Cognitive Services, developers using the Content Moderator se
 
 ## Next steps
 
-To get started using Content Moderator on the web portal, follow [Try Content Moderator on the web](quick-start.md). Or, complete a [client library quickstart](client-libraries.md) to implement the basic scenarios in code.
+To get started using Content Moderator on the web portal, follow [Try Content Moderator on the web](quick-start.md). Or, complete a [client library or REST API quickstart](client-libraries.md) to implement the basic scenarios in code.

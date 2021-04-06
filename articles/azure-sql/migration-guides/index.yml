@@ -32,8 +32,16 @@ landingContent:
             url: database/sql-server-to-sql-database-overview.md
           - text: From SQL Server
             url: database/sql-server-to-sql-database-guide.md
+          - text: From Access
+            url: database/access-to-sql-database-guide.md
           - text: From DB2
             url: database/db2-to-sql-database-guide.md
+          - text: From Oracle
+            url: database/oracle-to-sql-database-guide.md
+          - text: From MySQL
+            url: database/mysql-to-sql-database-guide.md
+          - text: From SAP ASE
+            url: database/sap-ase-to-sql-database.md
 
   # Card 
   - title: Azure SQL Managed Instance
@@ -46,7 +54,8 @@ landingContent:
             url: managed-instance/sql-server-to-managed-instance-guide.md
           - text: From DB2
             url: managed-instance/db2-to-managed-instance-guide.md
-
+          - text: From Oracle
+            url: managed-instance/oracle-to-managed-instance-guide.md
 
   # Card 
   - title: SQL Server on Azure VM
@@ -59,7 +68,8 @@ landingContent:
             url: virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
           - text: From DB2
             url: virtual-machines/db2-to-sql-on-azure-vm-guide.md
-        
+          - text: From Oracle
+            url: virtual-machines/oracle-to-sql-on-azure-vm-guide.md
 
   # Card 
   - title: Migration tools 
@@ -67,9 +77,9 @@ landingContent:
       - linkListType: deploy 
         links:
           - text: Azure Migrate 
-            url: /azure/migrate/migrate-services-overview
+            url: ../../migrate/migrate-services-overview.md
           - text: Azure Database Migration Service (DMS)
-            url: /azure/dms/dms-overview
+            url: ../../dms/dms-overview.md
           - text: Data Migration Assistant (DMA)
             url: /sql/dma/dma-migrateonpremsqltosqldb
           - text: Transactional replication
@@ -79,6 +89,6 @@ landingContent:
           - text: Bulk copy
             url: /sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server
           - text: Azure Data Factory
-            url: /azure/data-factory/connector-azure-sql-database
+            url: ../../data-factory/connector-azure-sql-database.md
           - text: SQL Data Sync
             url: ../database/sql-data-sync-data-sql-server-sql-database.md

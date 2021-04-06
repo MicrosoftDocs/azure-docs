@@ -13,3 +13,4 @@ ms.author: glenga
 > - [PowerShell](../articles/azure-functions/create-first-function-vs-code-powershell.md)
 > - [Python](../articles/azure-functions/create-first-function-vs-code-python.md)
 > - [TypeScript](../articles/azure-functions/create-first-function-vs-code-typescript.md)
+> - [Other (Go/Rust)](../articles/azure-functions/create-first-function-vs-code-other.md)

@@ -55,13 +55,12 @@ You need to add Multi-Factor Authentication to applications like
 
 ## Implement RADIUS with Azure AD 
 
-* [Provide Azure AD Multi-Factor Authentication capabilities using NPS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
+* [Provide Azure AD Multi-Factor Authentication capabilities using NPS](../authentication/howto-mfa-nps-extension.md) 
 
-* [Configure the Azure AD Multi-Factor Authentication NPS extension](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-advanced) 
+* [Configure the Azure AD Multi-Factor Authentication NPS extension](../authentication/howto-mfa-nps-extension-advanced.md) 
 
-* [VPN with Azure AD Multi-Factor Authentication using the NPS extension](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-vpn) 
+* [VPN with Azure AD Multi-Factor Authentication using the NPS extension](../authentication/howto-mfa-nps-extension-vpn.md) 
 
   
 ‎ 
 
- 

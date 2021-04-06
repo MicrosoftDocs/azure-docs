@@ -67,4 +67,4 @@ If you have errors in one or more of the publishing steps, correct them before r
 ## Next step
 
 - [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md)
-- Learn [How to market your Azure Application offer](create-new-azure-apps-offer-marketing.md) through the Co-sell with Microsoft and Resell through CSPs programs.
+- Learn [How to sell your Azure Application offer](create-new-azure-apps-offer-marketing.md) through the Co-sell with Microsoft and Resell through CSPs programs.

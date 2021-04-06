@@ -10,7 +10,7 @@ ms.date: 03/20/2019
 Planning and preparing for a production cluster deployment is very important.  There are many factors to consider.  This article walks you through the steps of preparing your cluster deployment.
 
 ## Read the best-practices information
-To manage Azure Service Fabric applications and clusters successfully, there are operations that we highly recommend you perform to optimize the reliability of your production environment.  For more information, read [Service Fabric application and cluster best practices](service-fabric-best-practices-overview.md).
+To manage Azure Service Fabric applications and clusters successfully, there are operations that we highly recommend you perform to optimize the reliability of your production environment.  For more information, read [Service Fabric application and cluster best practices](./service-fabric-best-practices-security.md).
 
 ## Select the OS for the cluster
 Service Fabric allows for the creation of Service Fabric clusters on any VMs or computers running Windows Server or Linux.  Before deploying your cluster, you must choose the OS:  Windows or Linux.  Every node (virtual machine) in the cluster runs the same OS, you cannot mix Windows and Linux VMs in the same cluster.
@@ -84,8 +84,6 @@ Ephemeral OS disks is not a specific Service Fabric feature, but rather a featur
 
 > [!NOTE]
 > User applications should not have any dependency/file/artifact on the OS disk, as the OS disk would be lost in the case of an OS upgrade.
-> Hence, it is not recommended to use [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) with ephemeral disks.
->
 
 > [!NOTE]
 > Existing non-ephemeral VMSS can't be upgraded in-place to use ephemeral disks.
@@ -114,7 +112,7 @@ A critical part of delivering high-availability is ensuring that services can su
 Is your application and cluster ready to take production traffic? Before deploying your cluster to production, run through the [Production readiness checklist](service-fabric-production-readiness-checklist.md). Keep your application and cluster running smoothly by working through the items in this checklist. We strongly recommend all these items to be checked off before going into production.
 
 ## Next steps
-* [Create a Service Fabric cluster running Windows](service-fabric-best-practices-overview.md)
+* [Create a Service Fabric cluster running Windows](./service-fabric-best-practices-security.md)
 * [Create a Service Fabric cluster running Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints

@@ -13,6 +13,8 @@ ms.custom:  "amqp, mqtt, devx-track-csharp"
 
 # Understand the Azure IoT Edge runtime and its architecture
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 The IoT Edge runtime is a collection of programs that turn a device into an IoT Edge device. Collectively, the IoT Edge runtime components enable IoT Edge devices to receive code to run at the edge and communicate the results.
 
 The IoT Edge runtime is responsible for the following functions on IoT Edge devices:
@@ -76,7 +78,7 @@ The IoT Edge hub isn't a full version of IoT Hub running locally. IoT Edge hub s
 
 To reduce the bandwidth that your IoT Edge solution uses, the IoT Edge hub optimizes how many actual connections are made to the cloud. IoT Edge hub takes logical connections from modules or downstream devices and combines them for a single physical connection to the cloud. The details of this process are transparent to the rest of the solution. Clients think they have their own connection to the cloud even though they are all being sent over the same connection. The IoT Edge hub can either use the AMQP or the MQTT protocol to communicate upstream with the cloud, independently from protocols used by downstream devices. However, the IoT Edge hub currently only supports combining logical connections into a single physical connection by using AMQP as the upstream protocol and its multiplexing capabilities. AMQP is the default upstream protocol.
 
-![IoT Edge hub is a gateway between physical devices and IoT Hub](./media/iot-edge-runtime/Gateway.png)
+![IoT Edge hub is a gateway between physical devices and IoT Hub](./media/iot-edge-runtime/gateway-communication.png)
 
 IoT Edge hub can determine whether it's connected to IoT Hub. If the connection is lost, IoT Edge hub saves messages or twin updates locally. Once a connection is reestablished, it syncs all the data. The location used for this temporary cache is determined by a property of the IoT Edge hub's module twin. The size of the cache is not capped and will grow as long as the device has storage capacity. For more information, see [Offline capabilities](offline-capabilities.md).
 
@@ -107,7 +109,7 @@ For more information about the ModuleClient class and its communication methods,
 
 The solution developer is responsible for specifying the rules that determine how IoT Edge hub passes messages between modules. Routing rules are defined in the cloud and pushed down to IoT Edge hub in its module twin. The same syntax for IoT Hub routes is used to define routes between modules in Azure IoT Edge. For more information, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
 
-![Routes between modules go through IoT Edge hub](./media/iot-edge-runtime/module-endpoints-with-routes.png)
+![Routes between modules go through IoT Edge hub](./media/iot-edge-runtime/module-endpoints-routing.png)
 ::: moniker-end
 
 <!-- <1.2> -->
@@ -129,7 +131,7 @@ The IoT Edge hub supports two brokering mechanisms:
 
 The first brokering mechanism leverages the same routing features as IoT Hub to specify how messages are passed between devices or modules. First devices or modules specify the inputs on which they accept messages and the outputs to which they write messages. Then a solution developer can route messages between a source, e.g. outputs, and a destination, e.g. inputs, with potential filters.
 
-![Routes between modules go through IoT Edge hub](./media/iot-edge-runtime/module-endpoints-with-routes.png)
+![Routes between modules go through IoT Edge hub](./media/iot-edge-runtime/module-endpoints-routing.png)
 
 Routing can be used by devices or modules built with the Azure IoT Device SDKs either via the AMQP or the MQTT protocol. All messaging IoT Hub primitives, e.g. telemetry, direct methods, C2D, twins, are supported but communication over user-defined topics is not supported.
 

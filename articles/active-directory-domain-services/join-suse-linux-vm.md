@@ -2,7 +2,7 @@
 title: Join a SLE VM to Azure AD Domain Services | Microsoft Docs
 description: Learn how to configure and join a SUSE Linux Enterprise virtual machine to an Azure AD Domain Services managed domain.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Join a SUSE Linux Enterprise virtual machine to an Azure Active Directory Domain Services managed domain

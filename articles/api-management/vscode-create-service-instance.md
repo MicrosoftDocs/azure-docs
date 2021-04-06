@@ -13,7 +13,7 @@ ms.date: 09/14/2020
 
 Azure API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM  enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md) topic.
 
-This quickstart describes the steps for creating a new API Management instance using the *Azure API Management Extension Preview* for Visual Studio Code. You can also use the extension to perform common management operations on your API Management instance.
+This quickstart describes the steps for creating a new API Management instance using the *Azure API Management Extension* for Visual Studio Code. You can also use the extension to perform common management operations on your API Management instance.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Additionally, ensure you have installed the following:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Azure API Management Extension for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
+- [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
 
 ## Sign in to Azure
 
@@ -50,7 +50,7 @@ A new API Management instance (and parent resource group) will be created with t
 >
 > While the *Consumption* SKU takes less than a minute to provision, other SKUs typically take 30-40 minutes to create.
 
-At this point, you're ready to import and publish your first API. You can do that and also perform common API Management operations within the extension for Visual Studio Code. See the [API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview) documentation for more.
+At this point, you're ready to import and publish your first API. You can do that and also perform common API Management operations within the extension for Visual Studio Code. See [the tutorial](visual-studio-code-tutorial.md) for more.
 
 ![Newly created API Management instance in VS Code API Management extension pane](./media/vscode-create-service-instance/vscode-apim-instance.png)
 
@@ -65,4 +65,4 @@ Alternately, you can select **Delete API Management** to only delete the API Man
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Import and publish your first API](import-and-publish.md)
+> [Import and manage APIs using the API Management Extension](visual-studio-code-tutorial.md)

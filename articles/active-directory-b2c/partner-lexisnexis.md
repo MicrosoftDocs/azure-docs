@@ -68,7 +68,7 @@ Once an account is created, you'll receive the information you need for API conf
 
 ### Part 1 - Deploy the API
 
-Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >You'll need the URL of the deployed service to configure Azure AD with the required settings.
@@ -90,7 +90,7 @@ Application settings can be [configured in the App service in Azure](../app-serv
 
 This solution uses custom UI templates that are loaded by Azure AD B2C. These UI templates do the profiling that is sent directly to the ThreatMetrix service.
 
-Refer to these [instructions](./custom-policy-ui-customization.md#custom-page-content-walkthrough) to deploy the included [UI files](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) to a blob storage account. The instructions include setting up a blob storage account, configuring CORS, and enabling public access.
+Refer to these [instructions](./customize-ui-with-html.md#custom-page-content-walkthrough) to deploy the included [UI files](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) to a blob storage account. The instructions include setting up a blob storage account, configuring CORS, and enabling public access.
 
 The UI is based on the [ocean blue template](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). All links within the UI should be updated to refer to the deployed location. In the UI folder, find and replace https://yourblobstorage/blobcontainer with the deployed location.
 

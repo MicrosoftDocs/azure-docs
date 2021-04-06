@@ -60,6 +60,8 @@ landingContent:
             url: ../fundamentals/shared-responsibility.md
           - text: Azure Security Center
             url: ../../security-center/index.yml
+          - text: Azure Security Benchmark Foundation blueprint sample
+            url: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md
 
 
   # Card  
@@ -91,7 +93,7 @@ landingContent:
             url: ../../hdinsight/security-baseline.md
           - text: Stream Analytics baseline
             url: ../../stream-analytics/security-baseline.md
-          - text: Synapse Analytics security baseline
+          - text: Azure Synapse Analytics security baseline
             url: ../../synapse-analytics/security-baseline.md
 
 

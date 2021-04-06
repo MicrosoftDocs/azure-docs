@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 01/25/2021
 ms.author: apimpm
 ---
 
@@ -39,13 +39,13 @@ Deploying self-hosted gateways into the same environments where the backend API 
 
 ## Packaging and features
 
-The self-hosted gateway is a containerized, functionally-equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker [container](https://aka.ms/apim/sputnik/dhub) from the Microsoft Container Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer.
+The self-hosted gateway is a containerized, functionally equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker [container](https://aka.ms/apim/sputnik/dhub) from the Microsoft Container Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer.
 
 The following functionality found in the managed gateways is **not available** in the self-hosted gateways:
 
 - Azure Monitor logs
 - Upstream (backend side) TLS version and cipher management
-- Validation of server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to API Management service. To add support for custom CA, add a layer to the self-hosted gateway container image that installs the CA's root certificate.
+- Validation of server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to API Management service. For more information, see [Certificate validation in self-hosted gateway](api-management-howto-mutual-certificates-for-clients.md#certificate-validation-in-self-hosted-gateway).
 - Integration with the [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
 - TLS session resumption
 - Client certificate renegotiation. This means that for [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) to work API consumers must present their certificates as part of the initial TLS handshake. To ensure that, enable the negotiate client certificate setting when configuring a self-hosted gateway custom hostname.

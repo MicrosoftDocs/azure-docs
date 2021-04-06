@@ -28,13 +28,13 @@ Audio Content Creation is a free tool, but you will pay for the Azure Speech ser
 
 ### Step 1 - Create an Azure account
 
-To work with Audio Content Creation, you need to have a [Microsoft account](https://account.microsoft.com/account) and an [Azure account](https://azure.microsoft.com/free/ai/). Follow these instructions to [set up the account](get-started.md#new-resource). 
+To work with Audio Content Creation, you need to have a [Microsoft account](https://account.microsoft.com/account) and an [Azure account](https://azure.microsoft.com/free/ai/). Follow these instructions to [set up the account](./overview.md#try-the-speech-service-for-free). 
 
 [Azure portal](https://portal.azure.com/) is the centralized place for you to manage your Azure account. You can create the speech resource, manage the product access, and monitor everything from simple web apps to complex cloud deployments. 
 
 ### Step 2 - Create a Speech resource
 
-After signing up for the Azure account, you need to create a Speech resource under your Azure account to access Speech services. View the instructions for [how to create a Speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview#create-the-azure-resource). 
+After signing up for the Azure account, you need to create a Speech resource under your Azure account to access Speech services. View the instructions for [how to create a Speech resource](./overview.md#create-the-azure-resource). 
 
 It takes a few moments to deploy your new Speech resource. Once the deployment is complete, you can start the Audio Content Creation journey. 
 
@@ -58,7 +58,7 @@ This diagram shows the steps it takes to fine-tune text-to-speech outputs. Use t
 2. [Create an audio tuning file](#create-an-audio-tuning-file) using plain text or SSML scripts. Type or upload your content in to Audio Content Creation.
 3. Choose the voice and the language for your script content. Audio Content Creation includes all of the [Microsoft text-to-speech voices](language-support.md#text-to-speech). You can use standard, neural, or your own custom voice.
    >[!NOTE]
-   > Gated access is available for Custom Neural Voices, which allow you to create high-definition voices similar to natural-sounding speech. For additional details, see [Gating process](https://aka.ms/ignite2019/speech/ethics).
+   > Gated access is available for Custom Neural Voices, which allow you to create high-definition voices similar to natural-sounding speech. For additional details, see [Gating process](./text-to-speech.md).
 
 4. Click the **play** icon (a triangle) to preview the default synthesis output. Then improve the output by adjusting pronunciation, break, pitch, rate, intonation, voice style, and more. For a complete list of options, see [Speech Synthesis Markup Language](speech-synthesis-markup.md). Here is a [video](https://www.youtube.com/watch?v=O1wIJ7mts_w) to show how to fine-tune speech output with Audio Content Creation. 
 5. Save and [export your tuned audio](#export-tuned-audio). When you save the tuning track in the system, you can continue to work and iterate on the output. When you're satisfied with the output, you can create an audio creation task with the export feature. You can observe the status of the export task and download the output for use with your apps and products.
@@ -120,7 +120,7 @@ After you've reviewed your audio output and are satisfied with your tuning and a
 
 ## How to add/remove Audio Content Creation users?
 
-If more than one user wants to use Audio Content Creation, you can either share your Azure account and password with the user, or grant user access to the Azure subscription and the speech resource. If you add a user to an Azure subscription, the user can access all the resources under the Azure subscription. But if you only add a user to a speech resource, the user will only have access to the speech resource, and cannot access other resources under this Azure subscription. A user with access to the speech resource can use Audio Content Creation.
+If more than one user wants to use Audio Content Creation, you can grant user access to the Azure subscription and the speech resource. If you add a user to an Azure subscription, the user can access all the resources under the Azure subscription. But if you only add a user to a speech resource, the user will only have access to the speech resource, and cannot access other resources under this Azure subscription. A user with access to the speech resource can use Audio Content Creation.
 
 ### Add users to a speech resource
 
@@ -155,7 +155,7 @@ If you want one of the users to give access to other users, you need to give the
 
 ## See also
 
-* [Long Audio API](https://aka.ms/long-audio-api)
+* [Long Audio API](./long-audio-api.md)
 
 ## Next steps
 

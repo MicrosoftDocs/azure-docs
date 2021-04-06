@@ -1,5 +1,5 @@
 ---
-title: "SQL Server to SQL Database - Migration guide"
+title: "SQL Server to Azure SQL Database: Migration guide"
 description: Follow this guide to migrate your SQL Server databases to Azure SQL Database. 
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -9,9 +9,9 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
+ms.date: 03/19/2021
 ---
-# Migration guide: SQL Server to SQL Database
+# Migration guide: SQL Server to Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 This guide helps you migrate your SQL Server instance to Azure SQL Database. 
@@ -24,7 +24,7 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (Google Cloud Platform - GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
 
-For more migration information, see the [migration overview](sql-server-to-sql-database-overview.md). For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
+For more migration information, see the [migration overview](sql-server-to-sql-database-overview.md). For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="Migration process flow":::
 
@@ -32,9 +32,11 @@ For more migration information, see the [migration overview](sql-server-to-sql-d
 
 To migrate your SQL Server to Azure SQL Database, make sure you have the following prerequisites: 
 
-- A chosen [migration method](sql-server-to-sql-database-overview.md#compare-migration-options) and corresponding tools 
-- [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) installed on a machine that can connect to your source SQL Server
-- A target [Azure SQL Database](../../database/single-database-create-quickstart.md)
+- A chosen [migration method](sql-server-to-sql-database-overview.md#compare-migration-options) and corresponding tools .
+- [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) installed on a machine that can connect to your source SQL Server.
+- A target [Azure SQL Database](../../database/single-database-create-quickstart.md). 
+- Connectivity and proper permissions to access both source and target. 
+
 
 
 ## Pre-migration
@@ -52,6 +54,8 @@ Alternatively, use the [Microsoft Assessment and Planning Toolkit (the "MAP 
 For more information about tools available to use for the Discover phase, see [Services and tools available for data migration scenarios](../../../dms/dms-tools-matrix.md). 
 
 ### Assess 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 After data sources have been discovered, assess any on-premises SQL Server database(s) that can be migrated to Azure SQL Database to identify migration blockers or compatibility issues. 
 
@@ -142,7 +146,19 @@ When using migration options that continuously replicate / sync data changes fro
 After you verify that data is same on both the source and the target, you can cutover from the source to the target environment. It is important to plan the cutover process with business / application teams to ensure minimal interruption during cutover does not affect business continuity. 
 
 > [!IMPORTANT]
-> For details on the specific steps associated with performing a cutover as part of migrations using DMS, see [Performing migration cutover](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover).
+> For details on the specific steps associated with performing a cutover as part of migrations using DMS, see [Performing migration cutover](../../../dms/tutorial-sql-server-to-azure-sql.md).
+
+## Migration recommendations
+
+To speed up migration to Azure SQL Database, you should consider the following recommendations:
+
+|  | Resource contention | Recommendation |
+|--|--|--|
+| **Source (typically on premises)** |Primary bottleneck during migration in source is DATA I/O and latency on DATA file which needs to be monitored carefully.  |Based on DATA IO and DATA file latency and depending on whether it’s a virtual machine or physical server, you will have to engage storage admin and explore options to mitigate the bottleneck. |
+|**Target (Azure SQL Database)**|Biggest limiting factor is the log generation rate and latency on log file. With Azure SQL Database, you can get a maximum of 96-MB/s log generation rate. | To speed up migration, scale up the target SQL DB to Business Critical Gen5 8 vCore to get the maximum log generation rate of 96 MB/s and also achieve low latency for log file. The [Hyperscale](../../database/service-tier-hyperscale.md) service tier provides 100-MB/s log rate regardless of chosen service level |
+|**Network** |Network bandwidth needed is equal to max log ingestion rate 96 MB/s (768 Mb/s) |Depending on network connectivity from your on-premises data center to Azure, check your network bandwidth (typically [Azure ExpressRoute](../../../expressroute/expressroute-introduction.md#bandwidth-options)) to accommodate for the maximum log ingestion rate. |
+|**Virtual machine used for Data Migration Assistant (DMA)** |CPU is the primary bottleneck for the virtual machine running DMA |Things to consider to speed up data migration by using </br>- Azure compute intensive VMs </br>- Use at least F8s_v2 (8 vcore) VM for running DMA </br>- Ensure the VM is running in the same Azure region as target |
+|**Azure Database Migration Service (DMS)** |Compute resource contention and database objects consideration for DMS |Use Premium 4 vCore. DMS automatically takes care of database objects like foreign keys, triggers, constraints, and non-clustered indexes and doesn't need manual intervention.  |
 
 
 ## Post-migration
@@ -164,13 +180,10 @@ The test approach for database migration consists of the following activities:
 1. **Run validation tests**: Run the validation tests against the source and the target, and then analyze the results.
 1. **Run performance tests**: Run performance test against the source and the target, and then analyze and compare the results.
 
-   > [!NOTE]
-   > For assistance developing and running post-migration validation tests, consider the Data Quality Solution available from the partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
-
 
 ## Leverage advanced features 
 
-Be sure to take advantage of the advanced cloud-based features offered by SQL Database, such as [built-in high availability](../../database/high-availability-sla.md), [threat detection](../../database/advanced-data-security.md), and [monitoring and tuning your workload](../../database/monitor-tune-overview.md). 
+Be sure to take advantage of the advanced cloud-based features offered by SQL Database, such as [built-in high availability](../../database/high-availability-sla.md), [threat detection](../../database/azure-defender-for-sql.md), and [monitoring and tuning your workload](../../database/monitor-tune-overview.md). 
 
 Some SQL Server features are only available once the [database compatibility level](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
 

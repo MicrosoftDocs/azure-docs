@@ -1,16 +1,20 @@
 ---
 title: Common cloud service management tasks | Microsoft Docs
 description: Learn how to manage Cloud Services in the Azure portal. These examples use the Azure portal.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Manage Cloud Services in the Azure portal
+
+# Manage Cloud Services (classic) in the Azure portal
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 In the **Cloud Services** area of the Azure portal, you can:
 
 * Update a service role or a deployment.
@@ -72,7 +76,7 @@ There are two key prerequisites for a successful deployment swap:
 
 - If you want to use a static IP address for your production slot, you must reserve one for your staging slot as well. Otherwise, the swap fails.
 
-- All instances of your roles must be running before you can perform the swap. You can check the status of your instances on the **Overview** blade of the Azure portal. Alternatively, you can use the [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0) command in Windows PowerShell.
+- All instances of your roles must be running before you can perform the swap. You can check the status of your instances on the **Overview** blade of the Azure portal. Alternatively, you can use the [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole) command in Windows PowerShell.
 
 Note that guest OS updates and service healing operations also can cause deployment swaps to fail. For more information, see [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems.md).
 

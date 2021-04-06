@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 01/25/2021
 ---
 
 # Introduction to provisioned throughput in Azure Cosmos DB
@@ -93,26 +93,26 @@ After you create an Azure Cosmos container or a database, you can update the pro
 
 You can retrieve the provisioned throughput of a container or a database in the Azure portal or by using the SDKs:
 
-* [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) on the .NET SDK.
-* [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput?view=azure-java-stable&preserve-view=true) on the Java SDK.
+* [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync) on the .NET SDK.
+* [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput) on the Java SDK.
 
 The response of those methods also contains the [minimum provisioned throughput](concepts-limits.md#storage-and-database-operations) for the container or database:
 
-* [ThroughputResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) on the .NET SDK.
-* [ThroughputResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true) on the Java SDK.
+* [ThroughputResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput) on the .NET SDK.
+* [ThroughputResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput) on the Java SDK.
 
 The actual minimum RU/s may vary depending on your account configuration. But generally it's the maximum of:
 
 * 400 RU/s 
-* Current storage in GB * 10 RU/s (unless your container or database contains more than 1 TB of data, see our [high storage / low throughput program](#high-storage-low-throughput-program))
+* Current storage in GB * 10 RU/s (this constraint can be relaxed in some cases, see our [high storage / low throughput program](#high-storage-low-throughput-program))
 * Highest RU/s provisioned on the database or container / 100
 
 ### Changing the provisioned throughput
 
 You can scale the provisioned throughput of a container or a database through the Azure portal or by using the SDKs:
 
-* [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) on the .NET SDK.
-* [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) on the Java SDK.
+* [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync) on the .NET SDK.
+* [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput) on the Java SDK.
 
 If you are **reducing the provisioned throughput**, you will be able to do it up to the [minimum](#current-provisioned-throughput).
 
@@ -123,8 +123,8 @@ If you are **increasing the provisioned throughput**, most of the time, the oper
 
 You can programmatically check the scaling progress by reading the [current provisioned throughput](#current-provisioned-throughput) and using:
 
-* [ThroughputResponse.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) on the .NET SDK.
-* [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) on the Java SDK.
+* [ThroughputResponse.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending) on the .NET SDK.
+* [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending) on the Java SDK.
 
 You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
 
@@ -132,9 +132,9 @@ You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-me
 
 As described in the [Current provisioned throughput](#current-provisioned-throughput) section above, the minimum throughput you can provision on a container or database depends on a number of factors. One of them is the amount of data currently stored, as Azure Cosmos DB enforces a minimum throughput of 10 RU/s per GB of storage.
 
-This can be a concern in situations where you need to store large amounts of data, but have low throughput requirements in comparison. To better accommodate these scenarios, Azure Cosmos DB has introduced a **"high storage / low throughput" program** that decreases the RU/s per GB constraint from 10 to 1 on eligible accounts.
+This can be a concern in situations where you need to store large amounts of data, but have low throughput requirements in comparison. To better accommodate these scenarios, Azure Cosmos DB has introduced a **"high storage / low throughput" program** that decreases the RU/s per GB constraint on eligible accounts.
 
-You currently need to have at least 1 container or shared-throughput database containing more than 1 TB of data in your account to be eligible. To join this program and assess your full eligibility, all you have to do is to fill [this survey](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). The Azure Cosmos DB team will then follow up and proceed with your onboarding.
+To join this program and assess your full eligibility, all you have to do is to fill [this survey](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). The Azure Cosmos DB team will then follow up and proceed with your onboarding.
 
 ## Comparison of models
 This table shows a comparison between provisioning standard (manual) throughput on a database vs. on a container. 

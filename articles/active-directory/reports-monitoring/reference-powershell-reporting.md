@@ -24,7 +24,7 @@ ms.custom: devx-track-azurepowershell
 # Azure AD PowerShell cmdlets for reporting
 
 > [!NOTE] 
-> These PowerShell cmdlets currently only work with the [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Module. Please note that the preview module is not suggested for production use. 
+> These PowerShell cmdlets currently only work with the [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#directory_auditing) Module. Please note that the preview module is not suggested for production use. 
 
 To install the public preview release, use the following. 
 
@@ -32,7 +32,7 @@ To install the public preview release, use the following.
 Install-module AzureADPreview
 ```
 
-For more infromation on how to connect to Azure AD using PowerShell, please see the article [Azure AD PowerShell for Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+For more infromation on how to connect to Azure AD using PowerShell, please see the article [Azure AD PowerShell for Graph](/powershell/azure/active-directory/install-adv2).  
 
 With Azure Active Directory (Azure AD) reports, you can get details on activities around all the write operations in your direction (audit logs) and authentication data (sign-in logs). Although the information is available by using the MS Graph API, now you can retrieve the same data by using the Azure AD PowerShell cmdlets for reporting.
 

@@ -2,7 +2,7 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 03/18/2021
 ---
 
 # Management group deployments with ARM templates
@@ -20,7 +20,7 @@ For Azure Blueprints, use:
 * [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
 * [versions](/azure/templates/microsoft.blueprint/blueprints/versions)
 
-For Azure Policies, use:
+For Azure Policy, use:
 
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -39,6 +39,8 @@ For nested templates that deploy to subscriptions or resource groups, use:
 For managing your resources, use:
 
 * [tags](/azure/templates/microsoft.resources/tags)
+
+Management groups are tenant-level resources. However, you can create management groups in a management group deployment by setting the scope of the new management group to the tenant. See [Management group](#management-group).
 
 ## Schema
 
@@ -101,6 +103,14 @@ For more detailed information about deployment commands and options for deployin
 * [Use a deployment button to deploy templates from GitHub repository](deploy-to-azure-button.md)
 * [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md)
 
+## Deployment location and name
+
+For management group level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data. [Subscription](deploy-to-subscription.md) and [tenant](deploy-to-tenant.md) deployments also require a location. For [resource group](deploy-to-resource-group.md) deployments, the location of the resource group is used to store the deployment data.
+
+You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named _azuredeploy.json_ creates a default deployment name of **azuredeploy**.
+
+For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. For example, if you create a management group deployment with the name **deployment1** in **centralus**, you can't later create another deployment with the name **deployment1** but a location of **westus**. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
+
 ## Deployment scopes
 
 When deploying to a management group, you can deploy resources to:
@@ -108,8 +118,10 @@ When deploying to a management group, you can deploy resources to:
 * the target management group from the operation
 * another management group in the tenant
 * subscriptions in the management group
-* resource groups in the management group (through two nested deployments)
-* [extension resources](scope-extension-resources.md) can be applied to resources
+* resource groups in the management group
+* the tenant for the resource group
+
+An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
 
 The user deploying the template must have access to the specified scope.
 
@@ -125,7 +137,7 @@ Resources defined within the resources section of the template are applied to th
 
 To target another management group, add a nested deployment and specify the `scope` property. Set the `scope` property to a value in the format `Microsoft.Management/managementGroups/<mg-name>`.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,18,22":::
 
 ### Scope to subscription
 
@@ -133,27 +145,89 @@ You can also target subscriptions within a management group. The user deploying 
 
 To target a subscription within the management group, use a nested deployment and the `subscriptionId` property.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="9,10,18":::
 
 ### Scope to resource group
 
-To target a resource group within that subscription, add two nested deployments. The first targets the subscription that has the resource group. The second targets the resource group by setting the `resourceGroup` property.
+You can also target resource groups within the management group. The user deploying the template must have access to the specified scope.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
+To target a resource group within the management group, use a nested deployment. Set the `subscriptionId` and `resourceGroup` properties. Don't set a location for the nested deployment because it's deployed in the location of the resource group.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="9,10,18":::
 
 To use a management group deployment for creating a resource group within a subscription and deploying a storage account to that resource group, see [Deploy to subscription and resource group](#deploy-to-subscription-and-resource-group).
 
-## Deployment location and name
+### Scope to tenant
 
-For management group level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data.
+To create resources at the tenant, set the `scope` to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
-You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
+To use a nested deployment, set `scope` and `location`.
 
-For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
+
+Or, you can set the scope to `/` for some resource types, like management groups. Creating a new management group is described in the next section.
+
+## Management group
+
+To create a management group in a management group deployment, you must set the scope to `/` for the management group.
+
+The following example creates a new management group in the root management group.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
+
+The next example creates a new management group in the management group specified as the parent. Notice that the scope is set to `/`.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string",
+            "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
+        },
+        "parentMG": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('mgName')]",
+            "type": "Microsoft.Management/managementGroups",
+            "apiVersion": "2020-05-01",
+            "scope": "/",
+            "location": "eastus",
+            "properties": {
+                "details": {
+                    "parent": {
+                        "id": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('parentMG'))]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "output": {
+            "type": "string",
+            "value": "[parameters('mgName')]"
+        }
+    }
+}
+```
+
+## Subscriptions
+
+To use an ARM template to create a new Azure subscription in a management group, see:
+
+* [Programmatically create Azure Enterprise Agreement subscriptions](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md)
+* [Programmatically create Azure subscriptions for a Microsoft Customer Agreement](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-customer-agreement.md)
+* [Programmatically create Azure subscriptions for a Microsoft Partner Agreement](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-partner-agreement.md)
+
+To deploy a template that moves an existing Azure subscription to a new management group, see [Move subscriptions in ARM template](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
 
 ## Azure Policy
 
-Custom policy definitions that are deployed to the management group are extensions of the management group. To get the ID of a custom policy definition, use the [extensionResourceId()](template-functions-resource.md#extensionresourceid) function. Built-in policy definitions are tenant level resources. To get the ID of a built-in policy definition, use the [tenantResourceId](template-functions-resource.md#tenantresourceid) function.
+Custom policy definitions that are deployed to the management group are extensions of the management group. To get the ID of a custom policy definition, use the [extensionResourceId()](template-functions-resource.md#extensionresourceid) function. Built-in policy definitions are tenant level resources. To get the ID of a built-in policy definition, use the [tenantResourceId()](template-functions-resource.md#tenantresourceid) function.
 
 The following example shows how to [define](../../governance/policy/concepts/definition-structure.md) a policy at the management group level, and assign it.
 
@@ -229,77 +303,79 @@ From a management group level deployment, you can target a subscription within t
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "nestedsubId": {
-      "type": "string"
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "nestedsubId": {
+            "type": "string"
+        },
+        "nestedRG": {
+            "type": "string"
+        },
+        "storageAccountName": {
+            "type": "string"
+        },
+        "nestedLocation": {
+            "type": "string"
+        }
     },
-    "nestedRG": {
-      "type": "string"
-    },
-    "storageAccountName": {
-      "type": "string"
-    },
-    "nestedLocation": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "nestedSub",
-      "location": "[parameters('nestedLocation')]",
-      "subscriptionId": "[parameters('nestedSubId')]",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-          },
-          "variables": {
-          },
-          "resources": [
-            {
-              "type": "Microsoft.Resources/resourceGroups",
-              "apiVersion": "2020-06-01",
-              "name": "[parameters('nestedRG')]",
-              "location": "[parameters('nestedLocation')]",
-            },
-            {
-              "type": "Microsoft.Resources/deployments",
-              "apiVersion": "2020-06-01",
-              "name": "nestedSubRG",
-              "resourceGroup": "[parameters('nestedRG')]",
-              "dependsOn": [
-                "[parameters('nestedRG')]"
-              ],
-              "properties": {
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-10-01",
+            "name": "nestedSub",
+            "location": "[parameters('nestedLocation')]",
+            "subscriptionId": "[parameters('nestedSubId')]",
+            "properties": {
                 "mode": "Incremental",
                 "template": {
-                  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                  "contentVersion": "1.0.0.0",
-                  "resources": [
-                    {
-                      "type": "Microsoft.Storage/storageAccounts",
-                      "apiVersion": "2019-04-01",
-                      "name": "[parameters('storageAccountName')]",
-                      "location": "[parameters('nestedLocation')]",
-                      "sku": {
-                        "name": "Standard_LRS"
-                      }
-                    }
-                  ]
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                    },
+                    "variables": {
+                    },
+                    "resources": [
+                        {
+                            "type": "Microsoft.Resources/resourceGroups",
+                            "apiVersion": "2020-10-01",
+                            "name": "[parameters('nestedRG')]",
+                            "location": "[parameters('nestedLocation')]"
+                        }
+                    ]
                 }
-              }
             }
-          ]
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-10-01",
+            "name": "nestedRG",
+            "subscriptionId": "[parameters('nestedSubId')]",
+            "resourceGroup": "[parameters('nestedRG')]",
+            "dependsOn": [
+                "nestedSub"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources": [
+                        {
+                            "type": "Microsoft.Storage/storageAccounts",
+                            "apiVersion": "2019-04-01",
+                            "name": "[parameters('storageAccountName')]",
+                            "location": "[parameters('nestedLocation')]",
+                            "kind": "StorageV2",
+                            "sku": {
+                                "name": "Standard_LRS"
+                            }
+                        }
+                    ]
+                }
+            }
         }
-      }
-    }
-  ]
+    ]
 }
 ```
 

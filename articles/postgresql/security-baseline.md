@@ -72,7 +72,7 @@ Enable DDoS Protection Standard on the virtual networks associated with your Azu
 
 - [How to configure Advanced Threat Protection for Azure Database for PostgreSQL](howto-database-threat-protection-portal.md)
 
-- [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+- [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -158,9 +158,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Database for PostgreSQL instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -200,7 +200,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [How to configure and access audit logs for Azure Database for PostgreSQL](concepts-audit.md)
 
-- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -218,9 +218,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Within Azure Monitor, for the Log Analytics Workspace being used to hold your Azure Database for PostgreSQL logs, set the retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-- [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Storing resource logs in an Azure Storage Account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Storing resource logs in an Azure Storage Account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -232,9 +232,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [For more information about the Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [For more information about the Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -252,7 +252,7 @@ In addition, you may enable Server Logs and Diagnostic Settings for PostgreSQL a
 
 - [How to configure and access audit logs for Azure Database for PostgreSQL](concepts-audit.md)
 
-- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -364,7 +364,7 @@ Separately, control plane access for PostgreSQL is available via REST API and su
 
 **Guidance**: Use Privileged Access Workstations (PAWs) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -586,7 +586,7 @@ AskAzureDBforPostgreSQL@service.microsoft.com.
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to production instances of Azure Database for PostgreSQL and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1068,7 +1068,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
 - [How to configure continuous export](../security-center/continuous-export.md)
 

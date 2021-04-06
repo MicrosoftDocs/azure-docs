@@ -28,13 +28,13 @@ In this tutorial, you’ll learn how to integrate Azure Active Directory (Azure 
 To get started:
 
 * Integrate Workday with Azure AD.
-* Read [Azure Active Directory single sign-on (SSO) integration with Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+* Read [Azure Active Directory single sign-on (SSO) integration with Workday](./workday-tutorial.md).
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD Conditional Access policies and Intune with Workday Mobile Application.
 
-For enabling single sign-on (SSO), you can configure Workday Federated application with Azure AD. For more information, see [Azure Active Directory single sign-on (SSO) integration with Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
+For enabling single sign-on (SSO), you can configure Workday Federated application with Azure AD. For more information, see [Azure Active Directory single sign-on (SSO) integration with Workday](./workday-tutorial.md).
 
 > [!NOTE] 
 > Workday doesn't support the app protection policies of Intune. You must use mobile device management to use Conditional Access.
@@ -127,13 +127,11 @@ To ensure that iOS devices are only able to sign in through Workday managed by m
 
 | Scenario | Key value pairs |
 |----------------------------------------------------------------------------------------	|-----------|
-| Automatically populate the Tenant and Web Address fields for:<br>● Workday on Android when you enable Android for work profiles.<br>●	Workday on iPad and iPhone.  	| Use these values to configure your Tenant: <br>● Configuration Key = `UserGroupCode`<br>●	Value Type = String <br>●	Configuration Value = Your tenant name. Example: `gms`<br>Use these values to configure your Web Address:<br>●	Configuration Key = `AppServiceHost`<br>●	Value Type = String<br>●	Configuration Value = The base URL for your tenant. Example: `https://www.myworkday.com`                            	|  	|
+| Automatically populate the Tenant and Web Address fields for:<br>● Workday on Android when you enable Android for work profiles.<br>●	Workday on iPad and iPhone.  	| Use these values to configure your Tenant: <br>● Configuration Key = `UserGroupCode`<br>●	Value Type = String <br>●	Configuration Value = Your tenant name. Example: `gms`<br>Use these values to configure your Web Address:<br>●	Configuration Key = `AppServiceHost`<br>●	Value Type = String<br>●	Configuration Value = The base URL for your tenant. Example: `https://www.myworkday.com`                            	| 
 | Disable these actions for Workday on iPad and iPhone:<br>●	Cut, Copy, and Paste<br>●	Print                     	| Set the value (Boolean) to `False` on these keys to disable the functionality:<br>●	`AllowCutCopyPaste`<br>●	`AllowPrint` 	|
 | Disable screenshots for Workday on Android. |Set the value (Boolean) to `False` on the `AllowScreenshots` key to disable functionality.|
 | Disable suggested updates for your users.|Set the value (Boolean) to `False` on the `AllowSuggestedUpdates` key to disable functionality.|
 |Customize the app store URL to direct mobile users to the app store of your choice.|Use these values to change the app store URL:<br>●	Configuration Key = `AppUpdateURL`<br>●	Value Type = String<br> ●	Configuration Value = App store URL|
-|   	|
-
 
 ## iOS configuration policies
 
@@ -177,4 +175,3 @@ To ensure that iOS devices are only able to sign in through Workday managed by m
 6. Under **Platform**, choose **Android**.
 7. Under **Associated App**, choose the Workday for Android app that you added.
 8. Select **Configuration Settings**. Under **Configuration settings format**, select **Enter JSON Data**.
-

@@ -14,16 +14,18 @@ ms.date: 10/16/2020
 
 # Tutorial: Sign in users and call a protected API from a Blazor WebAssembly app
 
-Blazor WebAssembly (WASM) is a single-page app framework for building interactive client-side web apps with .NET. In this tutorial, you learn how to implement authentication and retrieve data from Microsoft Graph in a Blazor WASM app by using the Microsoft identity platform and registering your app in Azure Active Directory (Azure AD).
+In this tutorial, you build a Blazor WebAssembly app that signs in users and gets data from Microsoft Graph by using the Microsoft identity platform and registering your app in Azure Active Directory (Azure AD). 
 
-We also have a [tutorial for Blazor Server](tutorial-blazor-server.md). 
-
-In this tutorial, you will:
+In this tutorial:
 
 > [!div class="checklist"]
 >
 > * Create a new Blazor WebAssembly app configured to use Azure Active Directory (Azure AD) for [authentication and authorization](authentication-vs-authorization.md) using the Microsoft identity platform
-> * Retrieve data from a protected web API, in this case [Microsoft Graph](https://docs.microsoft.com/graph/overview)
+> * Retrieve data from a protected web API, in this case [Microsoft Graph](/graph/overview)
+
+This tutorial uses .NET Core 3.1. The .NET docs contain instructions on [how to secure a Blazor WebAssembly app](/aspnet/core/blazor/security/webassembly/graph-api) using ASP.NET Core 5.0. 
+
+We also have a [tutorial for Blazor Server](tutorial-blazor-server.md). 
 
 ## Prerequisites
 
@@ -37,14 +39,14 @@ Every app that uses Azure Active Directory (Azure AD) for authentication must be
 - For **Supported account types**, select **Accounts in this organizational directory only**.
 - Leave the **Redirect URI** drop down set to **Web** and enter `https://localhost:5001/authentication/login-callback`. The default port for an app running on Kestrel is 5001. If the app is available on a different port, specify that port number instead of `5001`.
 
-Once registered, in **Authentication** > **Implicit grant**, select the check boxes for **Access tokens** and **ID tokens**, and then select the **Save** button.
+Once registered, under **Manage**, select **Authentication** > **Implicit grant and hybrid flows**. Select **Access tokens** and **ID tokens**, and then select **Save**.
 
 ## Create the app using the .NET Core CLI
 
 To create the app you need the latest Blazor templates. You can install them for the .NET Core CLI with the following command:
 
 ```dotnetcli
-dotnet new --install Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.1
+dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.6.0
 ```
 
 Then run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
@@ -71,9 +73,11 @@ In your browser, navigate to `https://localhost:5001`, and log in using an Azure
 
 The components of this template that enable logins with Azure AD using the Microsoft identity platform are explained in the [ASP.NET doc on this topic](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
 
-## Retrieving data from Microsoft Graph
+## Retrieving data from a protected API (Microsoft Graph)
 
-[Microsoft Graph](/graph/overview) offers a range of APIs that provide access to Microsoft 365 data of users in your tenant. By using the Microsoft identity platform as the identity provider for your app, you have easier access to this information since Microsoft Graph directly supports the tokens issued by the Microsoft identity platform. In this section, you add code can display the signed in user's emails on the application's "Fetch data" page.
+[Microsoft Graph](/graph/overview) contains APIs that provide access to Microsoft 365 data for your users, and it supports the tokens issued by the Microsoft identity platform, which makes it a good protected API to use as an example. In this section, you add code to call Microsoft Graph and display the user's emails on the application's "Fetch data" page.
+
+This section is written using a common approach to calling a protected API using a named client. The same method can be used for other protected APIs you want to call. However, if you do plan to call Microsoft Graph from your application you can use the Graph SDK to reduce boilerplate. The .NET docs contain instructions on [how to use the Graph SDK](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0&preserve-view=true).
 
 Before you start, log out of your app since you'll be making changes to the required permissions, and your current token won't work. If you haven't already, run your app again and select **Log out** before updating the code below.
 
@@ -95,7 +99,7 @@ Next, add the following to your project's *.csproj* file in the netstandard2.1 *
 
 Then modify the code as specified in the next few steps. These changes will add [access tokens](access-tokens.md) to the outgoing requests sent to the Microsoft Graph API. This pattern is discussed in more detail in [ASP.NET Core Blazor WebAssembly additional security scenarios](/aspnet/core/blazor/security/webassembly/additional-scenarios).
 
-First, create a new file named *GraphAuthorizationMessageHandler.cs* with the following code. This handler will be user to add an access token for the `User.Read` and `Mail.Read` scopes to outgoing requests to the Microsoft Graph API.
+First, create a new file named *GraphAPIAuthorizationMessageHandler.cs* with the following code. This handler will be user to add an access token for the `User.Read` and `Mail.Read` scopes to outgoing requests to the Microsoft Graph API.
 
 ```csharp
 using Microsoft.AspNetCore.Components;

@@ -18,13 +18,15 @@ ms.custom: include file
 | Maximum image layer size (GiB) | 200 | 200 | 200 |
 | ReadOps per minute<sup>2, 3</sup> | 1,000 | 3,000 | 10,000 |
 | WriteOps per minute<sup>2, 4</sup> | 100 | 500 | 2,000 |
-| Download bandwidth MBps<sup>2</sup> | 30 | 60 | 100 |
-| Upload bandwidth MBps<sup>2</sup> | 10 | 20 | 50 |
+| Download bandwidth<sup>2</sup> (Mbps) | 30 | 60 | 100 |
+| Upload bandwidth <sup>2</sup> (Mbps) | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
 | Geo-replication | N/A | N/A | [Supported][geo-replication] |
+| Availability zones | N/A | N/A | [Preview][zones] |
 | Content trust | N/A | N/A | [Supported][content-trust] |
 | Private link with private endpoints | N/A | N/A | [Supported][plink] |
 | &bull; Private endpoints | N/A | N/A | 10 |
+| Public IP network rules | N/A | N/A | 100 |
 | Service endpoint VNet access | N/A | N/A | [Preview][vnet] |
 | Customer-managed keys | N/A | N/A | [Supported][cmk] |
 | Repository-scoped permissions | N/A | N/A | [Preview][token]|
@@ -33,7 +35,7 @@ ms.custom: include file
 | &bull; Repositories per scope map | N/A | N/A | 500 |
 
 
-<sup>1</sup> Storage included in the daily rate for each tier. For additional storage, you're charged an additional daily rate per GiB, up to the storage limit. For rate information, see [Azure Container Registry pricing][pricing].
+<sup>1</sup> Storage included in the daily rate for each tier. Additional storage may be used, up to the registry storage limit, at an additional daily rate per GiB. For rate information, see [Azure Container Registry pricing][pricing]. If you need storage beyond the registry storage limit, please contact Azure Support.
 
 <sup>2</sup>*ReadOps*, *WriteOps*, and *Bandwidth* are minimum estimates. Azure Container Registry strives to improve performance as usage requires.
 
@@ -51,3 +53,4 @@ ms.custom: include file
 [plink]: ../articles/container-registry/container-registry-private-link.md
 [cmk]: ../articles/container-registry/container-registry-customer-managed-keys.md
 [token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md
+[zones]: ../articles/container-registry/zone-redundancy.md

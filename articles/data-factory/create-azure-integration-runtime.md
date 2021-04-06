@@ -1,15 +1,11 @@
 ---
 title: Create Azure integration runtime in Azure Data Factory 
 description: Learn how to create Azure integration runtime in Azure Data Factory, which is used to copy data and dispatch transform activities. 
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ---
 # How to create and configure Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

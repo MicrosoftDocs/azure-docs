@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage custom models
+title: Manage DTDL models
 titleSuffix: Azure Digital Twins
 description: See how to create, edit, and delete a model within Azure Digital Twins.
 author: baanders
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Manage Azure Digital Twins models
 
-You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinModels APIs**](/rest/api/digital-twins/dataplane/models), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
+You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinModels APIs**](/rest/api/digital-twins/dataplane/models), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
 
 Management operations include upload, validation, retrieval, and deletion of models. 
 
@@ -37,35 +37,7 @@ Consider an example in which a hospital wants to digitally represent their rooms
 
 The first step towards the solution is to create models to represent aspects of the hospital. A patient room in this scenario might be described like this:
 
-```json
-{
-  "@id": "dtmi:com:contoso:PatientRoom;1",
-  "@type": "Interface",
-  "@context": "dtmi:dtdl:context;2",
-  "displayName": "Patient Room",
-  "contents": [
-    {
-      "@type": "Property",
-      "name": "visitorCount",
-      "schema": "double"
-    },
-    {
-      "@type": "Property",
-      "name": "handWashCount",
-      "schema": "double"
-    },
-    {
-      "@type": "Property",
-      "name": "handWashPercentage",
-      "schema": "double"
-    },
-    {
-      "@type": "Relationship",
-      "name": "hasDevices"
-    }
-  ]
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/PatientRoom.json":::
 
 > [!NOTE]
 > This is a sample body for a .json file in which a model is defined and saved, to be uploaded as part of a client project. The REST API call, on the other hand, takes an array of model definitions like the one above (which is mapped to a `IEnumerable<string>` in the .NET SDK). So to use this model in the REST API directly, surround it with brackets.
@@ -82,53 +54,18 @@ Following this method, you can go on to define models for the hospital's wards, 
 
 Once models are created, you can upload them to the Azure Digital Twins instance.
 
-> [!TIP]
-> It's recommended to validate your models offline before uploading them to your Azure Digital Twins instance. You can use the [DTDL client-side parser library](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) and [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) described in [*How-to: Parse and validate models*](how-to-parse-models.md) to check your models before you upload them to the service.
-
 When you're ready to upload a model, you can use the following code snippet:
 
-```csharp
-// 'client' is an instance of DigitalTwinsClient
-// Read model file into string (not part of SDK)
-StreamReader r = new StreamReader("MyModelFile.json");
-string dtdl = r.ReadToEnd(); r.Close();
-string[] dtdls = new string[] { dtdl };
-client.CreateModels(dtdls);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
 
 Observe that the `CreateModels` method accepts multiple files in one single transaction. Here's a sample to illustrate:
 
-```csharp
-var dtdlFiles = Directory.EnumerateFiles(sourceDirectory, "*.json");
-
-List<string> dtdlStrings = new List<string>();
-foreach (string fileName in dtdlFiles)
-{
-    // Read model file into string (not part of SDK)
-    StreamReader r = new StreamReader(fileName);
-    string dtdl = r.ReadToEnd(); r.Close();
-    dtdlStrings.Add(dtdl);
-}
-client.CreateModels(dtdlStrings);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModels_multi":::
 
 Model files can contain more than a single model. In this case, the models need to be placed in a JSON array. For example:
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:Planet",
-    "@type": "Interface",
-    //...
-  },
-  {
-    "@id": "dtmi:com:contoso:Moon",
-    "@type": "Interface",
-    //...
-  }
-]
-```
- 
+:::code language="json" source="~/digital-twins-docs-samples/models/Planet-Moon.json":::
+
 On upload, model files are validated by the service.
 
 ## Retrieve models
@@ -142,18 +79,7 @@ Here are your options for this:
 
 Here are some example calls:
 
-```csharp
-// 'client' is a valid DigitalTwinsClient object
-
-// Get a single model, metadata and data
-DigitalTwinsModelData md1 = client.GetModel(id);
-
-// Get a list of the metadata of all available models
-Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
-
-// Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(new GetModelsOptions { IncludeModelDefinition = true });
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="GetModels":::
 
 The API calls to retrieve models all return `DigitalTwinsModelData` objects. `DigitalTwinsModelData` contains metadata about the model stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the model. The `DigitalTwinsModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
 
@@ -209,12 +135,7 @@ These are separate features and they do not impact each other, although they may
 
 Here is the code to decommission a model:
 
-```csharp
-// 'client' is a valid DigitalTwinsClient  
-client.DecommissionModel(dtmiOfPlanetInterface);
-// Write some code that deletes or transitions digital twins
-//...
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DecommissionModel":::
 
 A model's decommissioning status is included in the `ModelData` records returned by the model retrieval APIs.
 
@@ -245,10 +166,8 @@ Even if a model meets the requirements to delete it immediately, you may want to
 6. Delete the model 
 
 To delete a model, use this call:
-```csharp
-// 'client' is a valid DigitalTwinsClient
-await client.DeleteModelAsync(IDToDelete);
-```
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DeleteModel":::
 
 #### After deletion: Twins without models
 
@@ -261,7 +180,7 @@ Things you **can** do:
 * Read properties
 * Read outgoing relationships
 * Add and delete incoming relationships (as in, other twins can still form relationships *to* this twin)
-  - The `target` in the relationship definition can still reflect the DTMI of the deleted model. A relationship with no defined target can also work here.
+  - The `target` in the relationship definition can still reflect the DTMI of the deleted model. A relationship with no defined target can also work here.      
 * Delete relationships
 * Delete the twin
 

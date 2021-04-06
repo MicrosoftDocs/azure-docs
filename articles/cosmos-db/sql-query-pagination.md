@@ -6,7 +6,7 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 03/15/2021
 ---
 
 # Pagination in Azure Cosmos DB
@@ -36,7 +36,7 @@ To ensure accurate query results, you should progress through all pages. You sho
 Here are some examples for processing results from queries with multiple pages:
 
 - [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L280)
-- [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L162-L176)
+- [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L162-L176)
 - [Node.js SDK](https://github.com/Azure/azure-sdk-for-js/blob/83fcc44a23ad771128d6e0f49043656b3d1df990/sdk/cosmosdb/cosmos/samples/IndexManagement.ts#L128-L140)
 - [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/examples.py#L89)
 
@@ -47,14 +47,14 @@ In the .NET SDK and Java SDK, you can optionally use continuation tokens as a bo
 Here are some example for using continuation tokens:
 
 - [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
-- [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
 - [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 If the query returns a continuation token, then there are additional query results.
 
 In Azure Cosmos DB's REST API, you can manage continuation tokens with the `x-ms-continuation` header. As with querying with the .NET or Java SDK, if the `x-ms-continuation` response header is not empty, it means the query has additional results.
 
-As long as you are using the same SDK version, continuation tokens never expire. You can optionally [restrict the size of a continuation token](/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Regardless of the amount of data or number of physical partitions in your container, queries return a single continuation token.
+As long as you are using the same SDK version, continuation tokens never expire. You can optionally [restrict the size of a continuation token](/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Regardless of the amount of data or number of physical partitions in your container, queries return a single continuation token.
 
 You cannot use continuation tokens for queries with [GROUP BY](sql-query-group-by.md) or [DISTINCT](sql-query-keywords.md#distinct) because these queries would require storing a significant amount of state. For queries with `DISTINCT`, you can use continuation tokens if you add `ORDER BY` to the query.
 

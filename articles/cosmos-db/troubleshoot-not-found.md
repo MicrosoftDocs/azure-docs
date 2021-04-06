@@ -21,6 +21,11 @@ There are many valid scenarios where an application expects a code 404 and corre
 ## A not found exception was returned for an item that should exist or does exist
 Here are the possible reasons for a status code 404 to be returned if the item should exist or does exist.
 
+### The read session is not available for the input session token
+
+#### Solution:
+1. Update your current SDK to the latest version available. The most common causes for this particular error have been fixed in the newest SDK versions.
+
 ### Race condition
 There are multiple SDK client instances and the read happened before the write.
 
@@ -35,7 +40,7 @@ The partition key and ID combination aren't valid.
 Fix the application logic that's causing the incorrect combination. 
 
 ### Invalid character in an item ID
-An item is inserted into Azure Cosmos DB with an [invalid character](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) in the item ID.
+An item is inserted into Azure Cosmos DB with an [invalid character](/dotnet/api/microsoft.azure.documents.resource.id#remarks) in the item ID.
 
 #### Solution:
 Change the ID to a different value that doesn't contain the special characters. If changing the ID isn't an option, you can Base64 encode the ID to escape the special characters. Base64 can still produce a name with a invalid character '/' which needs to be replaced.
@@ -50,7 +55,7 @@ string containerRid = selfLinkSegments[3];
 Container containerByRid = this.cosmosClient.GetContainer(databaseRid, containerRid);
 
 // Invalid characters are listed here.
-//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks
+//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id#remarks
 FeedIterator<JObject> invalidItemsIterator = this.Container.GetItemQueryIterator<JObject>(
     @"select * from t where CONTAINS(t.id, ""/"") or CONTAINS(t.id, ""#"") or CONTAINS(t.id, ""?"") or CONTAINS(t.id, ""\\"") ");
 while (invalidItemsIterator.HasMoreResults)
@@ -92,7 +97,7 @@ Wait for the indexing to catch up or change the indexing policy.
 The database or container that the item exists in was deleted.
 
 #### Solution:
-1. [Restore](./online-backup-and-restore.md#request-data-restore-from-a-backup) the parent resource, or re-create the resources.
+1. [Restore](./configure-periodic-backup-restore.md#request-restore) the parent resource, or re-create the resources.
 1. Create a new resource to replace the deleted resource.
 
 ### 7. Container/Collection names are case-sensitive

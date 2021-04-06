@@ -113,7 +113,7 @@ If the public IP address is under attack, the value for the metric **Under DDoS 
 
 We recommend configuring an alert on this metric. You'll then be notified when there’s an active DDoS mitigation performed on your public IP address.
 
-For more information, see [Manage Azure DDoS Protection Standard using the Azure portal](../../virtual-network/manage-ddos-protection.md).
+For more information, see [Manage Azure DDoS Protection Standard using the Azure portal](../../ddos-protection/manage-ddos-protection.md).
 
 #### Web application firewall for resource attacks
 
@@ -179,7 +179,7 @@ For your DDoS response team, we recommend that you use simulation exercises as a
 
 ### Alerts during an attack
 
-Azure DDoS Protection Standard identifies and mitigates DDoS attacks without any user intervention. To get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](../../virtual-network/manage-ddos-protection.md) on the metric **Under DDoS attack or not**. You can choose to create alerts for the other DDoS metrics to understand the scale of the attack, traffic being dropped, and other details.
+Azure DDoS Protection Standard identifies and mitigates DDoS attacks without any user intervention. To get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](../../ddos-protection/manage-ddos-protection.md) on the metric **Under DDoS attack or not**. You can choose to create alerts for the other DDoS metrics to understand the scale of the attack, traffic being dropped, and other details.
 
 #### When to contact Microsoft support
 
@@ -262,7 +262,7 @@ This reference architecture shows configuring DDoS Protection Standard for an [A
 
 In this architecture, traffic destined to the HDInsight cluster from the internet is routed to the public IP associated with the HDInsight gateway load balancer. The gateway load balancer then sends the traffic to the head nodes or the worker nodes directly. Because DDoS Protection Standard is enabled on the HDInsight virtual network, all public IPs in the virtual network get DDoS protection for Layer 3 and 4. This reference architecture can be combined with the N-Tier and multi-region reference architectures.
 
-For more information on this reference architecture, see the [Extend Azure HDInsight using an Azure Virtual Network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%252fazure%252fvirtual-network%252ftoc.json)
+For more information on this reference architecture, see the [Extend Azure HDInsight using an Azure Virtual Network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 documentation.
 
 
@@ -273,4 +273,4 @@ documentation.
 
 * [Shared responsibility in the cloud](shared-responsibility.md)
 * [Azure DDoS Protection product page](https://azure.microsoft.com/services/ddos-protection/)
-* [Azure DDoS Protection documentation](../../virtual-network/ddos-protection-overview.md)
+* [Azure DDoS Protection documentation](../../ddos-protection/ddos-protection-overview.md)

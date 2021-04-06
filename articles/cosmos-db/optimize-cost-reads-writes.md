@@ -100,7 +100,7 @@ The RU cost of writing an item depends on:
 - The item size.
 - The number of properties covered by the [indexing policy](index-policy.md) and needed to be indexed.
 
-Inserting a 1 KB item with less than 5 properties to index costs around 5 RUs. Replacing an item costs two times the charge required to insert the same item.
+Inserting a 1 KB item without indexing costs around ~5.5 RUs. Replacing an item costs two times the charge required to insert the same item.
 
 ### Optimizing writes
 

@@ -46,7 +46,7 @@ landingContent:
           - text: Create definition files
             url: publish-service-catalog-app.md
           - text: Publish marketplace application 
-            url: ../../marketplace/partner-center-portal/create-new-azure-apps-offer.md
+            url: ../../marketplace/create-new-azure-apps-offer.md
           - text: Create managed application with custom provider
             url: tutorial-create-managed-app-with-custom-provider.md
       - linkListType: how-to-guide

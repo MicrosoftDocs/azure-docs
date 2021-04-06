@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 04/05/2021
 ms.author: zhchia
 ---
 
@@ -33,7 +33,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Fu
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * [A Fuze tenant](https://www.fuze.com/).
 * A user account in Fuze with Admin permissions.
 
@@ -139,6 +139,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Connector limitations
 
 * Fuze supports custom SCIM attributes called **Entitlements**. These attributes are only able to be created and not updated. 
+* The Fuze SCIM API does not support filtering on the userName attribute. As a result, you may see failures in the logs when trying to sync an existing user who does not have a userName attribute but exists with an email that matches the userPrincipalName in Azure AD. 
 
 ## Change log
 

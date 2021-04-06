@@ -2,14 +2,14 @@
 title: Create custom roles in Azure AD role-based access control | Microsoft Docs
 description: Create and assign custom Azure AD roles with resource scope on Azure Active Directory resources.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
-ms.author: curtand
+ms.date: 01/05/2021
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -52,17 +52,26 @@ First, you must [download the Azure AD Preview PowerShell module](https://www.po
 To install the Azure AD PowerShell module, use the following commands:
 
 ``` PowerShell
-Install-Module AzureADPreview
-Import-Module AzureADPreview
+Install-Module -Name AzureADPreview 
+Import-Module -Name AzureADPreview 
 ```
 
 To verify that the module is ready to use, use the following command:
 
 ``` PowerShell
-Get-Module AzureADPreview
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.2.31     azuread                      {Add-AzureADAdministrati...}
+Get-Module -Name AzureADPreview 
+
+  ModuleType Version      Name                         ExportedCommands 
+  ---------- ---------    ----                         ---------------- 
+  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...} 
+```
+
+### Connect to Azure
+
+To connect to Azure Active Directory, use the following command:
+
+``` PowerShell
+Connect-AzureAD
 ```
 
 ### Create the custom role
@@ -177,4 +186,4 @@ Like built-in roles, custom roles are assigned by default at the default organiz
 
 - Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 - For more about roles and Administrator role assignment, see [Assign administrator roles](permissions-reference.md).
-- For default user permissions, see a [comparison of default guest and member user permissions](/azure/active-directory/fundamentals/users-default-permissions?context=azure%2factive-directory%2froles%2fcontext%2fugr-context).
+- For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context).

@@ -8,8 +8,7 @@ manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -62,7 +61,7 @@ During this phase, you plan the migration of your SAP workload to the Azure plat
 	- High availability and disaster recovery architecture.
 		- Based on RTO and RPO, define what the high availability and disaster recovery architecture needs to look like.
 		- For high availability within a zone, check what the desired DBMS has to offer in Azure. Most DBMS packages offer synchronous methods of a synchronous hot standby, which we recommend for production systems. Also check the SAP-related documentation for different databases, starting with [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](./dbms_guide_general.md) and related documents.
-		   Using Windows Server Failover Clustering with a shared disk configuration for the DBMS layer as, for example, [described for SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017), isn't supported. Instead, use solutions like:
+		   Using Windows Server Failover Clustering with a shared disk configuration for the DBMS layer as, for example, [described for SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server), isn't supported. Instead, use solutions like:
 		   - [SQL Server Always On](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
 		   - [Oracle Data Guard](../oracle/configure-oracle-dataguard.md)
 		   - [HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
@@ -133,9 +132,9 @@ We recommend that you set up and validate a full HADR solution and security desi
         - Test and evaluate the network latency between the SAP application layer VMs and DBMS VMs according to SAP support notes [#500235](https://launchpad.support.sap.com/#/notes/500235) and [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evaluate the results against the network latency guidance in [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). The network latency should be in the moderate or good range. Exceptions apply to traffic between VMs and HANA Large Instance units, as documented in [this article](./hana-network-architecture.md#networking-architecture-for-hana-large-instance).
         - Make sure ILB deployments are set up to use Direct Server Return. This setting will reduce latency when Azure ILBs are used for high availability configurations on the DBMS layer.
         - If you're using Azure Load Balancer together with Linux guest operating systems, check that the Linux network parameter **net.ipv4.tcp_timestamps** is set to **0**. This recommendation conflicts with recommendations in older versions of [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421). The SAP note is now updated to state that this parameter needs to be set to **0** to work with Azure load balancers.
-        - Consider using [Azure proximity placement groups](../../linux/co-location.md) to get optimal network latency. For more information, see [Azure proximity placement groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
+        - Consider using [Azure proximity placement groups](../../co-location.md) to get optimal network latency. For more information, see [Azure proximity placement groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
    4. High availability and disaster recovery deployments.
-        - If you deploy the SAP application layer without defining a specific Azure Availability Zone, make sure that all VMs that run SAP dialog instances or middleware instances of a single SAP system are deployed in an [availability set](../../manage-availability.md).
+        - If you deploy the SAP application layer without defining a specific Azure Availability Zone, make sure that all VMs that run SAP dialog instances or middleware instances of a single SAP system are deployed in an [availability set](../../availability-set-overview.md).
         - If you don't need high availability for SAP Central Services and the DBMS, you can deploy these VMs into the same availability set as the SAP application layer.
         - If you protect SAP Central Services and the DBMS layer for high availability by using passive replication, place the two nodes for SAP Central Services in one separate availability set and the two DBMS nodes in another availability set.
         - If you deploy into Azure Availability Zones, you can't use availability sets. But you do need to make sure you deploy the active and passive Central Services nodes into two different Availability Zones. Use Availability Zones that have the lowest latency between them.
@@ -205,7 +204,7 @@ During this phase, you usually deploy development systems, unit testing systems,
 8.	Check [the SAP website](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) for new HANA-certified SKUs in Azure. Compare the pricing of new SKUs with the ones you planned to use. Eventually, make necessary changes to use the ones that have the best price/performance ratio.
 9.	Adapt your deployment scripts to use new VM types and incorporate new Azure features that you want to use.
 10.	After deployment of the infrastructure, test and evaluate the network latency between SAP application layer VMs and DBMS VMs, according to SAP support notes [#500235](https://launchpad.support.sap.com/#/notes/500235) and [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evaluate the results against the network latency guidance in [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). The network latency should be in the moderate or good range. Exceptions apply to traffic between VMs and HANA Large Instance units, as documented in [this article](./hana-network-architecture.md#networking-architecture-for-hana-large-instance). Make sure that none of the restrictions mentioned in [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](./dbms_guide_general.md#azure-network-considerations) and [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md) apply to your deployment.
-11.	Make sure your VMs are deployed to the correct [Azure proximity placement group](../../linux/co-location.md), as described in [Azure proximity placement groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
+11.	Make sure your VMs are deployed to the correct [Azure proximity placement group](../../co-location.md), as described in [Azure proximity placement groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
 11.	Perform all the other checks listed for the proof of concept phase before applying the workload.
 12.	As the workload applies, record the resource consumption of the systems in Azure. Compare this consumption with records from your old platform. Adjust VM sizing of future deployments if you see that you have large differences. Keep in mind that when you downsize, storage, and network bandwidths of VMs will be reduced as well.
 	- [Sizes for Windows virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -239,15 +238,15 @@ In this phase, collect what you experienced and learned during your non-producti
 	- Azure Premium Storage is used for latency-sensitive disks or where the [single-VM SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) is required.
 	- Azure Write Accelerator is deployed correctly.
 		- Make sure that, within the VMs, storage spaces, or stripe sets were built correctly across disks that need Write Accelerator.
-		- Check the [configuration of software RAID on Linux](../../linux/configure-raid.md).
-		- Check the [configuration of LVM on Linux VMs in Azure](../../linux/configure-lvm.md).
+		- Check the [configuration of software RAID on Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
+		- Check the [configuration of LVM on Linux VMs in Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm).
 	- [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) are used exclusively.
 	- VMs were deployed into the correct availability sets and Availability Zones.
 	- [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VMs used in the SAP application layer and the SAP DBMS layer.
 	- No [Azure network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) are in the communication path between the SAP application and the DBMS layer of SAP systems based on SAP NetWeaver, Hybris, or S/4HANA.
 	- Application security group and network security group rules allow communication as desired and planned and block communication where required.
 	- Timeout settings are set correctly, as described earlier.
-	- VMs are deployed to the correct [Azure proximity placement group](../../linux/co-location.md), as described in [Azure proximity placement groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
+	- VMs are deployed to the correct [Azure proximity placement group](../../co-location.md), as described in [Azure proximity placement groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
 	- Network latency between SAP application layer VMs and DBMS VMs is tested and validated as described in SAP support notes [#500235](https://launchpad.support.sap.com/#/notes/500235) and [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evaluate the results against the network latency guidance in [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). The network latency should be in the moderate or good range. Exceptions apply to traffic between VMs and HANA Large Instance units, as documented in [this article](./hana-network-architecture.md#networking-architecture-for-hana-large-instance).
 	- Encryption was implemented where necessary and with the appropriate encryption method.
 	- Interfaces and other applications can connect the newly deployed infrastructure.

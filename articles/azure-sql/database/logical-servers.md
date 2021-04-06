@@ -20,7 +20,7 @@ In Azure SQL Database and Azure Synapse Analytics, a server is a logical constru
 
 This server is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, there are no guarantees regarding location of the databases or data warehouse database in relation to the server that manages them. Furthermore, neither Azure SQL Database nor Azure Synapse expose any instance-level access or features. In contrast, the instance databases in a managed instance are all physically co-located - in the same way that you are familiar with SQL Server in the on-premises or virtual machine world.
 
-When you create a server, you provide a server login account and password that has administrative rights to the master database on that server and all databases created on that server. This initial account is a SQL login account. Azure SQL Database and Synapse Analytics support SQL authentication and Azure Active Directory Authentication for authentication. For information about logins and authentication, see [Managing Databases and Logins in Azure SQL Database](logins-create-manage.md). Windows Authentication is not supported.
+When you create a server, you provide a server login account and password that has administrative rights to the master database on that server and all databases created on that server. This initial account is a SQL login account. Azure SQL Database and Azure Synapse Analytics support SQL authentication and Azure Active Directory Authentication for authentication. For information about logins and authentication, see [Managing Databases and Logins in Azure SQL Database](logins-create-manage.md). Windows Authentication is not supported.
 
 A server in SQL Database and Azure Synapse:
 
@@ -141,10 +141,10 @@ To create and manage servers, databases, and firewalls with Transact-SQL, use th
 
 | Command | Description |
 | --- | --- |
-|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Creates a new database in Azure SQL Database. You must be connected to the master database to create a new database.|
-|[CREATE DATABASE (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Creates a new data warehouse database in Azure Synapse. You must be connected to the master database to create a new database.|
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifies database or elastic pool. |
-|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modifies a data warehouse database in Azure Synapse.|
+|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true) | Creates a new database in Azure SQL Database. You must be connected to the master database to create a new database.|
+|[CREATE DATABASE (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Creates a new data warehouse database in Azure Synapse. You must be connected to the master database to create a new database.|
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Modifies database or elastic pool. |
+|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true&tabs=sqlpool)|Modifies a data warehouse database in Azure Synapse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Deletes a database.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for a database. If logged on to the master database for a server, returns information on all databases. For Azure Synapse, you must be connected to the master database.|
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returns CPU, IO, and memory consumption for a database in Azure SQL Database. One row exists for every 15 seconds, even if there is no activity in the database.|

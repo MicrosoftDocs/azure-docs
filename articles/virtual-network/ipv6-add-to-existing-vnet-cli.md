@@ -43,7 +43,7 @@ az network public-ip create \
 
 ## Configure IPv6 load balancer frontend
 
-Configure the load balancer with the new IPv6 IP address using [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) as follows:
+Configure the load balancer with the new IPv6 IP address using [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-create) as follows:
 
 ```azurecli-interactive
 az network lb frontend-ip create \
@@ -55,7 +55,7 @@ az network lb frontend-ip create \
 
 ## Configure IPv6 load balancer backend pool
 
-Create the backend pool for NICs with IPv6 addresses using [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create) as follows:
+Create the backend pool for NICs with IPv6 addresses using [az network lb address-pool create](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-create) as follows:
 
 ```azurecli-interactive
 az network lb address-pool create \
@@ -66,7 +66,7 @@ az network lb address-pool create \
 
 ## Configure IPv6 load balancer rules
 
-Create IPv6 load balancer rules with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create).
+Create IPv6 load balancer rules with [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create).
 
 ```azurecli-interactive
 az network lb rule create \
@@ -88,18 +88,18 @@ Add IPv6 address ranges to the virtual network and subnet hosting the load balan
 az network vnet update \
 --name myVnet  \
 --resource-group MyResourceGroupSLB \
---address-prefixes  "10.0.0.0/16"  "ace:cab:deca::/48"
+--address-prefixes  "10.0.0.0/16"  "fd00:db8:deca::/48"
 
 az network vnet subnet update \
 --vnet-name myVnet \
 --name mySubnet \
 --resource-group MyResourceGroupSLB \
---address-prefixes  "10.0.0.0/24"  "ace:cab:deca:deed::/64"  
+--address-prefixes  "10.0.0.0/24"  "fd00:db8:deca:deed::/64"  
 ```
 
 ## Add IPv6 configuration to NICs
 
-Configure the VM NICs with an IPv6 address using [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create) as follows:
+Configure the VM NICs with an IPv6 address using [az network nic ip-config create](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-create) as follows:
 
 ```azurecli-interactive
 az network nic ip-config create \

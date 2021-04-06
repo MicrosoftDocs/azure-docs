@@ -1,19 +1,19 @@
 ---
-title: Improve columnstore index performance
-description: Reduce memory requirements or increase the available memory to maximize the number of rows within each rowgroup.
+title: Improve columnstore index performance for dedicated SQL pool
+description: Reduce memory requirements or increase the available memory to maximize the number of rows within each rowgroup in dedicated SQL pool.
 services: synapse-analytics
-author: kevinvngo 
+author: gaursa 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/22/2019
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Maximizing rowgroup quality for columnstore
+# Maximizing rowgroup quality for columnstore indexes in dedicated SQL pool 
 
 Rowgroup quality is determined by the number of rows in a rowgroup. Increasing the available memory can maximize the number of rows a columnstore index compresses into each rowgroup.  Use these methods to improve compression rates and query performance for columnstore indexes.
 
@@ -23,7 +23,7 @@ Since a columnstore index scans a table by scanning column segments of individua
 
 When rowgroups have a high number of rows, data compression improves which means there is less data to read from disk.
 
-For more information about rowgroups, see [Columnstore Indexes Guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+For more information about rowgroups, see [Columnstore Indexes Guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## Target size for rowgroups
 
@@ -37,11 +37,11 @@ During a bulk load or columnstore index rebuild, sometimes there isn't enough me
 
 When there is insufficient memory to compress at least 10,000 rows into each rowgroup, an error will be generated.
 
-For more information on bulk loading, see [Bulk load into a clustered columnstore index](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+For more information on bulk loading, see [Bulk load into a clustered columnstore index](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## How to monitor rowgroup quality
 
-The DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) contains the view definition matching SQL DB) that exposes useful information such as number of rows in rowgroups and the reason for trimming, if there was trimming.
+The DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contains the view definition matching SQL DB) that exposes useful information such as number of rows in rowgroups and the reason for trimming, if there was trimming.
 
 You can create the following view as a handy way to query this DMV to get information on rowgroup trimming.
 
@@ -95,7 +95,7 @@ The maximum required memory to compress one rowgroup is approximately
 Long strings are compressed with a compression method designed for compressing text. This compression method uses a *dictionary* to store text patterns. The maximum size of a dictionary is 16 MB. There is only one dictionary for each long string column in the rowgroup.
 
 For an in-depth discussion of columnstore memory requirements, see the
-video [Synapse SQL pool scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+video [Dedicated SQL pool scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## Ways to reduce memory requirements
 
@@ -118,7 +118,7 @@ Additional memory requirements for string compression:
 
 ### Avoid over-partitioning
 
-Columnstore indexes create one or more rowgroups per partition. For SQL pool in Azure Synapse Analytics, the number of partitions grows quickly because the data is distributed and each distribution is partitioned.
+Columnstore indexes create one or more rowgroups per partition. For dedicated SQL pool in Azure Synapse Analytics, the number of partitions grows quickly because the data is distributed and each distribution is partitioned.
 
 If the table has too many partitions, there might not be enough rows to fill the rowgroups. The lack of rows does not create memory pressure during compression. But, it leads to rowgroups that do not achieve the best columnstore query performance.
 
@@ -161,4 +161,4 @@ To increase the memory grant for a load query, you can either increase the numbe
 
 ## Next steps
 
-To find more ways to improve performance for SQL pool, see the [Performance overview](cheat-sheet.md).
+To find more ways to improve performance for dedicated SQL pool, see the [Performance overview](cheat-sheet.md).

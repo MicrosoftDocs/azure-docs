@@ -12,15 +12,11 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Use the Azure CLI to enable end-to-end encryption using encryption at host
 
-When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, as well as other managed disk encryption types, see [Encryption at host - End-to-end encryption for your VM data](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, as well as other managed disk encryption types, see [Encryption at host - End-to-end encryption for your VM data](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## Restrictions
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
-
-### Supported regions
-
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### Supported VM sizes
 
@@ -30,7 +26,20 @@ You may also find the VM sizes programmatically. To learn how to retrieve them p
 
 ## Prerequisites
 
-In order to be able to use encryption at host for your VMs or virtual machine scale sets, you must get the feature enabled on your subscription. Send an email to encryptionAtHost@microsoft.com with your subscription Ids to get the feature enabled for your subscriptions.
+You must enable the feature for your subscription before you use the EncryptionAtHost property for your VM/VMSS. Please follow the steps below to enable the feature for your subscription:
+
+1.	Execute the following command to register the feature for your subscription
+
+    ```azurecli
+    az feature register --namespace Microsoft.Compute --name EncryptionAtHost
+    ```
+ 
+2.	Please check that the registration state is Registered (takes a few minutes) using the command below before trying out the feature.
+
+    ```azurecli
+    az feature show --namespace Microsoft.Compute --name EncryptionAtHost
+    ```
+
 
 ### Create an Azure Key Vault and DiskEncryptionSet
 
@@ -203,7 +212,7 @@ Calling the [Resource Skus API](/rest/api/compute/resourceskus/list) and checkin
     }
 ```
 
-Or, calling the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) PowerShell cmdlet.
+Or, calling the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) PowerShell cmdlet.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 

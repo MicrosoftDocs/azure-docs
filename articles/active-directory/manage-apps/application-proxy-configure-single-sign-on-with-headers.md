@@ -3,17 +3,17 @@ title: Header-based single sign-on for on-premises apps with Azure AD App Proxy
 description: Learn how to provide single sign-on for on-premises applications that are secured with header-based authentication.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 02/22/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
 
-# Header-based single sign-on for on-premises apps with Azure AD App Proxy (Preview)
+# Header-based single sign-on for on-premises apps with Azure AD App Proxy
 
 Azure Active Directory (Azure AD) Application Proxy natively supports single sign-on access to applications that use headers for authentication. You can configure header values required by your application in Azure AD. The header values will be sent down to the application via Application Proxy. Some benefits to using native support for header-based authentication with Application Proxy include:  
 
@@ -80,9 +80,13 @@ Before you get started with single sign-on for header-based applications, you sh
 ## Test your app 
 
 When you've completed all these steps, your app should be running and available. To test the app: 
-1. Open a browser and navigate to the **External URL** from the Application Proxy settings. 
+1. Open a new browser or private browser window to make sure previously cached headers are cleared. Then navigate to the **External URL** from the Application Proxy settings.
 2. Sign in with the test account that you assigned to the app. If you can load and sign into the application using SSO, then you're good! 
 
+## Considerations
+
+- Application Proxy is used to provide remote access to apps on-premises or on private cloud. Application Proxy is not recommended to handle traffic originating internally from the corporate network.
+- Access to header-based authentication applications should be restricted to only traffic from the connector or other permitted header-based authentication solution. This is commonly done through restricting network access to the application using a firewall or IP restriction on the application server.
 
 ## Next steps
 

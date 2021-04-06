@@ -4,7 +4,7 @@ description: Access a summary of marketplace web analytics in Partner Center, wh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 03/23/2021
 author: sayantanroy83
 ms.author: sroy
 ---
@@ -15,7 +15,7 @@ This article provides information on the Marketplace Insights dashboard in Partn
 
 To access the **Marketplace Insights** dashboard in Partner Center, under Commercial Marketplace, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Marketplace Insights**.
 
-For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./partner-center-portal/faq-terminology.md).
+For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).
 
 ## Marketplace Insights dashboard
 
@@ -23,7 +23,7 @@ The Marketplace Insights dashboard presents an overview of the Azure Marketplace
 
 - Page visits trend
 - Call to actions trend
-- Page visits and Call to actions against offers, referral domains, and campaign ids
+- Page visits and Call to actions against offers, referral domains, and campaign IDs
 - Marketplace Insights by geography
 - Marketplace Insights details table
 
@@ -99,6 +99,21 @@ This table provides a list view of the page visits and the calls to action of yo
 > [!TIP]
 > You can use the download icon in the upper-right corner of any widget to download the data. You can provide feedback on each of the widgets by clicking on the “thumbs up” or “thumbs down” icon.
 
+| Column name in<br>user interface | Attribute name | Definition | Column name in programmatic<br>access reports |
+| ------------ | ------------- | ------------- | ------------- |
+| Date | Date of Visit | The date of page visit and/or CTA click event generation on the offer’s page in Azure Marketplace and/or AppSource. | Date |
+| Offer Name | Offer Name | The name of the commercial marketplace offering. | OfferName |
+| Referral Domain | Referral Domain | The name of the referral domain from where the page visit happened. If there are no referral domains captured for the page visit, then the corresponding entry is “Referral domain not present”. |  ReferralDomain |
+| Country Name | Country Name | The name of the country from where the page visit has happened. | CountryName |
+| Page Visits | Page Visits | The number of page visits associated with the Offer Name for a particular date. | PageVisits |
+| Get It Now | Get It Now | The number of clicks to the “Get It Now” CTA on the offer’s page for a particular date. | GetItNow |
+| Contact Me | Contact Me | The number of clicks to the “Contact Me” CTA on the offer’s page for a particular date. | ContactMe |
+| Test Drive | Test Drive | The number of clicks to the “Test Drive” CTA on the offer’s page for a particular date. | TestDrive |
+| Free Trial | Free Trial | The number of clicks to the “Free Trial” CTA on the offer’s page for a particular date. | FreeTrial |
+| Campaign | Name of the Campaign | Ability to understand web telemetry (page visit and CTA clicks) against the campaign name. | Campaign |
+| n/a | Site | The name of the storefront from which the page visit or CTA click occurred. The possible values are:<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | Site |
+|
+
 ## Next steps
 
 - For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md).
@@ -107,4 +122,4 @@ This table provides a list view of the page visits and the calls to action of yo
 - For detailed information about your customers, including growth trends, see [Customer dashboard in commercial marketplace analytics](./customer-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](./partner-center-portal/downloads-dashboard.md).
 - To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings & Reviews analytics dashboard in Partner Center](./partner-center-portal/ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./partner-center-portal/faq-terminology.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).

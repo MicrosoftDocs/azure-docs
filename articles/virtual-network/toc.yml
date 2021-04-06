@@ -25,10 +25,12 @@
     href: tutorial-restrict-network-access-to-resources.md
   - name: Connect virtual networks
     href: tutorial-connect-virtual-networks-portal.md
-  - name: Create NAT gateway
-    href: quickstart-create-nat-gateway-portal.md
   - name: Create and validate NAT gateway
-    href: tutorial-create-validate-nat-gateway-portal.md
+    href: tutorial-create-nat-gateway-portal.md
+  - name: Integrate NAT gateway public load balancer
+    href: tutorial-nat-gateway-load-balancer-public-portal.md
+  - name: Integrate NAT gateway internal load balancer
+    href: tutorial-nat-gateway-load-balancer-internal-portal.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -39,6 +41,8 @@
     href: template-samples.md
 - name: Concepts
   items:
+  - name: Concepts and best practices
+    href: concepts-and-best-practices.md
   - name: Business continuity
     href: virtual-network-disaster-recovery-guidance.md
   - name: Connectivity
@@ -71,12 +75,18 @@
       href: ../expressroute/cross-network-connectivity.md?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Peering
       href: virtual-network-peering-overview.md
-  - name: Integration for Azure services
+  - name: Integrate Azure services
     items:
+    - name: Overview
+      href: vnet-integration-for-azure-services.md
+    - name: Deploy a dedicated service
+      href: virtual-network-for-azure-services.md
+    - name: Private Link
+      href: ../private-link/private-link-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Service endpoints
       href: virtual-network-service-endpoints-overview.md
-    - name: Deploy a dedicated service
-      href: virtual-network-for-azure-services.md 
+    - name: Service tags
+      href: service-tags-overview.md
   - name: IP services
     items:
     - name: Public IPs
@@ -90,13 +100,19 @@
     - name: Public IPv6 address prefix
       href: ipv6-public-ip-address-prefix.md
     - name: Routing preference
-      href: routing-preference-overview.md 
+      href: routing-preference-overview.md
+    - name: Routing preference Unmetered
+      href: routing-preference-unmetered.md   
     - name: Public IP security baseline
       href: public-ip-security-baseline.md
   - name: Security
     items:
-    - name: Security baseline
+    - name: Virtual network security baseline
       href: security-baseline.md
+    - name: Virtual network NAT security baseline
+      href: nat-security-baseline.md
+    - name: Network isolation of Azure services
+      href: vnet-integration-for-azure-services.md
     - name: Network security groups
       items:
       - name: Overview
@@ -112,7 +128,7 @@
     - name: Kubernetes network policies
       href: kubernetes-network-policies.md
     - name: DDoS protection
-      href: https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview
+      href: ../ddos-protection/ddos-protection-overview.md
     - name: Virtual network TAP
       href: virtual-network-tap-overview.md
     - name: Security controls by Azure Policy
@@ -125,7 +141,7 @@
     - name: Subnet delegation
       href: subnet-delegation-overview.md
   - name: Classic deployment
-    href: https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
+    href: /previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
 - name: How-to guides
   items:
   - name: Plan and configure
@@ -153,7 +169,7 @@
       - name: Azure CLI
         href: tutorial-create-route-table-cli.md
       - name: Ansible
-        href: /azure/ansible/ansible-create-configure-route-table
+        href: /azure/developer/ansible/route-table-configure
       - name: Manage route tables
         href: manage-route-table.md
     - name: Manage NICs
@@ -187,11 +203,11 @@
       - name: VNet (Resource Manager) to a VNet (Classic)
         href: ../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
       - name: VNet to on-premises network (VPN)
-        href: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        href: ../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
       - name: VNet to on-premises network (ExpressRoute)
         href: ../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json
       - name: Highly available hybrid network architecture
-        href: ../guidance/guidance-hybrid-network-expressroute-vpn-failover.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        href: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Configure Virtual network TAP
       href: tutorial-tap-virtual-network-cli.md
     - name: Deploy Container networking
@@ -262,6 +278,10 @@
             href: configure-routing-preference-virtual-machine-powershell.md
           - name: Azure CLI
             href: configure-routing-preference-virtual-machine-cli.md
+        - name: Configure mixed Routing Preference for a VM
+          href: routing-preference-mixed-network-adapter-portal.md
+        - name: Configure Routing Preference for an AKS cluster
+          href: routing-preference-azure-kubernetes-service-cli.md
 
   - name: Security
     items:
@@ -300,9 +320,9 @@
         - name: Azure CLI
           href: virtual-network-service-endpoint-policies-cli.md
     - name: Manage DDoS protection
-      href: https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection
+      href: ../ddos-protection/manage-ddos-protection.md
     - name: Onboard partners to DDoS Protection Standard
-      href: https://docs.microsoft.com/azure/ddos-protection/ddos-protection-partner-onboarding
+      href: ../ddos-protection/ddos-protection-partner-onboarding.md
     - name: Manage network security groups
       href: manage-network-security-group.md    
     - name: Security scenarios
@@ -310,7 +330,7 @@
       - name: Secure networks with virtual appliances
         href: virtual-network-scenario-udr-gw-nva.md
       - name: DMZ between Azure and the Internet
-        href: ../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json      
+        href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json
   - name: VM networking
     items:      
     - name: Create VM - static public IP
@@ -370,31 +390,37 @@
       href: virtual-machine-network-throughput.md
   - name: Move across regions
     items:
-    - name: Network security groups - Portal
-      href: move-across-regions-nsg-portal.md
-    - name: Network security groups - PowerShell
-      href: move-across-regions-nsg-powershell.md
-    - name: Virtual networks - Portal
-      href: move-across-regions-vnet-portal.md
-    - name: Virtual networks - PowerShell
-      href: move-across-regions-vnet-powershell.md
-    - name: Public IPs - Portal
-      href: move-across-regions-publicip-portal.md
-    - name: Public IPs - PowerShell
-      href: move-across-regions-publicip-powershell.md
+    - name: Network security groups (NSG)
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Virtual networks
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Network interfaces (NICs)
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Public IPs
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Manual move
+      items:
+      - name: Network security groups - Portal
+        href: move-across-regions-nsg-portal.md
+      - name: Network security groups - PowerShell
+        href: move-across-regions-nsg-powershell.md
+      - name: Virtual networks - Portal
+        href: move-across-regions-vnet-portal.md
+      - name: Virtual networks - PowerShell
+        href: move-across-regions-vnet-powershell.md
+      - name: Public IPs - Portal
+        href: move-across-regions-publicip-portal.md
+      - name: Public IPs - PowerShell
+        href: move-across-regions-publicip-powershell.md
   - name: NAT
     items:
-    - name: Create NAT gateway - PowerShell
-      href: quickstart-create-nat-gateway-powershell.md
-    - name: Create NAT gateway - CLI
-      href: quickstart-create-nat-gateway-cli.md
+    - name: Create and validate NAT gateway - PowerShell
+      href: tutorial-create-nat-gateway-powershell.md
+    - name: Create and validate NAT gateway - CLI
+      href: tutorial-create-nat-gateway-cli.md
     - name: Create NAT gateway - ARM template
       displayname: Resource Manager
       href: quickstart-create-nat-gateway-template.md
-    - name: Create and validate NAT gateway - PowerShell
-      href: tutorial-create-validate-nat-gateway-powershell.md
-    - name: Create and validate NAT gateway - CLI
-      href: tutorial-create-validate-nat-gateway-cli.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot virtual network peering issues
@@ -424,7 +450,7 @@
     - name: Troubleshoot Azure VM connectivity problems
       href: troubleshoot-vm-connectivity.md
   - name: Classic deployment
-    href: https://docs.microsoft.com/previous-versions/azure/virtual-network/create-virtual-network-classic
+    href: /previous-versions/azure/virtual-network/create-virtual-network-classic
 - name: Reference
   items:
   - name: Azure CLI
@@ -436,7 +462,7 @@
   - name: Java
     href: /java/api/
   - name: Node.js
-    href: https://docs.microsoft.com/javascript/azure#azure-sdk
+    href: /javascript/azure#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: REST
@@ -457,7 +483,7 @@
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Microsoft Q&A question page for Networking
-    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
+    href: /answers/topics/azure-virtual-network.html
   - name: Networking feedback
     href: https://feedback.azure.com/forums/217313-networking?category_id=77469
   - name: Pricing

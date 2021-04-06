@@ -145,7 +145,7 @@ You should also see output in the console that shows the messages that your web 
 
 The [Web Apps feature of Azure App Service](../app-service/overview.md) provides a platform as a service (PAAS) for hosting web applications. Web applications hosted in Azure App Service can benefit from powerful Azure features like additional security, load balancing, and scalability as well as Azure and partner DevOps solutions like continuous deployment, package management, and so on. Azure App Service supports web applications developed in many popular languages and deployed on Windows or Linux infrastructure.
 
-In this section, you provision a web app in App Service and deploy your code to it by using Azure CLI commands. You can find details of the commands used in the [az webapp](/cli/azure/webapp?view=azure-cli-latest) documentation. Before starting, make sure you've completed the steps to [add a resource group to your IoT hub](#add-a-consumer-group-to-your-iot-hub), [get a service connection string for your IoT hub](#get-a-service-connection-string-for-your-iot-hub), and [download the web app from GitHub](#download-the-web-app-from-github).
+In this section, you provision a web app in App Service and deploy your code to it by using Azure CLI commands. You can find details of the commands used in the [az webapp](/cli/azure/webapp) documentation. Before starting, make sure you've completed the steps to [add a resource group to your IoT hub](#add-a-consumer-group-to-your-iot-hub), [get a service connection string for your IoT hub](#get-a-service-connection-string-for-your-iot-hub), and [download the web app from GitHub](#download-the-web-app-from-github).
 
 1. An [App Service plan](../app-service/overview-hosting-plans.md) defines a set of compute resources for an app hosted in App Service to run. In this tutorial, we use the Developer/Free tier to host the web app. With the Free tier, your web app runs on shared Windows resources with other App Service apps, including apps of other customers. Azure also offers App Service plans to deploy web apps on Linux compute resources. You can skip this step if you already have an App Service plan that you want to use.
 
@@ -176,7 +176,7 @@ In this section, you provision a web app in App Service and deploy your code to 
 
 5. To deploy the code to App Service, you'll use your [user-level deployment credentials](../app-service/deploy-configure-credentials.md). Your user-level deployment credentials are different from your Azure credentials and are used for Git local and FTP deployments to a web app. Once set, they're valid across all of your App Service apps in all subscriptions in your Azure account. If you've previously set user-level deployment credentials, you can use them.
 
-   If you haven't previously set user-level deployment credentials or you can't remember your password, run the following command. Your deployment user name must be unique within Azure, and it must not contain the ‘@’ symbol for local Git pushes. When you're prompted, enter and confirm your new password. The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols.
+   If you haven't previously set user-level deployment credentials or you can't remember your password, run the following command. Your deployment user name must be unique within Azure, and it must not contain the ‘\@’ symbol for local Git pushes. When you're prompted, enter and confirm your new password. The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your deployment user name>
@@ -194,10 +194,10 @@ In this section, you provision a web app in App Service and deploy your code to 
    git remote add webapp <Git clone URL>
    ```
 
-8. To deploy the code to App Service, enter the following command in your command window. If you are prompted for credentials, enter the user-level deployment credentials that you created in step 5. Make sure that you push to the master branch of the App Service remote.
+8. To deploy the code to App Service, enter the following command in your command window. If you are prompted for credentials, enter the user-level deployment credentials that you created in step 5. Make sure that you push to the main branch of the App Service remote.
 
     ```cmd
-    git push webapp master:master
+    git push webapp main:main
     ```
 
 9. The progress of the deployment will update in your command window. A successful deployment will end with lines similar to the following output:
@@ -208,7 +208,7 @@ In this section, you provision a web app in App Service and deploy your code to 
     remote: Running post deployment command(s)...
     remote: Deployment successful.
     To https://contoso-web-app-3.scm.azurewebsites.net/contoso-web-app-3.git
-    6b132dd..7cbc994  master -> master
+    6b132dd..7cbc994  main -> main
     ```
 
 10. Run the following command to query the state of your web app and make sure it is running:

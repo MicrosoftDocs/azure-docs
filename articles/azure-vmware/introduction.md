@@ -2,7 +2,7 @@
 title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
-ms.date: 11/11/2020
+ms.date: 03/24/2021
 ---
 
 # What is Azure VMware Solution?
@@ -43,12 +43,15 @@ Once Azure VMware Solution is deployed into your subscription, [Azure Monitor lo
 
 In your private cloud, you can:
 - Collect logs on each of your VMs.
-- [Download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-options) on Linux and Windows VMs.
-- Enable the [Azure diagnostics extension](../azure-monitor/platform/diagnostics-extension-overview.md).
-- [Create and run new queries](../azure-monitor/platform/data-platform-logs.md#log-queries).
+- [Download and install the MMA agent](../azure-monitor/agents/log-analytics-agent.md#installation-options) on Linux and Windows VMs.
+- Enable the [Azure diagnostics extension](../azure-monitor/agents/diagnostics-extension-overview.md).
+- [Create and run new queries](../azure-monitor/logs/data-platform-logs.md#log-queries).
 - Run the same queries you usually run on your VMs.
 
-Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs within the IaaS platform. For more information and how-tos, see [Monitoring Azure VMs with Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
+Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs within the IaaS platform. For more information and how-tos, see [Monitoring Azure VMs with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md).
+
+## Customer communication
+[!INCLUDE [customer-communications](includes/customer-communications.md)]
 
 ## Next steps
 
@@ -58,3 +61,5 @@ The next step is to learn key [private cloud and cluster concepts](concepts-priv
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
+
+

@@ -93,6 +93,22 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 The [usage](#usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#message-metadata) explains all of the other variables shown.
 
+# [Java](#tab/java)
+
+The following Java example shows a storage queue trigger function, which logs the triggered message placed into queue `myqueuename`.
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 # [JavaScript](#tab/javascript)
 
 The following example shows a queue trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
@@ -137,6 +153,42 @@ module.exports = async function (context, message) {
 ```
 
 The [usage](#usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#message-metadata) explains all of the other variables shown.
+
+# [PowerShell](#tab/powershell)
+
+The following example demonstrates how to read a queue message passed to a function via a trigger.
+
+A Storage queue trigger is defined in *function.json* file where `type` is set to `queueTrigger`.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+The code in the *Run.ps1* file declares a parameter as `$QueueItem`, which allows you to read the queue message in your function.
+
+```powershell
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata)
+
+# Write out the queue message and metadata to the information log.
+Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
+Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
+Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
+Write-Host "ID: $($TriggerMetadata.Id)"
+Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
+Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
+```
 
 # [Python](#tab/python)
 
@@ -185,22 +237,6 @@ def main(msg: func.QueueMessage):
 
     logging.info(result)
 ```
-
-# [Java](#tab/java)
-
-The following Java example shows a storage queue trigger function, which logs the triggered message placed into queue `myqueuename`.
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
 
  ---
 
@@ -266,14 +302,6 @@ The storage account to use is determined in the following order:
 
 Attributes are not supported by C# Script.
 
-# [JavaScript](#tab/javascript)
-
-Attributes are not supported by JavaScript.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
-
 # [Java](#tab/java)
 
 The `QueueTrigger` annotation gives you access to the queue that triggers the function. The following example makes the queue message available to the function via the `message` parameter.
@@ -301,6 +329,18 @@ public class QueueTriggerDemo {
 |`queueName`  | Declares the queue name in the storage account. |
 |`connection` | Points to the storage account connection string. |
 
+# [JavaScript](#tab/javascript)
+
+Attributes are not supported by JavaScript.
+
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
+# [Python](#tab/python)
+
+Attributes are not supported by Python.
+
 ---
 
 ## Configuration
@@ -313,7 +353,7 @@ The following table explains the binding configuration properties that you set i
 |**direction**| n/a | In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a |The name of the variable that contains the queue item payload in the function code.  |
 |**queueName** | **QueueName**| The name of the queue to poll. |
-|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "MyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here.<br><br>For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "MyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -321,16 +361,28 @@ The following table explains the binding configuration properties that you set i
 
 # [C#](#tab/csharp)
 
+### Default
+
 Access the message data by using a method parameter such as `string paramName`. You can bind to any of the following types:
 
-* Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code. 
+* Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code.
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
 
 If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+### Additional types
+
+Apps using the [5.0.0 or higher version of the Storage extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) may also use types from the [Azure SDK for .NET](/dotnet/api/overview/azure/storage.queues-readme). This version drops support for the legacy `CloudQueueMessage` type in favor of the following types:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+ 
+For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
 # [C# Script](#tab/csharp-script)
+
+### Default
 
 Access the message data by using a method parameter such as `string paramName`. The `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
 
@@ -341,17 +393,29 @@ Access the message data by using a method parameter such as `string paramName`. 
 
 If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+### Additional types
+
+Apps using the [5.0.0 or higher version of the Storage extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) may also use types from the [Azure SDK for .NET](/dotnet/api/overview/azure/storage.queues-readme). This version drops support for the legacy `CloudQueueMessage` type in favor of the following types:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+
+For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
+# [Java](#tab/java)
+
+The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger) annotation gives you access to the queue message that triggered the function.
+
 # [JavaScript](#tab/javascript)
 
 The queue item payload is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. If the payload is JSON, the value is deserialized into an object.
 
+# [PowerShell](#tab/powershell)
+
+Access the queue message via string parameter that matches the name designated by binding's `name` parameter in the *function.json* file.
+
 # [Python](#tab/python)
 
-Access the queue message via the parameter typed as [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
-
-# [Java](#tab/java)
-
-The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) annotation gives you access to the queue message that triggered the function.
+Access the queue message via the parameter typed as [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage).
 
 ---
 
@@ -400,7 +464,7 @@ The queue trigger automatically prevents a function from processing a queue mess
 
 ## host.json properties
 
-The [host.json](functions-host-json.md#queues) file contains settings that control queue trigger behavior. See the [host.json settings](functions-bindings-storage-queue-output.md#hostjson-settings) section for details regarding available settings.
+The [host.json](functions-host-json.md#queues) file contains settings that control queue trigger behavior. See the [host.json settings](functions-bindings-storage-queue.md#hostjson-settings) section for details regarding available settings.
 
 ## Next steps
 

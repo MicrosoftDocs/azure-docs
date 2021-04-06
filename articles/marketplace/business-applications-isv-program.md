@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 7/14/2020
+ms.date: 11/19/2020
 ---
 
 # Microsoft Business Applications Independent Software Vendor (ISV) Connect Program onboarding guide
@@ -34,7 +34,7 @@ Participation in this program requires you to review and accept the [Business Ap
 > This step requires an *Owner* or *Manager* role in Partner Center for your account to sign legal agreements.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
-1. Select **Settings** (gear icon) and then **Developer Settings**.
+1. Select **Settings** (gear icon) > **Account Settings**.
 1. Select **Agreements**.
 1. Select the version link and view the agreement.
 1. To agree and accept the agreement, select **Accept Agreement**.
@@ -47,8 +47,8 @@ Set up billing information for the Business Applications ISV Connect Program.
 > This step requires an *Owner* or *Manager* role in Partner Center for your account to update billing information.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
-1. Select **Settings** (gear icon) and then **Developer Settings**.
-1. Under **Account settings**, select **Billing profile**.
+1. Select **Settings** (gear icon) > **Account Settings**.
+1. Under **Organization profile**, select **Billing profile** and then the **Developer** tab.
 1. Review the primary contact and billing information that is populated from your legal entity.
 1. To make changes, select **Update**.
 1. If applicable, provide Tax ID/VAT ID settings.
@@ -75,6 +75,6 @@ Ask your Account Manager or contact [Microsoft Partner Support](https://aka.ms/m
 
 - [Business Applications for ISVs](https://partner.microsoft.com/solutions/business-applications/isv-overview) (online article)
 - [Overview of the New Program for Business Applications ISVs](https://aka.ms/BizAppsISVProgram) (PDF)
-- [Business Applications ISV Connect Program FAQ](https://assetsprod.microsoft.com/business-applications-partner-faq.pdf) (PDF)
+- [Business Applications ISV Connect Program FAQ](https://assetsprod.microsoft.com/faq-using-partner-center-isv-connect.pdf) (PDF)
 - [Upcoming program for Business Applications ISVs](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) (blog post)
 - [ISV Connect Program Policies](https://aka.ms/bizappsisvpolicies) (PDF)

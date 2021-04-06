@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 04/07/2020
+ms.date: 11/20/2020
 ms.author: aahi
 ---
 
@@ -32,7 +32,7 @@ ms.author: aahi
     > [![Screenshot that shows the Basics tab under Create.](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
 1. Select **Review + create**, and wait for the resource to be created.
-1. After both resources are created, still in the Azure portal, select the new authoring resource. Then select **Quickstarts** to get the authoring **endpoint URL** and **key** for authoring programmatically.
+1. After both resources are created, still in the Azure portal, select the new authoring resource. Then select **Keys and Endpoint** to get the authoring **endpoint URL** and **key** for authoring programmatically.
 
 > [!TIP]
 > To use the resources, in the LUIS portal, [assign the resources](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps).

@@ -1,17 +1,12 @@
 ---
 title: Copy data from Azure Blob storage to SQL using Copy Data tool
 description: Create an Azure Data Factory and then use the Copy Data tool to copy data from Azure Blob storage to a SQL Database.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
+ms.date: 02/18/2021
 ---
 
 # Copy data from Azure Blob storage to a SQL Database by using the Copy Data tool
@@ -20,7 +15,7 @@ ms.date: 11/09/2020
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](tutorial-copy-data-tool.md)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you use the Azure portal to create a data factory. Then you use the Copy Data tool to create a pipeline that copies data from Azure Blob storage to a SQL Database.
 
@@ -82,7 +77,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
     The name for your data factory must be _globally unique_. You might receive the following error message:
 
-    ![New data factory error message](./media/doc-common-process/name-not-available-error.png)
+   :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
     If you receive an error message about the name value, enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 1. Select the Azure **subscription** in which to create the new data factory.
@@ -100,7 +95,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 1. After creation is finished, the **Data Factory** home page is displayed.
 
-    ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
 1. To launch the Azure Data Factory user interface (UI) in a separate tab, select the **Author & Monitor** tile.
 
 ## Use the Copy Data tool to create a pipeline

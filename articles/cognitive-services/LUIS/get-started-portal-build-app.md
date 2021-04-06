@@ -4,7 +4,7 @@ description: In this quickstart, you create the basic parts of an app, intents, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 03/26/2021
 ---
 
 # Quickstart: Create a new app in the LUIS portal
@@ -15,13 +15,13 @@ In this quickstart, you build a new app in the LUIS portal. First, create the ba
 
 ## Create an app
 
-To create an application, click  **+ New app**. 
+To create an application, select **+ New app**. 
 
 In the window that appears, enter the following information:
 
 |Name  |Description  |
 |---------|---------|
-|Name     | A name for the your app. For example "home automation". Required.        |
+|Name     | A name for your app. For example, "home automation". Required.        |
 |Culture     | The language that your app understands and speaks. Required.   |
 |Description | A description for your app. Optional.
 |Prediction resource | The prediction resource that will receive queries. Optional. |
@@ -159,4 +159,4 @@ When you're done with this quickstart and aren't moving on to the next quickstar
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [2. Deploy an app](get-started-portal-deploy-app.md)
+> [Deploy an app](get-started-portal-deploy-app.md)

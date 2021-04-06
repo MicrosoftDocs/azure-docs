@@ -73,7 +73,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Zscaler Private Access (ZPA) Create Token](media/zscaler-private-access-provisioning-tutorial/token.png)
 
-8.	To locate the **Tenant URL** , navigate to **Administration > IdP Configuration**. Click on the name of the newly added IdP configuration listed on the page.
+8.	To locate the **Tenant URL**, navigate to **Administration > IdP Configuration**. Click on the name of the newly added IdP configuration listed on the page.
 
 	![Zscaler Private Access (ZPA) Idp Name](media/zscaler-private-access-provisioning-tutorial/idpname.png)
 
@@ -110,6 +110,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Zscaler Private Access (ZPA) by following the instructions provided in the [Zscaler Private Access (ZPA) Single sign-on tutorial](./zscalerprivateaccess-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, although these two features complement each other.
+
+> [!NOTE]
+> When users and groups are provisioned or de-provisioned we recommend to periodically restart provisioning to ensure that group memberships are properly updated. Doing a restart will force our service to re-evaluate all the groups and update the memberships.  
 
 > [!NOTE]
 > To learn more about Zscaler Private Access's SCIM endpoint, refer [this](https://www.zscaler.com/partners/microsoft).

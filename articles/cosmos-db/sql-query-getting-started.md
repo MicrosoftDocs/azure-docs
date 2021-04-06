@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 02/02/2021
 ms.author: tisande
 
 ---
@@ -18,10 +18,10 @@ In Azure Cosmos DB SQL API accounts, there are two ways to read data:
 
 Here are some examples of how to do **Point reads** with each SDK:
 
-- [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
-- [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
-- [Node.js SDK](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
-- [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+- [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.readitemasync)
+- [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [Node.js SDK](/javascript/api/@azure/cosmos/item#read-requestoptions-)
+- [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
 **SQL queries** - You can query data by writing queries using the Structured Query Language (SQL) as a JSON query language. Queries always cost at least 2.3 request units and, in general, will have a higher and more variable latency than point reads. Queries can return many items.
 
@@ -29,16 +29,16 @@ Most read-heavy workloads on Azure Cosmos DB use a combination of both point rea
 
 Here are some examples of how to do **SQL queries** with each SDK:
 
-- [.NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
-- [Java SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples#query-examples)
-- [Node.js SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples#item-examples)
-- [Python SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-python-samples#item-examples)
+- [.NET SDK](./sql-api-dotnet-v3sdk-samples.md#query-examples)
+- [Java SDK](./sql-api-java-sdk-samples.md#query-examples)
+- [Node.js SDK](./sql-api-nodejs-samples.md#item-examples)
+- [Python SDK](./sql-api-python-samples.md#item-examples)
 
 The remainder of this doc shows how to get started writing SQL queries in Azure Cosmos DB. SQL queries can be run through either the SDK or Azure portal.
 
 ## Upload sample data
 
-In your SQL API Cosmos DB account, open the [Data Explorer](https://docs.microsoft.com/azure/cosmos-db/data-explorer) to create a container called `Families`. After the it is created, use the data structures browser, to find and open it. In your `Families` container, you will see the `Items` option right below the name of the container. Open this option and you'll see a button, in the menu bar in center of the screen, to create a 'New Item'. You will use this feature to create the JSON items below.
+In your SQL API Cosmos DB account, open the [Data Explorer](./data-explorer.md) to create a container called `Families`. After the it is created, use the data structures browser, to find and open it. In your `Families` container, you will see the `Items` option right below the name of the container. Open this option and you'll see a button, in the menu bar in center of the screen, to create a 'New Item'. You will use this feature to create the JSON items below.
 
 ### Create JSON items
 
@@ -182,7 +182,7 @@ The preceding examples show several aspects of the Cosmos DB query language:
 
 * Azure Cosmos DB supports strict JSON items only. The type system and expressions are restricted to deal only with JSON types. For more information, see the [JSON specification](https://www.json.org/).  
 
-* A Cosmos container is a schema-free collection of JSON items. The relations within and across container items are implicitly captured by containment, not by primary key and foreign key relations. This feature is important for the intra-item joins discussed later in this article.
+* A Cosmos container is a schema-free collection of JSON items. The relations within and across container items are implicitly captured by containment, not by primary key and foreign key relations. This feature is important for the intra-item joins that are described in [Joins in Azure Cosmos DB](sql-query-join.md).
 
 ## Next steps
 

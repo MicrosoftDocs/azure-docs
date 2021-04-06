@@ -5,15 +5,15 @@
  author: robinsh
  ms.service: iot-hub
  ms.topic: include
- ms.date: 09/09/2020
+ ms.date: 11/25/2020
  ms.author: robinsh
  ms.custom: include file
 ---
 > [!IMPORTANT]
-> The following functionality is not supported for devices that use X.509 certificate authority (CA) authentication:
+> The following functionality for devices that use X.509 certificate authority (CA) authentication is not yet generally available, and [preview mode must be enabled](../articles/iot-hub/iot-hub-preview-mode.md):
 >
 > - HTTPS, MQTT over WebSockets, and AMQP over WebSockets protocols.
 > - File uploads (all protocols).
 >
-> It is supported on devices that use X.509 thumbprint authentication. To learn more about X.509 authentication with IoT Hub, see [Supported X.509 certificates](../articles/iot-hub/iot-hub-devguide-security.md#supported-x509-certificates).  
+> It is generally available on devices that use X.509 thumbprint authentication. To learn more about X.509 authentication with IoT Hub, see [Supported X.509 certificates](../articles/iot-hub/iot-hub-devguide-security.md#supported-x509-certificates).  
 >

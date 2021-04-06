@@ -1,14 +1,9 @@
 ---
 title: Managed virtual network & managed private endpoints
 description: Learn about managed virtual network and managed private endpoints in Azure Data Factory.
-
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: [seo-lt-2019, references_regions]
 ms.date: 07/15/2020
@@ -45,7 +40,7 @@ Managed private endpoints are private endpoints created in the Azure Data Factor
 
 ![New Managed private endpoint](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory supports private links. Private link enables you to access Azure (PaaS) services (such as Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (formerly SQL Data Warehouse)).
+Azure Data Factory supports private links. Private link enables you to access Azure (PaaS) services (such as Azure Storage, Azure Cosmos DB, Azure Synapse Analytics).
 
 When you use a private link, traffic between your data stores and managed Virtual Network traverses entirely over the Microsoft backbone network. Private Link protects against data exfiltration risks. You establish a private link to a resource by creating a private endpoint.
 
@@ -67,6 +62,11 @@ If the owner approves the connection, the private link is established. Otherwise
 
 Only a Managed private endpoint in an approved state can send traffic to a given private link resource.
 
+## Interactive Authoring
+Interactive authoring capabilities is used for functionalities like test connection, browse folder list and table list, get schema, and preview data. You can enable interactive authoring when creating or editing an Azure Integration Runtime which is in ADF-managed virtual network. The backend service will pre-allocate compute for interactive authoring functionalities. Otherwise, the compute will be allocated every time any interactive operation is performed which will take more time. The Time To Live (TTL) for interactive authoring is 60 minutes, which means it will automatically become disabled after 60 minutes of the last interactive authoring operation.
+
+![Interactive authoring](./media/managed-vnet/interactive-authoring.png)
+
 ## Limitations and known issues
 ### Supported Data Sources
 Below data sources are supported to connect through private link from ADF Managed Virtual Network.
@@ -75,7 +75,7 @@ Below data sources are supported to connect through private link from ADF Manage
 - Azure Files
 - Azure Data Lake Gen2
 - Azure SQL Database (not including Azure SQL Managed Instance)
-- Azure Synapse Analytics (formerly SQL Data Warehouse)
+- Azure Synapse Analytics
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Azure Private Link Service
@@ -106,6 +106,8 @@ Below data sources are supported to connect through private link from ADF Manage
 ### Linked Service creation of Azure Key Vault 
 - When you create a Linked Service for Azure Key Vault, there is no Azure Integration Runtime reference. So you can't create Private Endpoint during Linked Service creation of Azure Key Vault. But when you create Linked Service for data stores which references Azure Key Vault Linked Service and this Linked Service references Azure Integration Runtime with Managed Virtual Network enabled, then you are able to create a Private Endpoint for the Azure Key Vault Linked Service during the creation. 
 - **Test connection** operation for Linked Service of Azure Key Vault only validates the URL format, but doesn't do any network operation.
+- The column **Using private endpoint** is always shown as blank even if you create Private Endpoint for Azure Key Vault.
+![Private Endpoint for AKV](./media/managed-vnet/akv-pe.png)
 
 ## Next steps
 

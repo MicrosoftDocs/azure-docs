@@ -17,7 +17,7 @@ This article helps you set up alerts based on resource log events from Azure VPN
 The following resource logs are available in Azure:
 
 |***Name*** | ***Description*** |
-|---		| ---				|
+|--- | --- |
 |GatewayDiagnosticLog | Contains resource logs for gateway configuration events, primary changes and maintenance events |
 |TunnelDiagnosticLog | Contains tunnel state change events. Tunnel connect/disconnect events have a summarized reason for the state change if applicable |
 |RouteDiagnosticLog | Logs changes to static routes and BGP events that occur on the gateway |

@@ -5,7 +5,7 @@ author: normesta
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: b-pauls
-ms.date: 11/06/2020
+ms.date: 11/17/2020
 ms.service: storage
 ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
@@ -25,11 +25,13 @@ The platform consists of two services: [LiveData Migrator for Azure](https://www
 
 You can manage both services by using the Azure portal and the Azure CLI, and both follow the same metered, pay-as-you-go billing model as all other Azure services. LiveData Platform for Azure consumption will appear on the same monthly Azure bill and will provide a consistent and convenient way to track and monitor your usage.
 
-Unlike migrating data _offline_ by [copying static information to Azure Data Box](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster), or by using Hadoop tools like [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), you can maintain full operation of your business systems during _online_ migration with WANdisco LiveData for Azure. Keep your big data environments operating even while moving their data to Azure.
+Unlike migrating data _offline_ by [copying static information to Azure Data Box](./data-lake-storage-migrate-on-premises-hdfs-cluster.md), or by using Hadoop tools like [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), you can maintain full operation of your business systems during _online_ migration with WANdisco LiveData for Azure. Keep your big data environments operating even while moving their data to Azure.
 
 ## Key features of WANdisco LiveData Platform for Azure
 
-[WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) uses a unique, wide-area network capable consensus engine to achieve data consistency, and to conduct data replication at scale while applications can continue to modify the data under replication.  
+[WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) uses a unique, wide-area network capable consensus engine to achieve data consistency, and to conduct data replication at scale while applications can continue to modify the data under replication. <br><br>
+
+>[!VIDEO https://www.youtube.com/embed/KRrmcYPxEho] 
 
 Key features of the platform include the following:
 
@@ -81,7 +83,9 @@ Large-scale migrations of on-premises data lakes to Azure need application testi
 Keep your data consistent across on-premises Hadoop clusters and Azure storage with LiveData Plane for Azure after initial migration:
 
 1. Provision LiveData Plane for Azure on-premises and in Azure, starting from the Azure portal. No application changes are required.
+
 2. Configure replication rules that cover that data locations that you want to keep consistent, for example: `/user/contoso/sales/region/WA`.
+
 3. Run applications that access and modify data in either location as a Hadoop-compatible file system as you need.
 
 LiveData Plane for Azure keeps your data consistent without imposing significant overhead on cluster operation or application performance. Modify or ingest data while all changes are replicated consistently.

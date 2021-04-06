@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure traffic analytics frequently asked questions | Microsoft Docs
 description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 03/08/2018
+ms.date: 01/04/2021
 ms.author: damendo
 ---
 
@@ -122,7 +122,7 @@ Yes.
 
 ## Can I use an existing workspace?
 
-Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Monitor logs upgrade to new log search](../azure-monitor/log-query/log-query-overview.md).
+Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Monitor logs upgrade to new log search](../azure-monitor/logs/log-query-overview.md).
 
 ## Can my Azure Storage Account be in one subscription and my Log Analytics workspace be in a different subscription?
 
@@ -261,7 +261,7 @@ Steps :
 - You can use the shortlink for Log Analytics in Traffic Analytics. 
 - Use the [schema documented here](traffic-analytics-schema.md) to write your queries 
 - Click "New alert rule" to create the alert
-- Refer to [log alerts documentation](../azure-monitor/platform/alerts-log.md) to create the alert
+- Refer to [log alerts documentation](../azure-monitor/alerts/alerts-log.md) to create the alert
 
 ## How do I check which VMs are receiving most on-premises traffic?
 
@@ -400,3 +400,6 @@ The virtual subnetworks topology page contains two main sections:
 - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
 - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
 - On selection of any such nodes, you can visit all its connections, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.
+
+## Are Classic NSGs supported?
+No, Traffic Analytics does not support classic NSG. It is recommended to migrate IaaS resources from classic to Azure Resource Manager as classic resources will be [deprecated](../virtual-machines/classic-vm-deprecation.md). Refer this article to understand [how to migrate](../virtual-machines/migration-classic-resource-manager-overview.md).

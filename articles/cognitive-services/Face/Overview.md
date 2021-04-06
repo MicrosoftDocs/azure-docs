@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 9/17/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
@@ -25,6 +25,12 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as  security, natural user interface, image content analysis and management, mobile apps, and robotics.
 
 The Face service provides several different facial analysis functions which are each outlined in the following sections.
+
+This documentation contains the following types of articles:
+* The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contain instructions for using the service in more specific or customized ways.
+* The [conceptual articles](./concepts/face-detection.md) provide in-depth explanations of the service's functionality and features.
+* The [tutorials](./Tutorials/FaceAPIinCSharpTutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
 ## Face detection
 
@@ -73,9 +79,9 @@ After you create and train a database, you can do identification against the gro
 
 For more information about person identification, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) reference documentation.
 
-## Containers
+## Deploy on premises using Docker containers
 
-[Use the Face container](face-how-to-install-containers.md) to detect, recognize, and identify faces by installing a standardized Docker container closer to your data.
+[Use the Face container (preview)](face-how-to-install-containers.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security or other operational reasons.
 
 ## Sample apps
 

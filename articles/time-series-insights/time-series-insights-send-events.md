@@ -18,14 +18,14 @@ ms.custom: seodec18
 > [!CAUTION]
 > This is a Gen1 article.
 
-This article explains how to create and configure an event hub in Azure Event Hubs. It also describes how to run a sample application to push events to Azure Time Series Insights from Event Hubs. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+This article explains how to create and configure an event hub in Azure Event Hubs. It also describes how to run a sample application to push events to Azure Time Series Insights from Event Hubs. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [Azure Time Series Insights](./tutorial-set-up-environment.md).
 
 ## Configure an event hub
 
-1. To learn how to create an event hub, read the [Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/).
+1. To learn how to create an event hub, read the [Event Hubs documentation](../event-hubs/index.yml).
 1. In the search box, search for **Event Hubs**. In the returned list, select **Event Hubs**.
 1. Select your event hub.
-1. When you create an event hub, you're creating an event hub namespace. If you haven't yet created an event hub within the namespace, on the menu, under **Entities**, create an event hub.  
+1. When you create an event hub, you're creating an event hub namespace. If you haven't yet created an event hub within the namespace, on the menu, under **Entities**, create an event hub.
 
     [![List of event hubs](media/send-events/tsi-connect-event-hub-namespace.png)](media/send-events/tsi-connect-event-hub-namespace.png#lightbox)
 
@@ -57,7 +57,7 @@ In Azure Time Series Insights Gen2, you can add contextual data to incoming tele
 
 ### Create an Azure Time Series Insights event source
 
-1. If you haven't created an event source, complete the steps to [create an event source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+1. If you haven't created an event source, complete the steps to [create an event source](./how-to-ingest-data-event-hub.md).
 
 1. Set a value for `timeSeriesId`. To learn more about **Time Series ID**, read [Time Series Models](./concepts-model-overview.md).
 
@@ -73,13 +73,13 @@ In Azure Time Series Insights Gen2, you can add contextual data to incoming tele
 
 1. Go to <https://tsiclientsample.azurewebsites.net/windFarmGen.html>. The URL creates and runs simulated windmill devices.
 1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in the [windmill input field](#push-events-to-windmills-sample).
-  
+
     [![Paste the primary key connection string in the Event Hub Connection String box](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
 1. Select **Click to start**.
 
     > [!TIP]
-    > The windmill simulator also creates JSON you can use as a payload with the [Azure Time Series Insights GA Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+    > The windmill simulator also creates JSON you can use as a payload with the [Azure Time Series Insights GA Query APIs](/rest/api/time-series-insights/gen1-query).
 
     > [!NOTE]
     > The simulator will continue to send data until the browser tab is closed.
@@ -203,4 +203,4 @@ In Azure Time Series Insights Gen2, you can add contextual data to incoming tele
 
 * [View your environment](https://insights.timeseries.azure.com) in the Azure Time Series Insights Explorer.
 
-* Read more about [IoT Hub device messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
+* Read more about [IoT Hub device messages](../iot-hub/iot-hub-devguide-messages-construct.md)
