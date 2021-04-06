@@ -154,13 +154,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Importing Identity Provider](./media/workday-tutorial/import-identity-provider.png)
 
-    1. Give the **Identity Provider Name** like `AzureAD` in the textbox.
+    * Give the **Identity Provider Name** like `AzureAD` in the textbox.
 
-    1. In **Used for Environments** textbox, select the appropriate environment names from the dropdown.
+    * In **Used for Environments** textbox, select the appropriate environment names from the dropdown.
 
-    1. Click on **Select files** to upload the **Metadata XML** file.
+    * Click on **Select files** to upload the downloaded **Federation Metadata XML** file.
 
-    1. Click on **OK** and then **Done**.
+    * Click on **OK** and then **Done**.
 
     b.  Select **Enable SAML Authentication**.
 
