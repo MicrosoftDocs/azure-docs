@@ -8,7 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Azure Monitor for Windows Virtual Desktop glossary
 

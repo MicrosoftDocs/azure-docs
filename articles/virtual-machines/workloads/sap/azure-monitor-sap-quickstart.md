@@ -78,11 +78,27 @@ Sign in to the Azure portal at https://portal.azure.com
 1. Select OS (Linux) from the drop-down 
 
 > [!IMPORTANT]
-> To configure OS (Linux) provider, ensure that Node_Exporter is installed in each BareMetal instance. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter)
+> To configure OS (Linux) provider, ensure that latest version of Node_Exporter is installed in each host (BareMetal or VM) that you wish to monitor. Use this [link] (https://prometheus.io/download/#node_exporter) to find latest version. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter)
 
 2. Input a name, which will be the identifier for the BareMetal Instance.
 3. Input the Node Exporter Endpoint in the form of http://IP:9100/metrics.
-4. When finished, select **Add provider**. Continue to add more providers as needed or select **Review + create** to complete the deployment. 
+
+[!IMPORTANT]
+> Please use private IP address of linux host. Please ensure that host and AMS resource are in the same VNET. 
+
+>[!Note]
+> Firewall port “9100” should be opened on the linux host.
+If using firewall-cmd: 
+   firewall-cmd --permanent --add-port=9100/tcp
+   firewall-cmd --reload
+If using ufw:
+     ufw allow 9100/tcp
+     ufw reload
+
+>[!Tip]
+> If linux host is an Azure VM, please ensure that all applicable NSGs allow inbound traffic at port 9100 from "VirtualNetwork" as the source.
+ 
+5. When finished, select **Add provider**. Continue to add more providers as needed or select **Review + create** to complete the deployment. 
 
 
 ### Microsoft SQL Server provider
