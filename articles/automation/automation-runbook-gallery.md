@@ -83,7 +83,7 @@ If you decide to clone and edit an existing runbook, best practice is to give it
 
 Microsoft encourages you to add runbooks to the PowerShell Gallery that you think would be useful to other customers. The PowerShell Gallery accepts PowerShell modules and PowerShell scripts. You can add a runbook by [uploading it to the PowerShell Gallery](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package).
 
-## Import a module from the module gallery with the Azure portal
+## Import a module from the Modules gallery in the Azure portal
 
 1. In the Azure portal, open your Automation account.
 1. Under **Shared Resources**, select **Modules gallery** to open the list of modules.
@@ -112,17 +112,13 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 > [!NOTE]
 > Modules that only support PowerShell core are not supported in Azure Automation and are unable to be imported in the Azure portal, or deployed directly from the PowerShell Gallery.
 
-## Use Python runbooks
-
-Python Runbooks are available in the [Azure Automation GitHub organization](https://github.com/azureautomation). When you contribute to our GitHub repo, add the tag **(GitHub Topic) : Python3** when you upload your contribution.
-
 ## Request a runbook or module
 
 You can send requests to [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  If you need help with writing a runbook or have a question about PowerShell, post a question to our [Microsoft Q&A question page](/answers/topics/azure-automation.html).
 
 ## Next steps
 
-* To get started with a PowerShell runbook, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+* To get started with PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
 * To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
-* For details of PowerShell, see [PowerShell Docs](/powershell/scripting/overview).
+* For more info on PowerShell scripting, see [PowerShell Docs](/powershell/scripting/overview).
 * For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
