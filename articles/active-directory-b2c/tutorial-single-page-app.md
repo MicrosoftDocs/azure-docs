@@ -49,7 +49,7 @@ In the [second tutorial](./tutorial-register-spa.md) that you completed as part 
 
 To update an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
 
-#### [App registrations (auth code flow)](#tab/app-reg-auth/)
+#### [App registrations](#tab/app-reg-auth/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
@@ -86,8 +86,6 @@ In this tutorial, you configure a code sample that you download from GitHub to w
 
 Now that you've obtained the sample, update the code with your Azure AD B2C tenant name and the application ID you recorded in an earlier step.
 
-#### [Auth code flow sample](#tab/config-auth/)
-
 1. Open the *authConfig.js* file inside the *App* folder.
 1. In the `msalConfig` object, find the assignment for `clientId` and replace it with the **Application (client) ID** you recorded in an earlier step.
 1. Open the `policies.js` file.
@@ -98,11 +96,8 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
 1. Find the assignment for `b2cScopes` and replace the URL with the scope URL you created for the Web API, for example `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]`.
 1. Find the assignment for `webApi` and replace the current URL with the URL where you deployed your Web API in Step 4, for example `webApi: http://localhost:5000/hello`.
 
-* * *
 
 Your resulting code should look similar to following:
-
-#### [Auth code flow sample](#tab/review-auth/)
 
 *authConfig.js*:
 
@@ -160,8 +155,6 @@ const apiConfig = {
   webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
 };
 ```
-
-* * *
 
 
 ## Run the sample

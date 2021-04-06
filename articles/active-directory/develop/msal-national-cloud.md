@@ -69,52 +69,55 @@ To enable your MSAL.js application for sovereign clouds:
 - Use any of the [samples](https://github.com/Azure-Samples/ms-identity-javascript-tutorial) from the repo with a few changes to the configuration, depending on the cloud, which is mentioned next.
 - Use a specific authority, depending on the cloud you registered the application in. For more information on authorities for different clouds, refer [Azure AD Authentication endpoints](authentication-national-cloud.md#azure-ad-authentication-endpoints).
 
-    Here's an example authority:
+Here's an example authority:
 
-    ```json
-    "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
-    ```
+```json
+"authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
+```
 
 - Calling the Microsoft Graph API requires an endpoint URL specific to the cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-    Here's an example of a Microsoft Graph endpoint, with scope:
+Here's an example of a Microsoft Graph endpoint, with scope:
 
-    ```json
-    "endpoint" : "https://graph.microsoft.us/v1.0/me"
-    "scope": "User.Read"
-    ```
+```json
+"endpoint" : "https://graph.microsoft.us/v1.0/me"
+"scope": "User.Read"
+```
 
 Here's the minimal code for authenticating a user with a sovereign cloud and calling Microsoft Graph:
 
-    ```javascript
-    const msalConfig = {
-        auth: {
-            clientId: "Enter_the_Application_Id_Here",
-            authority: "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here",
-            redirectUri: "/",
-          }
-    };
-
-    const msalObj = new PublicClientApplication(msalConfig);
-    
-    try {
-        const graphToken = await msalObj.acquireTokenPopup({
-            scopes: ["User.Read"]
-        });
-    } catch(error) {
-        console.log(error)
+```javascript
+const msalConfig = {
+    auth: {
+        clientId: "Enter_the_Application_Id_Here",
+        authority: "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here",
+        redirectUri: "/",
     }
+};
 
-    const headers = new Headers();
-    const bearer = `Bearer ${graphToken}`;
+// Initialize MSAL
+const msalObj = new PublicClientApplication(msalConfig);
 
-    headers.append("Authorization", bearer);
+// Get token using popup experience
+try {
+    const graphToken = await msalObj.acquireTokenPopup({
+        scopes: ["User.Read"]
+    });
+} catch(error) {
+    console.log(error)
+}
 
-    fetch("https://graph.microsoft.us/v1.0/me", {
-        method: "GET",
-        headers: headers
-    })
-    ```
+// Call the Graph API
+const headers = new Headers();
+const bearer = `Bearer ${graphToken}`;
+
+headers.append("Authorization", bearer);
+
+fetch("https://graph.microsoft.us/v1.0/me", {
+    method: "GET",
+    headers: headers
+})
+```
 
 
 ## [Python](#tab/python)

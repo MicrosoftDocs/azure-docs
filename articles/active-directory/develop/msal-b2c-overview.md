@@ -27,5 +27,5 @@ By using Azure AD B2C as an identity management service, you can customize and c
 
 Follow the tutorial on how to:
 
-- [authenticate users with Azure AD B2C](../../active-directory-b2c/tutorial-single-page-app)
-- [call an Azure AD B2C protected web API](../../active-directory-b2c/tutorial-single-page-app-webapi)
+- [authenticate users with Azure AD B2C](../../active-directory-b2c/tutorial-single-page-app.md)
+- [call an Azure AD B2C protected web API](../../active-directory-b2c/tutorial-single-page-app-webapi.md)
