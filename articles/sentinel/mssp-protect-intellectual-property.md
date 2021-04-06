@@ -15,51 +15,51 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2021
+ms.date: 04/06/2021
 ms.author: bagol
 
 ---
 # Protecting MSSP intellectual property in Azure Sentinel
 
-This article describes several methods that managed security service providers (MSSPs) can use to protect intellectual property they've developed in Azure Sentinel, such as Azure Sentinel analytics rules, hunting queries, playbooks, and workbooks.
+This article describes the methods that managed security service providers (MSSPs) can use to protect intellectual property they've developed in Azure Sentinel, such as Azure Sentinel analytics rules, hunting queries, playbooks, and workbooks.
+
+The method you choose will depend on how each of your customers buy Azure; whether you serve as a Cloud Solutions Provider (CSP), or you have an Enterprise Agreement (EA)/Pay-as-you-go (PAYG).
+
+The following sections address each of these scenarios separately.
 
 ## Cloud Solutions Providers (CSP)
 
 If you're reselling Azure as a Cloud Solutions Provider (CSP), you're managing the customer's Azure subscription. Thanks to [Admin-On-Behalf-Of (AOBO)](/partner-center/azure-plan-manage), users in the Admin Agents group from your MSSP tenant are granted with Owner access to the customer's Azure subscription, and the customer has no access by default.
 
-If you need to provide customer users with access to the Azure environment, we recommend that you grant them access at the level of the *resource group* so that you can show / hide parts of the environment as needed.
+If other users from the MSSP tenant, outside of the Admin Agents group, need to access the customer environment, we recommend that you use [Azure Lighthouse](multiple-tenants-service-providers.md). Azure Lighthouse enables you to grant users or groups with access to a specific scope, such as a resource group or subscription, using one of the built-in roles.
+
+If you need to provide customer users with access to the Azure environment, we recommend that you grant them access at *resource group* level, rather than the entire subscription, so that you can show / hide parts of the environment as needed.
 
 For example:
 
-- You might grant the customer with access to several resource groups where their applications are located, but still keep the Azure Sentinel environment in a separate resource group, where the customer has no access.
+- You might grant the customer with access to several resource groups where their applications are located, but still keep the Azure Sentinel workspace in a separate resource group, where the customer has no access.
 
 - Use this method to enable customers to view selected workbooks and playbooks, which are separate resources that can reside in their own resource group.
 
-If other users from the MSSP tenant, outside of the Admin Agents group, need to access the customer environment, we recommend that you use [Azure Lighthouse](multiple-tenants-service-providers.md). This enables you to grant users or groups with access to a specific scope, such as a resource group or subscription, using one of the built-in roles.
+Even with granting access at the resource group level, customers will still have access to log data for the resources they can access, such as logs from a VM, even without access to Azure Sentinel. For more information, see [Manage access to Azure Sentinel data by resource](resource-context-rbac.md).
 
 > [!TIP]
-> Alternately, if you need to provide your customers with access to the entire subscription, see [Enterprise Agreements (EA) / Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg).
+> If you need to provide your customers with access to the entire subscription, see [Enterprise Agreements (EA) / Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg).
 >
 
-### Sample CSP architecture
+### Sample Azure Sentinel CSP architecture
 
-The following image describes how permissions might work when providing access to CSP customers:
+The following image describes how the permissions described in the [previous section](#cloud-solutions-providers-csp) might work when providing access to CSP customers:
 
 :::image type="content" source="media/mssp-protect-intellectual-property/csp-customers.png" alt-text="Protect your Azure Sentinel intellectual property with CSP customers.":::
 
 In this image:
 
-- The users granted with **Owner** access are the users in the Admin Agents group, in the MSSP Azure AD tenant attached to the CSP contract.
+- The users granted with **Owner** access to the CSP subscription are the users in the Admin Agents group, in the MSSP Azure AD tenant.
 - Other groups from the MSSP get access to the customer environment via Azure Lighthouse.
-- Customer access is managed by Azure RBAC.
+- Customer access to MSSP intellectual property in Azure Sentinel is managed by Azure RBAC.
 
-With this setup, MSSPs can hide protect their analytics rules, hunting queries and selected workbooks and playbooks.
-
-> [!NOTE]
-> - Sometimes, the MSSP Azure AD tenant attached to the CSP contract is separate from the MSSP's main tenant.
->
-> - Even with granting access at the resource group level, customers will still have access to log data for the resources they can access, such as logs from a VM, even without access to Azure Sentinel. For more information, see [Manage access to Azure Sentinel data by resource](resource-context-rbac.md).
->
+The [preceding section in this article](#cloud-solutions-providers-csp) describes examples of how MSSPs can use this setup to hide and protect analytics rules, hunting queries, and selected workbooks and playbooks.
 
 For more information, also see the [Azure Lighthouse documentation](/azure/lighthouse/concepts/cloud-solution-provider).
 
@@ -128,7 +128,7 @@ Exporting your workbook to Power BI:
 For more information, see [Import Azure Monitor log data into Power BI](/azure/azure-monitor/visualize/powerbi).
 ### Playbooks
 
-You can protect your playbooks as follows, depending on where the playbook's analytics rules have been created:
+You can protect your playbooks as follows, depending on where the  analytic rules that trigger the playbook have been created:
 
 - **Analytics rules created in the MSSP workspace**.  Make sure to create your playbooks in the MSSP workspace, and that you get all incident and alert data from the MSSP workspace. You can attach the playbooks whenever you create a new rule in your workspace.
 
