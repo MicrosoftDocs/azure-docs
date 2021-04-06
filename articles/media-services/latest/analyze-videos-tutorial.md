@@ -92,7 +92,7 @@ The output [Asset](/rest/api/media/assets) stores the result of your job. The pr
 
 ### Create a transform and a job that analyzes videos
 
-When encoding or processing content in Media Services, it's a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new Jobs for each new video, you're applying that recipe to all the videos in your library. A recipe in Media Services is called a **Transform**. For more information, see [Transforms and jobs](./transforms-jobs-concept.md). The sample described in this tutorial defines a recipe that analyzes the specified video.
+When encoding or processing content in Media Services, it's a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new Jobs for each new video, you're applying that recipe to all the videos in your library. A recipe in Media Services is called a **Transform**. For more information, see [Transforms and jobs](./transform-jobs-concept.md). The sample described in this tutorial defines a recipe that analyzes the specified video.
 
 #### Transform
 

@@ -13535,6 +13535,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/batch/batch-nodejs-get-started.md",
+      "redirect_url": "/azure/batch/batch-js-get-started",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/batch/policy-samples.md",
       "redirect_url": "/azure/batch/policy-reference",
       "redirect_document_id": false
@@ -43593,6 +43598,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cloud-services-extended-support/manage-powershell.md",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-model-and-package",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/new-azurermfrontdoorhealthprobesettingobject.md",
       "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorhealthprobesettingobject",
       "redirect_document_id": false
@@ -47726,6 +47736,11 @@
       "source_path_from_root": "/articles/cognitive-services/Computer-vision/QuickStarts/ruby-thumb.md",
       "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/ruby/ComputerVision/generate-a-thumbnail",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/concept-recognizing-text.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/overview-ocr",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md",
@@ -59574,7 +59589,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Computer-vision/concept-extracting-text-ocr.md",
-      "redirect_url": "/azure/cognitive-services/Computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/overview-ocr",
       "redirect_document_id": false
     },
     {
