@@ -1,17 +1,17 @@
 ---
-title: 'Cosmos DB Apache Spark v3 Connector for SQL API release notes and resources'
-description: Learn about the Azure Cosmos DB Apache Spark v3 Connector for SQL API, including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Java SDK.
+title: 'Cosmos DB Apache Spark 3 OLTP Connector for SQL API (Preview) release notes and resources'
+description: Learn about the Azure Cosmos DB Apache Spark 3 OLTP Connector for SQL API (Preview), including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Java SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 03/29/2021
+ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
 ---
 
-# Azure Cosmos DB Apache Spark v3 Connector for Core (SQL) API: Release notes and resources
+# Azure Cosmos DB Apache Spark 3 OLTP Connector for Core (SQL) API (Preview): Release notes and resources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -25,8 +25,8 @@ ms.custom: devx-track-java
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark v3 Connector](sql-api-sdk-java-sparkv3.md)
-> * [Spark v2 Connector](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP Connector](sql-api-sdk-java-sparkv3.md)
+> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
@@ -34,7 +34,7 @@ ms.custom: devx-track-java
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
-**Azure Cosmos DB OLTP Spark v3 connector preview** provides Apache Spark v3 support for Azure Cosmos DB using 
+**Azure Cosmos DB Spark 3 OLTP connector (Preview)** provides Apache Spark v3 support for Azure Cosmos DB using 
 the [SQL API][sql_api_query].
 [Azure Cosmos DB][cosmos_introduction] is a globally-distributed database service which allows 
 developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
@@ -76,4 +76,4 @@ If you encounter any bug, please file an issue [here](https://github.com/Azure/a
 
 To suggest a new feature or changes that could be made, file an issue the same way you would for a bug.
 
-[!INCLUDE[Changelog](~/azure-sdk-for-java-cosmos-db-feature/sdk/cosmos/azure-cosmos-spark_3-1_2-12/CHANGELOG.md)]
+[!INCLUDE[Changelog](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos-spark_3-1_2-12/CHANGELOG.md)]
