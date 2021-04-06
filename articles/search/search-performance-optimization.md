@@ -11,13 +11,13 @@ ms.date: 04/06/2021
 ms.custom: references_regions
 ---
 
-# Availability and business continuity for an Azure Cognitive Search service
+# Availability and business continuity in Azure Cognitive Search
 
 In Cognitive Search, availability is achieved through multiple replicas, whereas business continuity (and disaster recovery) is achieved through multiple search services. This article provides guidance that you can use as a starting point for developing a strategy that meets your business requirements for both availability and continuous operations.
 
 <a name="scale-for-availability"></a>
 
-## High availability
+## Scale up for high availability
 
 In Cognitive Search, replicas are copies of your index. Having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. For more information about adding replicas, see [Add or reduce replicas and partitions](search-capacity-planning.md#adjust-capacity).
 
@@ -54,7 +54,7 @@ Azure Cognitive Search currently supports Availability Zones for Standard tier o
 
 Availability Zones do not impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/). You still need 3 or more replicas for query high availability.
 
-## Multiple services in separate geographic regions
+## Continuity and recovery through multiple services
 
 Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 
@@ -70,7 +70,7 @@ The goal of a geo-distributed set of search services is to have two or more inde
 
    ![Cross-tab of services by region][1]
 
-You can implement this architecture by creating multiple services and designing a strategy for data synchronization. Optionally, you can include a resource like Azure Traffic Manager for routing requests.
+You can implement this architecture by creating multiple services and designing a strategy for data synchronization. Optionally, you can include a resource like Azure Traffic Manager for routing requests. For more information, see [Create a search service](search-create-service-portal.md).
 
 <a name="data-sync"></a>
 
