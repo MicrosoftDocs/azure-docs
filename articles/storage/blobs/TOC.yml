@@ -413,8 +413,12 @@
         href: soft-delete-container-enable.md
       - name: Enable blob versioning
         href: versioning-enable.md
-      - name: Enable soft delete for blobs
-        href: soft-delete-blob-enable.md
+      - name: Enable and manage soft delete for blobs
+        items:
+        - name: Enable blob soft delete
+          href: soft-delete-blob-enable.md
+        - name: Manage and restore soft-deleted blobs
+          href: soft-delete-blob-manage.md
       - name: Enable point-in-time restore
         href: point-in-time-restore-manage.md
       - name: Create snapshots (.NET)
