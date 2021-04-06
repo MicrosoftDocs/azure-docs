@@ -1,9 +1,9 @@
 ---
 title: 'Streaming ingestion event sources - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about streaming data into Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
@@ -70,7 +70,7 @@ When creating an event source, you have the option to specify what pre-existing 
 
 - Follow the principle of least privilege when providing event source connection strings. For Event Hubs, configure a shared access policy with the *send* claim only, and for IoT Hub use the *service connect* permission only.
 
-> [!CAUTION] 
+> [!CAUTION]
 > If you delete your IoT Hub or Event Hub and re-create a new resource with the same name, you need to create a new event source and attach the new IoT Hub or Event Hub. Data will not be ingested until you complete this step.
 
 ## Production workloads
