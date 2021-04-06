@@ -28,7 +28,7 @@ The recommended topology for the primary node type requires the resources outlin
 * A NSG referenced by the subnet in which you deploy your virtual machine scale sets.
 
 >[!NOTE]
-> The virtual machine scale set single placement group property must be set to true, since Service Fabric does not support a single virtual machine scale set which spans zones.
+> The virtual machine scale set single placement group property must be set to true.
 
 Diagram that shows the Azure Service Fabric Availability Zone architecture
  ![Diagram that shows the Azure Service Fabric Availability Zone architecture.][sf-architecture]

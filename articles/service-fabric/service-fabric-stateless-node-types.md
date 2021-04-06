@@ -133,11 +133,13 @@ To enable stateless node types, you should configure the underlying virtual mach
 ```
 
 ## Configuring Stateless nodetypes with multiple Availability Zones
-To configure Stateless nodetype spanning across multiple availability zones follow the documentation [here](service-fabric-cross-availability-zones.md), along with the few changes as follows:
+To configure Stateless nodetype spanning across multiple availability zones follow the documentation [here](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cross-availability-zones#preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set), along with the few changes as follows:
 
-* Set **singlePlacementGroup** :  **false**  and **upgradeMode** : **Rolling**  as mentioned above. 
-* Set **targetPlatformFaultDomainCount** : **5** for the VMSS. 
+* Set **singlePlacementGroup** :  **false**  if multiple placement groups is required to be enabled.
+* Set  **upgradeMode** : **Rolling**   and add Application Health Extension/Health Probes as mentioned above.
+* Set **platformFaultDomainCount** : **5** for the VMSS. 
 
+For reference, look at the [template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) for configuring Stateless nodetypes with multiple Availability Zones
 
 ## Networking requirements
 ### Public IP and Load Balancer Resource
@@ -245,7 +247,7 @@ Standard Load Balancer and Standard Public IP introduce new abilities and differ
 
 
 
-### Migrate to using Stateless node types in a cluster
+## Migrate to using Stateless node types in a cluster
 For all migration scenarios, a new stateless-only node type needs to be added. Existing node type cannot be migrated to be stateless-only.
 
 To migrate a cluster, which was using a Load Balancer and IP with a basic SKU, you must first create an entirely new Load Balancer and IP resource using the standard SKU. It is not possible to update these resources in-place.
@@ -258,8 +260,6 @@ To begin, you will need to add the new resources to your existing Resource Manag
 * A NSG referenced by the subnet in which you deploy your virtual machine scale sets.
 
 Once the resources have finished deploying, you can begin to disable the nodes in the node type that you want to remove from the original cluster.
-
-
 
 ## Next steps 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
