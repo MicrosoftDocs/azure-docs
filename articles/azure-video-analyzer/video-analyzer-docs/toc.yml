@@ -5,7 +5,7 @@
   - name: About Azure Video Analyzer
     href: overview.md
   - name: Terminology
-    href: terminology.mdsion.md
+    href: terminology.md
 - name: Concepts
   items:
   - name: Pipeline extension
