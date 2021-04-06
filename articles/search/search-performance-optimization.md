@@ -17,7 +17,7 @@ In Cognitive Search, availability is achieved through multiple replicas, whereas
 
 <a name="scale-for-availability"></a>
 
-## Scale up for high availability
+## High availability
 
 In Cognitive Search, replicas are copies of your index. Having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. For more information about adding replicas, see [Add or reduce replicas and partitions](search-capacity-planning.md#adjust-capacity).
 
@@ -54,7 +54,7 @@ Azure Cognitive Search currently supports Availability Zones for Standard tier o
 
 Availability Zones do not impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/). You still need 3 or more replicas for query high availability.
 
-## Continuity and recovery through multiple services
+## Multiple services in separate geographic regions
 
 Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 

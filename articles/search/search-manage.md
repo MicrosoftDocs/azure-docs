@@ -24,19 +24,20 @@ ms.date: 04/06/2021
 
 Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already created. The portal allows you to perform all [management tasks](#management-tasks) related to the service, as well as content management and exploration. As such, the portal provides broad spectrum access to all aspects of search service operations.
 
-Each search service is managed as a standalone resource. The following image shows the portal pages for a single free search service called "demo-search-svc". Although you might be accustomed to using Azure PowerShell or Azure CLI for service management, it makes sense to become familiar with the tools and capabilities that the portal pages provide. Some tasks are just easier and faster to perform in the portal than through code. Below, the areas on the screen enclosed in red boxes indicate tasks, tools, and tiles that you might use often, especially if you are new to the service.
-
-:::image type="content" source="media/search-manage/search-portal-overview-page.png" alt-text="Portal pages for a search service" border="true":::
+Each search service is managed as a standalone resource. The following image shows the portal pages for a single free search service called "demo-search-svc". Although you might be accustomed to using Azure PowerShell or Azure CLI for service management, it makes sense to become familiar with the tools and capabilities that the portal pages provide. Some tasks are just easier and faster to perform in the portal than through code. 
 
 ## Overview (home) page
 
-The overview page is the "home" page of each service. First, it includes an **Essentials** section, where you can find service properties including the endpoint used when setting up connections. It also shows you tier, replica, and partition counts at a glance.
+The overview page is the "home" page of each service. Below, the areas on the screen enclosed in red boxes indicate tasks, tools, and tiles that you might use often, especially if you are new to the service.
 
-Second, at the top of the page are a series of commands for invoking interactive tools or managing the service. Both [Import data](search-get-started-portal.md) and [Search explorer](search-explorer.md) are commonly used for prototyping and exploration.
+:::image type="content" source="media/search-manage/search-portal-overview-page.png" alt-text="Portal pages for a search service" border="true":::
 
-Third, below the **Essentials** section, are a series of tabbed subpages for quick access to usage statistics, service health metrics, and access to all of the existing indexes, indexers, data sources, and skillsets on your service. If you select an index or another object, additional pages become available to show object composition, settings, and status (if applicable).
-
-To the left, you can access links that open additional pages for accessing API keys used on connections, configuring the service, configuring security, monitoring operations, automating tasks, and getting support.
+| Area | Description |
+|------|-------------|
+| 1  | The **Essentials** section shows you service properties including the endpoint used when setting up connections. It also shows you tier, replica, and partition counts at a glance. |
+| 2 | At the top of the page are a series of commands for invoking interactive tools or managing the service. Both [Import data](search-get-started-portal.md) and [Search explorer](search-explorer.md) are commonly used for prototyping and exploration. |
+| 3 | Below the **Essentials** section, are a series of tabbed subpages for quick access to usage statistics, service health metrics, and access to all of the existing indexes, indexers, data sources, and skillsets on your service. If you select an index or another object, additional pages become available to show object composition, settings, and status (if applicable). |
+| 4 | To the left, you can access links that open additional pages for accessing API keys used on connections, configuring the service, configuring security, monitoring operations, automating tasks, and getting support. |
 
 ### Read-only service properties
 
