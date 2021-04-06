@@ -53,7 +53,7 @@ When you move from a pay-as-you-go or an enterprise agreement to a Microsoft Cus
 
 <sup>1</sup> By request.
 
-<sup>2</sup> You continue to pay by invoice/wire transfer under the MCA but will need to send your payments to a different bank account. For information about where to send your payment, see [Pay your bill](pay-bill.md#wire-bank-details) after you select your country in the list.
+<sup>2</sup> You continue to pay by invoice/wire transfer under the MCA but will need to send your payments to a different bank account. For information about where to send your payment, see [Pay your bill](../understand/pay-bill.md#wire-bank-details) after you select your country in the list.
 
 <sup>3</sup> For more information, see [Pay for your Azure subscription by invoice](../manage/pay-by-invoice.md).
 
