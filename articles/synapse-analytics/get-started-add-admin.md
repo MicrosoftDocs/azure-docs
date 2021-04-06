@@ -24,9 +24,7 @@ So far in the get started guide, we've focused on activities *you* do in the wor
 
 1. Open the Azure portal and open you Synapse workspace.
 1. On the left side, select **Access Control (IAM)**.
-1. Click **Add > Add role assignment**.
-1. For **Role**, select **Owner**.
-1. Pick the user you want to assign. In this example, we will use `ryan@contoso.com`.
+1. Add `ryan@contoso.com` to the **Owner** role. 
 1. Click Save.
  
  
@@ -46,7 +44,7 @@ You need to grant access to the Administrator to use that filesystem
 1. Open the workspace's primary storage account in the Azure portal.
 1. On the left side, click **Access Control (IAM)**.
 1. Add `ryan@contoso.com` to the **Owner** role. 
-3. Add `ryan@contoso.com` to the **Azure Storage Blob Data Contributor** role
+1. Add `ryan@contoso.com` to the **Azure Storage Blob Data Contributor** role
 
 ## Dedicated SQL pools: dbowner role
 
