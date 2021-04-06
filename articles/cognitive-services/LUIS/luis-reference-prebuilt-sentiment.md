@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/01/2020
+ms.date: 04/06/2021
 
 ---
 # Sentiment analysis
