@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 04/05/2021
 ms.author: banders
 ---
 
@@ -57,12 +57,14 @@ For the next steps, you give permission to the Azure AD app to do actions using 
 | Role | Actions allowed | Role definition ID |
 | --- | --- | --- |
 | EnrollmentReader | Can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
+| EA purchaser | Purchase reservation orders and view reservation transactions. Can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
 | DepartmentReader | Download the usage details for the department they administer. Can view the usage and charges associated with their department. | db609904-a47f-4794-9be8-9bd86fbffd8a |
 | SubscriptionCreator | Create new subscriptions in the given scope of Account. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
 
 - An enrollment reader can be assigned to an SPN only by a user with enrollment writer role.
 - A department reader can be assigned to an SPN only by a user that has enrollment writer role or department writer role.
-- A subscription creator role can be assigned to an SPN only by a user that is the Account Owner of the enrollment account.
+- A subscription creator role can be assigned to an SPN only by a user that is the Account Owner of the enrollment account. The role isn't shown in the EA portal. It's only created by programmatic means and is only for programmatic use.
+- The EA purchaser role isn't shown in the EA portal. It's only created by programmatic means and is only for programmatic use.
 
 ## Assign enrollment account role permission to the SPN
 
@@ -115,6 +117,14 @@ Select **Run** to start the command.
 A `200 OK` response shows that the SPN was successfully added.
 
 Now you can use the SPN (Azure AD App with the object ID) to access EA APIs in an automated manner. The SPN has the EnrollmentReader role.
+
+## Assign EA Purchaser role permission to the SPN 
+
+For the EA purchaser role, use the same steps for the enrollment reader. Specify the `roleDefinitionId`, using the following example.
+
+`"/providers/Microsoft.Billing/billingAccounts/1111111/billingRoleDefinitions/ da6647fb-7651-49ee-be91-c43c4877f0c4"`
+
+ 
 
 ## Assign the department reader role to the SPN
 
