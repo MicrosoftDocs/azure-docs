@@ -21,11 +21,11 @@ Use this article to find the settings and requirements for connecting different 
 | Authentication types | Description |
 | ---------------------|-------------|
 |**Basic** | You will need to be able to provide basic parameters for accessing data sources. For example a connection string or key. Data feed admins are able to view these credentials. |
-| **Azure Managed Identity** | [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for Azure resources is a feature of Azure Active Directory. It provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication.|
+| **Azure Managed Identity** | [Managed identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) for Azure resources is a feature of Azure Active Directory. It provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication.|
 | **Azure SQL Connection String**| Store your AzureSQL connection string as a **credential entity** in Metrics Advisor, and use it directly each time when onboarding metrics data. Only admins of the Credential entity are able to view these credentials, but enables authorized viewers to create data feeds without needing to know details for the credentials. |
 | **Data Lake Gen2 Shared Key**| Store your data lake account key as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of the Credential entity are able to view these credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
-| **Service principal**| Store your [Service Principal](../../active-directory/develop/app-objects-and-service-principals.md) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Credential entity are able to view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
-| **Service principal from key vault**|Store your [Service Principal in a Key Vault](../../../azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2008&viewFallbackFrom=azs-2008.md) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of a **credential entity** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
+| **Service principal**| Store your [Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Credential entity are able to view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
+| **Service principal from key vault**|Store your [Service Principal in a Key Vault](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2008&viewFallbackFrom=azs-2008) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of a **credential entity** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
 
 ## Data sources supported and corresponding authentication types
 
@@ -70,7 +70,7 @@ The following sections specify the parameters required for all authentication ty
 
     2. Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
     
-    See the [Azure Bot Service documentation](/azure/bot-service/bot-service-resources-app-insights-keys#application-id) for more information.
+    See the [Azure Bot Service documentation](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-resources-app-insights-keys?view=azure-bot-service-4.0#application-id) for more information.
 
 * **API Key**: API keys are used by applications outside the browser to access this resource. To get the API key, do the following:
 
@@ -82,7 +82,7 @@ The following sections specify the parameters required for all authentication ty
 
     4. Copy the API key to the **API key** field in Metrics Advisor.
 
-* **Query**: Azure Application Insights logs are built on Azure Data Explorer, and Azure Monitor log queries use a version of the same Kusto query language. The [Kusto query language documentation](/azure/data-explorer/kusto/query/) has all of the details for the language and should be your primary resource for writing a query against Application Insights. 
+* **Query**: Azure Application Insights logs are built on Azure Data Explorer, and Azure Monitor log queries use a version of the same Kusto query language. The [Kusto query language documentation](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/) has all of the details for the language and should be your primary resource for writing a query against Application Insights. 
 
     Sample query:
 
@@ -95,9 +95,9 @@ The following sections specify the parameters required for all authentication ty
 * **Connection String**: There are two Authentication types for Auzre Blob Storage(JSON), one is **Basic**, the other is **Managed Identity**.
     ![image](https://user-images.githubusercontent.com/81400625/113387178-5986ae00-93be-11eb-82c4-609c0b5f1638.png) 
 
-    1.For **Basic** authentication type: See the Azure Blob Storage [connection string](../../storage/common/storage-configure-connection-string.md#configure-a-        connection-string-for-an-azure-storage-account) article for information on retrieving this string. Also, you can just go to Azure portal for your Azure Blob Storage resource, and find connection string directly in **Settings > Access keys** section.
+    1.For **Basic** authentication type: See the Azure Blob Storage [connection string](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string#configure-a-connection-string-for-an-azure-storage-account) article for information on retrieving this string. Also, you can just go to Azure portal for your Azure Blob Storage resource, and find connection string directly in **Settings > Access keys** section.
 
-    2.For **Managed Identity**: Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with managed identities for Azure resources. Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm.md).
+    2.For **Managed Identity**: Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with managed identities for Azure resources. Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm).
 
 * **Container**: Metrics Advisor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
 
@@ -154,32 +154,32 @@ Only one timestamp is allowed per JSON file.
 * **Connection String**: There are four Authentication types for Azure Data Explorer (Kusto), they are **Basic**, **Service Principal**, **Service Principal From KeyVault** and **Managed Identity**.
     ![image](https://user-images.githubusercontent.com/81400625/113387088-2e9c5a00-93be-11eb-9b09-b8f45aa2a55f.png) 
     
-    1.For **Basic** authentication type: Metrics Advisor supports accessing Azure Data Explorer(Kusto) by using Azure AD application authentication. You will need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database. To get your connection string, see the [Azure Data Explorer](/azure/data-explorer/provision-azure-ad-app) documentation.
+    1.For **Basic** authentication type: Metrics Advisor supports accessing Azure Data Explorer(Kusto) by using Azure AD application authentication. You will need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database. To get your connection string, see the [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/provision-azure-ad-app) documentation.
     Here is an example of connection string:
     ```
     Data Source=<Server>;Initial Catalog=<Database>;AAD Federated Security=True;Application Client Id=<Application Client Id>;Application Key=<Application Key>;Authority Id=<TenantId>
     ```
 
     2.For **Service Principal** authentication type: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
-    You can go through [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principalsto.md) to know about Service Principal and create one. To get your connection string, see the [Azure Data Explorer](/azure/data-explorer/provision-azure-ad-app) documentation. 
+    You can go through [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principalsto.md) to know about Service Principal and create one. To get your connection string, see the [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/provision-azure-ad-app) documentation. 
     Here is an example of connection string:
     ```
     Data Source=<Server>;Initial Catalog=<Database>
     ```
 
-    3.For **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](../../../azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2008.md) to follow detailed procedure to set service principal from key vault. 
+    3.For **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2008) to follow detailed procedure to set service principal from key vault. 
     Here is an example of connection string: 
     ```
     Data Source=<Server>;Initial Catalog=<Database>
     ```
 
-    4.For **Managed Identity** authentication type: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm.md). 
+    4.For **Managed Identity** authentication type: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
     Here is an example of connection string: 
     ```
     Data Source=<Server>;Initial Catalog=<Database>
     ```
 
-* **Query**: See [Kusto Query Language](/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted: `yyyy-MM-dd HH:mm:ss`.
+* **Query**: See [Kusto Query Language](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted: `yyyy-MM-dd HH:mm:ss`.
 
     Sample query:
     
@@ -198,10 +198,10 @@ Only one timestamp is allowed per JSON file.
     The account name is the same as *Basic* authentication type.
     
     3. For **Service Principal** authentication type: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
-    You can go through [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principalsto.md) to know about Service Principal and create one. And create a credential entity in Metric Advisor, so that you can choose that entity whe adding data feed for Service Principal authentication type. 
+    You can go through [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principalsto) to know about Service Principal and create one. And create a credential entity in Metric Advisor, so that you can choose that entity whe adding data feed for Service Principal authentication type. 
     The account name is the same as *Basic* authentication type.
     
-    4. For **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](../../../azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2008.md) to follow detailed procedure to set service principal from key vault. 
+    4. For **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2008) to follow detailed procedure to set service principal from key vault. 
     The account name is the same as *Basic* authentication type.
    
 
@@ -246,7 +246,7 @@ Currently Metrics Advisor supports the data schema in the JSON files as follow. 
 
 * **Connection String**: This can be found in 'Shared access policies' in your Event Hubs instance. Also for the 'EntityPath', it could be found by clicking into your Event Hubs instance and clicking at 'Event Hubs' in 'Entities' blade. Items that listed can be input as EntityPath. 
 
-* **Consumer Group**: A [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) is a view (state, position, or offset) of an entire event hub.
+* **Consumer Group**: A [consumer group](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features#consumer-groups) is a view (state, position, or offset) of an entire event hub.
 Event Hubs use the latest offset of a consumer group to consume (subscribe from) the data from data source. Therefore a dedicated consumer group should be created for one data feed in your Metrics Advisor instance.
 
 * **Timestamp**: Metrics Advisor uses the Event Hubs timestamp as the event timestamp if the user data source does not contain a timestamp field.
@@ -261,7 +261,7 @@ The timestamp field must match one of these two formats:
 
 ## <span id="log">Azure Log Analytics</span>
 
-For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register app or web API](../../active-directory/develop/quickstart-register-app.md).
+For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register app or web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
 * **Tenant Id**: Specify the tenant id to access your Log Analytics.
 * **Client Id**: Specify the client id to access your Log Analytics.
 * **Client Secret**: Specify the client secret to access your Log Analytics.
@@ -269,7 +269,7 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
 
 :::image type="content" source="/media/workspace-id.png" alt-text="Workspace ID":::
 
-* **Query**: Specify the query of Log Analytics. For more details please refer to [Log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md)
+* **Query**: Specify the query of Log Analytics. For more details please refer to [Log queries in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview)
 
     Sample query:
 
@@ -291,7 +291,7 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     Data Source=<Server>,[Port];Initial Catalog=<db-name>;User Id=<user-name>;Password=<password>
     ```
     
-    2. For **Managed Identity** authentication type: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm.md). Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
+    2. For **Managed Identity** authentication type: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
     Here is an example of connection string: 
     
     ```
@@ -315,7 +315,7 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     Data Source=<Server>,[Port];Initial Catalog=<Database>
     ```
   
-    5. For **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](../../../azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2008.md) to follow detailed procedure to set service principal from key vault. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
+    5. For **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2008) to follow detailed procedure to set service principal from key vault. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
     Here is an example of connection string: 
     
     ```
@@ -334,7 +334,7 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
     
 ## <span id="table">Azure Table Storage</span>
 
-* **Connection String**: Please refer to [View and copy a connection string](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) for information on how to retrieve the connection string from Azure Table Storage.
+* **Connection String**: Please refer to [View and copy a connection string](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) for information on how to retrieve the connection string from Azure Table Storage.
 
 * **Table Name**: Specify a table to query against. This can be found in your Azure Storage Account instance. Click **Tables** in the **Table Service** section.
 
