@@ -36,18 +36,9 @@ These are the available licensing options for Dynamics 365 offers:
 
 [!INCLUDE [Customer leads section](includes/customer-leads.md)]
 
-## Legal contracts
+## Legal
 
-[!INCLUDE [Legal contracts section](includes/legal-contracts-intro.md)]
-
-### Standard contract
-
-[!INCLUDE [Legal contracts section](includes/legal-contracts-standard.md)]
-[!INCLUDE [Legal contracts section](includes/legal-contracts-amendments.md)]
-
-### Custom terms and conditions
-
-[!INCLUDE [Legal contracts section](includes/legal-contracts-custom.md)]
+Create your **Terms and conditions**. Customers will need to accept these before they can try your offer. Microsoft has a standard contract, but it does not apply to Dynamics 365 offers.
 
 ## Offer listing details
 
