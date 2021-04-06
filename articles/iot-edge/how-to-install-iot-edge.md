@@ -458,7 +458,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
    2. Use the copied link in the following command to install that version of the hsmlib:
 
       ```bash
-      curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
+      curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
       ```
 
    3. Find the **iotedge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
@@ -466,7 +466,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
    4. Use the copied link in the following command to install that version of the IoT Edge security daemon.
 
       ```bash
-      curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+      curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
       ```
 
 <!-- end 1.1 -->
