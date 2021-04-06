@@ -79,7 +79,7 @@ The client app that you'll create in this tutorial uses a handful of Azure servi
 If you'd like to use a different region for this tutorial these factors may limit your choices:
 
 * Ensure that you use a [supported Azure region](regions.md#voice-assistants).
-* The Direct Line Speech channel uses the text-to-speech service, which has standard and neural voices. Neural voices are [limited to specific Azure regions](regions.md#standard-and-neural-voices).
+* The Direct Line Speech channel uses the text-to-speech service, which has standard and neural voices. Neural voices are [limited to specific Azure regions](regions.md#neural-and-standard-voices).
 
 For more information about regions, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 
@@ -472,7 +472,7 @@ If you're not going to continue using the echo-bot deployed in this tutorial, yo
 ## See also
 
 * Deploying to an [Azure region near you](https://azure.microsoft.com/global-infrastructure/locations/) to see bot response time improvement
-* Deploying to an [Azure region that supports high quality Neural TTS voices](./regions.md#standard-and-neural-voices)
+* Deploying to an [Azure region that supports high quality Neural TTS voices](./regions.md#neural-and-standard-voices)
 * Pricing associated with Direct Line Speech channel:
   * [Bot Service pricing](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Speech service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
