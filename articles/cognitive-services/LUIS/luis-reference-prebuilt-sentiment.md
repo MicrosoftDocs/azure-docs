@@ -17,6 +17,8 @@ If Sentiment analysis is configured, the LUIS json response includes sentiment a
 
 LUIS uses Text Analytics V2. 
 
+Sentiment Analysis is configured when publishing your application. You can learn more about this [here](./luis-how-to-publish-app.md).
+
 ## Resolution for sentiment
 
 Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data.
