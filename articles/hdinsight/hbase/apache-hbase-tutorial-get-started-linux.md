@@ -1,13 +1,10 @@
 ---
 title: Tutorial - Use Apache HBase in Azure HDInsight
 description: Follow this Apache HBase tutorial to start using hadoop on HDInsight. Create tables from the HBase shell and query them using Hive.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/14/2020
+ms.date: 01/22/2021
 ---
 
 # Tutorial: Use Apache HBase in Azure HDInsight
@@ -62,11 +59,11 @@ You can use SSH to connect to HBase clusters and then use [Apache HBase Shell](h
 
 For most people, data appears in the tabular format:
 
-![HDInsight Apache HBase tabular data](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
+:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png" alt-text="HDInsight Apache HBase tabular data" border="false":::
 
 In HBase (an implementation of [Cloud BigTable](https://cloud.google.com/bigtable/)), the same data looks like:
 
-![HDInsight Apache HBase BigTable data](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
+:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png" alt-text="HDInsight Apache HBase BigTable data" border="false":::
 
 **To use the HBase shell**
 
@@ -109,7 +106,7 @@ In HBase (an implementation of [Cloud BigTable](https://cloud.google.com/bigtabl
     scan 'Contacts'
     ```
 
-    ![HDInsight Apache Hadoop HBase shell](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
+    :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png" alt-text="HDInsight Apache Hadoop HBase shell" border="false":::
 
 1. Use `get` command to fetch contents of a row. Enter the following command:
 
@@ -131,7 +128,7 @@ In HBase (an implementation of [Cloud BigTable](https://cloud.google.com/bigtabl
 
 HBase includes several methods of loading data into tables.  For more information, see [Bulk loading](https://hbase.apache.org/book.html#arch.bulk.load).
 
-A sample data file can be found in a public blob container, `wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt`.  The content of the data file is:
+A sample data file can be found in a public blob container, `wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt`.  The content of the data file is:
 
 `8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.`
 
@@ -329,7 +326,7 @@ HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI
 
 1. Select **Quick links** on the top of the page, point to the active Zookeeper node link, and then select **HBase Master UI**.  The UI is opened in another browser tab:
 
-   ![HDInsight Apache HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png" alt-text="HDInsight Apache HBase HMaster UI" border="false":::
 
    The HBase Master UI contains the following sections:
 
@@ -339,9 +336,15 @@ HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI
    - tasks
    - software attributes
 
+## Cluster recreation
+
+After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster picks up the HBase tables you created in the original cluster. To avoid inconsistencies, however, we recommend that you disable the HBase tables before you delete the cluster. 
+
+You can use the HBase command `disable 'Contacts'`. 
+
 ## Clean up resources
 
-To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster. You can use the HBase command `disable 'Contacts'`. If you're not going to continue to use this application, delete the HBase cluster that you created with the following steps:
+If you're not going to continue to use this application, delete the HBase cluster that you created with the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the **Search** box at the top, type **HDInsight**.

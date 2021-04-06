@@ -13,10 +13,11 @@ This article helps you plan and execute a successful migration to Azure Kubernet
 
 This document can be used to help support the following scenarios:
 
+* Containerizing certain applications and migrating them to AKS using [Azure Migrate](../migrate/migrate-services-overview.md)
 * Migrating an AKS Cluster backed by [Availability Sets](../virtual-machines/windows/tutorial-availability-sets.md) to [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md)
 * Migrating an AKS cluster to use a [Standard SKU load balancer](./load-balancer-standard.md)
 * Migrating from [Azure Container Service (ACS) - retiring January 31, 2020](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/) to AKS
-* Migrating from [AKS engine](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) to AKS
+* Migrating from [AKS engine](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) to AKS
 * Migrating from non-Azure based Kubernetes clusters to AKS
 * Moving existing resources to a different region
 
@@ -33,6 +34,7 @@ Several open-source tools can help with your migration, depending on your scenar
 In this article we will summarize migration details for:
 
 > [!div class="checklist"]
+> * Containerizing applications through Azure Migrate 
 > * AKS with Standard Load Balancer and Virtual Machine Scale Sets
 > * Existing attached Azure Services
 > * Ensure valid quotas
@@ -40,6 +42,13 @@ In this article we will summarize migration details for:
 > * Considerations for stateless applications
 > * Considerations for stateful applications
 > * Deployment of your cluster configuration
+
+## Use Azure Migrate to migrate your applications to AKS
+
+Azure Migrate offers a unified platform to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. For AKS, you can use Azure Migrate for the following:
+
+* [Containerize ASP.NET applications and migrate to AKS](../migrate/tutorial-containerize-aspnet-kubernetes.md)
+* [Containerize Java web applications and migrate to AKS](../migrate/tutorial-containerize-java-kubernetes.md)
 
 ## AKS with Standard Load Balancer and Virtual Machine Scale Sets
 
@@ -109,7 +118,7 @@ Stateless application migration is the most straightforward case. Apply your res
 Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
 
 If you use Azure Files, you can mount the file share as a volume into the new cluster:
-* [Mount Static Azure Files as a Volume](./azure-files-volume.md#mount-the-file-share-as-a-volume)
+* [Mount Static Azure Files as a Volume](./azure-files-volume.md#mount-file-share-as-an-persistent-volume)
 
 If you use Azure Managed Disks, you can only mount the disk if unattached to any VM:
 * [Mount Static Azure Disk as a Volume](./azure-disk-volume.md#mount-disk-as-volume)

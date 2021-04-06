@@ -46,7 +46,7 @@ You can only import directly from the PowerShell Gallery using the Azure portal.
 
 ## Modules in the PowerShell Gallery
 
-PowerShell modules contain cmdlets that you can use in your runbooks. Existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](https://www.powershellgallery.com). You can launch this gallery from the Azure portal and install them directly into Azure Automation. You can also download them and install them manually.
+PowerShell modules contain cmdlets that you can use in your runbooks. Existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](https://www.powershellgallery.com). You can launch this gallery from the Azure portal and install the modules directly into Azure Automation, or you can manually download and install them.
 
 ## Common scenarios available in the PowerShell Gallery
 

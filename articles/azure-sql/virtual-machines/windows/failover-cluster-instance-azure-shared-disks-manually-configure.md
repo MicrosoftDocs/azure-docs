@@ -29,7 +29,7 @@ To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cl
 Before you complete the instructions in this article, you should already have:
 
 - An Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
-- [Two or more Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md). [Availability sets](../../../virtual-machines/windows/tutorial-availability-sets.md) and [proximity placement groups](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) supported for Premium SSD and [availability zones](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) are supported for Ultra Disks. If you use a PPG, all nodes must exist in the same group.
+- [Two or more Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md). [Availability sets](../../../virtual-machines/windows/tutorial-availability-sets.md) and [proximity placement groups](../../../virtual-machines/co-location.md#proximity-placement-groups) (PPGs) supported for Premium SSD and [availability zones](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) are supported for Ultra Disks. All nodes must exist in the same [proximity placement group](../../../virtual-machines/co-location.md#proximity-placement-groups).
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - The latest version of [PowerShell](/powershell/azure/install-az-ps). 
 
@@ -202,7 +202,9 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## Configure connectivity 
 
-To route traffic appropriately to the current primary node, configure the connectivity option that's suitable for your environment. You can create an [Azure load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) or, if you're using SQL Server 2019 CU2 (or later) and Windows Server 2016 (or later), you can use the [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) feature instead. 
+To route traffic appropriately to the current primary node, configure the connectivity option that's suitable for your environment. You can create an [Azure load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) or, if you're using SQL Server 2019 CU2 (or later) and Windows Server 2016 (or later), you can use the [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) feature instead.  
+
+For more details about cluster connectivity options, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#connectivity). 
 
 ## Limitations
 

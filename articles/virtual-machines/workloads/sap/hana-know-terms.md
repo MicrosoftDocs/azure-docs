@@ -6,8 +6,7 @@ documentationcenter:
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -31,7 +30,7 @@ Several common definitions are widely used in the Architecture and Technical Dep
 - **SAP HANA on Azure (Large Instances):** Official name for the offer in Azure to run HANA instances in on SAP HANA TDI-certified hardware that's deployed in Large Instance stamps in different Azure regions. The related term *HANA Large Instance* is short for *SAP HANA on Azure (Large Instances)* and is widely used in this technical deployment guide.
 - **Cross-premises**: Describes a scenario where VMs are deployed to an Azure subscription that has site-to-site, multi-site, or Azure ExpressRoute connectivity between on-premises data centers and Azure. In common Azure documentation, these kinds of deployments are also described as cross-premises scenarios. The reason for the connection is to extend on-premises domains, on-premises Azure Active Directory/OpenLDAP, and on-premises DNS into Azure. The on-premises landscape is extended to the Azure assets of the Azure subscriptions. With this extension, the VMs can be part of the on-premises domain. 
 
-   Domain users of the on-premises domain can access the servers and run services on those VMs (such as DBMS services). Communication and name resolution between VMs deployed on-premises and Azure-deployed VMs is possible. This scenario is typical of the way in which most SAP assets are deployed. For more information, see [Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md) and [Create a virtual network with a site-to-site connection by using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+   Domain users of the on-premises domain can access the servers and run services on those VMs (such as DBMS services). Communication and name resolution between VMs deployed on-premises and Azure-deployed VMs is possible. This scenario is typical of the way in which most SAP assets are deployed. For more information, see [Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md) and [Create a virtual network with a site-to-site connection by using the Azure portal](../../../vpn-gateway/tutorial-site-to-site-portal.md).
 - **Tenant**: A customer deployed in HANA Large Instance stamp gets isolated into a *tenant.* A tenant is isolated in the networking, storage, and compute layer from other tenants. Storage and compute units assigned to the different tenants can't see each other or communicate with each other on the HANA Large Instance stamp level. A customer can choose to have deployments into different tenants. Even then, there is no communication between tenants on the HANA Large Instance stamp level.
 - **SKU category**: For HANA Large Instance, the following two categories of SKUs are offered:
     - **Type I class**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224, and S224m

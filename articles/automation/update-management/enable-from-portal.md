@@ -2,10 +2,12 @@
 title: Enable Azure Automation Update Management from the Azure portal
 description: This article tells how to enable Update Management from the Azure portal.
 services: automation
-ms.date: 04/11/2019
-ms.topic: article
+ms.subservice: update-management
+ms.date: 01/07/2021
+ms.topic: conceptual
 ms.custom: mvc
 ---
+
 # Enable Update Management from the Azure portal
 
 This article describes how you can enable the [Update Management](overview.md) feature for VMs by browsing the Azure portal. To enable Azure VMs at scale, you must enable an existing Azure VM using Update Management.
@@ -18,7 +20,7 @@ The number of resource groups that you can use for managing your VMs is limited 
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](../index.yml) to manage machines.
+* [Automation account](../automation-security-overview.md) to manage machines.
 * A [virtual machine](../../virtual-machines/windows/quick-create-portal.md).
 
 ## Sign in to Azure

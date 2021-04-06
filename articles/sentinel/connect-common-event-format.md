@@ -76,6 +76,12 @@ Make sure the Linux machine you use as a log forwarder is running one of the fol
  
 Make sure your machine also meets the following requirements: 
 
+- Capacity
+  - Your machine must have a minimum of **4 CPU cores and 8 GB RAM**.
+
+    > [!NOTE]
+    > - A single log forwarder machine using the **rsyslog** daemon has a supported capacity of **up to 8500 events per second (EPS)** collected.
+
 - Permissions
   - You must have elevated permissions (sudo) on your machine. 
 
@@ -91,5 +97,7 @@ In this document, you learned how Azure Sentinel collects CEF logs from security
 - STEP 3: [Verify connectivity](connect-cef-verify.md)
 
 To learn more about what to do with the data you've collected in Azure Sentinel, see the following articles:
+
+- Learn about [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).

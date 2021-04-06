@@ -845,7 +845,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Yes | Yes |
+> | flexibleServers | No | No |
 > | servers | Yes | Yes |
 
 ## Microsoft.DBforPostgreSQL
@@ -853,7 +853,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Yes | Yes |
+> | flexibleServers | No | No |
 > | servergroups | No | No |
 > | servers | Yes | Yes |
 > | serversv2 | Yes | Yes |

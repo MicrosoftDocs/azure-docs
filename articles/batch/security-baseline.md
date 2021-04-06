@@ -66,9 +66,9 @@ When applicable, disable public network access by using Azure Private Link to co
 
 **Guidance**: Enable Azure DDoS (distributed denial-of-service) Standard protection on the virtual network protecting your Azure Batch pool for protection against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-- [How to configure DDoS protection](/azure/virtual-network/manage-ddos-protection)
+- [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
-- [Understand Azure Security Center Integrated Threat Intelligence](/azure/security-center/security-center-alerts-service-layer)
+- [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -130,7 +130,7 @@ Use any of the built-in Azure Policy definitions related to tagging, such as "Re
 
 You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 - [How to create a virtual network](../virtual-network/quick-create-portal.md)
 
@@ -147,9 +147,9 @@ detect changes for network resources related to your Azure Batch pools.
 Create alerts within Azure Monitor that will trigger when changes to 
 critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view) 
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log) 
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -195,7 +195,7 @@ If required, you maybe connect to your individual pool nodes via Secured Shell (
 
 - [How to collect diagnostic logs from your Azure Batch account](batch-diagnostics.md#batch-diagnostics)
 
-- [How to remotely connect to your Azure Batch pool nodes](/azure/batch/batch-api-basics#error-handling)
+- [How to remotely connect to your Azure Batch pool nodes](./batch-service-workflow-features.md#basic-workflow)
 
 **Azure Security Center monitoring**: Yes
 
@@ -207,7 +207,7 @@ If required, you maybe connect to your individual pool nodes via Secured Shell (
 
 - [How to configure Azure Batch monitoring and logging](monitoring-overview.md)
 
-- [How to configure Azure Log Analytics workspace retention period](../azure-monitor/platform/manage-cost-storage.md)
+- [How to configure Azure Log Analytics workspace retention period](../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -267,9 +267,9 @@ If required, you maybe connect to your individual pool nodes via Secured Shell (
 
 In addition, you may use Azure Security Center Identity and Access Management recommendations.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 - [How to monitor identity and access with Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -331,7 +331,7 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 **Guidance**: If you have integrated authentication for Azure Batch Applications with Azure Active Directory, use Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to identify Azure AD users flagged for risky activity](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to monitor users identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -385,7 +385,7 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 **Guidance**: Use Azure Active Directory Risk Detections and Identity Protection feature to configure automated responses to detected suspicious actions related to user identities. Additionally, you can ingest data into Azure Sentinel for further investigation.
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -413,7 +413,7 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -425,7 +425,7 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 - [How to create an Azure Batch Pool within a Virtual Network](batch-virtual-network.md)
 
-- [How to secure Azure Storage Accounts](/azure/storage/common/storage-security-guide)
+- [How to secure Azure Storage Accounts](../storage/blobs/security-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -441,7 +441,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-- [How to secure Azure Storage Accounts](/azure/storage/common/storage-security-guide)
+- [How to secure Azure Storage Accounts](../storage/blobs/security-recommendations.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -469,7 +469,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-- [How to secure Azure Storage Accounts](/azure/storage/common/storage-security-guide)
+- [How to secure Azure Storage Accounts](../storage/blobs/security-recommendations.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -505,9 +505,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 Azure disk encryption can be used to help protect and safeguard your data to meet organizational security and compliance commitments. All managed disks, snapshots, images, and data written to existing disks are automatically encrypted-at-rest with platform-managed keys.
 
-- [How to manage encryption keys for Azure Storage Accounts](/azure/storage/common/storage-encryption-keys-portal)
+- [How to manage encryption keys for Azure Storage Accounts](../storage/common/customer-managed-keys-configure-key-vault.md)
 
-- [How to configure customer-managed encryption keys](/azure/storage/common/storage-encryption-keys-portal)
+- [How to configure customer-managed encryption keys](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [How to create a pool with disk encryption enabled](disk-encryption.md)
 
@@ -521,9 +521,9 @@ Azure disk encryption can be used to help protect and safeguard your data to mee
 
 Configure Diagnostic Settings for Storage Accounts associated with Azure Batch Pool to monitor and log all CRUD operations against pool data.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [How to enable additional logging/auditing for an Azure Storage Account](../storage/common/storage-monitor-storage-account.md)
+- [How to enable additional logging/auditing for an Azure Storage Account](../storage/common/manage-storage-analytics-logs.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -587,7 +587,7 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 
 - [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -599,7 +599,7 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -609,11 +609,11 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -708,7 +708,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.Batch" namespace to create custom policies to audit or enforce the configuration of your Azure Batch accounts and pools.
 
-- [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -754,9 +754,9 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 **Guidance**: If using custom Azure Policy definitions for your Azure Batch accounts, pools, or related resources, use Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos Documentation](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -799,7 +799,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 -Storage Accounts should use a virtual network service endpoint
 - Diagnostic logs in Batch accounts should be enabled
 
-- [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -892,7 +892,7 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 
 - [How to configure storage redundancy for Azure Storage Accounts](../storage/common/storage-redundancy.md)
 
-- [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -902,9 +902,9 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 
 **Guidance**: If you are managing your own keys for Azure Storage Accounts or any other resource related to your Azure Batch implementation, periodically test restoration of backed up keys.
 
-- [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
-- [How to restore a customer-managed key with PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to restore a customer-managed key with PowerShell](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -914,7 +914,7 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 
 **Guidance**: If Azure Key Vault is being used to hold any keys related to Azure Batch Pool Storage Accounts, enable Soft-Delete in Azure Key Vault to protect keys against accidental or malicious deletion.
 
-- [How to enable Soft Delete in Azure Key Vault](/azure/key-vault/key-vault-soft-delete-powershell)
+- [How to enable Soft Delete in Azure Key Vault](../key-vault/general/key-vault-recovery.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1002,5 +1002,5 @@ You can find more information on Microsoft’s strategy and execution of Red Tea
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

@@ -34,7 +34,7 @@ Maximize your Virtual Machine's performance with Accelerated Networking, by decl
 ```
 Service Fabric cluster can be provisioned on [Linux with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md), and [Windows with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md).
 
-Accelerated Networking is supported for Azure Virtual Machine Series SKUs: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms. Accelerated Networking was tested successfully using the Standard_DS8_v3 SKU on 01/23/2019 for a Service Fabric Windows Cluster, and using Standard_DS12_v2 on 01/29/2019 for a Service Fabric Linux Cluster.
+Accelerated Networking is supported for Azure Virtual Machine Series SKUs: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms. Accelerated Networking was tested successfully using the Standard_DS8_v3 SKU on 01/23/2019 for a Service Fabric Windows Cluster, and using Standard_DS12_v2 on 01/29/2019 for a Service Fabric Linux Cluster. Please note that Accelerated Networking requires at least 4 vCPUs. 
 
 To enable Accelerated Networking on an existing Service Fabric cluster, you need to first [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](./virtual-machine-scale-set-scale-node-type-scale-out.md), to perform the following:
 1. Provision a NodeType with Accelerated Networking enabled
@@ -82,7 +82,7 @@ More information about the inbound security rules:
 
 * **Application**. The application port range should be large enough to cover the endpoint requirement of your applications. This range should be exclusive from the dynamic port range on the machine, that is, the ephemeralPorts range as set in the configuration. Service Fabric uses these ports whenever new ports are required and takes care of opening the firewall for these ports on the nodes.
 
-* **SMB**. The SMB protocol is in use by the ImageStore service for two scenarios. This port is needed to download the packages from the ImageStore by the nodes as well as to replicate these between the replicas. 
+* **SMB**. Optional, the runtime version 7.1+ doesn't use SMB any more by default. The SMB protocol is in use by the ImageStore service for two scenarios. This port is needed to download the packages from the ImageStore by the nodes as well as to replicate these between the replicas. 
 
 * **RDP**. Optional, if RDP is required from the Internet or VirtualNetwork for jumpbox scenarios. 
 

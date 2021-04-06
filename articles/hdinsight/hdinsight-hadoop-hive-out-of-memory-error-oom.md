@@ -2,9 +2,6 @@
 title: Fix a Hive out of memory error in Azure HDInsight 
 description: Fix a Hive out of memory error in HDInsight. The customer scenario is a query across many large tables.
 keywords: out of memory error, OOM, Hive settings
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
@@ -102,7 +99,7 @@ The **hive.auto.convert.join.noconditionaltask** in the hive-site.xml file was s
 
 It's likely map join was the cause of the Java Heap Space out of memory error. As explained in the blog post [Hadoop Yarn memory settings in HDInsight](/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), when Tez execution engine is used the heap space used actually belongs to the Tez container. See the following image describing the Tez container memory.
 
-![Tez container memory diagram: Hive out of memory error](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
+:::image type="content" source="./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png" alt-text="Tez container memory diagram: Hive out of memory error" border="false":::
 
 As the blog post suggests, the following two memory settings define the container memory for the heap: **hive.tez.container.size** and **hive.tez.java.opts**. From our experience, the out of memory exception doesn't mean the container size is too small. It means the Java heap size (hive.tez.java.opts) is too small. So whenever you see out of memory, you can try to increase **hive.tez.java.opts**. If needed you might have to increase **hive.tez.container.size**. The **java.opts** setting should be around 80% of **container.size**.
 

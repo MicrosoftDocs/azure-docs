@@ -72,3 +72,7 @@ For current and previous IoT Plug and Play announcements, see the following blog
 - [Prepare and certify your devices for IoT Plug and Play (Posted on August 26, 2020)](https://azure.microsoft.com/blog/prepare-and-certify-your-devices-for-iot-plug-and-play/)
 - [IoT Plug and Play is now available in preview (Posted on August 22, 2019)](https://azure.microsoft.com/blog/iot-plug-and-play-is-now-available-in-preview/)
 - [Build with Azure IoT Central and IoT Plug and Play (Posted on May 7, 2019)](https://azure.microsoft.com/blog/build-with-azure-iot-central-and-iot-plug-and-play/)
+
+## Next steps
+
+The suggested next step is to review [What is IoT Plug and Play?](overview-iot-plug-and-play.md).

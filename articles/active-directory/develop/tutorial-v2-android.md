@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Android application
 
-In this tutorial, you build an Android app that integrates with Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API.
+In this tutorial, you build an Android app that integrates with the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API.
 
 When you've completed this tutorial, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) as well as work or school accounts from any company or organization that uses Azure Active Directory.
 
@@ -70,7 +70,7 @@ If you do not already have an Android application, follow these steps to set up 
 
 ### Register your application
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.

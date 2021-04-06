@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/01/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -90,7 +90,8 @@ The technical profile also returns claims that aren't returned by the identity p
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 | token_endpoint_auth_method | No | Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), and `client_secret_basic` (public preview). For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 | token_signing_algorithm | No | The signing algorithm used for client assertions when the **token_endpoint_auth_method** metadata is set to `private_key_jwt`. Possible values: `RS256` (default). |
-| SingleLogoutEnabled | No | Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](session-overview.md#sign-out).  Possible values: `true` (default), or `false`. |
+| SingleLogoutEnabled | No | Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](./session-behavior.md#sign-out).  Possible values: `true` (default), or `false`. |
+|ReadBodyClaimsOnIdpRedirect| No| Set to `true` to read claims from response body on identity provider redirect. This metadata is used with [Apple ID](identity-provider-apple-id.md), where claims return in the response payload.|
 
 ```xml
 <Metadata>

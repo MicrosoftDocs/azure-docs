@@ -25,7 +25,7 @@ zone_pivot_groups: programming-languages-set-twenty-six
 #  - id: programming-language-python
 #    title: Python
 
-# As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
+#Customer intent: As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
 # Quickstart: Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub
@@ -59,6 +59,10 @@ zone_pivot_groups: programming-languages-set-twenty-six
 [!INCLUDE [iot-pnp-connect-device-python](../../includes/iot-pnp-connect-device-python.md)]
 
 :::zone-end
+
+## Clean up resources
+
+If you've finished with the quickstarts and tutorials, see [Clean up resources](set-up-environment.md#clean-up-resources).
 
 ## Next steps
 

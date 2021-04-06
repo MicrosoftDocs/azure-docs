@@ -84,6 +84,9 @@ To use public peering, first ensure access to the following domains and addresse
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
 * `.windows.net`
+* IP addresses
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 To use Microsoft peering, select the following services, regions, and relevant community values:
 

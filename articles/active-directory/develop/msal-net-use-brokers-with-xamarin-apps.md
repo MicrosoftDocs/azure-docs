@@ -88,7 +88,7 @@ This method is invoked every time the application is started. It's used as an op
 
 ### Step 4: Set UIViewController()
 
-Still in the *AppDelegate.cs* file, you need to set an object window. You don't typically need to set the object window for Xamarin iOS, but you do need an object window to send and receive responses from the broker.
+Still in the *AppDelegate.cs* file, set an object window. You don't typically need to set the object window for Xamarin iOS, but you do need an object window to send and receive responses from the broker.
 
 To set up the object window:
 
@@ -180,7 +180,7 @@ Add the redirect URI to the app's registration in the [Azure portal](https://por
 
 **To generate the redirect URI:**
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. Select **Azure Active Directory** > **App registrations** > your registered app
 1. Select **Authentication** > **Add a platform** > **iOS / macOS**
 1. Enter your bundle ID, and then select **Configure**.
@@ -234,7 +234,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 ### Step 4: Add a redirect URI to your app registration
 
-MSAL uses URLs to invoke the broker and then return to your app. To complete that round trip, you need to register a **Redirect URI** for your app by using the [Azure portal](https://portal.azure.com).
+MSAL uses URLs to invoke the broker and then return to your app. To complete that round trip, register a **Redirect URI** for your app by using the [Azure portal](https://portal.azure.com).
 
 The format of the redirect URI for your application depends on the certificate used to sign the APK. For example:
 
@@ -323,6 +323,8 @@ The forward-slash (`/`) in front of the signature in the `android:path` value is
                     android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
 ```
 
+For more information about configuring your application for system browser and Android 11 support, see [Update the Android manifest for system browser support](msal-net-xamarin-android-considerations.md#update-the-android-manifest-for-system-webview-support).
+
 As an alternative, you can configure MSAL to fall back to the embedded browser, which doesn't rely on a redirect URI:
 
 ```csharp
@@ -341,22 +343,22 @@ Here are a few tips on avoiding issues when you implement brokered authenticatio
 
     Example: If you first install Microsoft Authenticator and then install Intune Company Portal, brokered authentication will *only* happen on the Microsoft Authenticator.
 - **Logs** - If you encounter an issue with brokered authentication, viewing the broker's logs might help you diagnose the cause.
-  - View Microsoft Authenticator logs:
+  - Get Microsoft Authenticator logs:
 
     1. Select the menu button in the top-right corner of the app.
-    1. Select **Help** > **Send Logs** > **View Logs**.
-    1. Select **Copy All** to copy the broker logs to the device's clipboard.
+    1. Select **Send Feedback** > **Having Trouble?**.
+    1. Under **What are you trying to do?**, select an option and add a description.
+    1. To send the logs, select the arrow in the top-right corner of the app.
 
-    The best way to debug with these logs is to email them to yourself and view them on your development machine. You might find it easier to parse the logs on your computer instead of on the device itself. You can also use a test editor on Android to save the logs as a text file, and then use a USB cable to copy the file to a computer.
+    After you send the logs, a dialog box displays the incident ID. Record the incident ID, and include it when you request assistance.
 
-  - View Intune Company Portal logs:
+  - Get Intune Company Portal logs:
 
-    1. Select the menu button on the top-left corner of the app
-    1. Select **Settings** > **Diagnostic Data**
-    1. Select **Copy Logs** to copy the broker logs to the device's SD card.
-    1. Connect the device to a computer by using a USB cable to view the logs on your development machine.
+    1. Select the menu button on the top-left corner of the app.
+    1. Select **Help** > **Email Support**.
+    1. To send the logs, select **Upload Logs Only**.
 
-    Once you have the logs, you can search through them for your authentication attempts via correlation ID. The correlation ID is attached to every authentication request. To find errors returned by the Microsoft identity platform authentication endpoint, search for `AADSTS`.
+    After you send the logs, a dialog box displays the incident ID. Record the incident ID, and include it when you request assistance.
 
 ## Next steps
 

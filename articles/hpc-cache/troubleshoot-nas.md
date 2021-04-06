@@ -59,7 +59,7 @@ Different storage systems use different methods to enable this access:
 If using export rules, remember that the cache can use multiple different IP addresses from the cache subnet. Allow access from the full range of possible subnet IP addresses.
 
 > [!NOTE]
-> By default, Azure HPC Cache squashes root access. Read [Configure additional cache settings](configuration.md#configure-root-squash) for details.
+> Although the cache needs root access to the back-end storage system, you can restrict access for clients that connect through the cache. Read [Control client access](access-policies.md#root-squash) for details.
 
 Work with your NAS storage vendor to enable the right level of access for the cache.
 
@@ -86,8 +86,7 @@ The back-end storage system keeps internal aliases for file handles, but Azure H
 
 To avoid this possible file collision for files in multiple exports, Azure HPC Cache automatically mounts the shallowest available export in the path (``/ifs`` in the example) and uses the file handle given from that export. If multiple exports use the same base path, Azure HPC Cache needs root access to that path.
 
-## Enable export listing
-<!-- link in prereqs article -->
+<!-- ## Enable export listing
 
 The NAS must list its exports when the Azure HPC Cache queries it.
 
@@ -95,7 +94,7 @@ On most NFS storage systems, you can test this by sending the following query fr
 
 Use a Linux client from the same virtual network as your cache, if possible.
 
-If that command doesn't list the exports, the cache will have trouble connecting to your storage system. Work with your NAS vendor to enable export listing.
+If that command doesn't list the exports, the cache will have trouble connecting to your storage system. Work with your NAS vendor to enable export listing.  -->
 
 ## Adjust VPN packet size restrictions
 <!-- link in prereqs article and configuration article -->

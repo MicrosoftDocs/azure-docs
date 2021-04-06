@@ -14,6 +14,8 @@ This article builds on top of the [Getting Started quickstart](get-started-detec
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  > [!NOTE]
+  > You will need an Azure subscription with permissions for creating service principals (**owner role** provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions. 
 * [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * If you have not completed the [Getting Started quickstart](get-started-detect-motion-emit-events-quickstart.md) previously, then go through the following steps:
     * [Set up Azure resources](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
@@ -533,10 +535,15 @@ The media graph you created uses the motion detection processor node to detect m
 
 1. Open the Explorer pane in Visual Studio Code and look for Azure IoT Hub at the bottom-left corner.
 1. Expand the Devices node
-1. Right-clink on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring"
+1. Right-click on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring"
 
     ![Start Monitoring Built-in Event Monitoring](./media/quickstarts/start-monitoring-iothub-events.png)
     
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     Within seconds, you will see the following messages in the OUTPUT window:
 
 ```

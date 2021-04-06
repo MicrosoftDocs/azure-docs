@@ -145,7 +145,7 @@ For example, if it contains the full backup, the first incremental and the third
 > 
 
 ## Deleted or lost service
-If a service is removed, you must first re-create the service before the data can be restored.  It is important to create the service with the same configuration, for example, partitioning scheme, so that the data can be restored seamlessly.  Once the service is up, the API to restore data (`OnDataLossAsync` above) has to be invoked on every partition of this service. One way of achieving this is by using [FabricClient.TestManagementClient.StartPartitionDataLossAsync](/dotnet/api/system.fabric.fabricclient.testmanagementclient?view=azure-dotnet#System_Fabric_FabricClient_TestManagementClient_StartPartitionDataLossAsync_System_Guid_System_Fabric_PartitionSelector_System_Fabric_DataLossMode_) on every partition.  
+If a service is removed, you must first re-create the service before the data can be restored.  It is important to create the service with the same configuration, for example, partitioning scheme, so that the data can be restored seamlessly.  Once the service is up, the API to restore data (`OnDataLossAsync` above) has to be invoked on every partition of this service. One way of achieving this is by using [FabricClient.TestManagementClient.StartPartitionDataLossAsync](/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartPartitionDataLossAsync_System_Guid_System_Fabric_PartitionSelector_System_Fabric_DataLossMode_) on every partition.  
 
 From this point, implementation is the same as the above scenario. Each partition needs to restore the latest relevant backup from the external store. One caveat is that the partition ID may have now changed, since the runtime creates partition IDs dynamically. Thus, the service needs to store the appropriate partition information and service name to identify the correct latest backup to restore from for each partition.
 
@@ -258,5 +258,5 @@ As part of the recovery process, operations starting from the "starting point" t
   - [Reliable Services quickstart](service-fabric-reliable-services-quick-start.md)
   - [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
   - [Reliable Services configuration](service-fabric-reliable-services-configuration.md)
-  - [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  - [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   - [Periodic backup and restore in Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)

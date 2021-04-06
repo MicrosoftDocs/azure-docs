@@ -123,6 +123,7 @@ You can get the value of these service-defined variables to make adjustments tha
 | $PendingTasks |The sum of $ActiveTasks and $RunningTasks. |
 | $SucceededTasks |The number of tasks that finished successfully. |
 | $FailedTasks |The number of tasks that failed. |
+| $TaskSlotsPerNode |The number of task slots that can be used to run concurrent tasks on a single compute node in the pool. |
 | $CurrentDedicatedNodes |The current number of dedicated compute nodes. |
 | $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been preempted. |
 | $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |

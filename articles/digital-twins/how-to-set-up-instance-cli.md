@@ -95,7 +95,7 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
+* [az dt reference](/cli/azure/ext/azure-iot/dt)
 * [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:

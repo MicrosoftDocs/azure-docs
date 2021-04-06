@@ -50,19 +50,27 @@ In Azure Purview, you can create glossary terms and attach them to assets. Later
 
 1. In the **Insights** :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false"::: area, select **Glossary** to display the Purview **Glossary insights** report.
 
-The **Glossary Insights** page displays the following areas:
-1. **High level KPIs** to show glossary terms and catalog users
+**Glossary Insights** provides you as a business user, valuable information to maintain a well-defined glossary for your organization.
 
-2. **Top glossary terms and count of assets** shows the tops 5 glossary terms with assets attached to them. All other assets are accounted in "Other" category in the graph.
+1. The report starts with **High-level KPIs** that shows ***Total terms*** in your Purview account, ***Approved terms without assets*** and ***Expired terms with assets***. Each of these values will help you identify the health of your Glossary.
 
-3. **Glossary terms by term status** shows distribution of glossary terms by status such as "Draft", "Approved", "Alert" and "Expired". 
+   :::image type="content" source="./media/glossary-insights/glossary-kpi.png" alt-text="View glossary insights KPI"::: 
 
-1. Hover or click on the slice of the graph with a status and note the count of terms with that status.
 
-1. **Distribution of roles by number of users** shows distribution of roles by number of users per role in Purview.
+2. **Snapshot of terms** section (displayed above) shows you term status as ***Draft***, ***Approved***, ***Alert***, and ***Expired*** for terms with assets and terms without assets.
 
-   :::image type="content" source="./media/glossary-insights/glossary-insights1.png" alt-text="View glossary insights":::
+3. Click on **View more** to see the term names with various status and more details about ***Stewards*** and ***Experts***. 
+
+   :::image type="content" source="./media/glossary-insights/glossary-view-more.png" alt-text="Snapshot of terms with and without assets":::  
+
+4. When you click "View more" for ***Approved terms with assets***, Insights allow you to navigate to the **Glossary** term detail page, from where you can further navigate to the list of assets with the attached terms. 
+
+   :::image type="content" source="./media/glossary-insights/navigate-to-glossary-detail.png" alt-text="Insights to glossary"::: 
+
+4. In Glossary insights page, view a distribution of **Incomplete terms** by type of information missing. The graph shows count of terms with ***Missing definition***, ***Missing expert***, ***Missing steward*** and ***Missing multiple*** fields.
+
+1. Click on ***View more*** from **Incomplete terms**, to view the terms that have missing information. You can navigate to Glossary term detail page to input the missing information and ensure the glossary term is complete.
 
 ## Next steps
 
-Learn more about Azure Purview insight reports through [Asset Insights](./asset-insights.md)
+Learn more about how to create a glossary term through [Glossary](./how-to-create-import-export-glossary.md)

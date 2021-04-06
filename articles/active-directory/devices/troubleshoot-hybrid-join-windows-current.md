@@ -370,6 +370,12 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
    - Reason: The connection with the server was terminated abnormally.
    - Resolution: Retry after sometime or try joining from an alternate stable network location.
 
+##### Other Errors
+
+- **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611)
+   - Reason: EventID 220 is present in User Device Registration event logs. Windows cannot access the computer object in Active Directory. A Windows error code may be included in the event. For error codes ERROR_NO_SUCH_LOGON_SESSION (1312) and ERROR_NO_SUCH_USER (1317), these are related to replication issues in on-premises AD.
+   - Resolution: Troubleshoot replication issues in AD. Replication issues may be transient and may go way after a period of time.
+
 ##### Federated join server Errors
 
 | Server error code | Server error message | Possible reasons | Resolution |
@@ -386,7 +392,7 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
 
 ### Step 5: Collect logs and contact Microsoft Support
 
-Download the file Auth.zip from [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+Download the file Auth.zip from [https://github.com/CSS-Identity/DRS/tree/main/Auth](https://github.com/CSS-Identity/DRS/tree/main/Auth)
 
 1. Unzip the files and rename the included files **start-auth.txt** and **stop-auth.txt** to **start-auth.cmd** and **stop-auth.cmd**.
 1. From an elevated command prompt, run **start-auth.cmd**.

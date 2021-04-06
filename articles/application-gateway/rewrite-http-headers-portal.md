@@ -93,7 +93,7 @@ In this example, we'll modify a redirection URL by rewriting the location header
 
    - In the **Operator** list, select **equal (=)**.
 
-   - Enter a regular expression pattern. In this example, we'll use the pattern  `(https?):\/\/.*azurewebsites\.net(.*)$`.
+   - Enter a regular expression pattern. In this example, we'll use the pattern `(https?)://.*azurewebsites.net(.*)$`.
 
    - Select **OK**.
 

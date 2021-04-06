@@ -1,9 +1,6 @@
 ---
 title: Troubleshoot resource creation failures in Azure HDInsight
 description: Common capacity issue errors and mitigation techniques are provided in this article.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020

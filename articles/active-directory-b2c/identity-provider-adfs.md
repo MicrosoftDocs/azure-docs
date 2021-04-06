@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -30,13 +30,15 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for an AD FS user account by using [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C). You enable sign-in by adding a [SAML identity provider technical profile](saml-identity-provider-technical-profile.md) to a custom policy.
+This article shows you how to enable sign-in for an AD FS user account by using [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C). You enable sign-in by adding a [SAML identity provider](identity-provider-generic-saml.md) to a custom policy.
 
 ## Prerequisites
 
-- Complete the steps in [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md).
-- Make sure that you have access to a certificate .pfx file with a private key. You can generate your own signed certificate and upload it to Azure AD B2C. Azure AD B2C uses this certificate to sign the SAML request sent to your SAML identity provider. For more information about how to generate a certificate, see [Generate a signing certificate](identity-provider-salesforce-saml.md#generate-a-signing-certificate).
-- In order for Azure to accept the .pfx file password, the password must be encrypted with the TripleDES-SHA1 option in Windows Certificate Store Export utility as opposed to AES256-SHA256.
+[!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
+
+## Create a self-signed certificate
+
+[!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 
 ## Create a policy key
 
@@ -48,7 +50,7 @@ You need to store your certificate in your Azure AD B2C tenant.
 4. On the Overview page, select **Identity Experience Framework**.
 5. Select **Policy Keys** and then select **Add**.
 6. For **Options**, choose `Upload`.
-7. Enter a **Name** for the policy key. For example, `ADFSSamlCert`. The prefix `B2C_1A_` is added automatically to the name of your key.
+7. Enter a **Name** for the policy key. For example, `SAMLSigningCert`. The prefix `B2C_1A_` is added automatically to the name of your key.
 8. Browse to and select your certificate .pfx file with the private key.
 9. Click **Create**.
 
@@ -56,7 +58,7 @@ You need to store your certificate in your Azure AD B2C tenant.
 
 If you want users to sign in using an AD FS account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
-You can define an AD FS account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy. For more information, see [define a SAML identity provider technical profile](saml-identity-provider-technical-profile.md).
+You can define an AD FS account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy. For more information, see [define a SAML identity provider](identity-provider-generic-saml.md).
 
 1. Open the *TrustFrameworkExtensions.xml*.
 1. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
@@ -65,10 +67,10 @@ You can define an AD FS account as a claims provider by adding it to the **Claim
     ```xml
     <ClaimsProvider>
       <Domain>contoso.com</Domain>
-      <DisplayName>Contoso AD FS</DisplayName>
+      <DisplayName>Contoso</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="Contoso-SAML2">
-          <DisplayName>Contoso AD FS</DisplayName>
+          <DisplayName>Contoso</DisplayName>
           <Description>Login with your AD FS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
@@ -76,7 +78,7 @@ You can define an AD FS account as a claims provider by adding it to the **Claim
             <Item Key="PartnerEntity">https://your-AD-FS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
           </Metadata>
           <CryptographicKeys>
-            <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlCert"/>
+            <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SAMLSigningCert"/>
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="userPrincipalName" />
@@ -121,54 +123,26 @@ You can define an AD FS account as a claims provider by adding it to the **Claim
 
 1. Save the file.
 
-### Upload the extension file for verification
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-By now, you have configured your policy so that Azure AD B2C knows how to communicate with AD FS account. Try uploading the extension file of your policy just to confirm that it doesn't have any issues so far.
-
-1. On the **Custom Policies** page in your Azure AD B2C tenant, select **Upload Policy**.
-2. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
-3. Click **Upload**.
-
-> [!NOTE]
-> The Visual Studio code B2C extension uses "socialIdpUserId." A social policy is also required for AD FS.
->
-
-## Register the claims provider
-
-At this point, the identity provider has been set up, but it’s not available in any of the sign-up or sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the AD FS identity provider.
-
-1. Open the *TrustFrameworkBase.xml* file from the starter pack.
-2. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
-3. Open the *TrustFrameworkExtensions.xml* and find the **UserJourneys** element. If the element doesn't exist, add one.
-4. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
-5. Rename the ID of the user journey. For example, `SignUpSignInADFS`.
-
-### Display the button
-
-The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up or sign-in screen. If you add a **ClaimsProviderSelection** element for an AD FS account, a new button shows up when a user lands on the page.
-
-1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
-2. Under **ClaimsProviderSelections**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `ContosoExchange`:
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### Link the button to an action
-
-Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with an AD FS account to receive a token.
-
-1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
-2. Add the following **ClaimsExchange** element making sure that you use the same value for the ID that you used for **TargetClaimsExchangeId**:
-
-    ```xml
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
-    ```
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-    Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier. For example, `Contoso-SAML2`.
-
-3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
-
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
 ## Configure an AD FS relying party trust
 
@@ -178,9 +152,16 @@ To use AD FS as an identity provider in Azure AD B2C, you need to create an AD F
 https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
+When using a [custom domain](custom-domain.md), use the following format:
+
+```
+https://your-domain-name/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
+```
+
 Replace the following values:
 
-- **your-tenant** with your tenant name, such as your-tenant.onmicrosoft.com.
+- **your-tenant-name** with your tenant name, such as your-tenant.onmicrosoft.com.
+- **your-domain-name** with your custom domain name, such as login.contoso.com.
 - **your-policy** with your policy name. For example, B2C_1A_signup_signin_adfs.
 - **your-technical-profile** with the name of your SAML identity provider technical profile. For example, Contoso-SAML2.
 
@@ -212,16 +193,18 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 13. In Server Manager, select **Tools**, and then select **AD FS Management**.
 14. Select the relying party trust you created, select **Update from Federation Metadata**, and then click **Update**.
 
-### Update and test the relying party file
+## Test your custom policy
 
-Update the relying party (RP) file that initiates the user journey that you created.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Under **Policies**, select **Identity Experience Framework**
+1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **Contoso AD FS** to sign in with Contoso AD FS identity provider.
 
-1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignInADFS.xml*.
-2. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInADFS`.
-3. Update the value of **PublicPolicyUri** with the URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_adfs`
-4. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the new user journey that you created (SignUpSignInADFS).
-5. Save your changes, upload the file, and then select the new policy in the list.
-6. Make sure that Azure AD B2C application that you created is selected in the **Select application** field, and then test it by clicking **Run now**.
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ## Troubleshooting AD FS service  
 
@@ -239,7 +222,7 @@ This error indicates that the SAML request sent by Azure AD B2C is not signed wi
 
 #### Option 1: Set the signature algorithm in Azure AD B2C  
 
-You can configure how to sign the SAML request in Azure AD B2C. The [XmlSignatureAlgorithm](saml-identity-provider-technical-profile.md#metadata) metadata controls the value of the `SigAlg` parameter (query string or post parameter) in the SAML request. The following example configures Azure AD B2C to use the `rsa-sha256` signature algorithm.
+You can configure how to sign the SAML request in Azure AD B2C. The [XmlSignatureAlgorithm](identity-provider-generic-saml.md) metadata controls the value of the `SigAlg` parameter (query string or post parameter) in the SAML request. The following example configures Azure AD B2C to use the `rsa-sha256` signature algorithm.
 
 ```xml
 <Metadata>

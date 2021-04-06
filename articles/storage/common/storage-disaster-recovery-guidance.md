@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 03/22/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -19,7 +19,7 @@ Microsoft strives to ensure that Azure services are always available. However, u
 
 Azure Storage supports account failover for geo-redundant storage accounts. With account failover, you can initiate the failover process for your storage account if the primary endpoint becomes unavailable. The failover updates the secondary endpoint to become the primary endpoint for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoint.
 
-Account failover is available for general-purpose v1, general-purpose v2, and Blob storage account types with Azure Resource Manager deployments. Account failover is supported for all public regions but is not available in sovereign or national clouds at this time.
+Account failover is available for general-purpose v1, general-purpose v2, and Blob storage account types with Azure Resource Manager deployments. Account failover is supported for all public regions but is not available in sovereign or national clouds at this time. Account failover is not supported for storage accounts with a hierarchical namespace enabled.
 
 This article describes the concepts and process involved with an account failover and discusses how to prepare your storage account for recovery with the least amount of customer impact. To learn how to initiate an account failover in the Azure portal or PowerShell, see [Initiate an account failover](storage-initiate-account-failover.md).
 
@@ -51,7 +51,7 @@ Additionally, keep in mind these best practices for maintaining high availabilit
 
 - **Disks:** Use [Azure Backup](https://azure.microsoft.com/services/backup/) to back up the VM disks used by your Azure virtual machines. Also consider using [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to protect your VMs in the event of a regional disaster.
 - **Block blobs:** Turn on [soft delete](../blobs/soft-delete-blob-overview.md) to protect against object-level deletions and overwrites, or copy block blobs to another storage account in a different region using [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/), or the [Azure Data Movement library](storage-use-data-movement-library.md).
-- **Files:** Use [AzCopy](./storage-use-azcopy-v10.md) or [Azure PowerShell](/powershell/module/az.storage/) to copy your files to another storage account in a different region.
+- **Files:** Use [Azure Backup](../../backup/azure-file-share-backup-overview.md) to back up your file shares. Also enable [soft delete](../files/storage-files-prevent-file-share-deletion.md) to protect against accidental file share deletions. For geo-redundancy when GRS is not available, use [AzCopy](./storage-use-azcopy-v10.md) or [Azure PowerShell](/powershell/module/az.storage/) to copy your files to another storage account in a different region.
 - **Tables:** use [AzCopy](./storage-use-azcopy-v10.md) to export table data to another storage account in a different region.
 
 ## Track outages
@@ -63,6 +63,8 @@ Microsoft also recommends that you design your application to prepare for the po
 ## Understand the account failover process
 
 Customer-managed account failover enables you to fail your entire storage account over to the secondary region if the primary becomes unavailable for any reason. When you force a failover to the secondary region, clients can begin writing data to the secondary endpoint after the failover is complete. The failover typically takes about an hour.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ### How an account failover works
 
@@ -128,7 +130,7 @@ Because the Azure Storage resource provider does not fail over, the [Location](/
 
 ### Azure virtual machines
 
-Azure virtual machines (VMs) do not fail over as part of an account failover. If the primary region becomes unavailable, and you fail over to the secondary region, then you will need to recreate any VMs after the failover. Also, there is a potential data loss associated with the account failover. Microsoft recommends the following [high availability](../../virtual-machines/manage-availability.md) and [disaster recovery](../../virtual-machines/backup-recovery.md) guidance specific to virtual machines in Azure.
+Azure virtual machines (VMs) do not fail over as part of an account failover. If the primary region becomes unavailable, and you fail over to the secondary region, then you will need to recreate any VMs after the failover. Also, there is a potential data loss associated with the account failover. Microsoft recommends the following [high availability](../../virtual-machines/availability.md) and [disaster recovery](../../virtual-machines/backup-recovery.md) guidance specific to virtual machines in Azure.
 
 ### Azure unmanaged disks
 

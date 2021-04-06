@@ -39,7 +39,7 @@ You can run the tool in two modes:
 
 
 ## Run the Quick Planner
-1. Download and open [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). You need to run macros. When you're prompted, make selections to enable editing and content.
+1. Download and open [Site Recovery Capacity Planner](/samples/browse/?redirectedfrom=TechNet-Gallery). You need to run macros. When you're prompted, make selections to enable editing and content.
 
 2. In the **Select a planner type** list box, select **Quick Planner**.
 
@@ -77,7 +77,7 @@ You can run the tool in two modes:
 
 ## Run the Detailed Planner
 
-1. Download and open [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). You need to run macros. When you're prompted, make selections to enable editing and content.
+1. Download and open [Site Recovery Capacity Planner](/samples/browse/?redirectedfrom=TechNet-Gallery). You need to run macros. When you're prompted, make selections to enable editing and content.
 
 2. In **Select a planner type**, select **Detailed Planner** from the list box.
 

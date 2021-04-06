@@ -8,7 +8,7 @@ ms.custom: github-actions-azure, devx-track-azurecli
 
 # Deploy ARM templates by using GitHub Actions
 
-[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
+[GitHub Actions](https://docs.github.com/en/actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
 
 Use the [Deploy Azure Resource Manager Template Action](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying an Azure Resource Manager template (ARM template) to Azure.
 
@@ -16,7 +16,7 @@ Use the [Deploy Azure Resource Manager Template Action](https://github.com/marke
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).
-    - A GitHub repository to store your Resource Manager templates and your workflow files. To create one, see [Creating a new repository](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
+    - A GitHub repository to store your Resource Manager templates and your workflow files. To create one, see [Creating a new repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 
 
 ## Workflow file overview
@@ -33,12 +33,12 @@ The file has two sections:
 ## Generate deployment credentials
 
 
-You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 Create a resource group if you do not already have one.
 
 ```azurecli-interactive
-    az group create -n {MyResourceGroup}
+    az group create -n {MyResourceGroup} -l {location}
 ```
 
 Replace the placeholder `myApp` with the name of your application.

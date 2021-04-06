@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/27/2021
 ms.author: alexeyo
 ---
 
@@ -22,16 +22,19 @@ Jump to [Text-to-Speech Quotas and limits](#text-to-speech-quotas-and-limits-per
 In the tables below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
 
 #### Online Transcription
+For the usage with [Speech SDK](speech-sdk.md) and/or [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio).
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Concurrent Request limit (Base and Custom models)** | 1 | 20 (default value) |
+| **Concurrent Request limit - Base model** | 1 | 100 (default value) |
+| Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
+| **Concurrent Request limit - Custom model** | 1 | 20 (default value) |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 
 #### Batch Transcription
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| REST API limit | Batch transcription is not available for F0 | 300 requests per minute |
+| [Speech-to-text REST API V2.0 and v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) limit | Batch transcription is not available for F0 | 300 requests per minute |
 | Max audio input file size | N/A | 1 GB |
 | Max input blob size (may contain more than one file, for example, in a zip archive; ensure to note the file size limit above) | N/A | 2.5 GB |
 | Max blob container size | N/A | 5 GB |
@@ -55,19 +58,19 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 ### Text-to-Speech Quotas and limits per Speech resource
 In the table below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
 
-| Quota | Free (F0)<sup>3</sup> | Standard (S0) |
-|--|--|--|
-| **Max number of Transactions per Second (TPS) for Standard and Neural voices** | 200<sup>4</sup> | 200<sup>4</sup> |  |
-| **Concurrent Request limit for Custom voice** |  |  |
-| Default value | 10 | 10 |
-| Adjustable | No<sup>5</sup> | Yes<sup>5</sup> |
-| **HTTP-specific quotas** |  |
-| Max Audio length produced per request | 10 min | 10 min |
-| Max number of distinct `<voice>` tags in SSML | 50 | 50 |
-| **Websocket specific quotas** |  |  |
-|Max Audio length produced per turn | 10 min | 10 min |
-|Max SSML Message size per turn |64 KB |64 KB |
-| **REST API limit** | 20 requests per minute | 25 requests per 5 seconds |
+| Quota                                                                          | Free (F0)<sup>3</sup>  | Standard (S0)   |
+|--------------------------------------------------------------------------------|------------------------|-----------------|
+| **Max number of Transactions per Second (TPS) for Standard and Neural voices** | 200<sup>4</sup>        | 200<sup>4</sup> |
+| **Concurrent Request limit for Custom voice**                                  |                        |                 |
+| Default value                                                                  | 10                     | 10              |
+| Adjustable                                                                     | No<sup>5</sup>         | Yes<sup>5</sup> |
+| **HTTP-specific quotas**                                                       |                        |                 |
+| Max Audio length produced per request                                          | 10 min                 | 10 min          |
+| Max number of distinct `<voice>` tags in SSML                                  | 50                     | 50              |
+| **Websocket specific quotas**                                                  |                        |                 |
+| Max Audio length produced per turn                                             | 10 min                 | 10 min          |
+| Max SSML Message size per turn                                                 | 64 KB                  | 64 KB           |
+| **REST API limit**                                                             | 20 requests per minute | 300 requests per minute |
 
 
 <sup>3</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
@@ -99,7 +102,7 @@ Concurrent Request limits for **Base** and **Custom** models need to be adjusted
 Existing value of Concurrent Request limit parameter is **not** visible via Azure portal, Command-Line tools, or API requests. To verify the existing value, create an Azure Support Request.
 
 >[!NOTE]
->[Speech containers](speech-container-howto.md) do not require increases of Concurrent Request limit, as containers are constrained only by the CPUs of the hardware they are hosted on. However Speech containers have their own capacity limitations that should be taken into account. See the question *"Could you help with capacity planning and cost estimation of on-prem Speech-to-text containers?"* from the [Speech containers FAQ](speech-container-faq.md).
+>[Speech containers](speech-container-howto.md) do not require increases of Concurrent Request limit, as containers are constrained only by the CPUs of the hardware they are hosted on. However Speech containers have their own capacity limitations that should be taken into account. See the question *"Could you help with capacity planning and cost estimation of on-prem Speech-to-text containers?"* from the [Speech containers FAQ](./speech-container-howto.md).
 
 #### Have the required information ready:
 - For **Base model**:
@@ -200,4 +203,3 @@ Initiate the increase of Concurrent Request limit for your resource or if necess
   - Azure resource information you [collected before](#prepare-the-required-information) 
   - Complete entering the required information and click *Create* button in *Review + create* tab
   - Note the support request number in Azure portal notifications. You will be contacted shortly for further processing
-

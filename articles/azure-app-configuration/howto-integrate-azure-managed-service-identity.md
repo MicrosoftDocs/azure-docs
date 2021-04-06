@@ -5,7 +5,7 @@ description: Authenticate to Azure App Configuration using managed identities
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 2/25/2020
 ---
@@ -133,6 +133,15 @@ To set up a managed identity in the portal, you first create an application and 
     ```
     ---
 
+    > [!NOTE]
+    > In the case you want to use a **user-assigned managed identity**, be sure to specify the clientId when creating the [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).
+    >```
+    >config.AddAzureAppConfiguration(options =>
+    >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
+    >```
+    >As explained in the [Managed Identities for Azure resources FAQs](../active-directory/managed-identities-azure-resources/known-issues.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request), there is a default way to resolve which managed identity is used. In this case, the Azure Identity library enforces you to specify the desired identity to avoid posible runtime issues in the future (for instance, if a new user-assigned managed identity is added or if the system-assigned managed identity is enabled). So, you will need to specify the clientId even if only one user-assigned managed identity is defined, and there is no system-assigned managed identity.
+
+
 1. To use both App Configuration values and Key Vault references, update *Program.cs* as shown below. This code calls `SetCredential` as part of `ConfigureKeyVault` to tell the config provider what credential to use when authenticating to Key Vault.
 
     ### [.NET Core 2.x](#tab/core2x)
@@ -187,6 +196,8 @@ To set up a managed identity in the portal, you first create an application and 
 
     > [!NOTE]
     > The `ManagedIdentityCredential` works only in Azure environments of services that support managed identity authentication. It doesn't work in the local environment. Use [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) for the code to work in both local and Azure environments as it will fall back to a few authentication options including managed identity.
+    > 
+    > In case you want to use a **user-asigned managed identity** with the `DefaultAzureCredential` when deployed to Azure, [specify the clientId](/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 

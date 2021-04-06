@@ -1,12 +1,8 @@
 ---
 title: Set up your network
 description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Azure Defender for IoT appliances.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 01/03/2021
+ms.date: 02/18/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # About Azure Defender for IoT network setup
@@ -17,7 +13,7 @@ Azure Defender for IoT delivers continuous ICS threat monitoring and device disc
 
 **Defender for IoT on-premises management console**: The on-premises management console provides a consolidated view of all network devices. It delivers a real-time view of key OT and IoT risk indicators and alerts across all your facilities. Tightly integrated with your SOC workflows and playbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats. 
 
-**Defender for IoT for IoT portal:** The Defender for IoT application can help you purchase solution appliances, install and update software, and update TI packages. 
+**Defender for IoT portal:** The Defender for IoT application can help you purchase solution appliances, install and update software, and update TI packages. 
 
 This article provides information about solution architecture, network preparation, prerequisites, and more to help you successfully set up your network to work with Defender for IoT appliances. Readers working with the information in this article should be experienced in operating and managing OT and IoT networks. Examples include automation engineers, plant managers, OT network infrastructure service providers, cybersecurity teams, CISOs, or CIOs.
 
@@ -89,35 +85,36 @@ The following browsers are supported for the sensors and on-premises management 
 
 Verify that your organizational security policy allows access to the following:
 
-| **Purpose** | **Protocol** | **Transport** | **In or out** | **Port** | **Category** |
-| ----------- | ----------- | ------------ | ---------- | -------- | ------------ |
-| **Access to the web console** | HTTPS | TCP | In or out | 443 | On-premises management console for the Defender for IoT platform |
-| **Access to the CLI** | SSH | TCP | In or out | 22 | CLI |
-| **Connection between the Defender for IoT platform and the on-premises management console** | SSL | TCP | In or out | 443 | Sensor and on-premises management console|
-| **On-premises management console used as NTP to the sensor** | NTP | UDP| In to CM | 123 | Time sync | 
-| **Sensor connected to external NTP server (if relevant)** | NTP | UDP | In or out| 123 | Time sync |
-| **Connection between the Defender for IoT platform and management platform and the mail server (if relevant)** | SMTP | TCP | Out of sensor management | 25 | Email |
-| **Logs that send from the on-premises management console to the Syslog server (if relevant)** | Syslog | UDP | Out of sensor management| 514 | LEEF |
-| **DNS server port (if relevant)** | DNS | N/A | In or out| 53 | DNS |
-| **Connection between the Defender for IoT platform and on-premises management console to Active Directory (if relevant)** | LDAPS | TCP | In or out | 636 <br />389 | Active Directory |
-| **Remote SNMP collectors (if relevant)** | SNMP | UDP | Out of sensor management| 161 | Monitoring |
-| **Windows endpoint monitoring (if relevant)** | WMI | UDP | Out of sensor management| 135 | Monitoring |
-| **Windows endpoint monitoring (if relevant)** | WMI | TCP | Out of sensor management| 1024 and above | Monitoring |
-| **Tunneling (if relevant)** | Tunneling | TCP | IN to CM | 9000<br />in addition to port 443<br />From the end user to the on-premises management console <br />Port 22 from the sensor to the on-premises management console | Monitoring |
-| **Outbound to the Defender for IoT hub** | HTTPS | TCP | Out of sensor management| **URL**<br />*.azure-devices.net:443<br />or if wildcards are not supported<br />{your IoT hub name}.azure-devices.net:443 |
+| Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
+|--|--|--|--|--|--|--|--|
+| HTTPS | TCP | IN/OUT | 443 | Sensor and On-Premises Management Console Web Console | Access to Web console | Client | Sensor and on-premises management console |
+| SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console |
+| SSL | TCP | IN/OUT | 443 | Sensor and on-premises management console | Connection Between CyberX platform and the Central Management platform | sensor | On-premises management console |
+| NTP | UDP | IN | 123 | Time Sync | On-premises management console use as NTP to sensor | sensor | on-premises management console |
+| NTP | UDP | IN/OUT | 123 | Time Sync | Sensor connected to external NTP server, when there is no on-premises management console installed | sensor | NTP |
+| SMTP | TCP | OUT | 25 | Email | The connection between CyberX platform and the Management platform and the mail server | Sensor and On-premises management console | Email server |
+| Syslog | UDP | OUT | 514 | LEEF | Logs that send from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
+| DNS |  | IN/OUT | 53 | DNS | DNS Server Port | On-premises management console and Sensor | DNS server |
+| LDAP | TCP | IN/OUT | 389 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAP server |
+| LDAPS | TCP | IN/OUT | 636 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAPS server |
+| SNMP | UDP | OUT | 161 | Monitoring | Remote SNMP collectors. | On-premises management console and Sensor | SNMP server |
+| WMI | UDP | OUT | 135 | monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
+| Tunneling | TCP | IN | 9000 <br /><br />- on top of port 443 <br /><br />From end user to the on-premises management console. <br /><br />- Port 22 from sensor to the on-premises management console  | monitoring | Tunneling | Sensor | On-premises management console |
 
 ### Planning rack installation
 
 To plan your rack installation:
 
 1. Prepare a monitor and a keyboard for your appliance network settings.
-2. Allocate the rack space for the appliance.
-3. Have AC power available for the appliance.
-4. Prepare the LAN cable for connecting the management to the network switch.
-5. Prepare the LAN cables for connecting switch SPAN (mirror) ports and or network taps to the Defender for IoT appliance. 
-6. Configure, connect, and validate SPAN ports in the mirrored switches as described in the architecture review session.
-7. Connect the configured SPAN port to a computer running Wireshark and verify that the port is configured correctly.
-8. Open all the relevant firewall ports.
+
+1. Allocate the rack space for the appliance.
+
+1. Have AC power available for the appliance.
+1. Prepare the LAN cable for connecting the management to the network switch.
+1. Prepare the LAN cables for connecting switch SPAN (mirror) ports and or network taps to the Defender for IoT appliance. 
+1. Configure, connect, and validate SPAN ports in the mirrored switches as described in the architecture review session.
+1. Connect the configured SPAN port to a computer running Wireshark and verify that the port is configured correctly.
+1. Open all the relevant firewall ports.
 
 ## About passive network monitoring
 
@@ -136,6 +133,7 @@ The following sections describe Purdue levels.
 Level 0 consists of a wide variety of sensors, actuators, and devices involved in the basic manufacturing process. These devices perform the basic functions of the industrial automation and control system, such as:
 
 - Driving a motor.
+
 - Measuring variables.
 - Setting an output.
 - Performing key functions, such as painting, welding, and bending.
@@ -218,11 +216,11 @@ In a star network, every host is connected to a central hub. In its simplest for
 
 Here are some recommendations for deploying multiple sensors:
 
-| **Number **| **Meters** | **Dependency** | **Number of sensors** |
+| **Number** | **Meters** | **Dependency** | **Number of sensors** |
 |--|--|--|--|
 | The maximum distance between switches | 80 meters | Prepared Ethernet cable | More than 1 |
 | Number of OT networks | More than 1 | No physical connectivity | More than 1 |
-| Number of switches | Can use RSPAN configuration | Up to 8 switches with local span close to the sensor by cabling distance | More than 1 |
+| Number of switches | Can use RSPAN configuration | Up to eight switches with local span close to the sensor by cabling distance | More than 1 |
 
 #### Traffic mirroring  
 
@@ -348,9 +346,9 @@ An active or passive aggregation TAP is installed inline to the network cable. I
 
 The terminal access point (TAP) is a hardware device that allows network traffic to flow from port A to port B, and from port B to port A, without interruption. It creates an exact copy of both sides of the traffic flow, continuously, without compromising network integrity. Some TAPs aggregate transmit and receive traffic by using switch settings if desired. If aggregation is not supported, each TAP uses two sensor ports to monitor send and receive traffic.
 
-TAPs are advantageous for a variety of reasons. They're hardware-based and can't be compromised. They pass all traffic, even damaged messages, which switches often drop. They're not processor sensitive, so packet timing is exact where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets. For forensic purposes, a TAP is the best device.
+TAPs are advantageous for various reasons. They're hardware-based and can't be compromised. They pass all traffic, even damaged messages, which switches often drop. They're not processor sensitive, so packet timing is exact where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets. For forensic purposes, a TAP is the best device.
 
-TAP aggregators can also be used for port monitoring. These devices are processor based and are not as intrinsically secure as hardware TAPs. They might not reflect exact packet timing.
+TAP aggregators can also be used for port monitoring. These devices are processor-based and are not as intrinsically secure as hardware TAPs. They might not reflect exact packet timing.
 
 :::image type="content" source="media/how-to-set-up-your-network/active-passive-tap-v2.PNG" alt-text="Diagram of active and passive TAPs.":::
 
@@ -359,10 +357,10 @@ TAP aggregators can also be used for port monitoring. These devices are processo
 These models have been tested for compatibility. Other vendors and models might also be compatible.
 
 | Image | Model |
-| -- | -- |
-| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Screenshot of Garland P1GCCAS.":::  | Garland P1GCCAS  |
-| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot of IXIA TPA2-CU3.":::  | IXIA TPA2-CU3  |
-| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot of US Robotics USR 4503.":::  | US Robotics USR 4503  |
+|--|--|
+| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Screenshot of Garland P1GCCAS."::: | Garland P1GCCAS |
+| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot of IXIA TPA2-CU3."::: | IXIA TPA2-CU3 |
+| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot of US Robotics USR 4503."::: | US Robotics USR 4503 |
 
 ##### Special TAP configuration
 
@@ -420,7 +418,7 @@ Relevant information:
 
 - If the Defender for IoT appliance should be connected to that switch, is there physical available rack space in that cabinet?
 
-#### Additional considerations
+#### Other considerations
 
 The purpose of the Defender for IoT appliance is to monitor traffic from layers 1 and 2.
 
@@ -527,24 +525,23 @@ Review this list before site deployment:
 
 | **#** | **Task or activity** | **Status** | **Comments** |
 |--|--|--|--|
-| 1 | Provide global. | ☐ |  |
-| 3 | Order appliances. | ☐ |  |
-| 4 | Prepare a list of subnets in the network. | ☐ |  |
-| 5 | Provide a VLAN list of the production networks. | ☐ |  |
-| 6 | Provide a list of switch models in the network. | ☐ |  |
-| 7 | Provide a list of vendors and protocols of the industrial equipment. | ☐ |  |
-| 8 | Provide network details for sensors (IP address, subnet, D-GW, DNS). | ☐ |  |
-| 9 | Create necessary firewall rules and the access list. | ☐ |  |
-| 10 | Create spanning ports on switches for port monitoring, or configure network taps as desired. | ☐ |  |
-| 11 | Prepare rack space for sensor appliances. | ☐ |  |
-| 12 | Prepare a workstation for personnel. | ☐ |  |
-| 13 | Provide a keyboard, monitor, and mouse for the Defender for IoT rack devices. | ☐ |  |
-| 14 | Rack and cable the appliances. | ☐ |  |
-| 15 | Allocate site resources to support deployment. | ☐ |  |
-| 16 | Create Active Directory groups or local users. | ☐ |  |
-| 17 | Set up training (self-learning). | ☐ |  |
-| 18 | Go or no-go. | ☐ |  |
-| 19 | Schedule the deployment date. | ☐ |  |
+| 1 | Order appliances. | ☐ |  |
+| 2 | Prepare a list of subnets in the network. | ☐ |  |
+| 3 | Provide a VLAN list of the production networks. | ☐ |  |
+| 4 | Provide a list of switch models in the network. | ☐ |  |
+| 5 | Provide a list of vendors and protocols of the industrial equipment. | ☐ |  |
+| 6 | Provide network details for sensors (IP address, subnet, D-GW, DNS). | ☐ |  |
+| 7 | Create necessary firewall rules and the access list. | ☐ |  |
+| 8 | Create spanning ports on switches for port monitoring, or configure network taps as desired. | ☐ |  |
+| 9 | Prepare rack space for sensor appliances. | ☐ |  |
+| 10 | Prepare a workstation for personnel. | ☐ |  |
+| 11 | Provide a keyboard, monitor, and mouse for the Defender for IoT rack devices. | ☐ |  |
+| 12 | Rack and cable the appliances. | ☐ |  |
+| 13 | Allocate site resources to support deployment. | ☐ |  |
+| 14 | Create Active Directory groups or local users. | ☐ |  |
+| 15 | Set-up training (self-learning). | ☐ |  |
+| 16 | Go or no-go. | ☐ |  |
+| 17 | Schedule the deployment date. | ☐ |  |
 
 
 | **Date** | **Note** | **Deployment date** | **Note** |
@@ -666,7 +663,7 @@ Provide address details for the sensor NIC that will be connected in the corpora
 | Secret key | |
 | SNMP v2 community string |
 
-### CM SSL certificate
+### On-premises management console SSL certificate
 
 Are you planning to use an SSL certificate? Yes or No
 

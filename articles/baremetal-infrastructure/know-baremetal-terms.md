@@ -18,4 +18,4 @@ In this article, we'll cover some important BareMetal terms.
 - **Tenant**: A customer deployed in BareMetal Instance stamp gets isolated into a *tenant.* A tenant is isolated in the networking, storage, and compute layer from other tenants. Storage and compute units assigned to the different tenants can't see each other or communicate with each other on the BareMetal Instance stamp level. A customer can choose to have deployments into different tenants. Even then, there's no communication between tenants on the BareMetal Instance stamp level.
 
 ## Next steps
-Learn more about the [BareMetal Infrastructure](workloads/sap/baremetal-overview-architecture.md) or how to [identify and interact with BareMetal Instance units](workloads/sap/baremetal-infrastructure-portal.md). 
+Learn more about the [BareMetal Infrastructure](concepts-baremetal-infrastructure-overview.md) or how to [identify and interact with BareMetal Instance units](connect-baremetal-infrastructure.md). 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
@@ -75,9 +75,9 @@ The following table shows the power supply unit specifications:
 
 ## Included battery
 
-The Azure Stack Edge Mini R device also includes an onboard battery that is charged by the power supply. 
+The Azure Stack Edge Mini R device also includes an onboard battery that is charged by the power supply.
 
-An additional type 2590 battery can be used in conjunction with the onboard battery to extend the use of the device between the charges. This battery should be compliant with all the safety, transportation, and environmental regulations applicable in the country of use.
+An additional [Type 2590 battery](https://www.bren-tronics.com/bt-70791ck.html) can be used in conjunction with the onboard battery to extend the use of the device between the charges. This battery should be compliant with all the safety, transportation, and environmental regulations applicable in the country of use.
 
 
 | Specification           | Value                      |

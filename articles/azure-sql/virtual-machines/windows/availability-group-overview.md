@@ -36,12 +36,12 @@ The following diagram illustrates an availability group for SQL Server on Azure 
 
 ## VM redundancy 
 
-To increase redundancy and high availability, SQL Server VMs should either be in the same [availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview), or different [availability zones](../../../availability-zones/az-overview.md).
+To increase redundancy and high availability, SQL Server VMs should either be in the same [availability set](../../../virtual-machines/availability-set-overview.md), or different [availability zones](../../../availability-zones/az-overview.md).
 
 Placing a set of VMs in the same availability set protects from outages within a datacenter caused by equipment failure (VMs within an Availability Set do not share resources) or from updates (VMs within an Availability Set are not updated at the same time). 
 Availability Zones protect against the failure of an entire datacenter, with each Zone representing a set of datacenters within a region.  By ensuring resources are placed in different Availability Zones, no datacenter-level outage can take all of your VMs offline.
 
-When creating Azure VMs, you must choose between configuring Availability Sets vs Availability Zones.  An Azure Vm cannnot participate in both.
+When creating Azure VMs, you must choose between configuring Availability Sets vs Availability Zones.  An Azure Vm cannot participate in both.
 
 
 ## Connectivity 
@@ -50,6 +50,7 @@ In a traditional on-premises deployment, clients connect to the availability gro
 
 With SQL Server on Azure VMs, configure a [load balancer](availability-group-vnn-azure-load-balancer-configure.md) to route traffic to your availability group listener, or, if you're on SQL Server 2019 CU8 and later, you can configure a [distributed network name (DNN) listener](availability-group-distributed-network-name-dnn-listener-configure.md) to replace the traditional VNN availability group listener. 
 
+For more details about cluster connectivity options, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#connectivity). 
 
 ### VNN listener 
 

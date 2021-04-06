@@ -162,7 +162,7 @@ You don't need to explicitly allow internet connectivity to back up your Azure V
 1. The MARS agent uses VSS to take a point-in-time snapshot of the volumes selected for backup.
     - The MARS agent uses only the Windows system write operation to capture the snapshot.
     - Because the agent doesn't use any application VSS writers, it doesn't capture app-consistent snapshots.
-1. After taking the snapshot with VSS, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified when you configured the backup. The agent also stores checksums for each data block.
+1. After taking the snapshot with VSS, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified when you configured the backup. The agent also stores checksums for each data block. These are later used to detect changed blocks for subsequent incremental backups.
 1. Incremental backups run according to the schedule you specify, unless you run an on-demand backup.
 1. In incremental backups, changed files are identified and a new VHD is created. The VHD is compressed and encrypted, and then it's sent to the vault.
 1. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication. This merged VHD provides the latest state to be used for comparison for ongoing backup.

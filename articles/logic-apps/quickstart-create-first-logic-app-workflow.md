@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
 
+# Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in the Azure portal
 ---
 
 # Quickstart: Create your first Logic Apps workflow - Azure portal
@@ -26,13 +27,16 @@ If you'd like to learn how to create and manage your first logic app through oth
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have one, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have one, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 * An email account from a service that's supported by Logic Apps (such as Office 365 Outlook or Outlook.com). For other supported email providers, [review the list of connectors](/connectors/).
 
     > [!IMPORTANT]
     > If you're using the [Gmail connector](/connectors/gmail/), note that only G Suite accounts can use this connector without restriction in Logic Apps. 
     > If you have a consumer Gmail account, you can only use this connector with specific Google-approved services, unless you [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
     > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* If your logic app needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app exists. If your logic app also uses [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in your logic app's Azure region.
 
 <a name="create-logic-app"></a>
 
@@ -49,7 +53,7 @@ If you'd like to learn how to create and manage your first logic app through oth
    ![Screenshot of Logic Apps service page in Azure portal, showing logic apps list and selected button, "Add".](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
 1. On the **Logic App** pane, provide basic details and settings for your logic app. Create a new [resource group](../azure-resource-manager/management/overview.md#terminology) for the purposes of this example logic app.
-    
+
    | Property | Value | Description |
    |----------|-------|-------------|
    | **Name** | <*logic-app-name*> | Your logic app's name, which must be unique across regions. The name can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "My-First-Logic-App". |

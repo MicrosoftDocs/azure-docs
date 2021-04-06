@@ -31,7 +31,7 @@ The following example creates a gallery named *myGallery* in the *myGalleryRG* r
 
 ## Create an image definition 
 
-Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](../articles/virtual-machines/windows/shared-image-galleries.md#image-definitions).
+Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](../articles/virtual-machines/shared-image-galleries.md#image-definitions).
 
 Create the gallery image definition inside of your gallery. In this example, the gallery image is named *myImageDefinition*.
 
@@ -40,7 +40,7 @@ Create the gallery image definition inside of your gallery. In this example, the
 1. For **Image definition name**, type *myImageDefinition*.
 1. For **Operating system**, select the correct option based on your source VM.  
 1. For **VM generation**, select the option based on your source VM. In most cases, this will be *Gen 1*. For more information, see [Support for generation 2 VMs](../articles/virtual-machines/generation-2.md).
-1. For **Operating system state**, select the option based on your source VM. For more information, see [Generalized and specialized](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
+1. For **Operating system state**, select the option based on your source VM. For more information, see [Generalized and specialized](../articles/virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
 1. For **Publisher**, type *myPublisher*. 
 1. For **Offer**, type *myOffer*.
 1. For **SKU**, type *mySKU*.
@@ -89,10 +89,7 @@ It can take a while to replicate the image to all of the target regions.
 
 We recommend that you share access at the image gallery level. The following walks you through sharing the gallery that you just created.
 
-1. Open the [Azure portal](https://portal.azure.com).
-1. In the menu at the left, select **Resource groups**. 
-1. In the list of resource groups, select **myGalleryRG**. The blade for your resource group will open.
-1. In the menu on the left of the **myGalleryRG** page, select **Access control (IAM)**. 
+1. On the page for your new image gallery, in the menu on the left, select **Access control (IAM)**. 
 1. Under **Add a role assignment**, select **Add**. The **Add a role assignment** pane will open. 
 1. Under **Role**, select **Reader**.
 1. Under **assign access to**, leave the default of **Azure AD user, group, or service principal**.

@@ -9,7 +9,8 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 03/04/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -26,7 +27,7 @@ The sign-in policy lets users:
 * Users can sign in with an Azure AD B2C Local Account
 * Sign-up or sign-in with a social account
 * Password reset
-* Users cannot sign up for an Azure AD B2C Local Account - To create an account, an Administrator can use [MS Graph API](manage-user-accounts-graph-api.md).
+* Users cannot sign up for an Azure AD B2C Local Account. To create an account, an administrator can use [Azure portal](manage-users-portal.md#create-a-consumer-user), or [MS Graph API](microsoft-graph-operations.md).
 
 ![Profile editing flow](./media/add-sign-in-policy/sign-in-user-flow.png)
 
@@ -71,26 +72,34 @@ The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asser
 1. Add the following claims provider to the `ClaimsProviders` element:
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Local Account</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
-          <Metadata>
-            <Item Key="setting.showSignupLink">false</Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
+    <!--
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Local Account</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+            <Metadata>
+              <Item Key="setting.showSignupLink">false</Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    <!--
+    </ClaimsProviders> -->
     ```
 
 1. Within `<BuildingBlocks>` element, add the following [ContentDefinition](contentdefinitions.md) to reference the version 1.2.0, or newer data URI:
 
     ```XML
-    <ContentDefinitions>
-     <ContentDefinition Id="api.localaccountsignup">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
+    <!-- 
+    <BuildingBlocks> 
+      <ContentDefinitions>-->
+        <ContentDefinition Id="api.localaccountsignup">
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+        </ContentDefinition>
+      <!--
+      </ContentDefinitions>
+    </BuildingBlocks> -->
     ```
 
 ## Update and test your policy
@@ -99,7 +108,7 @@ The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asser
 1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
-1. Select **Upload Custom Policy**, and then upload the two policy files that you changed.
+1. Select **Upload Custom Policy**, and then upload the policy file that you changed, *TrustFrameworkExtensions.xml*.
 1. Select the sign-in policy that you uploaded, and click the **Run now** button.
 1. You should be able to sign in with the account that you created (using MS Graph API), without the sign-up link.
 

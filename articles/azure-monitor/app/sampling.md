@@ -473,7 +473,7 @@ If the conditions to use the other forms of sampling do not apply, we recommend 
 
 ## Knowing whether sampling is in operation
 
-To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](../log-query/log-query-overview.md) such as this:
+To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](../logs/log-query-overview.md) such as this:
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces

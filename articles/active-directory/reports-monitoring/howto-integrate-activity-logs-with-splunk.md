@@ -14,9 +14,9 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/10/2020
+ms.date: 03/10/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
@@ -31,7 +31,7 @@ To use this feature, you need:
 
 - An Azure event hub that contains Azure AD activity logs. Learn how to [stream your activity logs to an event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md). 
 
--  The [Microsoft Azure Add on for Splunk](https://splunkbase.splunk.com/app/3757/). 
+-  The [Splunk Add-on for Microsoft Cloud Services](https://splunkbase.splunk.com/app/3110/#/details). 
 
 ## Integrate Azure Active Directory logs 
 

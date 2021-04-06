@@ -8,8 +8,7 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -42,7 +41,7 @@ The following sections describe basic setup considerations for deploying SAP HAN
 As documented in the [Azure virtual machines planning guide](./planning-guide.md), there are two basic methods for connecting into Azure VMs:
 
 - Connect through the internet and public endpoints on a Jump VM or on the VM that is running SAP HANA.
-- Connect through a [VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) or Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- Connect through a [VPN](../../../vpn-gateway/tutorial-site-to-site-portal.md) or Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 Site-to-site connectivity via VPN or ExpressRoute is necessary for production scenarios. This type of connection is also needed for non-production scenarios that feed into production scenarios where SAP software is being used. The following image shows an example of cross-site connectivity:
 

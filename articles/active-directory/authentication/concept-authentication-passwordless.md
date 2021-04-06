@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory passwordless sign-in (preview)
+title: Azure Active Directory passwordless sign-in
 description: Learn about options for passwordless sign-in to Azure Active Directory using FIDO2 security keys or the Microsoft Authenticator app
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/22/2021
 
 ms.author: justinha
 author: justinha
@@ -59,8 +59,6 @@ You can also allow your employee's phone to become a passwordless authentication
 
 The Authenticator App turns any iOS or Android phone into a strong, passwordless credential. Users can sign in to any platform or browser by getting a notification to their phone, matching a number displayed on the screen to the one on their phone, and then using their biometric (touch or face) or PIN to confirm. Refer to [Download and install the Microsoft Authenticator app](../user-help/user-help-auth-app-download-install.md) for installation details.
 
-Passwordless sign-in with the Microsoft Authenticator app to Azure AD is currently in preview. Use of the Microsoft Authenticator app for secondary authentication for Azure AD Multi-Factor Authentication, self-service password reset (SSPR), or OATH software tokens is GA. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Passwordless authentication using the Authenticator app follows the same basic pattern as Windows Hello for Business. It's a little more complicated as the user needs to be identified so that Azure AD can find the Microsoft Authenticator App version being used:
 
 ![Diagram that outlines the steps involved for user sign-in with the Microsoft Authenticator App](./media/concept-authentication-passwordless/authenticator-app-flow.png)
@@ -89,7 +87,7 @@ Users can register and then select a FIDO2 security key at the sign-in interface
 
 FIDO2 security keys can be used to sign in to their Azure AD or hybrid Azure AD joined Windows 10 devices and get single-sign on to their cloud and on-premises resources. Users can also sign in to supported browsers. FIDO2 security keys are a great option for enterprises who are very security sensitive or have scenarios or employees who aren't willing or able to use their phone as a second factor.
 
-Sign-in with FIDO2 security keys to Azure AD are currently in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+We have a reference document for which [browsers support FIDO2 authentication with Azure AD](fido2-compatibility.md), as well as best practices for developers wanting to [support FIDO2 auth in the applications they develop](../develop/support-fido2-authentication.md).
 
 ![Sign in to Microsoft Edge with a security key](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -124,7 +122,7 @@ The following providers offer FIDO2 security keys of different form factors that
 
 | Provider | Contact |
 | --- | --- |
-| Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
+| Yubico | [https://www.yubico.com/solutions/passwordless/](https://www.yubico.com/solutions/passwordless/) |
 | Feitian | [https://ftsafe.us/pages/microsoft](https://ftsafe.us/pages/microsoft) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
@@ -149,15 +147,15 @@ To get started with FIDO2 security keys, complete the following how-to:
 > [!div class="nextstepaction"]
 > [Enable passwordless sign using FIDO2 security keys](howto-authentication-passwordless-security-key.md)
 
-## What scenarios work with the preview?
+## Supported scenarios
 
-Azure AD passwordless sign-in features are currently in preview. The following considerations apply:
+The following considerations apply:
 
 - Administrators can enable passwordless authentication methods for their tenant
 - Administrators can target all users or select users/groups within their tenant for each method
 - End users can register and manage these passwordless authentication methods in their account portal
-- End users can sign in with these passwordless authentication methods
-   - Microsoft Authenticator App: Works in scenarios where Azure AD authentication is used, including across all browsers, during Windows 10 Out Of Box (OOBE) setup, and with integrated mobile apps on any operating system.
+- End users can sign in with these passwordless authentication methods:
+   - Microsoft Authenticator App: Works in scenarios where Azure AD authentication is used, including across all browsers, during Windows 10 setup, and with integrated mobile apps on any operating system.
    - Security keys: Work on lock screen for Windows 10 and the web in supported browsers like Microsoft Edge (both legacy and new Edge).
 
 ## Choose a passwordless method

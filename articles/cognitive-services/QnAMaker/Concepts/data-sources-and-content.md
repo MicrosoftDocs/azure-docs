@@ -95,4 +95,4 @@ Learn more about the [format guidelines](../reference-document-format-guidelines
 
 ## Next steps
 
-Understand what information is stored in a [question and answer (QnA) pair](question-answer-set.md).
+Learn how to [edit QnAs](../how-to/edit-knowledge-base.md).

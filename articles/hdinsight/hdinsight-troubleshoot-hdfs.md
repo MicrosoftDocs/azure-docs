@@ -1,9 +1,6 @@
 ---
 title: Troubleshoot HDFS in Azure HDInsight
 description: Get answers to common questions about working with HDFS and Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020 
@@ -114,7 +111,7 @@ You can also increase the value of `fs.azure.write.request.size` globally by usi
 3. In the **Filter...** field, enter `fs.azure.write.request.size`.
 4. Change the value from 262144 (256 KB) to the new value. For example, 4194304 (4 MB).
 
-    ![Image of changing the value through Ambari Web UI](./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png)
+    :::image type="content" source="./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png" alt-text="Image of changing the value through Ambari Web UI" border="false":::
 
 For more information on using Ambari, see [Manage HDInsight clusters using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 

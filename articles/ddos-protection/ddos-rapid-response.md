@@ -25,7 +25,7 @@ During an active access, Azure DDoS Protection Standard customers have access to
 
 You should only engage DRR if: 
 
-- During a DDoS attack if you find that the performance of the protected resource is severely degraded, or the resource is not available. Review step 2 above on configuring monitors to detect resource availability and performance issues.
+- During a DDoS attack if you find that the performance of the protected resource is severely degraded, or the resource is not available. 
 - You think your resource is under DDoS attack, but DDoS Protection service is not mitigating the attack effectively.
 - You're planning a viral event that will significantly increase your network traffic.
 - For attacks that have a critical business impact.

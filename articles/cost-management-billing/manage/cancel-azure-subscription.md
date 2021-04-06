@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 03/31/2021
 ms.author: banders
 ---
 
@@ -72,9 +72,13 @@ If you have a free trial subscription, you don't have to wait 30 days for the su
 1. Select the subscription that you want to delete.
 1. Select **Overview**, and then select **Delete subscription**.
 
+## Delete other subscriptions
+
+The only subscription type that you can manually delete is a free trial subscription. All other subscription types, including pay-as-you-go subscriptions, are deleted only through the [subscription cancellation](#cancel-subscription-in-the-azure-portal) process. In other words, you can't delete a subscription directly unless it's a free trial subscription. However, after you cancel a subscription, you can create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) to ask to have the subscription deleted immediately.
+
 ## Reactivate a subscription
 
-If you cancel your subscription with Pay-As-You-Go rates accidentally, you can [reactivate it in the Accounts Center](subscription-disabled.md).
+If you cancel your subscription with Pay-As-You-Go rates accidentally, you can [reactivate it in the Azure portal](subscription-disabled.md).
 
 If your subscription isn't a subscription with Pay-As-You-Go rates, contact support within 90 days of cancellation to reactivate your subscription.
 
@@ -84,7 +88,7 @@ You may not have the permissions required to cancel a subscription. See [Who can
 
 ## How do I delete my Azure Account?
 
-*I need to remove my account including all my personal  information. I already canceled my active(Free Trial) subscriptions. I don't have any active subscriptions, and would like to totally delete my account*.
+*I need to remove my account including all my personal information. I already canceled my active (Free Trial) subscriptions. I don't have any active subscriptions, and would like to totally delete my account*.
 
 * If you have an Azure Active Directory account via your organization, the Azure AD administrator could delete the account. After that, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only. In summary, once you cancel, billing is stopped immediately.
 
@@ -96,4 +100,4 @@ See the [Renewal and Cancellation](/visualstudio/subscriptions/faq/admin/renewal
 
 ## Next steps
 
-- If needed, you can reactivate a pay-as-you-go subscription in the [Account center](subscription-disabled.md).
+- If needed, you can reactivate a pay-as-you-go subscription in the [Azure portal](subscription-disabled.md).

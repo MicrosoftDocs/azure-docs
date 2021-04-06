@@ -29,6 +29,7 @@ You can set an individual setting either through the Application Settings list, 
 |UserAppInsightsAppId|Chat log and telemetry|
 |UserAppInsightsKey|Chat log and telemetry|
 |UserAppInsightsName|Chat log and telemetry|
+|QNAMAKER_EXTENSION_VERSION|Always set to _latest_. This setting will initialize the QnAMaker Site Extension in the App Service.|
 
 You need to **restart** the service from the **Overview** page of the Azure portal, once you are done making changes.
 
@@ -46,7 +47,7 @@ Learn [how to add collaborators](./reference-role-based-access-control.md) to yo
 
 ## Change Azure Cognitive Search
 
-Learn [how to change the Cognitive Search service](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) linked to your QnA Maker service.
+Learn [how to change the Cognitive Search service](./how-to/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) linked to your QnA Maker service.
 
 ## Change default answer
 

@@ -26,7 +26,7 @@ Azure AD B2C has defined a number of SSO session providers that can be used:
 |---------|---------|
 |[NoopSSOSessionProvider](#noopssosessionprovider)     |  None       |       
 |[DefaultSSOSessionProvider](#defaultssosessionprovider)    | Azure AD B2C internal session manager.      |       
-|[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider)     | Between Azure AD B2C and OAuth1, OAuth2, or OpenId Connect identity provider.        |         |
+|[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider)     | Between Azure AD B2C and OAuth1, OAuth2, or OpenId Connect identity provider.        | 
 |[OAuthSSOSessionProvider](#oauthssosessionprovider)     | Between an OAuth2 or OpenId connect relying party application and Azure AD B2C.        |        
 |[SamlSSOSessionProvider](#samlssosessionprovider)     | Between Azure AD B2C and SAML identity provider. And between a SAML service provider (relying party application) and Azure AD B2C.  |        
 
@@ -131,7 +131,7 @@ This provider is used for managing the Azure AD B2C sessions between a OAuth2 or
 
 ### SamlSSOSessionProvider
 
-This provider is used for managing the Azure AD B2C SAML sessions between a relying party application or a federated SAML identity provider. When using the SSO provider for storing a SAML identity provider session, the `RegisterServiceProviders` must be set to `false`. The following `SM-Saml-idp` technical profile is used by the [SAML identity provider technical  profile](saml-identity-provider-technical-profile.md).
+This provider is used for managing the Azure AD B2C SAML sessions between a relying party application or a federated SAML identity provider. When using the SSO provider for storing a SAML identity provider session, the `RegisterServiceProviders` must be set to `false`. The following `SM-Saml-idp` technical profile is used by the [SAML identity provider](identity-provider-generic-saml.md).
 
 ```xml
 <TechnicalProfile Id="SM-Saml-idp">
@@ -145,7 +145,7 @@ This provider is used for managing the Azure AD B2C SAML sessions between a rely
 
 When using the provider for storing the B2C SAML session, the `RegisterServiceProviders` must set to `true`. SAML session logout requires the `SessionIndex` and `NameID` to complete.
 
-The following `SM-Saml-issuer` technical profile is used by [SAML issuer technical profile](saml-issuer-technical-profile.md)
+The following `SM-Saml-issuer` technical profile is used by [SAML issuer technical profile](saml-service-provider.md)
 
 ```xml
 <TechnicalProfile Id="SM-Saml-issuer">

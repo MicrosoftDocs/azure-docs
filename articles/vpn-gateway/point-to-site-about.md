@@ -43,7 +43,7 @@ The validation of the client certificate is performed by the VPN gateway and hap
 
 Azure AD  authentication allows users to connect to Azure using their Azure Active Directory credentials. Native Azure AD authentication is only supported for OpenVPN protocol and Windows 10 and requires the use of the [Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554).
 
-With native Azure AD authentication, you can leverage Azure AD's conditional access as well as Multi-Factor Authentication(MFA) features for VPN.
+With native Azure AD authentication, you can leverage Azure AD's conditional access as well as Multi-Factor Authentication (MFA) features for VPN.
 
 At a high level, you need to perform the following steps to configure Azure AD authentication:
 
@@ -57,9 +57,9 @@ At a high level, you need to perform the following steps to configure Azure AD a
 ### Authenticate using Active Directory (AD) Domain Server
 
 AD Domain authentication allows users to connect to Azure using their organization domain credentials. It requires a RADIUS server that integrates with the AD server. Organizations can also leverage their existing RADIUS deployment.
-  
-The RADIUS server could be deployed on-premises or in your Azure VNet. During authentication, the Azure VPN Gateway acts as a pass through and forwards authentication messages back and forth between the RADIUS server and the connecting device. So Gateway reachability to the RADIUS server is important. If the RADIUS server is present on-premises, then a VPN S2S connection from Azure to the on-premises site is required for reachability.  
-  
+
+The RADIUS server could be deployed on-premises or in your Azure VNet. During authentication, the Azure VPN Gateway acts as a pass through and forwards authentication messages back and forth between the RADIUS server and the connecting device. So Gateway reachability to the RADIUS server is important. If the RADIUS server is present on-premises, then a VPN S2S connection from Azure to the on-premises site is required for reachability.
+
 The RADIUS server can also integrate with AD certificate services. This lets you use the RADIUS server and your enterprise certificate deployment for P2S certificate authentication as an alternative to the Azure certificate authentication. The advantage is that you don’t need to upload root certificates and revoked certificates to Azure.
 
 A RADIUS server can also integrate with other external identity systems. This opens up plenty of authentication options for P2S VPN, including multi-factor options.

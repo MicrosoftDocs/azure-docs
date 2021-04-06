@@ -1,21 +1,11 @@
 ---
 title: Copy data to/from Azure Blob Storage
 description: 'Learn how to copy blob data in Azure Data Factory. Use our sample: How to copy data to and from Azure Blob Storage and Azure SQL Database.'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: bec8160f-5e07-47e4-8ee1-ebb14cfb805d
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Copy data to or from Azure Blob Storage using Azure Data Factory
@@ -76,7 +66,7 @@ To specify a dataset to represent input or output data in an Azure Blob Storage,
 
 For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
-Data factory supports the following CLS-compliant .NET based type values for providing type information in “structure” for schema-on-read data sources like Azure blob: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan. Data Factory automatically performs type conversions when moving data from a source data store to a sink data store.
+Data factory supports the following CLS-compliant .NET based type values for providing type information in "structure" for schema-on-read data sources like Azure blob: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan. Data Factory automatically performs type conversions when moving data from a source data store to a sink data store.
 
 The **typeProperties** section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **AzureBlob** dataset has the following properties:
 
@@ -186,7 +176,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **Create a resource** from the top-left corner, click **Intelligence + analytics**, and click **Data Factory**.
 3. In the **New data factory** pane:  
-    1. Enter **ADFBlobConnectorDF** for the **name**. The name of the Azure data factory must be globally unique. If you receive the error: `*Data factory name “ADFBlobConnectorDF” is not available`, change the name of the data factory (for example, yournameADFBlobConnectorDF) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+    1. Enter **ADFBlobConnectorDF** for the **name**. The name of the Azure data factory must be globally unique. If you receive the error: `*Data factory name "ADFBlobConnectorDF" is not available`, change the name of the data factory (for example, yournameADFBlobConnectorDF) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
     2. Select your Azure **subscription**.
     3. For Resource Group, select **Use existing** to select an existing resource group (or) select **Create new** to enter a name for a resource group.
     4. Select a **location** for the data factory.
@@ -509,7 +499,7 @@ Azure Data Factory supports two types of Azure Storage linked services: **AzureS
 
 **Azure Blob input dataset:**
 
-Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs Data Factory that the table is external to the data factory and is not produced by an activity in the data factory.
+Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. "external": "true" setting informs Data Factory that the table is external to the data factory and is not produced by an activity in the data factory.
 
 ```json
 {
@@ -549,7 +539,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 ```
 **Azure SQL output dataset:**
 
-The sample copies data to a table named “MyTable” in Azure SQL Database. Create the table in your SQL database with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
+The sample copies data to a table named "MyTable" in Azure SQL Database. Create the table in your SQL database with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
 
 ```json
 {
@@ -657,9 +647,9 @@ Azure Data Factory supports two types of Azure Storage linked services: **AzureS
 
 **Azure SQL input dataset:**
 
-The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data.
+The sample assumes you have created a table "MyTable" in Azure SQL and it contains a column called "timestampcolumn" for time series data.
 
-Setting “external”: ”true” informs Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
+Setting "external": "true" informs Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
 
 ```json
 {

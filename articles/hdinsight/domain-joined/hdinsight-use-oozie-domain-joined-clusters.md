@@ -1,12 +1,9 @@
 ---
 title: Apache Oozie workflows & Enterprise Security - Azure HDInsight
 description: Secure Apache Oozie workflows using the Azure HDInsight Enterprise Security Package. Learn how to define an Oozie workflow and submit an Oozie job.
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seodec18,seoapr2020
+ms.custom: seoapr2020
 ms.date: 05/14/2020
 ---
 
@@ -52,7 +49,7 @@ For more information on Secure Shell (SSH), see [Connect to HDInsight (Hadoop) u
 
 Oozie workflow definitions are written in Apache Hadoop Process Definition Language (hPDL). hPDL is an XML process definition language. Take the following steps to define the workflow:
 
-1. Set up a domain user’s workspace:
+1. Set up a domain user's workspace:
 
    ```bash
    hdfs dfs -mkdir /user/<DomainUser>
