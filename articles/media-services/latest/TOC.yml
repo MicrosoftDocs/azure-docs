@@ -351,8 +351,7 @@
       href: transform-subclip-video-rest-how-to.md
       displayName: subclipping, clip, edit, trim, clipping
     - name: Create a custom transform
-        displayName: encode, encoding, custom, transform
-        items:
+      items:
         - name: Customize encoder presets .NET
           href: transform-custom-presets-how-to.md
         - name: Create an overlay transform .NET
