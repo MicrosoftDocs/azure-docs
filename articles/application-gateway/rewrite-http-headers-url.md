@@ -156,9 +156,11 @@ A rewrite rule set contains:
 
 ## Rewrite configuration common pitfall
 
-* In order to prevent infinite evaluation loop for a basic routing rule, enabling 'Re-evaluate path map' is not allowed for basic request routing rules.
-* In order to prevent infinite evaluation loop for a path-based routing rule, there needs to be at least 1 conditional rewrite rule or 1 rewrite rule which does not have 'Re-evaluate path map' enabled.
-* In case a loop is created dynamically based on client inputs, then those requests would be terminated with a 500 error code. The performance of the Application Gateway for serving other requests will not be degraded in such a scenario.
+* Enabling 'Re-evaluate path map' is not allowed for basic request routing rules. This is to prevent infinite evaluation loop for a basic routing rule.
+
+* There needs to be at least 1 conditional rewrite rule or 1 rewrite rule which does not have 'Re-evaluate path map' enabled for path-based routing rules to prevent infinite evaluation loop for a path-based routing rule.
+
+* Incoming requests would be terminated with a 500 error code in case a loop is created dynamically based on client inputs. The Application Gateway will continue to serve other requests without any degradation in such a scenario.
 
 ### Using URL rewrite or Host header rewrite with Web Application Firewall (WAF_v2 SKU)
 
