@@ -108,7 +108,7 @@ To print a workbook, or save it as a PDF, use the options menu to the right of t
 
 For example:
 
-:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Print your workbook or save as PDF.":::
+[ ![Print your workbook or save as PDF.](media/whats-new/print-workbook.png) ](media/whats-new/print-workbook.png#lightbox)
 
 ## How to delete workbooks
 
