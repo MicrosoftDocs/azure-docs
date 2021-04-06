@@ -18,7 +18,7 @@ In Azure, this is typically accomplished using an encryption key in the customer
 
 - [Register the Azure Cosmos DB resource provider for your Azure subscription](../../cosmos-db/how-to-setup-cmk.md#register-resource-provider) 
 - [Configure your Azure Key Vault instance](../../cosmos-db/how-to-setup-cmk.md#configure-your-azure-key-vault-instance)
-- [Add an access policy to your Azure Key Vault instance](../../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance)
+- [Add an access policy to your Azure Key Vault instance](../../cosmos-db/how-to-setup-cmk.md#add-access-policy)
 - [Generate a key in Azure Key Vault](../../cosmos-db/how-to-setup-cmk.md#generate-a-key-in-azure-key-vault)
 
 ## Using Azure portal

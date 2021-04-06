@@ -169,7 +169,7 @@
   - name: Windows Virtual Desktop FAQ
     href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
-    href: windows-10-multisession-faq.md
+    href: windows-10-multisession-faq.yml
   - name: MSIX app attach
     items:
       - name: What is MSIX app attach?
@@ -214,6 +214,8 @@
     href: security-guide.md
   - name: Linux support
     href: linux-overview.md
+  - name: Azure CLI
+    href: /cli/azure/ext/desktopvirtualization/desktopvirtualization
   - name: Estimate Azure Monitor costs
     href: azure-monitor-costs.md
   - name: Supported RDP file settings
