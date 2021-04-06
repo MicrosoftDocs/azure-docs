@@ -3,6 +3,7 @@ title: Azure Cloud Services (classic) Definition Schema (.csdef File) | Microsof
 description: A service definition (.csdef) file defines a service model for an application, containing available roles, endpoints, and configuration values for the service.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore

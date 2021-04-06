@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-# customer intent: As an IT admin, I want to learn about Front Door and how to configure a security header via Rules Engine. 
+# Customer intent: As an IT admin, I want to learn about Front Door and how to configure a security header via Rules Engine. 
 ---
 
 # Tutorial: Add Security headers with Rules Engine
