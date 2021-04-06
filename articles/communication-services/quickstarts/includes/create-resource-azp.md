@@ -22,7 +22,7 @@ Enter **Communication** into either the **Search the Marketplace** input or the 
 
 Select **Communication Services** in the results, and then select **Create**.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Screenshot showing the Azure panel, highlighting the add button.":::
+:::image type="content" source="../media/create-a-communication-resource/create-communication-portal.png" alt-text="Screenshot showing the Communication Services panel, highlighting the Create button.":::
 
 You can now configure your Communication Services resource. On the first page in the create process, you'll be asked to specify:
 
