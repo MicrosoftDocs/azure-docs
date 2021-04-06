@@ -6,6 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 4/1/2021
 ---
 
