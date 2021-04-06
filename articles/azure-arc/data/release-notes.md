@@ -49,7 +49,7 @@ You will delete the previous CRDs as you cleanup past installations. See [Cleanu
 
 ### Known issues
 
-- In direct connected mode, upload of usage, metrics, and logs using `azdata arc dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in Indirect connected mode should continue to work.
+- In direct connected mode, upload of usage, metrics, and logs using `azdata arc dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
 - Deployment of data controller in direct mode can only be done from the Azure portal, and not available from client tools such as azdata, Azure Data Studio, or kubectl.
 - Deployment of Azure Arc enabled SQL Managed Instance in direct mode can only be done from the Azure portal, and not available from tools such as azdata, Azure Data Studio, or kubectl.
 - Deployment of Azure Arc enabled PostgeSQL Hyperscale in direct mode is currently not available.
