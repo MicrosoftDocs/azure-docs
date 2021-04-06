@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
@@ -17,6 +17,43 @@ ms.topic: conceptual
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc enabled data services. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## March 2021
+
+The March 2021 release is introduced on April 6, 2021.
+
+Review limitations of this release in [Known issues - Azure Arc enabled data services (Preview)](known-issues.md).
+
+Azure Data CLI (`azdata`) version number: 20.3.2. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+
+### Data controller
+
+- Deploy Azure Arc enabled data services data controller in direct connect mode from the portal. Start from [Deploy data controller - direct connect mode - prerequisites](deploy-data-controller-direct-mode-prerequisites.md).
+
+### Azure Arc enabled PostgreSQL Hyperscale
+
+Both custom resource definitions (CRD) for PostgreSQL have been consolidated into a single CRD. See the following table.
+
+|Release |CRD |
+|-----|-----|
+|February 2021 and prior| postgresql-11s.arcdata.microsoft.com<br/>postgresql-12s.arcdata.microsoft.com |
+|Beginning March 2021 | postgresqls.arcdata.microsoft.com
+
+You will delete the previous CRDs as you cleanup past installations. See [Cleanup from past installations](create-data-controller-using-kubernetes-native-tools.md#cleanup-from-past-installations).
+
+### Azure Arc enabled managed instance
+
+- You can now restore a database to SQL Managed Instance with 3 replicas and it will be automatically added to the availability group. 
+
+- You can now connect to a secondary read-only endpoint on SQL Managed Instances deployed with 3 replicas. Use `azdata arc sql endpoint list` to see the secondary read-only connection endpoint.
+
+### Known issues
+
+- In direct connected mode, upload of usage, metrics, and logs using `azdata arc dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
+- Deployment of data controller in direct mode can only be done from the Azure portal, and not available from client tools such as azdata, Azure Data Studio, or kubectl.
+- Deployment of Azure Arc enabled SQL Managed Instance in direct mode can only be done from the Azure portal, and not available from tools such as azdata, Azure Data Studio, or kubectl.
+- Deployment of Azure Arc enabled PostgeSQL Hyperscale in direct mode is currently not available.
+- Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
 
 ## February 2021
 
@@ -123,14 +160,6 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 - AKS clusters that span [multiple availability zones](../../aks/availability-zones.md) are not currently supported for Azure Arc enabled data services. To avoid this issue, when you create the AKS cluster in Azure portal, if you select a region where zones are available, clear all the zones from the selection control. See the following image:
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Clear the checkboxes for each zone to specify none.":::
-
-#### PostgreSQL
-
-- Azure Arc enabled PostgreSQL Hyperscale returns an inaccurate error message when it cannot restore to the relative point in time you indicate. For example, if you specified a point in time to restore that is older than what your backups contain, the restore will fail with an error message like:
-ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}
-When this happens, restart the command after indicating a point in time that is within the range of dates for which you have backups. You will determine this range by listing your backups and by looking at the dates at which they were taken.
-- Point in time restore is supported only across server groups. The target server of a point in time restore operation cannot be the server from which you took the backup. It has to be a different server group. However, full restore is supported to the same server group.
-- A backup-id is required when doing a full restore. By default, if you are not indicating a backup-id the latest backup will be used. This does not work in this release.
 
 ## October 2020 
 
