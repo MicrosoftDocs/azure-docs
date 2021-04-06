@@ -110,14 +110,14 @@ The report may contain limited information, such as target directory ID, when a 
 
 Like other reports in the Azure portal, you can use filters to specify the scope of your report. You can filter on a specific time interval, user, application, client, or status. If you select the **Columns** button, you can choose to display data with any combination of the following fields:
 
-- **User** - this field can have personally identifiable information removed, where it will be set to `00000000-0000-0000-0000-000000000000`. 
+- **User** - this field can have personal data removed, where it will be set to `00000000-0000-0000-0000-000000000000`. 
 - **Application**
 - **Status**
 - **Date**
 - **Date (UTC)** - where UTC is Coordinated Universal Time
 - **IP Address**
 - **Client**
-- **Username** - this field can have personally identifiable information removed, where it will be set to `{PII Removed}@domain.com`
+- **Username** - this field can have personal data removed, where it will be set to `{PII Removed}@domain.com`
 - **Location**
 - **Target tenant ID**
 
@@ -204,7 +204,7 @@ Some organizations attempt to fix this by blocking `login.live.com` in order to 
 
 ### Configuration for consumer apps
 
-While the `Restrict-Access-To-Tenants` header functions as an allow-list, the Microsoft account (MSA) block works as a deny signal, telling the Microsoft account platform to not allow users to sign in to consumer applications. To send this signal, the `sec-Restrict-Tenant-Access-Policy` header is injected to traffic visiting `login.live.com` using the same corporate proxy or firewall as [above](#proxy-configuration-and-requirements). The value of the header must be `restrict-msa`. When the header is present and a consumer app is attempting to sign in a user directly, that sign in will be blocked.
+While the `Restrict-Access-To-Tenants` header functions as an allowlist, the Microsoft account (MSA) block works as a deny signal, telling the Microsoft account platform to not allow users to sign in to consumer applications. To send this signal, the `sec-Restrict-Tenant-Access-Policy` header is injected to traffic visiting `login.live.com` using the same corporate proxy or firewall as [above](#proxy-configuration-and-requirements). The value of the header must be `restrict-msa`. When the header is present and a consumer app is attempting to sign in a user directly, that sign in will be blocked.
 
 At this time, authentication to consumer applications does not appear in the [admin logs](#admin-experience), as login.live.com is hosted separately from Azure AD.
 
