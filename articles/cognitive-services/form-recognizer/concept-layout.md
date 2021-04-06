@@ -15,7 +15,7 @@ ms.author: lajanuar
 
 # Form Recognizer Layout service
 
-Azure Form Recognizer can extract text, tables, selection marks, and structure information from documents using its Layout service. The Layout API enables customers to take documents in a variety of formats and return structured data representations of the documents. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure. 
+Azure Form Recognizer can extract text, tables, selection marks, and structure information from documents using its Layout service. The Layout API enables customers to take documents in a variety of formats and return structured data representations of the documents. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure. 
 
 ## What does the Layout service do?
 
@@ -28,7 +28,7 @@ The Layout API extracts text, tables, selection marks, and structure information
 To try out the Form Recognizer Layout Service, go to the online sample UI tool:
 
 > [!div class="nextstepaction"]
-> [Form OCR Test Tool (FOTT)](https://fott-preview.azurewebsites.net)
+> [Try Form Recognizer](https://fott-preview.azurewebsites.net)
 
 You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Layout API. 
 
@@ -44,7 +44,7 @@ First, call the [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.c
 
 |Response header| Result URL |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
 
 ### Natural reading order output (Latin only)
 

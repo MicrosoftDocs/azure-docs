@@ -1,6 +1,6 @@
 ---
 title: Enable Azure Security Center's integrated workload protections
-description: Learn how to enable Azure Defender to extend the protections of Azure Security Center to your hybrid and multicloud resources
+description: Learn how to enable Azure Defender to extend the protections of Azure Security Center to your hybrid and multi-cloud resources
 author: memildin
 ms.author: memildin
 manager: rkarlin
