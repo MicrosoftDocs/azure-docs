@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mikben
-manager: mikben
+author: ddematheu2
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
+ms.author: dademath
 ---
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
@@ -19,7 +19,7 @@ The Azure Communication Services **Group Calling Hero Sample for Android** demon
 
 ## Download code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero).
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-android-calling-hero/tree/feature/teams_interop).
 
 ## Overview
 

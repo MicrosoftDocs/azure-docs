@@ -77,7 +77,7 @@ As you configure the account, choose these values:
 
 |Setting | Premium performance | Standard performance  
 |----|---|---|
-|Location|All available regions |One of the following regions: Australia East, Korea Central, and South Central US   
+|Location|All available regions |One of the following regions: Australia East, Korea Central, East US, and South Central US   
 |Performance|Premium| Standard
 |Account kind|BlockBlobStorage| General-purpose V2
 |Replication|Locally-redundant storage (LRS)| Locally-redundant storage (LRS)
