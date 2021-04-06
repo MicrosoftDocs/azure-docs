@@ -302,7 +302,7 @@ Below neural voices are in public preview.
 > [!IMPORTANT]
 > Voices in public preview are only available in 3 service regions: East US, West Europe and Southeast Asia.
 
-For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
+For more information about regional availability, see [regions](regions.md#neural-and-standard-voices).
 
 To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
@@ -314,7 +314,7 @@ To learn how you can configure and adjust neural voices, such as Speaking Styles
 
 ### Standard voices
 
-More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
+More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#neural-and-standard-voices).
 
 > [!NOTE]
 > With two exceptions, standard voices are created from samples that use a 16 khz sample rate.
