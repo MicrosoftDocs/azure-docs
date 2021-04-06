@@ -158,7 +158,7 @@ az storage account create \
 
 ---
 
-## Create file share
+## Create a file share
 Once you've created your storage account, all that is left is to create your file share. This process is mostly the same regardless of whether you're using a premium file share or a standard file share. You should consider the following differences.
 
 Standard file shares may be deployed into one of the standard tiers: transaction optimized (default), hot, or cool. This is a per file share tier that is not affected by the **blob access tier** of the storage account (this property only relates to Azure Blob storage - it does not relate to Azure Files at all). You can change the tier of the share at any time after it has been deployed. Premium file shares cannot be directly converted to any standard tier.
@@ -231,7 +231,7 @@ az storage share-rm create \
 > [!Note]  
 > The name of your file share must be all lowercase. For complete details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-### Changing the tier of an Azure file share
+### Change the tier of an Azure file share
 File shares deployed in **general purpose v2 (GPv2) storage account** can be in the transaction optimized, hot, or cool tiers. You can change the tier of the Azure file share at any time, subject to transaction costs as described above.
 
 # [Portal](#tab/azure-portal)
