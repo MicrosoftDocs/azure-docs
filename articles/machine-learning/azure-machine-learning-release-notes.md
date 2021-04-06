@@ -35,6 +35,9 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Removed experiment name from run URIs to avoid redirects 
     + Updated experiment URO to use experiment ID.
     + Bug fixes for attaching remote compute with AzureML CLI.
+    + Updated portal URIs to include tenant for authentication.
+    + Removed experiment name from run URIs to avoid redirects.
+    + Updated experiment URI to use experiment Id.
   + **azureml-interpret**
     + azureml-interpret updated to use interpret-community 0.17.0
   + **azureml-opendatasets**
@@ -49,13 +52,8 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Update python_requires to < 3.9 for azureml-sdk
   + **azureml-train-automl-client**
     +  Changed console output when submitting an AutoML run to show a portal link to the run.
-    + 1. Add '&tid=<tenant_id>` to end of portal URLs so that UI does not have to guess which tenant to authenticate against. 2. Remove experiment name from run URLs to stop unnecessary redirects. 3. Change experiment URL to use the experiment id instead of experiment name.
-  + **azureml-train-automl-runtime**
-    +  Changed console output when submitting an AutoML run to show a portal link to the run.
-    + 1. Add '&tid=<tenant_id>` to end of portal URLs so that UI does not have to guess which tenant to authenticate against. 2. Remove experiment name from run URLs to stop unnecessary redirects. 3. Change experiment URL to use the experiment id instead of experiment name.
   + **azureml-train-core**
     + Deprecated DockerSection's 'enabled', 'shared_volume', and 'arguments' attributes in favor of using DockerConfiguration with ScriptRunConfig.
-    + 1. Add '&tid=<tenant_id>` to end of portal URLs so that UI does not have to guess which tenant to authenticate against. 2. Remove experiment name from run URLs to stop unnecessary redirects. 3. Change experiment URL to use the experiment id instead of experiment name.
     +  Use Azure Open Datasets for MNIST dataset
     + Hyperdrive error messages have been updated.
 
