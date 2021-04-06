@@ -42,9 +42,9 @@ The [PowerShell Gallery](https://www.powershellgallery.com/packages) provides a 
 > [!NOTE]
 > Graphical runbooks are not supported in PowerShell Gallery.
 
-You can only import directly from the PowerShell Gallery using the Azure portal. You cannot perform this function using PowerShell. The procedure is the same as shown in [Import a runbook from GitHub with the Azure portal](#import-a-runbook-from-github-with-the-azure-portal), except that the **Source** will be **PowerShell Gallery**.
+You can only import directly from the PowerShell Gallery using the Azure portal. You cannot perform this function using PowerShell. The procedure is the same as shown in [Import runbooks from GitHub with the Azure portal](#import-runbooks-from-github-with-the-azure-portal), except that the **Source** will be **PowerShell Gallery**.
 
-:::image type="content" source="./media/automation-runbook-gallery/source-runbook-gallery-sm.png" alt-text="Browsing runbook gallery." lightbox="./media/automation-runbook-gallery/source-runbook-gallery-lg.png":::
+:::image type="content" source="./media/automation-runbook-gallery/source-runbook-gallery-sm.png" alt-text="Showing runbook gallery source selection." lightbox="./media/automation-runbook-gallery/source-runbook-gallery-lg.png":::
 
 ## Modules in the PowerShell Gallery
 
