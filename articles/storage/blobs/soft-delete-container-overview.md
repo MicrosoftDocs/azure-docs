@@ -46,20 +46,6 @@ After the retention period has expired, the container is permanently deleted fro
 
 Disabling container soft delete does not result in permanent deletion of containers that were previously soft-deleted. Any soft-deleted containers will be permanently deleted at the expiration of the retention period that was in effect at the time that the container was deleted.
 
-<<<<<<< HEAD
-=======
-> [!IMPORTANT]
-> Container soft delete does not protect against the deletion of a storage account. It protects only against the deletion of containers in that account. To protect a storage account from deletion, configure a lock on the storage account resource. For more information about locking a storage account, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md).
-
-## About the preview
-
-Container soft delete is available in preview in all Azure regions.
-
-Version 2019-12-12 or higher of the Azure Storage REST API supports container soft delete.
-
-### Storage account support
-
->>>>>>> 1890f028b43b4cb3f2f0b30ea1082b121e289549
 Container soft delete is available for the following types of storage accounts:
 
 - General-purpose v2 and v1 storage accounts
