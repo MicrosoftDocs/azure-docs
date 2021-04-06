@@ -19,7 +19,7 @@ keywords: anomaly detection, algorithms
 
 ::: zone pivot="programming-language-csharp"
 
-New Quickstart content goes here.
+[!INCLUDE [C# quickstart](../includes/quickstarts/anomaly-detector-client-library-csharp-multivariate.md)]
 
 ::: zone-end
 
