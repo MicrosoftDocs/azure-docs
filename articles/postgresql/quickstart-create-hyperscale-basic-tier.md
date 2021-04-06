@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/22/2020
+ms.date: 04/05/2021
 #Customer intent: As a developer, I want to provision a hyperscale server group so that I can run queries quickly on large datasets.
 ---
 
@@ -26,9 +26,10 @@ and verify that you can connect to it to run queries.
 > The Hyperscale (Citus) basic tier is currently in preview.  This preview
 > version is provided without a service level agreement, and it's not
 > recommended for production workloads. Certain features might not be supported
-> or might have constrained capabilities.  For more information, see
-> [Supplemental Terms of Use for Microsoft Azure
-> Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> or might have constrained capabilities.
+>
+> You can see a complete list of other new features in [preview features for
+> Hyperscale (Citus)](hyperscale-preview-features.md).
 
 [!INCLUDE [azure-postgresql-hyperscale-create-basic-tier](../../includes/azure-postgresql-hyperscale-create-basic-tier.md)]
 

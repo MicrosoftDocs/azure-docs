@@ -17,9 +17,10 @@ ms.date: 03/18/2021
 > Customizable PostgreSQL versions in Hyperscale (Citus) is currently in
 > preview.  This preview is provided without a service level agreement, and
 > it's not recommended for production workloads. Certain features might not be
-> supported or might have constrained capabilities.  For more information, see
-> [Supplemental Terms of Use for Microsoft Azure
-> Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> supported or might have constrained capabilities.
+>
+> You can see a complete list of other new features in [preview features for
+> Hyperscale (Citus)](hyperscale-preview-features.md).
 
 The version of PostgreSQL running in a Hyperscale (Citus) server group is
 customizable during creation. Choosing anything other than version 11 is
