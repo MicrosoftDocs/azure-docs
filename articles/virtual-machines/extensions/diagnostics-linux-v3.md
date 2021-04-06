@@ -673,7 +673,7 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 
 ## Example LAD 3.0 configuration
 
-Based on the preceding definitions, here's a sample LAD 3.0 extension configuration and some explanation. To apply this sample to your case, use your own storage account name, account SAS token, and Event Hubs SAS tokens.
+Based on the preceding definitions, this section provides a sample LAD 3.0 extension configuration and some explanation. To apply this sample to your case, use your own storage account name, account SAS token, and Event Hubs SAS tokens.
 
 > [!NOTE]
 > Depending on whether you use the Azure CLI or PowerShell to install LAD, the method for providing public and protected settings differs: 
@@ -843,15 +843,15 @@ You also can use these UI tools to access the data in Azure Storage:
 * Visual Studio Server Explorer
 * [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
 
-The following screenshot of an Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't exactly match the [sample LAD 3.0 configuration](#an-example-lad-30-configuration).
+The following screenshot of an Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't exactly match the [sample LAD 3.0 configuration](#example-lad-30-configuration).
 
 :::image type="content" source="./media/diagnostics-linux/stg_explorer.png" alt-text="Screenshot shows Azure Storage Explorer.":::
 
 
-For more information about how to consume messages published to an EventHub endpoint, see the relevant [Event Hubs documentation](../../event-hubs/event-hubs-about.md).
+For more information about how to consume messages published to an Event Hubs endpoint, see the relevant [Event Hubs documentation](../../event-hubs/event-hubs-about.md).
 
 ## Next steps
 
 * In [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md), create alerts for the metrics you collect.
 * Create [monitoring charts](../../azure-monitor/data-platform.md) for your metrics.
-* Learn how to [create a virtual machine scale set](../linux/tutorial-create-vmss.md) by using your metrics to control autoscaling.
+* [Create a virtual machine scale set](../linux/tutorial-create-vmss.md) by using your metrics to control autoscaling.

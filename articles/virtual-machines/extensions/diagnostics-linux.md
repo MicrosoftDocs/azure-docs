@@ -76,13 +76,13 @@ Supported distributions and versions:
 
 ### Python requirement
 
-Linux Diagnostic Extension requires Python 2. If your virtual machine is using a distribution that doesn't include Python 2 by default, install it. 
+Linux Diagnostic Extension requires Python 2. If your virtual machine uses a distribution that doesn't include Python 2 by default, install it. 
 
-The following sample commands will install Python 2 on various distributions.	
+The following sample commands install Python 2 on various distributions:	
 
- - Red Hat, CentOS, Oracle: `yum install -y python2`
- - Ubuntu, Debian: `apt-get install -y python2`
- - SUSE: `zypper install -y python2`
+- Red Hat, CentOS, Oracle: `yum install -y python2`
+- Ubuntu, Debian: `apt-get install -y python2`
+- SUSE: `zypper install -y python2`
 
 The `python2` executable must be aliased to *python*. Here's one way to set this alias:
 
@@ -848,7 +848,7 @@ You also can use these UI tools to access the data in Azure Storage:
 * Visual Studio Server Explorer
 * [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
 
-The following screenshot of an Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't exactly match the [sample LAD 3.0 configuration](#an-example-lad-40-configuration).
+The following screenshot of an Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't exactly match the [sample LAD 3.0 configuration](#example-lad-40-configuration).
 
 :::image type="content" source="./media/diagnostics-linux/stg_explorer.png" alt-text="Screenshot shows Azure Storage Explorer.":::
 
