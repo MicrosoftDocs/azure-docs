@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/05/2021
+ms.date: 04/07/2021
 #Customer intent: As a developer, I want to provision a hyperscale server group so that I can run queries quickly on large datasets.
 ---
 

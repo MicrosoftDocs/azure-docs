@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 3/11/2021
+ms.date: 04/07/2021
 ---
 
 # Scale a Hyperscale (Citus) server group
