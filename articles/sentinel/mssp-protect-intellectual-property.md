@@ -23,9 +23,7 @@ ms.author: bagol
 
 This article describes the methods that managed security service providers (MSSPs) can use to protect intellectual property they've developed in Azure Sentinel, such as Azure Sentinel analytics rules, hunting queries, playbooks, and workbooks.
 
-The method you choose will depend on how each of your customers buy Azure; whether you serve as a Cloud Solutions Provider (CSP), or you have an Enterprise Agreement (EA)/Pay-as-you-go (PAYG).
-
-The following sections address each of these scenarios separately.
+The method you choose will depend on how each of your customers buy Azure; whether you serve as a [Cloud Solutions Provider (CSP)](#cloud-solutions-providers-csp), or your customer has an [Enterprise Agreement (EA)/Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg) account. The sections below describe each of these methods separately.
 
 ## Cloud Solutions Providers (CSP)
 
