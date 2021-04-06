@@ -72,7 +72,8 @@ az storage account blob-service-properties update --account-name <storage-accoun
 To check the current settings for blob soft delete, call the [az storage account blob-service-properties show](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_show) command:
 
 ```azurecli-interactive
-az storage account blob-service-properties show --account-name <storage-account> --resource-group <resource-group>
+az storage account blob-service-properties show --account-name <storage-account> \
+    --resource-group <resource-group>
 ```
 
 ---
