@@ -20,7 +20,9 @@ ms.collection: M365-identity-device-management
 Cloud apps or actions are a key signal in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications or actions.
 
 - Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../manage-apps/what-is-application-proxy.md).
-- Administrators may choose to define policy not based on a cloud application but on a user action. The only supported action is Register security information (preview), allowing Conditional Access to enforce controls around the [combined security information registration experience](../authentication/howto-registration-mfa-sspr-combined.md).
+- Administrators may choose to define policy not based on a cloud application but on a user action. We support two user actions
+   - Register security information (preview) to enforce controls around the [combined security information registration experience](../authentication/howto-registration-mfa-sspr-combined.md) 
+   - Register or join devices (preview) to enforce controls when users [register](../devices/concept-azure-ad-register.md) or [join](../devices/concept-azure-ad-join.md) devices to Azure AD. 
 
 ![Define a Conditional Access policy and specify cloud apps](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
@@ -128,9 +130,10 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
 
 - **Register security information**: This user action allows Conditional Access policy to enforce when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Combined security information registration](../authentication/concept-registration-mfa-sspr-combined.md).
 
-- **Register or join devices (preview)**: This user action enables administrators to enforce Conditional Access policy when users [register](../devices/concept-azure-ad-register.md) or [join](../devices/concept-azure-ad-join.md) devices to Azure AD. There are two key considerations with this user action: 
+- **Register or join devices (preview)**: This user action enables administrators to enforce Conditional Access policy when users [register](../devices/concept-azure-ad-register.md) or [join](../devices/concept-azure-ad-join.md) devices to Azure AD. It provides granularity in configuring multi-factor authentication for registering or joining devices instead of a tenant-wide policy that currently exists. There are three key considerations with this user action: 
    - `Require multi-factor authentication` is the only access control available with this user action and all others are disabled. This restriction prevents conflicts with access controls that are either dependent on Azure AD device registration or not applicable to Azure AD device registration. 
-   - When a Conditional Access policy is enabled with this user action, you must set **Azure Active Directory** > **Devices** > **Device Settings** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` to **No**. Otherwise, Conditional Access policy with this user action is not properly enforced. More information regarding this device setting can found in [Configure device settings](../devices/device-management-azure-portal.md#configure-device-settings). This user action provides flexibility to require multi-factor authentication for registering or joining devices for specific users and groups or conditions instead of having a tenant-wide policy in Device settings. 
+   - `Client apps` and `Device state` conditions are not available with this user action since they are dependent on Azure AD device registration to enforce Conditional Access policies.
+   - When a Conditional Access policy is enabled with this user action, you must set **Azure Active Directory** > **Devices** > **Device Settings** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` to **No**. Otherwise, the Conditional Access policy with this user action is not properly enforced. More information regarding this device setting can found in [Configure device settings](../devices/device-management-azure-portal.md#configure-device-settings). 
    
 ## Next steps
 
