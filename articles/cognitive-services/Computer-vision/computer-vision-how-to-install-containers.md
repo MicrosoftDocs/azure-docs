@@ -126,10 +126,10 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2 \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2
 ```
 
 This command:
@@ -143,10 +143,10 @@ This command:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
+--env Eula=accept \
+--env Billing={ENDPOINT_URI} \
+--env ApiKey={API_KEY} \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
 ```
 
 This command:
