@@ -103,7 +103,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
      
      `azcopy copy <local-folder-path>' 'https://<destination-account>.<blob or dfs>.core.windows.net/<destination-storage-container>' --recursive=true`
      
-     `<local-folder-path>` is the root directory of your hbase source cluster. If you don't find this path in the `hbase.rootdir` property in the `hbase-site.xml` file, the default value is `/hbase`.
+     `<local-folder-path>` is the root directory of your hbase source cluster. You can find this path in the `hbase.rootdir` property in the `hbase-site.xml` file. If this field isn't configured in your source cluster, the default is `/hbase`.
      
      For more information, see [Tutorial: Migrate on-premises data to cloud storage with AzCopy](/azure/storage/common/storage-use-azcopy-migrate-on-premises-data).
    
