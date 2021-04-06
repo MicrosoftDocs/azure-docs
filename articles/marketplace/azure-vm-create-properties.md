@@ -27,23 +27,23 @@ See the full list of categories and subcategories in [Offer Listing Best Practic
 
 ### Provide terms and conditions
 
-[!INCLUDE [Legal section introduction](includes/legal-intro.md)].
+[!INCLUDE [Legal section introduction](includes/legal-contracts-intro.md)].
 
 #### Use the standard contract
 
-[!INCLUDE [Legal section, standard](includes/legal-standard.md)].
+[!INCLUDE [Legal section, standard](includes/legal-contracts-standard.md)].
 
 1. Select **Save draft** before continuing.
 
 ##### Add amendments to the standard contract (optional)
 
-[!INCLUDE [Legal section, standard, amendments](includes/legal-amendments.md)].
+[!INCLUDE [Legal section, standard, amendments](includes/legal-contracts-amendments.md)].
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Offer listing**.
 
 #### Use your own terms and conditions
 
-[!INCLUDE [Legal section, custom](includes/legal-custom.md)].
+[!INCLUDE [Legal section, custom](includes/legal-contracts-custom.md)].
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Offer listing**.
 

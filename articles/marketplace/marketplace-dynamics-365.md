@@ -1,12 +1,12 @@
 ---
-title: Offer publishing guide for publishing Dynamics 365 offers in Microsoft AppSource
-description: Step-by-step publishing guide for publishing Dynamics 365 apps to Microsoft AppSource
+title: Plan Dynamics 365 offers for Microsoft AppSource
+description: Plan Dynamics 365 offers for Microsoft AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits
 ms.author: navits
-ms.date: 12/04/2020
+ms.date: 04/16/2021
 ---
 
 # Plan a Microsoft Dynamics 365 offer
