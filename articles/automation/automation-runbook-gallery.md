@@ -3,7 +3,7 @@ title: Use Azure Automation runbooks and modules in PowerShell Gallery
 description: This article tells how to use runbooks and modules from Microsoft GitHub repos and the PowerShell Gallery.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/05/2021
+ms.date: 04/06/2021
 ms.topic: conceptual
 ---
 # Use runbooks and modules in PowerShell Gallery
@@ -20,7 +20,7 @@ Rather than creating your own runbooks and modules in Azure Automation, you can 
 1. Select **Source: GitHub**.
 1. You can use the filters above the list to narrow the display by publisher, type, and sort. Locate the gallery item you want and select it to view its details.
 
-:::image type="content" source="./media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Browsing runbook gallery." lightbox="./media/automation-runbook-gallery/browse-gallery-github-lg.png":::
+:::image type="content" source="./media/automation-runbook-gallery/browse-gallery-github.png" alt-text="Browsing runbook gallery." lightbox="./media/automation-runbook-gallery/browse-gallery-github-expanded.png":::
 
 1. To import an item, click **Import** on the details page.
 
