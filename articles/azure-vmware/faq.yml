@@ -178,6 +178,9 @@ sections:
           - With a VM or application gateway deployed on an Azure virtual network that is peered through ExpressRoute to the private cloud.
           - Through ExpressRoute Global Reach from your on-premises data center to an Azure ExpressRoute circuit.
           
+      - question: Could I use HCX through public Internet communications as a workaround for the non-supportability of HCX when using VPN S2S with vWAN for on-premises communications?
+        answer: Currently, the only supported method for VMware HCX is through ExpressRoute.
+
       - question: How do I connect a workload VM to the internet or an Azure service endpoint?
         answer: In the Azure portal, enable internet connectivity for a private cloud. With NSX-T manager, create an NSX-T T1 router and a logical switch. You then use vCenter to deploy a VM on the network segment defined by the logical switch. That VM will have network access to the internet and Azure services.
 
@@ -196,9 +199,47 @@ sections:
       - question: Can transit connectivity be established between on-premises and Azure VMware Solution through Azure Virtual WAN over ExpressRoute Global Reach?
         answer: Azure Virtual WAN doesn't provide transitive routing between two connected ExpressRoute circuits and non-virtual WAN ExpressRoute Gateway. Using ExpressRoute Global Reach allows connectivity between on-premises and Azure VMware Solution, but goes through Microsoft's global network instead of the Virtual WAN Hub.
 
-      - question: Could I use HCX through public Internet communications as a workaround for the non-supportability of HCX when using VPN S2S with vWAN for on-premises communications?
-        answer: Currently, the only supported method for VMware HCX is through ExpressRoute.
 
+  - name: Disaster recovery/DRaaS
+    questions: 
+      - question: Are the upcoming disaster recovery options (SRM, Zerto, and JetStream) going to be available as a managed services?
+        answer: SRM is a managed service. Zerto and JetStream are not managed services, but you can bring your current licenses. 
+
+      - question: How do you set up network connectivity between on-premises, Azure VMware Solution primary, and Azure VMware Solution disaster recovery locations? 
+        answer: 
+
+      - question:
+        answer:         
+
+      - question:
+        answer: 
+
+      - question:
+        answer: 
+
+      - question:
+        answer:         
+
+      - question:
+        answer: 
+
+      - question:
+        answer: 
+
+      - question:
+        answer:         
+
+
+  - name: Configuration and setup
+    questions:
+      - question: How long does it take to provision the initial 3 nodes in a cluster?
+        answer: At the moment, the provisioning can take roughly 90 minutes, but adding additional nodes can be done in a matter of minutes. 
+
+
+  - name: Capacity management
+    questions:
+      - question:
+        answer: 
 
 
   - name: Nodes/hosts, clusters, and private clouds
@@ -223,7 +264,9 @@ sections:
         answer: No. High-end ESXi hosts are reserved for use in production clusters.
 
 
-  - name: User accounts and privileges
+
+
+  - name: Identity management
     questions:
       - question: What accounts and privileges will I get with my new Azure VMware Solution private cloud?
         answer: You're provided credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There's also a CloudAdmin group that can be used to incorporate Azure Active Directory. For more information, see [Access and Identity Concepts](concepts-identity.md).
