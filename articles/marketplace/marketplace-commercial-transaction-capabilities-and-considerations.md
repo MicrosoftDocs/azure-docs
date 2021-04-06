@@ -50,9 +50,9 @@ The _Marketplace metering service_ lets you specify pay-as-you-go (consumption-b
 
 ### Billing infrastructure costs
 
-For _virtual machines_ and _Azure applications_, Azure infrastructure usage fees are billed to the customer's Azure subscription. Infrastructure usage fees are priced and presented separately from the software provider's licensing fees on the customer's invoice.
+For **virtual machines** and **Azure applications**, Azure infrastructure usage fees are billed to the customer's Azure subscription. Infrastructure usage fees are priced and presented separately from the software provider's licensing fees on the customer's invoice.
 
-For _SaaS Apps_, the publisher must account for Azure infrastructure usage fees and software licensing fees as a single cost item. It is represented as a flat fee to the customer. The Azure infrastructure usage is managed and billed to the publisher directly. Actual infrastructure usage fees are not seen by the customer. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. Software licensing fees aren't metered or based on user consumption.
+For **SaaS Apps**, the publisher must account for Azure infrastructure usage fees and software licensing fees as a single cost item. It is represented as a flat fee to the customer. The Azure infrastructure usage is managed and billed to the publisher directly. Actual infrastructure usage fees are not seen by the customer. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. Software licensing fees aren't metered or based on user consumption.
 
 ## Pricing models
 
@@ -158,7 +158,7 @@ The Reduced Marketplace Service Fee applies to Azure IP Co-sell incentivized Saa
 
 **Credit cards and monthly invoice**: Customers can pay using a credit card and a monthly invoice. In this case, your software license fees will be billed just like the Enterprise Agreement scenario, as an itemized cost, separate from any Azure-specific usage costs.
 
-**Free credits and Azure Prepayment**: Some customers choose to prepay Azure with a monetary commitment in the Enterprise Agreement or have been provided free credits to use for Azure usage. Although these credits can be used to pay for Azure usage, they can't be used to pay for publisher software license fees.
+**Free credits and monitary commitment**: Some customers choose to prepay Azure with a monetary commitment in the Enterprise Agreement or have been provided free credits to use for Azure usage. Although these credits can be used to pay for Azure usage, they can't be used to pay for publisher software license fees.
 
 **Billing and collections**: Publisher software license billing is presented using the customer-selected method of invoicing and follows the invoicing timeline. Customers without an Enterprise Agreement in place are billed monthly for marketplace software licenses. Customers with an Enterprise Agreement are billed monthly via an invoice that is presented quarterly.
 
@@ -175,9 +175,7 @@ Customers typically purchase using the Enterprise Agreement or a credit-card ena
 
 #### Billing questions and support
 
-For more information and legal policies, see the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560).
-
-For help with billing questions, contact [commercial marketplace publisher support](https://aka.ms/marketplacepublishersupport).
+For more information and legal policies, see the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). For help with billing questions, contact [commercial marketplace publisher support](https://aka.ms/marketplacepublishersupport).
 
 ## Transact requirements
 
