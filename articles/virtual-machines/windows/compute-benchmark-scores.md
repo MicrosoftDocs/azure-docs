@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: benchmark
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/31/2021
+ms.date: 04/06/2021
 ms.author: cynthn
 ms.reviewer: davberg
 
@@ -16,11 +16,10 @@ The following CoreMark benchmark scores show compute performance for select Azur
 
 | Type | Families |
 | ---- | -------- |
-| [Compute optimized](#compute-optimized) | [Fsv2](#fsv2---compute---premium-storage)  |
+| [Compute optimized](#compute-optimized) | [Fsv2](#fsv2---compute--premium-storage)  |
 | [General purpose](#general-purpose) | [Dasv4](#dasv4) [Dav4](#dav4) [Ddsv4](#ddsv4) [Ddv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4)  |
 | [Memory optimized](#memory-optimized) | [Easv4](#easv4) [Eav4](#eav4) [Edsv4](#edsv4) [Edv4](#edv4) [Esv4](#esv4) [Ev4](#ev4)  |
 
-# azure (Coremark)
 ## Compute optimized
 ### Fsv2 - Compute + Premium Storage
 (03/29/2021 PBIID:9198755)
