@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/06/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -22,7 +22,7 @@ For end-to-end data protection, Microsoft recommends that you also enable soft d
 
 ## Enable container soft delete
 
-You can enable or disable container soft delete for the storage account at any time by using either the Azure portal or an Azure Resource Manager template.
+You can enable or disable container soft delete for the storage account at any time by using the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template.
 
 # [Portal](#tab/azure-portal)
 
