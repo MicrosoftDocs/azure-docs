@@ -132,7 +132,7 @@ The following instructions are a step-by-step guide to configuring backup on the
 
 1. You can choose to store your backups in one of the two data stores (or tiers): **Backup data store** (standard tier) or **Archive data store** (in preview).
 
-   You can choose to move **On-expiry** if you prefer to move the backup to archive data store upon its expiry in the backup data store.
+   You can choose **On-expiry** to move the backup to archive data store upon its expiry in the backup data store.
 
 1. The **default retention rule** is applied in the absence of any other retention rule, and has a default value of three months.
 
@@ -196,8 +196,8 @@ Follow this step-by-step guide to trigger a restore:
    ![Rehydration settings](./media/backup-azure-database-postgresql/rehydration-settings.png)
    
    Provide the following additional parameters required for rehydration:
-   - **Rehydration priority:** Set it as **Standard**.
-   - **Rehydration duration:** The default value is set as **15**. The maximum rehydration duration is 30 days, and the minimum rehydration duration is 10 days. 
+   - **Rehydration priority:** Default is **Standard**.
+   - **Rehydration duration:** The maximum rehydration duration is 30 days, and the minimum rehydration duration is 10 days. Default value is **15**.
    
    The recovery point is stored in the **Backup data store** for the specified rehydration duration.
 
