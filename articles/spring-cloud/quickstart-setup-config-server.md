@@ -7,6 +7,7 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
+ms.custom: fasttrack-edit
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
