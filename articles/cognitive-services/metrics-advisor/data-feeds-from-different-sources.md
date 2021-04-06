@@ -27,8 +27,20 @@ Use this article to find the settings and requirements for connecting different 
 | **Service principal**| Store your [Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Credential entity are able to view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
 | **Service principal from key vault**|Store your [Service Principal in a Key Vault](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2008&viewFallbackFrom=azs-2008) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of a **credential entity** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
 
-## Data sources supported and corresponding authentication types
+## Create a credentail entity for security
 
+You can create a **Credential entity** to store credential related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the real credentials. It can be created in *Adding data feed page* or *Credential entity page*. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new datafeeed, and it will be really convenient when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
+
+1. Click '+' to create a new credential entity when adding data feed (you can also create one in *Credential entity page*).
+ ![image](https://user-images.githubusercontent.com/81400625/113384375-78824180-93b8-11eb-9bdd-cda07f3bbfa1.png)
+ 
+2. Set the credentail entity name, description (if needed) and credential type (equals to authentication types).
+ ![image](https://user-images.githubusercontent.com/81400625/113384478-b3847500-93b8-11eb-85ec-b5a7ad58695d.png)
+ 
+3. After createing a credentail key, you can choose it when specifying authentication type.
+ ![image](https://user-images.githubusercontent.com/81400625/113379484-3c48e400-93ac-11eb-8622-5f00bac95c06.png)
+ 
+## Data sources supported and corresponding authentication types
 
 | Data sources | Authentication Types |
 |-------------| ---------------------|
@@ -47,18 +59,6 @@ Use this article to find the settings and requirements for connecting different 
 |[**MySQL**](#mysql) | Basic |
 |[**PostgreSQL**](#pgsql)| Basic|
 |[**Local files(CSV)**](#csv)| Basic|
-
-You can create a **Credential entity** to store credential related information, and use it for authenticating to your data sources or give others access to connect to your data sources(with security guarantee). It can be created in *Adding data feed page* or *Credential entity page*. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new datafeeed, and it will be really convenient when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
-
-1. Click '+' to create a new credential entity when adding data feed (you can also create one in *Credential entity page*).
- ![image](https://user-images.githubusercontent.com/81400625/113384375-78824180-93b8-11eb-9bdd-cda07f3bbfa1.png)
- 
-2. Set the credentail entity name, description (if needed) and credential type (equals to authentication types).
- ![image](https://user-images.githubusercontent.com/81400625/113384478-b3847500-93b8-11eb-85ec-b5a7ad58695d.png)
- 
-3. After createing a credentail key, you can choose it when specifying authentication type.
- ![image](https://user-images.githubusercontent.com/81400625/113379484-3c48e400-93ac-11eb-8622-5f00bac95c06.png)
-
 
 The following sections specify the parameters required for all authentication types within different data source scenarios. 
 
