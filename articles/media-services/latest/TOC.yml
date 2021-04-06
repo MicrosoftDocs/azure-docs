@@ -334,9 +334,9 @@
       href: asset-upload-media-how-to.md
     - name: Manage multiple storage accounts
       href: storage-managing-multiple-storage-accounts-how-to.md
-  - name: Create transforms and jobs
+  - name: Create transforms
     items:
-    - name: Create transforms
+    - name: Create a transform
       href: transform-create-transform-how-to.md
     - name: Create a basic audio transform with REST
       href: transform-create-basic-audio-how-to.md
@@ -344,41 +344,38 @@
       href: transform-create-thumbnail-sprites-how-to.md
     - name: Stitch two or more video files with .NET
       href: transform-stitch-how-to.md
-    - name: Subclip a video
-      items:
-      - name: With .NET
-        href: transform-subclip-video-dotnet-how-to.md
-        displayName: subclipping, clip, edit, trim, clipping
-      - name: With REST
-        href: transform-subclip-video-rest-how-to.md
-        displayName: subclipping, clip, edit, trim, clipping
+    - name: Subclip a video .NET
+      href: transform-subclip-video-dotnet-how-to.md
+      displayName: subclipping, clip, edit, trim, clipping
+    - name: Subclip a video REST
+      href: transform-subclip-video-rest-how-to.md
+      displayName: subclipping, clip, edit, trim, clipping
     - name: Create a custom transform
-      items:
-      - name: With .NET
         displayName: encode, encoding, custom, transform
         items:
-        - name: Customize encoder presets
+        - name: Customize encoder presets .NET
           href: transform-custom-presets-how-to.md
-        - name: Create an overlay transform
+        - name: Create an overlay transform .NET
           href: transform-create-overlay-how-to.md
-        - name: Generate thumbnails with .NET
+        - name: Generate thumbnails .NET
           href: transform-generate-thumbnails-dotnet-how-to.md
         - name: Crop videos with .NET
           href: crop-howto.md
-      - name: With CLI
-        displayName: encode, encoding, custom, transform
-        href: transform-custom-preset-cli-how-to.md
-      - name: With REST
-        displayName: encode, encoding, custom, transform
-        href: transform-custom-preset-rest-how-to.md
-      - name: Generate thumbnails with REST
-        href: transform-generate-thumbnails-rest-how-to.md
-      - name: Scale media reserved units
-        href: media-reserved-units-cli-how-to.md
-    - name: Create a copyAllBitrateNonInterleaved transform with REST
-      href: transform-create-copyallbitratenoninterleaved-how-to.md
-    - name: Copy videos without encoding with REST
-      href: transform-create-copy-video-audio-how-to.md
+        - name: Customize encoder presets CLI
+          href: transform-custom-preset-cli-how-to.md
+        - name: Customize encoder presets REST
+          displayName: encode, encoding, custom, transform
+          href: transform-custom-preset-rest-how-to.md
+        - name: Generate thumbnails with REST
+          href: transform-generate-thumbnails-rest-how-to.md
+        - name: Scale media reserved units
+          href: media-reserved-units-cli-how-to.md
+        - name: Create a copyAllBitrateNonInterleaved transform with REST
+          href: transform-create-copyallbitratenoninterleaved-how-to.md
+        - name: Copy videos without encoding with REST
+          href: transform-create-copy-video-audio-how-to.md
+  - name: Create jobs
+    items:
     - name: Create jobs with CLI
       href: job-create-cli-how-to.md
     - name: Create job input with a local file and .NET
