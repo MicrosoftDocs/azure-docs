@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 04/06/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -77,7 +77,21 @@ No, currently you cannot apply Network Security Groups to the delegated subnet o
 
 ### Can I use Azure RBAC with Azure NetApp Files?
 
-Yes, Azure NetApp Files supports Azure RBAC features.
+Yes, Azure NetApp Files supports Azure RBAC features. Along with the built-in Azure roles, you can [create custom roles](../role-based-access-control/custom-roles.md) for Azure NetApp Files. 
+
+For the complete list of Azure NetApp Files permissions, see Azure resource provider operations for [`Microsoft.NetApp`](../role-based-access-control/resource-provider-operations.md#microsoftnetapp).
+
+### Are Azure Activity Logs supported on Azure NetApp Files?
+
+Azure NetApp Files is an Azure native service. All PUT, POST, and DELETE APIs against Azure NetApp Files are logged. For example, the logs show activities such as who created the snapshot, who modified the volume, and so on.
+
+For the complete list of API operations, see [Azure NetApp Files REST API](/rest/api/netapp/).
+
+### Can I use Azure policies with Azure NetApp Files?
+
+Yes, you can create [custom Azure policies](../governance/policy/tutorials/create-custom-policy-definition.md). 
+
+However, you cannot create Azure policies (custom naming policies) on the Azure NetApp Files interface. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
 
 ## Performance FAQs
 

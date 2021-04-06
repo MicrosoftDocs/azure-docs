@@ -115,8 +115,11 @@ $rgName = "ResourceGroup01"
 $accountName = "MyAutomationAccount"
 $variableValue = "My String"
 
-New-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name "MyStringVariable" –Encrypted $false –Value $variableValue
-$string = (Get-AzAutomationVariable -ResourceGroupName $rgName -AutomationAccountName $accountName –Name "MyStringVariable").Value
+New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" 
+-AutomationAccountName "MyAutomationAccount" -Name 'MyStringVariable' `
+-Encrypted $false -Value 'My String'
+$string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
+-AutomationAccountName "MyAutomationAccount" -Name 'MyStringVariable').Value
 ```
 
 The following example shows how to create a variable with a complex type and then retrieve its properties. In this case, a virtual machine object from [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) is used specifying a subset of its properties.
@@ -125,10 +128,11 @@ The following example shows how to create a variable with a complex type and the
 $rgName = "ResourceGroup01"
 $accountName = "MyAutomationAccount"
 
-$vm = Get-AzVM -ResourceGroupName $rgName –Name "VM01" | Select Name, Location, Tags
-New-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name "MyComplexVariable" –Encrypted $false –Value $vm
+$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" -Name "VM01" | Select Name, Location, Extensions
+New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" -AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable" -Encrypted $false -Value $vm
 
-$vmValue = Get-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name "MyComplexVariable"
+$vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
+-AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable"
 
 $vmName = $vmValue.Value.Name
 $vmTags = $vmValue.Value.Tags
@@ -153,7 +157,7 @@ Write-Output "Runbook has been run $numberOfRunnings times."
 for ($i = 1; $i -le $numberOfIterations; $i++) {
     Write-Output "$i`: $sampleMessage"
 }
-Set-AutomationVariable –Name numberOfRunnings –Value ($numberOfRunnings += 1)
+Set-AutomationVariable -Name numberOfRunnings -Value ($numberOfRunnings += 1)
 ```
 
 # [Python 2](#tab/python2)
