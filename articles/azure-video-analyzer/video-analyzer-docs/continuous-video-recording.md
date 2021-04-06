@@ -8,20 +8,20 @@ ms.date: 03/10/2021
 ---
 # Continuous video recording in Azure Video Analyzer  
 
-## Suggested pre-reading  
-
-* [Pipeline topology concept]() <!--concept-pipeline -->
-* [Video recording concept]() <!--concept-recording -->
-
-## Overview
-
-Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Azure Video Analyzer supports recording video continuously, on a 24x7 basis, from a CCTV camera via a video processing [pipeline topology]() <!--concept-pipeline--> consisting of an RTSP source node and a video sink node. The diagram below shows a graphical representation of such a pipeline. The JSON representation of the [pipeline]() <!--concept-pipeline--> can be found  in [the CVR json]() <!--pipeline-cvr-json-->.
+Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Azure Video Analyzer supports recording video continuously, on a 24x7 basis, from a CCTV camera via a video processing [pipeline topology]() <!--concept-pipeline--> consisting of an RTSP source node and a video sink node. The diagram below shows a graphical representation of such a pipeline. The JSON representation of the [pipeline]() <!--concept-pipeline--> can be found  in [the CVR json]()<!--pipeline-cvr-json-->.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Continuous video recording":::
 
 An instance of the pipeline topology depicted above can be run on an edge device, with the video sink recording to a Video Analyzer [video resource]() <!--terminology-video-->. The video will be recorded for as long as the pipeline stays in the activated state. Since video is being recorded as a video resource, it can be played back using the streaming capabilities of Video Analyzer. See [Playback of recorded content]()<!--concept-video-playback--> for more details.
 
+## Suggested pre-reading  
+
+It is recommended to read the following articles before proceeding.
+
+* [Pipeline topology concept]() <!--concept-pipeline -->
+* [Video recording concept]() <!--concept-recording -->
+ 
 ## Resilient recording
 
 Video Analyzer supports operating under conditions where the edge device may occasionally lose connectivity with the cloud or experience a drop in available bandwidth. To account for this, the video from the source is recorded locally into a cache and is automatically synced with the video resource on a periodic basis. If you examine the [pipeline topology JSON]() <!--pipeline-cvr-json-->, you will see it has the following properties defined:
