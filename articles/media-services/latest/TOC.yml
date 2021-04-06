@@ -367,7 +367,7 @@
         displayName: encode, encoding, custom, transform
         items:
         - name: Customize encoder presets
-          href: encode-custom-presets-how-to.md
+          href: transform-custom-presets-how-to.md
         - name: Create an overlay transform
           href: transform-create-overlay-how-to.md
         - name: Generate thumbnails with .NET
@@ -376,10 +376,10 @@
           href: crop-howto.md
       - name: With CLI
         displayName: encode, encoding, custom, transform
-        href: encode-custom-preset-cli-how-to.md
+        href: transform-custom-preset-cli-how-to.md
       - name: With REST
         displayName: encode, encoding, custom, transform
-        href: encode-custom-preset-rest-how-to.md
+        href: transform-custom-preset-rest-how-to.md
       - name: Generate thumbnails with REST
         href: transform-generate-thumbnails-rest-how-to.md
       - name: Scale media reserved units
