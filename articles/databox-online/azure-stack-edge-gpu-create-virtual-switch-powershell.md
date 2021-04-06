@@ -39,7 +39,7 @@ Before you begin, make sure that:
 
 [Connect to the PowerShell interface of your device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-## Query available physical network interfaces
+## Query available network interfaces
 
 1. Use the following command to display a list of physical network interfaces on which you can create a new virtual switch. You will select one of these network interfaces.
 
@@ -96,7 +96,7 @@ Use the following cmdlet to create a new virtual switch on your specified networ
 Add-HcsExternalVirtualSwitch -InterfaceAlias <Network interface name> -WaitForSwitchCreation $true
 ```
 
-The new switch that is created is named as `vswitch-<Network interface name>`.
+Use the `Get-HcsExternalVirtualSwitch` command to identify the newly created switch. The new switch that is created is named as `vswitch-<InterfaceAlias>`. 
 
 Here is an example output:
 
@@ -129,11 +129,11 @@ Type                          : External
 [10.100.10.10]: PS>
 ```
 
-## Verify switch, network, subnet 
+## Verify network, subnet 
 
 After you have created the new virtual switch, Azure Stack Edge Pro GPU automatically creates a virtual network and subnet that corresponds to it. You can use this virtual network when creating VMs.
 
-<!--To identify the virtual network and subnet associated with the new switch that you created, use the ` ` command.-->
+<!--To identify the virtual network and subnet associated with the new switch that you created, use the `Get-HcsVirtualNetwork` command. This cmdlet will be released in April some time. -->
 
 ## Next steps
 
