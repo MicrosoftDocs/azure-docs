@@ -33,7 +33,7 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 | Release state:                  | Generally available (GA)                                                                                                                                                                                                                                                                                      |
 | Pricing:                        | Requires [Azure Defender for servers](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Supported platforms:            |  • Azure machines running Windows<br> • Azure Arc machines running Windows|
-| Supported versions of Windows:  |  • **General Availability (GA) -** Detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1<br> • **Preview -** Detection on Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), and [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.md) (formerly Enterprise for Virtual Desktops (EVD)|
+| Supported versions of Windows:  |  • **General Availability (GA) -** Detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1<br> • **Preview -** Detection on Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), and [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops (EVD)|
 | Unsupported operating systems:  |  • Windows 10 (other than EVD or WVD)<br> • Linux|
 | Required roles and permissions: | To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor**|
 | Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov                                                        |
@@ -69,7 +69,7 @@ After you've configured the location, you can't change it. If you have your own 
 1. Confirm that your machine meets the necessary requirements for Defender for Endpoint:
 
     - For **all versions of Windows**:
-        - Configure the network settings described in [Configure device proxy and Internet connectivity settings](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
+        - Configure the network settings described in [Configure device proxy and Internet connectivity settings](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
         - If you're deploying Defender to Endpoint to an on-premises machines, connect it to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
     - In addition, for **Windows Server 2019 machines**, confirm that they're running a valid agent and have the MicrosoftMonitoringAgent extension
 

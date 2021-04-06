@@ -3,10 +3,10 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 02/23/2021
+ms.date: 03/20/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
-manager: lizross
+manager: femila
 ms.custom: references_regions
 ---
 # What's new in Windows Virtual Desktop?
@@ -29,6 +29,18 @@ Check out these articles to learn about updates for our clients for Windows Virt
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## Windows Virtual Desktop Agent updates
+
+The Windows Virtual Desktop agent updates at least once per month.
+
+Here's what's changed in the Windows Virtual Desktop Agent:
+
+- Version 1.0.2866.1500: This update was released March 26, 2021 and fixed an issue with the stack health check.
+- Version 1.0.2800.2802: This update was released March 10, 2021 and has general improvements and bug fixes.
+- Version 1.0.2800.2800: This update was released March 2, 2021 and fixed a reverse connection issue.
+- Version 1.0.2800.2700: This update was released February 10, 2021 and has general improvements and bug fixes.
+- Version 1.0.2800.2700: This update was released February 4, 2021 and fixed an access denied orchestration issue.
 
 ## FSLogix updates
 

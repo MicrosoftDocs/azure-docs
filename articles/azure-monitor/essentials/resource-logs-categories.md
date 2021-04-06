@@ -2,7 +2,7 @@
 title: Azure Monitor Resource Logs supported services and categories
 description: Reference of Azure Monitor Understand the supported services and event schema for Azure resource logs.
 ms.topic: reference
-ms.date: 01/29/2021
+ms.date: 03/30/2021
 ---
 
 # Supported categories for Azure Resource Logs
@@ -28,7 +28,8 @@ Following is a list of the types of logs available for each resource type.
 Some categories may only be supported for specific types of resources. See the resource-specific documentation if you feel you are missing a resource. For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 If you think there is something is missing, you can open a GitHub comment at the bottom of this article.
-## Microsoft.AAD/domainServices
+
+## Microsoft.AAD/DomainServices
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -41,6 +42,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 |PolicyChange|PolicyChange|No|
 |PrivilegeUse|PrivilegeUse|No|
 |SystemSecurity|SystemSecurity|No|
+
+
+## microsoft.aadiam/tenants
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Signin|Signin|Yes|
 
 
 ## Microsoft.AnalysisServices/servers
@@ -92,6 +100,14 @@ If you think there is something is missing, you can open a GitHub comment at the
 |JobStreams|Job Streams|No|
 
 
+## Microsoft.AutonomousDevelopmentPlatform/accounts
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Audit|Audit|Yes|
+|Operational|Operational|Yes|
+
+
 ## Microsoft.Batch/batchAccounts
 
 |Category|Category Display Name|Costs To Export|
@@ -130,7 +146,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |BotRequest|Requests from the channels to the bot|No|
-|DependencyRequest|Requests to dependencies|No|
 
 
 ## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -177,6 +192,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|AuthOperational|Operational Authentication Logs|Yes|
 |ChatOperational|Operational Chat Logs|No|
 |SMSOperational|Operational SMS Logs|No|
 |Usage|Usage Records|No|
@@ -251,6 +267,8 @@ If you think there is something is missing, you can open a GitHub comment at the
 |---|---|---|
 |ActivityRuns|Pipeline activity runs log|No|
 |PipelineRuns|Pipeline runs log|No|
+|SandboxActivityRuns|Sandbox Activity runs log|Yes|
+|SandboxPipelineRuns|Sandbox Pipeline runs log|Yes|
 |SSISIntegrationRuntimeLogs|SSIS integration runtime logs|No|
 |SSISPackageEventMessageContext|SSIS package event message context|No|
 |SSISPackageEventMessages|SSIS package event messages|No|
@@ -315,6 +333,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |PostgreSQLLogs|PostgreSQL Server Logs|No|
+
+
+## Microsoft.DBForPostgreSQL/serverGroupsv2
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|PostgreSQLLogs|PostgreSQL Server Logs|Yes|
 
 
 ## Microsoft.DBforPostgreSQL/servers
@@ -526,18 +551,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |AppTraces|Traces|No|
 
 
-## Microsoft.IoTSpaces/Graph
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|Audit|Audit|No|
-|Egress|Egress|No|
-|Ingress|Ingress|No|
-|Operational|Operational|No|
-|Trace|Trace|No|
-|UserDefinedFunction|UserDefinedFunction|No|
-
-
 ## microsoft.keyvault/managedhsms
 
 |Category|Category Display Name|Costs To Export|
@@ -742,13 +755,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Engine|Engine|No|
 
 
-## Microsoft.ProjectBabylon/accounts
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|ScanStatusLogEvent|ScanStatus|No|
-
-
 ## microsoft.purview/accounts
 
 |Category|Category Display Name|Costs To Export|
@@ -803,6 +809,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AllLogs|Azure SignalR Service Logs.|No|
+
+
+## Microsoft.SignalRService/WebPubSub
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AllLogs|Azure Web PubSub Service Logs.|Yes|
 
 
 ## Microsoft.Sql/managedInstances
@@ -896,6 +909,9 @@ If you think there is something is missing, you can open a GitHub comment at the
 |---|---|---|
 |BuiltinSqlReqsEnded|Built-in Sql Pool Requests Ended|No|
 |GatewayApiRequests|Synapse Gateway Api Requests|No|
+|IntegrationActivityRuns|Integration Activity Runs|Yes|
+|IntegrationPipelineRuns|Integration Pipeline Runs|Yes|
+|IntegrationTriggerRuns|Integration Trigger Runs|Yes|
 |SQLSecurityAuditEvents|SQL Security Audit Event|No|
 |SynapseRbacOperations|Synapse RBAC Operations|No|
 
@@ -970,7 +986,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |AppServiceIPSecAuditLogs|IPSecurity Audit Logs|No|
 |AppServicePlatformLogs|App Service Platform logs|No|
 |FunctionAppLogs|Function Application Logs|No|
-
 
 
 ## Next Steps

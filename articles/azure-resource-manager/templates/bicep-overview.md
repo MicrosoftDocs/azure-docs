@@ -2,7 +2,7 @@
 title: Bicep language for Azure Resource Manager templates
 description: Describes the Bicep language for deploying infrastructure to Azure through Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/23/2021
 ---
 
 # What is Bicep (Preview)?
@@ -11,9 +11,15 @@ Bicep is a language for declaratively deploying Azure resources. You can use Bic
 
 The JSON syntax for creating template can be verbose and require complicated expression. Bicep improves that experience without losing any of the capabilities of a JSON template. It's a transparent abstraction over the JSON for ARM templates. Each Bicep file compiles to a standard ARM template. Resource types, API versions, and properties that are valid in an ARM template are valid in a Bicep file. There are a few [known limitations](#known-limitations) in the current release.
 
+Bicep is currently in preview. To track the status of the work, see the [Bicep project repository](https://github.com/Azure/bicep).
+
+To learn about Bicep, see the following video.
+
+> [!VIDEO https://www.youtube.com/embed/sc1kJfcRQgY]
+
 ## Get started
 
-To start with Bicep, [install the tools](https://github.com/Azure/bicep/blob/main/docs/installing.md).
+To start with Bicep, [install the tools](bicep-install.md).
 
 After installing the tools, try the [Bicep tutorial](./bicep-tutorial-create-first-bicep.md). The tutorial series walks you through the structure and capabilities of Bicep. You deploy Bicep files, and convert an ARM template into the equivalent Bicep file.
 

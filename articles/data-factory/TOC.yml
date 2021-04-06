@@ -15,6 +15,8 @@
     href: quickstart-create-data-factory-portal.md
   - name: Create data factory - Copy data tool
     href: quickstart-create-data-factory-copy-data-tool.md
+  - name: Create data factory - Azure CLI
+    href: quickstart-create-data-factory-azure-cli.md
   - name: Create data factory - Azure PowerShell
     href: quickstart-create-data-factory-powershell.md
   - name: Create data factory - .NET
@@ -30,6 +32,8 @@
     href: data-flow-create.md
 - name: Tutorials
   items:
+  - name: List of tutorials
+    href: data-factory-tutorials.md
   - name: Copy and ingest data
     items:
     - name: From Azure Blob Storage to Azure SQL Database
@@ -816,6 +820,8 @@
     href: /python/api/overview/azure/datafactory
   - name: Azure Policy built-ins
     href: policy-reference.md
+  - name: Azure CLI
+    href: /cli/azure/ext/datafactory/datafactory
 - name: Resources
   items:
   - name: Whitepapers

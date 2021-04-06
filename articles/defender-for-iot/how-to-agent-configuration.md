@@ -1,19 +1,8 @@
 ---
 title: Configure security agents
 description: Learn how to configure Defender for IoT security agents for use with the Defender for IoT security service.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
 ---
 
 # Tutorial: Configure security agents

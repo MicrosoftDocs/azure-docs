@@ -1,20 +1,9 @@
 ---
 title: Defender for IoT security agent local configuration (C#)
 description: Learn more about the Defender for IoT security service, security agent local configuration file for C#.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: elazark
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/08/2020
-ms.author: v-ekrieg
 ---
 
 # Understanding the local configuration file (C# agent)
