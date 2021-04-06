@@ -4,7 +4,7 @@ description: This article describes how data recovery protects from losing your 
 author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
-ms.author: v-umha
+ms.author: v-ummehabiba
 ---
 
 # Disaster recovery for FarmBeats
@@ -40,18 +40,18 @@ You can initiate failover and recover data stored for which, each of the above-m
 Copy the access key of the restored Cosmos DB and update the new FarmBeats Datahub Key Vault.
 
 
-  ![Disaster Recovery](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
+  ![Screenshot that highlights where to get the copy of the access key.](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
 > Copy the URL of restored Cosmos DB and update it in the new FarmBeats Datahub App Service Configuration. You can now delete Cosmos DB account in the new FarmBeats deployment.
 
-  ![Disaster Recovery](./media/disaster-recovery-for-farmbeats/configuration.png)
+  ![Screenshot that shows where to copy the URL of restored Cosmos DB.](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### Configure Storage Account
 
 Copy the access key of the restored storage account and update it in the new FarmBeats Datahub Key Vault.
 
-![Disaster Recovery](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
+![Screenshot that shows where to copy the access key of the restored storage account.](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
 > Ensure to Update Storage Account name in the new FarmBeats Batch VM config file.

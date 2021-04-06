@@ -8,7 +8,7 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 11/17/2020
 ---
 
 # Quickstart: Create an Azure Cognitive Search knowledge store in the Azure portal
@@ -17,7 +17,7 @@ Knowledge store is a feature of Azure Cognitive Search that persists output from
 
 A pipeline accepts unstructured text and image content, applies AI powered by Cognitive Services (such as OCR and natural language processing), and outputs new structures and information that didn't previously exist. One of the physical artifacts created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md), which you can access through tools to analyze and explore content.
 
-In this quickstart, you'll combine services and data in the Azure cloud to create a knowledge store. Once everything is in place, you'll run the **Import data** wizard in the portal to pull it all together. The end result is original text content plus AI-generated content that you can view in the portal ([Storage explorer](knowledge-store-view-storage-explorer.md)).
+In this quickstart, you'll combine services and data in the Azure cloud to create a knowledge store. Once everything is in place, you'll run the **Import data** wizard in the portal to pull it all together. The end result is original text content plus AI-generated content that you can view in the portal ([Storage Explorer](knowledge-store-view-storage-explorer.md)).
 
 ## Prerequisites
 

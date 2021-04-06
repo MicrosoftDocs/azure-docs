@@ -11,7 +11,7 @@ ms.author: twooley
 ---
 # Use the Azure Import/Export service for offline copy of data to Data Lake Storage Gen1
 
-In this article, you'll learn how to copy huge data sets (>200 GB) into Data Lake Storage Gen1 by using offline copy methods, like the [Azure Import/Export service](../storage/common/storage-import-export-service.md). Specifically, the file used as an example in this article is 339,420,860,416 bytes, or about 319 GB on disk. Let's call this file 319GB.tsv.
+In this article, you'll learn how to copy huge data sets (>200 GB) into Data Lake Storage Gen1 by using offline copy methods, like the [Azure Import/Export service](../import-export/storage-import-export-service.md). Specifically, the file used as an example in this article is 339,420,860,416 bytes, or about 319 GB on disk. Let's call this file 319GB.tsv.
 
 The Azure Import/Export service helps you to transfer large amounts of data more securely to Azure Blob storage by shipping hard disk drives to an Azure datacenter.
 
@@ -40,7 +40,7 @@ The split operation creates files with the following names.
 
 ## Get disks ready with data
 
-Follow the instructions in [Using the Azure Import/Export service](../storage/common/storage-import-export-service.md) (under the **Prepare your drives** section) to prepare your hard drives. Here's the overall sequence:
+Follow the instructions in [Using the Azure Import/Export service](../import-export/storage-import-export-service.md) (under the **Prepare your drives** section) to prepare your hard drives. Here's the overall sequence:
 
 1. Procure a hard disk that meets the requirement to be used for the Azure Import/Export service.
 2. Identify an Azure storage account where the data will be copied after it is shipped to the Azure datacenter.
@@ -49,12 +49,12 @@ Follow the instructions in [Using the Azure Import/Export service](../storage/co
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ```
-    See [Using the Azure Import/Export service](../storage/common/storage-import-export-service.md) for more sample snippets.
+    See [Using the Azure Import/Export service](../import-export/storage-import-export-service.md) for more sample snippets.
 4. The preceding command creates a journal file at the specified location. Use this journal file to create an import job from the [Azure portal](https://portal.azure.com).
 
 ## Create an import job
 
-You can now create an import job by using the instructions in [Using the Azure Import/Export service](../storage/common/storage-import-export-service.md) (under the **Create the Import job** section). For this import job, with other details, also provide the journal file created while preparing the disk drives.
+You can now create an import job by using the instructions in [Using the Azure Import/Export service](../import-export/storage-import-export-service.md) (under the **Create the Import job** section). For this import job, with other details, also provide the journal file created while preparing the disk drives.
 
 ## Physically ship the disks
 

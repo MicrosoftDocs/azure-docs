@@ -2,7 +2,7 @@
 title: Metrics in Azure Monitor - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Azure Monitoring to monitor Azure Event Hubs
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 02/25/2021
 ---
 
 # Azure Event Hubs metrics in Azure Monitor
@@ -13,9 +13,9 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Log Analytics and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor/platform/data-platform.md).
+Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Log Analytics and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor/data-platform.md).
 
-Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) in Azure Monitor.
+Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to keep data for a longer period of time, you can archive metrics data to an Azure Storage account. This setting can be configured in [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) in Azure Monitor.
 
 
 ## Access metrics in the portal
@@ -24,7 +24,7 @@ You can monitor metrics over time in the [Azure portal](https://portal.azure.com
 
 ![View successful metrics][1]
 
-You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics**. To display metrics filtered to the scope of the event hub, select the event hub and then click **Metrics**.
+You can also access metrics directly via the namespace. To do so, select your namespace and then select **Metrics**. To display metrics filtered to the scope of the event hub, select the event hub and then select **Metrics**.
 
 For metrics supporting dimensions, you must filter with the desired dimension value as shown in the following example:
 
@@ -32,7 +32,7 @@ For metrics supporting dimensions, you must filter with the desired dimension va
 
 ## Billing
 
-Using metrics in Azure Monitor is currently free. However, if you use additional solutions that ingest metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. You are also billed by Azure if you stream metrics data to Azure Monitor logs for advanced analysis.
+Using metrics in Azure Monitor is currently free. However, if you use other solutions that ingest metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. You are also billed by Azure if you stream metrics data to Azure Monitor logs for advanced analysis.
 
 The following metrics give you an overview of the health of your service. 
 
@@ -41,70 +41,23 @@ The following metrics give you an overview of the health of your service.
 
 All metrics values are sent to Azure Monitor every minute. The time granularity defines the time interval for which metrics values are presented. The supported time interval for all Event Hubs metrics is 1 minute.
 
-## Request metrics
+## Azure Event Hubs metrics
+For a list of metrics supported by the service, see [Azure Event Hubs](../azure-monitor/essentials/metrics-supported.md#microsofteventhubnamespaces)
 
-Counts the number of data and management operations requests.
-
-| Metric Name | Description |
-| ------------------- | ----------------- |
-| Incoming Requests  | The number of requests made to the Azure Event Hubs service over a specified period. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName |
-| Successful Requests    | The number of successful requests made to the Azure Event Hubs service over a specified period. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName |
-| Server Errors  | The number of requests not processed due to an error in the Azure Event Hubs service over a specified period. <br/><br/>Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName |
-|User Errors |The number of requests not processed due to user errors over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Quota Exceeded Errors |The number of requests exceeded the available quota. See [this article](event-hubs-quotas.md) for more information about Event Hubs quotas.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-
-## Throughput metrics
-
-| Metric Name | Description |
-| ------------------- | ----------------- |
-|Throttled Requests |The number of requests that were throttled because the throughput unit usage was exceeded.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-
-## Message metrics
-
-| Metric Name | Description |
-| ------------------- | ----------------- |
-|Incoming Messages |The number of events or messages sent to Event Hubs over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Outgoing Messages |The number of events or messages retrieved from Event Hubs over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Incoming Bytes |The number of bytes sent to the Azure Event Hubs service over a specified period.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Outgoing Bytes |The number of bytes retrieved from the Azure Event Hubs service over a specified period.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-
-## Connection metrics
-
-| Metric Name | Description |
-| ------------------- | ----------------- |
-|ActiveConnections |The number of active connections on a namespace as well as on an entity.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Connections Opened |The number of open connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Connections Closed |The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-
-## Event Hubs Capture metrics
-
-You can monitor Event Hubs Capture metrics when you enable the Capture feature for your event hubs. The following metrics describe what you can monitor with Capture enabled.
-
-| Metric Name | Description |
-| ------------------- | ----------------- |
-|Capture Backlog |The number of bytes that are yet to be captured to the chosen destination.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Captured Messages |The number of messages or events that are captured to the chosen destination over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Captured Bytes |The number of bytes that are captured to the chosen destination over a specified period.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-
-## Metrics dimensions
-
-Azure Event Hubs supports the following dimensions for metrics in Azure Monitor. Adding dimensions to your metrics is optional. If you do not add dimensions, metrics are specified at the namespace level. 
-
-| Metric Name | Description |
-| ------------------- | ----------------- |
-|EntityName| Event Hubs supports the event hub entities under the namespace.|
+> [!NOTE]
+> When a user error occurs, Azure Event Hubs updates the **User Errors** metric, but doesn't log any other diagnostic information. Therefore, you need to capture details on user errors in your applications. Or, you can also convert the telemetry generated when messages are sent or received into application insights. For an example, see [Tracking with Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md#tracking-with-azure-application-insights).
 
 ## Azure Monitor integration with SIEM tools
-Routing your monitoring data (activity logs, diagnostics logs, etc.) to an event hub with Azure Monitor enables you to easily integrate with Security Information and Event Management (SIEM) tools. For more information, see the following articles/blog posts:
+Routing your monitoring data (activity logs, diagnostics logs, and so on.) to an event hub with Azure Monitor enables you to easily integrate with Security Information and Event Management (SIEM) tools. For more information, see the following articles/blog posts:
 
-- [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
+- [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)
 - [Introduction to Azure Log Integration](/previous-versions/azure/security/fundamentals/azure-log-integration-overview)
 - [Use Azure Monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
 In the scenario where an SIEM tool consumes log data from an event hub, if you see no incoming messages or you see incoming messages but no outgoing messages in the metrics graph, follow these steps:
 
-- If there are **no incoming messages**, it means that the Azure Monitor service is not moving audit/diagnostics logs into the event hub. Open a support ticket with the Azure Monitor team in this scenario. 
-- if there are incoming messages, but **no outgoing messages**, it means that the SIEM application is not reading the messages. Contact the SIEM provider to determine whether the configuration of the event hub those applications is correct.
+- If there are **no incoming messages**, it means that the Azure Monitor service isn't moving audit/diagnostics logs into the event hub. Open a support ticket with the Azure Monitor team in this scenario. 
+- if there are incoming messages, but **no outgoing messages**, it means that the SIEM application isn't reading the messages. Contact the SIEM provider to determine whether the configuration of the event hub those applications is correct.
 
 
 ## Next steps
@@ -118,7 +71,7 @@ For more information about Event Hubs, visit the following links:
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

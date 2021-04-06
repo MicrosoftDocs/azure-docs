@@ -4,7 +4,7 @@ description: Troubleshooting common issues faced when you are unable to sign in 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -43,7 +43,7 @@ The following documents can help you to resolve some of the most common issues i
 ## I'm having a problem setting up back-end authentication to my application
   The following documents can help you to resolve some of the most common issues in this category.
   * [I don't know how to configure Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-  * [I don't know how to configure my application with PingAccess](application-proxy-back-end-ping-access-how-to.md)
+  * [I don't know how to configure my application with PingAccess](./application-proxy-ping-access-publishing-guide.md)
 
 ## I'm having a problem when signing in to my application
   The following documents can help you to resolve some of the most common issues in this category.

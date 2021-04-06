@@ -2,7 +2,8 @@
 title: Create and use an SSH key pair for Linux VMs in Azure 
 description: How to create and use an SSH public-private key pair for Linux VMs in Azure to improve the security of the authentication process.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
@@ -43,9 +44,9 @@ az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-
 
 To create a Linux VM that uses SSH keys for authentication, specify your SSH public key when creating the VM using the Azure portal, Azure CLI, Azure Resource Manager templates, or other methods:
 
-* [Create a Linux virtual machine with the Azure portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create a Linux virtual machine with the Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create a Linux VM using an Azure template](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a Linux virtual machine with the Azure portal](quick-create-portal.md)
+* [Create a Linux virtual machine with the Azure CLI](quick-create-cli.md)
+* [Create a Linux VM using an Azure template](create-ssh-secured-vm-from-template.md)
 
 If you're not familiar with the format of an SSH public key, you can display your public key with the following `cat` command, replacing `~/.ssh/id_rsa.pub` with the path and filename of your own public key file if needed:
 
@@ -92,4 +93,4 @@ If the VM is using the just-in-time access policy, you need to request access be
 
 * For more information on working with SSH key pairs, see [Detailed steps to create and manage SSH key pairs](create-ssh-keys-detailed.md).
 
-* If you have difficulties with SSH connections to Azure VMs, see [Troubleshoot SSH connections to an Azure Linux VM](../troubleshooting/troubleshoot-ssh-connection.md).
+* If you have difficulties with SSH connections to Azure VMs, see [Troubleshoot SSH connections to an Azure Linux VM](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).

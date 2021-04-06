@@ -13,22 +13,15 @@ Azure Event Hubs is a Big Data streaming platform and event ingestion service, c
 
 In this quickstart, you create an event hub using Azure CLI.
 
-## Prerequisites
-To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account][] before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use Azure CLI locally, this tutorial requires that you are running Azure CLI version 2.0.4 or later. Run `az --version` to check your version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+- This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-## Sign in to Azure
+## Set the subscription context
 
 The following steps are not required if you're running commands in Cloud Shell. If you're running the CLI locally, perform the following steps to sign in to Azure and set your current subscription:
-
-Run the following command to sign in to Azure:
-
-```azurecli-interactive
-az login
-```
 
 Set the current subscription context. Replace `MyAzureSub` with the name of the Azure subscription you want to use:
 

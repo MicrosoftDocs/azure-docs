@@ -4,7 +4,7 @@ description: QnA Maker has meta-limits for parts of the knowledge base and servi
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/14/2020
+ms.date: 11/09/2020
 ---
 
 # QnA Maker knowledge base limits and boundaries
@@ -46,6 +46,9 @@ File names may not include the following characters:
 
 The maximum number of files that can be extracted and maximum file size is based on your **[QnA Maker pricing tier limits](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)**.
 
+> [!NOTE]
+> QnA Maker managed (Preview) is a free service with no limits on the number of sources that can be added. Throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs.
+
 ### Maximum number of deep-links from URL
 
 The maximum number of deep-links that can be crawled for extraction of QnAs from a URL page is **20**.
@@ -74,10 +77,10 @@ The length and acceptable characters for metadata name and value are listed in t
 
 ## Knowledge Base content limits
 Overall limits on the content in the knowledge base:
-* Length of answer text: 25,000
-* Length of question text: 1,000
-* Length of metadata key text: 100
-* Length of metadata value text: 500
+* Length of answer text: 25,000 characters
+* Length of question text: 1,000 characters
+* Length of metadata key text: 100 characters
+* Length of metadata value text: 500 characters
 * Supported characters for metadata name: Alphabets, digits and `_`
 * Supported characters for metadata value: All except `:` and `|`
 * Length of file name: 200
@@ -88,16 +91,18 @@ Overall limits on the content in the knowledge base:
 
 ## Create Knowledge base call limits:
 These represent the limits for each create knowledge base action; that is, clicking *Create KB* or calling the CreateKnowledgeBase API.
-* Maximum number of alternate questions per answer: 300
+* Recommended maximum number of alternate questions per answer: 300
 * Maximum number of URLs: 10
 * Maximum number of files: 10
+* Maximum number of QnAs permitted per call: 1000
 
 ## Update Knowledge base call limits
 These represent the limits for each update action; that is, clicking *Save and train* or calling the UpdateKnowledgeBase API.
 * Length of each source name: 300
-* Maximum number of alternate questions added or deleted: 300
+* Recommended maximum number of alternate questions added or deleted: 300
 * Maximum number of metadata fields added or deleted: 10
 * Maximum number of URLs that can be refreshed: 5
+* Maximum number of QnAs permitted per call: 1000
 
 ## Next steps
 

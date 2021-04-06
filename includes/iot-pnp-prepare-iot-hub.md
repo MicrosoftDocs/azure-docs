@@ -4,7 +4,7 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 03/17/2020
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 ## Prepare an IoT hub
@@ -29,9 +29,6 @@ az group create --name my-pnp-resourcegroup \
 az iot hub create --name <YourIoTHubName> \
     --resource-group my-pnp-resourcegroup --sku F1
 ```
-
-> [!NOTE]
-> IoT Plug and Play is currently available on IoT hubs created in the Central US, North Europe, and East Japan regions. IoT Plug and Play support is not included in basic-tier IoT hubs.
 
 Run the following command to create the device identity in your IoT hub. Replace the `<YourIoTHubName>` and `<YourDeviceID>` placeholders with your own _IoT Hub name_ and a _device ID_ of your choice.
 

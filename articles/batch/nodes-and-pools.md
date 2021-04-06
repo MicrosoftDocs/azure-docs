@@ -2,7 +2,7 @@
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 03/11/2021
 
 ---
 # Nodes and pools in Azure Batch
@@ -21,7 +21,7 @@ All compute nodes in Batch also include:
 
 - A standard [folder structure](files-and-directories.md) and associated [environment variables](jobs-and-tasks.md) that are available for reference by tasks.
 - **Firewall** settings that are configured to control access.
-- [Remote access](error-handling.md#connect-to-compute-nodes) to both Windows (Remote Desktop Protocol (RDP)) and Linux (Secure Shell (SSH)) nodes.
+- [Remote access](error-handling.md#connect-to-compute-nodes) to both Windows (Remote Desktop Protocol (RDP)) and Linux (Secure Shell (SSH)) nodes (unless you [create your pool with remote access disabled](pool-endpoint-configuration.md)).
 
 By default, nodes can communicate with each other, but they can't communicate with virtual machines that are not part of the same pool. To allow nodes to communicate securely with other virtual machines, or with an on-premises network, you can provision the pool [in a subnet of an Azure virtual network (VNet)](batch-virtual-network.md). When you do so, your nodes can be accessed through public IP addresses. These public IP addresses are created by Batch and may change over the lifetime of the pool. You can also [create a pool with static public IP addresses](create-pool-public-ip.md) that you control, which ensures that they won't change unexpectedly.
 
@@ -35,7 +35,7 @@ Every node that is added to a pool is assigned a unique name and IP address. Whe
 
 A pool can be used only by the Batch account in which it was created. A Batch account can create multiple pools to meet the resource requirements of the applications it will run.
 
-The pool can be created manually, or automatically by the Batch service when you specify the work to be done. When you create a pool, you can specify the following attributes:
+The pool can be created manually, or [automatically by the Batch service](#autopools) when you specify the work to be done. When you create a pool, you can specify the following attributes:
 
 - [Node operating system and version](#operating-system-and-version)
 - [Node type and target number of nodes](#node-type-and-target)
@@ -59,19 +59,25 @@ When you create a Batch pool, you specify the Azure virtual machine configuratio
 
 There are two types of pool configurations available in Batch.
 
+> [!IMPORTANT]
+> While you can currently create pools using either configuration, new pools should be configured using Virtual Machine Configuration and not Cloud Services Configuration. All current and new Batch features will be supported by Virtual Machine Configuration pools. Cloud Services Configuration pools do not support all features and no new capabilities are planned. You won't be able to create new 'CloudServiceConfiguration' pools or add new nodes to existing pools [after February 29, 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
+
 ### Virtual Machine Configuration
 
 The **Virtual Machine Configuration** specifies that the pool is composed of Azure virtual machines. These VMs may be created from either Linux or Windows images.
 
-When you create a pool based on the Virtual Machine Configuration, you must specify not only the size of the nodes and the source of the images used to create them, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md). You can optionally attach one or more empty data disks to pool VMs created from Marketplace images, or include data disks in custom images used to create the VMs. When including data disks, you need to mount and format the disks from within a VM to use them.
+The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. When you create a pool based on the Virtual Machine Configuration, you must specify not only the size of the nodes and the source of the images used to create them, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md). You can optionally attach one or more empty data disks to pool VMs created from Marketplace images, or include data disks in custom images used to create the VMs. When including data disks, you need to mount and format the disks from within a VM to use them.
 
 ### Cloud Services Configuration
 
-The **Cloud Services Configuration** specifies that the pool is composed of Azure Cloud Services nodes. Cloud Services provides Windows compute nodes *only*.
+> [!WARNING]
+> Cloud Services Configuration pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Please use Virtual Machine Configuration pools instead. For more information, see [Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
-Available operating systems for Cloud Services Configuration pools are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool that contains Cloud Services nodes, you need to specify the node size and its *OS Family* (which determines which versions of .NET are installed with the OS). Cloud Services is deployed to Azure more quickly than virtual machines running Windows. If you want pools of Windows compute nodes, you may find that Cloud Services provide a performance benefit in terms of deployment time.
+The **Cloud Services Configuration** specifies that the pool is composed of Azure Cloud Services nodes. Cloud Services provides only Windows compute nodes.
 
-As with worker roles within Cloud Services, you can specify an *OS Version* (for more information on worker roles, see the [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)). We recommend that you specify `Latest (*)` for the *OS Version* so that the nodes are automatically upgraded, and there is no work required to cater to newly released versions. The primary use case for selecting a specific OS version is to ensure application compatibility, which allows backward compatibility testing to be performed before allowing the version to be updated. After validation, the *OS Version* for the pool can be updated and the new OS image can be installed. Any running tasks will be interrupted and requeued.
+Available operating systems for Cloud Services Configuration pools are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md), and available compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md). When you create a pool that contains Cloud Services nodes, you specify the node size and its *OS Family* (which determines which versions of .NET are installed with the OS). Cloud Services is deployed to Azure more quickly than virtual machines running Windows. If you want pools of Windows compute nodes, you may find that Cloud Services provide a performance benefit in terms of deployment time.
+
+As with worker roles within Cloud Services, you can specify an *OS Version*. We recommend that you specify `Latest (*)` for the *OS Version* so that the nodes are automatically upgraded, and there is no work required to cater to newly released versions. The primary use case for selecting a specific OS version is to ensure application compatibility, which allows backward compatibility testing to be performed before allowing the version to be updated. After validation, the *OS Version* for the pool can be updated and the new OS image can be installed. Any running tasks will be interrupted and requeued.
 
 ### Node Agent SKUs
 
@@ -96,7 +102,7 @@ When you create a pool, you can specify which types of nodes you want and the ta
 - **Dedicated nodes.** Dedicated compute nodes are reserved for your workloads. They are more expensive than low-priority nodes, but they are guaranteed to never be preempted.
 - **Low-priority nodes.** Low-priority nodes take advantage of surplus capacity in Azure to run your Batch workloads. Low-priority nodes are less expensive per hour than dedicated nodes, and enable workloads requiring significant compute power. For more information, see [Use low-priority VMs with Batch](batch-low-pri-vms.md).
 
-Low-priority nodes may be preempted when Azure has insufficient surplus capacity. If a node is preempted while running tasks, the tasks are requeued and run again once a compute node becomes available again. Low-priority nodes are a good option for workloads where the job completion time is flexible and the work is distributed across many nodes. Before you decide to use low-priority nodes for your scenario, make sure that any work lost due to pre-emption will be minimal and easy to recreate.
+Low-priority nodes may be preempted when Azure has insufficient surplus capacity. If a node is preempted while running tasks, the tasks are requeued and run again once a compute node becomes available again. Low-priority nodes are a good option for workloads where the job completion time is flexible and the work is distributed across many nodes. Before you decide to use low-priority nodes for your scenario, make sure that any work lost due to preemption will be minimal and easy to recreate.
 
 You can have both low-priority and dedicated compute nodes in the same pool. Each type of node has its own target setting, for which you can specify the desired number of nodes.
 
@@ -106,7 +112,7 @@ For pricing information for both low-priority and dedicated nodes, see [Batch Pr
 
 ## Node size
 
-When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized [HPC](../virtual-machines/sizes-hpc.md) or [GPU-enabled](../virtual-machines/sizes-gpu.md) VM sizes. 
+When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized [HPC](../virtual-machines/sizes-hpc.md) or [GPU-enabled](../virtual-machines/sizes-gpu.md) VM sizes. Note that node sizes can only be chosen at the time a pool is created. In other words, once a pool is created, its node size cannot be changed.
 
 For more information, see [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md).
 
@@ -180,6 +186,10 @@ At the other end of the spectrum, if having jobs start immediately is the highes
 
 A combined approach is typically used for handling a variable but ongoing load. You can have a pool in which multiple jobs are submitted, and can scale the number of nodes up or down according to the job load. You can do this reactively, based on current load, or proactively, if load can be predicted. For more information, see [Automatic scaling policy](#automatic-scaling-policy).
 
+## Autopools
+
+An [autopool](/rest/api/batchservice/job/add#autopoolspecification) is a pool that is created by the Batch service when a job is submitted, rather than being created prior to the jobs that will run in the pool. The Batch service will manage the lifetime of an autopool according to the characteristics that you specify. Most often, these pools are also set to delete automatically after their jobs have completed.
+
 ## Security with certificates
 
 You typically need to use certificates when you encrypt or decrypt sensitive information for tasks, like the key for an [Azure Storage account](accounts.md#azure-storage-accounts). To support this, you can install certificates on nodes. Encrypted secrets are passed to tasks via command-line parameters or embedded in one of the task resources, and the installed certificates can be used to decrypt them.
@@ -193,3 +203,4 @@ If you add a certificate to an existing pool, you must reboot its compute nodes 
 ## Next steps
 
 - Learn about [jobs and tasks](jobs-and-tasks.md).
+- Learn how to to [detect and avoid failures in pool and node background operations ](batch-pool-node-error-checking.md).

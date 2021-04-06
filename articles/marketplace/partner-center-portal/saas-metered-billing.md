@@ -138,7 +138,7 @@ Once a plan is published, the plan-level details can no longer be changed:
 
 ### Upper limits
 
-The maximum number of dimensions that can be configured for a single offer is 18 unique dimensions.
+The maximum number of dimensions that can be configured for a single offer is 30 unique dimensions.
 
 ## Get support
 
@@ -148,7 +148,7 @@ If you have one of the following issues, you can open a support ticket.
 - An issue that needs to be escalated because of an error or bug on your side (ex. wrong usage event).
 - Any other issues related to metered billing.
 
-To understand publisher support options and open a support ticket with Microsoft, follow the instructions in [Support for the commercial marketplace program in Partner Center](./support.md).
+To understand publisher support options and open a support ticket with Microsoft, follow the instructions in [Support for the commercial marketplace program in Partner Center](../support.md).
 
 ## Next steps
 

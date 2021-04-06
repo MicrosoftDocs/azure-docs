@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
-ms.date: 03/12/2019
+ms.date: 12/22/2020
 ---
 # Manage file space for databases in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,13 +34,13 @@ Monitoring file space usage and shrinking data files may be necessary in the fol
 
 Most storage space metrics displayed in the Azure portal and the following APIs only measure the size of used data pages:
 
-- Azure Resource Manager based metrics APIs including PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
-- T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- Azure Resource Manager based metrics APIs including PowerShell [get-metrics](/powershell/module/az.monitor/get-azmetric)
+- T-SQL: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 However, the following APIs also measure the size of space allocated for databases and elastic pools:
 
-- T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
-- T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
+- T-SQL:  [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
+- T-SQL: [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### Shrinking data files
 
@@ -78,7 +78,7 @@ Modify the following query to return the amount of database data space used.  Un
 SELECT TOP 1 storage_in_megabytes AS DatabaseDataSpaceUsedInMB
 FROM sys.resource_stats
 WHERE database_name = 'db1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### Database data space allocated and unused allocated space
@@ -92,7 +92,7 @@ SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB,
 SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB
 FROM sys.database_files
 GROUP BY type_desc
-HAVING type_desc = 'ROWS'
+HAVING type_desc = 'ROWS';
 ```
 
 ### Database data max size
@@ -102,7 +102,7 @@ Modify the following query to return the database data max size.  Units of the q
 ```sql
 -- Connect to database
 -- Database data max size in bytes
-SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
+SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes;
 ```
 
 ## Understanding types of storage space for an elastic pool
@@ -115,6 +115,9 @@ Understanding the following storage space quantities are important for managing 
 |**Data space allocated**|The summation of data space allocated by all databases in the elastic pool.||
 |**Data space allocated but unused**|The difference between the amount of data space allocated and data space used by all databases in the elastic pool.|This quantity represents the maximum amount of space allocated for the elastic pool that can be reclaimed by shrinking database data files.|
 |**Data max size**|The maximum amount of data space that can be used by the elastic pool for all of its databases.|The space allocated for the elastic pool should not exceed the elastic pool max size.  If this condition occurs, then space allocated that is unused can be reclaimed by shrinking database data files.|
+
+> [!NOTE]
+> The error message "The elastic pool has reached its storage limit" indicates that the database objects have been allocated enough space to meet the elastic pool storage limit, but there may be unused space in the data space allocation. Consider increasing the elastic pool's storage limit, or as a short-term solution, freeing up data space using the [**Reclaim unused allocated space**](#reclaim-unused-allocated-space) section below. You should also be aware of the potential negative performance impact of shrinking database files, see [**Rebuild indexes**](#rebuild-indexes) section below.
 
 ## Query an elastic pool for storage space information
 
@@ -130,7 +133,7 @@ Modify the following query to return the amount of elastic pool data space used.
 SELECT TOP 1 avg_storage_percent / 100.0 * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### Elastic pool data space allocated and unused allocated space
@@ -142,7 +145,7 @@ The query results for determining the space allocated for each database in the p
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020. The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
-The PowerShell script requires SQL Server PowerShell module – see [Download PowerShell module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) to install.
+The PowerShell script requires SQL Server PowerShell module – see [Download PowerShell module](/sql/powershell/download-sql-server-ps-module) to install.
 
 ```powershell
 $resourceGroupName = "<resourceGroupName>"
@@ -181,7 +184,7 @@ The following screenshot is an example of the output of the script:
 
 ### Elastic pool data max size
 
-Modify the following T-SQL query to return the elastic pool data max size.  Units of the query result are in MB.
+Modify the following T-SQL query to return the last recorded elastic pool data max size.  Units of the query result are in MB.
 
 ```sql
 -- Connect to master
@@ -189,13 +192,13 @@ Modify the following T-SQL query to return the elastic pool data max size.  Unit
 SELECT TOP 1 elastic_pool_storage_limit_mb AS ElasticPoolMaxSizeInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ## Reclaim unused allocated space
 
 > [!NOTE]
-> This command can impact database performance while it is running, and if possible should be run during periods of low usage.
+> Shrink commands impact database performance while running, and if possible should be run during periods of low usage.
 
 ### DBCC shrink
 
@@ -203,28 +206,32 @@ Once databases have been identified for reclaiming unused allocated space, modif
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'db1')
+DBCC SHRINKDATABASE (N'db1');
 ```
 
-This command can impact database performance while it is running, and if possible should be run during periods of low usage.  
+Shrink commands  impact database performance while running, and if possible should be run during periods of low usage.  
 
-For more information about this command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+You should also be aware of the potential negative performance impact of shrinking database files, see [**Rebuild indexes**](#rebuild-indexes) section below.
+
+For more information about this command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
 ### Auto-shrink
 
 Alternatively, auto shrink can be enabled for a database.  Auto shrink reduces file management complexity and is less impactful to database performance than `SHRINKDATABASE` or `SHRINKFILE`.  Auto shrink can be particularly helpful for managing elastic pools with many databases.  However, auto shrink can be less effective in reclaiming file space than `SHRINKDATABASE` and `SHRINKFILE`.
+By default, Auto Shrink is disabled as recommended for most databases. For more information, see [Considerations for AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
+
 To enable auto shrink, modify the name of the database in the following command.
 
 ```sql
 -- Enable auto-shrink for the database.
-ALTER DATABASE [db1] SET AUTO_SHRINK ON
+ALTER DATABASE [db1] SET AUTO_SHRINK ON;
 ```
 
-For more information about this command, see [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) options.
+For more information about this command, see [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options) options.
 
 ### Rebuild indexes
 
-After database data files are shrunk, indexes may become fragmented and lose their performance optimization effectiveness. If performance degradation occurs, then consider rebuilding database indexes. For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+After database data files are shrunk, indexes may become fragmented and lose their performance optimization effectiveness. If performance degradation occurs, then consider rebuilding database indexes. For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## Next steps
 

@@ -144,25 +144,25 @@ This view returns all the data in Query Store. There is one row for each distinc
 ### query_store.query_texts_view
 This view returns query text data in Query Store. There is one row for each distinct query_text.
 
-|**Name**|	**Type**|	**Description**|
-|---|---|---|
-|query_text_id	|bigint		|ID for the query_texts table|
-|query_sql_text	|Varchar(10000)	 	|Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster.|
+| **Name** | **Type** | **Description** |
+|--|--|--|
+| query_text_id | bigint | ID for the query_texts table |
+| query_sql_text | Varchar(10000) | Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster. |
 
 ### query_store.pgms_wait_sampling_view
 This view returns wait events data in Query Store. There is one row for each distinct database ID, user ID, query ID, and event.
 
-|**Name**|	**Type**|	**References**|	**Description**|
-|---|---|---|---|
-|user_id	|oid	|pg_authid.oid	|OID of user who executed the statement|
-|db_id	|oid	|pg_database.oid	|OID of database in which the statement was executed|
-|query_id	|bigint	 	||Internal hash code, computed from the statement's parse tree|
-|event_type	|text	 	||The type of event for which the backend is waiting|
-|event	|text		||The wait event name if backend is currently waiting|
-|calls	|Integer		||Number of the same event captured|
-
+| **Name** | **Type** | **References** | **Description** |
+|--|--|--|--|
+| user_id | oid | pg_authid.oid | OID of user who executed the statement |
+| db_id | oid | pg_database.oid | OID of database in which the statement was executed |
+| query_id | bigint |  | Internal hash code, computed from the statement's parse tree |
+| event_type | text |  | The type of event for which the backend is waiting |
+| event | text |  | The wait event name if backend is currently waiting |
+| calls | Integer |  | Number of the same event captured |
 
 ### Functions
+
 Query_store.qs_reset() returns void
 
 `qs_reset` discards all statistics gathered so far by Query Store. This function can only be executed by the server admin role.
@@ -173,7 +173,7 @@ Query_store.staging_data_reset() returns void
 
 
 ## Azure Monitor
-Azure Database for PostgreSQL is integrated with [Azure Monitor diagnostic settings](../azure-monitor/platform/diagnostic-settings.md). Diagnostic settings allows you to send your Postgres logs in JSON format to [Azure Monitor Logs](../azure-monitor/log-query/log-query-overview.md) for analytics and alerting, Event Hubs for streaming, and Azure Storage for archiving.
+Azure Database for PostgreSQL is integrated with [Azure Monitor diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md). Diagnostic settings allows you to send your Postgres logs in JSON format to [Azure Monitor Logs](../azure-monitor/logs/log-query-overview.md) for analytics and alerting, Event Hubs for streaming, and Azure Storage for archiving.
 
 >[!IMPORTANT]
 > This diagnostic feature for is only available in the General Purpose and Memory Optimized pricing tiers.
@@ -190,7 +190,7 @@ To enable resource logs using the Azure portal:
 5. Select the log types **QueryStoreRuntimeStatistics** and **QueryStoreWaitStatistics**.
 6. Save your setting.
 
-To enable this setting using PowerShell, CLI, or REST API, visit the [diagnostic settings article](../azure-monitor/platform/diagnostic-settings.md).
+To enable this setting using PowerShell, CLI, or REST API, visit the [diagnostic settings article](../azure-monitor/essentials/diagnostic-settings.md).
 
 ### JSON log format
 The following tables describes the fields for the two log types. Depending on the output endpoint you choose, the fields included and the order in which they appear may vary.

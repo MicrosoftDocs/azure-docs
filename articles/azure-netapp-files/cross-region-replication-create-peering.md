@@ -1,5 +1,5 @@
 ---
-title: Create replication peering for Azure NetApp Files | Microsoft Docs
+title: Create volume replication for Azure NetApp Files | Microsoft Docs
 description: Describes how to create volume replication peering for Azure NetApp Files to set up cross-region replication.
 services: azure-netapp-files
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
 ---
-# Create replication peering for Azure NetApp Files
+# Create volume replication for Azure NetApp Files
 
 > [!IMPORTANT]
 > The cross-region replication feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
@@ -62,7 +62,7 @@ You can also select an existing NetApp account in a different region.
     * Capacity pool
     * Volume quota
         > [!NOTE] 
-        > It is recommended that the volume quota size mirror that of the source volume.
+        > The volume quota (size) for the destination volume should mirror that of the source volume. If you specify a size that is smaller than the source volume, the destination volume is automatically resized to the source volume size. 
     * Virtual network 
     * Subnet
 
@@ -108,5 +108,6 @@ To authorize the replication, you need to obtain the resource ID of the replicat
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
+* [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region-replication](troubleshoot-cross-region-replication.md)
 

@@ -5,13 +5,13 @@ summary: Learn how to create application gateways. This documentation helps you 
 
 metadata:
   title: Azure Application Gateway documentation
-  description: Learn how to deploy Azure Firewall, a cloud-based network security service.
+  description: Learn about Azure Application Gateway, a web traffic load balancer that enables you to manage traffic to your web applications.
   services: application-gateway
   ms.service: application-gateway
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 03/24/2020
+  ms.date: 02/08/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -28,7 +28,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Frequently asked questions
-            url: application-gateway-faq.md
+            url: application-gateway-faq.yml
       - linkListType: whats-new
         links:
           - text: What's new
@@ -84,8 +84,8 @@ landingContent:
             url: ingress-controller-overview.md
       - linkListType: tutorial
         links:
-          - text: Create an Ingress Controller for AKS 
-            url: ingress-controller-install-new.md
+          - text: Deploy an Ingress Controller AKS Add-On for AKS 
+            url: tutorial-ingress-controller-add-on-new.md
 
 # Card
   - title: Rewrite HTTP headers and URL using Application Gateway

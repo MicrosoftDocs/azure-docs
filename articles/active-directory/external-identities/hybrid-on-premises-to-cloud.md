@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/24/2018
+ms.date: 11/03/2020
 
 ms.author: mimart
 author: msmimart
@@ -20,7 +20,10 @@ ms.collection: M365-identity-device-management
 
 Before Azure Active Directory (Azure AD), organizations with on-premises identity systems have traditionally managed partner accounts in their on-premises directory. In such an organization, when you start to move apps to Azure AD, you want to make sure your partners can access the resources they need. It shouldn't matter whether the resources are on-premises or in the cloud. Also, you want your partner users to be able to use the same sign-in credentials for both on-premises and Azure AD resources. 
 
-If you create accounts for your external partners in your on-premises directory (for example, you create an account with a sign-in name of "wmoran" for an external user named Wendy Moran in your partners.contoso.com domain), you can now sync these accounts to the cloud. Specifically, you can use Azure AD Connect to sync the partner accounts to the cloud as Azure AD B2B users (that is, users with UserType = Guest). This enables your partner users to access cloud resources using the same credentials as their local accounts, without giving them more access than they need. 
+If you create accounts for your external partners in your on-premises directory (for example, you create an account with a sign-in name of "wmoran" for an external user named Wendy Moran in your partners.contoso.com domain), you can now sync these accounts to the cloud. Specifically, you can use Azure AD Connect to sync the partner accounts to the cloud, which creates a user account with UserType = Guest. This enables your partner users to access cloud resources using the same credentials as their local accounts, without giving them more access than they need.
+
+> [!NOTE]
+> See also how to [invite internal users to B2B collaboration](invite-internal-users.md). With this feature, you can invite internal guest users to use B2B collaboration, regardless of whether you've synced their accounts from your on-premises directory to the cloud. Once the user accepts the invitation to use B2B collaboration, they'll be able to use their own identities and credentials to sign in to the resources you want them to access. You won’t need to maintain passwords or manage account lifecycles.
 
 ## Identify unique attributes for UserType
 
@@ -35,7 +38,7 @@ For detailed attribute requirements, see [Enable synchronization of UserType](..
 
 ## Configure Azure AD Connect to sync users to the cloud
 
-After you identify the unique attribute, you can configure Azure AD Connect to sync these users to the cloud as Azure AD B2B users (that is, users with UserType = Guest). From an authorization point of view, these users are indistinguishable from B2B users created through the Azure AD B2B collaboration invitation process.
+After you identify the unique attribute, you can configure Azure AD Connect to sync these users to the cloud, which creates a user account with UserType = Guest. From an authorization point of view, these users are indistinguishable from B2B users created through the Azure AD B2B collaboration invitation process.
 
 For implementation instructions, see [Enable synchronization of UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype).
 

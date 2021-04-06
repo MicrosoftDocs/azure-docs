@@ -149,13 +149,12 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Azure CLI scripts for common tasks
-            url: /azure/postgresql/sample-scripts-azure-cli
+            url: ./sample-scripts-azure-cli.md
           - text: Azure Resource Manager templates
             url: /azure/templates/microsoft.dbforpostgresql/allversions
       - linkListType: reference
         links:
           - text: Azure CLI developer reference
-            url: /rest/api/postgresql/
-          - text: REST API developer reference
             url: /cli/azure/postgres
-
+          - text: REST API developer reference
+            url: /rest/api/postgresql/

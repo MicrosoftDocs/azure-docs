@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Use the sample datasets - Azure'
 description: Descriptions of the datasets used in sample models included in Machine Learning Studio (classic). You can use these sample datasets for your experiments.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: sample
 
 author: likebupt
@@ -13,7 +13,7 @@ ms.date: 01/19/2018
 ---
 # Use the sample datasets in Azure Machine Learning Studio (classic)
 
-**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [top]: #machine-learning-sample-datasets
@@ -418,4 +418,4 @@ The dataset was downloaded and stored in Azure Blob storage (<a href="https://az
 > [Kickstart your experiments with examples](sample-experiments.md)
 
 <!-- Module References -->
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

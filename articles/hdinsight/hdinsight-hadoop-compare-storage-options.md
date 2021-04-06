@@ -1,9 +1,6 @@
 ---
 title: Compare storage options for use with Azure HDInsight clusters
 description: Provides an overview of storage types and how they work with Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
@@ -31,6 +28,8 @@ The following table summarizes the Azure Storage services that are supported wit
 |Azure Storage| General-purpose V1 | Object | Blob | Standard | N/A | All | All |
 |Azure Storage| Blob Storage** | Object | Block Blob | Standard | Hot, Cool, Archive | All | All |
 |Azure Data Lake Storage Gen1| N/A | Hierarchical (filesystem) | N/A | N/A | N/A | 3.6 Only | All except HBase |
+|Azure Storage| Block Blob| Object | Block Blob | Premium | N/A| 3.6+ | Only HBase with accelerated writes|
+|Azure Data Lake Storage Gen2| Block Blob| Hierarchical (filesystem) | Block Blob | Premium | N/A| 3.6+ | Only HBase with accelerated writes|
 
 **For HDInsight clusters, only secondary storage accounts can be of type BlobStorage and Page Blob isn't a supported storage option.
 

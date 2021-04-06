@@ -67,8 +67,8 @@ If you already have a Site-to-Site VPN with a dynamic routing gateway, great! Yo
 2. Configure your new gateway and create your VPN tunnel. For instructions, For instructions, see [Specify the SKU and VPN type](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Make sure you specify the Routing Type as 'Dynamic'.
 
 ### If you don't have a Site-to-Site virtual network:
-1. Create your Site-to-Site virtual network using these instructions: [Create a Virtual Network with a Site-to-Site VPN Connection](vpn-gateway-site-to-site-create.md).  
-2. Configure a dynamic routing gateway using these instructions: [Configure a VPN Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Be sure to select **dynamic routing** for your gateway type.
+1. Create your Site-to-Site virtual network using these instructions: [Create a Virtual Network with a Site-to-Site VPN Connection](./vpn-gateway-howto-site-to-site-classic-portal.md).  
+2. Configure a dynamic routing gateway using these instructions: [Configure a VPN Gateway](./vpn-gateway-howto-site-to-site-classic-portal.md). Be sure to select **dynamic routing** for your gateway type.
 
 ## <a name="export"></a>2. Export the network configuration file
 

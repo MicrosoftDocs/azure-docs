@@ -1,9 +1,6 @@
 ---
 title: Compute context options for ML Services on HDInsight - Azure 
 description: Learn about the different compute context options available to users with ML Services on HDInsight 
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -18,7 +15,7 @@ The edge node of a cluster provides a convenient place to connect to the cluster
 
 ## ML Services on Azure HDInsight
 
-[ML Services on Azure HDInsight](r-server-overview.md) provides the latest capabilities for R-based analytics. It can use data that is stored in an Apache Hadoop HDFS container in your [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage account, a Data Lake Store, or the local Linux file system. Since ML Services is built on open-source R, the R-based applications you build can apply any of the 8000+ open-source R packages. They can also use the routines in [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsoft’s big data analytics package that is included with ML Services.  
+[ML Services on Azure HDInsight](r-server-overview.md) provides the latest capabilities for R-based analytics. It can use data that is stored in an Apache Hadoop HDFS container in your [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage account, a Data Lake Store, or the local Linux file system. Since ML Services is built on open-source R, the R-based applications you build can apply any of the 8000+ open-source R packages. They can also use the routines in [RevoScaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), Microsoft’s big data analytics package that is included with ML Services.  
 
 ## Compute contexts for an edge node
 
@@ -72,7 +69,7 @@ For more information and examples of RevoScaleR compute contexts, see the inline
 > ?rxSetComputeContext
 ```
 
-You can also refer to the [Distributed computing overview](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) in [Machine Learning Server documentation](https://docs.microsoft.com/machine-learning-server/).
+You can also refer to the [Distributed computing overview](/machine-learning-server/r/how-to-revoscaler-distributed-computing) in [Machine Learning Server documentation](/machine-learning-server/).
 
 ## Next steps
 

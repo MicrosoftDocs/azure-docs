@@ -3,8 +3,8 @@ title:  Azure Database for MySQL documentation
 summary: "Azure Database for MySQL is a relational database service powered by the MySQL community edition.You can use either Single Server or Flexible Server (Preview) to host a MySQL database in Azure. It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability."
 metadata:
   description: "Azure Database for MySQL are a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition. You can choose either Single server or Flexible Server (Preview) to deploy your MySQL database in Azure."
-  author: ajlam
-  ms.author: andrela
+  author: savjani
+  ms.author: pariks
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
@@ -21,6 +21,8 @@ landingContent:
             url: overview.md
           - text: Choose the right MySQL option
             url: select-right-deployment-type.md
+          - text: Understand supported MySQL versions
+            url: concepts-supported-versions.md
       - linkListType: whats-new
         links:
           - text: Check out our blog
@@ -36,10 +38,12 @@ landingContent:
             url: single-server/index.yml
       - linkListType: concept
         links:
+          - text: Server concepts
+            url: concepts-servers.md
           - text: Understand pricing tiers
             url: concepts-pricing-tiers.md
-          - text: Understand supported MySQL versions
-            url: concepts-supported-versions.md
+          - text: Limitations
+            url: flexible-server/concepts-limitations.md
       - linkListType: quickstart
         links:
           - text: Create a server using the Azure Portal
@@ -150,7 +154,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Azure CLI scripts for common tasks
-            url: /azure/mysql/sample-scripts-azure-cli
+            url: ./sample-scripts-azure-cli.md
           - text: Azure Resource Manager templates
             url: /azure/templates/microsoft.dbformysql/allversions
       - linkListType: reference
@@ -160,4 +164,4 @@ landingContent:
           - text: REST API developer reference
             url: /rest/api/mysql/
           - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.mysql
+            url: /powershell/module/az.mysql

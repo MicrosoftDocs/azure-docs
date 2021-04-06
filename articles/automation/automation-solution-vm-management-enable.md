@@ -77,7 +77,7 @@ After you click **OK**, the configuration options are validated and the Automati
   
 4. Use the **Schedule** field to select a schedule for VM management by the feature. Select a start date and time for your schedule, to create a recurring daily schedule starting at the chosen time. Selecting a different region is not available. To configure the schedule to your specific time zone after configuring the feature, see [Modify the startup and shutdown schedules](automation-solution-vm-management-config.md#modify-the-startup-and-shutdown-schedules).
 
-5. To receive email notifications from an [action group](../azure-monitor/platform/action-groups.md), accept the default value of **Yes** in the  **Email notifications** field, and provide a valid email address. If you select **No** but decide at a later date that you want to receive email notifications, you can update the action group that is created with valid email addresses separated by commas. 
+5. To receive email notifications from an [action group](../azure-monitor/alerts/action-groups.md), accept the default value of **Yes** in the  **Email notifications** field, and provide a valid email address. If you select **No** but decide at a later date that you want to receive email notifications, you can update the action group that is created with valid email addresses separated by commas. 
 
 6. Enable the following alert rules:
 
@@ -87,7 +87,7 @@ After you click **OK**, the configuration options are validated and the Automati
 
 ## Create alerts
 
-Start/Stop VMs during off-hours doesn't include a predefined set of alerts. Review [Create log alerts with Azure Monitor](../azure-monitor/platform/alerts-log.md) to learn how to create job failed alerts to support your DevOps or operational processes and procedures.
+Start/Stop VMs during off-hours doesn't include a predefined set of alerts. Review [Create log alerts with Azure Monitor](../azure-monitor/alerts/alerts-log.md) to learn how to create job failed alerts to support your DevOps or operational processes and procedures.
 
 ## Deploy the feature
 

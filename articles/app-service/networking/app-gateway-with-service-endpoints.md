@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 
@@ -24,20 +24,20 @@ There are three variations of App Service that require slightly different config
 ## Integration with App Service (multi-tenant)
 App Service (multi-tenant) has a public internet facing endpoint. Using [service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) you can allow traffic only from a specific subnet within an Azure Virtual Network and block everything else. In the following scenario, we'll use this functionality to ensure that an App Service instance can only receive traffic from a specific Application Gateway instance.
 
-![Application Gateway integration with App Service](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
+:::image type="content" source="./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png" alt-text="Diagram shows the Internet flowing to an Application Gateway in an Azure Virtual Network and flowing from there through a firewall icon to instances of apps in App Service.":::
 
 There are two parts to this configuration besides creating the App Service and the Application Gateway. The first part is enabling service endpoints in the subnet of the Virtual Network where the Application Gateway is deployed. Service endpoints will ensure all network traffic leaving the subnet towards the App Service will be tagged with the specific subnet ID. The second part is to set an access restriction of the specific web app to ensure that only traffic tagged with this specific subnet ID is allowed. You can configure it using different tools depending on preference.
 
 ## Using Azure portal
 With Azure portal, you follow four steps to provision and configure the setup. If you have existing resources, you can skip the first steps.
-1. Create an App Service using one of the Quickstarts in the App Service documentation, for example [.Net Core Quickstart](../quickstart-dotnetcore.md)
+1. Create an App Service using one of the Quickstarts in the App Service documentation, for example [.NET Core Quickstart](../quickstart-dotnetcore.md)
 2. Create an Application Gateway using the [portal Quickstart](../../application-gateway/quick-create-portal.md), but skip the Add backend targets section.
 3. Configure [App Service as a backend in Application Gateway](../../application-gateway/configure-web-app-portal.md), but skip the Restrict access section.
-4. Finally create the [access restriction using service endpoints](../../app-service/app-service-ip-restrictions.md#service-endpoints).
+4. Finally create the [access restriction using service endpoints](../../app-service/app-service-ip-restrictions.md#set-a-service-endpoint-based-rule).
 
 You can now access the App Service through Application Gateway, but if you try to access the App Service directly, you should receive a 403 HTTP error indicating that the web site is stopped.
 
-![Application Gateway integration with App Service](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
+![Screenshot shows the text of an Error 403 - Forbidden.](./media/app-gateway-with-service-endpoints/website-403-forbidden.png)
 
 ## Using Azure Resource Manager template
 The [Resource Manager deployment template][template-app-gateway-app-service-complete] will provision a complete scenario. The scenario consists of an App Service instance locked down with service endpoints and access restriction to only receive traffic from Application Gateway. The template includes many Smart Defaults and unique postfixes added to the resource names for it to be simple. To override them, you'll have to clone the repo or download the template and edit it. 

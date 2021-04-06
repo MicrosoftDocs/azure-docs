@@ -3,8 +3,7 @@ title: Explore data and model on Windows
 titleSuffix: Azure Data Science Virtual Machine 
 description: Perform data exploration and modeling tasks on the Windows Data Science Virtual Machine.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 
 author: lobrien
@@ -22,7 +21,7 @@ The DSVM works closely with Azure services. It can read and process data that's 
 
 In this article, you'll learn how to use your DSVM to perform data science tasks and interact with other Azure services. Here are some of the things you can do on the DSVM:
 
-- Use a Jupyter notebook to experiment with your data in a browser by using Python 2, Python 3, and Microsoft R. (Microsoft R is an enterprise-ready version of R designed for performance.)
+- Use a Jupyter Notebook to experiment with your data in a browser by using Python 2, Python 3, and Microsoft R. (Microsoft R is an enterprise-ready version of R designed for performance.)
 - Explore data and develop models locally on the DSVM by using Microsoft Machine Learning Server and Python.
 - Administer your Azure resources by using the Azure portal or PowerShell.
 - Extend your storage space and share large-scale datasets/code across your whole team by creating an Azure Files share as a mountable drive on your DSVM.
@@ -46,8 +45,8 @@ In this article, you'll learn how to use your DSVM to perform data science tasks
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 
-## Use Jupyter notebooks
-The Jupyter Notebook provides a browser-based IDE for data exploration and modeling. You can use Python 2, Python 3, or R (both open source and Microsoft R Server) in a Jupyter notebook.
+## Use Jupyter Notebooks
+The Jupyter Notebook provides a browser-based IDE for data exploration and modeling. You can use Python 2, Python 3, or R (both open source and Microsoft R Server) in a Jupyter Notebook.
 
 To start the Jupyter Notebook, select the **Jupyter Notebook** icon on the **Start** menu or on the desktop. In the DSVM command prompt, you can also run the command ```jupyter notebook``` from the directory where you have existing notebooks or where you want to create new notebooks.  
 
@@ -76,9 +75,9 @@ For Python, you can use an IDE like Visual Studio Community Edition, which has t
 1. Give a description and set the environment prefix path as **c:\anaconda\envs\python2** for Anaconda Python 2.7.
 1. Select **Auto Detect** > **Apply** to save the environment.
 
-See the [PTVS documentation](https://aka.ms/ptvsdocs) for more details on how to create Python environments.
+See the [PTVS documentation](/visualstudio/python/) for more details on how to create Python environments.
 
-Now you're set up to create a new Python project. Go to **File** > **New** > **Project** > **Python** and select the type of Python application you're building. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right-clicking **Python environments** and then selecting **Add/Remove Python Environments**. You can find more information about working with PTVS in the [product documentation](https://aka.ms/ptvsdocs).
+Now you're set up to create a new Python project. Go to **File** > **New** > **Project** > **Python** and select the type of Python application you're building. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right-clicking **Python environments** and then selecting **Add/Remove Python Environments**. You can find more information about working with PTVS in the [product documentation](/visualstudio/python/).
 
 
 
@@ -89,7 +88,7 @@ To administer your Azure subscription and cloud resources, you have two options:
 + Use your browser and go to the [Azure portal](https://portal.azure.com).
 
 + Use PowerShell scripts. Run Azure PowerShell from a shortcut on the desktop or from the **Start** menu. See the 
-[Microsoft Azure PowerShell documentation](../../powershell-azure-resource-manager.md) for full details. 
+[Microsoft Azure PowerShell documentation](../../azure-resource-manager/management/manage-resources-powershell.md) for full details. 
 
 ## Extend storage by using shared file systems
 Data scientists can share large datasets, code, or other resources within the team. The DSVM has about 45 GB of space available. To extend your storage, you can use Azure Files and either mount it on one or more DSVM instances or access it via a REST API. You can also use the [Azure portal](../../virtual-machines/windows/attach-managed-disk-portal.md) or use [Azure PowerShell](../../virtual-machines/windows/attach-disk-ps.md) to add extra dedicated data disks. 
@@ -160,7 +159,7 @@ Azure Blob storage is a reliable, economical cloud storage service for data big 
 
    ![Screenshot of the storage account creation process in the Azure portal](./media/vm-do-ten-things/create-azure-blob.png)
 
-* Confirm that the command-line AzCopy tool is pre-installed: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. The directory that contains azcopy.exe is already on your PATH environment variable, so you can avoid typing the full command path when running this tool. For more information on the AzCopy tool, see the [AzCopy documentation](../../storage/common/storage-use-azcopy.md).
+* Confirm that the command-line AzCopy tool is pre-installed: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. The directory that contains azcopy.exe is already on your PATH environment variable, so you can avoid typing the full command path when running this tool. For more information on the AzCopy tool, see the [AzCopy documentation](../../storage/common/storage-use-azcopy-v10.md).
 * Start the Azure Storage Explorer tool. You can download it from the  [Storage Explorer webpage](https://storageexplorer.com/). 
 
    ![Screenshot of Azure Storage Explorer accessing a storage account](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -199,7 +198,7 @@ You can also upload data from the local file in your VM by using Azure Storage E
 
 #### Read data from an Azure blob: Python ODBC
 
-You can use the BlobService library to read data directly from a blob in a Jupyter notebook or in a Python program.
+You can use the BlobService library to read data directly from a blob in a Jupyter Notebook or in a Python program.
 
 First, import the required packages:
 
@@ -250,10 +249,10 @@ The data is read as a data frame:
 ![Screenshot of the first 10 rows of data](./media/vm-do-ten-things/IPNB_data_readin.png)
 
 
-### Azure Synapse Analytics (formerly SQL DW) and databases
-Azure Synapse Analytics (formerly SQL DW) is an elastic data warehouse as a service with an enterprise-class SQL Server experience.
+### Azure Synapse Analytics and databases
+Azure Synapse Analytics is an elastic data warehouse as a service with an enterprise-class SQL Server experience.
 
-You can provision Azure Synapse Analytics by following the instructions in [this article](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). After you provision Azure Synapse Analytics, you can use [this walkthrough](../team-data-science-process/sqldw-walkthrough.md) to do data upload, exploration, and modeling by using data within Azure Synapse Analytics.
+You can provision Azure Synapse Analytics by following the instructions in [this article](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). After you provision Azure Synapse Analytics, you can use [this walkthrough](../team-data-science-process/sqldw-walkthrough.md) to do data upload, exploration, and modeling by using data within Azure Synapse Analytics.
 
 #### Azure Cosmos DB
 Azure Cosmos DB is a NoSQL database in the cloud. You can use it to work with documents like JSON, and to store and query the documents.
@@ -267,7 +266,7 @@ Use the following prerequisite steps to access Azure Cosmos DB from the DSVM:
    
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
-After you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample*. It contains Python code to access Azure Cosmos DB and do some basic querying. You can learn more about Azure Cosmos DB by visiting the service's [documentation page](https://docs.microsoft.com/azure/cosmos-db/).
+After you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample*. It contains Python code to access Azure Cosmos DB and do some basic querying. You can learn more about Azure Cosmos DB by visiting the service's [documentation page](../../cosmos-db/index.yml).
 
 ## Use Power BI reports and dashboards 
 You can visualize the Volcano JSON file from the preceding Azure Cosmos DB example in Power BI Desktop to gain visual insights into the data. Detailed steps are available in the [Power BI article](../../cosmos-db/powerbi-visualize.md). Here are the high-level steps:
@@ -324,10 +323,9 @@ In addition to the framework-based samples, you can get a set of comprehensive w
 
 - [A how-to guide to build an end-to-end solution to detect products within images](https://github.com/Azure/cortana-intelligence-product-detection-from-images): Image detection is a technique that can locate and classify objects within images. This technology has the potential to bring huge rewards in many real-life business domains. For example, retailers can use this technique to determine which product a customer has picked up from the shelf. This information in turn helps stores manage product inventory. 
 
-- [Deep learning for audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): This tutorial shows how to train a deep-learning model for audio event detection on the [urban sounds dataset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html). It also provides an overview of how to work with audio data.
+- [Deep learning for audio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): This tutorial shows how to train a deep-learning model for audio event detection on the [urban sounds dataset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html). It also provides an overview of how to work with audio data.
 
 - [Classification of text documents](https://github.com/anargyri/lstm_han): This walkthrough demonstrates how to build and train two neural network architectures: Hierarchical Attention Network and Long Short Term Memory (LSTM) network. These neural networks use the Keras API for deep learning to classify text documents. 
 
 ## Summary
 This article described some of the things you can do on the Microsoft Data Science Virtual Machine. There are many more things you can do to make the DSVM an effective analytics environment.
-

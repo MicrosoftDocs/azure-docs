@@ -32,6 +32,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/scheduler/
+            url: /rest/api/scheduler/
           - text: PowerShell
             url: scheduler-powershell-reference.md

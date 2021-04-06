@@ -12,6 +12,7 @@ ms.date: 10/07/2020
 ---
 
 # DDL operations in Azure Cosmos DB Cassandra API from Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 This article details keyspace and table DDL operations against Azure Cosmos DB Cassandra API from Spark.
 

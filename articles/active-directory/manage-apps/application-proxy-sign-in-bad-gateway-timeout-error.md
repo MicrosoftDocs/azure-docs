@@ -4,7 +4,7 @@ description: How to resolve common access issues with Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -82,7 +82,7 @@ Verify that all required ports are open. For required ports, see the open ports 
 
 ## Check for other Connector Errors
 
-If none of the above resolve the issue, the next step is to look for issues or errors with the Connector itself. You can see some common errors in the [Troubleshoot document](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors).
+If none of the above resolve the issue, the next step is to look for issues or errors with the Connector itself. You can see some common errors in the [Troubleshoot document](./application-proxy-troubleshoot.md#connector-errors).
 
 You can also look directly at the Connector logs to identify any errors. Many of the error messages share specific recommendations for fixes. To view the logs, see the [connectors documentation](application-proxy-connectors.md#under-the-hood).
 

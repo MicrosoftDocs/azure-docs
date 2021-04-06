@@ -4,7 +4,7 @@ description: Describes how to manage farms
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ---
 
 
@@ -21,7 +21,7 @@ Use the following steps:
 
     Here is the sample image:
 
-    ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
+    ![Screenshot that shows the Farms page.](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
 2. Select **Create Farm** and provide **Name**, **Crops** and **Address**.
@@ -29,14 +29,14 @@ Use the following steps:
 
 Here are the two ways to define a farm boundary:
 
-1. **Mark on Map**: Use the map control tool to draw and mark the boundary of the farm. To mark the boundaries,  ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) and mark the exact boundaries.
+1. **Mark on Map**: Use the map control tool to draw and mark the boundary of the farm. To mark the boundaries,  ![Screenshot that shows the pencil icon for drawing boundaries on the map](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) and mark the exact boundaries.
 
-    ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
+    ![Screenshot that shows the drawn boundaries on a map.](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
 2. **Paste GeoJson Code**: The GeoJSON is a format for encoding geographical data structures, using JavaScript Object Notation (JSON). This option displays a text box where a GeoJSON string can be entered to mark the farm boundaries. You can also create GeoJSON code from GeoJSON.io.
 Use the tooltips to help fill in the information.
 
-    ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
+    ![Screenshot that highlights the Paste GeoJson Code option on the Create Farm screen.](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
 3.	Select **Submit** to create a farm. A new farm is created and displayed in the **Farms** page.
 
@@ -67,7 +67,7 @@ The **Farms** page displays a list of farms created. Use the following steps to 
 1.	Select a farm from the list to delete farm details.
 2.	Select **Delete Farm** to delete the farm.
 
-    ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
+    ![Screenshot that shows the Delete Farm screen and highlights the Delete button.](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
 
     > [!NOTE]
     > When you delete a farm, the devices and maps associated with the farm aren’t deleted. Any farm information associated with the device and maps won’t be relevant. You can continue to view devices, telemetry and maps from the FarmBeats service.

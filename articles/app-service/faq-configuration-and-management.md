@@ -61,7 +61,9 @@ To set the server time zone for your web app:
     * Value = *The time zone you want*
 3. Select **Save**.
 
-For the App services that run on Windows, see the **Timezone** column in the [Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones) article for accepted values. For the App services that run on Linux, set the [TZ database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) as the time zone value. Here is an example of TZ database name: America/Adak.
+For the App services that run on Windows, see the output from the Windows `tzutil /L` command. Use the value from the second line of each entry. For example: "Tonga Standard Time". Some of these values are also listed in the **Timezone** column in [Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones).
+
+For the App services that run on Linux, set a value from the [IANA TZ database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For example: "America/Adak".
 
 ## Why do my continuous WebJobs sometimes fail?
 
@@ -286,7 +288,7 @@ The quickest way to find the version of Microsoft .NET that's installed in App S
 
 ## Why isn't Autoscale working as expected?
 
-If Azure Autoscale hasn't scaled in or scaled out the web app instance as you expected, you might be running into a scenario in which we intentionally choose not to scale to avoid an infinite loop due to "flapping." This usually happens when there isn't an adequate margin between the scale-out and scale-in thresholds. To learn how to avoid "flapping" and to read about other Autoscale best practices, see [Autoscale best practices](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
+If Azure Autoscale hasn't scaled in or scaled out the web app instance as you expected, you might be running into a scenario in which we intentionally choose not to scale to avoid an infinite loop due to "flapping." This usually happens when there isn't an adequate margin between the scale-out and scale-in thresholds. To learn how to avoid "flapping" and to read about other Autoscale best practices, see [Autoscale best practices](../azure-monitor/autoscale/autoscale-best-practices.md#autoscale-best-practices).
 
 ## Why does Autoscale sometimes scale only partially?
 
@@ -311,3 +313,8 @@ You also can specify the specific dynamic and static MIME types that you want to
 ## How do I migrate from an on-premises environment to App Service?
 
 To migrate sites from Windows and Linux web servers to App Service, you can use Azure App Service Migration Assistant. The migration tool creates web apps and databases in Azure as needed, and then publishes the content. For more information, see [Azure App Service Migration Assistant](https://appmigration.microsoft.com/).
+
+## Why is my certificate issued for 11 months and not for a full year?
+
+For all certificates issued after 9/1/2020, the maximum duration is now 397 days. Certificates issued before 9/1/2020 have a maximum validity of 825 days until they are renewed, rekeyed etc. Any certificate renewed after 9/1/2020 will be affected by this change and users may notice a shorter validity on their renewed certificates.
+GoDaddy has implemented a subscription service that both meets the new requirements while honoring existing customer certificates. Thirty days before the newly-issued certificate expires, the service automatically issues a second certificate that extends the duration to the original expiration date. App Service is working with GoDaddy to address this change and make sure that our customers receive the full duration of their certificates.

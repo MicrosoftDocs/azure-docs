@@ -3,14 +3,14 @@ title: Create and delete jobs in an Azure Stream Analytics cluster
 description: Learn how to managed Stream Analytics jobs in an Azure Stream Analytics cluster
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ---
 
-# Create and delete jobs in an Azure Stream Analytics cluster
+# Add and Remove jobs in an Azure Stream Analytics cluster
 
 You can run multiple Azure Stream Analytics jobs on a Stream Analytics cluster. Running jobs on a cluster is a simple 2-step process: add the job to the cluster and start the job. This article shows you how to add and remove jobs from an existing cluster. Follow the quickstart to [create a Stream Analytics cluster](create-cluster.md) if you don't have one already.
 

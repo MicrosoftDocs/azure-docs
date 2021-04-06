@@ -3,13 +3,13 @@ title: Tutorial - Improve website response with Azure Traffic Manager
 description: This tutorial article describes how to create a Traffic Manager profile to build a highly responsive website.
 services: traffic-manager
 author: duongau
-Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
+# Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/23/2018
+ms.date: 10/19/2020
 ms.author: duau
 ---
 
@@ -204,7 +204,7 @@ In this section, you can see the Traffic Manager is action.
 
    ![Test Traffic Manager profile](./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png)
 
-## Delete the Traffic Manager profile
+## Clean up resources
 
 When no longer needed, delete the resource groups (**ResourceGroupTM1** and **ResourceGroupTM2**). To do so, select the resource group (**ResourceGroupTM1** or **ResourceGroupTM2**), and then select **Delete**.
 

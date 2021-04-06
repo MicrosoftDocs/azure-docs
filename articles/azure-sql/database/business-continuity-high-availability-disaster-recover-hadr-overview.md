@@ -45,7 +45,7 @@ SQL Database and SQL Managed Instance also provide several business continuity f
 - You can [restore a deleted database](recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **server has not been deleted**.
 - [Long-term backup retention](long-term-retention-overview.md) enables you to keep the backups up to 10 years. This is in limited public preview for SQL Managed Instance
 - [Active geo-replication](active-geo-replication-overview.md) enables you to create readable replicas and manually failover to any replica in case of a datacenter outage or application upgrade.
-- [Auto-failover group](auto-failover-group-overview.md#terminology-and-capabilities) allows the application to automatically recovery in case of a datacenter outage.
+- [Auto-failover group](auto-failover-group-overview.md#terminology-and-capabilities) allows the application to automatically recover in case of a datacenter outage.
 
 ## Recover a database within the same Azure region
 
@@ -135,7 +135,7 @@ After recovery from either recovery mechanism, you must perform the following ad
 
 - Redirect clients and client applications to the new server and restored database.
 - Ensure appropriate server-level IP firewall rules are in place for users to connect or use [database-level firewalls](firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) to enable appropriate rules.
-- Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
+- Ensure appropriate logins and master database level permissions are in place (or use [contained users](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 - Configure auditing, as appropriate.
 - Configure alerts, as appropriate.
 

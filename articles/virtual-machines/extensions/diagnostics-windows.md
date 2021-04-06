@@ -1,19 +1,13 @@
 ---
 title: Use Azure PowerShell to enable diagnostics on a Windows VM 
-services: virtual-machines-windows
-documentationcenter: ''
 description: Learn how to use PowerShell to enable Azure Diagnostics in a virtual machine running Windows
-author: mimckitt
-manager: gwallace
-editor: ''
-
-ms.assetid: 2e6d88f2-1980-4a24-827e-a81616a0d247
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
+author: amjads1
+ms.author: amjads
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.collection: windows
 ms.date: 12/15/2015
-ms.author: mimckitt
 
 ---
 # Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows
@@ -208,4 +202,4 @@ The configuration needs to be updated to include the following:
 
 ## Next steps
 * For additional guidance on using the Azure Diagnostics capability and other techniques to troubleshoot problems, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md).
-* [Diagnostics configurations schema](../../azure-monitor/platform/diagnostics-extension-versions.md) explains the various XML configurations options for the diagnostics extension.
+* [Diagnostics configurations schema](../../azure-monitor/agents/diagnostics-extension-versions.md) explains the various XML configurations options for the diagnostics extension.

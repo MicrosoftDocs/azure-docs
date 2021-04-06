@@ -12,6 +12,8 @@ services: iot-edge
 
 # Prepare your development and test environment for IoT Edge
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Azure IoT Edge moves your existing business logic to devices operating at the edge. To prepare your applications and workloads to run as [IoT Edge modules](iot-edge-modules.md), you need to build them as containers. This article provides guidance around how to configure your development environment so that you can successfully create an IoT Edge solution. Once you have your development environment set up, then you can learn how to [Develop your own IoT Edge modules](module-development.md).
 
 In any IoT Edge solution, there are at least two machines to consider. One is the IoT Edge device (or devices) itself, which runs the IoT Edge module. The other is the development machine that you use to build, test, and deploy modules. This article focuses primarily on the development machine. For testing purposes, the two machines can be the same. You can run IoT Edge on your development machine and deploy modules to it.
@@ -78,7 +80,7 @@ Only the IoT Edge runtime is supported for production deployments, but the follo
 | Tool | Also known as | Supported platforms | Best for |
 | ---- | ------------- | ------------------- | --------- |
 | IoT EdgeHub dev tool  | iotedgehubdev | Windows, Linux, macOS | Simulating a device to debug modules. |
-| IoT Edge dev container | microsoft/iotedgedev | Windows, Linux, macOS | Developing without installing dependencies. |
+| IoT Edge dev container | iotedgedev | Windows, Linux, macOS | Developing without installing dependencies. |
 | IoT Edge runtime in a container | iotedgec | Windows, Linux, macOS, ARM | Testing on a device that may not support the runtime. |
 | IoT Edge device container | toolboc/azure-iot-edge-device-container | Windows, Linux, macOS, ARM | Testing a scenario with many IoT Edge devices at scale. |
 
@@ -94,7 +96,7 @@ For more information and to install, see [Azure IoT EdgeHub dev tool](https://py
 
 The Azure IoT Edge dev container is a Docker container that has all the dependencies that you need for IoT Edge development. This container makes it easy to get started with whichever language you want to develop in, including C#, Python, Node.js, and Java. All you need to install is a container engine, like Docker or Moby, to pull the container to your development machine.
 
-For more information, see [Azure IoT Edge dev container](https://hub.docker.com/r/microsoft/iotedgedev/).
+For more information, see [Azure IoT Edge dev container](https://github.com/Azure/iotedgedev/wiki/quickstart-with-iot-edge-dev-container).
 
 ### IoT Edge runtime in a container
 

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 08/27/2020
+ms.date: 11/02/2020
 ---
 
 # Manage your commercial marketplace account in Partner Center
@@ -29,19 +29,21 @@ In this article, we'll dive into how to manage your Partner Center account, incl
 ## Access your account settings
 
 If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/management) for your Partner Center account to:
-- Check your company's account verification status
-- Confirm your Symantec ID, Seller ID, Microsoft Partner Network (MPN) ID, Publisher ID, and contact information, including the company approver and seller contact
-- Create user accounts for anyone who will use your business account in Partner Center
 
-### Open developer settings
+- Check your company's account verification status.
+- Confirm your Symantec ID, Seller ID, Microsoft Partner Network (MPN) ID, Publisher ID, and contact information, including the company approver and seller contact.
+- Create user accounts for anyone who will use your business account in Partner Center.
 
-**Account settings** is located at the upper right corner of your [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center. Select the gear icon (near the upper right corner of the dashboard) and then select **Developer settings**.
+### Open Account settings
+
+In your [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center, select **Settings** (gear icon) in the top-right corner, then **Account settings**.
 
 ![Account settings menu in Partner Center](./media/dashboard-developer-settings.png)
 
-Inside **Account settings**, you will be able to view your:
+In **Account settings** you can view your:
+
 - **Account details**: Account type and Account status
-- **Publisher IDs**: Seller ID, User ID, Publisher ID, Azure AD tenants, etc.
+- **Publisher IDs**: Seller ID, User ID, Publisher ID, Azure AD tenants, and so on
 - **Contact info**: Publisher display name, seller contact name, email, phone, and address
 - **Tracking GUIDs**: Any tracking GUIDs associate with your account
 
@@ -66,7 +68,7 @@ To set up your payout account:
 1. Go to the [commercial marketplace overview page](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
 2. Under the Profile section, beside **Payout Profile**, select **Update**.
 3. **Choose a payment method**: Bank account or PayPal.
-4. **Add payment information**: This may include choosing an account type (checking or savings), entering the account holder name, account number, and routing number, billing address, phone number, or PayPal email address. *For more information about using PayPal as your account payment method and to find out whether it is supported in your market region, see [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+4. **Add payment information**: This may include choosing an account type (checking or savings), entering the account holder name, account number, and routing number, billing address, phone number, or PayPal email address. *For more information about using PayPal as your account payment method and to find out whether it is supported in your market region, see [PayPal info](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we do when first setting up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one.  
@@ -93,7 +95,7 @@ The info you submit in your tax forms determines the appropriate tax withholding
 
 If you are outside the United States, you may be able to take advantage of tax treaty benefits. These benefits vary from country/region to country/region, and may allow you to reduce the amount of taxes that Microsoft withholds. You can claim tax treaty benefits by completing Part II of the W-8BEN form. We recommend that you communicate with the appropriate resources in your country or region to determine whether these benefits apply to you.
 
-[Learn more about tax details for Windows app/game developers and Azure Marketplace publishers](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps).
+[Learn more about tax details for Windows app/game developers and Azure Marketplace publishers](/windows/uwp/publish/tax-details-for-paid-apps).
 
 #### Payout hold status
 
@@ -108,7 +110,7 @@ Once you have set your payout hold status to **On**, all payouts will be on hold
 
 ### Devices
 
-The device management settings apply only to UWP publishing. [Learn more](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
+The device management settings apply only to UWP publishing. [Learn more](/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
 
 ### Tracking GUIDs
 
@@ -165,7 +167,7 @@ To add users to your Partner Center account that already exist in your company's
 
 ### Create new users
 
-To create brand new user accounts, you must have an account with [**Global administrator**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) permissions.
+To create brand new user accounts, you must have an account with [**Global administrator**](../../active-directory/roles/permissions-reference.md) permissions.
 
 1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Create new users**.
 1. Enter a first name, last name, and username for each new user. 
@@ -179,7 +181,7 @@ Creating a new user in Partner Center will also create an account for that user 
 
 ### Invite new users by email
 
-To invite users that are not currently a part of your company work account (Azure AD tenant) via email, you must have an account with [**Global administrator**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) permissions.
+To invite users that are not currently a part of your company work account (Azure AD tenant) via email, you must have an account with [**Global administrator**](../../active-directory/roles/permissions-reference.md) permissions.
 
 1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Invite users by email**.
 2. Enter one or more email addresses (up to 10), separated by commas or semicolons.
@@ -191,7 +193,7 @@ The users you invited will get an email invitation to join your Partner Center a
 If you need to resend an invitation, visit the **Users** page, find the invitation in the list of users, select their email address (or the text that says *Invitation pending*). Then, at the bottom of the page, select **Resend invitation**.
 
 > [!NOTE]
-> If your organization uses [directory integration](https://go.microsoft.com/fwlink/p/?LinkID=724033) to sync the on-premises directory service with your Azure AD, you won't be able to create new users, groups, or Azure AD applications in Partner Center. You (or another admin in your on-premises directory) will need to create them directly in the on-premises directory before you'll be able to see and add them in Partner Center.
+> If your organization uses [directory integration](/previous-versions/azure/azure-services/jj573653(v=azure.100)) to sync the on-premises directory service with your Azure AD, you won't be able to create new users, groups, or Azure AD applications in Partner Center. You (or another admin in your on-premises directory) will need to create them directly in the on-premises directory before you'll be able to see and add them in Partner Center.
 
 ### Remove a user
 
@@ -199,7 +201,7 @@ To remove a user from your work account (Azure AD tenant), go to **Users** (unde
 
 ### Change a user password
 
-If one of your users needs to change their password, they can do so themselves if you provided a **Password recovery email** when creating the user account. You can also update a user's password by following the steps below. To change a user's password in your company work account (Azure AD tenant), you must be signed in on an account with [**Global administrator**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) permissions. This will change the user's password in your Azure AD tenant, along with the password they use to access Partner Center.
+If one of your users needs to change their password, they can do so themselves if you provided a **Password recovery email** when creating the user account. You can also update a user's password by following the steps below. To change a user's password in your company work account (Azure AD tenant), you must be signed in on an account with [**Global administrator**](../../active-directory/roles/permissions-reference.md) permissions. This will change the user's password in your Azure AD tenant, along with the password they use to access Partner Center.
 
 1. From the **Users** page (under **Account settings**), select the name of the user account that you want to edit.
 2. Select the **Reset password** button at the bottom of the page.
@@ -286,7 +288,7 @@ If your Azure AD application reads and writes data in Microsoft Azure AD, it wil
 Your company's users can be assigned the following roles and permissions for the commercial marketplace program on Partner Center:
 
 - **Owner**
-  - "This is the person who first created the account and has complete access to it, including the ability to create and edit all account users and change all financial and account settings. An account usually has only one owner."
+  - This is the person who first created the account and has complete access to it, including the ability to create and edit all account users and change all financial and account settings. An account usually has only one owner.
 - **Manager**
   - Can access all Microsoft account features except tax and payout settings
   - Can manage users, roles, and work accounts (tenants)
@@ -297,7 +299,7 @@ Your company's users can be assigned the following roles and permissions for the
 > [!NOTE]
 > For the Commercial Marketplace program, the Global admin, Business Contributor, Financial Contributor, and Marketer roles are not used. Assigning these roles to users has no effect. Only the Manager and Developer roles grant permissions to users.
 
-For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
+For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](/partner-center/permissions-overview).
 
 ## Manage tenants
 

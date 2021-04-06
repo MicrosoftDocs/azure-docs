@@ -3,6 +3,7 @@ title: How to convert session token formats in .NET SDK - Azure Cosmos DB
 description: Learn how to convert session token formats to ensure compatibilities between different .NET SDK versions
 author: vinhms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
@@ -10,6 +11,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Convert session token formats in .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article explains how to convert between different session token formats to ensure compatibility between SDK versions.
 
@@ -107,6 +109,6 @@ else
 Read the following articles:
 
 * [Use session tokens to manage consistency in Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-* [Choose the right consistency level in Azure Cosmos DB](consistency-levels-choosing.md)
-* [Consistency, availability, and performance tradeoffs in Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
+* [Choose the right consistency level in Azure Cosmos DB](./consistency-levels.md)
+* [Consistency, availability, and performance tradeoffs in Azure Cosmos DB](./consistency-levels.md)
+* [Availability and performance tradeoffs for various consistency levels](./consistency-levels.md)

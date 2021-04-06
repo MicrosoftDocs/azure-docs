@@ -3,7 +3,7 @@ title: Azure confidential computing solutions on virtual machines
 description: Learn about Azure confidential computing solutions on virtual machines.
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
@@ -24,7 +24,7 @@ Start deploying a DCsv2-Series VM via the Microsoft commercial marketplace by fo
 
 ### Current available sizes and regions
 
-To get a list of all generally available confidential compute VM sizes in available regions and availability zones, run the following command in the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
+To get a list of all generally available confidential compute VM sizes in available regions and availability zones, run the following command in the [Azure CLI](/cli/azure/install-azure-cli-windows):
 
 ```azurecli-interactive
 az vm list-skus `
@@ -42,7 +42,7 @@ az vm list-skus `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### Dedicated host requirements
-Deploying a **Standard_DC8_v2** virtual machine size in the DCSv2-Series VM family will occupy the full host and will not be shared with other tenants or subscriptions. This VM SKU family provides the isolation you may need in order to meet compliance and security regulatory requirements that are normally met by having a dedicated host service. When you choose **Standard_DC8_v2** SKU, the physical host server will allocate all of the available hardware resources including EPC memory only to your virtual machine. Please note that this functionality exists by infrastructure design and all the features of the **Standard_DC8_v2** will be supported. This deployment is not the same as the [Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) service that is provided by other Azure VM Families.
+Deploying a **Standard_DC8_v2** virtual machine size in the DCSv2-Series VM family will occupy the full host and will not be shared with other tenants or subscriptions. This VM SKU family provides the isolation you may need in order to meet compliance and security regulatory requirements that are normally met by having a dedicated host service. When you choose **Standard_DC8_v2** SKU, the physical host server will allocate all of the available hardware resources including EPC memory only to your virtual machine. Please note that this functionality exists by infrastructure design and all the features of the **Standard_DC8_v2** will be supported. This deployment is not the same as the [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) service that is provided by other Azure VM Families.
 
 
 ## Deployment considerations
@@ -54,14 +54,14 @@ Follow a quickstart tutorial to deploy a DCsv2-Series virtual machine in less th
 - **Pricing and regional availability** - Find the pricing for DCsv2-Series VMs on [Virtual Machine Pricing Page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Check [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for availability in Azure regions.
 
 
-- **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default value. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the DCsv2-Series. To request a quota increase, [open an online customer support request](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) at no charge. Note, default limits may vary depending on your subscription category.
+- **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default value. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the DCsv2-Series. To request a quota increase, [open an online customer support request](../azure-portal/supportability/per-vm-quota-requests.md) at no charge. Note, default limits may vary depending on your subscription category.
 
   > [!NOTE]
   > Contact Azure Support if you have large-scale capacity needs. Azure quotas are credit limits, not capacity guarantees. Regardless of your quota, you are only charged for cores that you use.
   
 - **Resizing** – Because of their specialized hardware, you can only resize confidential computing instances within the same size family. For example, you can only resize a DCsv2-series VM from one DCsv2-series size to another. Resizing from a non-confidential computing size to a confidential computing size isn't supported.  
 
-- **Image** – To provide Intel Software Guard Extension (Intel SGX) support on confidential compute instances, all deployments need to be run on Generation 2 images. Azure confidential computing supports workloads running on Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 gen2, and Windows Server 2016 Gen 2. Read about [support for generation 2 VMs on Azure](../virtual-machines/linux/generation-2.md) to learn more about supported and unsupported scenarios. 
+- **Image** – To provide Intel Software Guard Extension (Intel SGX) support on confidential compute instances, all deployments need to be run on Generation 2 images. Azure confidential computing supports workloads running on Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 gen2, and Windows Server 2016 Gen 2. Read about [support for generation 2 VMs on Azure](../virtual-machines/generation-2.md) to learn more about supported and unsupported scenarios. 
 
 - **Storage** – Azure confidential computing virtual machine data disks and our ephemeral OS disks are on NVMe disks. Instances support only Premium SSD and Standard SSD disks, not Ultra SSD, or Standard HDD. Virtual machine size **DC8_v2** doesn't support Premium storage. 
 
@@ -71,7 +71,7 @@ Follow a quickstart tutorial to deploy a DCsv2-Series virtual machine in less th
 
 When using virtual machines in Azure, you're responsible for implementing a high availability and disaster recovery solution to avoid any downtime. 
 
-Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
+Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](../virtual-machines/availability-set-overview.md). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
 
 ## Deployment with Azure Resource Manager (ARM) Template
 

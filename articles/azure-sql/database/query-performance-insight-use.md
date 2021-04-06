@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
-ms.date: 03/10/2020
+ms.reviewer: wiassaf, sstein
+ms.date: 1/14/2021
 ---
 # Query Performance Insight for Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,7 +26,7 @@ Query Performance Insight provides intelligent query analysis for single and poo
 
 ## Prerequisites
 
-Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. It's automatically enabled for all databases in Azure SQL Database by default. If Query Store is not running, the Azure portal will prompt you to enable it.
+Query Performance Insight requires that [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) is active on your database. It's automatically enabled for all databases in Azure SQL Database by default. If Query Store is not running, the Azure portal will prompt you to enable it.
 
 > [!NOTE]
 > If the "Query Store is not properly configured on this database" message appears in the portal, see [Optimizing the Query Store configuration](#optimize-the-query-store-configuration).
@@ -55,7 +55,7 @@ Query Performance Insight is easy to use:
    ![Performance dashboard](./media/query-performance-insight-use/performance.png)
 
 > [!NOTE]
-> For Azure SQL Database to render the information in Query Performance Insight, Query Store needs to capture a couple hours of data. If the database has no activity or if Query Store was not active during a certain period, the charts will be empty when Query Performance Insight displays that time range. You can enable Query Store at any time if it's not running. For more information, see [Best practices with Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).
+> For Azure SQL Database to render the information in Query Performance Insight, Query Store needs to capture a couple hours of data. If the database has no activity or if Query Store was not active during a certain period, the charts will be empty when Query Performance Insight displays that time range. You can enable Query Store at any time if it's not running. For more information, see [Best practices with Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store).
 >
 
 For database performance recommendations, select [Recommendations](database-advisor-implement-performance-recommendations.md) on the Query Performance Insight navigation blade.
@@ -149,7 +149,7 @@ To view query details:
 
 Two metrics in Query Performance Insight can help you find potential bottlenecks: duration and execution count.
 
-Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They're also the best candidates for optimization.
+Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They're also the best candidates for optimization. For more information, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
 
 To identify long-running queries:
 
@@ -226,7 +226,7 @@ The first case happens when Query Store is in the read-only state and parameters
 
    ![Query Store details](./media/query-performance-insight-use/qds-off.png)
 
-The second case happens when Query Store is not enabled, or parameters are not set optimally. You can change the retention and capture policy, and also enable Query Store, by running the following commands provided from [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) or the Azure portal.
+The second case happens when Query Store is not enabled, or parameters are not set optimally. You can change the retention and capture policy, and also enable Query Store, by running the following commands provided from [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or the Azure portal.
 
 ### Recommended retention and capture policy
 
@@ -241,7 +241,7 @@ You can set the capture policy to:
 * **Auto**: Query Store ignores infrequent queries and queries with insignificant compile and execution duration. Thresholds for execution count, compile duration, and runtime duration are internally determined. This is the default option.
 * **None**: Query Store stops capturing new queries, but runtime statistics for already captured queries are still collected.
 
-We recommend setting all policies to **AUTO** and the cleaning policy to 30 days by executing the following commands from [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) or the Azure portal. (Replace `YourDB` with the database name.)
+We recommend setting all policies to **AUTO** and the cleaning policy to 30 days by executing the following commands from [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) or the Azure portal. (Replace `YourDB` with the database name.)
 
 ```sql
     ALTER DATABASE [YourDB]
@@ -254,7 +254,7 @@ We recommend setting all policies to **AUTO** and the cleaning policy to 30 days
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 ```
 
-Increase the size of Query Store by connecting to a database through [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) or the Azure portal and running the following query. (Replace `YourDB` with the database name.)
+Increase the size of Query Store by connecting to a database through [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) or the Azure portal and running the following query. (Replace `YourDB` with the database name.)
 
 ```SQL
     ALTER DATABASE [YourDB]

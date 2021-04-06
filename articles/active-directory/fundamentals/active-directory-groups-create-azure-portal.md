@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: ajburnle
 ms.reviewer: krbain
-ms.custom: "it-pro, seodec18, contperfq4"                      
+ms.custom: "it-pro, seodec18, contperf-fy20q4"                      
 ms.collection: M365-identity-device-management
 ---
 
 # Create a basic group and add members using Azure Active Directory
-You can create a basic group using the Azure Active Directory (Azure AD) portal. For the purposes of this article, a basic group is added to a single resource by the resource owner (administrator) and includes specific members (employees) that need to access that resource. For more complex scenarios, including dynamic memberships and rule creation, see the [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+You can create a basic group using the Azure Active Directory (Azure AD) portal. For the purposes of this article, a basic group is added to a single resource by the resource owner (administrator) and includes specific members (employees) that need to access that resource. For more complex scenarios, including dynamic memberships and rule creation, see the [Azure Active Directory user management documentation](../enterprise-users/index.yml).
 
 ## Group and membership types
 There are several group and membership types. The following information explains each group and membership type and why they are used, to help you decide which options to use when you create a group.
@@ -32,7 +32,7 @@ There are several group and membership types. The following information explains
 - **Dynamic device.** Lets you use dynamic group rules to automatically add and remove devices. If a device's attributes change, the system looks at your dynamic group rules for the directory to see if the device meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
 
     > [!IMPORTANT]
-    > You can create a dynamic group for either devices or users, but not for both. You also can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributions. For more info about creating a dynamic group for users and devices, see [Create a dynamic group and check status](../users-groups-roles/groups-create-rule.md)
+    > You can create a dynamic group for either devices or users, but not for both. You also can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributions. For more info about creating a dynamic group for users and devices, see [Create a dynamic group and check status](../enterprise-users/groups-create-rule.md)
 
 ## Create a basic group and add members
 You can create a basic group and add your members at the same time. To create a basic group and add members use the following procedure:
@@ -73,9 +73,9 @@ You can create a basic group and add your members at the same time. To create a 
 
 ## Turn on or off group welcome email
 
-When any new Microsoft 365 group is created, whether with dynamic or static membership, a welcome notification is sent to all users who are added to the group. When any attributes of a user or device change, all dynamic group rules in the organization are processed for potential membership changes. Users who are added then also receive the welcome notification. You can turn this behavior off in [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+When any new Microsoft 365 group is created, whether with dynamic or static membership, a welcome notification is sent to all users who are added to the group. When any attributes of a user or device change, all dynamic group rules in the organization are processed for potential membership changes. Users who are added then also receive the welcome notification. You can turn this behavior off in [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup). 
 
 ## Next steps
 
-- [Manage access to SaaS apps using groups](../users-groups-roles/groups-saasapps.md)
-- [Manage groups using PowerShell commands](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [Manage access to SaaS apps using groups](../enterprise-users/groups-saasapps.md)
+- [Manage groups using PowerShell commands](../enterprise-users/groups-settings-v2-cmdlets.md)

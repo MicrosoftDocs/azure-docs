@@ -1,9 +1,7 @@
 ---
 title: Scale cluster sizes - Azure HDInsight
 description: Scale an Apache Hadoop cluster elastically to match your workload in Azure HDInsight
-author: hrasheed-msft
 ms.author: ashish
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
@@ -27,19 +25,19 @@ Microsoft provides the following utilities to scale clusters:
 
 |Utility | Description|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
+|[PowerShell Az](/powershell/azure)|[`Set-AzHDInsightClusterSize`](/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[PowerShell AzureRM](/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[Azure CLI](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Azure Classic CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure portal](https://portal.azure.com)|Open your HDInsight cluster pane, select **Cluster size** on the left-hand menu, then on the Cluster size pane, type in the number of worker nodes, and select Save.|  
 
-![Azure portal scale cluster option](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png" alt-text="Azure portal scale cluster option":::
 
 Using any of these methods, you can scale your HDInsight cluster up or down within minutes.
 
 > [!IMPORTANT]  
-> * The Azure classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
-> * The PowerShell AzureRM module is deprecated.  Please use the [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) whenever possible.
+> * The Azure classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](/cli/azure/).
+> * The PowerShell AzureRM module is deprecated.  Please use the [Az module](/powershell/azure/new-azureps-module-az) whenever possible.
 
 ## Impact of scaling operations
 
@@ -79,7 +77,7 @@ The impact of changing the number of data nodes varies for each type of cluster 
 
     1. Select the topology you wish to rebalance, then select the **Rebalance** button. Enter the delay before the rebalance operation is done.
 
-        ![HDInsight Storm scale rebalance](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+        :::image type="content" source="./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="HDInsight Storm scale rebalance":::
 
   * Command-line interface (CLI) tool
 
@@ -127,13 +125,13 @@ To see a list of pending and running jobs, you can use the YARN **Resource Manag
 3. From the Ambari UI, select **YARN** on the list of services on the left-hand menu.  
 4. From the YARN page, select **Quick Links** and hover over the active head node, then select **Resource Manager UI**.
 
-    ![Apache Ambari quick links Resource Manager UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
+    :::image type="content" source="./media/hdinsight-scaling-best-practices/resource-manager-ui1.png" alt-text="Apache Ambari quick links Resource Manager UI":::
 
 You may directly access the Resource Manager UI with `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
 You  see a list of jobs, along with their current state. In the screenshot, there's  one job currently running:
 
-![Resource Manager UI applications](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png" alt-text="Resource Manager UI applications":::
 
 To  manually kill that running application, execute the following command from the SSH shell:
 

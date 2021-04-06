@@ -60,7 +60,7 @@ Azure supports several types of network access control, such as:
 Any secure deployment requires some measure of network access control. The goal of network access control is to restrict virtual machine communication to the necessary systems. Other communication attempts are blocked.
 
 > [!NOTE]
-> Storage Firewalls are covered in the [Azure storage security overview](storage-overview.md) article
+> Storage Firewalls are covered in the [Azure storage security overview](../../storage/blobs/security-recommendations.md) article
 
 #### Network security rules (NSGs)
 
@@ -74,11 +74,11 @@ NSGs do not provide application layer inspection or authenticated access control
 
 Learn more:
 
-* [Network Security Groups](../../virtual-network/security-overview.md)
+* [Network Security Groups](../../virtual-network/network-security-groups-overview.md)
 
 #### ASC just in time VM access
 
-[Azure security center](../../security-center/security-center-intro.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate role-based access control [RBAC](/azure/role-based-access-control/overview) permissions requests access. When the user is successfully authorized ASC makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
+[Azure security center](../../security-center/security-center-introduction.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate Azure role-based access control [Azure RBAC](../../role-based-access-control/overview.md) permissions requests access. When the user is successfully authorized ASC makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
 
 Learn more:
 
@@ -138,7 +138,7 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 Learn more:
 
-* [Azure Firewall overview](/azure/firewall/overview)
+* [Azure Firewall overview](../../firewall/overview.md)
 
 ## Secure remote access and cross-premises connectivity
 
@@ -175,7 +175,7 @@ One way to accomplish this is to use a [site-to-site VPN](https://www.techopedia
 
 Learn more:
 
-* [Create a Resource Manager VNet with a site-to-site VPN connection using the Azure portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Create a Resource Manager VNet with a site-to-site VPN connection using the Azure portal](../../vpn-gateway/tutorial-site-to-site-portal.md)
 * [About VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### Connect your on-premises network to a virtual network with a dedicated WAN link
@@ -199,7 +199,7 @@ It is possible to use many virtual networks for your deployments. There are vari
 
 One option is for services on one virtual network to connect to services on another virtual network, by "looping back" through the internet. The connection starts on one virtual network, goes through the internet, and then comes back to the destination virtual network. This option exposes the connection to the security issues inherent in any internet-based communication.
 
-A better option might be to create a site-to-site VPN that connects between two virtual networks. This method uses the same [IPSec tunnel mode](https://technet.microsoft.com/library/cc786385.aspx) protocol as the cross-premises site-to-site VPN connection mentioned above.
+A better option might be to create a site-to-site VPN that connects between two virtual networks. This method uses the same [IPSec tunnel mode](/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) protocol as the cross-premises site-to-site VPN connection mentioned above.
 
 The advantage of this approach is that the VPN connection is established over the Azure network fabric, instead of connecting over the internet. This provides you an extra layer of security, compared to site-to-site VPNs that connect over the internet.
 
@@ -234,7 +234,7 @@ Azure Application Gateway provides HTTP-based load balancing for your web-based 
 
 Learn more:
 
-* [Application Gateway overview](/azure/application-gateway/application-gateway-introduction)
+* [Application Gateway overview](../../application-gateway/overview.md)
 
 ### Network level load balancing
 
@@ -249,8 +249,8 @@ You can gain the benefits of network level load balancing in Azure by using Azur
 
 Learn more:
 
-* [Internet-facing load balancer between multiple virtual machines or services](/azure/load-balancer/load-balancer-internet-overview)
-* [Internal load balancer overview](/azure/load-balancer/load-balancer-internal-overview)
+* [Internet-facing load balancer between multiple virtual machines or services](../../load-balancer/load-balancer-overview.md)
+* [Internal load balancer overview](../../load-balancer/load-balancer-overview.md)
 
 ### Global load balancing
 
@@ -329,7 +329,7 @@ Microsoft provides DDoS protection known as **Basic** as part of the Azure Platf
 
 Learn more:
 
-* [DDOS protection overview](../../virtual-network/ddos-protection-overview.md)
+* [DDOS protection overview](../../ddos-protection/ddos-protection-overview.md)
 
 ## Azure Front Door
 
@@ -378,7 +378,7 @@ Security Center helps you optimize and monitor network security by:
 
 Learn more:
 
-* [Introduction to Azure Security Center](../../security-center/security-center-intro.md)
+* [Introduction to Azure Security Center](../../security-center/security-center-introduction.md)
 
 ### Virtual Network TAP
 
@@ -392,7 +392,7 @@ Learn more:
 
 Logging at a network level is a key function for any network security scenario. In Azure, you can log information obtained for NSGs to get network level logging information. With NSG logging, you get information from:
 
-* [Activity logs](../../azure-monitor/platform/platform-logs-overview.md). Use these logs to view all operations submitted to your Azure subscriptions. These logs are enabled by default, and can be used within the Azure portal. They were previously known as audit or operational logs.
+* [Activity logs](../../azure-monitor/essentials/platform-logs-overview.md). Use these logs to view all operations submitted to your Azure subscriptions. These logs are enabled by default, and can be used within the Azure portal. They were previously known as audit or operational logs.
 * Event logs. These logs provide information about what NSG rules were applied.
 * Counter logs. These logs let you know how many times each NSG rule was applied to deny or allow traffic.
 

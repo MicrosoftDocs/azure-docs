@@ -60,13 +60,13 @@ The user can click on the mitigation text and use the standard Windows zoom cont
 
 The “Open From OneDrive” feature of the Preview release has been removed. Users with “Recently Opened Models” that were saved to OneDrive will receive the following error.
 
-![OneDrive feature removed](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
+![Screenshots shows an error: Error in opening the file Object reference not set to an instance of an object.](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
 
 #### Workaround
 
 Users of OneDrive are encouraged to use Microsoft’s [OneDrive for Windows](https://onedrive.live.com/about/en-us/download/) client to access their files stored on OneDrive through the standard and “Open a model” dialog.
 
-![OneDrive feature removed](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
+![Screenshot shows OneDrive selected in the Open a model dialog box.](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
 
 ### My organization uses the 2016 version of the tool, can I use the Azure stencil set?
 

@@ -199,7 +199,7 @@ The common practice is to use the root certificate to manage access at team or o
 
 You can revoke a client certificate by adding the thumbprint to the revocation list.
 
-1. Retrieve the client certificate thumbprint. For more information, see [How to: Retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Retrieve the client certificate thumbprint. For more information, see [How to: Retrieve the Thumbprint of a Certificate](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 1. Copy the information to a text editor and remove its spaces so that it's a continuous string.
 1. Navigate to **Point-to-site VPN connection**, then select **Manage certificate**.
 1. Select **Revocation list** to open the **Revocation list** page.
@@ -214,8 +214,8 @@ After updating has completed, the certificate can no longer be used to connect. 
 
 ## Next steps
 
-* After your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/).
+* After your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml).
 
-* To understand more about networking and Linux virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/network-overview.md).
+* To understand more about networking and Linux virtual machines, see [Azure and Linux VM network overview](../virtual-machines/network-overview.md).
 
 * For P2S troubleshooting information, [Troubleshoot Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

@@ -1,7 +1,7 @@
 ---
 title: Use the Train Wide & Deep Recommender module
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Train Wide & Deep Recommender module to train a recommendation model.
+description: Learn how to use the Train Wide & Deep Recommender module in Azure Machine Learning designer to train a recommendation model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -131,6 +131,10 @@ For an example, a typical set of item features might look like this:
      Batch normalization is a technique to fight internal covariate shift problem during networks training. In general, it can help to improve the speed, performance and stability of the networks. 
 
 17.  Run the pipeline.
+
+## Results
+
+After pipeline run is completed, to use the model for scoring, connect the [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md) to [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md), to predict values for new input examples.
 
 ##  Technical notes
 

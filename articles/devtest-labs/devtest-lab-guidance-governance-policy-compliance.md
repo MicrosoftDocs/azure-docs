@@ -32,7 +32,7 @@ As part of your organization's overall governance and configuration management s
 - Associate the Azure Repos with the same Azure Active Directory tenant that the Azure subscription is using for authentication and authorization.
 - Create a group named **All DevTest Labs Developers** in Azure Active Directory that is centrally managed. Any developer who contributes to artifact development should be placed in this group.
 - The same Azure Active Directory group can be used to provide access to the Azure Repos repository and to the lab.
-- In Azure Repos, branching or forking should be used to a separate an in-development repository from the primary production repository. Content is only added to the master branch with a pull request after a proper code review. Once the code reviewer approves the change, a lead developer, who is responsible for maintenance of the master branch, merges the updated code. 
+- In Azure Repos, branching or forking should be used to a separate an in-development repository from the primary production repository. Content is only added to the main branch with a pull request after a proper code review. Once the code reviewer approves the change, a lead developer, who is responsible for maintenance of the main branch, merges the updated code. 
 
 ## Corporate security policies
 

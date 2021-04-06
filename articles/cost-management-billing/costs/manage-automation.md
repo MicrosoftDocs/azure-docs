@@ -3,11 +3,11 @@ title: Manage Azure costs with automation
 description: This article explains how you can manage Azure costs with automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: matrive
+ms.reviewer: adwise
 ---
 
 # Manage costs with automation
@@ -42,6 +42,8 @@ Consider using the [Usage Details API](/rest/api/consumption/usageDetails) if yo
 
 The [Usage Details API](/rest/api/consumption/usageDetails) provides an easy way to get raw, unaggregated cost data that corresponds to your Azure bill. The API is useful when your organization needs a programmatic data retrieval solution. Consider using the API if you're looking to analyze smaller cost data sets. However, you should use other solutions identified previously if you have larger datasets. The data in Usage Details is provided on a per meter basis, per day. It's used when calculating your monthly bill. The general availability (GA) version of the APIs is `2019-10-01`. Use `2019-04-01-preview` to access the preview version for reservation and Azure Marketplace purchases with the APIs.
 
+If you want to get large amounts of exported data regularly, see [Retrieve large cost datasets recurringly with exports](ingest-azure-usage-at-scale.md).
+
 ### Usage Details API suggestions
 
 **Request schedule**
@@ -52,17 +54,44 @@ We recommend that you make _no more than one request_ to the Usage Details API p
 
 Use the API to get all the data you need at the highest-level scope available. Wait until all needed data is ingested before doing any filtering, grouping, or aggregated analysis. The API is optimized specifically to provide large amounts of unaggregated raw cost data. To learn more about scopes available in Cost Management, see [Understand and work with scopes](./understand-work-scopes.md). Once you've downloaded the needed data for a scope, use Excel to analyze data further with filters and pivot tables.
 
+### Notes about pricing
+
+If you want to reconcile usage and charges with your price sheet or invoice, note the following information.
+
+Price Sheet price behavior - The prices shown on the price sheet are the prices that you receive from Azure. They're scaled to a specific unit of measure. Unfortunately, the unit of measure doesn't always align to the unit of measure at which the actual resource usage and charges are emitted.
+
+Usage Details price behavior - Usage files show scaled information that may not match precisely with the price sheet. Specifically:
+
+- Unit Price - The price is scaled to match the unit of measure at which the charges are actually emitted by Azure resources. If scaling occurs, then the price won't match the price seen in the Price Sheet.
+- Unit of Measure - Represents the unit of measure at which charges are actually emitted by Azure resources.
+- Effective Price / Resource Rate - The price represents the actual rate that you end up paying per unit, after discounts are taken into account. It's the price that should be used with the Quantity to do Price * Quantity calculations to reconcile charges. The price takes into account the following scenarios and the scaled unit price that's also present in the files. As a result, it might differ from the scaled unit price.
+  - Tiered pricing - For example: $10 for the first 100 units, $8 for the next 100 units.
+  - Included quantity - For example: The first 100 units are free and then $10 per unit.
+  - Reservations
+  - Rounding that occurs during calculation – Rounding takes into account the consumed quantity, tiered/included quantity pricing, and the scaled unit price.
+
+### A single resource might have multiple records for a single day
+
+Azure resource providers emit usage and charges to the billing system and populate the `Additional Info` field of the usage records. Occasionally, resource providers might emit usage for a given day and stamp the records with different datacenters in the `Additional Info` field of the usage records. It can cause multiple records for a meter/resource to be present in your usage file for a single day. In that situation, you aren't overcharged. The multiple records represent the full cost of the meter for the resource on that day.
+
 ## Example Usage Details API requests
 
 The following example requests are used by Microsoft customers to address common scenarios that you might come across.
 
 ### Get Usage Details for a scope during specific date range
 
-The data that's returned by the request corresponds to the date when the usage was received by the billing system. It might include costs from multiple invoices.
+The data that's returned by the request corresponds to the date when the usage was received by the billing system. It might include costs from multiple invoices. The call to use varies by your subscription type.
+
+For legacy customers with an Enterprise Agreement (EA) or a pay-as-you-go subscription, use the following call:
 
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?$filter=properties%2FusageStart%20ge%20'2020-02-01'%20and%20properties%2FusageEnd%20le%20'2020-02-29'&$top=1000&api-version=2019-10-01
+```
 
+For modern customers with a Microsoft Customer Agreement, use the following call:
+
+```http
+GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=&2020-08-05$top=1000&api-version=2019-10-01
 ```
 
 ### Get amortized cost details
@@ -73,81 +102,19 @@ If you need actual costs to show purchases as they're accrued, change the *metri
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
 ```
 
-## Retrieve large cost datasets recurringly with Exports
-
-You can regularly export large amounts of data with exports from Cost Management. Exporting is the recommended way to retrieve unaggregated cost data. Especially when usage files are too large to reliably call and download using the Usage Details API. Exported data is placed in the Azure Storage account that you choose. From there, you can load it into your own systems and analyze it as needed. To configure exports in the Azure portal, see [Export data](tutorial-export-acm-data.md).
-
-If you want to automate exports at various scopes, the sample API request in the next section is a good starting point. You can use the Exports API to create automatic exports as a part of your general environment configuration. Automatic exports help ensure that you have the data that you need. You can use in your own organization's systems as you expand your Azure use.
-
-### Common export configurations
-
-Before you create your first export, consider your scenario and the configuration options need to enable it. Consider the following export options:
-
-- **Recurrence** - Determines how frequently the export job runs and when a file is put in your Azure Storage account. Choose between Daily, Weekly, and Monthly. Try to configure your recurrence to match the data import jobs used by your organization's internal system.
-- **Recurrence Period** - Determines how long the Export remains valid. Files are only exported during the recurrence period.
-- **Time Frame** - Determines the amount of data that's generated by the export on a given run. Common options are MonthToDate and WeekToDate.
-- **StartDate** - Configures when you want the export schedule to begin. An export is created on the StartDate and then later based on your Recurrence.
-- **Type** - There are three export types:
-  - ActualCost - Shows the total usage and costs for the period specified, as they're accrued and shows on your bill.
-  - AmortizedCost - Shows the total usage and costs for the period specified, with amortization applied to the reservation purchase costs that are applicable.
-  - Usage - All exports created before July 20 2020 are of type Usage. Update all your scheduled exports as either ActualCost or AmortizedCost.
-- **Columns** – Defines the data fields you want included in your export file. They correspond with the fields available in the Usage Details API. For more information, see [Usage Details API](/rest/api/consumption/usagedetails/list).
-
-### Create a daily month-to-date export for a subscription
-
-Request URL: `PUT https://management.azure.com/{scope}/providers/Microsoft.CostManagement/exports/{exportName}?api-version=2020-06-01`
-
-```json
-{
-  "properties": {
-    "schedule": {
-      "status": "Active",
-      "recurrence": "Daily",
-      "recurrencePeriod": {
-        "from": "2020-06-01T00:00:00Z",
-        "to": "2020-10-31T00:00:00Z"
-      }
-    },
-    "format": "Csv",
-    "deliveryInfo": {
-      "destination": {
-        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/{yourStorageAccount} ",
-        "container": "{yourContainer}",
-        "rootFolderPath": "{yourDirectory}"
-      }
-    },
-    "definition": {
-      "type": "ActualCost",
-      "timeframe": "MonthToDate",
-      "dataSet": {
-        "granularity": "Daily",
-        "configuration": {
-          "columns": [
-            "Date",
-            "MeterId",
-            "ResourceId",
-            "ResourceLocation",
-            "Quantity"
-          ]
-        }
-      }
-    }
-}
-```
-
-### Automate alerts and actions with Budgets
+## Automate alerts and actions with budgets
 
 There are two critical components to maximizing the value of your investment in the cloud. One is automatic budget creation. The other is configuring cost-based orchestration in response to budget alerts. There are different ways to automate Azure budget creation. Various alert responses happen when your configured alert thresholds are exceeded.
 
 The following sections cover available options and provide sample API requests to get you started with budget automation.
 
-#### How costs are evaluated against your budget threshold
+### How costs are evaluated against your budget threshold
 
 Your costs are evaluated against your budget threshold once per day. When you create a new budget or at your budget reset day, the costs compared to the threshold will be zero/null because the evaluation might not have occurred.
 
 When Azure detects that your costs have crossed the threshold, a notification is triggered within the hour of the detecting period.
 
-#### View your current cost
+### View your current cost
 
 To view your current costs, you need to make a GET call using the [Query API](/rest/api/cost-management/query).
 
@@ -157,7 +124,7 @@ A GET call to the Budgets API won't return the current costs shown in Cost Analy
 
 You can automate budget creation using the [Budgets API](/rest/api/consumption/budgets). You can also create a budget with a [budget template](quick-create-budget-template.md). Templates are an easy way for you to standardize Azure deployments while ensuring cost control is properly configured and enforced.
 
-#### Supported locales for budget alert emails
+### Supported locales for budget alert emails
 
 With budgets, you're alerted when costs cross a set threshold. You can set up to five email recipients per budget. Recipients receive the email alerts within 24 hours of crossing the budget threshold. However, your recipient might need to receive an email in a different language. You can use the following language culture codes with the Budgets API. Set the culture code with the `locale` parameter similar to the following example.
 
@@ -214,14 +181,14 @@ Languages supported by a culture code:
 | pl-pl | Polish (Poland) |
 | tr-tr	| Turkish (Turkey) |
 | da-dk	| Danish (Denmark) |
-| dn-gb	| English (United Kingdom) |
+| en-gb	| English (United Kingdom) |
 | hu-hu	| Hungarian (Hungary) |
-| nb-bo	| Norwegian Bokmal (Norway) |
+| nb-no	| Norwegian Bokmal (Norway) |
 | nl-nl	| Dutch (Netherlands) |
 | pt-pt	| Portuguese (Portugal) |
 | sv-se	| Swedish (Sweden) |
 
-#### Common Budgets API configurations
+### Common Budgets API configurations
 
 There are many ways to configure a budget in your Azure environment. Consider your scenario first and then identify the configuration options that enable it. Review the following options:
 
@@ -313,7 +280,7 @@ You can configure budgets to start automated actions using Azure Action Groups. 
 
 ## Data latency and rate limits
 
-We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently won't provide any additional data. Instead, it will create increased load. To learn more about how often data changes and how data latency is handled, see [Understand cost management data](understand-cost-mgt-data.md).
+We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently doesn't provide more data. Instead, it creates increased load. To learn more about how often data changes and how data latency is handled, see [Understand cost management data](understand-cost-mgt-data.md).
 
 ### Error code 429 - Call count has exceeded rate limits
 

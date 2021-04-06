@@ -3,6 +3,7 @@ title: Configure and manage Time to Live in Azure Cosmos DB
 description: Learn how to configure and manage time to live on a container and an item in Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
@@ -10,10 +11,11 @@ ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ---
 
 # Configure time to live in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB, you can choose to configure Time to Live (TTL) at the container level, or you can override it at an item level after setting for the container. You can configure TTL for a container by using Azure portal or the language-specific SDKs. Item level TTL overrides can be configured by using the SDKs.
 
-> This content is related to Azure Cosmos DB transactional store TTL. If you are looking for analitycal store TTL, that enables NoETL HTAP scenarios through [Azure Synapse Link](https://docs.microsoft.com/azure/cosmos-db/synapse-link), please click [here](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
+> This content is related to Azure Cosmos DB transactional store TTL. If you are looking for analitycal store TTL, that enables NoETL HTAP scenarios through [Azure Synapse Link](./synapse-link.md), please click [here](./analytical-store-introduction.md#analytical-ttl).
 
 ## Enable time to live on a container using Azure portal
 

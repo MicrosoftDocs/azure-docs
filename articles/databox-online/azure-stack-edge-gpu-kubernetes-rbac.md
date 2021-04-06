@@ -1,23 +1,24 @@
 ---
-title: Understand Kubernetes Role-based Access Control on Azure Stack Edge Pro device| Microsoft Docs
-description: Describes how Kubernetes Role-based Access Control occurs on an Azure Stack Edge Pro device.
+title: Understand Kubernetes role-based access control on Azure Stack Edge Pro device| Microsoft Docs
+description: Describes how Kubernetes role-based access control occurs on an Azure Stack Edge Pro device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
-# Kubernetes Role-based Access Control on your Azure Stack Edge Pro GPU device
+# Kubernetes role-based access control on your Azure Stack Edge Pro GPU device
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-On your Azure Stack Edge Pro device, when you configure compute role, a Kubernetes cluster is created. You can use Kubernetes role-based access control (RBAC) to limit access to the cluster resources on your device.
+On your Azure Stack Edge Pro device, when you configure compute role, a Kubernetes cluster is created. You can use Kubernetes role-based access control (Kubernetes RBAC) to limit access to the cluster resources on your device.
 
-This articles provides an overview for the RBAC system provided by Kubernetes, and how is Kubernetes RBAC implemented on your Azure Stack Edge Pro device. 
+This articles provides an overview for the Kubernetes RBAC system provided by Kubernetes, and how is Kubernetes RBAC implemented on your Azure Stack Edge Pro device. 
 
-## RBAC for Kubernetes
+## Kubernetes RBAC
 
 Kubernetes RBAC lets you assign users, or groups of users, permission to do things like create or modify resources, or view logs from running application workloads. These permissions can be scoped to a single namespace, or granted across the entire cluster. 
 
@@ -68,9 +69,9 @@ Kubernetes has the concept of role and role binding that lets you give permissio
 
 This approach lets you logically segregate a single Kubernetes cluster, with users only able to access the application resources in their assigned namespace. 
 
-## RBAC on Azure Stack Edge Pro
+## Kubernetes RBAC on Azure Stack Edge Pro
 
-In the current implementation of RBAC, Azure Stack Edge Pro allows you to take the following actions from a restricted PowerShell runspace:
+In the current implementation of Kubernetes RBAC, Azure Stack Edge Pro allows you to take the following actions from a restricted PowerShell runspace:
 
 - Create namespaces.  
 - Create additional users.
@@ -80,9 +81,9 @@ In the current implementation of RBAC, Azure Stack Edge Pro allows you to take t
 
 The Azure Stack Edge Pro device has multiple system namespaces and you can create user namespaces with `kubeconfig` files to access those namespaces. The users have full control over these namespaces and can create or modify users, or grant users access. Only the cluster admin has full access to system namespaces and cluster-wide resources. An `aseuser` has read-only access to system namespaces.
 
-Here is a diagram that depicts the implementation of RBAC on Azure Stack Edge Pro device.
+Here is a diagram that depicts the implementation of Kubernetes RBAC on Azure Stack Edge Pro device.
 
-![RBAC on Azure Stack Edge Pro device](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
+![Kubernetes RBAC on Azure Stack Edge Pro device](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
 
 In this diagram, Alice, Bob, and Chuck have access to assigned user namespaces only, which in this case are `ns1`, `ns2`, and `ns3` respectively. Within these namespaces, they have admin access. The cluster admin on the other hand has admin access to system namespaces and cluster-wide resources.
 

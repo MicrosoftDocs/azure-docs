@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # A web app that calls web APIs: Code configuration
@@ -25,15 +25,11 @@ As shown in the [Web app that signs in users](scenario-web-app-sign-user-overvie
 
 The [Web app that signs in users](scenario-web-app-sign-user-overview.md) scenarios covered only the first step. Here you learn how to modify your web app so that it not only signs users in but also now calls web APIs.
 
-## Libraries that support web-app scenarios
+## Microsoft libraries supporting web apps
 
-The following libraries in the Microsoft Authentication Library (MSAL) support the authorization code flow for web apps:
+The following Microsoft libraries support web apps:
 
-| MSAL library | Description |
-|--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Support for .NET Framework and .NET Core platforms. Not supported are Universal Windows Platform (UWP), Xamarin.iOS, and Xamarin.Android, because those platforms are used to build public client applications. <br/><br/>For ASP.NET Core web apps and web APIs, MSAL.NET is encapsulated in a higher-level library named [Microsoft.Identity.Web](https://aka.ms/ms-identity-web). |
-| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL for Python | Support for Python web applications. |
-| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL for Java | Support for Java web applications. |
+[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
 
 Select the tab for the platform you're interested in:
 
@@ -41,7 +37,7 @@ Select the tab for the platform you're interested in:
 
 ## Client secrets or client certificates
 
-Given that your web app now calls a downstream web API, you need to provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that specifies:
+Given that your web app now calls a downstream web API, provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that specifies:
 
 - The URL of the downstream web API
 - The scopes required for calling the API
@@ -107,7 +103,7 @@ Your web app will need to acquire a token for the downstream API. You specify it
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                .AddInMemoryTokenCaches();
@@ -137,7 +133,7 @@ If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to dir
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                   .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
@@ -161,7 +157,7 @@ To call a web API other than Microsoft Graph, *Microsoft.Identity.Web* provides 
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                   .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
@@ -181,7 +177,7 @@ The following image shows the various possibilities of *Microsoft.Identity.Web* 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Block diagram showing service configuration options in startup dot C S for calling a web API and specifying a token cache implementation":::
 
 > [!NOTE]
-> To fully understand the code examples here, you need to be familiar with [ASP.NET Core fundamentals](/aspnet/core/fundamentals), and in particular with [dependency injection](/aspnet/core/fundamentals/dependency-injection) and [options](/aspnet/core/fundamentals/configuration/options).
+> To fully understand the code examples here, be familiar with [ASP.NET Core fundamentals](/aspnet/core/fundamentals), and in particular with [dependency injection](/aspnet/core/fundamentals/dependency-injection) and [options](/aspnet/core/fundamentals/configuration/options).
 
 # [ASP.NET](#tab/aspnet)
 
@@ -516,5 +512,4 @@ def _build_msal_app(cache=None):
 
 At this point, when the user signs in, a token is stored in the token cache. Let's see how it's then used in other parts of the web app.
 
-> [!div class="nextstepaction"]
-> [A web app that calls web APIs: Remove accounts from the cache on global sign-out](scenario-web-app-call-api-sign-in.md)
+[Remove accounts from the cache on global sign-out](scenario-web-app-call-api-sign-in.md)

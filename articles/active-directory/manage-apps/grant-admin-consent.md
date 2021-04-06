@@ -3,7 +3,7 @@ title: Grant tenant-wide admin consent to an application - Azure AD
 description: Learn how to grant tenant-wide consent to an application so that end-users are not prompted for consent when signing in to an application.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,23 +16,19 @@ ms.collection: M365-identity-device-management
 
 # Grant tenant-wide admin consent to an application
 
-Learn how to simplify the user experience by granting tenant-wide admin consent to an application. This article gives the different ways to achieve this. The methods apply to all end users in your Azure Active Directory (Azure AD) tenant.
+  Learn how to grant tenant-wide admin consent to an application. This article gives the different ways to achieve this.
 
 For more information on consenting to applications, see [Azure Active Directory consent framework](../develop/consent-framework.md).
 
 ## Prerequisites
 
-Granting tenant-wide admin consent requires you to sign in as [Global Administrator](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), an [Application Administrator](../users-groups-roles/directory-assign-admin-roles.md#application-administrator), or a [Cloud Application Administrator](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
-
-> [!IMPORTANT]
-> When an application has been granted tenant-wide admin consent, all users will be able to sign in to the app unless it has been configured to require user assignment. To restrict which users can sign in to an application, require user assignment and then assign users or groups to the application. For more information, see [Methods for assigning users and groups](methods-for-assigning-users-and-groups.md).
->
-> The Global Administrator role is required in order to provide admin consent for application permissions to the Microsoft Graph API.
+Granting tenant-wide admin consent requires you to sign in as a user that is authorized to consent on behalf of the organization. This includes [Global Administrator](../roles/permissions-reference.md#global-administrator) and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and, for some applications, [Application Administrator](../roles/permissions-reference.md#application-administrator) and [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). A user can also be authorized to grant tenant-wide consent if they are assigned a [custom directory role](../roles/custom-create.md) that includes the [permission to grant permissions to applications](../roles/custom-consent-permissions.md).
 
 > [!WARNING]
 > Granting tenant-wide admin consent to an application will grant the app and the app's publisher access to your organization's data. Carefully review the permissions the application is requesting before granting consent.
->
-> The Global Administrator role is required in order to provide admin consent for application permissions to the Microsoft Graph API.
+
+> [!IMPORTANT]
+> When an application has been granted tenant-wide admin consent, all users will be able to sign in to the app unless it has been configured to require user assignment. To restrict which users can sign in to an application, require user assignment and then assign users or groups to the application. For more information, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md).
 
 ## Grant admin consent from the Azure portal
 
@@ -42,7 +38,7 @@ You can grant tenant-wide admin consent through *Enterprise applications* if the
 
 To grant tenant-wide admin consent to an app listed in **Enterprise applications**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), an [Application Administrator](../users-groups-roles/directory-assign-admin-roles.md#application-administrator), or a [Cloud Application Administrator](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator), an [Application Administrator](../roles/permissions-reference.md#application-administrator), or a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 2. Select **Azure Active Directory** then **Enterprise applications**.
 3. Select the application to which you want to grant tenant-wide admin consent.
 4. Select **Permissions** and then click **Grant admin consent**.
@@ -58,7 +54,7 @@ For applications your organization has developed, or which are registered direct
 
 To grant tenant-wide admin consent from **App registrations**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), an [Application Administrator](../users-groups-roles/directory-assign-admin-roles.md#application-administrator), or a [Cloud Application Administrator](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator), an [Application Administrator](../roles/permissions-reference.md#application-administrator), or a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 2. Select **Azure Active Directory** then **App registrations**.
 3. Select the application to which you want to grant tenant-wide admin consent.
 4. Select **API permissions** and then click **Grant admin consent**.
@@ -94,6 +90,6 @@ As always, carefully review the permissions an application requests before grant
 
 [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 
-[Permissions and consent in the Microsoft identity platform](../develop/active-directory-v2-scopes.md)
+[Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
-[Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Azure AD on Microsoft Q&A](/answers/topics/azure-active-directory.html)

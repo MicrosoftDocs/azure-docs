@@ -12,6 +12,8 @@ ms.custom: devx-track-java
 ---
 
 # Azure Cosmos DB Table API for Java: Release notes and resources
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -20,7 +22,7 @@ ms.custom: devx-track-java
 > * [Python](table-sdk-python.md)
  
 
-|   |   |
+|   | Links  |
 |---|---|
 |**SDK download**|[Download Options](https://github.com/azure/azure-storage-java#download)|
 |**API documentation**|[Java API reference documentation](https://azure.github.io/azure-storage-java/)|

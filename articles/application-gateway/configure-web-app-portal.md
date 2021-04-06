@@ -6,13 +6,13 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 01/02/2021
 ms.author: victorh
 ---
 
 # Configure App Service with Application Gateway
 
-Since app service is a multi-tenant service instead of a dedicate deployment, it uses host header in the incoming request to resolve the request to the correct app service endpoint. Usually, the DNS name of the application, which in turn is the DNS name associated with the application gateway fronting the app service, is different from the domain name of the backend app service. Therefore, the host header in the original request received by the application gateway is not the same as the host name of the backend service. Because of this, unless the host header in the request from the application gateway to the backend is changed to the host name of the backend service, the multi-tenant backends are not able to resolve the request to the correct endpoint.
+Since app service is a multi-tenant service instead of a dedicated deployment, it uses host header in the incoming request to resolve the request to the correct app service endpoint. Usually, the DNS name of the application, which in turn is the DNS name associated with the application gateway fronting the app service, is different from the domain name of the backend app service. Therefore, the host header in the original request received by the application gateway is not the same as the host name of the backend service. Because of this, unless the host header in the request from the application gateway to the backend is changed to the host name of the backend service, the multi-tenant backends are not able to resolve the request to the correct endpoint.
 
 Application Gateway provides a switch called `Pick host name from backend target` which overrides the  host header in the request with the host name of the back-end when the request is routed from the Application Gateway to the backend. This capability enables support for multi-tenant back ends such as Azure app service and API management. 
 
@@ -25,7 +25,7 @@ In this article, you learn how to:
 
 - Application gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 
-- App service: If you don't have an existing App service, see [App service documentation](https://docs.microsoft.com/azure/app-service/).
+- App service: If you don't have an existing App service, see [App service documentation](../app-service/index.yml).
 
 ## Add App service as backend pool
 
@@ -57,7 +57,7 @@ In this article, you learn how to:
 
 When the app service sends a redirection response to the client to redirect to its relative path (For example, a redirect from `contoso.azurewebsites.net/path1` to `contoso.azurewebsites.net/path2`), it uses the same hostname in the location header of its response as the one in the request it received from the application gateway. So the client will make the request directly to `contoso.azurewebsites.net/path2` instead of going through the application gateway (`contoso.com/path2`). Bypassing the application gateway isn't desirable.
 
-If in your use case, there are scenarios where the App service will need to send a redirection response to the client, perform the [additional steps to rewrite the location header](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration).
+If in your use case, there are scenarios where the App service will need to send a redirection response to the client, perform the [additional steps to rewrite the location header](./troubleshoot-app-service-redirection-app-service-url.md#sample-configuration).
 
 ## Restrict access
 
@@ -67,4 +67,4 @@ One way you can restrict access to your web apps is to use [Azure App Service st
 
 ## Next steps
 
-To learn more about the App service and other multi-tenant support with application gateway, see [multi-tenant service support with application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+To learn more about the App service and other multi-tenant support with application gateway, see [multi-tenant service support with application gateway](./application-gateway-web-app-overview.md).

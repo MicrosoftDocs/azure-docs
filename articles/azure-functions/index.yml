@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Functions documentation 
-summary: Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. 
+summary: Azure Functions is a cloud service available on-demand that provides all the continually-updated infrastructure and resources needed to run your applications. You focus on the pieces of code that matter most to you, and Functions handles the rest. Functions provides serverless compute for Azure. You can use Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.  
 
 metadata:
   title: Azure Functions documentation 
-  description: Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. 
+  description: Azure Functions is a cloud service available on-demand that provides all the continually-updated infrastructure and resources needed to run your applications. You focus on the pieces of code that matter most to you, and Azure Functions handles the rest. Functions provides serverless compute for Azure. You can use Azure Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.
   ms.service: azure-functions 
   ms.topic: landing-page # Required
   author: ggailey777 
@@ -19,12 +19,16 @@ landingContent:
         links:
           - text: What is Azure Functions?
             url: functions-overview.md
-          - text: Compare serverless options
-            url: functions-compare-logic-apps-ms-flow-webjobs.md  
+      - linkListType: get-started
+        links:
+          - text: Getting started
+            url: functions-get-started.md
       - linkListType: concept
         links:
           - text: Hosting options
             url: functions-scale.md
+          - text: Compare serverless options
+            url: functions-compare-logic-apps-ms-flow-webjobs.md 
       - linkListType: learn
         links:
           - text: Choose a serverless compute option
@@ -38,15 +42,22 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create your first function (C#)
-            url: functions-create-your-first-function-visual-studio.md
+            url: create-first-function-vs-code-csharp.md
+          - text: Create your first function (Go)
+            url: create-first-function-vs-code-other.md?tabs=go
           - text: Create your first function (Java)
-            url: functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java
+            url: create-first-function-cli-java.md?tabs=bash%2Cazure-cli%2Cbrowser
           - text: Create your first function (JavaScript)
-            url: functions-create-first-function-vs-code.md?pivots=programming-language-javascript
+            url: create-first-function-vs-code-node.md
           - text: Create your first function (PowerShell)
-            url: functions-create-first-function-vs-code.md?pivots=programming-language-powershell
+            url: create-first-function-vs-code-powershell.md
           - text: Create your first function (Python)
-            url: functions-create-first-function-vs-code.md?pivots=programming-language-python
+            url: create-first-function-vs-code-python.md
+          - text: Create your first function (Rust)
+            url: create-first-function-vs-code-other.md?tabs=rust
+          - text: Create your first function (TypeScript)
+            url: create-first-function-vs-code-typescript.md
+
       - linkListType: learn
         links:
           - text: Create serverless logic
@@ -119,14 +130,22 @@ landingContent:
             url: functions-how-to-azure-devops.md
           - text: Deploy using the Jenkins plugin
             url: /azure/developer/jenkins/deploy-to-azure-functions
-  - title: Performance and monitoring
+  - title: Performance and monitoring best practices
     linkLists:
       - linkListType: concept
         links:
+          - text: Performance and reliability
+            url: functions-best-practices.md
+          - text: Manage connections
+            url: manage-connections.md
+          - text: Storage considerations
+            url: storage-considerations.md
+          - text: Error handling and function retries
+            url: functions-bindings-error-pages.md
+          - text: Security
+            url: security-concepts.md
           - text: Monitor functions
             url: functions-monitoring.md
-          - text: Optimize performance
-            url: functions-best-practices.md
           - text: Networking considerations
             url: functions-networking-options.md
       - linkListType: how-to-guide

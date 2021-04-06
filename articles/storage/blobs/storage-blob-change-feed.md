@@ -3,7 +3,7 @@ title: Change feed in Azure Blob Storage | Microsoft Docs
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
 author: normesta
 ms.author: normesta
-ms.date: 09/08/2020
+ms.date: 02/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -16,9 +16,15 @@ The purpose of the change feed is to provide transaction logs of all the changes
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
-The change feed is stored as [blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in a special container in your storage account at standard [blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) cost. You can control the retention period of these files based on your requirements (See the [conditions](#conditions) of the current release). Change events are appended to the change feed as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, Stream Analytics, and Azure Data Factory.
+## How the change feed works
+
+The change feed is stored as [blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in a special container in your storage account at standard [blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) cost. You can control the retention period of these files based on your requirements (See the [conditions](#conditions) of the current release). Change events are appended to the change feed as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, Stream Analytics, and Azure Data Factory.
 
 You can process these logs asynchronously, incrementally or in-full. Any number of client applications can independently read the change feed, in parallel, and at their own pace. Analytics applications such as [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) or [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) can consume logs directly as Avro files, which let you process them at a low-cost, with high-bandwidth, and without having to write a custom application.
+
+The following diagram shows how records are added to the change feed:
+
+:::image type="content" source="media/storage-blob-change-feed/change-feed-diagram.png" alt-text="Diagram showing how the change feed works to provide an ordered log of changes to blobs":::
 
 Change feed support is well-suited for scenarios that process data based on objects that have changed. For example, applications can:
 
@@ -134,7 +140,7 @@ Use an Azure Resource Manager template to enable Change feed on your existing st
 The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account. 
 
 > [!NOTE]
-> In the current release, the **$blobchangefeed** container is not visible in Azure Storage Explorer or the Azure portal. You currently cannot see the $blobchangefeed container when you call ListContainers API but you are able to call the ListBlobs API directly on the container to see the blobs.
+> In the current release, the $blobchangefeed container is visible only in Azure portal but not visible in Azure Storage Explorer. You currently cannot see the $blobchangefeed container when you call ListContainers API but you are able to call the ListBlobs API directly on the container to see the blobs
 
 Your client applications can consume the change feed by using the blob change feed processor library that is provided with the Change feed processor SDK. 
 
@@ -148,7 +154,7 @@ See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-ho
 
 The change feed is a log of changes that are organized into **hourly** *segments* but appended to and updated every few minutes. These segments are created only when there are blob change events that occur in that hour. This enables your client application to consume changes that occur within specific ranges of time without having to search through the entire log. To learn more, see the [Specifications](#specifications).
 
-An available hourly segment of the change feed is described in a manifest file that specifies the paths to the change feed files for that segment. The listing of the `$blobchangefeed/idx/segments/` virtual directory shows these segments ordered by time. The path of the segment describes the start of the hourly time-range that the segment represents. You can use that list to filter out the segments of logs that are interest to you.
+An available hourly segment of the change feed is described in a manifest file that specifies the paths to the change feed files for that segment. The listing of the `$blobchangefeed/idx/segments/` virtual directory shows these segments ordered by time. The path of the segment describes the start of the hourly time-range that the segment represents. You can use that list to filter out the segments of logs that are of interest to you.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -201,7 +207,7 @@ The segment manifest file (`meta.json`) shows the path of the change feed files 
 
 The change feed files contain a series of change event records. Each change event record corresponds to one change to an individual blob. The records are serialized and written to the file using the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification. The records can be read by using the Avro file format specification. There are several libraries available to process files in that format.
 
-Change feed files are stored in the `$blobchangefeed/log/` virtual directory as [append blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). The first change feed file under each path will have `00000` in the file name (For example `00000.avro`). The name of each subsequent log file added to that path will increment by 1 (For example: `00001.avro`).
+Change feed files are stored in the `$blobchangefeed/log/` virtual directory as [append blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). The first change feed file under each path will have `00000` in the file name (For example `00000.avro`). The name of each subsequent log file added to that path will increment by 1 (For example: `00001.avro`).
 
 The following event types are captured in the Change feed records:
 - BlobCreated
@@ -238,7 +244,7 @@ Here's an example of change event record from change feed file converted to Json
 }
 ```
 
-For a description of each property, see [Azure Event Grid event schema for Blob Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). The BlobPropertiesUpdated and BlobSnapshotCreated events are currently exclusive to Change feed and not yet supported for Blob Storage Events.
+For a description of each property, see [Azure Event Grid event schema for Blob Storage](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). The BlobPropertiesUpdated and BlobSnapshotCreated events are currently exclusive to Change feed and not yet supported for Blob Storage Events.
 
 > [!NOTE]
 > The change feed files for a segment don't immediately appear after a segment is created. The length of delay is within the normal interval of publishing latency of the change feed which is within a few minutes of the change.
@@ -257,7 +263,7 @@ For a description of each property, see [Azure Event Grid event schema for Blob 
 
 - Change event records where the `eventType` has a value of `Control` are internal system records and don't reflect a change to objects in your account. You can safely ignore those records.
 
-- Values in the `storageDiagnonstics` property bag are for internal use only and not designed for use by your application. Your applications shouldn't have a contractual dependency on that data. You can safely ignore those properties.
+- Values in the `storageDiagnostics` property bag are for internal use only and not designed for use by your application. Your applications shouldn't have a contractual dependency on that data. You can safely ignore those properties.
 
 - The time represented by the segment is **approximate** with bounds of 15 minutes. So to ensure consumption of all records within a specified time, consume the consecutive previous and next hour segment.
 

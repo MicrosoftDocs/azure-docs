@@ -1,9 +1,8 @@
 ---
 title: Use SQL Database reference data in an Azure Stream Analytics job
 description: This article describes how to use a SQL Database as reference data input for an Azure Stream Analytics job in the Azure portal and in Visual Studio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
@@ -28,11 +27,11 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
 1. In your Stream Analytics job, select **Inputs** under **Job topology**. Click **Add reference input** and choose **SQL Database**.
 
-   ![Stream Analytics job input](./media/sql-reference-data/stream-analytics-inputs.png)
+   ![Inputs is selected in the left navigation pane. On Inputs, + Add reference input is selected, revealing a drop-down list that shows the values Blob storage and SQL Database.](./media/sql-reference-data/stream-analytics-inputs.png)
 
 2. Fill out the Stream Analytics Input Configurations. Choose the database name, server name, username and password. If you want your reference data input to refresh periodically, choose “On” to specify the refresh rate in DD:HH:MM. If you have large data sets with a short refresh rate, you can use a [delta query](sql-reference-data.md#delta-query).
 
-   ![SQL Database reference configuration](./media/sql-reference-data/sql-input-config.png)
+   ![When SQL Database is selected, the SQL Database New input page appears. There is a configuration form in the left pane, and a Snapshot query in the right pane.](./media/sql-reference-data/sql-input-config.png)
 
 3. Test the snapshot query in the SQL query editor. For more information, see [Use the Azure portal's SQL query editor to connect and query data](../azure-sql/database/connect-query-portal.md)
 
@@ -40,7 +39,7 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
 Navigate to **Storage account settings** under **Configure** and select **Add storage account**.
 
-   ![Stream Analytics storage account settings](./media/sql-reference-data/storage-account-settings.png)
+   ![Storage account settings is selected in the left pane. There is an Add storage account button in the right pane.](./media/sql-reference-data/storage-account-settings.png)
 
 ### Start the job
 
@@ -85,27 +84,27 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 3. Enter the project **Name**, **Location**, and **Solution name**, and select **OK**.
 
-   ![New Stream Analytics project in Visual Studio](./media/sql-reference-data/stream-analytics-vs-new-project.png)
+   ![The Stream Analytics template is selected, Azure Stream Analytics Application is selected, and the Name, Location, and Solution names boxes are highlighted.](./media/sql-reference-data/stream-analytics-vs-new-project.png)
 
 ### Define SQL Database reference data input
 
 1. Create a new input.
 
-   ![New Stream Analytics input in Visual Studio](./media/sql-reference-data/stream-analytics-vs-input.png)
+   ![On Add New Item, Input is selected.](./media/sql-reference-data/stream-analytics-vs-input.png)
 
 2. Double-click **Input.json** in the **Solution Explorer**.
 
 3. Fill out the **Stream Analytics Input Configuration**. Choose the database name, server name, refresh type and refresh rate. Specify the refresh rate in the format `DD:HH:MM`.
 
-   ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/stream-analytics-vs-input-config.png)
+   ![In Stream Analytics Input Configuration, values are entered or selected from drop-down lists.](./media/sql-reference-data/stream-analytics-vs-input-config.png)
 
    If you choose "Execute only once" or "Execute periodically", one SQL CodeBehind file named **[Input Alias].snapshot.sql** is generated in the project under the **Input.json** file node.
 
-   ![Input code behind in Visual Studio](./media/sql-reference-data/once-or-periodically-codebehind.png)
+   ![The SQL CodeBehind file Chemicals.snapshot.sql is highlighted.](./media/sql-reference-data/once-or-periodically-codebehind.png)
 
    If you choose "Refresh Periodically with Delta", two SQL CodeBehind files will be generated: **[Input Alias].snapshot.sql** and **[Input Alias].delta.sql**.
 
-   ![Code behind in solution explorer](./media/sql-reference-data/periodically-delta-codebehind.png)
+   ![The SQL CodeBehind files Chemicals.delta.sql and Chemicals.snapshot.sql are highlighted.](./media/sql-reference-data/periodically-delta-codebehind.png)
 
 4. Open the SQL file in the editor and write the SQL query.
 
@@ -115,7 +114,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 Open **JobConfig.json** to specify the storage account for storing SQL reference snapshots.
 
-   ![Stream Analytics job configuration in Visual Studio](./media/sql-reference-data/stream-analytics-job-config.png)
+   ![Stream Analytics Job Configure Configuration is shown with default values. The Global Storage Settings are highlighted.](./media/sql-reference-data/stream-analytics-job-config.png)
 
 ### Test locally and deploy to Azure
 
@@ -167,7 +166,36 @@ When using the delta query, [temporal tables in Azure SQL Database](../azure-sql
    Note that Stream Analytics runtime may periodically run the snapshot query in addition to the delta query to store checkpoints.
 
 ## Test your query
-   It is important to verify that your query is returning the expected dataset that the Stream Analytics job will use as reference data. To test your query, go to Input under Job Topology section on portal. You can then select Sample Data on your SQL Database Reference input. After the sample becomes available, you can download the file and check to see if the data being returned is as expected. If you want a optimize your development and test iterations, it is recommended to use the [Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). You can also any other tool of your preference to first ensure the query is returning the right results from you Azure SQL Database and then use that in your Stream Analytics job. 
+   It is important to verify that your query is returning the expected dataset that the Stream Analytics job will use as reference data. To test your query, go to Input under Job Topology section on portal. You can then select Sample Data on your SQL Database Reference input. After the sample becomes available, you can download the file and check to see if the data being returned is as expected. If you want a optimize your development and test iterations, it is recommended to use the [Stream Analytics tools for Visual Studio](./stream-analytics-tools-for-visual-studio-install.md). You can also any other tool of your preference to first ensure the query is returning the right results from you Azure SQL Database and then use that in your Stream Analytics job. 
+
+### Test your query with Visual Studio Code
+
+   Install [Azure Stream Analytics Tools](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) and [SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) on Visual Studio Code and set up your ASA project. For more information, see [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](./quick-create-visual-studio-code.md) and the [SQL Server (mssql) extension tutorial](/sql/tools/visual-studio-code/sql-server-develop-use-vscode).
+
+1. Configure your SQL reference data input.
+   
+   ![A Visual Studio Code editor (tab) shows ReferenceSQLDatabase.json.](./media/sql-reference-data/configure-sql-reference-data-input.png)
+
+2. Select the SQL Server icon and click **Add Connection**.
+   
+   ![+ Add Connection appears in the left pane and is highlighted.](./media/sql-reference-data/add-sql-connection.png)
+
+3. Fill in the connection information.
+   
+   ![The two boxes for database and server information are highlighted.](./media/sql-reference-data/fill-connection-information.png)
+
+4. Right-click in reference SQL and select **Execute Query**.
+   
+   ![Execute Query is highlighted in the context menu.](./media/sql-reference-data/execute-query.png)
+
+5. Choose your connection.
+   
+   ![The dialog box says "Create a connection profile from the list below", and the list has one entry, which is hightlighted.](./media/sql-reference-data/choose-connection.png)
+
+6. Review and verify your query result.
+   
+   ![The query search results are in a VS Code editor tab.](./media/sql-reference-data/verify-result.png)
+
 
 ## FAQs
 

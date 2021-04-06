@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a solution builder, I want to use a DTDL editor to author and validate DTDL model files to use in my IoT Plug and Play solution.
+#Customer intent: As a solution builder, I want to use a DTDL editor to author and validate DTDL model files to use in my IoT Plug and Play solution.
 ---
 
 # Install and use the DTDL authoring tools
@@ -35,7 +35,7 @@ When you've installed the extension, use it to help you author DTDL model files 
 
     :::image type="content" source="media/howto-use-dtdl-authoring-tools/model-intellisense.png" alt-text="Use intellisense for DTDL models in VS Code":::
 
-- Create a new DTDL interface. The following command creates a JSON file with a new interface. The interface includes example telemetry, property, and command definitions.
+- Create a new DTDL interface. The **DTDL: Create Interface** command creates a JSON file with a new interface. The interface includes example telemetry, property, and command definitions.
 
 ## Install and use the Visual Studio extension
 

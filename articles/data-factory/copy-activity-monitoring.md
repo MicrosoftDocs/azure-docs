@@ -1,17 +1,11 @@
 ---
 title: Monitor copy activity
 description: Learn about how to monitor the copy activity execution in Azure Data Factory. 
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 03/22/2021
 ms.author: jingwang
-
 ---
 # Monitor copy activity
 
@@ -59,10 +53,10 @@ Copy activity execution details and performance characteristics are also returne
 | rowsCopied | Number of rows copied to sink. This metric does not apply when copying files as-is without parsing them, for example, when source and sink datasets are binary format type, or other format type with identical settings.  | Int64 value (no unit) |
 | rowsSkipped | Number of incompatible rows that were skipped. You can enable incompatible rows to be skipped by setting `enableSkipIncompatibleRow` to true. | Int64 value (no unit) |
 | copyDuration | Duration of the copy run. | Int32 value, in seconds |
-| throughput | Rate of data transfer. | Floating point number, in KBps |
+| throughput | Rate of data transfer, calculated by `dataRead` divided by `copyDuration`. | Floating point number, in KBps |
 | sourcePeakConnections | Peak number of concurrent connections established to the source data store during the Copy activity run. | Int32 value (no unit) |
 | sinkPeakConnections| Peak number of concurrent connections established to the sink data store during the Copy activity run.| Int32 value (no unit) |
-| sqlDwPolyBase | Whether PolyBase is used when data is copied into Azure Synapse Analytics (formerly SQL Data Warehouse). | Boolean |
+| sqlDwPolyBase | Whether PolyBase is used when data is copied into Azure Synapse Analytics. | Boolean |
 | redshiftUnload | Whether UNLOAD is used when data is copied from Redshift. | Boolean |
 | hdfsDistcp | Whether DistCp is used when data is copied from HDFS. | Boolean |
 | effectiveIntegrationRuntime | The integration runtime (IR) or runtimes used to power the activity run, in the format `<IR name> (<region if it's Azure IR>)`. | Text (string) |

@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Using Azure Sentinel with Azure Web Application Firewall
 
-Azure Web Application Firewall (WAF) combined with Azure Sentinel can provide security information event management for WAF resources. Azure Sentinel provides security analytics using Log Analytics, which allows you to easily break down and view your WAF data. Using Sentinel, you can access pre-built workbooks and modify them to best fit your organization's needs. The workbook can show analytics for WAF on Azure Content Delivery Network (CDN), WAF on Azure Front Door, and WAF on Application Gateway across several subscriptions and workspaces.
+Azure Web Application Firewall (WAF) combined with Azure Sentinel can provide security information event management for WAF resources. Azure Sentinel provides security analytics using Log Analytics, which allows you to easily break down and view your WAF data. Using Azure Sentinel, you can access pre-built workbooks and modify them to best fit your organization's needs. The workbook can show analytics for WAF on Azure Content Delivery Network (CDN), WAF on Azure Front Door, and WAF on Application Gateway across several subscriptions and workspaces.
 
 ## WAF log analytics categories
 
@@ -62,7 +62,7 @@ To enable log analytics for each resource, go to your individual Azure Front Doo
    :::image type="content" source="media//waf-sentinel/diagnostics-setting.png" alt-text="Diagnostic setting":::
 
 4. On the Azure home page, type **Azure Sentinel** in the search bar and select the **Azure Sentinel** resource. 
-2. Select an already active workspace or create a new workspace in Sentinel. 
+2. Select an already active workspace or create a new workspace. 
 3. On the left side panel under **Configuration** select **Data Connectors**.
 4. Search for **Microsoft web application firewall** and select **Microsoft web application firewall (WAF)**. Select **Open connector** page on the bottom right.
 
@@ -77,4 +77,4 @@ To enable log analytics for each resource, go to your individual Azure Front Doo
 ## Next steps
 
 - [Learn more about Azure Sentinel](../sentinel/overview.md)
-- [Learn more about Azure Monitor Workbooks](../azure-monitor/platform/workbooks-overview.md)
+- [Learn more about Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md)

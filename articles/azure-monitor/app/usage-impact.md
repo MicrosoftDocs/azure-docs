@@ -32,7 +32,7 @@ But analyzing performance is just a subset of Impact's capabilities. Since Impac
 
 To begin answering questions with the Impact tool, choose an initial page view, custom event, or request.
 
-![Impact tool](./media/usage-impact/0002-dropdown.png)
+![Screenshot that shows where to choose an initial page view, custom event, or request.](./media/usage-impact/0002-dropdown.png)
 
 1. Select a page view from the **For the page view** dropdown.
 2. Leave the **analyze how its** dropdown on the default selection of **Duration** (In this context **Duration** is an alias for **Page Load Time**.)
@@ -82,6 +82,5 @@ How Impact is ultimately calculated varies based on whether we are analyzing by 
     - [Funnels](usage-funnels.md)
     - [Retention](usage-retention.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../platform/workbooks-overview.md)
-    - [Add user context](usage-send-user-context.md)
-
+    - [Workbooks](../visualize/workbooks-overview.md)
+    - [Add user context](./usage-overview.md)

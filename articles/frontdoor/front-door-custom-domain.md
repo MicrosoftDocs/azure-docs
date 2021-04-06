@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-# As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
-
+#Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
 ---
+
 # Tutorial: Add a custom domain to your Front Door
+
 This tutorial shows how to add a custom domain to your Front Door. When you use Azure Front Door for application delivery, a custom domain is necessary if you would like your own domain name to be visible in your end-user request. Having a visible domain name can be convenient for your customers and useful for branding purposes.
 
 After you create a Front Door, the default frontend host, which is a subdomain of `azurefd.net`, is included in the URL for delivering Front Door content from your backend by default (for example, https:\//contoso-frontend.azurefd.net/activeusers.htm). For your convenience, Azure Front Door provides the option of associating a custom domain with the default host. With this option, you deliver your content with a custom domain in your URL instead of a Front Door owned domain name (for example, https:\//www.contoso.com/photo.png). 
@@ -35,9 +36,9 @@ In this tutorial, you learn how to:
 
 * Before you can complete the steps in this tutorial, you must first create a Front Door. For more information, see [Quickstart: Create a Front Door](quickstart-create-front-door.md).
 
-* If you do not already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
+* If you do not already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](../app-service/manage-custom-dns-buy-domain.md).
 
-* If you are using Azure to host your [DNS domains](https://docs.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you are using a domain provider to handle your DNS domain, proceed to [Create a CNAME DNS record](#create-a-cname-dns-record).
+* If you are using Azure to host your [DNS domains](../dns/dns-overview.md), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](../dns/dns-delegate-domain-azure-dns.md). Otherwise, if you are using a domain provider to handle your DNS domain, proceed to [Create a CNAME DNS record](#create-a-cname-dns-record).
 
 
 ## Create a CNAME DNS record

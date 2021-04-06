@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Wootric with Azure Active Direct
 * Enable your users to be automatically signed-in to Wootric with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Wootric supports **IDP** initiated SSO
 * Wootric supports **Just In Time** user provisioning
-* Once you configure Wootric you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Wootric you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Wootric from the gallery
 
@@ -130,16 +130,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Settings Icon** from the top menu.
 
-	![Configuration ](./media/wootric-tutorial/configure-1.PNG)
+	![Screenshot shows the Settings Icon selected from the Wootric site.](./media/wootric-tutorial/configure-1.PNG)
 
 1. In the **INTEGRATIONS**, select **Authentication** from the Left side menu and click on **Enable Single Sign On with Azure Active Directory**.
 
-	![Configuration ](./media/wootric-tutorial/configure-2.PNG)
+	![Screenshot shows Enable Single Sign On with Azure Active Directory connected in the Authentication item.](./media/wootric-tutorial/configure-2.PNG)
 
 1. Perform the following steps in the following page:
 
-	![Configuration ](./media/wootric-tutorial/configure-3.PNG)
-
+	![Screenshot shows the Settings page where you can enter the values described.](./media/wootric-tutorial/configure-3.PNG)
 
 	a. In the **Identity Provider Single Sign-On URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
@@ -159,18 +158,18 @@ In this section, a user called B.Simon is created in Wootric. Wootric supports j
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Wootric tile in the Access Panel, you should be automatically signed in to the Wootric for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Wootric tile in the Access Panel, you should be automatically signed in to the Wootric for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Wootric with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Wootric with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect Wootric with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

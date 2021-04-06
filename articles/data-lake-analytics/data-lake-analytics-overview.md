@@ -1,12 +1,10 @@
 ---
 title: Overview of Azure Data Lake Analytics
 description: Data Lake Analytics lets you drive you business using insights gained in your cloud data at any scale.
-services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 
 ms.reviewer: jasonwhowell
-ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
@@ -44,7 +42,11 @@ Data Lake Analytics is a cost-effective solution for running big data workloads.
 
 ## Works with all your Azure data
   
-Data Lake Analytics works with Azure Data Lake Storage for the highest performance, throughput, and parallelization and works with Azure Storage blobs, Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse).
+Data Lake Analytics works with Azure Data Lake Storage for the highest performance, throughput, and parallelization and works with Azure Storage blobs, Azure SQL Database, Azure Synapse Analytics.
+
+## In-region data residency
+  
+Data Lake Analytics does not move or store customer data out of the region in which it is deployed.
 
 
 ## Next steps

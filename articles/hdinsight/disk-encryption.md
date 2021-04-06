@@ -2,9 +2,6 @@
 title: Double encryption for data at rest
 titleSuffix: Azure HDInsight
 description: This article describes the two layers of encryption available for data at rest on Azure HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
@@ -17,7 +14,7 @@ This document doesn't address data stored in your Azure Storage account. Your cl
 
 ## Introduction
 
-There are three main managed disk roles in Azure: the data disk, the OS disk, and the temporary disk. For more information about different types of managed disks, see [Introduction to Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview). 
+There are three main managed disk roles in Azure: the data disk, the OS disk, and the temporary disk. For more information about different types of managed disks, see [Introduction to Azure managed disks](../virtual-machines/managed-disks-overview.md). 
 
 HDInsight supports multiple types of encryption in two different layers:
 
@@ -29,8 +26,8 @@ These types are summarized in the following table.
 
 |Cluster type |OS Disk (Managed disk) |Data disk (Managed disk) |Temp data disk (Local SSD) |
 |---|---|---|---|
-|Kafka, HBase with Accelerated writes|Layer1: [SSE Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) by default|Layer1: [SSE Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) by default, Layer2: Optional encryption at rest using CMK|Layer1: Optional Encryption at host using PMK, Layer2: Optional encryption at rest using CMK|
-|All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes)|Layer1: [SSE Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) by default|N/A|Layer1: Optional Encryption at host using PMK, Layer2: Optional encryption at rest using CMK|
+|Kafka, HBase with Accelerated writes|Layer1: [SSE Encryption](../virtual-machines/managed-disks-overview.md#encryption) by default|Layer1: [SSE Encryption](../virtual-machines/managed-disks-overview.md#encryption) by default, Layer2: Optional encryption at rest using CMK|Layer1: Optional Encryption at host using PMK, Layer2: Optional encryption at rest using CMK|
+|All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes)|Layer1: [SSE Encryption](../virtual-machines/managed-disks-overview.md#encryption) by default|N/A|Layer1: Optional Encryption at host using PMK, Layer2: Optional encryption at rest using CMK|
 
 ## Encryption at rest using Customer-managed keys
 
@@ -65,33 +62,33 @@ See [Create a user-assigned managed identity](../active-directory/managed-identi
 
 ### Create Azure Key Vault
 
-Create a key vault. See [Create Azure Key Vault](../key-vault/secrets/quick-create-portal.md) for specific steps.
+Create a key vault. See [Create Azure Key Vault](../key-vault/general/quick-create-portal.md) for specific steps.
 
-HDInsight only supports Azure Key Vault. If you have your own key vault, you can import your keys into Azure Key Vault. Remember that the key vault must have **Soft delete** enabled. For more information about importing existing keys, visit [About keys, secrets, and certificates](../key-vault/about-keys-secrets-and-certificates.md).
+HDInsight only supports Azure Key Vault. If you have your own key vault, you can import your keys into Azure Key Vault. Remember that the key vault must have **Soft delete** enabled. For more information about importing existing keys, visit [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
 
 ### Create key
 
 1. From your new key vault, navigate to **Settings** > **Keys** > **+ Generate/Import**.
 
-    ![Generate a new key in Azure Key Vault](./media/disk-encryption/create-new-key.png "Generate a new key in Azure Key Vault")
+    :::image type="content" source="./media/disk-encryption/create-new-key.png" alt-text="Generate a new key in Azure Key Vault":::
 
 1. Provide a name, then select **Create**. Maintain the default **Key Type** of **RSA**.
 
-    ![generates key name](./media/disk-encryption/create-key.png "Generate key name")
+    :::image type="content" source="./media/disk-encryption/create-key.png" alt-text="generates key name":::
 
 1. When you return to the **Keys** page, select the key you created.
 
-    ![key vault key list](./media/disk-encryption/key-vault-key-list.png)
+    :::image type="content" source="./media/disk-encryption/key-vault-key-list.png" alt-text="key vault key list":::
 
 1. Select the version to open the **Key Version** page. When you use your own key for HDInsight cluster encryption, you need to provide the key URI. Copy the **Key identifier** and save it somewhere until you're ready to create your cluster.
 
-    ![get key identifier](./media/disk-encryption/get-key-identifier.png)
+    :::image type="content" source="./media/disk-encryption/get-key-identifier.png" alt-text="get key identifier":::
 
 ### Create access policy
 
 1. From your new key vault, navigate to **Settings** > **Access policies** > **+ Add Access Policy**.
 
-    ![Create new Azure Key Vault access policy](./media/disk-encryption/key-vault-access-policy.png)
+    :::image type="content" source="./media/disk-encryption/key-vault-access-policy.png" alt-text="Create new Azure Key Vault access policy":::
 
 1. From the **Add access policy** page, provide the following information:
 
@@ -101,27 +98,36 @@ HDInsight only supports Azure Key Vault. If you have your own key vault, you can
     |Secret Permissions|Select **Get**, **Set**, and **Delete**.|
     |Select principal|Select the user-assigned managed identity you created earlier.|
 
-    ![Set Select Principal for Azure Key Vault access policy](./media/disk-encryption/azure-portal-add-access-policy.png)
+    :::image type="content" source="./media/disk-encryption/azure-portal-add-access-policy.png" alt-text="Set Select Principal for Azure Key Vault access policy":::
 
 1. Select **Add**.
 
 1. Select **Save**.
 
-    ![Save Azure Key Vault access policy](./media/disk-encryption/add-key-vault-access-policy-save.png)
+    :::image type="content" source="./media/disk-encryption/add-key-vault-access-policy-save.png" alt-text="Save Azure Key Vault access policy":::
 
 ### Create cluster with customer-managed key disk encryption
 
 You're now ready to create a new HDInsight cluster. Customer-managed keys can only be applied to new clusters during cluster creation. Encryption can't be removed from customer-managed key clusters, and customer-managed keys can't be added to existing clusters.
 
+Beginning with the November 2020 release, HDInsight supports the creation of clusters using both versioned and version-less key URIs. If you create the cluster with a version-less key URI, then the HDInsight cluster will try to perform key auto-rotation when the key is updated in your Azure Key Vault. If you create the cluster with a versioned key URI, you will have to perform a manual key rotation as discussed in [Rotating the encryption key](#rotating-the-encryption-key).
+
+For clusters created before the November 2020 release, you will have to perform key rotation manually using the versioned key URI.
+
 #### Using the Azure portal
 
-During cluster creation, provide the full **Key identifier**, including the key version. For example, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. You also need to assign the managed identity to the cluster and provide the key URI.
+During cluster creation, you can either use a versioned key, or a versionless key in the following way:
 
-![Create new cluster](./media/disk-encryption/create-cluster-portal.png)
+- **Versioned** - During cluster creation, provide the full **Key identifier**, including the key version. For example, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`.
+- **Versionless** - During cluster creation, provide only the **Key identifier**. For example, `https://contoso-kv.vault.azure.net/keys/myClusterKey`.
+
+You also need to assign the managed identity to the cluster.
+
+:::image type="content" source="./media/disk-encryption/create-cluster-portal.png" alt-text="Create new cluster":::
 
 #### Using Azure CLI
 
-The following example shows how to use Azure CLI to create a new Apache Spark cluster with disk encryption enabled. For more information, see [Azure CLI az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
+The following example shows how to use Azure CLI to create a new Apache Spark cluster with disk encryption enabled. For more information, see [Azure CLI az hdinsight create](/cli/azure/hdinsight#az-hdinsight-create). The parameter `encryption-key-version` is optional.
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -135,7 +141,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### Using Azure Resource Manager templates
 
-The following example shows how to use an Azure Resource Manager template to create a new Apache Spark cluster with disk encryption enabled. For more information, see [What are ARM templates?](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+The following example shows how to use an Azure Resource Manager template to create a new Apache Spark cluster with disk encryption enabled. For more information, see [What are ARM templates?](../azure-resource-manager/templates/overview.md). The resource manager template property `diskEncryptionKeyVersion` is optional.
 
 This example uses PowerShell to call the template.
 
@@ -349,17 +355,17 @@ The contents of the resource management template, `azuredeploy.json`:
 
 ### Rotating the encryption key
 
-There might be scenarios where you might want to change the encryption keys used by the HDInsight cluster after it has been created. This can be easily via the portal. For this operation, the cluster must have access to both the current key and the intended new key, otherwise the rotate key operation will fail.
+You can change the encryption keys used on your running cluster, using the Azure portal or Azure CLI. For this operation, the cluster must have access to both the current key and the intended new key, otherwise the rotate key operation will fail. For clusters created after the the November 2020 release you can choose if you want to your new key to have a version or not. For clusters created before the November 2020 release, you must use a versioned key when rotating the encryption key.
 
 #### Using the Azure portal
 
 To rotate the key, you need the base key vault URI. Once you've done that, go to the HDInsight cluster properties section in the portal and click on **Change Key** under **Disk Encryption Key URL**. Enter in the new key url and submit to rotate the key.
 
-![rotate disk encryption key](./media/disk-encryption/change-key.png)
+:::image type="content" source="./media/disk-encryption/change-key.png" alt-text="rotate disk encryption key":::
 
 #### Using Azure CLI
 
-The following example shows how to rotate the disk encryption key for an existing HDInsight cluster. For more information, see [Azure CLI az hdinsight rotate-disk-encryption-key](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-rotate-disk-encryption-key).
+The following example shows how to rotate the disk encryption key for an existing HDInsight cluster. For more information, see [Azure CLI az hdinsight rotate-disk-encryption-key](/cli/azure/hdinsight#az-hdinsight-rotate-disk-encryption-key).
 
 ```azurecli
 az hdinsight rotate-disk-encryption-key \
@@ -388,11 +394,11 @@ No, all managed disks and resource disks are encrypted by the same key.
 
 If the cluster loses access to the key, warnings will be shown in the Apache Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, Ambari warnings will go away and operations such as key rotation can be successfully performed.
 
-![key access Ambari alert](./media/disk-encryption/ambari-alert.png)
+:::image type="content" source="./media/disk-encryption/ambari-alert.png" alt-text="key access Ambari alert":::
 
 **How can I recover the cluster if the keys are deleted?**
 
-Since only "Soft Delete" enabled keys are supported, if the keys are recovered in the key vault, the cluster should regain access to the keys. To recover an Azure Key Vault key, see [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) or [az-keyvault-key-recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover).
+Since only "Soft Delete" enabled keys are supported, if the keys are recovered in the key vault, the cluster should regain access to the keys. To recover an Azure Key Vault key, see [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) or [az-keyvault-key-recover](/cli/azure/keyvault/key#az-keyvault-key-recover).
 
 
 **If a cluster is scaled up, will the new nodes support customer-managed keys seamlessly?**
@@ -414,7 +420,7 @@ Encryption at host can be enabled during cluster creation in the Azure portal.
 
 :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="Enable encryption at host.":::
 
-This option enables [encryption at host](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) for HDInsight VMs temp data disks using PMK. Encryption at host is only [supported on certain VM SKUs in limited regions](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) and HDInsight supports the [following node configuration and SKUs](./hdinsight-supported-node-configuration.md).
+This option enables [encryption at host](../virtual-machines/disks-enable-host-based-encryption-portal.md) for HDInsight VMs temp data disks using PMK. Encryption at host is only [supported on certain VM SKUs in limited regions](../virtual-machines/disks-enable-host-based-encryption-portal.md) and HDInsight supports the [following node configuration and SKUs](./hdinsight-supported-node-configuration.md).
 
 To understand the right VM size for your HDInsight cluster see [Selecting the right VM size for your Azure HDInsight cluster](hdinsight-selecting-vm-size.md). The default VM SKU for Zookeeper node when encryption at host is enabled will be DS2V2.
 

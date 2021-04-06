@@ -1,11 +1,11 @@
 ---
 title: Frequently asked questions
 description: FAQs about the Azure Spatial Anchors service.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 05/18/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
 #Customer intent: Address frequently asked questions regarding Azure Spatial Anchors.
@@ -76,7 +76,7 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 **Q: Do you have any throttling limits in place?**
 
-**A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. [Contact us](mailto:azuremrs@microsoft.com) to discuss. 
+**A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. [Contact us](mailto:azuremrscontact@microsoft.com) to discuss.
 
 **Q: In what regions is Azure Spatial Anchors available?**
 

@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate My IBISWorld with Azure Active D
 * Enable your users to be automatically signed-in to My IBISWorld with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * My IBISWorld supports **SP and IDP** initiated SSO
 * My IBISWorld supports **Just In Time** user provisioning
-* Once you configure My IBISWorld you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure My IBISWorld you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -78,27 +78,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type the URL:
-    `https://my.ibisworld.com/account/login`
+   * To configure the application in **SP** initiated mode, request the URL from IBISWorld, and then enter the URL in the **Sign-on URL** text box.
+   
+   * To configure the application in **IdP** initiated mode, in the **Relay State** text box, enter the URL `RPID=http://fedlogin.ibisworld.com`. Leave the **Sign-on URL** text box empty.
 
 1. Click **Save**.
 
 1. My IBISWorld application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+   ![image](common/default-attributes.png)
 
 1. In addition to above, My IBISWorld application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name | Source Attribute|
-	| --------------- | --------- |
-	| department | user.department |
-	| language | user.preferredlanguage |
-	| phone | user.telephonenumber |
-	| title | user.jobtitle |
-    | userid | user.employeeid |
-    | country | user.country |
+   | Name | Source Attribute|
+   | --------------- | --------- |
+   | department | user.department |
+   | language | user.preferredlanguage |
+   | phone | user.telephonenumber |
+   | title | user.jobtitle |
+   | userid | user.employeeid |
+   | country | user.country |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -145,19 +144,18 @@ In this section, a user called Britta Simon is created in My IBISWorld. My IBISW
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the My IBISWorld tile in the Access Panel, you should be automatically signed in to the My IBISWorld for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the My IBISWorld tile in the Access Panel, you should be automatically signed in to the My IBISWorld for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try My IBISWorld with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect My IBISWorld with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [How to protect My IBISWorld with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

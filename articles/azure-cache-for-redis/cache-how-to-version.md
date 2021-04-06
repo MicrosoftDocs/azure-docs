@@ -14,10 +14,6 @@ In this article, you'll learn how to configure the Redis software version to be 
 ## Prerequisites
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
-> [!NOTE]
-> This feature is currently in preview - [contact us](mailto:azurecache@microsoft.com) if you're interested.
->
-
 ## Create a cache
 To create a cache, follow these steps:
 

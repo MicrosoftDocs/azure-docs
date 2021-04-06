@@ -219,8 +219,6 @@ To extend the example, you could choose to remove the inline shaping and use a s
 
 #### Shaper skill and projection
 
-This 
-
 > [!Note]
 > Some of the columns from the document table have been removed from this example for brevity.
 >

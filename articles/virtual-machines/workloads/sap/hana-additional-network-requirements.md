@@ -6,9 +6,7 @@ documentationcenter:
 author: msjuergent
 manager: bburns
 editor:
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -28,7 +26,7 @@ Use either the Azure portal, PowerShell, or the Azure CLI when you add more IP a
 
 Add the new IP address range as a new range to the virtual network address space, instead of generating a new aggregated range. Submit this change to Microsoft. This enables you to connect from that new IP address range to the HANA large instance units in your client. You can open an Azure support request to get the new virtual network address space added. After you receive confirmation, perform the next steps.
 
-To create an additional subnet from the Azure portal, see [Create a virtual network using the Azure portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). To create one from PowerShell, see [Create a virtual network using PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
+To create an additional subnet from the Azure portal, see [Create a virtual network using the Azure portal](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network). To create one from PowerShell, see [Create a virtual network using PowerShell](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 ## Add virtual networks
 
@@ -48,11 +46,11 @@ When the new circuit is created, and the SAP HANA on Microsoft Service Managemen
 
 To remove a virtual network subnet, you can use the Azure portal, PowerShell, or the Azure CLI. If your Azure virtual network IP address range or address space was an aggregated range, there is no follow up for you with Microsoft. (Note, however, that the virtual network is still propagating the BGP route address space that includes the deleted subnet.) You might have defined the Azure virtual network address range or address space as multiple IP address ranges, of which one was assigned to your deleted subnet. Be sure to delete that from your virtual network address space. Then inform SAP HANA on Microsoft Service Management to remove it from the ranges that SAP HANA on Azure (large instances) is allowed to communicate with.
 
-For more information, see [Delete a subnet](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet).
+For more information, see [Delete a subnet](../../../virtual-network/virtual-network-manage-subnet.md#delete-a-subnet).
 
 ## Delete a virtual network
 
-For information, see [Delete a virtual network](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network).
+For information, see [Delete a virtual network](../../../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 SAP HANA on Microsoft Service Management removes the existing authorizations on the SAP HANA on Azure (large instances) ExpressRoute circuit. It also removes the Azure virtual network IP address range or address space for the communication with HANA large instances.
 

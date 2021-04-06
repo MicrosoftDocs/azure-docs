@@ -130,13 +130,15 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 1. Under the First Approver, Second Approver, or both, click **Show advanced request settings**.
 
-    ![Access package - Policy - Show advanced request settings](./media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png)
+    :::image type="content" source="media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png" alt-text="Access package - Policy - Show advanced request settings":::
 
 1. Set **If no action taken, forward to alternate approvers?** toggle to **Yes**.
 
 1. Click **Add alternate approvers** and select the alternate approver(s) from the list.
 
     ![Access package - Policy - Add Alternate Approvers](./media/entitlement-management-access-package-approval-policy/alternate-approvers-add.png)
+
+    If you select Manager as approver for the First Approver, you will have an additional option, **Second level manager as alternate approver**,  available to choose in the alternate approver field. If you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager.
 
 1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
 

@@ -1,9 +1,6 @@
 ---
 title: Apache Ambari stale alerts in Azure HDInsight
 description: Discussion and analysis of possible reasons and solutions for Apache Ambari stale alerts in HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
@@ -17,7 +14,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 In the Apache Ambari UI, you might see an alert like this:
 
-![Apache Ambari stale alert example](./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png)
+:::image type="content" source="./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png" alt-text="Apache Ambari stale alert example" border="true":::
 
 ## Cause
 
@@ -79,6 +76,6 @@ If your problem wasn't mentioned here or you're unable to solve it, visit one of
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) on Twitter. This is the official Microsoft Azure account for improving customer experience. It connects the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). To get there, select Help (**?**) from the portal menu or open the **Help + support** pane. For more information, see [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). 
+* If you need more help, submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). To get there, select Help (**?**) from the portal menu or open the **Help + support** pane. For more information, see [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
   Support for subscription management and billing is included with your Microsoft Azure subscription. Technical support is available through the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

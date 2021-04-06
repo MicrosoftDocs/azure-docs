@@ -1,15 +1,10 @@
 ---
 title: Manage packages with Azure-SSIS Integration Runtime package store
 description: Learn how to manage packages with Azure-SSIS Integration Runtime package store. 
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
 ---
@@ -18,12 +13,12 @@ ms.date: 09/29/2020
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-To lift & shift your on-premises SQL Server Integration Services (SSIS) workloads to the cloud, you can provision Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF). For more information, see [Provision an Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure). An Azure-SSIS IR supports:
+To lift & shift your on-premises SQL Server Integration Services (SSIS) workloads to the cloud, you can provision Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF). For more information, see [Provision an Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md). An Azure-SSIS IR supports:
 
 - Running packages deployed into SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance (Project Deployment Model)
 - Running packages deployed into file system, Azure Files, or SQL Server database (MSDB) hosted by Azure SQL Managed Instance (Package Deployment Model)
 
-When you use Package Deployment Model, you can choose whether you want to provision your Azure-SSIS IR with package stores. They provide a package management layer on top of file system, Azure Files, or MSDB hosted by Azure SQL Managed Instance. Azure-SSIS IR package store allows you to import/export/delete/run packages and monitor/stop running packages via SQL Server Management Studio (SSMS) similar to the [legacy SSIS package store](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017). 
+When you use Package Deployment Model, you can choose whether you want to provision your Azure-SSIS IR with package stores. They provide a package management layer on top of file system, Azure Files, or MSDB hosted by Azure SQL Managed Instance. Azure-SSIS IR package store allows you to import/export/delete/run packages and monitor/stop running packages via SQL Server Management Studio (SSMS) similar to the [legacy SSIS package store](/sql/integration-services/service/package-management-ssis-service). 
 
 ## Connect to Azure-SSIS IR
 
@@ -56,7 +51,7 @@ After you connect to your Azure-SSIS IR on SSMS, you can right-click on any pack
       >
       > Additionally, since legacy SSIS package stores are bound to specific SQL Server version and accessible only on SSMS for that version, lower-version packages in legacy SSIS package stores need to be exported into file system first using the designated SSMS version before they can be imported into Azure-SSIS IR package stores using SSMS 2019 or later versions.
       >
-      > Alternatively, to import multiple SSIS packages into Azure-SSIS IR package stores while switching their protection level, you can use [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) command line utility, see [Deploying multiple packages with dtutil](#deploying-multiple-packages-with-dtutil).
+      > Alternatively, to import multiple SSIS packages into Azure-SSIS IR package stores while switching their protection level, you can use [dtutil](/sql/integration-services/dtutil-utility) command line utility, see [Deploying multiple packages with dtutil](#deploying-multiple-packages-with-dtutil).
 
    *  Select **Export Package** to export packages from your package store into **File System**, **SQL Server** (MSDB), or the legacy **SSIS Package Store**.
 
@@ -69,7 +64,7 @@ After you connect to your Azure-SSIS IR on SSMS, you can right-click on any pack
       >
       > Since Azure-SSIS IR is currently based on **SQL Server 2017**, executing lower-version packages on it will upgrade them into SSIS 2017 packages at run-time. Executing higher-version packages is unsupported.
       >
-      > Alternatively, to export multiple SSIS packages from Azure-SSIS IR package stores while switching their protection level, you can use [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) command line utility, see [Deploying multiple packages with dtutil](#deploying-multiple-packages-with-dtutil).
+      > Alternatively, to export multiple SSIS packages from Azure-SSIS IR package stores while switching their protection level, you can use [dtutil](/sql/integration-services/dtutil-utility) command line utility, see [Deploying multiple packages with dtutil](#deploying-multiple-packages-with-dtutil).
 
    *  Select **Delete** to delete existing folders/packages from your package store.
 
@@ -83,7 +78,7 @@ After you connect to your Azure-SSIS IR on SSMS, you can right-click on any stor
 
 ![Execute Package Utility pages 3 & 4](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute2.png)
 
-The **General**, **Configurations**, **Execution Options**, and **Logging** pages of **Execute Package Utility** dialog correspond to the  **Settings** tab of Execute SSIS Package activity. On these pages, you can enter the encryption password for your package and access information for your package configuration file. You can also enter your package execution credentials and properties, as well as the access information for your log folder.  The **Set Values** page of **Execute Package Utility** dialog corresponds to the **Property Overrides** tab of Execute SSIS Package activity, where you can enter your existing package properties to override. For more information, see [Run SSIS packages as Execute SSIS Package activities in ADF pipelines](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+The **General**, **Configurations**, **Execution Options**, and **Logging** pages of **Execute Package Utility** dialog correspond to the  **Settings** tab of Execute SSIS Package activity. On these pages, you can enter the encryption password for your package and access information for your package configuration file. You can also enter your package execution credentials and properties, as well as the access information for your log folder.  The **Set Values** page of **Execute Package Utility** dialog corresponds to the **Property Overrides** tab of Execute SSIS Package activity, where you can enter your existing package properties to override. For more information, see [Run SSIS packages as Execute SSIS Package activities in ADF pipelines](./how-to-invoke-ssis-package-ssis-activity.md).
 
 When you select the **Execute** button, a new ADF pipeline with Execute SSIS Package activity will be automatically generated and triggered. If an ADF pipeline with the same settings already exists, it will be rerun and a new pipeline won't be generated. The ADF pipeline and Execute SSIS Package activity will be named `Pipeline_SSMS_YourPackageName_HashString` and `Activity_SSMS_YourPackageName`, respectively.
 
@@ -117,7 +112,7 @@ After you connect to your Azure-SSIS IR on SSMS, you can right-click on it to po
 
 To lift & shift your on-premises SSIS workloads onto SSIS in ADF while maintaining the legacy Package Deployment Model, you need to deploy your packages from file system, MSDB hosted by SQL Server, or legacy SSIS package stores into Azure Files, MSDB hosted by Azure SQL Managed Instance, or Azure-SSIS IR package stores. At the same time, you should also switch their protection level from encryption by user key to unencrypted or encryption by password if you haven't done so already.
 
-You can use [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) command line utility that comes with SQL Server/SSIS installation to deploy multiple packages in batches. It's bound to specific SSIS version, so if you use it to deploy lower-version packages without switching their protection level, it will simply copy them while preserving their SSIS version. If you use it to deploy them and switch their protection level at the same time, it will upgrade them into its SSIS version.
+You can use [dtutil](/sql/integration-services/dtutil-utility) command line utility that comes with SQL Server/SSIS installation to deploy multiple packages in batches. It's bound to specific SSIS version, so if you use it to deploy lower-version packages without switching their protection level, it will simply copy them while preserving their SSIS version. If you use it to deploy them and switch their protection level at the same time, it will upgrade them into its SSIS version.
 
  Since Azure-SSIS IR is currently based on **SQL Server 2017**, executing lower-version packages on it will upgrade them into SSIS 2017 packages at run-time. Executing higher-version packages is unsupported.
 
@@ -143,7 +138,7 @@ for %f in (*.dtsx) do dtutil.exe /FILE %f /ENCRYPT FILE;Z:\%f;2;YourEncryptionPa
 
 To run the above commands in a batch file, replace `%f` with `%%f`.
 
-To deploy multiple packages from legacy SSIS package stores on top of file system into Azure Files and switch their protection level at the same time, you can use the same commands, but replace `YourLocalDrive:\...\YourPackageFolder` with a local folder used by legacy SSIS package stores: `YourLocalDrive:\Program Files\Microsoft SQL Server\YourSQLServerDefaultCompatibilityLevel\DTS\Packages\YourPackageFolder`. For example, if your legacy SSIS package store is bound to SQL Server 2016, go to `YourLocalDrive:\Program Files\Microsoft SQL Server\130\DTS\Packages\YourPackageFolder`.  You can find the value for `YourSQLServerDefaultCompatibilityLevel` from a [list of SQL Server default compatibility levels](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#arguments).
+To deploy multiple packages from legacy SSIS package stores on top of file system into Azure Files and switch their protection level at the same time, you can use the same commands, but replace `YourLocalDrive:\...\YourPackageFolder` with a local folder used by legacy SSIS package stores: `YourLocalDrive:\Program Files\Microsoft SQL Server\YourSQLServerDefaultCompatibilityLevel\DTS\Packages\YourPackageFolder`. For example, if your legacy SSIS package store is bound to SQL Server 2016, go to `YourLocalDrive:\Program Files\Microsoft SQL Server\130\DTS\Packages\YourPackageFolder`.  You can find the value for `YourSQLServerDefaultCompatibilityLevel` from a [list of SQL Server default compatibility levels](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#arguments).
 
 If you've configured Azure-SSIS IR package stores on top of Azure Files, your deployed packages will appear in them when you connect to your Azure-SSIS IR on SSMS 2019 or later versions.
 
@@ -206,4 +201,4 @@ If you've configured Azure-SSIS IR package stores on top of Azure Files, your de
 
 ## Next steps
 
-You can rerun/edit the auto-generated ADF pipelines with Execute SSIS Package activities or create new ones on ADF portal. For more information, see [Run SSIS packages as Execute SSIS Package activities in ADF pipelines](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+You can rerun/edit the auto-generated ADF pipelines with Execute SSIS Package activities or create new ones on ADF portal. For more information, see [Run SSIS packages as Execute SSIS Package activities in ADF pipelines](./how-to-invoke-ssis-package-ssis-activity.md).

@@ -29,8 +29,14 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 
 ![Seamless Single Sign-On](./media/how-to-connect-sso/sso1.png)
 
->[!IMPORTANT]
->Seamless SSO needs the user's device to be **domain-joined** only, but it is not used on [Azure AD Joined](../devices/concept-azure-ad-join.md) or [Hybrid Azure AD joined](../devices/concept-azure-ad-join-hybrid.md) devices. SSO on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices works based on the [primary refresh token](../devices/concept-primary-refresh-token.md).
+## SSO via primary refresh token vs. Seamless SSO
+
+For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via primary refresh token (PRT). For windows 7 and 8.1 it’s recommended to use Seamless SSO.
+Seamless SSO needs the user's device to be domain-joined, but it is not used on Windows 10 [Azure AD joined devices](../devices/concept-azure-ad-join.md) or [hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md). SSO on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices works based on the [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md)
+
+SSO via PRT works once devices are registered with Azure AD for hybrid Azure AD joined, Azure AD joined or personal registered devices via Add Work or School Account. 
+For more information on how SSO works with Windows 10 using PRT, see: [Primary Refresh Token (PRT) and Azure AD](../devices/concept-primary-refresh-token.md)
+
 
 ## Key benefits
 
@@ -58,26 +64,25 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Yes\*|Yes|Yes|Yes\*\*\*|N/A
-|Windows 8.1|Yes\*|N/A|Yes|Yes\*\*\*|N/A
+|Windows 8.1|Yes\*|Yes*\*\*\*|Yes|Yes\*\*\*|N/A
 |Windows 8|Yes\*|N/A|Yes|Yes\*\*\*|N/A
 |Windows 7|Yes\*|N/A|Yes|Yes\*\*\*|N/A
 |Windows Server 2012 R2 or above|Yes\*\*|N/A|Yes|Yes\*\*\*|N/A
 |Mac OS X|N/A|N/A|Yes\*\*\*|Yes\*\*\*|Yes\*\*\*
 
 
-\*Requires Internet Explorer versions 10 or above
+\*Requires Internet Explorer version 10 or later.
 
-\*\*Requires Internet Explorer versions 10 or above. Disable Enhanced Protected Mode
+\*\*Requires Internet Explorer version 10 or later. Disable Enhanced Protected Mode.
 
-\*\*\*Requires [additional configuration](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*Requires [additional configuration](how-to-connect-sso-quick-start.md#browser-considerations).
 
->[!NOTE]
->For Windows 10, the recommendation is to use [Azure AD Join](../devices/concept-azure-ad-join.md) for the optimal single sign-on experience with Azure AD.
+\*\*\*\*Requires Microsoft Edge version 77 or later.
 
 ## Next steps
 
 - [**Quick Start**](how-to-connect-sso-quick-start.md) - Get up and running Azure AD Seamless SSO.
-- [**Deployment Plan**](https://aka.ms/deploymentplans/sso) - Step-by-step deployment plan.
+- [**Deployment Plan**](../manage-apps/plan-sso-deployment.md) - Step-by-step deployment plan.
 - [**Technical Deep Dive**](how-to-connect-sso-how-it-works.md) - Understand how this feature works.
 - [**Frequently Asked Questions**](how-to-connect-sso-faq.md) - Answers to frequently asked questions.
 - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.

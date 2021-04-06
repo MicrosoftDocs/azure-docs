@@ -14,50 +14,52 @@ Object bounds represent the volume that an [entity](entities.md) and its childre
 
 ## Querying object bounds
 
-The local AABB of a [mesh](meshes.md) can be queried directly from the mesh resource. These bounds can be transformed into the local space or world space of an entity using the entity's transform.
+The local axis aligned bounding box of a [mesh](meshes.md) can be queried directly from the mesh resource. These bounds can be transformed into the local space or world space of an entity using the entity's transform.
 
 It's possible to compute the bounds of an entire object hierarchy this way, but that requires to traverse the hierarchy, query the bounds for each mesh, and combine them manually. This operation is both tedious and inefficient.
 
 A better way is to call `QueryLocalBoundsAsync` or `QueryWorldBoundsAsync` on an entity. The computation is then offloaded to the server and returned with minimal delay.
 
 ```cs
-private BoundsQueryAsync _boundsQuery = null;
-
-public void GetBounds(Entity entity)
+public async void GetBounds(Entity entity)
 {
-    _boundsQuery = entity.QueryWorldBoundsAsync();
-    _boundsQuery.Completed += (BoundsQueryAsync bounds) =>
+    try
     {
-        if (bounds.IsRanToCompletion)
-        {
-            Double3 aabbMin = bounds.Result.min;
-            Double3 aabbMax = bounds.Result.max;
-            // ...
-        }
-    };
+        Task<Bounds> boundsQuery = entity.QueryWorldBoundsAsync();
+        Bounds result = await boundsQuery;
+    
+        Double3 aabbMin = result.Min;
+        Double3 aabbMax = result.Max;
+        // ...
+    }
+    catch (RRException ex)
+    {
+    }
 }
 ```
 
 ```cpp
 void GetBounds(ApiHandle<Entity> entity)
 {
-    ApiHandle<BoundsQueryAsync> boundsQuery = *entity->QueryWorldBoundsAsync();
-    boundsQuery->Completed([](ApiHandle<BoundsQueryAsync> bounds)
-    {
-        if (bounds->GetIsRanToCompletion())
+    entity->QueryWorldBoundsAsync(
+        // completion callback:
+        [](Status status, Bounds bounds)
         {
-            Double3 aabbMin = bounds->GetResult().min;
-            Double3 aabbMax = bounds->GetResult().max;
-            // ...
+           if (status == Status::OK)
+            {
+                Double3 aabbMin = bounds.Min;
+                Double3 aabbMax = bounds.Max;
+                // ...
+            }
         }
-    });
+    );
 }
 ```
 
 ## API documentation
 
-* [C# Entity.QueryLocalBoundsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity.querylocalboundsasync)
-* [C++ Entity::QueryLocalBoundsAsync](https://docs.microsoft.com/cpp/api/remote-rendering/entity#querylocalboundsasync)
+* [C# Entity.QueryLocalBoundsAsync](/dotnet/api/microsoft.azure.remoterendering.entity.querylocalboundsasync)
+* [C++ Entity::QueryLocalBoundsAsync](/cpp/api/remote-rendering/entity#querylocalboundsasync)
 
 ## Next steps
 

@@ -4,8 +4,8 @@ description: Support information and links for Azure Marketplace and AppSource i
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: navits09
+ms.author: navits
 ms.date: 04/14/2020
 ---
 
@@ -27,7 +27,7 @@ Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/mark
 
 | Support channel | Description |  
 |:--- |:--- |  
-| MSDN forums: Marketplace located at [Microsoft Q&A question page](https://docs.microsoft.com/answers/products/azure) | Microsoft Developer Network forum. |  
+| MSDN forums: Marketplace located at [Microsoft Q&A question page](/answers/products/azure) | Microsoft Developer Network forum. |  
 | Stack Overflow: Azure located at [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow environment to get solutions and ask questions about everything related to Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace located at [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager located at [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtual Machines on Azure located at [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Containers on Azure located at [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 
 ## Marketing resources  
@@ -40,6 +40,6 @@ Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/mark
 ## Next steps
 
 * Visit the [commercial marketplace publisher guide page](index.yml).
-* Learn more about [support for the commercial marketplace program in Partner Center](partner-center-portal/support.md).
+* Learn more about [support for the commercial marketplace program in Partner Center](support.md).
 
 ---

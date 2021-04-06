@@ -40,7 +40,7 @@ If there are other offer types you'd like to see supported in Azure Government, 
 
 ## Publishing
 > [!NOTE]
-> These steps assume you have already published a solution in Azure Global. If you haven't, please check out the [Azure Marketplace Publisher Guide](../marketplace/marketplace-publishers-guide.md) documentation before proceeding.
+> These steps assume you have already published a solution in Azure Global. If you haven't, please check out the [Azure Marketplace Publisher Guide](../marketplace/overview.md) documentation before proceeding.
 
 1. **Sign in to the [Partner Center Portal](https://partner.microsoft.com/)**.
 1. Navigate to the **Commercial Marketplace** program.
@@ -106,4 +106,4 @@ Make sure that any virtual machine extensions that your solution template relies
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
-* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 
+* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)

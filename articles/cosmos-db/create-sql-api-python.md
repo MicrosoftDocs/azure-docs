@@ -11,6 +11,7 @@ ms.author: anfeldma
 ms.custom: [seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python]
 ---
 # Quickstart: Build a Python application using an Azure Cosmos DB SQL API account
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -29,11 +30,11 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account fro
     * Within an Azure active subscription:
         * [Create an Azure free Account](https://azure.microsoft.com/free) or use your existing subscription 
         * [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Azure Cosmos DB Free Tier](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+        * [Azure Cosmos DB Free Tier](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * Without an Azure active subscription:
         * [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/), a tests environment that lasts for 30 days.
         * [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) 
-- [Python 2.7 or 3.5.3+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
+- [Python 2.7 or 3.6+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - The [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads). 
@@ -227,5 +228,3 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB for the SQL API](import-data.md)
-
-

@@ -7,11 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 02/16/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure encryption with customer-managed keys stored in Azure Key Vault
@@ -54,7 +54,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-To learn how to enable purge protection on an existing key vault with PowerShell, see [How to use soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md).
+To learn how to enable purge protection on an existing key vault with PowerShell, see [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 Next, assign a system-assigned managed identity to your storage account. You'll use this managed identity to grant the storage account permissions to access the key vault. For more information about system-assigned managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -89,7 +89,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-To learn how to enable purge protection on an existing key vault with Azure CLI, see [How to use soft-delete with CLI](../../key-vault/general/soft-delete-cli.md).
+To learn how to enable purge protection on an existing key vault with Azure CLI, see [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md).
 
 Next, assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the key vault. For more information about system-assigned managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -125,7 +125,7 @@ az keyvault set-policy \
 
 Next, add a key in the key vault.
 
-Azure Storage encryption supports RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Azure Storage encryption supports RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about keys, see [About keys](../../key-vault/keys/about-keys.md).
 
 # [Azure portal](#tab/portal)
 
@@ -171,10 +171,11 @@ Azure Storage can automatically update the customer-managed key that is used for
 To configure customer-managed keys with automatic updating of the key version in the Azure portal, follow these steps:
 
 1. Navigate to your storage account.
-1. On the **Settings** blade for the storage account, click **Encryption**. Select the **Customer Managed Keys** option, as shown in the following image.
+1. On the **Settings** blade for the storage account, click **Encryption**. By default, key management is set to **Microsoft Managed Keys**, as shown in the following image.
 
     ![Portal screenshot showing encryption option](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
+1. Select the **Customer Managed Keys** option.
 1. Choose the **Select from Key Vault** option.
 1. Select **Select a key vault and key**.
 1. Select the key vault containing the key you want to use.

@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
 ---
 
@@ -31,7 +31,7 @@ You can now configure your Communication Services resource. On the first page in
 * The name of the Communication Services resource
 * The geography the resource will be associated with
 
-In the next step, you can assign tags to the resource. Tags can be used to organize your Azure resources. See the [resource tagging documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) for more information about tags.
+In the next step, you can assign tags to the resource. Tags can be used to organize your Azure resources. See the [resource tagging documentation](../../../azure-resource-manager/management/tag-resources.md) for more information about tags.
 
 Finally, you can review your configuration and **Create** the resource. Note that the deployment will take a few minutes to complete.
 

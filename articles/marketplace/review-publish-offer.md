@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 08/12/2020
+ms.date: 03/10/2021
 ---
 
 # How to review and publish an offer to the commercial marketplace
@@ -70,9 +70,16 @@ The first step in the publishing process is a set of automated validations. Each
 
     We confirm that your lead management system can receive customer leads based on the details you provided on the **Offer setup** page. This step is only applicable for offers with lead management enabled.
 
+- **Offer validation** (<30 min)
+
+    For SaaS offers only, we perform quick validations for content and technical configurations. Preview creation will not be blocked on any validation issues detected in this step. If we find any issues that can fail certification, a **View validation report** link appears on the **Offer overview** page. The report will contain descriptions of any policy violations.
+
+    > [!IMPORTANT]
+    > Be sure to review and address all warnings from the Offer validation step before selecting the **Go live** button. Otherwise, you risk failing certification that will delay your offer from going live.
+
 ## Certification phase
 
-Offers submitted to the commercial marketplace must be certified before being published. Offers undergo rigorous testing, some automated and others manual. To learn more, see [commercial marketplace certification policies](https://aka.ms/commercial-marketplace-certification-policies).
+Offers submitted to the commercial marketplace must be certified before being published. Offers undergo rigorous testing, some automated and others manual. To learn more, see [commercial marketplace certification policies](/legal/marketplace/certification-policies).
 
 ### Types of validation that take place during certification
 
@@ -95,7 +102,7 @@ The information entered when you created your offer is checked for quality and r
 - Quality screenshots and videos
 - An explanation of how the offer utilizes Microsoft platforms and tools.
 
-Learn more regarding the content validation criteria by reading the [general listing policies](https://aka.ms/commercial-marketplace-certification-policies#100-general).
+Learn more regarding the content validation criteria by reading the [general listing policies](/legal/marketplace/certification-policies#100-general).
 
 #### Technical validation
 
@@ -121,24 +128,40 @@ During the preview creation phase, we create a version of your offer that will b
 > [!NOTE]
 > Do not use the preview audience to give people outside your organization visibility into an offer. Use the Private Offer option instead. At this point, your offering has not been fully tested and validated, and is not ready for outside distribution.
 
+## Cancel publishing
+
+To cancel an offer with the **Publish in progress** status:
+
+1. Select the offer name to open the **Offer overview** page.
+1. Select **Cancel publish** from the top-right corner of the page.
+1. Confirm that you want to stop the offer from being published.
+
+If you want to publish the offer at a later time, you'll need to start the publishing process over.
+
+> [!NOTE]
+> You can stop an offer from being published only if the offer hasn't yet progressed to the publisher sign off step. After you select **Go live**, you will not have the option to cancel publish any longer.
+
 ## Publisher sign-off phase
 
 When the offer is ready for you to review and be signed off, we’ll send you an email to request that you review and approve your offer preview. You can also refresh the **Offer overview** page in your browser to see if your offer has reached the Publisher sign-off phase. If it has, the **Go live** button and preview links will be available.
 
-The following screenshot shows the **Offer overview** page for a SaaS offer. The validation steps you’ll see on this page vary depending on the offer type and the selections you made when you created the offer.
+The following screenshot shows the **Offer overview** page in the commercial marketplace program in Partner Center. The validation steps you’ll see on this page vary depending on the offer type and the selections you made when you created the offer. Note that the certification phase can happen during submission to preview or submission to live depending on the offer type.
 
 ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./media/publish-status-publisher-signoff.png)
 
 ### Previewing and approving your offer
 
 > [!IMPORTANT]
-> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
+> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge. If your offer is a _Contact Me_ listing, test that a lead is created as expected by providing the Contact Me details during preview.
 
 On the **Offer overview** page, you will see preview links under the **Go live** button. There will be a link for either AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
 
+> [!IMPORTANT]
+> Be sure to review and address all warnings from the _Offer validation_ step before selecting the **Go live** button. Otherwise, you risk failing certification that will delay your offer from going live.
+
 After you approve your preview, select **Go live** to publish your offer live to the commercial marketplace. 
 
-If you want to make changes after previewing the offer, you can edit and resubmit your publication request. If your offer is already live and available to the public in the marketplace, any updates you make won't go live until you select **Go live*. For more information, see [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer.md)
+If you want to make changes after previewing the offer, you can edit and resubmit your publication request. If your offer is already live and available to the public in the marketplace, any updates you make won't go live until you select **Go live*. For more information, see [Update an existing offer in the commercial marketplace](partner-center-portal/update-existing-offer.md)
 
 ## Publish phase
 

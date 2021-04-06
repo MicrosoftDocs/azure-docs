@@ -1,9 +1,6 @@
 ---
 title: Operationalize ML Services on HDInsight - Azure 
 description: Learn how to operationalize your data model to make predictions with ML Services in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
@@ -23,7 +20,7 @@ After you have used ML Services cluster in HDInsight to complete your data model
 ## Operationalize ML Services cluster with one-box configuration
 
 > [!NOTE]  
-> The steps below are applicable to R Server 9.0 and ML Server 9.1. For ML Server 9.3, refer to [Use the administration tool to manage the operationalization configuration](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
+> The steps below are applicable to R Server 9.0 and ML Server 9.1. For ML Server 9.3, refer to [Use the administration tool to manage the operationalization configuration](/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. SSH into the edge node.
 
@@ -51,31 +48,31 @@ After you have used ML Services cluster in HDInsight to complete your data model
 
 1. You are presented with the options to choose from. Choose the first option, as shown in the following screenshot, to **Configure ML Server for Operationalization**.
 
-    ![R server Administration utility select](./media/r-server-operationalize/admin-util-one-box-1.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-1.png" alt-text="R server Administration utility select" border="true":::
 
 1. You are now presented with the option to choose how you want to operationalize ML Server. From the presented options, choose the first one by entering **A**.
 
-    ![R server Administration utility operationalize](./media/r-server-operationalize/admin-util-one-box-2.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-2.png" alt-text="R server Administration utility operationalize" border="true":::
 
 1. When prompted, enter and reenter the password for a local admin user.
 
 1. You should see outputs suggesting that the operation was successful. You are also prompted to select another option from the menu. Select E to go back to the main menu.
 
-    ![R server Administration utility success](./media/r-server-operationalize/admin-util-one-box-3.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-3.png" alt-text="R server Administration utility success" border="true":::
 
 1. Optionally, you can perform diagnostic checks by running a diagnostic test as follows:
 
     a. From the main menu, select **6** to run diagnostic tests.
 
-    ![R server Administration utility diagnostic](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic1.png" alt-text="R server Administration utility diagnostic" border="true":::
 
     b. From the Diagnostic Tests menu, select **A**. When prompted, enter the password that you provided for the local admin user.
 
-    ![R server Administration utility test](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic2.png" alt-text="R server Administration utility test" border="true":::
 
     c. Verify that the output shows that overall health is a pass.
 
-    ![R server Administration utility pass](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic3.png" alt-text="R server Administration utility pass" border="true":::
 
     d. From the menu options presented, enter **E** to return to the main menu and then enter **8** to exit the admin utility.
 
@@ -98,7 +95,7 @@ chmod 777 /var/RevoShare/rserve2
 rxSparkConnect(reset = TRUE)
 ```
 
-At this stage, the configuration for operationalization is complete. Now you can use the `mrsdeploy` package on your RClient to connect to the operationalization on edge node and start using its features like [remote execution](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) and [web-services](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). Depending on whether your cluster is set up on a virtual network or not, you may need to set up port forward tunneling through SSH login. The following sections explain how to set up this tunnel.
+At this stage, the configuration for operationalization is complete. Now you can use the `mrsdeploy` package on your RClient to connect to the operationalization on edge node and start using its features like [remote execution](/machine-learning-server/r/how-to-execute-code-remotely) and [web-services](/machine-learning-server/operationalize/concept-what-are-web-services). Depending on whether your cluster is set up on a virtual network or not, you may need to set up port forward tunneling through SSH login. The following sections explain how to set up this tunnel.
 
 ### ML Services cluster on virtual network
 
@@ -152,7 +149,7 @@ Follow these steps to decommission worker nodes:
 
 1. Click  **Actions** > **Selected Hosts** > **Hosts** > **Turn ON Maintenance Mode**. For example, in the following image we have selected wn3 and wn4 to decommission.  
 
-   ![Apache Ambari Turn On Maintenance Mode](./media/r-server-operationalize/get-started-operationalization.png)  
+   :::image type="content" source="./media/r-server-operationalize/get-started-operationalization.png" alt-text="Apache Ambari Turn On Maintenance Mode" border="true":::  
 
 * Select **Actions** > **Selected Hosts** > **DataNodes** > click **Decommission**.
 * Select **Actions** > **Selected Hosts** > **NodeManagers** > click **Decommission**.

@@ -24,11 +24,11 @@ When configuring domain names, "A" Records are used to map root domains (for ins
 
 There are a few different types of DNS configurations available for an application.
 
-| If you want to                                 | Then                                                |
-| -----------------------------------------------| --------------------------------------------------- |
-| Support `www.example.com` or `blog.example.net`| [Map a CNAME record](#map-a-cname-record)           |
-| Support `example.com`                          | [Configure a root domain](#configure-a-root-domain) |
-| Point all subdomains to `www.example.com`      | [Map a wildcard](#map-a-wildcard-domain)            |
+| If you want to | Then |
+|--|--|
+| Support `www.example.com` or `blog.example.net` | [Map a CNAME record](#map-a-cname-record) |
+| Support `example.com` | [Configure a root domain](#configure-a-root-domain) |
+| Point all subdomains to `www.example.com` | [Map a wildcard](#map-a-wildcard-domain) |
 
 ## Map a CNAME record
 
@@ -41,6 +41,8 @@ A CNAME record maps one domain to another. You can use a CNAME record to map `ww
 1. On the _Static Web Apps_ page, select the name of your app.
 
 1. Click on **Custom domains** in the menu.
+
+1. Click on the **Add** button
 
 1. In the _Custom domains_ window, copy the URL in the **Value** field.
 

@@ -10,48 +10,46 @@ ms.author: thvankra
 ---
 
 # Change feed in the Azure Cosmos DB API for Cassandra
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
-[Change feed](change-feed.md) support in the Azure Cosmos DB API for Cassandra is available through the query predicates in the Cassandra Query Language (CQL). Using these predicate conditions, you can query the change feed API. Applications can get the changes made to a table using the primary key (also known as the partition key) as is required in CQL. You can then take further actions based on the results. Changes to the rows in the table are captured in the order of their modification time and the sort order is guaranteed per partition key.
+[Change feed](change-feed.md) support in the Azure Cosmos DB API for Cassandra is available through the query predicates in the Cassandra Query Language (CQL). Using these predicate conditions, you can query the change feed API. Applications can get the changes made to a table using the primary key (also known as the partition key) as is required in CQL. You can then take further actions based on the results. Changes to the rows in the table are captured in the order of their modification time and the sort order per partition key.
 
-The following example shows how to get a change feed on all the rows in a Cassandra API Keyspace table using .NET. The predicate COSMOS_CHANGEFEED_START_TIME() is used directly within CQL to query items in the change feed from a specified start time (in this case current datetime). You can download the full sample, for C# [here](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) and for Java [here](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
+The following example shows how to get a change feed on all the rows in a Cassandra API Keyspace table using .NET. The predicate COSMOS_CHANGEFEED_START_TIME() is used directly within CQL to query items in the change feed from a specified start time (in this case current datetime). You can download the full sample, for C# [here](/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) and for Java [here](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
 
 In each iteration, the query resumes at the last point changes were read, using paging state. We can see a continuous stream of new changes to the table in the Keyspace. We will see changes to rows that are inserted, or updated. Watching for delete operations using change feed in Cassandra API is currently not supported.
 
 # [Java](#tab/java)
 
 ```java
-        Session cassandraSession = utils.getSession();
+    Session cassandraSession = utils.getSession();
 
-        try {
-        	  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
-        	   LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
-        	   String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
-           			+ dtf.format(now)+ "'";
-        	   
-        	 byte[] token=null; 
-        	 System.out.println(query); 
-        	 while(true)
-        	 {
-        		 SimpleStatement st=new  SimpleStatement(query);
-        		 st.setFetchSize(100);
-        		 if(token!=null)
-        			 st.setPagingStateUnsafe(token);
-        		 
-        		 ResultSet result=cassandraSession.execute(st) ;
-        		 token=result.getExecutionInfo().getPagingState().toBytes();
-        		 
-        		 for(Row row:result)
-        		 {
-        			 System.out.println(row.getString("user_name"));
-        		 }
-        	 }
-                  	
-
-        } finally {
-            utils.close();
-            LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
+    try {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+        LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
+        String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
+            + dtf.format(now)+ "'";
+        
+        byte[] token=null; 
+        System.out.println(query); 
+        while(true)
+        {
+            SimpleStatement st=new  SimpleStatement(query);
+            st.setFetchSize(100);
+            if(token!=null)
+                st.setPagingStateUnsafe(token);
+            
+            ResultSet result=cassandraSession.execute(st) ;
+            token=result.getExecutionInfo().getPagingState().toBytes();
+            
+            for(Row row:result)
+            {
+                System.out.println(row.getString("user_name"));
+            }
         }
-
+    } finally {
+        utils.close();
+        LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
+    }
 ```
 
 # [C#](#tab/csharp)
@@ -121,7 +119,7 @@ In order to get the changes to a single row by primary key, you can add the prim
 
 ```java
     String query="SELECT * FROM uprofile.user where user_id=1 and COSMOS_CHANGEFEED_START_TIME()='" 
-           			+ dtf.format(now)+ "'";
+                       + dtf.format(now)+ "'";
     SimpleStatement st=new  SimpleStatement(query);
 ```
 ---
@@ -141,4 +139,4 @@ The following error codes and messages are supported when using change feed in C
 
 ## Next steps
 
-* [Manage Azure Cosmos DB Cassandra API resources using Azure Resource Manager templates](manage-cassandra-with-resource-manager.md)
+* [Manage Azure Cosmos DB Cassandra API resources using Azure Resource Manager templates](./templates-samples-cassandra.md)

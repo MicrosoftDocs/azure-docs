@@ -18,7 +18,7 @@ Most common backup failures can be self-resolved by following the troubleshootin
 
 ### Step 1: Check Azure VM health
 
-- **Ensure Azure VM provisioning state is 'Running'**: If the [VM provisioning state](../virtual-machines/states-lifecycle.md#provisioning-states) is in the **Stopped/Deallocated/Updating** state, then it will interfere with the backup operation. Open *Azure portal > VM > Overview >* and check the VM status to ensure it's **Running**  and retry the backup operation.
+- **Ensure Azure VM provisioning state is 'Running'**: If the [VM provisioning state](../virtual-machines/states-billing.md) is in the **Stopped/Deallocated/Updating** state, then it will interfere with the backup operation. Open *Azure portal > VM > Overview >* and check the VM status to ensure it's **Running**  and retry the backup operation.
 - **Review pending OS updates or reboots**: Ensure there are no pending OS update or pending reboots on the VM.
 
 ### Step 2: Check Azure VM Guest Agent service health
@@ -97,10 +97,9 @@ After you register and schedule a VM for the Azure Backup service, Backup starts
 **Error code**: UserErrorVmProvisioningStateFailed<br>
 **Error message**: The VM is in failed provisioning state<br>
 
-This error occurs when one of the extension failures puts the VM into provisioning failed state.<br>**Open  Azure portal > VM > Settings > Extensions > Extensions status** and check if all extensions are in **provisioning succeeded** state. To learn more, see [Provisioning states](../virtual-machines/states-lifecycle.md#provisioning-states).
+This error occurs when one of the extension failures puts the VM into provisioning failed state.<br>**Open  Azure portal > VM > Settings > Extensions > Extensions status** and check if all extensions are in **provisioning succeeded** state. To learn more, see [Provisioning states](../virtual-machines/states-billing.md).
 
-- If VMSnapshot extension is in a failed state, then right-click on the failed extension and remove it. Trigger an on-demand backup. This action will reinstall the extensions, and run the backup job.  <br>
-- If any other extension is in a failed state, then it can interfere with the backup. Ensure those extension issues are resolved and retry the backup operation.
+- If any extension is in a failed state, then it can interfere with the backup. Ensure those extension issues are resolved and retry the backup operation.
 - If the VM provisioning state is in an updating state, it can interfere with the backup. Ensure that it's healthy and retry the backup operation.
 
 ## UserErrorRpCollectionLimitReached - The Restore Point collection max limit has reached

@@ -29,15 +29,20 @@ To configure FastPath, the virtual network gateway must be either:
 * Ultra Performance
 * ErGw3AZ
 
-## Supported features
+> [!IMPORTANT]
+> If you plan to use FastPath with IPv6-based private peering over ExpressRoute, make sure to select ErGw3AZ for **SKU**. Note that this is only available for circuits using ExpressRoute Direct.
+> 
+>
+
+## Limitations
 
 While FastPath supports most configurations, it does not support the following features:
 
-* UDR on the gateway subnet: If you apply a UDR to the gateway subnet of your virtual network, the network traffic from your on-premises network will continue to be sent to the virtual network gateway.
+* UDR on the gateway subnet: This UDR has no impact on the network traffic that FastPath sends directly from your on-premises network to the virtual machines in Azure virtual network. 
 
 * VNet Peering: If you have other virtual networks peered with the one that is connected to ExpressRoute, the network traffic from your on-premises network to the other virtual networks (i.e. the so-called "Spoke" VNets) will continue to be sent to the virtual network gateway. The workaround is to connect all the virtual networks to the ExpressRoute circuit directly.
 
-* Basic Load Balancer: If you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer will be sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
+* Basic Load Balancer: If you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer will be sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](../load-balancer/load-balancer-overview.md).
 
 * Private Link: If you connect to a [private endpoint](../private-link/private-link-overview.md) in your virtual network from your on-premises network, the connection will go through the virtual network gateway.
  

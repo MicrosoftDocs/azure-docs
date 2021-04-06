@@ -6,12 +6,12 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 10/13/2020
+ms.date: 02/12/2021
 ms.author: cherylmc
 
 ---
 
-# Tutorial: Create an Azure Bastion host and connect to a Windows VM through a browser
+# Tutorial: Configure Bastion and connect to a Windows VM through a browser
 
 This tutorial shows you how to connect to a virtual machine through your browser using Azure Bastion and the Azure portal. In the Azure portal, you deploy Bastion to your virtual network. After deploying Bastion, you connect to a VM via its private IP address using the Azure portal. Your VM does not need a public IP address or special software. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
 
@@ -61,7 +61,7 @@ This section helps you create the bastion object in your VNet. This is required 
          * The subnet must be at least /27 or larger.
 
       You don't need to fill out additional fields. Select **OK** and then, at the top of the page, select **Create a Bastion** to return to the Bastion configuration page.
-    * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP. The public IP address must be in the same region as the Bastion resource you are creating. This is IP address does not have anything to do with any of the VMs that you want to connect to. It's the public IP for the Bastion host resource.
+    * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP. The public IP address must be in the same region as the Bastion resource you are creating. This IP address does not have anything to do with any of the VMs that you want to connect to. It's the public IP for the Bastion host resource.
     * **Public IP address name**: The name of the public IP address resource. For this tutorial, you can leave the default.
     * **Public IP address SKU**: This setting is prepopulated by default to **Standard**. Azure Bastion uses/supports only the Standard Public IP SKU.
     * **Assignment**: This setting is prepopulated by default to **Static**.

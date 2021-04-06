@@ -41,7 +41,7 @@ landingContent:
         links:
           - text: Using the web portal
             url: getting-started-build-a-classifier.md
-          - text: Using the Custom Vision SDK
+          - text: Using the Custom Vision SDK or REST API
             url: quickstarts/image-classification.md
       - linkListType: how-to-guide
         links:
@@ -108,25 +108,23 @@ landingContent:
           - text: Prediction API
             url: https://go.microsoft.com/fwlink/?linkid=865445
           - text: .NET SDK
-            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
+            url: /dotnet/api/overview/azure/cognitiveservices/client/customvision
           - text: Python SDK
-            url: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/?view=azure-python
+            url: /python/api/azure-cognitiveservices-vision-customvision/
           - text: Java SDK
-            url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/customvision
           - text: Go SDK (training)
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
           - text: Go SDK (prediction)
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+            url: /cli/azure/cognitiveservices
 
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: UserVoice
-            url: https://cognitive.uservoice.com/forums/598141-custom-vision-service
-          - text: Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context

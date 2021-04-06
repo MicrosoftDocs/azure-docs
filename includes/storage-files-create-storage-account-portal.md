@@ -24,7 +24,7 @@ To create a storage account:
     > [!NOTE]
     > This quickstart creates a standard file share but, if you wanted to use premium file shares, select **Premium** instead.
 
-1. In **Account kind**, select **StorageV2**. To learn more about the different kinds of storage accounts, see [Understand Azure storage accounts](../articles/storage/common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. In **Account kind**, select **StorageV2**. To learn more about the different kinds of storage accounts, see [Understand Azure storage accounts](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
     > [!NOTE]
     > This quickstart creates a general-purpose v2 account. If you wanted to use premium file shares, select **FileStorage** instead.

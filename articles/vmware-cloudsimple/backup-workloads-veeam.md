@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Back up workload virtual machines on Private Cloud using Veeam
 description: Describes how you can back up your virtual machines that are running in an Azure-based CloudSimple Private Cloud using Veeam B&R 9.5
-author: sharaths-cs
-ms.author: b-shsury 
+author: Ajayan1008
+ms.author: v-hborys 
 ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -51,7 +51,7 @@ For environments with less than 30 TB to back up, CloudSimple recommends the fol
 * A Linux based primary backup repository in Azure configured as a target for backup jobs.
 * `azcopy` used to copy the data from the primary backup repository to an Azure blob container that is replicated to another region.
 
-![Basic deployment scenarios](media/veeam-basicdeployment.png)
+![Diagram that shows basic Veeam deployment scenarios.](media/veeam-basicdeployment.png)
 
 **Advanced deployment**
 

@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 02/17/2021
 ms.author: ambapat
 # Customer intent: As the admin for managed HSMs, I want to set access policies and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for these managed HSMs.
 ---
@@ -32,7 +32,7 @@ Both planes use Azure Active Directory for authentication. For authorization the
 
 When a managed HSM is created, the requestor also provides a list of data plane administrators (all [security principals](../../role-based-access-control/overview.md#security-principal) are supported). Only these administrators are able to access the managed HSM data plane to perform key operations and manage data plane role assignments (Managed HSM local RBAC).
 
-Permission model for both planes uses the same syntax (RBAC), but they are enforced at different levels and role assignments use different scopes. Management plane RBAC is enforced by Azure Resource Manager while data plane RBAC is enforced by managed HSM itself.
+Permission model for both planes uses the same syntax, but they are enforced at different levels and role assignments use different scopes. Management plane Azure RBAC is enforced by Azure Resource Manager while data plane Managed HSM local RBAC is enforced by managed HSM itself.
 
 > [!IMPORTANT]
 > Granting a security principal management plane access to an managed HSM does not grant them any access to data plane to access keys or data plane role assignments Managed HSM local RBAC). This isolation is by design to prevent inadvertent expansion of privileges affecting access to keys stored in Managed HSM.
@@ -43,7 +43,7 @@ For example, a subscription administrator (since they have "Contributor" permiss
 
 When you create an managed HSM in an Azure subscription, it's automatically associated with the Azure Active Directory tenant of the subscription. All callers in both planes must be registered in this tenant and authenticate to access the managed HSM.
 
-The application authenticates with Azure Active Directory before calling either plane. The application can use any [supported authentication method](../../active-directory/develop/authentication-scenarios.md) based on the application type. The application acquires a token for a resource in the plane to gain access. The resource is an endpoint in the management or data plane, based on the Azure environment. The application uses the token and sends a REST API request to Managed HSM endpoint. To learn more, review the [whole authentication flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
+The application authenticates with Azure Active Directory before calling either plane. The application can use any [supported authentication method](../../active-directory/develop/authentication-vs-authorization.md) based on the application type. The application acquires a token for a resource in the plane to gain access. The resource is an endpoint in the management or data plane, based on the Azure environment. The application uses the token and sends a REST API request to Managed HSM endpoint. To learn more, review the [whole authentication flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 The use of a single authentication mechanism for both planes has several benefits:
 
@@ -60,20 +60,20 @@ The following table shows the endpoints for the management and data planes.
 | Access&nbsp;plane | Access endpoints | Operations | Access control mechanism |
 | --- | --- | --- | --- |
 | Management plane | **Global:**<br> management.azure.com:443<br> | Create, read, update, delete, and move managed HSMs<br>Set managed HSM tags | Azure RBAC |
-| Data plane | **Global:**<br> &lt;hsm-name&gt;.vault.azure.net:443<br> | **Keys**: decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Data plane role-management (Managed HSM local RBAC)***: list role definitions, assign roles, delete role assignments, define custom roles<br/><br/>**Backup/restore**: backup, restore, check status backup/restore operations <br/><br/>**Security domain**: download and upload security domain | Managed HSM local RBAC |
+| Data plane | **Global:**<br> &lt;hsm-name&gt;.managedhsm.azure.net:443<br> | **Keys**: decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Data plane role-management (Managed HSM local RBAC)***: list role definitions, assign roles, delete role assignments, define custom roles<br/><br/>**Backup/restore**: backup, restore, check status backup/restore operations <br/><br/>**Security domain**: download and upload security domain | Managed HSM local RBAC |
 |||||
 ## Management plane and Azure RBAC
 
-In the management plane, you use Azure RBAC to authorize the operations a caller can execute. In the RBAC model, each Azure subscription has an instance of Azure Active Directory. You grant access to users, groups, and applications from this directory. Access is granted to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. To grant access, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](../../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+In the management plane, you use Azure RBAC to authorize the operations a caller can execute. In the Azure RBAC model, each Azure subscription has an instance of Azure Active Directory. You grant access to users, groups, and applications from this directory. Access is granted to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. To grant access, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](/rest/api/authorization/roleassignments).
 
-You create a key vault in a resource group and manage access by using Azure Active Directory. You grant users or groups the ability to manage the key vaults in a resource group. You grant the access at a specific scope level by assigning appropriate RBAC roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scopes levels can be assigned to an RBAC role:
+You create a key vault in a resource group and manage access by using Azure Active Directory. You grant users or groups the ability to manage the key vaults in a resource group. You grant the access at a specific scope level by assigning appropriate Azure roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scopes levels can be assigned to an Azure role:
 
-- **Management group**:  An RBAC role assigned at the subscription level applies to all the subscriptions in that management group.
-- **Subscription**: An RBAC role assigned at the subscription level applies to all resource groups and resources within that subscription.
-- **Resource group**: An RBAC role assigned at the resource group level applies to all resources in that resource group.
-- **Specific resource**: An RBAC role assigned for a specific resource applies to that resource. In this case, the resource is a specific key vault.
+- **Management group**:  An Azure role assigned at the subscription level applies to all the subscriptions in that management group.
+- **Subscription**: An Azure role assigned at the subscription level applies to all resource groups and resources within that subscription.
+- **Resource group**: An Azure role assigned at the resource group level applies to all resources in that resource group.
+- **Specific resource**: An Azure role assigned for a specific resource applies to that resource. In this case, the resource is a specific key vault.
 
-There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md).
+There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ## Data plane and Managed HSM local RBAC
 

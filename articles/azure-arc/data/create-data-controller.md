@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ---
 
@@ -31,10 +31,11 @@ Currently, the supported list of Kubernetes services and distributions are the f
 - Open source, upstream Kubernetes typically deployed using kubeadm
 
 > [!IMPORTANT]
-> * The minimum supported version of Kubernetes is v1.14.
+> * The minimum supported version of Kubernetes is v1.17. See [Known issues](./release-notes.md#known-issues) for additional information. 
+> * The minimum supported version of OCP is 4.5.
 > * See the [connectivity requirements](connectivity.md) to understand what connectivity is required between your environment and Azure.
 > * See the [storage configuration guidance](storage-configuration.md) to understand the details of how to configure your persistent storage.
-> * If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.** 
+> * If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.** The cluster should not span multiple availability zones. 
 > * If you are using another Kubernetes distribution or service, you should ensure that you have a minimum node size of 8 GB RAM and 4 cores and a sum total capacity of 32 GB RAM available across all of your Kubernetes nodes. For example, you could have 1 node at 32 GB RAM and 4 cores or you could have 2 nodes with 16GB RAM and 4 cores each.
 
 > [!NOTE]
@@ -48,7 +49,7 @@ Regardless of the option you choose, during the creation process you will need t
 - **Data controller username** - Any username for the data controller administrator user.
 - **Data controller password** - A password for the data controller administrator user.
 - **Name of your Kubernetes namespace** - the name of the Kubernetes namespace that you want to create the data controller in.
-- **Connectivity mode** - The [connectivity mode](./connectivity.md) of your cluster. Currently only "indirect" is supported.
+- **Connectivity mode** - Connectivity mode determines the degree of connectivity from your Azure Arc enabled data services environment to Azure. Preview currently only supports indirectly connected and directly connected modes.  For information, see [connectivity mode](./connectivity.md). 
 - **Azure subscription ID** - The Azure subscription GUID for where you want the data controller resource in Azure to be created.
 - **Azure resource group name** - The name of the resource group where you want the data controller resource in Azure to be created.
 - **Azure location** - The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see [Azure global infrastructure / Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
@@ -58,10 +59,10 @@ Regardless of the option you choose, during the creation process you will need t
 There are multiple options for creating the Azure Arc data controller:
 
 > **Just want to try things out?**  
-> Get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM!
+> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM!
 > 
-- [Create a data controller with Azure Data CLI (azdata)](create-data-controller-using-azdata.md)
+- [Create a data controller with [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)
 - [Create a data controller with Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Create a data controller from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
 - [Create a data controller with Kubernetes tools such as kubectl or oc](create-data-controller-using-kubernetes-native-tools.md)
-- [Create a data controller with Azure Arc Jumpstart for an accelerated experience of a test deployment](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)
+- [Create a data controller with Azure Arc Jumpstart for an accelerated experience of a test deployment](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)

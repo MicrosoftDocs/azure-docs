@@ -36,7 +36,7 @@
 
 1. Select **Notifications** (the bell icon), and then select **Go to resource**. You can also refresh the list on the **Notification Hubs** page and select your hub.
 
-      ![Azure portal - notifications -> Go to resource](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
+      ![Azure portal - go to resource](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 
 1. Select **Access Policies** from the list. Note that the two connection strings are available to you. You'll need them later to handle push notifications.
 

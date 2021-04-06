@@ -3,8 +3,8 @@ title: Azure Kubernetes Service (AKS) with Uptime SLA
 description: Learn about the optional Uptime SLA offering for the Azure Kubernetes Service (AKS) API Server.
 services: container-service
 ms.topic: conceptual
-ms.date: 06/24/2020
-ms.custom: references_regions
+ms.date: 01/08/2021
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Azure Kubernetes Service (AKS) Uptime SLA
@@ -20,13 +20,8 @@ Customers can still create unlimited free clusters with a service level objectiv
 
 ## Region availability
 
-Uptime SLA is available in public regions and Azure Government regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-
-* Azure China 21Vianet isn't currently supported.
-
-## Limitations
-
-* Private clusters aren't currently supported.
+* Uptime SLA is available in public regions and Azure Government regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+* Uptime SLA is available for [private AKS clusters][private-clusters] in all public regions where AKS is supported.
 
 ## SLA terms and conditions
 
@@ -34,12 +29,9 @@ Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is dete
 
 ## Before you begin
 
-* Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.8.0 or later
+* Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.8.0 or later
 
 ## Creating a new cluster with Uptime SLA
-
-> [!NOTE]
-> Currently, if you enable Uptime SLA, there is no way to remove it from a cluster.
 
 To create a new cluster with the Uptime SLA, you use the Azure CLI.
 
@@ -90,7 +82,7 @@ Create a new cluster, and don't use Uptime SLA:
 az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
 ```
 
-Use the [`az aks update`][az-aks-nodepool-update] command to update the existing cluster:
+Use the [`az aks update`][az-aks-update] command to update the existing cluster:
 
 ```azurecli-interactive
 # Update an existing cluster to use Uptime SLA
@@ -106,6 +98,15 @@ Use the [`az aks update`][az-aks-nodepool-update] command to update the existing
     "tier": "Paid"
   },
   ```
+
+## Opt out of Uptime SLA
+
+You can update your cluster to change to the free tier and opt out of Uptime SLA.
+
+```azurecli-interactive
+# Update an existing cluster to opt out of Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
+ ```
 
 ## Clean up
 
@@ -131,9 +132,10 @@ Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az-aks-create
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-aks-update]: /cli/azure/aks#az_aks_update
 [az-group-delete]: /cli/azure/group#az-group-delete
+[private-clusters]: private-clusters.md

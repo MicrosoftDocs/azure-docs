@@ -63,7 +63,7 @@ In addition to native authentication, the single server service supports Azure A
 
 [Audit logging]() (in preview) is available to track all database level activity.
 
-The single server service is complaint with all the industry-leading certifications like FedRAMP, HIPAA, PCI DSS. Visit the [Azure Trust Center]() for information about Azure's platform security.
+The single server service is compliant with all the industry-leading certifications like FedRAMP, HIPAA, PCI DSS. Visit the [Azure Trust Center]() for information about Azure's platform security.
 
 For more information about Azure Database for PostgreSQL security features, see the [security overview]().
 
@@ -75,8 +75,8 @@ The single server service is equipped with built-in performance monitoring and a
 
 The service runs community version of PostgreSQL. This allows full application compatibility and requires minimal refactoring cost to migrate existing application developed on PostgreSQL engine to single server service. The migration to the single server can be performed using one of the following options:
 
-- **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like Pg_dump and Pg_restore can provide fastest way to migrate. See [Migrate using dump and restore](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) for details.
-- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, Azure Database Migration Service can be leveraged. See [DMS via portal](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) and [DMS via CLI](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online).
+- **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like Pg_dump and Pg_restore can provide fastest way to migrate. See [Migrate using dump and restore](./howto-migrate-using-dump-and-restore.md) for details.
+- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, Azure Database Migration Service can be leveraged. See [DMS via portal](../dms/tutorial-postgresql-azure-postgresql-online-portal.md) and [DMS via CLI](../dms/tutorial-postgresql-azure-postgresql-online.md).
 
 ## Contacts
 
@@ -92,4 +92,3 @@ In addition, consider the following points of contact as appropriate:
 
 Now that you've read an introduction to Azure Database for PostgreSQL single server deployment mode, you're ready to:
 - Create your first server.
-  

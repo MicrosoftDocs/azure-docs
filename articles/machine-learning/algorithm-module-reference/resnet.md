@@ -1,7 +1,7 @@
 ---
 title: "ResNet"
 titleSuffix: Azure Machine Learning
-description: Learn how to create an image classification model using the ResNet algorithm.
+description: Learn how to create an image classification model in Azure Machine Learning designer using the ResNet algorithm.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

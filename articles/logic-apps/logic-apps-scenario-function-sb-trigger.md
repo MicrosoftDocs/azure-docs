@@ -1,6 +1,6 @@
 ---
 title: Call logic apps with Azure Functions
-description: Create Azure functions that call or trigger logic apps by listening to Azure Service Bus
+description: Call or trigger logic apps by using Azure Functions and Azure Service Bus
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
@@ -11,7 +11,7 @@ ms.custom: devx-track-csharp
 
 # Call or trigger logic apps by using Azure Functions and Azure Service Bus
 
-You can use [Azure Functions](../azure-functions/functions-overview.md) to trigger a logic app when you need to deploy a long-running listener or task. For example, you can create an Azure function that listens in on an [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) queue and immediately fires a logic app as a push trigger.
+You can use [Azure Functions](../azure-functions/functions-overview.md) to trigger a logic app when you need to deploy a long-running listener or task. For example, you can create a function that listens in on an [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) queue and immediately fires a logic app as a push trigger.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ You can use [Azure Functions](../azure-functions/functions-overview.md) to trigg
 
 * An Azure Service Bus namespace. If you don't have a namespace, [create your namespace first](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* An Azure function app, which is a container for Azure functions. If you don't have a function app, [create your function app first](../azure-functions/functions-create-first-azure-function.md), and make sure that you select .NET as the runtime stack.
+* A function app, which is a container for your functions. If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md), and make sure that you select .NET as the runtime stack.
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -89,7 +89,7 @@ For this scenario, you have a function running each logic app that you want to t
 
    ![Generated callback URL for trigger](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
-## Create Azure function
+## Create a function
 
 Next, create the function that acts as the trigger and listens to the queue.
 

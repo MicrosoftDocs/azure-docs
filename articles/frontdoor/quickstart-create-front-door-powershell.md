@@ -5,7 +5,7 @@ services: front-door
 documentationcenter: na
 author: duongau
 manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
+# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.assetid:
 ms.service: frontdoor
 ms.devlang: na

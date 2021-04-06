@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Wandera RADAR Admin with Azure A
 * Enable your users to be automatically signed-in to Wandera RADAR Admin with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Wandera RADAR Admin supports **IDP** initiated SSO
-* Once you configure Wandera RADAR Admin you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Wandera RADAR Admin you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Wandera RADAR Admin from the gallery
 
@@ -78,7 +78,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://radar.wandera.com/saml/acs/<tenant id>`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Reply URL. Contact [Wandera RADAR Admin Client support team](https://www.wandera.com/about-wandera/contact/#supportsection) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Reply URL. Contact [Wandera RADAR Admin Client support team](https://www.wandera.com/about-wandera/contact/#supportsection) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal. Carefully replace the <tenant id> part of the above URL with the Tenant ID shown in the **Settings** > **Administration** > **Single Sign-On** page within your Wandera account.
+
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -158,13 +159,12 @@ In this section, you create a user called B.Simon in Wandera RADAR Admin. Work w
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Wandera RADAR Admin tile in the Access Panel, you should be automatically signed in to the Wandera RADAR Admin for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Wandera RADAR Admin tile in the Access Panel, you should be automatically signed in to the Wandera RADAR Admin for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

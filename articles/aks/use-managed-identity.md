@@ -3,8 +3,7 @@ title: Use managed identities in Azure Kubernetes Service
 description: Learn how to use managed identities in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.author: thomasge
+ms.date: 12/16/2020
 ---
 
 # Use managed identities in Azure Kubernetes Service
@@ -17,15 +16,12 @@ Currently, an Azure Kubernetes Service (AKS) cluster (specifically, the Kubernet
 
 You must have the following resource installed:
 
-- The Azure CLI, version 2.8.0 or later
+- The Azure CLI, version 2.15.1 or later
 
 ## Limitations
 
-* AKS clusters with managed identities can be enabled only during creation of the cluster.
-* Existing AKS clusters can't be migrated to managed identities.
-* During cluster **upgrade** operations, the managed identity is temporarily unavailable.
 * Tenants move / migrate of managed identity enabled clusters isn't supported.
-* If the cluster has `aad-pod-identity` enabled, Node Managed Identity (NMI) pods modify the nodes'
+* If the cluster has `aad-pod-identity` enabled, Node-Managed Identity (NMI) pods modify the nodes'
   iptables to intercept calls to the Azure Instance Metadata endpoint. This configuration means any
   request made to the Metadata endpoint is intercepted by NMI even if the pod doesn't use
   `aad-pod-identity`. AzurePodIdentityException CRD can be configured to inform `aad-pod-identity`
@@ -33,7 +29,7 @@ You must have the following resource installed:
   CRD should be proxied without any processing in NMI. The system pods with
   `kubernetes.azure.com/managedby: aks` label in _kube-system_ namespace should be excluded in
   `aad-pod-identity` by configuring the AzurePodIdentityException CRD. For more information, see
-  [Disable aad-pod-identity for a specific pod or application](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+  [Disable aad-pod-identity for a specific pod or application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   To configure an exception, install the
   [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
@@ -43,12 +39,12 @@ AKS uses several managed identities for built-in services and add-ons.
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | not visible | Used by AKS for managed networking resources including ingress load balancers and AKS managed public IPs | Contributor role for Node resource group | Preview
+| Control plane | not visible | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS managed public IPs, and Cluster Autoscaler operations | Contributor role for Node resource group | supported
 | Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Not currently supported
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
-| Add-on | azurepolicy (gatekeeper) | No identity required | NA | No
-| Add-on | azurepolicy | No identity required | NA | No
+| Add-on | azure-policy (gatekeeper) | No identity required | NA | No
+| Add-on | azure-policy | No identity required | NA | No
 | Add-on | Calico | No identity required | NA | No
 | Add-on | Dashboard | No identity required | NA | No
 | Add-on | HTTPApplicationRouting | Manages required network resources | Reader role for node resource group, contributor role for DNS zone | No
@@ -110,45 +106,44 @@ Finally, get credentials to access the cluster:
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
+## Update an AKS cluster to managed identities (Preview)
 
-## Bring your own control plane MI (Preview)
-A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This enables scenarios such as using an custom VNET or outboundType of UDR with a managed identity.
+You can now update an AKS cluster currently working with service principals to work with managed identities by using the following CLI commands.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+First, Register the Feature Flag for system-assigned identity:
 
-You must have the following resources installed:
-- The Azure CLI, version 2.9.0 or later
-- The aks-preview 0.4.57 extension
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview
+```
 
-Limitations for bring your own control plane MI (Preview):
+Update the system-assigned identity:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity
+```
+
+Register the Feature Flag for user-assigned identity:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
+```
+
+Update the user-assigned identity:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
+```
+> [!NOTE]
+> Once the system-assigned or user-assigned identities have been updated to managed identity, perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
+
+## Bring your own control plane MI
+A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as using a custom VNET or outboundType of UDR with a pre-created managed identity.
+
+You must have the Azure CLI, version 2.15.1 or later installed.
+
+### Limitations
 * Azure Government isn't currently supported.
 * Azure China 21Vianet isn't currently supported.
-
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az extension update --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
-```
-
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
-```
-
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 If you don't have a managed identity yet, you should go ahead and create one for example by using [az identity CLI][az-identity-create].
 
@@ -214,5 +209,5 @@ A successful cluster creation using your own managed identities contains this us
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az-identity-create&preserve-view=true
-[az-identity-list]: /cli/azure/identity?view=azure-cli-latest#az-identity-list&preserve-view=true
+[az-identity-create]: /cli/azure/identity#az-identity-create
+[az-identity-list]: /cli/azure/identity#az-identity-list

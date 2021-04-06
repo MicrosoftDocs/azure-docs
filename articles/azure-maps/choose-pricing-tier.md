@@ -3,7 +3,7 @@ title: Choose the right pricing tier for Microsoft Azure Maps
 description: Learn about Azure Maps pricing tiers. See which features are offered at which tiers, and view key considerations for choosing a pricing tier. 
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -43,6 +43,7 @@ If the core geospatial APIs meet your service requirements, choose the S0 pricin
 | Mobility (Preview)                       |                     | ✓        |
 | Weather (Preview)                        |✓                    |✓        |
 |  Creator (Preview)                         |                   |✓        |
+|  Elevation (Preview)                        |                   |✓        |
 
 Consider these additional points:
 

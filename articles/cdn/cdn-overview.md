@@ -55,7 +55,7 @@ Each Azure subscription has default limits for the following resources:
  - The number of endpoints that can be created in a CDN profile. 
  - The number of custom domains that can be mapped to an endpoint.
 
-For more information about CDN subscription limits, see [CDN limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+For more information about CDN subscription limits, see [CDN limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
     
 ## Azure CDN features
 Azure CDN offers the following key features:
@@ -70,8 +70,7 @@ Azure CDN offers the following key features:
 For a complete list of features that each Azure CDN product supports, see [Compare Azure CDN product features](cdn-features.md).
 
 ## Next steps
+
 - To get started with CDN, see [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 - Manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 - Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
-- To see Azure CDN in action, watch the [Azure CDN videos](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
-- For information about the latest Azure CDN features, see [Azure CDN blog](https://azure.microsoft.com/blog/tag/azure-cdn/).

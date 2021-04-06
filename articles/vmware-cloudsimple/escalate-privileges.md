@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Escalate CloudSimple privileges
 description: Describes how to escalate CloudSimple permissions to perform administrative functions in the Private Cloud vCenter
-author: sharaths-cs
-ms.author: b-shsury 
+author: Ajayan1008
+ms.author: v-hborys 
 ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

@@ -142,7 +142,7 @@ Likewise, the [Self-service Password Management report](../authentication/howto-
 
 ### Self-service app management
 
-Before your users can self-discover applications from their access panel, you need to enable [self-service application access](../manage-apps/access-panel-manage-self-service-access.md) to any applications that you wish to allow users to self-discover and request access to. Self-service application access is a great way to allow users to self-discover applications and optionally allow the business group to approve access to those applications. You can allow the business group to manage the credentials assigned to those users for [Password Single-Sign On Applications](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) right from their access panels.
+Before your users can self-discover applications from their access panel, you need to enable [self-service application access](../manage-apps/access-panel-manage-self-service-access.md) to any applications that you wish to allow users to self-discover and request access to. Self-service application access is a great way to allow users to self-discover applications and optionally allow the business group to approve access to those applications. You can allow the business group to manage the credentials assigned to those users for [Password Single-Sign On Applications](../manage-apps/troubleshoot-password-based-sso.md#automatically-capture-sign-in-fields-for-an-app) right from their access panels.
 
 ### Self-service group management
 
@@ -151,7 +151,7 @@ Assigning users to applications is best mapped when using groups, because they a
 * Attribute-based using dynamic group membership
 * Delegation to app owners
 
-Azure AD provides the ability to manage access to resources using security groups and Microsoft 365 groups. These groups can be managed by a group owner who can approve or deny membership requests and delegate control of group membership. Known as [self-service group management](../users-groups-roles/groups-self-service-management.md), this feature saves time by allowing group owners who aren't assigned an administrative role to create and manage groups without having to rely on administrators to handle their requests.
+Azure AD provides the ability to manage access to resources using security groups and Microsoft 365 groups. These groups can be managed by a group owner who can approve or deny membership requests and delegate control of group membership. Known as [self-service group management](../enterprise-users/groups-self-service-management.md), this feature saves time by allowing group owners who aren't assigned an administrative role to create and manage groups without having to rely on administrators to handle their requests.
 
 ## Step 4 - Operationalize your insights
 
@@ -167,9 +167,9 @@ Security logs and reports provide you with an electronic record of suspicious ac
 
 As you think about your approach to operations, there are a couple levels of administration to consider. The first level places the burden of administration on your global administrator(s). Always using the global administrator role, might be appropriate for smaller companies. But for larger organizations with help desk personnel and administrators responsible for specific tasks, assigning the role of global administrator can be a security risk since it provides those individuals with the ability to manage tasks that are above and beyond what they should be capable of doing.
 
-In this case, you should consider the next level of administration. Using Azure AD, you can designate end users as "limited administrators" who can manage tasks in less-privileged roles. For example, you might assign your help desk personnel the [security reader](../users-groups-roles/directory-assign-admin-roles.md#security-reader) role to provide them with the ability to manage security-related features with read-only access. Or perhaps it makes sense to assign the [authentication administrator](../users-groups-roles/directory-assign-admin-roles.md#authentication-administrator) role to individuals to give them the ability to reset non-password credentials or read and configure Azure Service Health.
+In this case, you should consider the next level of administration. Using Azure AD, you can designate end users as "limited administrators" who can manage tasks in less-privileged roles. For example, you might assign your help desk personnel the [security reader](../roles/permissions-reference.md#security-reader) role to provide them with the ability to manage security-related features with read-only access. Or perhaps it makes sense to assign the [authentication administrator](../roles/permissions-reference.md#authentication-administrator) role to individuals to give them the ability to reset non-password credentials or read and configure Azure Service Health.
 
-To learn more, see [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+To learn more, see [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md).
 
 ### Monitor hybrid components (Azure AD Connect sync, AD FS) using Azure AD Connect Health
 
@@ -262,6 +262,6 @@ We recommend that you print the following checklist for reference as you begin y
 
 ## Next steps
 
-Learn how you can increase your secure posture using the capabilities of Azure Active Directory and this five-step checklist - [Five steps to securing your identity infrastructure](https://aka.ms/securitysteps).
+Learn how you can increase your secure posture using the capabilities of Azure Active Directory and this five-step checklist - [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md).
 
-Learn how the identity features in Azure AD can help you accelerate your transition to cloud governed management by providing the solutions and capabilities that allow organizations to quickly adopt and move more of their identity management from traditional on-premises systems to Azure AD - [How Azure AD Delivers Cloud Governed Management for On-Premises Workloads](https://aka.ms/cloudgoverned).
+Learn how the identity features in Azure AD can help you accelerate your transition to cloud governed management by providing the solutions and capabilities that allow organizations to quickly adopt and move more of their identity management from traditional on-premises systems to Azure AD - [How Azure AD Delivers Cloud Governed Management for On-Premises Workloads](./cloud-governed-management-for-on-premises.md).

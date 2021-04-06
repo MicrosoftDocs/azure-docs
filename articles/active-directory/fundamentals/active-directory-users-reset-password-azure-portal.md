@@ -23,14 +23,14 @@ ms.collection: M365-identity-device-management
 As an administrator, you can reset a user's password if the password is forgotten, if the user gets locked out of a device, or if the user never received a password.
 
 >[!Note]
->Unless your Azure AD tenant is the home directory for a user, you won't be able reset their password. This means that if your user is signing in to your organization using an account from another organization, a Microsoft account, or a Google account, you won't be able to reset their password.<br><br>If your user has a source of authority as Windows Server Active Directory, you'll only be able to reset the password if you've turned on password writeback.<br><br>If your user has a source of authority as External Azure AD, you won't be able to reset the password. Only the user, or an adminsitrator in External Azure AD, can reset the password.
+>Unless your Azure AD tenant is the home directory for a user, you won't be able reset their password. This means that if your user is signing in to your organization using an account from another organization, a Microsoft account, or a Google account, you won't be able to reset their password.<br><br>If your user has a source of authority as Windows Server Active Directory, you'll only be able to reset the password if you've turned on password writeback.<br><br>If your user has a source of authority as External Azure AD, you won't be able to reset the password. Only the user, or an administrator in External Azure AD, can reset the password.
 
 >[!Note]
 >If you're not an administrator and are instead looking for instructions about how to reset your own work or school password, see [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md).
 
 ## To reset a password
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a user administrator, or password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a user administrator, or password administrator. For more information about the available roles, see [Azure AD built-in roles](../roles/permissions-reference.md)
 
 2. Select **Azure Active Directory**, select **Users**, search for and select the user that needs the reset, and then select **Reset Password**.
 
@@ -48,6 +48,10 @@ As an administrator, you can reset a user's password if the password is forgotte
     >[!Note]
     >The temporary password never expires. The next time the user signs in, the password will still work, regardless how much time has passed since the temporary password was generated.
 
+> [!IMPORTANT]
+> If an administrator is unable to reset the user's password, and in the Application Event Logs on the Azure AD Connect server the following error code hr=80231367 is seen, review the user's attributes in Active Directory.  If the attribute **AdminCount** is set to 1, this will prevent an administrator from resetting the user's password.  The attribute **AdminCount** must be set to 0, in order for an administrators to reset the user's password.
+
+
 ## Next steps
 
 After you've reset your user's password, you can perform the following basic processes:
@@ -60,4 +64,4 @@ After you've reset your user's password, you can perform the following basic pro
 
 - [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 
-Or you can perform more complex user scenarios, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+Or you can perform more complex user scenarios, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../enterprise-users/index.yml).

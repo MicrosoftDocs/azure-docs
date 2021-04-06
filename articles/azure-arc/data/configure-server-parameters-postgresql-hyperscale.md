@@ -40,9 +40,9 @@ The general format of the command to configure the database engine settings is:
 azdata arc postgres server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-engine-settings, --re}] {'<parameter name>=<parameter value>, ...'}
 ```
 
-## Show the current custom values of the parameters settings
+## Show current custom values
 
-## With azdata CLI command
+### With [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] command
 
 ```console
 azdata arc postgres server show -n <server group name>
@@ -69,77 +69,77 @@ engine": {
 ...
 ```
 
-## With kubectl command
+### With kubectl command
 
 Follow the below steps.
 
-### 1. Retrieve the kind of custom resource definition for your server group
+1. Retrieve the kind of custom resource definition for your server group
 
-Run:
+   Run:
 
-```console
-azdata arc postgres server show -n <server group name>
-```
+   ```console
+   azdata arc postgres server show -n <server group name>
+   ```
 
-For example:
+   For example:
 
-```console
-azdata arc postgres server show -n postgres01
-```
+   ```console
+   azdata arc postgres server show -n postgres01
+   ```
 
-This command returns the spec of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
+   This command returns the spec of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
 
-```
-> {
-  >"apiVersion": "arcdata.microsoft.com/v1alpha1",
-  >"**kind**": "**postgresql-12**",
-  >"metadata": {
-    >"creationTimestamp": "2020-08-25T14:32:23Z",
-    >"generation": 1,
-    >"name": "postgres01",
-    >"namespace": "arc",
-```
+   ```output
+   > {
+     >"apiVersion": "arcdata.microsoft.com/v1alpha1",
+     >"**kind**": "**postgresql-12**",
+     >"metadata": {
+       >"creationTimestamp": "2020-08-25T14:32:23Z",
+       >"generation": 1,
+       >"name": "postgres01",
+       >"namespace": "arc",  
+   ```
 
-In there, look for the field "kind" and set aside the value, for example: `postgresql-12`.
+   In the output results, look for the field `kind` and set aside the value, for example: `postgresql-12`.
 
-### 2. Describe the Kubernetes custom resource corresponding to your server group 
+2. Describe the Kubernetes custom resource corresponding to your server group 
 
-The general format of the command is:
+   The general format of the command is:
 
-```console
-kubectl describe <kind of the custom resource> <server group name> -n <namespace name>
-```
+   ```console
+   kubectl describe <kind of the custom resource> <server group name> -n <namespace name>
+   ```
 
-For example:
+   For example:
 
-```console
-kubectl describe postgresql-12 postgres01
-```
+   ```console
+   kubectl describe postgresql-12 postgres01
+   ```
 
-If there are custom values set for the engine settings, it will return them. For example:
+   If there are custom values set for the engine settings, it returns them. For example:
 
-```console
-Engine:
-...
+   ```output
+   Engine:
+   ...
     Settings:
       Default:
         autovacuum_vacuum_threshold:  65
-```
+   ```
 
-If you have not set custom values for any of the engine settings, the Engine Settings section of the resultset will be empty like:
+   If you have not set custom values for any of the engine settings, the Engine Settings section of the `resultset` will be empty like:
 
-```console
-Engine:
-...
-    Settings:
-      Default:
-```
+   ```output
+   Engine:
+   ...
+       Settings:
+         Default:
+   ```
 
-## Set custom values for the engine settings
+## Set custom values for engine settings
 
 The below commands set the parameters of the Coordinator node and the Worker nodes of your PostgreSQL Hyperscale to the same values. It is not yet possible to set parameters per role in your server group. That is, it is not yet possible to configure a given parameter to a specific on the Coordinator node and to another value for the Worker nodes.
 
-## Set a single parameter
+### Set a single parameter
 
 ```console
 azdata arc server edit -n <server group name> -e <parameter name>=<parameter value>
@@ -151,7 +151,7 @@ For example:
 azdata arc postgres server edit -n postgres01 -e shared_buffers=8MB
 ```
 
-## Set multiple parameters with a single command
+### Set multiple parameters with a single command
 
 ```console
 azdata arc postgres server edit -n <server group name> -e '<parameter name>=<parameter value>, <parameter name>=<parameter value>,...'
@@ -163,7 +163,7 @@ For example:
 azdata arc postgres server edit -n postgres01 -e 'shared_buffers=8MB, max_connections=50'
 ```
 
-## Reset a parameter to its default value
+### Reset a parameter to its default value
 
 To reset a parameter to its default value, set it without indicating a value. 
 
@@ -173,7 +173,7 @@ For example:
 azdata arc postgres server edit -n postgres01 -e shared_buffers=
 ```
 
-## Reset all parameters to their default values
+### Reset all parameters to their default values
 
 ```console
 azdata arc postgres server edit -n <server group name> -e '' -re
@@ -208,8 +208,6 @@ For example:
 ```console
 azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
 ```
-
-
 
 ## Next steps
 - Read about [scaling out (adding worker nodes)](scale-out-postgresql-hyperscale-server-group.md) your server group

@@ -7,7 +7,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date:  05/28/2020
+ms.date:  02/19/2021
 ---
 
 # Lookup transformation in mapping data flow
@@ -22,7 +22,7 @@ A lookup transformation is similar to a left outer join. All rows from the prima
 
 ## Configuration
 
-![Lookup Transformation](media/data-flow/lookup1.png "Lookup")
+![Screenshot shows the Lookup settings tab with the labels described in the following text.](media/data-flow/lookup1.png "Lookup")
 
 **Primary stream:** The incoming stream of data. This stream is equivalent to the left side of a join.
 
@@ -33,8 +33,6 @@ A lookup transformation is similar to a left outer join. All rows from the prima
 **Match on:** Only visible if 'Match multiple rows' is not selected. Choose whether to match on any row, the first match, or the last match. Any row is recommended as it executes the fastest. If first row or last row is selected, you'll be required to specify sort conditions.
 
 **Lookup conditions:** Choose which columns to match on. If the equality condition is met, then the rows will be considered a match. Hover and select 'Computed column' to extract a value using the [data flow expression language](data-flow-expression-functions.md).
-
-The lookup transformation only supports equality matches. To customize the lookup expression to include other operators such as greater than, it's recommended to use a [cross join in the join transformation](data-flow-join.md#custom-cross-join). A cross join will avoid any possible cartesian product errors on execution.
 
 All columns from both streams are included in the output data. To drop duplicate or unwanted columns, add a [select transformation](data-flow-select.md) after your lookup transformation. Columns can also be dropped or renamed in a sink transformation.
 
@@ -64,6 +62,10 @@ In joins, lookups and exists transformation, if one or both data streams fit int
 
 It's not recommended to disable broadcasting via the **Off** option unless your joins are running into timeout errors.
 
+## Cached lookup
+
+If you're doing multiple smaller lookups on the same source, a cached sink and lookup maybe a better use case than the lookup transformation. Common examples where a cache sink may be better are looking up a max value on a data store and matching error codes to an error message database. For more information, learn about [cache sinks](data-flow-sink.md#cache-sink) and [cached lookups](concepts-data-flow-expression-builder.md#cached-lookup).
+
 ## Data flow script
 
 ### Syntax
@@ -80,7 +82,7 @@ It's not recommended to disable broadcasting via the **Off** option unless your 
 ```
 ### Example
 
-![Lookup Transformation](media/data-flow/lookup-dsl-example.png "Lookup")
+![Screenshot shows the Lookup settings tab for the following code.](media/data-flow/lookup-dsl-example.png "Lookup")
 
 The data flow script for the above lookup configuration is in the code snippet below.
 

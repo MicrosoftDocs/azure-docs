@@ -6,10 +6,16 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 03/02/2021
 ms.reviewer: sngun
+adobe-target: true
+adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./connect-mongodb-account-experimental
+
 ---
 # Connect a MongoDB application to Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Learn how to connect your MongoDB app to an Azure Cosmos DB by using a MongoDB connection string. You can then use an Azure Cosmos database as the data store for your MongoDB app.
 
@@ -63,6 +69,12 @@ The values of this string are available in the **Connection String** blade shown
 For example, consider the account shown in the **Connection String** blade. A valid connection string is:
 
 `mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true`
+
+## Driver Requirements
+
+All drivers that support wire protocol version 3.4 or greater will support Azure Cosmos DB API for MongoDB.
+
+Specifically, client drivers must support the Service Name Identification (SNI) TLS extension and/or the appName connection string option. If the `appName` parameter is provided, it must be included as found in the connection string value in the Azure portal.
 
 ## Next steps
 
