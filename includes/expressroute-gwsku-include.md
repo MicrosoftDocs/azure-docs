@@ -13,7 +13,7 @@ When you create a virtual network gateway, you need to specify the gateway SKU t
 
 ExpressRoute virtual network gateways can use the following SKUs:
 
-|     | VPN Gateway and ExpressRoute coexist | FastPath | Max Number of Circuit Connections |
+|     | VPN Gateway and ExpressRoute coexist | FastPath | Max number of circuit connections |
 | --- | --- | --- | --- |
 | **Standard** | Yes | No | 4 |
 | **HighPerformance** | Yes | No | 4 |
