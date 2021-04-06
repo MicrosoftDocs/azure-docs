@@ -11,9 +11,11 @@ ms.date: 04/06/2021
 ms.author: alkohli
 ---
 
-# Create a new virtual switch in Azure Stack Edge via PowerShell
+# Create a new virtual switch in Azure Stack Edge Pro GPU via PowerShell
 
-This article describes how to create a new virtual switch on your Azure Stack Edge device. For example, you would create a new virtual switch if you want your virtual machines to connect through a different physical network port.
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
+This article describes how to create a new virtual switch on your Azure Stack Edge Pro GPU device. For example, you would create a new virtual switch if you want your virtual machines to connect through a different physical network port.
 
 ## VM deployment workflow
 
@@ -64,7 +66,7 @@ Before you begin, make sure that:
 2. Choose a network interface that is:
 
     - In the **Up** status, and 
-    - Not used by any existing virtual switches.To check the existing virtual switch and network interface association, run the `Get-HcsExternalVirtualSwitch` command.
+    - Not used by any existing virtual switches. To check the existing virtual switch and network interface association, run the `Get-HcsExternalVirtualSwitch` command.
  
     Here is an example output.
 
@@ -88,14 +90,51 @@ Before you begin, make sure that:
 
 ## Create a virtual switch
 
-Use the following cmdlet to create a new virtual switch on your specified network adapter. Once this operation is completed, your compute instances can use the new virtual network.
+Use the following cmdlet to create a new virtual switch on your specified network interface. After this operation is complete, your compute instances can use the new virtual network.
 
-`Add-HcsExternalVirtualSwitch -InterfaceAlias <network adapter name> -WaitForSwitchCreation $true`
+`Add-HcsExternalVirtualSwitch -InterfaceAlias <Network interface name> -WaitForSwitchCreation $true`
+
+The new switch that is created is named as `vswitch-<Network interface name>`.
+
+Here is an example output:
+
+```powershell
+[10.57.51.94]: P> Add-HcsExternalVirtualSwitch -InterfaceAlias Port5 -WaitForSwitchCreation $true
+[10.57.51.94]: PS>Get-HcsExternalVirtualSwitch
+
+Name                          : vSwitch1
+InterfaceAlias                : {Port2}
+EnableIov                     : True
+MacAddressPools               :
+IPAddressPools                : {}
+ConfigurationSource           : Dsc
+EnabledForCompute             : True
+SupportsAcceleratedNetworking : False
+DbeDhcpHostVnicName           : f4a92de8-26ed-4597-a141-cb233c2ba0aa
+Type                          : External
+
+Name                          : vswitch-Port5
+InterfaceAlias                : {Port5}
+EnableIov                     : True
+MacAddressPools               :
+IPAddressPools                :
+ConfigurationSource           : Dsc
+EnabledForCompute             : False
+SupportsAcceleratedNetworking : False
+DbeDhcpHostVnicName           : 9b301c40-3daa-49bf-a20b-9f7889820129
+Type                          : External
+
+[10.57.51.94]: PS>
+```
 
 ## Verify switch, network, subnet 
 
-Once you have created the new virtual switch, Azure Stack Edge automatically creates a virtual network and subnet that corresponds to it. You can use this virtual network when creating VMs.
+After you have created the new virtual switch, Azure Stack Edge Pro GPU automatically creates a virtual network and subnet that corresponds to it. You can use this virtual network when creating VMs.
+
+To identify the virtual network and subnet associated with the new switch that you created, use the ` ` command.
 
 ## Next steps
 
-TBD
+- [Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)
+
+- [Deploy VMs on your Azure Stack Edge Pro GPU device via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
