@@ -1,12 +1,13 @@
 ---
-title: Deploy the Azure File Sync agent
-description: Deploy the Azure File Sync agent. A common text block, shared across migration docs.
+title: include file
+description: include file
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
+ms.custom: include file
 ---
 
 In this section, you install the Azure File Sync agent on your Windows Server instance.

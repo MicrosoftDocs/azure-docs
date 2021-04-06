@@ -15,6 +15,10 @@
   items:
   - name: Resource Manager templates
     href: resource-manager-template-samples.md
+- name: Tutorials
+  items: 
+  - name: Configure WAF policy
+    href: ../../web-application-firewall/afds/waf-front-door-create-portal.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
 - name: Concepts
   items:
   - name: Front Door FAQ
@@ -26,13 +30,15 @@
   - name: Route
     href: concept-route.md
   - name: Rule Set
-    href: concept-rule-set.md
-  - name: Rule Set Match Conditions
-    href: concept-rule-set-match-conditions.md
-  - name: Rule Set Actions
-    href: concept-rule-set-actions.md
-  - name: URL redirect and URL rewrite
-    href: concept-rule-set-url-redirect-and-rewrite.md
+    items:
+    - name: Rule Set
+      href: concept-rule-set.md
+    - name: Match conditions
+      href: concept-rule-set-match-conditions.md
+    - name: Actions
+      href: concept-rule-set-actions.md
+    - name: URL redirect and URL rewrite
+      href: concept-rule-set-url-redirect-and-rewrite.md
   - name: Health probes
     href: concept-health-probes.md
   - name: Private Link

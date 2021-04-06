@@ -556,6 +556,9 @@
             - name: Transform data
               displayName: pipeline
               href: how-to-designer-transform-data.md
+            - name: Use pipeline parameters
+              displayName: designer, pipeline parameters
+              href: how-to-use-pipeline-parameter.md
             - name: Retrain using published pipelines
               displayName: retrain, designer, published pipeline
               href: how-to-retrain-designer.md
@@ -621,6 +624,8 @@
     - name: Curated environments
       displayName: environments, curated environments
       href: resource-curated-environments.md         
+    - name: Azure CLI
+      href: /cli/azure/ext/azure-cli-ml/ml
 - name: Resources
   items: 
     - name: Release notes

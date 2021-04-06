@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.devlang:
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/06/2020
+ms.date: 04/05/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # What are managed identities for Azure resources?
 
-A common challenge for developers is the management of secrets and credentials to secure communication between different services. On Azure, managed identities eliminate the need for developers having to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens. This also helps accessing [Azure Key Vault](../../key-vault/general/overview.md) where developers can store credentials in a secure manner. Managed identities for Azure resources solves this problem by providing Azure services with an automatically managed identity in Azure AD.
+A common challenge for developers is the management of secrets and credentials used to secure communication between different components making up a solution. Managed identities eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. Applications may use the managed identity to obtain Azure AD tokens. For example, an application may use a managed identity to access resources like [Azure Key Vault](../../key-vault/general/overview.md) where developers can store credentials in a secure manner or to access storage accounts.
 
 What can a managed identity be used for?
 
@@ -30,7 +30,7 @@ What can a managed identity be used for?
 Here are some of the benefits of using Managed identities:
 
 - You don't need to manage credentials. Credentials are not even accessible to you.
-- You can use managed identities to authenticate to any Azure service that supports Azure AD authentication including Azure Key Vault.
+- You can use managed identities to authenticate to any resource that supports [Azure Active Directory authentication](../authentication/overview-authentication.md) including your own applications.
 - Managed identities can be used without any additional cost.
 
 > [!NOTE]
@@ -59,7 +59,7 @@ The table below shows the differences between the two types of managed identitie
 
 ## How can I use managed identities for Azure resources?
 
-![some examples of how a developer may use managed identities to get access to resources from their code without managing authentication information](media/overview/azure-managed-identities-examples.png)
+![some examples of how a developer may use managed identities to get access to resources from their code without managing authentication information](media/overview/when-use-managed-identities.png)
 
 ## What Azure services support the feature?<a name="which-azure-services-support-managed-identity"></a>
 

@@ -25,6 +25,7 @@ The following table outlines the regions ultra disks are available in, as well a
 |East Asia     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |Germany West Central     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |Korea Central     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
+|North Central US    |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |South Central US    |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |US Gov Arizona     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |US Gov Virginia     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
