@@ -5,7 +5,7 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/08/2021
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -47,7 +47,14 @@ SELECT UPPER("Abc") AS upper
 
 ## Remarks
 
-This system function will not utilize the index.
+This system function will not [use indexes](index-overview.md#index-usage).
+
+| Index lookup type  | Non-aggregate query | Aggregate query |
+| ------------------ | ------------------- | --------------- |
+| Index seek         |                     |                 |
+| Precise index scan |                     |                 |
+| Index scan         |                     |                 |
+| Full scan          |   x                 | x               |
 
 ## Next steps
 
