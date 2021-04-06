@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 3/16/2021
+ms.date: 04/07/2021
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) limits and limitations

@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 3/10/2021
+ms.date: 04/07/2021
 ---
 
 # Basic tier (preview)

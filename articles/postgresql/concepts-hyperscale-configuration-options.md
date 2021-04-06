@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 4/1/2021
+ms.date: 04/07/2021
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) configuration options

@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
-ms.date: 03/19/2021
+ms.date: 04/07/2021
 ---
 
 # Preview features for PostgreSQL - Hyperscale (Citus)
