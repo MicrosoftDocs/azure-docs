@@ -34,7 +34,7 @@ When you enable container soft delete, you can specify a retention period for de
 When you restore a container, the container's blobs and any blob versions and snapshots are also restored. However, you can only use container soft delete to restore blobs if the container itself was deleted. To a restore a deleted blob when its parent container has not been deleted, you must use blob soft delete or blob versioning.
 
 > [!WARNING]
-> Container soft delete can restore only whole containers and the blobs they contained at the time of deletion. You cannot restore a deleted blob within a container by using container soft delete.
+> Container soft delete can restore only whole containers and their contents at the time of deletion. You cannot restore a deleted blob within a container by using container soft delete. Microsoft recommends also enabling blob soft delete and blob versioning to protect individual blobs in a container.
 
 The following diagram shows how a deleted container can be restored when container soft delete is enabled:
 
@@ -46,6 +46,20 @@ After the retention period has expired, the container is permanently deleted fro
 
 Disabling container soft delete does not result in permanent deletion of containers that were previously soft-deleted. Any soft-deleted containers will be permanently deleted at the expiration of the retention period that was in effect at the time that the container was deleted.
 
+<<<<<<< HEAD
+=======
+> [!IMPORTANT]
+> Container soft delete does not protect against the deletion of a storage account. It protects only against the deletion of containers in that account. To protect a storage account from deletion, configure a lock on the storage account resource. For more information about locking a storage account, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md).
+
+## About the preview
+
+Container soft delete is available in preview in all Azure regions.
+
+Version 2019-12-12 or higher of the Azure Storage REST API supports container soft delete.
+
+### Storage account support
+
+>>>>>>> 1890f028b43b4cb3f2f0b30ea1082b121e289549
 Container soft delete is available for the following types of storage accounts:
 
 - General-purpose v2 and v1 storage accounts
