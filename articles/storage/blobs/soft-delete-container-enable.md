@@ -36,6 +36,32 @@ To enable container soft delete for your storage account by using Azure portal, 
 
 :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-configure.png" alt-text="Screenshot showing how to enable container soft delete in Azure portal":::
 
+# [PowerShell](#tab/powershell)
+
+To enable container soft delete with PowerShell, first install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version ??? or later. Next, call the **Enable-AzStorageContainerDeleteRetentionPolicy** command and specify the number of days for the retention period. Remember to replace the values in angle brackets with your own values:
+
+```azurepowershell-interactive
+Enable-AzStorageContainerDeleteRetentionPolicy -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -RetentionDays 7 
+```
+
+To disable container soft delete, call the **Disable-AzStorageContainerDeleteRetentionPolicy** command.
+
+# [Azure CLI](#tab/azure-cli)
+
+To enable container soft delete with Azure CLI, first install Azure CLI, version ??? or later. Next, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command and specify the number of days for the retention period. Remember to replace the values in angle brackets with your own values:
+
+```azurecli-interactive
+az storage account blob-service-properties update \
+    --enable-container-delete-retention true \
+    --container-delete-retention-days 7 \
+    --account-name <storage-account> \
+    --resource-group <resource_group>
+```
+
+To disable container soft delete, specify `false` for the `--enable-container-delete-retention` parameter.
+
 # [Template](#tab/template)
 
 To enable container soft delete with an Azure Resource Manager template, create a template that sets the **containerDeleteRetentionPolicy** property. The following steps describe how to create a template in the Azure portal.
