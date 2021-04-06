@@ -16,7 +16,7 @@ This document describes the latest versions of Linux Diagnostic Extension (LAD).
 
 > [!IMPORTANT]
 > For information about version 3.x, see  [Use Linux Diagnostic Extension 3.0 to monitor metrics and logs](./diagnostics-linux-v3.md). 
-> For information about version 2.3 and earlier, see [Monitor the performance and diagnostic data of a Linux VM](docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> For information about version 2.3 and earlier, see [Monitor the performance and diagnostic data of a Linux VM](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## Introduction
 

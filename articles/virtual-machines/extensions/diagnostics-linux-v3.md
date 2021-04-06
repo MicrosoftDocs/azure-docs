@@ -15,7 +15,7 @@ ms.date: 12/13/2018
 This document describes version 3.0 and newer of Linux Diagnostic Extension (LAD).
 
 > [!IMPORTANT]
-> For information about version 2.3 and earlier, see [Monitor the performance and diagnostic data of a Linux VM](docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> For information about version 2.3 and earlier, see [Monitor the performance and diagnostic data of a Linux VM](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## Introduction
 
@@ -50,7 +50,7 @@ The downloadable configuration is just an example. Modify it to suit your needs.
 
 ### Supported Linux distributions
 
-LAD supports the following distributions and versions. The list of distributions and versions applies only to Azure-endorsed Linux vendor images. The extension generally doesn't support third-party BYOL and BYOS images, like appliancesExtension.
+LAD supports the following distributions and versions. The list of distributions and versions applies only to Azure-endorsed Linux vendor images. The extension generally doesn't support third-party BYOL and BYOS images, like appliances.
 
 A distribution that lists only major versions, like Debian 7, is also supported for all minor versions. If a minor version is specified, only that version is supported. If a plus sign (+) is appended, minor versions equal to or later than the specified version are supported.
 
@@ -284,7 +284,7 @@ LAD version 3.0 supports two sink types: `EventHub` and `JsonBlob`.
 ]
 ```
 
-The `sasURL` entry contains the full URL, including the SAS token, for the event hub to which data should be published. LAD requires a SAS to name a policy that enables the send claim. 
+The `"sasURL"` entry contains the full URL, including the SAS token, for the event hub to which data should be published. LAD requires a SAS to name a policy that enables the send claim. 
 
 For example:
 
