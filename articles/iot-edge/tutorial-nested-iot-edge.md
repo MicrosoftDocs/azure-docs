@@ -66,28 +66,28 @@ To create a hierarchy of IoT Edge devices, you will need:
 
       <!-- Update template-uri for GA -->
 
-      ```bash
-      az deployment group create \
-       --name <REPLACE_WITH_UNIQUE_NAME_FOR_VIRTUAL_MACHINE> \
-       --resource-group <REPLACE_WITH_YOUR_RESOURCE_GROUP> \
-       --template-uri "https://raw.githubusercontent.com/ebertrams/iotedge-vm-deploy/1.2.0-bugbash/edgeDeploy.json" \
-       --parameters dnsLabelPrefix='<REPLACE_WITH_UNIQUE_DNS_FOR_VIRTUAL_MACHINE>' \
-       --parameters adminUsername='azureuser' \
-       --parameters authenticationType='sshPublicKey' \
-       --parameters adminPasswordOrKey="$(< ~/.ssh/id_rsa.pub)" \
-       --query "properties.outputs.[publicFQDN.value, publicSSH.value]" -o tsv
-      ```
+   ```bash
+   az deployment group create \
+     --name <REPLACE_WITH_UNIQUE_NAME_FOR_VIRTUAL_MACHINE> \
+     --resource-group <REPLACE_WITH_YOUR_RESOURCE_GROUP> \
+     --template-uri "https://raw.githubusercontent.com/ebertrams/iotedge-vm-deploy/1.2.0-bugbash/edgeDeploy.json" \
+     --parameters dnsLabelPrefix='<REPLACE_WITH_UNIQUE_DNS_FOR_VIRTUAL_MACHINE>' \
+     --parameters adminUsername='azureuser' \
+     --parameters authenticationType='sshPublicKey' \
+     --parameters adminPasswordOrKey="$(< ~/.ssh/id_rsa.pub)" \
+     --query "properties.outputs.[publicFQDN.value, publicSSH.value]" -o tsv
+   ```
 
-      The virtual machine uses SSH keys for authenticating users. If you are unfamiliar with creating and using SSH keys, you can follow [the instructions for SSH public-private key pairs for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+   The virtual machine uses SSH keys for authenticating users. If you are unfamiliar with creating and using SSH keys, you can follow [the instructions for SSH public-private key pairs for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
-      IoT Edge version 1.2 is preinstalled with this ARM template, saving the need to manually install the assets on your devices.
+   IoT Edge version 1.2 is preinstalled with this ARM template, saving the need to manually install the assets on your devices.
 
-      A successful creation of a virtual machine using this ARM template will output your virtual machine's `SSH` handle and fully-qualified domain name (`FQDN`). You will use the SSH handle and either the FQDN or IP address of each virtual machine for configuration in later steps, so keep track of this information. A sample output is pictured below.
+   A successful creation of a virtual machine using this ARM template will output your virtual machine's `SSH` handle and fully-qualified domain name (`FQDN`). You will use the SSH handle and either the FQDN or IP address of each virtual machine for configuration in later steps, so keep track of this information. A sample output is pictured below.
 
-      >[!TIP]
-      >You can also find the IP address and FQDN on the Azure portal. For the IP address, navigate to your list of virtual machines and note the **Public IP address field**. For the FQDN, go to each virtual machine's overview page and look for the **DNS name** field.
+   >[!TIP]
+   >You can also find the IP address and FQDN on the Azure portal. For the IP address, navigate to your list of virtual machines and note the **Public IP address field**. For the FQDN, go to each virtual machine's overview page and look for the **DNS name** field.
 
-      ![The virtual machine will output a JSON upon creation, which contains its SSH handle](./media/tutorial-nested-iot-edge/virtual-machine-outputs.png)
+   ![The virtual machine will output a JSON upon creation, which contains its SSH handle](./media/tutorial-nested-iot-edge/virtual-machine-outputs.png)
 
 * Make sure that the following ports are open inbound for all devices except the lowest layer device: 8000, 443, 5671, 8883:
   * 8000: Used to pull Docker container images through the API proxy.
