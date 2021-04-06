@@ -19,7 +19,7 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-In Azure Media Services, when processing your videos (for example, encoding or analyzing) you need to create an output [asset](assets-concept.md) to store the result of your [job](transforms-jobs-concept.md). You can then download these results to a local folder using Media Service and Storage APIs. 
+In Azure Media Services, when processing your videos (for example, encoding or analyzing) you need to create an output [asset](assets-concept.md) to store the result of your [job](transform-jobs-concept.md). You can then download these results to a local folder using Media Service and Storage APIs. 
 
 This article demonstrates how to download the results using Java and .NET SDKs.
 

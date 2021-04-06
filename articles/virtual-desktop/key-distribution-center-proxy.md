@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Configure a Kerberos Key Distribution Center proxy (preview)
 

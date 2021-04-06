@@ -2910,11 +2910,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service/containers/deploy-container-github-action.md",
-      "redirect_url": "/azure/app-service/deploy-container-github-action",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/app-service/app-service-deploy-content-sync.md",
       "redirect_url": "/azure/app-service/deploy-content-sync",
       "redirect_document_id": false
@@ -2927,16 +2922,6 @@
     {
       "source_path_from_root": "/articles/app-service/app-service-continuous-deployment.md",
       "redirect_url": "/azure/app-service/deploy-continuous-deployment",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service/deploy-github-actions.md",
-      "redirect_url": "/azure/app-service/deploy-continuous-deployment",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service/deploy-container-github-action.md",
-      "redirect_url": "/azure/app-service/deploy-ci-cd-custom-container",
       "redirect_document_id": false
     },
     {
@@ -47738,6 +47723,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/concept-recognizing-text.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/overview-ocr",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md",
       "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios/from-microphone",
       "redirect_document_id": false
@@ -59584,7 +59574,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Computer-vision/concept-extracting-text-ocr.md",
-      "redirect_url": "/azure/cognitive-services/Computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/overview-ocr",
       "redirect_document_id": false
     },
     {

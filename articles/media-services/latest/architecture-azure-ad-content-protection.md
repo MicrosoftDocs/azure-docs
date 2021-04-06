@@ -214,7 +214,7 @@ Choose an Azure AD tenant to use for our end-to-end sample. You have two options
 > [!NOTE]
 > As of this writing, you can't use the Azure portal for the media services account key policy setup because it doesn't support using an asymmetric token signing key with OpenID-Config.  The setup must support Azure AD key rollover because the Azure AD issued token is signed by an asymmetric key and the key rolls over every six weeks. Therefore, this tutorial uses .NET and the AMS v3 API.
 
-Configuration of the [content key policy](drm-content-key-policy-concept.md) and [streaming policies](streaming-policy-concept.md) for DRM and AES-128 apply.  Change the `ContentKeyPolicyRestriction` in the content key policy.
+Configuration of the [content key policy](drm-content-key-policy-concept.md) and [streaming policies](stream-streaming-policy-concept.md) for DRM and AES-128 apply.  Change the `ContentKeyPolicyRestriction` in the content key policy.
 
 Below is the .NET code for creating the content key policy restriction.
 
