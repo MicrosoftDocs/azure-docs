@@ -14,11 +14,11 @@ ms.author: aahi
 
 # How to: Deploy a People Counting web application
 
-Use this article to learn how to integrate spatial analysis into a web app that understands the movement of people, and monitors the number of people occupying a physical space. 
+Use this article to learn how to integrate Spatial Analysis into a web app that understands the movement of people, and monitors the number of people occupying a physical space. 
 
 In this tutorial you will learn how to:
 
-* Deploy the spatial analysis container
+* Deploy the Spatial Analysis container
 * Configure the operation and camera
 * Configure the IoT Hub connection in the Web Application
 * Deploy and test the Web Application
@@ -29,7 +29,7 @@ In this tutorial you will learn how to:
 * Basic understanding of Azure IoT Edge deployment configurations, and an [Azure IoT Hub](../../iot-hub/index.yml)
 * A configured [host computer](spatial-analysis-container.md).
 
-## Deploy the spatial analysis container
+## Deploy the Spatial Analysis container
 
 Fill out the [request application](https://aka.ms/csgate) to get access to run the container. 
 
@@ -58,7 +58,7 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### Deploy the container on Azure IoT Edge on the host computer
 
-Deploy the spatial analysis container as an IoT Module on the host computer, using the Azure CLI. The deployment process requires a deployment manifest file which outlines the required containers, variables, and configurations for your deployment. You can find a sample [Azure Stack Edge specific deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179), [non-Azure Stack Edge specific deployment manifest](https://go.microsoft.com/fwlink/?linkid=2152189), and [Azure VM with GPU specific deployment manifest](https://go.microsoft.com/fwlink/?linkid=2152189) on GitHub, which include a basic deployment configuration for the *spatial-analysis* container. 
+Deploy the Spatial Analysis container as an IoT Module on the host computer, using the Azure CLI. The deployment process requires a deployment manifest file which outlines the required containers, variables, and configurations for your deployment. You can find a sample [Azure Stack Edge specific deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179), [non-Azure Stack Edge specific deployment manifest](https://go.microsoft.com/fwlink/?linkid=2152189), and [Azure VM with GPU specific deployment manifest](https://go.microsoft.com/fwlink/?linkid=2152189) on GitHub, which include a basic deployment configuration for the *spatial-analysis* container. 
 
 Alternatively, you can use the Azure IoT extensions for Visual Studio Code to perform operations with your IoT hub. Go to [Deploy Azure IoT Edge Modules from Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) to learn more.
 
@@ -194,7 +194,7 @@ If you'd like to view or modify the source code for this application, you can fi
 
 ## Next steps
 
-* [Configure spatial analysis operations](./spatial-analysis-operations.md)
+* [Configure Spatial Analysis operations](./spatial-analysis-operations.md)
 * [Logging and troubleshooting](spatial-analysis-logging.md)
 * [Camera placement guide](spatial-analysis-camera-placement.md)
 * [Zone and line placement guide](spatial-analysis-zone-line-placement.md)

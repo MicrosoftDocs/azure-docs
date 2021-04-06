@@ -67,7 +67,8 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | RedHat | RHEL 8-LVM | 8-LVM | RedHat:RHEL:8-LVM:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.2 | 8.2 | RedHat:RHEL:8.2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.1 | 8.1 | RedHat:RHEL:8.1:latest | OS and data disk (see note below) |
-| RedHat | RHEL 7-LVM | 7-LVM | RedHat:RHEL:7-LVM: 7.8.2020111201 | OS and data disk (see note below) |
+| RedHat | RHEL 7-LVM | 7-LVM | RedHat:RHEL:7-LVM:7.9.2020111202 | OS and data disk (see note below) |
+| RedHat | RHEL 7.9 | 7_9 | RedHat:RHEL:7_9:latest | OS and data disk (see note below) |
 | RedHat | RHEL 7.8 | 7.8 | RedHat:RHEL:7.8:latest | OS and data disk (see note below) |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | OS and data disk (see note below) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | OS and data disk (see note below) |
@@ -80,8 +81,9 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | OpenLogic | CentOS 8-LVM | 8-LVM | OpenLogic:CentOS-LVM:8-LVM:latest | OS and data disk |
 | OpenLogic | CentOS 8.2 | 8_2 | OpenLogic:CentOS:8_2:latest | OS and data disk |
 | OpenLogic | CentOS 8.1 | 8_1 | OpenLogic:CentOS:8_1:latest | OS and data disk |
-| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.8.2020111100 | OS and data disk |
-| OpenLogic | CentOS 7.8 | 7.8 | OpenLogic:CentOS:7_8:latest | OS and data disk |
+| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.9.2021020400 | OS and data disk |
+| OpenLogic | CentOS 7.9 | 7_9 | OpenLogic:CentOS:7_9:latest | OS and data disk |
+| OpenLogic | CentOS 7.8 | 7_8 | OpenLogic:CentOS:7_8:latest | OS and data disk |
 | OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | OS and data disk |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | OS and data disk |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | OS and data disk |
