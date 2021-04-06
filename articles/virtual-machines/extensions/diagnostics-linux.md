@@ -84,7 +84,7 @@ The following sample commands install Python 2 on various distributions:
 - Ubuntu, Debian: `apt-get install -y python2`
 - SUSE: `zypper install -y python2`
 
-The `python2` executable must be aliased to *python*. Here's one way to set this alias:
+The `python2` executable file must be aliased to *python*. Here's one way to set this alias:
 
 1. Run the following command to remove any existing aliases.
  
@@ -108,7 +108,7 @@ In these examples, the sample configuration collects a set of standard data and 
 In most cases, you should download a copy of the portal settings JSON file and customize it for your needs. Then use templates or your own automation to use a customized version of the configuration file rather than downloading from the URL each time.
 
 > [!NOTE]
-> When you enable the new Azure Monitor sink, the VMs need to have system-assigned identity enabled to generate MSI auth tokens. You can add these settings during or after VM creation. 
+> When you enable the new Azure Monitor sink, the VMs need to have system-assigned identity enabled to generate Managed Service Identity (MSI) authentication tokens. You can add these settings during or after VM creation. 
 >
 > For instructions for the Azure portal, the Azure CLI, PowerShell, and Azure Resource Manager, see [Configure managed identities](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
 
@@ -255,7 +255,7 @@ You can construct the required SAS token through the Azure portal:
 
 1. Select the general-purpose storage account to which you want the extension to write.
 1. In the menu on the left, under **Settings**, select **Shared access signature**.
-1. Make the sections as previously described.
+1. Make the selections as previously described.
 1. Select **Generate SAS**.
 
 :::image type="content" source="./media/diagnostics-linux/make_sas.png" alt-text="Screenshot shows the Shared access signature page with the Generate S A S button.":::
@@ -364,7 +364,7 @@ The following sections provide details about the remaining elements.
 }
 ```
 
-The `ladCfg` structure controls the gathering of metrics and logs for delivery to the Azure Metrics service and to other data sinks. Specify either `performanceCounters` or `syslogEvents` or both. Also specify the `metrics` structure.
+The `ladCfg` structure controls the gathering of metrics and logs for delivery to the Azure Monitor Metrics service and to other data sinks. Specify either `performanceCounters` or `syslogEvents` or both. Also specify the `metrics` structure.
 
 If you don't want to enable syslog or metrics collection, specify an empty structure for the `ladCfg` element, like in this example: 
 
@@ -394,7 +394,7 @@ sampleRateInSeconds | (Optional) The default interval between the collection of 
 Element | Value
 ------- | -----
 resourceId | The Azure Resource Manager resource ID of the VM or of the virtual machine scale set to which the VM belongs. Also specify this setting if the configuration uses any `JsonBlob` sink.
-scheduledTransferPeriod | The frequency at which aggregate metrics are computed and transferred to Azure Metrics. The frequency is expressed as an IS 8601 time interval. The smallest transfer period is 60 seconds, that is, PT1M. Specify at least one `scheduledTransferPeriod`.
+scheduledTransferPeriod | The frequency at which aggregate metrics are computed and transferred to Azure Monitor Metrics. The frequency is expressed as an IS 8601 time interval. The smallest transfer period is 60 seconds, that is, PT1M. Specify at least one `scheduledTransferPeriod`.
 
 Samples of the metrics specified in the `performanceCounters` section are collected every 15 seconds or at the sample rate explicitly defined for the counter. If multiple `scheduledTransferPeriod` frequencies appear, as in the example, each aggregation is computed independently.
 
@@ -437,11 +437,11 @@ sinks | (Optional) A comma-separated list of names of sinks to which LAD sends a
 type | Identifies the actual provider of the metric.
 class | Together with `"counter"`, identifies the specific metric within the provider's namespace.
 counter | Together with `"class"`, identifies the specific metric within the provider's namespace.
-counterSpecifier | Identifies the specific metric within the Azure Metrics namespace.
-condition | (Optional) Selects an instance of the object to which the metric applies. Or selects the aggregation across all instances of that object. For more information, see the `builtin` metric definitions.
+counterSpecifier | Identifies the specific metric within the Azure Monitor Metrics namespace.
+condition | (Optional) Selects an instance of the object to which the metric applies. Or selects the aggregation across all instances of that object. 
 sampleRate | The IS 8601 interval that sets the rate at which raw samples for this metric are collected. If the value isn't set, the collection interval is set by the value of [`sampleRateInSeconds`](#ladcfg). The shortest supported sample rate is 15 seconds (PT15S).
 unit | Defines the unit for the metric. Should be one of these strings: `"Count"`, `"Bytes"`, `"Seconds"`, `"Percent"`, `"CountPerSecond"`, `"BytesPerSecond"`, `"Millisecond"`. Consumers of the collected data expect the collected data values to match this unit. LAD ignores this field.
-displayName | The label to be attached to the data in Azure Metrics. This label is in the language specified by the associated locale setting. LAD ignores this field.
+displayName | The label to be attached to the data in Azure Monitor Metrics. This label is in the language specified by the associated locale setting. LAD ignores this field.
 
 The `counterSpecifier` is an arbitrary identifier. Consumers of metrics, like the Azure portal charting and alerting feature, use `counterSpecifier` as the "key" that identifies a metric or an instance of a metric. 
 
@@ -459,7 +459,7 @@ All instances of LAD that use the same storage account name and endpoint add the
 
 The `eventVolume` setting causes entries to be spread across 1 (small), 10 (medium), or 100 (large) partitions. Usually, medium partitions are sufficient to avoid traffic throttling. 
 
-The Azure Metrics feature of the Azure portal uses the data in this table to produce graphs or to trigger alerts. The table name is the concatenation of these strings:
+The Azure Monitor Metrics feature of the Azure portal uses the data in this table to produce graphs or to trigger alerts. The table name is the concatenation of these strings:
 
 * `WADMetrics`
 * The `"scheduledTransferPeriod"` for the aggregated values stored in the table
@@ -848,7 +848,7 @@ You also can use these UI tools to access the data in Azure Storage:
 * Visual Studio Server Explorer
 * [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
 
-The following screenshot of an Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't exactly match the [sample LAD 3.0 configuration](#example-lad-40-configuration).
+The following screenshot of an Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 4.0 extension on a test VM. The image doesn't exactly match the [sample LAD 4.0 configuration](#example-lad-40-configuration).
 
 :::image type="content" source="./media/diagnostics-linux/stg_explorer.png" alt-text="Screenshot shows Azure Storage Explorer.":::
 

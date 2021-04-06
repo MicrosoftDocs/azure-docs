@@ -81,7 +81,7 @@ Linux Diagnostic Extension requires Python 2. If your virtual machine uses a dis
 - Ubuntu, Debian: `apt-get install -y python2`
 - SUSE: `zypper install -y python2`
 
-The `python2` executable must be aliased to *python*. Here's one method to set this alias:
+The `python2` executable file must be aliased to *python*. Here's one method to set this alias:
 
 1. Run the following command to remove any existing aliases.
  
@@ -196,7 +196,7 @@ After you change your protected or public settings, deploy them to the VM by run
 
 ### Migrate from previous versions of the extension
 
-The latest version of the extension is *3.0*. *Any older versions are deprecated as of July 31, 2018*.
+The latest version of the extension is *4.0*. 
 
 > [!IMPORTANT]
 > This extension introduces breaking changes to the configuration. One such change improved the security of the extension, so backward compatibility with 2.x couldn't be maintained. Also, the extension publisher for this extension differs from the publisher for the 2.x versions.
@@ -240,7 +240,7 @@ You can construct the required SAS token through the Azure portal:
 
 1. Select the general-purpose storage account to which you want the extension to write.
 1. In the menu on the left, under **Settings**, select **Shared access signature**.
-1. Make the sections as previously described.
+1. Make the selections as previously described.
 1. Select **Generate SAS**.
 
 :::image type="content" source="./media/diagnostics-linux/make_sas.png" alt-text="Screenshot shows the Shared access signature page with the Generate S A S button.":::
@@ -351,7 +351,7 @@ The following sections provide details for the remaining elements.
 }
 ```
 
-The `ladCfg` structure is optional. It controls the gathering of metrics and logs that are delivered to the Azure Metrics service and to other data sinks. You must specify:
+The `ladCfg` structure is optional. It controls the gathering of metrics and logs that are delivered to the Azure Monitor Metrics service and to other data sinks. You must specify:
 
 * Either `performanceCounters` or `syslogEvents` or both. 
 * The `metrics` structure.
@@ -376,7 +376,7 @@ sampleRateInSeconds | (Optional) The default interval between the collection of 
 Element | Value
 ------- | -----
 resourceId | The Azure Resource Manager resource ID of the VM or of the scale set to which the VM belongs. This setting must be also specified if any `JsonBlob` sink is used in the configuration.
-scheduledTransferPeriod | The frequency at which aggregate metrics are computed and transferred to Azure Metrics. The frequency is expressed as an IS 8601 time interval. The smallest transfer period is 60 seconds, that is, PT1M. Specify at least one `scheduledTransferPeriod`.
+scheduledTransferPeriod | The frequency at which aggregate metrics are computed and transferred to Azure Monitor Metrics. The frequency is expressed as an IS 8601 time interval. The smallest transfer period is 60 seconds, that is, PT1M. Specify at least one `scheduledTransferPeriod`.
 
 Samples of the metrics specified in the `performanceCounters` section are collected every 15 seconds or at the sample rate explicitly defined for the counter. If multiple `scheduledTransferPeriod` frequencies appear, as in the example, each aggregation is computed independently.
 
@@ -419,11 +419,11 @@ sinks | (Optional) A comma-separated list of names of sinks to which LAD sends a
 type | Identifies the actual provider of the metric.
 class | Together with `"counter"`, identifies the specific metric within the provider's namespace.
 counter | Together with `"class"`, identifies the specific metric within the provider's namespace.
-counterSpecifier | Identifies the specific metric within the Azure Metrics namespace.
-condition | (Optional) Selects a specific instance of the object to which the metric applies. Or it selects the aggregation across all instances of that object. For more information, see the `builtin` metric definitions.
+counterSpecifier | Identifies the specific metric within the Azure Monitor Metrics namespace.
+condition | (Optional) Selects a specific instance of the object to which the metric applies. Or it selects the aggregation across all instances of that object. 
 sampleRate | The IS 8601 interval that sets the rate at which raw samples for this metric are collected. If the value isn't set, the collection interval is set by the value of [`sampleRateInSeconds`](#ladcfg). The shortest supported sample rate is 15 seconds (PT15S).
 unit | Defines the unit for the metric. Should be one of these strings: `"Count"`, `"Bytes"`, `"Seconds"`, `"Percent"`, `"CountPerSecond"`, `"BytesPerSecond"`, `"Millisecond"`. Consumers of the collected data expect the collected data values to match this unit. LAD ignores this field.
-displayName | The label to be attached to the data in Azure Metrics. This label is in the language specified by the associated locale setting. LAD ignores this field.
+displayName | The label to be attached to the data in Azure Monitor Metrics. This label is in the language specified by the associated locale setting. LAD ignores this field.
 
 The `counterSpecifier` is an arbitrary identifier. Consumers of metrics, like the Azure portal charting and alerting feature, use `counterSpecifier` as the "key" that identifies a metric or an instance of a metric. 
 
@@ -443,7 +443,7 @@ All instances of LAD that use the same storage account name and endpoint add the
 
 The `eventVolume` setting causes entries to be spread across 1 (small), 10 (medium), or 100 (large) partitions. Usually, medium partitions are sufficient to avoid traffic throttling. 
 
-The Azure Metrics feature of the Azure portal uses the data in this table to produce graphs or to trigger alerts. The table name is the concatenation of these strings:
+The Azure Monitor Metrics feature of the Azure portal uses the data in this table to produce graphs or to trigger alerts. The table name is the concatenation of these strings:
 
 * `WADMetrics`
 * The `"scheduledTransferPeriod"` for the aggregated values stored in the table
@@ -506,7 +506,7 @@ namespace | (Optional) The OMI namespace within which the query should be run. I
 query | The OMI query to run.
 table | (Optional) The Azure Storage table, in the designated storage account. For more information, see [Protected settings](#protected-settings).
 frequency | (Optional) The number of seconds between query runs. The default value is 300 (5 minutes). The minimum value is 15 seconds.
-sinks | (Optional) A comma-separated list of names of more sinks to which raw sample metric results should be published. No aggregation of these raw samples is computed by the extension or by Azure Metrics.
+sinks | (Optional) A comma-separated list of names of more sinks to which raw sample metric results should be published. No aggregation of these raw samples is computed by the extension or by Azure Monitor Metrics.
 
 Either `"table"` or `"sinks"` or both must be specified.
 
