@@ -146,7 +146,7 @@ If you don't have these values, locate them first in your [Purview credential](#
     |Field  |Description  |
     |---------|---------|
     |**Account ID**     |    Enter your Microsoft Account ID. For example: `615019938638`     |
-    |**External ID**     |   Under options, select **Require external ID...**, and then enter your External ID in the designated field. <br>For example: `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`    <br><br>You can find this external ID when you .  |
+    |**External ID**     |   Under options, select **Require external ID...**, and then enter your External ID in the designated field. <br>For example: `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`     |
     | | |
 
     For example:
