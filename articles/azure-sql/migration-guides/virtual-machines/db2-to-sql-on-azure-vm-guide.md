@@ -33,11 +33,11 @@ After you have met the prerequisites, you're ready to discover the topology of y
 
 ### Assess 
 
-Use SQL Server Migration Assistant (SSMA) for DB2 to review database objects and data, and assess databases for migration. 
+Use SSMA for DB2 to review database objects and data, and assess databases for migration. 
 
 To create an assessment, follow these steps:
 
-1. Open [SQL Server Migration Assistant (SSMA) for Db2](https://www.microsoft.com/download/details.aspx?id=54254). 
+1. Open [SSMA for Db2](https://www.microsoft.com/download/details.aspx?id=54254). 
 1. Select **File** > **New Project**. 
 1. Provide a project name and a location to save your project. Then select a SQL Server migration target from the drop-down list, and select **OK**.
 
@@ -76,7 +76,7 @@ Validate the default data type mappings, and change them based on requirements i
 
 To convert the schema, follow these steps:
 
-1. (Optional) Add dynamic or ad-hoc queries to statements. Right-click the node, and then choose **Add statements**. 
+1. (Optional) Add dynamic or ad hoc queries to statements. Right-click the node, and then choose **Add statements**. 
 1. Select **Connect to SQL Server**. 
     1. Enter connection details to connect to your instance of SQL Server on your Azure VM. 
     1. Choose to connect to an existing database on the target server, or provide a new name to create a new database on the target server. 
@@ -89,7 +89,7 @@ To convert the schema, follow these steps:
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/convert-schema.png" alt-text="Screenshot that shows selecting the schema and converting it.":::
 
-1. After the conversion completes, compare and review the structure of the schema to identify potential problems. Address the problems based on the recommendations. 
+1. After the conversion finishes, compare and review the structure of the schema to identify potential problems. Address the problems based on the recommendations. 
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/compare-review-schema-structure.png" alt-text="Screenshot that shows comparing and reviewing the structure of the schema to identify potential problems.":::
 
@@ -111,7 +111,7 @@ To publish your schema and migrate your data, follow these steps:
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/migrate-data.png" alt-text="Screenshot that shows selecting the schema and choosing to migrate data.":::
 
 1. Provide connection details for both the Db2 and SQL Server instances. 
-1. After migration completes, view the **Data Migration Report**:  
+1. After migration finishes, view the **Data Migration Report**:  
 
    :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/data-migration-report.png" alt-text="Screenshot that shows where to review the data migration report.":::
 
@@ -144,8 +144,8 @@ For additional assistance, see the following resources, which were developed in 
 |---------|---------|
 |[Data workload assessment model and tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| This tool provides suggested "best fit" target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing and automated and uniform target platform decision process.|
 |[Db2 zOS data assets discovery and assessment package](https://github.com/microsoft/DataMigrationTeam/tree/master/DB2%20zOS%20Data%20Assets%20Discovery%20and%20Assessment%20Package)|After running the SQL script on a database, you can export the results to a file on the file system. Several file formats are supported, including *.csv, so that you can capture the results in external tools such as spreadsheets. This method can be useful if you want to easily share results with teams that do not have the workbench installed.|
-|[IBM Db2 LUW inventory scripts and artifacts](https://github.com/Microsoft/DataMigrationTeam/tree/master/IBM%20Db2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|This asset includes a SQL query that hits IBM Db2 LUW version 11.1 system tables and provides a count of objects by schema and object type, a rough estimate of 'Raw Data' in each schema, and the sizing of tables in each schema, with results stored in a CSV format.|
-|[Db2 LUW pure scale on Azure - setup guide](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/db2%20PureScale%20on%20Azure.pdf)|This guide serves as a starting point for a Db2 implementation plan. While business requirements will differ, the same basic pattern applies. This architectural pattern may also be used for OLAP applications on Azure.|
+|[IBM Db2 LUW inventory scripts and artifacts](https://github.com/Microsoft/DataMigrationTeam/tree/master/IBM%20Db2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|This asset includes a SQL query that hits IBM Db2 LUW version 11.1 system tables and provides a count of objects by schema and object type, a rough estimate of "raw data" in each schema, and the sizing of tables in each schema, with results stored in a CSV format.|
+|[Db2 LUW pure scale on Azure - setup guide](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/db2%20PureScale%20on%20Azure.pdf)|This guide serves as a starting point for a Db2 implementation plan. Although business requirements will differ, the same basic pattern applies. This architectural pattern can also be used for OLAP applications on Azure.|
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
 
