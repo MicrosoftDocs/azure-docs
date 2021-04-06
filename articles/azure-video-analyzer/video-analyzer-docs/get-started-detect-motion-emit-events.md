@@ -57,18 +57,18 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
 
 Upon successful completion of the script, you should see all of the required resources in your subscription. A total of 12 resources will be setup by the script:
 
-1. **Streaming Endpoint** - This will help in the playing the recorded AMS asset.
-1. **Virtual machine** - This is a virtual machine that will act as your edge device.
-1. **Disk** - This is a storage disk that is attached to the virtual machine to store media and artifacts.
-1. **Network security group** - This is used to filter network traffic to and from Azure resources in an Azure virtual network.
-1. **Network interface** - This enables an Azure Virtual Machine to communicate with internet, Azure, and other resources.
-1. **Bastion connection** - This lets you connect to your virtual machine using your browser and the Azure portal.
-1. **Public IP address** - This enables Azure resources to communicate to Internet and public-facing Azure services
-1. **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about Virtual networks.
-1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
-1. **Media service account** - This helps with managing and streaming media content in Azure.
-1. **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see Azure Storage accounts with Azure Media Services accounts.
-1. **Container registry** - This helps in storing and managing your private Docker container images and related artifacts.
+- **Streaming Endpoint** - This will help in the playing the recorded AMS asset.
+- **Virtual machine** - This is a virtual machine that will act as your edge device.
+- **Disk** - This is a storage disk that is attached to the virtual machine to store media and artifacts.
+- **Network security group** - This is used to filter network traffic to and from Azure resources in an Azure virtual network.
+- **Network interface** - This enables an Azure Virtual Machine to communicate with internet, Azure, and other resources.
+- **Bastion connection** - This lets you connect to your virtual machine using your browser and the Azure portal.
+- **Public IP address** - This enables Azure resources to communicate to Internet and public-facing Azure services
+- **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about Virtual networks.
+- **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
+- **Media service account** - This helps with managing and streaming media content in Azure.
+- **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see Azure Storage accounts with Azure Media Services accounts.
+- **Container registry** - This helps in storing and managing your private Docker container images and related artifacts.
 
 In the script output, a table of resources lists the IoT hub name. Look for the resource type Microsoft.Devices/IotHubs, and note down the name. You'll need this name in the next step.
 
@@ -691,4 +691,3 @@ If you're not going to continue to use this application, delete the resources yo
 
 * Learn how to [record video by using Live Video Analytics on IoT Edge]()<!--TODO: add a link once the topic is staged -->.
 * Learn more about [diagnostic messages]()<!--TODO: add a link once the topic is staged -->.
-
