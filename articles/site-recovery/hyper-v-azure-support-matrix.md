@@ -147,6 +147,7 @@ Secure transfer option | Yes | Yes
 **Feature** | **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
 --- | --- | ---
 Availability sets | Yes | Yes
+Availability zones | No | No
 HUB | Yes | Yes  
 Managed disks | Yes, for failover.<br/><br/> Failback of managed disks isn't supported. | Yes, for failover.<br/><br/> Failback of managed disks isn't supported.
 
