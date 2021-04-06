@@ -27,7 +27,7 @@ Use this article to find the settings and requirements for connecting different 
 | **Service principal**| Store your [Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Credential entity are able to view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
 | **Service principal from key vault**|Store your [Service Principal in a Key Vault](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2008&viewFallbackFrom=azs-2008) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of a **credential entity** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
 
-## Create a credentail entity for security
+## Create a credentail entity for security and convenience
 
 You can create a **Credential entity** to store credential related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the real credentials. It can be created in *Adding data feed page* or *Credential entity page*. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new datafeeed, and it will be really convenient when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
 
