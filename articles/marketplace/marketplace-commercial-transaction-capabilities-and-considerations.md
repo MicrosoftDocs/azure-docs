@@ -70,8 +70,6 @@ Depending on the transaction option used, subscription charges are as follows:
 
 Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [Stop selling an offer or plan](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
 
-After publishing a services offering in the commercial marketplace, publishers must maintain their data logs for a minimum of two previous calendar years. The data logs contain the provisioning of their offer to customers. If there are any conflicts in the data between the publisher’s data logs and Microsoft’s data logs, the Microsoft data logs take precedence.
-
 ### Free, Contact me, and bring-your-own-license (BYOL) pricing
 
 When publishing an offer with the Get it now (Free), Contact me, or BYOL option, Microsoft does not play a role in facilitating the sales transaction for your software license fees. The publisher keeps 100% of the software license fees.
