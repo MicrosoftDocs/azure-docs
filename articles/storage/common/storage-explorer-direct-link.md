@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Explorer direct-link | Microsoft Docs
+title: Azure Storage Explorer direct link | Microsoft Docs
 description: Documentation of Azure Storage Explorer direct link
 services: storage
 author: chuye
@@ -26,8 +26,8 @@ A Storage Explorer direct link always starts with protocol `storageexplorer://`.
 
 Parameter | Description
 :---------| :---------
-`v`         | Version of the direct-link protocol.
-`accountid` | The ARM (Azure Resource Manager) resource ID of the storage account for the linked resource. If the linked resource is a storage account, this ID will be the ARM resource ID of that storage account. Otherwise, this ID will be the ARM resource ID of the storage account the linked resource belongs to.
+`v`         | Version of the direct link protocol.
+`accountid` | The Azure Resource Manager (ARM) resource ID of the storage account for the linked resource. If the linked resource is a storage account, this ID will be the ARM resource ID of that storage account. Otherwise, this ID will be the ARM resource ID of the storage account the linked resource belongs to.
 `resourcetype` | Optional. Only used when the linked resource is a blob container, a file share, a queue, or a table. Must be either one of "Azure.BlobContainer", "Azure.FileShare", "Azure.Queue", "Azure.FileShare".
 `resourcename` | Optional. Only used when the linked resource is a blob container, a file share, a queue, or a table. The name of the linked resource.
 
