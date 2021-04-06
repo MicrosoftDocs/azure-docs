@@ -1,12 +1,12 @@
 ---
-title: Offer publishing guide for publishing Dynamics 365 offers in Microsoft AppSource
-description: Step-by-step publishing guide for publishing Dynamics 365 apps to Microsoft AppSource
+title: Plan Dynamics 365 offers for Microsoft AppSource
+description: Plan Dynamics 365 offers for Microsoft AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits
 ms.author: navits
-ms.date: 12/04/2020
+ms.date: 04/16/2021
 ---
 
 # Plan a Microsoft Dynamics 365 offer
@@ -80,9 +80,9 @@ After you've considered the planning items described above, select one of the fo
 | Publishing guide    | Notes  |
 | :------------------- | :-------------------|
 | <strike>Microsoft 365</strike> | <strike>Review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center).</strike> |
-| [Dynamics 365 for Operations](d365-operations-offer-setup.md) | When you're building for Enterprise Edition, first review the [publishing process and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). |
-| [Dynamics 365 for Business Central](./partner-center-portal/create-new-business-central-offer.md) |   |
-| [Dynamics 365 for Customer Engagement](./partner-center-portal/create-new-customer-engagement-offer.md) | First review the [publishing process and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
+| [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) | When you're building for Enterprise Edition, first review the [publishing process and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). |
+| [Dynamics 365 for Business Central](partner-center-portal/create-new-business-central-offer.md) |   |
+| [Dynamics 365 for Customer Engagement](partner-center-portal/create-new-customer-engagement-offer.md) | First review the [publishing process and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
 | Power Apps | <font color="red">[ If this is a D365 offer, where should it link to? ] </font>|
-| [Power BI](partner-center-portal/create-power-bi-app-offer.md) | Review the publishing process and guidelines](/power-bi/developer/office-store). |
+| [Power BI](/partner-center-portal/create-power-bi-app-offer.md) | [Review the publishing process and guidelines](/power-bi/developer/office-store). |
 |
