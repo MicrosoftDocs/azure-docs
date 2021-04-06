@@ -1,6 +1,6 @@
 ---
-title: Protect hybrid and multicloud Kubernetes deployments with Azure Defender for Kubernetes
-description: Use Azure Defender for Kubernetes with your on-premises and multicloud Kubernetes clusters
+title: Protect hybrid and multi-cloud Kubernetes deployments with Azure Defender for Kubernetes
+description: Use Azure Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -9,7 +9,7 @@ ms.date: 04/05/2021
 ms.author: memildin
 ---
 
-# Defend Azure Arc enabled Kubernetes clusters running in on-premises and multicloud environments
+# Defend Azure Arc enabled Kubernetes clusters running in on-premises and multi-cloud environments
 
 To defend your on-premises clusters with the same threat detection capabilities offered today for Azure Kubernetes Service clusters, enable Azure Arc on the clusters and deploy the **Azure Defender for Kubernetes cluster extension**
 
