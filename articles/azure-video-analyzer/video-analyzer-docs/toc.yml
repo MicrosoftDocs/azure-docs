@@ -8,7 +8,7 @@
     href: terminology.md
 - name: Quickstarts
   items:
-  - name: Get Started - Azure Video Analytics
+  - name: Get started - Azure Video Analytics
     href: get-started-detect-motion-emit-events.md
 - name: Concepts
   items:
@@ -20,4 +20,3 @@
     href: https://azure.microsoft.com/updates/?category=media
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/media-services/
-
