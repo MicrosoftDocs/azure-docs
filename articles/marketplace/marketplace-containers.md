@@ -38,16 +38,7 @@ These are the available licensing options for Dynamics 365 offers:
 
 ## Legal contracts
 
-[!INCLUDE [Legal contracts section](includes/legal-contracts-intro.md)]
-
-### Standard contract
-
-[!INCLUDE [Legal contracts section](includes/legal-contracts-standard.md)]
-[!INCLUDE [Legal contracts section](includes/legal-contracts-amendments.md)]
-
-### Custom terms and conditions
-
-[!INCLUDE [Legal contracts section](includes/legal-contracts-custom.md)]
+[!INCLUDE [Legal contracts section](includes/legal-contracts.md)]
 
 ## Offer listing details
 
@@ -89,9 +80,9 @@ After you've considered the planning items described above, select one of the fo
 | Publishing guide    | Notes  |
 | :------------------- | :-------------------|
 | <strike>Microsoft 365</strike> | <strike>Review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center).</strike> |
-| [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) | When you're building for Enterprise Edition, first review the [publishing process and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). |
-| [Dynamics 365 for Business Central](partner-center-portal/create-new-business-central-offer.md) |   |
-| [Dynamics 365 for Customer Engagement](partner-center-portal/create-new-customer-engagement-offer.md) | First review the [publishing process and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
+| [Dynamics 365 for Operations](d365-operations-offer-setup.md) | When you're building for Enterprise Edition, first review the [publishing process and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). |
+| [Dynamics 365 for Business Central](./partner-center-portal/create-new-business-central-offer.md) |   |
+| [Dynamics 365 for Customer Engagement](./partner-center-portal/create-new-customer-engagement-offer.md) | First review the [publishing process and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
 | Power Apps | <font color="red">[ If this is a D365 offer, where should it link to? ] </font>|
-| [Power BI](/partner-center-portal/create-power-bi-app-offer.md) | [Review the publishing process and guidelines](/power-bi/developer/office-store). |
+| [Power BI](partner-center-portal/create-power-bi-app-offer.md) | Review the publishing process and guidelines](/power-bi/developer/office-store). |
 |

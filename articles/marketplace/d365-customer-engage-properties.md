@@ -23,13 +23,13 @@ Select categories and subcategories to place your offer in the appropriate AppSo
 
 See the full list of categories and subcategories in [Offer Listing Best Practices](gtm-offer-listing-best-practices.md).
 
-### Industries
+## Industries
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)].
 
 Enter an **App version** for your offer. Customers will see this number listed on the offer's detail page. <strike>If you are only updating the version number due to marketing/descriptive changes, check the **Marketing only change** box. This option allows the offer to bypass the certification and provisioning stages.</strike>
 
-### Legal
+## Legal
 
 Provide the **Terms and conditions** customers must accept before they can try your offer. You can also provide the web address where your terms and conditions can be found.
 
