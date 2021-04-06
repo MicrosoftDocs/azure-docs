@@ -1,17 +1,25 @@
 ---
 title: include file
-description: include file for Customer Leads section of Plan
-documentationcenter: partner-center-commercial-marketplace
-ms.service: marketplace
+description: file
+ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-ms.date: 12/04/2020
-ms.custom: include file
 author: emuench
-ms.author: dsindona
+ms.author: mingshen
+ms.date: 10/09/2020
 ---
 
-You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports a variety of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
+When you're publishing an offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive (see the preceding section). Otherwise, connecting to a CRM is optional.
 
-You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see
-[Customer leads from your commercial marketplace offer](../partner-center-portal/commercial-marketplace-get-customer-leads.md).
+1. Under **Customer leads**, select the **Connect** link.
+1. In the **Connection details** dialog box, select a lead destination.
+1. Complete the fields that appear. For detailed steps, see the following articles:
+
+   - [Configure your offer to send leads to the Azure table](../partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
+   - [Configure your offer to send leads to Dynamics 365 Customer Engagement](../partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (formerly Dynamics CRM Online)
+   - [Configure your offer to send leads to HTTPS endpoint](../partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
+   - [Configure your offer to send leads to Marketo](../partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
+   - [Configure your offer to send leads to Salesforce](../partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
+
+1. To validate the configuration you provided, select the **Validate** link.
+1. Select **Connect**.
