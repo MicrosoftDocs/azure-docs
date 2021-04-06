@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with portal"
 description: In this quickstart, you use Azure portal to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.topic: quickstart
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources
@@ -67,6 +67,17 @@ disks_ policy definition.
    **Assigned by** will automatically fill based on who is logged in. This field is optional, so
    custom values can be entered.
 
+1. Leave policy enforcement _Enabled_. For more information, see
+   [Policy assignment - enforcement mode](./concepts/assignment-structure.md#enforcement-mode).
+
+1. Select **Next** at the bottom of the page or the **Parameters** tab at the top of the page to
+   move to the next segment of the assignment wizard.
+
+1. If the policy definition selected on the **Basics** tab included parameters, they are configured
+   on this tab. Since the _Audit VMs that do not use managed disks_ has no parameters, select
+   **Next** at the bottom of the page or the **Remediation** tab at the top of the page to move to
+   the next segment of the assignment wizard.
+
 1. Leave **Create a Managed Identity** unchecked. This box _must_ be checked when the policy or
    initiative includes a policy with either the
    [deployIfNotExists](./concepts/effects.md#deployifnotexists) or
@@ -75,7 +86,17 @@ disks_ policy definition.
    [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and
    [how remediation security works](./how-to/remediate-resources.md#how-remediation-security-works).
 
-1. Select **Assign**.
+1. Select **Next** at the bottom of the page or the **Non-compliance messages** tab at the top of
+   the page to move to the next segment of the assignment wizard.
+
+1. Set the **Non-compliance message** to _Virtual machines should use a managed disk_. This custom
+   message is displayed when a resource is denied or for non-compliant resources during regular
+   evaluation.
+
+1. Select **Next** at the bottom of the page or the **Review + Create** tab at the top of the page
+   to move to the next segment of the assignment wizard.
+
+1. Review the selected options, then select **Create** at the bottom of the page.
 
 You're now ready to identify non-compliant resources to understand the compliance state of your
 environment.

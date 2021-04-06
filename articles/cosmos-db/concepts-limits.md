@@ -5,7 +5,7 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 03/22/2021
 ---
 
 # Azure Cosmos DB service quotas
@@ -32,7 +32,7 @@ You can provision throughput at a container-level or a database-level in terms o
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
 | Maximum attachment size per Account (Attachment feature is being deprecated) | 2 GB |
-| Minimum RU/s required per 1 GB | 10 RU/s<br>**Note:** if your container or database contains more than 1 TB of data, your account may be eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program) |
+| Minimum RU/s required per 1 GB | 10 RU/s<br>**Note:** this minimum can be lowered if your account is eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
 > To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
@@ -55,7 +55,7 @@ To estimate the minimum throughput required of a container with manual throughpu
 
 Example: Suppose you have a container provisioned with 400 RU/s and 0 GB storage. You increase the throughput to 50,000 RU/s and import 20 GB of data. The minimum RU/s is now `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Over time, the storage grows to 200 GB. The minimum RU/s is now `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 RU/s. 
 
-**Note:** if your container or database contains more than 1 TB of data, your account may be eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program).
+**Note:** the minimum throughput of 10 RU/s per GB of storage can be lowered if your account is eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program).
 
 #### Minimum throughput on shared throughput database 
 To estimate the minimum throughput required of a shared throughput database with manual throughput, find the maximum of:
@@ -67,7 +67,7 @@ To estimate the minimum throughput required of a shared throughput database with
 
 Example: Suppose you have a database provisioned with 400 RU/s, 15 GB of storage, and 10 containers. The minimum RU/s is `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. If there were 30 containers in the database, the minimum RU/s would be `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s. 
 
-**Note:** if your container or database contains more than 1 TB of data, your account may be eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program).
+**Note:** the minimum throughput of 10 RU/s per GB of storage can be lowered if your account is eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program).
 
 In summary, here are the minimum provisioned RU limits. 
 
@@ -132,7 +132,7 @@ Depending on which API you use, an Azure Cosmos container can represent either a
 | --- | --- |
 | Maximum length of database or container name | 255 |
 | Maximum stored procedures per container | 100 <sup>*</sup>|
-| Maximum UDFs per container | 25 <sup>*</sup>|
+| Maximum UDFs per container | 50 <sup>*</sup>|
 | Maximum number of paths in indexing policy| 100 <sup>*</sup>|
 | Maximum number of unique keys per container|10 <sup>*</sup>|
 | Maximum number of paths per unique key constraint|16 <sup>*</sup>|
@@ -231,7 +231,8 @@ The following table lists the limits specific to MongoDB feature support. Other 
 | Resource | Default limit |
 | --- | --- |
 | Maximum MongoDB query memory size (This limitation is only for 3.2 server version) | 40 MB |
-| Maximum execution time for MongoDB operations| 30s |
+|Maximum execution time for MongoDB operations (for 3.2 server version)| 15 seconds|
+|Maximum execution time for MongoDB operations(for 3.6 server version)| 60 seconds|
 | Idle connection timeout for server side connection closure* | 30 minutes |
 
 \* We recommend that client applications set the idle connection timeout in the driver settings to 2-3 minutes because the [default timeout for Azure LoadBalancer is 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md).  This timeout will ensure that idle connections are not closed by an intermediate load balancer between the client machine and Azure Cosmos DB.

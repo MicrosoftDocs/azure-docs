@@ -17,7 +17,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 > [!NOTE]
 > If you're looking for content to help you get started with AzCopy, see any of the following articles:
 > - [Get started with AzCopy](storage-use-azcopy-v10.md)
-> - [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
+> - [Transfer data with AzCopy and blob storage](./storage-use-azcopy-v10.md#transfer-data)
 > - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 > - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
 
@@ -62,7 +62,7 @@ You can run a performance benchmark test on specific blob containers or file sha
 
 Use the following command to run a performance benchmark test.
 
-|    |     |
+| Syntax / example  |  Code |
 |--------|-----------|
 | **Syntax** | `azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Example** | `azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
@@ -98,14 +98,16 @@ Before you set this variable, we recommend that you run a benchmark test. The be
 
 ### Optimize memory use
 
-Set the `AZCOPY_BUFFER_GB` environment variable to specify the maximum amount of your system memory you want AzCopy to use when downloading and uploading files.
-Express this value in gigabytes (GB).
+Set the `AZCOPY_BUFFER_GB` environment variable to specify the maximum amount of your system memory you want AzCopy to use for buffering when downloading and uploading files. Express this value in gigabytes (GB).
 
 | Operating system | Command  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+> [!NOTE]
+> Job tracking always incurs additional overhead in memory usage. The amount varies based on the number of transfers in a job. Buffers are the largest component of memory usage. You can help control overhead by using `AZCOPY_BUFFER_GB` to approximately meet your requirements, but no flag to strictly cap overall memory usage is available.
 
 ### Optimize file synchronization
 
@@ -178,7 +180,7 @@ When you resume a job, AzCopy looks at the job plan file. The plan file lists al
 
 ## Change the location of the plan and log files
 
-By default, plan and log files are located in the `%USERPROFILE%\.azcopy` directory on Windows, or in the `$HOME$\.azcopy` directory on Mac and Linux. You can change this location.
+By default, plan and log files are located in the `%USERPROFILE%\.azcopy` directory on Windows, or in the `$HOME/.azcopy` directory on Mac and Linux. You can change this location.
 
 ### Change the location of plan files
 
@@ -215,5 +217,3 @@ Available log levels are: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, 
 If you want to remove all plan and log files from your local machine to save disk space, use the `azcopy jobs clean` command.
 
 To remove the plan and log files associated with only one job, use `azcopy jobs rm <job-id>`. Replace the `<job-id>` placeholder in this example with the job id of the job.
-
-

@@ -1,21 +1,11 @@
 ---
 title: Move data from Teradata using Azure Data Factory 
 description: Learn about Teradata Connector for the Data Factory service that lets you move data from Teradata Database
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: 98eb76d8-5f3d-4667-b76e-e59ed3eea3ae
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from Teradata using Azure Data Factory
@@ -134,9 +124,9 @@ As a first step, setup the data management gateway. The instructions are in the 
 
 **Teradata input dataset:**
 
-The sample assumes you have created a table “MyTable” in Teradata and it contains a column called “timestamp” for time series data.
+The sample assumes you have created a table "MyTable" in Teradata and it contains a column called "timestamp" for time series data.
 
-Setting “external”: true informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
+Setting "external": true informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
 
 ```json
 {

@@ -66,6 +66,9 @@ The [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-buil
 
 :::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Image showing two private endpoints given each IoT Hub private link":::
 
+IoT Hub's [IP filter](iot-hub-ip-filtering.md) can optionally control public access to the built-in endpoint. 
+
+To completely block public network access to your IoT hub, [turn off public network access](iot-hub-public-network-access.md) or use IP filter to block all IP and select the option to apply rules to the built-in endpoint.
 
 ### Pricing for Private Link
 

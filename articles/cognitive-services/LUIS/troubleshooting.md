@@ -172,7 +172,7 @@ The errors indicate that there is some discrepancy between your labels and the p
 * To help LUIS improve discrimination among intents, add more labels.
 * To help LUIS learn faster, add phrase-list features that introduce domain-specific vocabulary.
 
-See the [Batch testing](luis-tutorial-batch-testing.md) tutorial.
+See the [Batch testing](./luis-how-to-batch-test.md) tutorial.
 
 ### When an app is exported then reimported into a new app (with a new app ID), the LUIS prediction scores are different. Why does this happen?
 
@@ -281,7 +281,7 @@ If you are using the Azure Bot Service and the issue is that the **Test in Web C
 
 #### Resolve issue while debugging on local machine with Bot Framework.
 
-To learn more about local debugging of a bot, see [Debug a bot](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+To learn more about local debugging of a bot, see [Debug a bot](/azure/bot-service/bot-service-debug-bot).
 
 ## Integrating LUIS
 

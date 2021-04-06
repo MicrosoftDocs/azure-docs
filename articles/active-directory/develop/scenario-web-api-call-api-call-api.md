@@ -1,5 +1,6 @@
 ---
-title: Web API that calls web APIs - Microsoft identity platform | Azure
+title: Web API that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web API that calls web APIs.
 services: active-directory
 author: jmprieur
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform.
 ---
 
 # A web API that calls web APIs: Call an API
@@ -25,7 +26,7 @@ After you have a token, you can call a protected web API. You usually call the d
 
 When you use *Microsoft.Identity.Web*, you have three usage scenarios:
 
-- [Option 1: Call Microsoft Graph with the Microsoft Graph SDK](#option-1-call-microsoft-graph-with-the-sdk)
+- [Option 1: Call Microsoft Graph with the SDK](#option-1-call-microsoft-graph-with-the-sdk)
 - [Option 2: Call a downstream web API with the helper class](#option-2-call-a-downstream-web-api-with-the-helper-class)
 - [Option 3: Call a downstream web API without the helper class](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
@@ -155,7 +156,7 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 ```
 
 # [Python](#tab/python)
-A sample demonstrating this flow with MSAL Python isn't yet available.
+A sample demonstrating this flow with MSAL Python is available at [ms-identity-python-on-behalf-of](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of).
 
 ---
 

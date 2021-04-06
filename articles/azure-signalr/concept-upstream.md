@@ -54,7 +54,7 @@ The URL of upstream is not encryption at rest. If you have any sensitive informa
 
 1. Add a system-assigned identity or user-assigned identity. See [How to add managed identity in Azure Portal](./howto-use-managed-identity.md#add-a-system-assigned-identity)
 
-2. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+2. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md)
 
 3. Replace your sensitive text with the syntax `{@Microsoft.KeyVault(SecretUri=<secret-identity>)}` in the Upstream URL Pattern.
 

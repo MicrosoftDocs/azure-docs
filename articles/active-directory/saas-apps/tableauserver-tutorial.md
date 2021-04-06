@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 01/25/2021
 ms.author: jeedes
 ---
 
@@ -35,7 +35,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Tableau Server supports **SP** initiated SSO
 
-## Adding Tableau Server from the gallery
+## Add Tableau Server from the gallery
 
 To configure the integration of Tableau Server into Azure AD, you need to add Tableau Server from the gallery to your list of managed SaaS apps.
 
@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://azure.<domain name>.link/wg/saml/SSO/index.html`
 
 	> [!NOTE]
-	> The preceding values are not real values. Update the values with the actual URL and identifier from the Tableau Server configuration page which is explained later in the tutorial.
+	> The preceding values are not real values. Update the values with the actual Sign-on URL, Identifier and Reply URL from the Tableau Server configuration page which is explained later in the tutorial.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -121,27 +121,27 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. On the **CONFIGURATION** tab, select **User Identity & Access**, and then select the **Authentication** Method tab.
 
-	![Screenshot shows Authentication selected from User Identity & Access.](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+	![Screenshot shows Authentication selected from User Identity & Access.](./media/tableauserver-tutorial/auth.png)
 
 3. On the **CONFIGURATION** page, perform the following steps:
 
-	![Screenshot shows the Configuration page where you can enter the values described.](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+	![Screenshot shows the Configuration page where you can enter the values described.](./media/tableauserver-tutorial/config.png)
 
 	a. For **Authentication Method**, select SAML.
 
 	b. Select the checkbox of **Enable SAML Authentication for the server**.
 
-	c. Tableau Server return URL—The URL that Tableau Server users will be accessing, such as `http://tableau_server`. Using `http://localhost` is not recommended. Using a URL with a trailing slash (for example, `http://tableau_server/`) is not supported. Copy **Tableau Server return URL** and paste it in to **Sign On URL** textbox in **Basic SAML Configuration** section in the Azure portal
+	c. Tableau Server return URL—The URL that Tableau Server users will be accessing, such as `http://tableau_server`. Using `http://localhost` is not recommended. Using a URL with a trailing slash (for example, `http://tableau_server/`) is not supported. Copy **Tableau Server return URL** and paste it in to **Sign On URL** textbox in **Basic SAML Configuration** section in the Azure portal.
 
-	d. SAML entity ID—The entity ID uniquely identifies your Tableau Server installation to the IdP. You can enter your Tableau Server URL again here, if you like, but it does not have to be your Tableau Server URL. Copy **SAML entity ID** and paste it in to **Identifier** textbox in **Basic SAML Configuration** section in the Azure portal
+	d. SAML entity ID—The entity ID uniquely identifies your Tableau Server installation to the IdP. You can enter your Tableau Server URL again here, if you like, but it does not have to be your Tableau Server URL. Copy **SAML entity ID** and paste it in to **Identifier** textbox in **Basic SAML Configuration** section in the Azure portal.
 
-	e. Click the **Download XML Metadata File** and open it in the text editor application. Locate Assertion Consumer Service URL with Http Post and Index 0 and copy the URL. Now paste it in to **Reply URL** textbox in **Basic SAML Configuration** section in the Azure portal
+	e. Click the **Download XML Metadata File** and open it in the text editor application. Locate Assertion Consumer Service URL with Http Post and Index 0 and copy the URL. Now paste it in to **Reply URL** textbox in **Basic SAML Configuration** section in the Azure portal.
 
 	f. Locate your Federation Metadata file downloaded from Azure portal, and then upload it in the **SAML Idp metadata file**.
 
 	g. Enter the names for the attributes that the IdP uses to hold the user names, display names, and email addresses.
 
-	h. Click **Save**
+	h. Click **Save**.
 
 	> [!NOTE]
 	> Customer have to upload A PEM-encoded x509 Certificate file with a .crt extension and a RSA or DSA private key file that has the .key extension, as a Certificate Key file. For more information on Certificate file and Certificate Key file, please refer to [this](https://help.tableau.com/current/server/en-us/saml_requ.htm) document. If you need help configuring SAML on Tableau Server then please refer to this article [Configure Server Wide SAML](https://help.tableau.com/current/server/en-us/config_saml.htm).
@@ -163,9 +163,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Tableau Server Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Tableau Server tile in the My Apps, this will redirect to Tableau Server Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
+* You can use Microsoft My Apps. When you click the Tableau Server tile in the My Apps, this will redirect to Tableau Server Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure the Tableau Server you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Once you configure Tableau Server you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

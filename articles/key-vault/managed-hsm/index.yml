@@ -52,6 +52,8 @@ landingContent:
         links:
           - text: Azure CLI
             url: quick-create-cli.md
+          - text: Azure PowerShell
+            url: quick-create-powershell.md
           - text: Azure Resource Manager
             url: quick-create-template.md
 

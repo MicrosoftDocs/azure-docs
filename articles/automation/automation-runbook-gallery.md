@@ -46,7 +46,7 @@ You can only import directly from the PowerShell Gallery using the Azure portal.
 
 ## Modules in PowerShell Gallery
 
-PowerShell modules contain cmdlets that you can use in your runbooks, and existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](https://www.powershellgallery.com). You can launch this gallery from the Azure portal and install them directly into Azure Automation. You can also download them and install them manually.
+PowerShell modules contain cmdlets that you can use in your runbooks. Existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](https://www.powershellgallery.com). You can launch this gallery from the Azure portal and install the modules directly into Azure Automation, or you can manually download and install them.
 
 ## Common scenarios available in PowerShell Gallery
 
@@ -57,6 +57,22 @@ The list below contains a few runbooks that support common scenarios. For a full
    * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) - Copies a remote file from a Windows Azure virtual machine.
    * [Copy-ItemToAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) - Copies a local file to an Azure virtual machine.
 
+## Import a PowerShell runbook from GitHub with the Azure portal
+
+1. In the Azure portal, open your Automation account.
+1. Select **Runbooks gallery** under **Process Automation**.
+1. Select **Source: GitHub**.
+1. You can use the filters above the list to narrow the display by publisher, type, and sort. Locate the gallery item you want and select it to view its details.
+
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Browsing the GitHub gallery." lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
+
+1. To import an item, click **Import** on the details blade.
+
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Detailed view of a runbook from the GitHub gallery." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
+
+1. Optionally, change the name of the runbook and then click **OK** to import the runbook.
+1. The runbook appears on the **Runbooks** tab for the Automation account.
+
 ## Import a PowerShell runbook from the runbook gallery with the Azure portal
 
 1. In the Azure portal, open your Automation account.
@@ -64,12 +80,12 @@ The list below contains a few runbooks that support common scenarios. For a full
 1. Select **Source: PowerShell Gallery**.
 1. Locate the gallery item you want and select it to view its details. On the left, you can enter additional search parameters for the publisher and type.
 
-   ![Browse gallery](media/automation-runbook-gallery/browse-gallery.png)
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-sm.png" alt-text="Browsing the runbook gallery." lightbox="media/automation-runbook-gallery/browse-gallery-lg.png":::
 
 1. Click on **View source project** to view the item in the [Azure Automation GitHub Organization](https://github.com/azureautomation).
 1. To import an item, click on it to view its details and then click **Import**.
 
-   ![Import button](media/automation-runbook-gallery/gallery-item-detail.png)
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-detail-sm.png" alt-text="Show a runbook gallery item detail." lightbox="media/automation-runbook-gallery/gallery-item-detail-lg.png":::
 
 1. Optionally, change the name of the runbook and then click **OK** to import the runbook.
 1. The runbook appears on the **Runbooks** tab for the Automation account.
@@ -106,7 +122,7 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 1. Select **Modules** under **Shared Resources** to open the list of modules.
 1. Click **Browse gallery** from the top of the page.
 
-   ![Module gallery](media/automation-runbook-gallery/modules-blade.png)
+      :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="View of the module gallery." lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
 
 1. On the Browse gallery page, you can search by the following fields:
 
@@ -119,7 +135,7 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 
    When you drill into a specific module, you can view more information. This information includes a link back to the PowerShell Gallery, any required dependencies, and all of the cmdlets or DSC resources that the module contains.
 
-   ![PowerShell module details](media/automation-runbook-gallery/gallery-item-details-blade.png)
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-sm.png" alt-text="Detailed view of a module from the gallery." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-lg.png":::
 
 1. To install the module directly into Azure Automation, click **Import**.
 1. On the Import pane, you can see the name of the module to import. If all the dependencies are installed, the **OK** button is activated. If you're missing dependencies, you need to import those dependencies before you can import this module.

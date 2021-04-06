@@ -3,19 +3,21 @@ title: What is automated SaaS app user provisioning in Azure AD
 description: An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
 ms.workload: identity
-ms.date: 01/11/2021
+ms.date: 02/08/2021
 ms.author: kenwith
-ms.reviewer: arvinh, celested
+ms.reviewer: arvinh
 ---
 
 # What is automated SaaS app user provisioning in Azure AD?
 
 In Azure Active Directory (Azure AD), the term **app provisioning** refers to automatically creating user identities and roles in the cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into applications like [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), and more.
+
+Just getting started with app management and single sign-on (SSO) in Azure AD? Check out the [Quickstart Series](../manage-apps/view-applications-portal.md).
 
 To learn more about SCIM and join the Tech Community conversation, see [Provisioning with SCIM Tech Community](https://aka.ms/scimoverview).
 

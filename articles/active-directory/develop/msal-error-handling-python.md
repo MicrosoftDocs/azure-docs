@@ -36,4 +36,4 @@ In MSAL for Python, exceptions are rare because most errors are handled by retur
 
 ## Next steps
 
-Consider enabling [Logging in MSAL for Python](msal-logging.md?tabs=python) to help you diagnose and debug issues.
+Consider enabling [Logging in MSAL for Python](msal-logging-python.md) to help you diagnose and debug issues.

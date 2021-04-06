@@ -4,7 +4,7 @@ description:  Assignment and usage of the Azure Red Hat OpenShift cluster admini
 services: container-service
 author: mjudeikis
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 09/25/2019
 #Customer intent: As a developer, I need to understand how to administer an Azure Red Hat cluster by using the administrative role

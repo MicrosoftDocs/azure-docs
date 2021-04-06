@@ -24,7 +24,7 @@ In this tutorial, you create a **Smart Building** gateway device template. A **S
 As well as enabling downstream devices to communicate with your IoT Central application, a gateway device can also:
 
 * Send its own telemetry, such as temperature.
-* Respond to writeable property updates made by an operator. For example, an operator could changes the telemetry send interval.
+* Respond to writable property updates made by an operator. For example, an operator could changes the telemetry send interval.
 * Respond to commands, such as rebooting the device.
 
 > [!div class="checklist"]
@@ -196,6 +196,10 @@ Both your simulated downstream devices are now connected to your simulated gatew
 
 Select a gateway device template and gateway device instance, and select **Join**.
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
 
 In this tutorial, you learned how to:
@@ -206,9 +210,6 @@ In this tutorial, you learned how to:
 * Define a visualization for the device telemetry.
 * Add relationships.
 * Publish your device template.
-
-> [!NOTE]
-> VS Code based code generation is currently not supported for gateway devices modeled in IoT Central.
 
 Next, as a device developer, you can learn how to:
 

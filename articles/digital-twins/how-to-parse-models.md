@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperf-fy21q3
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -87,4 +88,4 @@ The following code shows an example of how to use the parser library to reflect 
 ## Next steps
 
 Once you are done writing your models, see how to upload them (and do other management operations) with the DigitalTwinsModels APIs:
-* [*How-to: Manage custom models*](how-to-manage-model.md)
+* [*How-to: Manage DTDL models*](how-to-manage-model.md)

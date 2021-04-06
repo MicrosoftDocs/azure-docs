@@ -9,7 +9,8 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
-ms.custom: devx-track-python
+ms.custom: devx-track-python, contperf-fy21q3
+adobe-target: true
 ---
 
 # Tutorial: Get started with Azure Machine Learning in Jupyter Notebooks

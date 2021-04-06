@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Azure storage accounts
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: Learn how to create an Azure storage account to use with Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 01/29/2021
 ms.author: inhenkel
 ---
 
@@ -30,7 +30,7 @@ We recommend that you use GPv2, so you can take advantage of the latest features
 > [!NOTE]
 > Only the hot access tier is supported for use with Azure Media Services, although the other access tiers can be used to reduce storage costs on content that isn't being actively used.
 
-There are different SKUs you can choose for your storage account. For more information, see [storage accounts](/cli/azure/storage/account?view=azure-cli-latest). If you want to experiment with storage accounts, use `--sku Standard_LRS`. However, when picking a SKU for production, you should consider `--sku Standard_RAGRS`, which provides geographic replication for business continuity.
+There are different SKUs you can choose for your storage account. If you want to experiment with storage accounts, use `--sku Standard_LRS`. However, when picking a SKU for production, you should consider `--sku Standard_RAGRS`, which provides geographic replication for business continuity.
 
 ## Assets in a storage account
 
@@ -45,14 +45,15 @@ To protect your assets at rest, the assets should be encrypted by the storage si
 
 |Encryption option|Description|Media Services v3|
 |---|---|---|
-|Media Services storage encryption| AES-256 encryption, key managed by Media Services. |Not supported.<sup>(1)</sup>|
+|Media Services storage encryption| AES-256 encryption, key managed by Media Services. |Not supported.<sup>1</sup>|
 |[Storage service encryption for data at rest](../../storage/common/storage-service-encryption.md)|Server-side encryption offered by Azure Storage, key managed by Azure or by customer.|Supported.|
 |[Storage client-side encryption](../../storage/common/storage-client-side-encryption.md)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault.|Not supported.|
 
 <sup>1</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your assets were created with Media Services v2, which means v3 works with existing storage encrypted assets but won't allow creation of new ones.
 
-## Double encryption
-Media Services supports double encryption.  To learn more about double encryption, see [Azure double encryption](https://docs.microsoft.com/azure/security/fundamentals/double-encryption).
+## Storage account double encryption
+
+Storage accounts support double encryption but the second layer must explicitly be enabled. See [Azure Storage encryption for data at rest](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption).  
 
 ## Storage account errors
 
@@ -65,10 +66,6 @@ The following are the primary scenarios that would result in a Media Services ac
 |The Media Services account or attached storage account(s) were migrated to separate subscriptions. |Migrate the storage account(s) or Media Services account so that they're all in the same subscription. |
 |The Media Services account is using an attached storage account in a different subscription as it was an early Media Services account where this was supported. All early Media Services accounts were converted to modern Azure Resources Manager based accounts and will have a Disconnected state. |Migrate the storage account or Media Services account so that they're all in the same subscription.|
 
-## Azure Storage firewall
-
-Azure Media Services doesn't support storage accounts with the Azure Storage firewall or [Private Endpoints](../../storage/common/storage-network-security.md) enabled.
-
 ## Next steps
 
-To learn how to attach a storage account to your Media Services account, see [Create an account](./create-account-howto.md).
+To learn how to attach a storage account to your Media Services account, see [Create an account](./account-create-how-to.md).

@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: KumudD
   ms.author: kumud
-  ms.date: 08/28/2019
+  ms.date: 01/28/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -29,7 +29,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Virtual network FAQ
-            url: virtual-networks-overview.md
+            url: virtual-networks-faq.md
  
   # Card (optional)
   - title: Get started
@@ -70,10 +70,6 @@ landingContent:
         links:
           - text: Secure and isolate access to Azure resources
             url: /learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
-      - linkListType: video
-        links:
-          - text: Securely access your Azure PaaS resources with Azure Private Link
-            url: https://www.youtube.com/watch?v=PWKM5KXjWno        
        
   # Card
   - title: Connect virtual networks

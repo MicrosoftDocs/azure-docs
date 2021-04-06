@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/03/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ---
 
@@ -21,6 +21,12 @@ You can view all of your recent work or school account sign-in activity, from th
 - If someone is trying to guess your password.
 - If an attacker successfully signed in to your account, and from what location.
 - What apps the attacker tried to access.
+
+>[!Note]
+> If you see an error while signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
 
 ## View your recent sign-in activity
 

@@ -18,7 +18,7 @@ The first step in migration is to download the [System Center Orchestrator Migra
 
 ## Import the Standard Activities module
 
-Import the [Standard Activities Module](/system-center/orchestrator/standard-activities?view=sc-orch-2019) into Azure Automation. This includes converted versions of standard Orchestrator activities that converted graphical runbooks can use.
+Import the [Standard Activities Module](/system-center/orchestrator/standard-activities) into Azure Automation. This includes converted versions of standard Orchestrator activities that converted graphical runbooks can use.
 
 ## Import Orchestrator integration modules
 
@@ -26,7 +26,7 @@ Microsoft provides [integration packs](/previous-versions/system-center/packs/hh
 
 ## Convert integration packs
 
-Use the [Integration Pack Converter](/system-center/orchestrator/orch-integration-toolkit/integration-pack-wizard?view=sc-orch-2019) to convert any integration packs created using the [Orchestrator Integration Toolkit (OIT)](/previous-versions/system-center/developer/hh855853(v=msdn.10)) to PowerShell-based integration modules that can be imported into Azure Automation or Service Management Automation. When you run the Integration Pack Converter, you are presented with a wizard that allows you to select an integration pack (.oip) file. The wizard then lists the activities included in that integration pack and allows you to select which activities to migrate. When you complete the wizard, it creates an integration module that includes a corresponding cmdlet for each of the activities in the original integration pack.
+Use the [Integration Pack Converter](/system-center/orchestrator/orch-integration-toolkit/integration-pack-wizard) to convert any integration packs created using the [Orchestrator Integration Toolkit (OIT)](/previous-versions/system-center/developer/hh855853(v=msdn.10)) to PowerShell-based integration modules that can be imported into Azure Automation or Service Management Automation. When you run the Integration Pack Converter, you are presented with a wizard that allows you to select an integration pack (.oip) file. The wizard then lists the activities included in that integration pack and allows you to select which activities to migrate. When you complete the wizard, it creates an integration module that includes a corresponding cmdlet for each of the activities in the original integration pack.
 
 > [!NOTE]
 > You can't use the Integration Pack Converter to convert integration packs that were not created with OIT. There are also some integration packs provided by Microsoft that can't currently be converted with this tool. Converted versions of these integration packs are provided for download so that they can be installed in Azure Automation or Service Management Automation.
@@ -112,7 +112,7 @@ The reason that this strategy is used is to best mirror the functionality in the
 
 ### Invoke Runbook activity
 
-Runbooks in Orchestrator start other runbooks with the `Invoke Runbook` activity. If the runbook being converted includes this activity and the `Wait for completion` option is set, then a runbook activity is created for it in the converted runbook.  If the `Wait for completion` option is not set, then a Workflow Script activity is created that uses [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) to start the runbook. After you import the converted runbook into Azure Automation, you must modify this activity with the information specified in the activity.
+Runbooks in Orchestrator start other runbooks with the `Invoke Runbook` activity. If the runbook being converted includes this activity and the `Wait for completion` option is set, then a runbook activity is created for it in the converted runbook.  If the `Wait for completion` option is not set, then a Workflow Script activity is created that uses [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) to start the runbook. After you import the converted runbook into Azure Automation, you must modify this activity with the information specified in the activity.
 
 ## Create Orchestrator assets
 

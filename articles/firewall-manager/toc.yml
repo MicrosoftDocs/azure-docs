@@ -10,6 +10,9 @@
   - name: Secure virtual hub - ARM template
     displayName: Resource Manager
     href: quick-secure-virtual-hub.md
+  - name: Deploy firewall with policy - ARM template
+    displayName: Resource Manager
+    href: quick-firewall-policy.md
 - name: Tutorials
   items:
   - name: Secure your virtual hub - portal
@@ -48,6 +51,8 @@
   items:
   - name: Deploy security partner providers
     href: deploy-trusted-security-partner.md
+  - name: Secure private endpoints
+    href: private-link-inspection-secure-virtual-hub.md
   - name: Migrate to Firewall policy - PowerShell
     href: migrate-to-policy.md
   - name: DNS settings

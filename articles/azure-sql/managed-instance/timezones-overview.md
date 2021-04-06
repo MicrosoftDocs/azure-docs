@@ -26,7 +26,7 @@ T-SQL functions like [GETDATE()](/sql/t-sql/functions/getdate-transact-sql) or C
 
 A set of supported time zones is inherited from the underlying operating system of the managed instance. It's regularly updated to get new time zone definitions and reflect changes to the existing ones.
 
-[Daylight saving time/time zone changes policy](https://aka.ms/time) guarantees historical accuracy from 2010 forward.
+[Daylight saving time/time zone changes policy](/troubleshoot/windows-client/system-management-components/daylight-saving-time-help-support) guarantees historical accuracy from 2010 forward.
 
 A list with names of the supported time zones is exposed through the [sys.time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) system view.
 
@@ -45,7 +45,7 @@ When you enter parameters for a new instance, select a time zone from the list o
 
 ### Azure Resource Manager template
 
-Specify the timezoneId property in your [Resource Manager template](./scripts/create-powershell-azure-resource-manager-template.md) to set the time zone during instance creation.
+Specify the timezoneId property in your [Resource Manager template](./create-template-quickstart.md) to set the time zone during instance creation.
 
 ```json
 "properties": {

@@ -32,8 +32,8 @@ landingContent:
           - text: Frequently asked questions
             url: faq.md
           - text: User voice
-            url: https://cognitive.uservoice.com/forums/598144-video-indexer
-      - linkListType: 	whats-new
+            url: https://aka.ms/UserVoiceVI
+      - linkListType: whats-new
         links:         
         - text: "What's new in Video Indexer?"
           url: release-notes.md

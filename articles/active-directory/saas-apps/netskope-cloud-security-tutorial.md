@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/17/2020
+ms.date: 04/02/2021
 ms.author: jeedes
 ---
 
@@ -32,13 +32,12 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Netskope Administrator Console supports **SP and IDP** initiated SSO
+* Netskope Administrator Console supports **SP and IDP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-
-## Adding Netskope Administrator Console from the gallery
+## Add Netskope Administrator Console from the gallery
 
 To configure the integration of Netskope Administrator Console into Azure AD, you need to add Netskope Administrator Console from the gallery to your list of managed SaaS apps.
 
@@ -99,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| admin-role | user.assignedroles |
 
 	> [!NOTE]
-	> Click [here](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) to know how to create roles in Azure AD.
+	> Click [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) to know how to create roles in Azure AD.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -139,19 +138,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Settings** tab from the left navigation pane.
 
-    ![Screenshot shows Setting selected in the navigation pane.](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Screenshot shows Setting selected in the navigation pane.](./media/netskope-cloud-security-tutorial/configure-settings.png)
 
 1. Click **Administration** tab.
 
-    ![Screenshot shows Administration selected from Settings.](./media/netskope-cloud-security-tutorial/config-administration.png)
+    ![Screenshot shows Administration selected from Settings.](./media/netskope-cloud-security-tutorial/administration.png)
 
 1. Click **SSO** tab.
 
-    ![Screenshot shows S S O selected in Administration.](./media/netskope-cloud-security-tutorial/config-sso.png)
+    ![Screenshot shows S S O selected in Administration.](./media/netskope-cloud-security-tutorial/tab.png)
 
 1. On the **Network Settings** section, perform the following steps:
     
-    ![Screenshot shows Network Settings where you can enter the values described.](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
+    ![Screenshot shows Network Settings where you can enter the values described.](./media/netskope-cloud-security-tutorial/network.png)
 
     a. Copy **Assertion Consumer Service URL** value and paste it into the **Reply URL** textbox in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -159,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **EDIT SETTINGS** under the **SSO/SLO Settings** section.
 
-    ![Screenshot shows S S O / S L O Settings where you can select EDIT SETTINGS.](./media/netskope-cloud-security-tutorial/config-editsettings.png)
+    ![Screenshot shows S S O / S L O Settings where you can select EDIT SETTINGS.](./media/netskope-cloud-security-tutorial/settings.png)
 
 1. On the **Settings** popup window, perform the following steps;
 
@@ -185,11 +184,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Settings** tab from the left navigation pane.
 
-    ![Screenshot shows Settings selected.](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Screenshot shows Settings selected.](./media/netskope-cloud-security-tutorial/configure-settings.png)
 
 1. Click **Active Platform** tab.
 
-    ![Screenshot shows Active Platform selected from Settings.](./media/netskope-cloud-security-tutorial/user1.png)
+    ![Screenshot shows Active Platform selected from Settings.](./media/netskope-cloud-security-tutorial/user-1.png)
 
 1. Click **Users** tab.
 
@@ -217,8 +216,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Netskope Administrator Console for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Netskope Administrator Console tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Netskope Administrator Console for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Netskope Administrator Console tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Netskope Administrator Console for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Netskope Administrator Console you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure Netskope Administrator Console you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

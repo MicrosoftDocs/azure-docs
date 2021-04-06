@@ -42,7 +42,7 @@ Verify that you have the following items before beginning your configuration.
 
 ### Sign in to your Azure account
 
-Open a console window and authenticate with your credentials. For more information, see [Log in to Azure from the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Open a console window and authenticate with your credentials. For more information, see [Log in to Azure from the Azure CLI](/cli/azure/authenticate-azure-cli)
 
 ```
 az login

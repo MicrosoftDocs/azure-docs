@@ -31,9 +31,9 @@ This article explains how to connect your Salesforce Service Cloud solution to A
 
 - You must have read and write permission on the Azure Sentinel workspace.
 
-- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
-- You must have read and write permissions to Azure Functions in order to create a Function App. [Learn more about Azure Functions](/azure/azure-functions/).
+- You must have read and write permissions to Azure Functions in order to create a Function App. [Learn more about Azure Functions](../azure-functions/index.yml).
 
 - You must have the following Salesforce REST API credentials: **Salesforce API Username**, **Salesforce API Password**, **Salesforce Security Token**, **Salesforce Consumer Key**, **Salesforce Consumer Secret**. [Learn more about Salesforce REST API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm).
 

@@ -16,9 +16,9 @@ Want to see the code right now? Samples for the [Bing Search client libraries fo
 
 
 ## Prerequisites
-The Bing Web Search SDK is compatible with Python 2.7, 3.3, 3.4, 3.5, and 3.6. We recommend using a virtual environment for this quickstart.
+The Bing Web Search SDK is compatible with Python 2.7 or 3.6+. We recommend using a virtual environment for this quickstart.
 
-* Python 2.7, 3.3, 3.4, 3.5 or 3.6
+* Python 2.7 or 3.6+
 * [virtualenv](https://docs.python.org/3/tutorial/venv.html) for Python 2.7
 * [venv](https://pypi.python.org/pypi/virtualenv) for Python 3.x
 
@@ -172,7 +172,7 @@ Now that you've made your first call to the Bing Web Search API, let's look at a
 
 ### Limit the number of results returned by Bing
 
-This sample uses the `count` and `offset` parameters to limit the number of results returned using the SDK's [`search` method](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python). The `name` and `url` for the first result are printed.
+This sample uses the `count` and `offset` parameters to limit the number of results returned using the SDK's [`search` method](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations). The `name` and `url` for the first result are printed.
 
 1. Add this code to your Python project:
 
@@ -261,7 +261,7 @@ This sample uses the `response_filter` and `freshness` parameters to filter sear
 
 ### Use safe search, answer count, and the promote filter
 
-This sample uses the `answer_count`, `promote`, and `safe_search` parameters to filter search results using the SDK's [`search` method](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python). The `name` and `url` for the first result are displayed.
+This sample uses the `answer_count`, `promote`, and `safe_search` parameters to filter search results using the SDK's [`search` method](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations). The `name` and `url` for the first result are displayed.
 
 1. Add this code to your Python project:
 
@@ -315,4 +315,4 @@ When you're done with this project, make sure to remove your subscription key fr
 
 ## See also
 
-* [Azure Python SDK reference](/python/api/azure-cognitiveservices-search-websearch/?view=azure-python)
+* [Azure Python SDK reference](/python/api/azure-cognitiveservices-search-websearch/)

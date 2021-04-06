@@ -238,8 +238,10 @@ This section helps you create, get, update, and delete the Azure private peering
 
 1. Configure Azure private peering for the circuit. Make sure that you have the following items before you continue with the next steps:
 
-   * A /30 subnet for the primary link. The subnet must not be part of any address space reserved for virtual networks.
-   * A /30 subnet for the secondary link. The subnet must not be part of any address space reserved for virtual networks.
+   * A pair of subnets that are not part of any address space reserved for virtual networks. One subnet will be used for the primary link, while the other will be used for the secondary link. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+       * IPv4: Two /30 subnets.
+       * IPv6: Two /126 subnets.
+       * Both: Two /30 subnets and two /126 subnets.
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you aren't using 65515.
    * **Optional -** An MD5 hash if you choose to use one.

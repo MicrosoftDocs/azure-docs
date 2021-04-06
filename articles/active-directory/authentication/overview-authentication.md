@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 07/13/2020
+ms.date: 01/22/2021
 
 ms.author: justinha
 author: justinha
@@ -26,6 +26,10 @@ One of the main features of an identity platform is to verify, or *authenticate*
 * Hybrid integration to write password changes back to on-premises environment
 * Hybrid integration to enforce password protection policies for an on-premises environment
 * Passwordless authentication
+
+Take a look at our short video to learn more about these authentication components.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4KVJA]
 
 ## Improve the end-user experience
 
@@ -79,7 +83,7 @@ The end-goal for many environments is to remove the use of passwords as part of 
 
 ![Security versus convenience with the authentication process that leads to passwordless](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-When you sign in with a passwordless method, credentials are provided through the use of methods like biometrics with Windows Hello for Business, or a FIDO2 security key. These authentication methods can't be easily duplicated by an attacker.
+When you sign in with a passwordless method, credentials are provided by using methods like biometrics with Windows Hello for Business, or a FIDO2 security key. These authentication methods can't be easily duplicated by an attacker.
 
 Azure AD provides ways to natively authenticate using passwordless methods to simplify the sign-in experience for users and reduce the risk of attacks.
 

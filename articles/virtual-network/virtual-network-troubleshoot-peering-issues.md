@@ -40,7 +40,7 @@ To configure virtual network peering for the virtual networks that are in the sa
 >
 > * Virtual machines (VMs) behind Basic internal load balancer (ILB) SKU
 > * Redis cache (uses Basic ILB SKU)
-> * Application gateway (uses Basic ILB SKU)
+> * Application gateway v1 (uses Basic ILB SKU)
 > * Virtual machine scale sets (uses Basic ILB SKU)
 > * Azure Service Fabric clusters (uses Basic ILB SKU)
 > * SQL Server Always On (uses Basic ILB SKU)
@@ -83,7 +83,7 @@ Follow the steps in: [Configure VPN gateway transit for virtual network peering]
 For more information, see [Service chaining](./virtual-network-peering-overview.md#service-chaining).
 
 > [!Note]
-> If you require help to set up an NVA, [contact the NVA vendor](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+> If you require help to set up an NVA, [contact the NVA vendor](https://mskb.pkisolutions.com/kb/2984655).
 
 For help with troubleshooting the NVA device setup and routing, see [Network virtual appliance issues in Azure](./virtual-network-troubleshoot-nva.md).
 
@@ -186,7 +186,7 @@ For point-to-site connections:
 
 A hub network must include an NVA. Configure UDRs in spokes that have an NVA set as the next hop, and enable **Allow forwarded traffic** in the hub virtual network.
 
-For more information, see [Service chaining](./virtual-network-peering-overview.md#service-chaining), and discuss these requirements with the [NVA vendor](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) of your choice.
+For more information, see [Service chaining](./virtual-network-peering-overview.md#service-chaining), and discuss these requirements with the [NVA vendor](https://mskb.pkisolutions.com/kb/2984655) of your choice.
 
 ## Troubleshoot a hub-spoke network connectivity issue between spoke virtual networks in different regions
 
@@ -229,7 +229,7 @@ To resolve this issue, delete the peering from both virtual networks, and then r
 
 ### Failed to peer a Databricks virtual network
 
-To resolve this issue, configure the virtual network peering under **Azure Databricks**, and then specify the target virtual network by using **Resource ID**. For more information, see [Peer a Databricks virtual network to a remote virtual network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+To resolve this issue, configure the virtual network peering under **Azure Databricks**, and then specify the target virtual network by using **Resource ID**. For more information, see [Peer a Databricks virtual network to a remote virtual network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering#id2).
 
 ### The remote virtual network lacks a gateway
 

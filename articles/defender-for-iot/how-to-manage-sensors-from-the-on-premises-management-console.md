@@ -1,12 +1,8 @@
 ---
 title: Manage sensors from the on-premises management console 
 description: Learn how to manage sensors from the management console, including updating sensor versions, pushing system settings to sensors, and enabling and disabling engines on sensors.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Manage sensors from the management console
@@ -67,7 +63,7 @@ You can update several sensors simultaneously from the on-premises management co
 
 To update several sensors:
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. Go to the [Azure portal](https://portal.azure.com/).
 
 2. Go to Azure Defender for IoT.
 
@@ -143,9 +139,9 @@ Sensors are protected by five Defender for IoT engines. You can enable or disabl
 |--|--|--|
 | Protocol violation engine | A protocol violation occurs when the packet structure or field values don't comply with the protocol specification. | "Illegal MODBUS Operation (Function Code Zero)" alert. This alert indicates that a primary device sent a request with function code 0 to a secondary device. This is not allowed according to the protocol specification, and the secondary device might not handle the input correctly. |
 | Policy violation engine | A policy violation occurs with a deviation from baseline behavior defined in the learned or configured policy. | "Unauthorized HTTP User Agent" alert. This alert indicates that an application that was not learned or approved by the policy is used as an HTTP client on a device. This might be a new web browser or application on that device. |
-| Malware engine | The malware engine detects malicious network activity. | "Suspicion of Malicious Activity (Stuxnet)" alert. This alert indicates that the sensor found suspicious network activity known to be related to the Stuxnet malware, which is an advanced persistent threat aimed at industrial control and SCADA networks. |
-| Anomaly engine | The malware engine detects an anomaly in network behavior. | "Periodic Behavior in Communication Channel." This is a component that inspects network connections and finds periodic or cyclic behavior of data transmission, which is common in industrial networks. |
-| Operational engine | This engine detects operational incidents or malfunctioning entities. | "Asset is Suspected to be Disconnected (Unresponsive)" alert. This alert triggered when a device is not responding to any requests for a predefined period. It might indicate a device shutdown, disconnection, or malfunction.
+| Malware engine | The malware engine detects malicious network activity. | "Suspicion of Malicious Activity (Stuxnet)" alert. This alert indicates that the sensor found suspicious network activity known to be related to the Stuxnet malware, which is an advanced persistent threat aimed at industrial control and SCADA networks. |
+| Anomaly engine | The malware engine detects an anomaly in network behavior. | "Periodic Behavior in Communication Channel." This is a component that inspects network connections and finds periodic or cyclic behavior of data transmission, which is common in industrial networks. |
+| Operational engine | This engine detects operational incidents or malfunctioning entities. | `Device is Suspected to be Disconnected (Unresponsive)` alert. This alert triggered when a device is not responding to any requests for a predefined period. It might indicate a device shutdown, disconnection, or malfunction.
 |
 
 To enable or disable engines for connected sensors:
@@ -153,7 +149,7 @@ To enable or disable engines for connected sensors:
 1. In the console's left pane, select **System Settings**.
 
 2. In the **Sensor Engine Configuration** section, select **Enable** or **Disable** for the engines.
- 	 	 
+ 	 	 
 3. Select **SAVE CHANGES**.
 
    A red exclamation mark appears if there's a mismatch of enabled engines on one of your enterprise sensors. The engine might have been disabled directly from the sensor.
