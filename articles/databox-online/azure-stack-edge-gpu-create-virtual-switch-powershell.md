@@ -28,11 +28,11 @@ This article describes how to create a new virtual switch on your Azure Stack Ed
 
 Before you begin, make sure that:
 
-1. You've access to a client machine that can access the PowerShell interface of your device. See [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface). 
+- You've access to a client machine that can access the PowerShell interface of your device. See [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface). 
 
-    1. The client machine should run a [Supported OS for clients connected to device](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
+    The client machine should be running a [Supported OS](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
 
-1. Use the local UI to enable compute on one of the physical network interfaces on your device as per the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network) on your device. 
+- Use the local UI to enable compute on one of the physical network interfaces on your device as per the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network) on your device. 
 
 
 ## Connect to the PowerShell interface
