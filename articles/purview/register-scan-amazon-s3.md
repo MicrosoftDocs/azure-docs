@@ -112,9 +112,7 @@ This procedure describes how to create a new Purview credential to use when scan
 
     Select **Create** when you're done to finish creating the credential.
 
-> [!NOTE]
-> Copy and paste the **Microsoft account ID** and **External ID** values for use when [creating a new AWS role for Purview](#create-a-new-aws-role-for-purview), which is your next step.
->
+1. If you haven't yet, copy and paste the **Microsoft account ID** and **External ID** values for use when [creating a new AWS role for Purview](#create-a-new-aws-role-for-purview), which is your next step.
 
 For more information about Purview credentials, see [Credentials for source authentication in Azure Purview](manage-credentials.md).
 
