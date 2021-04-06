@@ -11,7 +11,7 @@ ms.custom: include file
 ---
 
 
-| Gateway SKU | Connections per second | Number of Flows | Mega-bits per second | Packets per second | Circuit Bandwidth | Number of routes advertised by gateway (to MSEE) | Number of routes learned by gateway (from MSEE) | Number of VMs in the virtual network |
+| Gateway SKU | Connections per second | Number of flows | Mega-bits per second | Packets per second | Circuit bandwidth | Number of routes advertised by gateway (to MSEE) | Number of routes learned by gateway (from MSEE) | Number of VMs in the virtual network |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Basic SKU (deprecated)** | N/A | N/A | 500 | N/A | N/A | N/A | N/A | N/A |
 | **Standard SKU/ErGw1AZ** | 7,000 | 400,000 | >1,000 | >100,000 | 1 Gbps |  500 | 4,000 | 2,000 (Reduce to 1,000 during maintenance, restores afterward.) | 
