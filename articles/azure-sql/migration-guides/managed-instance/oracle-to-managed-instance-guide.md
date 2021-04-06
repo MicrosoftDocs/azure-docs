@@ -25,7 +25,7 @@ Before you begin migrating your Oracle schema to SQL Managed Instance:
 
 - Verify your source environment is supported.
 - Download [SSMA for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
-- Have a target [Azure SQL Managed Instance](../../managed-instance/instance-create-quickstart.md).
+- Have a target [SQL managed instance](../../managed-instance/instance-create-quickstart.md).
 - Obtain the [necessary permissions for SSMA for Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) and [provider](/sql/ssma/oracle/connect-to-oracle-oracletosql).
  
 ## Pre-migration
@@ -89,7 +89,7 @@ To convert the schema:
 
    ![Screenshot that shows Convert Schema.](./media/oracle-to-managed-instance-guide/convert-schema.png)
 
-1. After the conversion completes, compare and review the converted objects to the original objects to identify potential problems and address them based on the recommendations.
+1. After the conversion finishes, compare and review the converted objects to the original objects to identify potential problems and address them based on the recommendations.
 
    ![Screenshot that shows comparing table recommendations.](./media/oracle-to-managed-instance-guide/table-comparison.png)
 
