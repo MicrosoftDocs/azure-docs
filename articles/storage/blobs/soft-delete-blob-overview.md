@@ -93,6 +93,9 @@ If blob versioning and blob soft delete are both enabled for a storage account, 
 
 Enabling soft delete and versioning together protects blob versions from deletion. When soft delete is enabled, deleting a version creates a soft-deleted version. You can use the **Undelete Blob** operation to restore a soft-deleted version, as long as there is a current version of the blob. If there is no current version, then you must copy a previous version to the current version before calling the **Undelete Blob** operation.
 
+> [!NOTE]
+> Calling the **Undelete Blob** operation on a deleted blob when versioning is enabled restores any soft-deleted versions or snapshots, but does not restore the base blob. To restore the base blob, promote a previous version by copying it to the base blob.
+
 Microsoft recommends enabling both versioning and blob soft delete for your storage accounts for optimal data protection. For more information about using blob versioning and soft delete together, see [Blob versioning and soft delete](versioning-overview.md#blob-versioning-and-soft-delete).
 
 ## Blob soft delete protection by operation
