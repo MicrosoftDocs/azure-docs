@@ -250,7 +250,7 @@ Next, add the following build details.
 
     :::image type="content" source="media/add-api/github-action-flag.png" alt-text="GitHub Workflow":::
 
-1. Once the deployment is complete, ou can navigate to the web app, by clicking on the _URL_ link shown on the _Overview_ page.
+1. Once the deployment is complete, you can navigate to the web app, by clicking on the _URL_ link shown on the _Overview_ page.
 
     :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Access static app URL from the Azure portal":::
 

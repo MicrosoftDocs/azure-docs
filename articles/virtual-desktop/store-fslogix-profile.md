@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Storage options for FSLogix profile containers in Windows Virtual Desktop
 
