@@ -33,11 +33,11 @@ After you have met the prerequisites, you're ready to discover the topology of y
 
 ### Assess and convert
 
-Create an assessment by using SQL Server Migration Assistant (SSMA). 
+Create an assessment by using SQL Server Migration Assistant. 
 
 To create an assessment, follow these steps:
 
-1. Open [SQL Server Migration Assistant (SSMA) for Db2](https://www.microsoft.com/download/details.aspx?id=54254). 
+1. Open [SSMA for Db2](https://www.microsoft.com/download/details.aspx?id=54254). 
 1. Select **File** > **New Project**. 
 1. Provide a project name and a location to save your project. Then select Azure SQL Managed Instance as the migration target from the drop-down list, and select **OK**.
 
@@ -49,7 +49,7 @@ To create an assessment, follow these steps:
    :::image type="content" source="media/db2-to-managed-instance-guide/connect-to-db2.png" alt-text="Screenshot that shows options to connect to your Db2 instance.":::
 
 
-1. Right-click the Db2 schema you want to migrate, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the schema:
+1. Right-click the Db2 schema you want to migrate, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the schema.
 
    :::image type="content" source="media/db2-to-managed-instance-guide/create-report.png" alt-text="Screenshot that shows how to create a report.":::
 
@@ -152,8 +152,8 @@ For additional assistance, see the following resources, which were developed in 
 |---------|---------|
 |[Data workload assessment model and tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| This tool provides suggested "best fit" target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing and automated and uniform target platform decision process.|
 |[Db2 zOS data assets discovery and assessment package](https://github.com/microsoft/DataMigrationTeam/tree/master/DB2%20zOS%20Data%20Assets%20Discovery%20and%20Assessment%20Package)|After running the SQL script on a database, you can export the results to a file on the file system. Several file formats are supported, including *.csv, so that you can capture the results in external tools such as spreadsheets. This method can be useful if you want to easily share results with teams that do not have the workbench installed.|
-|[IBM Db2 LUW inventory scripts and artifacts](https://github.com/Microsoft/DataMigrationTeam/tree/master/IBM%20Db2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|This asset includes a SQL query that hits IBM Db2 LUW version 11.1 system tables and provides a count of objects by schema and object type, a rough estimate of 'Raw Data' in each schema, and the sizing of tables in each schema, with results stored in a CSV format.|
-|[Db2 LUW pure scale on Azure - setup guide](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Db2%20PureScale%20on%20Azure.pdf)|This guide serves as a starting point for a Db2 implementation plan. While business requirements will differ, the same basic pattern applies. This architectural pattern may also be used for OLAP applications on Azure.|
+|[IBM Db2 LUW inventory scripts and artifacts](https://github.com/Microsoft/DataMigrationTeam/tree/master/IBM%20Db2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|This asset includes a SQL query that hits IBM Db2 LUW version 11.1 system tables and provides a count of objects by schema and object type, a rough estimate of "raw data" in each schema, and the sizing of tables in each schema, with results stored in a CSV format.|
+|[Db2 LUW pure scale on Azure - setup guide](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Db2%20PureScale%20on%20Azure.pdf)|This guide serves as a starting point for a Db2 implementation plan. Although business requirements will differ, the same basic pattern applies. This architectural pattern can also be used for OLAP applications on Azure.|
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
 
