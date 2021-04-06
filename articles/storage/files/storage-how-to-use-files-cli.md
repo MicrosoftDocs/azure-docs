@@ -175,8 +175,8 @@ az storage share-rm create \
     --output none
 
 az storage directory create \
-    --resource-group $resourceGroupName \
-    --storage-account $storageAccountName \
+    --account-name $storageAccountName \
+    --account-key $storageAccountKey \
     --share-name $otherShareName \
     --name "myDirectory2" \
     --output none
@@ -277,7 +277,7 @@ az storage file copy start \
 You can delete a share snapshot by using the [`az storage share delete`](/cli/azure/storage/share) command. Use the variable that contains the `$SNAPSHOT` reference to the `--snapshot` parameter:
 
 ```azurecli-interactive
-az storage share-rm delete \
+az storage share delete \
     --account-name $storageAccountName \
     --account-key $storageAccountKey \
     --name $shareName \
