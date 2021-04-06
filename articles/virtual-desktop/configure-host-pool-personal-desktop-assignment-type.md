@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Configure the personal desktop host pool assignment type
 

@@ -23,12 +23,6 @@ Our ISV partner network extends our solution capabilities to help you build seam
 
 ## Identity verification and proofing
 
-With Azure AD B2C partners, customers can enable identity verification and proofing of their end users before allowing  account registration or access. Identity verification and proofing can check document, knowledge-based information and liveness.
-
-A high-level architecture diagram explains the flow.
-
-![Diagram shows the identity proofing flow](./media/partner-gallery/third-party-identity-proofing.png)
-
 Microsoft partners with the following ISVs for identity verification and proofing.
 
 | ISV partner | Description and integration walkthroughs |

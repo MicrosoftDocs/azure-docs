@@ -60,7 +60,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1-new.png" alt-text="Configure query rule logic and settings" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1-new.png":::
 
-- Here's another sample query, one that would alert you when an anomalous number of resources is created in [Azure Activity](../azure-monitor/platform/activity-log.md).
+- Here's another sample query, one that would alert you when an anomalous number of resources is created in [Azure Activity](../azure-monitor/essentials/activity-log.md).
 
     ```kusto
     AzureActivity

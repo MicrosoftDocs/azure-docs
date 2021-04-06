@@ -20,7 +20,7 @@ ms.author: lajanuar
 ## Prerequisites
 
 * [cURL](https://curl.haxx.se/windows/) installed.
-* [PowerShell version 6.0+](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
+* [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.

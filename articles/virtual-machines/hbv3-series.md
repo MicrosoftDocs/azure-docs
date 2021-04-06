@@ -34,9 +34,9 @@ All HBv3-series VMs feature 200 Gb/sec HDR InfiniBand from NVIDIA Networking to 
 |Standard_HB120-16rs_v3 |16  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3.675 |200 |All |2 * 960 |32 |8 |
 
 Learn more about the:
-- [architecture and VM topology](./workloads/hpc/hbv3-series-overview.md),
-- supported [software stack](./workloads/hpc/hbv3-series-overview.md#software-specifications) including supported OS, and
-- expected [performance](./workloads/hpc/hbv3-performance.md) of the HBv3-series VM.
+- [Architecture and VM topology](./workloads/hpc/hbv3-series-overview.md)
+- Supported [software stack](./workloads/hpc/hbv3-series-overview.md#software-specifications) including supported OS
+- Expected [performance](./workloads/hpc/hbv3-performance.md) of the HBv3-series VM
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

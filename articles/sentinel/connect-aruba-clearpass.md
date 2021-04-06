@@ -30,7 +30,7 @@ This article explains how to connect your Aruba ClearPass appliance to Azure Sen
 
 - You must have read and write permissions on your Azure Sentinel workspace.
 
-- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 ## Send Aruba ClearPass logs to Azure Sentinel
 

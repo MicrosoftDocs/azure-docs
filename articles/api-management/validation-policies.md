@@ -111,7 +111,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 The `validate-parameters` policy validates the header, query, or path parameters in requests against the API schema.
 
 > [!IMPORTANT]
-> If you imported an API using a management API version prior to `2021-01-01-preview`, the `validate-parameters` policy might not work. You may need to reimport your API using management API version `2021-01-01-preview` or later.
+> If you imported an API using a management API version prior to `2021-01-01-preview`, the `validate-parameters` policy might not work. You may need to [reimport your API](/rest/api/apimanagement/2021-01-01-preview/apis/createorupdate) using management API version `2021-01-01-preview` or later.
 
 
 ### Policy statement
@@ -141,6 +141,7 @@ In this example, all query and path parameters are validated in the prevention m
         <parameter name="User-Agent" action="ignore" />
         <parameter name="Host" action="ignore" />
         <parameter name="Referrer" action="ignore" />
+    </headers>   
 </validate-parameters>
 ```
 

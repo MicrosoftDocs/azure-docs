@@ -1,12 +1,8 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
-ms.service: azure
 ---
 
 # Defender for IoT sensor and management console APIs
