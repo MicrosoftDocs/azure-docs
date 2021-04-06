@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 04/06/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Zscaler Two
@@ -31,11 +31,14 @@ To configure Azure AD integration with Zscaler Two, you need the following items
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Zscaler Two supports **SP** initiated SSO
+* Zscaler Two supports **SP** initiated SSO.
 
-* Zscaler Two supports **Just In Time** user provisioning
+* Zscaler Two supports **Just In Time** user provisioning.
 
-## Adding Zscaler Two from the gallery
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+## Add Zscaler Two from the gallery
 
 To configure the integration of Zscaler Two into Azure AD, you need to add Zscaler Two from the gallery to your list of managed SaaS apps.
 
@@ -63,7 +66,7 @@ To configure and test Azure AD SSO with Zscaler Two, perform the following steps
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Zscaler Three** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Zscaler Two** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -128,23 +131,15 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Zscaler Two.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Zscaler Two.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Zscaler Two**.
-2. In the applications list, select **Zscaler Two**.
-3. In the menu on the left, select **Users and groups**.
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-5. In the **Users and groups** dialog, select the user like **Britta Simon** from the list, then click the **Select** button at the bottom of the screen.
-
-	![Screenshot shows the Users and groups dialog box where you can select a user.](./media/zscaler-two-tutorial/tutorial_zscalertwo_users.png)
-
-6. From the **Select Role** dialog choose the appropriate user role in the list, then click the **Select** button at the bottom of the screen.
-
-	![Screenshot shows the Select Role dialog box where you can choose a user role.](./media/zscaler-two-tutorial/tutorial_zscalertwo_roles.png)
-
-7. In the **Add Assignment** dialog select the **Assign** button.
-
-	![Screenshot shows the Add Assignment dialog box where you can select Assign.](./media/zscaler-two-tutorial/tutorial_zscalertwo_assign.png)
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Zscaler Two**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Zscaler Two SSO
 
@@ -160,7 +155,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 4. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
    
-	![Screenshot shows the Zscaler One site with steps as described.](./media/zscaler-two-tutorial/ic800206.png "Administration")
+	![Screenshot shows the Zscaler One site with steps as described.](./media/zscaler-two-tutorial/administrator.png "Administration")
 
 	a. Under Authentication Type, choose **SAML**.
 
@@ -168,7 +163,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. On the **Edit SAML** window, perform the following steps: and click Save.  
    			
-	![Manage Users & Authentication](./media/zscaler-two-tutorial/ic800208.png "Manage Users & Authentication")
+	![Manage Users & Authentication](./media/zscaler-two-tutorial/authentication.png "Manage Users & Authentication")
 	
 	a. In the **SAML Portal URL** textbox, Paste the **Login URL** which you have copied from Azure portal.
 
@@ -188,20 +183,21 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 6. On the **Configure User Authentication** dialog page, perform the following steps:
 
-    ![Screenshot shows the Configure User Authentication dialog box with Activate selected.](./media/zscaler-two-tutorial/ic800207.png)
+    ![Screenshot shows the Configure User Authentication dialog box with Activate selected.](./media/zscaler-two-tutorial/activation.png)
 
 	a. Hover over the **Activation** menu near the bottom left.
 
     b. Click **Activate**.
 
 ## Configuring proxy settings
+
 ### To configure the proxy settings in Internet Explorer
 
 1. Start **Internet Explorer**.
 
 2. Select **Internet options** from the **Tools** menu for open the **Internet Options** dialog.   
   	
-	 ![Internet Options](./media/zscaler-two-tutorial/ic769492.png "Internet Options")
+	 ![Internet Options](./media/zscaler-two-tutorial/internet.png "Internet Options")
 
 3. Click the **Connections** tab.   
   
@@ -211,7 +207,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. In the Proxy server section, perform the following steps:   
    
-	![Proxy server](./media/zscaler-two-tutorial/ic769494.png "Proxy server")
+	![Proxy server](./media/zscaler-two-tutorial/proxy.png "Proxy server")
 
     a. Select **Use a proxy server for your LAN**.
 
@@ -233,7 +229,7 @@ In this section, a user called Britta Simon is created in Zscaler Two. Zscaler T
 >[!Note]
 >If you need to create a user manually, contact [Zscaler Two support team](https://www.zscaler.com/company/contact).
 
-### Test SSO 
+## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
@@ -242,7 +238,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 * Go to Zscaler Two Sign-on URL directly and initiate the login flow from there.
 
 * You can use Microsoft My Apps. When you click the Zscaler Two tile in the My Apps, this will redirect to Zscaler Two Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
 
 ## Next steps
 
