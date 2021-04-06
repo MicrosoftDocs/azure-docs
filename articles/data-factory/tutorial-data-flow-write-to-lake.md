@@ -32,11 +32,8 @@ In this step, you create a data factory and open the Data Factory UX to create a
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**
 1. Select the Azure **subscription** in which you want to create the data factory.
 1. For **Resource Group**, take one of the following steps:
-
     a. Select **Use existing**, and select an existing resource group from the drop-down list.
-
-    b. Select **Create new**, and enter the name of a resource group. 
-         
+    b. Select **Create new**, and enter the name of a resource group.          
     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
 1. Under **Version**, select **V2**.
 1. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. Data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
@@ -115,10 +112,10 @@ A slightly better performing sink technique for lake data using ADLS Gen2 that d
 The techniques listed in the above tutorials are good use cases for creating folder categories in your data lake. The default file naming scheme being employed by those techniques is to use the Spark executor job ID. Sometimes you may wish to set the name of the output file in a data flow text sink. This technique is only suggested for use with small files. The process of merging partition files into a single output file is a long-running process.
 
 1. Go back to the data flow designer and edit the data flow create aboved. Click on the sink transformation.
-1. Click Optimize > Set partitioning > Use current partitioning.
-1. Click Settings > Name folder as column data.
-1. Pick the column that you wish to use for generating folder names.
-1. To manipulate the data values, or even if need to generate synthentic values for folder names, use the Derived Column transformation to create the values you wish to use in your folder names.
+1. Click Optimize > Set partitioning > Single partition. It is this single partition requirement that creates a bottleneck in the execution process as files are merged. This option is only recommended for small files.
+1. Click Settings > Name file as column data.
+1. Pick the column that you wish to use for generating file names.
+1. To manipulate the data values, or even if need to generate synthentic values for file names, use the Derived Column transformation to create the values you wish to use in your file names.
 
 ## Next steps
 
