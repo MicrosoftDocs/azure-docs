@@ -341,27 +341,18 @@
     - name: Create a basic audio transform with REST
       href: transform-create-basic-audio-how-to.md
     - name: Create thumbnail sprites
-      href: transform-create-thumbnail-sprites-how-to.md 
-    - name: Create a copyAllBitrateNonInterleaved transform with REST
-      href: transform-create-copyallbitratenoninterleaved-how-to.md
-    - name: Copy videos without encoding with REST
-      href: transform-create-copy-video-audio-how-to.md
-    - name: Create jobs with CLI
-      href: job-create-cli-how-to.md
-    - name: Create job input with a local file and .NET
-      displayName: upload
-      href: job-input-from-local-file-how-to.md
-    - name: Jobs with multiple transform outputs
-      href: job-multiple-transform-outputs-how-to.md
+      href: transform-create-thumbnail-sprites-how-to.md
     - name: Stitch two or more video files with .NET
       href: transform-stitch-how-to.md
-  - name: Encode content 
-    items:
-    - name: HTTPS as job input
-      href: job-input-from-http-how-to.md
-    - name: Local file as job input
-      href: job-input-from-local-file-how-to.md    
-    - name: Encode with a custom transform
+    - name: Subclip a video
+      items:
+      - name: With .NET
+        href: transform-subclip-video-dotnet-how-to.md
+        displayName: subclipping, clip, edit, trim, clipping
+      - name: With REST
+        href: transform-subclip-video-rest-how-to.md
+        displayName: subclipping, clip, edit, trim, clipping
+    - name: Create a custom transform
       items:
       - name: With .NET
         displayName: encode, encoding, custom, transform
@@ -384,16 +375,19 @@
         href: transform-generate-thumbnails-rest-how-to.md
       - name: Scale media reserved units
         href: media-reserved-units-cli-how-to.md
-    - name: Subclip a video
-      items:
-      - name: With .NET
-        href: transform-subclip-video-dotnet-how-to.md
-        displayName: subclipping, clip, edit, trim, clipping
-      - name: With REST
-        href: transform-subclip-video-rest-how-to.md
-        displayName: subclipping, clip, edit, trim, clipping  
-    - name: Job error codes
-      href: job-error-codes-reference.md         
+    - name: Create a copyAllBitrateNonInterleaved transform with REST
+      href: transform-create-copyallbitratenoninterleaved-how-to.md
+    - name: Copy videos without encoding with REST
+      href: transform-create-copy-video-audio-how-to.md
+    - name: Create jobs with CLI
+      href: job-create-cli-how-to.md
+    - name: Create job input with a local file and .NET
+      displayName: upload
+      href: job-input-from-local-file-how-to.md
+    - name: Jobs with multiple transform outputs
+      href: job-multiple-transform-outputs-how-to.md
+    - name: HTTPS as job input
+      href: job-input-from-http-how-to.md         
   - name: Stream live
     items:
     - name: Live event with portal and Wirecast
