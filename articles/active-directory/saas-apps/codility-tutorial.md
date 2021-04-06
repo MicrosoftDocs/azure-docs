@@ -71,22 +71,22 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+
+    a. In the **Reply URL** text box, type a URL using the following pattern: `https://<SUBDOMAIN>.net/social/complete/saml/`
+
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern: `https://<SUBDOMAIN>.codility.net`
+
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    a. In the **Sign-on URL** text box, type a URL using one of the following patterns:
-
-    | Sign-on URL |
-    |--------------|
-    | `https://staging-app.codility.net` |
-    | ` https://<SUBDOMAIN>.staging-app.codility.net` |
-    |
+    a. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.codility.net`
 
     b. In the **Relay State** text box, type a value using the following pattern: `<UNIQUE_IDENTIFIER>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-on URL and Relay State. Contact [Codility Client support team](mailto:support@codility.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL, Identifier, Sign-on URL and Relay State. Contact [Codility Client support team](mailto:support@codility.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
