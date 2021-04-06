@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: azure-communication-services
 author: ddematheu2
-manager: chpaalm
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 9/1/2020
