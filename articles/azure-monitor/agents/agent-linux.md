@@ -46,7 +46,7 @@ Starting with versions released after August 2018, we are making the following c
 
 Starting from Agent version 1.13.27, the Linux Agent will support both Python 2 and 3. We always recommend using the latest agent. 
 
-If you are using an older version of the agent, you must have the Virtual Machine use python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+If you are using an older version of the agent, you must have the Virtual Machine use Python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
@@ -87,7 +87,7 @@ The following table highlights the packages required for [supported Linux distro
 |Glibc |    GNU C Library | 2.5-12 
 |Openssl    | OpenSSL Libraries | 1.0.x or 1.1.x |
 |Curl | cURL web client | 7.15.5 |
-|Python | | 2.6+ or 3.3+
+|Python | | 2.7 or 3.6+
 |Python-ctypes | | 
 |PAM | Pluggable Authentication Modules | | 
 

@@ -6,7 +6,7 @@ author: heidilohr
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Security best practices
 
