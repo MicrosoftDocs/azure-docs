@@ -4,10 +4,8 @@
   displayName: IoT, OT, getting started
   href: overview.md
   items:
-  - name: Support policies for Azure Defender for IoT
-    displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
-    href: support-policies.md
   - name: What's new?
+    displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     href: release-notes.md
   - name: What is Agentless solution architecture
     displayName: deployment, where to deploy
