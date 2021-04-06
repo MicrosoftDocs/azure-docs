@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Prepare an MSIX image for Windows Virtual Desktop
 

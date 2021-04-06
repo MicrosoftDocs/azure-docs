@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.custom: references_regions
 ms.date: 03/10/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Tutorial: Create a host pool with the Azure portal
 
