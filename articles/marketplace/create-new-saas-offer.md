@@ -83,7 +83,7 @@ Connect your customer relationship management (CRM) system with your commercial 
 
 ## Configure Microsoft 365 App integration
 
-You can light up [unified discovery and delivery](./plan-a-SaaS-offer) of your SaaS offer and any related Microsoft 365 App consumption by linking them.
+You can light up [unified discovery and delivery](./plan-a-SaaS-offer.md) of your SaaS offer and any related Microsoft 365 App consumption by linking them.
 
 ### Integrate with Microsoft API
 
