@@ -94,6 +94,8 @@
         href: concepts/telephony-sms/messaging-policy.md
   - name: Voice and video calling
     items:
+      - name: Known issues
+        href: concepts/known-issues.md
       - name: Calling SDK overview
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video concepts
@@ -137,8 +139,6 @@
     href: concepts/notifications.md
   - name: Teams interoperability
     href: concepts/teams-interop.md
-  - name: Known issues
-    href: concepts/known-issues.md
 - name: Samples
   items:
   - name: Overview
@@ -153,6 +153,8 @@
   items:
   - name: Reference documentation overview
     href: concepts/reference.md
+  - name: Azure CLI
+    href: /cli/azure/ext/communication/communication
   - name: REST API documentation
     href: /rest/api/communication/
   - name: Calling libraries

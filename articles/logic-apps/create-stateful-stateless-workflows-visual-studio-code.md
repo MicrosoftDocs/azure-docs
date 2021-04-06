@@ -1246,7 +1246,7 @@ If you're not familiar with Docker, review these topics:
   > [!IMPORTANT]
   > For production scenarios, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. 
   > For Docker files specifically, review [Build images with BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) 
-  > and [Manage sensitive data with Docker Secrets ](https://docs.docker.com/engine/swarm/secrets/).
+  > and [Manage sensitive data with Docker Secrets](https://docs.docker.com/engine/swarm/secrets/).
 
    ```text
    FROM mcr.microsoft.com/azure-functions/node:3.0

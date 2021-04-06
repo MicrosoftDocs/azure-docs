@@ -40,15 +40,15 @@ If your video was previously uploaded into the Media Services account using Medi
 
 ### What Azure roles can perform actions on Azure Media Services resources? 
 
-See [Azure role-based access control (Azure RBAC) for Media Services accounts](rbac-overview.md).
+See [Azure role-based access control (Azure RBAC) for Media Services accounts](security-rbac-concept.md).
 
 ### How do I stream to Apple iOS devices?
 
-Make sure you have **(format=m3u8-aapl)** at the end of your path (after the **/manifest** portion of the URL) to tell the streaming origin server to return HTTP Live Streaming (HLS) content for consumption on Apple iOS native devices. For details, see [Delivering content](dynamic-packaging-overview.md).
+Make sure you have **(format=m3u8-aapl)** at the end of your path (after the **/manifest** portion of the URL) to tell the streaming origin server to return HTTP Live Streaming (HLS) content for consumption on Apple iOS native devices. For details, see [Delivering content](encode-dynamic-packaging-concept.md).
 
 ### What is the recommended method to process videos?
 
-Use [Transforms](/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each Transform describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](/rest/api/media/jobs) is the actual request to Media Services to apply the Transform to an input video or audio content. After the Transform has been created, you can submit Jobs by using Media Services APIs or any of the published SDKs. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
+Use [Transforms](/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each Transform describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](/rest/api/media/jobs) is the actual request to Media Services to apply the Transform to an input video or audio content. After the Transform has been created, you can submit Jobs by using Media Services APIs or any of the published SDKs. For more information, see [Transforms and Jobs](transform-jobs-concept.md).
 
 ### I uploaded, encoded, and published a video. Why won't the video play when I try to stream it?
 
@@ -56,7 +56,7 @@ One of the most common reasons is that you don't have the streaming endpoint fro
 
 ### How does pagination work?
 
-When you're using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](entities-overview.md).
+When you're using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](filter-order-page-entitites-how-to.md).
 
 ### What features are not yet available in Azure Media Services v3?
 
@@ -89,7 +89,7 @@ You can either:
 
 Media Services v3 live encoding does not yet support inserting video or image slates during live stream. 
 
-You can use a [live on-premises encoder](recommended-on-premises-live-encoders.md) to switch the source video. Many apps provide to ability to switch sources, including Telestream Wirecast, Switcher Studio (on iOS), and OBS Studio (free app).
+You can use a [live on-premises encoder](encode-recommended-on-premises-live-encoders.md) to switch the source video. Many apps provide to ability to switch sources, including Telestream Wirecast, Switcher Studio (on iOS), and OBS Studio (free app).
 
 ## Content protection
 
@@ -159,11 +159,11 @@ Often, customers have invested in a license server farm either in their own data
 
 Currently, you can use the [Azure portal](https://portal.azure.com/) to:
 
-* Manage [Live Events](live-events-outputs-concept.md) in Media Services v3. 
+* Manage [Live Events](live-event-outputs-concept.md) in Media Services v3. 
 * View (not manage) v3 [assets](assets-concept.md). 
 * [Get info about accessing APIs](./access-api-howto.md). 
 
-For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [content protection](drm-content-protection-concept.md)), use the [REST API](/rest/api/media/), the [Azure CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+For all other management tasks (for example, [Transforms and Jobs](transform-jobs-concept.md) and [content protection](drm-content-protection-concept.md)), use the [REST API](/rest/api/media/), the [Azure CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ### Is there an AssetFile concept in v3?
 

@@ -233,7 +233,7 @@ Logging in PowerShell functions works like regular PowerShell logging. You can u
 | ------------- | -------------- |
 | Error | **`Write-Error`** |
 | Warning | **`Write-Warning`**  | 
-| Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Information | Writes to _Information_ level logging. |
+| Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`** <br/> Writes to _Information_ level logging. |
 | Debug | **`Write-Debug`** |
 | Trace | **`Write-Progress`** <br /> **`Write-Verbose`** |
 

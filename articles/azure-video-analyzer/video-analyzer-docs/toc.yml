@@ -5,9 +5,13 @@
   - name: About Azure Video Analyzer
     href: overview.md
   - name: Terminology
-    href: terminology.md
+    href: terminology.mdsion.md
+- name: Concepts
+  items:
   - name: Pipeline extension
-    href: pipeline-extension.md
+    href: pipeline-exten  
+  - name: Record video for playback
+    href: video-recording.md    
 - name: Resources
   items:
   - name: Azure roadmap
