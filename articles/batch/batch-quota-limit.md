@@ -14,7 +14,7 @@ Keep these quotas in mind as you design and scale up your Batch workloads. For e
 
 You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts that are in the same subscription but in different Azure regions.
 
-If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default. If you want to raise a quota, you can open an online [customer support request](#increase-a-quota) at no charge.
+If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default. To raise a quota, you can [request a quota increase](#increase-a-quota) at no charge.
 
 ## Resource quotas
 
@@ -79,7 +79,7 @@ To view your Batch account quotas in the [Azure portal](https://portal.azure.com
 
 ## Increase a quota
 
-You can request a quota increase for your Batch account or your subscription using the [Azure portal](https://portal.azure.com) or by using the [Azure Quota REST API](/rest/api/support/quota-payload#azure-batch).
+You can request a quota increase for your Batch account or your subscription using the [Azure portal](https://portal.azure.com) or by using the [Azure Quota REST API](#azure-quota-rest-api).
 
 The type of quota increase depends on the pool allocation mode of your Batch account. To request a quota increase, you must include the VM series you would like to increase the quota for. When the quota increase is applied, it is applied to all series of VMs.
 
@@ -129,7 +129,7 @@ Once you've submitted your support request, Azure support will contact you. Quot
 
 You can use the Azure Quota REST API to request a quota increase at the subscription level or at the Batch account level.
 
-For details and examples, see [Request a quota increase using the Azure Support REST API](Request a quota increase using the Azure Support REST API).
+For details and examples, see [Request a quota increase using the Azure Support REST API](/rest/api/support/quota-payload#azure-batch).
 
 ## Related quotas for VM pools
 
