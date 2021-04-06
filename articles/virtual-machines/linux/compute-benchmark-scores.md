@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: benchmark
 ms.collection: linux
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 04/06/2021
 ms.reviewer: davberg
 
 ---
@@ -15,10 +15,10 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 
 | Type | Families |
 | ---- | -------- |
-| [Compute optimized](#compute-optimized) | [Fsv2](#fsv2---compute---premium-storage)  |
-| [General purpose](#general-purpose) | [B](#b---burstable) [Dsv3](#dsv3---general-compute---premium-storage) [Dv3](#dv3---general-compute) [DSv2](#dsv2---general-purpose---premium-storage) [Dv2](#dv2---general-compute) [Dasv4](#dasv4) [Dav4](#dav4) [DC](#dcs---confidential-compute-series) [DCv2](#dcsv2) [DCv2](#dcv2) [Ddsv4](#ddsv4) [Ddv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4)  |
-| [High performance compute](#high-performance-compute) | [HBv2](#hbrsv2) [HB](#hbs---memory-bandwidth--amd-epyc-) [HC](#hcs---dense-computation--intel-xeon-platinum-8168-)  |
-| [Memory optimized](#memory-optimized) | [DSv2](#dsv2---general-purpose---premium-storage) [Dv2](#dv2---general-compute) [Esv3](#esv3---memory-optimized---premium-storage) [Ev3](#ev3---memory-optimized) [Easv4](#easv4) [Eav4](#eav4) [Edsv4](#edsv4) [Edv4](#edv4) [Esv4](#esv4) [Ev4](#ev4) [Msv2](#msv2-high-memory) [Ms](#m-series-medium-memory)  |
+| [Compute optimized](#compute-optimized) | [Fsv2](#fsv2---compute--premium-storage) |
+| [General purpose](#general-purpose) | [B](#b---burstable) [DSv3](#dsv3---general-compute--premium-storage) [Dv3](#dv3---general-compute) [DSv2](#dsv2---general-purpose--premium-storage) [Dv2](#dv2---general-compute) [Dasv4](#dasv4) [Dav4](#dav4) [DC](#dcs---confidential-compute-series) [DCv2](#dcsv2) [DCv2](#dcv2) [Ddsv4](#ddsv4) [Ddv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4)  |
+| [High performance compute](#high-performance-compute) | [HBv2](#hbrsv2) [HB](#hbs---memory-bandwidth-amd-epyc) [HC](#hcs---dense-computation--intel-xeon-platinum-8168)  |
+| [Memory optimized](#memory-optimized) | [DSv2](#dsv2---general-purpose--premium-storage) [Dv2](#dv2---general-compute) [Esv3](#esv3---memory-optimized--premium-storage) [Ev3](#ev3---memory-optimized) [Easv4](#easv4) [Eav4](#eav4) [Edsv4](#edsv4) [Edv4](#edv4) [Esv4](#esv4) [Ev4](#ev4) [Msv2](#msv2-high-memory) [Ms](#m-series-medium-memory)  |
 | [Storage optimized](#storage-optimized) | [Lsv2](#lsv2---storage-optimized)  |
 
 ## Compute optimized
@@ -718,8 +718,7 @@ Linux numbers were computed by running CoreMark on Ubuntu 18.04. CoreMark was co
 
 **Download:**
 
-CoreMark is an open source tool that can be downloaded from the github link below.
-https://github.com/eembc/coremark
+CoreMark is an open source tool that can be downloaded from [GitHub](https://github.com/eembc/coremark).
 
 **Building and Running:**
 

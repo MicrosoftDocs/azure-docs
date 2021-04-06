@@ -276,8 +276,7 @@ Windows numbers were computed by running CoreMark on Windows Server 2019. CoreMa
 
 **Download:**
 
-CoreMark is an open source tool that can be downloaded from the github link below.
-https://github.com/eembc/coremark
+CoreMark is an open source tool that can be downloaded from [GitHub](https://github.com/eembc/coremark).
 
 **Building and Running:**
 
