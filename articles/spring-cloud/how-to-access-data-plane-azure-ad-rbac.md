@@ -46,7 +46,7 @@ After the Azure Spring Cloud Data Reader role is assigned, customers can access 
     * *https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/* 
 
 >[!NOTE]
-> If you are using Mooncake, please replace `*.azuremicroservices.io` with `*.microservices.azure.cn`, [learn more](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> If you are using Azure China, please replace `*.azuremicroservices.io` with `*.microservices.azure.cn`, [learn more](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 3. Access the composed endpoint with the access token. Put the access token in a header to provide authorization.  Only the "GET" method is supported.
 
