@@ -17,7 +17,7 @@ If Sentiment analysis is configured, the LUIS json response includes sentiment a
 
 LUIS uses Text Analytics V2. 
 
-Sentiment Analysis is configured when publishing your application. You can learn more about this [here](./luis-how-to-publish-app.md).
+Sentiment Analysis is configured when publishing your application. See [how to publish an app](./luis-how-to-publish-app.md) for more information.
 
 ## Resolution for sentiment
 
