@@ -20,7 +20,7 @@ On this scenario, it's common to see the error:
 
 *The input content is invalid because the required properties - 'id; ' - are missing*
 
-This error means the JSON document that is being sent to the service is lacking the required ID property. 
+A response with this error means the JSON document that is being sent to the service is lacking the required ID property.
 
 ### Solution
 Specify an `id` property with a string value as per the [REST specification](/rest/api/cosmos-db/documents) as part of your document, the SDKs do not autogenerate values for this property.
@@ -30,6 +30,8 @@ On this scenario, it's common to see errors like:
 
 *Partition key ... is invalid.*
 
+A response with this error means the partition key value is of an invalid type.
+
 ### Solution
 The value of the partition key should be a string or a number, make sure the value is of the expected types.
 
@@ -38,7 +40,7 @@ On this scenario, it's common to see the error:
 
 *PartitionKey extracted from document doesn’t match the one specified in the header*
 
-This error means you are executing an operation and passing a partition key value that does not match the document's body value for the expected property. If the collection's partition key path is `/myPartitionKey`, the document has a property called `myPartitionKey` with a value that does not match what was provided as partition key value when calling the SDK method.
+A response with this error means you are executing an operation and passing a partition key value that does not match the document's body value for the expected property. If the collection's partition key path is `/myPartitionKey`, the document has a property called `myPartitionKey` with a value that does not match what was provided as partition key value when calling the SDK method.
 
 ### Solution
 Send the partition key value parameter that matches the document property value.
