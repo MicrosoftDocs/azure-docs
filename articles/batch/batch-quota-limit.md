@@ -91,12 +91,9 @@ Once you've submitted your support request, Azure support will contact you. Quot
 
 1. In **Basics**:
 
-    1. For **Issue Type**, select **Service and subscription limits (quotas)**
-
+    1. For **Issue Type**, select **Service and subscription limits (quotas)**.
     1. Select your subscription.
-
-    1. For **Quota type**, select **Batch**
-
+    1. For **Quota type**, select **Batch**.
     1. Select **Next** to continue.
 
 1. In **Details**:
@@ -117,8 +114,6 @@ Once you've submitted your support request, Azure support will contact you. Quot
        - **All accounts in this region**  
          Use this option to request quota increases that apply to all Batch accounts in a region, such as the number of Batch accounts per region per subscription.
 
-      When you are finished, select **Save and continue**.
-
     1. In **Support method**, select a **Severity** according to your [business impact](https://aka.ms/supportseverity) and your preferred contact method and support language.
 
     1. In **Contact information**, verify and enter the required contact details.
@@ -133,13 +128,15 @@ For details and examples, see [Request a quota increase using the Azure Support 
 
 ## Related quotas for VM pools
 
-Batch pools in the Virtual Machine Configuration deployed in an Azure virtual network automatically allocate additional Azure networking resources. The following resources are needed for each 50 pool nodes in a virtual network:
+[Batch pools in the Virtual Machine Configuration deployed in an Azure virtual network](batch-virtual-network) automatically allocate additional Azure networking resources. These resources are created in the subscription that contains the virtual network supplied when creating the Batch pool.
+
+The following resources are created for each 100 pool nodes in a virtual network:
 
 - One [network security group](../virtual-network/network-security-groups-overview.md#network-security-groups)
 - One [public IP address](../virtual-network/public-ip-addresses.md)
 - One [load balancer](../load-balancer/load-balancer-overview.md)
 
-These resources are allocated in the subscription that contains the virtual network supplied when creating the Batch pool. These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, check the subscription's quotas for these resources. If needed, request an increase in the Azure portal by selecting **Help + support**.
+These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, you may need to request a quota increase for one or more of these resources.
 
 ## Next steps
 
