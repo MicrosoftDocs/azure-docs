@@ -6,6 +6,8 @@
     href: overview.md
   - name: Terminology
     href: terminology.md
+  - name: Pipeline extension
+    href: pipeline-extension.md
 - name: Resources
   items:
   - name: Azure roadmap

@@ -62,7 +62,7 @@ The diagram below depicts the high-level data flow:
 <!-- TODO: Placeholder image, needs update during finalization -->
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/pipeline-extension/ai-inference-results.png" alt-text="Inferencing model":::
+> :::image type="content" source="./media/pipeline-extension/ai-inference-results.svg" alt-text="Inferencing model":::
  
 ## Samples
 
