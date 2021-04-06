@@ -3,12 +3,13 @@ title: Create a Cognitive Services Text Analytics resource
 titleSuffix: Azure Cognitive Services
 description: Learn how to create a Cognitive Services Text Analytics resource.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 06/26/2019
-ms.author: dapine
+ms.subservice: text-analytics
+ms.topic: include
+ms.date: 02/09/2021
+ms.author: aahi
 ---
 
 ## Create a Cognitive Services Text Analytics resource
@@ -31,5 +32,5 @@ ms.author: dapine
 
     |Resource tab in portal|Setting|Value|
     |--|--|--|
-    |**Overview**|Endpoint|Copy the endpoint. It appears similar to `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`.|
+    |**Overview**|Endpoint|Copy the endpoint. It appears similar to `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.0`.|
     |**Keys**|API Key|Copy one of the two keys. It's a 32-character alphanumeric string with no spaces or dashes: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|

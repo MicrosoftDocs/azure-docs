@@ -1,9 +1,7 @@
 ---
 title: include file
 description: include file
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 10/19/2018
@@ -11,7 +9,7 @@ ms.author: glenga
 ms.custom: include file
 ---
 
-Controls the [sampling feature in Application Insights](../articles/azure-functions/functions-monitoring.md#configure-sampling).
+Controls the [sampling feature in Application Insights](../articles/azure-functions/configure-monitoring.md#configure-sampling).
 
 ```json
 {

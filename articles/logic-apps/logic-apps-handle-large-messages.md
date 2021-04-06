@@ -1,20 +1,10 @@
 ---
-title: Handle large messages - Azure Logic Apps | Microsoft Docs
-description: Learn how to handle large message sizes with chunking in Azure Logic Apps
+title: Handle large messages by using chunking
+description: Learn how to handle large message sizes by using chunking in automated tasks and workflows that you create with Azure Logic Apps
 services: logic-apps
-documentationcenter:
-author: shae-hurst
-manager: jeconnoc
-editor:
-
-ms.assetid:
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang:
-ms.tgt_pltfrm: 
+ms.suite: integration
 ms.topic: article
-ms.date: 4/27/2018
-ms.author: shhurst
+ms.date: 12/18/2020
 ---
 
 # Handle large messages with chunking in Azure Logic Apps
@@ -67,6 +57,58 @@ Logic Apps splits any message larger than 30 MB into smaller chunks.
 For connectors that support chunking, the underlying chunking protocol is invisible to end users. 
 However, not all connectors support chunking, so these connectors generate runtime 
 errors when incoming messages exceed the connectors' size limits.
+
+
+For actions that support and are enabled for chunking, you can't use trigger bodies, variables, and expressions such as `@triggerBody()?['Content']` because using any of these inputs prevents the chunking operation from happening. Instead, use the [**Compose** action](../logic-apps/logic-apps-perform-data-operations.md#compose-action). Specifically, you must create a `body` field by using the **Compose** action to store the data output from the trigger body, variable, expression, and so on, for example:
+
+```json
+"Compose": {
+    "inputs": {
+        "body": "@variables('myVar1')"
+    },
+    "runAfter": {
+        "Until": [
+            "Succeeded"
+        ]
+    },
+    "type": "Compose"
+},
+```
+Then, to reference the data, in the chunking action, use `@body('Compose')` .
+
+```json
+"Create_file": {
+    "inputs": {
+        "body": "@body('Compose')",
+        "headers": {
+            "ReadFileMetadataFromServer": true
+        },
+        "host": {
+            "connection": {
+                "name": "@parameters('$connections')['sftpwithssh_1']['connectionId']"
+            }
+        },
+        "method": "post",
+        "path": "/datasets/default/files",
+        "queries": {
+            "folderPath": "/c:/test1/test1sub",
+            "name": "tt.txt",
+            "queryParametersSingleEncoded": true
+        }
+    },
+    "runAfter": {
+        "Compose": [
+            "Succeeded"
+        ]
+    },
+    "runtimeConfiguration": {
+        "contentTransfer": {
+            "transferMode": "Chunked"
+        }
+    },
+    "type": "ApiConnection"
+},
+```
 
 <a name="set-up-chunking"></a>
 
@@ -192,7 +234,7 @@ includes this information about the content that your logic app wants to upload 
    | Endpoint response header field | Type | Required | Description |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | No | The suggested chunk size in bytes |
-   | **Location** | String | No | The URL location where to send the HTTP PATCH messages |
+   | **Location** | String | Yes | The URL location where to send the HTTP PATCH messages |
    ||||
 
 3. Your logic app creates and sends follow-up HTTP PATCH messages - each with this information:
@@ -210,7 +252,13 @@ includes this information about the content that your logic app wants to upload 
      |||||
 
 4. After each PATCH request, the endpoint confirms the receipt 
-for each chunk by responding with the "200" status code.
+for each chunk by responding with the "200" status code and the following response headers:
+
+   | Endpoint response header field | Type | Required | Description |
+   |--------------------------------|------|----------|-------------|
+   | **Range** | String | Yes | The byte range for content that has been received by the endpoint, for example: "bytes=0-1023" |   
+   | **x-ms-chunk-size** | Integer | No | The suggested chunk size in bytes |
+   ||||
 
 For example, this action definition shows an HTTP POST 
 request for uploading chunked content to an endpoint. 
@@ -221,7 +269,7 @@ the `contentTransfer` property sets `transferMode` to `chunked`:
 "postAction": {
     "runtimeConfiguration": {
         "contentTransfer": {
-    	    "transferMode": "chunked"
+            "transferMode": "chunked"
     	}
     },
     "inputs": {

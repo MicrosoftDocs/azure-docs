@@ -1,16 +1,19 @@
 ---
-title: Azure Service Fabric Mesh Maven reference | Microsoft Docs
+title: Azure Service Fabric Mesh Maven reference 
 description: Contains the reference for how to use the Maven plugin for Service Fabric Mesh 
-services: service-fabric-mesh
-keywords: maven, java, cli 
 author: suhuruli
 ms.author: suhuruli
 ms.date: 11/26/2018
 ms.topic: reference
-ms.service: service-fabric-mesh
-manager: subramar
+ms.custom: devx-track-java
 ---
+
 # Maven Plugin for Service Fabric Mesh
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 ## Prerequisites
 

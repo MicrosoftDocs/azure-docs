@@ -1,8 +1,10 @@
 ---
-author: sptramer
 ms.topic: include
 ms.date: 05/31/2019
-ms.author: sttramer
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
+
 ---
 To run this sample, install the latest version of the [Azure CLI](/cli/azure/install-azure-cli). To start, run `az login` to create a connection with Azure.
 

@@ -1,26 +1,25 @@
 ---
-title: Copy data from Google BigQuery by using Azure Data Factory | Microsoft Docs
+title: Copy data from Google BigQuery by using Azure Data Factory 
 description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in a data factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
-
-ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
-ms.topic: conceptual
-ms.date: 12/07/2018
 ms.author: jingwang
-
+author: linda33wj
+ms.service: data-factory
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 09/04/2019
 ---
+
 # Copy data from Google BigQuery by using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 ## Supported capabilities
+
+This Google BigQuery connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from Google BigQuery to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -91,7 +90,7 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
 |:--- |:--- |:--- |
 | email | The service account email ID that is used for ServiceAuthentication. It can be used only on Self-hosted Integration Runtime.  | No |
 | keyFilePath | The full path to the .p12 key file that is used to authenticate the service account email address. | No |
-| trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over SSL. This property can be set only when you use SSL on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
+| trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over TLS. This property can be set only when you use TLS on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified .pem file. The default value is **false**.  | No |
 
 **Example:**
@@ -125,7 +124,9 @@ To copy data from Google BigQuery, set the type property of the dataset to **Goo
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **GoogleBigQueryObject** | Yes |
-| tableName | Name of the table. | No (if "query" in activity source is specified) |
+| dataset | Name of the Google BigQuery dataset. |No (if "query" in activity source is specified)  |
+| table | Name of the table. |No (if "query" in activity source is specified)  |
+| tableName | Name of the table. This property is supported for backward compatibility. For new workload, use `dataset` and `table`. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -134,11 +135,12 @@ To copy data from Google BigQuery, set the type property of the dataset to **Goo
     "name": "GoogleBigQueryDataset",
     "properties": {
         "type": "GoogleBigQueryObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<GoogleBigQuery linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -187,6 +189,10 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

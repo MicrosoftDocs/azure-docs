@@ -7,6 +7,7 @@ ms.author: terrylan
 ms.date: 06/12/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
@@ -17,7 +18,7 @@ ms.workload: na
 
 # Deploy secure applications on Azure
 In this article we present security activities and controls to consider when you deploy applications for the cloud. Security questions and concepts to consider during the release and response phases of the Microsoft [Security Development Lifecycle
-(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) are covered. The goal is to help you define activities and Azure services that you can use to deploy a more secure application.
+(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) are covered. The goal is to help you define activities and Azure services that you can use to deploy a more secure application.
 
 The following SDL phases are covered in this article:
 
@@ -53,7 +54,7 @@ a known vulnerability at a central location versus securing each
 individual web application.
 
 The [Azure Application Gateway
-WAF](https://docs.microsoft.com/azure/application-gateway/waf-overview)
+WAF](../../web-application-firewall/ag/ag-overview.md)
 provides centralized protection of your web applications from common
 exploits and vulnerabilities. The WAF is based on rules from the [OWASP
 core rule
@@ -106,7 +107,7 @@ Azure services that assist with application monitoring are:
 #### Application Insights
 
 [Application
-Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
+Insights](../../azure-monitor/app/app-insights-overview.md)
 is an extensible Application Performance Management (APM) service for
 web developers on multiple platforms. Use it to monitor your live web
 application. Application Insights automatically detects performance
@@ -117,7 +118,7 @@ designed to help you continuously improve performance and usability.
 #### Azure Security Center
 
 [Azure Security
-Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+Center](../../security-center/security-center-introduction.md)
 helps you prevent, detect, and respond to threats with increased
 visibility into (and control over) the security of your Azure resources,
 including web applications. Azure Security Center helps detect threats
@@ -126,7 +127,7 @@ solutions.
 
 Security Center’s Free tier offers limited security for your Azure
 resources only. The [Security Center Standard
-tier](https://docs.microsoft.com/azure/security-center/security-center-onboarding)
+tier](../../security-center/security-center-get-started.md)
 extends these capabilities to on-premises resources and other clouds.
 Security Center Standard helps you:
 

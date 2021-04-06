@@ -19,7 +19,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Determine content management requirements for your hybrid identity solution
-Understanding the content management requirements for your business may direct affect your decision on which hybrid identity solution to use. With the proliferation of multiple devices and the capability of users to bring their own devices ([BYOD](https://aka.ms/byodcg)), the company must protect its own data but it also must keep user’s privacy intact. Usually when a user has their own device, they might also have multiple credentials that will be alternating according to the application that they use. It is important to differentiate what content was created using personal credentials versus the ones created using corporate credentials. Your identity solution should be able to interact with cloud services to provide a seamless experience to the end user while ensure their privacy and increase the protection against data leakage. 
+Understanding the content management requirements for your business may direct affect your decision on which hybrid identity solution to use. With the proliferation of multiple devices and the capability of users to bring their own devices ([BYOD](/mem/intune/fundamentals/byod-technology-decisions)), the company must protect its own data but it also must keep user’s privacy intact. Usually when a user has their own device, they might also have multiple credentials that will be alternating according to the application that they use. It is important to differentiate what content was created using personal credentials versus the ones created using corporate credentials. Your identity solution should be able to interact with cloud services to provide a seamless experience to the end user while ensure their privacy and increase the protection against data leakage. 
 
 Your identity solution will be leveraged by different technical controls in order to provide content management as shown in the figure below:
 
@@ -64,4 +64,3 @@ When planning your hybrid identity solution ensure that the following questions 
 
 ## See Also
 [Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
-

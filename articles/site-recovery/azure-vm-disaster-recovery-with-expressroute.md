@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure ExpressRoute with disaster recovery for Azure VMs using the Azure Site Recovery service | Microsoft Docs
+title: Integrate Azure ExpressRoute Azure VM disaster recovery with Azure Site Recovery
 description: Describes how to set up disaster recovery for Azure VMs using Azure Site Recovery and Azure ExpressRoute
 services: site-recovery
 author: mayurigupta13
@@ -10,14 +10,14 @@ ms.date: 04/08/2019
 ms.author: mayg
 
 ---
-# Integrate Azure ExpressRoute with disaster recovery for Azure VMs
+# Integrate ExpressRoute with disaster recovery for Azure VMs
 
 
 This article describes how to integrate Azure ExpressRoute with [Azure Site Recovery](site-recovery-overview.md), when you set up disaster recovery for Azure VMs to a secondary Azure region.
 
 Site Recovery enables disaster recovery of Azure VMs by replicating Azure VM data to Azure.
 
-- If Azure VMs use [Azure managed disks](../virtual-machines/windows/managed-disks-overview.md), VM data is replicated to an replicated managed disk in the secondary region.
+- If Azure VMs use [Azure managed disks](../virtual-machines/managed-disks-overview.md), VM data is replicated to an replicated managed disk in the secondary region.
 - If Azure VMs don't use managed disks, VM data is replicated to an Azure storage account.
 - Replication endpoints are public, but replication traffic for Azure VMs doesn't cross the internet.
 

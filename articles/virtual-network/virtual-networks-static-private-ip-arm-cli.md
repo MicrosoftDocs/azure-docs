@@ -1,32 +1,28 @@
 ---
-title: Configure private IP addresses for VMs - Azure CLI | Microsoft Docs
+title: Configure private IP addresses for VMs - Azure CLI
 description: Learn how to configure private IP addresses for virtual machines using the Azure command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Configure private IP addresses for a virtual machine using the Azure CLI
 
-[!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
-
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-This article covers the Resource Manager deployment model. You can also [manage static private IP address in the classic deployment model](virtual-networks-static-private-ip-classic-cli.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -39,38 +35,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 
 1. If you haven't yet, install and configure the latest [Azure CLI](/cli/azure/install-azure-cli) and log in to an Azure account using [az login](/cli/azure/reference-index).
 
-2. Create a public IP for the VM with the [az network public-ip create](/cli/azure/network/public-ip) command. The list shown after the output explains the parameters used.
-
-    > [!NOTE]
-    > You may want or need to use different values for your arguments in this and subsequent steps, depending upon your environment.
-
-    ```azurecli
-    az network public-ip create \
-    --name TestPIP \
-    --resource-group TestRG \
-    --location centralus \
-    --allocation-method Static
-    ```
-
-    Expected output:
-
-   ```json
-   {
-        "publicIp": {
-            "idleTimeoutInMinutes": 4,
-            "ipAddress": "52.176.43.167",
-            "provisioningState": "Succeeded",
-            "publicIPAllocationMethod": "Static",
-            "resourceGuid": "79e8baa3-33ce-466a-846c-37af3c721ce1"
-        }
-    }
-    ```
-
-   * `--resource-group`: Name of the resource group in which to create the public IP.
-   * `--name`: Name of the public IP.
-   * `--location`: Azure region in which to create the public IP.
-
-3. Run the [az network nic create](/cli/azure/network/nic) command to create a NIC with a static private IP. The list shown after the output explains the parameters used. 
+2. Run the [az network nic create](/cli/azure/network/nic) command to create a NIC with a static private IP. The list shown after the output explains the parameters used. 
    
     ```azurecli
     az network nic create \
@@ -122,7 +87,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
     * `--vnet-name`: Name of the VNet in which to create the NIC.
     * `--subnet`: Name of the subnet in which to create the NIC.
 
-4. Run the [azure vm create](/cli/azure/vm/nic) command to create the VM using the public IP and NIC created previously. The list shown after the output explains the parameters used.
+3. Run the [azure vm create](/cli/azure/vm/nic) command to create the VM using the public IP and NIC created previously. The list shown after the output explains the parameters used.
    
     ```azurecli
     az vm create \
@@ -247,7 +212,7 @@ To change the NIC for the VM used in the previous commands, complete the followi
 2. Run the **azure vm set** command to change the NIC used by the VM.
    
     ```azurecli
-    azure vm set -g TestRG -n DNS01 -N TestNIC2
+   az vm nic set --resource-group TestRG --vm-name DNS01 --nics TestNIC2
     ```
 
     Expected output:

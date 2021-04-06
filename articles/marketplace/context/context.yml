@@ -1,0 +1,6 @@
+### YamlMime:ContextObject
+brand: azure
+uhfHeaderId: azure
+breadcrumb_path: ../breadcrumb/toc.yml
+toc_rel: ../toc.yml
+# we will need to remove azure chrome at some point

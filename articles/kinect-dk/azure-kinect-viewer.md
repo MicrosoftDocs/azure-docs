@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect Viewer
-description: Kinect for Azure sensor data stream viewer homepage
+description: Understand how to visualize all device data streams using the Azure Kinect viewer.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -19,6 +19,8 @@ The Azure Kinect Viewer, found under the installed tools directory as `k4aviewer
 * Read device configuration.
 * Playback recordings made with [Azure Kinect Recorder](azure-kinect-recorder.md).
 
+For more information about Azure Kinect viewer, watch [How to use Azure Kinect video](https://www.microsoft.com/videoplayer/embed/RE3hNwG).
+
 Azure Kinect Viewer is [open source](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/tools/k4aviewer) and can be used as an example for how to use the APIs.
 
 ## Use viewer
@@ -29,7 +31,7 @@ The viewer can operate in two modes: with live data from the sensor or from reco
 
 Launch the application by running `k4aviewer.exe`.
 
-![Checking device firmware version using viewer](./media/how-to-guides/open-viewer.png)
+![Screenshot that shows the launched viewer application.](./media/how-to-guides/open-viewer.png)
 
 ### Use the viewer with live data
 

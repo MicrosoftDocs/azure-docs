@@ -1,5 +1,5 @@
 ---
-title: Service Fabric CLI Script Sample - Update an application on a cluster
+title: Update an application on a cluster in sfctl
 description: Service Fabric CLI Script Sample - Update an application with a new version. This example also upgrades a deployed application with the new bits.
 services: service-fabric
 documentationcenter: 
@@ -11,14 +11,13 @@ tags:
 ms.assetid: 
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 12/06/2017
 ms.author: atsenthi
 ms.custom: 
 ---
 
-# Add an application certificate to a Service Fabric cluster
+# Update an application using the Service Fabric CLI
 
 This sample script uploads a new version of an existing application, and then upgrades a deployed application with the new bits.
 

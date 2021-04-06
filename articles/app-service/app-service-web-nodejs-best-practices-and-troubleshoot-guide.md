@@ -1,25 +1,18 @@
 ---
-title: Best practices and troubleshooting for Node.js - Azure App Service
-description: Learn the best practices and troubleshooting steps for node applications on Azure App Service.
-services: app-service\web
-documentationcenter: nodejs
-author: ranjithr
-manager: wadeh
-editor: ''
+title: Node.js best practices and troubleshooting
+description: Learn the best practices and troubleshooting steps for Node.js applications running in Azure App Service.
+author: msangapu-msft
 
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: ranjithr
+ms.author: msangapu
 ms.custom: seodec18
 ---
 # Best practices and troubleshooting guide for node applications on Azure App Service Windows
 
-In this article, you learn best practices and troubleshooting steps for [node applications](app-service-web-get-started-nodejs.md) running on Azure App Service (with [iisnode](https://github.com/azure/iisnode)).
+In this article, you learn best practices and troubleshooting steps for [Windows Node.js applications](quickstart-nodejs.md?pivots=platform-windows) running on Azure App Service (with [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Use caution when using troubleshooting steps on your production site. Recommendation is to troubleshoot your app on a non-production setup for example your staging slot and when the issue is fixed, swap your staging slot with your production slot.
@@ -123,13 +116,13 @@ Read [Debug node.js applications on Windows](https://tomasz.janczuk.org/2011/11/
 
 Many applications would want to make outbound connections as part of their regular operation. For example, when a request comes in, your node app would want to contact a REST API elsewhere and get some information to process the request. You would want to use a keep alive agent when making http or https calls. You could use the agentkeepalive module as your keep alive agent when making these outbound calls.
 
-The agentkeepalive module ensures that sockets are reused on your Azure webapp VM. Creating a new socket on each outbound request adds overhead to your application. Having your application reuse sockets for outbound requests ensures that your application doesn't exceed the maxSockets that are allocated per VM. The recommendation on Azure App Service is to set the agentKeepAlive maxSockets value to a total of (4 instances of node.exe \* 40 maxSockets/instance) 160 sockets per VM.
+The agentkeepalive module ensures that sockets are reused on your Azure webapp VM. Creating a new socket on each outbound request adds overhead to your application. Having your application reuse sockets for outbound requests ensures that your application doesn't exceed the maxSockets that are allocated per VM. The recommendation on Azure App Service is to set the agentKeepAlive maxSockets value to a total of (4 instances of node.exe \* 32 maxSockets/instance) 128 sockets per VM.
 
 Example [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) configuration:
 
 ```nodejs
 let keepaliveAgent = new Agent({
-    maxSockets: 40,
+    maxSockets: 32,
     maxFreeSockets: 10,
     timeout: 60000,
     keepAliveTimeout: 300000
@@ -142,7 +135,7 @@ let keepaliveAgent = new Agent({
 
 #### My node application is consuming too much CPU
 
-You may receive a recommendation from Azure App Service on your portal about high cpu consumption. You can also set up monitors to watch for certain [metrics](web-sites-monitor.md). When checking the CPU usage on the [Azure Portal Dashboard](../azure-monitor/app/web-monitor-performance.md), check the MAX values for CPU so you don’t miss the peak values.
+You may receive a recommendation from Azure App Service on your portal about high cpu consumption. You can also set up monitors to watch for certain [metrics](web-sites-monitor.md). When checking the CPU usage on the [Azure portal Dashboard](../azure-monitor/essentials/metrics-charts.md), check the MAX values for CPU so you don’t miss the peak values.
 If you believe your application is consuming too much CPU and you cannot explain why, you can profile your node application to find out.
 
 #### Profiling your node application on Azure App Service with V8-Profiler
@@ -172,7 +165,7 @@ Go to the Debug Console site `https://yoursite.scm.azurewebsites.net/DebugConsol
 
 Go into your site/wwwroot directory. You see a command prompt as shown in the following example:
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
+![Screenshot that shows your site/wwwroot directory and command prompt.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
 
 Run the command `npm install v8-profiler`.
 
@@ -205,17 +198,17 @@ http.createServer(function (req, res) {
 
 The preceding code profiles the WriteConsoleLog function and then writes the profile output to the ‘profile.cpuprofile’ file under your site wwwroot. Send a request to your application. You see a ‘profile.cpuprofile’ file created under your site wwwroot.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
+![Screenshot that shows the profile.cpuprofile file.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
 Download this file and open it with Chrome F12 Tools. Press F12 on Chrome, then choose the **Profiles** tab. Choose the **Load** button. Select your profile.cpuprofile file that you downloaded. Click on the profile you just loaded.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
+![Screenshot that shows the profile.cpuprofile file that you loaded.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
 You can see that 95% of the time was consumed by the WriteConsoleLog function. The output also shows you the exact line numbers and source files that caused the issue.
 
 ### My node application is consuming too much memory
 
-If your application is consuming too much memory, you see a notice from Azure App Service on your portal about high memory consumption. You can set up monitors to watch for certain [metrics](web-sites-monitor.md). When checking the memory usage on the [Azure Portal Dashboard](../azure-monitor/app/web-monitor-performance.md), be sure to check the MAX values for memory so you don’t miss the peak values.
+If your application is consuming too much memory, you see a notice from Azure App Service on your portal about high memory consumption. You can set up monitors to watch for certain [metrics](web-sites-monitor.md). When checking the memory usage on the [Azure portal Dashboard](../azure-monitor/essentials/metrics-charts.md), be sure to check the MAX values for memory so you don’t miss the peak values.
 
 #### Leak detection and Heap Diff for node.js
 
@@ -247,9 +240,8 @@ Your application is throwing uncaught exceptions – Check `d:\\home\\LogFiles\\
 The common cause for long application start times is a high number of files in the node\_modules. The application tries to load most of these files when starting. By default, since your files are stored on the network share on Azure App Service, loading many files can take time.
 Some solutions to make this process faster are:
 
-1. Be sure you have a flat dependency structure and no duplicate dependencies by using npm3 to install your modules.
-2. Try to lazy load your node\_modules and not load all of the modules at application start. To Lazy load modules, the call to require(‘module’) should be made when you actually need the module within the function before the first execution of module code.
-3. Azure App Service offers a feature called local cache. This feature copies your content from the network share to the local disk on the VM. Since the files are local, the load time of node\_modules is much faster.
+1. Try to lazy load your node\_modules and not load all of the modules at application start. To Lazy load modules, the call to require(‘module’) should be made when you actually need the module within the function before the first execution of module code.
+2. Azure App Service offers a feature called local cache. This feature copies your content from the network share to the local disk on the VM. Since the files are local, the load time of node\_modules is much faster.
 
 ## IISNODE http status and substatus
 
@@ -275,9 +267,9 @@ NODE.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. On Azure App Servic
 
 Follow these links to learn more about node.js applications on Azure App Service.
 
-* [Get started with Node.js web apps in Azure App Service](app-service-web-get-started-nodejs.md)
-* [How to debug a Node.js web app in Azure App Service](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
+* [Get started with Node.js web apps in Azure App Service](quickstart-nodejs.md)
+* [How to debug a Node.js web app in Azure App Service](/archive/blogs/azureossds/debugging-node-js-apps-on-azure-app-services)
 * [Using Node.js Modules with Azure applications](../nodejs-use-node-modules-azure-apps.md)
-* [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service Web Apps: Node.js](/archive/blogs/silverlining/windows-azure-websites-node-js)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)
 * [Exploring the Super Secret Kudu Debug Console](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

@@ -41,8 +41,8 @@
 		<v:layer v:name="Azure" v:index="0"/>
 		<v:layer v:name="Connector" v:index="1"/>
 		<g id="group1549-1" transform="translate(43.141,-20.0036)" v:mID="1549" v:groupContext="group" v:layerMember="0">
-			<title>Web App (Was Websites).1549</title>
-			<desc>Web App</desc>
+			<title>Web app (Was Websites).1549</title>
+			<desc>Web app</desc>
 			<g id="group1550-2" v:mID="1550" v:groupContext="group" v:layerMember="0">
 				<title>Sheet.1550</title>
 				<g id="shape1551-3" v:mID="1551" v:groupContext="shape" v:layerMember="0">
@@ -172,7 +172,7 @@
 			<g id="shape1549-43" v:mID="1549" v:groupContext="groupContent" v:layerMember="0">
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 				<v:textRect cx="15.5906" cy="74.5249" width="47.95" height="20.0036"/>
-				<text x="-3.25" y="77.53" class="st2" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Web App</text>			</g>
+				<text x="-3.25" y="77.53" class="st2" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Web app</text>			</g>
 		</g>
 		<g id="shape1577-45" v:mID="1577" v:groupContext="shape" transform="translate(132.748,-42.5233)">
 			<title>Sheet.1577</title>

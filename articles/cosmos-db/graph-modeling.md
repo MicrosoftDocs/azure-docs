@@ -1,15 +1,16 @@
 ---
 title: 'Graph data modeling for Azure Cosmos DB Gremlin API'
-description: Learn how to model a graph database using Cosmos DB Gremlin API.
-author: LuisBosquez
+description: Learn how to model a graph database by using Azure Cosmos DB Gremlin API. This article describes when to use a graph database and best practices to model entities and relationships. 
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: overview
-ms.date: 06/24/2019
-ms.author: lbosq
+ms.topic: how-to
+ms.date: 12/02/2019
+ms.author: chrande
 ---
 
 # Graph data modeling for Azure Cosmos DB Gremlin API
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 The following document is designed to provide graph data modeling recommendations. This step is vital in order to ensure the scalability and performance of a graph database system as the data evolves. An efficient data model is especially important with large-scale graphs.
 
@@ -18,7 +19,7 @@ The following document is designed to provide graph data modeling recommendation
 The process outlined in this guide is based on the following assumptions:
  * The **entities** in the problem-space are identified. These entities are meant to be consumed _atomically_ for each request. In other words, the database system isn't designed to retrieve a single entity's data in multiple query requests.
  * There is an understanding of **read and write requirements** for the database system. These requirements will guide the optimizations needed for the graph data model.
- * The principles of the [Apache Tinkerpop property graph standard](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) are well understood.
+ * The principles of the [Apache Tinkerpop property graph standard](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) are well understood.
 
 ## When do I need a graph database?
 
@@ -32,17 +33,17 @@ A graph database solution can be optimally applied if the entities and relations
 
 If the above criteria is satisfied, it's likely that a graph database approach will provide advantages for **query complexity**, **data model scalability**, and **query performance**.
 
-The next step is to determine if the graph is going to be used for analytic or transactional purposes. If the graph is intended to be used for heavy computation and data processing workloads, it would be worth to explore the [Cosmos DB Spark connector](https://docs.microsoft.com/azure/cosmos-db/spark-connector) and the use of the [GraphX library](https://spark.apache.org/graphx/). 
+The next step is to determine if the graph is going to be used for analytic or transactional purposes. If the graph is intended to be used for heavy computation and data processing workloads, it would be worth to explore the [Cosmos DB Spark connector](./spark-connector.md) and the use of the [GraphX library](https://spark.apache.org/graphx/). 
 
 ## How to use graph objects
 
-The [Apache Tinkerpop property graph standard](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) defines two types of objects **Vertices** and **Edges**. 
+The [Apache Tinkerpop property graph standard](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) defines two types of objects **Vertices** and **Edges**. 
 
 The following are the best practices for the properties in the graph objects:
 
 | Object | Property | Type | Notes |
 | --- | --- | --- |  --- |
-| Vertex | ID | String | Uniquely enforced per partition. If a value isn't supplied upon insertion, and auto-generated GUID will be stored. |
+| Vertex | ID | String | Uniquely enforced per partition. If a value isn't supplied upon insertion, an auto-generated GUID will be stored. |
 | Vertex | label | String | This property is used to define the type of entity that the vertex represents. If a value isn't supplied, a default value "vertex" will be used. |
 | Vertex | properties | String, Boolean, Numeric | A list of separate properties stored as key-value pairs in each vertex. |
 | Vertex | partition key | String, Boolean, Numeric | This property defines where the vertex and its outgoing edges will be stored. Read more about [graph partitioning](graph-partitioning.md). |
@@ -68,11 +69,11 @@ One common pitfall is to map properties of a single entity as separate vertices.
 
 * **Vertex-based properties**: In this approach, the entity uses three separate vertices and two edges to describe its properties. While this approach might reduce redundancy, it increases model complexity. An increase in model complexity can result in added latency, query complexity, and computation cost. This model can also present challenges in partitioning.
 
-![Entity model with vertices for properties.](./media/graph-modeling/graph-modeling-1.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Entity model with vertices for properties." border="false":::
 
 * **Property-embedded vertices**: This approach takes advantage of the key-value pair list to represent all the properties of the entity inside a vertex. This approach provides reduced model complexity, which will lead to simpler queries and more cost-efficient traversals.
 
-![Entity model with vertices for properties.](./media/graph-modeling/graph-modeling-2.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Diagram shows the Luis vertex from the previous diagram with i d, label, and properties." border="false":::
 
 > [!NOTE]
 > The above examples show a simplified graph model to only show the comparison between the two ways of dividing entity properties.
@@ -89,7 +90,7 @@ Edge objects have a default direction that is followed by a traversal when using
 
 However, traversing in the opposite direction of an edge, using the `in()` function, will always result in a cross-partition query. Learn more about [graph partitioning](graph-partitioning.md). If there's a need to constantly traverse using the `in()` function, it's recommended to add edges in both directions.
 
-You can determine the edge direction by using the `.to()` or `.from()` predicates to the `.addE()` Gremlin step. Or by using the [BulkExecutor library for Gremlin API](bulk-executor-graph-dotnet.md).
+You can determine the edge direction by using the `.to()` or `.from()` predicates to the `.addE()` Gremlin step. Or by using the [bulk executor library for Gremlin API](bulk-executor-graph-dotnet.md).
 
 > [!NOTE]
 > Edge objects have a direction by default.
@@ -100,7 +101,7 @@ Using descriptive relationship labels can improve the efficiency of edge resolut
 * Use non-generic terms to label a relationship.
 * Associate the label of the source vertex to the label of the target vertex with the relationship name.
 
-![Relationship labeling examples.](./media/graph-modeling/graph-modeling-3.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Relationship labeling examples." border="false":::
 
 The more specific the label that the traverser will use to filter the edges, the better. This decision can have a significant impact on query cost as well. You can evaluate the query cost at any time [using the executionProfile step](graph-execution-profile.md).
 

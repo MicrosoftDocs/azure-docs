@@ -1,30 +1,19 @@
 ---
-title: Azure CLI Script Example - Add an Application in Batch | Microsoft Docs
-description: Azure CLI Script Example - Add an Application in Batch
-services: batch
-documentationcenter: ''
-author: laurenhughes
-manager: gwallace
-editor: 
-
-ms.assetid:
-ms.service: batch
-ms.devlang: azurecli
+title: Azure CLI Script Example - Add an Application in Batch
+description: This sample script demonstrates how to add an application for use with an Azure Batch pool or a task.
 ms.topic: sample
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 01/29/2018
-ms.author: lahugh
+ms.date: 01/29/2018 
+ms.custom: devx-track-azurecli
+
 ---
 
 # CLI example: Add an application to an Azure Batch account
 
-This script demonstrates how to add an application for use with an Azure Batch
-pool or task. To set up an application to add to your Batch account, package your executable, together with any dependencies, into a zip file. 
+This script demonstrates how to add an application for use with an Azure Batch pool or task. To set up an application to add to your Batch account, package your executable, together with any dependencies, into a zip file. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
+ - This tutorial requires version 2.0.20 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
 ## Example script
 
@@ -57,4 +46,4 @@ Each command in the table links to command-specific documentation.
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).

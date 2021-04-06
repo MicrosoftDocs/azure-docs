@@ -6,6 +6,7 @@ author: billmath
 manager: daveba
 tags: azuread
 ms.service: active-directory
+ms.subservice: hybrid
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/06/2018
@@ -34,9 +35,9 @@ The purpose of this document is to describe the factors influencing the performa
 
 The following diagram shows a high-level architecture of provisioning engine connecting to a single forest, although multiple forests are supported. This architecture shows how the various components interact with each other.
 
-![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
+![Diagram shows how the Connected Directories and Azure AD Connect provisioning engine interact, including Connector Space and Metaverse components in an SQL Database. ](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-The provisioning engine connects to each Active Directory forest and to Azure AD. The process of reading information from each directory is called Import. Export refers to updating the directories from the provisioning engine. Sync evaluates the rules of how the objects will flow inside the provisioning engine. For a deeper dive you can refer to [Azure AD Connect sync: Understanding the architecture](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
+The provisioning engine connects to each Active Directory forest and to Azure AD. The process of reading information from each directory is called Import. Export refers to updating the directories from the provisioning engine. Sync evaluates the rules of how the objects will flow inside the provisioning engine. For a deeper dive you can refer to [Azure AD Connect sync: Understanding the architecture](./concept-azure-ad-connect-sync-architecture.md).
 
 Azure AD Connect uses the following staging areas, rules, and processes to allow the sync from Active Directory to Azure AD:
 
@@ -45,7 +46,7 @@ Azure AD Connect uses the following staging areas, rules, and processes to allow
 * **Sync rules** - They decide which objects will be created (projected) or connected (joined) to objects in the MV. The sync rules also decide which attribute values will be copied or transformed to and from the directories.
 * **Run profiles** - Bundles the process steps of copying objects and their attribute values according to the sync rules between the staging areas and connected directories.
 
-Different run profiles exist to optimize the performance of the provisioning engine. Most organizations will use the default schedules and run profiles for normal operations, but some organizations may have to [change the schedule](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler) or trigger other run profiles to cater for uncommon situations. The following run profiles are available:
+Different run profiles exist to optimize the performance of the provisioning engine. Most organizations will use the default schedules and run profiles for normal operations, but some organizations may have to [change the schedule](./how-to-connect-sync-feature-scheduler.md) or trigger other run profiles to cater for uncommon situations. The following run profiles are available:
 
 ### Initial sync profile
 
@@ -102,7 +103,7 @@ The sync process runtime has the following performance characteristics:
 
 The size of the Active Directory topology you want to import is the number one factor influencing the performance and overall time the internal components of the provisioning engine will take.
 
-[Filtering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering) should be used to reduce the objects to the synced. It will prevent unnecessary objects from being processed and exported to Azure AD. In order of preference, the following techniques of filtering are available:
+[Filtering](./how-to-connect-sync-configure-filtering.md) should be used to reduce the objects to the synced. It will prevent unnecessary objects from being processed and exported to Azure AD. In order of preference, the following techniques of filtering are available:
 
 
 
@@ -123,7 +124,7 @@ Many persistent [disconnector objects](concept-azure-ad-connect-sync-architectur
 
 ### Attribute flows
 
-Attribute flows is the process for copying or transforming the attribute values of objects from one connected directory to another connected directory. They're defined as part of the sync rules. For example, when the telephone number of a user is changed in your Active Directory, the telephone number in Azure AD will be updated. Organizations can [modify the attribute flows](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-change-the-configuration) to suite various requirements. It's recommended you copy the existing attribute flows before changing them.
+Attribute flows is the process for copying or transforming the attribute values of objects from one connected directory to another connected directory. They're defined as part of the sync rules. For example, when the telephone number of a user is changed in your Active Directory, the telephone number in Azure AD will be updated. Organizations can [modify the attribute flows](./how-to-connect-sync-change-the-configuration.md) to suite various requirements. It's recommended you copy the existing attribute flows before changing them.
 
 Simple redirects, like flowing an attribute value to a different attribute doesn't have material performance impact. An example of a redirect is flowing a mobile number in Active Directory to the office phone number in Azure AD.
 
@@ -136,7 +137,7 @@ Organizations can prevent certain attributes to flow to Azure AD, but it won't i
 
 ## Azure AD Connect dependency factors
 
-The performance of Azure AD Connect is dependent on the performance of the connected directories it imports and exports to. For example, the size of the Active Directory it needs to import or the network latency to the Azure AD service. The SQL database the provisioning engine uses also impacts the overall performance of the sync cycle.
+The performance of Azure AD Connect is dependent on the performance of the connected directories it imports and exports to. For example, the size of the Active Directory it needs to import or the network latency to the Azure AD service. The SQL database that the provisioning engine uses also impacts the overall performance of the sync cycle.
 
 ### Active Directory factors
 
@@ -165,7 +166,7 @@ The size of your source Active Directory topology will influence your SQL databa
 
 - Organizations with more than 100,000 users can reduce network latencies by colocating SQL database and the provisioning engine on the same server.
 - Due to the high disk input and output (I/O) requirements of the sync process, use Solid State Drives (SSD) for the SQL database of the provisioning engine for optimal results, if not possible, consider RAID 0 or RAID 1 configurations.
-- Don’t do a full sync pre-emptively; it causes unnecessary churn and slower response times.
+- Don’t do a full sync preemptively; it causes unnecessary churn and slower response times.
 
 ## Conclusion
 
@@ -174,7 +175,7 @@ To optimize the performance of your Azure AD Connect implementation, consider th
 
 
 - Use the [recommended hardware configuration](how-to-connect-install-prerequisites.md) based on your implementation size for the Azure AD Connect server.
-- When upgrading Azure AD Connect in large-scale deployments, consider using [swing migration method](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration), to make sure you have the least downtime and best reliability. 
+- When upgrading Azure AD Connect in large-scale deployments, consider using [swing migration method](./how-to-upgrade-previous-version.md#swing-migration), to make sure you have the least downtime and best reliability. 
 - Use SSD for the SQL database for best writing performance.
 - Filter the Active Directory scope to only include objects that need to be provisioned in Azure AD, using domain, OU, or attribute filtering.
 - If you require to change the default attribute flow rules, first copy the rule, then change the copy and disable the original rule. Remember to rerun a full sync.

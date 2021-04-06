@@ -3,13 +3,11 @@ title: "Features: Action and context - Personalizer"
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be very generic, or specific to an item.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.author: diberry
+ms.date: 10/14/2019
 ---
 
 # Features are information about actions and context
@@ -20,7 +18,7 @@ Personalizer uses **features**, which is information about the **current context
 
 For example, you may have a **feature** about:
 
-* The _user_ such as a `UserID`. 
+* The _user persona_ such as a `Sports_Shopper`. This should not be an individual user ID. 
 * The _content_ such as if a video is a `Documentary`, a `Movie`, or a `TV Series`, or whether a retail item is available in store.
 * The _current_ period of time such as which day of the week it is.
 
@@ -34,12 +32,12 @@ Personalizer does not prescribe, limit, or fix what features you can send for ac
 
 ## Supported feature types
 
-Personalizer supports features of string, numeric, and boolean types.
+Personalizer supports features of string, numeric, and boolean types. It is very likely that your application will mostly use string features, with a few exceptions.
 
 ### How choice of feature type affects Machine Learning in Personalizer
 
-* **Strings**: For string types, every combination of key and value creates new weights in the Personalizer machine learning model. 
-* **Numeric**: You should use numerical values when the number should proportionally affect the personalization result. This is very scenario dependent. In a simplified example e.g. when personalizing a retail experience, NumberOfPetsOwned could be a feature that is numeric as you may want people with 2 or 3 pets to influence the personalization result twice or thrice as much as having 1 pet. Features that are based on numeric units but where the meaning isn't linear - such as Age, Temperature, or Person Height - are best encoded as strings, and the feature quality can typically be improved by using ranges. For example, Age could be encoded as "Age":"0-5", "Age":"6-10", etc.
+* **Strings**: For string types, every combination of key and value is treated as a One-Hot feature (e.g. genre:"ScienceFiction" and genre:"Documentary" would create two new  input features for the machine learning model.
+* **Numeric**: You should use numerical values when the number is a magnitude that should proportionally affect the personalization result. This is very scenario dependent. In a simplified example e.g. when personalizing a retail experience, NumberOfPetsOwned could be a feature that is numeric as you may want people with 2 or 3 pets to influence the personalization result twice or thrice as much as having 1 pet. Features that are based on numeric units but where the meaning isn't linear - such as Age, Temperature, or Person Height - are best encoded as strings. For example DayOfMonth would be a string with "1","2"..."31". If you have many categories The feature quality can typically be improved by using ranges. For example, Age could be encoded as "Age":"0-5", "Age":"6-10", etc.
 * **Boolean** values sent with value of "false" act as if they hadn't been sent at all.
 
 Features that are not present should be omitted from the request. Avoid sending features with a null value, because it will be processed as existing and with a value of "null" when training the model.
@@ -65,7 +63,9 @@ You can name feature namespaces following your own conventions as long as they a
 
 
 In the following JSON, `user`, `state`, and `device` are feature namespaces. 
-Public Preview Note: Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `state`, and `device` start with `u`, `s`, and `d`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
+
+> [!Note]
+> Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `state`, and `device` start with `u`, `s`, and `d`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
 
 JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
 
@@ -75,12 +75,14 @@ JSON objects can include nested JSON objects and simple property/values. An arra
         { 
             "user": {
                 "profileType":"AnonymousUser",
-                "latlong": [47.6, -122.1]
+                "latlong": ["47.6,-122.1"]
             }
         },
         {
-            "state": {
-                "timeOfDay": "noon",
+            "environment": {
+                "dayOfMonth": "28",
+                "monthOfYear": "8",
+                "timeOfDay": "13:00",
                 "weather": "sunny"
             }
         },
@@ -89,16 +91,33 @@ JSON objects can include nested JSON objects and simple property/values. An arra
                 "mobile":true,
                 "Windows":true
             }
+        },
+        {
+            "userActivity" : {
+                "itemsInCart": 3,
+                "cartValue": 250,
+                "appliedCoupon": true
+            }
         }
     ]
 }
 ```
+
+### Restrictions in character sets for namespaces
+
+The string you use for naming the namespace must follow some restrictions: 
+* It can't be unicode.
+* You can use some of the printable symbols with codes < 256 for the namespace names. 
+* You can't use symbols with codes < 32 (not printable), 32 (space), 58 (colon), 124 (pipe), and 126–140.
+* It should not start with an underscore "_" or the feature will be ignored.
 
 ## How to make feature sets more effective for Personalizer
 
 A good feature set helps Personalizer learn how to predict the action that will drive the highest reward. 
 
 Consider sending features to the Personalizer Rank API that follow these recommendations:
+
+* Use categorical and string types for features that are not a magnitude. 
 
 * There are enough features to drive personalization. The more precisely targeted the content needs to be, the more features are needed.
 
@@ -117,6 +136,8 @@ These following sections are common practices for improving features sent to Per
 It is possible to improve your feature sets by editing them to make them larger and more or less dense.
 
 For example, a timestamp down to the second is a very sparse feature. It could be made more dense (effective) by classifying times into "morning", "midday", "afternoon", etc.
+
+Location information also typically benefits from creating broader classifications. For example, a Latitude-Longitude coordinate such as Lat: 47.67402° N, Long: 122.12154° W is too precise, and forces the model to learn latitude and longitude as distinct dimensions. When you are trying to personalize based on location information, it helps to group location information in larger sectors. An easy way to do that is to choose an appropriate rounding precision for the Lat-Long numbers, and combine latitude and longitude into "areas" by making them into one string. For example, a good way to represent 47.67402° N, Long: 122.12154° W in regions approximately a few kilometers wide would be "location":"34.3 , 12.1".
 
 
 #### Expand feature sets with extrapolated information
@@ -137,16 +158,16 @@ For example:
 
 You can use several other [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), like
 
-* [Entity Linking](../entitylinking/home.md)
+* [Entity Linking](../text-analytics/index.yml)
 * [Text Analytics](../text-analytics/overview.md)
-* [Emotion](../emotion/home.md)
-* [Computer Vision](../computer-vision/home.md)
+* [Emotion](../face/overview.md)
+* [Computer Vision](../computer-vision/overview.md)
 
 ## Actions represent a list of options
 
 Each action:
 
-* Has an ID.
+* Has an _event_ ID. If you already have an event ID, you should submit that. If you do not have an event ID, do not send one, Personalizer creates one for you and returns it in the response of the Rank request. The ID is associated with the Rank event, not the user. If you create an ID, a GUID works best. 
 * Has a list of features.
 * The list of features can be large (hundreds) but we recommend evaluating feature effectiveness to remove features that aren't contributing to getting rewards. 
 * The features in the **actions** may or may not have any correlation with features in the **context** used by Personalizer.
@@ -307,4 +328,4 @@ JSON objects can include nested JSON objects and simple property/values. An arra
 
 ## Next steps
 
-[Reinforcement learning](concepts-reinforcement-learning.md) 
+[Reinforcement learning](concepts-reinforcement-learning.md)

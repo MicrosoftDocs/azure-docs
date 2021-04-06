@@ -1,22 +1,10 @@
 ---
-title: Package and deploy containers as a Service Fabric app in Azure | Microsoft Docs
+title: Package and deploy containers
 description: In this tutorial, you learn how to generate an Azure Service Fabric application definition using Yeoman and package the application. 
-services: service-fabric
-documentationcenter: ''
-author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Containers, Microservices, Service Fabric, Azure
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
-ms.author: suhuruli
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Tutorial: Package and deploy containers as a Service Fabric application using Yeoman
 
@@ -119,7 +107,7 @@ For Service Fabric to pull the container images from Azure Container Registry, w
 
 Sign in to your ACR instance. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -127,7 +115,7 @@ The command returns a **Login Succeeded** message once completed.
 
 Next, run the following command to get the password of your container registry. This password is used by Service Fabric to authenticate with ACR to pull the container images.
 
-```bash
+```azurecli
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
@@ -204,7 +192,7 @@ For Service Fabric to assign this DNS name to the backend service, the name need
 
 The frontend service reads an environment variable to know the DNS name of the Redis instance. This environment variable is already defined in the Dockerfile that was used to generate the Docker image and no action needs to be taken here.
 
-```Dockerfile
+```dockerfile
 ENV REDIS redisbackend.testapp
 ```
 
@@ -283,7 +271,7 @@ Open a browser and navigate to Service Fabric Explorer at http:\//containertestc
 
 In order to connect to the running application, open a web browser and go to the cluster url - for example http:\//containertestcluster.eastus.cloudapp.azure.com:80. You should see the Voting application in the web UI.
 
-![votingapp][votingapp]
+![Screenshot shows the Azure Voting App with buttons for Cats, Dogs, and Reset, and totals.][votingapp]
 
 ## Clean up
 

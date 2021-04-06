@@ -3,9 +3,7 @@ title: How to make a phone call from Twilio (PHP) | Microsoft Docs
 description: Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Samples are for PHP application.
 documentationcenter: php
 services: ''
-author: devinrader
-manager: twilio
-editor: mollybos
+author: georgewallace
 
 ms.assetid: 44e35adc-be06-4700-beee-8c9e2c20c540
 ms.service: multiple
@@ -14,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
-ms.author: microsofthelp@twilio.com
+ms.author: gwallace
 
 ---
 # How to Make a Phone Call Using Twilio in a PHP Application on Azure
@@ -27,7 +25,7 @@ You'll need to do the following to use the code in this topic:
 1. Acquire a Twilio account and authentication token from your [Twilio Console][twilio_console]. To get started with Twilio, evaluate pricing at [https://www.twilio.com/pricing][twilio_pricing]. You can sign up for a trial account at [https://www.twilio.com/try-twilio][try_twilio].
 2. Obtain the [Twilio library for PHP](https://github.com/twilio/twilio-php) or install it as a PEAR package. For more information, see the [readme file](https://github.com/twilio/twilio-php/blob/master/README.md).
 3. Install the Azure SDK for PHP. 
-<!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](app-service-web/web-sites-php-mysql-deploy-use-git.md) -->
+<!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](./app-service/quickstart-php.md) -->
 
 ## Create a web form for making a call
 The following HTML code shows how to build a web page (**callform.html**) that retrieves user data for making a call:
@@ -103,7 +101,7 @@ In addition to making the call, **makecall.php** displays some call metadata, as
 ![Azure Call Response Using Twilio and PHP][twilio_php_response]
 
 ## Run the application
-The next step is to [deploy your application to Azure Web Apps with Git](app-service/app-service-web-get-started-php.md) (though not all the information there is relevant). 
+The next step is to [deploy your application to Azure Web Apps with Git](app-service/quickstart-php.md) (though not all the information there is relevant). 
 
 ## Next steps
 This code was provided to show you basic functionality using Twilio in PHP on Azure. Before deploying to Azure in production, you may want to add more error handling or other features. For example:
@@ -127,8 +125,8 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [twilio_api_service]: https://api.twilio.com
 [build_php_azure_app]: http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application
 [howto_twilio_voice_sms_php]: partner-twilio-php-how-to-use-voice-sms.md
-[howto_blob_storage_php]: https://azure.microsoft.com/documentation/articles/storage-php-how-to-use-blobs/
-[howto_sql_azure_php]: https://azure.microsoft.com/documentation/articles/sql-database-php-how-to-use/
+[howto_blob_storage_php]: ./storage/blobs/storage-quickstart-blobs-php.md
+[howto_sql_azure_php]: ./azure-sql/database/connect-query-content-reference-guide.md
 [twilio_call_properties]: https://www.twilio.com/docs/api/rest/call#instance-properties
 [twilio_docs_security]: https://www.twilio.com/docs/security
 [twilio_docs]: https://www.twilio.com/docs

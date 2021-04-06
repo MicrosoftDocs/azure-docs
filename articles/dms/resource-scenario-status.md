@@ -1,16 +1,17 @@
 ﻿---
-title: Database migration scenario status | Microsoft Docs
+title: Database migration scenario status
+titleSuffix: Azure Database Migration Service
 description: Learn about the status of the migration scenarios supported by Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
-ms.date: 07/13/2019
+ms.topic: troubleshooting
+ms.date: 07/08/2020
 ---
 
 # Status of migration scenarios supported by Azure Database Migration Service
@@ -42,18 +43,20 @@ The following table shows Azure Database Migration Service support for offline m
 | Target  | Source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
-|   | RDS SQL |  |  |
-|   | Oracle |  |  |
+|   | RDS SQL | X |  |
+|   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL |  |  |
-|   | Oracle |  |   |
+|   | RDS SQL | X |  |
+|   | Oracle | X |   |
 | **Azure SQL VM** | SQL Server | ✔ | GA |
-|   | Oracle |   |   |
+|   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL** | MySQL |   |   |
-|   | RDS MySQL |   |   |
-| **Azure DB for PostgreSQL** | PostgreSQL |  |
-|  | RDS PostgreSQL |   |   |
+| **Azure DB for MySQL** | MySQL | X |   |
+|   | RDS MySQL | X |   |
+| **Azure DB for PostgreSQL - Single server** | PostgreSQL | X |
+|  | RDS PostgreSQL | X |   |
+| **Azure DB for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | X |
+|  | RDS PostgreSQL | X |   |
 
 ### Online (continuous sync) migration support
 
@@ -61,20 +64,27 @@ The following table shows Azure Database Migration Service support for online mi
 
 | Target  | Source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL DB** | SQL Server | ✔ | GA |
-|   | RDS SQL | ✔ | GA |
-|   | Oracle |  |  |
+| **Azure SQL DB** | SQL Server | X |  |
+|   | RDS SQL | X |  |
+|   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | ✔ | GA |
-|   | Oracle | ✔ | Private preview |
-| **Azure SQL VM** | SQL Server |   |   |
-|   | Oracle  |  |  |
+|   | RDS SQL | X |  |
+|   | Oracle | X |  |
+| **Azure SQL VM** | SQL Server | X |   |
+|   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
 | **Azure DB for MySQL** | MySQL | ✔ | GA |
 |   | RDS MySQL | ✔ | GA |
-| **Azure DB for PostgreSQL** | PostgreSQL | ✔ | GA |
+| **Azure DB for PostgreSQL - Single server** | PostgreSQL | ✔ | GA |
+|   | Azure DB for PostgreSQL - Single server | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-|   | Oracle | ✔ | Private preview |
+|   | Oracle | ✔ | Public preview (to be deprecated after May 1, 2021) |
+| **Azure DB for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
+|   | RDS PostgreSQL | ✔ | GA |
+
+> [!IMPORTANT]
+> "Oracle to Azure Database for PostgreSQL" migration scenario (currently in preview) will no longer be available after May 1, 2021. We will continue to provide support via alternative tooling (such as Ora2pg) and provide the best migration experience for Oracle to PostgreSQL migrations. For migration best practices, see [Oracle to Azure Database for PostgreSQL migration guide](https://aka.ms/OracletoPGguide).
+
 
 ## Next steps
 

@@ -15,10 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
+ms.custom: devx-track-dotnet
 
 ---
 # Multitenant Applications in Azure
-A multitenant application is a shared resource that allows separate users, or "tenants," to view the application as though it was their own. A typical scenario that lends itself to a multitenant application is one in which all users of the application may wish to customize the user experience but otherwise have the same basic business requirements. Examples of large multitenant applications are Office 365, Outlook.com, and visualstudio.com.
+A multitenant application is a shared resource that allows "users in separate tenants" to view the application as though it was their own. A typical scenario that lends itself to a multitenant application is one in which all users of the application from different tenants may wish to customize the user experience but otherwise have the same basic business requirements. Examples of large multitenant applications are Microsoft 365, Outlook.com, and visualstudio.com.
 
 From an application provider's perspective, the benefits of multitenancy mostly relate to operational and cost efficiencies. One version of your application can meet the needs of many tenants/customers, allowing consolidation of system administration tasks such as monitoring, performance tuning, software maintenance, and data backups.
 
@@ -38,13 +39,13 @@ A properly implemented multitenant application provides the following benefits t
 
 In short, while there are many considerations that you must take into account to provide a highly scalable service, there are also a number of  goals and requirements that are common to many multitenant applications. Some may not be relevant in specific scenarios, and the importance of individual goals and requirements will differ in each scenario. As a provider of the multitenant application, you will also have goals and requirements such as, meeting the tenant's goals and requirements, profitability, billing, multiple service levels, provisioning, maintainability monitoring, and automation.
 
-For more information on additional design considerations of a multitenant application, see [Hosting a Multi-Tenant Application on Azure][Hosting a Multi-Tenant Application on Azure]. For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
+For more information on additional design considerations of a multitenant application, see [Hosting a Multi-Tenant Application on Azure][Hosting a Multi-Tenant Application on Azure]. For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](./azure-sql/database/saas-tenancy-app-design-patterns.md). 
 
 Azure provides many features that allow you to address the key problems encountered when designing a multitenant system.
 
 **Isolation**
 
-* Segment Website Tenants by Host Headers with or without SSL communication
+* Segment Website Tenants by Host Headers with or without TLS communication
 * Segment Website Tenants by Query Parameters
 * Web Services in Worker Roles
   * Worker Roles that typically process data on the backend of an application.
@@ -87,5 +88,5 @@ Azure provides a number of ways to provision new tenants for the application. Fo
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Azure]: https://msdn.microsoft.com/library/hh534480.aspx
+[Hosting a Multi-Tenant Application on Azure]: /previous-versions/msp-n-p/hh534480(v=pandp.10)
 [Designing Multitenant Applications on Azure]: https://msdn.microsoft.com/library/windowsazure/hh689716

@@ -1,16 +1,9 @@
 ---
-title: Create an External App Service environment - Azure
-description: Explains how to create an App Service environment while you create an app or standalone
-services: app-service
-documentationcenter: na
+title: Create an external ASE
+description: Learn how to create an App Service environment with an app in it, or create a standalone (empty) ASE.
 author: ccompy
-manager: stefsch
 
 ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
@@ -64,7 +57,7 @@ To create an ASE while you create an App Service plan:
 
 1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Web + Mobile** > **Web App**.
 
-    ![Web app creation][1]
+    ![Screenshot of the Azure portal showing Web + Mobile selected in the Azure Marketplace and the screen for creating a new Web App open on the right.][1]
 
 2. Select your subscription. The app and the ASE are created in the same subscriptions.
 
@@ -74,7 +67,7 @@ To create an ASE while you create an App Service plan:
 
 5. Select the App Service plan, and then select **Create New**. Linux web apps and Windows web apps cannot be in the same App Service Plan, but can be in the same App Service Environment. 
 
-    ![New App Service plan][2]
+    ![Screenshot of the Azure portal showing the Web App pane, the App service plan pane, and the New App Service Plan pane open.][2]
 
 6. In the **Location** drop-down list, select the region where you want to create the ASE. If you select an existing ASE, a new ASE isn't created. The App Service plan is created in the ASE that you selected. 
 
@@ -92,7 +85,7 @@ To create an ASE while you create an App Service plan:
 
     b. Enter a new subnet name.
 
-    c. Select the size of the subnet. *Remember to select a size large enough to accommodate future growth of your ASE.* We recommend `/24`, which has 128 addresses and can handle a maximum-sized ASE. We don't recommend `/28`, for example, because only 16 addresses are available. Infrastructure uses at least seven addresses and Azure Networking uses another 5. In a `/28` subnet, you're left with a maximum scaling of 4 App Service plan instances for an External ASE and only 3 App Service plan instances for an ILB ASE.
+    c. Select the size of the subnet. *Remember to select a size large enough to accommodate future growth of your ASE.* We recommend `/24`, which has 256 addresses and can handle a maximum-sized ASE. We don't recommend `/28`, for example, because only 16 addresses are available. Infrastructure uses at least seven addresses and Azure Networking uses another 5. In a `/28` subnet, you're left with a maximum scaling of 4 App Service plan instances for an External ASE and only 3 App Service plan instances for an ILB ASE.
 
     d. Select the subnet IP range.
 
@@ -102,7 +95,7 @@ To create an ASE while you create an App Service plan:
 
 1. In the [Azure portal](https://portal.azure.com/), **Create a Resource** > **Web + Mobile** > **Web App for Containers.** 
 
-    ![Web app creation][7]
+    ![Screenshot of the Azure portal showing Web + Mobile selected in the Azure Marketplace and the Web App for Containers pane open on the right.][7]
 
 1. Select your subscription. The app and the ASE are created in the same subscriptions.
 
@@ -110,7 +103,7 @@ To create an ASE while you create an App Service plan:
 
 1. Select the App Service plan, and then select **Create New**. Linux web apps and Windows web apps cannot be in the same App Service Plan, but can be in the same App Service Environment. 
 
-    ![New App Service plan][8]
+    ![Screenshot of the Azure portal showing the Web App for Containers pane, the App service plan pane, and the New App Service Plan pane open.][8]
 
 1. In the **Location** drop-down list, select the region where you want to create the ASE. If you select an existing ASE, a new ASE isn't created. The App Service plan is created in the ASE that you selected. 
 
@@ -195,11 +188,11 @@ To learn more about ASEv1, see [Introduction to the App Service Environment v1][
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md
-[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
+[mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md

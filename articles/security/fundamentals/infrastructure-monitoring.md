@@ -1,6 +1,6 @@
 ---
 title: Azure infrastructure monitoring
-description: This article discusses monitoring of the Azure production network.
+description: Learn about infrastructure monitoring aspects of the Azure production network, such as vulnerability scanning.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -9,6 +9,7 @@ editor: TomSh
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

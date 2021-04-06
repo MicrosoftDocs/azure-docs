@@ -7,6 +7,7 @@ ms.author: terrylan
 ms.date: 06/11/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
@@ -53,7 +54,7 @@ the development lifecycle helps you catch issues early, and it helps you
 reduce your development costs.
 
 We follow the phases of the Microsoft [Security Development Lifecycle
-(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)
+(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10))
 to introduce activities and Azure services that you can use to fulfill
 secure software development practices in each phase of the lifecycle.
 
@@ -89,7 +90,7 @@ Use the following resources to learn more about developing secure
 applications and to help secure your applications on Azure:
 
 [Microsoft Security Development Lifecycle
-(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)
+(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10))
 – The SDL is a software development process from Microsoft that helps
 developers build more secure software. It helps you address security
 compliance requirements while reducing development costs.
@@ -106,7 +107,7 @@ Boss](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.
 different types of application security activities that developers should complete to create more secure code.
 
 [Microsoft identity
-platform](https://docs.microsoft.com/azure/active-directory/develop/) –
+platform](../../active-directory/develop/index.yml) –
 The Microsoft identity platform is an evolution of the Azure AD identity
 service and developer platform. It’s a full-featured platform that
 consists of an authentication service, open-source libraries,

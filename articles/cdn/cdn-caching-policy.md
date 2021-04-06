@@ -1,6 +1,6 @@
 ---
 title: Manage Azure CDN caching policy in Azure Media Services | Microsoft Docs
-description: Learn how to manage Azure CDN caching policy in Azure Media Services.
+description: This article explains how to manage Azure CDN caching policy in Azure Media Services.
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/04/2017
 ms.author: juliako
 
@@ -36,10 +36,9 @@ You can use Azure portal or Azure Media Services APIs to configure cache header 
 
 1. To configure cache headers using Azure portal, refer to [How to Manage Streaming Endpoints](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) section Configuring the Streaming Endpoint.
 2. Azure Media Services REST API, [StreamingEndpoint](/rest/api/media/operations/streamingendpoint#StreamingEndpointCacheControl).
-3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl Properties](https://go.microsoft.com/fwlink/?LinkId=615302).
+3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl Properties](/dotnet/api/microsoft.windowsazure.mediaservices.client.streamingendpointcachecontrol).
 
 ## Cache configuration precedence order
 1. Azure Media Services configured cache value overrides default value.
 2. If there is no manual configuration, default values apply.
 3. By default 2 seconds cache headers applies to live streaming manifest(playlist) regardless of Azure Media or Azure Storage configuration and overriding of this value is not available.
-

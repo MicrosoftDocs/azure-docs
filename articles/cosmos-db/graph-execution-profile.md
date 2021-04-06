@@ -1,19 +1,18 @@
 ---
-title: Evaluate your queries with the Execution Profile function for Azure Cosmos DB Gremlin API
+title: Use the execution profile to evaluate queries in Azure Cosmos DB Gremlin API
 description: Learn how to troubleshoot and improve your Gremlin queries using the execution profile step.
 services: cosmos-db
-author: luisbosquez
-manager: kfile
-
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2019
-ms.author: lbosq
+ms.author: chrande
 
 ---
 
 # How to use the execution profile step to evaluate your Gremlin queries
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 This article provides an overview of how to use the execution profile step for Azure Cosmos DB Gremlin API graph databases. This step provides relevant information for troubleshooting and query optimizations, and it is compatible with any Gremlin query that can be executed against a Cosmos DB Gremlin API account.
 
@@ -51,12 +50,14 @@ The following is an annotated example of the output that will be returned:
     // Amount of time in milliseconds that the entire operation took.
     "totalTime": 28,
 
-    // An array containing metrics for each of the steps that were executed. Each Gremlin step will translate to one or more of these steps.
+    // An array containing metrics for each of the steps that were executed. 
+    // Each Gremlin step will translate to one or more of these steps.
     // This list is sorted in order of execution.
     "metrics": [
       {
         // This operation obtains a set of Vertex objects.
-        // The metrics include: time, percentTime of total execution time, resultCount, fanoutFactor, count, size (in bytes) and time.
+        // The metrics include: time, percentTime of total execution time, resultCount, 
+        // fanoutFactor, count, size (in bytes) and time.
         "name": "GetVertices",
         "time": 24,
         "annotations": {
@@ -75,8 +76,12 @@ The following is an annotated example of the output that will be returned:
         ]
       },
       {
-        // This operation obtains a set of Edge objects. Depending on the query, these might be directly adjacent to a set of vertices, or separate, in the case of an E() query.
-        // The metrics include: time, percentTime of total execution time, resultCount, fanoutFactor, count, size (in bytes) and time.
+        // This operation obtains a set of Edge objects. 
+        // Depending on the query, these might be directly adjacent to a set of vertices, 
+        // or separate, in the case of an E() query.
+        //
+        // The metrics include: time, percentTime of total execution time, resultCount, 
+        // fanoutFactor, count, size (in bytes) and time.
         "name": "GetEdges",
         "time": 4,
         "annotations": {
@@ -107,8 +112,9 @@ The following is an annotated example of the output that will be returned:
         }
       },
       {
-        // This operation represents the serialization and preparation for a result from the preceding graph operations.
-        // The metrics include: time, percentTime of total execution time and resultCount.
+        // This operation represents the serialization and preparation for a result from 
+        // the preceding graph operations. The metrics include: time, percentTime of total 
+        // execution time and resultCount.
         "name": "ProjectOperator",
         "time": 0,
         "annotations": {
@@ -210,8 +216,8 @@ Assume the following execution profile response from a **partitioned graph**:
 
 The following conclusions can be made from it:
 - The query is a single ID lookup, since the Gremlin statement follows the pattern `g.V('id')`.
-- Judging from the `time` metric, the latency of this query seems to be high since it's [more than 10ms for a single point-read operation](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
-- If we look into the `storeOps` object, we can see that the `fanoutFactor` is `5`, which means that [5 partitions](https://docs.microsoft.com/azure/cosmos-db/partition-data) were accessed by this operation.
+- Judging from the `time` metric, the latency of this query seems to be high since it's [more than 10ms for a single point-read operation](./introduction.md#guaranteed-speed-at-any-scale).
+- If we look into the `storeOps` object, we can see that the `fanoutFactor` is `5`, which means that [5 partitions](./partitioning-overview.md) were accessed by this operation.
 
 As a conclusion of this analysis, we can determine that the first query is accessing more partitions than necessary. This can be addressed by specifying the partitioning key in the query as a predicate. This will lead to less latency and less cost per query. Learn more about [graph partitioning](graph-partitioning.md). A more optimal query would be `g.V('tt0093640').has('partitionKey', 't1001')`.
 

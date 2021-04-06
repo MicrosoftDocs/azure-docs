@@ -1,12 +1,8 @@
 ---
 title: View Azure Advisor recommendations that matter to you
 description: View and filter Azure Advisor recommendations to reduce noise.
-services: advisor
-author: kasparks
-ms.service: advisor
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: kasparks
 ---
 
 # View Azure Advisor recommendations that matter to you
@@ -33,7 +29,7 @@ To make changes in the Azure portal:
 
 Configuration settings remain active until changed. If you want to limit the view of recommendations for a single viewing, you can use the drop downs provided at the top of the Advisor panel. From the Overview, High Availability, Security, Performance, Cost, and All Recommendation panels, you can select the Subscriptions, Resource Types, and recommendation status that you want to see.
 
-   ![Advisor filtering menu](./media/view-recommendations/filtering.png)
+   :::image type="content" source="./media/view-recommendations/filtering.png" alt-text="Screenshot of Azure Advisor showing filtering options.":::
 
 ## Dismissing and postponing recommendations
 
@@ -46,7 +42,7 @@ Azure Advisor allows you to dismiss or postpone recommendations on a single reso
 1. Select a recommendation from the list of recommendations
 1. Select Postpone or Dismiss for the recommendation you want to postpone or dismiss
 
-     ![Advisor filtering menu](./media/view-recommendations/postpone-dismiss.png)
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Screenshot of the Use Managed Disks window showing the select column and Postpone and Dismiss actions for a single recommendation highlighted.":::
 
 ### Postpone or dismiss a multiple recommendations in the Azure portal
 
@@ -56,7 +52,7 @@ Azure Advisor allows you to dismiss or postpone recommendations on a single reso
 1. Select the checkbox at the left of the row for all resources you want to postpone or dismiss the recommendation.
 1. Select **Postpone** or **Dismiss** at the top left of the table.
 
-     ![Advisor filtering menu](./media/view-recommendations/postpone-dismiss-multiple.png)
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="Screenshot of the Use Managed Disks window showing the select column and Postpone and Dismiss actions on the top left of the table highlighted.":::
 
 > [!NOTE]
 > You need contributor or owner permission to dismiss or postpone a recommendation. Learn more about permissions in Azure Advisor.
@@ -72,7 +68,7 @@ You can activate a recommendation that has been postponed or dismissed. This act
 
 1. Change the filter on the Overview panel to **Postponed**. Advisor then displays postponed or dismissed recommendations.
 
-    ![Advisor filtering menu](./media/view-recommendations/activate-postponed.png)
+    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="Screenshot of the Azure Advisor window showing the Postponed drop-down menu selected.":::
 
 1. Select a category to see **Postponed** and **Dismissed** recommendations.
 
@@ -80,7 +76,7 @@ You can activate a recommendation that has been postponed or dismissed. This act
 
 1. Click on **Activate** at the end of the row. Once clicked, the recommendation is active for that resource and so removed from this table. The recommendation is now  visible in the **Active** tab.
  
-     ![Advisor filtering menu](./media/view-recommendations/activate-postponed-2.png)
+     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="Screenshot of the Enable Soft Delete window showing the Postponed & Dismissed tab with the Activate action highlighted.":::
 
 ## Next steps
 

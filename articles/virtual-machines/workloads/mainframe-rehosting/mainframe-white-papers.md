@@ -1,13 +1,14 @@
 ---
 title: Azure white papers about mainframe topics using Azure Virtual Machines and Azure Storage
 description: Get resources about mainframe migration, rehosting, and moving IBM Z-based systems to Microsoft Azure.
-services: multiple
+services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter:
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
 ---
 # Azure white papers about mainframe topics
 
@@ -41,6 +42,6 @@ This white paper reflects Astadia’s more than 25 years of mainframe platform m
 
 Solutions from Micro Focus free you from the constraints of proprietary mainframe hardware and software. In this guide, Micro Focus explains how to deploy your COBOL and PL/I applications running in IBM mainframes to the cloud instead.
 
-### [Breathe new life into mainframes](https://www.infosys.com/modernization/Pages/breathe-new-life-mainframes.aspx)
+### [Breathe new life into mainframes](https://www.infosys.com/services/modernization/breathe-new-life-mainframes.html)
 
  Mainframes are increasingly challenging for business to maintain. This white paper by Infosys and Microsoft highlights the winning strategy for successful mainframe migration. Use cases and examples illustrate the options.

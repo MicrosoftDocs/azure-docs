@@ -6,36 +6,29 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: quickstart
-ms.date: 02/26/2019
+ms.topic: quickstart 
+ms.date: 11/04/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
+ms.localizationpriority: high 
+
+# Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
+
 ::: zone target="docs"
 
 # Quickstart: Deploy Azure Data Box Disk using the Azure portal
-
-::: zone-end
-
-::: zone target="chromeless"
-
-# Get started with Azure Data Box Disk using Azure portal
-
-::: zone-end
-
-::: zone target="docs"
 
 This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include how to quickly create an order, receive disks, unpack, connect, and copy data to disks so that it uploads to Azure.
 
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F&preserve-view=true).
 
 ::: zone-end
 
 ::: zone target="chromeless"
 
-This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include review prerequisites, unlock the disks, connect and copy data to disks so that uploads to Azure.
+This guide walks you through the steps of using the Azure Data Box Disk in the Azure portal. This guide helps answer the following questions.
 
 ::: zone-end
 
@@ -55,20 +48,22 @@ Sign in to the Azure portal at [https://aka.ms/azuredataboxfromdiskdocs](https:/
 
 ::: zone target="chromeless"
 
-## Prerequisites
-
-- You have placed your order for Data Box Disk using the [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md).
-- You have received your disks and the job status in the portal is updated to **Delivered**.
-- You have a client computer available from which you can copy the data. Your client computer must:
-
-    - Run a [supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-    - Have [other required software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installed if it is a Windows client.
+> [!div class="checklist"]
+>
+> - **Review prerequisites**: Check the number of disks and cables, operating system, and other software.
+> - **Connect and unlock**: Connect the device and unlock the disk to copy the data.
+> - **Copy data to the disk and validate**: Copy data to the disks into the precreated folders.
+> - **Return the disks**: Return the disks to Azure datacenter where data is uploaded into your storage account.
+> - **Verify the data in Azure**: Verify that your data has uploaded into your storage account before you delete it from source data server.
 
 ::: zone-end
+
 
 ::: zone target="docs"
 
 ## Order
+
+### [Portal](#tab/azure-portal)
 
 This step takes roughly 5 minutes.
 
@@ -78,6 +73,74 @@ This step takes roughly 5 minutes.
 4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
 Once the order is created, the disks are prepared for shipment.
+
+### [Azure CLI](#tab/azure-cli)
+
+Use these Azure CLI commands to create a Data Box Disk job.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+1. Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
+
+   ```azurecli
+   az group create --name databox-rg --location westus
+   ```
+
+1. Use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create a storage account or use an existing storage account:
+
+   ```azurecli
+   az storage account create --resource-group databox-rg --name databoxtestsa
+   ```
+
+1. Run the [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) command to create a Data Box job with the SKU DataBoxDisk:
+
+   ```azurecli
+   az databox job create --resource-group databox-rg --name databoxdisk-job \
+       --location westus --sku DataBoxDisk --contact-name "Jim Gan" --phone=4085555555 \
+       –-city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+       --postal-code 94089 --country US --state-or-province CA \
+       --storage-account databoxtestsa --expected-data-size 1
+   ```
+
+1. Run the [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) to update a job, as in this example, where you change the contact name and email:
+
+   ```azurecli
+   az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
+   ```
+
+   Run the [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) command to get information about the job:
+
+   ```azurecli
+   az databox job show --resource-group databox-rg --name databox-job
+   ```
+
+   Use the [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) command to see all the Data Box jobs for a resource group:
+
+   ```azurecli
+   az databox job list --resource-group databox-rg
+   ```
+
+   Run the [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) command to cancel a job:
+
+   ```azurecli
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+   ```
+
+   Run the [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) command to delete a job:
+
+   ```azurecli
+   az databox job delete –resource-group databox-rg --name databox-job
+   ```
+
+1. Use the [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) command to list credentials for a Data Box job:
+
+   ```azurecli
+   az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
+   ```
+
+Once the order is created, the device is prepared for shipment.
+
+---
 
 ## Unpack
 

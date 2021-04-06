@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2018
@@ -37,7 +37,7 @@ During installation, you can select the server to be in **staging mode**. This a
 
 You can still force an export by using the synchronization service manager.
 
-A server in staging mode continues to receive changes from Active Directory and Azure AD. It always has a copy of the latest changes and can very fast take over the responsibilities of another server. If you make configuration changes to your primary server, it is your responsibility to make the same changes to the server in staging mode.
+A server in staging mode continues to receive changes from Active Directory and Azure AD and can quickly take over the responsibilities of another server in the event of a failure. If you make configuration changes to your primary server, it is your responsibility to make the same changes to the server in staging mode.
 
 For those of you with knowledge of older sync technologies, the staging mode is different since the server has its own SQL database. This architecture allows the staging mode server to be located in a different datacenter.
 
@@ -52,7 +52,7 @@ To apply this method, follow these steps:
 
 #### Prepare
 1. Install Azure AD Connect, select **staging mode**, and unselect **start synchronization** on the last page in the installation wizard. This mode allows you to run the sync engine manually.
-   ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
+   ![Screenshot shows the Ready to configure page in the Azure AD Connect dialog box.](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Sign off/sign in and from the start menu select **Synchronization Service**.
 
 #### Configuration
@@ -69,7 +69,7 @@ You have now staged export changes to Azure AD and on-premises AD (if you are us
 #### Verify
 1. Start a cmd prompt and go to `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Run: `csexport "Name of Connector" %temp%\export.xml /f:x`
-   The name of the Connector can be found in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
+   The name of the Connector can be found in Synchronization Service. It has a name similar to "contoso.com – Azure AD" for Azure AD.
 3. Run: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
 You have a file in %temp% named export.csv that can be examined in Microsoft Excel. This file contains all changes that are about to be exported.
 4. Make necessary changes to the data or configuration and run these steps again (Import and Synchronize and Verify) until the changes that are about to be exported are expected.

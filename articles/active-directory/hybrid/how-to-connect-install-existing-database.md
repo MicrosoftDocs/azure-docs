@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
@@ -53,7 +53,7 @@ Important notes to take note of before you proceed:
 ## Steps to install Azure AD Connect with “use existing database” mode
 1.	Download Azure AD Connect installer (AzureADConnect.MSI) to the Windows server. Double-click the Azure AD Connect installer to start installing Azure AD Connect.
 2.	Once the MSI installation completes, the Azure AD Connect wizard starts with the Express mode setup. Close the screen by clicking the Exit icon.
-![Welcome](./media/how-to-connect-install-existing-database/db1.png)
+![Screenshot that shows the "Welcome to Azure A D Connect" page, with "Express Settings" in the left-side menu highlighted.](./media/how-to-connect-install-existing-database/db1.png)
 3.	Start a new command prompt or PowerShell session. Navigate to folder "C:\Program Files\Microsoft Azure Active Directory Connect". Run command .\AzureADConnect.exe /useexistingdatabase to start the Azure AD Connect wizard in “Use existing database” setup mode.
 
 > [!NOTE]
@@ -61,9 +61,9 @@ Important notes to take note of before you proceed:
 
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 1. You are greeted with the Welcome to Azure AD Connect screen. Once you agree to the license terms and privacy notice, click **Continue**.
-   ![Welcome](./media/how-to-connect-install-existing-database/db3.png)
+   ![Screenshot that shows the "Welcome to Azure A D Connect" page](./media/how-to-connect-install-existing-database/db3.png)
 1. On the **Install required components** screen, the **Use an existing SQL Server** option is enabled. Specify the name of the SQL server that is hosting the ADSync database. If the SQL engine instance used to host the ADSync database is not the default instance on the SQL server, you must specify the SQL engine instance name. Further, if SQL browsing is not enabled, you must also specify the SQL engine instance port number. For example:         
-   ![Welcome](./media/how-to-connect-install-existing-database/db4.png)           
+   ![Screenshot that shows the "Install required components" page.](./media/how-to-connect-install-existing-database/db4.png)           
 
 1. On the **Connect to Azure AD** screen, you must provide the credentials of a global admin of your Azure AD directory. The recommendation is to use an account in the default onmicrosoft.com domain. This account is only used to create a service account in Azure AD and is not used after the wizard has completed.
    ![Connect](./media/how-to-connect-install-existing-database/db5.png)
@@ -71,19 +71,15 @@ Important notes to take note of before you proceed:
 1. On the **Connect your directories** screen, the existing AD forest configured for directory synchronization is listed with a red cross icon beside it. To synchronize changes from an on-premises AD forest, an AD DS account is required. The Azure AD Connect wizard is unable to retrieve the credentials of the AD DS account stored in the ADSync database because the credentials are encrypted and can only be decrypted by the previous Azure AD Connect server. Click **Change Credentials** to specify the AD DS account for the AD forest.
    ![Directories](./media/how-to-connect-install-existing-database/db6.png)
  
- 
 1. In the pop-up dialog, you can either (i) provide an Enterprise Admin credential and let Azure AD Connect create the AD DS account for you, or (ii) create the AD DS account yourself and provide its credential to Azure AD Connect. Once you have selected an option and provide the necessary credentials, click **OK** to close the pop-up dialog.
-   ![Welcome](./media/how-to-connect-install-existing-database/db7.png)
+   ![Screenshot that shows the pop-up dialog "A D forest account" with "Create new A D account" selected.](./media/how-to-connect-install-existing-database/db7.png)
  
- 
 1. Once the credentials are provided, the red cross icon is replaced with a green tick icon. Click **Next**.
-   ![Welcome](./media/how-to-connect-install-existing-database/db8.png)
+   ![Screenshot that shows the "Connect your directories" page.](./media/how-to-connect-install-existing-database/db8.png)
  
- 
 1. On the **Ready to configure** screen, click **Install**.
    ![Welcome](./media/how-to-connect-install-existing-database/db9.png)
  
- 
 1. Once installation completes, the Azure AD Connect server is automatically enabled for Staging Mode. It is recommended that you review the server configuration and pending exports for unexpected changes before disabling Staging Mode. 
 
 ## Post installation tasks

@@ -1,24 +1,20 @@
 ---
-title: Tutorial- Cleanup Azure Service Fabric Mesh resources | Microsoft Docs
+title: Tutorial- Cleanup Azure Service Fabric Mesh resources 
 description: Learn how to remove Azure Service Fabric Mesh resources so that you do not get charged for resources you are no longer using.
-services: service-fabric-mesh
-documentationcenter: .net
-author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid:  
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
+author: georgewallace
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want to avoid being charged for Azure resources I am no longer using.
 ---
 
 # Tutorial: Remove Azure resources
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 This tutorial is part five of a series and shows you how to delete the app and its resources so that you don't get charged for them.
 
@@ -58,7 +54,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-Alternatively, you can delete the **sfmeshTutorial1RG** resource group [from the portal](../azure-resource-manager/manage-resource-groups-portal.md#delete-resource-groups). 
+Alternatively, you can delete the **sfmeshTutorial1RG** resource group [from the portal](../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups). 
 
 ## Next steps
 
@@ -67,4 +63,4 @@ Now that you have completed publishing a Service Fabric Mesh application to Azur
 * To see another example of service-to-service communication, explore the [Voting app sample](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp)
 * To learn more about Service Fabric Resource Model, see [Service Fabric Mesh Resource Model](service-fabric-mesh-service-fabric-resources.md).
 * To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md).
-* Read about the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+* Read about the [Cloud Shell](../cloud-shell/overview.md)

@@ -1,0 +1,53 @@
+- name: Overview
+  items:
+   - name: What is Azure FarmBeats?
+     href: overview-azure-farmbeats.md
+- name: Tutorials
+  expanded: true
+  items:
+   - name: Generate soil moisture map
+     href: generate-soil-moisture-map-in-azure-farmbeats.md
+   - name: Ingest historical telemetry data
+     href: ingest-historical-telemetry-data-in-azure-farmbeats.md
+   - name: Query ingested telemetry data
+     href: query-telemetry-data-from-azure-farmbeats.md
+- name: Concepts
+  items:
+   - name: Integration patterns
+     href: integration-patterns-in-azure-farmbeats.md
+   - name: Sensor partner integration
+     href: sensor-partner-integration-in-azure-farmbeats.md
+   - name: Weather partner integration
+     href: weather-partner-integration-in-azure-farmbeats.md     
+   - name: Imagery partner integration
+     href: imagery-partner-integration-in-azure-farmbeats.md
+- name: How to Guides
+  items:
+   - name: Install Azure FarmBeats
+     href: install-azure-farmbeats.md
+   - name: Manage users
+     href: manage-users-in-azure-farmbeats.md
+   - name: Manage farms
+     href: manage-farms-in-azure-farmbeats.md
+   - name: Get sensor data
+     href: get-sensor-data-from-sensor-partner.md
+   - name: Get weather data
+     href: get-weather-data-from-weather-partner.md
+   - name: Generate maps
+     href: generate-maps-in-azure-farmbeats.md
+   - name: Configure rules and manage alerts
+     href: configure-rules-alerts-in-azure-farmbeats.md
+   - name: Get drone imagery
+     href: get-drone-imagery-in-azure-farmbeats.md
+   - name: Disaster recovery
+     href: disaster-recovery-for-farmbeats.md
+- name: Troubleshoot
+  items:
+   - name: Troubleshoot Azure FarmBeats
+     href: troubleshoot-azure-farmbeats.md
+- name: Reference
+  items:
+   - name: Reference
+     href: references-for-azure-farmbeats.md
+   - name: REST API
+     href: rest-api-in-azure-farmbeats.md

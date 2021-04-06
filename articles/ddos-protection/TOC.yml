@@ -1,0 +1,75 @@
+- name: Azure DDoS Protection Standard documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure DDoS Protection Standard?
+    href: ddos-protection-overview.md
+- name: Quickstarts
+  items:
+  - name: Create a DDoS protection plan - Portal
+    href: manage-ddos-protection.md
+  - name: Create a DDoS protection plan - PowerShell
+    href: manage-ddos-protection-powershell.md
+  - name: Create a DDoS protection plan - CLI
+    href: manage-ddos-protection-cli.md
+  - name: Create a DDoS protection plan - ARM template
+    displayName: Resource Manager
+    href: manage-ddos-protection-template.md
+- name: Tutorials
+  items:
+  - name: View and configure DDoS protection telemetry
+    href: telemetry.md
+  - name: View and configure DDoS diagnostic logging
+    href: diagnostic-logging.md
+  - name: View and configure DDoS protection alerts
+    href: alerts.md
+- name: Concepts
+  items:
+  - name: Types of attacks
+    href: types-of-attacks.md
+  - name: Fundamental best practices
+    href: fundamental-best-practices.md
+  - name: Azure DDoS Protection Standard features
+    href: ddos-protection-standard-features.md
+  - name: Components of a DDoS response strategy
+    href: ddos-response-strategy.md
+  - name: Reference architectures
+    href: ddos-protection-reference-architectures.md
+  - name: Security baseline
+    href: ../security/fundamentals/ddos-protection-security-baseline.md?toc=%2fazure%2fddos-protection%2ftoc.json
+- name: How-to guides
+  items:
+    - name: Test through simulations
+      href: test-through-simulations.md
+    - name: Manage permissions and restrictions
+      href: manage-permissions.md
+    - name: Engage DDoS Rapid Response (DRR)
+      href: ddos-rapid-response.md
+    - name: Onboard partners
+      href: ddos-protection-partner-onboarding.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/network/ddos-protection
+  - name: Azure PowerShell
+    href: /powershell/module/Az.Network/New-AzDdosProtectionPlan
+  - name: .NET
+    href: /dotnet/api/
+  - name: Java
+    href: /java/api/
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/virtualnetwork/ddosprotectionplans
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/management/overview.md
+- name: Resources
+  items:
+  - name: FAQ
+    href: ddos-faq.md
+  - name: Pricing
+    href: https://azure.microsoft.com/en-us/pricing/details/ddos-protection/
+  - name: Regional availability
+    href: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=ddos-protection

@@ -1,14 +1,12 @@
 ﻿---
-title: Quickstart - Deploy Docker container to Azure Container Instances - PowerShell
+title: Quickstart - Deploy Docker container to container instance - PowerShell
 description: In this quickstart, you use Azure PowerShell to quickly deploy a containerized web app that runs in an isolated Azure container instance
 services: container-instances
-author: dlepow
 manager: gwallace
 
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
-ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
 

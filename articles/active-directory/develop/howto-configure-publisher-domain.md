@@ -1,26 +1,22 @@
 ---
-title: Configure an application's publisher domain | Azure
+title: Configure an app's publisher domain | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to configure an application's publisher domain to let users know where their information is being sent.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
-# How to: Configure an application's publisher domain (Preview)
+# How to: Configure an application's publisher domain
 
 An application’s publisher domain is displayed to users on the [application’s consent prompt](application-consent-experience.md) to let users know where their information is being sent. Multi-tenant applications that are registered after May 21, 2019 that don't have a publisher domain show up as **unverified**. Multi-tenant applications are applications that support accounts outside of a single organizational directory; for example, support all Azure AD accounts, or support all Azure AD accounts and personal Microsoft accounts.
 
@@ -48,18 +44,12 @@ If your app was registered before May 21, 2019, your application's consent promp
 
 To set your app's publisher domain, follow these steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-
-1. If your account is present in more than one Azure AD tenant:
-   1. Select your profile from the menu on the top-right corner of the page, and then **Switch directory**.
-   1. Change your session to the Azure AD tenant where you want to create your application.
-
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which the app is registered.
 1. Navigate to [Azure Active Directory > App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to find and select the app that you want to configure.
 
    Once you've selected the app, you'll see the app's **Overview** page.
-
-1. From the app's **Overview** page, select the **Branding** section.
-
+1. Under **Manage**, select the **Branding**.
 1. Find the **Publisher domain** field and select one of the following options:
 
    - Select **Configure a domain** if you haven't configured a domain already.
@@ -76,9 +66,12 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
    ```json
    {
       "associatedApplications": [
-        {
-           "applicationId": "{YOUR-APP-ID-HERE}"
-        }
+         {
+            "applicationId": "{YOUR-APP-ID-HERE}"
+         },
+         {
+            "applicationId": "{YOUR-OTHER-APP-ID-HERE}"
+         }
       ]
     }
    ```
@@ -92,6 +85,12 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
 ### To select a verified domain
 
 - If your tenant has verified domains, select one of the domains from the **Select a verified domain** dropdown.
+
+>[!Note]
+> The expected 'Content-Type' header that should be returned is `application/json`. You may get an error as mentioned below if you use anything else like `application/json; charset=utf-8` 
+> 
+>``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+>
 
 ## Implications on the app consent prompt
 

@@ -1,20 +1,11 @@
 ---
-title: Send and receive events using Go - Azure Event Hubs | Microsoft Docs
-description: This article provides a walkthrough for creating a Go application that sends events from Azure Event Hubs. 
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: kamalb
-
-ms.service: event-hubs
-ms.workload: core
-ms.topic: article
-ms.custom: seodec18
-ms.date: 04/15/2019
-ms.author: shvija
-
+title: 'Quickstart: Send and receive events using Go - Azure Event Hubs'
+description: 'Quickstart: This article provides a walkthrough for creating a Go application that sends events from Azure Event Hubs.' 
+ms.topic: quickstart
+ms.date: 06/23/2020
 ---
 
-# Send events to or receive events from Event Hubs using Go
+# Quickstart: Send events to or receive events from Event Hubs using Go
 Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
 This tutorial describes how to write Go applications to send events to or receive events from an event hub. 
@@ -130,7 +121,7 @@ Congratulations! You have now sent messages to an event hub.
 
 ### Create a Storage account and container
 
-State such as leases on partitions and checkpoints in the event stream are shared between receivers using an Azure Storage container. You can create a storage account and container with the Go SDK, but you can also create one by following the instructions in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
+State such as leases on partitions and checkpoints in the event stream are shared between receivers using an Azure Storage container. You can create a storage account and container with the Go SDK, but you can also create one by following the instructions in [About Azure storage accounts](../storage/common/storage-account-create.md).
 
 Samples for creating Storage artifacts with the Go SDK are available in the [Go samples repo](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) and in the sample corresponding to this tutorial.
 

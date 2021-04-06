@@ -1,5 +1,5 @@
 ---
-title: View and manage Microsoft Azure StorSimple Virtual Array alerts | Microsoft Docs
+title: View and manage alerts for StorSimple Virtual Array
 description: Describes StorSimple Virtual Array alert conditions and severity, and how to use the StorSimple Manager service to manage alerts.
 services: storsimple
 documentationcenter: NA
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/12/2018
@@ -43,17 +43,17 @@ After you enable email notification for a virtual array, members of the notifica
     ![alert settings](./media/storsimple-virtual-array-manage-alerts/alerts2.png)
 2. This opens up the **Settings** blade. In the **Device settings** section, select **General**. This opens up the **General Settings** blade.
    
-    ![alerts notification configuration](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
+    ![Screenshot shows the Device settings pane with the Alert settings area called out.](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
 3. In the **General settings** blade, go to **Alert settings** section and set the following:
    
    1. In the **Enable email notification** field, select **YES**.
    2. In the **Email service administrators** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
    3. In the **Additional email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone\@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device.
       
-       ![alerts notification configuration](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
+       ![Screenshot shows the Alert settings details with the settings described in this step.](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. To send a test email notification, click **Send test email**. The StorSimple Device Manager service will display status messages as it forwards the test notification.
       
-       ![Alerts test notification email sent](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
+       ![Screenshot shows an informational dialog box verifying the test email.](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
       
       > [!NOTE]
       > If the test notification message can't be sent, the StorSimple Device Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again.
@@ -61,13 +61,13 @@ After you enable email notification for a virtual array, members of the notifica
       >
    5. At the bottom of the page, click **Save** to save your configuration. When prompted for confirmation, click **Yes**.
       
-      ![Alerts test notification email sent](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
+      ![Screenshot shows the settings pane with the Save button selected.](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
 
 ## Common alert conditions
 
 Your StorSimple Virtual Array generates alerts in response to a variety of conditions. The following are the most common types of alert conditions:
 
-* **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the virtual devices and the StorSimple Device Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For information about ports and firewall settings, go to [StorSimple Virtual Array system requirements](storsimple-ova-system-requirements.md). For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
+* **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the virtual devices and the StorSimple Device Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For information about ports and firewall settings, go to [StorSimple Virtual Array system requirements](storsimple-ova-system-requirements.md). For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](./storsimple-8000-troubleshoot-deployment.md).
 * **Performance issues** – These alerts are caused when your system isn’t performing optimally, such as when it is under a heavy load.
 
 In addition, you might see alerts related to security, updates, or job failures.

@@ -5,32 +5,71 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 03/15/2021
 ms.author: spelluru
 ms.custom: "include file"
 
 ---
 
-Event Hubs provides message streaming through a partitioned consumer pattern in which each consumer only reads a specific subset, or partition, of the message stream. This pattern enables horizontal scale for event processing and provides other stream-focused features that are unavailable in queues and topics.
-
-A partition is an ordered sequence of events that is held in an event hub. As newer events arrive, they are added to the end of this sequence. A partition can be thought of as a "commit log."
-
-![Event Hubs](./media/event-hubs-partitions/partition.png)
-
-Event Hubs retains data for a configured retention time that applies across all partitions in the event hub. Events expire on a time basis; you cannot explicitly delete them. Because partitions are independent and contain their own sequence of data, they often grow at different rates.
+Event Hubs organizes sequences of events sent to an event hub into one or more partitions. As newer events arrive, they're added to the end of this sequence. 
 
 ![Event Hubs](./media/event-hubs-partitions/multiple-partitions.png)
 
-The number of partitions is specified at creation and must be between 2 and 32. The partition count is not changeable, so you should consider long-term scale when setting partition count. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. You can increase the number of partitions beyond 32 by contacting the Event Hubs team.
+A partition can be thought of as a "commit log". Partitions hold event data that contains body of the event, a user-defined property bag describing the event, metadata such as its offset in the partition, its number in the stream sequence, and service-side timestamp at which it was accepted.
 
-You may want to set it to be the highest possible value, which is 32, at the time of creation. Remember that having more than one partition will result in events sent to multiple partitions without retaining the order, unless you configure senders to only send to a single partition out of the 32 leaving the remaining 31 partitions redundant. In the former case, you will have to read events across all 32 partitions. In the latter case, there is no obvious additional cost apart from the extra configuration you have to make on Event Processor Host.
+![Diagram that displays the older to newer sequence of
+events.](./media/event-hubs-partitions/partition.png)
 
-While partitions are identifiable and can be sent to directly, sending directly to a partition is not recommended. Instead, you can use higher level constructs introduced in the [Event publishers](../articles/event-hubs/event-hubs-features.md#event-publishers) section. 
+### Advantages of using partitions
+Event Hubs is designed to help with processing of large volumes of events,
+and partitioning helps with that in two ways:
 
-Partitions are filled with a sequence of event data that contains the body of the event, a user-defined property bag, and metadata such as its offset in the partition and its number in the stream sequence.
+- Even though Event Hubs is a PaaS service, there's a physical reality
+underneath, and maintaining a log that preserves the order of events requires
+that these events are being kept together in the underlying storage and its
+replicas and that results in a throughput ceiling for such a log. Partitioning
+allows for multiple parallel logs to be used for the same event hub and
+therefore multiplying the available raw IO throughput capacity.
+- Your own applications must be able to keep up with processing the volume
+of events that are being sent into an event hub. It may be complex and
+requires substantial, scaled-out, parallel processing capacity. The capacity of a single process to handle events is limited, so you need several processes. Partitions are how your solution feeds those processes and yet ensures that each event has a clear processing owner. 
 
-We recommend that you balance 1:1 throughput units and partitions to achieve optimal scale. A single partition has a guaranteed ingress and egress of up to one throughput unit. While you may be able to achieve higher throughput on a partition, performance is not guaranteed. This is why we strongly recommend that the number of partitions in an event hub be greater than or equal to the number of throughput units.
+### Number of partitions
+The number of partitions is specified at creation and must be between 1 and 32
+in Event Hubs Standard. The partition count can be up to 2000 partitions per
+Capacity Unit in Event Hubs Dedicated. 
 
-Given the total throughput you plan on needing, you know the number of throughput units you require and the minimum number of partitions, but how many partitions should you have? Choose number of partitions based on the downstream parallelism you want to achieve as well as your future throughput needs. There is no charge for the number of partitions you have within an Event Hub.
+We recommend that you choose at least as many partitions as you expect to
+require in sustained [throughput units
+(TU)](../articles/event-hubs/event-hubs-faq.md#what-are-event-hubs-throughput-units)
+during the peak load of your application for that particular Event Hub. You
+should calculate with a single partition having a throughput capacity of 1 TU (1
+MByte in, 2 MByte out). You can scale the TUs on your namespace or the capacity
+units of your cluster independent of the partition count. An Event Hub with 32
+partitions or an Event Hub with 1 partition incur the exact same cost when the
+namespace is set to 1 TU capacity. 
 
-For more information about partitions and the trade-off between availability and reliability, see the [Event Hubs programming guide](../articles/event-hubs/event-hubs-programming-guide.md#partition-key) and the [Availability and consistency in Event Hubs](../articles/event-hubs/event-hubs-availability-and-consistency.md) article.
+The partition count for an event hub in a [dedicated Event Hubs cluster](../articles/event-hubs/event-hubs-dedicated-overview.md) can be [increased](../articles/event-hubs/dynamically-add-partitions.md) after the event hub has
+been created, but the distribution of streams across partitions will change when
+it's done as the mapping of partition keys to partitions changes, so you
+should try hard to avoid such changes if the relative order of events matters in
+your application.
+
+Setting the number of partitions to the maximum permitted value is tempting, but
+always keep in mind that your event streams need to be structured such that you
+can indeed take advantage of multiple partitions. If you need absolute order
+preservation across all events or only a handful of substreams, you may not
+be able to take advantage of many partitions. Also, many partitions make the
+processing side more complex. 
+
+
+### Mapping of events to partitions
+You can use a partition key to map incoming event data into specific partitions for the purpose of data organization. The partition key is a sender-supplied value passed into an event hub. It is processed through a static hashing function, which creates the partition assignment. If you don't specify a partition key when publishing an event, a round-robin assignment is used.
+
+The event publisher is only aware of its partition key, not the partition to which the events are published. This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing. A per-device or user unique identity makes a good partition key, but other attributes such as geography can also be used to group related events into a single partition.
+
+Specifying a partition key enables keeping related events together in the same partition and in the exact order in which they were sent. The partition key is some string that is derived from your application context and identifies the interrelationship of the events. A sequence of events identified by a partition key is a *stream*. A partition is a multiplexed log store for many such streams. 
+
+> [!NOTE]
+> While you can send events directly to partitions, we don't recommend it, especially when high availability is important to you. It downgrades the availability of an event hub to partition-level. For more information, see [Availability and Consistency](../articles/event-hubs/event-hubs-availability-and-consistency.md).
+

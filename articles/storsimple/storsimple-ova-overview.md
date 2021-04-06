@@ -1,19 +1,11 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array overview | Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array overview
 description: Describes the StorSimple Virtual Array, an integrated storage solution that manages storage tasks between an on-premises virtual array and Microsoft Azure cloud storage.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 07/25/2019
+ms.topic: conceptual
+ms.date: 03/08/2021
 ms.author: alkohli
 ---
 # Introduction to the StorSimple Virtual Array
@@ -38,8 +30,8 @@ The following table summarizes the important features of the StorSimple Virtual 
 | --- | --- |
 | Installation requirements |Uses virtualization infrastructure (Hyper-V or VMware) |
 | Availability |Single node |
-| Total capacity (including cloud) |Up to 64 TB usable capacity per virtual array |
-| Local capacity |390 GB to 6.4 TB usable capacity per virtual array (need to provision 500 GB to 8 TB of disk space) |
+| Total capacity (including cloud) |Up to 64 TB of usable capacity per virtual array |
+| Local capacity |390 GB to 6.4 TB of usable capacity per virtual array (need to provision 500 GB to 8 TB of disk space) |
 | Native protocols |iSCSI or SMB |
 | Recovery time objective (RTO) |iSCSI: less than 2 minutes regardless of size |
 | Recovery point objective (RPO) |Daily backups and on-demand backups |
@@ -64,8 +56,10 @@ The following table describes some of the key benefits that the StorSimple Virtu
 | Transparent integration |The virtual array supports the iSCSI or the SMB protocol. The data movement between the local tier and the cloud tier is seamless and transparent to the user. |
 | Reduced storage costs |With StorSimple, you provision sufficient local storage to meet current demands for the most used hot data. As storage needs grow, StorSimple tiers cold data into cost-effective cloud storage. The data is deduplicated and compressed before sending to the cloud to further reduce storage requirements and expense. |
 | Simplified storage management |StorSimple provides centralized management in the cloud using StorSimple Device Manager to manage multiple devices. |
-| Improved disaster recovery and compliance |StorSimple facilitates faster disaster recovery by restoring the metadata immediately and restoring the data as needed. This means normal operations can continue with minimal disruption. |
-| Data mobility |Data tiered to the cloud can be accessed from other sites for recovery and migration purposes. Note that you can restore data only to the original virtual array. However, you use disaster recovery features to restore the entire virtual array to another virtual array. |
+| Improved disaster recovery and compliance |StorSimple facilitates faster disaster recovery by restoring the metadata immediately and restoring the data as needed. Normal operations can continue with minimal disruption. |
+| Data mobility |Data tiered to the cloud can be accessed from other sites for recovery and migration purposes. You can restore data only to the original virtual array. However, you use disaster recovery features to restore the entire virtual array to another virtual array. |
+
+
 
 ## StorSimple workload summary
 
@@ -80,9 +74,9 @@ The StorSimple Virtual Array is best suited for infrequently accessed data. Whil
 
 ![Cloud archiving](./media/storsimple-ova-overview/cloud-archiving.png)
 
-When multiple concurrent users access the virtual array, they all share the connection to Azure leading to a lower performance. There is no guaranteed performance per user and the device processes individual requests as they arrive.
+When multiple concurrent users access the virtual array, they all share the connection to Azure, leading to a lower performance. There is no guaranteed performance per user, and the device processes individual requests as they arrive.
 
-StorSimple Virtual Array is not suitable for workloads that require high availability. The virtual array is a single node device that experiences downtime when software updates are installed. Administrators should plan for a maintenance window of 30 minutes 3-4 times per year.
+StorSimple Virtual Array is not suitable for workloads that require high availability. The virtual array is a single-node device that experiences downtime when software updates are installed. Administrators should plan for a maintenance window of 30 minutes 3-4 times per year.
 
 ## Workflows
 
@@ -93,12 +87,12 @@ The StorSimple Virtual Array is particularly suitable for the following workflow
 * [Data protection and disaster recovery](#data-protection-and-disaster-recovery)
 
 ### Cloud-based storage management
-You can use the StorSimple Device Manager service running in the Azure portal to manage data stored on multiple devices and in multiple locations. This is particularly useful in distributed branch scenarios. Note that you must create separate instances of the StorSimple Device Manager service to manage virtual arrays and physical StorSimple devices. Also note that the virtual array now uses the new Azure portal instead of the Azure classic portal.
+You can use the StorSimple Device Manager service running in the Azure portal to manage data stored on multiple devices and in multiple locations. That is particularly useful in distributed branch scenarios. You must create separate instances of the StorSimple Device Manager service to manage virtual arrays and physical StorSimple devices. The virtual array now uses the new Azure portal instead of the Azure classic portal.<!--Is the "now" element still in date? Could it go at this point? Just checking.-->
 
 ![cloud-based storage management](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### Location-independent backup
-With the virtual array, cloud snapshots provide a location-independent, point-in-time copy of a volume or share. Cloud snapshots are enabled by default and cannot be disabled. All volumes and shares are backup up at the same time through a single daily backup policy, and you can take additional ad hoc backups whenever necessary.
+With the virtual array, cloud snapshots provide a location-independent, point-in-time copy of a volume or share. Cloud snapshots are enabled by default and cannot be disabled. All volumes and shares are backed up at the same time through a single daily backup policy, and you can take additional ad hoc backups whenever necessary.
 
 ### Data protection and disaster recovery
 The virtual array supports the following data protection and disaster recovery scenarios:
@@ -113,19 +107,19 @@ The virtual array includes the following components:
 
 * [Virtual array](#virtual-array) – A hybrid cloud storage device based on a virtual machine provisioned in your virtualized environment or hypervisor.
 * [StorSimple Device Manager service](#storsimple-device-manager-service) – An extension of the Azure portal that lets you manage one or more StorSimple devices from a single web interface that you can access from different geographical locations. You can use the StorSimple Device Manager service to create and manage services, view and manage devices and alerts, and manage volumes, shares, and existing snapshots.
-* [Local web user interface](#local-web-user-interface) – A web-based UI that is used to configure the device so that it can connect to the local network, and then register the device with the StorSimple Device Manager service. 
+* [Local web user interface](#local-web-user-interface) – A web-based UI used to configure the device so it can connect to the local network, and then register the device with the StorSimple Device Manager service. 
 * [Command-line interface](#command-line-interface) – A Windows PowerShell interface that you can use to start a support session on the virtual array.
-  The following sections describe each of these components in greater detail and explain how the solution arranges data, allocates storage, and facilitates storage management and data protection.
+  The following sections describe each component in greater detail and explains how the solution arranges data, allocates storage, and facilitates storage management and data protection.
 
 ### Virtual array
 
-The virtual array is a single-node storage solution that provides primary storage, manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the device.
+The virtual array is a single-node storage solution that provides primary storage, manages communication with cloud storage, and helps to ensure the security and confidentiality of all data stored on the device.
 
 The virtual array is available in one model that is available for download. The virtual array has a maximum capacity of 6.4 TB on the device (with an underlying storage requirement of 8 TB) and 64 TB including cloud storage.
 
 The virtual array has the following features:
 
-* It is cost effective. It makes use of your existing virtualization infrastructure and can be deployed on your existing Hyper-V or VMware hypervisor.
+* It is cost-effective. It makes use of your existing virtualization infrastructure and can be deployed on your existing Hyper-V or VMware hypervisor.
 * It resides in the datacenter and can be configured as an iSCSI server or a file server.
 * It is integrated with the cloud.
 * Backups are stored in the cloud, which can facilitate disaster recovery and simplify item-level recovery (ILR).
@@ -136,7 +130,7 @@ The virtual array has the following features:
 
 ### StorSimple Device Manager service
 
-Microsoft Azure StorSimple provides a web-based user interface, the StorSimple Device Manager service, that enables you to centrally manage StorSimple storage. You can use the StorSimple Device Manager service to perform the following tasks:
+Microsoft Azure StorSimple provides a web-based user interface, the StorSimple Device Manager service, which enables you to centrally manage StorSimple storage. You can use the StorSimple Device Manager service to perform the following tasks:
 
 * Manage multiple StorSimple Virtual Arrays from a single service.
 * Configure and manage security settings for StorSimple Virtual Arrays. (Encryption in the cloud is dependent on Microsoft Azure APIs.)
@@ -146,7 +140,7 @@ Microsoft Azure StorSimple provides a web-based user interface, the StorSimple D
 * Monitor performance.
 * Review system settings and identify possible problems.
 
-You use the StorSimple Device Manager service to perform daily administration of your virtual array.
+You use the StorSimple Device Manager service to do daily administration of your virtual array.
 
 For more information, go to [Use the StorSimple Device Manager service to administer your StorSimple device](storsimple-virtual-array-manager-service-administration.md).
 
@@ -158,11 +152,11 @@ For information about using the web-based UI, go to [Use the web-based UI to adm
 
 ### Command-line interface
 
-The included Windows PowerShell interface enables you to initiate a support session with Microsoft Support so that they can help you troubleshoot and resolve issues that you might encounter on your virtual array.
+The included Windows PowerShell interface enables you to initiate a support session with Microsoft Support so they can help you troubleshoot and resolve issues that you might encounter on your virtual array.
 
 ## Storage management technologies
 
-In addition to the virtual array and other components, the StorSimple solution uses the following software technologies to provide quick access to important data, reduce storage consumption, and protect data stored on your virtual array:
+In addition to the virtual array and other components, the StorSimple solution uses the following software technologies to provide quick access to important data, reduce storage consumption, and protect data that is stored on your virtual array:
 
 * [Automatic storage tiering](#automatic-storage-tiering) 
 * [Locally pinned shares and volumes](#locally-pinned-shares-and-volumes)
@@ -172,7 +166,7 @@ In addition to the virtual array and other components, the StorSimple solution u
 ### Automatic storage tiering
 The virtual array uses a new tiering mechanism to manage stored data across the virtual array and the cloud. There are only two tiers: the local virtual array and Azure cloud storage. The StorSimple Virtual Array automatically arranges data into the tiers based on a heat map, which tracks current usage, age, and relationships to other data. Data that is most active (hottest) is stored locally, while less active and inactive data is automatically migrated to the cloud. (All backups are stored in the cloud.) StorSimple adjusts and rearranges data and storage assignments as usage patterns change. For example, some information might become less active over time. As it becomes progressively less active, it is tiered out to the cloud. If that same data becomes active again, it is tiered in to the storage array.
 
-Data for a particular tiered share or volume is guaranteed its own local tier space (approximately 10% of the total provisioned space for that share or volume). While this reduces the available storage on the virtual array for that share or volume, it ensures that tiering for one share or volume will not be affected by the tiering needs of other shares or volumes. Thus a very busy workload on one share or volume cannot force all other workloads to the cloud.
+Data for a particular tiered share or volume is guaranteed its own local tier space (approximately 10 percent of the total provisioned space for that share or volume). While that reduces the available storage on the virtual array for that share or volume, it ensures that tiering for one share or volume will not be affected by the tiering needs of other shares or volumes. Thus, a very busy workload on one share or volume cannot force all other workloads to the cloud.
 
 Tiered volumes created for iSCSI have a maximum local reservation of 200 GB regardless of the size of the volume.
 
@@ -180,6 +174,9 @@ Tiered volumes created for iSCSI have a maximum local reservation of 200 GB rega
 
 > [!NOTE]
 > You can specify a volume as locally pinned, in which case the data remains on the virtual array and is never tiered to the cloud. For more information, go to [Locally pinned shares and volumes](#locally-pinned-shares-and-volumes).
+
+> [!IMPORTANT]
+> When using StorSimple, do not convert blobs to archival, even if your device is being phased out. To retrieve data from the device, you'll need to rehydrate the blobs from archival to the hot or cool type, which results in significant costs.
 
 
 ### Locally pinned shares and volumes
@@ -200,6 +197,7 @@ StorSimple uses deduplication and data compression to further reduce storage req
 > [!NOTE]
 > Data stored on the virtual array is not deduplicated or compressed. All deduplication and compression occurs just before the data is sent to the cloud.
 
+
 ### Scheduled and on-demand backups
 
 StorSimple data protection features enable you to create on-demand backups. Additionally, a default backup schedule ensures that data is backed up daily. Backups are taken in the form of incremental snapshots, which are stored in the cloud. Snapshots, which record only the changes since the last backup, can be created and restored quickly. These snapshots can be critically important in disaster recovery scenarios because they replace secondary storage systems (such as tape backup), and allow you to restore data to your datacenter or to alternate sites if necessary.
@@ -208,7 +206,7 @@ StorSimple data protection features enable you to create on-demand backups. Addi
 
 The StorSimple Device Manager for virtual series collects personal information in two key instances:
  - Alert user settings where email addresses of users are configured. This information can be cleared by the administrator. 
- - Users who can access the data residing on the shares. A list of users who can access the share data is displayed and can be exported. This list is also deleted when the shares is deleted.
+ - Users who can access the data on the shares. A list of users who can access the share data is displayed and can be exported. This list is deleted when the share is deleted.
 
 For more information, review the [Microsoft Privacy policy at Trust Center](https://www.microsoft.com/trustcenter).
 

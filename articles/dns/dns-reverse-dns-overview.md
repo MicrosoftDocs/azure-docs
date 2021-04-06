@@ -1,10 +1,10 @@
 ---
-title: Overview of reverse DNS in Azure | Microsoft Docs
-description: Learn how reverse DNS works and how it can be used in Azure
+title: Overview of reverse DNS in Azure - Azure DNS
+description: In this learning path, get started learning how reverse DNS works and how it can be used in Azure
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jeconnoc
+author: rohinkoul
+manager: KumuD
 
 ms.service: dns
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Overview of reverse DNS and support in Azure
@@ -87,7 +87,7 @@ A reverse lookup for the IP address '192.0.2.129' queries for a PTR record named
 The name of an IPv6 reverse lookup zone should be in the following form:
 `<IPv6 network prefix in reverse order>.ip6.arpa`
 
-For example,. When creating a reverse zone to host records for hosts with IPs that are in the 2001:db8:1000:abdc::/64 prefix, the zone name would be created by isolating the network prefix of the address (2001:db8:abdc::). Next expand the IPv6 network prefix to remove [zero compression](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), if it was used to shorten the IPv6 address prefix (2001:0db8:abdc:0000::). Reverse the order, using a period as the delimiter between each hexadecimal number in the prefix, to build the reversed network prefix (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) and add the suffix `.ip6.arpa`.
+For example,. When creating a reverse zone to host records for hosts with IPs that are in the 2001:db8:1000:abdc::/64 prefix, the zone name would be created by isolating the network prefix of the address (2001:db8:abdc::). Next expand the IPv6 network prefix to remove [zero compression](/previous-versions/windows/it-pro/windows-server-2003/cc781672(v=ws.10)), if it was used to shorten the IPv6 address prefix (2001:0db8:abdc:0000::). Reverse the order, using a period as the delimiter between each hexadecimal number in the prefix, to build the reversed network prefix (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) and add the suffix `.ip6.arpa`.
 
 
 |Network prefix  |Expanded and reversed network prefix |Standard suffix |Reverse zone name  |
@@ -112,4 +112,3 @@ For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](https
 Learn how to [host the reverse lookup zone for your ISP-assigned IP range in Azure DNS](dns-reverse-dns-for-azure-services.md).
 <br>
 Learn how to [manage reverse DNS records for your Azure services](dns-reverse-dns-for-azure-services.md).
-

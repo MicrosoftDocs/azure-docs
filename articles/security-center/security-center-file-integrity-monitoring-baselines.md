@@ -1,19 +1,18 @@
 ---
-title: Compare baselines with File Integrity Monitoring in Azure Security Center | Microsoft Docs
+title: File Integrity Monitoring in Azure Security Center
 description: Learn how to compare baselines with File Integrity Monitoring in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: c8a2a589-b737-46c1-b508-7ea52e301e8f
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/29/2019
-ms.author: "v-mohabe"
+ms.date: 02/17/2021
+ms.author: memildin
 ---
 
 # Compare baselines using File Integrity Monitoring (FIM)
@@ -37,7 +36,7 @@ The FIM registry hive defaults provide a convenient way to monitor recursive cha
 >[!NOTE]
 > Recursive checks apply only to recommended security hives and not to custom registry paths.  
 
-## Adding a custom registry check
+## Add a custom registry check
 
 FIM baselines start by identifying characteristics of a known-good state for the operating system and supporting application.  For this example, we will focus on the password policy configurations for Windows Server 2008 and higher.
 
@@ -56,29 +55,28 @@ FIM baselines start by identifying characteristics of a known-good state for the
 |Network security: Restrict NTLM: Audit NTLM authentication in this domain|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
-> To learn more about registry settings supported by various operating system versions, refer to the [Group Policy Settings reference spreadsheet](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
+> To learn more about registry settings supported by various operating system versions, refer to the [Group Policy Settings reference spreadsheet](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
-*To configure FIM to monitor registry baselines:*
+To configure FIM to monitor registry baselines:
 
-1. In the **Add Windows Registry for Change Tracking** window, in the **Windows Registry Key** text box, enter the registry key.
+1. In the **Add Windows Registry for Change Tracking** window, in the **Windows Registry Key** text box, enter the following registry key:
 
-    <code>
-
+    ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
-    </code>
+    ```
 
-      ![Enable FIM on a registry](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png" alt-text="Enable FIM on a registry":::
 
-## Tracking changes to Windows files
+## Track changes to Windows files
 
 1. In the **Add Windows File for Change Tracking** window, in the **Enter path** text box, enter the folder which contains the files that you want to track.
 In the example in the following figure, 
 **Contoso Web App** resides in the D:\ drive within the **ContosWebApp** folder structure.  
 1. Create a custom Windows file entry by providing a name of the setting class, enabling recursion, and specifying the top folder with a wildcard (*) suffix.
 
-    ![Enable FIM on a file](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png" alt-text="Enable FIM on a file":::
 
-## Retrieving change data
+## Retrieve change data
 
 File Integrity Monitoring data resides within the Azure Log Analytics / ConfigurationChange table set.  
 

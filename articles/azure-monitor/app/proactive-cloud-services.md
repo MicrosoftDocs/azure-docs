@@ -1,18 +1,10 @@
 ---
 title: Alert on issues in Azure Cloud Services using the Azure Diagnostics integration with Azure Application Insights | Microsoft Docs
 description: Monitor for issues like startup failures, crashes, and role recycle loops in Azure Cloud Services with Azure Application Insights
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/07/2018
+
 ms.reviewer: harelbr
-ms.author: mbullwin
 ---
 
 # Alert on issues in Azure Cloud Services using the Azure diagnostics integration with Azure Application Insights
@@ -115,7 +107,7 @@ Once you've defined the Action group, confirm your changes and click **Create al
 
 Learn more about automatically detecting:
 
-[Failure anomalies](../../azure-monitor/app/proactive-failure-diagnostics.md)
-[Memory Leaks](../../azure-monitor/app/proactive-potential-memory-leak.md)
-[Performance anomalies](../../azure-monitor/app/proactive-performance-diagnostics.md)
+[Failure anomalies](./proactive-failure-diagnostics.md)
+[Memory Leaks](./proactive-potential-memory-leak.md)
+[Performance anomalies](./proactive-performance-diagnostics.md)
 

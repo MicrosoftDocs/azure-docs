@@ -3,23 +3,21 @@ title: Manage DNS zones in Azure DNS - Azure portal | Microsoft Docs
 description: You can manage DNS zones using the Azure portal. This article describes how to update, delete and create DNS zones on Azure DNS
 services: dns
 documentationcenter: na
-author: vhorne
-manager: timlt
-
+author: rohinkoul
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
-ms.author: victorh
+ms.author: rohink
 ---
 # How to manage DNS Zones in the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure classic CLI](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure classic CLI](./dns-operations-dnszones-cli.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
 This article shows you how to manage your DNS zones by using the Azure portal. You can also manage your DNS zones using the cross-platform [Azure CLI](dns-operations-dnszones-cli.md) or the Azure [PowerShell](dns-operations-dnszones.md).
@@ -38,7 +36,7 @@ This article shows you how to manage your DNS zones by using the Azure portal. Y
    |---|---|---|
    |**Name**|contoso.com|The name of the DNS zone|
    |**Subscription**|[Your subscription]|Select a subscription to create the DNS zone in.|
-   |**Resource group**|**Create new:** contosoDNSRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) overview article.|
+   |**Resource group**|**Create new:** contosoDNSRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) overview article.|
    |**Location**|West US||
 
 > [!NOTE]

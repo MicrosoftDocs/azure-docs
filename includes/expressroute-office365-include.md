@@ -9,4 +9,4 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-Office 365 was created to be accessed securely and reliably via the Internet. Because of this, we recommend ExpressRoute for specific scenarios. For information about using ExpressRoute to access Office 365, visit  [Azure ExpressRoute for Office 365](https://aka.ms/ExpressRouteOffice365).
+Microsoft 365 was created to be accessed securely and reliably via the Internet. Because of this, we recommend ExpressRoute for specific scenarios. For information about using ExpressRoute to access Microsoft 365, visit [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute).

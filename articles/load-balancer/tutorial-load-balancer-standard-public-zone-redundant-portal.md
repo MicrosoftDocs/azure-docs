@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Load Balancer VMs across availability zones - Azure portal'
-titlesuffix: Azure Load Balancer
+title: 'Tutorial: Load balance VMs across availability zones - Azure portal'
+titleSuffix: Azure Load Balancer
 description: This tutorial demonstrates how to create a Standard Load Balancer with zone-redundant frontend to load balance VMs across availability zones using Azure portal
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
+# Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -32,9 +32,13 @@ Load balancing provides a higher level of availability by spreading incoming req
 
 For more information about using Availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 
-If you prefer, you can complete this tutorial using the [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md).
+If you prefer, you can complete this tutorial using the [Azure CLI](./quickstart-load-balancer-standard-public-cli.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+
+## Prerequisites
+
+* An Azure subscription
 
 ## Sign in to Azure
 
@@ -64,16 +68,20 @@ Standard Load Balancer only supports a Standard Public IP address. When you crea
 
 In this section, you create a virtual network, virtual machines in different zones for the region, and then install IIS on the virtual machines to help test the zone-redundant load balancer. Hence, if a zone fails, the health probe for VM in the same zone fails, and traffic continues to be served by VMs in the other zones.
 
-### Create a virtual network
-Create a virtual network for deploying your backend servers.
+## Virtual network and parameters
 
-1. On the top left-hand side of the screen click **Create a resource** > **Networking** > **Virtual network** and enter these values for the virtual network:
-    - *myVnet* - for the name of the virtual network.
-    - *myResourceGroupLBAZ* - for the name of the existing resource group
-    - *myBackendSubnet* - for the subnet name.
-2. Click **Create** to create the virtual network.
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-    ![Create a virtual network](./media/load-balancer-standard-public-availability-zones-portal/2-load-balancer-virtual-network.png)
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupLBAZ (Select existing resource group) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | West Europe      |
+| **\<IPv4-address-space>**   | 10.0.0.0/16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0/24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## Create a network security group
 
@@ -84,7 +92,7 @@ Create network security group to define inbound connections to your virtual netw
     - *myNetworkSecurityGroup*  - for the name of the network security group.
     - *myResourceGroupLBAZ* - for the name of the existing resource group.
    
-![Create a virtual network](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
+![Screenshot shows the Create network security group pane.](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
 ### Create network security group rules
 
@@ -103,7 +111,7 @@ In this section, you create network security group rules to allow inbound connec
     - *Allow HTTP* - for description of the load balancer rule.
 4. Click **OK**.
  
-   ![Create a virtual network](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Screenshot shows the Add inbound security rule pane.](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Repeat steps 2 to 4 to create another rule named *myRDPRule* to allow for an inbound RDP connection using port 3389 with the following values:
     - *Service Tag* - for **Source**.
     - *Internet* - for **Source service tag**
@@ -131,9 +139,6 @@ Create virtual machines in different zones (zone 1, zone 2, and zone 3) for the 
     - *myNetworkSecurityGroup* - for the name of network security group (firewall).
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
-  
-   ![Create a virtual machine](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
-
 7. Create a second VM, named, *VM2* in Zone 2, and third VM in Zone 3, and with *myVnet* as the virtual network, *myBackendSubnet* as the subnet, and **myNetworkSecurityGroup* as the network security group using steps 1-6.
 
 ### Install IIS on VMs
@@ -211,6 +216,7 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
     - *myHealthProbe* - for the name of the health probe.
 4. Click **OK**.
     
+    
     ![Adding a load balancing rule](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 
 ## Test the load balancer
@@ -224,8 +230,10 @@ To see the load balancer distribute traffic across the VMs distributed across th
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and click **Delete**.
+When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and select **Delete**.
 
 ## Next steps
 
-Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
+Learn more about load balancing a VM within a specific availability zone..
+> [!div class="nextstepaction"]
+> [Load balance VMs within an availability zone](tutorial-load-balancer-standard-public-zonal-portal.md)

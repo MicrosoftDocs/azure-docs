@@ -29,7 +29,7 @@ The following tutorial will walk you through setting up password hash sync as a 
 This tutorial builds upon the [Tutorial: Federate a single AD forest environment to the cloud](tutorial-federation.md) and is a per-requisite before attempting this tutorial.  If you have not completed this tutorial, do so before attempting the steps in this document.
 
 >[!IMPORTANT]
->Prior to switching to PHS you should create a backup of your AD FS environment.  This can be done using the [AD FS Rapid Restore Tool](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
+>Prior to switching to PHS you should create a backup of your AD FS environment.  This can be done using the [AD FS Rapid Restore Tool](/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
 
 ## Enable PHS in Azure AD Connect
 The first step, now that we have an Azure AD Connect environment that is using federation, is to turn on password hash sync and allow Azure AD Connect to synchronize the hashes.
@@ -70,7 +70,7 @@ Now, we will show you how to switch over to password hash synchronization. Befor
 
 1. Browse to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Sign in with a user account that was created in our new tenant.  You will need to sign in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign in on-premises.</br>
-   ![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Screenshot that shows a successful message when testing the sign in. ](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## Switch back to federation
 Now, we will show you how to switch back to federation.  To do this, do the following:
@@ -87,7 +87,7 @@ Now, we will show you how to switch back to federation.  To do this, do the foll
 10. Once configuration is complete, click **Next**.
 ![Configure](media/tutorial-phs-backup/backup4.png)</br>
 11. On the **Verify federation connectivity** screen, click **Verify**.  You may need to configure DNS records (add A and AAAA records) for this to complete successfully.
-![Verify](media/tutorial-phs-backup/backup5.png)</br>
+![Screenshot that shows the Verify federation connectivity screen and the Verify button.](media/tutorial-phs-backup/backup5.png)</br>
 12. Click **Exit**.
 
 ## Reset the AD FS and Azure trust
@@ -102,7 +102,7 @@ Now we need to reset the trust between AD FS and Azure.
 6.  On the **Connect to AD FS** screen, enter the contoso\Administrator username and password and click **Next.**
 7.  On the **Certificates** screen, click **Next**.
 
-## Test signing in with one of our users
+## Test signing in with a user
 
 1.  Browse to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Sign-in with a user account that was created in our new tenant.  You will need to sign-in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign-in on-premises.

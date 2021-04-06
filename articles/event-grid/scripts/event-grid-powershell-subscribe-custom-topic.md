@@ -1,18 +1,9 @@
 ---
 title: Azure PowerShell script sample - Subscribe to custom topic | Microsoft Docs
-description: Azure PowerShell script sample - Subscribe to custom topic
-services: event-grid
-documentationcenter: na
-author: tfitzmac
-manager: timlt
-
-ms.service: event-grid
+description: This article provides a sample Azure PowerShell script that shows how to subscribe to Event Grid events for a custom topic.
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/10/2018
-ms.author: tomfitz
+ms.date: 07/08/2020
 ---
 
 # Subscribe to events for a custom topic with PowerShell
@@ -42,9 +33,9 @@ This script uses the following command to create the event subscription. Each co
 
 | Command | Notes |
 |---|---|
-| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Create an Event Grid subscription. |
+| [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) | Create an Event Grid subscription. |
 
 ## Next steps
 
 * For an introduction to managed applications, see [Azure Managed Application overview](../overview.md).
-* For more information on PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* For more information on PowerShell, see [Azure PowerShell documentation](/powershell/azure/get-started-azureps).

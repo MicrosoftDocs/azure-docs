@@ -1,20 +1,20 @@
 ---
 title: How to Log a Security Event Support Ticket - Azure | Microsoft Docs
 description: As a seller on the Azure Marketplace, having identified a potential security event, I need to know how to log an appropriate ticket.
-services: security
 documentationcenter: na
 author: DavidBosland
 manager: lakoch
 editor: v-dabosl
 
 ms.assetid: f1ffde66-98f0-4c3e-ad94-fee1f97cae03
-ms.service: marketplace
+ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2017
-ms.author: barclayn
+ms.author: terrylan
 
 ---
 # How to Log a Security Event Support Ticket

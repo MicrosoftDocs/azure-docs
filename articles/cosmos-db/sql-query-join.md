@@ -1,18 +1,20 @@
 ---
 title: SQL JOIN queries for Azure Cosmos DB
-description: Learn about JOIN SQL syntax for Azure Cosmos DB.
-author: markjbrown
+description: Learn how to JOIN multiple tables in Azure Cosmos DB to query the data
+author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.author: mjbrown
+ms.date: 01/07/2021
+ms.author: tisande
 
 ---
 # Joins in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In a relational database, joins across tables are the logical corollary to designing normalized schemas. In contrast, the SQL API uses the denormalized data model of schema-free items, which is the logical equivalent of a *self-join*.
 
-Inner joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses.
+Joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses.
 
 ## Syntax
 
@@ -98,7 +100,7 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
   
 ## Examples
 
-The following examples show how the JOIN clause works. In the following example, the result is empty, since the cross product of each item from source and an empty set is empty:
+The following examples show how the JOIN clause works. Before you run these examples, upload the sample [family data](sql-query-getting-started.md#upload-sample-data). In the following example, the result is empty, since the cross product of each item from source and an empty set is empty:
 
 ```sql
     SELECT f.id
@@ -246,6 +248,8 @@ The results are:
       }
     ]
 ```
+
+If your query has a JOIN and filters, you can rewrite part of the query as a [subquery](sql-query-subquery.md#optimize-join-expressions) to improve performance.
 
 ## Next steps
 

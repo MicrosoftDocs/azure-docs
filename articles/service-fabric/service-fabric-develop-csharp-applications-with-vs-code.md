@@ -1,21 +1,11 @@
 ---
-title: Develop .NET Core Azure Service Fabric applications with Visual Studio Code | Microsoft Docs
+title: Develop .NET Core applications with Visual Studio Code 
 description: This article shows how to build, deploy, and debug .NET Core Service Fabric applications using Visual Studio Code. 
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
 
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-
 ---
 
 # Develop C# Service Fabric applications with Visual Studio Code
@@ -97,7 +87,7 @@ To set a breakpoint and debug, complete the following steps:
 
 2. Select **.NET Core Attach** from the debug configuration menu.
 
-   ![Debug Icon in VS Code Workspace](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
+   ![Screenshot that shows .NET Core Attach selected in the debug configuration menu.](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
 3. Open Service Fabric Explorer in a browser: http:\//localhost:19080/Explorer. Click **Applications** and drill down to determine the primary node that the CounterService is running on. In the image below the primary node for the CounterService is Node 0.
 

@@ -24,8 +24,6 @@ The article demonstrates the basic steps for extending the storage capacity of a
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -132,7 +130,7 @@ At this point, you've created a new virtual machine and attached a data disk. Ne
 
 For the Windows Server 2016 Datacenter server, disable Internet Explorer Enhanced Security Configuration. This step is required only for initial server registration. You can re-enable it after the server has been registered.
 
-In the Windows Server 2016 Datacenter VM, Server Manager opens automatically.  If Server Manager doesn't open by default, search for it in File Explorer.
+In the Windows Server 2016 Datacenter VM, Server Manager opens automatically.  If Server Manager doesn't open by default, search for it in Start Menu.
 
 1. In **Server Manager**, select **Local Server**.
 
@@ -257,9 +255,8 @@ The Server Registration UI should open automatically after you install the Azure
 
    ![A screenshot of the Server Registration UI](media/storage-sync-files-extend-servers/signin.png)
 
-   | | |
-   | ----- | ----- |
    | Value | Description |
+   | ----- | ----- |
    | **Azure Subscription** | The subscription that contains the Storage Sync Service for this tutorial. |
    | **Resource Group** | The resource group that contains the Storage Sync Service. Use _afsresgroup101918_ for this tutorial. |
    | **Storage Sync Service** | The name of the Storage Sync Service. Use _afssyncservice02_ for this tutorial. |
@@ -299,9 +296,8 @@ A server endpoint represents a specific location on a registered server. For exa
 
 1. On the **Add server endpoint** pane, enter the following information to create a server endpoint:
 
-   | | |
-   | ----- | ----- |
    | Value | Description |
+   | ----- | ----- |
    | **Registered server** | The name of the server you created. Use *afsvm101918* for this tutorial. |
    | **Path** | The Windows Server path to the drive you created. Use *f:\filestosync* in this tutorial. |
    | **Cloud Tiering** | Leave disabled for this tutorial. |
@@ -314,6 +310,8 @@ Your files are now in sync across your Azure file share and Windows Server.
 ![Azure Storage successfully synced](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
 ## Clean up resources
+
+If you'd like to clean up the resources you created in this tutorial, first remove the endpoints from the storage sync service. Then, unregister the server with your storage sync service, remove the sync groups, and delete the sync service.
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

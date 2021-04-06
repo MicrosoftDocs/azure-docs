@@ -1,14 +1,14 @@
 ---
-title: 'Optimize routing - ExpressRoute circuits: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Optimize routing'
 description: This page provides details on how to optimize routing when you have more than one ExpressRoute circuits that connect between Microsoft and your corp network.
 services: expressroute
-author: charwen
+author: duongau
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2019
-ms.author: charwen
-ms.custom: seodec18
+ms.author: duau
+
 
 ---
 # Optimize ExpressRoute Routing
@@ -24,24 +24,24 @@ It's important to ensure that when utilizing Microsoft or Public peering that tr
 
 Consider the following example scenario:
 
-![ExpressRoute Case 1 problem - suboptimal routing from customer to Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+![Diagram that shows the ExpressRoute Case 1 problem - suboptimal routing from customer to Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
 In the above example, to prefer ExpressRoute paths configure Local Preference as follows. 
 
 **Cisco IOS-XE configuration from R1 perspective:**
 
-    R1(config)#route-map prefer-ExR permit 10
-    R1(config-route-map)#set local-preference 150
+- R1(config)#route-map prefer-ExR permit 10
+- R1(config-route-map)#set local-preference 150
 
-    R1(config)#router BGP 345
-    R1(config-router)#neighbor 1.1.1.2 remote-as 12076
-    R1(config-router)#neighbor 1.1.1.2 activate
-    R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
+- R1(config)#router BGP 345
+- R1(config-router)#neighbor 1.1.1.2 remote-as 12076
+- R1(config-router)#neighbor 1.1.1.2 activate
+- R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
 
 **Junos configuration from R1 perspective:**
 
-    user@R1# set protocols bgp group ibgp type internal
-    user@R1# set protocols bgp group ibgp local-preference 150
+- user@R1# set protocols bgp group ibgp type internal
+- user@R1# set protocols bgp group ibgp local-preference 150
 
 
 
@@ -61,7 +61,7 @@ To optimize routing for both office users, you need to know which prefix is from
 >
 
 ## Suboptimal routing from Microsoft to customer
-Here is another example where connections from Microsoft take a longer path to reach your network. In this case, you use on-premises Exchange servers and Exchange Online in a [hybrid environment](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx). Your offices are connected to a WAN. You advertise the prefixes of your on-premises servers in both of your offices to Microsoft through the two ExpressRoute circuits. Exchange Online will initiate connections to the on-premises servers in cases such as mailbox migration. Unfortunately, the connection to your Los Angeles office is routed to the ExpressRoute circuit in US East before traversing the entire continent back to the west coast. The cause of the problem is similar to the first one. Without any hint, the Microsoft network can't tell which customer prefix is close to US East and which one is close to US West. It happens to pick the wrong path to your office in Los Angeles.
+Here is another example where connections from Microsoft take a longer path to reach your network. In this case, you use on-premises Exchange servers and Exchange Online in a [hybrid environment](/exchange/exchange-hybrid). Your offices are connected to a WAN. You advertise the prefixes of your on-premises servers in both of your offices to Microsoft through the two ExpressRoute circuits. Exchange Online will initiate connections to the on-premises servers in cases such as mailbox migration. Unfortunately, the connection to your Los Angeles office is routed to the ExpressRoute circuit in US East before traversing the entire continent back to the west coast. The cause of the problem is similar to the first one. Without any hint, the Microsoft network can't tell which customer prefix is close to US East and which one is close to US West. It happens to pick the wrong path to your office in Los Angeles.
 
 ![ExpressRoute Case 2 - suboptimal routing from Microsoft to customer](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 
@@ -71,7 +71,7 @@ There are two solutions to the problem. The first one is that you simply adverti
 The second solution is that you continue to advertise both of the prefixes on both ExpressRoute circuits, and in addition you give us a hint of which prefix is close to which one of your offices. Because we support BGP AS Path prepending, you can configure the AS Path for your prefix to influence routing. In this example, you can lengthen the AS PATH for 172.2.0.0/31 in US East so that we will prefer the ExpressRoute circuit in US West for traffic destined for this prefix (as our network will think the path to this prefix is shorter in the west). Similarly you can lengthen the AS PATH for 172.2.0.2/31 in US West so that we'll prefer the ExpressRoute circuit in US East. Routing is optimized for both offices. With this design, if one ExpressRoute circuit is broken, Exchange Online can still reach you via another ExpressRoute circuit and your WAN. 
 
 > [!IMPORTANT]
-> We remove private AS numbers in the AS PATH for the prefixes received on Microsoft Peering. You need to append public AS numbers in the AS PATH to influence routing for Microsoft Peering.
+> We remove private AS numbers in the AS PATH for the prefixes received on Microsoft Peering when peering using a private AS number. You need to peer with a public AS and append public AS numbers in the AS PATH to influence routing for Microsoft Peering.
 > 
 > 
 

@@ -1,16 +1,17 @@
 ---
 title: Create video transcript reviews using .NET - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Create video transcript reviews using the Content Moderator SDK for .NET
+description: Learn how to create video transcript reviews using the Azure Cognitive Services Content Moderator SDK for .NET.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
-ms.date: 03/19/2019
-ms.author: sajagtap
+ms.topic: conceptual
+ms.date: 10/24/2019
+ms.author: pafarley
+ms.custom: devx-track-csharp
 
 ---
 
@@ -71,30 +72,26 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 ```
 
 ### Add private properties
 
-Add the following private properties to namespace VideoTranscriptReviews, class Program.
-
-Where indicated, replace the example values for these properties.
+Add the following private properties to namespace **VideoTranscriptReviews**, class **Program**. Update the `AzureEndpoint` and `CMSubscriptionKey` fields with the values of your endpoint URL and subscription key. You can find these in the **Quick start** tab of your resource in the Azure portal.
 
 ```csharp
 namespace VideoReviews
 {
     class Program
     {
-        // NOTE: Replace this example location with the location for your Content Moderator account.
+        // NOTE: Enter a valid endpoint URL
         /// <summary>
-        /// The region/location for your Content Moderator account, 
-        /// for example, westus.
+        /// The endpoint URL of your subscription
         /// </summary>
-        private static readonly string AzureRegion = "YOUR CONTENT MODERATOR REGION";
+        private static readonly string AzureEndpoint = "YOUR ENDPOINT URL";
 
-        // NOTE: Replace this example key with a valid subscription key.
+        // NOTE: Enter a valid subscription key.
         /// <summary>
         /// Your Content Moderator subscription key.
         /// </summary>
@@ -109,12 +106,6 @@ namespace VideoReviews
         /// the Content Moderator web site. Your team name is the Id associated 
         /// with your subscription.</remarks>
         private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
-
-        /// <summary>
-        /// The base URL fragment for Content Moderator calls.
-        /// </summary>
-        private static readonly string AzureBaseURL =
-            $"{AzureRegion}.api.cognitive.microsoft.com";
 
         /// <summary>
         /// The minimum amount of time, in milliseconds, to wait between calls
@@ -139,7 +130,7 @@ public static ContentModeratorClient NewClient()
 {
     return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
     {
-        Endpoint = AzureBaseURL
+        Endpoint = AzureEndpoint
     };
 }
 ```
@@ -211,7 +202,7 @@ You add a transcript to a video review with **ContentModeratorClient.Reviews.Add
 The transcript must be in the WebVTT format. For more information, see [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/).
 
 > [!NOTE]
-> The program uses a sample transcript in the VTT format. In a real-world solution, you use the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/azure/media-services/media-services-index-content) from a video.
+> The program uses a sample transcript in the VTT format. In a real-world solution, you use the Azure Media Indexer service to [generate a transcript](../../media-services/previous/media-services-index-content.md) from a video.
 
 Add the following method definition to namespace VideotranscriptReviews, class Program.
 
@@ -324,7 +315,7 @@ private static void PublishReview(ContentModeratorClient client, string review_i
 Add the **Main** method definition to namespace VideoTranscriptReviews, class Program. Finally, close the Program class and the VideoTranscriptReviews namespace.
 
 > [!NOTE]
-> The program uses a sample transcript in the VTT format. In a real-world solution, you use the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/azure/media-services/media-services-index-content) from a video.
+> The program uses a sample transcript in the VTT format. In a real-world solution, you use the Azure Media Indexer service to [generate a transcript](../../media-services/previous/media-services-index-content.md) from a video.
 
 ```csharp
 static void Main(string[] args)
@@ -387,5 +378,3 @@ You see the following features:
 Get the [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) and the [Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET.
 
 Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) in the review tool.
-
-Check out the detailed tutorial on how to develop a [complete video moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).
