@@ -49,7 +49,7 @@ Before you begin, make sure that:
     Here is an example output:
     
     ```powershell
-        [10.57.51.94]: PS>Get-NetAdapter -Physical
+        [10.100.10.10]: PS>Get-NetAdapter -Physical
         
         Name                      InterfaceDescription                    ifIndex Status       MacAddress       LinkSpeed
         ----                      --------------------                    ------- ------       ----------        -----
@@ -61,7 +61,7 @@ Before you begin, make sure that:
         Port6                     Mellanox ConnectX-4 Lx Ethernet Adapter       6 Up           0C-42-A1-C0-E3-98 ...ps
         Port4                     QLogic 2x1GE+2x25GE QL41234HMCU NI...#2       4 Up           34-80-0D-05-26-E8 ...ps
         
-        [10.57.51.94]: PS>
+        [10.100.10.10]: PS>
     ```
 2. Choose a network interface that is:
 
@@ -71,7 +71,7 @@ Before you begin, make sure that:
     Here is an example output.
 
     ```powershell
-    [10.57.51.94]: PS>Get-HcsExternalVirtualSwitch
+    [10.100.10.10]: PS>Get-HcsExternalVirtualSwitch
 
     Name                          : vSwitch1
     InterfaceAlias                : {Port2}
@@ -84,7 +84,7 @@ Before you begin, make sure that:
     DbeDhcpHostVnicName           : f4a92de8-26ed-4597-a141-cb233c2ba0aa
     Type                          : External
     
-    [10.57.51.94]: PS>
+    [10.100.10.10]: PS>
     ```
     In this instance, Port 2 is associated with an existing virtual switch and shouldn't be used.
 
@@ -92,15 +92,17 @@ Before you begin, make sure that:
 
 Use the following cmdlet to create a new virtual switch on your specified network interface. After this operation is complete, your compute instances can use the new virtual network.
 
-`Add-HcsExternalVirtualSwitch -InterfaceAlias <Network interface name> -WaitForSwitchCreation $true`
+```powershell
+Add-HcsExternalVirtualSwitch -InterfaceAlias <Network interface name> -WaitForSwitchCreation $true
+```
 
 The new switch that is created is named as `vswitch-<Network interface name>`.
 
 Here is an example output:
 
 ```powershell
-[10.57.51.94]: P> Add-HcsExternalVirtualSwitch -InterfaceAlias Port5 -WaitForSwitchCreation $true
-[10.57.51.94]: PS>Get-HcsExternalVirtualSwitch
+[10.100.10.10]: P> Add-HcsExternalVirtualSwitch -InterfaceAlias Port5 -WaitForSwitchCreation $true
+[10.100.10.10]: PS>Get-HcsExternalVirtualSwitch
 
 Name                          : vSwitch1
 InterfaceAlias                : {Port2}
@@ -124,7 +126,7 @@ SupportsAcceleratedNetworking : False
 DbeDhcpHostVnicName           : 9b301c40-3daa-49bf-a20b-9f7889820129
 Type                          : External
 
-[10.57.51.94]: PS>
+[10.100.10.10]: PS>
 ```
 
 ## Verify switch, network, subnet 
