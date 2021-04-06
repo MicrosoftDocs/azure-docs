@@ -65,8 +65,10 @@ Before you begin, make sure that:
     ```
 2. Choose a network interface that is:
 
-    - In the **Up** status, and 
-    - Not used by any existing virtual switches. To check the existing virtual switch and network interface association, run the `Get-HcsExternalVirtualSwitch` command.
+    - In the **Up** status. 
+    - Not used by any existing virtual switches. Currently, only one vswitch can be configured per network interface. 
+    
+    To check the existing virtual switch and network interface association, run the `Get-HcsExternalVirtualSwitch` command.
  
     Here is an example output.
 
