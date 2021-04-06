@@ -48,7 +48,7 @@ The following service APIs are not currently available in Azure Maps:
 
 Azure Maps has several additional REST web services that may be of interest;
 
--   [Azure Maps Creator (Preview) ](./creator-indoor-maps.md) – Create a custom private digital twin of buildings and spaces.
+-   [Azure Maps Creator ](./creator-indoor-maps.md) – Create a custom private digital twin of buildings and spaces.
 -   [Spatial operations](/rest/api/maps/spatial) – Offload complex spatial calculations and operations, such as geofencing, to a service.
 -   [Map Tiles](/rest/api/maps/render/getmaptile) – Access road and imagery tiles from Azure Maps as raster and vector tiles.
 -   [Batch routing](/rest/api/maps/route/postroutedirectionsbatchpreview) – Allows up to 1,000 route requests to be made in a single batch over a period of time. Routes are calculated in parallel on the server for faster processing.

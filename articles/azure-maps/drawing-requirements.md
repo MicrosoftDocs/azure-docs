@@ -1,5 +1,5 @@
 ---
-title: Drawing package requirements in Microsoft Azure Maps Creator (Preview) 
+title: Drawing package requirements in Microsoft Azure Maps Creator 
 description: Learn about the Drawing package requirements to convert your facility design files to map data
 author: anastasia-ms
 ms.author: v-stharr
@@ -11,12 +11,6 @@ manager: philMea
 ---
 
 # Drawing package requirements
-
-
-> [!IMPORTANT]
-> Azure Maps Creator services are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can convert uploaded Drawing packages into map data by using the [Azure Maps Conversion service](/rest/api/maps/conversion). This article describes the Drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
@@ -413,10 +407,10 @@ Below is the manifest file for the sample Drawing package. To download the entir
 When your Drawing package meets the requirements, you can use the [Azure Maps Conversion service](/rest/api/maps/conversion) to convert the package to a map dataset. Then, you can use the dataset to generate an indoor map by using the indoor maps module.
 
 > [!div class="nextstepaction"]
->[Creator (Preview) for indoor maps](creator-indoor-maps.md)
+>[Creator for indoor maps](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creating a Creator (Preview) indoor map](tutorial-creator-indoor-maps.md)
+> [Tutorial: Creating a Creator indoor map](tutorial-creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Indoor maps dynamic styling](indoor-map-dynamic-styling.md)

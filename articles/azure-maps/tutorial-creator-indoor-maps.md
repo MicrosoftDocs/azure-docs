@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Use Microsoft Azure Maps Creator (Preview) to create indoor maps'
-description: Tutorial on how to use Microsoft Azure Maps Creator (Preview) to create indoor maps
+title: 'Tutorial: Use Microsoft Azure Maps Creator to create indoor maps'
+description: Tutorial on how to use Microsoft Azure Maps Creator to create indoor maps
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -10,12 +10,7 @@ services: azure-maps
 manager: philmea
 ---
 
-# Tutorial: Use Creator (Preview) to create indoor maps
-
-> [!IMPORTANT]
-> Azure Maps Creator services are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Tutorial: Use Creator to create indoor maps
 
 This tutorial shows you how to create indoor maps. In this tutorial, you'll learn how to use the API to:
 
@@ -34,7 +29,7 @@ To create indoor maps:
 
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
-3. [Create a Creator (Preview) resource](how-to-manage-creator.md)
+3. [Create a Creator resource](how-to-manage-creator.md)
 4. Download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip).
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.

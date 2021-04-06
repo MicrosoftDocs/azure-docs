@@ -1,5 +1,5 @@
 ---
-title: Work with indoor maps in Azure Maps Creator (Preview) 
+title: Work with indoor maps in Azure Maps Creator 
 description: This article introduces concepts that apply to Azure Maps Creator services (Preview) 
 author: anastasia-ms
 ms.author: v-stharr
@@ -11,14 +11,7 @@ manager: philmea
 ---
 
 
-# Creator (Preview) for indoor maps
-
-
-> [!IMPORTANT]
-> Azure Maps Creator services are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+# Creator for indoor maps
 
 This article introduces concepts and tools that apply to Azure Maps Creator. We recommend that you read this article before you begin to use the Azure Maps Creator API and SDK.
 
@@ -26,13 +19,13 @@ You can use Creator to develop applications with map features based on indoor ma
 
 ![Creator map data workflow](./media/creator-indoor-maps/workflow.png)
 
-## Create Azure Maps Creator (Preview) 
+## Create Azure Maps Creator 
 
 To use Creator services (Preview), Azure Maps Creator must be created in an Azure Maps account. For information on how to create Azure Maps Creator in Azure Maps, see [Manage Azure Maps Creator](how-to-manage-creator.md).
 
 ## Upload a Drawing package
 
-Creator (Preview) collects indoor map data by converting an uploaded Drawing package. The Drawing package represents a constructed or remodeled facility. For information on Drawing package requirements, see [Drawing package requirements](drawing-requirements.md).
+Creator collects indoor map data by converting an uploaded Drawing package. The Drawing package represents a constructed or remodeled facility. For information on Drawing package requirements, see [Drawing package requirements](drawing-requirements.md).
 
 Use the [Azure Maps Data (Preview) Upload API](/rest/api/maps/data/uploadpreview) to upload a Drawing package.  Upon a successful upload, the Data Upload API will return a user data identifier (`udid`). The `udid` will be used in the next step to convert the uploaded package into indoor map data.
 
@@ -44,7 +37,7 @@ When an error occurs, the Conversion service provides a link to the [Azure Maps 
 
 ## Create indoor map data
 
-Azure Maps Creator (Preview) provides three services:
+Azure Maps Creator provides three services:
 
 * [Dataset service](/rest/api/maps/dataset/createpreview).
 Use the Dataset service to create a dataset from a converted Drawing package data.
@@ -90,7 +83,7 @@ An application can use a feature stateset to dynamically render features in a fa
 
 ### Render V2 service
 
-The Azure Maps [Render V2 service-Get Map Tile API (Preview)](/rest/api/maps/renderv2/getmaptilepreview) has been extended to support Creator (Preview) tilesets.
+The Azure Maps [Render V2 service-Get Map Tile API (Preview)](/rest/api/maps/renderv2/getmaptilepreview) has been extended to support Creator tilesets.
 
 Render V2 service-Get Map State Tile API allows applications to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module](#indoor-maps-module).
 
@@ -100,7 +93,7 @@ Datasets can be queried using the [Web Feature Service (WFS) API](/rest/api/maps
 
 ### Indoor Maps module
 
-The [Azure Maps Web SDK](./index.yml) includes the Indoor Maps module. This module offers extended functionalities to the Azure Maps *Map Control* library. The Indoor Maps module renders indoor maps created in Creator (Preview). It integrates widgets such as *floor picker*, which helps users visualize the different floors.
+The [Azure Maps Web SDK](./index.yml) includes the Indoor Maps module. This module offers extended functionalities to the Azure Maps *Map Control* library. The Indoor Maps module renders indoor maps created in Creator. It integrates widgets such as *floor picker*, which helps users visualize the different floors.
 
 The Indoor Maps module allows you to create web applications that integrate indoor map data with other [Azure Maps services](./index.yml). The most common application setups could include adding knowledge to indoor maps from other maps such as road, imagery, weather, and transit.
 
@@ -112,7 +105,7 @@ As you begin to develop solutions for indoor maps, you can discover ways to inte
 
 ### Data Maintenance
 
- Azure Maps Creator (Preview) List, Update, and Delete API allows you to list, update, and delete your datasets, tilesets, and feature statesets.
+ Azure Maps Creator List, Update, and Delete API allows you to list, update, and delete your datasets, tilesets, and feature statesets.
 
 >[!NOTE]
 >Whenever you review a list of items and decide to delete them, you must consider the impact of that deletion on all dependent API or applications. For example, if you should delete a tileset that is currently being used by an application by means of the [Render V2 - Get Map Tile API](/rest/api/maps/renderv2/getmaptilepreview), deleting that tileset would result in an application failure to render that tileset.
@@ -132,4 +125,4 @@ The following example shows you how to update a dataset, create a new tileset, a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creating a Creator (Preview) indoor map](tutorial-creator-indoor-maps.md)
+> [Tutorial: Creating a Creator indoor map](tutorial-creator-indoor-maps.md)

@@ -1,6 +1,6 @@
 ---
-title: Manage Microsoft Azure Maps Creator (Preview)
-description: In this article, you'll learn how to manage Microsoft Azure Maps Creator (Preview).
+title: Manage Microsoft Azure Maps Creator
+description: In this article, you'll learn how to manage Microsoft Azure Maps Creator.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/16/2021
@@ -10,18 +10,13 @@ services: azure-maps
 manager: philmea
 ---
 
-# Manage Azure Maps Creator (Preview) 
-
-> [!IMPORTANT]
-> Azure Maps Creator services are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Manage Azure Maps Creator 
 
 Azure Maps Creator lets you create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. Currently, Creator is only available in the United States using the S1 pricing tier.
 
 This article takes you through the steps to create and delete a Creator resource in an Azure Maps account.
 
-## Create Creator (Preview) Resource
+## Create Creator Resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
@@ -52,7 +47,7 @@ This article takes you through the steps to create and delete a Creator resource
    >[!NOTE]
    >From the Creator resource page, you can navigate back to the Azure Maps account it belongs to by selecting Azure Maps Account.
 
-## Delete Creator (Preview) Resource
+## Delete Creator Resource
 
 To delete the Creator resource, navigate to your Azure Maps account. Select **Overview** under **Creator**. Select the **Delete** button.
 
@@ -67,7 +62,7 @@ Select the **Delete** button and type your Creator name to confirm deletion. Onc
 
 ## Authentication
 
-Creator (Preview) inherits Azure Maps Access Control (IAM) settings. All API calls for data access must be sent with authentication and authorization rules.
+Creator inherits Azure Maps Access Control (IAM) settings. All API calls for data access must be sent with authentication and authorization rules.
 
 Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more information, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
