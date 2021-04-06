@@ -35,10 +35,6 @@ to keep nodes healthy:
 >    * 300 for 0-3 vCores
 >    * 500 for 4-15 vCores
 >    * 1000 for 16+ vCores
->
-> Three connections are reserved by Hyperscale (Citus) for its own use, and are
-> unavailable for applications. The maximum number of user connections is thus
-> 297, 497, or 997 depending on coordinator vCores.
 
 Attempts to connect beyond these limits will fail with an error. The system
 reserves three connections for monitoring nodes, which is why there are three
