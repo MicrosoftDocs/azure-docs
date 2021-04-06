@@ -25,7 +25,7 @@ Before you begin migrating your Oracle schema to SQL Managed Instance:
 
 - Verify your source environment is supported.
 - Download [SSMA for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
-- Have a target [SQL managed instance](../../managed-instance/instance-create-quickstart.md).
+- Have a [SQL Managed Instance](../../managed-instance/instance-create-quickstart.md) target.
 - Obtain the [necessary permissions for SSMA for Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) and [provider](/sql/ssma/oracle/connect-to-oracle-oracletosql).
  
 ## Pre-migration
