@@ -594,6 +594,21 @@
             "source_path_from_root": "/articles/media-services/azure-media-player/azure-media-player-release-notes.md",
             "redirect_url": "https://amp.azure.net/libs/amp/latest/docs/changelog.html",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/encode-custom-presets-how-to.md",
+            "redirect_url": "transform-custom-presets-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/encode-custom-preset-cli-how-to.md",
+            "redirect_url": "transform-custom-preset-cli-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/encode-custom-preset-rest-how-to.md",
+            "redirect_url": "transform-custom-preset-rest-how-to",
+            "redirect_document_id": false
         }
     ]
 }
