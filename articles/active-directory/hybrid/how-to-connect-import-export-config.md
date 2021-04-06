@@ -66,21 +66,22 @@ Migration requires running a PowerShell script that extracts the existing settin
 ### Migration process 
 To migrate the settings:
 
-1. Start **AzureADConnect.msi** on the new staging server, and stop at the **Welcome** page of Azure AD Connect.
+ 1. Start **AzureADConnect.msi** on the new staging server, and stop at the **Welcome** page of Azure AD Connect.
 
-1. Copy **MigrateSettings.ps1** from the Microsoft Azure AD Connect\Tools directory to a location on the existing server. An example is C:\setup, where setup is a directory that was created on the existing server.
+ 2. Copy **MigrateSettings.ps1** from the Microsoft Azure AD Connect\Tools directory to a location on the existing server. An example is C:\setup, where setup is a directory that was created on the existing server.
+     ![Screenshot that shows Azure AD Connect directories.](media/how-to-connect-import-export-config/migrate1.png)
 
-   ![Screenshot that shows Azure AD Connect directories.](media/how-to-connect-import-export-config/migrate1.png)
+     >[!NOTE]
+     > If you see a message: “A positional parameter cannot be found that accepts argument **True**.”, as below:
+     This will be addressed in builds in the next build (post 1.6.4.0). 
 
-1. Run the script as shown here, and save the entire down-level server configuration directory. Copy this directory to the new staging server. You must copy the entire **Exported-ServerConfiguration-*** folder to the new server.
+ 3. Run the script as shown here, and save the entire down-level server configuration directory. Copy this directory to the new staging server. You must copy the entire **Exported-ServerConfiguration-*** folder to the new server.
+     ![Screenshot that shows script in Windows PowerShell.](media/how-to-connect-import-export-config/migrate2.png)![Screenshot that shows copying the Exported-ServerConfiguration-* folder.](media/how-to-connect-import-export-config/migrate3.png)
 
-   ![Screenshot that shows script in Windows PowerShell.](media/how-to-connect-import-export-config/migrate2.png)
-   ![Screenshot that shows copying the Exported-ServerConfiguration-* folder.](media/how-to-connect-import-export-config/migrate3.png)
+ 4. Start **Azure AD Connect** by double-clicking the icon on the desktop. Accept the Microsoft Software License Terms, and on the next page, select **Customize**.
+ 5. Select the **Import synchronization settings** check box. Select **Browse** to browse the copied-over Exported-ServerConfiguration-* folder. Select the MigratedPolicy.json to import the migrated settings.
 
-1. Start **Azure AD Connect** by double-clicking the icon on the desktop. Accept the Microsoft Software License Terms, and on the next page, select **Customize**.
-1. Select the **Import synchronization settings** check box. Select **Browse** to browse the copied-over Exported-ServerConfiguration-* folder. Select the MigratedPolicy.json to import the migrated settings.
-
-   ![Screenshot that shows the Import synchronization settings option.](media/how-to-connect-import-export-config/migrate4.png)
+     ![Screenshot that shows the Import synchronization settings option.](media/how-to-connect-import-export-config/migrate4.png)
 
 ## Post-installation verification 
 
