@@ -87,7 +87,7 @@ string apiKey = TestEnvironment.ApiKey;
 string datasource = TestEnvironment.DataSource;
 ```
 
-Your datasource will consist of a batch of time series data stored in a zip file. Each variable will be a csv file with two columns. The first column will be timestamp, the second column will be value. Besides these variable csv files, an extra meta.json can be included in th zip file if you would like to rename a variable. By default, the file name of the variable will be used as the variable name. Example: [https://multiadsample.blob.core.windows.net/data/sample_data_2_1000.zip?sp=rl&st=2020-12-04T06:03:47Z&se=2022-12-05T06:03:00Z&sv=2019-12-12&sr=b&sig=AZTbvZ7fcp3MdqGY%2FvGHJXJjUgjS4DneCGl7U5omq5c%3D](https://multiadsample.blob.core.windows.net/data/sample_data_2_1000.zip?sp=rl&st=2020-12-04T06:03:47Z&se=2022-12-05T06:03:00Z&sv=2019-12-12&sr=b&sig=AZTbvZ7fcp3MdqGY%2FvGHJXJjUgjS4DneCGl7U5omq5c%3D)
+ To use the Anomaly Detector multivariate APIs, we need to train our own model before using detection. Data used for training is a batch of time series, each time series should be in CSV format with two columns, timestamp and value. All of the time series should be zipped into one zip file and be uploaded to [Azure Blob storage](../../../storage/blobs/storage-blobs-introduction#blobs). By default the file name will be used to represent the variable for the time series. Alternatively, an extra meta.json file can be included in the zip file if you wish the name of the variable to be different from the .zip file name. Once we generate [blob SAS (Shared access signatures) URL](../../../storage/common/storage-sas-overview), we can use the url to the zip file for training.
 
 ## Code examples
 
