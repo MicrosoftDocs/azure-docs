@@ -102,7 +102,7 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     The output from each command will show information about the successfully uploaded model.
 
     >[!TIP]
-    >You can also upload all models within a directory at the same time, by using the `--from-directory` option for the model create command. For more information, see [Optional parameters for *az dt model create*](/cli/azure/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_create-optional-parameters).
+    >You can also upload all models within a directory at the same time, by using the `--from-directory` option for the model create command. For more information, see [Optional parameters for *az dt model create*](/cli/azure/dt/model#az_dt_model_create-optional-parameters).
 
 1. Verify the models were created with the [**az dt model list**](/cli/azure/dt/model#az_dt_model_list) command as shown below. This will print a list of all models that have been uploaded to the Azure Digital Twins instance with their full information. 
 
@@ -152,7 +152,7 @@ To create a digital twin, you use the [**az dt twin create**](/cli/azure/dt/twin
     
     The output from each command will show information about the successfully created twin (including properties for the room twins that were initialized with them).
 
-1. You can verify that the twins were created with the [**az dt twin query**](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_query) command as shown below. The query shown finds all the digital twins in your Azure Digital Twins instance.
+1. You can verify that the twins were created with the [**az dt twin query**](/cli/azure/dt/twin#az_dt_twin_query) command as shown below. The query shown finds all the digital twins in your Azure Digital Twins instance.
     
     ```azurecli-interactive
     az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS"
