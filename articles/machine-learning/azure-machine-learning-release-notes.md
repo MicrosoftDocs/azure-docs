@@ -69,7 +69,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Starts to support updating container registry for workspace in SDK and CLI
     + Deprecated DockerSection's 'enabled', 'shared_volume', and 'arguments' attributes in favor of using DockerConfiguration with ScriptRunConfig.
     + Updated Pipeline CLI clone documentation
-    + 1. Add '&tid=<tenant_id>` to end of portal URLs so that UI does not have to guess which tenant to authenticate against. 2. Remove experiment name from run URLs to stop unnecessary redirects. 3. Change experiment URL to use the experiment id instead of experiment name.
+    + 1. Add `&tid=<tenant_id>` to end of portal URLs so that UI does not have to guess which tenant to authenticate against. 2. Remove experiment name from run URLs to stop unnecessary redirects. 3. Change experiment URL to use the experiment id instead of experiment name.
     + Bug fixes for attaching remote compute using az cli
     + Added support to understand File Dataset partitions based on glob structure.
   + **azureml-interpret**
