@@ -28,13 +28,13 @@ The process is similar if you want the logic app to perform a different action.
 
 ## Create an activity log alert: Administrative
 
-1. [Create a Logic App](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
+1. [Create a logic app](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 2.  Select the trigger: **When a HTTP request is received**.
 
 1. In the dialog for **When an HTTP request is received**, select **Use sample payload to generate schema**.
 
-    ![Screenshot that shows the When an H T T P request dialog box and the Use sample payload to generate schema opion selected. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
+    ![Screenshot that shows the When an H T T P request dialog box and the Use sample payload to generate schema option selected. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
 
 3.  Copy and paste the following sample payload into the dialog box:
 
@@ -75,7 +75,7 @@ The process is similar if you want the logic app to perform a different action.
         }
     ```
 
-9. The **Logic App Designer** displays a pop-up window to remind you that the request sent to the logic app must set the **Content-Type** header to **application/json**. Close the pop-up window. The Azure Monitor alert sets the header.
+9. The **Logic Apps Designer** displays a pop-up window to remind you that the request sent to the logic app must set the **Content-Type** header to **application/json**. Close the pop-up window. The Azure Monitor alert sets the header.
 
     ![Set the Content-Type header](media/action-groups-logic-app/content-type-header.png "Set the Content-Type header")
 
