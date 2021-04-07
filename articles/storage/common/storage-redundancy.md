@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -28,6 +28,9 @@ Data in an Azure Storage account is always replicated three times in the primary
 
 - **Locally redundant storage (LRS)** copies your data synchronously three times within a single physical location in the primary region. LRS is the least expensive replication option, but is not recommended for applications requiring high availability.
 - **Zone-redundant storage (ZRS)** copies your data synchronously across three Azure availability zones in the primary region. For applications requiring high availability, Microsoft recommends using ZRS in the primary region, and also replicating to a secondary region.
+
+> [!NOTE]
+> Microsoft recommends using ZRS in the primary region for Azure Data Lake Storage Gen2 workloads.
 
 ### Locally-redundant storage
 
@@ -66,9 +69,9 @@ The following table shows which types of storage accounts support ZRS in which r
 
 | Storage account type | Supported regions | Supported services |
 |--|--|--|
-| General-purpose v2<sup>1</sup> | Asia Southeast<br /> Australia East<br /> Europe North<br />  Europe West<br /> France Central<br /> Japan East<br /> South Africa North<br /> UK South<br /> US Central<br /> US East<br /> US East 2<br /> US West 2 | Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
-| BlockBlobStorage<sup>1</sup> | Asia Southeast<br /> Australia East<br /> Europe North<br /> Europe West<br /> France Central <br /> Japan East<br /> UK South <br /> US East <br /> US East 2 <br /> US West 2| Premium block blobs only |
-| FileStorage | Asia Southeast<br /> Australia East<br /> Europe North<br /> Europe West<br /> France Central <br /> Japan East<br /> UK South <br /> US East <br /> US East 2 <br /> US West 2 | Premium files shares only |
+| General-purpose v2<sup>1</sup> | (Africa) South Africa North<br /> (Asia Pacific) East Asia<br /> (Asia Pacific) Southeast Asia<br /> (Asia Pacific) Australia East<br /> (Asia Pacific) Central India<br /> (Asia Pacific) Japan East<br /> (Asia Pacific) Korea Central<br /> (Canada) Canada Central<br /> (Europe) North Europe<br /> (Europe) West Europe<br /> (Europe) France Central<br /> (Europe) Germany West Central<br /> (Europe) Norway East<br /> (Europe) Switzerland North<br /> (Europe) UK South<br /> (Middle East) UAE North<br /> (South America) Brazil South<br /> (US) Central US<br /> (US) East US<br /> (US) East US 2<br /> (US) North Central US<br />(US) South Central US<br /> (US) West US<br /> (US) West US 2 | Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
+| BlockBlobStorage<sup>1</sup> | (Africa) South Africa North<br /> (Asia Pacific) East Asia<br /> (Asia Pacific) Southeast Asia<br /> (Asia Pacific) Australia East<br /> (Asia Pacific) Central India<br /> (Asia Pacific) Japan East<br /> (Asia Pacific) Korea Central<br /> (Canada) Canada Central<br /> (Europe) North Europe<br /> (Europe) West Europe<br /> (Europe) France Central<br /> (Europe) Germany West Central<br /> (Europe) Norway East<br /> (Europe) Switzerland North<br /> (Europe) UK South<br /> (Middle East) UAE North<br /> (South America) Brazil South<br /> (US) Central US<br /> (US) East US<br /> (US) East US 2<br /> (US) North Central US<br />(US) South Central US<br /> (US) West US<br /> (US) West US 2 | Premium block blobs only |
+| FileStorage | (Africa) South Africa North<br /> (Asia Pacific) East Asia<br /> (Asia Pacific) Southeast Asia<br /> (Asia Pacific) Australia East<br /> (Asia Pacific) Central India<br /> (Asia Pacific) Japan East<br /> (Asia Pacific) Korea Central<br /> (Canada) Canada Central<br /> (Europe) North Europe<br /> (Europe) West Europe<br /> (Europe) France Central<br /> (Europe) Germany West Central<br /> (Europe) Norway East<br /> (Europe) Switzerland North<br /> (Europe) UK South<br /> (Middle East) UAE North<br /> (South America) Brazil South<br /> (US) Central US<br /> (US) East US<br /> (US) East US 2<br /> (US) North Central US<br />(US) South Central US<br /> (US) West US<br /> (US) West US 2 | Premium files shares only |
 
 <sup>1</sup> The archive tier is not currently supported for ZRS accounts.<br />
 <sup>2</sup> Storage accounts that contain Azure managed disks for virtual machines always use LRS. Azure unmanaged disks should also use LRS. It is possible to create a storage account for Azure unmanaged disks that uses GRS, but it is not recommended due to potential issues with consistency over asynchronous geo-replication. Neither managed nor unmanaged disks support ZRS or GZRS. For more information on managed disks, see [Pricing for Azure managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -120,15 +123,30 @@ Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more info
 
 GZRS and RA-GZRS are supported in the following regions:
 
-- Asia Southeast
-- Europe North
-- Europe West
-- Japan East
-- UK South
-- US Central
-- US East
-- US East 2
-- US West 2
+- (Africa) South Africa North
+- (Asia Pacific) East Asia
+- (Asia Pacific) Southeast Asia
+- (Asia Pacific) Australia East
+- (Asia Pacific) Central India
+- (Asia Pacific) Japan East
+- (Asia Pacific) Korea Central
+- (Canada) Canada Central
+- (Europe) North Europe
+- (Europe) West Europe
+- (Europe) France Central
+- (Europe) Germany West Central
+- (Europe) Norway East
+- (Europe) Switzerland North
+- (Europe) UK South
+- (Middle East) UAE North
+- (South America) Brazil South
+- (US) Central US
+- (US) East US
+- (US) East US 2
+- (US) North Central US
+- (US) South Central US
+- (US) West US
+- (US) West US 2
 
 For information on pricing, see pricing details for [Blobs](https://azure.microsoft.com/pricing/details/storage/blobs), [Files](https://azure.microsoft.com/pricing/details/storage/files/), [Queues](https://azure.microsoft.com/pricing/details/storage/queues/), and [Tables](https://azure.microsoft.com/pricing/details/storage/tables/).
 

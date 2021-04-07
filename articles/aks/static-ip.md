@@ -61,16 +61,14 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## Create a service using the static IP address
 
-Before creating a service, ensure the service principal used by the AKS cluster has delegated permissions to the other resource group. For example:
+Before creating a service, ensure the cluster identity used by the AKS cluster has delegated permissions to the other resource group. For example:
 
 ```azurecli-interactive
 az role assignment create \
-    --assignee <SP Client ID> \
+    --assignee <Client ID> \
     --role "Network Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
-
-Alternatively, you can use the system assigned managed identity for permissions instead of the service principal. For more information, see [Use managed identities](use-managed-identity.md).
 
 > [!IMPORTANT]
 > If you customized your outbound IP make sure your cluster identity has permissions to both the outbound public IP and this inbound public IP.

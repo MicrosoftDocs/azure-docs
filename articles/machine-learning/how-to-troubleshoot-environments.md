@@ -18,8 +18,8 @@ Learn how to troubleshoot issues with Docker environment image builds and packag
 ## Prerequisites
 
 * An Azure subscription. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
-* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
+* The [Azure CLI](/cli/azure/install-azure-cli).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To debug locally, you must have a working Docker installation on your local system.
 
@@ -154,7 +154,7 @@ Possible issues:
 
 ### You get a 401 error from a workspace container registry
 
-Resynchronize storage keys by using [ws.sync_keys()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--).
+Resynchronize storage keys by using [ws.sync_keys()](/python/api/azureml-core/azureml.core.workspace.workspace#sync-keys--).
 
 ### The environment keeps throwing a "Waiting for other conda operations to finish…" error
 

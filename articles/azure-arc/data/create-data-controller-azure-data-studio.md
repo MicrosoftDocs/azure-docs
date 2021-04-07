@@ -17,6 +17,8 @@ You can create a data controller using Azure Data Studio through the deployment 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+At the current time, you can create a data controller using the method described in this article.
+
 ## Prerequisites
 
 - You need access to a Kubernetes cluster and have your kubeconfig file configured to point to the Kubernetes cluster you want to deploy to.
@@ -42,7 +44,7 @@ Follow these steps to create an Azure Arc data controller using the Deployment w
 1. Choose the desired subscription and resource group.
 1. Select an Azure location.
    
-   The Azure location selected here is the location in Azure where the *metadata* about the data controller and the database instances that it manages will be stored. The data controller and database instances will be actually crewted in your Kubernetes cluster wherever that may be.
+   The Azure location selected here is the location in Azure where the *metadata* about the data controller and the database instances that it manages will be stored. The data controller and database instances will be actually created in your Kubernetes cluster wherever that may be.
 
 10. Select the appropriate Connectivity Mode. Learn more on [Connectivity modes](./connectivity.md). **Click Next**.
 

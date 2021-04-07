@@ -26,10 +26,12 @@ When you're finished, you'll have an Azure <abbr title="A logical container for 
 
 <details>
 <summary>Already have Visual Studio 2019?</summary>
-  If you've installed Visual Studio 2019 already:
+If you've installed Visual Studio 2019 already:
 
-  - **Install the latest updates** in Visual Studio by selecting **Help** > **Check for Updates**. The latest updates contain the .NET 5.0 SDK.
-  - **Add the workload** by selecting **Tools** > **Get Tools and Features**.
+<ul>
+<li><strong>Install the latest updates</strong> in Visual Studio by selecting <strong>Help</strong> &gt; <strong>Check for Updates</strong>. The latest updates contain the .NET 5.0 SDK.</li>
+<li><strong>Add the workload</strong> by selecting <strong>Tools</strong> &gt; <strong>Get Tools and Features</strong>.</li>
+</ul>
 </details>
 
 <hr/> 
@@ -309,19 +311,19 @@ http://<app_name>.azurewebsites.net
 
 1. **Run** `az webapp up` to redeploy:
 
-```azurecli
-az webapp up --os-type linux
-```
-
-<details>
-<summary>What's <code>az webapp up</code> doing this time?</summary>
-The first time you ran the command, it saved the app name, resource group, and App Service plan in the <i>.azure/config</i> file from the project root. When you run it again from the project root, it uses the values saved in <i>.azure/config</i>, detects that the App Service resources already exists, and performs Zip deploy again.
-</details>
-
+    ```azurecli
+    az webapp up --os-type linux
+    ```
+    
+    <details>
+    <summary>What's <code>az webapp up</code> doing this time?</summary>
+    The first time you ran the command, it saved the app name, resource group, and App Service plan in the <i>.azure/config</i> file from the project root. When you run it again from the project root, it uses the values saved in <i>.azure/config</i>, detects that the App Service resources already exists, and performs Zip deploy again.
+    </details>
+    
 1. Once deployment has completed, **hit refresh** in the browser window that previously opened.
 
-![Updated sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
-
+    ![Updated sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
+    
 [Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 <hr/> 
@@ -336,8 +338,8 @@ The first time you ran the command, it saved the app name, resource group, and A
 
 1. The Overview page is where you can perform basic management tasks like browse, stop, start, restart, and delete. The left menu provides different pages for configuring your app. 
 
-![App Service page in Azure portal](media/quickstart-dotnetcore/portal-app-overview-up.png)
-
+    ![App Service page in Azure portal](media/quickstart-dotnetcore/portal-app-overview-up.png)
+    
 <hr/> 
 
 ## 9. Clean up resources

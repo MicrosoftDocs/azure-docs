@@ -33,13 +33,13 @@ For services hosted in Azure, we recommend using a managed identity if possible,
 
 ## Managed identities
 
-Managed identities are secure Azure Active Directory (Azure AD) identities created to provide identities for Azure resources. There are [two types of managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types): 
+Managed identities are secure Azure Active Directory (Azure AD) identities created to provide identities for Azure resources. There are [two types of managed identities](../managed-identities-azure-resources/overview.md#managed-identity-types): 
  
 * System-assigned managed identities can be assigned directly to an instance of a service. 
 
 * User-assigned managed identities can be created as a standalone resource. 
 
-For more information, see [Securing managed identities](service-accounts-managed-identities.md). For general information about managed identities, see [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+For more information, see [Securing managed identities](service-accounts-managed-identities.md). For general information about managed identities, see [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
 
 ## Service principals
 
@@ -62,6 +62,3 @@ For more information on securing Azure service accounts, see:
 [Securing service principals](service-accounts-principal.md)
 
 [Governing Azure service accounts](service-accounts-governing-azure.md)
-
-
-

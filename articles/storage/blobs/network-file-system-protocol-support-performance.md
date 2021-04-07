@@ -16,7 +16,7 @@ ms.custom: references_regions
 Blob storage now supports the Network File System (NFS) 3.0 protocol. This article contains recommendations that help you to optimize the performance of your storage requests. To learn more about NFS 3.0 support in Azure Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance in the following regions: Australia East, Korea Central, and South Central US. The preview also supports block blob with premium performance tier in all public regions.
+> NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance in the following regions: Australia East, Korea Central, East US, and South Central US. The preview also supports block blob with premium performance tier in all public regions.
 
 ## Add clients to increase throughput 
 
@@ -30,7 +30,7 @@ The following chart shows how bandwidth increases as you add more clients. In th
 The following chart shows this same effect when applied to an account that uses the premium performance tier.
 
 > [!div class="mx-imgBorder"]
-> ![Standard performance](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
+> ![Premium performance](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
 
 ## Use premium performance tier for small scale applications
 
@@ -41,7 +41,7 @@ Each bar in the following chart shows the difference in achieved bandwidth betwe
 > [!div class="mx-imgBorder"]
 > ![Relative performance](./media/network-file-system-protocol-support-performance/relative-performance.png)
 
-## Avoid frequent overwrites on date
+## Avoid frequent overwrites on data
 
 It takes longer time to complete an overwrite operation than a new write operation. That's because an NFS overwrite operation, especially a partial in-place file edit, is a combination of several underlying blob operations: a read, a modify, and a write operation. Therefore, an application that requires frequent in place edits is not suited for NFS enabled blob storage accounts. 
 

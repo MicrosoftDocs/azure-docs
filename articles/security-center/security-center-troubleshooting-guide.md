@@ -1,10 +1,8 @@
 ---
 title: Azure Security Center Troubleshooting Guide | Microsoft Docs
 description: This guide is for IT professionals, security analysts, and cloud admins who need to troubleshoot Azure Security Center related issues.
-services: security-center
-author: v-miegge
-manager: dcscontentpm
-
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019

@@ -8,11 +8,13 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 03/26/2021
 ms.author: kgremban
 ---
 
 # Install or uninstall Azure IoT Edge for Linux
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
@@ -392,6 +394,8 @@ Check to see that the IoT Edge system service is running.
    sudo iotedge system status
    ```
 
+A successful status response is `Ok`.
+
 ::: moniker-end
 
 If you need to troubleshoot the service, retrieve the service logs.
@@ -485,7 +489,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
    2. Use the copied link in the following command to install that version of the identity service:
 
       ```bash
-      curl -L <identity service link> -o aziot-identity-service.deb && sudo dpkg -i ./aziot-identity-service.deb
+      curl -L <identity service link> -o aziot-identity-service.deb && sudo apt-get install ./aziot-identity-service.deb
       ```
 
    3. Find the **aziot-edge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
@@ -493,7 +497,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
    4. Use the copied link in the following command to install that version of IoT Edge.
 
       ```bash
-      curl -L <iotedge link> -o aziot-edge.deb && sudo dpkg -i ./aziot-edge.deb
+      curl -L <iotedge link> -o aziot-edge.deb && sudo apt-get install ./aziot-edge.deb
       ```
 
 <!-- end 1.2 -->

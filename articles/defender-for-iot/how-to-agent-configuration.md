@@ -1,19 +1,8 @@
 ---
 title: Configure security agents
 description: Learn how to configure Defender for IoT security agents for use with the Defender for IoT security service.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
 ---
 
 # Tutorial: Configure security agents
@@ -84,7 +73,7 @@ To use a default property value, remove the property from the configuration obje
 
 1. Click on **Module Identity Twin**.
 
-1. Edit the properties you wish to change in the security module.
+1. Edit the properties you wish to change in the Defender-IoT-micro-agent.
 
    For example, to configure connection events as high priority and collect high priority events every 7 minutes, use the following configuration.
 

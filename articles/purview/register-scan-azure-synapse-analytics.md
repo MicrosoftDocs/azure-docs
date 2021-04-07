@@ -87,7 +87,7 @@ In addition, you must also create an Azure AD user in Azure Synapse Analytics by
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
 GO
 
-EXEC sp_addrolemember 'db_owner', [ServicePrincipalName]
+ALTER ROLE db_owner ADD MEMBER [ServicePrincipalName]
 GO
 ```
 
@@ -121,7 +121,7 @@ To register a new Azure Synapse Analytics server in your Data Catalog, do the fo
 On the **Register sources (Azure Synapse Analytics)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
-1. Choose how you want to point to your desired storage account:
+1. Choose how you want to point to your desired logical SQL Server:
    1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate server from the **Server name** drop down box.
    1. Or, you can select **Enter manually** and enter a **Server name**.
 1. **Finish** to register the data source.

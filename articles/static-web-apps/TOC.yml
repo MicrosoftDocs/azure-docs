@@ -67,6 +67,8 @@
           href: deploy-nextjs.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
+    - name: Publish with Azure DevOps
+      href: publish-devops.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn

@@ -34,6 +34,7 @@ Features marked with an asterisk (*) are planned to be unswapped.
 * Diagnostic settings
 * Cross-origin resource sharing (CORS)
 * Virtual network integration
+* Path mappings
 
 > [!NOTE]
 > To make these settings swappable, add the app setting `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` in every slot of the app and set its value to `0` or `false`. These settings are either all swappable or not at all. You can’t make just some settings swappable and not the others.

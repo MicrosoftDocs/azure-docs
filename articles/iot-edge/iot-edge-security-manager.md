@@ -13,6 +13,8 @@ ms.service: iot-edge
 ---
 # Azure IoT Edge security manager
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 The Azure IoT Edge security manager is a well-bounded security core for protecting the IoT Edge device and all its components by abstracting the secure silicon hardware. The security manager is the focal point for security hardening and provides technology integration point to original equipment manufacturers (OEM).
 
 ![Azure IoT Edge security manager](media/edge-security-manager/iot-edge-security-manager.png)

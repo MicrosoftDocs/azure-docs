@@ -3,8 +3,8 @@ title: Execute Azure Machine Learning pipelines
 description: Learn how to run your Azure Machine Learning pipelines in your Azure Data Factory pipelines. 
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: daperlov
-author: djpmsft
+ms.author: weetok
+author: dcstwh
 ms.date: 07/16/2020
 ---
 
@@ -44,7 +44,7 @@ The below video features a six-minute introduction and demonstration of this fea
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 name | Name of the activity in the pipeline | String | Yes
-type | Type of activity is ‘AzureMLExecutePipeline’ | String | Yes
+type | Type of activity is 'AzureMLExecutePipeline' | String | Yes
 linkedServiceName | Linked Service to Azure Machine Learning | Linked service reference | Yes
 mlPipelineId | ID of the published Azure Machine Learning pipeline | String (or expression with resultType of string) | Yes
 experimentName | Run history experiment name of the Machine Learning pipeline run | String (or expression with resultType of string) | No

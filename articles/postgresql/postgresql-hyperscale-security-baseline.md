@@ -544,9 +544,9 @@ Also, Azure Resource Manager has the ability to export the template in JavaScrip
 
 **Guidance**: If using custom Azure policy definitions for your Hyperscale (Citus) instances and related resources, use Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
+- [Azure Repos Documentation](/azure/devops/repos/index)
 
 **Azure Security Center monitoring**: Not applicable
 

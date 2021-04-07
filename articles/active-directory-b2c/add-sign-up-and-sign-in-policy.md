@@ -12,6 +12,7 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
 ---
 
@@ -62,6 +63,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
     ![Attributes and claims selection page with three claims selected](./media/add-sign-up-and-sign-in-policy/signup-signin-attributes.png)
 
 1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically prepended to the name.
+2. Follow the steps to [handle the flow for "Forgot your password?"](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended) within the sign-up or sign-in policy.
 
 ### Test the user flow
 
@@ -69,7 +71,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
 1. Click **Run user flow**, and then select **Sign up now**.
 
-    ![Run user flow page in portal with Run user flow button highlighted](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.PNG)
+    ![Run user flow page in portal with Run user flow button highlighted](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.png)
 
 1. Enter a valid email address, click **Send verification code**, enter the verification code that you receive, then select **Verify code**.
 1. Enter a new password and confirm the password.

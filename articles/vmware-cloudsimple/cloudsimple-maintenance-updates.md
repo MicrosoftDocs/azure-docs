@@ -4,7 +4,7 @@ titleSuffix: Azure VMware Solution by CloudSimple
 description: Describes the CloudSimple service process for scheduled maintenance and updates
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
@@ -96,7 +96,7 @@ Software updates include:
 
 CloudSimple tests a critical security patch as soon as it becomes available from VMware. 
 
-CloudSimple provides quarterly maintenance updates to VMware software components. When a new major version of VMware software is available, CloudSimple works with customers to coordinate a suitable maintenance window for upgrade.
+Documented VMware workarounds will be implemented in lieu of installing a corresponding patch until the next scheduled updates are deployed. 
 
 ## Next steps
 

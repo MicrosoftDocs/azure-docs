@@ -413,7 +413,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 - [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Azure CLI for VPN gateway](/cli/azure/network/vnet-gateway?view=azure-cli-latest)
+- [Azure CLI for VPN gateway](/cli/azure/network/vnet-gateway)
 
 - [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 

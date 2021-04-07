@@ -43,7 +43,7 @@ conceptualContent:
           text: Get started with speech-to-text
           url: get-started-speech-to-text.md
         - itemType: overview
-          text: About Custom Speech
+          text: Improve accuracy with Custom Speech
           url: custom-speech-overview.md       
       footerLink:
         text: More
@@ -58,7 +58,13 @@ conceptualContent:
           url: get-started-text-to-speech.md
         - itemType: how-to-guide
           text: Improve synthesis with SSML
-          url: speech-synthesis-markup.md  
+          url: speech-synthesis-markup.md          
+        - itemType: overview
+          text: Create a custom voice
+          url: custom-neural-voice.md    
+        - itemType: how-to-guide
+          text: Make text-to-speech sound natural
+          url: how-to-audio-content-creation.md                
       footerLink:
         text: More
         url: index-text-to-speech.yml
@@ -73,6 +79,25 @@ conceptualContent:
       footerLink:
         text: More
         url: index-speech-translation.yml
+    - title: Speaker Recognition
+      links:
+        - itemType: overview
+          text: About Speaker Recognition
+          url: speaker-recognition-overview.md
+        - itemType: quickstart
+          text: Get started with Speaker Recognition          
+          url: ./get-started-speaker-recognition.md
+        - itemType: how-to-guide
+          text: Speaker Recognition API reference
+          url: /rest/api/speakerrecognition/        
+    - title: Custom Keyword
+      links:
+        - itemType: overview
+          text: About Custom Keyword
+          url: custom-keyword-overview.md
+        - itemType: quickstart
+          text: Get started with Custom Keyword       
+          url: custom-keyword-basics.md          
     - title: Intent recognition
       links:
         - itemType: quickstart
@@ -86,26 +111,7 @@ conceptualContent:
           url: https://www.luis.ai
       footerLink:
         text: More
-        url: index-intent-recognition.yml
-    - title: Speaker Recognition
-      links:
-        - itemType: overview
-          text: About Speaker Recognition
-          url: speaker-recognition-overview.md
-        - itemType: quickstart
-          text: Get started with Speaker Recognition          
-          url: ./get-started-speaker-recognition.md
-        - itemType: how-to-guide
-          text: Speaker Recognition API reference
-          url: /rest/api/speakerrecognition/
-    - title: Custom Keyword
-      links:
-        - itemType: overview
-          text: About Custom Keyword
-          url: custom-keyword-overview.md
-        - itemType: quickstart
-          text: Get started with Custom Keyword       
-          url: custom-keyword-basics.md
+        url: index-intent-recognition.yml        
     - title: Scenario deep-dives
       links:
         - itemType: overview

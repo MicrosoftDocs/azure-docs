@@ -4,13 +4,15 @@ description: Use this article to learn standard diagnostic skills for Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2020
+ms.date: 04/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 
 # Troubleshoot your IoT Edge device
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and diagnostics.
 
@@ -23,6 +25,8 @@ Your first step when troubleshooting IoT Edge should be to use the `check` comma
 
 You can run the `check` command as follows, or include the `--help` flag to see a complete list of options:
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 On Linux:
 
 ```bash
@@ -34,6 +38,19 @@ On Windows:
 ```powershell
 iotedge check
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.1 -->
+:::moniker range=">=iotedge-2020-11"
+
+```bash
+sudo iotedge check
+```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 The troubleshooting tool runs many checks that are sorted into these three categories:
 
@@ -51,6 +68,9 @@ When you need to gather logs from an IoT Edge device, the most convenient way is
 
 Run the `support-bundle` command with the `--since` flag to specify how long from the past you want to get logs. For example `6h` will get logs since the last six hours, `6d` since the last six days, `6m` since the last six minutes and so on. Include the `--help` flag to see a complete list of options.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 On Linux:
 
 ```bash
@@ -62,6 +82,19 @@ On Windows:
 ```powershell
 iotedge support-bundle --since 6h
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+```bash
+sudo iotedge support-bundle --since 6h
+```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) call to your device to upload the output of the support-bundle command to Azure Blob Storage.
 
@@ -95,10 +128,9 @@ This command will output all the edgeAgent [reported properties](./module-edgeag
 
 The [IoT Edge security manager](iot-edge-security-manager.md) is responsible for operations like initializing the IoT Edge system at startup and provisioning devices. If IoT Edge isn't starting, the security manager logs may provide useful information.
 
-On Linux:
-
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
+On Linux:
 
 * View the status of the IoT Edge security manager:
 
@@ -134,42 +166,6 @@ On Linux:
      sudo systemctl daemon-reload
      sudo systemctl restart iotedge
      ```
-<!--end 1.1 -->
-:::moniker-end
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
-* View the status of the IoT Edge system services:
-
-   ```bash
-   sudo iotedge system status
-   ```
-
-* View the logs of the IoT Edge system services:
-
-   ```bash
-   sudo iotedge system logs -- -f
-   ```
-
-* Enable debug-level logs to view more detailed logs of the IoT Edge system services:
-
-  1. Enable debug-level logs.
-
-     ```bash
-     sudo iotedge system set-log-level debug
-     sudo iotedge system restart
-     ```
-
-  1. Switch back to the default info-level logs after debugging.
-
-     ```bash
-     sudo iotedge system set-log-level info
-     sudo iotedge system restart
-     ```
-
-<!-- end 1.2 -->
-:::moniker-end
 
 On Windows:
 
@@ -204,6 +200,43 @@ On Windows:
      ```powershell
      Restart-Service iotedge
      ```
+
+:::moniker-end
+<!--end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* View the status of the IoT Edge system services:
+
+   ```bash
+   sudo iotedge system status
+   ```
+
+* View the logs of the IoT Edge system services:
+
+   ```bash
+   sudo iotedge system logs -- -f
+   ```
+
+* Enable debug-level logs to view more detailed logs of the IoT Edge system services:
+
+  1. Enable debug-level logs.
+
+     ```bash
+     sudo iotedge system set-log-level debug
+     sudo iotedge system restart
+     ```
+
+  1. Switch back to the default info-level logs after debugging.
+
+     ```bash
+     sudo iotedge system set-log-level info
+     sudo iotedge system restart
+     ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## Check container logs for issues
 

@@ -14,6 +14,8 @@ monikerRange: ">=iotedge-2020-11"
 
 # Connect a downstream IoT Edge device to an Azure IoT Edge gateway (Preview)
 
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+
 This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
 
 >[!NOTE]
@@ -121,7 +123,7 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 1. Install the **root CA certificate** on this IoT Edge device.
 
    ```bash
-   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem
+   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
    ```
 
 1. Update the certificate store.

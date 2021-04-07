@@ -3,7 +3,7 @@ title: NCv3-series - Azure Virtual Machines
 description: Specifications for the NCv3-series VMs.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
@@ -19,7 +19,7 @@ NCv3-series VMs are powered by NVIDIA Tesla V100 GPUs. These GPUs can provide 1.
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 Nvidia NVLink Interconnect: Not Supported<br>
 
 > [!IMPORTANT]

@@ -2,8 +2,8 @@
 title: Anomaly detection in Azure Stream Analytics
 description: This article describes how to use Azure Stream Analytics and Azure Machine Learning together to detect anomalies.
 ms.service: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: jseb225
+ms.author: jeanb
 ms.topic: how-to
 ms.date: 06/21/2019
 ---
@@ -24,7 +24,7 @@ The following video demonstrates how to detect an anomaly in real time using mac
 
 ## Model behavior
 
-Generally, the model's accuracy improves with more data in the sliding window. The data in the specified sliding window is treated as part of its normal range of values for that time frame. The model only considers event history over the sliding window to check if the current event is anomalous. As the sliding window moves, old values are evicted from the model’s training.
+Generally, the model's accuracy improves with more data in the sliding window. The data in the specified sliding window is treated as part of its normal range of values for that time frame. The model only considers event history over the sliding window to check if the current event is anomalous. As the sliding window moves, old values are evicted from the model's training.
 
 The functions operate by establishing a certain normal based on what they have seen so far. Outliers are identified by comparing against the established normal, within the confidence level. The window size should be based on the minimum events required to train the model for normal behavior so that when an anomaly occurs, it would be able to recognize it.
 
@@ -118,12 +118,12 @@ The history size, window duration, and total event load are related in the follo
 
 windowDuration (in ms) = 1000 * historySize / (Total Input Events Per Sec / Input Partition Count)
 
-When partitioning the function by deviceId, add “PARTITION BY deviceId” to the anomaly detection function call.
+When partitioning the function by deviceId, add "PARTITION BY deviceId" to the anomaly detection function call.
 
 ### Observations
 The following table includes the throughput observations for a single node (6 SU) for the non-partitioned case:
 
-| History size (events)	| Window duration (ms) | Total input events per sec |
+| History size (events)    | Window duration (ms) | Total input events per sec |
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2,200 |
 | 600 | 728 | 1,650 |

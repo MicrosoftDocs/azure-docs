@@ -99,9 +99,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click on **Select groups** and search for the **Group** you want to include this claim, where its members should be administrators for GHAE.
 
-1. Select **Attribute** for **Source** and enter **true** for the **Value**. 
+1. Select **Attribute** for **Source** and enter **true** (without quotes) for the **Value**. 
 
-10.	Click **Save**.
+1. Click **Save**.
 
     ![manage claim](./media/github-ae-tutorial/administrator.png)
 
@@ -110,7 +110,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificateBase64.png)
+	![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up GitHub AE** section, copy the appropriate URL(s) based on your requirement.
 

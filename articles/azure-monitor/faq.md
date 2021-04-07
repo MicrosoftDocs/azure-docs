@@ -76,7 +76,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 ### How do I retrieve log data?
 All data is retrieved from a Log Analytics workspace using a log query written using Kusto Query Language (KQL). You can write your own queries or use solutions and insights that include log queries for a particular application or service. See [Overview of log queries in Azure Monitor](logs/log-query-overview.md).
- p
+
 ### Can I delete data from a Log Analytics workspace?
 Data is removed from a workspace according to its [retention period](logs/manage-cost-storage.md#change-the-data-retention-period). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
 
@@ -701,6 +701,10 @@ The log collection from containers in the kube-system namespace is disabled by d
 
 To learn how to upgrade the agent, see [Agent management](containers/container-insights-manage-agent.md).
 
+### Why are log lines larger than 16KB split into multiple records in Log Analytics?
+
+The agent uses the [Docker JSON file logging driver](https://docs.docker.com/config/containers/logging/json-file/) to capture the stdout and stderr of containers. This logging driver splits log lines [larger than 16KB](https://github.com/moby/moby/pull/22982) into multiple lines when copied from stdout or stderr to a file.
+
 ### How do I enable multi-line logging?
 
 Currently Container insights doesn't support multi-line logging, but there are workarounds available. You can configure all the services to write in JSON format and then Docker/Moby will write them as a single line.
@@ -817,6 +821,30 @@ If you have configured Azure Monitor with a Log Analytics workspace using the *F
 
 Under this condition, you will be prompted with the **Try Now** option when you open the VM and select **Insights** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to VM insights. 
 
+## SQL insights (preview)
+
+### What versions of SQL Server are supported?
+We support SQL Server 2012 and all newer versions. See [Supported versions](insights/sql-insights-overview.md#supported-versions) for more details.
+
+### What SQL resource types are supported?
+- Azure SQL Database
+- Azure SQL Managed Instance
+- SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
+- Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
+
+See [Supported versions](insights/sql-insights-overview.md#supported-versions) for more details and for details about scenarios with no support or limited support.
+
+### What operating systems for the virtual machine running SQL Server are supported?
+We support all operating systems specified by the [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) and [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create) documentation for SQL Server on Azure Virtual Machines.
+
+### What operating system for the monitoring virtual machine are supported?
+Ubuntu 18.04 is currently the only operating system supported for the monitoring virtual machine.
+
+### Where will the monitoring data be stored in Log Analytics?
+All of the monitoring data is stored in the **InsightsMetrics** table. The **Origin** column has the value `solutions.azm.ms/telegraf/SqlInsights`. The **Namespace** column has values that start with `sqlserver_`.
+
+### How often is data collected? 
+The frequency of data collection is customizable. See [Data collected by SQL insights](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) for details on the default frequencies and see [Create SQL monitoring profile](../insights/../azure-monitor/insights/sql-insights-enable.md#create-sql-monitoring-profile) for instructions on customizing frequencies. 
 
 ## Next steps
 If your question isn't answered here, you can refer to the following forums to additional questions and answers.

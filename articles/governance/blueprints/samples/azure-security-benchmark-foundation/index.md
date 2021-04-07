@@ -1,7 +1,7 @@
 ---
 title: Azure Security Benchmark Foundation blueprint sample overview
 description: Overview and architecture of the Azure Security Benchmark Foundation blueprint sample.
-ms.date: 02/17/2020
+ms.date: 03/12/2021
 ms.topic: sample
 ---
 # Overview of the Azure Security Benchmark Foundation blueprint sample

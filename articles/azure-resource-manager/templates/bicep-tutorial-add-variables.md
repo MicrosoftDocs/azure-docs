@@ -2,7 +2,7 @@
 title: Tutorial - add variable to Azure Resource Manager Bicep file
 description: Add variables to your Bicep file to simplify the syntax.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -30,7 +30,7 @@ The parameter for the storage account name is hard-to-use because you have to pr
 
 ## Use variable
 
-The following example highlights the changes to add a variable to your Bicep file that creates a unique storage account name. Copy the whole file and replace your Bicep file with its contents.
+The following example shows the changes to add a variable to your Bicep file that creates a unique storage account name. Copy the whole file and replace your Bicep file with its contents.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.bicep" range="1-31" highlight="1-3,19,22":::
 

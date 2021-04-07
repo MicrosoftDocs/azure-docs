@@ -4,7 +4,7 @@ description: 'This topic describes how to deal with delimited text format in Azu
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/23/2021
 ms.author: jingwang
 ---
 
@@ -178,8 +178,10 @@ The below table lists the properties supported by a delimited text sink. You can
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Clear the folder | If the destination folder is cleared prior to write | no | `true` or `false` | truncate |
-| File name option | The naming format of the data written. By default, one file per partition in format `part-#####-tid-<guid>` | no | Pattern: String <br> Per partition: String[] <br> As data in column: String <br> Output to single file: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| File name option | The naming format of the data written. By default, one file per partition in format `part-#####-tid-<guid>` | no | Pattern: String <br> Per partition: String[] <br> Name file as column data: String <br> Output to single file: `['<fileName>']` <br> Name folder as column data: String | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames <br> rowFolderUrlColumn |
 | Quote all | Enclose all values in quotes | no | `true` or `false` | quoteAll |
+
+rowFolderUrlColumn:
 
 ### Sink example
 
