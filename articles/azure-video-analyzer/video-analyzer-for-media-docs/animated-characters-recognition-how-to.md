@@ -1,7 +1,7 @@
 ---
-title: Animated character detection with Video Indexer how to
+title: Animated character detection with Azure Video Analyzer for Media (formerly Video Indexer) how to
 titleSuffix: Azure Media Services
-description: This how to demonstrates how to use animated character detection with Video Indexer.
+description: This how to demonstrates how to use animated character detection with Azure Video Analyzer for Media (formerly Video Indexer).
 services: media-services
 author: Juliako
 manager: femila
@@ -16,28 +16,28 @@ ms.author: juliako
 
 # Use the animated character detection (preview) with portal and API 
 
-Azure Media Services Video Indexer supports detection, grouping, and recognition of characters in animated content, this functionality is available through the Azure portal and through API. Review [this overview](animated-characters-recognition.md) topic.
+Azure Video Analyzer for Media (formerly Video Indexer) supports detection, grouping, and recognition of characters in animated content, this functionality is available through the Azure portal and through API. Review [this overview](animated-characters-recognition.md) topic.
 
-This article demonstrates to how to use the animated character detection with the Azure portal and the Video Indexer API.
+This article demonstrates to how to use the animated character detection with the Azure portal and the Video Analyzer for Media API.
 
 ## Use the animated character detection with portal 
 
-In the trial accounts the Custom Vision integration is managed by Video Indexer, you can start creating and using the animated characters model. If using the trial account, you can skip the following ("Connect your Custom Vision account") section.
+In the trial accounts the Custom Vision integration is managed by Video Analyzer for Media, you can start creating and using the animated characters model. If using the trial account, you can skip the following ("Connect your Custom Vision account") section.
 
 ### Connect your Custom Vision account (paid accounts only)
 
-If you own a Video Indexer paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
+If you own a Video Analyzer for Media paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
 > [!NOTE]
 > Both accounts need to be in the same region. The Custom Vision integration is currently not supported in the Japan region.
 
 Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). 
 
-Note that the training of the model should be done only via Video Indexer, and not via the Custom Vision website. 
+Note that the training of the model should be done only via Video Analyzer for Media, and not via the Custom Vision website. 
 
 #### Connect a Custom Vision account with API 
 
-Follow these steps to connect you Custom Vision account to Video Indexer, or to change the Custom Vision account that is currently connected to Video Indexer:
+Follow these steps to connect you Custom Vision account to Video Analyzer for Media, or to change the Custom Vision account that is currently connected to Video Analyzer for Media:
 
 1. Browse to [www.customvision.ai](https://www.customvision.ai) and login.
 1. Copy the keys for the Training and Prediction resources:
@@ -48,22 +48,22 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 
     * Endpoint 
     * Prediction resource ID
-1. Browse and sign in to the [Video Indexer](https://vi.microsoft.com/).
+1. Browse and sign in to the [Video Analyzer for Media](https://vi.microsoft.com/).
 1. Click on the question mark on the top-right corner of the page and choose **API Reference**.
 1. Make sure you are subscribed to API Management by clicking **Products** tab. If you have an API connected you can continue to the next step, otherwise, subscribe. 
 1. On the developer portal, click the **Complete API Reference** and browse to **Operations**.  
 1. Select **Connect Custom Vision Account (PREVIEW)** and click **Try it**.
 1. Fill in the required fields as well as the access token and click **Send**. 
 
-    For more information about how to get the Video Indexer access token go to the [developer portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?), and see the [relevant documentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
+    For more information about how to get the Video Analyzer for Media access token go to the [developer portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?), and see the [relevant documentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
 1. Once the call return 200 OK response, your account is connected.
-1. To verify your connection by browse to the [Video Indexer](https://vi.microsoft.com/)) portal:
+1. To verify your connection by browse to the [Video Analyzer for Media](https://vi.microsoft.com/)) portal:
 1. Click on the **Content model customization** button in the top-right corner.
 1. Go to the **Animated characters** tab.
 1. Once you click on Manage models in Custom Vision, you will be transferred to the Custom Vision account you just connected.
 
 > [!NOTE]
-> Currently, only models that were created via Video Indexer are supported. Models that are created through Custom Vision will not be available. In addition, the best practice is to edit models that were created through Video Indexer only through the Video Indexer platform, since changes made through Custom Vision may cause unintended results.
+> Currently, only models that were created via Video Analyzer for Media are supported. Models that are created through Custom Vision will not be available. In addition, the best practice is to edit models that were created through Video Analyzer for Media only through the Video Analyzer for Media platform, since changes made through Custom Vision may cause unintended results.
 
 ### Create an animated characters model
 
@@ -138,7 +138,7 @@ Once trained, any video that will be indexed or reindexed with that model will r
     1. Click on the **Content model customization** button on the top menu and go to the **Animated characters** tab.
     1. Click on the ellipsis icon to the right of the model you wish to delete and then on the delete button.
     
-    * Paid account: the model will be disconnected from Video Indexer and you will not be able to reconnect it.
+    * Paid account: the model will be disconnected from Video Analyzer for Media and you will not be able to reconnect it.
     * Trial account: the model will be deleted from Customs vision as well. 
     
         > [!NOTE]
@@ -148,7 +148,7 @@ Once trained, any video that will be indexed or reindexed with that model will r
 
 1. Connect a Custom Vision account.
 
-    If you own a Video Indexer paid account, you need to connect a Custom Vision account first. <br/>
+    If you own a Video Analyzer for Media paid account, you need to connect a Custom Vision account first. <br/>
     If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
     [Connect your Custom Vision account using API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
@@ -203,4 +203,4 @@ See the animated characters in the generated JSON file.
 
 ## Next steps
 
-[Video Indexer overview](video-indexer-overview.md)
+[Video Analyzer for Media overview](video-indexer-overview.md)
