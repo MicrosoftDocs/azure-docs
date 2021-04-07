@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 04/07/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro R technical specifications
@@ -19,48 +19,44 @@ The hardware components of your Azure Stack Edge Pro R device adhere to the tech
 
 The Azure Stack Edge Pro R device have the following specifications for compute and memory:
 
-<!--| Specification       | Value                  |
-|---------------------|------------------------|
-| CPU    | 2 X Intel Xeon Silver 4114 CPU<br>20 phsyical cores (10 per CPU)<br>40 logical cores (vCPUs) (20 per CPU)  |
-| Memory              | 256 GB RAM (2666 MT/s)     |-->
-
 | Specification  | Value                                                                       |
 |----------------|-----------------------------------------------------------------------------|
-| CPU type       | 2 X Intel Xeon Silver 4114 CPU                               |
+| CPU type       | 2 X Intel Xeon Silver 4114 CPU                                              |
 | CPU: raw       | 20 physical cores (10 per CPU)<br>40 logical cores (vCPUs) (20 per CPU)     |
-| CPU: usable    | 32 logical cores                                                            |
+| CPU: usable    | 32 vCPUs                                                                    |
+| Memory type    | Dell Compatible 16GB RDIMM, 2666MT/s, Dual rank                             |
 | Memory: raw    | 256 GB RAM (2666 MT/s)                                                      |
-| Memory: usable | 230 GB RAM <!--MT/s equivalent?-->                                                                 |
+| Memory: usable | 230 GB RAM                                                                  |
 
 ## Compute acceleration specifications
 
 A Graphics Processing Unit (GPU) is included on every device that enables Kubernetes, deep learning, and machine learning scenarios.
 
-| Specification           | Value                  |
+| Specification           | Value                      |
 |-------------------------|----------------------------|
-| GPU   | One nVidia T4 GPU <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).| 
+| GPU   | One nVidia T4 GPU <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). | 
 
 ## Power supply unit specifications
 
 The Azure Stack Edge Pro R device has two 100-240 V Power supply units (PSUs) with high-performance fans. The two PSUs provide a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
 
-| Specification           | 550 W PSU                  |
-|-------------------------|----------------------------|
-| Maximum output power    | 550 W                      |
-| Heat dissipation (maximum)                   | 2891 BTU/hr                |
-| Frequency               | 50/60 Hz                   |
-| Voltage range selection | Auto ranging: 115-230 V AC |
-| Hot pluggable           | Yes                        |
+| Specification              | 550 W PSU                  |
+|----------------------------|----------------------------|
+| Maximum output power       | 550 W                      |
+| Heat dissipation (maximum) | 2891 BTU/hr                |
+| Frequency                  | 50/60 Hz                   |
+| Voltage range selection    | Auto ranging: 115-230 V AC |
+| Hot pluggable              | Yes                        |
 
 ## Network specifications
 
 The Azure Stack Edge Pro R device has four network interfaces, PORT1 - PORT4. 
 
 
-|Specification  |Description                              |
+|Specification         |Description                       |
 |----------------------|----------------------------------|
-|Network interfaces    |**2 x 1 Gbe RJ45** <br> PORT 1 is used as management interface for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. <br>The other interface PORT 2 is user configurable, can be used for data transfer, and is DHCP by default.     |
-|Network interfaces    |**2 x 25 Gbe SFP28** <br> These data interfaces PORT 3 and PORT 4 can be configured as DHCP (default) or static.            |
+|Network interfaces    |**2 x 1 Gbe RJ45** <br> PORT 1 is used as the management interface for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts to static IP. <br>The other interface, PORT 2, which is user-configurable, can be used for data transfer, and is DHCP by default. |
+|Network interfaces    |**2 x 25 Gbe SFP28** <br> These data interfaces, PORT 3 and PORT 4, can be configured as DHCP (default) or static. |            |
 
 Your Azure Stack Edge Pro R device has the following network hardware:
 
@@ -76,22 +72,22 @@ Your Azure Stack Edge Pro R device has the following network hardware:
 | PSID (R640)           | MT_2420110034                         |-->
 <!-- confirm w/ Ravi what is this-->
 
-For a full list of supported cables, switches, and transceivers for these network cards, go to: [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
+For a full list of supported cables, switches, and transceivers for these network cards, go to [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
 
 ## Storage specifications
 
-The Azure Stack Edge Pro R devices have 8 data disks and 2 M.2 SATA disks that serve as operating system disks. For more information, go to [M.2 SATA disks](https://en.wikipedia.org/wiki/M.2).
+Azure Stack Edge Pro R devices have 8 data disks and 2 M.2 SATA disks that serve as operating system disks. For more information, go to [M.2 SATA disks](https://en.wikipedia.org/wiki/M.2).
 
 #### Storage for 1-node device
 
-The following table has the details for the storage capacity of the 1-node device.
+The following table has details for the storage capacity of the 1-node device.
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|
 |    Number of solid-state drives (SSDs)     |    8                  |
 |    Single SSD capacity                     |    8 TB               |
 |    Total capacity                          |    64 TB              |
-|    Total usable capacity*                  |    ~ 42 TB          |
+|    Total usable capacity*                  |    ~ 42 TB            |
 
 **Some space is reserved for internal use.*
 
