@@ -38,7 +38,7 @@ The [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/compu
 ||`Color` | determines the accent color, dominant color, and whether an image is black&white.|
 ||`Description` | describes the image content with a complete sentence in supported languages.|
 ||`Faces` | detects if faces are present. If present, generate coordinates, gender and age.|
-||`ImageType` | detects if image is clipart or a line drawing.|
+||`ImageType` | detects if image is clip art or a line drawing.|
 ||`Objects` | detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
 ||`Tags` | tags the image with a detailed list of words related to the image content.|
 |`details`| `Celebrities` | identifies celebrities if detected in the image.|
