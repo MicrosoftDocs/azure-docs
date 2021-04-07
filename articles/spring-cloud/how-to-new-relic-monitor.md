@@ -60,7 +60,7 @@ You can also leverage this agent from portal with the following procedure.
 
    ![Find app to monitor](media/new-relic-monitoring/find-app.png)
 
-2. Click the applications to jump to the **Overview** page.
+2. Click the application to jump to the **Overview** page.
 
    ![Overview page](media/new-relic-monitoring/overview-page.png)
 
