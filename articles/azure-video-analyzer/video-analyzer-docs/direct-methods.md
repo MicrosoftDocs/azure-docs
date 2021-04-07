@@ -237,15 +237,9 @@ Retrieves a list of all the pipelines that matches the filter criteria.
 
 ```
   {
-    "methodName": "pipelineTopologyList",
-    "payload": {
-        // Required
         "@apiVersion": "1.0",
-        
-        // Optional
         "@continuationToken": "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==",    
         "@query": "$orderby=name asc"
-    }
   }
 ```
 #### Response
@@ -295,11 +289,8 @@ Retrieves a single Pipeline Instance:
 
 ```
   {
-    "methodName": "livePipelineGet",
-    "payload": {
         "@apiVersion": "1.0",
         "name": "{livePipelineName}"
-    }
   }
 ```
 #### Response
@@ -340,14 +331,11 @@ Key aspects:
 
 ```
   {
-    "methodName": "livePipelineSet",
-    "payload": {
         "@apiVersion": "1.0",
         "name": "{livePipelineName}",
         "properties": {
             // Desired Stream properties
         }
-    }
   }
 ```
 #### Response
@@ -387,11 +375,8 @@ Key aspects:
 
 ```
   {
-    "methodName": "livePipelineDelete",
-    "payload": {
         "@apiVersion": "1.0",
         "name": "{livePipelineName}"
-    }
   }
 ```
 #### Response
@@ -421,15 +406,9 @@ Retrieves a list of all the pipeline instances that matches the filter criteria.
 
 ```
   {
-    "methodName": "livePipelineList",
-    "payload": {
-        // Required
         "@apiVersion": "1.0",
-        
-        // Optional
         "@continuationToken": "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==",    
         "@query": "$orderby=name asc"
-    }
   }
 ```
 #### Response
@@ -490,11 +469,8 @@ Key aspects
 
 ```
   {
-    "methodName": "livePipelineActivate",
-    "payload": {
         "@apiVersion": "1.0",
         "name": "{livePipelineName}"
-    }
   }
 ```
 #### Response
@@ -537,11 +513,8 @@ Key aspects:
 
 ```
   {
-    "methodName": "livePipelineDeactivate",
-    "payload": {
         "@apiVersion": "1.0",
         "name": "{livePipelineName}"
-    }
   }
 ```
 #### Response
