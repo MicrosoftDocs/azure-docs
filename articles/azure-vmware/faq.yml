@@ -199,48 +199,10 @@ sections:
       - question: Can transit connectivity be established between on-premises and Azure VMware Solution through Azure Virtual WAN over ExpressRoute Global Reach?
         answer: Azure Virtual WAN doesn't provide transitive routing between two connected ExpressRoute circuits and non-virtual WAN ExpressRoute Gateway. Using ExpressRoute Global Reach allows connectivity between on-premises and Azure VMware Solution, but goes through Microsoft's global network instead of the Virtual WAN Hub.
 
-
-  - name: Disaster recovery/DRaaS
-    questions: 
-      - question: Are the upcoming disaster recovery options (SRM, Zerto, and JetStream) going to be available as a managed services?
-        answer: SRM is a managed service. Zerto and JetStream are not managed services, but you can bring your current licenses. 
-
-      - question: How do you set up network connectivity between on-premises, Azure VMware Solution primary, and Azure VMware Solution disaster recovery locations? 
-        answer: 
-
-      - question:
-        answer:         
-
-      - question:
-        answer: 
-
-      - question:
-        answer: 
-
-      - question:
-        answer:         
-
-      - question:
-        answer: 
-
-      - question:
-        answer: 
-
-      - question:
-        answer:         
-
-
   - name: Configuration and setup
     questions:
       - question: How long does it take to provision the initial 3 nodes in a cluster?
-        answer: At the moment, the provisioning can take roughly 90 minutes, but adding additional nodes can be done in a matter of minutes. 
-
-
-  - name: Capacity management
-    questions:
-      - question:
-        answer: 
-
+        answer: At the moment, the provisioning can take roughly 3-4 hours.  Adding a single node in existing/same cluster takes between 30 - 45 minutes. 
 
   - name: Nodes/hosts, clusters, and private clouds
     questions:
