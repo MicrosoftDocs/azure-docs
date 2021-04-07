@@ -2,7 +2,7 @@
 title: Planning the Azure VMware Solution deployment
 description: This article outlines an Azure VMware Solution deployment workflow.  The final result is an environment ready for virtual machine (VM) creation and migration.
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 04/07/2021
 ---
 
 # Planning the Azure VMware Solution deployment
@@ -120,7 +120,7 @@ The below image shows the **Create a private cloud** deployment screen with the 
 >[!NOTE]
 >Any virtual network that is going to be used or created may be seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
 
-## VMware HCX Network Segments
+## VMware HCX network segments
 
 VMware HCX is a technology bundled in with Azure VMware Solution. The primary use cases for VMware HCX are workload migrations and disaster recovery. If you plan to do either, it's best to plan out the networking now.   Otherwise, you can skip and continue to the next step.
 
