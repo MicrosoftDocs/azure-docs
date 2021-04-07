@@ -100,7 +100,7 @@ When accessing storage that is protected with the firewall, you can use **User I
 
 #### User Identity
 
-To access storage that is protected with the firewall via User Identity, you can use PowerShell module Az.Storage.
+To access storage that is protected with the firewall via User Identity, you can use Azure portal UI or PowerShell module Az.Storage.
 #### Configuration via Azure portal
 
 1. Search for your Storage Account in Azure portal.
