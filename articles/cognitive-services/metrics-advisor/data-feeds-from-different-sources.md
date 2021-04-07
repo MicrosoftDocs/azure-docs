@@ -439,7 +439,7 @@ Requirements on data in CSV:
 2. Timestamp column is optional, if there's no timestamp, Metrics Advisor will use timestamp starting from today 00:00:00(UTC) and map each measure in the row at a one-hour interval. If there is timestamp column in CSV and you want to keep it, please make sure it fall into the [historical data processing window].(Timestamp format : 2021-03-30T00:00:00Z)
 3.  Multi-dimensional metric is not supported in CSV source.
 4. There is no re-ordering or gap-filling happening during data ingestion, please make sure your data in CSV is ordered by timestamp ASC.
-
+ 
 ## Next steps
 
 * While waiting for your metric data to be ingested into the system, read about [how to manage data feed configurations](how-tos/manage-data-feeds.md).
