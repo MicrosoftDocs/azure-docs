@@ -146,27 +146,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     ![Edit Tenant Security](./media/workday-tutorial/search-box.png "Edit Tenant Security")
 
 
-1. In the **SAML Setup** section, perform the following steps:
+1. In the **SAML Setup** section, click on **Import Identity Provider**.
 
     ![SAML Setup](./media/workday-tutorial/saml-setup.png "SAML Setup")
 
-    a. Click on **Import Identity Provider** and perform the below steps:
+1. In **Import Identity Provider** section, perform the below steps:
 
     ![Importing Identity Provider](./media/workday-tutorial/import-identity-provider.png)
 
-    * Give the **Identity Provider Name** like `AzureAD` in the textbox.
+    a. Give the **Identity Provider Name** like `AzureAD` in the textbox.
 
-    * In **Used for Environments** textbox, select the appropriate environment names from the dropdown.
+    b. In **Used for Environments** textbox, select the appropriate environment names from the dropdown.
 
-    * Click on **Select files** to upload the downloaded **Federation Metadata XML** file.
+    c. Click on **Select files** to upload the downloaded **Federation Metadata XML** file.
 
-    * Click on **OK** and then **Done**.
+    d. Click on **OK** and then **Done**.
 
-    b.  Select **Enable SAML Authentication**.
-
-    c.  Click **Add Row**.
-
-1. In the **SAML Identity Providers** section, please perform the following actions for the newly created row.
+1. After clicking **Done**, a new row will be added in the **SAML Identity Providers** and then you can add the below steps for the newly created row.
 
     ![SAML Identity Providers.](./media/workday-tutorial/saml-identity-providers.png "SAML Identity Providers")
 
