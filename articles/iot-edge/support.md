@@ -137,7 +137,9 @@ All Windows operating systems must be version 1809 (build 17763). The specific b
 :::moniker range=">=iotedge-2020-11"
 IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers are not supported.
 
-For information about supported operating systems for Windows containers, refer to the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.:::moniker-end
+For information about supported operating systems for Windows containers, refer to the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
+
+:::moniker-end
 <!-- end 1.2 -->
 
 ### Tier 2
@@ -198,23 +200,22 @@ IoT Edge uses the Microsoft.Azure.Devices.Client SDK. For more information, see 
 Azure IoT Edge can be run in virtual machines. Using a virtual machine as an IoT Edge device is common when customers want to augment existing infrastructure with edge intelligence. The family of the host VM OS must match the family of the guest OS used inside a module's container. This requirement is the same as when Azure IoT Edge is run directly on a device. Azure IoT Edge is agnostic of the underlying virtualization technology and works in VMs powered by platforms like Hyper-V and vSphere.
 
 <br>
-<center>
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
-
+<center>
 ![Azure IoT Edge in a VM](./media/support/edge-on-vm-with-windows.png)
+</center>
 
 ::: moniker-end
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
-
+<center>
 ![Azure IoT Edge in a VM](./media/support/edge-on-vm.png)
+</center>
 
 :::moniker-end
-
-</center>
 
 ## Minimum system requirements
 
