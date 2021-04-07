@@ -71,7 +71,7 @@ These are the prerequisites for backing up Hyper-V virtual machines with MABS:
    - Total size of 800 VMs - 80 TB
    - Required space for backup storage - 80 TB
 
-2. Set up the MABS protection agent on the Hyper-V server or Hyper-V cluster nodes. If you're doing guest-level backup, you'll install the agent on the VMs you want to back up at the guest-level.
+2. Set up the MABS protection agent on the Hyper-V server or Hyper-V cluster nodes.
 
 3. In  the MABS Administrator console, select **Protection** > **Create protection group** to open the **Create New Protection Group** wizard.
 
@@ -83,7 +83,7 @@ These are the prerequisites for backing up Hyper-V virtual machines with MABS:
 
     > [!NOTE]
     >
-    >If you're protecting application workloads, recovery points are created in accordance with Synchronization frequency, provided the application supports incremental backups. If it doesn't, then MABS runs an express full backup, instead of an incremental backup, and creates recovery points in accordance with the express backup schedule.
+    >If you're protecting application workloads, recovery points are created in accordance with Synchronization frequency, provided the application supports incremental backups. If it doesn't, then MABS runs an express full backup, instead of an incremental backup, and creates recovery points in accordance with the express backup schedule.<br></br>The backup process doesn't back up the checkpoints associated with VMs.
 
 7. In the **Review disk allocation** page, review the storage pool disk space allocated for the protection group.
 
