@@ -15,6 +15,9 @@ Use the function trigger to respond to an event sent to an Event Grid topic.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-event-grid.md).
 
+> [!NOTE]
+> Eventgrid triggers are not natively supported in ILB App Service Environments (ASE). The trigger uses an HTTP request that cannot reach the function app without a gateway into the VNET.
+
 ## Example
 
 # [C#](#tab/csharp)
