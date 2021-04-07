@@ -1,29 +1,37 @@
 ---
-title: Azure Service Fabric Central Secrets Store 
-description: This article describes how to use Central Secrets Store in Azure Service Fabric.
+title: Azure Service Fabric Central Secret Service 
+description: This article describes how to use Central Secret Service in Azure Service Fabric.
 
 ms.topic: conceptual 
-ms.date: 07/25/2019
+ms.date: 04/06/2021
 ---
 
-# Central Secrets Store in Azure Service Fabric 
-This article describes how to use Central Secrets Store (CSS) in Azure Service Fabric to create secrets in Service Fabric applications. CSS is a local secret store cache that keeps sensitive data, such as a password, tokens, and keys, encrypted in memory.
+# Central Secret Service in Azure Service Fabric 
+Central Secret Service (CSS), sometimes denoted Central Secret Store, is an optional Service Fabric system service. CSS facilitates new approaches to secret management for applications, and is Service Fabric's recommendation for the in-cluster delivery of application secrets, on and off Azure. The previous recommended approach was the use of encrypted parameters.
+
+Central Secret Service is an in-cluster secret store, which is durable and replicated. Secrets are encrypted while in use, against a customer-provided encryption certificate. CSS provides client APIs for the management of secrets, which are authenticated against admin client/cluster certificates, as well as an application model that allows the declaration of application parameters as CSS secret references. When combined with [Managed Identity for Azure-deployed Service Fabric Applications](concepts-managed-identity.md), applications can declare [secret references that refer to secrets in Azure Key Vault](service-fabric-keyvault-references.md).
+
+Central Secret Service is not designed to be a full Secret Management Service (SMS), such as Azure Key Vault, and should not be the source-of-truth for secrets. In this way, CSS is best thought of as, and treated like, a durable cache.
 
   > [!NOTE] 
   > When activating CSS for the first time before SF version 7.1. CU3, activation can fail and leave CSS in a permanently unhealthy state if: CSS is activated on a Windows authenticated cluster; CSS is activated on any cluster but `EncryptionCertificateThumbprint` is declared incorrectly or the corresponding certificate is not installed / ACL-ed on nodes. For Windows Auth cluster, please come onto 7.1. CU3 before proceeding. For other clusters, please double check these invariants or come onto 7.1. CU3.
   
-## Enable Central Secrets Store
-Add the following script to your cluster configuration under `fabricSettings` to enable CSS. We recommend that you use a certificate other than a cluster certificate for CSS. Make sure the encryption certificate is installed on all nodes and that `NetworkService` has read permission to the certificate's private key.
-  ```json
-    "fabricSettings": 
-    [
-        ...
-    {
-        "name":  "CentralSecretService",
-        "parameters":  [
+## Enable Central Secrets Service
+
+To enable Central Secret Service, please expand your cluster configuration as described below. We recommend that you use an encryption certificate that is different from your cluster certificate. This certificate must be installed on all nodes.
+```json
+{ 
+    "fabricSettings": [
+        {
+            "name":  "CentralSecretService",
+            "parameters":  [
                 {
-                    "name":  "IsEnabled",
-                    "value":  "true"
+                    "name":  "DeployedState",
+                    "value":  "enabled"
+                },
+                {
+                    "name" : "EncryptionCertificateThumbprint",
+                    "value": "<thumbprint>"
                 },
                 {
                     "name":  "MinReplicaSetSize",
@@ -32,23 +40,26 @@ Add the following script to your cluster configuration under `fabricSettings` to
                 {
                     "name":  "TargetReplicaSetSize",
                     "value":  "3"
-                },
-                 {
-                    "name" : "EncryptionCertificateThumbprint",
-                    "value": "<thumbprint>"
-                 }
-                ,
-                ],
-            },
+                }
             ]
-     }
-        ...
-     ]
+        }
+    ]
+}
 ```
-## Declare a secret resource
+
+  > [!NOTE] 
+  > Prior to Service Fabric 8.0, rather than setting parameter "DeployedState" to "enabled", CSS should be enabled by setting parameter "IsEnabled" to "true". "IsEnabled" is now deprecated, and transitioning to "DeployedState" is described in a later section. Transitioning off "IsEnabled" is only required if you wish to remove Central Secret Service from your cluster.
+
+## Central Secret Service secret model
+
+Central Secret Service provides two types, the first is the secret resource type, and the second is the secret version type. The secret resource type describes the metadata of a lineage of secrets, and includes their kind, their content type, and a description. The secret version type bescribes an instance of a particular secret, and includes the value. Every secret version is a child of a particular secret resource. Each secret resource may have 0 or more secret versions. For a secret version to be created, its parent secret resource must already exist. Deletion of a secret resource will mean the deletion of all secret versions under it. The value of a particular secret version cannot be changed in-place.
+
+The full set of REST management APIs for secret resources can be found [here](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-meshsecrets), and for secret versions, [here](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-meshsecretvalues).
+
+### Declare a secret resource
 You can create a secret resource by using the REST API.
   > [!NOTE] 
-  > If the cluster is using windows authentication, the REST request is sent over unsecured HTTP channel. The recommendation is to use a X509 based cluster with secure endpoints.
+  > If the cluster is using windows authentication, the REST request is sent over unsecured HTTP channel. The recommendation is to use a X509-based cluster with secure endpoints.
 
 To create a `supersecret` secret resource by using the REST API, make a PUT request to `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`. You need the cluster certificate or admin client certificate to create a secret resource.
 
@@ -57,7 +68,7 @@ $json = '{"properties": {"kind": "inlinedValue", "contentType": "text/plain", "d
 Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview -Method PUT -CertificateThumbprint <CertThumbprint> -Body $json
 ```
 
-## Set the secret value
+### Set the secret value
 
 Use the following script to use the REST API to set the secret value.
 ```powershell
@@ -124,5 +135,30 @@ The following snippet is the modified **ApplicationManifest.xml**.
    </EnvironmentVariables>
    ```
 
+## Removing Central Secret Service from your cluster
+Removing Central Secret Service from a deployed cluster can be accomplished in two upgrades. The first upgrade functionally disables CSS, while the second upgrade removes the service from the cluster, including permanent deletion of the underlying replicated store. Two-stage deletion prevents accidental deletion of the service, and helps ensure that there are no forgotten dependencies on CSS during the removal process. This feature is available on SF versions 8.0 onward.
+
+### Step 1
+Upgrade cluster definition from `"IsEnabled" = "true"` or from `"DeployedState" = "enabled"` to
+```json
+{
+    "name":  "DeployedState",
+    "value":  "removing"
+}
+```
+Once Central Secret Service is in deployed state `Removing`, it will reject all secret management calls that come to it via its public APIs, and through other usages, such as a SecretStoreRefs and KeyVaultReferences. If there are still application or components which depend on CSS, it is expected that they will go unhealthy. If this occurs, the upgrade to deployed state `Removing` should be rolled back, or if it has succeeded, a new upgrade to change back to deployed state `Enabled` should be pushed by the operator through the cluster. If Central Secret Service receives a request, it will return HTTP Code 401 (unauthorized) and put itself in a Warning health state.
+
+### Step 2
+Upgrade cluster definition from `"DeployedState" = "removing"` to
+```json
+{
+    "name":  "DeployedState",
+    "value":  "disabled"
+}
+```
+At this point, Central Secret Service should no longer be running in the cluster, and will not be in the list of system services. At this point the underlying replicated store no longer exists, and any secrets still enrolled in it are lost.
+
 ## Next steps
 Learn more about [application and service security](service-fabric-application-and-service-security.md).
+Get introduced to [Managed Identity for Service Fabric Applications](concepts-managed-identity.md).
+Expand CSS's functionality with [KeyVaultReferences](service-fabric-keyvault-references.md)
