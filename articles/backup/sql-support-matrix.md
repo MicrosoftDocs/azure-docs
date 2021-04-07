@@ -28,7 +28,7 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 |Database size supported (beyond this, performance issues may come up)   |   6 TB*      |
 |Number of files supported in a database    |   1000      |
 
-_*This limit depends on the data transfer rate that we support and the backup time limit configuration. It’s not the hard limit. [Learn more](#backup-throughput-performance) on backup throughput performance._
+_*The database size limit depends on the data transfer rate that we support and the backup time limit configuration. It’s not the hard limit. [Learn more](#backup-throughput-performance) on backup throughput performance._
 
 * SQL Server backup can be configured in the Azure portal or **PowerShell**. CLI isn't supported.
 * The solution is supported on both kinds of [deployments](../azure-resource-manager/management/deployment-models.md) - Azure Resource Manager VMs and classic VMs.
@@ -90,9 +90,9 @@ Copy-Only Full |  Secondary
 
 ## Backup throughput performance
 
-Azure Backup supports a consistent data transfer rate of 200 MBpS for full and differential backups of large SQL databases (of 500 GB). To utilize the optimum performance, ensure that:
+Azure Backup supports a consistent data transfer rate of 200 Mbps for full and differential backups of large SQL databases (of 500 GB). To utilize the optimum performance, ensure that:
 
-- The underlying VM (containing the SQL Server instance, which hosts the database) is configured with the required network throughput. If the maximum throughput of the VM is less than 200 MBpS, Azure Backup can’t transfer data at the optimum speed. Moreover, the disk that contains the database files must have enough throughput provisioned. [Learn more](../virtual-machines/disks-performance.md) about disk throughput and performance in Azure VMs. 
+- The underlying VM (containing the SQL Server instance, which hosts the database) is configured with the required network throughput. If the maximum throughput of the VM is less than 200 Mbps, Azure Backup can’t transfer data at the optimum speed.<br></br>Also, the disk that contains the database files must have enough throughput provisioned. [Learn more](../virtual-machines/disks-performance.md) about disk throughput and performance in Azure VMs. 
 - Processes, which are running in the VM, are not consuming the VM bandwidth. 
 - The backup schedules are spread across a subset of databases. Multiple backups running concurrently on a VM shares the network consumption rate between the backups. [Learn more](faq-backup-sql-server.md#can-i-control-how-many-concurrent-backups-run-on-the-sql-server) about how to control the number of concurrent backups.
 
