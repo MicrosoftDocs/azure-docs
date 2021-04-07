@@ -82,8 +82,8 @@ If a service offering is not available in a specific region, you can share your 
 As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and specialized. Service categories are assigned at general availability. Often, services start their lifecycle as a specialized service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists the category for services as foundational, mainstream. You should note the following about the table:
 
 - Some services are non-regional. For information and a list of non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
-- Older generation of services or virtual machines are not listed. For more information, see documentation at [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md)
-- .Services are not assigned a category until General Availability (GA). For information, and a list of preview services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). 
+- Older generation of services or virtual machines are not listed. For more information, see documentation at [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md).
+- Services are not assigned a category until General Availability (GA). For information, and a list of preview services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). 
 
 > [!div class="mx-tableFixed"]
 > | Foundational                           | Mainstream                                        | 
@@ -151,7 +151,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 
 
 ### Specialized Services
-As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and specialized. Service categories are assigned at general availability. Often, services start their lifecycle as a specialized service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists  specialized services. 
+As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and specialized. Service categories are assigned at general availability. Often, services start their lifecycle as a specialized service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists specialized services. 
 
 > [!div class="mx-tableFixed"]
 > | Specialized                                          |

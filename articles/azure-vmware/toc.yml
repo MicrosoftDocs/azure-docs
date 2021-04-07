@@ -148,6 +148,8 @@
       href: https://youtu.be/BoQYvqzb6Y8
     - name: Migration and capacity planning
       href: https://youtu.be/NoNG-hkksrA
+    - name: Rotate vCenter & NSX-T passwords using Azure Logic App
+      href: https://youtu.be/cK1qY3knj88
 - name: Reference
   items:
   - name: REST API
