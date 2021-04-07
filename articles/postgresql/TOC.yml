@@ -621,10 +621,7 @@
       - name: High availability
         href: concepts-hyperscale-high-availability.md
     - name: Replication
-      items:
-      - name: Azure portal
-        href: concepts-hyperscale-read-replicas.md
-        displayName: replication, read replica
+      href: concepts-hyperscale-read-replicas.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune
