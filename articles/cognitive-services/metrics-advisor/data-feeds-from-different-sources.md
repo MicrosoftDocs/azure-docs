@@ -105,16 +105,16 @@ The following sections specify the parameters required for all authentication ty
 
 * **Blob Template**: Metrics Advisor uses path to find the json file in your Blob storage. This is an example of a Blob file template, which is used to find the json file in your Blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. "%Y/%m" is the path, if you have "%d" in your path, you can add after "%m". If your JSON file is named by date, you could also use `%Y-%m-%d-%h-%M.json`.
 
-The following parameters are supported:
-  * `%Y` is the year formatted as `yyyy`
-  * `%m` is the month formatted as `MM`
-  * `%d` is the day formatted as `dd`
-  * `%h` is the hour formatted as `HH`
-  * `%M` is the minute formatted as `mm`
+   The following parameters are supported:
+    * `%Y` is the year formatted as `yyyy`
+    * `%m` is the month formatted as `MM`
+    * `%d` is the day formatted as `dd`
+    * `%h` is the hour formatted as `HH`
+    * `%M` is the minute formatted as `mm`
   
+  For example, in this dataset, the blob template should be "%Y/%m/%d/00/JsonFormatV2.json".
   ![blob template](media/blob-template.png)
   
-  In this dataset, the blob template should be "%Y/%m/%d/00/JsonFormatV2.json".
 
 
 * **JSON format version**: Defines the data schema in the JSON files. Currently Metrics Advisor supports two versions, you can choose one to fill in the field:
