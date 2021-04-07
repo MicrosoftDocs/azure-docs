@@ -111,7 +111,9 @@ The following parameters are supported:
   * `%d` is the day formatted as `dd`
   * `%h` is the hour formatted as `HH`
   * `%M` is the minute formatted as `mm`
+  
   ![blob template](media/blob-template.png)
+  
   In this dataset, the blob template should be "%Y/%m/%d/00/JsonFormatV2.json".
 
 
@@ -267,7 +269,7 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
 * **Client Secret**: Specify the client secret to access your Log Analytics.
 * **Workspace ID**: Specify the workspace Id of Log Analytics. For **Wordkspace ID**, you can find it in Azure portal.
 
-:::image type="content" source="/media/workspace-id.png" alt-text="Workspace ID":::
+![workspace id](media/workspace-id.png)
 
 * **Query**: Specify the query of Log Analytics. For more details please refer to [Log queries in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview)
 
