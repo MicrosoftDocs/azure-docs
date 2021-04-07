@@ -11,14 +11,11 @@ services: iot-edge
 monikerRange: ">=iotedge-2020-11"
 ---
 
-# Tutorial: Create a hierarchy of IoT Edge devices (Preview)
+# Tutorial: Create a hierarchy of IoT Edge devices
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 Deploy Azure IoT Edge nodes across networks organized in hierarchical layers. Each layer in a hierarchy is a gateway device that handles messages and requests from devices in the layer beneath it.
-
->[!NOTE]
->This feature requires IoT Edge version 1.2, which is in public preview.
 
 You can structure a hierarchy of devices so that only the top layer has connectivity to the cloud, and the lower layers can only communicate with adjacent north and south layers. This network layering is the foundation of most industrial networks, which follow the [ISA-95 standard](https://en.wikipedia.org/wiki/ANSI/ISA-95).
 
@@ -35,7 +32,7 @@ To accomplish this goal, this tutorial walks you through creating a hierarchy of
 > * Use the [IoT Edge API Proxy module](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.azureiotedge-api-proxy?tab=Overview) to securely route HTTP traffic over a single port from your lower layer devices.
 
 >[!TIP]
->This tutorial includes a mixture of manual and automated steps to provide a showcase of Nested IoT Edge features.
+>This tutorial includes a mixture of manual and automated steps to provide a showcase of nested IoT Edge features.
 >
 >If you would like an entirely automated look at setting up a hierarchy of IoT Edge devices, you can follow the scripted [Azure IoT Edge for Industrial IoT sample](https://aka.ms/iotedge-nested-sample). This scripted scenario deploys Azure virtual machines as preconfigured devices to simulate a factory environment.
 >
@@ -58,7 +55,7 @@ To create a hierarchy of IoT Edge devices, you will need:
 * A computer (Windows or Linux) with internet connectivity.
 * An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* Azure CLI v2.3.1 with the Azure IoT extension v0.10.6 or higher installed. This tutorial uses the [Azure Cloud Shell](../cloud-shell/overview.md). If you're unfamiliar with the Azure Cloud Shell, [check out a quickstart for details](./quickstart-linux.md#prerequisites).
+* A Bash shell in Azure Cloud Shell using Azure CLI v2.3.1 with the Azure IoT extension v0.10.6 or higher installed. This tutorial uses the [Azure Cloud Shell](../cloud-shell/overview.md). If you're unfamiliar with the Azure Cloud Shell, [check out a quickstart for details](./quickstart-linux.md#prerequisites).
   * To see your current versions of the Azure CLI modules and extensions, run [az version](/cli/azure/reference-index?#az_version).
 * A Linux device to configure as an IoT Edge device for each device in your hierarchy. This tutorial uses two devices. If you don't have devices available, you can create Azure virtual machines for each device in your hierarchy using the command below.
 
@@ -68,7 +65,6 @@ To create a hierarchy of IoT Edge devices, you will need:
 
 ```bash
 az deployment group create \
- --name <REPLACE_WITH_UNIQUE_NAME_FOR_VIRTUAL_MACHINE> \
  --resource-group <REPLACE_WITH_YOUR_RESOURCE_GROUP> \
  --template-uri "https://raw.githubusercontent.com/ebertrams/iotedge-vm-deploy/1.2.0-bugbash/edgeDeploy.json" \
  --parameters dnsLabelPrefix='<REPLACE_WITH_UNIQUE_DNS_FOR_VIRTUAL_MACHINE>' \
@@ -80,7 +76,7 @@ az deployment group create \
 
    The virtual machine uses SSH keys for authenticating users. If you are unfamiliar with creating and using SSH keys, you can follow [the instructions for SSH public-private key pairs for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
-   IoT Edge version 1.2 is preinstalled with this ARM template, saving the need to manually install the assets on your devices.
+   IoT Edge version 1.2 is preinstalled with this ARM template, saving the need to manually install the assets on the virtual machines. If you are installing IoT Edge on your own devices, see [Install Azure IoT Edge for Linux (version 1.2)](how-to-install-iot-edge.md) or [Update IoT Edge to version 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
 
    A successful creation of a virtual machine using this ARM template will output your virtual machine's `SSH` handle and fully-qualified domain name (`FQDN`). You will use the SSH handle and either the FQDN or IP address of each virtual machine for configuration in later steps, so keep track of this information. A sample output is pictured below.
 
@@ -130,8 +126,8 @@ To use the `iotedge-config` tool to create and configure your hierarchy, follow 
 
    ```bash
    cd ~/nestedIotEdgeTutorial
-   wget -O iotedge_config_cli.tar "https://github.com/Azure-Samples/iotedge_config_cli/releases/download/latest/iotedge_config_cli.tar.gz"
-   tar -xvf iotedge_config_cli.tar
+   wget -O iotedge_config.tar "https://github.com/Azure-Samples/iotedge_config_cli/releases/download/latest/iotedge_config_cli.tar.gz"
+   tar -xvf iotedge_config.tar
    ```
 
    This will create the `iotedge_config_cli_release` folder in your tutorial directory.
@@ -332,6 +328,14 @@ You can see under `systemModules` that the **lower layer device's** runtime modu
 
 If you'd like a look at how to create a deployment like this through the Azure portal or Azure Cloud Shell, see [lower layer device section of the how-to guide](how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-lower-layer-devices).
 
+You can view the status of your modules using the command:
+
+   ```bash
+   az iot hub module-twin show --device-id <edge_device_id> --module-id '$edgeAgent' --hub-name <iot_hub_name> --query "properties.reported.[systemModules, modules]"
+   ```
+
+   This command will output all the edgeAgent reported properties. Here are some helpful ones for monitoring the status of the device: *runtime status*, *runtime start time*, *runtime last exit time*, *runtime restart count*.
+
 You can also see the status of your modules on the [Azure portal](https://ms.portal.azure.com/). Navigate to the **IoT Edge** section of your IoT Hub to see your devices and modules.
 
 Once you are satisfied with your module deployments, you are ready to proceed.
@@ -382,7 +386,9 @@ To delete the resources:
 
 ## Next steps
 
-In this tutorial, you configured two IoT Edge devices as gateways and set one as the parent device of the other. Then, you demonstrated pulling a container image onto the child device through a gateway.
+In this tutorial, you configured two IoT Edge devices as gateways and set one as the parent device of the other. Then, you demonstrated pulling a container image onto the child device through a gateway using the IoT Edge API Proxy module. See [the how-to guide on the proxy module's use](how-to-configure-api-proxy-module.md) if you want to learn more.
+
+To learn more about using gateways to create hierarchical layers of IoT Edge devices, see [the how-to guide on connecting downstream IoT Edge devices](how-to-connect-downstream-iot-edge-device.md).
 
 To see how Azure IoT Edge can create more solutions for your business, continue on to the other tutorials.
 

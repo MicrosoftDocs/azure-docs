@@ -12,16 +12,11 @@ ms.custom:  [amqp, mqtt]
 monikerRange: ">=iotedge-2020-11"
 ---
 
-# Connect a downstream IoT Edge device to an Azure IoT Edge gateway (Preview)
+# Connect a downstream IoT Edge device to an Azure IoT Edge gateway
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
-
->[!NOTE]
->This feature requires IoT Edge version 1.2, which is in public preview.
->
->This article reflects the latest preview release of IoT Edge version 1.2. Make sure that your device is running version [1.2.0-rc4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc4) or newer. For steps to get the latest preview version on your device, see [Install Azure IoT Edge for Linux (version 1.2)](how-to-install-iot-edge.md) or [Update IoT Edge to version 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
 
 In a gateway scenario, an IoT Edge device can be both a gateway and a downstream device. Multiple IoT Edge gateways can be layered to create a hierarchy of devices. The downstream (or child) devices can authenticate and send or receive messages through their gateway (or parent) device.
 
@@ -193,6 +188,9 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 
    >[!TIP]
    >The IoT Edge check tool uses a container to perform some of the diagnostics check. If you want to use this tool on downstream IoT Edge devices, make sure they can access `mcr.microsoft.com/azureiotedge-diagnostics:latest`, or have the container image in your private container registry.
+
+<!-- Remove for GA -->
+<!-- Remove rc4 for GA -->
 
 ## Configure runtime modules for public preview
 
