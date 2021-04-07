@@ -196,7 +196,7 @@ chatThreadClient.send(message: message) { result, _ in
 semaphore.wait()
 ```
 
-First, you construct the `SendChatMessageRequest`, which contains the content and sender's display name. This request can also can contain the share history time, if you want to include it. The response returned to the completion handler contains the ID of the message that was sent.
+First, you construct the `SendChatMessageRequest`, which contains the content and sender's display name. This request can also contain the share history time, if you want to include it. The response returned to the completion handler contains the ID of the message that was sent.
 
 ## Add a user as a participant to the chat thread
 
@@ -264,7 +264,7 @@ chatThreadClient
     }
 ```
 
-Replace `<USER ID>` with the the Communication Services user ID of the participant being removed.
+Replace `<USER ID>` with the Communication Services user ID of the participant being removed.
 
 ## Run the code
 
