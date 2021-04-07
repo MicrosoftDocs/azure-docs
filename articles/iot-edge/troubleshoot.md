@@ -156,7 +156,7 @@ On Linux:
 
      ```bash
      [Service]
-     Environment=IOTEDGE_LOG=edgelet=debug
+     Environment=IOTEDGE_LOG=debug
      ```
 
   3. Restart the IoT Edge security daemon:
