@@ -83,6 +83,8 @@
       href: /dotnet/api/microsoft.azure.relay
     - name: Microsoft.ServiceBus
       href: /dotnet/api/Microsoft.ServiceBus
+  - name: Azure CLI
+    href: /cli/azure/relay
   - name: Exceptions
     href: relay-exceptions.md
   - name: Port settings

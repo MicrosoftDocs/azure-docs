@@ -5,7 +5,7 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ms.custom: mvc
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in VMware environment.
 ---
@@ -30,11 +30,9 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
-
 ## Prerequisites
 
 Before you start this tutorial, check you have these prerequisites in place.
-
 
 **Requirement** | **Details**
 --- | ---
@@ -94,7 +92,6 @@ In vSphere Web Client, set up an account as follows:
 
     :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Checkbox to allow guest operations on the read-only role":::
 
-
 > [!NOTE]
 > You can limit discovery to specific vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual servers by scoping the vCenter Server account. [**Learn more**](set-discovery-scope.md) on how to scope the vCenter Server user account.
 
@@ -114,7 +111,7 @@ Set up a new project.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
-3. In **Overview**, select **Create project**.
+3. In **Overview** > select based on your migration goals : **Windows, Linux and SQL Server** or **SQL Server (only)** or **Explore more scenarios** > select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
@@ -193,11 +190,9 @@ Import the downloaded file, and create a server in VMware environment
 8. In **Network Mapping**, specify the network to which the server will connect. The network needs internet connectivity, to send metadata to Azure Migrate.
 9. Review and confirm the settings, then click **Finish**.
 
-
 ### Verify appliance access to Azure
 
 Make sure that the appliance server can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
-
 
 ### 4. Configure the appliance
 

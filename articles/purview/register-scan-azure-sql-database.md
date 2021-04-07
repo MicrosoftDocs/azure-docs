@@ -96,7 +96,7 @@ The service principal or managed identity must have permission to get metadata f
     ```
 
     > [!Note]
-    > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
+    > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
     
 ##### Add service principal to key vault and Purview's credential
 

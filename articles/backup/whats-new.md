@@ -14,6 +14,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - March 2021
+  - [Azure Disk Backup is now generally available](#azure-disk-backup-is-now-generally-available)
   - [Backup center is now generally available](#backup-center-is-now-generally-available)
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
@@ -34,6 +35,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Backup SAP HANA in RHEL Azure Virtual Machines (in preview)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Zone redundant storage (ZRS) for backup data (in preview)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## Azure Disk Backup is now generally available
+
+Azure Backup offers snapshot lifecycle management to Azure Managed Disks by automating periodic creation of snapshots and retaining these for configured durations using Backup policy.
+
+For more information, see [Overview of Azure Disk Backup](disk-backup-overview.md).
 
 ## Backup center is now generally available
 

@@ -42,7 +42,7 @@ However, if you load balance traffic across geo-redundant parallel paths, regard
 
 ### Different metros
 
-When using different metros for redundancy, the secondary location should be in the same [geo-political region](expressroute-locations-providers.md#locations). To choose a location outside of the geo-political region, you'll need to use Premium SKU for both circuits in the parallel paths. The advantage of this configuration is the chances of a natural disaster causing an outage to both links are much lower but at the cost of increase latency end-to-end.
+When using different metros for redundancy, you should select the secondary location in the same [geo-political region](expressroute-locations-providers.md#locations). To choose a location outside of the geo-political region, you'll need to use Premium SKU for both circuits in the parallel paths. The advantage of this configuration is the chances of a natural disaster causing an outage to both links are much lower but at the cost of increased latency end-to-end.
 
 In this article, let's discuss how to address challenges you may face when configuring geo-redundant paths.
 

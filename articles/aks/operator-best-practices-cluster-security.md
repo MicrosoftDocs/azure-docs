@@ -118,12 +118,34 @@ While AppArmor works for any Linux application, [seccomp (*sec*ure *comp*uting)]
 
 To see seccomp in action, create a filter that prevents changing permissions on a file. [SSH][aks-ssh] to an AKS node, then create a seccomp filter named */var/lib/kubelet/seccomp/prevent-chmod* and paste the following content:
 
-```
+```json
 {
   "defaultAction": "SCMP_ACT_ALLOW",
   "syscalls": [
     {
       "name": "chmod",
+      "action": "SCMP_ACT_ERRNO"
+    },
+    {
+      "name": "fchmodat",
+      "action": "SCMP_ACT_ERRNO"
+    },
+    {
+      "name": "chmodat",
+      "action": "SCMP_ACT_ERRNO"
+    }
+  ]
+}
+```
+
+In version 1.19 and later, you need to configure the following:
+
+```json
+{
+  "defaultAction": "SCMP_ACT_ALLOW",
+  "syscalls": [
+    {
+      "names": ["chmod","fchmodat","chmodat"],
       "action": "SCMP_ACT_ERRNO"
     }
   ]
@@ -140,6 +162,29 @@ metadata:
   annotations:
     seccomp.security.alpha.kubernetes.io/pod: localhost/prevent-chmod
 spec:
+  containers:
+  - name: chmod
+    image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+    command:
+      - "chmod"
+    args:
+     - "777"
+     - /etc/hostname
+  restartPolicy: Never
+```
+
+In version 1.19 and later, you need to configure the following:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: chmod-prevented
+spec:
+  securityContext:
+    seccompProfile:
+      type: Localhost
+      localhostProfile: prevent-chmod
   containers:
   - name: chmod
     image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11

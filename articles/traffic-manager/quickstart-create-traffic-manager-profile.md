@@ -4,7 +4,7 @@ description: This quickstart article describes how to create a Traffic Manager p
 services: traffic-manager
 author: duongau
 manager: twooley
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
+# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart

@@ -426,9 +426,9 @@ Below is an example of an IoT Edge MQTT bridge configuration that republishes al
 				},
 				{
 					"direction": "out",
-					"topic": "",
-					"inPrefix": "/local/telemetry",
-					"outPrefix": "/remote/messages"
+					"topic": "#",
+					"inPrefix": "/local/telemetry/",
+					"outPrefix": "/remote/messages/"
 				}
 			]
 		}]

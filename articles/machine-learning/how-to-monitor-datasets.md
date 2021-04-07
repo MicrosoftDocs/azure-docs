@@ -11,8 +11,7 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml, contperf-fy21q2
-
-## Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
+#Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
 ---
 
 # Detect data drift (preview) on datasets
