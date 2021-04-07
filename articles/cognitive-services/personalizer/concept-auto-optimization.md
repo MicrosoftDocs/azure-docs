@@ -11,7 +11,7 @@ ms.date: 03/08/2021
 
 
 ## Introduction
-Auto-Optimize is a setting in Personalizer that saves manual effort in keeping a Personalizer loop at it's best performance, by automatically searching for improved Learning Settings used to train your models and applying them. Personalizer has strict criteria to apply new Learning Settings to insure improvements are unlikely to introduce loss in rewards.
+Personalizer automatic optimization saves you manual effort in keeping a Personalizer loop at it's best machine learning performance, by automatically searching for improved Learning Settings used to train your models and applying them. Personalizer has strict criteria to apply new Learning Settings to insure improvements are unlikely to introduce loss in rewards.
 
 Personalizer Auto-Optimize is in Public Preview and features, approaches and processes will change based on user feedback.
 
@@ -27,20 +27,25 @@ Note: Auto-Optimize will periodically overwrite Personalizer Learning Settings. 
 ## How to Enable and Disable Auto-Optimize
 To Enable Auto-Optimize, use the toggle switch in the "Model and Learning Settings" blade in the Azure Portal. 
 
-Alternatively, you can activate Auto-Optimize using the Personalizer **/configurations/service** API.
+Alternatively, you can activate Auto-Optimize using the Personalizer `/configurations/service` API.
 
 To disable Auto-Optimize, turn off the toggle.
 
 ## Auto-Optimize Reports
 
 In the Model and Learning Settings blade you can see the history of auto-optimize runs and the action taken on each. 
-Here you can see
+
+The table shows:
 * When an auto-optimize run happened,
 * What data window was included,
 * What was the reward performance of online, baseline, and best found Learning Settings,
 * Actions taken: if Learning Settings were updated or not.
 
-A history of up to 24 previous Auto-Optimize runs is kept for your analysis. You can seek out more details about those Offline Evaluations and reports for each. Also, this allows you find an apply any Learning Settings that is in this history.
+Reward performance of different learning settings in each auto-optimization history row are shown in absolute numbers, and as percentages relative to baseline performance. 
+
+**Example**:if your baseline average reward is estimated to be 0.20, and the online Personalizer behavior is achieving 0.30, these will be shown as 100% and 150% respectively. If the auto optimization found learning settings capable of achieving 0.40 average reward, it will be shown as 200% (0.40 is 200% of 0.20). Assuming the confidence margins allow for it, the new settings would be applied, and then these would drive Personalizer as the Online settings until the next run.
+
+A history of up to 24 previous Auto-Optimize runs is kept for your analysis. You can seek out more details about those Offline Evaluations and reports for each. Also, the reports contain any Learning Settings that are in this history, which you can find and download or apply.
 
 ## How it Works
 Personalizer is constantly training the AI models it uses based on rewards. This training is done following some *Learning Settings*, which contain hyper-parameters and other values used in the training process. These learning settings can be "tuned" to your specific Personalizer instance. 
