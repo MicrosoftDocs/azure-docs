@@ -51,6 +51,9 @@ Before creating the event hubs, you'll first create an event hub namespace that 
 az eventhubs namespace create --name <name-your-event-hubs-namespace> --resource-group <your-resource-group> -l <region>
 ```
 
+> [!TIP]
+> If you get an error stating `BadRequest: The specified service namespace is invalid.`, make sure the name you've chosen for your namespace meets the naming requirements described in this reference document: [Create Namespace](/rest/api/servicebus/create-namespace).
+
 You'll be using this event hubs namespace to hold the two event hubs that are needed for this article:
 
   1. **Twins hub** - Event hub to receive twin change events
