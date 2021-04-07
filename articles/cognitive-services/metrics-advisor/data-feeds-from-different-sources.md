@@ -32,13 +32,16 @@ Use this article to find the settings and requirements for connecting different 
 You can create a **Credential entity** to store credential related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the real credentials. It can be created in *Adding data feed page* or *Credential entity page*. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new datafeeed, and it will be really convenient when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
 
 1. Click '+' to create a new credential entity when adding data feed (you can also create one in *Credential entity page*).
- ![create credential entity](../media/create-credential-entity.png)
+
+![create credential entity](/media/create-credential-entity.png)
  
 2. Set the credentail entity name, description (if needed) and credential type (equals to authentication types).
- ![set credential entity](../media/set-credential-entity.png)
+
+![set credential entity](../media/set-credential-entity.png)
  
 3. After createing a credentail key, you can choose it when specifying authentication type.
- ![choose credential entity](../media/choose-credential-entity.png)
+
+![choose credential entity](../media/choose-credential-entity.png)
  
 ## Data sources supported and corresponding authentication types
 
