@@ -69,9 +69,9 @@ The following sections specify the parameters required for all authentication ty
 
 * **Application ID**: This is used to identify this application when using the Application Insights API. To get the Application ID, do the following:
 
-  1. From your Application Insights resource, click API Access.
+   1. From your Application Insights resource, click API Access.
 
-  2. Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
+   2. Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
     
     See the [Azure Bot Service documentation](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-resources-app-insights-keys?view=azure-bot-service-4.0#application-id) for more information.
 
