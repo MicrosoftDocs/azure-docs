@@ -35,7 +35,7 @@ Applying locks can lead to unexpected results because some operations that don't
 
 * A read-only lock on an **App Service** resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
 
-* A read-only lock on a resource group that contains an App Service plan prevents you from [scaling up or out the plan](../../app-service/manage-scale-up.md).
+* A read-only lock on a **resource group** that contains an **App Service plan** prevents you from [scaling up or out the plan](../../app-service/manage-scale-up.md).
 
 * A read-only lock on a **resource group** that contains a **virtual machine** prevents all users from starting or restarting the virtual machine. These operations require a POST request.
 
