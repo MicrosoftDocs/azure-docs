@@ -29,6 +29,7 @@ ms.topic: conceptual
 
 ### Azure Arc enabled PostgreSQL Hyperscale
 
+- It is not supported yet to deploy an Azure Arc enabled Postgres Hyperscale server group in an Arc data controller enabled for direct connect mode.
 - Passing  an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
 
 ## February 2021
