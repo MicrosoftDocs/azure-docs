@@ -196,7 +196,6 @@ Note: Azure AD supports external identity that allows users without a Microsoft 
 
 For administrator and privileged users, ensure the highest level of the strong authentication method is used, followed by rolling out the appropriate strong authentication policy to other users.
 
-- [Eliminate bad passwords using Azure AD Password Protection](../authentication/concept-password-ban-bad.md)
 Azure AD supports Legacy password-based authentication such as Cloud-only accounts (user accounts created directly in Azure AD) that have a baseline password policy or Hybrid accounts (user accounts that come from on-premises Active Directory) that will follow the on-premises password policies. When using password-based authentication, Azure AD provides a password protection capability that prevents users from setting passwords that are easy to guess. Microsoft provides a global list of banned passwords that is updated based on telemetry, and customers can augment the list based on their needs (e.g. branding, cultural references, etc.). This password protection can be used for cloud-only and hybrid accounts.
 
 Note: Authentication based on password credentials alone is susceptible to popular attack methods. For higher security, use strong authentication such as MFA and a strong password policy. For third-party applications and marketplace services that may have default passwords, you should change them upon the service initial setup.
@@ -214,6 +213,8 @@ Note: Authentication based on password credentials alone is susceptible to popul
  
 - [Azure AD default password policy](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts)
 
+- [Eliminate bad passwords using Azure AD Password Protection](../authentication/concept-password-ban-bad.md)
+
 **Responsibility**: Customer
 
 **Azure Security Center monitoring**: None
@@ -226,18 +227,19 @@ Note: Authentication based on password credentials alone is susceptible to popul
 **Guidance**: Azure Active Directory provides the following data sources:
 
  
-Sign-ins - The sign-ins report provides information about the usage of managed applications and user sign-in activities.
+- Sign-ins - The sign-ins report provides information about the usage of managed applications and user sign-in activities.
 
  
-Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
+- Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
 
  
-Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+- Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
 
  
-Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+- Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
  
+
 These data sources can be integrated with Azure Monitor, Azure Sentinel or third-party SIEM systems.
 
  
