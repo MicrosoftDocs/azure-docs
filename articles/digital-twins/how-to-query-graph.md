@@ -105,7 +105,7 @@ The following section gives several examples of what this looks like.
 > [!TIP]
 > Conceptually, this feature mimics the document-centric functionality of CosmosDB, where `JOIN` can be performed on child objects within a document. CosmosDB uses the `IN` keyword to indicate the `JOIN` is intended to iterate over array elements within the current context document.
 
-### Relationship-based query examples
+### Relationship-based query structure
 
 To get a dataset that includes relationships, use a single `FROM` statement followed by N `JOIN` statements, where the `JOIN` statements express relationships on the result of a previous `FROM` or `JOIN` statement.
 
@@ -115,6 +115,18 @@ Here is a sample relationship-based query. This code snippet selects all digital
 
 > [!NOTE]
 > The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.
+
+### Query by the source or target of a relationship
+
+You can use the relationship query structure to identify a digital twin that's the source or the target of a relationship.
+
+For instance, you can start with a source twin and follow its relationships to find the target twins of the relationships. Here is an example of a query that finds the target twins of the *feeds* relationships coming from the twin *source-twin*.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipSource":::
+
+You can also start with the target of the relationship and trace the relationship back to find the source twin. Here's an example of a query that finds the source twin of a *feeds* relationship to the twin *target-twin*.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipTarget":::
 
 ### Query the properties of a relationship
 
