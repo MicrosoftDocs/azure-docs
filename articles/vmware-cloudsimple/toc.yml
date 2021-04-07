@@ -181,7 +181,7 @@
   - name: Reference
     items:
     - name: Azure CLI
-      href: /cli/azure/ext/csvmware/csvmware
+      href: /cli/azure/csvmware
   - name: Release notes
     items:
     - name: CloudSimple September 2020 Update

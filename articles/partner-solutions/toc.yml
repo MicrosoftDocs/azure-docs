@@ -27,4 +27,4 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/confluent/confluent
+    href: /cli/azure/confluent
