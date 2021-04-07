@@ -55,7 +55,7 @@ The following sections describe how customers can use the new Azure Monitor inte
 > [!NOTE]
 > You must have a Log Analytics workspace created in a subscription you have access to before doing enabling the new integration. For more information about how to create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-Activate the new integration by going to your cluster's portal page and scrolling down the menu on the left until you reach the **Monitoring** section. In the **Monitoring** section, select **Azure Monitor**. Then, select **Enable** and you can choose the Log Analytics workspace that you want your logs to be sent to. Select **Save** once you have chosen your workspace. 
+Activate the new integration by going to your cluster's portal page and scrolling down the menu on the left until you reach the **Monitoring** section. In the **Monitoring** section, select **Monitor integration**. Then, select **Enable** and you can choose the Log Analytics workspace that you want your logs to be sent to. Select **Save** once you have chosen your workspace. 
 
 ### Accessing the new tables
 
@@ -113,7 +113,7 @@ You can create your own Azure workbooks with custom graphs and visualizations. I
 
 #### At-scale workbooks for new Azure Monitor integrations
 
-Use our new at-scale workbook <add link> to get a multi-cluster monitoring experience for your clusters. Our at-scale workbook shows you which of your clusters have the monitoring pipeline enabled. The workbook also gives you a straightforward way to check the health of multiple clusters at once. It contains different views, including one for each cluster type and one for YARN-based clusters. To view this workbook:
+Use our new at-scale workbook to get a multi-cluster monitoring experience for your clusters. Our at-scale workbook shows you which of your clusters have the monitoring pipeline enabled. The workbook also gives you a straightforward way to check the health of multiple clusters at once. It contains different views, including one for each cluster type and one for YARN-based clusters. To view this workbook:
 
 1. Go to the **Azure Monitor** page in from the Azure portal home page
 2. Once on the **Azure Monitor** page, look at the menu on the left for the section, **Insights**, and select the workbook under the **HDInsight** pane.
@@ -171,12 +171,12 @@ In this way, you can easily do a side-by-side comparison for the queries you're 
 
 ### Enabling the classic integration
 
-If you're using a cluster created after mid-September 2020, you'll see the new portal experience in your cluster's portal. To enable the new pipeline, you can follow the steps outlined in the [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section. To activate the classic integration on this cluster, go to your cluster's portal page. Select the **Azure Monitor** pane in the **Monitoring** section of the menu on the left side of your cluster portal page. Select **Configure Azure Monitor for HDInsight clusters integration (classic)**. A side context appears with a toggle you can use to enable and disable the classic Azure Monitoring integration. 
+If you're using a cluster created after mid-September 2020, you'll see the new portal experience in your cluster's portal. To enable the new pipeline, you can follow the steps outlined in the [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section. To activate the classic integration on this cluster, go to your cluster's portal page. Select the **Monitor integration** pane in the **Monitoring** section of the menu on the left side of your cluster portal page. Select **Configure Azure Monitor for HDInsight clusters integration (classic)**. A side context appears with a toggle you can use to enable and disable the classic Azure Monitoring integration. 
 
 > [!NOTE]
 > The **Insights** and **Logs** blades only work with the new integration.
 
-<Include image circling the link to old pipeline>
+   :::image type="content" source="./media/log-analytics-migration/hdinsight-classic-integration.png" alt-text="Screenshot that shows the link to access the classic integration." border="false":::
 
 Creating new clusters with classic Azure Monitor integration is available after July 1, 2021.
 
@@ -194,7 +194,6 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
 
 > [!NOTE]
 > Some tables are new and not based off of old tables.
-
 
 ## General workload tables
 
