@@ -256,6 +256,17 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 
 On Linux, the IoT Edge daemon uses journals as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-IoTEdgeLog` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the  default.  
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
+
+:::moniker-end
+<!-- end 1.1 -->
+
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
 
@@ -274,12 +285,6 @@ Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemo
   ```
 
 :::moniker-end
-
-On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-IoTEdgeLog` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the  default.  
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
-```
 
 When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. Consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own.
 
@@ -301,12 +306,24 @@ You can limit the size of all container logfiles in the container engine log opt
 }
 ```
 
-Add (or append) this information to a file named `daemon.json` and place it the right location for your device platform.
+Add (or append) this information to a file named `daemon.json` and place it in the following location:
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 | Platform | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* `/etc/docker/`
+
+:::moniker-end
+<!-- end 1.2 -->
 
 The container engine must be restarted for the changes to take effect.
 
