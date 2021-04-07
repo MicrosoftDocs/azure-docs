@@ -7,7 +7,7 @@ ms.topic: reference
 
 # Defender IoT micro agent troubleshooting (Preview)
 
-In the event you have unexpected or unexplained errors, use the following troubleshooting methods to attempt to resolve your issues. You can also reach out to the Azure Defender for IoT product team for assistance as needed.   
+If an unexpected error occurs, you can use these troubleshooting methods in an attempt to resolve the issue. You can also reach out to the Azure Defender for IoT product team for assistance as needed.   
 
 ## Service status 
 
@@ -29,7 +29,7 @@ If the service is listed as `inactive`, use the following command to start the s
 systemctl start defender-iot-micro-agent.service 
 ```
 
-You will know that the service is crashing if the process uptime is less than 2 minutes. To resolve this issue, you must [review the logs](#review-the-logs).
+You will know that the service is crashing if, the process uptime is less than 2 minutes. To resolve this issue, you must [review the logs](#review-the-logs).
 
 ## Validate micro agent root privileges
 
@@ -50,7 +50,7 @@ sudo journalctl -u defender-iot-micro-agent | tail -n 200 
 
 ### Quick log review
 
-If an issue occurs when the micro agent is run, you can run the micro agent in a temporary state which will allow you to view the logs using the following command:
+If an issue occurs when the micro agent is run, you can run the micro agent in a temporary state, which will allow you to view the logs using the following command:
 
 ```azurecli
 sudo systectl stop defender-iot-micro-agent
