@@ -4,11 +4,9 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: troubleshooting
   ms.date:  04/09/2021
-
     
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
-
 
 sections:
   - name: General
