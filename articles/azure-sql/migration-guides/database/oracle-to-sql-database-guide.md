@@ -15,7 +15,7 @@ ms.date: 08/25/2020
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-In this guide, you learn how to migrate your Oracle schemas to Azure SQL Database by using using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/migration-journey) Assistant for Oracle (SSMA for Oracle).
+In this guide, you learn [how to migrate](https://azure.microsoft.com/en-us/migration/migration-journey) your Oracle schemas to Azure SQL Database by using using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/migration-journey) Assistant for Oracle (SSMA for Oracle).
 
 For other migration guides, see [Azure Database Migration Guides](https://docs.microsoft.com/data-migration).
 
@@ -30,7 +30,7 @@ Before you begin migrating your Oracle schema to SQL Database:
  
 ## Pre-migration
 
-After you've met the prerequisites, you're ready to discover the topology of your environment and assess the feasibility of your migration. This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for potential migration issues or blockers, and then resolving any items you might have uncovered.
+After you've met the prerequisites, you're ready to discover the topology of your environment and assess the feasibility of your [Azure cloud migration](https://azure.microsoft.com/en-us/migration). This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for potential migration issues or blockers, and then resolving any items you might have uncovered.
 
 ### Assess
 
@@ -181,6 +181,7 @@ The Data SQL Engineering team developed these resources. This team's core charte
 - To learn more about the framework and adoption cycle for cloud migrations, see:
    -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Best practices for costing and sizing workloads for migration to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs)
+   -  [Cloud Migration Resources](https://azure.microsoft.com/en-us/migration/resources)
 
 - For video content, see:
     - [Overview of the migration journey and the tools and services recommended for performing assessment and migration](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)
