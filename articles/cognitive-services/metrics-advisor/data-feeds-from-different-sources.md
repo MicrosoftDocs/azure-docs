@@ -70,18 +70,23 @@ The following sections specify the parameters required for all authentication ty
 * **Application ID**: This is used to identify this application when using the Application Insights API. To get the Application ID, do the following:
 
    1. From your Application Insights resource, click API Access.
+   
+      ![portal-app-insights-appid](media/portal-app-insights-appid.png)
 
    2. Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
-    
-    See the [Azure Bot Service documentation](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-resources-app-insights-keys?view=azure-bot-service-4.0#application-id) for more information.
 
 * **API Key**: API keys are used by applications outside the browser to access this resource. To get the API key, do the following:
 
    1. From the Application Insights resource, click API Access.
 
-   2. Click Create API Key.
+   2. Click **Create API Key**.
 
-   3. Enter a short description, check the Read telemetry option, and click the Generate key button.
+   3. Enter a short description, check the **Read telemetry** option, and click the **Generate key** button.
+
+      ![portal-app-insights-appid-apikey](media/portal-app-insights-appid-apikey.png)
+
+       > [!WARNING]
+       > Copy this **API key** and save it because this key will never be shown to you again. If you lose this key, you have to create a new one.
 
    4. Copy the API key to the **API key** field in Metrics Advisor.
 
@@ -97,9 +102,14 @@ The following sections specify the parameters required for all authentication ty
 
 * **Connection String**: There are two Authentication types for Azure Blob Storage(JSON), one is **Basic**, the other is **Managed Identity**.
 
-    1. For **Basic** authentication type: See the Azure Blob Storage [connection string](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string#configure-a-connection-string-for-an-azure-storage-account) article for information on retrieving this string. Also, you can just go to Azure portal for your Azure Blob Storage resource, and find connection string directly in **Settings > Access keys** section.
-
-    2. For **Managed Identity**: Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with managed identities for Azure resources. Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm).
+    1. For **Basic** : See [Configure Azure Storage connection strings](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string#configure-a-connection-string-for-an-azure-storage-account) for information on retrieving this string. Also, you can just go to Azure portal for your Azure Blob Storage resource, and find connection string directly in **Settings > Access keys** section.
+    
+    2. For **Managed Identity**: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. 
+    
+    To enable managed identity on metrics advisor, the managed identity name must be the metrics advisor name. You can create managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create.
+    
+    ![MI blob](media/MI-blob.png)
+    
 
 * **Container**: Metrics Advisor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
 
@@ -112,7 +122,7 @@ The following sections specify the parameters required for all authentication ty
     * `%h` is the hour formatted as `HH`
     * `%M` is the minute formatted as `mm`
   
-  For example, in this dataset, the blob template should be "%Y/%m/%d/00/JsonFormatV2.json".
+  For example, in the following dataset, the blob template should be "%Y/%m/%d/00/JsonFormatV2.json".
   
   ![blob template](media/blob-template.png)
   
@@ -142,7 +152,7 @@ The following sections specify the parameters required for all authentication ty
 
 ## <span id="cosmosdb">Azure Cosmos DB (SQL)</span>
 
-* **Connection String**: The connection string to access your Azure Cosmos DB. This can be found in the Cosmos DB resource, in **Keys**. 
+* **Connection String**: The connection string to access your Azure Cosmos DB. This can be found in the Cosmos DB resource in Azure Portal, in **Keys**. 
 * **Database**: The database to query against. This can be found in the **Browse** page under **Containers** section.
 * **Collection ID**: The collection ID to query against. This can be found in the **Browse** page under **Containers** section.
 * **SQL Query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use the `@StartTime` and `@EndTime` variables in your query. They should be formatted: `yyyy-MM-dd HH:mm:ss`.
