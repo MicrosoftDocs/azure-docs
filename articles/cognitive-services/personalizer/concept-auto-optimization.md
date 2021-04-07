@@ -65,6 +65,8 @@ This criteria to maximize the reward improvement, while trying to eliminate the 
 
 Personalizer Auto-Optimize relies on an evaluation of a past period to estimate performance in the future. It is possible that due to external factors in the world, your application, and your users, that these estimations and predictions about Personalizer's models done for the past period are not representative of the future.
 
+Automatic Optimization Preview is unavailable for Personalizer loops that have enabled the Multi-Slot personalization API Preview functionality. 
+
 ## Read More
 
 * [Offline evaluations](https://docs.microsoft.com/azure/cognitive-services/personalizer/concepts-offline-evaluation)
