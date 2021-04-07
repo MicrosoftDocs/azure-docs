@@ -287,7 +287,7 @@ To commit the move and finish the process, do the following:
 > [!NOTE]
 > After you've committed the move, the source resource group status changes to *Delete source pending*.
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png" alt-text="Screenshot of the source resource group showing the status changed to "Delete source pending'." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png":::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png" alt-text="Screenshot of the source resource group showing the status changed to 'Delete source pending'." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png":::
 
 ## Prepare resources to move
 
