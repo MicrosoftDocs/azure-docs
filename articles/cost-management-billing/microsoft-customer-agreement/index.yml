@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 03/01/2021
+  ms.date: 04/07/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -25,7 +25,7 @@ landingContent:
       links:
       - text: What is a Microsoft Customer Agreement?
         url: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - linkListType: concept
+    - linkListType: get-started
       links:
       - text: Checklist after signing your agreement
         url: microsoft-customer-agreement-get-started.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
@@ -41,6 +41,8 @@ landingContent:
         url: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
       - text: Create new subscriptions
         url: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Troubleshoot subscription access
+        url: troubleshoot-subscription-access-after-signing-microsoft-customer-agreement.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 
 
 
