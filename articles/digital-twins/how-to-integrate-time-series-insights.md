@@ -181,7 +181,7 @@ Next, **publish** the new Azure function. For instructions on how to do this, se
 
 ## Create and connect a time series insights instance
 
-Next, you will set up Time Series Insights instance to receive data from your time series hub. Follow the steps below, and for more details about this process, see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorial-set-up-environment.md).
+Next, you will set up Time Series Insights instance to receive data from your time series hub. For more details about this process, see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorial-set-up-environment.md). Follow the steps below to create a time series insights.
 
 1. In the [Azure portal](https://portal.azure.com), search for *Time Series Insights environments*, and select the **Add** button. Choose the following options to create the time series environment.
 
