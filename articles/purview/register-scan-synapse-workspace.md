@@ -167,7 +167,7 @@ To create and run a new scan, do the following:
     1. Green means successful, while red means failed. Grey means that the scan is still in-progress
     1. You can click into each scan to view more fine grained details
 
-      :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-details.png" alt-text="Azure Synapse scan details"::: 
+      :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-details.png" alt-text="Azure Synapse scan details" lightbox="media/register-scan-synapse-workspace/synapse-scan-details.png"::: 
 
 1. View a summary of recent failed scan runs at the bottom of the source details page. You can also click into view more granular details pertaining to these runs.
 
