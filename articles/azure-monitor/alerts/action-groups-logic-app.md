@@ -172,7 +172,7 @@ Azure Service Health entries are part of the activity log. The process for creat
 
       !["Service Health payload condition"](media/action-groups-logic-app/service-health-payload-condition.png "Service Health payload condition")
 
-   1. In the **if true** condition, follow the instructions in steps 11 through 13 in [Create an activity log alert](#create-an-activity-log-alert-administrative) to add the Microsoft Teams action.
+   1. In the **True** condition, follow the instructions in steps 11 through 13 in [Create an activity log alert](#create-an-activity-log-alert-administrative) to add the Microsoft Teams action.
 
    1. Define the message by using a combination of HTML and dynamic content. Copy and paste the following content into the **Message** field. Replace the `[incidentType]`, `[trackingID]`, `[title]`, and `[communication]` fields with dynamic content tags of the same name:
 
@@ -189,7 +189,7 @@ Azure Service Health entries are part of the activity log. The process for creat
 
        !["Service Health true condition post action"](media/action-groups-logic-app/service-health-true-condition-post-action.png "Service Health true condition post action")
 
-   1. For the **If false** condition, provide a useful message:
+   1. For the **False** condition, provide a useful message:
 
        ```html
        <p><strong>Service Health Alert</strong></p>
@@ -259,11 +259,11 @@ The process for creating a metric alert is similar to [creating an activity log 
        
        !["Metric alert payload condition"](media/action-groups-logic-app/metric-alert-payload-condition.png "Metric alert payload condition")
 
-  1. In the **if true** condition, add a **For each** loop and the Microsoft Teams action. Define the message by using a combination of HTML and dynamic content.
+  1. In the **True** condition, add a **For each** loop and the Microsoft Teams action. Define the message by using a combination of HTML and dynamic content.
 
       !["Metric alert true condition post action"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Metric alert true condition post action")
 
-  1. In the **If false** condition, define a Microsoft Teams action to communicate that the metric alert doesn't match the expectations of the logic app. Include the JSON payload. Notice how to reference the `triggerBody` dynamic content in the `json()` expression.
+  1. In the **False** condition, define a Microsoft Teams action to communicate that the metric alert doesn't match the expectations of the logic app. Include the JSON payload. Notice how to reference the `triggerBody` dynamic content in the `json()` expression.
 
       !["Metric alert false condition post action"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Metric alert false condition post action")
 
