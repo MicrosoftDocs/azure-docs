@@ -11,10 +11,12 @@ This article provides you the planning process to identify and collect the infor
 
 The steps outlined in this quick start give you a production-ready environment for creating virtual machines (VMs) and migration. 
 
-If you would like to have a way to track the data which you will be collecting you can [download this planning spreadsheet](https://www.virtualworkloads.com/2021/04/hcx-planning-checklist/).
+To track the data you'll be collecting, get the [HCX planning checklist](https://www.virtualworkloads.com/2021/04/hcx-planning-checklist/).
 
->[!IMPORTANT]
->In preparation to creating your Azure VMware Solution resource, follow these instructions for requesting host quota. This can be done now, so when the planning process is completed, you are ready to deploy the Azure VMware Solution private cloud.  Once the support team receives your request, it takes up to five business days to confirm your request and allocate your hosts. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll go through the same process. [EA Customers Follow This Guidance](enable-azure-vmware-solution?tabs=azure-portal#request-host-quota-for-ea-customers) and [CSP Customers Follow This Guidance](enable-azure-vmware-solution?tabs=azure-portal#request-host-quota-for-csp-customers)
+> [!IMPORTANT]
+> It's important to request a host quota early as you prepare to create your Azure VMware Solution resource. You can request a host quota now, so when the planning process is finished, you're ready to deploy the Azure VMware Solution private cloud. After the support team receives your request for a host quota, it takes up to five business days to confirm your request and allocate your hosts. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you complete the same process. For more information, see the following links, depending on the type of subscription you have:
+> - [EA customers](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-ea-customers)
+> - [CSP customers](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-csp-customers)
 
 ## Subscription
 
@@ -101,29 +103,29 @@ When you create a *new* ExpressRoute virtual network gateway, you can use an exi
    1. Identify an Azure Virtual network where there are no pre-existing ExpressRoute virtual network gateways.
    2. Prior to deployment, create a [GatewaySubnet](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet) in the Azure Virtual Network.
 
-- For a new Azure Virtual Network and virtual network gateway you will create that during the deployment by selecting the **Create new** link under the **Virtual Network** list.  It's important to define what the address space and subnets will be in advance of the deployment so you are ready to enter that information as part of the deployment steps.
+- For a new Azure Virtual Network and virtual network gateway you will create that during the deployment by selecting the **Create new** link under the **Virtual Network** list.  It's important to define the address space and subnets in advance of the deployment, so you're ready to enter that information when you complete the deployment steps.
 
-The below image shows the **Create a private cloud** deployment screen with the **Virtual Network** field highlighted.
+The following image shows the **Create a private cloud** deployment screen with the **Virtual Network** field highlighted.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Screenshot of the Azure VMware Solution deployment screen with Virtual Network field highlighted.":::
 
->[!NOTE]
->Any virtual network that is going to be used or created may be seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
+> [!NOTE]
+> Any virtual network that is going to be used or created may be seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
 
-## (Optional) VMware HCX Network Segments
+## (Optional) VMware HCX network segments
 
-VMware HCX is a technology bundled in with Azure VMware Solution. The primary use cases for VMware HCX are workload migrations and disaster recovery. If you plan to do either, it's best to plan out the networking now.   Otherwise, you can skip and continue to the next step.
+VMware HCX is a technology that's bundled with Azure VMware Solution. The primary use cases for VMware HCX are workload migrations and disaster recovery. If you plan to do either, it's best to plan out the networking now. Otherwise, you can skip and continue to the next step.
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
 
 ## (Optional) Extend your networks
 
-You can extend network segments from on-premises to Azure VMware Solution, and if you do, identify those networks now.  
+You can extend network segments from on-premises to Azure VMware Solution. If you do extend network segments, identify those networks now.  
 
-Keep in mind that:
+Here are some factors to consider:
 
 - If you plan to extend networks from on-premises, those networks must connect to a [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) in your on-premises VMware environment.  
-- If the network(s) you wish to extend live on a [vSphere Standard Switch](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), then they can't be extended.
+- Networks that are on a [vSphere Standard Switch](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html) can't be extended.
 
 >[!NOTE]
 >These networks are extended as a final step of the configuration, not during deployment.
