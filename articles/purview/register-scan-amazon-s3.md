@@ -303,7 +303,7 @@ Use this procedure if you only have a single S3 bucket that you want to register
 
 Continue with [Create a scan for one or more Amazon S3 buckets.](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
-## Add all of your Amazon S3 buckets as Purview resources
+## Add an Amazon account as a Purview resource
 
 Use this procedure if you have multiple S3 buckets in your Amazon account, and you want to register all of as Purview data sources.
 
