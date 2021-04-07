@@ -54,7 +54,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Croatian (Croatia)                 | `hr-HR` | Text                                   |                           |
 | Czech (Czech Republic)             | `cs-CZ` | Text                                   |                           |
 | Danish (Denmark)                   | `da-DK` | Text                                   | Yes                          |
-| Dutch (Netherlands)                | `nl-NL` | Audio (20201015)<br>Text                                   |    Yes                       |
+| Dutch (Netherlands)                | `nl-NL` | Audio (20201015)<br>Text<br>Pronunciation|    Yes                       |
 | English (Australia)                | `en-AU` | Audio (20201019)<br>Text                 | Yes                          |
 | English (Canada)                   | `en-CA` | Audio (20201019)<br>Text                 | Yes                          |
 | English (Ghana)                    | `en-GH` | Text                                   |                           |
@@ -73,10 +73,10 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Estonian(Estonia)                  | `et-EE` | Text                                   |                           |
 | Filipino (Philippines)             | `fil-PH`| Text                                   |                           |
 | Finnish (Finland)                  | `fi-FI` | Text                                   |     Yes                      |
-| French (Canada)                    | `fr-CA` | Audio (20201015)<br>Text                 |     Yes                      |
+| French (Canada)                    | `fr-CA` | Audio (20201015)<br>Text<br>Pronunciation|     Yes                      |
 | French (France)                    | `fr-FR` | Audio (20201015)<br>Text<br>Pronunciation|      Yes                     |
-| French (Switzerland)               | `fr-CH` | Text                                   |                           |
-| German (Austria)                   | `de-AT` | Text                                   |                           |
+| French (Switzerland)               | `fr-CH` | Text<br>Pronunciation                  |                           |
+| German (Austria)                   | `de-AT` | Text<br>Pronunciation                  |                           |
 | German (Germany)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Text<br>Pronunciation|  Yes                         |
 | Greek (Greece)                     | `el-GR` | Text                                   |                           |
 | Gujarati (Indian)                  | `gu-IN` | Text                                   |                           |
@@ -95,33 +95,33 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Norwegian (Bokmål, Norway)         | `nb-NO` | Text                                   |     Yes                      |
 | Polish (Poland)                    | `pl-PL` | Text                                   |       Yes                    |
 | Portuguese (Brazil)                | `pt-BR` | Audio (20190620, 20201015)<br>Text<br>Pronunciation|          Yes                 |
-| Portuguese (Portugal)              | `pt-PT` | Text                                   |             Yes              |
+| Portuguese (Portugal)              | `pt-PT` | Text<br>Pronunciation                  |             Yes              |
 | Romanian (Romania)                 | `ro-RO` | Text                                   |                           |
 | Russian (Russia)                   | `ru-RU` | Audio (20200907)<br>Text                 |                Yes           |
 | Slovak (Slovakia)                  | `sk-SK` | Text                                   |                           |
 | Slovenian (Slovenia)               | `sl-SI` | Text                                   |                           |
-| Spanish (Argentina)                | `es-AR` | Text                                   |                           |
-| Spanish (Bolivia)                  | `es-BO` | Text                                   |                           |
-| Spanish (Chile)                    | `es-CL` | Text                                   |                           |
-| Spanish (Colombia)                 | `es-CO` | Text                                   |                           |
-| Spanish (Costa Rica)               | `es-CR` | Text                                   |                           |
-| Spanish (Cuba)                     | `es-CU` | Text                                   |                           |
-| Spanish (Dominican Republic)       | `es-DO` | Text                                   |                           |
-| Spanish (Ecuador)                  | `es-EC` | Text                                   |                           |
-| Spanish (El Salvador)              | `es-SV` | Text                                   |                           |
+| Spanish (Argentina)                | `es-AR` | Text<br>Pronunciation                  |                           |
+| Spanish (Bolivia)                  | `es-BO` | Text<br>Pronunciation                  |                           |
+| Spanish (Chile)                    | `es-CL` | Text<br>Pronunciation                  |                           |
+| Spanish (Colombia)                 | `es-CO` | Text<br>Pronunciation                  |                           |
+| Spanish (Costa Rica)               | `es-CR` | Text<br>Pronunciation                  |                           |
+| Spanish (Cuba)                     | `es-CU` | Text<br>Pronunciation                  |                           |
+| Spanish (Dominican Republic)       | `es-DO` | Text<br>Pronunciation                  |                           |
+| Spanish (Ecuador)                  | `es-EC` | Text<br>Pronunciation                  |                           |
+| Spanish (El Salvador)              | `es-SV` | Text<br>Pronunciation                  |                           |
 | Spanish (Equatorial Guinea)        | `es-GQ` | Text                                   |                           |
-| Spanish (Guatemala)                | `es-GT` | Text                                   |                           |
-| Spanish (Honduras)                 | `es-HN` | Text                                   |                           |
-| Spanish (Mexico)                   | `es-MX` | Audio (20200907)<br>Text                 |    Yes                       |
-| Spanish (Nicaragua)                | `es-NI` | Text                                   |                           |
-| Spanish (Panama)                   | `es-PA` | Text                                   |                           |
-| Spanish (Paraguay)                 | `es-PY` | Text                                   |                           |
-| Spanish (Peru)                     | `es-PE` | Text                                   |                           |
-| Spanish (Puerto Rico)              | `es-PR` | Text                                   |                           |
-| Spanish (Spain)                    | `es-ES` | Audio (20201015)<br>Text                 |  Yes                         |
-| Spanish (Uruguay)                  | `es-UY` | Text                                   |                           |
-| Spanish (USA)                      | `es-US` | Text                                   |                           |
-| Spanish (Venezuela)                | `es-VE` | Text                                   |                           |
+| Spanish (Guatemala)                | `es-GT` | Text<br>Pronunciation                  |                           |
+| Spanish (Honduras)                 | `es-HN` | Text<br>Pronunciation                  |                           |
+| Spanish (Mexico)                   | `es-MX` | Audio (20200907)<br>Text<br>Pronunciation|    Yes                       |
+| Spanish (Nicaragua)                | `es-NI` | Text<br>Pronunciation                  |                           |
+| Spanish (Panama)                   | `es-PA` | Text<br>Pronunciation                  |                           |
+| Spanish (Paraguay)                 | `es-PY` | Text<br>Pronunciation                  |                           |
+| Spanish (Peru)                     | `es-PE` | Text<br>Pronunciation                  |                           |
+| Spanish (Puerto Rico)              | `es-PR` | Text<br>Pronunciation                  |                           |
+| Spanish (Spain)                    | `es-ES` | Audio (20201015)<br>Text<br>Pronunciation|  Yes                         |
+| Spanish (Uruguay)                  | `es-UY` | Text<br>Pronunciation                  |                           |
+| Spanish (USA)                      | `es-US` | Text<br>Pronunciation                  |                           |
+| Spanish (Venezuela)                | `es-VE` | Text<br>Pronunciation                  |                           |
 | Swedish (Sweden)                   | `sv-SE` | Text                                   |   Yes                        |
 | Tamil (India)                      | `ta-IN` | Text                                   |                           |
 | Telugu (India)                     | `te-IN` | Text                                   |                           |
@@ -302,7 +302,7 @@ Below neural voices are in public preview.
 > [!IMPORTANT]
 > Voices in public preview are only available in 3 service regions: East US, West Europe and Southeast Asia.
 
-For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
+For more information about regional availability, see [regions](regions.md#neural-and-standard-voices).
 
 To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
@@ -314,7 +314,7 @@ To learn how you can configure and adjust neural voices, such as Speaking Styles
 
 ### Standard voices
 
-More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
+More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#neural-and-standard-voices).
 
 > [!NOTE]
 > With two exceptions, standard voices are created from samples that use a 16 khz sample rate.
