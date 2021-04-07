@@ -93,6 +93,9 @@
       - name: Go
         href: connect-go.md
         displayName: connect with go
+      - name: Rust
+        href: connect-rust.md
+        displayName: connect with rust
   - name: Tutorials
     items:
     - name: Design a database
