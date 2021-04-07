@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/19/2020
+ms.date: 04/07/2021
 ms.author: aahi
 ms.reviewer: chtufts
 ---
@@ -17,11 +17,13 @@ ms.reviewer: chtufts
 # Data and rate limits for the Text Analytics API
 <a name="data-limits"></a>
 
-Use this article to find the limits for the size, and rates that you can send data to Text Analytics API. **Note that pricing is not affected by the data limits or rate limits. Pricing is based on text records. 1 text records equals 1000 characters.** Pricing is subject to your Text Analytics resource's [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+Use this article to find the limits for the size, and rates that you can send data to Text Analytics API.
 
 ## Data limits
 
 > [!NOTE]
+> * Pricing is not affected by data or rate limits. Pricing is based on the number of text records you send to the API, and is subject to your Text Analytics resource's [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+>   * A text record is measured as 1000 characters. 
 > * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
 > * A document is a single string of text characters.  
 
