@@ -27,7 +27,7 @@ ms.date: 05/21/2020
 
 ## Request count collected by Application Insights SDK does not match the IIS log count for my application
 
-Internet Information Services (IIS) logs counts of all request reaching IIS and inherently could differ from the total request reaching an application. Due to this we do not provide a guarantee between request count collected by the SDKs matching the total IIS log count. 
+Internet Information Services (IIS) logs counts of all request reaching IIS and inherently could differ from the total request reaching an application. Due to this it is not guaranteed that the request count collected by the SDKs will match the total IIS log count. 
 
 ## No data from my server
 *I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
