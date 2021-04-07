@@ -69,11 +69,11 @@ The following sections specify the parameters required for all authentication ty
 
 * **Application ID**: This is used to identify this application when using the Application Insights API. To get the Application ID, do the following:
 
-   1. From your Application Insights resource, click API Access.
+   1.  From your Application Insights resource, click API Access.
    
       ![portal-app-insights-appid](media/portal-app-insights-appid.png)
 
-   2. Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
+   2.  Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
 
 * **API Key**: API keys are used by applications outside the browser to access this resource. To get the API key, do the following:
 
