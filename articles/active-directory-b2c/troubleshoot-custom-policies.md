@@ -35,7 +35,7 @@ You can find the correlation ID in the Azure AD B2C sign-up or sign-in page. In 
 
 ![Screenshot of Azure AD B2C sign-in page view source](./media/troubleshoot-custom-policies/find-azure-ad-b2c-correlation-id.png)
 
-Copy the correlation ID, and then continue the sign-in flow. Use the correlation ID to observe the sign-in behavior. For more information, see [TBD](TBD).
+Copy the correlation ID, and then continue the sign-in flow. Use the correlation ID to observe the sign-in behavior. For more information, see [Troubleshooting with Application Insights](#troubleshooting-with-application-insights).
 
 ### Echo the Azure AD B2C correlation ID
 
@@ -135,14 +135,14 @@ The most common error in setting up custom policies is improperly formatted XML.
 
 We recommend using [Visual Studio Code](https://code.visualstudio.com/). Then install an XML extension, such as [XML Language Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml). The XML extension let's you validate the XML schema before you upload your XML file, using custom policy [XSD](https://raw.githubusercontent.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/master/TrustFrameworkPolicy_0.3.0.0.xsd) schema definition.
 
-You can use the XML file association strategy to bind the XML file the XSD by adding the following settings into your vscode `settings.json` file. To do so:
+You can use the XML file association strategy to bind the XML file the XSD by adding the following settings into your VS Code `settings.json` file. To do so:
 
-1. From VS Code click on the **Settings**. For more information, see [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings).
+1. From VS Code, click on the **Settings**. For more information, see [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings).
 1. Search for **fileAssociations**, then under the **Extension**, select the **XML**.
 1. Select **Edit in settings.json**.
 
     ![Screenshot of VS Code XML schema validation](./media/troubleshoot-custom-policies/xml-validation.png)
-1. In the settings.json add the following JSON code:
+1. In the settings.json, add the following JSON code:
 
     ```json
     "xml.fileAssociations": [
@@ -172,7 +172,7 @@ This section contains the common validation errors and probable solutions.
 
 ### Schema validation error found ...has invalid child element '{name}'
 
-Your policy contains an invalid XML element, or the XML element is valid, but appear to be in the wrong order. To fix this error check out the [Troubleshoot policy validity](#troubleshoot-policy-validity) section.
+Your policy contains an invalid XML element, or the XML element is valid, but appear to be in the wrong order. To fix this type of error, check out the [Troubleshoot policy validity](#troubleshoot-policy-validity) section.
 
 ### There is a duplicate key sequence '{number}' 
 
@@ -369,7 +369,7 @@ The cause for this error is similar to the one for the claim error. Check the pr
 
 ### User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant...
 
-You login with an account from a tenant that is differ than the policy you try to upload. For example, you sign-in with admin@contoso.onmicrosoft.com, while your policy `TenantId` is set to `fabrikam.onmicrosoft.com`.
+You login with an account from a tenant that is different than the policy you try to upload. For example, you sign-in with admin@contoso.onmicrosoft.com, while your policy `TenantId` is set to `fabrikam.onmicrosoft.com`.
 
 ```xml
 <TrustFrameworkPolicy ...
@@ -389,7 +389,7 @@ You login with an account from a tenant that is differ than the policy you try t
 
 ### Claim type "{name}" is the output claim of the relying party's technical profile, but it is not an output claim in any of the steps of user journey...
 
-In a relying party policy, you added an output claim, but the output claim is not an output claim in any of the steps of user journey. Azure AD B2C can't to read the claim value from the claims bag.
+In a relying party policy, you added an output claim, but the output claim is not an output claim in any of the steps of user journey. Azure AD B2C can't read the claim value from the claims bag.
 
 In the following example, the *schoolId* claim is an output claim of the relying party's technical profile, but it is not an output claim in any of the steps of *SignUpOrSignIn* user journey.
 
