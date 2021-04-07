@@ -26,8 +26,7 @@ The content authors can use documents/URLs to extract QnAs or add custom QnAs to
 
 Let's say the marketing team at Microsoft wants to build a FAQ bot that answers common user queries on all Surface Products. For the sake of simplicity here, we will be using a document each on [Surface Pen](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) and [Surface Earbuds](https://support.microsoft.com/surface/use-surface-earbuds-aea108c3-9344-0f11-e5f5-6fc9f57b21f9) to create the Knowledge Base. You add both of these URLs in the STEP 3 of the Create KB page and click on 'Create your KB'. A new knowledgebase is created after extracting QnA Pairs from these sources. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
 
-In this Knowledgebase, we have QnAs on two products and we would like to distinguish them accordingly. In order to do that, we can update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and values can be **surface_pen** or **surface_earbuds** as per the QnA.
-Now, in order to to restrict the system to search for the response across a particluar product you would need to pass that product as a strict filter in the generate Answer API. 
+In this Knowledgebase, we have QnAs on two products and we would like to distinguish them accordingly. In order to do that, we can update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and values can be **surface_pen** or **surface_earbuds** as per the QnA. You can extend the example above to extract data on multiple products and add a different value for each product. At the same time, a single QnA can be assigned multiple metadata key-value pairs to group data in multiple ways. Now, in order to to restrict the system to search for the response across a particluar product you would need to pass that product as a strict filter in the generate Answer API. 
 
 The GenerateAnswer URL has the following format:
 
@@ -54,8 +53,6 @@ In the JSON body below, we have passed *surface_pen* as value for the metadata *
     "userId": "sd53lsY="
 }
 ```
-
-You can extend the example above to extract data on multiple products and add a different value for each product. At the same time, a single QnA can be assigned multiple metadata key-value pairs to group data in multiple ways. For instance, in the above example, we can add a couple QnAs on 'Teams' product 
 
 You can obtain metadata to be passed based on user input in the following ways: 
 
