@@ -15,9 +15,9 @@ ms.custom: devx-track-java
 This feature enables monitoring Azure Spring Cloud apps with the **New Relic** Java in-process agent.
 
 Using the **New Relic** Java in-process agent, y    ou can:
-* Consume the `New Relic` java in-process agent.
-* Configure the `New Relic` java in-process agent using **Environment Variables**.
-* Check all monitoring data from `New Relic` dashboard.
+* Consume the **New Relic** java in-process agent.
+* Configure the **New Relic** java in-process agent using **Environment Variables**.
+* Check all monitoring data from **New Relic** dashboard.
 
 ## Prerequisites
 
@@ -57,6 +57,7 @@ Use the following procedure to access the in-process agent:
 You can also leverage this agent from portal with the following procedure. 
 
 1. Find the app from **Settings**/**Apps** in the navigation pane.
+
    ![Find app to monitor](media/new-relic-monitoring/find-app.png)
 
 2. Click the applications to jump to the **Overview** page.
@@ -85,15 +86,15 @@ You can also leverage this agent from portal with the following procedure.
 
 ## New Relic Java Agent Logging
 
-By default, Azure Spring Cloud will print the logs of `New Relic` java agent to `STDOUT`. It will mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Cloud will print the logs of **New Relic** java agent to `STDOUT`. It will mixed with the application logs. You can find the explicit agent version from the application logs.
 
 ## New Relic Java Agent Update/Upgrade
 
-The `New Relic` java agent will update/upgrade regularly with JDK, there agent update/upgrade may impact below scenarios.
+The **New Relic** java agent will update/upgrade regularly with JDK, there agent update/upgrade may impact below scenarios.
 
-* Your existed applications with `New Relic` java agent before update/upgrade will be unchanged.
-* Your new created applications after update/upgrade will take the new version of `New Relic` java agent.
-* Your existed applications need to restart or redeploy to take the new version of `New Relic` java agent.
+* Your existed applications with **New Relic** java agent before update/upgrade will be unchanged.
+* Your new created applications after update/upgrade will take the new version of **New Relic** java agent.
+* Your existed applications need to restart or redeploy to take the new version of **New Relic** java agent.
 
 ## Vnet Injection Instance Outbound Traffic Configuration
 
