@@ -14,6 +14,8 @@ ms.service: azure-communication-services
 
 # Teams interoperability
 
+[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
+
 > [!IMPORTANT]
 > To enable/disable [Teams tenant interoperability](../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
@@ -37,7 +39,7 @@ When a Communication Services user joins the Teams meeting, the display name pro
 
 Communication Services Teams Interop is currently in private preview. When generally available, Communication Services users will be treated like "External access users". Learn more about external access in [Call, chat, and collaborate with people outside your organization in Microsoft Teams](/microsoftteams/communicate-with-users-from-other-organizations).
 
-Communication Services users can join scheduled Teams meetings as long as anonymous joins are enabled in the [meeting settings](/microsoftteams/meeting-settings-in-teams).
+Communication Services users can join scheduled Teams meetings as long as anonymous joins are enabled in the [meeting settings](/microsoftteams/meeting-settings-in-teams). If the meeting is scheduled for a channel, Communication Services users will not be able to join the chat or send and receive messages.
 
 ## Teams in Government Clouds (GCC)
 Azure Communication Services interoperability isn't compatible with Teams deployments using [Microsoft 365 government clouds (GCC)](/MicrosoftTeams/plan-for-government-gcc) at this time. 

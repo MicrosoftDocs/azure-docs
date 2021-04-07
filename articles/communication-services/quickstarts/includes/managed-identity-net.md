@@ -4,7 +4,7 @@
 
 ```console
 dotnet add package Azure.Communication.Identity  --version 1.0.0
-dotnet add package Azure.Communication.Sms  --version 1.0.0
+dotnet add package Azure.Communication.Sms --version 1.0.0
 dotnet add package Azure.Identity
 ```
 
@@ -69,4 +69,3 @@ The following code example shows how to create an SMS service client object with
           return sendResult;
       }
 ```
-

@@ -319,7 +319,7 @@ az lock delete --ids $lockid
 
 ### REST API
 
-You can lock deployed resources with the [REST API for management locks](/rest/api/resources/managementlocks/managementlocks). The REST API enables you to create and delete locks, and retrieve information about existing locks.
+You can lock deployed resources with the [REST API for management locks](/rest/api/resources/managementlocks). The REST API enables you to create and delete locks, and retrieve information about existing locks.
 
 To create a lock, run:
 

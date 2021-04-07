@@ -221,6 +221,8 @@
         href: database/monitoring-with-dmvs.md
       - name: Understand and resolve blocking
         href: database/understand-resolve-blocking.md 
+      - name: Configure the max degree of parallelism (MAXDOP)
+        href: database/configure-max-degree-of-parallelism.md
       - name: Log diagnostic telemetry
         href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
       - name: In-memory OLTP
@@ -537,7 +539,8 @@
         href: database/elastic-pool-resource-management.md        
       - name: Hyperscale performance diagnostics
         href: database/hyperscale-performance-diagnostics.md
-
+      - name: Block T-SQL CRUD
+        href: database/block-crud-tsql.md
     - name: Secure 
       items: 
       - name: Audit to storage account behind VNet or firewall

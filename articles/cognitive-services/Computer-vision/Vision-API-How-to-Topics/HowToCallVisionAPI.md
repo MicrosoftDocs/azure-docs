@@ -1,7 +1,7 @@
 ---
-title: Call the Computer Vision API
+title: Call the Image Analysis API
 titleSuffix: Azure Cognitive Services
-description: Learn how to call the Computer Vision API by using the REST API in Azure Cognitive Services.
+description: Learn how to call the Image Analysis API by using the REST API in Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -14,9 +14,9 @@ ms.author: kefre
 ms.custom: "seodec18, devx-track-csharp"
 ---
 
-# Call the Computer Vision API
+# Call the Image Analysis API
 
-This article demonstrates how to call the Computer Vision API by using the REST API. The samples are written both in C# by using the Computer Vision API client library and as HTTP POST or GET calls. The article focuses on:
+This article demonstrates how to call the Image Analysis API by using the REST API. The samples are written both in C# by using the Image Analysis API client library and as HTTP POST or GET calls. The article focuses on:
 
 - Getting tags, a description, and categories
 - Getting domain-specific information, or "celebrities"
@@ -45,11 +45,11 @@ The features offer the following options:
   
 ## Authorize the API call
 
-Every call to the Computer Vision API requires a subscription key. This key must be either passed through a query string parameter or specified in the request header.
+Every call to the Image Analysis API requires a subscription key. This key must be either passed through a query string parameter or specified in the request header.
 
 You can pass the subscription key by doing any of the following:
 
-* Pass it through a query string, as in this Computer Vision API example:
+* Pass it through a query string, as in this example:
 
   ```
   https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
@@ -70,9 +70,9 @@ You can pass the subscription key by doing any of the following:
     }
     ```
 
-## Upload an image to the Computer Vision API service
+## Upload an image to the Image Analysis service
 
-The basic way to perform the Computer Vision API call is by uploading an image directly to return tags, a description, and celebrities. You do this by sending a "POST" request with the binary image in the HTTP body together with the data read from the image. The upload method is the same for all Computer Vision API calls. The only difference is the query parameters that you specify. 
+The basic way to perform the Image Analysis API call is by uploading an image directly to return tags, a description, and celebrities. You do this by sending a "POST" request with the binary image in the HTTP body together with the data read from the image. The upload method is the same for all Image Analysis API calls. The only difference is the query parameters that you specify. 
 
 For a specified image, get tags and a description by using either of the following options:
 
@@ -250,4 +250,4 @@ These errors are identical to those in vision.analyze, with the additional NotSu
 
 ## Next steps
 
-To use the REST API, go to [Computer Vision API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).
+To use the REST API, go to the [Image Analysis API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).

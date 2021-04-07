@@ -235,11 +235,11 @@ namespace ConsoleApp1
 - [Tutorial: Analyze videos with Media Services v3 - .NET](analyze-videos-tutorial.md)
 - [Create a job input from a local file - .NET](job-input-from-local-file-how-to.md)
 - [Create a job input from an HTTPS URL - .NET](job-input-from-http-how-to.md)
-- [Encode with a custom Transform - .NET](customize-encoder-presets-how-to.md)
-- [Use AES-128 dynamic encryption and the key delivery service - .NET](protect-with-aes128.md)
-- [Use DRM dynamic encryption and license delivery service - .NET](protect-with-drm.md)
-- [Get a signing key from the existing policy - .NET](get-content-key-policy-dotnet-howto.md)
-- [Create filters with Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Encode with a custom Transform - .NET](transform-custom-presets-how-to.md)
+- [Use AES-128 dynamic encryption and the key delivery service - .NET](drm-playready-license-template-concept.md)
+- [Use DRM dynamic encryption and license delivery service - .NET](drm-protect-with-drm-tutorial.md)
+- [Get a signing key from the existing policy - .NET](drm-get-content-key-policy-dotnet-how-to.md)
+- [Create filters with Media Services - .NET](filters-dynamic-manifest-dotnet-how-to.md)
 - [Advanced video on-demand examples of Azure Functions v2 with Media Services v3](https://aka.ms/ams3functions)
 
 ## See also
