@@ -74,7 +74,7 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 
 > [!NOTE]
 >
-> You need to grant read secret permission to the Synapse workspace. Please see [provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](articles/key-vault/general/rbac-guide.md)
+> You need to grant read secret permission to the Synapse workspace. Please see [provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](https://docs.microsoft.com/azure/key-vault/general/rbac-guide)
 
 To configure an Azure Key Vault linked service in Synapse Studio to store the workspace key, follow the steps:
 
@@ -196,7 +196,7 @@ For more information, see [Create, view, and manage log alerts using Azure Monit
 
 ## Limitation
 
- - Azure Synapse Analytics workspace with [managed virtual network](articles/synapse-analytics/security/synapse-workspace-managed-vnet.md) enabled is not supported.
+ - Azure Synapse Analytics workspace with [managed virtual network](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-vnet) enabled is not supported.
  - The following regions are not yet supported:
    - East US 2
    - Norway East
