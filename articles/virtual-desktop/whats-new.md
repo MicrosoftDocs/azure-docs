@@ -91,7 +91,7 @@ The new host pool setting, Start VM on Connect, is now available in public previ
 
 ### Windows Virtual Desktop Specialty certification
 
-We've released a beta version of the AZ-140 exam that will let you prove your expertise in Windows VIrtual Desktop in Azure. To learn more, check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107).
+We've released a beta version of the AZ-140 exam that will let you prove your expertise in Windows Virtual Desktop in Azure. To learn more, check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107).
 
 ## February 2021
 
