@@ -94,10 +94,10 @@ Pipelines may use the Web activity to call ADF REST API methods if and only if t
 
 **Resolution**
 
-Before using the Azure Data Factory’s REST API in a Web activity’s Settings tab, security must be configured. Azure Data Factory pipelines may use the Web activity to call ADF REST API methods if and only if the Azure Data Factory managed identity is assigned the *Contributor*  role. Begin by opening the Azure portal and clicking the **All resources** link on the left menu. Select **Azure Data Factory**  to add ADF managed identity with Contributor role by clicking the **Add** button in the *Add a role assignment** box.
+Before using the Azure Data Factory’s REST API in a Web activity’s Settings tab, security must be configured. Azure Data Factory pipelines may use the Web activity to call ADF REST API methods if and only if the Azure Data Factory managed identity is assigned the *Contributor*  role. Begin by opening the Azure portal and clicking the **All resources** link on the left menu. Select **Azure Data Factory**  to add ADF managed identity with Contributor role by clicking the **Add** button in the *Add a role assignment* box.
 
 
-### How to perform activity-level errors and failures in pipelines
+### How to check and branch on activity-level success and failure in pipelines
 
 **Cause**
 
