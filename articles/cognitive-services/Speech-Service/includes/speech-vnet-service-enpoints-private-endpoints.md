@@ -19,7 +19,7 @@ These are a few things that you should consider when making a choice:
 - VNet service points are often used when you want to restrict the access for your Speech resource based on the VNet(s) where the traffic originates from.
 - In case of Cognitive Services, enabling the VNet service endpoint forces the traffic for **all** Cognitive Services resources to go through the private backbone network. That requires explicit network access configuration (see details [here](../speech-service-vnet-service-endpoint.md#configure-vnets-and-the-speech-resource-networking-settings)). Private endpoints do not have this limitation and provide more flexibility for your network configuration - you can access one resource through the private backbone and another through the public internet using the same subnet of the same VNet.
 - Private endpoints incur [extra costs](https://azure.microsoft.com/pricing/details/private-link). VNet service endpoints are free.
-- Private endpoints require [extra DNS configuration](../speech-services-private-link.md#enable-private-endpoints).
+- Private endpoints require [extra DNS configuration](../speech-services-private-link.md#turn-on-private-endpoints).
 - One Speech resource may simultaneously work with both private endpoints and VNet service endpoints.
 
 We recommend that you try both endpoint types before deciding on your production design. 

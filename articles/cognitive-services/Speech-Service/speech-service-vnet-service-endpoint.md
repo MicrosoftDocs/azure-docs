@@ -76,7 +76,7 @@ A Speech resource with a custom domain enabled uses a different way to interact 
 
 ### Use a Speech resource with a custom domain name and allowed VNet(s) configured
 
-This is the case when **Selected Networks and Private Endpoints** option is selected in networking settings of the Speech resource **AND** at least one VNet is allowed. The usage is equivalent to [using a Speech resource with a custom domain name and a private endpoint enabled](speech-services-private-link.md#use-a-speech-resource-with-a-custom-domain-name-and-a-private-endpoint-enabled).
+This is the case when **Selected Networks and Private Endpoints** option is selected in networking settings of the Speech resource **AND** at least one VNet is allowed. The usage is equivalent to [using a Speech resource with a custom domain name and a private endpoint enabled](speech-services-private-link.md#adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint).
 
 
 ### Use a Speech resource with a custom domain name and without allowed VNet(s)
@@ -86,7 +86,7 @@ This is the case when private endpoints are **not** enabled, and any of the foll
 - **Selected Networks and Private Endpoints** option is selected in networking settings of the Speech resource, but **no** allowed VNet(s) are configured
 - **All networks** option is selected in networking settings of the Speech resource
 
-The usage is equivalent to [using a Speech resource with a custom domain name and without private endpoints](speech-services-private-link.md#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+The usage is equivalent to [using a Speech resource with a custom domain name and without private endpoints](speech-services-private-link.md#adjust-an-application-to-use-a-speech-resource-without-private-endpoints).
 
 
 [!INCLUDE [](includes/speech-vnet-service-enpoints-private-endpoints-simultaneously.md)]
