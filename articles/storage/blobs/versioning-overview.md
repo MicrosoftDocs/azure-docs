@@ -1,7 +1,7 @@
 ---
 title: Blob versioning
 titleSuffix: Azure Storage
-description: Blob storage versioning automatically maintains prior versions of an object and identifies them with timestamps. You can restore  prior versions of a blob to recover your data if it is erroneously modified or deleted.
+description: Blob storage versioning automatically maintains previous versions of an object and identifies them with timestamps. You can restore a previous version of a blob to recover your data if it is erroneously modified or deleted.
 services: storage
 author: tamram
 
@@ -17,16 +17,17 @@ ms.custom: devx-track-azurepowershell
 
 You can enable Blob storage versioning to automatically maintain previous versions of an object.  When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
 
-Blob versioning is enabled on the storage account and applies to all blobs in the storage account. After you enable blob versioning for a storage account, Azure Storage automatically maintains versions for every blob in the storage account.
-
-Microsoft recommends using blob versioning to maintain previous versions of a blob for superior data protection. When possible, use blob versioning instead of blob snapshots to maintain previous versions. Blob snapshots provide similar functionality in that they maintain earlier versions of a blob, but snapshots must be maintained manually by your application.
-
-To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
-
-> [!IMPORTANT]
-> Blob versioning cannot help you to recover from the accidental deletion of a storage account or container. To prevent accidental deletion of the storage account, configure a lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md). To protect containers from accidental deletion, configure container soft delete for the storage account. For more information, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
-
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+
+## Recommended data protection configuration
+
+Blob versioning is part of a comprehensive data protection strategy for blob data. For optimal protection for your blob data, Microsoft recommends enabling all of the following data protection features:
+
+- Container soft delete, to restore a container that has been deleted. To learn how to enable container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md).
+- Blob versioning, to automatically maintain previous versions of a blob. When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
+- Blob soft delete, to restore a blob, snapshot, or version that has been deleted. To learn how to enable blob soft delete, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md).
+
+To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 
 ## How blob versioning works
 
@@ -47,6 +48,9 @@ Blob versions are immutable. You cannot modify the content or metadata of an exi
 Blob versioning is available for general-purpose v2, block blob, and Blob storage accounts. Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not currently supported.
 
 Version 2019-10-10 and higher of the Azure Storage REST API supports blob versioning.
+
+> [!IMPORTANT]
+> Blob versioning cannot help you to recover from the accidental deletion of a storage account or container. To prevent accidental deletion of the storage account, configure a lock on the storage account resource. For more information on locking a storage account, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md).
 
 ### Version ID
 
