@@ -12,7 +12,7 @@ ms.date: 04/07/2021
 
 # Azure Cognitive Search performance benchmarks
 
-Azure Cognitive Search's performance depends on a [variety of factors](https://docs.microsoft.com/azure/search/search-performance-tips) including the size of your search service and the types of queries you're sending. To help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the level of performance you can expect.
+Azure Cognitive Search's performance depends on a [variety of factors](search-performance-tips.md) including the size of your search service and the types of queries you're sending. To help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the level of performance you can expect.
 
 To cover a range of different use cases, we ran benchmarks for two main scenarios:
 
@@ -38,7 +38,7 @@ The graph below gives a visual example of what the test's query load looks like:
 Each scenario used at least 10,000 unique queries to avoid tests being overly skewed by caching.
 
 > [!IMPORTANT]
-> These tests only include query workloads. If you expect to have a high volumne of indexing operations, be sure to factor that into your estimation and performance testing. Sample code for simulating indexing can be found in this [tutorial](tutorial-optimize-indexing-push-api).
+> These tests only include query workloads. If you expect to have a high volumne of indexing operations, be sure to factor that into your estimation and performance testing. Sample code for simulating indexing can be found in this [tutorial](tutorial-optimize-indexing-push-api.md).
 
 ### Definitions
 
