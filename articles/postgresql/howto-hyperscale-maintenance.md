@@ -5,7 +5,7 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 04/07/2021
 ---
 
 # Manage scheduled maintenance settings for Azure Database for PostgreSQL – Hyperscale (Citus)
