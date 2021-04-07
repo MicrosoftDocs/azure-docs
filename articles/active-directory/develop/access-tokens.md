@@ -175,7 +175,7 @@ Microsoft identities can authenticate in different ways, which may be relevant t
 
 ## Access token lifetime
 
-By default, an access token is valid for 1 hour - after 1 hour, the client must use the refresh token to (usually silently) acquire a new refresh token and access token.
+The default lifetime of an access token varies, depending on the client application requesting the token.  When the access token expires, the client must use the refresh token to (usually silently) acquire a new refresh token and access token.
 
 You can adjust the lifetime of an access token to control how often the client application expires the application session, and how often it requires the user to re-authenticate (either silently or interactively). For more information, read [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
 
