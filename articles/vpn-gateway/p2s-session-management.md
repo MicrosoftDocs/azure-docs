@@ -30,7 +30,7 @@ To view and disconnect a session in the portal:
 1. You can view all current sessions in the windowpane.
 1. Select **"…"** for the session you want to disconnect, then select **Disconnect**.
 
-Currently the portal doesn't support this feature for VpnGw4 and VpnGw5 SKU. If you have such a Gateway, please use Powershell method below.
+Currently, you can't use this feature in the portal for VpnGw4 and VpnGw5 SKUs. If you have one of these gateways, use the PowerShell method that's described in the next section.
 
 ## PowerShell
 
