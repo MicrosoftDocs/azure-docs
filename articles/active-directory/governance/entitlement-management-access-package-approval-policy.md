@@ -180,7 +180,10 @@ In order to make sure users are getting access to the right access packages, you
 1. If selecting multiple choice, click on the **Edit and localize** button to configure the answer options.
     1. After selecting Edit and localize the **View/edit question** pane will open.
     1. Type in the response options you wish to give the requestor when answering the question in the **Answer values** boxes.
-    1. Type in as many responses as you need then click **Save**.
+    1. Type in as many responses as you need.
+    1. If you would like to add your own localization for the multiple choice options, select the **Optional language code** for the language in which you want to localize a specific option.
+    1. In the language you configured, type the option in the Localized text box.
+    1. Once you have added all of the localizations needed for each multiple choice option, click **Save**.
     
     ![Access package - Policy- Enter multiple choice options](./media/entitlement-management-access-package-approval-policy/answer-multiple-choice.png)
   
