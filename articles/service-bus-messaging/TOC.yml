@@ -317,6 +317,8 @@
     href: https://github.com/Azure/azure-sdk-for-ruby
   - name: Go
     href: https://github.com/Azure/azure-service-bus-go
+  - name: Azure CLI
+    href: /cli/azure/servicebus
   - name: Azure PowerShell
     href: /powershell/module/az.servicebus
   - name: REST

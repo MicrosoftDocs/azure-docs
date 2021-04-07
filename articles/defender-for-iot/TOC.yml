@@ -6,10 +6,10 @@
   items:
   - name: What's new?
     href: release-notes.md
-  - name: Agentless solution architecture
+  - name: What is Agentless solution architecture
     displayName: deployment, where to deploy
     href: architecture.md
-  - name: Agent-based solution architecture 
+  - name: What is Agent-based solution architecture 
     href: architecture-agent-based.md
 - name: Quickstarts
   expanded: true
@@ -121,20 +121,31 @@
           href: how-to-install-software.md
     - name: Prepare your sensors
       items:
-      - name: Onboard sensors
-        displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions
+      - name: Manage sensors
+        displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions, offboarding
         href: how-to-manage-sensors-on-the-cloud.md
       - name: Activate and set up your sensor
         displayName: deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
         href: how-to-activate-and-set-up-your-sensor.md
     - name: Prepare your on-premises management console
       items:
+      - name: Manage subscriptions
+        displayName: onboard, offboard, subscription, billing, pricing, payment
+        href: how-to-manage-subscriptions.md 
       - name: Activate and set up your on-premises management console
         displayName: deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
       - name: Set up high availability
         displayName: primary, secondary, failover, failback fail, recovery 
         href: how-to-set-up-high-availability.md
+    - name: Prepare your sensors
+      items:
+      - name: Onboard sensors
+        displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions
+        href: how-to-manage-sensors-on-the-cloud.md
+      - name: Activate and set up your sensor
+        displayName: deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
+        href: how-to-activate-and-set-up-your-sensor.md
     - name: Manage users and user access
       items:
       - name: Create and manage users

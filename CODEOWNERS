@@ -9,7 +9,19 @@ includes/policy/ @DCtheGeek
 
 # Azure Monitor
 
-articles/azure-monitor/ @bwren
+articles/azure-monitor/* @bwren
+articles/azure-monitor/agents @bwren
+articles/azure-monitor/alerts @rboucher
+articles/azure-monitor/app @bwren @lgayhardt
+articles/azure-monitor/autoscale @rboucher
+articles/azure-monitor/containers @bwren
+articles/azure-monitor/essentials @bwren @rboucher
+articles/azure-monitor/insights @bwren @rboucher @lgayhardt
+articles/azure-monitor/logs @bwren
+articles/azure-monitor/visualize @bwren @lgayhardt
+articles/azure-monitor/vm @bwren
+articles/advisor @rboucher
+articles/service-health @rboucher
 
 # Azure Active Directory
 
@@ -41,6 +53,10 @@ articles/governance/ @DCtheGeek
 # Security baselines
 articles/**/*security-baseline.md @msmbaldwin @mgblythe
 articles/security/benchmarks/ @msmbaldwin @mgblythe
+
+# Azure Security Center
+articles/security-center/ @memildin
+includes/*security-controls*.md @memildin
 
 # DDOS Protection
 
