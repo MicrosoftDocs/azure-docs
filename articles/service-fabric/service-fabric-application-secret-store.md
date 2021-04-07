@@ -55,6 +55,7 @@ To enable Central Secret Service, expand your cluster configuration as described
 Central Secret Service provides two types, the first is the secret resource type, and the second is the secret version type. The secret resource type describes the metadata of a lineage of secrets, and includes their kind, their content type, and a description. The secret version type describes an instance of a particular secret, and includes the value.
 
 Some notes on the model:
+
 - Every secret version is a child of a particular secret resource. 
 - Each secret resource may have zero or more secret versions. 
 - For a secret version to be created, its parent secret resource must already exist. 
