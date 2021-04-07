@@ -24,13 +24,17 @@ You can design your bot to handle queries across multiple domains with QnA Maker
 
 The content authors can use documents/URLs to extract QnAs or add custom QnAs to the knowledgebase. In order to group these QnAs into specific domains or categories, you can add [metadata](../How-To/query-knowledge-base-with-metadata.md) to the QnA pairs.
 
-Let's say the marketing team at Microsoft wants to build a FAQ bot that answers common user queries on all Surface Products. For the sake of simplicity here, we will be using a document each on [Surface Pen](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) and [Surface Earbuds](https://support.microsoft.com/surface/use-surface-earbuds-aea108c3-9344-0f11-e5f5-6fc9f57b21f9) to create the Knowledge Base. You add both of these URLs in the STEP 3 of the Create KB page and click on 'Create your KB'. A new knowledgebase is created after extracting QnA Pairs from these sources. 
+Let's say the marketing team at Microsoft wants to build a FAQ bot that answers common user queries on all Surface Products. For the sake of simplicity here, we will be using a document each on [Surface Pen](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) and [Surface Earbuds](https://support.microsoft.com/surface/use-surface-earbuds-aea108c3-9344-0f11-e5f5-6fc9f57b21f9) to create the Knowledge Base. 
 
-After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
+1. You add both of these URLs in the STEP 3 of the Create KB page and click on 'Create your KB'. A new knowledgebase is created after extracting QnA Pairs from these sources. 
 
-In this Knowledgebase, we have QnAs on two products and we would like to distinguish them accordingly. In order to do that, we can update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and values can be **surface_pen** or **surface_earbuds** as per the QnA. 
+2. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
 
-You can extend the example above to extract data on multiple products and add a different value for each product. At the same time, a single QnA can be assigned multiple metadata key-value pairs to group data in multiple ways. Now, in order to to restrict the system to search for the response across a particluar product you would need to pass that product as a strict filter in the generate Answer API. 
+3. In this Knowledgebase, we have QnAs on two products and we would like to distinguish them accordingly. In order to do that, we can update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and values can be **surface_pen** or **surface_earbuds** as per the QnA. 
+
+You can extend the example above to extract data on multiple products and add a different value for each product. At the same time, a single QnA can be assigned multiple metadata key-value pairs to group data in multiple ways. 
+
+4. Now, in order to to restrict the system to search for the response across a particluar product you would need to pass that product as a strict filter in the generate Answer API. 
 
 > [!NOTE]
 You can find how to use the GenerateAnswer API [here](../How-To/metadata-generateanswer-usage.md). Remember to set the HTTP header property of Authorization with a value of the string EndpointKey with a trailing space then the endpoint key found on the Settings page.
