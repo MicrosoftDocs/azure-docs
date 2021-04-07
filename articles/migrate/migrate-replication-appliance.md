@@ -105,7 +105,14 @@ https:\//management.usgovcloudapi.net | Used for replication management operatio
 *.services.visualstudio.com | Used for telemetry purposes (It is optional)
 time.nist.gov | Used to check time synchronization between system and global time.
 https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Appliance setup with OVA needs access to these URLs. They are used for access control and identity management by Azure Active Directory.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.  
+
+>[!Note]
+>
+> If you Migrate project has private endpoint connectivity, you will need access to following URLs over and above private link access:   
+> - *.blob.core.windows.com - To access storage account that stores replicated data. This is optional and is not required if the storage account has a private endpoint attached. 
+> - https:\//management.azure.com for replication management operations and coordination. 
+>- https:\//login.microsoftonline.com <br/>https:\//login.windows.net <br/> https:\//www.live.com _and_ <br/> https:\//www.microsoft.com for access control and identity management by Azure Active Directory
 
 ## Port access
 
