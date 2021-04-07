@@ -19,7 +19,7 @@ sections:
       - question: Where is Azure VMware Solution available today?
         answer: The service is continuously being added to new regions. For details, see the [latest service availability information](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware). 
           
-      - question: Can workloads running in an Azure VMware Solution instance consume or integrate with Azure services?
+      - question: Can workloads running in an Azure VMware Solution instance integrate with Azure services?
         answer: All Azure services will be available to Azure VMware Solution customers. Performance and availability limitations for specific services will need to be addressed on a case-by-case basis.
 
       - question: What guest operating systems are compatible with Azure VMware Solution?
