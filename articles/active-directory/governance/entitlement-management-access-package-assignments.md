@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 04/12/2021
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -74,13 +74,22 @@ In some cases, you might want to directly assign specific users to an access pac
 
     ![Assignments - Add user to access package](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1. Click **Add users** to select the users you want to assign this access package to.
+1.	In the **Select policy** list, select a policy that the users' future requests and lifecycle will be governed and tracked by. If you want the selected users to have different policy settings, you can click **Create new policy** to add a new policy.
 
-1. In the **Select policy** list, select a policy that the users' future requests and lifecycle will be governed and tracked by. If you want the selected users to have different policy settings, you can click **Create new policy** to add a new policy.
+1.	Once you select a policy, you’ll be able to Add users to select the users you want to assign this access package to, under the chosen policy.
+
+    > [!NOTE]
+    > If you select a policy with questions, you can only assign one user at a time.
 
 1. Set the date and time you want the selected users' assignment to start and end. If an end date is not provided, the policy's lifecycle settings will be used.
 
-1. Optionally provide a justification for your direct assignment for record keeping.
+1.	Optionally provide a justification for your direct assignment for record keeping.
+
+1.	If the selected policy includes additional requestor information, click **View questions** to answer them on behalf of the users, then click **Save**.  
+
+     ![Assignments - click view questions](./media/entitlement-management-access-package-assignments/assignments-view-questions.png)
+
+    ![Assignments - questions pane](./media/entitlement-management-access-package-assignments/assignments-questions-pane.png)
 
 1. Click **Add** to directly assign the selected users to the access package.
 
