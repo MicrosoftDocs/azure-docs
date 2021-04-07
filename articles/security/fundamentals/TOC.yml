@@ -5,7 +5,7 @@
   items:
   - name: Introduction to Azure security
     href: overview.md
-  - name: End to end security
+  - name: End-to-end security
     href: end-to-end.md
   - name: Shared responsibility in the cloud
     href: shared-responsibility.md
