@@ -296,7 +296,7 @@ In the messages, notice the following details:
 * The eventTime value is the time when the event occurred.
 * The body section contains data about the analytics event. In this case, the event is an inference event, so the body contains inferences data.
 * The inferences section indicates that the type is entity. This section includes additional data about the entity.
-* The timestamp value indicates the time when the event occurred.
+* The timestamp value indicates the time when the when the event was received.
 
 ## Clean up resources
 
