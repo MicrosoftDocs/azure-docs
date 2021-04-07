@@ -95,7 +95,7 @@ Select any annotation marker to open details about the release, including reques
 You can use the CreateReleaseAnnotation PowerShell script to create annotations from any process you like, without using Azure DevOps.
 
 > [!IMPORTANT]
-> If you are using PowerShell 7.1 add `-SkipHttpErrorCheck` at the end of line 26. For example, `$request = Invoke-WebRequest -Uri $fwLink -MaximumRedirection 0 -UseBasicParsing -ErrorAction Ignore -SkipHttpErrorCheck`.
+> If you are using PowerShell 7.1, add `-SkipHttpErrorCheck` at the end of line 26. For example: `$request = Invoke-WebRequest -Uri $fwLink -MaximumRedirection 0 -UseBasicParsing -ErrorAction Ignore -SkipHttpErrorCheck`.
 
 1. Make a local copy of CreateReleaseAnnotation.ps1:
 
@@ -260,4 +260,3 @@ You can modify the script, for example to create annotations for the past.
 
 * [Create work items](./diagnostic-search.md#create-work-item)
 * [Automation with PowerShell](./powershell.md)
-
