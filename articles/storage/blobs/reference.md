@@ -1,9 +1,9 @@
 ---
 title: Azure Blob Storage reference
 description: Find Azure Blob Storage API reference, readme files, and client library packages.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: blobs

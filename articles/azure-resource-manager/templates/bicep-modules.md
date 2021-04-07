@@ -2,12 +2,14 @@
 title: Bicep modules
 description: Describes how to define and consume a module, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 03/30/2021
 ---
 
 # Use Bicep modules (Preview)
 
-Bicep enables you to break down a complex solution into modules. A Bicep module is a set of one or more resources to be deployed together. Modules abstract away complex details of the raw resource declaration, which can increase readability. You can reuse these modules, and share them with other people. Combined with [template specs](./template-specs.md), it creates a way for modularity and code reuse. For a tutorial, see [Tutorial: Add Bicep modules](./bicep-tutorial-add-modules.md).
+Bicep enables you to break down a complex solution into modules. A Bicep module is a set of one or more resources to be deployed together. Modules abstract away complex details of the raw resource declaration, which can increase readability. You can reuse these modules, and share them with other people. Combined with [template specs](./template-specs.md), it creates a way for modularity and code reuse. Bicep modules are transpiled into a single ARM template with [nested templates](./linked-templates.md#nested-template) for deployment. In Bicep, [_dependsOn_](./template-syntax.md#resources) gets handled automatically.
+
+For a tutorial, see [Tutorial: Add Bicep modules](./bicep-tutorial-add-modules.md).
 
 ## Define modules
 

@@ -22,7 +22,7 @@ ms.custom: devx-track-csharp
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Version 3](../latest/offline-fairplay-for-ios.md)
+> * [Version 3](../latest/drm-offline-fairplay-for-ios-concept.md)
 > * [Version 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]

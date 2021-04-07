@@ -55,7 +55,7 @@ Open [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorial
 
 The sample performs the following actions:
 
-1. Creates a **Transform** with a [Content Aware Encoding preset](./content-aware-encoding.md). It first checks if the specified Transform exists.
+1. Creates a **Transform** with a [Content Aware Encoding preset](./encode-content-aware-concept.md). It first checks if the specified Transform exists.
 1. Creates an output **Asset** that is used by the encoding **Job** to contain the output
 1. Optionally uploads a local file using the Storage Blob SDK
 1. Creates the **Job** input that is based on an HTTPS URL or uploaded file

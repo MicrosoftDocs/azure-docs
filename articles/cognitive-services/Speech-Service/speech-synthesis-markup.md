@@ -208,14 +208,9 @@ Currently, speaking style adjustments are supported for these neural voices:
 * `zh-CN-XiaoxuanNeural` (Preview)
 * `zh-CN-XiaoruiNeural` (Preview)
 
-The intensity of speaking style can be further changed to better fit your use case. You can specify a stronger or softer style with `styledegree` to make the speech more expressive or subdued.
+The intensity of speaking style can be further changed to better fit your use case. You can specify a stronger or softer style with `styledegree` to make the speech more expressive or subdued. Currently, speaking style adjustments are supported for Chinese (Mandarin, Simplified) neural voices.
 
-Currently, speaking style adjustments are supported for these neural voices:
-* `zh-CN-XiaoxiaoNeural`
-
-Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice will imitate a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice.
-
-Currently, role-play adjustments are supported for these neural voices:
+Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice will imitate a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name will not be changed. Currently, role-play adjustments are supported for these Chinese (Mandarin, Simplified) neural voices:
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 
@@ -233,15 +228,15 @@ Above changes are applied at the sentence level, and styles and role-plays vary 
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> At the moment, `styledegree` only supports zh-CN-XiaoxiaoNeural. `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.
+> At the moment, `styledegree` only supports Chinese (Mandarin, Simplified) neural voices. `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.
 
 **Attributes**
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `style` | Specifies the speaking style. Currently, speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then style must be provided. If an invalid value is provided, this element will be ignored. |
-| `styledegree` | Specifies the intensity of speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1 which means the predefined style intensity. The minimum unit is 0.01 which results in a slightly tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional (At the moment, `styledegree` only supports zh-CN-XiaoxiaoNeural.)|
-| `role` | Specifies the speaking role-play. The voice will act as a different age and gender.  | Optional (At the moment, `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.)|
+| `styledegree` | Specifies the intensity of speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1 which means the predefined style intensity. The minimum unit is 0.01 which results in a slightly tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional (At the moment, `styledegree` only supports Chinese (Mandarin, Simplified) neural voices.)|
+| `role` | Specifies the speaking role-play. The voice will act as a different age and gender, but the voice name will not be changed.  | Optional (At the moment, `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.)|
 
 Use this table to determine which speaking styles are supported for each neural voice.
 
@@ -317,17 +312,19 @@ Use this table to determine which speaking styles are supported for each neural 
 |                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
 |                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
 
-Use this table to determine which roles are supported for each neural voice.
+Use this table to check the supported roles and their definitions.
 
-| Voice                   | Role                       | Description                                                 |
-|-------------------------|----------------------------|-------------------------------------------------------------|
-| `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | The voice imitates to a young adult female.                 |
-|                         | `role="OlderAdultMale"`    | The voice imitates to an older adult male.                   |
-|                         | `role="Girl"`              | The voice imitates to a girl.                               |
-|                         | `role="Boy"`               | The voice imitates to a boy.                                |
-| `zh-CN-XiaoxuanNeural`  | `role="YoungAdultFemale"`  | The voice imitates to a young adult female.                 |
-|                         | `role="OlderAdultFemale"`  | The voice imitates to an older adult female.                 |
-|                         | `role="OlderAdultMale"`    | The voice imitates to an older adult male.                   |
+|Role                     |	Description                |
+|-------------------------|----------------------------|
+|`role="Girl"`            |	The voice imitates to a girl. |
+|`role="Boy"`             |	The voice imitates to a boy. |
+|`role="YoungAdultFemale"`|	The voice imitates to a young adult female.|
+|`role="YoungAdultMale"`  |	The voice imitates to a young adult male.|
+|`role="OlderAdultFemale"`|	The voice imitates to an older adult female.|
+|`role="OlderAdultMale"`  |	The voice imitates to an older adult male.|
+|`role="SeniorFemale"`    |	The voice imitates to a senior female.|
+|`role="SeniorMale"`      |	The voice imitates to a senior male.|
+
 
 **Example**
 
@@ -873,7 +870,7 @@ We will not read out the bookmark elements.
 The bookmark element can be used to reference a specific location in the text or tag sequence.
 
 > [!NOTE]
-> `bookmark` element only works for `en-US-AriaNeural` voice in West US 2 (`westus2`) region for now.
+> `bookmark` element only works for `en-US-AriaNeural` voice for now.
 
 **Syntax**
 
