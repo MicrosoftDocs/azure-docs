@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up event routes from Azure Digital Twins to Azure Time Series Insights.
 author: alexkarcher-msft
 ms.author: alkarche # Microsoft employees only
-ms.date: 3/30/2021
+ms.date: 4/7/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -29,6 +29,8 @@ Before you can set up a relationship with Time Series Insights, you'll need to s
 For instructions, see [*How-to: Set up an Azure Digital Twins instance and authentication*](./how-to-set-up-instance-portal.md).
 * A **model and a twin in the Azure Digital Twins instance**.
 You'll need to update twin's information a few times to see that data tracked in Time Series Insights. For instructions, see [*Add a model and twin*](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) section of the *How to: Ingest IoT hub* article.
+
+**Optional prerequisite** 
 * An **Azure function** to access Azure Digital Twins and update twins based on IoT telemetry events. For instructions, follow [*How to: Ingest IoT Hub data*](how-to-ingest-iot-hub-data.md). For best results, complete the whole article, including the final validation step to confirm that the data flow works.
 
 ## Solution architecture
@@ -152,6 +154,9 @@ Make note of the following values as you'll use them later to create a Time Seri
 
 ## Create a function
 
+> [!Note]
+> It is optional to create a function to visualize twin data in the Time Series Insights explorer.
+
 In this section, you'll create an Azure function that will convert twin update events from their original form as JSON Patch documents to JSON objects, containing only updated and added values from your twins.
 
 ### Step 1: Add a new function
@@ -195,7 +200,7 @@ Next, you will set up Time Series Insights instance to receive data from your ti
 
     * **Property name** - $dtId (Your time series ID can be up to three values that you will use to search for your data in Time Series Insights. For this tutorial, you can use **$dtId**. Read more about selecting an ID value in [*Best practices for choosing a Time Series ID*](../time-series-insights/how-to-select-tsid.md)).
     * **Storage account name** - Specify a storage account name.
-    * **Enable Warm store** - Select the radio button *No*.
+    * **Enable Warm store** - Leave this field to *Yes*.
 
 You can leave default values for other properties on this page. Select the **Next : Event Source >** button.
 
@@ -213,7 +218,7 @@ You can leave default values for other properties on this page. Select the **Nex
    * **Event Hub name** - Choose the *time series hub* name that you created earlier in this article.
    * **Event Hub access policy name** - Choose the *time series hub auth rule* that you created earlier in this article.
    * **Event Hub consumer group** - Select *New* and specify a name for your event hub consumer group. Then, select *Add*.
-   * **Property name** - Specify a name for your event source time stamp property.
+   * **Property name** - You can leave this field blank.
     
 Choose the **Review + Create** button to review all the details. Then, select the **Review + Create** button again to create the time series environment.
 
@@ -229,7 +234,8 @@ To begin sending data to Time Series Insights, you'll need to start updating the
     az dt twin update -n <your-azure-digital-twins-instance-name> --twin-id {twin_id} --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
     ```
 
-  * You can download the [*Azure Digital Twins end-to-end samples*](/samples/azure-samples/digital-twins-samples/digital-twins-samples), and run the *DeviceSimulator* project to update the temperature values for the twins in the Azure Digital Twins instance. The instructions are in the [*Configure and run the simulation*](tutorial-end-to-end.md#configure-and-run-the-simulation) section of the *How to: Connect an end-to-end solution* tutorial.
+> [!Note]
+> If you want to update your values using a device simulator, you can download the [*Azure Digital Twins end-to-end samples*](/samples/azure-samples/digital-twins-samples/digital-twins-samples), and run the *DeviceSimulator* project to update the temperature values for the twins in the Azure Digital Twins instance. The instructions are in the [*Configure and run the simulation*](tutorial-end-to-end.md#configure-and-run-the-simulation) section of the *How to: Connect an end-to-end solution* tutorial.
 
 ## Visualize your data in Time Series Insights
 
