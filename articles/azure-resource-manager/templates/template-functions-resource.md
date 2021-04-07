@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 04/01/2021
 ---
 # Resource functions for ARM templates
 
@@ -11,7 +11,6 @@ Resource Manager provides the following functions for getting resource values in
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
 * [pickZones](#pickzones)
-* [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
@@ -533,94 +532,6 @@ You can use the response from pickZones to determine whether to provide null for
 > Loops and copyIndex() are not implemented yet.  See [Loops](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
 
 ---
-
-## providers
-
-`providers(providerNamespace, [resourceType])`
-
-Returns information about a resource provider and its supported resource types. If you don't provide a resource type, the function returns all the supported types for the resource provider.
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| providerNamespace |Yes |string |Namespace of the provider |
-| resourceType |No |string |The type of resource within the specified namespace. |
-
-### Return value
-
-Each supported type is returned in the following format:
-
-```json
-{
-  "resourceType": "{name of resource type}",
-  "locations": [ all supported locations ],
-  "apiVersions": [ all supported API versions ]
-}
-```
-
-Array ordering of the returned values isn't guaranteed.
-
-### Providers example
-
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) shows how to use the provider function:
-
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "providerNamespace": {
-      "type": "string"
-    },
-    "resourceType": {
-      "type": "string"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "providerOutput": {
-      "type": "object",
-      "value": "[providers(parameters('providerNamespace'), parameters('resourceType'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-param providerNamespace string
-param resourceType string
-
-output providerOutput array = providers(providerNamespace, resourceType)
-```
-
----
-
-For the **Microsoft.Web** resource provider and **sites** resource type, the preceding example returns an object in the following format:
-
-```json
-{
-  "resourceType": "sites",
-  "locations": [
-    "South Central US",
-    "North Europe",
-    "West Europe",
-    "Southeast Asia",
-    ...
-  ],
-  "apiVersions": [
-    "2016-08-01",
-    "2016-03-01",
-    "2015-08-01-preview",
-    "2015-08-01",
-    ...
-  ]
-}
-```
 
 ## reference
 

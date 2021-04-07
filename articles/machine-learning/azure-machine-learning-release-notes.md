@@ -24,6 +24,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + Render CSV/TSV. Users will be able to render and TSV/CSV file in a grid format for easier data analysis. 
   + SSO Authentication for Compute Instance. Users can now easily authenticate any new compute instances directly in the Notebook UI, making it easier to authenticate and use Azure SDKs directly in AzureML. 
   + Compute Instance Metrics. Users will be able to view compute metrics like CPU usage and memory via terminal.
+  + File Details. Users can now see file details including the last modified time, and file size by clicking the 3 dots beside a file.
 
 + **Bug fixes and improvements**
   + Improved page load times.

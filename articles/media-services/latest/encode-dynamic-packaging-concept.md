@@ -17,7 +17,7 @@ ms.author: inhenkel
 
 Microsoft Azure Media Services can be used to encode many media source file formats. It delivers them via different streaming protocols, with or without content protection, to reach all major devices (like iOS and Android devices). These clients understand different protocols. For example, iOS requires streams to be delivered in HTTP Live Streaming (HLS) format and Android devices support HLS as well as MPEG DASH.
 
-In Media Services, a [streaming endpoint](streaming-endpoint-concept.md) (origin) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app. It uses one of the common streaming media protocols mentioned in the following section. *Dynamic packaging* is a feature that comes standard on all streaming endpoints.
+In Media Services, a [streaming endpoint](stream-streaming-endpoint-concept.md) (origin) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app. It uses one of the common streaming media protocols mentioned in the following section. *Dynamic packaging* is a feature that comes standard on all streaming endpoints.
 
 ## To prepare your source files for delivery
 
@@ -28,7 +28,7 @@ Azure Media Services dynamic packaging only supports video and audio file in the
 > [!TIP]
 > One way to get the MP4 and streaming configuration files is to [encode your mezzanine file with Media Services](#encode-to-adaptive-bitrate-mp4s). 
 
-To make videos in the encoded asset available to clients for playback, you have to create a [Streaming Locator](streaming-locators-concept.md) and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, MPEG DASH, or Smooth Streaming), you receive the stream in the protocol you've chosen.
+To make videos in the encoded asset available to clients for playback, you have to create a [Streaming Locator](stream-streaming-locators-concept.md) and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, MPEG DASH, or Smooth Streaming), you receive the stream in the protocol you've chosen.
 
 As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
 
@@ -76,14 +76,14 @@ The following steps show a common Media Services streaming workflow where dynami
 1. [Encode](#encode-to-adaptive-bitrate-mp4s) your mezzanine file into an H.264/AAC MP4 adaptive bitrate set.
 
     If you already have encoded files and just want to copy and stream the files, use: [CopyVideo](/rest/api/media/transforms/createorupdate#copyvideo) and [CopyAudio](/rest/api/media/transforms/createorupdate#copyaudio) APIs. A new MP4 file with a streaming manifest (.ism file) will be created as a result.
-1. Publish the output asset that contains the adaptive bitrate MP4 set. You publish by creating a [streaming locator](streaming-locators-concept.md).
+1. Publish the output asset that contains the adaptive bitrate MP4 set. You publish by creating a [streaming locator](stream-streaming-locators-concept.md).
 1. Build URLs that target different formats (HLS, MPEG-DASH, and Smooth Streaming). The *streaming endpoint* would take care of serving the correct manifest and requests for all these different formats.
     
 The following diagram shows the on-demand streaming with dynamic packaging workflow.
 
 ![Diagram of a workflow for on-demand streaming with dynamic packaging](./media/encode-dynamic-packaging-concept/media-services-dynamic-packaging.svg)
 
-The download path is present in the above image just to show you that you can download an MP4 file directly through the *streaming endpoint* (origin) (you specify the downloadable [streaming policy](streaming-policy-concept.md) on the streaming locator).<br/>The dynamic packager is not altering the file. You can optionally use the Azure blob storage APIs to access an MP4 directly for progressive downloading if you wish to bypass the *streaming endpoint* (origin) features. 
+The download path is present in the above image just to show you that you can download an MP4 file directly through the *streaming endpoint* (origin) (you specify the downloadable [streaming policy](stream-streaming-policy-concept.md) on the streaming locator).<br/>The dynamic packager is not altering the file. You can optionally use the Azure blob storage APIs to access an MP4 directly for progressive downloading if you wish to bypass the *streaming endpoint* (origin) features. 
 
 ### Encode to adaptive bitrate MP4s
 
@@ -91,7 +91,7 @@ The following articles show examples of [how to encode a video with Media Servic
 
 * [Encode from an HTTPS URL by using built-in presets](job-input-from-http-how-to.md).
 * [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md).
-* [Build a custom preset to target your specific scenario or device requirements](encode-custom-presets-how-to.md).
+* [Build a custom preset to target your specific scenario or device requirements](transform-custom-presets-how-to.md).
 
 See the list of Standard Encoder [formats and codecs](encode-media-encoder-standard-formats-reference.md).
 
@@ -101,7 +101,7 @@ A live event can be set to either a *pass-through* (an on-premises live encoder 
 
 Here's a common workflow for live streaming with *dynamic packaging*:
 
-1. Create a [live event](live-events-outputs-concept.md).
+1. Create a [live event](live-event-outputs-concept.md).
 1. Get the ingest URL and configure your on-premises encoder to use the URL to send the contribution feed.
 1. Get the preview URL and use it to verify that the input from the encoder is being received.
 1. Create a new asset.
@@ -115,7 +115,7 @@ This diagram shows the workflow for live streaming with *dynamic packaging*:
 
 ![Diagram of a workflow for pass-through encoding with dynamic packaging](./media/live-streaming/pass-through.svg)
 
-For information about live streaming in Media Services v3, see [Live streaming overview](live-streaming-overview.md).
+For information about live streaming in Media Services v3, see [Live streaming overview](stream-live-streaming-concept.md).
 
 ## Video codecs supported by Dynamic Packaging
 
