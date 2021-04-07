@@ -97,7 +97,8 @@ The following sections specify the parameters required for all authentication ty
     ``` Kusto
     let gran = 1d; [TableName] | where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
     ```
-      
+    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+  
 ## <span id="blob">Azure Blob Storage (JSON)</span>
 
 * **Connection String**: There are two Authentication types for Azure Blob Storage(JSON), one is **Basic**, the other is **Managed Identity**.
@@ -163,6 +164,8 @@ The following sections specify the parameters required for all authentication ty
     select [TimestampColumn], [DimensionName], count(*) from [TableName] where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
     ```
 
+    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+
 ## <span id="kusto">Azure Data Explorer (Kusto)</span>
 
 * **Connection String**: There are four Authentication types for Azure Data Explorer (Kusto), they are **Basic**, **Service Principal**, **Service Principal From KeyVault** and **Managed Identity**.
@@ -203,6 +206,8 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<Server>;Initial Catalog=<Database>
         ```
 
+        Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+
 * **Query**: See [Kusto Query Language](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted: `yyyy-MM-ddTHH:mm:ssZ`.
 
     Sample query:
@@ -210,6 +215,8 @@ The following sections specify the parameters required for all authentication ty
     ``` Kusto
     select [TimestampColumn], [DimensionName], count(*) from [TableName] where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
     ```
+
+    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
 
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 
@@ -309,6 +316,8 @@ To get **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Registe
     | summarize [count_per_dimension]=count() by [Dimension]
     ```
 
+    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.    
+
 ## <span id="sql">Azure SQL Database | SQL Server</span>
 
 * **Connection String**: There are five Authentication types for Azure SQL Database | SQL Server, they are **Basic**, **Managed Identity**, **Azure SQL Connection String**, **Service Principal** and **Service Principal From KeyVault**.
@@ -382,6 +391,8 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     PartitionKey ge '@IntervalStart' and PartitionKey lt '@IntervalEnd'
     ```
 
+    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+
 ## <span id="es">Elasticsearch</span>
 
 * **Host**:Specify the master host of Elasticsearch Cluster.
@@ -394,6 +405,8 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     ``` Sql
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] > @IntervalStart and [TimestampColumn]< @IntervalEnd
     ```
+
+    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
 
 
 ## <span id="http">HTTP request</span>
@@ -419,6 +432,8 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     }
     ```
 
+    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
+
 ## <span id="influxdb">InfluxDB (InfluxQL)</span>
 
 * **Connection String**: The connection string to access your InfluxDB.
@@ -431,6 +446,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
     
+Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.    
 
 * **User name**: This is optional for authentication. 
 * **Password**: This is optional for authentication. 
@@ -458,7 +474,8 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     ``` mysql
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] > @IntervalStart and [TimestampColumn]< @IntervalEnd
     ```
-    
+
+    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
 
 ## <span id="pgsql">PostgreSQL</span>
 
@@ -470,7 +487,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     ``` PostgreSQL
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] > @IntervalStart and [TimestampColumn]< @IntervalEnd
     ```
-    
+    Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
     
 ## <span id="csv">Local files(CSV)</span>
 
