@@ -27,19 +27,19 @@ Use this article to find the settings and requirements for connecting different 
 | **Service principal**| Store your [Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Credential entity are able to view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
 | **Service principal from key vault**|Store your [Service Principal in a Key Vault](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2008&viewFallbackFrom=azs-2008) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of a **credential entity** are able to view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
 
-## Create a credentail entity for security and convenience
+## Create a credentail entity for security
 
 You can create a **Credential entity** to store credential related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the real credentials. It can be created in *Adding data feed page* or *Credential entity page*. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new datafeeed, and it will be really convenient when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
 
-1. Click '+' to create a new credential entity when adding data feed (you can also create one in *Credential entity page*).
+1. Click '+' to create a new credential entity in *Adding data feed page* (you can also create one in *Credential entity page*).
 
 ![create credential entity](media/create-credential-entity.png)
  
-2. Set the credentail entity name, description (if needed) and credential type (equals to authentication types).
+2. Set the credentail entity name, description (if needed) and credential type (equals to *authentication types*).
 
 ![set credential entity](media/set-credential-entity.png)
  
-3. After createing a credentail key, you can choose it when specifying authentication type.
+3. After createing a credentail entity, you can choose it when specifying authentication type.
 
 ![choose credential entity](media/choose-credential-entity.png)
  
@@ -48,12 +48,12 @@ You can create a **Credential entity** to store credential related information, 
 | Data sources | Authentication Types |
 |-------------| ---------------------|
 |[**Azure Application Insights**](#appinsights)|  Basic |
-|[**Azure Blob Storage (JSON)**](#blob) | Basic<br>ManagedIdentity|
+|[**Azure Blob Storage (JSON)**](#blob) | Basic<br>ManagedIdentity |
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
-|[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault|
-|[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>Data Lake Gen2 Shared Key<br>Service principal<br>Service principal from key vault<br> |
-|[**Azure Log Analytics**](#log)| Basic|<br>Service principal<br>Service principal from key vault|
-|[**Azure SQL Database / SQL Server**](#sql) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault<br>Azure SQL Connection String
+|[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault |
+|[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>Data Lake Gen2 Shared Key<br>Service principal<br>Service principal from key vault |
+|[**Azure Log Analytics**](#log)| Basic|<br>Service principal<br>Service principal from key vault |
+|[**Azure SQL Database / SQL Server**](#sql) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault<br>Azure SQL Connection String |
 |[**Azure Table Storage**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
 |[**Http request**](#http) | Basic | 
@@ -69,9 +69,9 @@ The following sections specify the parameters required for all authentication ty
 
 * **Application ID**: This is used to identify this application when using the Application Insights API. To get the Application ID, do the following:
 
-   1. From your Application Insights resource, click API Access.
+  1. From your Application Insights resource, click API Access.
 
-   2. Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
+  2. Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
     
     See the [Azure Bot Service documentation](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-resources-app-insights-keys?view=azure-bot-service-4.0#application-id) for more information.
 
