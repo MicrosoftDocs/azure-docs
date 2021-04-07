@@ -94,10 +94,8 @@ Follow these steps to edit the MultiFactorAuthenticationAdfsAdapter.config file:
 
 There are two options for configuring the Web Service SDK. The first is with a username and password, the second is with a client certificate. Follow these steps for the first option, or skip ahead for the second.  
 
-**Note: The special character "&" cannot be used in the WebServiceSdkPassword
-
 1. Set the value for **WebServiceSdkUsername** to an account that is a member of the PhoneFactor Admins security group. Use the &lt;domain&gt;&#92;&lt;user name&gt; format.  
-2. Set the value for **WebServiceSdkPassword** to the appropriate account password.
+2. Set the value for **WebServiceSdkPassword** to the appropriate account password. The special character "&" cannot be used in the WebServiceSdkPassword.
 
 ### Configure the Web Service SDK with a client certificate
 
