@@ -5,7 +5,7 @@
  author: vhorne
  ms.service: firewall
  ms.topic: include
- ms.date: 11/06/2020
+ ms.date: 04/07/2021
  ms.author: victorh
  ms.custom: include file
 ---
@@ -13,7 +13,7 @@
 | Resource | Limit |
 | --- | --- |
 | Data throughput |30 Gbps<sup>1</sup> |
-|Rules|10,000. All rule types combined.|
+|Rule limits|10,000 unique source/destinations in network rules|
 |Maximum DNAT rules|298 for a single public IP address.<br>Any additional public IP addresses contribute to the available SNAT ports, but reduce the number of the available DNAT rules. For example, two public IP addresses allow for 297 DNAT rules. If a rule's protocol is configured for both TCP and UDP, it counts as two rules.|
 |Minimum AzureFirewallSubnet size |/26|
 |Port range in network and application rules|1 - 65535|
