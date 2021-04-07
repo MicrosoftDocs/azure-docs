@@ -39,15 +39,19 @@ Currently, **Train PyTorch Model** module supports both single node and distribu
 
 5.  For **Batch size**, specify how many instances to train in a batch, by default 16.
 
-6.  For **Learning rate**, specify a value for the *learning rate*. Learning rate controls the size of the step that is used in optimizer like sgd each time the model is tested and corrected.
+6.  For **Warmup step number**, specify how many epochs you'd like to warm up the training, in case initial learning rate is slightly too large to start converging, by default 0.
 
-    By making the rate smaller, you test the model more often, with the risk that you might get stuck in a local plateau. By making the step larger, you can converge faster, at the risk of overshooting the true minima. by default 0.001.
+7.  For **Learning rate**, specify a value for the *learning rate*. Learning rate controls the size of the step that is used in optimizer like sgd each time the model is tested and corrected.
 
-7.  For **Random seed**, optionally type an integer value to use as the seed. Using a seed is recommended if you want to ensure reproducibility of the experiment across runs.
+    By making the rate smaller, you test the model more often, with the risk that you might get stuck in a local plateau. By making the rate larger, you can converge faster, at the risk of overshooting the true minima. by default 0.1. Polynomial learning rate decay is applied and can help result in a better performing model.
 
-8.  For **Patience**, specify how many epochs to early stop training if validation loss does not decrease consecutively. by default 3.
+8.  For **Random seed**, optionally type an integer value to use as the seed. Using a seed is recommended if you want to ensure reproducibility of the experiment across runs.
 
-9.  Submit the pipeline. If your dataset has larger size, it will take a while and GPU compute are recommended.
+9.  For **Patience**, specify how many epochs to early stop training if validation loss does not decrease consecutively. by default 3.
+
+10. For **Print frequency**, specify training log print frequency over iterations in each epoch, by default 10.
+
+11. Submit the pipeline. If your dataset has larger size, it will take a while and GPU compute are recommended.
 
 ## Distributed training
 
@@ -64,7 +68,7 @@ Distributed training makes it possible to train on a large dataset like ImageNet
 
 Click on this module 'Metrics' tab and see training metric graphs, such as 'Train images per second' and 'Top 1 accuracy'.
 
-![Screenshot showing training metrics](./media/module/train-PyTorch-model-train-metrics.png)
+![Screenshot showing training metrics](./media/module/train-pytorch-model-train-metrics.png)
 
 ### How to enable distributed training
 
@@ -121,9 +125,11 @@ After pipeline run is completed, to use the model for scoring, connect the [Trai
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Epochs        | >0               | Integer | 5       | Select the column that contains the label or outcome column |
 | Batch size    | >0               | Integer | 16      | How many instances to train in a batch   |
-| Learning rate | >=double.Epsilon | Float   | 0.001   | The initial learning rate for the Stochastic Gradient Descent optimizer. |
+| Warmup step number | >=0         | Integer | 0       | How many epochs to warm up training |
+| Learning rate | >=double.Epsilon | Float   | 0.1   | The initial learning rate for the Stochastic Gradient Descent optimizer. |
 | Random seed   | Any              | Integer | 1       | The seed for the random number generator used by the model. |
 | Patience      | >0               | Integer | 3       | How many epochs to early stop training   |
+| Print frequency |             >0 | Integer | 10      | Training log print frequency over iterations in each epoch |
 
 ###  Outputs  
 
