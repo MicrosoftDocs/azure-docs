@@ -159,7 +159,7 @@ In this section, you'll create an Azure function that will convert twin update e
 
 ### Step 1: Add a new function
 
-Inside your function app project created in the [prerequisites](#prerequisites) section, you'll create a new Azure function of type **Event Hub trigger** function to update device telemetry events to the Time Series Insights.
+Inside your function app project created in the [prerequisites](#prerequisites) section, create a new Azure function called *ProcessDTUpdatetoTSI.cs* to update device telemetry events to the Time Series Insights. The function type will be **Event Hub trigger**.
 
 :::image type="content" source="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png" alt-text="Screenshot of Visual Studio to create a new Azure function of type event hub trigger.":::
 
@@ -170,7 +170,7 @@ Add the following packages to your project:
 * [Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)
 * [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)
 
-Rename the *Function1.cs* sample function that Visual Studio has generated to *ProcessDTUpdatetoTSI.cs*. Replace the code in the file with the following code:
+Replace the code in the *ProcessDTUpdatetoTSI.cs* file with the following code:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
 
