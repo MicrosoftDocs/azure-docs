@@ -93,7 +93,7 @@ Ensure that you've performed the following prerequisites before adding your Amaz
 This procedure describes how to create a new Purview credential to use when scanning your AWS buckets.
 
 > [!TIP]
-> You can also create a new credential in the middle of the process, while [configuring your scan](#create-a-scan-for-your-amazon-s3-bucket). In that case, in the **Credential** field, select **New**.
+> You can also create a new credential in the middle of the process, while [configuring your scan](#create-a-scan-for-one-or-more-amazon-s3-buckets). In that case, in the **Credential** field, select **New**.
 >
 
 1. In Purview, navigate to the **Management Center**, and under **Security and access**, select **Credentials**.
@@ -227,7 +227,7 @@ AWS buckets support multiple encryption types. For buckets that use **AWS-KMS** 
 
 ### Retrieve your new Role ARN
 
-You'll need to record your AWS Role ARN and copy it in to Purview when [creating a scan for your Amazon S3 bucket](#create-a-scan-for-your-amazon-s3-bucket).
+You'll need to record your AWS Role ARN and copy it in to Purview when [creating a scan for your Amazon S3 bucket](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
 **To retrieve your role ARN:**
 
@@ -237,11 +237,11 @@ You'll need to record your AWS Role ARN and copy it in to Purview when [creating
 
     ![Copy the role ARN value to the clipboard.](./media/register-scan-amazon-s3/aws-copy-role-purview.png)
 
-1. Paste this value in a secure location, ready to use when [creating a scan for your Amazon S3 bucket](#create-a-scan-for-your-amazon-s3-bucket).
+1. Paste this value in a secure location, ready to use when [creating a scan for your Amazon S3 bucket](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
 ### Retrieve your Amazon S3 bucket name
 
-You'll need the name of your Amazon S3 bucket to copy it in to Purview when [creating a scan for your Amazon S3 bucket](#create-a-scan-for-your-amazon-s3-bucket)
+You'll need the name of your Amazon S3 bucket to copy it in to Purview when [creating a scan for your Amazon S3 bucket](#create-a-scan-for-one-or-more-amazon-s3-buckets)
 
 **To retrieve your bucket name:**
 
@@ -301,7 +301,7 @@ Use this procedure if you only have a single S3 bucket that you want to register
 
     When you're done, select **Finish** to complete the registration.
 
-Continue with [Create a scan for your Amazon S3 bucket.](#create-a-scan-for-your-amazon-s3-bucket).
+Continue with [Create a scan for one or more Amazon S3 buckets.](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
 ## Add all of your Amazon S3 buckets as Purview resources
 
@@ -330,7 +330,7 @@ Use this procedure if you have multiple S3 buckets in your Amazon account, and y
 
     When you're done, select **Finish** to complete the registration.
 
-Continue with [Create a scan for your Amazon S3 bucket](#create-a-scan-for-your-amazon-s3-bucket).
+Continue with [Create a scan for one or more Amazon S3 buckets](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
 ## Create a scan for one or more Amazon S3 buckets
 
