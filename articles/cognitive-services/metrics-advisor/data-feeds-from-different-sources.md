@@ -69,26 +69,26 @@ The following sections specify the parameters required for all authentication ty
 
 * **Application ID**: This is used to identify this application when using the Application Insights API. To get the Application ID, do the following:
 
-   1.  From your Application Insights resource, click API Access.
+   1.From your Application Insights resource, click API Access.
    
-      ![portal-app-insights-appid](media/portal-app-insights-appid.png)
+     ![portal-app-insights-appid](media/portal-app-insights-appid.png)
 
-   2.  Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
+   2.Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
 
 * **API Key**: API keys are used by applications outside the browser to access this resource. To get the API key, do the following:
 
-   1. From the Application Insights resource, click API Access.
+   1.From the Application Insights resource, click API Access.
 
-   2. Click **Create API Key**.
+   2.Click **Create API Key**.
 
-   3. Enter a short description, check the **Read telemetry** option, and click the **Generate key** button.
+   3.Enter a short description, check the **Read telemetry** option, and click the **Generate key** button.
 
-      ![portal-app-insights-appid-apikey](media/portal-app-insights-appid-apikey.png)
+     ![portal-app-insights-appid-apikey](media/portal-app-insights-appid-apikey.png)
 
-       > [!WARNING]
-       > Copy this **API key** and save it because this key will never be shown to you again. If you lose this key, you have to create a new one.
+     > [!WARNING]
+     > Copy this **API key** and save it because this key will never be shown to you again. If you lose this key, you have to create a new one.
 
-   4. Copy the API key to the **API key** field in Metrics Advisor.
+   4.Copy the API key to the **API key** field in Metrics Advisor.
 
 * **Query**: Azure Application Insights logs are built on Azure Data Explorer, and Azure Monitor log queries use a version of the same Kusto query language. The [Kusto query language documentation](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/) has all of the details for the language and should be your primary resource for writing a query against Application Insights. 
 
