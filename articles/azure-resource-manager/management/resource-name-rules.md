@@ -178,6 +178,13 @@ In the following tables, the term alphanumeric refers to:
 > [!NOTE]
 > Azure virtual machines have two distinct names: resource name and host name. When you create a virtual machine in the portal, the same value is used for both names. The restrictions in the preceding table are for the host name. The actual resource name can have up to 64 characters.
 
+## Microsoft.Communication
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | communicationServices | global | 1-63 | Alphanumerics, hyphens, and underscores. |
+
 ## Microsoft.ContainerInstance
 
 > [!div class="mx-tableFixed"]
