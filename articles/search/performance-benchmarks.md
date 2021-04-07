@@ -60,7 +60,7 @@ If you have any questions or concerns, reach out to us at azuresearch_contact@mi
 
 :::row:::
    :::column span="1":::
-    <img title="CDON logo" alt="CDON logo" src="./media/performance-benchmarks/cdon-logo-320x100v2.png" width="160px">
+      ![CDON Logo](./media/performance-benchmarks/cdon-logo-160px.png)
    :::column-end:::
    :::column span="3":::
       This benchmark was created in partnership with the e-commerce company, [CDON](https://cdon.com), the Nordic region's largest online marketplace with operations in Sweden, Finland, Norway, and Denmark. Through its 1,500 merchants, CDON offers a wide range assortment that includes over 8 million products. In 2020, CDON had over 120 million visitors and 2 million active customers. You can learn more about CDON's use of Azure Cognitive Search in [this article](https://pulse.microsoft.com/transform/na/fa1-how-cdon-has-been-using-technology-to-become-the-leading-marketplace-in-the-nordics/).
