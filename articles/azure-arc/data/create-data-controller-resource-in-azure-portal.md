@@ -33,10 +33,7 @@ Follow the steps below to create an Azure Arc data controller using the Azure po
 1. If the first step has not entered the search criteria. Please enter in to the search results, click on 'Azure Arc data controller'.
 1. Select the Azure Data Controller tile from the marketplace.
 1. Click on the **Create** button.
-1. Select the connectivity mode for the data controller, choosing between direct or indirect mode. Learn more about [Connectivity modes and requirements](./connectivity.md). 
-
-   > [!NOTE] 
-   > If you select **direct** connectivity mode,  ensure the Service Principal credentials are set via environment variables as described in [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal). 
+1. Select the indirect connectivity mode. Learn more about [Connectivity modes and requirements](./connectivity.md). 
 1. Review the requirements to create an Azure Arc data controller and install any missing prerequisite software such as Azure Data Studio and kubectl.
 1. Click on the **Next: Data controller details** button.
 1. Choose a subscription, resource group and Azure location just like you would for any other resource that you would create in the Azure portal. In this case the Azure location that you select will be where the metadata about the resource will be stored.  The resource itself will be created on whatever infrastructure you choose. It doesn't need to be on Azure infrastructure.
