@@ -1,5 +1,5 @@
 ---
-title: Add new publishers to the commercial marketplace program | Azure Marketplace
+title: Add new publishers to the commercial marketplace program - Azure Marketplace
 description: How to add new publishers to the commercial marketplace program for a Microsoft commercial marketplace account in Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -21,6 +21,8 @@ An organization can have multiple publishers associated with a commercial market
 
 >[!NOTE]
 >Before you add a new publisher, review your list of existing publishers by signing in to Partner Center and selecting **Settings** > **Account Settings**. Then in the left-nav, under **Organization profile**, select **Identifiers**. The publishers on your account are listed under **Publisher**.
+
+## Add new publishers
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the top-right, select **Settings** > **Account settings**.

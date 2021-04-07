@@ -1,5 +1,5 @@
 ---
-title: Switch accounts in Partner Center | Azure Marketplace
+title: Switch accounts in Partner Center - Azure Marketplace
 description: Learn how switch between accounts in the commercial marketplace program of Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

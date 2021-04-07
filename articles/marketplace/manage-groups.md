@@ -1,5 +1,5 @@
 ---
-title: Manage groups | Azure Marketplace
+title: Manage groups for the commercial marketplace - Azure Marketplace
 description: Learn how to manage groups in the commercial marketplace program in Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -10,7 +10,7 @@ ms.custom: contperf-fy21q2
 ms.date: 04/07/2021
 ---
 
-# Manage groups
+# Manage groups for the commercial marketplace
 
 Groups allow you to control multiple user roles and permissions all together.
 

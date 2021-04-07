@@ -1,5 +1,5 @@
 ---
-title: Manage tenants in the commercial marketplace | Azure Marketplace
+title: Manage tenants in the commercial marketplace - Azure Marketplace
 description: Learn how to manage tenants for the commercial marketplace program in Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

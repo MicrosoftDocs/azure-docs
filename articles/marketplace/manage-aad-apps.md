@@ -1,5 +1,5 @@
 ---
-title: Add and manage Azure AD applications
+title: Add and manage Azure AD applications - Azure Marketplace
 description: Learn how to add and manage Azure AD applications for the commercial marketplace program in Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

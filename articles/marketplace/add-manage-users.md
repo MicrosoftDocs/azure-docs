@@ -1,5 +1,5 @@
 ---
-title: Add and manage users | Azure Marketplace
+title: Add and manage users for the commercial marketplace - Azure Marketplace
 description: Learn how to manage users in the commercial marketplace program for a Microsoft commercial marketplace account in Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -10,7 +10,7 @@ ms.custom: contperf-fy21q2
 ms.date: 04/07/2021
 ---
 
-# Add and manage users
+# Add and manage users for the commercial marketplace
 
 **Appropriate roles**
 

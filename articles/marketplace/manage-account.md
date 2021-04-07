@@ -1,5 +1,5 @@
 ---
-title: How to manage a commercial marketplace account in Microsoft Partner Center | Azure Marketplace
+title: How to manage a commercial marketplace account in Microsoft Partner Center
 description: Learn how to manage a commercial marketplace account in Microsoft Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher

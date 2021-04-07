@@ -1,5 +1,5 @@
 ---
-title: Create a commercial marketplace account in Partner Center for Azure Marketplace
+title: Create a commercial marketplace account in Partner Center - Azure Marketplace
 description: Learn how to create a Microsoft commercial marketplace account in Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
