@@ -33,15 +33,15 @@ You can create a **Credential entity** to store credential related information, 
 
 1. Click '+' to create a new credential entity in *Adding data feed page* (you can also create one in *Credential entity page*).
 
-![create credential entity](media/create-credential-entity.png)
+   ![create credential entity](media/create-credential-entity.png)
  
 2. Set the credentail entity name, description (if needed) and credential type (equals to *authentication types*).
 
-![set credential entity](media/set-credential-entity.png)
+   ![set credential entity](media/set-credential-entity.png)
  
 3. After createing a credentail entity, you can choose it when specifying authentication type.
 
-![choose credential entity](media/choose-credential-entity.png)
+   ![choose credential entity](media/choose-credential-entity.png)
  
 ## Data sources supported and corresponding authentication types
 
