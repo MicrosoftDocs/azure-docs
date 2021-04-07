@@ -89,12 +89,14 @@ After the changes are saved, users in the specified Azure AD instance can sign i
 
 After you enable access for users in an Azure AD tenant, you can add Azure AD groups into API Management. As a result, you can control product visibility using Azure AD groups.
 
-To add an external Azure AD group into APIM, you must first complete the previous section. Additionally, the application you registered must be granted access to the Microsoft Graph API with `Directory.Read.All` permission by following these steps: 
+To add an external Azure AD group into APIM, you must first complete the previous section. By default, the application you registered will have access granted to the Microsoft Graph API with the needed `User.Read` Delegated permission. Additionally, the application must be granted access to the Microsoft Graph API and Azure Active Directory Graph API with the `Directory.Read.All` Application permission by following these steps: 
 
 1. Go back to your App Registration that was created in the previous section.
 2. Select **API Permissions**, and then click **+Add a permission**. 
-3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, scroll down and then select the **Azure Active Directory Graph** tile. Select **Application permissions**, search for **Directory**, and then select the **Directory.Read.All** permission. 
-4. Click **Add permissions** at the bottom of the pane, and then click **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
+3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, and then select the **Microsoft Graph** tile. Select **Application permissions**, search for **Directory**, select the **Directory.Read.All** permission, and then click **Add permissions** at the bottom of the pane.
+4. Click **+Add a permission**. 
+5. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, scroll down, and then select the **Azure Active Directory Graph** tile. Select **Application permissions**, search for **Directory**, select the **Directory.Read.All** permission, and then click **Add permissions** at the bottom of the pane. 
+6. Click **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
 
 Now you can add external Azure AD groups from the **Groups** tab of your API Management instance.
 
