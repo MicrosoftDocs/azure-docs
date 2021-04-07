@@ -56,6 +56,8 @@
       items:
         - name: .NET Core
           href: enable-dynamic-configuration-dotnet-core-push-refresh.md
+        - name: Java Spring - Single Instance
+          href: enable-dynamic-configuration-java-spring-push-refresh.md
     - name: Use feature flags
       items:
         - name: ASP.NET Core

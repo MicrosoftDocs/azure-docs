@@ -138,9 +138,9 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
 1. Select the `Endpoint Type` as `Web Hook`, select `Select an endpoint`.
 
-    ![Event subscription service bus endpoint](./media/event-subscription-servicebus-endpoint.png)
+    ![Event subscription service bus endpoint](./media/event-subscription-webhook-endpoint.png)
 
-1. The endpoint is the URI of the application + "/actuator/appconfiguration-refresh?{your-token-name}={your-token-secret}". i.e. https://my-azure-webapp.azurewebsites.net/actuator/appconfiguration-refresh?myToken=myTokenSecret
+1. The endpoint is the URI of the application + "/actuator/appconfiguration-refresh?{your-token-name}={your-token-secret}". i.e. `https://my-azure-webapp.azurewebsites.net/actuator/appconfiguration-refresh?myToken=myTokenSecret`
 
 1. Click on `Create` to create the event subscription.
 
@@ -149,7 +149,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
 1. Click on `Event Subscriptions` in the `Events` pane to validated that the subscription was created successfully.
 
-    ![App Configuration event subscriptions](./media/event-subscription-view.png)
+    ![App Configuration event subscriptions](./media/event-subscription-view-webhook.png)
 
 > [!NOTE]
 > When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](../event-grid/event-filtering.md) or [Service Bus subscription filters](../service-bus-messaging/topic-filters.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
