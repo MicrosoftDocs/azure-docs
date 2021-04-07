@@ -113,6 +113,8 @@ Add the following URL patterns for Azure Monitor if you're using the containeriz
 | http://\*.oms.opinsights.azure.com | 443 | Operations Management Suite (OMS) onboarding |
 | http://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
 
+For more information, see [Network firewall requirements for monitoring container insights](../azure-monitor/containers/container-insights-onboard.md#network-firewall-requirements).
+
 ### URL patterns for gateway for Azure Government
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/azure-stack-edge-gateway-gov-url-patterns-firewall.md)]
