@@ -24,7 +24,7 @@ The March 2021 release is introduced on April 6, 2021.
 
 Review limitations of this release in [Known issues - Azure Arc enabled data services (Preview)](known-issues.md).
 
-Azure Data CLI (`azdata`) version number: 20.3.2. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+Azure Data CLI (`azdata`) version number: 20.3.2. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 ### Data controller
 
@@ -59,7 +59,7 @@ You will delete the previous CRDs as you cleanup past installations. See [Cleanu
 
 ### New capabilities and features
 
-Azure Data CLI (`azdata`) version number: 20.3.1. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+Azure Data CLI (`azdata`) version number: 20.3.1. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 Additional updates include:
 
@@ -78,7 +78,7 @@ For issues associated with this release, see [Known issues - Azure Arc enabled d
 
 ### New capabilities and features
 
-Azure Data CLI (`azdata`) version number: 20.3.0. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+Azure Data CLI (`azdata`) version number: 20.3.0. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 Additional updates include:
 - Localized portal available for 17 new languages
@@ -104,7 +104,7 @@ Additional updates include:
 
 ### New capabilities & features
 
-Azure Data CLI (`azdata`) version number: 20.2.5. Download at [https://aka.ms/azdata](https://aka.ms/azdata).
+Azure Data CLI (`azdata`) version number: 20.2.5. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 View endpoints for SQL Managed Instance and PostgreSQL Hyperscale using the Azure Data CLI (`azdata`) with `azdata arc sql endpoint list` and `azdata arc postgres endpoint list` commands.
 
@@ -163,7 +163,7 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 
 ## October 2020 
 
-Azure Data CLI (`azdata`) version number: 20.2.3. Download at [https://aka.ms/azdata](https://aka.ms/azdata).
+Azure Data CLI (`azdata`) version number: 20.2.3. You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 ### Breaking changes
 

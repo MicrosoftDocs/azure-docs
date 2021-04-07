@@ -272,11 +272,10 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart, you learned how to use the Image Analysis Java library to do basis tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to install the Image Analysis client library and make basic image analysis calls. Next, learn more about the Analyze API features.
 
 > [!div class="nextstepaction"]
->[Image Analysis reference (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
-
+>[Call the Analyze API](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
 
 * [Image Analysis overview](../../overview-image-analysis.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).
