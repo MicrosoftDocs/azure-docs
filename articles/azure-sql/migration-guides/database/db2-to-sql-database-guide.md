@@ -14,7 +14,7 @@ ms.date: 11/06/2020
 # Migration guide: IBM Db2 to Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-This guide teaches you to migrate your IBM Db2 databases to Azure SQL Database, by using the SQL Server Migration Assistant for Db2. 
+In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your IBM Db2 databases to Azure SQL Database, by using [SQL Server Migration](https://azure.microsoft.com/migration/migration-journey) Assistant for Db2. 
 
 For other migration guides, see [Azure Database Migration Guides](https://docs.microsoft.com/data-migration). 
 
@@ -29,7 +29,7 @@ To migrate your Db2 database to SQL Database, you need:
 
 ## Pre-migration
 
-After you have met the prerequisites, you're ready to discover the topology of your environment and assess the feasibility of your migration. 
+After you have met the prerequisites, you're ready to discover the topology of your environment and assess the feasibility of your [Azure cloud migration](https://azure.microsoft.com/migration).
 
 ### Assess and convert
 
@@ -168,7 +168,8 @@ The Data SQL Engineering team developed these resources. This team's core charte
 
 - To learn more about the framework and adoption cycle for cloud migrations, see:
    -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Best practices for costing and sizing workloads migrated to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Best practices for costing and sizing workloads migrated to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs)
+   -  [Cloud Migration Resources](https://azure.microsoft.com/migration/resources) 
 
 - To assess the application access layer, see [Data Access Migration Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - For details on how to perform data access layer A/B testing, see [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).
