@@ -8,12 +8,12 @@
     href: terminology.md
 - name: Quickstarts
   items:
+  - name: Get started - Azure Video Analytics
+    href: get-started-detect-motion-emit-events.md
   - name: Analyze live video
     items:
     - name: with your own model - HTTP
       href: analyze-live-video-use-your-model-http.md
-  - name: Get started - Azure Video Analytics
-    href: get-started-detect-motion-emit-events.md
 - name: Concepts
   items:
   - name: Pipeline extension
