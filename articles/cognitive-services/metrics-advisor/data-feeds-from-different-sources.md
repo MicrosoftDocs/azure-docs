@@ -37,11 +37,11 @@ You can create a **Credential entity** to store credential related information, 
  
 2. Set the credentail entity name, description (if needed) and credential type (equals to authentication types).
 
-![set credential entity](../media/set-credential-entity.png)
+![set credential entity](media/set-credential-entity.png)
  
 3. After createing a credentail key, you can choose it when specifying authentication type.
 
-![choose credential entity](../media/choose-credential-entity.png)
+![choose credential entity](media/choose-credential-entity.png)
  
 ## Data sources supported and corresponding authentication types
 
@@ -96,7 +96,6 @@ The following sections specify the parameters required for all authentication ty
 ## <span id="blob">Azure Blob Storage (JSON)</span>
 
 * **Connection String**: There are two Authentication types for Auzre Blob Storage(JSON), one is **Basic**, the other is **Managed Identity**.
-    ![image](https://user-images.githubusercontent.com/81400625/113387178-5986ae00-93be-11eb-82c4-609c0b5f1638.png) 
 
     1.For **Basic** authentication type: See the Azure Blob Storage [connection string](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string#configure-a-connection-string-for-an-azure-storage-account) article for information on retrieving this string. Also, you can just go to Azure portal for your Azure Blob Storage resource, and find connection string directly in **Settings > Access keys** section.
 
@@ -112,7 +111,7 @@ The following parameters are supported:
   * `%d` is the day formatted as `dd`
   * `%h` is the hour formatted as `HH`
   * `%M` is the minute formatted as `mm`
-  ![image](https://user-images.githubusercontent.com/81400625/113393064-b1c2ad80-93c8-11eb-9349-4200beee9200.png)
+  ![blob template](media/blob-template.png)
   In this dataset, the blob template should be "%Y/%m/%d/00/JsonFormatV2.json".
 
 
@@ -155,7 +154,6 @@ Only one timestamp is allowed per JSON file.
 ## <span id="kusto">Azure Data Explorer (Kusto)</span>
 
 * **Connection String**: There are four Authentication types for Azure Data Explorer (Kusto), they are **Basic**, **Service Principal**, **Service Principal From KeyVault** and **Managed Identity**.
-    ![image](https://user-images.githubusercontent.com/81400625/113387088-2e9c5a00-93be-11eb-9b09-b8f45aa2a55f.png) 
     
     1.For **Basic** authentication type: Metrics Advisor supports accessing Azure Data Explorer(Kusto) by using Azure AD application authentication. You will need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database. To get your connection string, see the [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/provision-azure-ad-app) documentation.
     Here is an example of connection string:
@@ -193,7 +191,6 @@ Only one timestamp is allowed per JSON file.
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 
 * **Account Name**: There are four Authentication types for Azure Data Lake Storage Gen2, they are **Basic**, **Azure Data Lake Storage Gen2 Shared Key**, **Service Principal** and **Service Principal From KeyVault**.
-    ![image](https://user-images.githubusercontent.com/81400625/113388332-9fdd0c80-93c0-11eb-9654-dc0997e8454b.png)
     
     1. For **Basic** authentication type: The **Account Name** of your Azure Data Lake Storage Gen2. This can be found in your Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys**. 
 
@@ -285,7 +282,6 @@ For **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Register a
 ## <span id="sql">Azure SQL Database | SQL Server</span>
 
 * **Connection String**: There are five Authentication types for Azure SQL Database | SQL Server, they are **Basic**, **Managed Identity**, **Azure SQL Connection String**, **Service Principal** and **Service Principal From KeyVault**.
-    ![image](https://user-images.githubusercontent.com/81400625/113390702-d583f480-93c4-11eb-85d3-7f0075adfc22.png)
     
     1. For **Basic** authentication type: Metrics Advisor accepts an [ADO.NET Style Connection String](/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
     Here is an example of connection string: 
