@@ -4,7 +4,7 @@ description: Start here to learn how to monitor Azure Application Gateway
 author: vhorne
 ms.author: victorh
 ms.service: application-gateway
-ms.topic: subject-monitoring
+ms.topic: conceptual
 ms.date: 04/07/2021
 ---
 
@@ -90,7 +90,7 @@ If you don't support metrics, say so. Some services may be only onboarded to log
 You can analyze metrics for Azure Application Gateway with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool. 
 
 <!-- Point to the list of metrics available in your monitor-service-reference article. -->
-For a list of the platform metrics collected for Azure Application Gateway, see [Monitoring Application Gateway data reference metrics](monitor-application-gateway-reference#metrics).  
+For a list of the platform metrics collected for Azure Application Gateway, see [Monitoring Application Gateway data reference metrics](monitor-application-gateway-reference.md#metrics).  
 
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
@@ -104,13 +104,13 @@ If you don't support resource logs, say so. Some services may be only onboarded 
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema). The schema for Application Gateway resource logs is found in the [Azure Application Gateway Data Reference](monitor-application-gateway-reference#schemas). 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema). The schema for Application Gateway resource logs is found in the [Azure Application Gateway Data Reference](monitor-application-gateway-reference.md#schemas). 
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a platform login Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
-For a list of the types of resource logs collected for Azure Application Gateway, see [Monitoring Azure Application Gateway data reference](monitor-application-gateway-reference#logs).  
+For a list of the types of resource logs collected for Azure Application Gateway, see [Monitoring Azure Application Gateway data reference](monitor-application-gateway-reference.md#logs).  
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Application Gateway data reference](monitor-application-gateway-reference#azuremonitorlogstables).  
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Application Gateway data reference](monitor-application-gateway-reference.md#azuremonitorlogstables).  
 
 <!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
 
