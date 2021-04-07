@@ -38,6 +38,22 @@ The list below contains a few runbooks that support common scenarios. For a full
    * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) - Copies a remote file from a Windows Azure virtual machine.
    * [Copy-ItemToAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) - Copies a local file to an Azure virtual machine.
 
+## Import a PowerShell runbook from GitHub with the Azure portal
+
+1. In the Azure portal, open your Automation account.
+1. Select **Runbooks gallery** under **Process Automation**.
+1. Select **Source: GitHub**.
+1. You can use the filters above the list to narrow the display by publisher, type, and sort. Locate the gallery item you want and select it to view its details.
+
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Browsing the GitHub gallery." lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
+
+1. To import an item, click **Import** on the details blade.
+
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Detailed view of a runbook from the GitHub gallery." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
+
+1. Optionally, change the name of the runbook and then click **OK** to import the runbook.
+1. The runbook appears on the **Runbooks** tab for the Automation account.
+
 ## Import a PowerShell runbook from the runbook gallery with the Azure portal
 
 1. In the Azure portal, open your Automation account.
@@ -50,22 +66,6 @@ The list below contains a few runbooks that support common scenarios. For a full
 1. To import an item, click **Import** on the details blade.
 
    :::image type="content" source="media/automation-runbook-gallery/gallery-item-detail-sm.png" alt-text="Show a runbook gallery item detail." lightbox="media/automation-runbook-gallery/gallery-item-detail-lg.png":::
-
-1. Optionally, change the name of the runbook and then click **OK** to import the runbook.
-1. The runbook appears on the **Runbooks** tab for the Automation account.
-
-## Import a  PowerShell runbook from GitHub with the Azure portal
-
-1. In the Azure portal, open your Automation account.
-1. Select **Runbooks gallery** under **Process Automation**.
-1. Select **Source: GitHub**.
-1. You can use the filters above the list to narrow the display by publisher, type, and sort. Locate the gallery item you want and select it to view its details.
-
-   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Browsing the GitHub gallery." lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
-
-1. To import an item, click **Import** on the details blade.
-
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Detailed view of a runbook from the GitHub gallery." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
 
 1. Optionally, change the name of the runbook and then click **OK** to import the runbook.
 1. The runbook appears on the **Runbooks** tab for the Automation account.
