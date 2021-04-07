@@ -32,7 +32,9 @@ The security services map organizes services by the resources they protect (colu
 
 The diagram includes the Azure Security Benchmark program, a collection of high-impact security recommendations you can use to help secure the services you use in Azure.
 
-![End-to-end security in Azure](./media/end-to-end/security-diagram.svg)
+![End-to-end security in Azure](./media/end-to-end/security-diagram.png)
+
+:::image type="content" source="media/end-to-end/security-diagram.svg" alt-text="Diagram showing end-to-end security services in Azure." border="false":::
 
 ## Security controls and baselines
 The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
