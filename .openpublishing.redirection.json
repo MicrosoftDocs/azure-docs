@@ -28790,22 +28790,22 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/markteplace/partner-center-portal/account-migration-from-cpp-to-pc.md",
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/account-migration-from-cpp-to-pc.md",
       "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
       "redirect_document_id": false
     },    
     {
-      "source_path_from_root": "/articles/markteplace/partner-center-portal/create-account.md",
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-account.md",
       "redirect_url": "/azure/marketplace/create-account",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/markteplace/partner-center-portal/manage-account.md",
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/manage-account.md",
       "redirect_url": "/azure/marketplace/manage-account",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/markteplace/partner-center-portal/company-work-accounts.md",
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/company-work-accounts.md",
       "redirect_url": "/azure/marketplace/company-work-accounts",
       "redirect_document_id": false
     },       
