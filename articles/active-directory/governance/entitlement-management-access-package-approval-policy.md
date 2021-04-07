@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Change approval and requestor information (preview) settings for an access package in Azure AD entitlement management
+# Change approval and requestor information settings for an access package in Azure AD entitlement management
 
 As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new policy.
 
@@ -156,7 +156,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 1. Click **Next**.
 
-## Collect additional requestor information for approval (preview)
+## Collect additional requestor information for approval
 
 In order to make sure users are getting access to the right access packages, you can require requestors to answer custom text field or multiple choice questions at the time of request. There is a limit of 20 questions per policy and a limit of 25 answers for multiple choice questions. The questions will then be shown to approvers to help them make a decision.
 
@@ -166,8 +166,8 @@ In order to make sure users are getting access to the right access packages, you
 
     ![Access package - Policy- Enable Requestor information setting](./media/entitlement-management-access-package-approval-policy/add-requestor-info-question.png)
 
-1. If the community of users who will need access to the access package don't all have a common preferred language, then you can improve the experience for users requesting access on myaccess.microsoft.com. To improve the experience, you can provide alternative display strings for different languages. For example, if a user's web browser is set to Spanish, and you have Spanish display strings configured, then those strings will be displayed to the requesting user. To configure localization for requests, click **add localization**.
-    1. Once in the **Add localizations for question** pane, select the **language code** for the language in which you are localizing the question.
+1. If the community of users who will need access to the access package don't all have a common preferred language, then you can improve the experience for users requesting access on myaccess.microsoft.com. To improve the experience, you can provide alternative display strings for different languages. For example, if a user's web browser is set to Spanish, and you have Spanish display strings configured, then those strings will be displayed to the requesting user. To configure localization for requests, click **localize**.
+    1. Once in the **localizes for question** pane, select the **language code** for the language in which you are localizing the question.
     1. In the language you configured, type the question in the **Localized Text** box.
     1. Once you have added all the localizations needed, click **Save**.
 
@@ -175,10 +175,10 @@ In order to make sure users are getting access to the right access packages, you
 
 1. Select the **Answer format** in which you would like requestors to answer. Answer formats include: *short text*, *multiple choice*, and *long text*.
  
-    ![Access package - Policy- Select view and edit multiple choice answer format](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
+    ![Access package - Policy- Select Edit and localize multiple choice answer format](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
  
-1. If selecting multiple choice, click on the **view and edit** button to configure the answer options.
-    1. After selecting view and edit the **View/edit question** pane will open.
+1. If selecting multiple choice, click on the **Edit and localize** button to configure the answer options.
+    1. After selecting Edit and localize the **View/edit question** pane will open.
     1. Type in the response options you wish to give the requestor when answering the question in the **Answer values** boxes.
     1. Type in as many responses as you need then click **Save**.
     
@@ -188,7 +188,7 @@ In order to make sure users are getting access to the right access packages, you
 
 1. Fill out the remaining tabs (e.g., Lifecycle) based on your needs.
 
-After you have configured requestor information in your access package policy, can view the requestor's responses to the questions. For guidance on seeing requestor information, see [View requestor's answers to questions (Preview)](entitlement-management-request-approve.md#view-requestors-answers-to-questions-preview).
+After you have configured requestor information in your access package policy, can view the requestor's responses to the questions. For guidance on seeing requestor information, see [View requestor's answers to questions](entitlement-management-request-approve.md#view-requestors-answers-to-questions).
 
 ## Next steps
 - [Change lifecycle settings for an access package](entitlement-management-access-package-lifecycle-policy.md)
