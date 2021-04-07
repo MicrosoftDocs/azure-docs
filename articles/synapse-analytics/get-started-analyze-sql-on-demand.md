@@ -14,7 +14,7 @@ ms.date: 12/31/2020
 
 # Analyze data with a serverless SQL pool
 
-In this tutorial, you'll learn how to analyze data with serverless SQL pool using data located in Spark databases. 
+In this tutorial, you'll learn how to analyze data with serverless SQL pool. 
 
 ## The Built-in serverless SQL pool
 

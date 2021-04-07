@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 04/06/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -77,7 +77,21 @@ No, currently you cannot apply Network Security Groups to the delegated subnet o
 
 ### Can I use Azure RBAC with Azure NetApp Files?
 
-Yes, Azure NetApp Files supports Azure RBAC features.
+Yes, Azure NetApp Files supports Azure RBAC features. Along with the built-in Azure roles, you can [create custom roles](../role-based-access-control/custom-roles.md) for Azure NetApp Files. 
+
+For the complete list of Azure NetApp Files permissions, see Azure resource provider operations for [`Microsoft.NetApp`](../role-based-access-control/resource-provider-operations.md#microsoftnetapp).
+
+### Are Azure Activity Logs supported on Azure NetApp Files?
+
+Azure NetApp Files is an Azure native service. All PUT, POST, and DELETE APIs against Azure NetApp Files are logged. For example, the logs show activities such as who created the snapshot, who modified the volume, and so on.
+
+For the complete list of API operations, see [Azure NetApp Files REST API](/rest/api/netapp/).
+
+### Can I use Azure policies with Azure NetApp Files?
+
+Yes, you can create [custom Azure policies](../governance/policy/tutorials/create-custom-policy-definition.md). 
+
+However, you cannot create Azure policies (custom naming policies) on the Azure NetApp Files interface. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
 
 ## Performance FAQs
 
@@ -187,6 +201,10 @@ The volume size reported by the SMB client is the maximum size the Azure NetApp 
 
 As a best practice, set the maximum tolerance for computer clock synchronization to five minutes. For more information, see [Maximum tolerance for computer clock synchronization](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
 
+### Can I manage `SMB Shares`, `Sessions`, and `Open Files` through Computer Management Console (MMC)?
+
+Management of `SMB Shares`, `Sessions`, and `Open Files` through Computer Management Console (MMC) is currently not supported.
+
 ### How can I obtain the IP address of an SMB volume via the portal?
 
 Use the **JSON View** link on the volume overview pane, and look for the **startIp** identifier under **properties** -> **mountTargets**.
@@ -203,9 +221,9 @@ No. Azure NetApp Files is not supported by Azure Storage Explorer.
 
 ### How do I determine if a directory is approaching the limit size?
 
-You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).
+You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).   
 
-For a 320 MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  
+For a 320-MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  This number translates to approximately 4 million files maximum for a 320-MB directory. However, the actual number of maximum files might be lower, depending on factors such as the number of files containing non-ASCII characters in the directory. As such, you should use the `stat` command as follows to determine whether your directory is approaching its limit.  
 
 Examples:
 

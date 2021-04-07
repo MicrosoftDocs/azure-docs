@@ -6,10 +6,21 @@
     href: overview.md
   - name: Terminology
     href: terminology.md
+- name: Quickstarts
+  items:
+  - name: Get started - Azure Video Analytics
+    href: get-started-detect-motion-emit-events.md
+- name: Concepts
+  items:
+  - name: Pipeline extension
+    href: pipeline-extension.md
+  - name: Continuous video recording
+    href: continuous-video-recording.md
+  - name: Record video for playback
+    href: video-recording.md    
 - name: Resources
   items:
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?category=media
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/media-services/
-

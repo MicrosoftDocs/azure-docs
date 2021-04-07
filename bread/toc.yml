@@ -248,6 +248,9 @@
       - name: Azure Maps
         tocHref: /azure/azure-maps/
         topicHref: /azure/azure-maps/
+      - name: Azure Certified Device
+        tocHref: /azure/certification/
+        topicHref: /azure/certification/
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -678,6 +681,8 @@
     tocHref: /azure/networking/
     topicHref: /azure/networking/
     items:
+      - name: Fundamentals
+        tocHref: /azure/networking/fundamentals
       - name: Application Gateway
         tocHref: /azure/application-gateway/
         topicHref: /azure/application-gateway/
