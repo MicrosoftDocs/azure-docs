@@ -170,7 +170,7 @@ Get the details from the **Connection strings** menu item for the database.
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-database.png" alt-text="SQL database connection string" lightbox="media/sql-insights-enable/connection-string-sql-database.png":::
 
-To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string.
+To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string. SQL Insights supports monitoring of a single secondary and the collected data will be tagged to reflect Primary or Secondary. 
 
 
 #### Azure virtual machines running SQL Server 
@@ -186,8 +186,6 @@ If your monitoring virtual machine is in the same VNET, use the private IP addre
 
 :::image type="content" source="media/sql-insights-enable/sql-vm-security.png" alt-text="SQL virtual machine security" lightbox="media/sql-insights-enable/sql-vm-security.png":::
 
-To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string.
-
 
 ### Azure SQL Managed Instances 
 Enter the connection string in the form:
@@ -202,8 +200,7 @@ Get the details from the **Connection strings** menu item for the managed instan
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-managed-instance.png" alt-text="SQL Managed Instance connection string" lightbox="media/sql-insights-enable/connection-string-sql-managed-instance.png":::
 
-To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string.
-
+To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string. SQL Insights supports monitoring of a single secondary and the collected data will be tagged to reflect Primary or Secondary. 
 
 
 ## Monitoring profile created 
