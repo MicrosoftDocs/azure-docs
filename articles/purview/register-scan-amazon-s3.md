@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/07/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
@@ -332,7 +332,7 @@ Use this procedure if you have multiple S3 buckets in your Amazon account, and y
 
 Continue with [Create a scan for your Amazon S3 bucket](#create-a-scan-for-your-amazon-s3-bucket).
 
-## Create a scan for your Amazon S3 bucket
+## Create a scan for one or more Amazon S3 buckets
 
 Once you've added your buckets as Purview data sources, you can configure a scan to run at scheduled intervals or immediately.
 
@@ -348,9 +348,10 @@ Once you've added your buckets as Purview data sources, you can configure a scan
     |**Name**     |  Enter a meaningful name for your scan or use the default.       |
     |**Type** |Displayed only if you've added your AWS account, with all buckets included. <br><br>Current options include only **All** > **Amazon S3**. Stay tuned for more options to select as Purview's support matrix expands. |
     |**Credential**     |  Select a Purview credential with your role ARN. <br><br>**Tip**: If you want to create a new credential at this time, select **New**. For more information, see [Create a Purview credential for your AWS bucket scan](#create-a-purview-credential-for-your-aws-bucket-scan).     |
-    |     |         |
+    | **Amazon S3**    |   Displayed only if you've added your AWS account, with all buckets included. <br><br>Select one or more buckets to scan, or **Select all** to scan all the buckets in your account.      |
+    | | |
 
-    Purview automatically checks that the role ARN is valid, and that the bucket and object within the bucket are accessible, and then continues if the connection succeeds.
+    Purview automatically checks that the role ARN is valid, and that the buckets and objects within the buckets are accessible, and then continues if the connection succeeds.
 
     > [!TIP]
     > To enter different values and test the connection yourself before continuing, select **Test connection** at the bottom right before selecting **Continue**.
