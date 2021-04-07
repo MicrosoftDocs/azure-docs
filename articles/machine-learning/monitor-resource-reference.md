@@ -36,12 +36,12 @@ Quota information is for Azure Machine Learning compute only.
 
 | Metric | Unit | Description |
 |--|--|--|
-| Total Nodes | Count | Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Premepted Nodes, Leaving Nodes |
-| Active Nodes | Count | Number of Acitve nodes. These are the nodes which are actively running a job. |
-| Idle Nodes | Count | Number of idle nodes. Idle nodes are the nodes which are not running any jobs but can accept new job if available. |
+| Total Nodes | Count | Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Preempted Nodes, Leaving Nodes |
+| Active Nodes | Count | Number of Active nodes. The nodes that are actively running a job. |
+| Idle Nodes | Count | Number of idle nodes. Idle nodes are the nodes that are not running any jobs but can accept new job if available. |
 | Unusable Nodes | Count | Number of unusable nodes. Unusable nodes are not functional due to some unresolvable issue. Azure will recycle these nodes. |
-| Preempted Nodes | Count | Number of preempted nodes. These nodes are the low priority nodes which are taken away from the available node pool. |
-| Leaving Nodes | Count | Number of leaving nodes. Leaving nodes are the nodes which just finished processing a job and will go to Idle state. |
+| Preempted Nodes | Count | Number of preempted nodes. These nodes are the low-priority nodes that are taken away from the available node pool. |
+| Leaving Nodes | Count | Number of leaving nodes. Leaving nodes are the nodes that just finished processing a job and will go to Idle state. |
 | Total Cores | Count | Number of total cores |
 | Active Cores | Count | Number of active cores |
 | Idle Cores | Count | Number of idle cores |
@@ -54,10 +54,10 @@ Quota information is for Azure Machine Learning compute only.
 
 | Metric | Unit | Description |
 |--|--|--|
-| CpuUtilization | Count | Percentage of utilization on a CPU node. Utilization is reported at one minute intervals. |  |
-| GpuUtilization | Count | Percentage of utilization on a GPU node. Utilization is reported at one minute intervals. |
-| GpuMemoryUtilization | Count | Percentage of memory utilization on a GPU node. Utilization is reported at one minute intervals. |
-| GpuEnergyJoules | Count | Interval energy in Joules on a GPU node. Energy is reported at one minute intervals. |
+| CpuUtilization | Count | Percentage of utilization on a CPU node. Utilization is reported at one-minute intervals. |  |
+| GpuUtilization | Count | Percentage of utilization on a GPU node. Utilization is reported at one-minute intervals. |
+| GpuMemoryUtilization | Count | Percentage of memory utilization on a GPU node. Utilization is reported at one-minute intervals. |
+| GpuEnergyJoules | Count | Interval energy in Joules on a GPU node. Energy is reported at one-minute intervals. |
 
 **Run**
 
@@ -65,7 +65,7 @@ Information on training runs for the workspace.
 
 | Metric | Unit | Description |
 |--|--|--|
-| Cancelled Runs | Count | Number of runs cancelled for this workspace. Count is updated when a run is successfully cancelled. |
+| Cancelled Runs | Count | Number of runs canceled for this workspace. Count is updated when a run is successfully canceled. |
 | Cancel Requested Runs | Count | Number of runs where cancel was requested for this workspace. Count is updated when cancellation request has been received for a run. |  |
 | Completed Runs | Count | Number of runs completed successfully for this workspace. Count is updated when a run has completed and output has been collected. |
 | Failed Runs | Count | Number of runs failed for this workspace. Count is updated when a run fails. |
@@ -74,9 +74,9 @@ Information on training runs for the workspace.
 | Not Started Runs | Count | Number of runs in Not Started state for this workspace. Count is updated when a request is received to create a run but run information has not yet been populated. |  |
 | Preparing Runs | Count | Number of runs that are preparing for this workspace. Count is updated when a run enters Preparing state while the run environment is being prepared. |  |  |
 | Provisioning Runs | Count | Number of runs that are provisioning for this workspace. Count is updated when a run is waiting on compute target creation or provisioning. |
-| Queued Runs | Count | Number of runs that are queued for this workspace. Count is updated when a run is queued in compute target. Can occure when waiting for required compute nodes to be ready. |  |  |
+| Queued Runs | Count | Number of runs that are queued for this workspace. Count is updated when a run is queued in compute target. Can occur when waiting for required compute nodes to be ready. |  |  |
 | Started Runs | Count | Number of runs running for this workspace. Count is updated when run starts running on required resources. |
-| Starting Runs | Count | Number of runs started for this workspace. Count is updated after request to create run and run info | such as the Run Id | has been populated |
+| Starting Runs | Count | Number of runs started for this workspace. Count is updated after request to create run and run info | such as the Run ID | has been populated |
 | Errors | Count | Number of run errors in this workspace. Count is updated whenever run encounters an error. |
 | Warnings | Count | Number of run warnings in this workspace. Count is updated whenever a run encounters a warning. |
 
