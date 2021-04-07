@@ -7,12 +7,12 @@ manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 04/07/2021
 ---
 
 # Azure Cognitive Search performance benchmarks
 
-Azure Cognitive Search's performance depends on a variety of factors including the size of your search service and the types of queries you're sending. In order to help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the level of performance you can expect.
+Azure Cognitive Search's performance depends on a [variety of factors](https://docs.microsoft.com/azure/search/search-performance-tips) including the size of your search service and the types of queries you're sending. In order to help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the level of performance you can expect.
 
 To cover a range of different use cases we ran benchmarks for two main scenarios:
 
@@ -46,11 +46,11 @@ Each scenario used at least 10,000 unique queries to avoid tests being overly sk
 
 - **Percentage of max QPS** - A percentage of the maximum QPS achieved for a particular test. For example, if a given test reached a maximum of 100 QPS, 20% of max QPS would be 20 QPS.
 
-- **Latency** - The server's latency for a query; these numbers do not include [RTT](https://en.wikipedia.org/wiki/Round-trip_delay). Values below are in milliseconds (ms). 
+- **Latency** - The server's latency for a query; these numbers do not include [RTT](https://en.wikipedia.org/wiki/Round-trip_delay). Values below are in milliseconds (ms).
 
 ### Disclaimer
 
-The code we used to run these benchmarks is available [here]() (*link not yet available*). It's worth noting that we observed slightly lower QPS levels with the [JMeter performance testing solution](https://github.com/Azure-Samples/azure-search-performance-testing) than in the benchmarks below. The differences can be attributed to differences in the style of the tests. This speaks to the importance of making your performance tests as similar to your production workload as possible.
+The code we used to run these benchmarks is available [here](https://github.com/Azure-Samples/azure-search-performance-testing/tree/main/other_tools). It's worth noting that we observed slightly lower QPS levels with the [JMeter performance testing solution](https://github.com/Azure-Samples/azure-search-performance-testing) than in the benchmarks below. The differences can be attributed to differences in the style of the tests. This speaks to the importance of making your performance tests as similar to your production workload as possible.
 
 These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the level of performance you can expect based on your scenario.
 
@@ -63,7 +63,7 @@ If you have any questions or concerns, please reach out to us at azuresearch_con
     ![CDON Logo](./media/performance-benchmarks/cdon-logo-320x100v2.png)
    :::column-end:::
    :::column span="3":::
-      This benchmark was created in partnership with the e-commerce company, [CDON](https://cdon.com), the Nordic region's largest online marketplace with operations in Sweden, Finland, Norway and Denmark. Through its 1,500 merchants, CDON offers a wide range assortment that includes over 8 million products. In 2020, CDON had over 120 million visitors and 2 million active customers.
+      This benchmark was created in partnership with the e-commerce company, [CDON](https://cdon.com), the Nordic region's largest online marketplace with operations in Sweden, Finland, Norway and Denmark. Through its 1,500 merchants, CDON offers a wide range assortment that includes over 8 million products. In 2020, CDON had over 120 million visitors and 2 million active customers. You can learn more about CDON's use of Azure Cognitive Search in [this article](https://pulse.microsoft.com/transform/na/fa1-how-cdon-has-been-using-technology-to-become-the-leading-marketplace-in-the-nordics/).
    :::column-end:::
 :::row-end:::
 
