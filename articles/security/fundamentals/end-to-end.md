@@ -1,6 +1,6 @@
 ---
 title: End-to-end security in Azure | Microsoft Docs
-description: The article introduces you to Azure services that help you secure and protect your cloud resources and detect and investigate threats.
+description: The article provides a map of Azure services that help you secure and protect your cloud resources and detect and investigate threats.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/05/2021
+ms.date: 4/07/2021
 ms.author: terrylan
 
 ---
@@ -32,8 +32,6 @@ The security services map organizes services by the resources they protect (colu
 
 The diagram includes the Azure Security Benchmark program, a collection of high-impact security recommendations you can use to help secure the services you use in Azure.
 
-![End-to-end security in Azure](./media/end-to-end/security-diagram.png)
-
 :::image type="content" source="media/end-to-end/security-diagram.svg" alt-text="Diagram showing end-to-end security services in Azure." border="false":::
 
 ## Security controls and baselines
@@ -44,7 +42,7 @@ The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a
 
 ## Secure and protect
 
-![Azure services that help you secure and protect your cloud resources](./media/end-to-end/secure-and-protect.png)
+:::image type="content" source="media/end-to-end/secure-and-protect.svg" alt-text="Diagram showing Azure services that help you secure and protect your cloud resources." border="false":::
 
 | Service | Description |
 |------|--------|
@@ -81,7 +79,7 @@ The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a
 
 ## Detect threats
 
-![Azure services that detect threats](./media/end-to-end/detect-threats.png)
+:::image type="content" source="media/end-to-end/detect-threats.svg" alt-text="Diagram showing Azure services that detect threats." border="false":::
 
 | Service | Description |
 |------|--------|
@@ -103,8 +101,7 @@ The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a
 
 ## Investigate and respond
 
-![Azure services that help you investigate and respond](./media/end-to-end/investigate-and-respond.png)
-
+:::image type="content" source="media/end-to-end/investigate-and-respond.svg" alt-text="Diagram showing Azure services that help you investigate and respond to threats." border="false":::
 
 | Service | Description |
 |------|--------|
