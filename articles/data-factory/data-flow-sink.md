@@ -119,36 +119,30 @@ When fetching a data preview in debug mode, no data will be written to your sink
 
 ## Data flow script
 
-### Syntax
-
-```
-<incomingStream>
-    select(mapColumn(
-        each(<hierarchicalColumn>, match(<matchCondition>), <nameCondition> = $$), ## hierarchical rule-based matching
-        <fixedColumn>, ## fixed mapping, no rename
-        <renamedFixedColumn> = <fixedColumn>, ## fixed mapping, rename
-        each(match(<matchCondition>), <nameCondition> = $$), ## rule-based mapping
-        each(patternMatch(<regexMatching>), <nameCondition> = $$) ## regex mapping
-    ),
-    skipDuplicateMapInputs: { true | false },
-    skipDuplicateMapOutputs: { true | false }) ~> <selectTransformationName>
-```
-
 ### Example
 
 Below is an example of a sink transformation and its data flow script:
 
 ```
-DerivedColumn1 select(mapColumn(
-        each(a, match(true())),
-        movie,
-        title1 = title,
-        each(match(name == 'Rating')),
-        each(patternMatch(`(y)`),
-            $1 + 'regex' = $$)
-    ),
-    skipDuplicateMapInputs: true,
-    skipDuplicateMapOutputs: true) ~> Select1
+sink(input(
+		movie as integer,
+		title as string,
+		genres as string,
+		year as integer,
+		Rating as integer
+	),
+	allowSchemaDrift: true,
+	validateSchema: false,
+	deletable:false,
+	insertable:false,
+	updateable:true,
+	upsertable:false,
+	keys:['movie'],
+	format: 'table',
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true,
+	saveOrder: 1,
+	errorHandlingOption: 'stopOnFirstError') ~> sink1
 ```
 
 ## Next steps
