@@ -3,7 +3,7 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/31/2021
+ms.date: 04/12/2021
 ms.author: helohr
 manager: femila
 ---
@@ -128,6 +128,9 @@ To use the Azure portal to configure Start VM on Connect:
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the Properties window. The Start VM on connect option is highlighted in red.](media/properties-start-vm-on-connect.png)
+
+>[!IMPORTANT]
+>The Azure Government cloud doesn't currently support Start VM on Connect.
 
 ### Use PowerShell
 
