@@ -14,7 +14,7 @@ ms.custom: devx-track-java
 
 This feature enables monitoring Azure Spring Cloud apps with the **New Relic** Java in-process agent.
 
-Using the **New Relic** Java in-process agent, y    ou can:
+Using the **New Relic** Java in-process agent, you can:
 * Consume the **New Relic** java in-process agent.
 * Configure the **New Relic** java in-process agent using **Environment Variables**.
 * Check all monitoring data from **New Relic** dashboard.
