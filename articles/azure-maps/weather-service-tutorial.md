@@ -22,7 +22,7 @@ In this tutorial, you will:
 > *	Load demo data from file.
 > *	Call Azure Maps REST APIs in Python.
 > * Render location data on the map.
-> *	Enrich the demo data with Azure Maps [Daily Forecast](/rest/api/maps/weather/getdailyforecastpreview) weather data.
+> *	Enrich the demo data with Azure Maps [Daily Forecast](/rest/api/maps/weather/getdailyforecast) weather data.
 > * Plot forecast data in graphs.
 
 
@@ -63,7 +63,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## Request daily forecast data
 
-In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast API](/rest/api/maps/weather/getdailyforecastpreview) of the Azure Maps Weather services. This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
+In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast API](/rest/api/maps/weather/getdailyforecast) of the Azure Maps Weather services. This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
 
 
 ```python
@@ -183,7 +183,7 @@ To learn more about how to call Azure Maps REST APIs inside Azure Notebooks, see
 
 To explore the Azure Maps APIs that are used in this tutorial, see:
 
-* [Daily Forecast](/rest/api/maps/weather/getdailyforecastpreview)
+* [Daily Forecast](/rest/api/maps/weather/getdailyforecast)
 * [Render - Get Map Image](/rest/api/maps/render/getmapimage)
 
 For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](./consumption-model.md).

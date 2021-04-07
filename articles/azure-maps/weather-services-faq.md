@@ -94,7 +94,7 @@ Yes. In addition to real-time radar and satellite tiles, Azure Maps customers ca
 
 **Do you offer icons for different weather conditions?**
 
-Yes. You can find icons and their respective codes [here](./weather-services-concepts.md#weather-icons). Notice that only some of the Weather service (Preview) APIs, such as  [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditionspreview), return the *iconCode* in the response. For more information, see the Current WeatherConditions open-source [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location).
+Yes. You can find icons and their respective codes [here](./weather-services-concepts.md#weather-icons). Notice that only some of the Weather service (Preview) APIs, such as  [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions), return the *iconCode* in the response. For more information, see the Current WeatherConditions open-source [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location).
 
 ## Next steps
 
