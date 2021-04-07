@@ -14,41 +14,41 @@ ms.custom: devx-track-java
 
 This feature enables monitoring Azure Spring Cloud apps with the **New Relic** Java in-process agent.
 
-You can:
+Using the **New Relic** Java in-process agent, y    ou can:
 * Consume the `New Relic` java in-process agent.
 * Configure the `New Relic` java in-process agent using **Environment Variables**.
 * Check all monitoring data from `New Relic` dashboard.
 
-## Prerequisite
+## Prerequisites
 
 * A **New Relic** account.
-* The [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
+* The [Azure CLI version, 2.0.67 or later](/cli/azure/install-azure-cli).
 
-## Leverage `New Relic` java in process agent
+## Leverage the New Relic java in process agent
 
-Use the following procedure
+Use the following procedure to access the in-process agent:
 
 1. Create an instance of Azure Spring Cloud.
 
-1. Create an application.
+2. Create an application.
 
-  ```shell
-  az spring-cloud app create --name "appName" --is-public true \
+    ```shell
+      az spring-cloud app create --name "appName" --is-public true \
       -s "resourceName" -g "resourceGroupName"
-  ```
+    ```
 
-1. Create a deployment with **New Relic** agent and **Environment Variables**.
+3. Create a deployment with **New Relic** agent and **Environment Variables**.
 
-  ```shell
-  az spring-cloud app deploy --name "appName" --jar-path app.jar \
-     -s "resourceName" -g "resourceGroupName" \
-     --jvm-options="-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar" \
-     --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
-  ```
+    ```shell
+    az spring-cloud app deploy --name "appName" --jar-path app.jar \
+       -s "resourceName" -g "resourceGroupName" \
+       --jvm-options="-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar" \
+       --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
+    ```
 
   Azure Spring Cloud pre-installs the **New Relic** java agent to following path. Customers can leverage the agent from applications' **Jvm Options**, as well as configure the agent using the [New Relic java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
-  ```
+  ```shell
   /opt/agents/newrelic/java/newrelic-agent.jar
   ```
 
@@ -69,7 +69,7 @@ You can also leverage this agent from portal with the following procedure.
 
 4. Click **General settings** to add/update/delete the `Jvm Option` of the application.
 
-   ![Update Jvm Option](media/new-relic-monitoring/upsdate-jvm-option.png)
+   ![Update Jvm Option](media/new-relic-monitoring/update-jvm-option.png)
 
 5. View the application **Summary** page from the **New Relic** dashboard.
 
@@ -83,11 +83,11 @@ You can also leverage this agent from portal with the following procedure.
 
    ![New Relic dashboard](media/new-relic-monitoring/new-relic-dashboard.png)
 
-## `New Relic` Java Agent Logging
+## New Relic Java Agent Logging
 
 By default, Azure Spring Cloud will print the logs of `New Relic` java agent to `STDOUT`. It will mixed with the application logs. You can find the explicit agent version from the application logs.
 
-## `New Relic` Java Agent Update/Upgrade
+## New Relic Java Agent Update/Upgrade
 
 The `New Relic` java agent will update/upgrade regularly with JDK, there agent update/upgrade may impact below scenarios.
 
@@ -97,6 +97,6 @@ The `New Relic` java agent will update/upgrade regularly with JDK, there agent u
 
 ## Vnet Injection Instance Outbound Traffic Configuration
 
-For vnet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for `New Relic` java agent. Please reference the doc of [Networks of New Relic](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).
+For vnet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for **New Relic** java agent. Please reference the doc of [Networks of New Relic](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).
 
 ## Next steps
