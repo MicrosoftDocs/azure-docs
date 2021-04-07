@@ -21,7 +21,7 @@ In this article, you learn how to visualize real-time sensor data that your Azur
 
 ## Prerequisites
 
-* Complete the [Raspberry Pi online simulator](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../articles/iot-hub/quickstart-send-telemetry-dotnet.md) quickstarts. These articles cover the following requirements:
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](quickstart-send-telemetry-dotnet.md) quickstarts. These articles cover the following requirements:
   
   * An active Azure subscription.
   * An Azure IoT hub in your subscription.
