@@ -76,11 +76,11 @@ chat_client = ChatClient(
 
 ## Access your call ID
 
-When filing a support request through the Azure portal related to calling issues, you may be asked to provide ID of the call you're referring to. This can be accessed through the Calling SDK:
+To troubleshoot any issues in the context of a given call, participants in that call or audio & video streams, please capture and store within your system value of a `call ID`, This can be accessed through `id` property available on the `call` object:
 
 # [JavaScript](#tab/javascript)
 ```javascript
-// `call` is an instance of a call created by `callAgent.call` or `callAgent.join` methods
+// `call` is an instance of a call created by `callAgent.startCall` or `callAgent.join` methods
 console.log(call.id)
 ```
 
@@ -94,7 +94,7 @@ print(call.callId)
 # [Android](#tab/android)
 ```java
 // The `call id` property can be retrieved by calling the `call.getCallId()` method on a call object after a call ends
-// `call` is an instance of a call created by `callAgent.call(…)` or `callAgent.join(…)` methods
+// `call` is an instance of a call created by `callAgent.startCall(…)` or `callAgent.join(…)` methods
 Log.d(call.getCallId())
 ```
 ---
@@ -124,17 +124,24 @@ console.log(result); // your message ID will be in the result
 
 # [JavaScript](#tab/javascript)
 
-The following code can be used to configure `AzureLogger` to output logs to the console using the JavaScript SDK:
+Azure Communication Calling Library relies internally on [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging
+To control log output, please use `setLogLevel` method from `@azure/logger` package.
+
+```javascript
+import { setLogLevel } from '@azure/logger';
+setLogLevel('verbose');
+const callClient = new CallClient();
+```
+
+Using AzureLogger, it is possible to redirect the logging output from the Azure SDKs by overriding the AzureLogger.log method.
+This may be useful if you want to redirect logs to a location other than console.
 
 ```javascript
 import { AzureLogger } from '@azure/logger';
-
-AzureLogger.verbose = (...args) => { console.info(...args); }
-AzureLogger.info = (...args) => { console.info(...args); }
-AzureLogger.warning = (...args) => { console.info(...args); }
-AzureLogger.error = (...args) => { console.info(...args); }
-
-callClient = new CallClient({logger: AzureLogger});
+// redirect log output
+AzureLogger.log = (...args) => {
+  console.log(...args); // to console, file, buffer, REST API..
+};
 ```
 
 # [iOS](#tab/ios)
