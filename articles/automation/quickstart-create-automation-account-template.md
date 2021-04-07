@@ -3,7 +3,7 @@ title: "Quickstart: Create an Automation account - Azure template"
 titleSuffix: Azure Automation
 description: This quickstart shows how to create an Automation account by using the Azure Resource Manager template.
 services: automation
-Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
+# Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
 ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.date: 01/07/2021

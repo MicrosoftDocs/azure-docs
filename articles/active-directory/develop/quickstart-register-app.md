@@ -13,9 +13,7 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-# Customer intent: As an enterprise developer or software-as-a-service (SaaS) provider, I want to
-# know how to register my application with the Microsoft identity platform so that the security
-# token service can issue ID and/or access tokens to clients that want to access it.
+# Customer intent: As an enterprise developer or software-as-a-service (SaaS) provider, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to clients that want to access it.
 ---
 
 # Quickstart: Register an application with the Microsoft identity platform
