@@ -234,6 +234,8 @@
         href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
       - name: NP-series
         href: np-series.md
+      - name: FPGA Attestation Service
+        href: field-programmable-gate-arrays-attestation.md
     - name: High performance compute
       items:
       - name: Overview
@@ -1720,12 +1722,10 @@
       - name: Windows
         displayName: Enable disaster recovery
         href: ./windows/tutorial-disaster-recovery.md
-    - name: Enable disaster recovery for a VM
-      href: ../site-recovery/azure-to-azure-tutorial-enable-replication.md
-    - name: Run a disaster recovery drill for a VM
-      href: ../site-recovery/azure-to-azure-tutorial-dr-drill.md
     - name: Fail over a VM to another region
       href: ../site-recovery/azure-to-azure-tutorial-failover-failback.md
+    - name: Fail back a VM to the primary region
+      href: ../site-recovery/azure-to-azure-tutorial-failback.md
   - name: Move and migrate VMs
     items:
     - name: Change subscription or resource group

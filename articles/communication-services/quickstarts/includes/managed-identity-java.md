@@ -1,7 +1,7 @@
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](/java/fundamentals/java-jdk-install) version 8 or above.
+- [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
@@ -38,8 +38,6 @@ import com.azure.communication.identity.*;
 import com.azure.communication.identity.models.*;
 import com.azure.communication.sms.*;
 import com.azure.core.credential.*;
-import com.azure.core.http.*;
-import com.azure.core.http.netty.*;
 import com.azure.identity.*;
 
 import java.io.IOException;
@@ -60,13 +58,11 @@ Then, use the client to issue a token for a new user:
           // You can find your endpoint and access key from your resource in the Azure portal
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 
-          HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
           TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 
           CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
                .endpoint(endpoint)
                .credential(credential)
-               .httpClient(httpClient)
                .buildClient();
 
           CommunicationUserIdentifier user = communicationIdentityClient.createUser();
@@ -84,13 +80,11 @@ The following code example shows how to create a service client object with mana
           // You can find your endpoint and access key from your resource in the Azure portal
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 
-          HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
           TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 
           SmsClient smsClient = new SmsClientBuilder()
                .endpoint(endpoint)
                .credential(credential)
-               .httpClient(httpClient)
                .buildClient();
 
           // Send the message and check the response for a message id
@@ -99,7 +93,6 @@ The following code example shows how to create a service client object with mana
                "<to-phone-number>",
                "your message"
           );
-
           return response;
     }
 ```

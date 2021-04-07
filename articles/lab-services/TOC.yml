@@ -137,6 +137,8 @@
       href: how-to-setup-lab-gpu.md
     - name: Prepare a Windows template VM
       href: how-to-prepare-windows-template.md
+    - name: Use external file storage
+      href: how-to-attach-external-storage.md
     - name: Control Windows shutdown behavior
       href: how-to-windows-shutdown.md
     - name: View support information (educator)
