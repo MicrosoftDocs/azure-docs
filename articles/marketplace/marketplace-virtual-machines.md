@@ -10,7 +10,7 @@ ms.author: iqshah
 ms.date: 10/19/2020
 ---
 
-# How to plan a virtual machine offer
+# Plan a virtual machine offer
 
 This article explains the different options and requirements for publishing a virtual machine (VM) offer to the commercial marketplace. VM offers are transactable offers deployed and billed through Azure Marketplace.
 
@@ -97,7 +97,7 @@ You can restrict the discovery and deployment of your VM to a specific set of cu
 
 For more information, see [Plans and pricing for commercial marketplace offers](plans-pricing.md) and [Private offers in the Microsoft commercial marketplace](private-offers.md).
 
-## Test drives
+## Test drive
 
 You can choose to enable a test drive for your VM. Test drives give customers access to a preconfigured environment for a fixed number of hours. You can enable test drives for any publishing option, however this feature has additional requirements. To learn more about test drives, see [What is a test drive?](what-is-test-drive.md). For information about configuring different kinds of test drives, see [Test drive technical configuration](test-drive-technical-configuration.md).
 

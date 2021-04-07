@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage cluster security and upgrades in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 04/07/2021
 
 ---
 
@@ -140,19 +140,41 @@ To see seccomp in action, create a filter that prevents changing permissions on 
 1. Create a seccomp filter named */var/lib/kubelet/seccomp/prevent-chmod*.
 1. Paste the following content:
 
-    ```
+    ```json
     {
       "defaultAction": "SCMP_ACT_ALLOW",
       "syscalls": [
         {
           "name": "chmod",
           "action": "SCMP_ACT_ERRNO"
+        },
+        {
+          "name": "fchmodat",
+          "action": "SCMP_ACT_ERRNO"
+        },
+        {
+          "name": "chmodat",
+          "action": "SCMP_ACT_ERRNO"
         }
       ]
     }
     ```
 
-1. From your local machine, create a pod manifest named *aks-seccomp.yaml*. Paste the following content. This manifest:
+    In version 1.19 and later, you need to configure the following:
+
+    ```json
+    {
+      "defaultAction": "SCMP_ACT_ALLOW",
+      "syscalls": [
+        {
+          "names": ["chmod","fchmodat","chmodat"],
+          "action": "SCMP_ACT_ERRNO"
+        }
+      ]
+    }
+    ```
+
+1. From your local machine, create a pod manifest named *aks-seccomp.yaml* and paste the following content. This manifest:
     * Defines an annotation for `seccomp.security.alpha.kubernetes.io`.
     * References the *prevent-chmod* filter created in the previous step.
 
@@ -175,13 +197,38 @@ To see seccomp in action, create a filter that prevents changing permissions on 
       restartPolicy: Never
     ```
 
+    In version 1.19 and later, you need to configure the following:
+
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: chmod-prevented
+    spec:
+      securityContext:
+        seccompProfile:
+          type: Localhost
+          localhostProfile: prevent-chmod
+      containers:
+      - name: chmod
+        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        command:
+          - "chmod"
+        args:
+         - "777"
+         - /etc/hostname
+      restartPolicy: Never
+    ```
+
 1. Deploy the sample pod using the [kubectl apply][kubectl-apply] command:
 
     ```console
     kubectl apply -f ./aks-seccomp.yaml
     ```
 
-1. View the status of the pods using the [kubectl get pods][kubectl-get] command. The pod reports an error. The `chmod` command is prevented from running by the seccomp filter, as shown in the following example output:
+1. View pod status using the [kubectl get pods][kubectl-get] command. 
+    * The pod reports an error. 
+    * The `chmod` command is prevented from running by the seccomp filter, as shown in the following example output:    
 
     ```
     $ kubectl get pods

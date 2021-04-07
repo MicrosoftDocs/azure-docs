@@ -193,7 +193,7 @@ The Body Tracking SDK supports CPU, CUDA, DirectML (Windows only) and TensorRT e
 > ONNX Runtime displays warnings for opcodes that are not accelerated. These may be safely ignored.
 
 ONNX Runtime includes environment variables to control TensorRT model caching. The recommended values are:
-- ORT_TENSORRT_CACHE_ENABLE=1 
+- ORT_TENSORRT_ENGINE_CACHE_ENABLE=1 
 - ORT_TENSORRT_CACHE_PATH="pathname"
 
 The folder must be created prior to starting body tracking.

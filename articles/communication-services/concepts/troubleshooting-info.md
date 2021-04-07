@@ -30,11 +30,11 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 
 ## Access your MS-CV ID
 
-The MS-CV ID can be accessed by configuring diagnostics in the `clientOptions` object instance when initializing your client libraries. Diagnostics can be configured for any of the Azure client libraries including Chat, Identity, and VoIP calling.
+The MS-CV ID can be accessed by configuring diagnostics in the `clientOptions` object instance when initializing your SDKs. Diagnostics can be configured for any of the Azure SDKs including Chat, Identity, and VoIP calling.
 
 ### Client options example
 
-The following code snippets demonstrate diagnostics configuration. When the client libraries are used with diagnostics enabled, diagnostics details will be emitted to the configured event listener:
+The following code snippets demonstrate diagnostics configuration. When the SDKs are used with diagnostics enabled, diagnostics details will be emitted to the configured event listener:
 
 # [C#](#tab/csharp)
 ```
@@ -76,7 +76,7 @@ chat_client = ChatClient(
 
 ## Access your call ID
 
-When filing a support request through the Azure portal related to calling issues, you may be asked to provide ID of the call you're referring to. This can be accessed through the calling client library:
+When filing a support request through the Azure portal related to calling issues, you may be asked to provide ID of the call you're referring to. This can be accessed through the Calling SDK:
 
 # [JavaScript](#tab/javascript)
 ```javascript
@@ -124,7 +124,7 @@ console.log(result); // your message ID will be in the result
 
 # [JavaScript](#tab/javascript)
 
-The following code can be used to configure `AzureLogger` to output logs to the console using the JavaScript client library:
+The following code can be used to configure `AzureLogger` to output logs to the console using the JavaScript SDK:
 
 ```javascript
 import { AzureLogger } from '@azure/logger';
@@ -154,16 +154,16 @@ On Android Studio, navigate to the Device File Explorer by selecting View > Tool
 
 ---
 
-## Calling client library error codes
+## Calling SDK error codes
 
-The Azure Communication Services calling client library uses the following error codes to help you troubleshoot calling issues. These error codes are exposed through the `call.callEndReason` property after a call ends.
+The Azure Communication Services Calling SDK uses the following error codes to help you troubleshoot calling issues. These error codes are exposed through the `call.callEndReason` property after a call ends.
 
 | Error code | Description | Action to take |
 | -------- | ---------------| ---------------|
 | 403 | Forbidden / Authentication failure. | Ensure that your Communication Services token is valid and not expired. |
 | 404 | Call not found. | Ensure that the number you're calling (or call you're joining) exists. |
 | 408 | Call controller timed out. | Call Controller timed out waiting for protocol messages from user endpoints. Ensure clients are connected and available. |
-| 410 | Local media stack or media infrastructure error. | Ensure that you're using the latest client library in a supported environment. |
+| 410 | Local media stack or media infrastructure error. | Ensure that you're using the latest SDK in a supported environment. |
 | 430 | Unable to deliver message to client application. | Ensure that the client application is running and available. |
 | 480 | Remote client endpoint not registered. | Ensure that the remote endpoint is available. |
 | 481 | Failed to handle incoming call. | File a support request through the Azure portal. |

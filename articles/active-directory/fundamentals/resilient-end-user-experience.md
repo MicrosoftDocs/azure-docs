@@ -57,7 +57,7 @@ As part of the external identity provider registration process, include a verifi
 
 ## Availability of Multi-factor authentication
 
-When using a [phone service for Multi-factor authentication (MFA)](../../active-directory-b2c/phone-authentication.md), make sure to consider an alternative service provider. The local Telco or phone service provider may experience disruptions in their service.
+When using a [phone service for Multi-factor authentication (MFA)](../../active-directory-b2c/phone-authentication-user-flows.md), make sure to consider an alternative service provider. The local Telco or phone service provider may experience disruptions in their service.
 
 ### How to choose an alternate MFA  
 

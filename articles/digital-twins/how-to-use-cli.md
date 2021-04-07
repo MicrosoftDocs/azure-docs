@@ -51,9 +51,13 @@ For instructions on how to install or update the Azure CLI to a newer version, s
 
 ### Get the extension
 
-You can make sure you have the latest version of the `azure-iot` extension with these steps. You can run these commands in the [Azure Cloud Shell](../cloud-shell/overview.md) or a [local Azure CLI](/cli/azure/install-azure-cli).
+The Azure CLI will automatically prompt you to install the extension on the first use of a command that requires it.
 
-[!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
+Alternatively, you can use the following command to install the extension yourself at any time (or update it if it turns out that you already have an older version). The command can be run in either the [Azure Cloud Shell](../cloud-shell/overview.md) or a [local Azure CLI](/cli/azure/install-azure-cli).
+
+```azurecli-interactive
+az extension add --upgrade -n azure-iot
+```
 
 ## Next steps
 

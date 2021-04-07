@@ -78,7 +78,7 @@ On contrary if isolation is required, our announcement will include the recommen
 | Date | Action |
 |---|---|
 | Feb 15, 2021<sup>1</sup> | G5/GS5/E64i_v3/E64is_v3 isolation retirement announcement |
-| Feb 15, 2022 | G5/GS5/E64i_v3/E64is_v3 isolation guarantee removed |
+| Feb 28, 2022 | G5/GS5/E64i_v3/E64is_v3 isolation guarantee removed |
 
 <sup>1</sup> Existing customer using these sizes will receive an announcement email with detailed instructions on the next steps.  
 

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom policy definition"
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 10/05/2020
+ms.date: 03/31/2021
 ms.topic: tutorial
 ---
 # Tutorial: Create a custom policy definition

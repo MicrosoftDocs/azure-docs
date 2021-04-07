@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 
-# As an operator, I want to monitor the overall health of the devices and data exports in my IoT Central application.
+#Customer intent: As an operator, I want to monitor the overall health of the devices and data exports in my IoT Central application.
 ---
 
 # Monitor the overall health of an IoT Central application
