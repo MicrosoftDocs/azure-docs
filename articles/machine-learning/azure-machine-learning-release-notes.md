@@ -82,8 +82,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Bugfix - supporting path_on_compute while passing dataset configuration as download.
     + Deprecate RScriptStep in favor of using CommandStep for running R scripts in pipelines. 
     + Deprecate EstimatorStep in favor of using CommandStep for running ML training (including distributed training) in pipelines.
-  + **azureml-train-automl-client**
-    +  Changed console output when submitting an AutoML run to show a portal link to the run.
   + **azureml-train-automl-runtime**
     +  Changed console output when submitting an AutoML run to show a portal link to the run.
   + **azureml-train-core**
