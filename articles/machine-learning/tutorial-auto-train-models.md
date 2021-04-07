@@ -26,9 +26,10 @@ You'll write code using the Python SDK in this tutorial.  You'll learn the follo
 > * Train an automated machine learning regression model
 > * Calculate model accuracy
 
-Automated machine learning is used for multiple model types. For a no-code experiences, see:
-* [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md) *and
-* [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md).
+Also try automated machine learning for these other model types: 
+
+* [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md) - a no-code example.
+* [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md) - a no-code example.
 
 ## Prerequisites
 
