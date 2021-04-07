@@ -47,11 +47,11 @@ The same behavior applies when you:
 * Work with data interactively via a Jupyter Notebook on your local computer or [compute instance](concept-compute-instance.md).
 
 > [!NOTE]
-> Credentials stored via credential-based authentication include: subscription IDs, shared access signature (SAS) tokens, and storage access key and service principal information, like client IDs and tenant IDs.
+> Credentials stored via credential-based authentication include subscription IDs, shared access signature (SAS) tokens, and storage access key and service principal information, like client IDs and tenant IDs.
 
 ### Model training on private data
 
-Certain machine learning scenarios involve training models with private data. In such cases, data scientists need to run training workflows without being exposed to the confidential input data. In this scenario, a managed identity of the training compute is used for data access authentication. This approach allows storage admins to grant Storage Blob Data Reader access to the managed identity that the training compute uses to run the training job. The individual data scientists don't need to be granted access. Learn how to [set up managed identity on a compute cluster](how-to-create-attach-compute-cluster.md#managed-identity).
+Certain machine learning scenarios involve training models with private data. In such cases, data scientists need to run training workflows without being exposed to the confidential input data. In this scenario, a managed identity of the training compute is used for data access authentication. This approach allows storage admins to grant Storage Blob Data Reader access to the managed identity that the training compute uses to run the training job. The individual data scientists don't need to be granted access. For more information, see [set up managed identity on a compute cluster](how-to-create-attach-compute-cluster.md#managed-identity).
 
 
 ## Prerequisites
@@ -95,7 +95,7 @@ You can configure storage accounts to allow access only from within specific vir
 
 When you register a storage service on Azure as a datastore, you automatically create and register that datastore to a specific workspace. See [storage access permissions](#storage-access-permissions) for guidance on required permission types. See [work with virtual networks](#work-with-virtual-networks) for details on how to connect to data storage behind virtual networks.
 
-In the following code, notice the absence of authentication parameters like `sas_token`, `account_key`, `subscription_id`, and service principal `client_id`. This omission indicates that Azure Machine Learning will use identity-based data access for authentication. Creation of datastores typically happens interactively in a notebook or via the studio. So your Azure Active Directory token is used for data access authentication.
+In the following code, notice the absence of authentication parameters like `sas_token`, `account_key`, `subscription_id`, and the service principal `client_id`. This omission indicates that Azure Machine Learning will use identity-based data access for authentication. Creation of datastores typically happens interactively in a notebook or via the studio. So your Azure Active Directory token is used for data access authentication.
 
 > [!NOTE]
 > Datastore names should consist only of lowercase letters, numbers, and underscores. 
