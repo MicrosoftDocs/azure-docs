@@ -77,18 +77,6 @@ This network segment is used primarily for testing purposes during the initial d
 
 :::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identify - IP address segment for virtual machine workloads" border="false":::     
 
-## (Optional) Extend your networks
-
-You can extend network segments from on-premises to Azure VMware Solution, and if you do, identify those networks now.  
-
-Keep in mind that:
-
-- If you plan to extend networks from on-premises, those networks must connect to a [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) in your on-premises VMware environment.  
-- If the network(s) you wish to extend live on a [vSphere Standard Switch](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), then they can't be extended.
-
->[!NOTE]
->These networks are extended as a final step of the configuration, not during deployment.
-
 ## Attach Azure Virtual Network to Azure VMware Solution
 
 To provide connectivity to Azure VMware Solution, an ExpressRoute is built from Azure VMware Solution private cloud to an ExpressRoute virtual network gateway.
@@ -120,11 +108,23 @@ The below image shows the **Create a private cloud** deployment screen with the 
 >[!NOTE]
 >Any virtual network that is going to be used or created may be seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
 
-## VMware HCX Network Segments
+## (Optional) VMware HCX Network Segments
 
 VMware HCX is a technology bundled in with Azure VMware Solution. The primary use cases for VMware HCX are workload migrations and disaster recovery. If you plan to do either, it's best to plan out the networking now.   Otherwise, you can skip and continue to the next step.
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
+
+## (Optional) Extend your networks
+
+You can extend network segments from on-premises to Azure VMware Solution, and if you do, identify those networks now.  
+
+Keep in mind that:
+
+- If you plan to extend networks from on-premises, those networks must connect to a [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) in your on-premises VMware environment.  
+- If the network(s) you wish to extend live on a [vSphere Standard Switch](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), then they can't be extended.
+
+>[!NOTE]
+>These networks are extended as a final step of the configuration, not during deployment.
 
 ## Next steps
 Now that you've gathered and documented the needed information continue to the next section to create your Azure VMware Solution private cloud.
