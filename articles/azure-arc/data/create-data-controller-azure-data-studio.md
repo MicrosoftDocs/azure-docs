@@ -46,7 +46,7 @@ Follow these steps to create an Azure Arc data controller using the Deployment w
    
    The Azure location selected here is the location in Azure where the *metadata* about the data controller and the database instances that it manages will be stored. The data controller and database instances will be actually created in your Kubernetes cluster wherever that may be.
    
-   Once done, **Click Next**.
+   Once done, click **Next**.
 
 1. Enter a name for the data controller and for the namespace that the data controller will be created in.
 
