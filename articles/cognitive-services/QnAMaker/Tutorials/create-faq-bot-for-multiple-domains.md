@@ -28,6 +28,7 @@ Let's say the marketing team at Microsoft wants to build a FAQ bot that answers 
 
 In this Knowledgebase, we have QnAs on two products and we would like to distinguish them accordingly. In order to do that, we can update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and values can be **surface_pen** or **surface_earbuds** as per the QnA. You can extend the example above to extract data on multiple products and add a different value for each product. At the same time, a single QnA can be assigned multiple metadata key-value pairs to group data in multiple ways. Now, in order to to restrict the system to search for the response across a particluar product you would need to pass that product as a strict filter in the generate Answer API. 
 
+> [!CAUTION]
 You can find how to use the GenerateAnswer API [here](./How-To/metadata-generateanswer-usage.md). Remember to set the HTTP header property of Authorization with a value of the string EndpointKey with a trailing space then the endpoint key found on the Settings page.
 
 The GenerateAnswer URL has the following format:
