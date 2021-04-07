@@ -209,7 +209,7 @@ The sample browser-based web app (all code is provided) needs the following appl
 Install the following software:
 
 * [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) - the sample back-end server uses .NET core
-* [Node.js](https://nodejs.org/) - the client/front end depends on this application
+* [Node.js](https://nodejs.org/) - the client/front end depends on this application (You may also need NPM to install Node JS, run `"% npm install"`).
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), or [.NET Core CLI](/dotnet/core/tools/) - use either the developer environment of Visual Studio 2019 or the .NET Core CLI to build and run the app
 
 ### Set up the sample
