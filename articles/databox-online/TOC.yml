@@ -261,6 +261,8 @@
         href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
       - name: Manage VM tags
         href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
+      - name: Create virtual switch 
+        href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
     - name: Manage certificates
       items:
       - name: Requirements
