@@ -76,7 +76,7 @@ Information on training runs for the workspace.
 | Provisioning Runs | Count | Number of runs that are provisioning for this workspace. Count is updated when a run is waiting on compute target creation or provisioning. |
 | Queued Runs | Count | Number of runs that are queued for this workspace. Count is updated when a run is queued in compute target. Can occur when waiting for required compute nodes to be ready. |
 | Started Runs | Count | Number of runs running for this workspace. Count is updated when run starts running on required resources. |
-| Starting Runs | Count | Number of runs started for this workspace. Count is updated after request to create run and run info | such as the Run ID | has been populated |
+| Starting Runs | Count | Number of runs started for this workspace. Count is updated after request to create run and run info, such as the Run ID, has been populated |
 | Errors | Count | Number of run errors in this workspace. Count is updated whenever run encounters an error. |
 | Warnings | Count | Number of run warnings in this workspace. Count is updated whenever a run encounters a warning. |
 
