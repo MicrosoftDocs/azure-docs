@@ -137,7 +137,7 @@ To get Application Insights ID and key:
 1. Check the **Read telemetry** box.
 1. Copy the **Key** before closing the Create API key blade and save it somewhere secure. If you lose the key, you'll need to create another.
 
-    ![Screenshot that demonstrates how to create API access key](./media/troubleshoot-with-application-insights/application-insights-api-access.png)
+    ![Screenshot that demonstrates how to create API access key.](./media/troubleshoot-with-application-insights/application-insights-api-access.png)
 
 ### Set up Azure AD B2C VS Code extension
 
@@ -148,14 +148,14 @@ Now the you have Azure Application insights API ID and Key, you can configure th
 
 1. From the **Azure AD B2C Trace** explorer, click on the **Settings** icon.
 
-    ![Screenshot that demonstrates select the application insights settings](./media/troubleshoot-with-application-insights/app-insights-settings.png)
+    ![Screenshot that demonstrates select the application insights settings.](./media/troubleshoot-with-application-insights/app-insights-settings.png)
 
-1. Provide the Azure Application Insights **id** and **key**.
+1. Provide the Azure Application Insights **ID** and **key**.
 1. Click **Save**
 
 After you save the settings the Application insights logs appear on the **Azure AD B2C Trace (App Insights)** window.
 
-![Screenshot of Azure AD B2C extension for vscode, presenting the Azure Application insights trace](./media/troubleshoot-with-application-insights/vscode-extension-application-insights-trace.png)
+![Screenshot of Azure AD B2C extension for vscode, presenting the Azure Application insights trace.](./media/troubleshoot-with-application-insights/vscode-extension-application-insights-trace.png)
 
 
 ## Configure Application Insights in Production
