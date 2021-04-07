@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 04/05/2021
 ms.author: apimpm
 
 ---
@@ -21,7 +21,7 @@ ms.author: apimpm
 
 Azure API Management supports importing Azure Function Apps as new APIs or appending them to existing APIs. The process automatically generates a host key in the Azure Function App, which is then assigned to a named value in Azure API Management.
 
-This article walks through importing an Azure Function App as an API in Azure API Management. It also describes the testing process.
+This article walks through importing and testing an Azure Function App as an API in Azure API Management. 
 
 You will learn how to:
 
@@ -34,8 +34,8 @@ You will learn how to:
 
 ## Prerequisites
 
-* Complete the quickstart [Create an Azure API Management instance](get-started-create-service-instance.md).
-* Make sure you have an Azure Functions app in your subscription. For more information, see [Create an Azure Function App](../azure-functions/functions-get-started.md). It has to contain Functions with HTTP trigger and authorization level setting set to *Anonymous* or *Function*.
+* Complete the [Create an Azure API Management instance](get-started-create-service-instance.md) quickstart.
+* Make sure you have an Azure Functions app in your subscription. For more information, see [Create an Azure Function App](../azure-functions/functions-get-started.md). Functions must have HTTP trigger and authorization level set to *Anonymous* or *Function*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -79,15 +79,15 @@ Follow the steps below to append Azure Function App to an existing API.
 
 2. Choose an API you want to import an Azure Function App to. Click **...** and select **Import** from the context menu.
 
-    ![Screenshot that highlights the Import menu option.](./media/import-function-app-as-api/append-01.png)
+    ![Screenshot that highlights the Import menu option.](./media/import-function-app-as-api/append-function-api-1.png)
 
 3. Click on the **Function App** tile.
 
-    ![Screenshot that highlights the Function App tile.](./media/import-function-app-as-api/append-02.png)
+    ![Screenshot that highlights the Function App tile.](./media/import-function-app-as-api/append-function-api-2.png)
 
 4. In the pop-up window, click **Browse**.
 
-    ![Screenshot that shows the Browse button.](./media/import-function-app-as-api/append-03.png)
+    ![Screenshot that shows the Browse button.](./media/import-function-app-as-api/append-function-api-3.png)
 
 5. Click on the **Function App** section to choose from the list of available Function Apps.
 
@@ -103,7 +103,7 @@ Follow the steps below to append Azure Function App to an existing API.
 
 8. Click **Import**.
 
-    ![Append from Function App](./media/import-function-app-as-api/append-04.png)
+    ![Append from Function App](./media/import-function-app-as-api/append-function-api-4.png)
 
 ## <a name="authorization"></a> Authorization
 
@@ -141,6 +141,8 @@ Navigate to your Azure API Management instance and select **Named values** from 
 
 You can call operations directly from the Azure portal. Using the Azure portal is a convenient way to view and test the operations of an API.  
 
+![Screenshot that highlights the test procedure.](./media/import-function-app-as-api/test-api.png)
+
 1. Select the API that you created in the preceding section.
 
 2. Select the **Test** tab.
@@ -152,6 +154,9 @@ You can call operations directly from the Azure portal. Using the Azure portal i
 4. Select **Send**.
 
     The back end responds with **200 OK** and some data.
+
+    ![Screenshot that highlights data return.](./media/import-function-app-as-api/test-api-2.png)
+
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
