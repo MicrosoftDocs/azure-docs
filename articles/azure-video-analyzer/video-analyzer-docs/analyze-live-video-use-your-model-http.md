@@ -4,6 +4,7 @@ description: This quickstart describes how to analyze live video with your own m
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 04/01/2021
+zone_pivot_groups: video-analyzer-programming-languages
 
 ---
 
@@ -20,21 +21,18 @@ The quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated l
 > [!NOTE]
 > You will need an Azure subscription with at least a Contributor role. If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.
 
-* [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/analyze-live-video-use-your-model-http/csharp/prerequisites.md)]
+::: zone-end
 
-    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
-    
-    > [!TIP]
-    > When installing Azure IoT Tools, you might be prompted to install Docker. Feel free to ignore the prompt.
-    
-    * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* If you didn't complete the [Detect motion and emit events]()<!--detect-motion-emit-events-quickstart?pivots=programming-language-csharp--> quickstart, then be sure to [set up Azure resources]() <!--TODO: add a link once the topic is staged --> .
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/analyze-live-video-use-your-model-http/python/prerequisites.md)]
+::: zone-end
 
 > [!TIP]
 > If you run into issues with Azure resources that get created, please view our [troubleshooting guide]() <!--TODO: add a link once the topic is staged --> to resolve some commonly encountered issues.
 
-### Review the sample video
+## Review the sample video
 
 When you set up the Azure resources, a short video of highway traffic is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
 
@@ -298,7 +296,7 @@ In the messages, notice the following details:
 * The eventTime value is the time when the event occurred.
 * The body section contains data about the analytics event. In this case, the event is an inference event, so the body contains inferences data.
 * The inferences section indicates that the type is entity. This section includes additional data about the entity.
-* The timestamp value… (there is text in LVA docs on how to interpret this, so copy some lines and insert link)
+* The timestamp value indicates the time when the event occurred.
 
 ## Clean up resources
 
@@ -307,7 +305,8 @@ If you intend to try other quickstarts, keep the resources you created. Otherwis
 ## Next steps
 
 * Try a [secured version of the YoloV3 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) and deploy it to the IoT Edge device.
+
 Review additional challenges for advanced users:
+
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
 * Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2018-06&preserve-view=true). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux?view=iotedge-2018-06&preserve-view=true).
-

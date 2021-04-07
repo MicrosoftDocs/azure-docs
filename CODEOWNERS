@@ -54,6 +54,10 @@ articles/governance/ @DCtheGeek
 articles/**/*security-baseline.md @msmbaldwin @mgblythe
 articles/security/benchmarks/ @msmbaldwin @mgblythe
 
+# Azure Security Center
+articles/security-center/ @memildin
+includes/*security-controls*.md @memildin
+
 # DDOS Protection
 
 articles/ddos-protection @aletheatoh @anupamvi
