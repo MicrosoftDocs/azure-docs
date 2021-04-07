@@ -298,9 +298,8 @@
       - name: Collect logs using Application Insights
         href: troubleshoot-with-application-insights.md
         displayName: troubleshooting, app insights
-      - name: Policy validation
+      - name: Troubleshooting custom policies
         href: troubleshoot-custom-policies.md
-        displayName: troubleshooting
     - name: Reference
       items:
       - name: TrustFrameworkPolicy
