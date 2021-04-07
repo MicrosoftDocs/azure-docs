@@ -64,7 +64,7 @@ You can also leverage this agent from portal with the following procedure.
 
    ![Overview page](media/new-relic-monitoring/overview-page.png)
 
-3. Click **Configurations** in the left navigation pane to add/update/delete the **Environment Variables** of the application.
+3. Click **Configuration** in the left navigation pane to add/update/delete the **Environment Variables** of the application.
 
    ![Update environment](media/new-relic-monitoring/configurations-update-environment.png)
 
