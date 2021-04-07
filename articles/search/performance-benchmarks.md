@@ -12,22 +12,22 @@ ms.date: 04/07/2021
 
 # Azure Cognitive Search performance benchmarks
 
-Azure Cognitive Search's performance depends on a [variety of factors](search-performance-tips.md) including the size of your search service and the types of queries you're sending. To help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the level of performance you can expect.
+Azure Cognitive Search's performance depends on a [variety of factors](search-performance-tips.md) including the size of your search service and the types of queries you're sending. To help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the performance you can expect.
 
 To cover a range of different use cases, we ran benchmarks for two main scenarios:
 
 * **E-commerce search** - This benchmark emulates a real e-commerce scenario and is based on the Nordic e-commerce company [CDON](https://cdon.com).
-* **Document search** - This scenario is comprised of keyword search over full text documents representing typical document search.
+* **Document search** - This scenario is comprised of keyword search over full text documents from [Semantic Scholar](http://s2-public-api-prod.us-west-2.elasticbeanstalk.com/corpus/download/). This emulates a typical document search solution.
 
-While these scenarios reflect different use cases, every scenario is different so we always recommend performance testing your individual workload. We've published a [performance testing solution using JMeter](https://github.com/Azure-Samples/azure-search-performance-testing) so you can run similar tests against your own service. You can follow this tutorial
+While these scenarios reflect different use cases, every scenario is different so we always recommend performance testing your individual workload. We've published a [performance testing solution using JMeter](https://github.com/Azure-Samples/azure-search-performance-testing) so you can run similar tests against your own service.
 
 ## Testing methodology
 
-To benchmark Azure Cognitive Search's performance, we ran tests for two different scenarios at different SKUs and replica/partition combinations.
+To benchmark Azure Cognitive Search's performance, we ran tests for two different scenarios at different tiers and replica/partition combinations.
 
 To create these benchmarks, the following methodology was used:
 
-1. The test begins at `X` QPS (usually 5 or 10 QPS) for 180 seconds 
+1. The test begins at `X` queries per second (QPS) for 180 seconds. This was usually 5 or 10 QPS.
 2. QPS then increased by `X` and ran for another 180 seconds
 3. Every 180 seconds, the test increased by `X` QPS until average latency increased above 1000 ms or less than 99% of queries succeeded.
 
@@ -46,13 +46,13 @@ Each scenario used at least 10,000 unique queries to avoid tests being overly sk
 
 - **Percentage of max QPS** - A percentage of the maximum QPS achieved for a particular test. For example, if a given test reached a maximum of 100 QPS, 20% of max QPS would be 20 QPS.
 
-- **Latency** - The server's latency for a query; these numbers do not include [RTT](https://en.wikipedia.org/wiki/Round-trip_delay). Values below are in milliseconds (ms).
+- **Latency** - The server's latency for a query; these numbers do not include [round trip delay (RTT)](https://en.wikipedia.org/wiki/Round-trip_delay). Values below are in milliseconds (ms).
 
 ### Disclaimer
 
 The code we used to run these benchmarks is available [here](https://github.com/Azure-Samples/azure-search-performance-testing/tree/main/other_tools). It's worth noting that we observed slightly lower QPS levels with the [JMeter performance testing solution](https://github.com/Azure-Samples/azure-search-performance-testing) than in the benchmarks below. The differences can be attributed to differences in the style of the tests. This speaks to the importance of making your performance tests as similar to your production workload as possible.
 
-These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the level of performance you can expect based on your scenario.
+These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the performance you can expect based on your scenario.
 
 If you have any questions or concerns, reach out to us at azuresearch_contact@microsoft.com.
 
@@ -60,7 +60,7 @@ If you have any questions or concerns, reach out to us at azuresearch_contact@mi
 
 :::row:::
    :::column span="1":::
-    ![CDON Logo](./media/performance-benchmarks/cdon-logo-320x100v2.png)
+    <img title="CDON logo" alt="CDON logo" src="./media/performance-benchmarks/cdon-logo-320x100v2.png" width="160px">
    :::column-end:::
    :::column span="3":::
       This benchmark was created in partnership with the e-commerce company, [CDON](https://cdon.com), the Nordic region's largest online marketplace with operations in Sweden, Finland, Norway, and Denmark. Through its 1,500 merchants, CDON offers a wide range assortment that includes over 8 million products. In 2020, CDON had over 120 million visitors and 2 million active customers. You can learn more about CDON's use of Azure Cognitive Search in [this article](https://pulse.microsoft.com/transform/na/fa1-how-cdon-has-been-using-technology-to-become-the-leading-marketplace-in-the-nordics/).
@@ -177,3 +177,24 @@ Query latency varies based on the load of the service and services under higher 
 | 20%  | 45 ms  | 31 ms  | 55 ms   | 73 ms | 84 ms | 109 ms |
 | 50%  | 63 ms  | 39 ms  | 81 ms   | 106 ms | 123 ms | 163 ms |
 | 80%  | 115 ms  | 73 ms  | 145 ms   | 191 ms | 224 ms | 291 ms |
+
+## Takeaways
+
+Through these benchmarks, you can get an idea of the performance Azure Cognitive Search offers. You can also see difference between services at different tiers.
+
+Some key take ways from these benchmarks are:
+
+* An S2 can typically handle at least four times the query volume as an S1
+* An S2 will typically have lower latency than an S1 at comparable query volumes
+* As you add replicas, the QPS a service can handle typically scales linearly (for example, if one replica can handle 10 QPS then five replicas can usually handle 50 QPS)
+* The higher the load on the service, the higher the average latency will be
+
+You can also see that performance can vary drastically between scenarios. If you're not getting the performance you expect, check out the [tips for better performance](search-performance-tips.md).
+
+## Next steps
+
+Now that you've seen the performance benchmarks, you can learn more about how to analyze Cognitive Search's performance and key factors that influence performance.
+
+> [!div class="nextstepaction"]
+> [Analyze performance](search-performance-analysis.md)
+> [Tips for better performance](search-performance-tips.md)
