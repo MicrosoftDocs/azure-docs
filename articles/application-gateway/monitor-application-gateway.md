@@ -108,9 +108,9 @@ All resource logs in Azure Monitor have the same fields followed by service-spec
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a platform login Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
-For a list of the types of resource logs collected for Azure Application Gateway, see [Monitoring Azure Application Gateway data reference](monitor-application-gateway-reference.md#logs).  
+For a list of the types of resource logs collected for Azure Application Gateway, see [Monitoring Azure Application Gateway data reference](monitor-application-gateway-reference.md#resource-logs).
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Application Gateway data reference](monitor-application-gateway-reference.md#azuremonitorlogstables).  
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Application Gateway data reference](monitor-application-gateway-reference.md#azure-monitor-logs-tables).  
 
 <!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
 
