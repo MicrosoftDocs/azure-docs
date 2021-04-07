@@ -340,7 +340,7 @@
       displayNAme: prototype, disable
       href: azure-rtos-security-module-api.md
     - name: Frequently asked questions- agent
-      displayName: FAQ, embedded, dependencies, data, quota, internet, 
+      displayName: FAQ, embedded, dependencies, data, quota, internet, password, change 
       href: resources-agent-frequently-asked-questions.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=security-identity

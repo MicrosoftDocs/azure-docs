@@ -70,6 +70,27 @@ The agent cannot be turned off.
 
 If the agent stops communicating or fails to send security messages, a **Device is silent** alert is generated.
 
+## How can I change the default password
+
+To change the default password for either the sensor or the on-premises management console:
+
+1. Select the Users tab :::image type="icon" source="media/resources-agent-frequently-asked-questions/users-tab.png" border="false"::: from the left side toolbar.
+
+1. Select the edit icon :::image type="icon" source="media/resources-agent-frequently-asked-questions/pencil-icon.png" border="false"::: for the user whose password you want to change.
+
+1. In the change password fields enter a new password, and confirm the new password.
+
+> [Note]
+> Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers and one of the symbols: #%*+,-./:=?@[]^_{}~
+
+1. Select **Update**.
+
+## How do I activate the sensor and on-premises management console
+
+For information on how to activate your sensor, see [Sign in and activate the sensor](how-to-activate-and-set-up-your-sensor.md#sign-in-and-activate-the-sensor).
+
+For information on how to activate your on-premises management console, see [Activate the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#activate-the-on-premises-management-console).
+
 ## Next steps
 
 To learn more about how to get started with Defender for IoT, see the following articles:
