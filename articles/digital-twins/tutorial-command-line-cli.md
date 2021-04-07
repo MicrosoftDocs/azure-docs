@@ -184,7 +184,7 @@ You can also modify the properties of a twin you've created.
 
     :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Screenshot of Cloud Shell showing result of the update command, which includes a RoomName of PresidentialSuite." lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
-1. You can verify the update succeeded by running the [**az dt twin show**](cli/azure/dt/twin#az_dt_twin_show) command to see *room0*'s information:
+1. You can verify the update succeeded by running the [**az dt twin show**](/cli/azure/dt/twin#az_dt_twin_show) command to see *room0*'s information:
 
     ```azurecli-interactive
     az dt twin show -n <ADT_instance_name> --twin-id room0
