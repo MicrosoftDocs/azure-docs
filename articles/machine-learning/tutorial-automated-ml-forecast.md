@@ -29,7 +29,7 @@ You won't write any code in this tutorial, you'll use the studio interface to pe
 
 Also try automated machine learning for these other model types:
 
-* For another no-code example, see [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
+* For a no-code example of a classification model, see [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 * For a code first example of a regression model, see the [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md).
 
 ## Prerequisites
