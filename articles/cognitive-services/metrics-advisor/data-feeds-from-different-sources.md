@@ -113,9 +113,9 @@ The following sections specify the parameters required for all authentication ty
     * `%M` is the minute formatted as `mm`
   
   For example, in this dataset, the blob template should be "%Y/%m/%d/00/JsonFormatV2.json".
+  
   ![blob template](media/blob-template.png)
   
-
 
 * **JSON format version**: Defines the data schema in the JSON files. Currently Metrics Advisor supports two versions, you can choose one to fill in the field:
   
