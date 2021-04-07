@@ -17,7 +17,7 @@ ms.reviewer: chtufts
 # Data and rate limits for the Text Analytics API
 <a name="data-limits"></a>
 
-Use this article to find the limits for the size, and rates that you can send data to Text Analytics API. Note that pricing is not affected by the data limits or rate limits. Pricing is subject to your Text Analytics resource's [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+Use this article to find the limits for the size, and rates that you can send data to Text Analytics API. **Note that pricing is not affected by the data limits or rate limits. Pricing is based on text records. 1 text records equals 1000 characters.** Pricing is subject to your Text Analytics resource's [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 ## Data limits
 
@@ -84,6 +84,8 @@ Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/p
 
 Requests rates are measured for each Text Analytics feature separately. You can send the maximum number of requests for your pricing tier to each feature, at the same time. For example, if you're in the `S` tier and send 1000 requests at once, you wouldn't be able to send another request for 59 seconds.
 
+
+S0-S4 tiers have been deprecated and you are encouraged to switch to S tier.
 
 ## See also
 
