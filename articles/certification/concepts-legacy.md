@@ -1,5 +1,5 @@
 ---
-title: Legacy devices
+title: Legacy devices on the Azure Certified Device catalog
 description: An explanation of legacy devices on the Azure Certified Device catalog
 author: nkuntjoro
 ms.author: nikuntjo
