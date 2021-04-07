@@ -26,8 +26,8 @@ This article then describes how to remove private endpoints later, but still use
 
 Setting up a Speech resource for the private endpoint scenarios requires performing the following tasks:
 1. [Create a custom domain name](#create-a-custom-domain-name)
-1. [Enable private endpoints](#enable-private-endpoints)
-1. [Adjust existing applications and solutions](#adjust-existing-applications-and-solutions)
+1. [Turn on private endpoints](#turn-on-private-endpoints)
+1. [Adjust existing applications and solutions](#adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint)
 
 [!INCLUDE [](includes/speech-vnet-service-enpoints-private-endpoints.md)]
 
@@ -39,7 +39,7 @@ This article describes the usage of the private endpoints with Speech service. U
 Private endpoints require a [custom subdomain name for Cognitive Services](../cognitive-services-custom-subdomains.md). Use the following instructions to create one for your Speech resource.
 
 > [!WARNING]
-> A Speech resource with a custom domain name enabled uses a different way to interact with Speech service. You might have to adjust your application code for both of these scenarios: [private endpoint enabled](#use-a-speech-resource-with-a-custom-domain-name-and-a-private-endpoint-enabled) and [*not* private endpoint enabled](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+> A Speech resource with a custom domain name enabled uses a different way to interact with Speech service. You might have to adjust your application code for both of these scenarios: [with private endpoint](#adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint) and [*without* private endpoint](#adjust-an-application-to-use-a-speech-resource-without-private-endpoints).
 >
 > When you turn on a custom domain name, the operation is [not reversible](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). The only way to go back to the [regional name](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) is to create a new Speech resource.
 >
