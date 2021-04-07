@@ -116,7 +116,7 @@
           href: troubleshoot/shared-resources.md
     - name: Process automation
       items:
-        - name: Use runbooks and modules in PowerShell Gallery
+        - name: Use existing runbooks and modules
           href: automation-runbook-gallery.md
         - name: Learn PowerShell Workflow
           href: automation-powershell-workflow.md
