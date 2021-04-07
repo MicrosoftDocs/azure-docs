@@ -618,7 +618,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
 
 ---
 
-If you completed the above steps correctly, your **top layer device** should report the four modules: the IoT Edge API Proxy Module, the Docker Container Registry module, and the system modules, as **Specified in Deployment**. It may take a few minutes for the device to receive its new deployment and start the modules. Refresh the page until you see the temperature sensor module listed as **Reported by Device**. Once the modules are reported by the device, you are ready to continue.
+If you completed the above steps correctly, your **top layer device** should report the four modules: the IoT Edge API Proxy Module, the Docker Container Registry module, and the system modules, as **Specified in Deployment**. It may take a few minutes for the device to receive its new deployment and start the modules. Refresh the page until you see the IoTEdgeAPIProxy and registry modules listed as **Reported by Device**. Once the modules are reported by the device, you are ready to continue.
 
 ## Deploy modules to the lower layer device
 
