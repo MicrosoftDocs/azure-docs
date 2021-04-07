@@ -136,6 +136,7 @@ To get Application Insights ID and key:
 1. Select **Create API Key**
 1. Check the **Read telemetry** box.
 1. Copy the **Key** before closing the Create API key blade and save it somewhere secure. If you lose the key, you'll need to create another.
+
     ![Screenshot that demonstrates how to create API access key](./media/troubleshoot-with-application-insights/application-insights-api-access.png)
 
 ### Set up Azure AD B2C VS Code extension
