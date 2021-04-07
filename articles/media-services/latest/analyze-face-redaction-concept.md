@@ -23,7 +23,7 @@ Azure Media Services v3 API includes a Face Detector preset that offers scalable
 
 This article gives details about **Face Detector Preset** and shows how to use it with Azure Media Services SDK for .NET.
 
-[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
+[!INCLUDE [regulation](../../azure-video-analyzer/video-analyzer-for-media-docs/includes/regulation.md)]
 
 ## Compliance, privacy, and security
  
