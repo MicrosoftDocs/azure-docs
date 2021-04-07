@@ -7,9 +7,9 @@ ms.date: 04/06/2021
 ---
 
 # Central Secret Service in Azure Service Fabric 
-Central Secret Service (CSS), sometimes denoted Central Secret Store, is an optional Service Fabric system service. CSS facilitates new approaches to secret management for applications, and is Service Fabric's recommendation for the in-cluster delivery of application secrets, on and off Azure. The previous recommended approach was the use of encrypted parameters.
+Central Secret Service (CSS), sometimes denoted Central Secret Store, is an optional Service Fabric system service. CSS enables new approaches to secret management for applications, and is Service Fabric's recommendation for the in-cluster delivery of application secrets, on and off Azure. Previously, we recommended the use of encrypted parameters.
 
-Central Secret Service is a durable and replicated in-cluster secret store. Secrets stored in CSS are encrypted while in use, against a customer-provided encryption certificate. CSS provides client APIs for the management of secrets, which are authenticated against admin client/cluster certificates. CSS also provides an application model that allows the declaration of application parameters as CSS secret references. When combined with [Managed Identity for Azure-deployed Service Fabric Applications](concepts-managed-identity.md), applications can declare [secret references that refer to secrets in Azure Key Vault](service-fabric-keyvault-references.md).
+Central Secret Service is a durable and replicated in-cluster secret store. Secrets stored in CSS are encrypted against a customer-provided encryption certificate while in-use. CSS provides client APIs for the management of secrets, which are authenticated against admin client/cluster certificates. CSS also provides an application model that allows the declaration of application parameters as CSS secret references. When combined with [Managed Identity for Azure-deployed Service Fabric Applications](concepts-managed-identity.md), applications can declare [secret references that refer to secrets in Azure Key Vault](service-fabric-keyvault-references.md).
 
 Central Secret Service is not designed to be a full Secret Management Service (SMS), such as Azure Key Vault, and should not be the source-of-truth for secrets. In this way, CSS is best thought of as, and treated like, a durable cache.
 
@@ -18,7 +18,7 @@ Central Secret Service is not designed to be a full Secret Management Service (S
   
 ## Enable Central Secrets Service
 
-To enable Central Secret Service, please expand your cluster configuration as described below. We recommend that you use an encryption certificate that is different from your cluster certificate. This certificate must be installed on all nodes.
+To enable Central Secret Service, expand your cluster configuration as described below. We recommend that you use an encryption certificate that is different from your cluster certificate. This certificate must be installed on all nodes.
 ```json
 { 
     "fabricSettings": [
@@ -54,7 +54,12 @@ To enable Central Secret Service, please expand your cluster configuration as de
 
 Central Secret Service provides two types, the first is the secret resource type, and the second is the secret version type. The secret resource type describes the metadata of a lineage of secrets, and includes their kind, their content type, and a description. The secret version type describes an instance of a particular secret, and includes the value.
 
-Every secret version is a child of a particular secret resource. Each secret resource may have 0 or more secret versions. For a secret version to be created, its parent secret resource must already exist. Deletion of a secret resource will cause the deletion of all secret versions under it. The value of a particular secret version cannot be changed in-place.
+Some notes on the model:
+- Every secret version is a child of a particular secret resource. 
+- Each secret resource may have zero or more secret versions. 
+- For a secret version to be created, its parent secret resource must already exist. 
+- Deletion of a secret resource will cause the deletion of all secret versions under it. 
+- The value of a particular secret version cannot be changed in-place.
 
 The full set of REST management APIs for secret resources can be found [here](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-meshsecrets), and for secret versions, [here](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-meshsecretvalues).
 
@@ -138,12 +143,12 @@ The following snippet is the modified **ApplicationManifest.xml**.
    ```
 
 ## Rotating the Central Secret Service Encryption Certificate
-It is important to note that certificates remain valid for decryption beyond their expiry. At this time, we recommend to continue to provision past encryption certificates after rotation, to decrease the chance of a lockout. Rotating the encryption certificate used by CSS can be done in two steps:
+It is important to note that certificates remain valid for decryption beyond their expiry. At this time, we recommend continuing to provision past encryption certificates after rotation, to reduce the chance of a lockout. Rotating the encryption certificate used by CSS can be done in two steps:
 
 1. Provision the new certificate onto your compute. It should be placed on all nodes. At this time, do not stop the provisioning of the previous encryption certificate.
 2. Start a cluster configuration upgrade to change `"EncryptionCertificateThumbprint"` to the SHA-1 thumbprint of the new certificate.
 
-Once this cluster upgrade has completed, all new secrets that are enrolled in CSS will be encrypted against the new certificate. CSS will begin to goal-chase the re-encryption of its current store to the new target certificate. CSS will eventually converge to a state where its entire store in encrypted against the new certificate. It is important that the previous encryption certificate remains available to CSS for the duration of this transition.
+Once this cluster upgrade has completed, all new secrets that are enrolled in CSS will be encrypted against the new certificate. CSS will begin to goal-chase the re-encryption of its current store to the new target certificate. CSS will eventually converge to a state where its entire store in encrypted against the new certificate. It is important that the previous encryption certificate remains available to CSS during this transition.
 
 ## Removing Central Secret Service from your cluster
 Removing Central Secret Service from a deployed cluster can be accomplished in two upgrades. The first upgrade functionally disables CSS, while the second upgrade removes the service from the cluster, including permanent deletion of the underlying replicated store. Two-stage deletion prevents accidental deletion of the service, and helps ensure that there are no orphaned dependencies on CSS during the removal process. This feature is available from SF version 8.0 onward.
@@ -156,7 +161,7 @@ Upgrade cluster definition from `"IsEnabled" = "true"` or from `"DeployedState" 
     "value":  "removing"
 }
 ```
-Once Central Secret Service is in deployed state `Removing`, it will reject all secret management calls that come to it via its public APIs, and service activations which include SecretStoreRefs or KeyVaultReferences. If there are still application or components which depend on CSS, it is expected that they will go unhealthy. If this occurs, the upgrade to deployed state `Removing` should be rolled back, or if it has succeeded, a new upgrade to change back to deployed state `Enabled` should be pushed by the operator through the cluster. 
+Once Central Secret Service is in deployed state `Removing`, it will reject all secret management calls that come to it via its public APIs and via service activations that include SecretStoreRefs or KeyVaultReferences. If there are still application or components that depend on CSS, they may become unhealthy. If services become unhealthy, the upgrade to deployed state `Removing` should be rolled back, or if it has succeeded, a new upgrade to change back to deployed state `Enabled` should be pushed by the operator through the cluster. 
 
 If Central Secret Service receives a request while in deployed state `Removing`, it will return HTTP Code 401 (unauthorized) and put itself in a Warning health state.
 
