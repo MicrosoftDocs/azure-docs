@@ -42,4 +42,7 @@ This new group will be created in your organization's work account (Azure AD ten
 
 ## Remove a group
 
-To remove a group from your work account (Azure AD tenant), go to **Users** (under **Account settings**), select the group that you would like to remove using the checkbox in the far right column, then choose **Remove** from the available actions. A pop-up window will appear for you to confirm that you want to remove the selected group(s).
+To remove a group from your work account (Azure AD tenant):
+1. Go to **Users** (under **Account settings**).
+1. Select the group that you would like to remove using the checkbox in the far right column.
+1. Choose **Remove** from the available actions. A pop-up window will appear for you to confirm that you want to remove the selected group(s).
