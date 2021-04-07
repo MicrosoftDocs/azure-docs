@@ -12,6 +12,8 @@ ms.custom: include file
 ms.author: mikben
 ---
 
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
+
 ## Prerequisites
 Before you get started, make sure to:
 
@@ -126,7 +128,7 @@ This quickstart does not cover creating a service tier to manage tokens for your
 Learn more about [User Access Tokens](../../access-tokens.md).
 
 ## Object model 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for JavaScript.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for JavaScript.
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -273,5 +275,4 @@ Replace `<USER ID>` with the the Communication Services user ID of the participa
 ## Run the code
 
 In Xcode hit the Run button to build and run the project. In the console you can view the output from the code and the logger output from the ChatClient.
-
 

@@ -5,7 +5,7 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 03/22/2021
 ---
 
 # Azure Cosmos DB service quotas
@@ -132,7 +132,7 @@ Depending on which API you use, an Azure Cosmos container can represent either a
 | --- | --- |
 | Maximum length of database or container name | 255 |
 | Maximum stored procedures per container | 100 <sup>*</sup>|
-| Maximum UDFs per container | 25 <sup>*</sup>|
+| Maximum UDFs per container | 50 <sup>*</sup>|
 | Maximum number of paths in indexing policy| 100 <sup>*</sup>|
 | Maximum number of unique keys per container|10 <sup>*</sup>|
 | Maximum number of paths per unique key constraint|16 <sup>*</sup>|

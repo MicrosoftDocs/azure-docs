@@ -36,7 +36,7 @@ gMSAs offer a single identity solution with greater security while reducing admi
 Use gMSAs as the preferred account type for on-premises services unless a service, such as Failover Clustering, doesn't support it.
 
 > [!IMPORTANT]
-> You must test your service with gMSAs prior to deployment into production. To do so, set up a test environment and ensure the application can use the gMSA, and access the resources it needs to access. For more information, see [Support for group managed service accounts](/system-center/scom/support-group-managed-service-accounts?view=sc-om-2019).
+> You must test your service with gMSAs prior to deployment into production. To do so, set up a test environment and ensure the application can use the gMSA, and access the resources it needs to access. For more information, see [Support for group managed service accounts](/system-center/scom/support-group-managed-service-accounts).
 
 
 If a service doesn't support the use of gMSAs, your next best option is to use a standalone Managed Service Account (sMSA). sMSAs provide the same functionality as a gMSA, but are intended for deployment on a single server only.
@@ -45,7 +45,7 @@ If you can't use a gMSA or sMSA is supported by your service, then the service m
 
 ## Assess the security posture of gMSAs
 
-gMSAs are inherently more secure than standard user accounts, which require ongoing password management. However, it's important to consider gMSAs’ scope of access as you look at their overall security posture.
+gMSAs are inherently more secure than standard user accounts, which require ongoing password management. However, it's important to consider gMSAs' scope of access as you look at their overall security posture.
 
 The following table shows potential security issues and mitigations for using gMSAs.
 
@@ -81,7 +81,7 @@ Get-ADServiceAccount -Filter *
 
 # To filter results to only gMSAs:
 
-Get-ADServiceAccount –Filter * | where $_.ObjectClass -eq "msDS-GroupManagedServiceAccount”}
+Get-ADServiceAccount –Filter * | where $_.ObjectClass -eq "msDS-GroupManagedServiceAccount"}
 ```
 
 ## Manage gMSAs

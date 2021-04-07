@@ -159,7 +159,7 @@ Once the endpoint with dead-lettering is set up, dead-lettered messages will be 
 
 Dead-lettered messages will match the schema of the original event that was intended to be delivered to your original endpoint.
 
-Here is an example of a dead-letter message for a [twin create notification](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications):
+Here is an example of a dead-letter message for a [twin create notification](how-to-interpret-event-data.md#digital-twin-lifecycle-notifications):
 
 ```json
 {
@@ -237,9 +237,14 @@ For more information about using the CLI and what commands are available, see [*
 Without filtering, endpoints receive a variety of events from Azure Digital Twins:
 * Telemetry fired by [digital twins](concepts-twins-graph.md) using the Azure Digital Twins service API
 * Twin property change notifications, fired on property changes for any twin in the Azure Digital Twins instance
-* Life-cycle events, fired when twins or relationships are created or deleted
+* Lifecycle events, fired when twins or relationships are created or deleted
 
 You can restrict the events being sent by adding a **filter** for an endpoint to your event route.
+
+>[!NOTE]
+> Filters are **case-sensitive** and need to match the payload case. 
+>
+> For telemetry filters, this means that the casing needs to match the casing in the telemetry sent by the device, not necessarily the casing defined in the twin's model. 
 
 To add a filter, you can use a PUT request to *https://{Your-azure-digital-twins-hostname}/eventRoutes/{event-route-name}?api-version=2020-10-31* with the following body:
 

@@ -10,7 +10,7 @@ ms.custom: how-to
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 11/16/2020
-# As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code.
+#Customer intent: As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code..
 ---
 
 # Connect to an Azure Machine Learning compute instance in Visual Studio Code (preview)

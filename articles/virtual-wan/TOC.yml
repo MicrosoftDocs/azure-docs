@@ -93,6 +93,8 @@
     href: pricing-concepts.md
   - name: About NVA in a virtual hub
     href: about-nva-hub.md
+  - name: About secured virtual hubs
+    href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: How-to guides
   items:
   - name: Upgrade a virtual WAN SKU

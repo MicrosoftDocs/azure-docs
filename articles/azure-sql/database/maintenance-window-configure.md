@@ -8,7 +8,7 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 03/04/2021
+ms.date: 03/23/2021
 ---
 # Configure maintenance window (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -21,7 +21,7 @@ The *System default* maintenance window is 5PM to 8AM daily (local time of the A
 The ability to change to a different maintenance window is not available for every service level or in every region. For details on availability, see [Maintenance window availability](maintenance-window.md#availability).
 
 > [!Important]
-> Configuring maintenance window is a long running asynchronous operation, similar to changing the service tier of the Azure SQL resource. The resource is available during the operation, except a short failover that happens at the end of the operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of failover you should perform the operation outside of the peak hours.
+> Configuring maintenance window is a long running asynchronous operation, similar to changing the service tier of the Azure SQL resource. The resource is available during the operation, except a short reconfiguration that happens at the end of the operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of the reconfiguration you should perform the operation outside of the peak hours.
 
 ## Configure maintenance window during database creation 
 
@@ -253,7 +253,7 @@ The following example creates a new managed instance and sets the maintenance wi
 ## Configure maintenance window for existing databases
 
 
-When applying a maintenance window selection to a database, a brief failover (several seconds) may be experienced in some cases as Azure applies the required changes.
+When applying a maintenance window selection to a database, a brief reconfiguration (several seconds) may be experienced in some cases as Azure applies the required changes.
 
 # [Portal](#tab/azure-portal)
 

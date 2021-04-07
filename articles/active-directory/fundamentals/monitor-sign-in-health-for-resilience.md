@@ -94,7 +94,7 @@ For more information on how to create, view, and manage log alerts using Azure M
 
    The query log opens.
 
-   [![Screenshot showing the query log.](./media/monitor-sign-in-health-for-resilience/query-log.png)](/media/monitor-sign-in-health-for-resilience/query-log.png)
+   [![Screenshot showing the query log.](./media/monitor-sign-in-health-for-resilience/query-log.png)](./media/monitor-sign-in-health-for-resilience/query-log.png)
 ‎
 
 2. Copy one of the sample scripts for a new Kusto query.  

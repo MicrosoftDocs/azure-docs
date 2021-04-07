@@ -1,7 +1,7 @@
 ---
 title: Publish a Managed Service offer to Azure Marketplace
 description: Learn how to publish a Managed Service offer that onboards customers to Azure Lighthouse.
-ms.date: 02/17/2021
+ms.date: 03/31/2021
 ms.topic: how-to
 ---
 
@@ -28,6 +28,7 @@ The following table can help determine whether to onboard customers by publishin
 |Requires customer acceptance in Azure portal     |Yes     |No   |
 |Can use automation to onboard multiple subscriptions, resource groups, or customers |No     |Yes    |
 |Immediate access to new built-in roles and Azure Lighthouse features     |Not always (generally available after some delay)         |Yes         |
+|Customers can review and accept updated offers in the Azure portal | Yes | No |
 
 > [!NOTE]
 > Managed Service offers may not be available in Azure Government and other national clouds.
@@ -57,6 +58,8 @@ After a customer adds your offer, they'll be able to [delegate one or more speci
 > Delegation must be done by a non-guest account in the customer's tenant who has a role with the `Microsoft.Authorization/roleAssignments/write` permission, such as [Owner](../../role-based-access-control/built-in-roles.md#owner), for the subscription being onboarded (or which contains the resource groups that are being onboarded). To find users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Once the customer delegates a subscription (or one or more resource groups within a subscription), the **Microsoft.ManagedServices** resource provider will be registered for that subscription, and users in your tenant will be able to access the delegated resources according to the authorizations in your offer.
+
+If you publish an updated version of your offer, the customer can [review the changes in the Azure portal and accept the new version](view-manage-service-providers.md#update-service-provider-offers).
 
 ## Next steps
 

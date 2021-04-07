@@ -31,9 +31,9 @@ HC-series VMs feature 100 Gb/sec Mellanox EDR InfiniBand. These VMs are connecte
 | Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | All | 700 | 4 | 8 |
 
 Learn more about the:
-- [architecture and VM topology](./workloads/hpc/hc-series-overview.md),
-- supported [software stack](./workloads/hpc/hc-series-overview.md#software-specifications) including supported OS, and
-- expected [performance](./workloads/hpc/hc-series-performance.md) of the HC-series VM.
+- [Architecture and VM topology](./workloads/hpc/hc-series-overview.md)
+- Supported [software stack](./workloads/hpc/hc-series-overview.md#software-specifications) including supported OS
+- Expected [performance](./workloads/hpc/hc-series-performance.md) of the HC-series VM
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

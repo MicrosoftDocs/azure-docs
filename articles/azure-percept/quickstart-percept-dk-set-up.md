@@ -25,7 +25,7 @@ If you experience any issues during this process, refer to the [setup troublesho
 - An Azure Percept DK (dev kit).
 - A Windows, Linux, or OS X based host computer with Wi-Fi capability and a web browser.
 - An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- The Azure account must have the **owner** or **contributor** role within the subscription. Follow the steps below to check your Azure account role. For more information on Azure role definitions, check out the [Azure role-based access control documentation](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
+- The Azure account must have the **owner** or **contributor** role within the subscription. Follow the steps below to check your Azure account role. For more information on Azure role definitions, check out the [Azure role-based access control documentation](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
 
     > [!CAUTION]
     > If you have multiple Azure accounts, your browser may cache credentials from another account. To avoid confusion, it is recommended that you close all unused browser windows and log into the [Azure portal](https://portal.azure.com/) before starting the setup experience. See the [setup troubleshooting guide](./how-to-troubleshoot-setup.md) for additional information on how to ensure you are signed in with the correct account.
@@ -38,7 +38,7 @@ To verify if your Azure account is an “owner” or “contributor” within th
 
 1. Click on the **Subscriptions** icon (it looks like a yellow key).
 
-1. Select your subscription from the list. If you do not see your subscription, make sure you are signed in with the correct Azure account. If you wish to create a new subscription, follow [these steps](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription).
+1. Select your subscription from the list. If you do not see your subscription, make sure you are signed in with the correct Azure account. If you wish to create a new subscription, follow [these steps](../cost-management-billing/manage/create-subscription.md).
 
 1. From the Subscription menu, select **Access control (IAM)**.
 1. Click **View my access**.
