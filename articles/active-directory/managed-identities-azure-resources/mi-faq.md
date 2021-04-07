@@ -132,7 +132,7 @@ No. Managed identities do not currently support cross-directory scenarios.
 
 ### Are there any rate limits that apply to managed identities?
 
-Managed identities limits depend on Azure service limits, Azure Instance Metadata Service (IMDS) limits and Azure Active Directory service limits.
+Managed identities limits have dependencies on Azure service limits, Azure Instance Metadata Service (IMDS) limits and Azure Active Directory service limits.
 
 **Azure service limits** define the number of create operations that can be performed at the tenant and subscription levels. User assigned managed identities also have [limitations](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits) around how they may be named.
 **IMDS** In general, requests to IMDS are limited to 5 requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the Managed Identity category are limited to 20 requests per second and 5 concurrent requests. You can read more at the [Azure Instance Metadata Serice (Wiindows)](../../virtual-machines/windows/instance-metadata-service.md?tabs=windows#managed-identity) article.
