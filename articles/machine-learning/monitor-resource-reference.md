@@ -52,9 +52,9 @@ Quota information is for Azure Machine Learning compute only.
 
 **Resource**
 
-| Metric | Unit | Description |
+| Metric| Unit | Description |
 |--|--|--|
-| CpuUtilization | Count | Percentage of utilization on a CPU node. Utilization is reported at one-minute intervals. |  |
+| CpuUtilization | Count | Percentage of utilization on a CPU node. Utilization is reported at one-minute intervals. |
 | GpuUtilization | Count | Percentage of utilization on a GPU node. Utilization is reported at one-minute intervals. |
 | GpuMemoryUtilization | Count | Percentage of memory utilization on a GPU node. Utilization is reported at one-minute intervals. |
 | GpuEnergyJoules | Count | Interval energy in Joules on a GPU node. Energy is reported at one-minute intervals. |
@@ -66,15 +66,15 @@ Information on training runs for the workspace.
 | Metric | Unit | Description |
 |--|--|--|
 | Cancelled Runs | Count | Number of runs canceled for this workspace. Count is updated when a run is successfully canceled. |
-| Cancel Requested Runs | Count | Number of runs where cancel was requested for this workspace. Count is updated when cancellation request has been received for a run. |  |
+| Cancel Requested Runs | Count | Number of runs where cancel was requested for this workspace. Count is updated when cancellation request has been received for a run. |
 | Completed Runs | Count | Number of runs completed successfully for this workspace. Count is updated when a run has completed and output has been collected. |
 | Failed Runs | Count | Number of runs failed for this workspace. Count is updated when a run fails. |
-| Finalizing Runs | Count | Number of runs entered finalizing state for this workspace. Count is updated when a run has completed but output collection still in progress. |  |  |
+| Finalizing Runs | Count | Number of runs entered finalizing state for this workspace. Count is updated when a run has completed but output collection still in progress. | 
 | Not Responding Runs | Count | Number of runs not responding for this workspace. Count is updated when a run enters Not Responding state. |
-| Not Started Runs | Count | Number of runs in Not Started state for this workspace. Count is updated when a request is received to create a run but run information has not yet been populated. |  |
-| Preparing Runs | Count | Number of runs that are preparing for this workspace. Count is updated when a run enters Preparing state while the run environment is being prepared. |  |  |
+| Not Started Runs | Count | Number of runs in Not Started state for this workspace. Count is updated when a request is received to create a run but run information has not yet been populated. |
+| Preparing Runs | Count | Number of runs that are preparing for this workspace. Count is updated when a run enters Preparing state while the run environment is being prepared. |
 | Provisioning Runs | Count | Number of runs that are provisioning for this workspace. Count is updated when a run is waiting on compute target creation or provisioning. |
-| Queued Runs | Count | Number of runs that are queued for this workspace. Count is updated when a run is queued in compute target. Can occur when waiting for required compute nodes to be ready. |  |  |
+| Queued Runs | Count | Number of runs that are queued for this workspace. Count is updated when a run is queued in compute target. Can occur when waiting for required compute nodes to be ready. |
 | Started Runs | Count | Number of runs running for this workspace. Count is updated when run starts running on required resources. |
 | Starting Runs | Count | Number of runs started for this workspace. Count is updated after request to create run and run info | such as the Run ID | has been populated |
 | Errors | Count | Number of run errors in this workspace. Count is updated whenever run encounters an error. |
