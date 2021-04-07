@@ -30,7 +30,13 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 
 3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
 
-4. You can check your text records usage in your Text Analytics resource in Azure portal under Monitoring > Metrics > Processed Text Records.
+4. To check the number of text records that have been sent using your Text Analytics resource:
+
+    1. Navigate to your Text Analytics resource in the Azure portal. 
+    2. Click **Metrics**, located under **Monitoring** in the left navigation menu. 
+    3. Select *Processed text records* in the dropdown box for **Metric**.
+    
+A text record is 1000 characters.
 
 ## Change your pricing tier 
 
