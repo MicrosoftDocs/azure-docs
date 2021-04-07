@@ -87,6 +87,10 @@
           href: deploy-nuxtjs.md
     - name: Publish with Azure DevOps
       href: publish-devops.md
+- name: Reference
+  items:
+    - name: Azure CLI
+      href: /cli/azure/staticwebapp
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn
