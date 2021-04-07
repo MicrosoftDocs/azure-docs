@@ -5,7 +5,7 @@ author: bandersmsft
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: troublehooting
+ms.topic: troubleshooting
 ms.date: 04/07/2021
 ms.author: banders
 ms.reviewer: baolcsva
