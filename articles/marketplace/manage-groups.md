@@ -1,5 +1,5 @@
 ---
-title: Manage groups
+title: Manage groups | Azure Marketplace
 description: Learn how to manage groups in the commercial marketplace program in Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,7 +7,7 @@ ms.topic: how-to
 author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.date: 04/06/2021
+ms.date: 04/07/2021
 ---
 
 # Manage groups

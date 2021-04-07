@@ -1,5 +1,5 @@
 ---
-title: Assign user roles and permissions
+title: Assign user roles and permissions | Azure Marketplace
 description: Learn how to assign roles and permissions to users in the commercial marketplace program of Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,7 +7,7 @@ ms.topic: how-to
 author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.date: 04/06/2021
+ms.date: 04/07/2021
 ---
 
 # Assign user roles and permissions

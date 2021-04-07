@@ -1,5 +1,5 @@
 ---
-title: Add new publishers to the commercial marketplace program
+title: Add new publishers to the commercial marketplace program | Azure Marketplace
 description: How to add new publishers to the commercial marketplace program for a Microsoft commercial marketplace account in Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,7 +7,7 @@ ms.topic: how-to
 author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.date: 04/06/2021
+ms.date: 04/07/2021
 ---
 
 # Add new publishers to the commercial marketplace program

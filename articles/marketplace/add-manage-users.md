@@ -1,5 +1,5 @@
 ---
-title: Add and manage users
+title: Add and manage users | Azure Marketplace
 description: Learn how to manage users in the commercial marketplace program for a Microsoft commercial marketplace account in Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,7 +7,7 @@ ms.topic: how-to
 author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.date: 04/05/2021
+ms.date: 04/07/2021
 ---
 
 # Add and manage users
@@ -19,13 +19,7 @@ ms.date: 04/05/2021
 
 The **Users** section of Partner Center (under **Account Settings**) lets you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. Your account must have Manager-level permissions for the [work account (Azure AD tenant)](company-work-accounts.md) in which you want to add or edit users. To manage users within a different work account / tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant.
 
-After you are signed in with your work account (Azure AD tenant), you can:
-
-- [Add existing users](#add-existing-users)
-- [Create new users](#create-new-users)
-- [Invite new users by email](#invite-new-users-by-email)
-- [Remove a user](#remove-a-user)
-- [Change a user password](#change-a-user-password)
+After you are signed in with your work account (Azure AD tenant), you can add and manage users.
 
 ## Add existing users
 
