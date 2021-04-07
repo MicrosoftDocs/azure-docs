@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 04/06/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -11,7 +11,7 @@ This article summarizes naming rules and restrictions for Azure resources. For r
 
 This article lists resources by resource provider namespace. For a list of how resource providers match Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
 
-Resource names are case-insensitive unless specifically noted in the valid characters column.
+Resource names are case-insensitive unless noted in the valid characters column.
 
 In the following tables, the term alphanumeric refers to:
 
@@ -701,10 +701,12 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  | 
 > | serverfarms | resource group | 1-40 | Alphanumerics and hyphens. |
-> | sites | global | 2-60 | Contains alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
+> | sites | global or per domain. See note below. | 2-60 | Contains alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
 > | sites / slots | site | 2-59 | Alphanumerics and hyphens. |
 
 > [!NOTE]
+> A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is `http://<app-name>.azurewebsites.net`. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the [domain for the App Service Environment](../../app-service/environment/using-an-ase.md#app-access). For both cases, the URL of the site is globally unique.
+>
 > Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites.
 
 ## Next steps

@@ -32,11 +32,11 @@ A user that has logged into a serverless SQL pool must be authorized to access a
 serverless SQL pool is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table below, it's not supported for the SQL user type.
 
 > [!IMPORTANT]
-> You need to have a Storage Blob Data Owner/Contributor/Reader role to use your identity to access the data.
-> Even if you are an Owner of a Storage Account, you still need to add yourself into one of the Storage Blob Data roles.
->
-> To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) article.
->
+> AAD authentication token might be cached by the client applications. For example PowerBI caches AAD token and reuses the same token for an hour. The long runing queries might fail if the token expires in the middle of the query execution. If you are experiencing query failures caused by the AAD access token that expires in the middle of the query, consider switching to [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+
+You need to have a Storage Blob Data Owner/Contributor/Reader role to use your identity to access the data. As an alternative, you can specify fine-grained ACL rules to access files and folders. Even if you are an Owner of a Storage Account, you still need to add yourself into one of the Storage Blob Data roles.
+To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) article.
+
 
 ### [Shared access signature](#tab/shared-access-signature)
 
@@ -51,6 +51,10 @@ You can get an SAS token by navigating to the **Azure portal -> Storage Account 
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
 To enable access using an SAS token, you need to create a database-scoped or server-scoped credential 
+
+
+> [!IMPORTANT]
+> You cannnot access private storage accounts with the SAS token. Consider switching to [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [Azure AD pass-through](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) authentication to access protected storage.
 
 ### [Managed Identity](#tab/managed-identity)
 
@@ -96,7 +100,16 @@ When accessing storage that is protected with the firewall, you can use **User I
 
 #### User Identity
 
-To access storage that is protected with the firewall via User Identity, you can use PowerShell module Az.Storage.
+To access storage that is protected with the firewall via User Identity, you can use Azure portal UI or PowerShell module Az.Storage.
+#### Configuration via Azure portal
+
+1. Search for your Storage Account in Azure portal.
+1. Go to Networking under section Settings.
+1. In Section "Resource instances" add an exception for your Synapse workspace.
+1. Select Microsoft.Synapse/workspaces as a Resource type.
+1. Select name of your workspace as an Instance name.
+1. Click Save.
+
 #### Configuration via PowerShell
 
 Follow these steps to configure your storage account firewall and add an exception for Synapse workspace.

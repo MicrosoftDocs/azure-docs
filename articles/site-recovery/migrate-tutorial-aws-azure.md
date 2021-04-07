@@ -2,12 +2,9 @@
 title: Migrate AWS VMs to Azure with Azure Migrate
 description: This article describes options for migrating AWS instances to Azure, and recommends Azure Migrate.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2019
-ms.author: raynew
 ms.custom: MVC
 
 ---
