@@ -464,6 +464,8 @@
       href: how-to-track-speech-sdk-memory-usage.md
     - name: Enable private endpoint
       href: speech-services-private-link.md
+    - name: Enable VNet service endpoint
+      href: speech-service-vnet-service-endpoint.md
     - name: Configure OpenSSL for Linux
       displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
       href: how-to-configure-openssl-linux.md

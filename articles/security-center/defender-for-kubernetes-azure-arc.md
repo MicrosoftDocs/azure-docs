@@ -22,7 +22,7 @@ You can also use the extension to protect Kubernetes clusters deployed on machin
 
 | Aspect | Details |
 |--------|---------|
-| Release state | **Preview** [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
+| Release state | **Preview**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | Required roles and permissions | [Security admin](../role-based-access-control/built-in-roles.md#security-admin) can dismiss alerts<br>[Security reader](../role-based-access-control/built-in-roles.md#security-reader) can view findings |
 | Pricing | Requires [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md) |
 | Supported Kubernetes distributions | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer) |
