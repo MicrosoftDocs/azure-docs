@@ -1,5 +1,5 @@
 ---
-title: Known issues with managed identities - Azure AD
+title: Known issues with managed identities - Azure Active Directory
 description: Known issues with managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 
-# Known issues
+# Known issues with Managed Identities
 
 ## VM fails to start after being moved from resource group or subscription
 
