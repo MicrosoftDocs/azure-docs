@@ -1,6 +1,6 @@
 ---
-title: Use direct methods in Azure Video Analyzer on IoT Edge - Azure  
-description: Azure Video Analyzer on IoT Edge exposes several direct methods. The direct methods are based on the conventions described in this topic.
+title: Use direct methods in Azure Video Analyzer - Azure
+description: Azure Video Analyzer exposes several direct methods. The direct methods are based on the conventions described in this topic.
 ms.topic: conceptual
 ms.date: 03/30/2021
 
@@ -9,7 +9,7 @@ ms.date: 03/30/2021
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
-Azure Video Analyzer on IoT Edge exposes several direct methods that can be invoked from IoT Hub. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond. For more information, see [Understand and invoke direct methods from IoT Hub](../../iot-hub/iot-hub-devguide-direct-methods.md).
+Azure Video Analyzer exposes several direct methods that can be invoked from IoT Hub. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond. For more information, see [Understand and invoke direct methods from IoT Hub](../../iot-hub/iot-hub-devguide-direct-methods.md).
 
 This topic describes these methods and conventions.
 
@@ -17,21 +17,22 @@ This topic describes these methods and conventions.
 
 The direct methods are based on the following conventions:
 
-1. Direct methods have a version specified in MAJOR.MINOR format (as shown in the following example):
+1. Direct methods have a version specified in MAJOR.MINOR format (as shown in the following example). It is the "@apiVersion" number where "1" is the MAJOR and "0" the MINOR in this example:
 
-    ```
-    {
-        "methodName": "LivePipelineSet",
-        "payload": {
-            // API version matches matches module MAJOR.MINOR version
-            "@apiVersion": "1.0"
-            //payload here…
+```
+  {
+    "methodName": "pipelineTopologySet",
+    "payload": {
+        "@apiVersion": "1.0",
+        "name": "{TopologyName}",
+        "properties": {
+            // Desired Topology properties
         }
     }
-    ```
-<!-- Above replace with new AVA output sample-->
+  }
+```
 
-2. A given version of Azure Video Analyzer on IoT Edge module will support all the direct methods up-to its current version. For example, module version 1.3 will support direct methods with versions 1.3, 1.2, 1.1, and 1.0 versions.
+2. A given version of Azure Video Analyzer module will support all the direct methods up-to its current version. For example, module version 1.3 will support direct methods with versions 1.3, 1.2, 1.1, and 1.0 versions.
 3. All direct methods are synchronous.
 4. Error results follow OData error schema.
 5. Names should observe the following constraints:
@@ -39,7 +40,7 @@ The direct methods are based on the following conventions:
     * Only alphanumeric characters and dashes as long as it doesn't start and end with a dash
     * No spaces
     * Max of 32 characters
-<!-- Is above still true as limitations?-->
+
 ### Example
 
 ```
@@ -53,7 +54,6 @@ The direct methods are based on the following conventions:
   }
 }
 ```    
-<!-- Above replace with new AVA output sample-->
 ### Top-level error codes     
 
 |Status	|Code	|Message|
@@ -66,7 +66,6 @@ The direct methods are based on the following conventions:
 |409|	Conflict|	Operation conflict|
 |500|	InternalServerError|	Internal server error|
 |503|	ServerBusy|	Server busy|
-<!-- I did not find a list of http status codes so assuming we will carry these to AVA-->
 
 ### Detailed error codes
 
@@ -96,7 +95,6 @@ Detailed validations error, such as pipeline module validations, are added as er
 }
 }
 ```
-<!-- Needs updating with AVA sample output-->
 |Status|	Detailed code	|Description|
 |---|---|---|
 |400|	PipelineValidationError|	General Pipeline errors such as cycles or partitioning, etc.|
@@ -104,40 +102,37 @@ Detailed validations error, such as pipeline module validations, are added as er
 |409|	PipelineTopologyInUse|	Pipeline topology is still referenced by one or more Pipeline instances.|
 |409|	OperationNotAllowedInState|	Requested operation cannot be performed in the current state.|
 |409|	ResourceValidationError|	Referenced resource (example: asset) is not in a valid state.|
-<!-- I did not find a list of http status codes in ref spec so assuming we will carry these to AVA-->
 
 ## Details  
 
-### LivePipelineGet
+### PipelineTopologyGet
 
 This direct method retrieves a single pipeline topology.
 
 #### Request
 
 ```
-{
-    "methodName": "LivePipelineGet",
+  {
+    "methodName": "pipelineTopologyGet",
     "payload": {
         "@apiVersion": "1.0",
-        "name": "CaptureAndRecord"
+        "name": "{TopologyName}"
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample input-->
 #### Response
 
 ```
-{
+  {
     "status": 200,
     "payload": {
-        "name": "CaptureAndRecord",
+        "name": "{TopologyName}",
         "properties": {
-            // Complete Pipeline topology
+            // Complete Topology
         }
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample output-->
 
 #### Status codes
 
@@ -147,50 +142,48 @@ This direct method retrieves a single pipeline topology.
 | General user errors | 400 range |  |
 | Entity not found | 404 |  |
 | General server errors | 500 range |  |
-<!-- Didn't find a list of codes in ref spec doc assuming we carry these over-->
 
-### LivePipelineSet
+### PipelineTopologySet
 
-Creates a single pipeline if there is no existing one with the given name or updates and existing one with the same name.
+Creates a single pipeline topology if there is no existing one with the given name or updates and existing one with the same name.
 
 Key aspects:
 
-* Pipeline can be freely updated is there are no pipeline referencing it.
-* Pipeline can be freely updated if all referencing pipeline are deactivated as long as:
+* Pipeline topology can be freely updated if there are no pipeline referencing it.
+* Pipeline topology can be freely updated if all referencing pipeline are deactivated as long as:
 
     * Newly added parameters have default values
     * Removed parameters are not referenced by any pipeline
-* Pipeline updates are not allowed if there are active [pipelines]
+* Pipeline updates are not allowed if there are active pipelines
 
 #### Request
 
 ```
-{
-    "methodName": "LivePipelineSet",
+  {
+    "methodName": "pipelineTopologySet",
     "payload": {
         "@apiVersion": "1.0",
-        "name": "CaptureAndRecord",
+        "name": "{TopologyName}",
         "properties": {
-            // Desired Pipeline topology properties
+            // Desired Topology properties
         }
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample input-->
+
 #### Response
 
 ```
-{
+  {
     "status": 201,
     "payload": {
-        "name": " CaptureAndRecord ",
+        "name": "{TopologyName}",
         "properties": {
-            // Complete Pipeline topology
+            // Complete Topology
         }
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample output-->
 #### Status codes
 
 |Condition	|Status code	|Detailed error code|
@@ -201,23 +194,22 @@ General user errors	|400 range	||
 Pipeline Validation Errors	|400	|PipelineValidationError|
 Module Validation Errors|	400	|ModuleValidationError|
 General server errors	|500 range	||
-<!-- Didn't find a list of codes in ref spec doc assuming we carry these over-->
-### LivePipelineDelete
+
+### PipelineTopologyDelete
 
 Deletes a single live pipeline topology.
 
 #### Request
 
 ```
-{
-    "methodName": "LivePipelineDelete",
+  {
+    "methodName": "pipelineTopologyDelete",
     "payload": {
         "@apiVersion": "1.0",
-        "name": "CaptureAndRecord"
+        "name": "{TopologyName}"
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample output-->
 #### Response
 
 ```
@@ -236,55 +228,57 @@ Deletes a single live pipeline topology.
 | General user errors | 400 range |  |
 | Pipeline topology is being referenced by one or more Pipeline instances | 409 | PipelineTopologyInUse |
 | General server errors | 500 range |  |
-<!-- Didn't find a list of codes in ref spec doc assuming we carry these over-->
-### LivePipelineList
+
+### PipelineTopologyList
 
 Retrieves a list of all the pipelines that matches the filter criteria.
 
 #### Request
 
 ```
-{
-    "methodName": "LivePipelineList",
+  {
+    "methodName": "pipelineTopologyList",
     "payload": {
         // Required
         "@apiVersion": "1.0",
         
         // Optional
-        "@continuationToken": "xxxxx",    
+        "@continuationToken": "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==",    
         "@query": "$orderby=name asc"
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample input-->
 #### Response
 
 ```
-{
+  {
     "status": 200,
     "payload": {
-        "@continuationToken": "xxxx",
-        "value": [
-            {
-                "name": "Capture & Record",
-                // ...
-            },
-            {
-                "name": "Capture, Analyze & Record",
-                // ...
+      "@continuationToken": "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==",
+      "value": [
+        {
+            "name": "{TopologyName}",
+            "properties": {
+                // Complete Topology
             }
-        ]
+        },
+        {
+            "name": "{TopologyName}",
+            "properties": {
+                // Complete Topology
+            }
+        }
+      ]
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample output-->
 #### Filter support
 
 |Operation |Field(s)	|Operators|
 |---|---|---|
 |$orderby|name	|asc|
 
-<!>
+
 #### Status codes
 
 | Condition | Status code | Detailed error code |
@@ -300,29 +294,27 @@ Retrieves a single Pipeline Instance:
 #### Request
 
 ```
-{
-    "methodName": "LivePipelineGet",
+  {
+    "methodName": "livePipelineGet",
     "payload": {
         "@apiVersion": "1.0",
-        "name": "Camera001"
+        "name": "{livePipelineName}"
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample input-->
 #### Response
 
 ```
-{
+  {
     "status": 200,
     "payload": {
-        "name": "Camera001",
+        "name": "{livePipelineName}",
         "properties": {
-            // Complete Pipeline instance
+            // Complete Stream
         }
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample output-->
 #### Status codes
 
 | Condition | Status code | Detailed error code |
@@ -331,7 +323,7 @@ Retrieves a single Pipeline Instance:
 | General user errors | 400 range |  |
 | Entity not found | 404 |  |
 | General server errors | 500 range |  |
-<!-- Didn't find a list of codes in ref spec doc assuming we carry these over-->
+
 ### LivePipelineSet
 
 Creates a single Pipeline Instance if there is no existing one with the given name or updates and existing one with the same name.
@@ -340,39 +332,37 @@ Key aspects:
 
 * Pipeline Instance can be freely updated while in "Deactivated" state.
 
-    * Pipeline is revalidated on every updated.
+    * Pipeline is revalidated on every update.
 * Pipeline instance updates are partially restricted while the pipeline is not in the “Inactive” state.
 * Pipeline instance updates are not allowed on active pipeline.
 
 #### Request
 
 ```
-{
-"methodName": "LivePipelineSet",
+  {
+    "methodName": "livePipelineSet",
     "payload": {
         "@apiVersion": "1.0",
-        "name": "Camera001",
+        "name": "{livePipelineName}",
         "properties": {
-            // Desired Pipeline instance properties
+            // Desired Stream properties
         }
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample input-->
 #### Response
 
 ````
-{
+  {
     "status": 201,
     "payload": {
-        "name": " Camera001",
+        "name": "{livePipelineName}",
         "properties": {
-            // Complete Pipeline instance
-        }	
+            // Complete Stream
+        }
     }
-}
+  }
 ````
-<!-- Above needs to be replaced with AVA sample output-->
 #### Status codes
 
 | Condition | Status code | Detailed error code |
@@ -384,7 +374,7 @@ Key aspects:
 | Module Validation Errors | 400 | ModuleValidationError |
 | Resource validation errors | 409 | ResourceValidationError |
 | General server errors | 500 range |  |  |
-<!-- Didn't find a list of codes in ref spec doc assuming we carry these over-->
+
 ### LivePipelineDelete
 
 Deletes a single pipeline instance.
@@ -396,24 +386,22 @@ Key aspects:
 #### Request
 
 ```
-{
-    "methodName": "LivePipelineDelete",
+  {
+    "methodName": "livePipelineDelete",
     "payload": {
         "@apiVersion": "1.0",
-        "name": "Camera001"
+        "name": "{livePipelineName}"
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample input-->
 #### Response
 
 ```
-{
+  {
     "status": 200,
     "payload": null
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample output-->
 #### Status codes
 
 | Condition | Status code | Detailed error code |
@@ -423,49 +411,52 @@ Key aspects:
 | General user errors | 400 range |  |
 | Pipeline is not in the "Stopped" state | 409 | OperationNotAllowedInState |
 | General server errors | 500 range |  |
-<!-- Didn't find a list of codes in ref spec doc assuming we carry these over-->
+
 ### LivePipelineList
 
-This is similar to LivePipelineList. It enables use to enumerate the pipeline instances.
+This is similar to LiveTopologyList. It enables use to enumerate the pipeline instances.
 Retrieves a list of all the pipeline instances that matches the filter criteria.
 
 #### Request
 
 ```
-{
-    "methodName": "LivePipelineList",
+  {
+    "methodName": "livePipelineList",
     "payload": {
         // Required
         "@apiVersion": "1.0",
         
         // Optional
-        "@continuationToken": "xxxxx",    
+        "@continuationToken": "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==",    
         "@query": "$orderby=name asc"
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample input-->
 #### Response
 
 ```
-{
+  {
     "status": 200,
     "payload": {
-        "@continuationToken": "xxxx",
-        "value": [
-            {
-                "name": "Capture & Record",
-                // ...
-            },
-            {
-                "name": "Capture, Analyze & Record",
-                // ...
+      "@continuationToken": "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==",
+      "value": [
+        {
+            "name": "{livePipelineName}",
+            "properties": {
+                // Complete Stream
             }
-        ]
+        },
+        {
+            "name": "{livePipelineName}",
+            "properties": {
+                // Complete Stream
+            }
+        }
+      ]
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample output-->
+
 #### Filter support
 
 |Operation	|	Field(s)|	Operators|
@@ -498,15 +489,14 @@ Key aspects
 #### Request
 
 ```
-{
-    "methodName": "LivePipelineActivate",
+  {
+    "methodName": "livePipelineActivate",
     "payload": {
         "@apiVersion": "1.0",
-        "name": "Camera001"
+        "name": "{livePipelineName}"
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample input-->
 #### Response
 
 ```
@@ -515,7 +505,6 @@ Key aspects
     "payload": null
 }
 ```
-<!-- Above needs to be replaced with AVA sample output-->
 #### Status codes
 
 | Condition | Status code | Detailed error code |
@@ -547,17 +536,14 @@ Key aspects:
 #### Request
 
 ```
-{
-    "methodName": "LivePipelineDeactivate",
-    // A high response timeout is recommended here since there might be data movement    // being executed as part of this operation
-    "responseTimeoutInSeconds": 300,
+  {
+    "methodName": "livePipelineDeactivate",
     "payload": {
         "@apiVersion": "1.0",
-        "name": "Camera001"
+        "name": "{livePipelineName}"
     }
-}
+  }
 ```
-<!-- Above needs to be replaced with AVA sample input-->
 #### Response
 
 ```
@@ -566,7 +552,6 @@ Key aspects:
     "payload": null
 }
 ```
-<!-- Above needs to be replaced with AVA sample output-->
 | Condition | Status code | Detailed error code |
 |--|--|--|
 | Pipeline activated successfully | 200 | N/A |
