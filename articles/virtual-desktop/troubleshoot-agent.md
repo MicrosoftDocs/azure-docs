@@ -210,7 +210,7 @@ To resolve this issue:
 
 ## Error: Heartbeat issue where users keep getting disconnected from session hosts
 
-If your server isn't picking up a heartbeat from the Windows Virtual Desktop service, you'll need to change the heartbeat threshold. Follow the instructions in this section if one or more of the following scenarios apply to you:
+If your server isn't picking up a heartbeat from the Windows Virtual Desktop service, you'll need to change the heartbeat threshold. This will temporarily mitigate the issue symptoms, but won't fix the underlying network issue. Follow the instructions in this section if one or more of the following scenarios apply to you:
 
 - You're receiving a **CheckSessionHostDomainIsReachableAsync** error
 - You're receiving a **ConnectionBrokenMissedHeartbeatThresholdExceeded** error

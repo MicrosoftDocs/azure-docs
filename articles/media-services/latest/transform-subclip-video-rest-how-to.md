@@ -80,4 +80,4 @@ To complete the steps described in this topic, you have to:
 
 ## Next steps
 
-[How to encode with a custom transform](encode-custom-preset-rest-how-to.md) 
+[How to encode with a custom transform](transform-custom-preset-rest-how-to.md) 

@@ -44,10 +44,10 @@
       displayName: azure stack, ash, windows, linux, hybrid, arc
       href: quickstart-onboard-machines.md
     - name: Connect AWS accounts
-      displayName: hybrid, multicloud, amazon, arc
+      displayName: hybrid, multicloud, multi-cloud, amazon, arc
       href: quickstart-onboard-aws.md
     - name: Connect GCP accounts
-      displayName: hybrid, multicloud, google
+      displayName: hybrid, multicloud, multi-cloud, google
       href: quickstart-onboard-gcp.md
   - name: 6. Create auto-responses to alerts
     displayName: Resource Manager, ARM
