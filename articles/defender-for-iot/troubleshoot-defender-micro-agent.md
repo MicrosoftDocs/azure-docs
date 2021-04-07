@@ -29,7 +29,7 @@ If the service is listed as `inactive`, use the following command to start the s
 systemctl start defender-iot-micro-agent.service 
 ```
 
-You will know that the service is crashing if the process uptime is too short. To resolve this issue, you must [review the logs](#review-the-logs).
+You will know that the service is crashing if the process uptime is less than 2 minutes. To resolve this issue, you must [review the logs](#review-the-logs).
 
 ## Validate micro agent root privileges
 
