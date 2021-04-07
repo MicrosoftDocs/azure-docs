@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/27/2021
+ms.date: 04/07/2021
 ms.author: alexeyo
 ---
 
@@ -93,7 +93,11 @@ The next sections describe specific cases of adjusting quotas.<br/>
 Jump to [Text-to-Speech. Increasing Transcription Concurrent Request limit for Custom voice](#text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice)
 
 ### Speech-to-text: increasing online transcription concurrent request limit
-By default the number of concurrent requests is limited to 20 per Speech resource (Base model) or per Custom endpoint (Custom model). For Standard pricing tier this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
+By default the number of concurrent requests is limited to 100 per Speech resource (Base model) and to 20 per Custom endpoint (Custom model). For Standard pricing tier this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
+
+>[!NOTE]
+> If you use custom models, please be aware, that one Speech resource may be associated with many custom endpoints hosting many custom model deployments. Each Custom endpoint has the default number of concurrent request limit (20) set by creation. If you need to adjust it, you need to make the adjustment of each custom endpoint **separately**. Please also note, that the value of the number of concurrent request limit for the base model of a Speech resource has **no** effect to the custom endpoints associated with this resource.
+
 
 Increasing the Concurrent Request limit does **not** directly affect your costs. Speech Services uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
 
