@@ -30,8 +30,7 @@ The following remote desktop clients support the Start VM on Connect feature:
 
 You can check for announcements about updates and client support on the [Tech Community forum](https://aka.ms/wvdtc).
 
->[!IMPORTANT]
->The Start VM on Connect feature currently only supports PowerShell and REST API, not the Azure portal. For more information, see [Create or update a host pool](/rest/api/desktopvirtualization/hostpools/createorupdate).
+The Azure Government cloud doesn't currently support Start VM on Connect.
 
 ## Create a custom role for Start VM on Connect
 
@@ -128,9 +127,6 @@ To use the Azure portal to configure Start VM on Connect:
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the Properties window. The Start VM on connect option is highlighted in red.](media/properties-start-vm-on-connect.png)
-
->[!IMPORTANT]
->The Azure Government cloud doesn't currently support Start VM on Connect.
 
 ### Use PowerShell
 
