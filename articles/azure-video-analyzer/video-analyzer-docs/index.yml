@@ -31,8 +31,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: Pipeline
+            url: ""
           - text: Video recording 
+            url: ""
           - text: Video playback
+            url: ""
           
   # Card
   - title: Azure Video Analyzer scenarios
@@ -40,3 +43,4 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Get started with Azure Video Analyzer 
+            url: ""
