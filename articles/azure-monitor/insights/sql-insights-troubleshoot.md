@@ -167,10 +167,13 @@ InsightsMetrics
 ```
 
 ```
-Operation 
- | where OperationCategory == "WorkloadInsights" 
- | summarize Errors = countif(OperationStatus == 'Error') 
+WorkloadDiagnosticLogs
+| summarize Errors = countif(Status == 'Error')
 ```
+
+> [!NOTE]
+> If you do not see any data in the 'WorkloadDiagnosticLogs' data type then you may need to update your monitoring profile to store this data.  From within the SQL insights UX select 'Manage profile', then select 'Edit profile', and then select 'Update monitoring profile'.
+
 
 For common cases, we provide troubleshooting knowledge in our logs view: 
 
