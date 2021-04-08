@@ -76,7 +76,8 @@ In this quickstart, you will:
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
  
-The deployment.yolov3.amd64.json manifest file is created in the src/edge/config folder.
+    The deployment.yolov3.amd64.json manifest file is created in the src/edge/config folder.
+
 1. If you completed the [Detect motion and emit events]()<!--TODO: add a link once the topic is staged --> quickstart, then skip this step.
 
     Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
@@ -85,8 +86,10 @@ The deployment.yolov3.amd64.json manifest file is created in the src/edge/config
     > :::image type="content" source="./media/analyze-live-video-use-your-model-http/set-connection-string.png" alt-text="Set IoT Hub Connection String":::
      `
     > [!NOTE]
-    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: 
-    `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>.`
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: <br/>
+    > 
+    > `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>.`
+    
 1. Right-click *src/edge/config/deployment.yolov3.amd64.json* and select **Create Deployment for Single Device**.
 
     > [!div class="mx-imgBorder"]
@@ -156,36 +159,39 @@ The deployment.yolov3.amd64.json manifest file is created in the src/edge/config
     
     The **TERMINAL** window shows the next set of direct method calls:
     
-    * A call to pipelineTopologySet that uses the preceding topologyUrl
+    * A call to pipelineTopologySet that uses the preceding topologyUrl.
     * A call to livePipelineSet that uses the following body:
         
-    ```
-    {
-      "@apiVersion": "1.0",
-      "name": "Sample-Graph-1",
-      "properties": {
-        "topologyName": "InferencingWithHttpExtension",
-        "description": "Sample graph description",
-        "parameters": [
-          {
-            "name": "rtspUrl",
-            "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-          },
-          {
-            "name": "rtspUserName",
-            "value": "testuser"
-          },
-          {
-            "name": "rtspPassword",
-            "value": "testpassword"
+        ```
+        {
+          "@apiVersion": "1.0",
+          "name": "Sample-Graph-1",
+          "properties": {
+            "topologyName": "InferencingWithHttpExtension",
+            "description": "Sample graph description",
+            "parameters": [
+              {
+                "name": "rtspUrl",
+                "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+              },
+              {
+                "name": "rtspUserName",
+                "value": "testuser"
+              },
+              {
+                "name": "rtspPassword",
+                "value": "testpassword"
+              }
+            ]
           }
-        ]
-      }
-    }
-    ```
-    * A call to livePipelineActivate that starts the graph instance and the flow of video
-    * A second call to livePipelineList that shows that the graph instance is in the running state
-    1. The output in the **TERMINAL** window pauses at a Press Enter to continue prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
+        }
+        ```
+    * A call to livePipelineActivate that starts the graph instance and the flow of video.
+    * A second call to livePipelineList that shows that the graph instance is in the running state.
+    
+    The output in the **TERMINAL** window pauses at a **Press Enter to continue** prompt.
+    Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
+    
 1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Azure Video Analyzer module is sending to the IoT hub. The following section of this quickstart discusses these messages.
 1. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline, return to the **TERMINAL** window and select Enter.
     
