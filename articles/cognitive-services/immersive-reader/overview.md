@@ -22,8 +22,8 @@ keywords: readers, language learners, display pictures, improve reading, read co
 
 This documentation contains the following types of articles:  
 
-* **[Quickstarts](quickstarts/client-libraries.md)** are step-by-step instructions that enable you to make calls to the service and get results.
-* **[How-to guides](how-to-create-immersive-reader.md)** contain instructions for using the service in more specific or customized ways.  
+* **[Quickstarts](quickstarts/client-libraries.md)** are getting-started instructions to guide you through making requests to the service.
+* **[How-to guides](how-to-create-immersive-reader.md)** contain instructions for using the service in more specific or customized ways.
 
 ## Use Immersive Reader to improve reading accessibility 
 

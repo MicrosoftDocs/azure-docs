@@ -45,7 +45,7 @@ The following table shows how each Blob storage feature is supported with Data L
 |Anonymous public access |Generally available|Generally available| See [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).|
 |Customer-managed account failover|Not yet supported|Not yet supported|[Disaster recovery and account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Customer-provided keys|Not yet supported|Not yet supported|[Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md)|
-|Encryption scopes|Not yet supported|Not yet supported|[Create and manage encryption scopes (preview)](encryption-scope-manage.md)|
+|Encryption scopes|Not yet supported|Not yet supported|[Create and manage encryption scopes](encryption-scope-manage.md)|
 |Change feed|Not yet supported|Not yet supported|[Change feed support in Azure Blob storage](storage-blob-change-feed.md)|
 |Object replication|Not yet supported|Not yet supported|[Configure object replication for block blobs](object-replication-configure.md)|
 |Blob versioning|Not yet supported|Not yet supported|[Enable and manage blob versioning](versioning-enable.md)|

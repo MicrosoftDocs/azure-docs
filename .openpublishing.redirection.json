@@ -26,8 +26,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/spring-cloud/spring-cloud-howto-access-data-plane-azure-ad-rbac.md",
-      "redirect_url": "/azure/spring-cloud/spring-cloud-overview",
+      "source_path": "articles/confidential-computing/how-to-fortanix-enclave-manager.md",
+      "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent",
       "redirect_document_id": false
     },
     {
@@ -748,6 +748,21 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/configure-tokens-custom-policy.md",
       "redirect_url": "/azure/active-directory-b2c/configure-tokens",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/create-user-flow.md",
+      "redirect_url": "/azure/active-directory-b2c/add-sign-up-and-sign-in-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/phone-authentication.md",
+      "redirect_url": "/azure/active-directory-b2c/phone-authentication-user-flows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/ropc-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/add-ropc-policy",
       "redirect_document_id": false
     },
     {
@@ -2895,11 +2910,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service/containers/deploy-container-github-action.md",
-      "redirect_url": "/azure/app-service/deploy-container-github-action",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/app-service/app-service-deploy-content-sync.md",
       "redirect_url": "/azure/app-service/deploy-content-sync",
       "redirect_document_id": false
@@ -2912,16 +2922,6 @@
     {
       "source_path_from_root": "/articles/app-service/app-service-continuous-deployment.md",
       "redirect_url": "/azure/app-service/deploy-continuous-deployment",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service/deploy-github-actions.md",
-      "redirect_url": "/azure/app-service/deploy-continuous-deployment",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service/deploy-container-github-action.md",
-      "redirect_url": "/azure/app-service/deploy-ci-cd-custom-container",
       "redirect_document_id": false
     },
     {
@@ -6167,6 +6167,16 @@
     {
       "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-create-function-app-github.md",
       "redirect_url": "/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-runtime-overview.md",
+      "redirect_url": "/azure/azure-functions/functions-kubernetes-keda",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-runtime-install.md",
+      "redirect_url": "/azure/azure-functions/functions-kubernetes-keda",
       "redirect_document_id": false
     },
     {
@@ -10490,6 +10500,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/marketplace/preferred-solutions.md",
+      "redirect_url": "https://docs.microsoft.com/marketplace/appsource-overview#microsoft-preferred-solutions",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/resource-manager-template-walkthrough.md",
       "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal",
       "redirect_document_id": false
@@ -13235,6 +13250,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/concepts-role-based-access-control.md",
+      "redirect_url": "/azure/azure-vmware/concepts-identity",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/deploy-traffic-manager-to-balance-avs-workloads.md",
       "redirect_url": "/azure/azure-vmware/deploy-traffic-manager-balance-workloads",
       "redirect_document_id": false
@@ -13497,6 +13517,11 @@
     {
       "source_path_from_root": "/articles/batch/batch-retry-after-errors.md",
       "redirect_url": "/azure/batch/error-handling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/batch/batch-nodejs-get-started.md",
+      "redirect_url": "/azure/batch/batch-js-get-started",
       "redirect_document_id": false
     },
     {
@@ -23495,6 +23520,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-security-x509-get-started.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-scripts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-suite/securing-iot-ground-up.md",
       "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
       "redirect_document_id": false
@@ -24573,6 +24603,16 @@
       "source_path_from_root": "/articles/iot-pnp/concepts-components.md",
       "redirect_url": "/azure/iot-pnp/concepts-modeling-guide",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-pnp/concepts-certification-program.md",
+      "redirect_url": "/azure/certification/program-requirements-pnp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-pnp/howto-certify-device.md",
+      "redirect_url": "/azure/certification/program-requirements-pnp",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/container-instances/container-instances-jenkins.md",
@@ -28761,9 +28801,29 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc",
+      "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/account-migration-from-cpp-to-pc.md",
+      "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-account.md",
+      "redirect_url": "/azure/marketplace/create-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/manage-account.md",
+      "redirect_url": "/azure/marketplace/manage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/company-work-accounts.md",
+      "redirect_url": "/azure/marketplace/company-work-accounts",
+      "redirect_document_id": false
+    },       
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/portal-tour/cpp-insights-page.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
@@ -28956,7 +29016,7 @@
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+      "redirect_url": "/azure/marketplace/create-account",
       "redirect_document_id": true
     },
     {
@@ -29356,7 +29416,7 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/cloud-partner-portal-manage-users.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
+      "redirect_url": "/azure/marketplace/manage-account",
       "redirect_document_id": true
     },
     {
@@ -31050,6 +31110,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/networking/networking-overview.md",
+      "redirect_url": "/azure/networking/fundamentals/networking-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/network-watcher/connection-monitor-preview-create-using-portal.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-portal",
       "redirect_document_id": false
@@ -31593,6 +31658,16 @@
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/search/search-autocomplete-tutorial.md",
+      "redirect_url": "/azure/search/search-add-autocomplete-suggestions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/search/search-filters-language.md",
+      "redirect_url": "/azure/search/search-language-support",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/search/semantic-how-to-query-response.md",
@@ -33555,28 +33630,335 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-vnet-customer-responsibilities.md",
+      "redirect_url": "/azure/spring-cloud/vnet-customer-responsibilities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-setup-autoscale.md",
+      "redirect_url": "/azure/spring-cloud/how-to-setup-autoscale",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-managed-identities-key-vault.md",
+      "redirect_url": "/azure/spring-cloud/tutorial-managed-identities-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-managed-identities-functions.md",
+      "redirect_url": "/azure/spring-cloud/tutorial-managed-identities-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-deploy-in-azure-virtual-network.md",
+      "redirect_url": "/azure/spring-cloud/how-to-deploy-in-azure-virtual-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-custom-domain.md",
+      "redirect_url": "/azure/spring-cloud/tutorial-custom-domain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-circuit-breaker.md",
+      "redirect_url": "/azure/spring-cloud/tutorial-circuit-breaker",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-alerts-action-groups.md",
+      "redirect_url": "/azure/spring-cloud/tutorial-alerts-action-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-troubleshooting-vnet.md",
+      "redirect_url": "/azure/spring-cloud/troubleshooting-vnet",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-troubleshoot.md",
+      "redirect_url": "/azure/spring-cloud/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-structured-app-log.md",
+      "redirect_url": "/azure/spring-cloud/structured-app-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-resources.md",
+      "redirect_url": "/azure/spring-cloud/resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-config-server.md",
+      "redirect_url": "/azure/spring-cloud/how-to-config-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-distributed-tracing.md",
+      "redirect_url": "/azure/spring-cloud/how-to-distributed-tracing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quotas.md",
+      "redirect_url": "/azure/spring-cloud/quotas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart.md",
+      "redirect_url": "/azure/spring-cloud/quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-reference-architecture.md",
+      "redirect_url": "/azure/spring-cloud/reference-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-setup-config-server.md",
+      "redirect_url": "/azure/spring-cloud/quickstart-setup-config-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-sample-app-introduction.md",
+      "redirect_url": "/azure/spring-cloud/quickstart-sample-app-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-provision-service-instance.md",
+      "redirect_url": "/azure/spring-cloud/quickstart-provision-service-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-logs-metrics-tracing.md",
+      "redirect_url": "/azure/spring-cloud/quickstart-logs-metrics-tracing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-deploy-apps.md",
+      "redirect_url": "/azure/spring-cloud/quickstart-deploy-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-overview.md",
+      "redirect_url": "/azure/spring-cloud/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-principles-microservice-apps.md",
+      "redirect_url": "/azure/spring-cloud/principles-microservice-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-start-stop-delete.md",
+      "redirect_url": "/azure/spring-cloud/how-to-start-stop-delete",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-staging-environment.md",
+      "redirect_url": "/azure/spring-cloud/how-to-staging-environment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-service-registration.md",
+      "redirect_url": "/azure/spring-cloud/how-to-service-registration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-self-diagnose-solve.md",
+      "redirect_url": "/azure/spring-cloud/how-to-self-diagnose-solve",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-self-diagnose-running-in-vnet.md",
+      "redirect_url": "/azure/spring-cloud/how-to-self-diagnose-running-in-vnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-scale-manual.md",
+      "redirect_url": "/azure/spring-cloud/how-to-scale-manual",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-provision-azure-spring-cloud-instance-terraform.md",
+      "redirect_url": "/azure/spring-cloud/how-to-provision-azure-spring-cloud-instance-terraform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-persistent-storage.md",
+      "redirect_url": "/azure/spring-cloud/how-to-persistent-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-permissions.md",
+      "redirect_url": "/azure/spring-cloud/how-to-permissions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-outbound-public-ip.md",
+      "redirect_url": "/azure/spring-cloud/how-to-outbound-public-ip",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-log-streaming.md",
+      "redirect_url": "/azure/spring-cloud/how-to-log-streaming",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-launch-from-source.md",
+      "redirect_url": "/azure/spring-cloud/how-to-launch-from-source",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-intellij-deploy-apps.md",
+      "redirect_url": "/azure/spring-cloud/how-to-intellij-deploy-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-integrate-azure-load-balancers.md",
+      "redirect_url": "/azure/spring-cloud/how-to-integrate-azure-load-balancers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-github-actions.md",
+      "redirect_url": "/azure/spring-cloud/how-to-github-actions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md",
+      "redirect_url": "/azure/spring-cloud/how-to-enable-system-assigned-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-distributed-tracing.md",
+      "redirect_url": "/azure/spring-cloud/how-to-distributed-tracing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-deploy-powershell.md",
+      "redirect_url": "/azure/spring-cloud/how-to-deploy-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-config-server.md",
+      "redirect_url": "/azure/spring-cloud/how-to-config-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-circuit-breaker-metrics.md",
+      "redirect_url": "/azure/spring-cloud/how-to-circuit-breaker-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-cicd.md",
+      "redirect_url": "/azure/spring-cloud/how-to-cicd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-bind-redis.md",
+      "redirect_url": "/azure/spring-cloud/how-to-bind-redis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-bind-mysql.md",
+      "redirect_url": "/azure/spring-cloud/how-to-bind-mysql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-bind-cosmos.md",
+      "redirect_url": "/azure/spring-cloud/how-to-bind-cosmos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-application-insights.md",
+      "redirect_url": "/azure/spring-cloud/how-to-application-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-github-actions-key-vault.md",
+      "redirect_url": "/azure/spring-cloud/github-actions-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-faq.md",
+      "redirect_url": "/azure/spring-cloud/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-expose-apps-gateway-azure-firewall.md",
+      "redirect_url": "/azure/spring-cloud/expose-apps-gateway-azure-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-concept-understand-app-and-deployment.md",
+      "redirect_url": "/azure/spring-cloud/concept-understand-app-and-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-concept-security-controls.md",
+      "redirect_url": "/azure/spring-cloud/concept-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-concept-metrics.md",
+      "redirect_url": "/azure/spring-cloud/concept-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md",
+      "redirect_url": "/azure/spring-cloud/concept-manage-monitor-app-spring-boot-actuator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-concept-app-status.md",
+      "redirect_url": "/azure/spring-cloud/concept-app-status",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-access-app-virtual-network.md",
+      "redirect_url": "/azure/spring-cloud/access-app-virtual-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-prepare-app-deployment.md",
+      "redirect_url": "/azure/spring-cloud/how-to-prepare-app-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/spring-cloud/spring-cloud-howto-access-data-plane-azure-ad-rbac.md",
+      "redirect_url": "/azure/spring-cloud/how-to-access-data-plane-azure-ad-rbac",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/policy-samples.md",
       "redirect_url": "/azure/spring-cloud/policy-reference",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-launch-from-source.md",
-      "redirect_url": "/azure/spring-cloud/spring-cloud-quickstart",
+      "redirect_url": "/azure/spring-cloud/quickstart",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-launch-app-cli.md",
-      "redirect_url": "/azure/spring-cloud/spring-cloud-quickstart",
+      "redirect_url": "/azure/spring-cloud/quickstart",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-launch-app-maven.md",
-      "redirect_url": "/azure/spring-cloud/spring-cloud-quickstart",
+      "redirect_url": "/azure/spring-cloud/quickstart",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-launch-app-portal.md",
-      "redirect_url": "/azure/spring-cloud/spring-cloud-quickstart",
+      "redirect_url": "/azure/spring-cloud/quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-cli-reference.md",
+      "redirect_url": "/cli/azure/ext/spring-cloud/spring-cloud",
       "redirect_document_id": false
     },
     {
@@ -42451,11 +42833,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/spring-cloud/spring-cloud-cli-reference.md",
-      "redirect_url": "/cli/azure/ext/spring-cloud/spring-cloud",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/virtual-machines-command-line-tools.md",
       "redirect_url": "/cli/azure/get-started-with-az-cli2",
       "redirect_document_id": false
@@ -43223,6 +43600,11 @@
     {
       "source_path_from_root": "/articles/frontdoor/new-azurermfrontdoorfrontendendpointobject.md",
       "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorfrontendendpointobject",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cloud-services-extended-support/manage-powershell.md",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-model-and-package",
       "redirect_document_id": false
     },
     {
@@ -45752,12 +46134,12 @@
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-reportviewer.md",
-      "redirect_url": "/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started?view=sql-server-2017",
+      "redirect_url": "/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-report.md",
-      "redirect_url": "/sql/reporting-services/report-server/reporting-services-report-server-native-mode?view=sql-server-2017",
+      "redirect_url": "/sql/reporting-services/report-server/reporting-services-report-server-native-mode",
       "redirect_document_id": false
     },
     {
@@ -45827,7 +46209,7 @@
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi.md",
-      "redirect_url": "/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017",
+      "redirect_url": "/sql/ssdt/download-sql-server-data-tools-ssdt",
       "redirect_document_id": false
     },
     {
@@ -47359,6 +47741,11 @@
       "source_path_from_root": "/articles/cognitive-services/Computer-vision/QuickStarts/ruby-thumb.md",
       "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/ruby/ComputerVision/generate-a-thumbnail",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/concept-recognizing-text.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/overview-ocr",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md",
@@ -51081,6 +51468,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-modify-supported-accounts.md",
+      "redirect_url": "/azure/active-directory/develop/howto-modify-supported-accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-remove-app.md",
+      "redirect_url": "/azure/active-directory/develop/howto-remove-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-restore-app.md",
+      "redirect_url": "/azure/active-directory/develop/howto-restore-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/msal-testing.md",
       "redirect_url": "/azure/active-directory/develop/msal-overview",
       "redirect_document_id": true
@@ -54046,23 +54448,28 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/troubleshoot-adding-apps.md",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/application-config-add-app-problem-problem-adding-gallery-app.md",
-      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-config-add-app-problem-problem-adding-non-gallery-app.md",
-      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/adding-gallery-app-common-problems.md",
-      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/adding-non-gallery-app-common-problems.md",
-      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-adding-apps",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
       "redirect_document_id": false
     },
     {
@@ -56279,6 +56686,11 @@
       "source_path_from_root": "/articles/active-directory/active-directory-saas-intralinks-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/intralinks-tutorial",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-iqnavigatorvms-tutorial.md",
@@ -59182,7 +59594,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Computer-vision/concept-extracting-text-ocr.md",
-      "redirect_url": "/azure/cognitive-services/Computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/overview-ocr",
       "redirect_document_id": false
     },
     {
@@ -64518,6 +64930,15 @@
       "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/glossary.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/terminology",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/partners.md",
+      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?search=Windows%20virtual%20desktop&page=1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/quickstart-dotnet-framework.md",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore?tabs=netframework48"
     }
   ]
 }

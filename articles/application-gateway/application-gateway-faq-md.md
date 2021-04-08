@@ -393,6 +393,16 @@ For more information, check documentation [here](./end-to-end-ssl-portal.md#add-
 
 If you are using the V2 SKU of the Application Gateway/WAF service, you don’t have to upload the new certificate in the HTTP settings since V2 SKU uses “trusted root certificates” and no action needs to be taken here.
 
+## Configuration - mutual authentication
+
+### What is mutual authentication?
+
+Mutual authentication is two-way authentication between a client and a server. Mutual authentication with Application Gateway currently allows the gateway to verify the client sending the request, which is client authentication. Typically, the client is the only one that authenticates the Application Gateway. Because Application Gateway can now also authenticate the client, it becomes mutual authentication where Application Gateway and the client are mutually authenticating each other. 
+
+### Is mutual authentication available between Application Gateway and its backend pools?
+
+No, mutual authentication is currently only between the frontend client and the Application Gateway. Backend mutual authentication is currently not supported.
+
 ## Configuration - ingress controller for AKS
 
 ### What is an Ingress Controller?

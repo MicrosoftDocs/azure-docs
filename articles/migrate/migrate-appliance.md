@@ -19,10 +19,10 @@ The Azure Migrate appliance is used in the following scenarios.
 
 **Scenario** | **Tool** | **Used to**
 --- | --- | ---
-**Discovery and assessment of servers running in VMware environment** | Azure Migrate:Server Assessment | Discover servers running in your VMware environment<br/><br/> Perform discovery of installed software inventory, agentless dependency analysis and discover SQL Server instances and databases.<br/><br/> Collect server configuration and performance metadata for assessments.
+**Discovery and assessment of servers running in VMware environment** | Azure Migrate: Discovery and assessment | Discover servers running in your VMware environment<br/><br/> Perform discovery of installed software inventory, agentless dependency analysis and discover SQL Server instances and databases.<br/><br/> Collect server configuration and performance metadata for assessments.
 **Agentless migration of servers running in VMware environment** | Azure Migrate:Server Migration | Discover servers running in your VMware environment. <br/><br/> Replicate servers without installing any agents on them.
-**Discovery and assessment of servers running in Hyper-V environment** | Azure Migrate:Server Assessment | Discover servers running in your Hyper-V environment.<br/><br/> Collect server configuration and performance metadata for assessments.
-**Discovery and assessment of physical or virtualized servers on-premises** |  Azure Migrate:Server Assessment |  Discover physical or virtualized servers on-premises.<br/><br/> Collect server configuration and performance metadata for assessments.
+**Discovery and assessment of servers running in Hyper-V environment** | Azure Migrate: Discovery and assessment | Discover servers running in your Hyper-V environment.<br/><br/> Collect server configuration and performance metadata for assessments.
+**Discovery and assessment of physical or virtualized servers on-premises** |  Azure Migrate: Discovery and assessment |  Discover physical or virtualized servers on-premises.<br/><br/> Collect server configuration and performance metadata for assessments.
 
 ## Deployment methods
 
@@ -496,16 +496,15 @@ Disk details | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesPerSec,
 
 Here's the Linux server performance data that the appliance collects and sends to Azure.
 
-**Data** | **Commands**
---- | ---
-CPU usage | cat /proc/stat/| grep 'cpu' /proc/stat
-Memory usage | free \| grep Mem \| awk '{print $3/$2 * 100.0}'
-NIC count | lshw -class network \| grep eth[0-60] \| wc -l
-Data received per NIC | cat /sys/class/net/eth$nic/statistics/rx_bytes
-Data transmitted per NIC | cat /sys/class/net/eth$nic/statistics/tx_bytes
-Disk count | fdisk -l \| egrep 'Disk.*bytes' \| awk '{print $2}' \| cut -f1 -d ':'
-Disk details | cat /proc/diskstats
-
+| **Data** | **Commands** |
+| --- | --- |
+| CPU usage | cat /proc/stat/ \| grep 'cpu' /proc/stat |
+| Memory usage | free \| grep Mem \| awk '{print $3/$2 * 100.0}' |
+| NIC count | lshw -class network \| grep eth[0-60] \| wc -l |
+| Data received per NIC | cat /sys/class/net/eth$nic/statistics/rx_bytes |
+| Data transmitted per NIC | cat /sys/class/net/eth$nic/statistics/tx_bytes |
+| Disk count | fdisk -l \| egrep 'Disk.\*bytes' \| awk '{print $2}' \| cut -f1 -d ':' |
+| Disk details | cat /proc/diskstats |
 
 ## Appliance upgrades
 
