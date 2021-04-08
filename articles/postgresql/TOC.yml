@@ -670,6 +670,10 @@
       - name: Azure portal
         href: howto-hyperscale-read-replicas-portal.md
         displayName: replication, read replica
+    - name: Scheduled maintenance
+      items:
+      - name: Azure portal
+        href: howto-hyperscale-maintenance.md
     - name: Monitor
       items:
       - name: Create alerts on metrics
