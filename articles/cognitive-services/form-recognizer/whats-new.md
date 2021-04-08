@@ -17,6 +17,45 @@ ms.author: lajanuar
 
 The Form Recognizer service is updated on an ongoing basis. Use this article to stay up to date with feature enhancements, fixes, and documentation updates.
 
+## April 2021
+<!-- markdownlint-disable MD029 -->
+
+1.  **New methods added to recognize data from identity documents**:
+
+```console
+begin_recognize_id_documents
+```
+
+```console
+begin_recognize_id_documents_from_url
+```
+
+For a list of field values please see [Fields extracted](form-recognizer/concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
+
+2. **New field values added to the `FieldValueType `enum**:
+
+* `gender`   — possible values are `M` `F` or `X`.
+* `country` — possible values follow [ISO alpha-3 Country Codes](https://www.iso.org/obp/ui/#search).
+
+3. **Bitmap Image file (.bmp) support for custom forms and training methods in the `FormContentType` enum**:
+
+* `image/bmp`
+
+ 4. **New keyword argument `pages`  supported for the following methods**:
+
+* `begin_recognize_receipts`  / `begin_recognize_receipts_from_url`  
+* `begin_recognize_business_cards` / `begin_recognize_business_cards_from_url`
+* `begin_recognize_invoices` / `begin_recognize_invoices_from_url`
+* `begin_recognize_content` / `begin_recognize_content_from_url`
+
+The `pages` keyword argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, e.g., `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
+
+5. **New keyword argument `readingOrder` supported for the following methods**:
+
+* `begin_recognize_content` / `begin_recognize_content_from_url`
+
+The `readingOrder` keyword argument is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural` —should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
+
 ## March 2021
 
 **Form Recognizer v2.1 public preview 3 is now available.** v2.1-preview.3 has been released, including the following features:
