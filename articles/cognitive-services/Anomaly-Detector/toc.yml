@@ -3,16 +3,18 @@
 - name: Overview
   expanded: true
   items:
-    - name: What is Anomaly Detector (multivariate)?
+    - name: What is Anomaly Detector - multivariate?
       href: overview-multivariate.md
-    - name: What is Anomaly Detector (univariate)? 
+    - name: What is Anomaly Detector - univariate)? 
       href: overview.md  
     - name: Pricing and limits
       href: https://aka.ms/adpricing
-- name: Anomaly Detector quickstart (multivariate)
-  href: ./quickstarts/client-libraries-multivariate.md
-- name: Anomaly Detector quickstart (univariate)
-  href: ./quickstarts/client-libraries.md
+- name: Anomaly Detector quickstarts
+  items:
+    - name: Multivariate client libraries
+      href: ./quickstarts/client-libraries-multivariate.md
+    - name: Univariate client libraries
+      href: ./quickstarts/client-libraries.md
 - name: Samples
   items:
     - name: Interactive demo
