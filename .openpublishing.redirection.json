@@ -11146,7 +11146,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-sql/database/connect-query-r.md",
-      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context",
+      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
       "redirect_document_id": false
     },
     {
