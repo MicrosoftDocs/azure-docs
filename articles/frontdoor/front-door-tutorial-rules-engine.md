@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau 
 ms.custom: devx-track-azurecli
-# customer intent: As an IT admin, I want to learn about Front Door and how to configure Rules Engine feature via the Azure portal or Azure CLI. 
+# Customer intent: As an IT admin, I want to learn about Front Door and how to configure Rules Engine feature via the Azure portal or Azure CLI. 
 ---
 
 # Tutorial: Configure your Rules Engine

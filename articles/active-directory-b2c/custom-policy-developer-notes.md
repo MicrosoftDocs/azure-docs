@@ -64,7 +64,7 @@ Custom policy capabilities are under constant development. The following table i
 | [OAuth2 authorization code](authorization-code-flow.md) |  |  | X |  |
 | OAuth2 authorization code with PKCE |  |  | X | [Public clients and single-page applications](authorization-code-flow.md)  |
 | [OAuth2 implicit flow](implicit-flow-single-page-application.md) |  |  | X |  |
-| [OAuth2 resource owner password credentials](ropc-custom.md) |  | X |  |  |
+| [OAuth2 resource owner password credentials](add-ropc-policy.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |
 | [SAML2](saml-service-provider.md)  |  |  |X  | POST and Redirect bindings. |
 | OAuth1 |  |  |  | Not supported. |

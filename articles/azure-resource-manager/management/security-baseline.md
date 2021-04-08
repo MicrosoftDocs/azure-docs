@@ -36,15 +36,15 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm) 
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md) 
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Resources**:
 
@@ -54,9 +54,9 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Azure Resource Manager uses activity logs, which are automatically enabled, to include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Understand logging and different log types in Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsibility**: Customer
 
@@ -70,9 +70,9 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Getting started with Log Analytics queries](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Getting started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 **Responsibility**: Shared
 
@@ -86,7 +86,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to manage alerts in Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [How to alert on Log Analytics log data](/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on Log Analytics log data](../../azure-monitor/alerts/tutorial-response.md)
 
 **Responsibility**: Customer
 
@@ -106,7 +106,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Resources**:
 
@@ -123,13 +123,13 @@ Additionally, to help you keep track of dedicated administrative accounts, you c
 
 You can also enable a Just-In-Time access by using Azure Active Directory (Azure AD) Privileged Identity Management and Azure Resource Manager.
 
-- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Learn more about Privileged Identity Management](../../active-directory/privileged-identity-management/index.yml)
 
 - [How to use Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Resources**:
 
@@ -155,7 +155,7 @@ You can also enable a Just-In-Time access by using Azure Active Directory (Azure
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Resources**:
 
@@ -209,13 +209,13 @@ You can also enable a Just-In-Time access by using Azure Active Directory (Azure
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Resources**:
 
@@ -227,7 +227,7 @@ You can also enable a Just-In-Time access by using Azure Active Directory (Azure
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace.
 
-- [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure activity logs with Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsibility**: Customer
 
@@ -269,7 +269,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Authorization**:
 
@@ -279,7 +279,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: For server-side encryption at rest, Azure Resource Manager supports Microsoft-managed keys.
 
-- [Understand data protection in Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager-security-controls#data-protection)
+- [Understand data protection in Azure Resource Manager](#data-protection)
 
 **Responsibility**: Customer
 
@@ -289,11 +289,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts when changes take place to critical Azure resources.
 
-- [How to create alerts for Azure Activity log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity log events](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Resources**:
 
@@ -323,7 +323,7 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 
 **Guidance**: Use Policy Name, Description, and Category to logically organize assets according to a taxonomy.
 
-- [For more information about tagging assets, see Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [For more information about tagging assets, see Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Responsibility**: Customer
 
@@ -383,7 +383,7 @@ More related details are provided below,
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -467,7 +467,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [How to use aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [How to use aliases](../../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsibility**: Customer
 
@@ -591,5 +591,5 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../../security/benchmarks/security-baselines-overview.md)

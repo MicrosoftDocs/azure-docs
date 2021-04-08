@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 03/10/2021
+ms.date: 04/08/2021
 ---
 
 # How to create a virtual machine offer on Azure Marketplace
 
 This article describes how to create an Azure virtual machine offer for [Azure Marketplace](https://azuremarketplace.microsoft.com/). It addresses both Windows-based and Linux-based virtual machines that contain an operating system, a virtual hard disk (VHD), and up to 16 data disks.
 
-Before you start, [create a commercial marketplace account in Partner Center](partner-center-portal/create-account.md). Ensure that your account is enrolled in the commercial marketplace program.
+Before you start, [create a commercial marketplace account in Partner Center](create-account.md). Ensure that your account is enrolled in the commercial marketplace program.
 
 ## Before you begin
 
@@ -53,7 +53,7 @@ To enable a test drive, select the **Enable a test drive** check box. You will c
 
 ## Configure customer leads management
 
-[!INCLUDE [Industry Taxonomy](./includes/customer-leads.md)].
+[!INCLUDE [Customer leads](includes/customer-leads.md)] 
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
 

@@ -2,9 +2,9 @@
 title: Rehydrate blob data from the archive tier
 description: Rehydrate your blobs from archive storage so you can access the blob data. Copy an archived blob to an online tier.
 services: storage
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs

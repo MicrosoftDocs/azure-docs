@@ -2,7 +2,7 @@
 title: Resource not found errors
 description: Describes how to resolve errors when a resource can't be found. The error can occur when deploying an Azure Resource Manager template or when taking management actions.
 ms.topic: troubleshooting
-ms.date: 06/10/2020
+ms.date: 03/23/2021
 ---
 # Resolve resource not found errors
 
@@ -127,3 +127,9 @@ When deploying a template, look for expressions that use the [reference](templat
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
+
+## Solution 6 - after deleting resource
+
+When you delete a resource, there may be a short amount of time when the resource still appears in the portal but isn't actually available. If you select the resource, you'll get an error that says the resource isn't found. Refresh the portal to get the latest view.
+
+If the problem continues after a short wait, [contact support](https://azure.microsoft.com/support/options/).

@@ -69,6 +69,8 @@ Since you're charged for any data collected in a Log Analytics workspace, you sh
 
 To specify additional filters, you must use Custom configuration and specify an XPath that filters out the events you don't. XPath entries are written in the form `LogName!XPathQuery`. For example, you may want to return only events from the Application event log with an event ID of 1035. The XPathQuery for these events would be `*[System[EventID=1035]]`. Since you want to retrieve the events from the Application event log, the XPath would be `Application!*[System[EventID=1035]]`
 
+See [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitations) for a list of limitations in the XPath supported by Windows event log.
+
 > [!TIP]
 > Use the PowerShell cmdlet `Get-WinEvent` with the `FilterXPath` parameter to test the validity of an XPathQuery. The following script shows an example.
 > 
@@ -86,7 +88,7 @@ The following table shows examples for filtering events using a custom XPath.
 | Description |  XPath |
 |:---|:---|
 | Collect only System events with Event ID = 4648 |  `System!*[System[EventID=4648]]`
-| Collect only System events with Event ID = 4648 and a process name of consent.exe |  `System!*[System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]]`
+| Collect only System events with Event ID = 4648 and a process name of consent.exe | `Security!*[System[(EventID=4648)]] and *[EventData[Data[@Name='ProcessName']='C:\Windows\System32\consent.exe']]` |
 | Collect all Critical, Error, Warning, and Information events from the System event log except for Event ID = 6 (Driver loaded) |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
 | Collect all success and failure Security events except for Event ID 4624 (Successful logon) |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
 

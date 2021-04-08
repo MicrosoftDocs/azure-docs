@@ -82,17 +82,17 @@ If you want to update to the most recent version of the security daemon, use the
    sudo apt-get install iotedge
    ```
 
-If you want to update to a specific version of the security daemon, specify the version from the apt list output. Whenever **iotedge** is updated, it automatically tries to update the **libiothsm-std** package to its latest version, which may cause a dependency conflict. If you aren't going to the most recent version, be sure to target both packages for the same version. For example, the following command installs a specific version of the 1.0.9 release:
+If you want to update to a specific version of the security daemon, specify the version from the apt list output. Whenever **iotedge** is updated, it automatically tries to update the **libiothsm-std** package to its latest version, which may cause a dependency conflict. If you aren't going to the most recent version, be sure to target both packages for the same version. For example, the following command installs a specific version of the 1.1 release:
 
    ```bash
-   sudo apt-get install iotedge=1.0.9-1 libiothsm-std=1.0.9-1
+   sudo apt-get install iotedge=1.1.1 libiothsm-std=1.1.1
    ```
 
 If the version that you want to install is not available through apt-get, you can use curl to target any version from the [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases) repository. For whichever version you want to install, locate the appropriate **libiothsm-std** and **iotedge** files for your device. For each file, right-click the file link and copy the link address. Use the link address to install the specific versions of those components:
 
 ```bash
-curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
-curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
+curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
 ```
 <!-- end 1.1 -->
 :::moniker-end
@@ -135,7 +135,7 @@ Currently, there is not support for IoT Edge version 1.2 running on Windows devi
 
 ## Update the runtime containers
 
-The way that you update the IoT Edge agent and IoT Edge hub containers depends on whether you use rolling tags (like 1.0) or specific tags (like 1.0.7) in your deployment.
+The way that you update the IoT Edge agent and IoT Edge hub containers depends on whether you use rolling tags (like 1.1) or specific tags (like 1.1.1) in your deployment.
 
 Check the version of the IoT Edge agent and IoT Edge hub modules currently on your device using the commands `iotedge logs edgeAgent` or `iotedge logs edgeHub`.
 
@@ -145,19 +145,19 @@ Check the version of the IoT Edge agent and IoT Edge hub modules currently on yo
 
 The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version that they are associated with. There are two different ways to use tags with the runtime images:
 
-* **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.0 is updated whenever there's a new release to point to the latest 1.0.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. This approach is suggested for development purposes. Deployments from the Azure portal default to rolling tags.
+* **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.1 is updated whenever there's a new release to point to the latest 1.1.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. Deployments from the Azure portal default to rolling tags. *This approach is suggested for development purposes.*
 
-* **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.0.7 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. This approach is suggested for production purposes.
+* **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.1.0 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. *This approach is suggested for production purposes.*
 
 ### Update a rolling tag image
 
-If you use rolling tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.0**) then you need to force the container runtime on your device to pull the latest version of the image.
+If you use rolling tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.1**) then you need to force the container runtime on your device to pull the latest version of the image.
 
 Delete the local version of the image from your IoT Edge device. On Windows machines, uninstalling the security daemon also removes the runtime images, so you don't need to take this step again.
 
 ```bash
-docker rmi mcr.microsoft.com/azureiotedge-hub:1.0
-docker rmi mcr.microsoft.com/azureiotedge-agent:1.0
+docker rmi mcr.microsoft.com/azureiotedge-hub:1.1
+docker rmi mcr.microsoft.com/azureiotedge-agent:1.1
 ```
 
 You may need to use the force `-f` flag to remove the images.
@@ -166,7 +166,7 @@ The IoT Edge service will pull the latest versions of the runtime images and aut
 
 ### Update a specific tag image
 
-If you use specific tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.0.8**) then all you need to do is update the tag in your deployment manifest and apply the changes to your device.
+If you use specific tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.1.1**) then all you need to do is update the tag in your deployment manifest and apply the changes to your device.
 
 1. In the IoT Hub in the Azure portal, select your IoT Edge device, and select **Set Modules**.
 
@@ -198,7 +198,7 @@ Some of the key differences between 1.2 and earlier versions include:
 * The package name changed from **iotedge** to **aziot-edge**.
 * The **libiothsm-std** package is no longer used. If you used the standard package provided as part of the IoT Edge release, then your configurations can be transferred to the new version. If you used a different implementation of libiothsm-std, then any user-provided certificates like the device identity certificate, device CA, and trust bundle will need to be reconfigured.
 * A new identity service, **aziot-identity-service** was introduced as part of the 1.2 release. This service handles the identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub, like Azure IoT Hub Device Update. <!--TODO: add link to ADU when available -->
-* The default config file has a new name and location. Formerly `/etc/iotedge/config.yaml`, your device configuration information is now expected to be in `/etc/aziot/congig.toml` by default. The `iotedge config import` command can be used to help migrate configuration information form the old location and syntax to the new one.
+* The default config file has a new name and location. Formerly `/etc/iotedge/config.yaml`, your device configuration information is now expected to be in `/etc/aziot/config.toml` by default. The `iotedge config import` command can be used to help migrate configuration information form the old location and syntax to the new one.
 * Any modules that use the IoT Edge workload API to encrypt or decrypt persistent data can't be decrypted after the update. IoT Edge dynamically generates a master identity key and encryption key for internal use. This key won't be transferred to the new service. IoT Edge v1.2 will generate a new one.
 
 Before automating any update processes, validate that it works on test machines.
@@ -262,9 +262,9 @@ Now that the IoT Edge service running on your devices has been updated, follow t
 
 Azure IoT Edge regularly releases new versions of the IoT Edge service. Before each stable release, there is one or more release candidate (RC) versions. RC versions include all the planned features for the release, but are still going through testing and validation. If you want to test a new feature early, you can install an RC version and provide feedback through GitHub.
 
-Release candidate versions follow the same numbering convention of releases, but have **-rc** plus an incremental number appended to the end. You can see the release candidates in the same list of [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases) as the stable versions. For example, find **1.0.9-rc5** and **1.0.9-rc6**, two of the release candidates that came before **1.0.9**. You can also see that RC versions are marked with **pre-release** labels.
+Release candidate versions follow the same numbering convention of releases, but have **-rc** plus an incremental number appended to the end. You can see the release candidates in the same list of [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases) as the stable versions. For example, find **1.2.0-rc4**, one of the release candidates released before **1.2.0**. You can also see that RC versions are marked with **pre-release** labels.
 
-The IoT Edge agent and hub modules have RC versions that are tagged with the same convention. For example, **mcr.microsoft.com/azureiotedge-hub:1.0.9-rc6**.
+The IoT Edge agent and hub modules have RC versions that are tagged with the same convention. For example, **mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4**.
 
 As previews, release candidate versions aren't included as the latest version that the regular installers target. Instead, you need to manually target the assets for the RC version that you want to test. For the most part, installing or updating to an RC version is the same as targeting any other specific version of IoT Edge.
 

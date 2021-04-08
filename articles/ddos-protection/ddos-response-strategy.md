@@ -3,7 +3,7 @@ title: Components of a DDoS response strategy
 description: Learn what how to use Azure DDoS Protection Standard to respond to DDoS attacks.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article

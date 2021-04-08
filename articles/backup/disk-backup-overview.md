@@ -5,12 +5,7 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ---
 
-# Overview of Azure Disk Backup (in preview)
-
->[!IMPORTANT]
->Azure Disk Backup is in preview without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For region availability, see the [support matrix](disk-backup-support-matrix.md).
->
->[Fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) to sign-up for the preview.
+# Overview of Azure Disk Backup
 
 Azure Disk Backup is a native, cloud-based backup solution that protects your data in managed disks. It's a simple, secure, and cost-effective solution that enables you to configure protection for managed disks in a few steps. It assures that you can recover your data in a disaster scenario.
 

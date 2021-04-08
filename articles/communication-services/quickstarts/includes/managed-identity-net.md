@@ -1,16 +1,16 @@
 ## Add managed identity to your Communication Services solution (.NET)
 
-### Install the client library packages
+### Install the SDK packages
 
 ```console
-dotnet add package Azure.Communication.Identity  --version 1.0.0-beta.5
-dotnet add package Azure.Communication.Sms  --version 1.0.0-beta.4
+dotnet add package Azure.Communication.Identity  --version 1.0.0
+dotnet add package Azure.Communication.Sms --version 1.0.0
 dotnet add package Azure.Identity
 ```
 
-### Use the client library packages
+### Use the SDK packages
 
-Add the following `using` directives to your code to use the Azure Identity and Azure Storage client libraries.
+Add the following `using` directives to your code to use the Azure Identity and Azure Storage SDKs.
 
 ```csharp
 using Azure.Identity;
@@ -69,4 +69,3 @@ The following code example shows how to create an SMS service client object with
           return sendResult;
       }
 ```
-
