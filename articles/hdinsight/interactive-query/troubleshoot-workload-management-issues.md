@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: guptanikhil007
 ms.author: guptan
-ms.reviewer: HDI HiveLLAP Team
+ms.reviewer: jasonh
 ms.date: 04/07/2021
 ---
 
