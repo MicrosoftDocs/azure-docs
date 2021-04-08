@@ -41,10 +41,10 @@
     href: concepts-query-language.md
   - name: Query Units
     href: concepts-query-units.md
-  - name: Event notifications
-    href: concepts-event-notifications.md
   - name: Integration with other services
     href: concepts-integration.md
+  - name: Event notifications
+    href: concepts-event-notifications.md
   - name: Event routes
     href: concepts-route-events.md
   - name: Security for Azure Digital Twins solutions
