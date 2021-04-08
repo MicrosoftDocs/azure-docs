@@ -13,9 +13,9 @@ In preparation for the VMware HCX deployment to support the pilot or small produ
 
 - **Management network:** When deploying VMware HCX on-premises, you'll need to identify a management network for VMware HCX.  Typically, it's the same management network used by your on-premises VMware cluster.  At a minimum, identify **two** IPs on this network segment for VMware HCX. You might need larger numbers, depending on the scale of your deployment beyond the pilot or small use case.
 
-> [!NOTE]
-   > Preparing for large environments, instead of using the management network used for the on-premises VMware cluster, create a new /26 network and present that network as a port group to your on-premises VMware cluster.  You can then create up to 10 service meshes and 60 network extenders (-1 per service mesh). You can stretch **eight** networks per network extender by using Azure VMware Solution private clouds.
-   >
+  > [!NOTE]
+  > Preparing for large environments, instead of using the management network used for the on-premises VMware cluster, create a new /26 network and present that network as a port group to your on-premises VMware cluster.  You can then create up to 10 service meshes and 60 network extenders (-1 per service mesh). You can stretch **eight** networks per network extender by using Azure VMware Solution private clouds.
+  >
 
 - **Uplink network:** When deploying VMware HCX on-premises, you'll need to identify a Uplink network for VMware HCX. Use the same network which you will be using for the Management network. 
 
