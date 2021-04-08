@@ -13,7 +13,7 @@ ms.author: jocorte
 
 Azure Firewall provides 2048 SNAT ports per public IP address configured and you can associate up to [250 public IP addresses](./deploy-multi-public-ip-powershell.md). Depending on your architecture and traffic patterns you might need more than the 512,000 available SNAT ports with this configuration, for example when using it to protect large [Windows Virtual Desktop deployments](./protect-windows-virtual-desktop.md) that integrate with Microsoft 365 Apps.
 
-The other challenge with using a large number of public IP addresses is when there are downstream IP address filtering requirements; because Azure Firewall randomly selects the source public IP address to use for a connection you need to whitelist all public IP addresses associated with it. Even if you use [Public IP address prefixes](../virtual-network/public-ip-address-prefix.md), if you need to associate 250 public IP addresses to meet your outbound SNAT port requirements you still need to create and whitelist 16 public IP address prefixes.
+The other challenge with using a large number of public IP addresses is when there are downstream IP address filtering requirements; because Azure Firewall randomly selects the source public IP address to use for a connection you need to allow all public IP addresses associated with it. Even if you use [Public IP address prefixes](../virtual-network/public-ip-address-prefix.md), if you need to associate 250 public IP addresses to meet your outbound SNAT port requirements you still need to create and whitelist 16 public IP address prefixes.
 
 A better option to scale outbound SNAT ports is to use [NAT gateway resource](../virtual-network/nat-overview.md). It provides 64,000 SNAT ports per public IP address and supports up to 16 public IP addresses, effectively providing up to 1,024,000 outbound SNAT ports.
 
@@ -21,7 +21,7 @@ When NAT gateway resource is associated with Azure Firewall subnet all outbound 
 
 There is no double NAT with this architecture, Azure Firewall instances will send the traffic to NAT gateway using their private IP address rather than Azure Firewall public IP address.
 
-# Associate NAT gateway with Azure Firewall subnet
+## Associate NAT gateway with Azure Firewall subnet
 
 The following example creates and attaches a NAT gateway with Azure Firewall subnet.
 
