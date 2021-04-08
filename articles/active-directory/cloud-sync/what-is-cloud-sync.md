@@ -58,7 +58,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Support for federation |●|●|
 | Seamless Single Sign-on|● |●|
 | Supports installation on a Domain Controller |● |● |
-| Support for Windows Server 2012 and Windows Server 2012 R2 |● |● |
+| Support for Windows Server 2016|● |● |
 | Filter on Domains/OUs/groups |● |● |
 | Filter on objects' attribute values |● | |
 | Allow minimal set of attributes to be synchronized (MinSync) |● |● |
