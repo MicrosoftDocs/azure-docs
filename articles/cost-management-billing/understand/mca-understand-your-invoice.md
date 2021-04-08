@@ -29,7 +29,7 @@ If you're migrating from an EA to a Microsoft Customer Agreement, you continue t
 
 ### Changes for pay-as-you-go subscriptions
 
-When a subscription is transitioned, transferred, or cancelled, the last invoice generated contains charges for the previous billing cycle and the new incomplete billing cycle.
+When a subscription is transitioned, transferred, or canceled, the last invoice generated contains charges for the previous billing cycle and the new incomplete billing cycle.
 
 For example:
 
