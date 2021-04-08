@@ -63,7 +63,7 @@ To create an AKS cluster with Secrets Store CSI Driver capability, use the [az-a
 az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider
 ```
 
-This will install the Secrets Store CSI Driver and the Azure Key Vault provider on your nodes. Verify by listing all pods from all namespaces and ensuring your output looks similar to this:
+This command will install the Secrets Store CSI Driver and the Azure Key Vault provider on your nodes. Verify by listing all pods from all namespaces and ensuring your output looks similar to the following:
 
 ```bash
 kubectl get pods -n kube-system
