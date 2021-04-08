@@ -1,6 +1,6 @@
 ---
 title: Configure a signal gate for event-based video recording - Azure
-description: This article provides guidance about how to configure a signal gate in a media graph.
+description: This article provides guidance about how to configure a signal gate in a pipeline.
 ms.topic: how-to
 ms.date: 11/3/2020
 
@@ -8,12 +8,12 @@ ms.date: 11/3/2020
 
 # Configure a signal gate for event-based video recording
 
-Within a media graph, a [signal gate processor node](media-graph-concept.md#signal-gate-processor) allows you to forward media from one node to another when the gate is triggered by an event. When it's triggered, the gate opens and lets media flow through for a specified duration. In the absence of events to trigger the gate, the gate closes, and media stops flowing. You can use the signal gate processor for event-based video recording.
+Within a pipeline, a [signal gate processor node](media-graph-concept.md#signal-gate-processor) allows you to forward media from one node to another when the gate is triggered by an event. When it's triggered, the gate opens and lets media flow through for a specified duration. In the absence of events to trigger the gate, the gate closes, and media stops flowing. You can use the signal gate processor for event-based video recording.
 
 In this article, you'll learn how to configure a signal gate processor.
 
 ## Suggested prereading
--	[Media graph](media-graph-concept.md)
+-	[Pipeline topology]()<!--concept-pipeline -->
 -	[Event-based video recording](event-based-video-recording-concept.md)
 
 
@@ -78,7 +78,7 @@ In the use case, you would set the parameters as follows:
 * **maximumActivationWindow**: *Z* seconds
 
 
-Here's an example of how the **Signal Gate Processor** node section would look in a media graph topology for the following parameter values:
+Here's an example of how the **Signal Gate Processor** node section would look in a pipeline topology for the following parameter values:
 * **activationEvaluationWindow**: 1 second
 * **activationSignalOffset**: -5 seconds
 * **minimumActivationTime**: 20 seconds
