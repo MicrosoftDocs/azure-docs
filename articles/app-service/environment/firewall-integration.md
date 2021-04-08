@@ -115,6 +115,7 @@ The following information is only required if you wish to configure a firewall a
 | Azure SQL |
 | Azure Storage |
 | Azure Event Hub |
+| Azure Event Grid |
 
 #### IP Address dependencies
 
