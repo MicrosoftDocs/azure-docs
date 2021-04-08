@@ -716,8 +716,13 @@
       "url": "https://github.com/Azure-Samples/digital-twins-iothub-integration",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "hbase-utils",
+      "url": "https://github.com/Azure/hbase-utils",
+      "branch": "master"
     }
-  ],
+],
   "branch_target_mapping": {
     "live": [
       "Publish",
