@@ -12,6 +12,8 @@ ms.custom: references_regions
 
 # Change your performance tier using the Azure portal
 
+**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Uniform scale-sets
+
 [!INCLUDE [virtual-machines-disks-performance-tiers-intro](../../includes/virtual-machines-disks-performance-tiers-intro.md)]
 
 ## Restrictions

@@ -14,6 +14,8 @@ ms.author: cynthn
 
 # Deploy VMs and scale sets to dedicated hosts using the portal 
 
+**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Uniform scale-sets
+
 This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
 
 

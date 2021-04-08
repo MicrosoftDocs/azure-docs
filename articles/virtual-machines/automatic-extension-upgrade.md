@@ -13,6 +13,9 @@ ms.author: manayar
 
 # Preview: Automatic Extension Upgrade for VMs and Scale Sets in Azure
 
+**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Uniform scale-sets
+
+
 Automatic Extension Upgrade is available in preview for Azure VMs and Azure Virtual Machine Scale Sets. When Automatic Extension Upgrade is enabled on a VM or scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension.
 
  Automatic Extension Upgrade has the following features:

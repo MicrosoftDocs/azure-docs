@@ -12,6 +12,8 @@ ms.custom: references_regions
 
 # What disk types are available in Azure?
 
+**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Flexible scale-sets :heavy_check_mark: Uniform scale-sets
+
 Azure managed disks currently offers four disk types, each type is aimed towards specific customer scenarios.
 
 ## Disk comparison

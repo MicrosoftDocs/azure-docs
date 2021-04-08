@@ -13,6 +13,8 @@ ms.custom: references_regions
 
 # Use the Azure portal to enable double encryption at rest for managed disks
 
+**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Uniform scale-sets
+
 Azure Disk Storage supports double encryption at rest for managed disks. For conceptual information on double encryption at rest, as well as other managed disk encryption types, see the [Double encryption at rest](disk-encryption.md#double-encryption-at-rest) section of our disk encryption article.
 
 ## Getting started

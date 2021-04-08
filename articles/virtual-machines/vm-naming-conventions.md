@@ -12,6 +12,8 @@ ms.custom: sttsinar
 
 # Azure virtual machine sizes naming conventions
 
+**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Flexible scale-sets :heavy_check_mark: Uniform scale-sets
+
 This page outlines the naming conventions used for Azure VMs. VMs use these naming conventions to denote varying features and specifications.
 
 ## Naming convention explanation

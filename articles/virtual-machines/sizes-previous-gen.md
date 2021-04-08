@@ -13,6 +13,8 @@ ms.author: mimckitt
 
 # Previous generations of virtual machine sizes
 
+**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Flexible scale-sets :heavy_check_mark: Uniform scale-sets
+
 This section provides information on previous generations of virtual machine sizes. These sizes can still be used, but there are newer generations available.
 
 ## F-series

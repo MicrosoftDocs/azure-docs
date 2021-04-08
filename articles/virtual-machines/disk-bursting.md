@@ -10,6 +10,9 @@ ms.subservice: disks
 ms.custom: references_regions
 ---
 # Managed disk bursting
+
+**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows 
+
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
 
 Azure [premium SSDs](disks-types.md#premium-ssd) offer two models of bursting:

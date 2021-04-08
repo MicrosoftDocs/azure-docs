@@ -11,6 +11,7 @@ ms.author: jushiman
 
 # Msv2 and Mdsv2-series Medium Memory (Preview)
 
+**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Flexible scale-sets :heavy_check_mark: Uniform scale-sets
 
 > [!IMPORTANT]
 > Join the preview by filling out the form at **https://aka.ms/Mv2MedMemoryPreview**.  
