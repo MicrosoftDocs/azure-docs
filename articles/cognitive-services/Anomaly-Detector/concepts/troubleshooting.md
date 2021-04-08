@@ -17,7 +17,7 @@ keywords: anomaly detection, machine learning, algorithms
 
 This article provides guidance on how to troubleshoot and remediate common HTTP error messages when using the multivariate API.
 
-## Multivariate error codes
+### Multivariate error codes
 
 | Method                                       | HTTP Error code | Error Message                                                                                                            | Action to Take                                                                                                                                                                                                         |
 |----------------------------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -47,9 +47,3 @@ This article provides guidance on how to troubleshoot and remediate common HTTP 
 | Get Multivariate Model                       | 404             | `Model with id=<input model ID>' not found.`                                                                            | The ID is not a valid model ID. Use GET models to find all valid model   Ids.                                                                                                                               |
 | Get Multivariate Anomaly Detection Result    | 404             | `Result   with 'id=<input result ID>' not found.`                                                                          | The ID is not a valid result ID. Resubmit your detection request.                                                                                                                                   |
 | Delete Multivariate Model                    | 404             | `Location   for model with 'id=<input model ID>' not found.`                                                               | The ID is not a valid model ID. Use GET models to find all valid model   Ids.                                                                                                                               |
-
-## Next steps
-
-* [Quickstart: Detect anomalies in your time series data using the Anomaly Detector](../quickstarts/client-libraries-multivariate.md)
-* [Anomaly Detector multivariate best practices](../concepts/best-practices-multivariate.md)
-

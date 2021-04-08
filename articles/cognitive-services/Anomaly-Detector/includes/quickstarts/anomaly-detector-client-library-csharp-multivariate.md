@@ -10,7 +10,7 @@ ms.date: 04/06/2021
 ms.author: mbullwin
 ---
 
-Get started with the Anomaly Detector multivariate client library for .NET. Follow these steps to install the package start using the algorithms provided by the service. The new multivariate anomaly detection APIs enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between different signals are automatically counted as key factors. This helps you to proactively protect your complex systems from failures.
+Get started with the Anomaly Detector multivariate client library for .NET. Follow these steps to install the package and start using the algorithms provided by the service. The new multivariate anomaly detection APIs enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between different signals are automatically counted as key factors. This helps you to proactively protect your complex systems from failures.
 
 Use the Anomaly Detector multivariate client library for .NET to:
 
@@ -30,7 +30,7 @@ Use the Anomaly Detector multivariate client library for .NET to:
 
 ### Create a new .NET Core application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `anomaly-detector-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*.
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `anomaly-detector-quickstart-multivariate`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*.
 
 ```dotnetcli
 dotnet new console -n anomaly-detector-quickstart-multivariate
@@ -79,15 +79,15 @@ using Microsoft.Identity.Client;
 using NUnit.Framework;
 ```
 
-In the application's `main()` method, create variables for your resource's Azure endpoint, your API key as an environment variable, and a custom datasource.
+In the application's `main()` method, create variables for your resource's Azure endpoint, your API key, and a custom datasource.
 
 ```csharp
-string endpoint = TestEnvironment.Endpoint;
-string apiKey = TestEnvironment.ApiKey;
-string datasource = TestEnvironment.DataSource;
+string endpoint = "YOUR_API_KEY";
+string apiKey =  "YOUR_ENDPOINT";
+string datasource = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS";
 ```
 
- To use the Anomaly Detector multivariate APIs, we need to train our own model before using detection. Data used for training is a batch of time series, each time series should be in CSV format with two columns, timestamp and value. All of the time series should be zipped into one zip file and be uploaded to [Azure Blob storage](../../../../storage/blobs/storage-blobs-introduction.md#blobs). By default the file name will be used to represent the variable for the time series. Alternatively, an extra meta.json file can be included in the zip file if you wish the name of the variable to be different from the .zip file name. Once we generate [blob SAS (Shared access signatures) URL](../../../../storage/common/storage-sas-overview.md), we can use the url to the zip file for training.
+ To use the Anomaly Detector multivariate APIs, we need to train our own model before using detection. Data used for training is a batch of time series, each time series should be in CSV format with two columns, timestamp and value. All of the time series should be zipped into one zip file and uploaded to [Azure Blob storage](../../../../storage/blobs/storage-blobs-introduction.md#blobs). By default the file name will be used to represent the variable for the time series. Alternatively, an extra meta.json file can be included in the zip file if you wish the name of the variable to be different from the .zip file name. Once we generate a [blob SAS (Shared access signatures) URL](../../../../storage/common/storage-sas-overview.md), we can use the url to the zip file for training.
 
 ## Code examples
 
@@ -112,7 +112,7 @@ AnomalyDetectorClient client = new AnomalyDetectorClient(endpointUri, credential
 
 ## Train the model
 
-Create a new private async task as below to handle training your model.
+Create a new private async task as below to handle training your model. You will use `TrainMultivariateModel` to train the model and `GetMultivariateModelAysnc` to check when training is complete.
 
 ```csharp
 private async Task trainAsync(AnomalyDetectorClient client, string datasource, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
@@ -169,7 +169,7 @@ private async Task trainAsync(AnomalyDetectorClient client, string datasource, D
 
 ## Detect anomalies
 
-To detect anomalies using your newly trained model, create a `private async Task` named 'detectAsync`:
+To detect anomalies using your newly trained model, create a `private async Task` named `detectAsync`. You will create a new `DetectionRequest` and pass that as a parameter to `DetectAnomalyAsync`.
 
 ```csharp
 private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, string datasource, Guid model_id, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
@@ -211,7 +211,7 @@ private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, st
 
 ## Export model
 
-To export the model you trained previously, create a `private async Task` named `exportAysnc`:
+To export the model you trained previously, create a `private async Task` named `exportAysnc`. You will use `ExportModelAsync` and pass the model ID of the model you wish to export.
 
 ```csharp
 private async Task exportAsync(AnomalyDetectorClient client, Guid model_id, string model_path = "model.zip")
@@ -239,7 +239,7 @@ private async Task exportAsync(AnomalyDetectorClient client, Guid model_id, stri
 
 ## Delete model
 
-To delete a model that you have created previously.
+To delete a model that you have created previously use `DeleteMultivariateModelAsync` and pass the model ID of the model you wish to delete. To retrieve a model ID you can us `getModelNumberAsync`:
 
 ```csharp
 private async Task deleteAsync(AnomalyDetectorClient client, Guid model_id)
@@ -273,9 +273,9 @@ Now that you have all the component parts, you need to add additional code to yo
 
 {
     //read endpoint and apiKey
-    string endpoint = TestEnvironment.Endpoint;
-    string apiKey = TestEnvironment.ApiKey;
-    string datasource = TestEnvironment.DataSource;
+     string endpoint = "YOUR_API_KEY";
+    string apiKey =  "YOUR_ENDPOINT";
+    string datasource = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS";
     Console.WriteLine(endpoint);
     var endpointUri = new Uri(endpoint);
     var credential = new AzureKeyCredential(apiKey);
