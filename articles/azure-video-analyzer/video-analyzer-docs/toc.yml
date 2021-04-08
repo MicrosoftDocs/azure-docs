@@ -27,7 +27,7 @@
 - name: How-to guides
   items:
   - name: How-to Guide - Develop and deploy gRPC inference server
-  - href: develop-deploy-grpc-inference-srv.md
+    href: develop-deploy-grpc-inference-srv.md
 - name: Resources
   items:
   - name: Azure roadmap
