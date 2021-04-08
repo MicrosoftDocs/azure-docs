@@ -12,4 +12,5 @@
     href: https://azure.microsoft.com/updates/?category=media
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/media-services/
-
+  - name: FAQs
+    href: faq.md
