@@ -12,7 +12,7 @@ ms.date: 06/15/2020
 
 # Azure VM sizes with no local temporary disk 
 
-**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Flexible scale-sets :heavy_check_mark: Uniform scale-sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 This article provides answers to frequently asked questions (FAQ) about Azure VM sizes that do not have a local temporary disk (i.e. no local temp disk). For more information on these VM sizes, see [Specifications for Dv4 and Dsv4-series (General Purpose Workloads)](dv4-dsv4-series.md) or [Specifications for Ev4 and Esv4-series (Memory Optimized Workloads)](ev4-esv4-series.md).
 

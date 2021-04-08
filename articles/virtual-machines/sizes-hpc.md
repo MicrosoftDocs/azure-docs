@@ -13,7 +13,7 @@ ms.reviewer: jushiman
 
 # High performance computing VM sizes
 
-**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Flexible scale-sets :heavy_check_mark: Uniform scale-sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Azure H-series virtual machines (VMs) are designed to deliver leadership-class performance, scalability, and cost efficiency for various real-world HPC workloads.
 

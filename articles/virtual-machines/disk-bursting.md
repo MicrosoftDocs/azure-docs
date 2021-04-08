@@ -11,7 +11,7 @@ ms.custom: references_regions
 ---
 # Managed disk bursting
 
-**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
 

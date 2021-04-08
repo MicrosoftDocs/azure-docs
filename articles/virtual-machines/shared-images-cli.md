@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 ---
 # Create a Shared Image Gallery with the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Flexible scale-sets :heavy_check_mark: Uniform scale-sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 A [Shared Image Gallery](./shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 

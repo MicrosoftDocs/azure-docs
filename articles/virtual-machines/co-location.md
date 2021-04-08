@@ -12,7 +12,7 @@ ms.reviewer: zivr
 
 # Proximity placement groups
 
-**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Uniform scale-sets    
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Placing VMs in a single region reduces the physical distance between the instances. Placing them within a single availability zone will also bring them physically closer together. However, as the Azure footprint grows, a single availability zone may span multiple physical data centers, which may result in a network latency impacting your application. 
 

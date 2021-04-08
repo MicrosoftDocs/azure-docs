@@ -14,7 +14,7 @@ ms.reviewer: akjosh
 
 # Create an image from a Managed Disk or snapshot in a Shared Image Gallery using the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Flexible scale-sets :heavy_check_mark: Uniform scale-sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 If you have an existing snapshot or Managed Disk that you would like to migrate into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the Managed Disk or snapshot. Once you have tested your new image, you can delete the source Managed Disk or snapshot. You can also create an image from a Managed Disk or snapshot in a Shared Image Gallery using the [Azure PowerShell](image-version-snapshot-powershell.md).
 

@@ -12,7 +12,7 @@ ms.custom: avverma
 
 # PUT calls for creation or updates on compute resources
 
-**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Flexible scale-sets :heavy_check_mark: Uniform scale-sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 
 `Microsoft.Compute` resources do not support the conventional definition of *HTTP PUT* semantics. Instead, these resources use PATCH semantics for both the PUT and PATCH verbs.

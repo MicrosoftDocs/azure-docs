@@ -14,7 +14,7 @@ ms.reviewer: olayemio
 
 # Create a managed disk from an image version
 
-**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Flexible scale-sets :heavy_check_mark: Uniform scale-sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 If needed, you can export the OS or a single data disk from an image version as a managed disk from an image version stored in a Shared Image Gallery.
 

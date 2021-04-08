@@ -12,7 +12,7 @@ ms.author: jushiman
 
 # Preview: Maintenance control for Azure virtual machine scale sets 
 
-**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Uniform scale-sets
+**Applies to:** :heavy_check_mark: Uniform scale sets
 
 Manage [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) for your virtual machine scale sets using maintenance control.
 

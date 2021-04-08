@@ -13,7 +13,7 @@ ms.reviewer: akjosh
 
 # Create a VM using a generalized image 
 
-**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Flexible scale-sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 Create a VM from a generalized image stored in a Shared Image Gallery. If want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version-powershell.md).
 

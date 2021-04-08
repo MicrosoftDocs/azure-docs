@@ -11,7 +11,7 @@ ms.date: 02/18/2021
 
 # Availability sets overview
 
-**Applies to:** :heavy_check_mark: Linux :heavy_check_mark: Windows :heavy_check_mark: Flexible scale-sets :heavy_check_mark: Uniform scale-sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 This article provides you with an overview of the availability features of Azure virtual machines (VMs).
 
