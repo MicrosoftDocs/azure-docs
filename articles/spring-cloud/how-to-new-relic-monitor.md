@@ -101,3 +101,4 @@ The **New Relic** java agent will update/upgrade regularly with JDK, there agent
 For vnet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for **New Relic** java agent. Please reference the doc of [Networks of New Relic](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).
 
 ## Next steps
+*  [Distributed tracing and App Insights](href: how-to-distributed-tracing.md)
