@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Automation account authe
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 02/26/2021
+ms.date: 04/08/2021
 ms.topic: conceptual
 ---
 
@@ -25,6 +25,31 @@ An Azure Automation account is different from your Microsoft account or accounts
 The Automation resources for each Automation account are associated with a single Azure region, but the account can manage all the resources in your Azure subscription. The main reason to create Automation accounts in different regions is if you have policies that require data and resources to be isolated to a specific region.
 
 All tasks that you create against resources using Azure Resource Manager and the PowerShell cmdlets in Azure Automation must authenticate to Azure using Azure Active Directory (Azure AD) organizational identity credential-based authentication.
+
+## Managed identities
+
+A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+
+Here are some of the benefits of using managed identities:
+
+- You can use managed identities to authenticate to any Azure service that supports Azure AD authentication.
+
+- Managed identities can be used without any additional cost.
+
+- You don’t have to renew the certificate used by the Automation Run As account.
+
+- You don’t have to handle the Run As connection object in your runbook code. The end user can access resources via a managed identity of an Automation account from a runbook without worrying about creating Certificates, connections, RunAsAccounts, etc.
+
+An Automation account can be granted two types of identities:
+
+- A system-assigned identity is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity.
+
+- A user-assigned identity is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities.
+
+>[!NOTE]
+> We currently support only system-assigned identities for both Cloud and Hybrid jobs. User assigned identities are not supported yet.
+
+For details on using managed identities, SEE THIS RIGHT HERE.
 
 ## Run As accounts
 
@@ -115,3 +140,4 @@ For runbooks that use Hybrid Runbook Workers on Azure VMs, you can use [runbook 
 * To create an Automation account from the Azure portal, see [Create a standalone Azure Automation account](automation-create-standalone-account.md).
 * If you prefer to create your account using a template, see [Create an Automation account using an Azure Resource Manager template](quickstart-create-automation-account-template.md).
 * For authentication using Amazon Web Services, see [Authenticate runbooks with Amazon Web Services](automation-config-aws-account.md).
+* For a list of Azure services that support the managed identities for Azure resources feature, see [Services that support managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
