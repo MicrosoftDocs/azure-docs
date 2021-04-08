@@ -1,16 +1,16 @@
-- name: Azure Video Analyzer (preview) documentation 
+- name: Azure Video Analyzer (preview) documentation
   href: index.yml
 - name: Overview
   items:
   - name: About Azure Video Analyzer
     href: overview.md
-  - name: About Video Analyzer for Media 
-    href: ../video-analyzer-for-media-docs/video-indexer-overview.md    
+  - name: About Video Analyzer for Media
+    href: ../video-analyzer-for-media-docs/video-indexer-overview.md
   - name: Video Analyzer terminology
     href: terminology.md
 - name: Quickstarts
   items:
-  - name: Get started - Azure Video Analytics
+  - name: Get started - Azure Video Analyzer
     href: get-started-detect-motion-emit-events.md
   - name: Analyze live video
     items:
@@ -23,7 +23,11 @@
   - name: Continuous video recording
     href: continuous-video-recording.md
   - name: Record video for playback
-    href: video-recording.md    
+    href: video-recording.md
+- name: How-to guides
+  items:
+  - name: How-to Guide - Develop and deploy gRPC inference server
+    href: develop-deploy-grpc-inference-srv.md
 - name: Resources
   items:
   - name: Azure roadmap
