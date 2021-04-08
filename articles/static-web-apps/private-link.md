@@ -11,30 +11,30 @@ ms.date: 3/22/2021
 
 # Configure private link in Azure Static Web Apps
 
-You can use a Private Link (also called Private Endpoint) to restrict access to your static web app so that it is only accessible from your private network. Private Links are enabled by using an address from your Azure VNet address space. Network traffic from your private network travels exclusively to your static app over the VNet, so your application is never exposed to the public internet.
+You can use a private link (also called private endpoint) to restrict access to your static web app so that it is only accessible from your private network. Private links are enabled by using an address from your Azure VNet address space. Network traffic from your private network travels exclusively to your static app over the VNet, so your application is never exposed to the public internet.
 
 ## How it works
 
-You'll need an Azure VNet in order to put your application behind a Private Link.
+You'll need an Azure VNet in order to put your application behind a private link.
 
 Azure VNet's are a network just like you might have in a traditional data center, but resources within the VNet talk to each other securely on the Microsoft backbone network.
 
-You then create a Private Link within that VNet and assign it to your static app. The Private Link uses a private IP address from your VNet, effectively bringing your application into your VNet. Your application is then no longer available from the public internet, and is only accessible from machines within your Azure VNet.
+You then create a private link within that VNet and assign it to your static app. The private link uses a private IP address from your VNet, effectively bringing your application into your VNet. Your application is then no longer available from the public internet, and is only accessible from machines within your Azure VNet.
 
 > [!WARNING]
-> Placing your application behind a Private Link means your app is only available in the region where your VNet is located. As a result, your application is longer available across multiple points of presence.
+> Placing your application behind a Private Link means your app is only available in the region where your VNet is located. As a result, your application is no longer available across multiple points of presence.
 
 ## Prerequisites
 
 - An Azure account with an active subscription.
   - [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An application deployed with [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript) 
+- An application deployed with [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript)
 
 ## Create a virtual network and bastion host
 
 In this section, you create a virtual network, subnet, and bastion host.
 
-The bastion host is used to connect securely to virtual machines within a virtual network. You'll have the chance to create a virtual machine later in this article to test your Private Link.
+The bastion host is used to connect securely to virtual machines within a virtual network. You'll have the chance to create a virtual machine later in this article to test your private link.
 
 1. Open the [Azure portal](https://portal.azure.com).
 
@@ -84,9 +84,9 @@ The bastion host is used to connect securely to virtual machines within a virtua
 
 1. Select **Create**.
 
-## Create a Private Endpoint
+## Create a private link
 
-In this section, you create a Private Endpoint for your static web app.
+In this section, you create a private link for your static web app.
 
 1. In the portal, search for **Private Link** in the search box.
 
@@ -137,12 +137,12 @@ In this section, you create a Private Endpoint for your static web app.
 
 1. Select **Create**.
 
-## Testing your Private Link
+## Testing your private link
 
 Since your application is no longer publicly available, the only way to access it is from inside of your virtual network. For testing, you can setup a virtual machine inside of your virtual network.
 
 1. [Create a virtual machine in your virtual network](../private-link/create-private-endpoint-portal.md#create-a-virtual-machine)
-2. [Test connectivity to your private link](../private-link/create-private-endpoint-portal.md#test-connectivity-to-private-endpoint)
+1. [Test connectivity to your private link](../private-link/create-private-endpoint-portal.md#test-connectivity-to-private-endpoint)
 
 ## Next steps
 
