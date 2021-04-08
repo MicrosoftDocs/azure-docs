@@ -1,5 +1,5 @@
 ---
-title: Guidance for migrating HDInsight customer Log Analytics
+title: Migrate Log Analytics data for Azure HDInsight 
 description: Learn about the changes to the Azure Monitor integration and best-practices for using the new tables. 
 ms.service: hdinsight
 ms.topic: how-to
@@ -7,7 +7,7 @@ ms.custom: hdinsightactive
 ms.date: 02/16/2020
 ---
 
-# HDInsight Customer Log Analytics Migration Guidance
+# Log Analytics migration guide for Azure HDInsight clusters
 
  Azure HDInsight is an enterprise-ready, managed-cluster service. This service runs open-source analytics frameworks like Apache Spark, Hadoop, HBase, and Kafka on Azure. Azure HDInsight has integrated with other Azure services to enable customers to better manage their big data analytics applications.
 
@@ -22,7 +22,7 @@ Azure HDInsight enabled integration with Log Analytics in 2017. HDInsight custom
 
 ## Solution Overview
 
-Because of customer feedback, the HDInsight team invested in the new Azure Monitor integration. This integration enables:
+Considering customer feedback, the Azure HDInsight team invested in integration with Azure Monitor. This integration enables:
 
 - A new set of tables in customers' Log Analytics workspace. The new tables are delivered through a new Log Analytics pipeline.
 - Higher reliability
@@ -31,7 +31,7 @@ Because of customer feedback, the HDInsight team invested in the new Azure Monit
 
 ## Benefits of the new Azure Monitor integration
 
-This document walks you through the changes to the Azure Monitor integration and provides best-practices for using the new tables.
+This document outlines the changes to the Azure Monitor integration and provides best-practices for using the new tables.
 
 **Redesigned schemas**: The schema formatting for the new Azure Monitor integration is better organized and easy to understand. There are two-thirds fewer schemas to remove as much ambiguity in the legacy schemas as possible.
 
@@ -53,14 +53,15 @@ The following sections describe how customers can use the new Azure Monitor inte
 ## Activate a new Azure Monitor integration 
 
 > [!NOTE]
-> You must have a Log Analytics workspace created in a subscription you have access to before doing enabling the new integration. For more information about how to create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+> You must have a Log Analytics workspace created in a subscription you have access to before doing enabling the new integration. For more information about how to create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md).
 
 Activate the new integration by going to your cluster's portal page and scrolling down the menu on the left until you reach the **Monitoring** section. In the **Monitoring** section, select **Monitor integration**. Then, select **Enable** and you can choose the Log Analytics workspace that you want your logs to be sent to. Select **Save** once you have chosen your workspace. 
 
-### Accessing the new tables
+### Access the new tables
 
 There are two ways you can access the new tables. 
 
+### Approach 1:
 The first way to access the new tables is through the Log Analytics workspace. 
 
 1. Go to the Log Analytics workspace that you selected when you enabled the integration. 
@@ -71,6 +72,8 @@ The first way to access the new tables is through the Log Analytics workspace.
 > [!NOTE]
 > This process describes how the logs were accessed in the old integration. This requires the user to have access to the workspace.
 
+### Approach 2:
+
 The second way to access the new tables is through Cluster portal access.
  
 1. Navigate to your Cluster's portal page and scroll down the menu on the left side until you see the **Monitoring** section. In this section, you'll see the **Logs** pane. 
@@ -80,13 +83,13 @@ For comparison, the following screenshots show the legacy integration workspace 
 
 **Legacy integration workspace view**
 
-  :::image type="content" source="./media/log-analytics-migration/legacy-integration-workspace-view.png" alt-text="Screenshot that shows the legacy integration workspace view." border="false":::
+  :::image type="content" source="./media/log-analytics-migration/legacy-integration-workspace-view.png"  lightbox="./media/log-analytics-migration/legacy-integration-workspace-view.png" alt-text="Screenshot that shows the legacy integration workspace view." border="false":::
 
 **New integration workspace view**
 
-  :::image type="content" source="./media/log-analytics-migration/new-integration-workspace-view.png" alt-text="Screenshot that shows the new integration workspace view." border="false":::
+  :::image type="content" source="./media/log-analytics-migration/new-integration-workspace-view.png" lightbox="./media/log-analytics-migration/new-integration-workspace-view.png" alt-text="Screenshot that shows the new integration workspace view." border="false":::
 
-### Using the new tables
+### Use the new tables
 
 These integrations can help you use the new tables:
 
@@ -103,7 +106,7 @@ You can enter your own queries in the Logs query editor. Queries used on the old
 
 #### Insights
 
-Insights are cluster-specific visualization dashboards made using [Azure Workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). These dashboards give you detailed graphs and visualizations of how your cluster is running. The dashboards have sections for each cluster type, YARN, system metrics, and component logs. You can access your cluster's dashboard by visiting your cluster's page in the portal, scrolling down to the **Monitoring** section, and selecting the **Insights** pane. The dashboard loads automatically if you've enabled the new integration. Allow a few seconds for the graphs to load as they query the logs.
+Insights are cluster-specific visualization dashboards made using [Azure Workbooks](../azure-monitor/platform/workbooks-overview.md). These dashboards give you detailed graphs and visualizations of how your cluster is running. The dashboards have sections for each cluster type, YARN, system metrics, and component logs. You can access your cluster's dashboard by visiting your cluster's page in the portal, scrolling down to the **Monitoring** section, and selecting the **Insights** pane. The dashboard loads automatically if you've enabled the new integration. Allow a few seconds for the graphs to load as they query the logs.
 
 :::image type="content" source="./media/log-analytics-migration/visualization-dashboard.png" alt-text="Screenshot that shows the visualization dashboard." border="false":::
 
@@ -122,7 +125,7 @@ Use our new at-scale workbook to get a multi-cluster monitoring experience for y
 
 #### Alerts
 
-You can add custom alerts to your clusters and workspaces in the Log query editor. Go to the Logs query editor by selecting the **Logs** pane from either your cluster or workspace portal. Run a query and then select **New Alert Rule** as shown in the following screenshot. For more information, read about [configuring alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+You can add custom alerts to your clusters and workspaces in the Log query editor. Go to the Logs query editor by selecting the **Logs** pane from either your cluster or workspace portal. Run a query and then select **New Alert Rule** as shown in the following screenshot. For more information, read about [configuring alerts](../azure-monitor/platform/alerts-log.md).
 
 :::image type="content" source="./media/log-analytics-migration/new-rule-alert.png" alt-text="Screenshot that shows the new rule alert." border="false":::
 
@@ -174,7 +177,7 @@ In this way, you can easily do a side-by-side comparison for the queries you're 
 If you're using a cluster created after mid-September 2020, you'll see the new portal experience in your cluster's portal. To enable the new pipeline, you can follow the steps outlined in the [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section. To activate the classic integration on this cluster, go to your cluster's portal page. Select the **Monitor integration** pane in the **Monitoring** section of the menu on the left side of your cluster portal page. Select **Configure Azure Monitor for HDInsight clusters integration (classic)**. A side context appears with a toggle you can use to enable and disable the classic Azure Monitoring integration. 
 
 > [!NOTE]
-> The **Insights** and **Logs** blades only work with the new integration.
+> The **Insights** and **Logs** pages only work with the new integration.
 
    :::image type="content" source="./media/log-analytics-migration/hdinsight-classic-integration.png" alt-text="Screenshot that shows the link to access the classic integration." border="false":::
 
@@ -269,4 +272,3 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
 | New Table | Details |
 | --- | --- |
 | HDInsightOozieLogs | <ul><li>**Description**: This table contains all logs generated from the Oozie framework.</li><li>**Old table**: Log\_oozie\_CL</li></ul>|
-
