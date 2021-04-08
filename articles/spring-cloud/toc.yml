@@ -194,7 +194,7 @@
 - name: Reference
   items:
   - name: Azure CLI plugin
-    href: /cli/azure/ext/spring-cloud/spring-cloud
+    href: /cli/azure/spring-cloud
   - name: Azure PowerShell
     href: /powershell/module/az.springcloud
   - name: Resources
