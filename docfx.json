@@ -727,7 +727,7 @@
         "articles/virtual-desktop/**/*.md": "virtual-desktop",
         "articles/virtual-machines/*.md": "virtual-machines",
         "articles/virtual-machine-scale-sets/*.md": "virtual-machine-scale-sets",
-        "articles/Azure Video Analyzer/video-analyzer-docs/*.md": "azure-video-analyzer"
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "azure-video-analyzer"
       },
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
