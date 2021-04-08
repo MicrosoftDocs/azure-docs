@@ -17,7 +17,8 @@ You can compose an API of APIs exposed by different services, including:
 
 Append a different API to your existing API using the following steps. 
 
->[!NOTE] When you import another API, the operations are appended to your current API.
+>[!NOTE] 
+> When you import another API, the operations are appended to your current API.
 
 1. Go to your Azure API Management instance in the Azure portal.
 
