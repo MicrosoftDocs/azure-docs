@@ -1,7 +1,7 @@
 ---
 title: Query Store - Azure Database for PostgreSQL - Flex Server
 description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flex Server.
-author: Saikat Sen
+author: ssen-msft
 ms.author: ssen
 ms.service: postgresql
 ms.topic: conceptual
