@@ -59,8 +59,8 @@ Jump to a resource provider namespace:
 > - [Microsoft.Codespaces](#microsoftcodespaces)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
-> - [Microsoft.ConnectedCache](#microsoftconnectedcache)
 > - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft.ConnectedCache](#microsoftconnectedcache)
 > - [Microsoft.ConnectedVehicle](#microsoftconnectedvehicle)
 > - [Microsoft.ConnectedVMwarevSphere](#microsoftconnectedvmwarevsphere)
 > - [Microsoft.Consumption](#microsoftconsumption)
@@ -890,14 +890,6 @@ Jump to a resource provider namespace:
 > | RateCard | No | No |
 > | UsageAggregates | No | No |
 
-## Microsoft.ConnectedCache
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | CacheNodes | Yes | Yes |
-
-
 ## Microsoft.Compute
 
 > [!div class="mx-tableFixed"]
@@ -943,6 +935,13 @@ Jump to a resource provider namespace:
 
 > [!NOTE]
 > You can't add a tag to a virtual machine that has been marked as generalized. You mark a virtual machine as generalized with [Set-AzVm -Generalized](/powershell/module/Az.Compute/Set-AzVM) or [az vm generalize](/cli/azure/vm#az-vm-generalize).
+
+## Microsoft.ConnectedCache
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | CacheNodes | Yes | Yes |
 
 ## Microsoft.ConnectedVehicle
 
