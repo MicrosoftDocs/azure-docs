@@ -107,7 +107,7 @@ We recommend that you install updates through the Azure portal. The device autom
 
 8. You will see a notification banner indicating that device updates are available. Select this banner to start updating the Kubernetes software on your device. 
 
-    ![Software version after update 13](./media/azure-stack-edge-gpu-install-update/portal-update-13.png) 
+    ![Software version after update 13a](./media/azure-stack-edge-gpu-install-update/portal-update-13.png) 
 
 
     ![Software version after update 14](./media/azure-stack-edge-gpu-install-update/portal-update-14-a.png) 

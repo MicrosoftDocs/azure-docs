@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.custom: [mvc, mqtt, devx-track-java, devx-track-azurecli]
 ms.date: 03/15/2019
 ms.author: wesmc
-# As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from an Android device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
+#Customer intent: As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from an Android device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
 # Quickstart: Send IoT telemetry from an Android device

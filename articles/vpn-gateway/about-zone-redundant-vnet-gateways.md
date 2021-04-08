@@ -4,7 +4,7 @@ description: Deploy VPN and ExpressRoute gateways in Azure Availability Zones, 
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
-Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
+# Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 
 ms.service: vpn-gateway
 ms.topic: conceptual

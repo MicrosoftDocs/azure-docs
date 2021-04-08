@@ -18,6 +18,35 @@ ms.author: marsma
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
+## March 2021
+
+### New articles
+
+- [Restore or remove a recently deleted application with the Microsoft identity platform](quickstart-restore-app.md)
+
+### Updated articles
+
+- [Admin consent on the Microsoft identity platform](v2-admin-consent.md)
+- [Configuration requirements and troubleshooting tips for Xamarin Android with MSAL.NET](msal-net-xamarin-android-considerations.md)
+- [Daemon app that calls web APIs - acquire a token](scenario-daemon-acquire-token.md)
+- [Daemon app that calls web APIs - code configuration](scenario-daemon-app-configuration.md)
+- [Daemon app that calls web APIs - call a web API from the app](scenario-daemon-call-api.md)
+- [Daemon app that calls web APIs - move to production](scenario-daemon-production.md)
+- [Desktop app that calls web APIs: Acquire a token](scenario-desktop-acquire-token.md)
+- [Desktop app that calls web APIs: Code configuration](scenario-desktop-app-configuration.md)
+- [Desktop app that calls web APIs: Call a web API](scenario-desktop-call-api.md)
+- [How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)](active-directory-claims-mapping.md)
+- [Logging in MSAL for Python](msal-logging-python.md)
+- [Microsoft Enterprise SSO plug-in for Apple devices (preview)](apple-sso-plugin.md)
+- [Quickstart: Add Microsoft identity platform sign-in to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)
+- [Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app](quickstart-v2-aspnet-core-webapp.md)
+- [Quickstart: Get a token and call the Microsoft Graph API by using a console app's identity](quickstart-v2-netcore-daemon.md)
+- [Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform](quickstart-v2-aspnet-core-web-api.md)
+- [Quickstart: Sign in users and get an access token in an Angular single-page application](quickstart-v2-angular.md)
+- [Support and help options for developers](developer-support-help-options.md)
+- [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md)
+- [Web app that signs in users: Sign-in and sign-out](scenario-web-app-sign-user-sign-in.md)
+
 ## February 2021
 
 ### New articles
@@ -61,25 +90,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Configure token lifetime policies (preview)](configure-token-lifetimes.md)
 - [Microsoft identity platform authentication libraries](reference-v2-libraries.md)
 - [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md)
-
-## December 2020
-
-### New articles
-
-- [Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph on their behalf](quickstart-v2-aspnet-core-webapp-calls-graph.md)
-- [Handle errors and exceptions in MSAL.NET](msal-error-handling-dotnet.md)
-- [Handle errors and exceptions in MSAL for iOS/macOS](msal-error-handling-ios.md)
-- [Handle errors and exceptions in MSAL for Java](msal-error-handling-java.md)
-- [Handle errors and exceptions in MSAL.js](msal-error-handling-js.md)
-- [Handle errors and exceptions in MSAL for Python](msal-error-handling-python.md)
-- [Microsoft identity platform token exchange scenarios with SAML and OIDC/OAuth](scenario-token-exchange-saml-oauth.md)
-
-### Updated articles
-
-- [Quickstart: Add sign-in with Microsoft to a Java web app](quickstart-v2-java-webapp.md)
-- [Tutorial: Build a multi-tenant daemon that uses the Microsoft identity platform](tutorial-v2-aspnet-daemon-web-app.md)
-- [Web app that signs in users: App registration](scenario-web-app-sign-user-app-registration.md)
-- [Microsoft identity platform and implicit grant flow](v2-oauth2-implicit-grant-flow.md)
-- [Microsoft identity platform access tokens](access-tokens.md)
-- [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md)
-

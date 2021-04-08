@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/30/2021
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -101,39 +101,37 @@ You're welcome to submit a request at [https://aka.ms/azfw-webcategories-request
 
 Azure Firewall Premium Preview is supported in the following regions:
 
-- West Europe (Public / Europe)
-- East US (Public / United States)
-- Australia East (Public / Australia)
-- Southeast Asia (Public / Asia Pacific)
-- UK South (Public / United Kingdom)
-- North Europe (Public / Europe)
-- East US 2 (Public / United States)
-- South Central US (Public / United States)
-- West US 2 (Public / United States)
-- West US (Public / United States)
-- Central US (Public / United States)
-- North Central US (Public / United States)
-- Japan East (Public / Japan)
-- East Asia (Public / Asia Pacific)
-- Canada Central (Public / Canada)
-- France Central (Public / France)
-- South Africa North (Public / South Africa)
-- UAE North (Public / UAE)
-- Switzerland North (Public / Switzerland)
-- Brazil South (Public / Brazil)
-- Norway East (Public / Norway)
 - Australia Central (Public / Australia)
 - Australia Central 2 (Public / Australia)
+- Australia East (Public / Australia)
 - Australia Southeast (Public / Australia)
+- Brazil South (Public / Brazil)
+- Canada Central (Public / Canada)
 - Canada East (Public / Canada)
+- Central US (Public / United States)
 - Central US EUAP (Public / Canary (US))
+- East Asia (Public / Asia Pacific)
+- East US (Public / United States)
+- East US 2 (Public / United States)
+- France Central (Public / France)
 - France South (Public / France)
+- Japan East (Public / Japan)
 - Japan West (Public / Japan)
+- Korea Central (Public / Korea)
 - Korea South (Public / Korea)
+- North Central US (Public / United States)
+- North Europe (Public / Europe)
+- South Africa North (Public / South Africa)
+- South Central US (Public / United States)
+- Southeast Asia (Public / Asia Pacific)
 - UAE Central (Public / UAE)
+- UK South (Public / United Kingdom)
 - UK West (Public / United Kingdom)
 - West Central US (Public / United States)
+- West Europe (Public / Europe)
 - West India (Public / India)
+- West US (Public / United States)
+- West US 2 (Public / United States)
 
 
 ## Known issues

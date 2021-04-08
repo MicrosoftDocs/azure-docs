@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Customize Remote Desktop Protocol properties for a  Windows Virtual Desktop (classic) host pool
 
