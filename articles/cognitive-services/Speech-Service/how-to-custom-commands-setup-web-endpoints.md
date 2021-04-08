@@ -22,6 +22,7 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 - Integrate the web endpoints response into a custom JSON payload, send, and visualize it from a C# UWP Speech SDK client application
 
 ## Prerequisites
+
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 > * An Azure subscription key for Speech service:
@@ -30,7 +31,105 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 > * A Speech SDK enabled client app:
 [How-to: end activity to client application](./how-to-custom-commands-setup-speech-sdk.md)
 
-## Setup web endpoints
+## Deploy an external web endpoint using Azure Function App
+
+* For the sake of this tutorial, you need an HTTP endpoint which maintains states for all the devices which you set up in the **TurnOnOff** command of your custom commands application.
+
+* If you already have a web endpoint you want to call, skip to the [next section](#Setup-web-endpoints). Alternatively, in the next section, we have provided you with a default hosted web endpoint which you can use if you want to skip this section.
+
+### Input format of Azure Function
+* Next, you will deploy an endpoint using [Azure Functions](../../azure-functions/index.yml).
+The following is the general format of an Custom Commands event that is passed to your Azure function. Use this information when you're writing you Azure function.
+
+    ```json
+    {
+      "conversationId": "string",
+      "currentCommand": {
+        "name": "string",
+        "parameters": {
+          "SomeParameterName": "string",
+          "SomeOtherParameterName": "string"
+        }
+      },
+      "currentGlobalParameters": {
+          "SomeGlobalParameterName": "string",
+          "SomeOtherGlobalParameterName": "string"
+      }
+    }
+    ```
+
+    
+* Let's review the key attributes of this input:
+        
+    | Attribute | Explanation |
+    | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
+    | **conversationId** | The unique identifier of the conversation. Note that this ID can be generated from the client app. |
+    | **currentCommand** | The command that's currently active in the conversation. |
+    | **name** | The name of the command. The `parameters` attribute is a map with the current values of the parameters. |
+    | **currentGlobalParameters** | A map like `parameters`, but used for global parameters. |
+
+
+* For the **DeviceState** Azure Function, an example Custom Commands event will look like following. This will act as an **input** to the Azure Function.*
+    
+    ```json
+    {
+      "conversationId": "someConversationId",
+      "currentCommand": {
+        "name": "TurnOnOff",
+        "parameters": {
+          "item": "tv",
+          "SomeOtherParameterName": "on"
+        }
+      }
+    }
+    ```
+### Output format of Azure Function
+* The output of the Azure function needs to support the following format:
+
+    ```JSON
+    {
+      "updatedCommand": {
+        "name": "SomeCommandName",
+        "updatedParameters": {
+          "SomeParameterName": "SomeParameterValue"
+        },
+        "cancel": false
+      },
+      "updatedGlobalParameters": {
+        "SomeGlobalParameterName": "SomeGlobalParameterValue"
+      }
+    }
+    ```
+
+* Example **output** of the Azure Function should like following:
+
+    
+    ```json
+    {
+      "TV": "on",
+      "Fan": "off"
+    }
+    ``` 
+*  Also, this output should be written to an external storage, so that you can accordingly maintain the state of devices. The external storage will state will be used in the [Integrate with client application section](#Integrate-with-client-application).
+
+### Host Azure Function
+
+1. Create table storage account to save device state.
+    1. Go to Azure portal and create a new resource of type **Storage account** by name **devicestate**.
+        1. Copy the **Connection string** value from **devicestate -> Access keys**.
+        1. You will need to add this string to the downloaded sample Function App code.
+    1. Download sample [Function App code](https://aka.ms/speech/cc-function-app-sample).
+    1. Open the downloaded solution in VS 2019. In file **Connections.json**, replace **STORAGE_ACCOUNT_SECRET_CONNECTION_STRING** value to the copied secret from *step a*.
+1.  Download the **DeviceStateAzureFunction** code.
+1. [Deploy](../../azure-functions/index.yml) the Functions App to azure.
+ 1.From the azure portal here, **Get function URL**.
+    1.  Wait for deployment to succeed and go the deployed resource on Azure Portal. 
+    1. Select **Functions** in the left pane, and then select **DeviceState**.
+    1.  In the new window, select **Code + Test** and then select **Get function URL**.
+ 
+## Setup web endpoints in Custom Commands
+Let's hook up the Azure function with the existing Custom Commands application.
+In this section, you will use an existing default DeviceState endpoint. If you created your own web-endpoint using Azure Function or otherwise, use that instead of the default	https://webendpointexample.azurewebsites.net/api/DeviceState.
 
 1. Open the Custom Commands application you previously created.
 1. Go to "Web endpoints", click "New web endpoint".
@@ -112,7 +211,7 @@ Remove one of the query parameters, save, retrain, and test
 
 ## Integrate with client application
 
-In [How-to: Send activity to client application (Preview)](./how-to-custom-commands-send-activity-to-client.md), you added a **Send activity to client** action. The activity is sent to the client application whether or not **Call web endpoint** action is successful or not.
+In [How-to: Send activity to client application](./how-to-custom-commands-send-activity-to-client.md), you added a **Send activity to client** action. The activity is sent to the client application whether or not **Call web endpoint** action is successful or not.
 However, in most of the cases you only want to send activity to the client application when the call to the web endpoint is successful. In this example, this is when the device's state is successfully updated.
 
 1. Delete the **Send activity to client** action you previously added.
