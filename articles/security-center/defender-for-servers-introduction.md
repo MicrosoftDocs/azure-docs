@@ -23,7 +23,7 @@ For Linux, Azure Defender collects audit records from Linux machines by using **
 
 The threat detection and protection capabilities provided with Azure Defender for servers include:
 
-- **Integrated license for Microsoft Defender for Endpoint (Windows only)** - Azure Defender for servers includes  [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities. For more information, see [Protect your endpoints](security-center-wdatp.md).
+- **Integrated license for Microsoft Defender for Endpoint** - Azure Defender for servers includes  [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities. For more information, see [Protect your endpoints](security-center-wdatp.md).
 
     When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown in Security Center. From Security Center, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack. Learn more about Microsoft Defender for Endpoint.
 
