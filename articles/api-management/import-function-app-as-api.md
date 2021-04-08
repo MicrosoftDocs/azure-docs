@@ -147,13 +147,15 @@ You can call operations directly from the Azure portal. Using the Azure portal i
 
 2. Select the **Test** tab.
 
-3. Select an operation.
+3. Select the operation you want to test.
 
-    The page displays fields for query parameters and fields for the headers. One of the headers is **Ocp-Apim-Subscription-Key**, for the subscription key of the product that is associated with this API. If you created the API Management instance, you are an administrator already, so the key is filled in automatically. 
+    * The page displays fields for query parameters and headers. 
+    * One of the headers is "Ocp-Apim-Subscription-Key", for the product subscription key associated with this API. 
+    * As creator of the API Management instance, you are an administrator already, so the key is filled in automatically. 
 
 4. Select **Send**.
 
-    The back end responds with **200 OK** and some data.
+    * The back end responds with **200 OK** and some data.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

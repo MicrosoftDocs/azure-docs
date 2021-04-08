@@ -41,14 +41,16 @@ In this article, you learn how to:
 
     ![Logic app](./media/import-logic-app-as-api/logic-app-select.png)
 
-3. Press **Browse** to see the list of Logic Apps with HTTP trigger in your subscription. (Note that Logic Apps without HTTP trigger will not appear in the list.)
+3. Press **Browse** to see the list of Logic Apps with HTTP trigger in your subscription. 
+    * Logic apps *without* HTTP trigger will not appear in the list.
     
     ![Logic app](./media/import-logic-app-as-api/browse-logic-apps.png)
 
-1. Select the app. API Management finds the swagger associated with the selected app, fetches it, and imports it.
+1. Select the logic app. 
 
     ![Logic app](./media/import-logic-app-as-api/select-logic-app-import.png)
 
+1. API Management finds the swagger associated with the selected app, fetches it, and imports it.
 1. Add an API URL suffix. The suffix is a name that identifies this specific API in this API Management instance. It has to be unique in this API Management instance.
 
     ![Logic app](./media/import-logic-app-as-api/create-from-logic-app.png)
@@ -76,13 +78,15 @@ Operations can be called directly from the Azure portal, which provides a conven
 
 1. Select the API you created in the previous step.
 2. Press the **Test** tab.
-3. Select some operation.
+3. Select the operation you want to test.
 
-    The page displays fields for query parameters and fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the API Management instance, you are an administrator already, so the key is filled in automatically.
+    * The page displays fields for query parameters and headers. 
+    * One of the headers is "Ocp-Apim-Subscription-Key", for the product subscription key associated with this API. 
+    * As creator of the API Management instance, you are an administrator already, so the key is filled in automatically.
 
 4. Press **Send**.
 
-    Backend responds with **200 OK** and some data.
+    * Backend responds with **200 OK** and data.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
