@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 03/26/2021 
  
 ---
-# Quotas and limitations
+# Video Analyzer quotas and limitations
 
 This article describes Azure Video Analyzer quotas and limitations.
 
