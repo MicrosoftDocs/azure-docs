@@ -35,7 +35,7 @@ keywords: anomaly detection, algorithms
 
 ::: zone-end
 
-::: zone pivot="programming-language-python-java"
+::: zone pivot="programming-language-java"
 
 [!INCLUDE [Java](../includes/quickstarts/anomaly-detector-client-library-java-multivariate.md)]
 
