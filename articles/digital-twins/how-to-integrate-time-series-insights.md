@@ -229,9 +229,9 @@ Choose the **Review + Create** button to review all the details. Then, select th
 
 ## Send IoT data to Azure Digital Twins
 
-To begin sending data to Time Series Insights, you'll need to start updating the digital twin properties in Azure Digital Twins with changing data values. You can choose to do this in either of the following ways:
+To begin sending data to Time Series Insights, you'll need to start updating the digital twin properties in Azure Digital Twins with changing data values.
 
-  * Use the following CLI command to update the twin property. If you followed [*How-to: Ingest IoT Hub data*](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) article to create a model and twin, the twin_id value will be *thermostat67*. Repeat the command with different temperature values to observe changes reflected in the Time Series Insights environment.
+  * Use the following CLI command to update the twin property. If you followed [*How-to: Ingest IoT Hub data*](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) article to create a model and twin, the twin_id value will be *thermostat67*. **Repeat the command with different temperature values** to observe changes reflected in the Time Series Insights environment.
 
     ```azurecli-interactive
     az dt twin update -n <your-azure-digital-twins-instance-name> --twin-id {twin_id} --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
