@@ -5,44 +5,40 @@ ms.service: virtual-machines
 ms.subservice: benchmark
 ms.collection: linux
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/08/2021
 ms.reviewer: davberg
 
 ---
 
 # Compute benchmark scores for Linux VMs
-The following CoreMark benchmark scores show compute performance for Azure's high-performance VM lineup running Ubuntu. Compute benchmark scores are also available for [Windows VMs](../windows/compute-benchmark-scores.md).
+The following CoreMark benchmark scores show compute performance for Azure's high-performance VM lineup running Ubuntu 18.04. Compute benchmark scores are also available for [Windows VMs](../windows/compute-benchmark-scores.md).
 
+## azure (Coremark) TOC
 | Type | Families |
 | ---- | -------- |
-| [Compute optimized](#compute-optimized) | [Fsv2](#fsv2---compute--premium-storage) |
-| [General purpose](#general-purpose) | [B](#b---burstable) [DSv3](#dsv3---general-compute--premium-storage) [Dv3](#dv3---general-compute) [DSv2](#dsv2---general-purpose--premium-storage) [Dv2](#dv2---general-compute) [Dasv4](#dasv4) [Dav4](#dav4) [DC](#dcs---confidential-compute-series) [DCv2](#dcsv2) [DCv2](#dcv2) [Ddsv4](#ddsv4) [Ddv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4)  |
-| [High performance compute](#high-performance-compute) | [HBv2](#hbrsv2) [HB](#hbs---memory-bandwidth-amd-epyc) [HC](#hcs---dense-computation--intel-xeon-platinum-8168)  |
+| [Compute optimized](#compute-optimized) | [Fsv2](#fsv2---compute--premium-storage)  |
+| [General purpose](#general-purpose) | [B](#b---burstable) [Dsv3](#dsv3---general-compute--premium-storage) [Dv3](#dv3---general-compute) [DSv2](#dsv2---general-purpose--premium-storage) [Dv2](#dv2---general-compute) [Dasv4](#dasv4) [Dav4](#dav4) [DC](#dcs---confidential-compute-series) [DCv2](#dcsv2) [Ddsv4](#ddsv4) [Ddv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4)  |
+| [High performance compute](#high-performance-compute) | [HBv2](#hbrsv2) [HB](#hbs---memory-bandwidth-amd-epyc) [HC](#hcs---dense-computation-intel-xeon-platinum-8168)  |
 | [Memory optimized](#memory-optimized) | [DSv2](#dsv2---general-purpose--premium-storage) [Dv2](#dv2---general-compute) [Esv3](#esv3---memory-optimized--premium-storage) [Ev3](#ev3---memory-optimized) [Easv4](#easv4) [Eav4](#eav4) [Edsv4](#edsv4) [Edv4](#edv4) [Esv4](#esv4) [Ev4](#ev4) [Msv2](#msv2-high-memory) [Ms](#m-series-medium-memory)  |
 | [Storage optimized](#storage-optimized) | [Lsv2](#lsv2---storage-optimized)  |
 
+# azure (Coremark)
 ## Compute optimized
 ### Fsv2 - Compute + Premium Storage
 (10/10/2020 PBIID:7668456)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 2 | 1 | 4.0 | 35,951 | 465 | 1.29% | 105 |
-| Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 2 | 1 | 4.0 | 35,911 | 663 | 1.85% | 203 |
-| Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 4.0 | 35,888 | 476 | 1.33% | 42 |
-| Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 4.0 | 35,521 | 64 | 0.18% | 70 |
+| Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 2 | 1 | 4.0 | 35,925 | 603 | 1.68% | 308 |
+| Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 4.0 | 35,659 | 344 | 0.96% | 112 |
 | Standard_F4s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 4 | 1 | 8.0 | 65,819 | 851 | 1.29% | 245 |
 | Standard_F4s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 8.0 | 65,683 | 459 | 0.70% | 98 |
 | Standard_F8s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 8 | 1 | 16.0 | 136,027 | 1,272 | 0.94% | 238 |
 | Standard_F8s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 8 | 1 | 16.0 | 135,829 | 912 | 0.67% | 91 |
-| Standard_F16s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 16 | 1 | 32.0 | 272,121 | 2,011 | 0.74% | 28 |
-| Standard_F16s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 16 | 1 | 32.0 | 271,286 | 1,935 | 0.71% | 252 |
-| Standard_F16s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 32.0 | 271,463 | 1,269 | 0.47% | 21 |
-| Standard_F16s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 32.0 | 271,179 | 1,340 | 0.49% | 84 |
-| Standard_F32s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 32 | 1 | 64.0 | 541,941 | 2,719 | 0.50% | 7 |
-| Standard_F32s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 32 | 1 | 64.0 | 538,639 | 3,786 | 0.70% | 238 |
-| Standard_F32s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 1 | 64.0 | 542,949 | 2,525 | 0.47% | 7 |
-| Standard_F32s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 1 | 64.0 | 537,496 | 7,786 | 1.45% | 84 |
+| Standard_F16s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 16 | 1 | 32.0 | 271,369 | 1,955 | 0.72% | 280 |
+| Standard_F16s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 32.0 | 271,236 | 1,325 | 0.49% | 105 |
+| Standard_F32s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 32 | 1 | 64.0 | 538,734 | 3,795 | 0.70% | 245 |
+| Standard_F32s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 1 | 64.0 | 537,915 | 7,646 | 1.42% | 91 |
 | Standard_F48s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 48 | 2 | 96.0 | 780,596 | 8,712 | 1.12% | 182 |
 | Standard_F48s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 48 | 1 | 96.0 | 749,662 | 21,751 | 2.90% | 56 |
 | Standard_F64s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 64 | 2 | 128.0 | 1,035,424 | 11,557 | 1.12% | 175 |
@@ -102,8 +98,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 8.0 | 26,711 | 271 | 1.01% | 7 |
-| Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 8.0 | 26,226 | 1,315 | 5.02% | 28 |
+| Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 8.0 | 26,323 | 1,194 | 4.54% | 35 |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 8.0 | 27,724 | 2,091 | 7.54% | 84 |
 | Standard_D2s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 2 | 1 | 8.0 | 26,916 | 1,424 | 5.29% | 91 |
 | Standard_D2s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 8.0 | 31,342 | 18 | 0.06% | 21 |
@@ -123,14 +118,6 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Standard_D32s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 1 | 128.0 | 390,983 | 1,845 | 0.47% | 91 |
 | Standard_D32s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 32 | 1 | 128.0 | 397,239 | 2,996 | 0.75% | 77 |
 | Standard_D32s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 1 | 128.0 | 478,885 | 1,968 | 0.41% | 35 |
-| Standard_D32-8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 2 | 128.0 | 101,726 | 2,382 | 2.34% | 42 |
-| Standard_D32-8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 128.0 | 105,753 | 5,955 | 5.63% | 98 |
-| Standard_D32-8s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 8 | 1 | 128.0 | 107,108 | 4,937 | 4.61% | 105 |
-| Standard_D32-8s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 8 | 1 | 128.0 | 120,209 | 743 | 0.62% | 21 |
-| Standard_D32-16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 2 | 128.0 | 196,647 | 3,095 | 1.57% | 49 |
-| Standard_D32-16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 128.0 | 197,817 | 4,826 | 2.44% | 84 |
-| Standard_D32-16s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 16 | 1 | 128.0 | 201,608 | 3,166 | 1.57% | 119 |
-| Standard_D32-16s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 128.0 | 240,473 | 992 | 0.41% | 14 |
 | Standard_D48s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 48 | 2 | 192.0 | 571,460 | 4,725 | 0.83% | 112 |
 | Standard_D48s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 48 | 1 | 192.0 | 581,930 | 3,357 | 0.58% | 63 |
 | Standard_D48s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 48 | 2 | 192.0 | 578,181 | 5,736 | 0.99% | 35 |
@@ -138,14 +125,6 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Standard_D64s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 64 | 2 | 256.0 | 761,965 | 4,971 | 0.65% | 49 |
 | Standard_D64s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 64 | 2 | 256.0 | 767,645 | 10,497 | 1.37% | 154 |
 | Standard_D64s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 64 | 2 | 256.0 | 909,271 | 7,791 | 0.86% | 28 |
-| Standard_D64-16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 2 | 256.0 | 234,884 | 2,434 | 1.04% | 28 |
-| Standard_D64-16s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 16 | 1 | 256.0 | 206,157 | 4,216 | 2.04% | 168 |
-| Standard_D64-16s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 16 | 2 | 256.0 | 209,045 | 11,695 | 5.59% | 42 |
-| Standard_D64-16s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 256.0 | 240,195 | 1,105 | 0.46% | 21 |
-| Standard_D64-32s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 2 | 256.0 | 411,563 | 3,587 | 0.87% | 28 |
-| Standard_D64-32s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 32 | 1 | 256.0 | 399,849 | 1,906 | 0.48% | 161 |
-| Standard_D64-32s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 32 | 2 | 256.0 | 395,114 | 9,722 | 2.46% | 49 |
-| Standard_D64-32s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 1 | 256.0 | 479,644 | 2,193 | 0.46% | 21 |
 
 ### Dv3 - General Compute
 (09/23/2020 PBIID:7668456)
@@ -513,17 +492,15 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Standard_E64_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 64 | 2 | 432.0 | 913,332 | 12,240 | 1.34% | 14 |
 
 ### Easv4
-(10/09/2020 PBIID:7668456)
+(09/23/2020 PBIID:7668456)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E2as_v4 | AMD EPYC 7452 32-Core Processor | 2 | 1 | 16.0 | 38,155 | 432 | 1.13% | 259 |
 | Standard_E4as_v4 | AMD EPYC 7452 32-Core Processor | 4 | 1 | 32.0 | 71,500 | 1,260 | 1.76% | 259 |
 | Standard_E8as_v4 | AMD EPYC 7452 32-Core Processor | 8 | 1 | 64.0 | 151,201 | 3,171 | 2.10% | 259 |
-| Standard_E16as_v4 | AMD EPYC 7452 32-Core Processor | 16 | 2 | 128.0 | 292,638 | 5,877 | 2.01% | 84 |
-| Standard_E16as_v4 | AMD EPYC 7452 32-Core Processor | 16 | 2 | 128.0 | 293,420 | 6,572 | 2.24% | 196 |
-| Standard_E20as_v4 | AMD EPYC 7452 32-Core Processor | 20 | 3 | 160.0 | 360,921 | 8,685 | 2.41% | 42 |
-| Standard_E20as_v4 | AMD EPYC 7452 32-Core Processor | 20 | 3 | 160.0 | 363,710 | 8,705 | 2.39% | 238 |
+| Standard_E16as_v4 | AMD EPYC 7452 32-Core Processor | 16 | 2 | 128.0 | 293,186 | 6,371 | 2.17% | 280 |
+| Standard_E20as_v4 | AMD EPYC 7452 32-Core Processor | 20 | 3 | 160.0 | 363,292 | 8,744 | 2.41% | 280 |
 | Standard_E32as_v4 | AMD EPYC 7452 32-Core Processor | 32 | 4 | 256.0 | 570,199 | 14,140 | 2.48% | 294 |
 | Standard_E48as_v4 | AMD EPYC 7452 32-Core Processor | 48 | 6 | 384.0 | 841,547 | 21,858 | 2.60% | 301 |
 | Standard_E64as_v4 | AMD EPYC 7452 32-Core Processor | 64 | 8 | 512.0 | 1,108,151 | 28,783 | 2.60% | 28 |
@@ -556,8 +533,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Standard_E8-2ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 64.0 | 35,831 | 529 | 1.48% | 189 |
 | Standard_E8-4ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 64.0 | 66,007 | 778 | 1.18% | 189 |
 | Standard_E16ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 128.0 | 271,138 | 1,608 | 0.59% | 189 |
-| Standard_E16-4ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 128.0 | 65,582 | 556 | 0.85% | 7 |
-| Standard_E16-4ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 128.0 | 66,495 | 1,258 | 1.89% | 182 |
+| Standard_E16-4ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 128.0 | 66,461 | 1,250 | 1.88% | 189 |
 | Standard_E16-8ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 8 | 1 | 128.0 | 135,960 | 1,073 | 0.79% | 189 |
 | Standard_E20ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 20 | 1 | 160.0 | 339,000 | 1,496 | 0.44% | 189 |
 | Standard_E32ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 1 | 256.0 | 538,949 | 6,669 | 1.24% | 168 |
@@ -662,8 +638,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Standard_M16-4ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 4 | 1 | 437.5 | 56,218 | 304 | 0.54% | 70 |
 | Standard_M16-4ms | Intel(R) Xeon(R) Platinum 8280M CPU @ 2.70GHz | 4 | 1 | 437.5 | 48,401 | 205 | 0.42% | 14 |
 | Standard_M16-8ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 8 | 1 | 437.5 | 110,426 | 383 | 0.35% | 56 |
-| Standard_M16-8ms | Intel(R) Xeon(R) Platinum 8280M CPU @ 2.70GHz | 8 | 1 | 437.5 | 100,476 | 419 | 0.42% | 21 |
-| Standard_M16-8ms | Intel(R) Xeon(R) Platinum 8280M CPU @ 2.70GHz | 8 | 1 | 437.5 | 100,081 | 397 | 0.40% | 7 |
+| Standard_M16-8ms | Intel(R) Xeon(R) Platinum 8280M CPU @ 2.70GHz | 8 | 1 | 437.5 | 100,377 | 442 | 0.44% | 28 |
 | Standard_M32ls | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 32 | 1 | 256.0 | 433,173 | 4,290 | 0.99% | 70 |
 | Standard_M32ls | Intel(R) Xeon(R) Platinum 8280M CPU @ 2.70GHz | 32 | 1 | 256.0 | 400,287 | 1,610 | 0.40% | 14 |
 | Standard_M32ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 32 | 1 | 875.0 | 434,866 | 2,560 | 0.59% | 70 |
@@ -757,6 +732,7 @@ The above will compile the benchmark for execution on 4 cores.
 ## Coverage
 
 Older deprecated series are not shown. N series not shown as they are GPU centric and Coremark doesn't measure GPU performance.  Newer series may not have been benchmarked yet.
+Previous versions of this document cited benchmark runs from Ubuntu 16.04 which resulted in slightly lower performance than the current benchmarks running on Ubuntu 18.04.
 
 
 ## Next steps
