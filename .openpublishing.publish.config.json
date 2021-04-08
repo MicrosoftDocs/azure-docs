@@ -382,6 +382,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-cli-preview",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "cli-preview",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-qnamaker-nodejs",
       "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs",
       "branch": "master",
