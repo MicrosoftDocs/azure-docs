@@ -114,7 +114,9 @@ The **cache** tab allows users to analyze their actual queries' look back patter
 
 [![Screenshot of cache details](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
-The **cluster boundaries** tab displays the cluster boundaries based on your usage. In this tab you can inspect the CPU, ingestion and cache utilization. These metrics are scored by: "Low", "Medium" or "High". These metrics and scores are important when deciding on the optimal SKU and instances count for your cluster, and they are taken into account in Azure Advisor SKU/size recommendation. In this tab you can select a metric tile and deep dive to understand its trend and how its score is decided. You can also view the Azure Advisor SKU/size recommendation. For example, in the following image you can see that all metrics are given with the score of "Low", and thereby the cluster recieves a cost recommendation allowing it to scale in/down and save cost.
+The **cluster boundaries** tab displays the cluster boundaries based on your usage. In this tab you can inspect the CPU, ingestion and cache utilization. These metrics are scored as "Low", "Medium" or "High". These metrics and scores are important when deciding on the optimal SKU and instances count for your cluster, and they are taken into account in Azure Advisor SKU/size recommendation. In this tab you can select a metric tile and deep dive to understand its trend and how its score is decided. You can also view the Azure Advisor SKU/size recommendation for your cluster. For example, in the following image you can see that all metrics are scored as "Low", and thereby the cluster recieves a cost recommendation allowing it to scale in/down and save cost.
+
+[![Screenshot of cluster boundaries](./media/data-explorer/cluster-boundaries-tab.png)](./media/data-explorer/cluster-boundaries-tab.png#lightbox)
 
 ## Pin to Azure dashboard
 
