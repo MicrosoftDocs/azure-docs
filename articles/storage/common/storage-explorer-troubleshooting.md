@@ -487,7 +487,7 @@ Part 1: Install and Configure Fiddler
 9. Choose “Export Root Certificate to Desktop”
 10. Go to your desktop
 11. Find the FiddlerRoot.cer file
-12. Double click to open
+12. Double-click to open
 13. Go to the "Details" tab
 14. Click "Copy to File…"
 15. In the export wizard choose the following options
@@ -499,22 +499,22 @@ Part 1: Install and Configure Fiddler
 19. In the dialog, choose "Use app proxy settings", and set the URL to http://localhost and the port to 8888
 20. Click Ok
 21. Restart Storage Explorer
-22. You should start seeing network calls from a storageexplorer process show up in Fiddler
+22. You should start seeing network calls from a `storageexplorer:` process show up in Fiddler
 
 Part 2: Reproduce the issue
 1. Close all apps other than Fiddler
-2. Clear the Fiddler log (X icon in the top left, somewhere nearby the View menu)
-3. Optional/recommended: let Fiddler set for few minutes, if you see network calls appear, right click on them and choose 'Filter Now' > 'Hide <process name>'
+2. Clear the Fiddler log (X icon in the top left, near the View menu)
+3. Optional/recommended: let Fiddler set for few minutes, if you see network calls appear, right-click on them and choose 'Filter Now' > 'Hide <process name>'
 4. Start Storage Explorer
 5. Reproduce the issue
 6. Click File > Save > All Sessions…, save somewhere you won't forget
 7. Close Fiddler and Storage Explorer
 
 Part 3: Sanitize the Fiddler trace
-1. Double click on the fiddler trace (.saz file)
+1. Double-click on the fiddler trace (.saz file)
 2. Press `ctrl`+`f`
 3. In the dialog that appears, make sure the following options are set: Search = Requests and responses, Examine = Headers and bodies
-4. Search for any passwords you used while collecting the fiddler trace, any entries that are highlighted, right click and choose Remove > Selected sessions
+4. Search for any passwords you used while collecting the fiddler trace, any entries that are highlighted, right-click and choose Remove > Selected sessions
 5. If you definitely entered passwords into your browser while collecting the trace but you don't find any entries when using ctrl+f and you don't want to change your passwords/the passwords you used are used for other accounts, then feel free to just skip sending us the .saz file. Better to be safe than sorry. :)
 6. Save the trace again with a new name
 7. Optional: delete the original trace
