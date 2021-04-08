@@ -1,11 +1,12 @@
 ---
-title: Manage recording policy - Azure
-description: This topic explains how to manage recording policy.
+title: Manage recording policy with Azure Video Analyzer
+description: This topic explains how to manage recording policy with Azure Video Analyzer.
+ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 04/04/2021
 
 ---
-# Manage recording policy
+# Manage recording policy with Video Analyzer
 
 You can use Azure Video Analyzer for [continuous video recording]()<!-- continuous-video-recording-concept.md -->, whereby you can record video into the cloud for weeks or months. You can manage the length (in days) of that cloud archive by using the [Lifecycle Management tools](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) built into Azure storage.  
 
