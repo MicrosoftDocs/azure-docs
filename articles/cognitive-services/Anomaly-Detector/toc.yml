@@ -3,9 +3,9 @@
 - name: Overview
   expanded: true
   items:
-    - name: What is Anomaly Detector - multivariate?
+    - name: What is Anomaly Detector (multivariate)?
       href: overview-multivariate.md
-    - name: What is Anomaly Detector - univariate)? 
+    - name: What is Anomaly Detector (univariate)? 
       href: overview.md  
     - name: Pricing and limits
       href: https://aka.ms/adpricing
@@ -53,6 +53,8 @@
       href: concepts/troubleshooting.md
     - name: Spectral Residual (SR) and Convolutional Neural Net (CNN) anomaly detection
       href: https://arxiv.org/abs/1906.03821
+    - name: Multivariate time-series anomaly detection via graph attention network
+      href: https://arxiv.org/abs/2009.02040
 - name: Tutorials
   items:
     - name: Visualize anomalies as a batch using Power BI
