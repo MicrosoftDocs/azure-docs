@@ -24,9 +24,9 @@ You can design your bot to handle queries across multiple domains with QnA Maker
 
 The content authors can use documents/URLs to extract QnAs or add custom QnAs to the knowledgebase. In order to group these QnAs into specific domains or categories, you can add [metadata](../How-To/query-knowledge-base-with-metadata.md) to the QnA pairs.
 
-Let's say the marketing team at Microsoft wants to build a FAQ bot that answers common user queries on all Surface Products. For the sake of simplicity here, we will be using a document each on [Surface Pen](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) and [Surface Earbuds](https://support.microsoft.com/surface/use-surface-earbuds-aea108c3-9344-0f11-e5f5-6fc9f57b21f9) to create the Knowledge Base. You can take the following steps to create a bot that answers queries for both product types:
+Let's say the marketing team at Microsoft wants to build a FAQ bot that answers common user queries on all Surface Products. For the sake of simplicity here, we will be using a FAQ URL each on [Surface Pen](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) and [Surface Earbuds](https://support.microsoft.com/surface/use-surface-earbuds-aea108c3-9344-0f11-e5f5-6fc9f57b21f9) to create the Knowledge Base. You can take the following steps to create a bot that answers queries for both product types:
 
-1. You add both of these URLs in the STEP 3 of the Create KB page and click on 'Create your KB'. A new knowledgebase is created after extracting QnA Pairs from these sources. 
+1. You add both of the URLs in the STEP 3 of the Create KB page and click on 'Create your KB'. A new knowledgebase is created after extracting QnA Pairs from these sources. 
 
    ![Screenshot of create KB](../media/create-sample-kb.png)
 
