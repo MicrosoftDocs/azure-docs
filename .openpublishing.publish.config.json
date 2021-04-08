@@ -722,7 +722,7 @@
       "url": "https://github.com/Azure/hbase-utils",
       "branch": "master"
     }
-   ],
+  ],
   "branch_target_mapping": {
     "live": [
       "Publish",
