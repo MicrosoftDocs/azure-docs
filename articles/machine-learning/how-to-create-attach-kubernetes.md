@@ -65,7 +65,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 - Creating an AKS cluster using the Azure Machine Learning studio UI, SDK, or CLI extension is __not__ idempotent. Attempting to create the resource again will result in an error that a cluster with the same name already exists.
     
-    - Using the [Microsoft.MachineLearningServices/workspaces/computes](/azure/templates/microsoft.machinelearningservices/2019-11-01/workspaces/computes) resource to create an AKS cluster using an Azure Resource Manager template is also __not__ idempotent. If you attempt to use the template again to update an already existing resource, you will receive the same error.
+    - Using an Azure Resource Manager template and the [Microsoft.MachineLearningServices/workspaces/computes](/azure/templates/microsoft.machinelearningservices/2019-11-01/workspaces/computes) resource to create an AKS cluster is also __not__ idempotent. If you attempt to use the template again to update an already existing resource, you will receive the same error.
 
 ## Azure Kubernetes Service version
 
