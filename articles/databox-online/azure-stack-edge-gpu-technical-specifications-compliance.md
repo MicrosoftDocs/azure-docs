@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 04/07/2021
 ms.author: alkohli
 ---
 
@@ -44,7 +44,7 @@ The Azure Stack Edge Pro device has two 100-240 V power supply units (PSUs) with
 
 | Specification           | 750 W PSU                  |
 |-------------------------|----------------------------|
-| Maximum output power    | 750 W                     |
+| Maximum output power    | 750 W                      |
 | Frequency               | 50/60 Hz                   |
 | Voltage range selection | Auto ranging: 100-240 V AC |
 | Hot pluggable           | Yes                        |
@@ -56,11 +56,11 @@ Your Azure Stack Edge Pro device has six network interfaces, PORT1- PORT6.
 
 | Specification           | Description                 |
 |-------------------------|----------------------------|
-|  Network interfaces    | **2 X 1 GbE interfaces** – 1 management interface Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. <br>The other interface Port 2 is user configurable, can be used for data transfer, and is DHCP by default. <br>**4 X 25 GbE interfaces** – These data interfaces, Port 3 through Port 6, can be configured by user as DHCP (default) or static. They can also operate as 10 GbE interfaces.  | 
+|  Network interfaces    | **2 X 1 GbE interfaces** – 1 management interface Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. <br>The other interface Port 2 is user configurable, can be used for data transfer, and is DHCP by default. <br>**4 X 25-GbE interfaces** – These data interfaces, Port 3 through Port 6, can be configured by user as DHCP (default) or static. They can also operate as 10-GbE interfaces.  | 
 
 Your Azure Stack Edge Pro device has the following network hardware:
 
-* **Custom Microsoft Qlogic Cavium 25G NDC adapter** - Port 1 through port 4.
+* **Custom Microsoft `Qlogic` Cavium 25G NDC adapter** - Port 1 through port 4.
 * **Mellanox dual port 25G ConnectX-4 channel network adapter** - Port 5 and port 6.
 
 Here are the details for the Mellanox card:
@@ -74,7 +74,7 @@ Here are the details for the Mellanox card:
 
 For a full list of supported cables, switches, and transceivers for these network cards, go to:
 
-- [Qlogic Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+- [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
 - [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
 ## Storage specifications

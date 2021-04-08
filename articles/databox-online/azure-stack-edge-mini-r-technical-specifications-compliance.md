@@ -22,8 +22,8 @@ The Azure Stack Edge Mini R device has the following specifications for compute 
 | Specification           | Value                 |
 |-------------------------|-----------------------|
 | CPU type                | Intel Xeon-D 1577     |
-| CPU: raw                | 16-core CPU           |
-| CPU: usable             | 24-core CPU           |
+| CPU: raw                | 16-core CPU, 32 vCPUs |
+| CPU: usable             | 24 vCPUs              |
 | Memory type             | 16GB 2400MT/s SODIMM  |
 | Memory: raw             | 48 GB RAM (2400 MT/s) |
 | Memory: usable          | 32 GB RAM             |
@@ -33,21 +33,21 @@ The Azure Stack Edge Mini R device has the following specifications for compute 
 
 A Vision Processing Unit (VPU) is included on every Azure Stack Edge Mini R device that enables Kubernetes, deep neural network and computer vision based applications.
 
-| Specification           | Value                  |
-|-------------------------|------------------------|
-| Compute Acceleration card         | Intel Movidius Myriad X VPU <br> For more information, see [Intel Movidius Myriad X VPU](https://www.movidius.com/MyriadX) |
+| Specification             | Value                  |
+|---------------------------|------------------------|
+| Compute Acceleration card | Intel Movidius Myriad X VPU <br> For more information, see [Intel Movidius Myriad X VPU](https://www.movidius.com/MyriadX) |
 
 
 ## Storage specifications
 
 The Azure Stack Edge Mini R device has 1 data disk and 1 boot disk (that serves as operating system storage). The following table shows the details for the storage capacity of the device.
 
-|     Specification                          |     Value             |
-|--------------------------------------------|-----------------------|
-|    Number of solid-state drives (SSDs)     |    2 X 1 TB disks <br> One data disk and one boot disk                  |
-|    Single SSD capacity                     |    1 TB               |
-|    Total capacity (data only)              |    1 TB              |
-|    Total usable capacity*                  |    ~ 750 GB        |
+|     Specification                          |     Value                                              |
+|--------------------------------------------|--------------------------------------------------------|
+|    Number of solid-state drives (SSDs)     |    2 X 1 TB disks <br> One data disk and one boot disk |
+|    Single SSD capacity                     |    1 TB                                                |
+|    Total capacity (data only)              |    1 TB                                                |
+|    Total usable capacity*                  |    ~ 750 GB                                            |
 
 **Some space is reserved for internal use.*
 
@@ -58,8 +58,8 @@ The Azure Stack Edge Mini R device has the following specifications for network:
 
 |Specification  |Value  |
 |---------|---------|
-|Network interfaces    |2 x 10 Gbe SFP+ <br> Shown as PORT 3 and PORT 4 in the local UI           |
-|Network interfaces    |2 x 1 Gbe RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI          |
+|Network interfaces    |2 x 10 GbE SFP+ <br> Shown as PORT 3 and PORT 4 in the local UI           |
+|Network interfaces    |2 x 1 GbE RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI          |
 |Wi-Fi   |802.11ac         |
 
 
@@ -84,9 +84,9 @@ The Azure Stack Edge Mini R device also includes an onboard battery that is char
 An additional [Type 2590 battery](https://www.bren-tronics.com/bt-70791ck.html) can be used in conjunction with the onboard battery to extend the use of the device between the charges. This battery should be compliant with all the safety, transportation, and environmental regulations applicable in the country of use.
 
 
-| Specification           | Value                      |
-|-------------------------|----------------------------|
-| Onboard battery capacity | 73 WHr                    |
+| Specification            | Value                      |
+|--------------------------|----------------------------|
+| Onboard battery capacity | 73 Wh                     |
 
 ## Enclosure dimensions and weight specifications
 
@@ -98,18 +98,18 @@ The following table lists the dimensions of the device and the USP with the rugg
 
 |     Enclosure     |     Millimeters     |     Inches     |
 |-------------------|---------------------|----------------|
-|    Height         |    68            |    2.68          |
-|    Width          |    208          |      8.19          |
-|    Length          |   259           |    10.20          |
+|    Height         |    68               |    2.68        |
+|    Width          |    208              |      8.19      |
+|    Length          |   259              |    10.20       |
 
 
 ### Enclosure weight
 
 The following table lists the weight of the device including the battery.
 
-|     Enclosure                                 |     Weight          |
-|-----------------------------------------------|---------------------|
-|    Total weight of the device     |    7 lbs.          |
+|     Enclosure                     |     Weight          |
+|-----------------------------------|---------------------|
+|    Total weight of the device     |     7 lbs           |
 
 ## Enclosure environment specifications
 

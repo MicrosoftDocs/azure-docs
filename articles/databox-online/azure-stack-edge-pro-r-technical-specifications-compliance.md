@@ -17,7 +17,7 @@ The hardware components of your Azure Stack Edge Pro R device adhere to the tech
 
 ## Compute, memory specifications
 
-The Azure Stack Edge Pro R device have the following specifications for compute and memory:
+The Azure Stack Edge Pro R device has the following specifications for compute and memory:
 
 | Specification  | Value                                                                       |
 |----------------|-----------------------------------------------------------------------------|
@@ -50,13 +50,13 @@ The Azure Stack Edge Pro R device has two 100-240 V Power supply units (PSUs) wi
 
 ## Network specifications
 
-The Azure Stack Edge Pro R device has four network interfaces, PORT1 - PORT4. 
+The Azure Stack Edge Pro R device has four network interfaces, PORT1 - PORT4.
 
 
 |Specification         |Description                       |
 |----------------------|----------------------------------|
-|Network interfaces    |**2 x 1 Gbe RJ45** <br> PORT 1 is used as the management interface for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts to static IP. <br>The other interface, PORT 2, which is user-configurable, can be used for data transfer, and is DHCP by default. |
-|Network interfaces    |**2 x 25 Gbe SFP28** <br> These data interfaces, PORT 3 and PORT 4, can be configured as DHCP (default) or static. |            |
+|Network interfaces    |**2 x 1 GbE RJ45** <br> PORT 1 is used as the management interface for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts to static IP. <br>The other interface, PORT 2, which is user-configurable, can be used for data transfer, and is DHCP by default. |
+|Network interfaces    |**2 x 25 GbE SFP28** <br> These data interfaces, PORT 3 and PORT 4, can be configured as DHCP (default) or static. |            |
 
 Your Azure Stack Edge Pro R device has the following network hardware:
 
@@ -67,7 +67,7 @@ Your Azure Stack Edge Pro R device has the following network hardware:
 | Parameter           | Description                 |
 |-------------------------|----------------------------|
 | Model    | ConnectX®-4 Lx EN network interface card                      |
-| Model Description               | 25GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
+| Model Description               | 25 GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
 | Device Part Number (XR2) | MCX4421A-ACAN  |
 | PSID (R640)           | MT_2420110034                         |-->
 <!-- confirm w/ Ravi what is this-->
@@ -76,7 +76,7 @@ For a full list of supported cables, switches, and transceivers for these networ
 
 ## Storage specifications
 
-Azure Stack Edge Pro R devices have 8 data disks and 2 M.2 SATA disks that serve as operating system disks. For more information, go to [M.2 SATA disks](https://en.wikipedia.org/wiki/M.2).
+Azure Stack Edge Pro R devices have eight data disks and two M.2 SATA disks that serve as operating system disks. For more information, go to [M.2 SATA disks](https://en.wikipedia.org/wiki/M.2).
 
 #### Storage for 1-node device
 
@@ -146,7 +146,7 @@ The weight of the device depends on the configuration of the enclosure.
 
 |     Enclosure                                 |     Weight          |
 |-----------------------------------------------|---------------------|
-|    Total weight of 1-node device + rugged case with end caps     |    ~114 lbs.          |
+|    Total weight of 1-node device + rugged case with end caps     |    ~114 lbs          |
 
 <!--#### For the 4-node system
 
