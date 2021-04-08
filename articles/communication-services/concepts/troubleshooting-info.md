@@ -124,7 +124,7 @@ console.log(result); // your message ID will be in the result
 
 # [JavaScript](#tab/javascript)
 
-Azure Communication Calling Library relies internally on [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging
+The Azure Communication Services Calling SDK relies internally on [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging.
 To control log output, please use `setLogLevel` method from `@azure/logger` package.
 
 ```javascript
