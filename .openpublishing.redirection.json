@@ -871,6 +871,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/custom-policy-trust-frameworks.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-ui-customization-custom-dynamic.md",
       "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization-dynamic",
       "redirect_document_id": true
@@ -19258,6 +19263,11 @@
       "source_path_from_root": "/articles/lab-services/use-paas-services.md",
       "redirect_url": "/azure/devtest-labs/use-paas-services",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-interpret-event-data.md",
+      "redirect_url": "/azure/digital-twins/concepts-notifications",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-integrate-models.md",
