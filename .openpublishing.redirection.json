@@ -871,6 +871,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/custom-policy-trust-frameworks.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-ui-customization-custom-dynamic.md",
       "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization-dynamic",
       "redirect_document_id": true
