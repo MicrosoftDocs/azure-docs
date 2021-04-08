@@ -21,7 +21,9 @@ import { SmsClient, SmsSendRequest } from "@azure/communication-sms";
 
 The examples below are using the [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential). This credential is suitable for production and development environments.
 
-To register application in the development environment and set up environment variables, see [Authorize access with managed identity](../managed-identity-from-cli.md)
+To register an application in the development environment and set up environment variables, see [Authorize access with managed identity](../managed-identity-from-cli.md)
+
+For a more in-depth look on how the DefaultAzureCredential object works and how you can use it in ways that are not specified in this quickstart, see [Azure Identity client library for JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)
 
 ### Create an identity and issue a token with Managed Identity
 
