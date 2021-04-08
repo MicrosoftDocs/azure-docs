@@ -15,7 +15,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ### April 2021
 
-* Switzerland [authoring region](luis-reference-regions.md#publishing-to-europe)
+* Switzerland North [authoring region](luis-reference-regions.md#publishing-to-europe).
 
 ### January 2021
 
