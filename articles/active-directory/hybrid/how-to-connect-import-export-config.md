@@ -68,7 +68,7 @@ To migrate the settings:
 
  1. Start **AzureADConnect.msi** on the new staging server, and stop at the **Welcome** page of Azure AD Connect.
 
- 2. Copy **MigrateSettings.ps1** from the Microsoft Azure AD Connect\Tools directory to a location on the existing server. An example is C:\setup, where setup is a directory that was created on the existing server.
+ 2. Copy **MigrateSettings.ps1** from the Microsoft Azure AD Connect\Tools directory to a location on the existing server. An example is C:\setup, where setup is a directory that was created on the existing server.</br>
      ![Screenshot that shows Azure AD Connect directories.](media/how-to-connect-import-export-config/migrate1.png)
 
      >[!NOTE]
