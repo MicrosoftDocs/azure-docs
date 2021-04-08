@@ -54,10 +54,10 @@ Then, use the client to issue a token for a new user:
 The following code example shows how to create a phone number service client with Azure managed identity, then use the client to retrieve all of the purchased phone numbers the resource has:
 
 ```csharp
-     public void ListPhoneNumbers(Uri resourceEdnpont)
+     public void ListPhoneNumbers(Uri resourceEndpoint)
      {
           TokenCredential credential = new DefaultAzureCredential();
-          var client = new PhoneNumbersClient(endpoint, credential);
+          var client = new PhoneNumbersClient(resourceEndpoint, credential);
 
           var purchasedPhoneNumbers = client.GetPurchasedPhoneNumbersAsync();
           await foreach (var purchasedPhoneNumber in purchasedPhoneNumbers)
