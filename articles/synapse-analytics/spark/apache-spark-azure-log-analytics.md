@@ -1,6 +1,6 @@
 ---
 title: Use Azure Log Analytics to collect and visualize metrics and logs (Preview)
-description: learn how to enable the Synapse built-in Azure Log Analytics connector for collecting and sending the Apache Spark application metrics and logs to your Azure Log Analytics workspace.
+description: Learn how to enable the Synapse built-in Azure Log Analytics connector for collecting and sending the Apache Spark application metrics and logs to your Azure Log Analytics workspace.
 services: synapse-analytics 
 author: jejiang
 ms.author: jejiang
@@ -9,10 +9,9 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 03/25/2021
+ms.custom: references_regions
 ---
 # Tutorial: Use Azure Log Analytics to collect and visualize metrics and logs (Preview)
-
-## Overview
 
 In this tutorial, you will learn how to enable the Synapse built-in Azure Log Analytics connector for collecting and sending the Apache Spark application metrics and logs to your [Azure Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace). You can then leverage an Azure monitor workbook to visualize the metrics and logs.
 
@@ -30,7 +29,8 @@ You can follow below documents to create a Log Analytics workspace:
 #### Option 1. Configure with Azure Log Analytics Workspace ID and Key 
 
 Copy the following Spark configuration, save it as **"spark_loganalytics_conf.txt"** and fill the parameters:
-   - `<LOG_ANALYTICS_WORKSPACE_ID>`: Azure Log Analytics workspace id.
+
+   - `<LOG_ANALYTICS_WORKSPACE_ID>`: Azure Log Analytics workspace ID.
    - `<LOG_ANALYTICS_WORKSPACE_KEY>`: Azure Log Analytics key: **Azure portal > Azure Log Analytics workspace > Agents management > Primary key**
 
 ```properties
@@ -55,7 +55,8 @@ To configure an Azure Key Vault to store the workspace key, follow the steps:
    - **Value**: Type the **<LOG_ANALYTICS_WORKSPACE_KEY>** for the secret.
    - Leave the other values to their defaults. Click **Create**.
 5. Copy the following Spark configuration, save it as **"spark_loganalytics_conf.txt"** and fill the parameters:
-   - `<LOG_ANALYTICS_WORKSPACE_ID>`: Azure Log Analytics workspace id.
+
+   - `<LOG_ANALYTICS_WORKSPACE_ID>`: Azure Log Analytics workspace ID.
    - `<AZURE_KEY_VAULT_NAME>`: The Azure Key Vault name you configured.
    - `<AZURE_KEY_VAULT_SECRET_KEY_NAME>` (Optional): The secret name in the Azure Key Vault for workspace key, default: "SparkLogAnalyticsSecret".
 
@@ -80,10 +81,15 @@ To configure an Azure Key Vault linked service in Synapse Studio to store the wo
 
 1. Follow all the steps in the `Option 2. Configure with an Azure Key Vault` section.
 2. Create an Azure Key vault linked service in Synapse Studio:
-   - Navigate to **Synapse Studio > Manage > Linked services**, click **New** button.
-   - Search **Azure Key Vault** in the search box.
-   - Type a name for the linked service.
-   - Choose your Azure key vault. Click **Create**.
+
+    a. Navigate to **Synapse Studio > Manage > Linked services**, click **New** button.
+
+    b. Search **Azure Key Vault** in the search box.
+
+    c. Type a name for the linked service.
+
+    d. Choose your Azure key vault. Click **Create**.
+
 3. Add a `spark.synapse.logAnalytics.keyVault.linkedServiceName` item to Spark configuration.
 
 ```properties
@@ -122,7 +128,8 @@ You can upload the configuration file to your Synapse Spark pool in Synapse Stud
    - Click **Upload** and choose the **"spark_loganalytics_conf.txt"** created.
    - Click **Upload** and **Apply**.
 
-![spark pool configuration](./media/apache-spark-azure-log-analytics/spark-pool-configuration.png)
+    > [!div class="mx-imgBorder"]
+    > ![spark pool configuration](./media/apache-spark-azure-log-analytics/spark-pool-configuration.png)
 
 > [!NOTE] 
 >
@@ -146,17 +153,21 @@ You can upload the configuration file to your Synapse Spark pool in Synapse Stud
 5. **Paste** over any json that exists.
 6. Then Press **Apply** then **Done Editing**.
 
-![new workbook](./media/apache-spark-azure-log-analytics/new-workbook.png)
+    > [!div class="mx-imgBorder"]
+    > ![new workbook](./media/apache-spark-azure-log-analytics/new-workbook.png)
 
-![import workbook](./media/apache-spark-azure-log-analytics/import-workbook.png)
+    > [!div class="mx-imgBorder"]
+    > ![import workbook](./media/apache-spark-azure-log-analytics/import-workbook.png)
 
 Then, submit your Apache Spark application to the configured Spark pool. After the application goes to running state, choose the running application in the workbook dropdown list.
 
-![workbook imange](./media/apache-spark-azure-log-analytics/workbook.png)
+> [!div class="mx-imgBorder"]
+> ![workbook imange](./media/apache-spark-azure-log-analytics/workbook.png)
 
 And you can customize the workbook by Kusto query and configure alerts.
 
-![kusto query and alerts](./media/apache-spark-azure-log-analytics/kusto-query-and-alerts.png)
+> [!div class="mx-imgBorder"]
+> ![kusto query and alerts](./media/apache-spark-azure-log-analytics/kusto-query-and-alerts.png)
 
 ## Sample Kusto queries
 
@@ -197,7 +208,7 @@ For more information, see [Create, view, and manage log alerts using Azure Monit
 ## Limitation
 
  - Azure Synapse Analytics workspace with [managed virtual network](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-vnet) enabled is not supported.
- - The following regions are not yet supported:
+ - The following regions aren't currently supported:
    - East US 2
    - Norway East
    - UAE North
