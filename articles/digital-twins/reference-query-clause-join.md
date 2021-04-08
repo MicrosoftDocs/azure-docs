@@ -24,14 +24,17 @@ The `JOIN` clause is used in the Azure Digital Twins query language as part of t
 This clause is optional while querying.
 
 ## Core syntax: JOIN ... RELATED 
-Because relationships in Azure Digital Twins are part of digital twins, not independent entities, the `RELATED` keyword is used in `JOIN` queries to reference the set of relationships from a twin, which is then assigned a collection name.
+Because relationships in Azure Digital Twins are part of digital twins, not independent entities, the `RELATED` keyword is used in `JOIN` queries to reference the set of relationships of a certain type from the twin collection. This set of relationships can be assigned a collection name.
+
+The query must then use the `WHERE` clause to specify which specific twin or twins are being used to support the relationship query. This is done by filtering on either the source or target twin's `$dtId` value.
 
 ### Syntax
 
 ```sql
 --SELECT ...
 FROM DIGITALTWINS <twin-collection-name>
-JOIN <relationship-collection-name> RELATED <twin-collection-name>.<relationship-type>
+JOIN <target-twin-collection-name> RELATED <twin-collection-name>.<relationship-type> <relationship-collection-name>
+WHERE <twin-collection-name-OR-target-twin-collection-name>.$dtId = '<twin-id>'
 ```
 
 ### Example
@@ -120,8 +123,8 @@ The following query shows an example of what **cannot** be done as per this limi
 <example>
 ```
 
-### Source twin required
+### Twins required
 
-Relationships in Azure Digital Twins can't be queried as independent entities; you also need to provide information about the source twin that the relationship comes from. This means that there are some restrictions on the `JOIN` operation, which is used to query relationships, to make sure that the query declares the twin(s) where the query begins.
+Relationships in Azure Digital Twins can't be queried as independent entities; you also need to provide information about the source twin that the relationship comes from. This is included as part of the default `JOIN` usage in Azure Digital Twins through the `RELATED` keyword. 
 
-The requirements of this limitation are considered part of the default `JOIN` usage in Azure Digital Twins.
+Queries with a `JOIN` clause must also filter by the source or target twin's `$dtId` in the `WHERE` clause, to clarify which twin(s) are being used to support the relationship query.
