@@ -1,7 +1,7 @@
 ---
 title: Deploy an application from source to Azure Red Hat OpenShift
 description: Learn how to deploy an application to Azure Red Hat OpenShift from source code using the Source-to-Image (S2I) build strategy
-author: asabbour
+author: sabbour
 ms.author: asabbour
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
