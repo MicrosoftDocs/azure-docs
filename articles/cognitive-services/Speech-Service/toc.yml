@@ -188,8 +188,6 @@
           href: rest-text-to-speech.md
     - name: Resources
       items:
-        - name: Standard voice support
-          href: language-support.md#standard-voices
         - name: Neural voice support
           href: language-support.md#neural-voices
         - name: Region support
@@ -249,7 +247,7 @@
     - name: Intent recognition overview
       href: intent-recognition.md
     - name: Intent recognition quickstart
-      href: quickstarts/intent-recognition.md
+      href: get-started-intent-recognition.md
     - name: How-to guides
       items:
         - name: 'Recognize speech intents with LUIS, C#'
