@@ -16,7 +16,14 @@ ms.date: 02/22/2021
 
 This article describes how to scale the compute and storage resources available for an Azure SQL Database in the provisioned compute tier. Alternatively, the [serverless compute tier](serverless-tier-overview.md) provides compute autoscaling and bills per second for compute used.
 
-After initially picking the number of vCores or DTUs, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](single-database-manage.md#the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](/rest/api/sql/databases/update).
+After initially picking the number of vCores or DTUs, you can scale a single database up or down dynamically based on actual experience using:
+
+* [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure portal](single-database-manage.md#the-azure-portal)
+* [PowerShell](/powershell/module/az.sql/set-azsqldatabase)
+* [Azure CLI](/cli/azure/sql/db#az-sql-db-update)
+* [REST API](/rest/api/sql/databases/update)
+
 
 The following video shows dynamically changing the service tier and compute size to increase available DTUs for a single database.
 

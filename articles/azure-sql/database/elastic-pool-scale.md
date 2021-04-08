@@ -19,7 +19,14 @@ This article describes how to scale the compute and storage resources available 
 
 ## Change compute resources (vCores or DTUs)
 
-After initially picking the number of vCores or eDTUs, you can scale an elastic pool up or down dynamically based on actual experience using the [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), the [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), or the [REST API](/rest/api/sql/elasticpools/update).
+After initially picking the number of vCores or eDTUs, you can scale an elastic pool up or down dynamically based on actual experience using the using:
+
+* [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure portal](elastic-pool-manage.md#azure-portal)
+* [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool)
+* [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)
+* [REST API](/rest/api/sql/elasticpools/update)
+
 
 ### Impact of changing service tier or rescaling compute size
 

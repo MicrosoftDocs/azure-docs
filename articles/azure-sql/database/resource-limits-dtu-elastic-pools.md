@@ -17,17 +17,23 @@ ms.date: 03/30/2021
 
 This article provides the detailed resource limits for databases in Azure SQL Database that are within an elastic pool using the DTU purchasing model.
 
-* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits - Azure SQL Database](resource-limits-dtu-single-databases.md).
+* For DTU purchasing model limits for single databases on a server, see [Overview of resource limits on a server](resource-limits-logical-server.md).
+* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits single databases](resource-limits-dtu-single-databases.md) and [DTU resource limits elastic pools](resource-limits-dtu-elastic-pools.md).
 * For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
+* For more information regarding the different purchasing models, see [Purchasing models and service tiers](purchasing-models.md).
+
+For service objectives supporting more than one replica, resource limits such as storage, concurrent DTUs, maximum workers, and maximum sessions apply to each replica. A replica is a copy of the elastic pool with its own allocation of resources up to these limits.
 
 ## Elastic pool: Storage sizes and compute sizes
 
 For Azure SQL Database elastic pools, the following tables show the resources available at each service tier and compute size. You can set the service tier, compute size, and storage amount using:
 
+* [Transact-SQL](elastic-pool-scale.md) via [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
 * [Azure portal](elastic-pool-manage.md#azure-portal)
 * [PowerShell](elastic-pool-manage.md#powershell)
 * [Azure CLI](elastic-pool-manage.md#azure-cli)
-* [REST API](elastic-pool-manage.md#rest-api).
+* [REST API](elastic-pool-manage.md#rest-api)
+
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale an elastic pool](elastic-pool-scale.md)
