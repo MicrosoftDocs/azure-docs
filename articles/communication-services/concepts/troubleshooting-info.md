@@ -76,7 +76,7 @@ chat_client = ChatClient(
 
 ## Access your call ID
 
-To troubleshoot any issues in the context of a given call, participants in that call or audio & video streams, please capture and store within your system value of a `call ID`, This can be accessed through `id` property available on the `call` object:
+When troubleshooting voice or video calls, you may be asked to provide a `call ID`. This can be accessed via the `id` property of the `call` object:
 
 # [JavaScript](#tab/javascript)
 ```javascript
