@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 04/08/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
@@ -69,124 +69,6 @@ For an example, see [Create a policy for web sign-in](configure-token-lifetimes.
 
 > [!NOTE]
 > To ensure the Microsoft Teams Web client works, it is recommended to keep AccessTokenLifetime to greater than 15 minutes for Microsoft Teams.
-
-## Token lifetime policies for refresh tokens and session tokens
-
-You can not set token lifetime policies for refresh tokens and session tokens.
-
-> [!IMPORTANT]
-> As of January 30, 2021 you can not configure refresh and session token lifetimes. Azure Active Directory no longer honors refresh and session token configuration in existing policies.  New tokens issued after existing tokens have expired are now set to the [default configuration](#configurable-token-lifetime-properties-after-the-retirement). You can still configure access, SAML, and ID token lifetimes after the refresh and session token configuration retirement.
->
-> Existing token’s lifetime will not be changed. After they expire, a new token will be issued based on the default value.
->
-> If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, read [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
-
-:::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Retirement information":::
-
-### Refresh tokens
-
-When a client acquires an access token to access a protected resource, the client also receives a refresh token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. A refresh token is bound to a combination of user and client. A refresh token can be [revoked at any time](access-tokens.md#token-revocation), and the token's validity is checked every time the token is used.  Refresh tokens are not revoked when used to fetch new access tokens - it's best practice, however, to securely delete the old token when getting a new one.
-
-It's important to make a distinction between confidential clients and public clients, as this impacts how long refresh tokens can be used. For more information about different types of clients, see [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
-
-#### Token lifetimes with confidential client refresh tokens
-Confidential clients are applications that can securely store a client password (secret). They can prove that requests are coming from the secured client application and not from a malicious actor. For example, a web app is a confidential client because it can store a client secret on the web server. It is not exposed. Because these flows are more secure, the default lifetimes of refresh tokens issued to these flows is `until-revoked`, cannot be changed by using policy, and will not be revoked on voluntary password resets.
-
-#### Token lifetimes with public client refresh tokens
-
-Public clients cannot securely store a client password (secret). For example, an iOS/Android app cannot obfuscate a secret from the resource owner, so it is considered a public client. You can set policies on resources to prevent refresh tokens from public clients older than a specified period from obtaining a new access/refresh token pair. To do this, use the [Refresh Token Max Inactive Time property](#refresh-token-max-inactive-time) (`MaxInactiveTime`). You also can use policies to set a period beyond which the refresh tokens are no longer accepted. To do this, use the [Single-Factor Refresh Token Max Age](#single-factor-session-token-max-age) or [Multi-Factor Session Token Max Age](#multi-factor-refresh-token-max-age) property. You can adjust the lifetime of a refresh token to control when and how often the user is required to reenter credentials, instead of being silently reauthenticated, when using a public client application.
-
-The Max Age property is the length of time a single token can be used. 
-
-### Single sign-on session tokens
-When a user authenticates with the Microsoft identity platform, a single sign-on session (SSO) is established with the user’s browser and the Microsoft identity platform. The SSO token, in the form of a cookie, represents this session. The SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked, and their validity is checked every time they are used.
-
-The Microsoft identity platform uses two kinds of SSO session tokens: persistent and nonpersistent. Persistent session tokens are stored as persistent cookies by the browser. Nonpersistent session tokens are stored as session cookies. (Session cookies are destroyed when the browser is closed.)
-Usually, a nonpersistent session token is stored. But, when the user selects the **Keep me signed in** check box during authentication, a persistent session token is stored.
-
-Nonpersistent session tokens have a lifetime of 24 hours. Persistent tokens have a lifetime of 90 days. Anytime an SSO session token is used within its validity period, the validity period is extended another 24 hours or 90 days, depending on the token type. If an SSO session token is not used within its validity period, it is considered expired and is no longer accepted.
-
-You can use a policy to set the time after the first session token was issued beyond which the session token is no longer accepted. (To do this, use the Session Token Max Age property.) You can adjust the lifetime of a session token to control when and how often a user is required to reenter credentials, instead of being silently authenticated, when using a web application.
-
-### Refresh and session token lifetime policy properties
-A token lifetime policy is a type of policy object that contains token lifetime rules. Use the properties of the policy to control specified token lifetimes. If no policy is set, the system enforces the default lifetime value.
-
-#### Configurable token lifetime properties
-| Property | Policy property string | Affects | Default | Minimum | Maximum |
-| --- | --- | --- | --- | --- | --- |
-| Refresh Token Max Inactive Time |MaxInactiveTime |Refresh tokens |90 days |10 minutes |90 days |
-| Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Refresh tokens (for any users) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
-| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) | Until-revoked |10 minutes |180 days<sup>1</sup> |
-| Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
-| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor |Session tokens (persistent and nonpersistent) | Until-revoked |10 minutes | 180 days<sup>1</sup> |
-
-* <sup>1</sup>365 days is the maximum explicit length that can be set for these attributes.
-
-#### Exceptions
-| Property | Affects | Default |
-| --- | --- | --- |
-| Refresh Token Max Age (issued for federated users who have insufficient revocation information<sup>1</sup>) |Refresh tokens (issued for federated users who have insufficient revocation information<sup>1</sup>) |12 hours |
-| Refresh Token Max Inactive Time (issued for confidential clients) |Refresh tokens (issued for confidential clients) |90 days |
-| Refresh Token Max Age (issued for confidential clients) |Refresh tokens (issued for confidential clients) |Until-revoked |
-
-* <sup>1</sup> Federated users who have insufficient revocation information include any users who do not have the "LastPasswordChangeTimestamp" attribute synced. These users are given this short Max Age because Azure Active Directory is unable to verify when to revoke tokens that are tied to an old credential (such as a password that has been changed) and must check back in more frequently to ensure that the user and associated tokens are still in good standing. To improve this experience, tenant admins must ensure that they are syncing the “LastPasswordChangeTimestamp” attribute (this can be set on the user object using PowerShell or through AADSync).
-
-### Configurable policy property details
-
-#### Refresh Token Max Inactive Time
-**String:** MaxInactiveTime
-
-**Affects:** Refresh tokens
-
-**Summary:** This policy controls how old a refresh token can be before a client can no longer use it to retrieve a new access/refresh token pair when attempting to access this resource. Because a new refresh token usually is returned when a refresh token is used, this policy prevents access if the client tries to access any resource by using the current refresh token during the specified period of time.
-
-This policy forces users who have not been active on their client to reauthenticate to retrieve a new refresh token.
-
-The Refresh Token Max Inactive Time property must be set to a lower value than the Single-Factor Token Max Age and the Multi-Factor Refresh Token Max Age properties.
-
-For an example, see [Create a policy for a native app that calls a web API](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
-
-#### Single-Factor Refresh Token Max Age
-**String:** MaxAgeSingleFactor
-
-**Affects:** Refresh tokens
-
-**Summary:** This policy controls how long a user can use a refresh token to get a new access/refresh token pair after they last authenticated successfully by using only a single factor. After a user authenticates and receives a new refresh token, the user can use the refresh token flow for the specified period of time. (This is true as long as the current refresh token is not revoked, and it is not left unused for longer than the inactive time.) At that point, the user is forced to reauthenticate to receive a new refresh token.
-
-Reducing the max age forces users to authenticate more often. Because single-factor authentication is considered less secure than multi-factor authentication, we recommend that you set this property to a value that is equal to or lesser than the Multi-Factor Refresh Token Max Age property.
-
-For an example, see [Create a policy for a native app that calls a web API](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
-
-#### Multi-Factor Refresh Token Max Age
-**String:** MaxAgeMultiFactor
-
-**Affects:** Refresh tokens
-
-**Summary:** This policy controls how long a user can use a refresh token to get a new access/refresh token pair after they last authenticated successfully by using multiple factors. After a user authenticates and receives a new refresh token, the user can use the refresh token flow for the specified period of time. (This is true as long as the current refresh token is not revoked, and it is not unused for longer than the inactive time.) At that point, users are forced to reauthenticate to receive a new refresh token.
-
-Reducing the max age forces users to authenticate more often. Because single-factor authentication is considered less secure than multi-factor authentication, we recommend that you set this property to a value that is equal to or greater than the Single-Factor Refresh Token Max Age property.
-
-For an example, see [Create a policy for a native app that calls a web API](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
-
-#### Single-Factor Session Token Max Age
-**String:** MaxAgeSessionSingleFactor
-
-**Affects:** Session tokens (persistent and nonpersistent)
-
-**Summary:** This policy controls how long a user can use a session token to get a new ID and session token after they last authenticated successfully by using only a single factor. After a user authenticates and receives a new session token, the user can use the session token flow for the specified period of time. (This is true as long as the current session token is not revoked and has not expired.) After the specified period of time, the user is forced to reauthenticate to receive a new session token.
-
-Reducing the max age forces users to authenticate more often. Because single-factor authentication is considered less secure than multi-factor authentication, we recommend that you set this property to a value that is equal to or less than the Multi-Factor Session Token Max Age property.
-
-For an example, see [Create a policy for web sign-in](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
-
-#### Multi-Factor Session Token Max Age
-**String:** MaxAgeSessionMultiFactor
-
-**Affects:** Session tokens (persistent and nonpersistent)
-
-**Summary:** This policy controls how long a user can use a session token to get a new ID and session token after the last time they authenticated successfully by using multiple factors. After a user authenticates and receives a new session token, the user can use the session token flow for the specified period of time. (This is true as long as the current session token is not revoked and has not expired.) After the specified period of time, the user is forced to reauthenticate to receive a new session token.
-
-Reducing the max age forces users to authenticate more often. Because single-factor authentication is considered less secure than multi-factor authentication, we recommend that you set this property to a value that is equal to or greater than the Single-Factor Session Token Max Age property.
 
 ## Configurable token lifetime properties after the retirement
 Refresh and session token configuration are affected by the following properties and their respectively set values. After the retirement of refresh and session token configuration on January 30, 2021, Azure AD will only honor the default values described below. If you decide not to use Conditional Access to manage sign-in frequency, your refresh and session tokens will be set to the default configuration on that date and you’ll no longer be able to change their lifetimes.  
