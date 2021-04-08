@@ -25,7 +25,7 @@ keywords: anomaly detection, algorithms
 
 ::: zone pivot="programming-language-javascript"
 
-New Quickstart content goes here.
+[!INCLUDE [C# quickstart](../includes/quickstarts/anomaly-detector-client-library-javascript-multivariate.md)]
 
 ::: zone-end
 

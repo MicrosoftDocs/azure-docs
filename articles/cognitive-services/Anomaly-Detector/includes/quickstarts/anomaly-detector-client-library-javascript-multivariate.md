@@ -78,10 +78,10 @@ Your app's `package.json` file will be updated with the dependencies.
 These code snippets show you how to do the following with the Anomaly Detector client library for Node.js:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Load a time series data set from a file](#load-time-series-data-from-a-file)
-* [Detect anomalies in the entire data set](#detect-anomalies-in-the-entire-data-set) 
-* [Detect the anomaly status of the latest data point](#detect-the-anomaly-status-of-the-latest-data-point)
-* [Detect the change points in the data set](#detect-change-points-in-the-data-set)
+* [Train a model](#train-a-model)
+* [Detect anomalies](#detect-anomalies)
+* [Export model](#export-model)
+* [Delete model](#delete-model)
 
 ## Authenticate the client
 
@@ -91,6 +91,90 @@ Instantiate a `AnomalyDetectorClient` object with your endpoint and credentials.
 const client = new AnomalyDetectorClient(endpoint, new AzureKeyCredential(apiKey)).client;
 ```
 
+## Train a model
+
+### Construct a model result
+
+First we need to construct a model request. Make sure that start and end time align with your data source.
+
+```javascript
+const Modelrequest = {
+      source: data_source,
+      startTime: new Date(2021,0,1,0,0,0),
+      endTime: new Date(2021,0,2,12,0,0),
+      slidingWindow:200
+    };    
+```
+
+### Train a new model
+
+You will need to pass your model request to the Anomaly Detector client `trainMultivariateModel` method.
+
+```javascript
+console.log("Training a new model...")
+var train_response = await client.trainMultivariateModel(Modelrequest)
+var model_id = train_response.location.split("/").pop()
+console.log("New model ID: " + model_id)
+```
+
+To check if training of your model is complete you can track the model's status:
+
+```javascript
+var model_response = await client.getMultivariateModel(model_id)
+var model_status = model_response.modelInfo.status
+
+while (model_status != 'READY'){
+    await sleep(10000).then(() => {});
+    var model_response = await client.getMultivariateModel(model_id)
+    var model_status = model_response.modelInfo.status
+}
+
+console.log("TRAINING FINISHED.")
+```
+
+## Detect anomalies
+
+Use the `detectAnomaly` and `getDectectionResult` functions to determine if there are any anomalies within your datasource.
+
+```javascript
+console.log("Start detecting...")
+const detect_request = {
+    source: data_source,
+    startTime: new Date(2021,0,2,12,0,0),
+    endTime: new Date(2021,0,3,0,0,0)
+};
+const result_header = await client.detectAnomaly(model_id, detect_request)
+const result_id = result_header.location.split("/").pop()
+var result = await client.getDetectionResult(result_id)
+var result_status = result.summary.status
+
+while (result_status != 'READY'){
+    await sleep(2000).then(() => {});
+    var result = await client.getDetectionResult(result_id)
+    var result_status = result.summary.status
+}
+```
+
+## Export model
+
+To export your trained model use the `exportModel` function.
+
+```javascript
+const export_result = await client.exportModel(model_id)
+const model_path = "model.zip"
+const destination = fs.createWriteStream(model_path)
+export_result.readableStreamBody.pipe(destination)
+console.log("New model has been exported to "+model_path+".")
+```
+
+## Delete model
+
+To delete an existing model that is available to the current resource use the `deleteMultivariateModel` function.
+
+```javascript
+client.deleteMultivariateModel(model_id)
+console.log("New model has been deleted.")
+```
 
 ## Run the application
 
@@ -100,4 +184,6 @@ Run the application with the `node` command on your quickstart file.
 node index.js
 ```
 
-[!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]
+## Next steps
+
+* [Anomaly Detector multivariate best practices](../../concepts/best-practices-multivariate.md)
