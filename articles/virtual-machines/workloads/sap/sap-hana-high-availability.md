@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/16/2021
+ms.date: 04/08/2021
 ms.author: radeltch
 
 ---
@@ -494,6 +494,69 @@ The steps in this section use the following prefixes:
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
+
+## Implement Python hook SAPHanaSR
+
+This is important step to optimize the integration in the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.    
+
+1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
+
+> [!TIP]
+> Verify that package SAPHanaSR is at least version 0.153 to be able to use the SAPHanaSR Python hook functionality.   
+> The python hook can only be implemented for HANA 2.0.        
+
+   1. Prepare the hook as `root` 
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Stop HANA on both nodes. Execute as <sid\>adm:
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Adjust `global.ini`
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+
+3. **[A]** Start SAP HANA on both nodes. Execute as <sid\>adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
+
+    ```bash
+    cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+
+     # 2021-03-31 01:02:42.695244 ha_dr_SAPHanaSR SFAIL
+     # 2021-03-31 01:02:58.966856 ha_dr_SAPHanaSR SFAIL
+     # 2021-03-31 01:03:04.453100 ha_dr_SAPHanaSR SFAIL
+     # 2021-03-31 01:03:04.619768 ha_dr_SAPHanaSR SFAIL
+     # 2021-03-31 01:03:04.743444 ha_dr_SAPHanaSR SFAIL
+     # 2021-03-31 01:04:15.062181 ha_dr_SAPHanaSR SOK
+    ```
 
 ## Create SAP HANA cluster resources
 
