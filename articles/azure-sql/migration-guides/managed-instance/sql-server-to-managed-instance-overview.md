@@ -30,6 +30,18 @@ For other scenarios, see the [Database Migration Guide](https://datamigration.mi
 
 [Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md) is a recommended target option for SQL Server workloads that require a fully managed service without having to manage virtual machines or their operating systems. SQL Managed Instance enables you to lift-and-shift your on-premises applications to Azure with minimal application or database changes while having complete isolation of your instances with native virtual network (VNet) support. 
 
+At a high level, the database migration process for Azure SQL Managed Instance looks like:
+
+![Migration process](./media/sql-server-to-managed-instance-overview/migration-process.png)
+
+- [Assess SQL Managed Instance compatibility](sql-server-to-managed-instance-guide.ms#Assess) where you should ensure that there are no blocking issues that can prevent your migrations.
+  
+  This step also includes creation of a [performance baseline](sql-server-to-sql-managed-instance-performance-baseline.md) to determine resource usage on your source SQL Server instance. This step is needed if you want to deploy a properly sized managed instance and verify that performance after migration is not affected.
+- [Choose app connectivity options](../../managed-instance/connect-application-instance.md).
+- [Deploy to an optimally sized managed instance](#deploy-to-an-optimally-sized-managed-instance) where you will choose technical characteristics (number of vCores, amount of memory) and performance tier (Business Critical, General Purpose) of your managed instance.
+- [Select migration method and migrate](#migration-tools) where you migrate your databases using one of the available tools and techniques.
+- [Monitor applications](sql-server-to-managed-instance-guide.md#monitor-applications) to ensure that you have expected performance.
+
 ## Considerations 
 
 The key factors to consider when evaluating migration options depend on: 
@@ -45,7 +57,7 @@ One of the key benefits of migrating your SQL Servers to SQL Managed Instance is
 > Azure SQL Managed Instance guarantees 99.99% availability even in critical scenarios, so overhead caused by some features in SQL MI cannot be disabled. For more information, see the [root causes that might cause different performance on SQL Server and Azure SQL Managed Instance](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/) blog. 
 
 
-## Choose appropriate target
+## Deploy to an optimally sized managed instance
 
 Some general guidelines to help you choose the right service tier and characteristics of SQL Managed Instance to help match your [performance baseline](sql-server-to-managed-instance-performance-baseline.md): 
 
@@ -56,8 +68,12 @@ Some general guidelines to help you choose the right service tier and characteri
 
 You can choose compute and storage resources during deployment and then change them after using the [Azure portal](../../database/scale-resources.md) without incurring downtime for your application. 
 
+![Managed instance sizing](./media/sql-server-to-managed-instance-overview/managed-instance-sizing.png)
+
+To learn how to create the VNet infrastructure and a managed instance, see [Create a managed instance](../../managed-instance/instance-create-quickstart.md).
+
 > [!IMPORTANT]
-> Any discrepancy in the [managed instance virtual network requirements](../../managed-instance/connectivity-architecture-overview.md#network-requirements) can prevent you from creating new instances or using existing ones. Learn more about [creating new](../../managed-instance/virtual-network-subnet-create-arm-template.md) and [configuring existing](../../managed-instance/vnet-existing-add-subnet.md) networks. 
+> It is important to keep your destination VNet and subnet in accordance with [managed instance VNet requirements](../../managed-instance/connectivity-architecture-overview.md#network-requirements). Any incompatibility can prevent you from creating new instances or using those that you already created. Learn more about [creating new](../../managed-instance/virtual-network-subnet-create-arm-template.md) and [configuring existing](../../managed-instance/vnet-existing-add-subnet.md) networks.
 
 Another key consideration in the selection of the target service tier in Azure SQL Managed Instance (General Purpose Vs Business Critical) is the availability of certain features like In-Memory OLTP that is only available in Business Critical tier. 
 
