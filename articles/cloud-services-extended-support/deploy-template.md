@@ -22,12 +22,10 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 
 3. Create a public IP address and set the DNS label property of the public IP address. Cloud Services (extended support) only supports [Basic] (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) SKU Public IP addresses. Standard SKU Public IPs do not work with Cloud Services.
 If you are using a Static IP, it needs to be referenced as a Reserved IP in Service Configuration (.cscfg) file. If using an existing IP address, skip this step and add the IP address information directly into the load balancer configuration settings of your ARM template.
-
-4. Create a Network Profile Object and associate the public IP address to the frontend of the load balancer. The Azure platform automatically creates a 'Classic' SKU load balancer resource in the same subscription as the cloud service resource. The load balancer resource is a read-only resource in ARM. Any updates to the resource are supported only via the cloud service deployment files (.cscfg & .csdef)
  
-5. Create a new storage account using the [Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal) or [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). This step is optional if you are using an existing storage account.
+4. Create a new storage account using the [Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal) or [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). This step is optional if you are using an existing storage account.
 
-6. Upload your Service Definition (.csdef) and Service Configuration (.cscfg) files to the storage account using the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) or [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtain the SAS URIs of both files to be added to the ARM template later in this tutorial.
+5. Upload your Service Definition (.csdef) and Service Configuration (.cscfg) files to the storage account using the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) or [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtain the SAS URIs of both files to be added to the ARM template later in this tutorial.
 
 6. (Optional) Create a key vault and upload the certificates.
 
