@@ -138,7 +138,7 @@ This article explains how to create a new flow in Power Automate to generate the
 
 1. Select the **Actions tab** with the action to **create a new record**.
 
-    ![Create a new record](./media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png)
+    ![Select create a new record](./media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png)
 
 1. Provide the **Organization Name** associated with the CRM system. Select **Leads** from the **Entity Name** drop-down list.
 
