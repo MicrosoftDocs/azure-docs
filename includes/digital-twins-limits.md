@@ -3,7 +3,7 @@ author: baanders
 description: include file for Azure Digital Twins limits
 ms.service: digital-twins
 ms.topic: include
-ms.date: 6/9/2020
+ms.date: 4/8/2021
 ms.author: baanders
 ---
 
@@ -41,7 +41,8 @@ The following table reflects the rate limits of different APIs.
 | API | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
 | Models API | Number of requests per second | 100 | Yes |
-| Digital Twins API | Number of requests per second | 2,000 | Yes |
+| Digital Twins API | Number of read requests per second | 1,000 | Yes |
+| Digital Twins API | Number of patch requests per second | 1,000 | Yes |
 | Digital Twins API | Number of create/delete operations per second across **all twins and relationships** | 50 | Yes |
 | Digital Twins API | Number of create/update/delete operations per second on a **single twin** or its relationships | 10 | No |
 | Query API | Number of requests per second | 500 | Yes |
