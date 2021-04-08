@@ -57,7 +57,7 @@ The following code example shows how to create a phone number service client wit
      public void ListPhoneNumbers(Uri resourceEdnpont)
      {
           TokenCredential credential = new DefaultAzureCredential();
-          var client = new PhoneNumbersClient(endpoint, tokenCredential);credential);
+          var client = new PhoneNumbersClient(endpoint, credential);
 
           var purchasedPhoneNumbers = client.GetPurchasedPhoneNumbersAsync();
           await foreach (var purchasedPhoneNumber in purchasedPhoneNumbers)
@@ -79,9 +79,9 @@ The following code example shows how to create an SMS service client object with
           SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
 
           SmsSendResult sendResult = smsClient.Send(
-               from: from,
-               to: to,
-               message: message,
+               from,
+               to,
+               message,
                new SmsSendOptions(enableDeliveryReport: true) // optional
           );
 
