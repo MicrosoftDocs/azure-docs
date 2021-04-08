@@ -101,15 +101,16 @@ At the factory, once the devices are imaged, the volume level BitLocker encrypti
 
 The encryption-at-rest key is a 32 character long Base-64 encoded key that you provide and this key is used to protect the actual encryption key. Microsoft does not have access to this encryption-at-rest key that protects your data. The key is saved in a key file on the **Cloud details** page after the device is activated.
 
-When the device is activated, you are prompted to save the key file that contains recovery keys that help recover the data on the device if the device doesn't boot up. There are two keys in the file:
+When the device is activated, you are prompted to save the key file that contains recovery keys that help recover the data on the device if the device doesn't boot up. Certain recovery scenarios will prompt you for the key file that you have saved. The key file has the following recovery keys:
 
-- One key recovers the device configuration on the OS volumes.
-- Second key (that was used to configure encryption-at-rest) unlocks the hardware encryption in the data disks.
+- A key that helps recover the device configuration on the OS volumes.
+- A key that unlocks the hardware encryption in the data disks.
+- A key that unlocks the second layer of encryption.
+- A key that protects the data flowing through the Azure service.
 
     > [!IMPORTANT]
     > Save the key file in a secure location outside the device itself. If the device doesn't boot up, and you don't have the key, it could potentially result in data loss.
 
-- Certain recovery scenarios will prompt you for the key file that you have saved. 
 
 
 #### Restricted access to data
