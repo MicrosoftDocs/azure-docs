@@ -17,7 +17,7 @@ ms.custom: subject-security-benchmark
 This security baseline applies guidance from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview-v1.md) to Azure Web Application Firewall. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Web Application Firewall. 
 
 > [!NOTE]
-> Controls not applicable to Azure Web Application Firewall, or for which the responsibility is Microsoft's, have been excluded. To see how Azure Web Application Firewall completely maps to the Azure Security Benchmark, see the [full Azure Web Application Firewall security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/azure-web-application-firewall-security-baseline-v1.1.xlsx).
+> **Controls** not applicable to Azure Web Application Firewall, or for which the responsibility is Microsoft's, have been excluded. To see how Azure Web Application Firewall completely maps to the Azure Security Benchmark, see the **[full Azure Web Application Firewall security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/azure-web-application-firewall-security-baseline-v1.1.xlsx)**.
 
 ## Network Security
 

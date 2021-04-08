@@ -17,7 +17,7 @@ ms.custom: subject-security-benchmark
 This security baseline applies guidance from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview-v1.md) to Azure Virtual Network. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Virtual Network. 
 
 > [!NOTE]
-> Controls not applicable to Virtual Network, or for which the responsibility is Microsoft's, have been excluded. To see how Virtual Network completely maps to the Azure Security Benchmark, see the [full Virtual Network security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/virtual-network-security-baseline-v1.1.xlsx).
+> **Controls** not applicable to Virtual Network, or for which the responsibility is Microsoft's, have been excluded. To see how Virtual Network completely maps to the Azure Security Benchmark, see the **[full Virtual Network security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/virtual-network-security-baseline-v1.1.xlsx)**.
 
 ## Network Security
 
