@@ -34,7 +34,7 @@ Enable Azure Backup and target VM(s), as well as the desired frequency and reten
 
 - [How to enable Azure Backup](../../backup/index.yml)
 
-- [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 ## 9.3: Validate all backups including customer managed keys
 
@@ -46,7 +46,7 @@ Ensure ability to periodically perform data restoration of content within Azure 
 
 - [How to recover files from Azure Virtual Machine backup](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 ## 9.4: Ensure protection of backups and customer managed keys
 

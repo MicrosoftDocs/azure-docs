@@ -135,7 +135,7 @@ To verify, navigate to ***System and Event Viewer Application logs*** and check 
 
 Solution:
 
-* Check for possibilities to distribute the load across the VM disks. This will reduce the load on single disks. You can [check the IOPs throttling by enabling diagnostic metrics at storage level](../virtual-machines/troubleshooting/performance-diagnostics.md#install-and-run-performance-diagnostics-on-your-vm).
+* Check for possibilities to distribute the load across the VM disks. This will reduce the load on single disks. You can [check the IOPs throttling by enabling diagnostic metrics at storage level](/troubleshoot/azure/virtual-machines/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
 * Change the backup policy to perform backups during off peak hours, when the load on the VM is at its lowest.
 * Upgrade the Azure disks to support higher IOPs. [Learn more here](../virtual-machines/disks-types.md)
 
@@ -371,12 +371,12 @@ Typically, the VM Agent is already present in VMs that are created from the Azur
 #### Windows VMs - Set up the agent
 
 * Download and install the [agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to finish the installation.
-* For virtual machines created by using the classic deployment model, [update the VM property](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) to indicate that the agent is installed. This step isn't required for Azure Resource Manager virtual machines.
+* For virtual machines created by using the classic deployment model, [update the VM property](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) to indicate that the agent is installed. This step isn't required for Azure Resource Manager virtual machines.
 
 #### Linux VMs - Set up the agent
 
 * Install the latest version of the agent from the distribution repository. For details on the package name, see the [Linux Agent repository](https://github.com/Azure/WALinuxAgent).
-* For VMs created by using the classic deployment model, [update the VM property](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) and verify that the agent is installed. This step isn't required for Resource Manager virtual machines.
+* For VMs created by using the classic deployment model, [update the VM property](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) and verify that the agent is installed. This step isn't required for Resource Manager virtual machines.
 
 ### Update the VM Agent
 

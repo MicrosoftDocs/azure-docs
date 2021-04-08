@@ -10,7 +10,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: [mvc, mqtt, devx-track-python, 'Role: Cloud Development', devx-track-azurecli]
 ms.date: 06/16/2020
-# As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
+#Customer intent: As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
 # Quickstart: Send telemetry from a device to an IoT hub and read it with a back-end application (Python)

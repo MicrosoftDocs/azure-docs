@@ -1,11 +1,14 @@
 ---
-title: View alerts
+title: Filter and manage alerts from the Alerts page 
 description: View alerts according to various categories, and uses search features to help you find alerts of interest.
-ms.date: 12/02/2020
+author: shhazam-ms
+manager: rkarlin
+ms.author: shhazam
+ms.date: 3/22/2021
 ms.topic: how-to
 ---
 
-# View alerts
+# Filter and manage alerts from the Alerts page 
 
 This article describes how to view alerts triggered by your sensor and manage them with alert tools.
 

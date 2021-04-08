@@ -60,7 +60,7 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 
 ## Get started fast
 
-  Get up and running with Spring Data Azure Cosmos DB by following our [Spring Boot Starter guide](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). The Spring Boot Starter approach is the recommended way to get started using the Spring Data Azure Cosmos DB connector.
+  Get up and running with Spring Data Azure Cosmos DB by following our [Spring Boot Starter guide](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). The Spring Boot Starter approach is the recommended way to get started using the Spring Data Azure Cosmos DB connector.
 
   Alternatively, you can add the Spring Data Azure Cosmos DB dependency to your `pom.xml` file as shown below:
 

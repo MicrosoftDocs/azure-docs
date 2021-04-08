@@ -26,7 +26,7 @@ You can migrate tests from Network Performance Monitor (NPM) to new, improved Co
 
 The migration helps produce the following results:
 
-* On-premises agents and firewall settings work as is. No changes are required. Log Analytics agents that are installed on Azure virtual machines need to be replaced with the [Network Watcher extension](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
+* On-premises agents and firewall settings work as is. No changes are required. Log Analytics agents that are installed on Azure virtual machines need to be replaced with the [Network Watcher extension](../virtual-machines/extensions/network-watcher-windows.md).
 * Existing tests are mapped to Connection Monitor > Test Group > Test format. By selecting **Edit**, you can view and modify the properties of the new Connection Monitor, download a template to make changes to it, and submit the template via Azure Resource Manager.
 * Agents send data to both the Log Analytics workspace and the metrics.
 * Data monitoring:

@@ -9,6 +9,7 @@ ms.subservice: sql
 ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
+ms.custom: cosmos-db
 ---
 
 # Query Azure Cosmos DB data with a serverless SQL pool in Azure Synapse Link

@@ -93,6 +93,7 @@ For more information see [Get-AzureADServicePrincipal](/powershell/module/azurea
 To assess the security of your service principals, ensure you evaluate privileges and credential storage.
 
 Mitigate potential challenges using the following information.
+
 |Challenges | Mitigations|
 | - | - |
 | Detect the user that consented to a multi-tenant app​, and detect illicit consent grants to a multi-tenant app | Run the following PowerShell to find multi-tenant apps.<br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`<br>Disable user consent. ​<br>Allow user consent from verified publishers, for selected permissions (recommended) <br> Use conditional access to block service principals from untrusted locations. Configure them under the user context, and their tokens should be used to trigger the service principal.|

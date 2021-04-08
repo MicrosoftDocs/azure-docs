@@ -24,7 +24,7 @@ This article outlines the differences between the Bing Speech APIs and the Speec
 A single Speech service subscription key grants access to the following features. Each is metered separately, so you're charged only for the features you use.
 
 * [Speech-to-text](speech-to-text.md)
-* [Custom speech-to-text](https://cris.ai)
+* [Custom speech-to-text](/azure/cognitive-services/speech-service/custom-speech-overview)
 * [Text-to-speech](text-to-speech.md)
 * [Custom text-to-speech voices](./how-to-custom-voice-create-voice.md)
 * [Speech translation](speech-translation.md) (does not include [Text translation](../translator/translator-info-overview.md))

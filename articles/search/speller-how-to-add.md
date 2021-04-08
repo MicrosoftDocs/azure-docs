@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.custom: references_regions
 ---
 # Add spell check to queries in Cognitive Search
@@ -20,7 +20,7 @@ You can improve recall by spell-correcting individual search query terms before 
 
 ## Prerequisites
 
-+ An existing search index, containing English content
++ An existing search index, containing English content. Currently, spell correction does not work with [synonyms](search-synonyms.md). Avoid using it on indexes that specify a synonym map in any field definition.
 
 + A search client for sending queries
 
