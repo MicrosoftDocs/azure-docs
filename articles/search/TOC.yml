@@ -392,6 +392,8 @@
     items:
     - name: Performance analysis
       href: search-performance-analysis.md
+    - name: Performance benchmarks
+      href: performance-benchmarks.md
     - name: Tips for better performance
       href: search-performance-tips.md
     - name: Diagnostic logging
