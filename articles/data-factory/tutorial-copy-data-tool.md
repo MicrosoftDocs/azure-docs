@@ -69,7 +69,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 2. Allow Azure services to access SQL Server. Verify that the setting **Allow Azure services and resources to access this server** is enabled for your server that's running SQL Database. This setting lets Data Factory write data to your database instance. To verify and turn on this setting, go to logical SQL server > Security > Firewalls and virtual networks > set the **Allow Azure services and resources to access this server** option to **ON**.
 
 > [!NOTE]
-> This will enable network access to your SQL Server from any Azure resource, not just those in your subscription. More on Azure SQL Server Firewall rules vist: https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure.  You can use Private endpoints to connect to PaaS services without using public IPs: https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview
+> The option to **Allow Azure services and resources to access this server** enables network access to your SQL Server from any Azure resource, not just those in your subscription. For more information, see [Azure SQL Server Firewall rules](../azure-sql/database/firewall-configure.md). Instead, you can use [Private endpoints](../private-link/private-endpoint-overview.md) to connect to Azure PaaS services without using public IPs.
 
 ## Create a data factory
 
@@ -111,28 +111,28 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 1. On the **Source data store** page, complete the following steps:
 
-    a. Click **+ Create new connection** to add a connection
+    a. Select **+ Create new connection** to add a connection
 
     b. Select **Azure Blob Storage** from the gallery, and then select **Continue**.
 
     c. On the **New Linked Service** page, select your Azure subscription, and select your storage account from the **Storage account name** list. Test connection and then select **Create**.
 
-    d. Select the newly created linked service as source, then click **Next**.
+    d. Select the newly created linked service as source, then select **Next**.
 
     ![Select source linked service](./media/tutorial-copy-data-tool/select-source-linked-service.png)
 
 1. On the **Choose the input file or folder** page, complete the following steps:
 
-    a. Click **Browse** to navigate to the **adfv2tutorial/input** folder, select the **inputEmp.txt** file, then click **Choose**.
+    a. Select **Browse** to navigate to the **adfv2tutorial/input** folder, select the **inputEmp.txt** file, then select **Choose**.
 
-    b. Click **Next** to move to next step.
+    b. Select **Next** to move to next step.
 
 1. On the **File format settings** page, enable the checkbox for *First row as header*. Notice that the tool automatically detects the column and row delimiters. Select **Next**. You can also preview data and view the schema of the input data on this page.
 
     ![File format settings](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. On the **Destination data store** page, completes the following steps:
 
-    a. Click **+ Create new connection** to add a connection
+    a. Select **+ Create new connection** to add a connection
 
     b. Select **Azure SQL Database** from the gallery, and then select **Continue**.
 
@@ -140,7 +140,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
     ![Configure Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
-    d. Select the newly created linked service as sink, then click **Next**.
+    d. Select the newly created linked service as sink, then select **Next**.
 
 1. On the **Table mapping** page, select the **[dbo].[emp]** table, and then select **Next**.
 
@@ -156,7 +156,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
     ![Monitor pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
     
-1. On the Pipeline runs page, select **Refresh** to refresh the list. Click the link under **PIPELINE NAME** to view activity run details or rerun the pipeline. 
+1. On the Pipeline runs page, select **Refresh** to refresh the list. Select the link under **PIPELINE NAME** to view activity run details or rerun the pipeline. 
     ![Pipeline run](./media/tutorial-copy-data-tool/pipeline-run.png)
 
 1. On the Activity runs page, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column for more details about copy operation. To go back to the Pipeline Runs view, select the **ALL pipeline runs** link in the breadcrumb menu. To refresh the view, select **Refresh**.
