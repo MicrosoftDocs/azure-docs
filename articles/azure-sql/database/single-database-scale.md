@@ -55,7 +55,7 @@ The estimated latency to change the service tier, scale the compute size of a si
 > Additionally, for Standard (S2-S12) and General Purpose databases, latency for moving a database in/out of an elastic pool or between elastic pools will be proportional to database size if the database is using Premium File Share ([PFS](../../storage/files/storage-files-introduction.md)) storage.
 >
 > To determine if a database is using PFS storage, execute the following query in the context of the database. If the value in the AccountType column is `PremiumFileStorage` or `PremiumFileStorage-ZRS`, the database is using PFS storage.
- 
+
 ```sql
 SELECT s.file_id,
        s.type_desc,
@@ -64,6 +64,9 @@ SELECT s.file_id,
 FROM sys.database_files AS s
 WHERE s.type_desc IN ('ROWS', 'LOG');
 ```
+
+> [!NOTE]
+> The zone redundant property will remain the same by default when scaling from the Business Critical to the General Purpose tier. Latency for this downgrade when zone redundancy is enabled as well as latency for switching to zone redundancy for the General Purpose tier will be proportional to database size.
 
 > [!TIP]
 > To monitor in-progress operations, see: [Manage operations using the SQL REST API](/rest/api/sql/operations/list), [Manage operations using CLI](/cli/azure/sql/db/op), [Monitor operations using T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) and these two PowerShell commands: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) and [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).

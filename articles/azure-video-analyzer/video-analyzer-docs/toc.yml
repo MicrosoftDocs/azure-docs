@@ -4,8 +4,26 @@
   items:
   - name: About Azure Video Analyzer
     href: overview.md
-  - name: Terminology
+  - name: About Video Analyzer for Media 
+    href: ../video-analyzer-for-media-docs/video-indexer-overview.md    
+  - name: Video Analyzer terminology
     href: terminology.md
+- name: Quickstarts
+  items:
+  - name: Get started - Azure Video Analytics
+    href: get-started-detect-motion-emit-events.md
+  - name: Analyze live video
+    items:
+    - name: with your own model - HTTP
+      href: analyze-live-video-use-your-model-http.md
+- name: Concepts
+  items:
+  - name: Pipeline extension
+    href: pipeline-extension.md
+  - name: Continuous video recording
+    href: continuous-video-recording.md
+  - name: Record video for playback
+    href: video-recording.md    
 - name: Resources
   items:
   - name: Azure roadmap

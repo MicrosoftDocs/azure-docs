@@ -26,6 +26,10 @@ The most up-to-date information will be maintained in the [Azure SQL Database ga
 
 ## April 2021
 New SQL Gateways are being added to the following regions:
+- East US 2:  40.70.144.193
+This SQL Gateway shall start accepting customer traffic on 30 April 2021.
+
+New SQL Gateways are being added to the following regions:
 - Norway East: 51.120.96.33
 - South East Asia: 13.67.16.193
 - South Africa North: 102.133.152.32

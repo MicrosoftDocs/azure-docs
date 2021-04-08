@@ -26,7 +26,7 @@ This article shows you how to route data to the storage account and then view th
 
 ## Prerequisites
 
-- [Create a Media Services account](../create-account-howto.md).
+- [Create a Media Services account](../account-create-how-to.md).
 - Review  [Monitor Media Services](monitor-media-services.md).
 
 ## Route data to the storage account using the portal
