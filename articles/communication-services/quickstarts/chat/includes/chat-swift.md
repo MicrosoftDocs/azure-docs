@@ -249,7 +249,7 @@ if let id = messageId {
 
 ## Receive chat messages from a chat thread
 
-You can receive messages from a chat thread by calling the `listMessages()` method from `ChatThreadClient`. List messages includes system messages as well as user sent messages. For more information on the types of messages you can receive see [Message Types](https://docs.microsoft.com/en-us/azure/communication-services/concepts/chat/concepts#message-types)
+You can receive messages from a chat thread by calling the `listMessages()` method from `ChatThreadClient`. List messages includes system messages as well as user sent messages. For more information on the types of messages you can receive see [Message Types](https://docs.microsoft.com/azure/communication-services/concepts/chat/concepts#message-types)
 
 Replace the comment `<RECEIVE MESSAGES>` with the following code:
 
