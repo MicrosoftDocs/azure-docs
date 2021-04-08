@@ -61,7 +61,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 3. On the **Create** page, skip **Step 1** if you already have QnA skill added to a Text Analytics service.
 
-        If you haven't created the service yet, select **Create a Text Analytics service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to set up the Text Analytics service in your subscription. You should add a QnA skill to the service on creation. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
+    If you haven't created the service yet, select **Create a Text Analytics service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to set up the Text Analytics service in your subscription. You should add a QnA skill to the service on creation. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
 
     When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
 
