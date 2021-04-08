@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 04/07/2021
+ms.date: 04/08/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
@@ -21,9 +21,10 @@ ms.custom: has-adal-ref
 
 # Known issues with Managed Identities
 
-## VM fails to start after being moved from resource group or subscription
+This article discusses a couple of issues around managed identities and how to address them. Common questions about managed identities are documented in our [frequently asked questions](managed-identities-faq.md) article.
+## VM fails to start after being moved 
 
-If you move a VM in the running state, it continues to run during the move. However, after the move, if the VM is stopped and restarted, it will fail to start. This issue happens because the VM is not updating the reference to the managed identities for Azure resources identity and continues to point to it in the old resource group.
+If you move a VM in a running state from a resource group or subscription, it continues to run during the move. However, after the move, if the VM is stopped and restarted, it will fail to start. This issue happens because the VM is not updating the reference to the managed identities for Azure resources identity and continues to point to it in the old resource group.
 
 **Workaround** 
  
@@ -54,10 +55,7 @@ Workaround for managed identities in a subscription that has been moved to anoth
 
 For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 
-## Moving a user-assigned managed identity to a different resource group/subscription
-
-Moving a user-assigned managed identity to a different resource group is not supported.
 
 ## Next steps
 
-You can review our article listing the [services that support managed identities](services-support-managed-identities.md) and our [frequently asked questions](mi-faq.md)
+You can review our article listing the [services that support managed identities](services-support-managed-identities.md) and our [frequently asked questions](managed-identities-faq.md)

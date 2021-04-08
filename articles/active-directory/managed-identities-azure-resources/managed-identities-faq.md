@@ -1,5 +1,5 @@
 ---
-title: Managed identities for Azure resources Frequently Asked Questions - Azure AD
+title: Managed identities for Azure resources frequently asked questions - Azure AD"
 description: Frequently asked questions about managed identities
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 04/07/2021
+ms.date: 04/08/2021
 ms.author: barclayn
 ---
 
-# Frequently Asked Questions about managed identities for Azure resources
+# Managed identities for Azure resources frequently asked questions - Azure AD
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -43,38 +43,38 @@ az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  princi
 
 You can keep your users from creating user-assigned managed identities using [Azure Policy](../../governance/policy/overview.md)
 
-- Navigate to the [Azure portal](https://portal.azure.com) and go to **Policy**.
-- Choose **Definitions**
-- Select **+ Policy definition** and enter the necessary information.
-- In the policy rule section paste
-
-```json
-{
-  "mode": "All",
-  "policyRule": {
-    "if": {
-      "field": "type",
-      "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
-    },
-    "then": {
-      "effect": "deny"
+1. Navigate to the [Azure portal](https://portal.azure.com) and go to **Policy**.
+2. Choose **Definitions**
+3. Select **+ Policy definition** and enter the necessary information.
+4. In the policy rule section paste
+    
+    ```json
+    {
+      "mode": "All",
+      "policyRule": {
+        "if": {
+          "field": "type",
+          "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
+        },
+        "then": {
+          "effect": "deny"
+        }
+      },
+      "parameters": {}
     }
-  },
-  "parameters": {}
-}
-
-```
+    
+    ```
 
 After creating the policy, assign it to the resource group that you would like to use.
 
-- Navigate to resource groups.
-- Find the resource group that you are using for testing.
-- Choose **Policies** from the left menu.
-- Select **Assign policy**
-- In the **Basics** section, provide:
-    - **Scope** The resource group that we are using for testing
-    - **Policy definition**: The policy that we created earlier.
-- Leave all other settings at their defaults and choose **Review + Create**
+1. Navigate to resource groups.
+2. Find the resource group that you are using for testing.
+3. Choose **Policies** from the left menu.
+4. Select **Assign policy**
+5. In the **Basics** section, provide:
+    1. **Scope** The resource group that we are using for testing
+    1. **Policy definition**: The policy that we created earlier.
+6. Leave all other settings at their defaults and choose **Review + Create**
 
 At this point, any attempt to create a user-assigned managed identity in the resource group will fail.
 
@@ -131,11 +131,16 @@ No. Managed identities do not currently support cross-directory scenarios.
 
 ### Are there any rate limits that apply to managed identities?
 
-Managed identities limits have dependencies on Azure service limits, Azure Instance Metadata Service (IMDS) limits and Azure Active Directory service limits.
+Managed identities limits have dependencies on Azure service limits, Azure Instance Metadata Service (IMDS) limits, and Azure Active Directory service limits.
 
 - **Azure service limits** define the number of create operations that can be performed at the tenant and subscription levels. User assigned managed identities also have [limitations](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits) around how they may be named.
-- **IMDS** In general, requests to IMDS are limited to 5 requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the Managed Identity category are limited to 20 requests per second and 5 concurrent requests. You can read more at the [Azure Instance Metadata Serice (Wiindows)](../../virtual-machines/windows/instance-metadata-service.md?tabs=windows#managed-identity) article.
+- **IMDS** In general, requests to IMDS are limited to five requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the Managed Identity category are limited to 20 requests per second and 5 concurrent requests. You can read more at the [Azure Instance Metadata Serice (Windows)](../../virtual-machines/windows/instance-metadata-service.md?tabs=windows#managed-identity) article.
 - **Azure Active Directory service** Each managed identity counts towards the object quota limit in an Azure AD tenant as described in Azure [AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
+
+
+## Is it Ok to move a user-assigned managed identity to a different resource group/subscription?
+
+Moving a user-assigned managed identity to a different resource group is not supported.
 
 ## Next steps
 
