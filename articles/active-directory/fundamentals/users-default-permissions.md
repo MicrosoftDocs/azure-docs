@@ -125,8 +125,8 @@ Users can perform the following actions on owned devices.
 #### Owned groups
 Users can perform the following actions on owned groups.
 
->[!NOTE]
->Owners of dynamic groups must have a Global administrator, Group administrator, Intune administrator, or User administrator role to edit group membership rules. For more information, see [Create or update a dynamic group in Azure Active Directory](../enterprise-users/groups-create-rule.md).
+> [!NOTE]
+> Owners of dynamic groups must have a Global administrator, Group administrator, Intune administrator, or User administrator role to edit group membership rules. For more information, see [Create or update a dynamic group in Azure Active Directory](../enterprise-users/groups-create-rule.md).
 
 | **Actions** | **Description** |
 | --- | --- |
