@@ -39,7 +39,7 @@ Let's say the marketing team at Microsoft wants to build a FAQ bot that answers 
    ![Screenshot of update metadata](../media/update-metadata.png)
 
 
-3. In this Knowledgebase, we have QnAs on two products and we would like to distinguish them such that we can search for responses amongst QnAs for the product user is referring to. In order to do that, we can update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and **surface_pen** or **surface_earbuds** as values wherever applicable. 
+3. In this Knowledgebase, we have QnAs on two products and we would like to distinguish them such that we can search for responses amongst QnAs for a given product. In order to do that, we should update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and **surface_pen** or **surface_earbuds** as values wherever applicable. 
 
    ![Screenshot of using metadata](../media/using-metadata.png)
 
