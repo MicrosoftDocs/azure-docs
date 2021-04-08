@@ -4,7 +4,9 @@
   items:
   - name: About Azure Video Analyzer
     href: overview.md
-  - name: Terminology
+  - name: About Video Analyzer for Media 
+    href: ../video-analyzer-for-media-docs/video-indexer-overview.md    
+  - name: Video Analyzer terminology
     href: terminology.md
 - name: Quickstarts
   items:
