@@ -25,9 +25,7 @@ zone_pivot_groups: b2c-policy-type
 ## Overview
 As an administrator, you can [reset a user's password](manage-users-portal.md#reset-a-users-password) if the user forgets their password. Or you would like to force them to reset the password. In this article, you'll learn how to force a password reset in these scenarios.
 
-When an administrator resets a user's password via the Azure portal, the value of the [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) attribute is set to `true`.
-
-The [sign-in and sign-up journey](add-sign-up-and-sign-in-policy.md) checks the value of this attribute. After the user completes the sign-in, if the attribute is set to `true`, the user must reset their password. Then the value of the attribute is set to back `false`.
+When an administrator resets a user's password via the Azure portal, the value of the [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) attribute is set to `true`. The [sign-in and sign-up journey](add-sign-up-and-sign-in-policy.md) checks the value of this attribute. After the user completes the sign-in, if the attribute is set to `true`, the user must reset their password. Then the value of the attribute is set to back `false`.
 
 ![Force password reset flow](./media/force-password-reset/force-password-reset-flow.png)
 
