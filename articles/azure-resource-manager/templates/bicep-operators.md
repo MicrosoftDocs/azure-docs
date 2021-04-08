@@ -7,7 +7,7 @@ ms.date: 04/07/2021
 
 # Bicep operators
 
-This article describes the Bicep operators that are available when you create a Bicep template and use Azure Resource Manager (ARM) to deploy resources. Operators are used to calculate values, compare values, or evaluate conditions. There are three types of Bicep operators: [comparison](#comparison), [logical](#logical), and [numeric](#numeric).
+This article describes the Bicep operators that are available when you create a Bicep template and use Azure Resource Manager to deploy resources. Operators are used to calculate values, compare values, or evaluate conditions. There are three types of Bicep operators: [comparison](#comparison), [logical](#logical), and [numeric](#numeric).
 
 ## Comparison
 
