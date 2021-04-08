@@ -95,7 +95,7 @@ The following sections specify the parameters required for all authentication ty
     Sample query:
 
     ``` Kusto
-    let gran = 1d; [TableName] | where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
+    [TableName] | where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
     ```
     Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
   
@@ -105,9 +105,9 @@ The following sections specify the parameters required for all authentication ty
 
     * **Basic** : See [Configure Azure Storage connection strings](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string#configure-a-connection-string-for-an-azure-storage-account) for information on retrieving this string. Also, you can just go to Azure portal for your Azure Blob Storage resource, and find connection string directly in **Settings > Access keys** section.
     
-    * **Managed Identity**: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. 
+    * **Managed Identity**: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. Need describe how to enable metrics advisor managed idenetity? 
     
-    To enable managed identity on metrics advisor, the managed identity name must be the metrics advisor name. You can create managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create.
+    To enable managed identity on metrics advisor, the managed identity name must be the metrics advisor name. You can create managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create. Should add role type: Storage Blob Data Reader.
     
     ![MI blob](media/MI-blob.png)
     
@@ -161,7 +161,7 @@ The following sections specify the parameters required for all authentication ty
     Sample query:
     
     ``` mssql
-    select [TimestampColumn], [DimensionName], count(*) from [TableName] where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
+    select [TimestampColumn], [DimensionName], [MetricColumnName] from [TableName] where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
     ```
 
     Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
@@ -213,7 +213,7 @@ The following sections specify the parameters required for all authentication ty
     Sample query:
     
     ``` Kusto
-   let gran = 1d; [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
+   [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
    ```
 
     Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
@@ -329,7 +329,7 @@ To get **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Registe
         Data Source=<Server>,<Port>;Initial Catalog=<db-name>;User Id=<user-name>;Password=<password>
         ```
     
-    * **Managed Identity** : Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
+    * **Managed Identity** : Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section. It's better to provide a document to describe how to setup Mi on sql. I think user may confuse how to set MI via the link you provided because we are not a VM MI.
         Here is an example of connection string: 
         
         ```
@@ -455,7 +455,8 @@ Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-que
 
 * **Connection String**: The connection string to access your MongoDB.
 * **Database**: The database to query against.
-* **Query**: A command to get and formulate data into multi-dimensional time series data for ingestion.
+* **Query**: A command to get and formulate data into multi-dimensional time series data for ingestion. Query should be executed on db.runCommand(). Link: https://docs.mongodb.com/manual/reference/method/db.runCommand/index.html![image](https://user-images.githubusercontent.com/61769706/114009115-72e39a80-9895-11eb-8b81-6b28cb7381fe.png)
+
 
     Sample query:
 
