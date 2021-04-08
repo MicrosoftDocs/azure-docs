@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device on Linux
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/12/2021
+ms.date: 04/07/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -259,31 +259,6 @@ Manage your Azure IoT Edge device from the cloud to deploy a module that will se
 ![Diagram - deploy module from cloud to device](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
-Since IoT Edge version 1.2 is in public preview, there is an extra step to take to update the runtime modules to their public preview versions as well.
-
-1. From the device details page, select **Set Modules** again.
-
-1. Select **Runtime Settings**.
-
-1. Update the **Image** field for both the IoT Edge hub and IoT Edge agent modules to use the version tag 1.2.0-rc4. For example:
-
-   * `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`
-   * `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4`
-
-1. The simulated temperature sensor module should still be listed in the modules section. You don't need to make any changes to that module for the public preview.
-
-1. Select **Review + create**.
-
-1. Select **Create**.
-
-1. On the device details page, you can select either **$edgeAgent** or **$edgeHub** to see the module details reflect the public preview version of the image.
-
-:::moniker-end
-<!-- end 1.2 -->
 
 ## View generated data
 

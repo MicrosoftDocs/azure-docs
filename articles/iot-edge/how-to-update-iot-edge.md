@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/01/2021
+ms.date: 04/07/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -197,9 +197,9 @@ Some of the key differences between 1.2 and earlier versions include:
 
 * The package name changed from **iotedge** to **aziot-edge**.
 * The **libiothsm-std** package is no longer used. If you used the standard package provided as part of the IoT Edge release, then your configurations can be transferred to the new version. If you used a different implementation of libiothsm-std, then any user-provided certificates like the device identity certificate, device CA, and trust bundle will need to be reconfigured.
-* A new identity service, **aziot-identity-service** was introduced as part of the 1.2 release. This service handles the identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub, like Azure IoT Hub Device Update. <!--TODO: add link to ADU when available -->
+* A new identity service, **aziot-identity-service** was introduced as part of the 1.2 release. This service handles the identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub, like [Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md).
 * The default config file has a new name and location. Formerly `/etc/iotedge/config.yaml`, your device configuration information is now expected to be in `/etc/aziot/config.toml` by default. The `iotedge config import` command can be used to help migrate configuration information form the old location and syntax to the new one.
-* Any modules that use the IoT Edge workload API to encrypt or decrypt persistent data can't be decrypted after the update. IoT Edge dynamically generates a master identity key and encryption key for internal use. This key won't be transferred to the new service. IoT Edge v1.2 will generate a new one.
+* The master encryption key that IoT Edge uses for the workload API to encrypt or decrypt persistent data will be imported into the new service.  However, if you downgrade a device from 1.2 back to an earlier version, the encryption key will be regenerated. Back up any persistent data before downgrading any devices.
 
 Before automating any update processes, validate that it works on test machines.
 
