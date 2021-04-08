@@ -65,7 +65,7 @@ You can keep your users from creating user-assigned managed identities using [Az
 
 ```
 
-After creating the policy assign it to the resource group that you would like to use.
+After creating the policy, assign it to the resource group that you would like to use.
 
 - Navigate to resource groups.
 - Find the resource group that you are using for testing.
@@ -76,7 +76,7 @@ After creating the policy assign it to the resource group that you would like to
     - **Policy definition**: The policy that we created earlier.
 - Leave all other settings at their defaults and choose **Review + Create**
 
-At this point any attempt to create a user-assigned managed identity in the resource group will fail.
+At this point, any attempt to create a user-assigned managed identity in the resource group will fail.
 
   ![Policy violation](./media/known-issues/policy-violation.png)
 
@@ -84,12 +84,12 @@ At this point any attempt to create a user-assigned managed identity in the reso
 
 ### Do managed identities have a backing app object?
 
-No. Managed identities and Azure AD App Registrations are not the same thing in the directory. 
+No. Managed identities and Azure AD App Registrations are not the same thing in the directory.
 
-App registrations have two components: An Application Object + A Service Principal Object. 
-Managed Identities for Azure resources have only one of those components: A Service Principal Object. 
+App registrations have two components: An Application Object + A Service Principal Object.
+Managed Identities for Azure resources have only one of those components: A Service Principal Object.
 
-Managed identities don't have an application object in the directory, which is what is commonly used to grant app permissions for MS graph. Instead, MS graph permissions for managed identities need to be granted directly to the Service Principal.  
+Managed identities don't have an application object in the directory, which is what is commonly used to grant app permissions for MS graph. Instead, MS graph permissions for managed identities need to be granted directly to the Service Principal.
 
 ### What is the credential associated with a managed identity? How long is it valid and how often is it rotated?
 
@@ -100,16 +100,15 @@ Managed identities use certificate-based authentication. Each managed identityâ€
 
 ### What identity will IMDS default to if don't specify the identity in the request?
 
-- If system assigned managed identity is enabled and no identity is specified in the request, IMDS will default to the system assigned managed identity.
-- If system assigned managed identity is not enabled, and only one user assigned managed identity exists, IMDS will default to that single user assigned managed identity. 
-- If system assigned managed identity is not enabled, and multiple user assigned managed identities exist, then specifying a managed identity in the request is required.
-
+- If system assigned managed identity is enabled and no identity is specified in the request, IMDS defaults to the system assigned managed identity.
+- If system assigned managed identity is not enabled, and only one user assigned managed identity exists, IMDS defaults to that single user assigned managed identity.
+- If system assigned managed identity is not enabled, and multiple user assigned managed identities exist, then you are required to specify a managed identity in the request.
 
 ## Limitations
 
 ### Can the same managed identity be used across multiple regions?
 
-In short, yes you can use user assigned managed identities in more than one Azure region. The longer answer is that while user assigned managed identities are created as regional resources the associated [service principal](../develop/app-objects-and-service-principals.md#service-principal-object) (SPN) created in Azure AD is available globally. The service principal can be used from any Azure region and its availability is dependent on the availability of Azure AD. For example, if you created a user assigned managed identity in the South-Central region and that region becomes unavailable this issue only impacts [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md) activities on the managed identity itself.  The activities performed by any resources already configured to use the managed identities would not be impacted.
+In short, yes you can use user assigned managed identities in more than one Azure region. The longer answer is that while user assigned managed identities are created as regional resources the associated [service principal](../develop/app-objects-and-service-principals.md#service-principal-object) (SP) created in Azure AD is available globally. The service principal can be used from any Azure region and its availability is dependent on the availability of Azure AD. For example, if you created a user assigned managed identity in the South-Central region and that region becomes unavailable this issue only impacts [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md) activities on the managed identity itself.  The activities performed by any resources already configured to use the managed identities would not be impacted.
 
 ### Does managed identities for Azure resources work with Azure Cloud Services?
 
@@ -134,9 +133,9 @@ No. Managed identities do not currently support cross-directory scenarios.
 
 Managed identities limits have dependencies on Azure service limits, Azure Instance Metadata Service (IMDS) limits and Azure Active Directory service limits.
 
-**Azure service limits** define the number of create operations that can be performed at the tenant and subscription levels. User assigned managed identities also have [limitations](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits) around how they may be named.
-**IMDS** In general, requests to IMDS are limited to 5 requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the Managed Identity category are limited to 20 requests per second and 5 concurrent requests. You can read more at the [Azure Instance Metadata Serice (Wiindows)](../../virtual-machines/windows/instance-metadata-service.md?tabs=windows#managed-identity) article.
-**Azure Active Directory service** Each managed identity counts towards the object quota limit in an Azure AD tenant as described in Azure [AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
+- **Azure service limits** define the number of create operations that can be performed at the tenant and subscription levels. User assigned managed identities also have [limitations](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits) around how they may be named.
+- **IMDS** In general, requests to IMDS are limited to 5 requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the Managed Identity category are limited to 20 requests per second and 5 concurrent requests. You can read more at the [Azure Instance Metadata Serice (Wiindows)](../../virtual-machines/windows/instance-metadata-service.md?tabs=windows#managed-identity) article.
+- **Azure Active Directory service** Each managed identity counts towards the object quota limit in an Azure AD tenant as described in Azure [AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
 
 ## Next steps
 
