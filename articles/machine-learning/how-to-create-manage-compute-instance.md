@@ -105,9 +105,31 @@ For information on creating a compute instance in the studio, see [Create comput
 
 You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance). 
 
-### <a name="setup-script"></a> Customize the compute instance with a script (preview)
 
-Use a setup script for an automated way to customize and configure the compute instance at provisioning time. As an administrator, you can write a customization script to be used across all compute instances in the workspace to provision according to your requirements. 
+
+## Create on behalf of (preview)
+
+As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
+
+* [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/fhir/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
+
+* REST API
+
+The data scientist you create the compute instance for needs the following be [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) permissions: 
+* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
+
+The data scientist can start, stop, and restart the compute instance. They can use the compute instance for:
+* Jupyter
+* JupyterLab
+* RStudio
+* Integrated notebooks
+
+## <a name="setup-script"></a> Customize the compute instance with a script (preview)
+
+Use a setup script for an automated way to customize and configure the compute instance at provisioning time. As an administrator, you can write a customization script to be used to provision all compute instances in the workspace according to your requirements. 
 
 Some examples of what you can do in a setup script:
 
@@ -126,13 +148,13 @@ The setup script is a shell script which runs as *azureuser*.  Create or upload 
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/create-or-upload-file.png" alt-text="Create or upload your setup script to Notebooks file in studio":::
 
-When the script runs, the root directory will be the current working directory. The directory where the file will be located is */mnt/batch/tasks/shared/LS_root/mounts/clusters/<ciname>/code/Users/*.  
+When the script runs, the root directory will be the current working directory. If you upload the script to **Users>admin**, reference the file at */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users/admin* when provisioning the compute instance named **ciname**.
 
-Script arguments can be referred to in the script as $1, $2, etc. For example, if you execute `scriptname my-ciname` then in the script you can `cd /mnt/batch/tasks/shared/LS_root/mounts/clusters/$1/code` to navigate to the directory where the script is stored.
+Script arguments can be referred to in the script as $1, $2, etc. For example, if you execute `scriptname ciname` then in the script you can `cd /mnt/batch/tasks/shared/LS_root/mounts/clusters/$1/code/admin` to navigate to the directory where the script is stored.
 
-You can retrieve the path of the script via:
+You can also retrieve the path inside the script:
 
-```sh
+```shell
 #!/bin/bash 
 SCRIPT=$(readlink -f "$0") 
 SCRIPT_PATH=$(dirname "$SCRIPT") 
@@ -153,38 +175,34 @@ Once you store the script, refer to it during creation of your compute instance:
 * In a Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance), add `setupScripts`. For example:
 
     ```json
-    "setupScripts":{"scripts":{"creationScript":{"scriptSource": "workspaceStorage", "scriptData":"[parameters('creationScript.location')]","scriptArguments":"[parameters('creationScript.cmdArguments')]"}}} 
+"setupScripts":{
+      "scripts":{
+         "creationScript":{
+            "scriptSource":"workspaceStorage",
+            "scriptData":"[parameters('creationScript.location')]",
+            "scriptArguments":"[parameters('creationScript.cmdArguments')]"
+         }
+      }
+   }
     ```
 
     You could instead provide the script inline for a Resource Manager template.  The shell command can refer to any dependencies uploaded into the notebooks file share.  For example, specify a base64 encoded command string for `scriptData`:
 
     ```json
-    "setupScripts":{"scripts":{"creationScript":{"scriptSource": "inline", "scriptData":"[base64(parameters('inlineCommand'))]","scriptArguments":"[parameters('creationScript.cmdArguments')]"}}}
+   "setupScripts":{
+      "scripts":{
+         "creationScript":{
+            "scriptSource":"inline",
+            "scriptData":"[base64(parameters('inlineCommand'))]",
+            "scriptArguments":"[parameters('creationScript.cmdArguments')]"
+         }
+      }
+   }
     ```
 
 ### Setup script logs
 
 Logs from the setup script execution appear in the logs folder in the compute instance details page. Logs are stored back to your notebooks file share under the Logs\<compute instance name> folder. Script file and command arguments for a particular compute instance are shown in the details page.
-
-### Create on behalf of (preview)
-
-As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
-
-* [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/fhir/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
-
-* REST API
-
-The data scientist you create the compute instance for needs the following be [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) permissions: 
-* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
-
-The data scientist can start, stop, and restart the compute instance. They can use the compute instance for:
-* Jupyter
-* JupyterLab
-* RStudio
-* Integrated notebooks
 
 ## Manage
 
