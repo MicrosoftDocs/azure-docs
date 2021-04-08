@@ -19,7 +19,9 @@ Advisor recommendations are split among our PostgreSQL database offerings:
 Some recommendations are common to multiple product offerings, while other recommendations are based on product-specific optimizations.
 ## Where can I view my recommendations?
 Recommendations are available from the **Overview** navigation sidebar in the Azure portal. A preview will appear as a banner notification, and details can be viewed in the **Notifications** section located just below the resource usage graphs.
-  :::image type="content" source="./media/concepts-azure-advisor-recommendations/advisor-example.png" alt-text="Screenshot of the Azure portal showing an Azure Advisor recommendation.":::
+
+:::image type="content" source="./media/concepts-azure-advisor-recommendations/advisor-example.png" alt-text="Screenshot of the Azure portal showing an Azure Advisor recommendation.":::
+
 ## Recommendation Types
 Azure Database for PostgreSQL prioritize the following types of recommendations:
 * **Performance**: To improve the speed of your PostgreSQL server. This includes CPU usage, memory pressure, connection pooling, disk utilization, and product-specific server parameters. For more information, see [Advisor Performance recommendations](../advisor/advisor-performance-recommendations.md).
