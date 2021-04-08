@@ -41,9 +41,9 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: C# class library (.NET Core 3.1)
+          - text: C# (.NET Core 3.1)
             url: create-first-function-vs-code-csharp.md
-          - text: C# isolated process (.NET 5.0)
+          - text: C# (.NET 5.0)
             url: dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode
           - text: Go
             url: create-first-function-vs-code-other.md?tabs=go
