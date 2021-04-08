@@ -80,7 +80,7 @@ To change the default password for either the sensor or the on-premises manageme
 
 1. In the change password fields enter a new password, and confirm the new password.
 
-> [Note]
+> [!NOTE]
 > Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers and one of the symbols: #%*+,-./:=?@[]^_{}~
 
 1. Select **Update**.
@@ -91,6 +91,13 @@ For information on how to activate your sensor, see [Sign in and activate the se
 
 For information on how to activate your on-premises management console, see [Activate the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#activate-the-on-premises-management-console).
 
+## How to change the network configuration
+
+You can see how to [update your sensor network configuration before activation](how-to-activate-and-set-up-your-sensor.md#update-sensor-network-configuration-before-activation).
+
+You can also [update the sensor network configuration](how-to-manage-individual-sensors.md#update-the-sensor-network-configuration) after activation.
+
+If you are working with the CLI commands, you can view a table of the [available commands](references-work-with-defender-for-iot-cli-commands.md#network-configuration), or you can learn how to [Filter network configurations](references-work-with-defender-for-iot-cli-commands.md#filter-network-configurations).
 ## Next steps
 
 To learn more about how to get started with Defender for IoT, see the following articles:
