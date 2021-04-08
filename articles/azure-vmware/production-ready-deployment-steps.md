@@ -112,7 +112,7 @@ The following image shows the **Create a private cloud** deployment screen with 
 > [!NOTE]
 > Any virtual network that is going to be used or created may be seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
 
-## (Optional) VMware HCX network segments
+## VMware HCX network segments
 
 VMware HCX is a technology that's bundled with Azure VMware Solution. The primary use cases for VMware HCX are workload migrations and disaster recovery. If you plan to do either, it's best to plan out the networking now. Otherwise, you can skip and continue to the next step.
 
