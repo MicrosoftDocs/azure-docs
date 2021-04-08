@@ -120,6 +120,7 @@ To enable users of your application to reset their password, you use a password 
 1. Click **Run user flow**, verify the email address of the account that you previously created, and select **Continue**.
 1. You now have the opportunity to change the password for the user. Change the password and select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
 
+You can also [Learn more](https://www.youtube.com/playlist?list=PLOPotgzC07IKXXCTZcrpuLWbVe3y51kfm) in the series of steps in the Azure portal.
 ## Next steps
 
 In this article, you learned how to:
