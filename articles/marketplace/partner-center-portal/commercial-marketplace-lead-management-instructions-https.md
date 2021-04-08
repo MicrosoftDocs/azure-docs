@@ -26,7 +26,7 @@ This article explains how to create a new flow in Power Automate to generate the
 
     ![Sign in My flows](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. Under **+ New**, select **+ Instant—from blank**.
+1. Under **+ New**, select **+ Instant cloud flow**.
 
     ![My flows + Automated--from blank](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
@@ -132,9 +132,13 @@ This article explains how to create a new flow in Power Automate to generate the
 ### Connect to a CRM system
 
 1. Select **+ New step**.
-1. Choose the CRM system of your choice by searching for it where it says **Search connectors and actions**. Select it on the **Actions** tab with the action to create a new record. The following screen shows **Create a new record (Dynamics 365)** as an example.
+1. Choose the CRM system of your choice by searching for it where it says **Search connectors and actions**. The following screen shows Create a new record (Common Data Service) as an example.
 
     ![Create a new record](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
+
+1. Select the **Actions tab** with the action to **create a new record**.
+
+    ![Create a new record](./media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png)
 
 1. Provide the **Organization Name** associated with the CRM system. Select **Leads** from the **Entity Name** drop-down list.
 
