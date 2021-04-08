@@ -124,6 +124,9 @@ Generative adversarial networks are used to solve problems like image to image t
 
 ### Transformers
 
+
+Transformers are have been used to solve natural language processing problems such as text generation, question answering, and text summarization.
+
 ## Next steps
 
 The following articles show you more options for using open-source deep learning models in [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
