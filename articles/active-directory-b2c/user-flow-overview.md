@@ -1,5 +1,5 @@
 ---
-title: User flows and custom policies in Azure AD B2C | Microsoft Docs
+title: User flows and custom policies in Azure Active Directory B2C | Microsoft Docs
 titleSuffix: Azure AD B2C
 description: Learn more about built-in user flows and the custom policy extensible policy framework of Azure Active Directory B2C.
 services: active-directory-b2c
