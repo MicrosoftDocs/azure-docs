@@ -21,7 +21,7 @@ ms.reviewer: anilmur
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-This article contains a list of the most common import and export file formats that you can use with [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). For information on how to create custom presets using **StandardEncoderPreset**, see [Create a transform with a custom preset](encode-custom-presets-how-to.md).
+This article contains a list of the most common import and export file formats that you can use with [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). For information on how to create custom presets using **StandardEncoderPreset**, see [Create a transform with a custom preset](transform-custom-presets-how-to.md).
 
 ## Input container/file formats
 
@@ -99,4 +99,4 @@ The following table lists the codecs and file formats that are supported for exp
 
 ## Next steps
 
-[Create a transform with a custom preset](encode-custom-presets-how-to.md)
+[Create a transform with a custom preset](transform-custom-presets-how-to.md)

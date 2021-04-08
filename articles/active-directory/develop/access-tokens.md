@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/18/2021
+ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -172,6 +172,12 @@ Microsoft identities can authenticate in different ways, which may be relevant t
 | `ngcmfa` | Equivalent to `mfa`, used for provisioning of certain advanced credential types. |
 | `wiaormfa`| The user used Windows or an MFA credential to authenticate. |
 | `none` | No authentication was done. |
+
+## Access token lifetime
+
+The default lifetime of an access token varies, depending on the client application requesting the token. For example, continuous access evaluation (CAE) capable clients that negotiate CAE-aware sessions will see a long lived token lifetime (up to 28 hours).  When the access token expires, the client must use the refresh token to (usually silently) acquire a new refresh token and access token.
+
+You can adjust the lifetime of an access token to control how often the client application expires the application session, and how often it requires the user to re-authenticate (either silently or interactively). For more information, read [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
 
 ## Validating tokens
 

@@ -50,6 +50,7 @@ mlPipelineId | ID of the published Azure Machine Learning pipeline | String (or 
 experimentName | Run history experiment name of the Machine Learning pipeline run | String (or expression with resultType of string) | No
 mlPipelineParameters | Key, Value pairs to be passed to the published Azure Machine Learning pipeline endpoint. Keys must match the names of pipeline parameters defined in the published Machine Learning pipeline | Object with key value pairs (or Expression with resultType object) | No
 mlParentRunId | The parent Azure Machine Learning pipeline run ID | String (or expression with resultType of string) | No
+dataPathAssignments | Dictionary used for changing datapaths in Azure Machine learning. Enables the switching of datapaths | Object with key value pairs | No
 continueOnStepFailure | Whether to continue execution of other steps in the Machine Learning pipeline run if a step fails | boolean | No
 
 > [!NOTE]
