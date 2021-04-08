@@ -12,7 +12,7 @@ ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
 ms.custom: references_regions
-ms.date: 02/16/2021
+ms.date: 03/30/2021
 ms.author: juliako
 ---
 
@@ -47,7 +47,8 @@ SDK is now available to embed Video Indexer's insights widget in your own servic
 
 You can now create a Video Indexer paid account in the US North Central, US West and Canada Central regions
  
-New source languages support for speech-to-text (STT), translation and search 
+### New source languages support for speech-to-text (STT), translation and search 
+
 Video Indexer now support STT, translation and search in Danish ('da-DK'), Norwegian('nb-NO'), Swedish('sv-SE'), Finnish('fi-FI'), Canadian French ('fr-CA'), Thai('th-TH'), Arabic ('ar-BH', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-S', and 'ar-SY'), and Turkish('tr-TR'). Those languages are available in both API and Video Indexer website. 
  
 ### Search by Topic in Video Indexer Website 

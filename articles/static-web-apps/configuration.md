@@ -32,8 +32,9 @@ See the [example configuration](#example-configuration-file) file for details.
 
 ## Routes
 
-Route rules allow you to define the pattern of URLs that allow access to your application to the web. Routes are are defined as an array of routing rules. See the [example configuration file](#example-configuration-file) for usage examples.
+Route rules allow you to define the pattern of URLs that allow access to your application to the web. Routes are defined as an array of routing rules. See the [example configuration file](#example-configuration-file) for usage examples.
 
+- Rules are defined in the `routes` array, even if you only have one route.
 - Rules are executed in the order as they appear in the `routes` array.
 - Rule evaluation stops at the first match - routing rules aren't chained together.
 - You have full control over custom role names.
@@ -45,7 +46,7 @@ The default file for static content is the *index.html* file.
 
 ## Defining routes
 
-Each rule is composed of a route pattern, along with one or more of the optional rule properties. See the [example configuration file](#example-configuration-file) for usage examples.
+Each rule is composed of a route pattern, along with one or more of the optional rule properties. Route rules are defined in the `routes` array. See the [example configuration file](#example-configuration-file) for usage examples.
 
 | Rule property  | Required | Default value | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |

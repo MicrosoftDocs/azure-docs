@@ -118,7 +118,7 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 1. Install the **root CA certificate** on this IoT Edge device.
 
    ```bash
-   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem
+   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
    ```
 
 1. Update the certificate store.

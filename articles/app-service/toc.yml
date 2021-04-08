@@ -11,10 +11,8 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: ASP.NET Core
-    href: quickstart-dotnetcore.md
   - name: ASP.NET
-    href: quickstart-dotnet-framework.md
+    href: quickstart-dotnetcore.md
   - name: Node.js
     href: quickstart-nodejs.md
   - name: PHP
@@ -187,6 +185,10 @@
         href: deploy-ci-cd-custom-container.md
       - name: Deploy from local Git
         href: deploy-local-git.md
+      - name: GitHub Actions
+        href: deploy-github-actions.md
+      - name: GitHub Actions for Containers
+        href: deploy-container-github-action.md
       - name: Deploy with template
         href: deploy-complex-application-predictably.md
     - name: Set deployment credentials
@@ -215,8 +217,6 @@
         href: configure-authentication-provider-facebook.md
       - name: Authenticate with Google
         href: configure-authentication-provider-google.md
-      - name: Authenticate with Microsoft account
-        href: configure-authentication-provider-microsoft.md
       - name: Authenticate with Twitter
         href: configure-authentication-provider-twitter.md
       - name: Authenticate with an OpenID Connect provider (Preview)

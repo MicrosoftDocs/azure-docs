@@ -2,11 +2,11 @@
 title: Quickstart - Use the Azure Communication Services Calling SDK
 titleSuffix: An Azure Communication Services quickstart
 description: Learn about the Communication Services Calling SDK capabilities.
-author: mikben
-manager: jken
+author: rinarish
+manager: rinarish
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: arturk
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services

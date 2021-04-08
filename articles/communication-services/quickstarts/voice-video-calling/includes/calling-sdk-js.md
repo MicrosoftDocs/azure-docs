@@ -15,10 +15,9 @@ ms.author: mikben
 ## Install the SDK
 
 > [!NOTE]
-> This document uses version 1.0.0-beta.10 of the Calling SDK.
+> This document uses ACS Calling Web SDK.
 
 Use the `npm install` command to install the Azure Communication Services calling and common SDKs for JavaScript.
-This document references types in version 1.0.0-beta.10 of calling library.
 
 ```console
 npm install @azure/communication-common --save
@@ -138,6 +137,8 @@ const call = callAgent.join(context);
 ```
 
 ### Join a Teams meeting
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
 To join a Teams meeting, use the `join` method and pass a meeting link or coordinates.
 
@@ -588,8 +589,8 @@ console.log(result.video);
 ```
 
 ## Record calls
-
-[!INCLUDE [Private Preview Notice](../../../includes/private-preview-include-section.md)]
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
 Call recording is an extended feature of the core `Call` API. You first need to obtain the recording feature API object:
 
@@ -615,6 +616,8 @@ callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler)
 ```
 
 ## Transfer calls
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
 Call transfer is an extended feature of the core `Call` API. You first need to get the transfer feature API object:
 

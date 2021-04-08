@@ -178,6 +178,10 @@ This article answers common questions about Azure Files features and functionali
     If you have enabled Azure Backup on your file sync managed file shares, file ACLs can continue to be restored as part of the backup restore workflow. This works either for the entire share or individual files/directories.
 
     If you are using snapshots as part of the self-managed backup solution for file shares managed by file sync, your ACLs may not be restored properly to NTFS ACLs if the snapshots were taken prior to February 24th, 2020. If this occurs, consider contacting Azure Support.
+
+* <a id="afs-lastwritetime"></a>
+  **Does Azure File Sync sync the LastWriteTime for directories?**  
+    No, Azure File Sync does not sync the LastWriteTime for directories. This is by design.
     
 ## Security, authentication, and access control
 * <a id="ad-support"></a>

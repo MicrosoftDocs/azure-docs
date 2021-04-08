@@ -66,8 +66,6 @@
     href: configure-nsx-network-components-azure-portal.md
   - name: Deploy disaster recovery for VMs
     href: disaster-recovery-for-virtual-machines.md
-  - name: Deploy VM via content library
-    href: ./deploy-vm-content-library.md
   - name: Set up GitHub Enterprise Server
     href: github-enterprise-server.md
   - name: Public IP usage
@@ -100,12 +98,16 @@
       href: protect-azure-vmware-solution-with-application-gateway.md
     - name: Traffic Manager
       href: deploy-traffic-manager-balance-workloads.md
+    - name: Configure alerts and work with metrics 
+      href: configure-alerts-for-azure-vmware-solution.md
   - name: VMware solutions
     items:
     - name: Set up vRealize Operations
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon
       href: azure-vmware-solution-horizon.md
+    - name: Deploy VMs from the content library
+      href: deploy-vm-content-library.md
   - name: VMware ecosystem
     items:
     - name: Backup solutions for VMs
@@ -119,7 +121,27 @@
     - name: Open a support request for deployment failures
       href: fix-deployment-provisioning-failures.md
   - name: FAQ
-    href: faq.yml
+    items:
+    - name: General
+      href: /azure/azure-vmware/faq#general
+    - name: Customer communication
+      href: /azure/azure-vmware/faq#customer-communication
+    - name: Configuration and setup 
+      href: /azure/azure-vmware/faq#configuration-and-setup
+    - name: VMware software 
+      href: /azure/azure-vmware/faq#vmware-software
+    - name: Compute, backup and disaster recovery
+      href: /azure/azure-vmware/faq#compute,-backup,-and-disaster-recovery
+    - name: Networking and interconnectivity
+      href: /azure/azure-vmware/faq#networking-and-interconnectivity
+    - name: Storage
+      href: /azure/azure-vmware/faq#storage
+    - name: Hosts, clusters, and private clouds
+      href: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
+    - name: Identity management
+      href: /azure/azure-vmware/faq#identity-management
+    - name: Billing and support
+      href: /azure/azure-vmware/faq#billing-and-support
   - name: Videos 
     items:
     - name: Playlist
@@ -130,6 +152,8 @@
       href: https://youtu.be/BoQYvqzb6Y8
     - name: Migration and capacity planning
       href: https://youtu.be/NoNG-hkksrA
+    - name: Rotate vCenter & NSX-T passwords using Azure Logic App
+      href: https://youtu.be/cK1qY3knj88
 - name: Reference
   items:
   - name: REST API
