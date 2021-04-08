@@ -10,7 +10,7 @@ ms.date: 8/7/2020
 
 # Replicate data into Azure Database for MySQL
 
-Data-in Replication allows you to synchronize data from an external MySQL server into the Azure Database for MySQL service. The external server can be on-premises, in virtual machines, or a database service hosted by other cloud providers. Data-in Replication is based on the binary log (binlog) file position-based replication native to MySQL. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
+Data-in Replication allows you to synchronize data from an external MySQL server into the Azure Database for MySQL service. The external server can be on-premises, in virtual machines, or a database service hosted by other cloud providers. Data-in Replication is based on the binary log (binlog) file position-based or gtid based replication native to MySQL. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
 
 ## When to use Data-in Replication
 The main scenarios to consider using Data-in Replication are:
@@ -30,20 +30,20 @@ To skip replicating tables from your source server (hosted on-premises, in virtu
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) to learn more about this parameter.
 
+## Supported in General Purpose or Memory Optimized tier only
+Data-in replication is only supported in General Purpose and Memory Optimized pricing tiers.
+
 ### Requirements
 - The source server version must be at least MySQL version 5.6. 
 - The source and replica server versions must be the same. For example, both must be MySQL version 5.6 or both must be MySQL version 5.7.
 - Each table must have a primary key.
 - Source server should use the MySQL InnoDB engine.
 - User must have permissions to configure binary logging and create new users on the source server.
-- If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mysql.az_replication_change_master` stored procedure. Refer to the following [examples](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
+- If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mysql.az_replication_change_master` or `mysql.az_replication_change_master_with_gtid` stored procedure. Refer to the following [examples](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
 - Ensure the source server's IP address has been added to the Azure Database for MySQL replica server's firewall rules. Update firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md).
 - Ensure the machine hosting the source server allows both inbound and outbound traffic on port 3306.
 - Ensure the the source server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN).
 
-### Other
-- Data-in replication is only supported in General Purpose and Memory Optimized pricing tiers.
-- Global transaction identifiers (GTID) are not supported.
 
 ## Next steps
 - Learn how to [set up data-in replication](howto-data-in-replication.md)
