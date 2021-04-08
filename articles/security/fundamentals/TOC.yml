@@ -99,7 +99,7 @@
     href: virtual-machines-overview.md
   - name: Best practices - IaaS workloads
     href: iaas.md
-  - name: Azure marketplace images
+  - name: Azure Marketplace images
     href: azure-marketplace-images.md
 
 - name: Data security, encryption, and storage
