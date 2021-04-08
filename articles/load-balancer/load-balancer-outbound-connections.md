@@ -80,17 +80,11 @@ To maintain unique flows, the host rewrites the source port of each outbound pac
 
  #### Description
 
- The load balancer resource is configured with an outbound rule or a load-balancing rule that enables SNAT. This rule is used to create a link between the public IP frontend with the backend pool. 
+The load balancer resource is configured with an outbound rule or a load-balancing rule that enables SNAT. This rule is used to create a link between the public IP frontend with the backend pool. 
+ 
+ With a configured rule, when a VM creates an outbound flow, Azure translates the source IP address to the public IP address of the public load balancer frontend. This translation is done via [SNAT](#snat). If you don't complete this rule configuration, the behavior is as described in scenario 3. 
 
- If you don't complete this rule configuration, the behavior is as described in scenario 3. 
-
- A rule with a listener isn't required for the health probe to succeed.
-
- When a VM creates an outbound flow, Azure translates the source IP address to the public IP address of the public load balancer frontend. This translation is done via [SNAT](#snat). 
-
- Ephemeral ports of the load balancer frontend public IP address are used to distinguish individual flows originated by the VM. SNAT dynamically uses [preallocated ephemeral ports](#preallocatedports) when outbound flows are created. 
-
- In this context, the ephemeral ports used for SNAT are called SNAT ports. It's highly recommended that an [outbound rule](./outbound-rules.md) is explicitly configured. If using default SNAT through a load-balancing rule, SNAT ports are pre-allocated as described in the [Default SNAT ports allocation table](#snatporttable).
+To minimize risk of SNAT port exhaustion it is recommended that an [outbound rule](./outbound-rules.md) is explicitly configured. If using default SNAT through a load-balancing rule, SNAT ports are pre-allocated as described in the [Default SNAT ports allocation table](#snatporttable).
 
 > [!NOTE]
 > **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
@@ -112,7 +106,19 @@ Another option is to add the backend instances to a Standard public load balance
 > [!NOTE]
 > **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
 
- ### <a name="scenario4"></a>Scenario 4: Virtual machine without public IP and behind Basic Load Balancer
+ ### <a name="scenario4"></a>Scenario 4: Virtual machine without public IP and behind Basic public Load Balancer
+
+ | Associations | Method | IP protocols |
+ | ------------ | ------ | ------------ |
+ |None </br> Basic load balancer | [SNAT](#snat) with instance-level dynamic IP address| TCP </br> UDP | 
+
+ #### Description
+
+ When the VM creates an outbound flow, Azure will translate the source IP address of the VM to one of the public frontend IP configurations. [SNAT](#snat) ports are preallocated as described in the [Default SNAT ports allocation table](#snatporttable). 
+ 
+For a production system that requires outbound behavior it is strongly recommended to use [outbound rules](./outbound-rules.md) with a Standard Load Balancer to specify port allocation in order to maximize allocated ports and minimize risk of port exhuastion.
+ 
+### <a name="scenario5"></a>Scenario 5: Virtual machine without public IP and behind Basic internal Load Balancer
 
  | Associations | Method | IP protocols |
  | ------------ | ------ | ------------ |
@@ -128,7 +134,8 @@ The public IP address will be released and a new public IP requested if you rede
  * Availability set
  * Virtual machine scale set 
 
- Don't use this scenario for adding IPs to an allowlist. Use scenario 1 or 2 where you explicitly declare outbound behavior. [SNAT](#snat) ports are preallocated as described in the [Default SNAT ports allocation table](#snatporttable).
+ Don't use this scenario for adding IPs to an allowlist. Use scenario 1, 2, or 4 where you have a static Public IP used for outbound behavior. [SNAT](#snat) ports are preallocated as described in the [Default SNAT ports allocation table](#snatporttable).
+
 
 ## <a name="scenarios"></a> Exhausting ports
 
