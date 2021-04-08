@@ -33,10 +33,9 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 The first tab on an incident details page is now the **Timeline**, which shows a timeline of alerts and bookmarks in the incident. An incident's timeline can help you understand the incident better and reconstruct the timeline of attacker activity across the related alerts and bookmarks.
 
-- Select an item in the timeline to see its details without leaving the incident context
+- Select an item in the timeline to see its details, without leaving the incident context
 - Filter the timeline content to show alerts or bookmarks only, or items of a specific severity or MITRE tactic.
-- You can select the System alert ID link to view the entire record or the Events link to see the related events in the Logs area.
-
+- You can select the **System alert ID** link to view the entire record or the **Events** link to see the related events in the **Logs** area.
 
 For example:
 
