@@ -549,7 +549,7 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines are
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/azure/security-center/security-center-recommendations). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/azure/security-center/azure-defender) plan for the related services.
 
 **Azure Policy built-in definitions - Microsoft.Automation**:
 
@@ -748,7 +748,7 @@ You may also use recommendations from Azure Security Center as a secure configur
 
 - [Understanding Azure Policy Effects](../governance/policy/concepts/effects.md)
 
-- [Deploy an Automation Account using an Azure Resource Manager template](/azure/automation/quickstart-create-account-template#deploy-the-template)
+- [Deploy an Automation Account using an Azure Resource Manager template](/azure/automation/quickstart-create-automation-account-template)
 
 - [Azure Policy sample built-ins for Azure Automation](policy-reference.md)
 

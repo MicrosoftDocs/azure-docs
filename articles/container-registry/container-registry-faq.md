@@ -264,7 +264,7 @@ To enable anonymous pull access, update a registry using the Azure CLI (version 
 az acr update --name myregistry --anonymous-pull-enabled
 ``` 
 
-You many disable anonymous pull access at any time by setting `--anonymous-pull-enabled` to `false`.
+You may disable anonymous pull access at any time by setting `--anonymous-pull-enabled` to `false`.
 
 > [!NOTE]
 > * Before attempting an anonymous pull operation, run `docker logout` to ensure that you clear any existing Docker credentials.

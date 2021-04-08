@@ -5,12 +5,7 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ---
 
-# Frequently asked questions about Azure Disk Backup (in preview)
-
->[!IMPORTANT]
->Azure Disk Backup is in preview without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For region availability, see the [support matrix](disk-backup-support-matrix.md).
->
->[Fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) to sign-up for the preview.
+# Frequently asked questions about Azure Disk Backup
 
 This article answers frequently asked questions about Azure Disk Backup. For more information on the [Azure Disk backup](disk-backup-overview.md) region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
 
@@ -73,10 +68,6 @@ Yes, you can restore the disk onto a different subscription than that of the sou
 ### Can I back up multiple disks together?
 
 No, point-in-time snapshots of multiple disks attached to a virtual machine isn't supported. For more information, see [Configure backup](backup-managed-disks.md#configure-backup) and to learn more about limitations, refer to the [support matrix](disk-backup-support-matrix.md).
-
-### What are my options to back up disks across multiple subscriptions?
-
-Currently, using the Azure portal to configure backup of disks is limited to a maximum of 20 disks from the same subscription.
 
 ### What is a target resource group?
 

@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 03/29/2021
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -190,6 +190,10 @@ This section applies to the Resource Manager deployment model.
 ## <a name="V2VMulti"></a>VNet-to-VNet and Multi-Site connections
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
+
+### How do I enable routing between my site-to-site VPN connection and my ExpressRoute?
+
+If you want to enable routing between your branch connected to ExpressRoute and your branch connected to a site-to-site VPN connection, you'll need to set up [Azure Route Server](../route-server/expressroute-vpn-support.md).
 
 ### Can I use Azure VPN gateway to transit traffic between my on-premises sites or to another virtual network?
 

@@ -28,7 +28,7 @@ The recommended topology for the primary node type requires the resources outlin
 * A NSG referenced by the subnet in which you deploy your virtual machine scale sets.
 
 >[!NOTE]
-> The virtual machine scale set single placement group property must be set to true, since Service Fabric does not support a single virtual machine scale set which spans zones.
+> The virtual machine scale set single placement group property must be set to true.
 
 Diagram that shows the Azure Service Fabric Availability Zone architecture
  ![Diagram that shows the Azure Service Fabric Availability Zone architecture.][sf-architecture]
@@ -347,6 +347,8 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 ## (Preview) Enable multiple Availability zones in single virtual machine scale set
 
 The previously mentioned solution uses one nodeType per AZ. The following solution will allow users to deploy 3 AZ's in the same nodeType.
+
+**As this feature is currently in preview, it is not currently supported for production scenarios.**
 
 Full sample template is present [here](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
 

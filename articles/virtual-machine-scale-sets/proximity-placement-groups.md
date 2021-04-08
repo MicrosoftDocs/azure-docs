@@ -5,7 +5,7 @@ author: cynthn
 ms.author: cynthn
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: availability
+ms.subservice: proximity-placement-groups
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt

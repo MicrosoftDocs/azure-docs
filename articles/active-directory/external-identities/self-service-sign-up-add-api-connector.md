@@ -55,6 +55,8 @@ To create a certificate, you can use [Azure Key Vault](../../key-vault/certifica
 - **Subject**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
 - **Content Type**: `PKCS #12`
 - **Lifetime Acton Type**: `Email all contacts at a given percentage lifetime` or `Email all contacts a given number of days before expiry`
+- **Key Type**: `RSA`
+- **Key Size**: `2048`
 - **Exportable Private Key**: `Yes` (in order to be able to export pfx file)
 
 You can then [export the certificate](../../key-vault/certificates/how-to-export-certificate.md). You can alternatively use PowerShell's [New-SelfSignedCertificate cmdlet](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) to generate a self-signed certificate.

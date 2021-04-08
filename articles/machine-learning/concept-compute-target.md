@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-# As a data scientist, I want to understand what a compute target is and why I need it.
+#Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
 # What are compute targets in Azure Machine Learning?
