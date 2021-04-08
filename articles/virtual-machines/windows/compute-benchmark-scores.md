@@ -6,19 +6,19 @@ ms.service: virtual-machines
 ms.subservice: benchmark
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/06/2021
+ms.date: 04/08/2021
 ms.author: cynthn
 ms.reviewer: davberg
 
 ---
 # Compute benchmark scores for Windows VMs
-The following CoreMark benchmark scores show compute performance for select Azure VMs running Windows Server. Compute benchmark scores are also available for [Linux VMs](../linux/compute-benchmark-scores.md).
+The following CoreMark benchmark scores show compute performance for select Azure VMs running Windows Server 2019. Compute benchmark scores are also available for [Linux VMs](../linux/compute-benchmark-scores.md).
 
 | Type | Families |
 | ---- | -------- |
 | [Compute optimized](#compute-optimized) | [Fsv2](#fsv2---compute--premium-storage)  |
-| [General purpose](#general-purpose) | [Dasv4](#dasv4) [Dav4](#dav4) [Ddsv4](#ddsv4) [Ddv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4)  |
-| [Memory optimized](#memory-optimized) | [Easv4](#easv4) [Eav4](#eav4) [Edsv4](#edsv4) [Edv4](#edv4) [Esv4](#esv4) [Ev4](#ev4)  |
+| [General purpose](#general-purpose) | [Dsv3](#dsv3---general-compute--premium-storage) [Dv3](#dv3---general-compute) [Dasv4](#dasv4) [Dav4](#dav4) [Ddsv4](#ddsv4) [Ddv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4)  |
+| [Memory optimized](#memory-optimized) | [Esv3](#esv3---memory-optimized--premium-storage) [Ev3](#ev3---memory-optimized) [Easv4](#easv4) [Eav4](#eav4) [Edsv4](#edsv4) [Edsv4](#edsv4-isolated-extended) [Edv4](#edv4) [Esv4](#eiasv4) [Esv4](#esv4) [Esv4](#esv4-isolated-extended) [Ev4](#ev4)  |
 
 ## Compute optimized
 ### Fsv2 - Compute + Premium Storage
@@ -44,6 +44,55 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_F72s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 72 | 2 | 144.0 | 561,997 | 9,731 | 1.73% | 98 |
 
 ## General purpose
+### DSv3 - General Compute + Premium Storage
+(04/05/2021 PBIID:9198755)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 8.0 | 23,534 | 724 | 3.08% | 42 |
+| Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 8.0 | 24,742 | 2,045 | 8.27% | 112 |
+| Standard_D2s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 2 | 1 | 8.0 | 24,822 | 3,702 | 14.91% | 126 |
+| Standard_D2s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 8.0 | 30,392 | 1,514 | 4.98% | 28 |
+| Standard_D2s_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 2 | 1 | 8.0 | 30,220 | 143 | 0.47% | 14 |
+| Standard_D4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 16.0 | 44,404 | 537 | 1.21% | 28 |
+| Standard_D4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 16.0 | 45,725 | 4,388 | 9.60% | 154 |
+| Standard_D4s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 4 | 1 | 16.0 | 46,590 | 3,963 | 8.51% | 112 |
+| Standard_D4s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 16.0 | 50,797 | 306 | 0.60% | 28 |
+| Standard_D8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 32.0 | 89,102 | 849 | 0.95% | 56 |
+| Standard_D8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 32.0 | 89,422 | 6,441 | 7.20% | 154 |
+| Standard_D8s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 8 | 1 | 32.0 | 85,673 | 2,704 | 3.16% | 112 |
+| Standard_D8s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 8 | 1 | 32.0 | 101,753 | 1,013 | 1.00% | 14 |
+| Standard_D16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 1 | 64.0 | 179,390 | 1,403 | 0.78% | 42 |
+| Standard_D16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 64.0 | 173,313 | 14,382 | 8.30% | 98 |
+| Standard_D16s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 16 | 1 | 64.0 | 171,750 | 1,261 | 0.73% | 70 |
+| Standard_D16s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 64.0 | 204,568 | 2,434 | 1.19% | 14 |
+| Standard_D32s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 32 | 2 | 128.0 | 358,426 | 6,880 | 1.92% | 56 |
+| Standard_D32s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 1 | 128.0 | 364,032 | 20,351 | 5.59% | 84 |
+| Standard_D32s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 32 | 1 | 128.0 | 346,172 | 2,859 | 0.83% | 84 |
+| Standard_D32s_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 32 | 1 | 128.0 | 502,856 | 6,347 | 1.26% | 14 |
+
+### Dv3 - General Compute
+(04/05/2021 PBIID:9198755)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 8.0 | 23,795 | 1,893 | 7.96% | 70 |
+| Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 8.0 | 24,582 | 2,036 | 8.28% | 154 |
+| Standard_D2_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 2 | 1 | 8.0 | 24,376 | 1,915 | 7.86% | 84 |
+| Standard_D2_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 2 | 1 | 8.0 | 33,577 | 1,605 | 4.78% | 14 |
+| Standard_D4_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 16.0 | 45,883 | 3,929 | 8.56% | 70 |
+| Standard_D4_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 16.0 | 46,836 | 5,296 | 11.31% | 140 |
+| Standard_D4_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 4 | 1 | 16.0 | 46,281 | 4,133 | 8.93% | 112 |
+| Standard_D4_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 4 | 1 | 16.0 | 61,487 | 536 | 0.87% | 14 |
+| Standard_D8_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 32.0 | 88,815 | 1,091 | 1.23% | 126 |
+| Standard_D8_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 32.0 | 89,625 | 6,366 | 7.10% | 112 |
+| Standard_D8_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 8 | 1 | 32.0 | 87,549 | 3,215 | 3.67% | 98 |
+| Standard_D8_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 8 | 1 | 32.0 | 122,245 | 1,284 | 1.05% | 14 |
+| Standard_D32_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 32 | 2 | 128.0 | 353,069 | 3,792 | 1.07% | 70 |
+| Standard_D32_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 1 | 128.0 | 358,984 | 19,517 | 5.44% | 126 |
+| Standard_D32_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 32 | 1 | 128.0 | 356,479 | 16,176 | 4.54% | 126 |
+| Standard_D32_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 32 | 1 | 128.0 | 494,807 | 7,101 | 1.44% | 14 |
+
 ### Dasv4
 (03/25/2021 PBIID:9198755)
 
@@ -127,6 +176,55 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_D64_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 64 | 2 | 256.0 | 1,018,300 | 23,085 | 2.27% | 392 |
 
 ## Memory optimized
+### Esv3 - Memory Optimized + Premium Storage
+(04/05/2021 PBIID:9198755)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_E2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 16.0 | 23,704 | 2,155 | 9.09% | 168 |
+| Standard_E2s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 2 | 1 | 16.0 | 21,917 | 1,521 | 6.94% | 112 |
+| Standard_E2s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 16.0 | 28,549 | 3,105 | 10.88% | 42 |
+| Standard_E2s_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 2 | 1 | 16.0 | 33,146 | 1,472 | 4.44% | 14 |
+| Standard_E4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 32.0 | 46,370 | 4,256 | 9.18% | 140 |
+| Standard_E4s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 4 | 1 | 32.0 | 47,178 | 3,791 | 8.04% | 98 |
+| Standard_E4s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 32.0 | 53,636 | 4,231 | 7.89% | 84 |
+| Standard_E4s_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 4 | 1 | 32.0 | 60,930 | 969 | 1.59% | 14 |
+| Standard_E16s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 128.0 | 175,905 | 7,275 | 4.14% | 196 |
+| Standard_E16s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 16 | 1 | 128.0 | 176,579 | 9,650 | 5.47% | 112 |
+| Standard_E16s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 128.0 | 206,776 | 19,901 | 9.62% | 28 |
+| Standard_E16s_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 16 | 1 | 128.0 | 245,823 | 2,446 | 0.99% | 14 |
+| Standard_E20s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 20 | 1 | 160.0 | 219,370 | 7,086 | 3.23% | 224 |
+| Standard_E20s_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 20 | 1 | 160.0 | 224,353 | 11,954 | 5.33% | 98 |
+| Standard_E20s_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 20 | 1 | 160.0 | 280,572 | 13,326 | 4.75% | 28 |
+| Standard_E20s_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 20 | 1 | 160.0 | 309,066 | 3,298 | 1.07% | 14 |
+
+### Ev3 - Memory Optimized
+(04/05/2021 PBIID:9198755)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_E2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 16.0 | 23,304 | 2,074 | 8.90% | 182 |
+| Standard_E2_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 2 | 1 | 16.0 | 24,513 | 2,428 | 9.90% | 112 |
+| Standard_E2_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 16.0 | 26,171 | 153 | 0.58% | 14 |
+| Standard_E4_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 32.0 | 46,224 | 3,713 | 8.03% | 238 |
+| Standard_E4_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 4 | 1 | 32.0 | 49,200 | 3,457 | 7.03% | 42 |
+| Standard_E4_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 32.0 | 53,476 | 4,219 | 7.89% | 42 |
+| Standard_E8_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 64.0 | 90,915 | 7,711 | 8.48% | 224 |
+| Standard_E8_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 8 | 1 | 64.0 | 89,968 | 5,738 | 6.38% | 84 |
+| Standard_E8_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 8 | 1 | 64.0 | 121,486 | 2,321 | 1.91% | 14 |
+| Standard_E16_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 128.0 | 174,677 | 7,198 | 4.12% | 210 |
+| Standard_E16_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 16 | 1 | 128.0 | 180,002 | 14,028 | 7.79% | 98 |
+| Standard_E16_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 128.0 | 217,439 | 13,826 | 6.36% | 28 |
+| Standard_E16_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 16 | 1 | 128.0 | 249,173 | 4,533 | 1.82% | 14 |
+| Standard_E20_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 20 | 1 | 160.0 | 221,787 | 10,447 | 4.71% | 238 |
+| Standard_E20_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 20 | 1 | 160.0 | 234,854 | 10,704 | 4.56% | 70 |
+| Standard_E20_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 20 | 1 | 160.0 | 293,226 | 3,480 | 1.19% | 14 |
+| Standard_E20_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 20 | 1 | 160.0 | 306,072 | 4,690 | 1.53% | 14 |
+| Standard_E32_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 2 | 256.0 | 349,134 | 13,895 | 3.98% | 210 |
+| Standard_E32_v3 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 32 | 1 | 256.0 | 352,509 | 14,689 | 4.17% | 84 |
+| Standard_E32_v3 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 1 | 256.0 | 413,946 | 2,239 | 0.54% | 14 |
+| Standard_E32_v3 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 32 | 1 | 256.0 | 494,653 | 6,107 | 1.23% | 14 |
+
 ### Easv4
 (03/26/2021 PBIID:9198755)
 
@@ -150,6 +248,9 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_E64as_v4 | AMD EPYC 7452 32-Core Processor                 | 64 | 8 | 512.0 | 1,097,588 | 26,100 | 2.38% | 280 |
 | Standard_E64-16as_v4 | AMD EPYC 7452 32-Core Processor                 | 16 | 8 | 512.0 | 284,934 | 5,065 | 1.78% | 154 |
 | Standard_E64-32as_v4 | AMD EPYC 7452 32-Core Processor                 | 32 | 8 | 512.0 | 561,951 | 9,691 | 1.72% | 140 |
+| Standard_E96as_v4 | AMD EPYC 7452 32-Core Processor                 | 96 | 12 | 672.0 | 750,338 | 9,645 | 1.29% | 182 |
+| Standard_E96-24as_v4 | AMD EPYC 7452 32-Core Processor                 | 24 | 11 | 672.0 | 423,442 | 8,504 | 2.01% | 182 |
+| Standard_E96-48as_v4 | AMD EPYC 7452 32-Core Processor                 | 48 | 11 | 672.0 | 839,993 | 14,218 | 1.69% | 70 |
 
 ### Eav4
 (03/27/2021 PBIID:9198755)
@@ -164,6 +265,7 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_E32a_v4 | AMD EPYC 7452 32-Core Processor                 | 32 | 4 | 256.0 | 565,363 | 10,941 | 1.94% | 126 |
 | Standard_E48a_v4 | AMD EPYC 7452 32-Core Processor                 | 48 | 6 | 384.0 | 837,493 | 15,803 | 1.89% | 126 |
 | Standard_E64a_v4 | AMD EPYC 7452 32-Core Processor                 | 64 | 8 | 512.0 | 1,097,111 | 30,290 | 2.76% | 336 |
+| Standard_E96a_v4 | AMD EPYC 7452 32-Core Processor                 | 96 | 12 | 672.0 | 749,908 | 8,646 | 1.15% | 196 |
 
 ### EDSv4
 (03/27/2021 PBIID:9198755)
@@ -171,39 +273,30 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E2ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 16.0 | 34,923 | 1,107 | 3.17% | 336 |
-| Standard_E2ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 2 | 1 | 16.0 | 38,908 | 1,698 | 4.36% | 14 |
 | Standard_E4ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 32.0 | 66,921 | 1,294 | 1.93% | 322 |
-| Standard_E4ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 4 | 1 | 32.0 | 74,610 | 1,041 | 1.40% | 14 |
 | Standard_E4-2ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 32.0 | 34,909 | 811 | 2.32% | 294 |
 | Standard_E8ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 8 | 1 | 64.0 | 132,164 | 2,102 | 1.59% | 154 |
-| Standard_E8ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 8 | 1 | 64.0 | 141,765 | 1,539 | 1.09% | 14 |
 | Standard_E8-2ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 64.0 | 35,031 | 965 | 2.76% | 252 |
-| Standard_E8-2ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 2 | 1 | 64.0 | 34,674 | 165 | 0.48% | 14 |
 | Standard_E8-4ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 64.0 | 67,144 | 1,200 | 1.79% | 182 |
-| Standard_E8-4ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 4 | 1 | 64.0 | 71,389 | 2,978 | 4.17% | 14 |
 | Standard_E16ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 128.0 | 265,181 | 2,634 | 0.99% | 336 |
-| Standard_E16ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 16 | 1 | 128.0 | 303,677 | 2,717 | 0.89% | 14 |
 | Standard_E16-4ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 128.0 | 67,155 | 1,596 | 2.38% | 336 |
-| Standard_E16-4ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 4 | 1 | 128.0 | 76,744 | 712 | 0.93% | 14 |
 | Standard_E16-8ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 8 | 1 | 128.0 | 132,939 | 1,471 | 1.11% | 336 |
-| Standard_E16-8ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 8 | 1 | 128.0 | 145,264 | 2,373 | 1.63% | 14 |
 | Standard_E20ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 20 | 1 | 160.0 | 331,456 | 2,766 | 0.83% | 336 |
-| Standard_E20ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 20 | 1 | 160.0 | 356,965 | 4,032 | 1.13% | 14 |
 | Standard_E32ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 1 | 256.0 | 531,560 | 5,700 | 1.07% | 196 |
 | Standard_E32ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 2 | 256.0 | 512,931 | 5,110 | 1.00% | 14 |
-| Standard_E32ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 32 | 1 | 256.0 | 569,388 | 5,054 | 0.89% | 14 |
 | Standard_E32-8ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 8 | 1 | 256.0 | 132,929 | 1,671 | 1.26% | 182 |
-| Standard_E32-8ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 8 | 1 | 256.0 | 141,423 | 1,509 | 1.07% | 14 |
 | Standard_E32-16ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 256.0 | 265,471 | 2,268 | 0.85% | 154 |
-| Standard_E32-16ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 16 | 1 | 256.0 | 291,990 | 4,143 | 1.42% | 14 |
 | Standard_E48ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 48 | 2 | 384.0 | 768,428 | 6,891 | 0.90% | 224 |
-| Standard_E48ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 48 | 2 | 384.0 | 843,723 | 7,420 | 0.88% | 14 |
 | Standard_E64ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 64 | 2 | 504.0 | 1,005,554 | 78,398 | 7.80% | 140 |
-| Standard_E64ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 64 | 2 | 504.0 | 1,135,378 | 6,373 | 0.56% | 14 |
 | Standard_E64-16ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 2 | 504.0 | 260,677 | 3,340 | 1.28% | 154 |
-| Standard_E64-16ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 16 | 2 | 504.0 | 270,264 | 5,711 | 2.11% | 14 |
 | Standard_E64-32ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 2 | 504.0 | 514,504 | 4,082 | 0.79% | 98 |
-| Standard_E64-32ds_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 32 | 2 | 504.0 | 560,270 | 4,812 | 0.86% | 14 |
+
+### Edsv4 Isolated Extended
+(04/05/2021 PBIID:9198755)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_E80ids_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 80 | 2 | 504.0 | 622,608 | 10,276 | 1.65% | 336 |
 
 ### EDv4
 (03/26/2021 PBIID:9198755)
@@ -211,21 +304,20 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E2d_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 16.0 | 34,916 | 1,063 | 3.04% | 322 |
-| Standard_E2d_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 2 | 1 | 16.0 | 39,642 | 1,743 | 4.40% | 14 |
 | Standard_E4d_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 32.0 | 66,889 | 1,283 | 1.92% | 336 |
-| Standard_E4d_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 4 | 1 | 32.0 | 75,387 | 2,650 | 3.51% | 14 |
 | Standard_E8d_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 8 | 1 | 64.0 | 132,382 | 2,020 | 1.53% | 322 |
-| Standard_E8d_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 8 | 1 | 64.0 | 140,881 | 2,197 | 1.56% | 14 |
 | Standard_E16d_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 128.0 | 265,094 | 2,803 | 1.06% | 336 |
-| Standard_E16d_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 16 | 1 | 128.0 | 304,316 | 3,075 | 1.01% | 14 |
 | Standard_E20d_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 20 | 1 | 160.0 | 331,516 | 2,568 | 0.77% | 336 |
-| Standard_E20d_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 20 | 1 | 160.0 | 355,258 | 4,435 | 1.25% | 14 |
 | Standard_E32d_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 1 | 256.0 | 530,364 | 9,914 | 1.87% | 336 |
-| Standard_E32d_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 32 | 1 | 256.0 | 576,400 | 9,521 | 1.65% | 14 |
 | Standard_E48d_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 48 | 2 | 384.0 | 761,410 | 21,640 | 2.84% | 336 |
-| Standard_E48d_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 48 | 2 | 384.0 | 880,799 | 16,413 | 1.86% | 14 |
 | Standard_E64d_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 64 | 2 | 504.0 | 1,030,708 | 9,500 | 0.92% | 322 |
-| Standard_E64d_v4 | Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz | 64 | 2 | 504.0 | 1,135,630 | 5,970 | 0.53% | 14 |
+
+### EIASv4
+(04/05/2021 PBIID:9198755)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_E96ias_v4 | AMD EPYC 7452 32-Core Processor                 | 96 | 12 | 672.0 | 749,545 | 8,690 | 1.16% | 28 |
 
 ### Esv4
 (03/25/2021 PBIID:9198755)
@@ -250,6 +342,13 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_E64s_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 64 | 2 | 504.0 | 922,196 | 7,708 | 0.84% | 182 |
 | Standard_E64-16s_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 2 | 504.0 | 224,499 | 3,955 | 1.76% | 168 |
 | Standard_E64-32s_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 2 | 504.0 | 441,521 | 30,939 | 7.01% | 168 |
+
+### Esv4 Isolated Extended
+(04/05/2021 PBIID:9198755)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_E80is_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 80 | 2 | 504.0 | 623,225 | 9,806 | 1.57% | 322 |
 
 ### Ev4
 (03/25/2021 PBIID:9198755)
