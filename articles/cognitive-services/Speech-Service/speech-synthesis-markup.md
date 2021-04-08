@@ -1011,7 +1011,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # [Swift](#tab/swift)
 
-For more information, see <a href="https://docs.microsoft.com/swift/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>.
+For more information, see <a href="/objectivec/cognitive-services/speech/spxspeechsynthesizer" target="_blank"> `addBookmarkReachedEventHandler` </a>.
 
 ---
 
