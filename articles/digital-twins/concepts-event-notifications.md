@@ -1,12 +1,12 @@
 ---
 # Mandatory fields.
-title: Interpret event data
+title: Event notifications
 titleSuffix: Azure Digital Twins
 description: See how to interpret different event types and their different notification messages.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 6/23/2020
-ms.topic: how-to
+ms.date: 4/8/2021
+ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q4
 
@@ -16,7 +16,7 @@ ms.custom: contperf-fy21q4
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Understand event data
+# Event notifications
 
 Different events in Azure Digital Twins produce **notifications**, which allow the solution backend to be aware when different actions are happening. These are then [routed](concepts-route-events.md) to different locations inside and outside of Azure Digital Twins that can use this information to take action.
 
@@ -312,8 +312,5 @@ Here is an example telemetry message body:
 
 ## Next steps
 
-See how to create endpoints and routes to deliver events:
-* [*How-to: Manage endpoints and routes*](how-to-manage-routes-apis-cli.md)
-
-Or, learn more about the Azure Digital Twins APIs and SDK options:
-* [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md)
+Learn about delivering events to different destinations, using endpoints and routes:
+* [*Concepts: Event routes*](concepts-route-events.md)
