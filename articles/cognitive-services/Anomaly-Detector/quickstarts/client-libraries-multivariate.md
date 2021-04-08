@@ -25,13 +25,13 @@ keywords: anomaly detection, algorithms
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/anomaly-detector-client-library-javascript-multivariate.md)]
+[!INCLUDE [JavaScript](../includes/quickstarts/anomaly-detector-client-library-javascript-multivariate.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-New Quickstart content goes here.
+[!INCLUDE [JavaScript](../includes/quickstarts/anomaly-detector-client-library-python-multivariate.md)]
 
 ::: zone-end
 
