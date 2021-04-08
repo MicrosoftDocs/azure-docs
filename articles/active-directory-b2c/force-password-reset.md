@@ -75,7 +75,7 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 
 ::: zone pivot="b2c-custom-policy"
 
-This feature is currently only available for User Flows. For setup steps, choose User Flow above.
+This feature is currently only available for User Flows. For setup steps, choose **User Flow** above.
 
 ::: zone-end
 
