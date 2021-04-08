@@ -62058,6 +62058,11 @@
       "redirect_document_id": true
     },
     {
+    "source_path_from_root": "/articles/cognitive-services/Speech-Service/quickstarts/intent-recognition.md",
+    "redirect_url": "/azure/cognitive-services/Speech-Service/get-started-intent-recognition",
+    "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
       "redirect_url": "/azure/cognitive-services/text-analytics",
       "redirect_document_id": false
