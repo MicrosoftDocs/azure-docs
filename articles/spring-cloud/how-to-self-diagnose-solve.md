@@ -16,7 +16,7 @@ ms.custom: devx-track-java
 Azure Spring Cloud diagnostics is an interactive experience to troubleshoot your app without configuration. Azure Spring Cloud diagnostics identifies problems and guides you to information that helps troubleshoot and resolve issues.
 
 ## Prerequisites
-To complete this tutorial, you need:
+To complete this exericise, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * A deployed Azure Spring Cloud service instance. Follow our [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart.md) to get started.
