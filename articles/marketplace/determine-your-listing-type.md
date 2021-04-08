@@ -33,7 +33,7 @@ This table shows which listing options are available for each offer type:
 
 &#42; The **Get It Now** listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For details, see [Get It Now](#get-it-now).
 
-## Changing offer type
+## Change the offer type
 
 [!INCLUDE [change-offer-type](./includes/change-offer-type.md)]
 
@@ -67,7 +67,7 @@ The Get It Now listing option can include the following pricing options, dependi
 - Subscription
 - Usage-based pricing
 
-This table shows which offer types support the additional pricing options that are included with the Get It Now listing option.
+This table shows which offer types support the other pricing options that are included with the Get It Now listing option.
 
 | Offer type | Get It Now (Free) | BYOL | Subscription | Usage-based pricing |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
@@ -91,7 +91,7 @@ This table shows which offer types support the additional pricing options that a
 
 ### Get It Now (Free)
 
-Use this listing option to offer your application for free. Customers use the _Get It Now_ button to get your free offer.
+Use this listing option to offer your application for free. Customers use the **Get It Now** button to get your free offer.
 
 > [!NOTE]
 > Get It Now (Free) offers are not eligible for Marketplace Rewards benefits for transactable offers. Because there is no transaction through the storefront, these are categorized as “Trial.” See [Marketplace Rewards](#marketplace-rewards) below.
@@ -107,15 +107,15 @@ Use this listing option to let customers deploy your offer using a license purch
 
 You can charge a flat fee for these offer types:
 
-- Azure Application (Managed app) offers support monthly subscriptions.
-- SaaS offers support both monthly and annual subscriptions.
+- Azure Application (Managed app) offers support for monthly subscriptions.
+- SaaS offers support for both monthly and annual subscriptions.
 
 ### Usage-based pricing
 
 The following offer types support usage-based pricing:
 
-- Azure Application (Managed app) offer support metered billing. For more details, see [Managed application metered billing](partner-center-portal/azure-app-metered-billing.md).
-- SaaS offers supports Metered billing and per user (per seat) pricing. For more information about metered billing, see [Metered billing for SaaS using the commercial marketplace metering service](partner-center-portal/saas-metered-billing.md).
+- Azure Application (Managed app) offer support for metered billing. For more details, see [Managed application metered billing](partner-center-portal/azure-app-metered-billing.md).
+- SaaS offers support for Metered billing and per user (per seat) pricing. For more information about metered billing, see [Metered billing for SaaS using the commercial marketplace metering service](partner-center-portal/saas-metered-billing.md).
 - Azure virtual machine offers support Per core, Per core size, and Per market and core size pricing. These pricing options are priced per hour and billed monthly.
 
 When creating a transactable offer, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. To learn more, see [Commercial marketplace online stores](overview.md#commercial-marketplace-online-stores).
@@ -124,7 +124,7 @@ When creating a transactable offer, it is important to understand the pricing, b
 
 After your offer is published, the listing options you chose appear as a button in the upper-left corner of the listing page in the online store. For example, the following screen shows an offer listing page in the Microsoft AppSource online store with the **Get It Now** and **Test Drive** buttons:
 
-:::image type="content" source="media/listing-options.png" alt-text="Screenshot that illustrates the listing page for an offer with the Get it now and Test Drive buttons.":::
+:::image type="content" source="media/listing-options.png" alt-text="Screenshot that illustrates the listing page for an offer with the Get It Now and Test Drive buttons.":::
 
 ## Listing and pricing options by online store
 
