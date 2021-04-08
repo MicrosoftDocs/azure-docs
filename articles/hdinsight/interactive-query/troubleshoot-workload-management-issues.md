@@ -25,7 +25,11 @@ SHOW RESOURCE PLAN <plan_name>;
 ```
 
 ### WLM Metrics
-Following example shows the metrics that are published by WLM master for a given pool in a resource plan.
+
+WLM Metrics can be accessed directly via HS2Interactive UI under the Metrics Dump Tab. <br>
+![HS22Interactive UI](./media/hive-workload-management/hs2Interactive-wlm.jpg)
+
+Example metrics published by WLM for a given pool in a resource plan.
 ```
 "name" : "Hadoop:service=hiveserver2,name=WmPoolMetrics.etl",
     "modelerType" : "WmPoolMetrics.etl",
@@ -39,11 +43,7 @@ Following example shows the metrics that are published by WLM master for a given
     "NumExecutorsMax" : 10
 ```
 
-
-These Metrics can be accessed directly via HS2Interactive UI in case of standard clusters under the Metrics Dump Tab. <br>
-![HS22Interactive UI](./media/hive-workload-management/hs2Interactive-wlm.jpg)
-
-For ESP clusters as HS2Interactive UI is unavailable (known issue) we can get the same metrics on grafana. <br>
+For ESP clusters as HS2Interactive UI is unavailable (a known issue) we can get the same metrics on grafana. <br>
 The metrics name follows the below patterns:
 ```
 default.General.WM_<pool>_numExecutors
@@ -72,13 +72,13 @@ WLM entities information can also be viewed from following tables in Hive Metast
 
 ### WLM Feature Characteristics
 #### **Lifecycle of Tez AMs in WLM Enabled Clusters**
-In contrast to default LLAP clusters, WLM enabled clusters have additional Tez AMs which are scheduled to run in `wm` queue in case *hive.server2.tez.interactive.queue=wm*  <br>
+In contrast to default LLAP clusters, WLM enabled clusters have another set of Tez AMs. These Tez AMs are scheduled to run in `wm` queue if *hive.server2.tez.interactive.queue=wm* is set in hive configs. <br>
 These Tez AMs spawn up when WLM is activated based on the sum of QUERY_PARALLELISM of all the pools defined in the resource plan. <br>
-Once we disable the Workload Management in the cluster these Tez AMs are automatically KILLED.
+When we disable the Workload Management in the cluster, these Tez AMs are automatically KILLED.
 `{ DISABLE WORKLOAD MANAGEMENT; }`
 
 #### **Resource contention**
-In WLM enabled LLAP cluster, resources are shared among queries based on resource plan configuration. This sometimes leads to query slowness.
+In WLM enabled LLAP cluster, resources are shared among queries based on resource plan configuration. The resource sharing sometimes leads to query slowness.
 Some tunings can be done to resource plan to reduce the resource contention that happens within a pool. For example `scheduling_policy` can be defined as either `fair`, which guarantees an equal share of resources on the cluster to each query that is assigned to the pool; or `fifo`, which guarantees all resources to the first query that comes to the pool.<br>
 Following example shows how to set scheduling policy for a pool named `etl` in the resource plan wlm_basic:
 ```
@@ -91,13 +91,13 @@ CREATE POOL wlm_basic.default WITH ALLOC_FRACTION = 0.5, QUERY_PARALLELISM = 2, 
 
 #### **Query Failures for some specific use cases**
 Running queries in WLM can get killed automatically for following cases:
-1. If a Move Trigger is applied on a query and te query is moved to a destination pool that doesn't have any Tez AMs available (fully utilized pool in resource plan), the query is killed. <br>
-This is a design limitation of WLM feature. You can work around this feature by increasing the `QUERY_PARALLELISM` property for the destination pool so that even in case of max load scenario, the queries submitted to the cluster can be supported by this pool. Also, tune the `wm` queue size to accommodate this change. <br>
-2. If WLM is disabled, all the inflight queries will fail with following exception pattern:
+1. When Move Trigger is applied to a query and destination pool that doesn't have any Tez AMs available, then query is killed instead. <br>
+The above is a design limitation of WLM feature. You can work around this feature by increasing the `QUERY_PARALLELISM` property for the destination pool so that even for maximum load scenario, the queries submitted to the cluster can be supported by this pool. Also, tune the `wm` queue size to accommodate this change. <br>
+2. When WLM is disabled, all the inflight queries will fail with following exception pattern:
 ```
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.tez.TezTask. Dag received [DAG_TERMINATE, DAG_KILL] in RUNNING state.
 ```
-3. If a WLM Tez AM gets killed some of the query may fail with following pattern. On resubmission these queries should run fine.
+3. When a WLM Tez AM gets killed, then some of the queries may fail with following pattern. These queries should run without any issues on resubmission.
 ```
 java.util.concurrent.CancellationException: Task was cancelled.
 	at com.google.common.util.concurrent.AbstractFuture.cancellationExceptionWithCause(AbstractFuture.java:1349) ~[guava-28.0-jre.jar:?]
@@ -130,12 +130,10 @@ The customer then can use HWC to connect their Spark cluster to the LLAP cluster
 2. The `DISABLE WORKLOAD MANAGEMENT;` command hangs for a long time sometimes. <br>
 Cancel the command and check the resource plans status with following command:
 `SHOW RESOURCE PLANS;`
-In case, there is still an active resource plan available try running `DISABLE WORKLOAD MANAGEMENT` command again; <br>
+Check if an active resource plan is available before running `DISABLE WORKLOAD MANAGEMENT` command again; <br>
 
-3. Zombies Tez AM can spawn up that doesn't go away with `DISABLE WORKLOAD MANAGEMENT` command and hive server restart as well. <br>
-These Tez AMs can only be removed after they are killed via `yarn UI` or `yarn console application`. <br>
-Disable workload management and use the below command to kill all application in wm queue. <br>
-`for x in $(yarn application -list | grep wm | awk '{ print $1 }'); do yarn application -kill $x; done` <br>
+3. Some of Tez AM can keep on running and doesn't go away with `DISABLE WORKLOAD MANAGEMENT` command or HS2 restart. <br>
+Kill these Tez AMs via `yarn UI` or `yarn console application` after disabling workload management.
 
 ### Next Steps
 If you are unable to troubleshoot your issue or is not one of the known issues, visit one of the following...
@@ -144,4 +142,4 @@ If you are unable to troubleshoot your issue or is not one of the known issues, 
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
