@@ -51,7 +51,7 @@ The same behavior applies when you:
 
 ### Model training on private data
 
-Certain machine learning scenarios involve training models with private data. In such cases, data scientists need to run training workflows without being exposed to the confidential input data. In this scenario, a managed identity of the training compute is used for data access authentication. This approach allows storage admins to grant Storage Blob Data Reader access to the managed identity that the training compute uses to run the training job. The individual data scientists don't need to be granted access. For more information, see [set up managed identity on a compute cluster](how-to-create-attach-compute-cluster.md#managed-identity).
+Certain machine learning scenarios involve training models with private data. In such cases, data scientists need to run training workflows without being exposed to the confidential input data. In this scenario, a managed identity of the training compute is used for data access authentication. This approach allows storage admins to grant Storage Blob Data Reader access to the managed identity that the training compute uses to run the training job. The individual data scientists don't need to be granted access. For more information, see [Set up managed identity on a compute cluster](how-to-create-attach-compute-cluster.md#managed-identity).
 
 
 ## Prerequisites
@@ -81,7 +81,7 @@ Identity-based data access supports connections to only the following storage se
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-To access these storage services, you must have at least Storage Blob Data Reader access. For more information, see [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Only storage account owners can [change your access level via the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md).
+To access these storage services, you must have at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access. Only storage account owners can [change your access level via the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md).
 
 If you're training a model on a remote compute target, the compute identity must be granted at least the Storage Blob Data Reader role from the storage service. Learn how to [set up managed identity on a compute cluster](how-to-create-attach-compute-cluster.md#managed-identity).
 
@@ -89,11 +89,11 @@ If you're training a model on a remote compute target, the compute identity must
 
 By default, Azure Machine Learning can't communicate with a storage account that's behind a firewall or in a virtual network.
 
-You can configure storage accounts to allow access only from within specific virtual networks. This configuration requires additional steps to ensure data isn't leaked outside of the network. This behavior is the same for credential-based data access. For more information, see [how to configure virtual network scenarios](how-to-access-data.md#virtual-network). 
+You can configure storage accounts to allow access only from within specific virtual networks. This configuration requires additional steps to ensure data isn't leaked outside of the network. This behavior is the same for credential-based data access. For more information, see [How to configure virtual network scenarios](how-to-access-data.md#virtual-network). 
 
 ## Create and register datastores
 
-When you register a storage service on Azure as a datastore, you automatically create and register that datastore to a specific workspace. See [storage access permissions](#storage-access-permissions) for guidance on required permission types. See [work with virtual networks](#work-with-virtual-networks) for details on how to connect to data storage behind virtual networks.
+When you register a storage service on Azure as a datastore, you automatically create and register that datastore to a specific workspace. See [Storage access permissions](#storage-access-permissions) for guidance on required permission types. See [Work with virtual networks](#work-with-virtual-networks) for details on how to connect to data storage behind virtual networks.
 
 In the following code, notice the absence of authentication parameters like `sas_token`, `account_key`, `subscription_id`, and the service principal `client_id`. This omission indicates that Azure Machine Learning will use identity-based data access for authentication. Creation of datastores typically happens interactively in a notebook or via the studio. So your Azure Active Directory token is used for data access authentication.
 
@@ -164,7 +164,7 @@ To create datasets with identity-based data access, you have the following optio
     blob_dset = Dataset.File.from_files('https://myblob.blob.core.windows.net/may/keras-mnist-fashion/')
     ```
 
-When you submit a training job that consumes a dataset created with identity-based data access, the managed identity of the training compute is used for data access authentication. Your Azure Active Directory token isn't used. For this scenario, ensure that the managed identity of the compute is granted at least the Storage Blob Data Reader role from the storage service. For more information, see [set up managed identity on compute clusters](how-to-create-attach-compute-cluster.md#managed-identity). 
+When you submit a training job that consumes a dataset created with identity-based data access, the managed identity of the training compute is used for data access authentication. Your Azure Active Directory token isn't used. For this scenario, ensure that the managed identity of the compute is granted at least the Storage Blob Data Reader role from the storage service. For more information, see [Set up managed identity on compute clusters](how-to-create-attach-compute-cluster.md#managed-identity). 
 
 ## Next steps
 
