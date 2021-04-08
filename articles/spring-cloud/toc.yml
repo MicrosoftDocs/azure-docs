@@ -93,15 +93,15 @@
           href: how-to-setup-autoscale.md
     - name: Integrate
       items:
-        - name: Bind an app to Azure CosmosDB
+        - name: Azure CosmosDB
           href: how-to-bind-cosmos.md
-        - name: Bind an app to Azure Cache for Redis
+        - name: Azure Cache for Redis
           href: how-to-bind-redis.md
-        - name: Bind an app to Azure MySQL
+        - name: Azure Database for MySQL
           href: how-to-bind-mysql.md
-        - name: Managed identity to connect Azure SQL Database
+        - name: Azure SQL Database with Managed identity
           href: connect-managed-identity-to-azure-sql.md
-        - name: Integrate with Azure Load Balance Solutions
+        - name: Azure Load Balance Solutions
           href: how-to-integrate-azure-load-balancers.md
     - name: Monitor
       items:
