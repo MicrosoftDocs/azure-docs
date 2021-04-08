@@ -49,7 +49,7 @@ Begin by creating a [Cosmos DB serverless](https://docs.microsoft.com/azure/cosm
     - Capacity mode: **Serverless (preview)**
     - Version: **3.6**
     - Availability Zones: **Disable**
-:::image type="content" source="media/add-mongoose/cosmosdb.png" alt-text="Create new Cosmos DB instance":::
+:::image type="content" source="media/add-mongoose/cosmos-db.png" alt-text="Create new Cosmos DB instance":::
 7. Click **Review + create**
 8. Click **Create**
 
@@ -82,7 +82,7 @@ This tutorial uses a GitHub template repository to help you create your applicat
     - App location: **/public**
     - Api location: **api**
     - App artifact location: *leave blank*
-    :::image type="content" source="media/add-mongoose/aswa.png" alt-text="Completed Azure Static Web Apps form":::
+    :::image type="content" source="media/add-mongoose/azure-static-web-apps.png" alt-text="Completed Azure Static Web Apps form":::
 11. Click **Review and create**
 12. Click **Create**
 
