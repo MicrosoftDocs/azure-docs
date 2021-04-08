@@ -82,7 +82,15 @@ United States Authoring (also known as Programmatic APIs) resources are hosted i
 
 * Azure geographies not supported by the Europe or Australia authoring regions
 
-When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's United States geography for active learning. 
+When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's United States geography for active learning.
+
+### Switzerland North
+
+Switzerland North Authoring (also known as Programmatic APIs) resources are hosted in Azure's Switzerland geography, and support deployment of endpoints to the following Azure geographies:
+
+* Switzerland 
+
+When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's Switzerland geography for active learning.
 
 ## Disable active learning
 
