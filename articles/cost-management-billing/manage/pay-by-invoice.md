@@ -103,4 +103,4 @@ Occasionally Microsoft needs legal documentation if the information you provided
 
 ## Next steps
 
-* If needed, update your billing contact information at the [Azure Account Center](https://account.azure.com/Profile).
+* If needed, update your billing contact information at the [Azure portal](https://portal.azure.com).

@@ -40,7 +40,7 @@ To secure your Synapse workspace, assign the RBAC Roles to these RBAC scopes:
 
 Additionally, with dedicated SQL pools you have all the same security features that you know and love.
 
-### Q: How do I control cont dedicated SQL pools, serverless SQL pools, and serverless Spark pools?
+### Q: How do I control dedicated SQL pools, serverless SQL pools, and serverless Spark pools?
 
 A: As a starting point, Azure Synapse works with the built-in cost analysis and cost alerts available at the Azure subscription level.
 

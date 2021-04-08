@@ -25,7 +25,7 @@ This behavior is by design to help avoid unnecessary collection of personal data
 
 While the default is to not collect IP addresses. We still offer the flexibility to override this behavior. However, we recommend verifying that collection doesn't break any compliance requirements or local regulations. 
 
-To learn more about personal data handling in Application Insights, consult the [guidance for personal data](../platform/personal-data-mgmt.md).
+To learn more about personal data handling in Application Insights, consult the [guidance for personal data](../logs/personal-data-mgmt.md).
 
 ## Storing IP address data
 
@@ -236,10 +236,10 @@ requests
 
 Newly collected IP addresses will appear in the `customDimensions_client-ip` column. The default `client-ip` column will still have all four octets either zeroed out. 
 
-If testing from localhost, and the value for `customDimensions_client-ip` is `::1`, this value is expected behavior. `::1` represents the loopback address in IPv6. It's equivalent to `127.0.01` in IPv4.
+If testing from localhost, and the value for `customDimensions_client-ip` is `::1`, this value is expected behavior. `::1` represents the loopback address in IPv6. It's equivalent to `127.0.0.1` in IPv4.
 
 ## Next Steps
 
-* Learn more about [personal data collection](../platform/personal-data-mgmt.md) in Application Insights.
+* Learn more about [personal data collection](../logs/personal-data-mgmt.md) in Application Insights.
 
 * Learn more about how [IP address collection](https://apmtips.com/posts/2016-07-05-client-ip-address/) in Application Insights works. (This article an older external blog post written by one of our engineers. It predates the current default behavior where IP address is recorded as `0.0.0.0`, but it goes into greater depth on the mechanics of the built-in `ClientIpHeaderTelemetryInitializer`.)

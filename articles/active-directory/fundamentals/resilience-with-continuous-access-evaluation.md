@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Build resilience by using Continuous Access Evaluation
 
-[Continuous Access Evaluation](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) (CAE) allows Azure AD applications to subscribe to critical events that can then be evaluated and enforced. This includes evaluation of the following events:
+[Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md) (CAE) allows Azure AD applications to subscribe to critical events that can then be evaluated and enforced. This includes evaluation of the following events:
 
 * The user account being deleted or disabled
 
@@ -44,11 +44,13 @@ Microsoft is working with the industry to build [standards](https://openid.net/w
 
 ## How do I implement CAE?
 
-* [Enable CAE](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) in the Azure AD Security Configuration.
+* [Update your code to use CAE-enabled APIs](../develop/app-resilience-continuous-access-evaluation.md).
 
-* Ensure that your organization is using [compatible versions](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) of Microsoft Office native applications.
+* [Enable CAE](../conditional-access/concept-continuous-access-evaluation.md) in the Azure AD Security Configuration.
 
-* [Optimize your reauthentication prompts](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
+* Ensure that your organization is using [compatible versions](../conditional-access/concept-continuous-access-evaluation.md) of Microsoft Office native applications.
+
+* [Optimize your reauthentication prompts](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
  
 ## Next steps

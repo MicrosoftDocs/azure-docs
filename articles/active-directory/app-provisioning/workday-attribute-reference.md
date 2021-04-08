@@ -3,7 +3,7 @@ title: Workday attribute reference
 description: Learn which which attributes that you can fetch from Workday using XPATH queries. 
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference

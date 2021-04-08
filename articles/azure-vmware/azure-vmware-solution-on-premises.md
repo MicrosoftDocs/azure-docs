@@ -2,7 +2,7 @@
 title: Connect Azure VMware Solution to your on-premises environment
 description: Learn how to connect Azure VMware Solution to your on-premises environment.
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 03/13/2021
 ---
 
 # Connect Azure VMware Solution to your on-premises environment
@@ -12,7 +12,7 @@ In this article, you'll continue using the [information gathered during planning
 Before you begin, there are two prerequisites for connecting Azure VMware Solution to your on-premises environment:
 
 - An ExpressRoute circuit from your on-premises environment to Azure.
-- A /29 non-overlapping network address block for the ExpressRoute Global Reach peering, which you defined as part of the [planning phase](production-ready-deployment-steps.md).
+- A /29 non-overlapping CIDR network address block for the ExpressRoute Global Reach peering, which you defined as part of the [planning phase](production-ready-deployment-steps.md).
 
 >[!NOTE]
 > You can connect through VPN, but that's out of scope for this quick start document.
@@ -20,6 +20,10 @@ Before you begin, there are two prerequisites for connecting Azure VMware Soluti
 ## Establish an ExpressRoute Global Reach connection
 
 To establish on-premises connectivity to your Azure VMware Solution private cloud using ExpressRoute Global Reach, follow the [Peer on-premises environments to a private cloud](tutorial-expressroute-global-reach-private-cloud.md) tutorial.
+
+This tutorial results in a connection as shown in the diagram.
+
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="ExpressRoute Global Reach on-premises network connectivity diagram." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" border="false":::
 
 ## Verify on-premises network connectivity
 

@@ -1,9 +1,9 @@
 ---
-title: Create an image from a VM  
+title: Create an image from a VM by using Azure CLI
 description: Learn how to create an image in a Shared Image Gallery from a VM in Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/01/2020
@@ -53,11 +53,11 @@ Image definition names can be made up of uppercase or lowercase letters, digits,
 
 Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
 
-For more information about the values you can specify for an image definition, see [Image definitions](./linux/shared-image-galleries.md#image-definitions).
+For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
 Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-In this example, the image definition is named *myImageDefinition*, and is for a [specialized](./linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
+In this example, the image definition is named *myImageDefinition*, and is for a [specialized](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
 ```azurecli-interactive 
 az sig image-definition create \

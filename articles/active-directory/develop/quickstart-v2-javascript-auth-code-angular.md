@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-#Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform endpoint so that my JavaScript Angular app can sign in users of personal accounts, work accounts, and school accounts.
+#Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my JavaScript Angular app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
 # Quickstart: Sign in and get an access token in an Angular SPA using the auth code flow
@@ -23,6 +23,9 @@ In this quickstart, you download and run a code sample that demonstrates how a J
 See [How the sample works](#how-the-sample-works) for an illustration.
 
 This quickstart uses MSAL Angular v2 with the authorization code flow. For a similar quickstart that uses MSAL Angular 1.x with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](./quickstart-v2-angular.md).
+
+> [!IMPORTANT]
+> MSAL Angular v2 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## Prerequisites
 
@@ -36,9 +39,7 @@ This quickstart uses MSAL Angular v2 with the authorization code flow. For a sim
 >
 > ### Option 1 (Express): Register and auto configure your app and then download your code sample
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
-> 1. If your account gives you access to more than one tenant, select your account at the top right, and then set your portal session to the Azure AD tenant you want to use.
-> 1. Select [App registrations](https://aka.ms/AAatehv).
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**.
@@ -48,20 +49,28 @@ This quickstart uses MSAL Angular v2 with the authorization code flow. For a sim
 >
 > #### Step 1: Register your application
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
-> 1. If your account gives you access to more than one tenant, select your account at the top right, and then set your portal session to the Azure Active Directory (Azure AD) tenant you want to use.
-> 1. Select [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter a name for your application.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
-> 1. In the left pane of the registered application, select **Authentication**.
-> 1. Under **Platform configurations**, select `Add a platform`.
-> 1. In the resulting window, select **Single-page application**.
+> 1. Under **Manage**, select **Authentication**.
+> 1. Under **Platform configurations**, select **Add a platform**. In the pane that opens select **Single-page application**.
 > 1. Set the **Redirect URIs** value to `http://localhost:4200/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user. 
-> 1. Click the **Configure** button to apply the changes.
+> 1. Select **Configure** to apply the changes.
 > 1. Under **Platform Configurations** expand **Single-page application**.
-> 1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png)Your Redirect URI is eligible for the Authorization Code Flow with PKCE.
+> 1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png) Your Redirect URI is eligible for the Authorization Code Flow with PKCE.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 1: Configure your application in the Azure portal
+> For the code sample in this quickstart to work, add a **Redirect URI** of `http://localhost:4200/`.
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Make these changes for me]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Already configured](media/quickstart-v2-javascript/green-check.png) Your application is configured with these attributes.
 
  #### Step 2: Download the project
 
@@ -105,12 +114,18 @@ This quickstart uses MSAL Angular v2 with the authorization code flow. For a sim
 > Modify the values in the `auth` section as described here:
 >
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
+>
+>    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
 > - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com/`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` is set to one of the following:
 >   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
+>
+>    To find the value of the **Directory (tenant) ID**, go to the app registration's **Overview** page in the Azure portal.
 >   - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
 >   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`. **For this quickstart**, use `common`.
 >   - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
+>
+>    To find the value of **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
 > - `Enter_the_Redirect_Uri_Here` is `http://localhost:4200/`.
 >
 > The `authority` value in your *app.module.ts* should be similar to the following if you're using the main (global) Azure cloud:
@@ -119,8 +134,6 @@ This quickstart uses MSAL Angular v2 with the authorization code flow. For a sim
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
@@ -130,7 +143,7 @@ This quickstart uses MSAL Angular v2 with the authorization code flow. For a sim
 >
 > Scroll down in the same file and update the `graphMeEndpoint`. 
 > - Replace the string `Enter_the_Graph_Endpoint_Herev1.0/me` with `https://graph.microsoft.com/v1.0/me`
-> - `Enter_the_Graph_Endpoint_Herev1.0/me` is the endpoint that API calls will be made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information, see the [documentation](https://docs.microsoft.com/graph/deployments).
+> - `Enter_the_Graph_Endpoint_Herev1.0/me` is the endpoint that API calls will be made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information, see the [documentation](/graph/deployments).
 >
 >
 > ```javascript
@@ -169,7 +182,7 @@ Run the project with a web server by using Node.js:
 
 ### msal.js
 
-The MSAL.js library signs in users and requests the tokens that are used to access an API that's protected by Microsoft identity platform. 
+The MSAL.js library signs in users and requests the tokens that are used to access an API that's protected by the Microsoft identity platform. 
 
 If you have Node.js installed, you can download the latest version by using the Node.js Package Manager (npm):
 

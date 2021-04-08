@@ -47,11 +47,7 @@ Use the following steps to import the sample dataset.
 
 1. Drag and drop the **Adult Census Income Binary classification** dataset onto the canvas.
 
-1. Select the **Adult Census Income** dataset module.
-
-1. In the details pane that appears to the right of the canvas, select **Outputs**.
-
-1. Select the visualize icon ![visualize icon](media/how-to-designer-transform-data/visualize-icon.png).
+1. Right-click the **Adult Census Income** dataset module, and select **Visualize** > **Dataset output**
 
 1. Use the data preview window to explore the dataset. Take special note of the "native-country" column values.
 
@@ -75,7 +71,7 @@ In this section, you use the [Split Data module](algorithm-module-reference/spli
 
 Your pipeline should look like this:
 
-:::image type="content" source="./media/how-to-designer-transform-data/split-data.png"alt-text="Screenshot showing how to configure the pipeline and the Split Data module":::
+:::image type="content" source="./media/how-to-designer-transform-data/split-data.png" alt-text="Screenshot showing how to configure the pipeline and the Split Data module":::
 
 
 ## Save the datasets

@@ -2,7 +2,7 @@
 title: Backup Azure Database for PostgreSQL 
 description: Learn about Azure Database for PostgreSQL backup with long-term retention (preview)
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/06/2021
 ms.custom: references_regions 
 ---
 
@@ -26,7 +26,7 @@ You may use this solution independently or in addition to the native backup solu
 
 |Support  |Details  |
 |---------|---------|
-|Supported deployments   |  [Azure Database for PostgreSQL - Single Server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
+|Supported deployments   |  [Azure Database for PostgreSQL - Single Server](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
 |Supported Azure regions |  East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, Brazil South, Canada Central, North Europe, West Europe, UK South, UK West, Germany West Central, Switzerland North, Switzerland West, East Asia, South East Asia, Japan East, Japan West, Korea Central, Korea South, India Central, Australia East, Australia Central, Australia Central 2, UAE North  |
 |Supported Azure PostgreSQL versions    |   9.5, 9.6, 10, 11      |
 
@@ -130,10 +130,9 @@ The following instructions are a step-by-step guide to configuring backup on the
 
 1. Define **Retention** settings. You can add one or more retention rules. Each retention rule assumes inputs for specific backups, and data store and retention duration for those backups.
 
-1. You can choose to store your backups in one of the two data stores (or tiers): **Backup data store** (standard tier) or **Archive data store** (in preview). You can choose between **two tiering options** to define when the backups are tiered across the two datastores:
+1. You can choose to store your backups in one of the two data stores (or tiers): **Backup data store** (standard tier) or **Archive data store** (in preview).
 
-    - Choose to copy **Immediately** if you prefer to have a backup copy in both backup and archive data stores simultaneously.
-    - Choose to move **On-expiry** if you prefer to move the backup to archive data store upon its expiry in the backup data store.
+   You can choose **On-expiry** to move the backup to archive data store upon its expiry in the backup data store.
 
 1. The **default retention rule** is applied in the absence of any other retention rule, and has a default value of three months.
 
@@ -192,7 +191,21 @@ Follow this step-by-step guide to trigger a restore:
 
     ![Restore as files](./media/backup-azure-database-postgresql/restore-as-files.png)
 
+1. If the recovery point is in the archive tier, you must rehydrate the recovery point before restoring.
+   
+   ![Rehydration settings](./media/backup-azure-database-postgresql/rehydration-settings.png)
+   
+   Provide the following additional parameters required for rehydration:
+   - **Rehydration priority:** Default is **Standard**.
+   - **Rehydration duration:** The maximum rehydration duration is 30 days, and the minimum rehydration duration is 10 days. Default value is **15**.
+   
+   The recovery point is stored in the **Backup data store** for the specified rehydration duration.
+
+
 1. Review the information and select **Restore**. This will trigger a corresponding Restore job that can be tracked under **Backup jobs**.
+
+>[!NOTE]
+>Archive support for Azure Database for PostgreSQL is in limited public preview.
 
 ## Prerequisite permissions for configure backup and restore
 
@@ -215,7 +228,7 @@ Choose from the list of retention rules that were defined in the associated Back
 
 ### Stop protection
 
-You can stop protection on a backup item. This will also delete the associated recovery points for that backup item. We don't yet provide the option of stop protection while retaining the existing recovery points.
+You can stop protection on a backup item. This will also delete the associated recovery points for that backup item. If recovery points are not in the archive tier for a minimum of six months, deletion of those recovery points will incur early deletion cost. We don't yet provide the option of stop protection while retaining the existing recovery points.
 
 ![Stop protection](./media/backup-azure-database-postgresql/stop-protection.png)
 

@@ -1,12 +1,8 @@
 ---
 title: Import device information
 description: Defender for IoT sensors monitor and analyze mirrored traffic. In these cases, you might want to import data to enrich information on devices already detected.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Import device information to a sensor
@@ -155,7 +151,7 @@ To import the IP address, OS, and patch level:
 
    - **Operating System**: Select from the drop-down list.
 
-   - **Last Update**: Use the YYYY-MM-DD format.
+   - **Date of Last Update**: Use the YYYY-MM-DD format.
 
     :::image type="content" source="media/how-to-import-device-information/last-update-screen.png" alt-text="The content on the screen.":::
 
@@ -167,7 +163,7 @@ To import the IP address, OS, and patch level:
 
 To import the authorization status:
 
-1. Download and save the [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the  Defender for IoT help center. Verify that you saved the file as a CSV.
+1. Download and save the [authorized_devices - examples.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the  Defender for IoT help center. Verify that you saved the file as a CSV.
 
 2. Enter the information as:
 

@@ -32,8 +32,6 @@ Additionally, Azure Active Directory and Azure Role-Based Access Control can be 
 
 Some Azure-attached services are only available when they can be directly reached such as the Azure Defender security services, Container Insights, and Azure Backup to blob storage.
 
-Currently, in the preview only the indirectly connected mode is supported. 
-
 ||**Indirectly connected**|**Directly connected**|**Never connected**|
 |---|---|---|---|
 |**Description**|Indirectly connected mode offers most of the management services locally in your environment with no direct connection to Azure.  A minimal amount of data must be sent to Azure for inventory and billing purposes _only_. It is exported to a file and uploaded to Azure at least once per month.  No direct or continuous connection to Azure is required.  Some features and services which require a connection to Azure will not be available.|Directly connected mode offers all of the available services when a direct connection can be established with Azure. Connections are always initiated _from_ your environment to Azure and use standard ports and protocols such as HTTPS/443.|No data can be sent to or from Azure in any way.|

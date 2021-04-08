@@ -21,7 +21,7 @@
       href: tutorial-configure-ldaps.md
     - name: Configure password hash sync
       href: tutorial-configure-password-hash-sync.md
-    - name: Create a replica set (preview)
+    - name: Create a replica set
       href: tutorial-create-replica-set.md
     - name: Create a customized managed domain
       href: tutorial-create-instance-advanced.md
@@ -43,7 +43,7 @@
       href: administration-concepts.md
     - name: Common deployment scenarios
       href: scenarios.md
-    - name: Replica sets (preview)
+    - name: Replica sets
       href: concepts-replica-sets.md
     - name: Forests and trusts
       items:
@@ -74,7 +74,7 @@
         - name: Create a group managed service account (gMSA)
           href: create-gmsa.md
     - name: Manage Azure AD DS
-      items: 
+      items:
         - name: Administer Group Policy
           href: manage-group-policy.md
         - name: Manage DNS
@@ -124,7 +124,7 @@
         - name: Enable profile synchronization for SharePoint Server
           href: deploy-sp-profile-sync.md
     - name: Troubleshoot
-      items: 
+      items:
         - name: Common errors
           href: troubleshoot.md
         - name: Domain-join issues
@@ -149,6 +149,10 @@
               href: alert-service-principal.md
             - name: Secure LDAP alerts
               href: alert-ldaps.md
+- name: Reference
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.addomainservices/
 - name: Resources
   items:
     - name: FAQs

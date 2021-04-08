@@ -152,7 +152,7 @@ Application Gateway logs are integrated with [Azure Monitor](../../azure-monitor
 
 #### Azure Security Center
 
-[Security Center](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats. It provides increased visibility into and control over the security of your Azure resources. Application Gateway is [integrated with Security Center](../../application-gateway/application-gateway-integration-security-center.md). Security Center scans your environment to detect unprotected web applications. It can recommend Application Gateway WAF to protect these vulnerable resources. You create the firewalls directly from Security Center. These WAF instances are integrated with Security Center. They send alerts and health information to Security Center for reporting.
+[Security Center](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats. It provides increased visibility into and control over the security of your Azure resources. Application Gateway is [integrated with Security Center](../../security-center/security-center-partner-integration.md#integrated-azure-security-solutions). Security Center scans your environment to detect unprotected web applications. It can recommend Application Gateway WAF to protect these vulnerable resources. You create the firewalls directly from Security Center. These WAF instances are integrated with Security Center. They send alerts and health information to Security Center for reporting.
 
 ![Security Center overview window](../media/ag-overview/figure1.png)
 
@@ -168,7 +168,7 @@ With the built-in Azure WAF firewall events workbook, you can get an overview of
 
 #### Azure Monitor Workbook for WAF
 
-This workbook enables custom visualization of security-relevant WAF events across several filterable panels. It works with all WAF types, including Application Gateway, Front Door, and CDN, and can be filtered based on WAF type or a specific WAF instance. Import via ARM Template or Gallery Template. To deploy this workbook, see [WAF Workbook](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
+This workbook enables custom visualization of security-relevant WAF events across several filterable panels. It works with all WAF types, including Application Gateway, Front Door, and CDN, and can be filtered based on WAF type or a specific WAF instance. Import via ARM Template or Gallery Template. To deploy this workbook, see [WAF Workbook](https://aka.ms/AzWAFworkbook).
 
 #### Logging
 

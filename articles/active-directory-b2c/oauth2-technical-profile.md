@@ -86,6 +86,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | ClaimsEndpointAccessTokenName | No | The name of the access token query string parameter. Some identity providers' claims endpoints support GET HTTP request. In this case, the bearer token is sent by using a query string parameter instead of the authorization header. Default value: `access_token`. |
 | ClaimsEndpointFormatName | No | The name of the format query string parameter. For example, you can set the name as `format` in this LinkedIn claims endpoint `https://api.linkedin.com/v1/people/~?format=json`. |
 | ClaimsEndpointFormat | No | The value of the format query string parameter. For example, you can set the value as `json` in this LinkedIn claims endpoint `https://api.linkedin.com/v1/people/~?format=json`. |
+| BearerTokenTransmissionMethod | No | Specifies how the token is sent. The default method is a query string. To send the token as a request header, set to `AuthorizationHeader`. |
 | ProviderName | No | The name of the identity provider. |
 | response_mode | No | The method that the identity provider uses to send the result back to Azure AD B2C. Possible values: `query`, `form_post` (default), or `fragment`. |
 | scope | No | The scope of the request that is defined according to the OAuth2 identity provider specification. Such as `openid`, `profile`, and `email`. |

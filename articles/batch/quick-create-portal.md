@@ -64,7 +64,7 @@ After a few minutes, the allocation state changes to **Steady**, and the nodes s
 
 ## Create a job
 
-Now that you have a pool, create a job to run on it. A Batch job is a logical group for one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. Initially the job has no tasks.
+Now that you have a pool, create a job to run on it. A Batch job is a logical group of one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. Initially the job has no tasks.
 
 1. In the Batch account view, select **Jobs** > **Add**.
 

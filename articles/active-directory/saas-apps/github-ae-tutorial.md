@@ -66,7 +66,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **GitHub AE** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -91,18 +91,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, GitHub AE application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-	
-	| Name |  Source Attribute|
-	| ----------- | --------- |
-	| administrator | true |
+1. Edit **User Attributes & Claims**.
+
+1. Click **Add new claim** and enter the name as **administrator** in the textbox.
+
+1. Expand **Claim conditions** and select **Members** from **User type**.
+
+1. Click on **Select groups** and search for the **Group** you want to include this claim, where its members should be administrators for GHAE.
+
+1. Select **Attribute** for **Source** and enter **true** (without quotes) for the **Value**. 
+
+1. Click **Save**.
+
+    ![manage claim](./media/github-ae-tutorial/administrator.png)
 
     > [!NOTE]
     > To know the instructions on how to add a claim, please follow the [link](https://docs.github.com/en/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad).
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificateBase64.png)
+	![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up GitHub AE** section, copy the appropriate URL(s) based on your requirement.
 

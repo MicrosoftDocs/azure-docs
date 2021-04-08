@@ -10,7 +10,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: [mvc, mqtt, devx-track-python, devx-track-azurecli]
 ms.date: 09/14/2020
-# As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
+#Customer intent: As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
 # Quickstart: Control a device connected to an IoT hub (Python)
@@ -74,7 +74,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string \
+    az iot hub connection-string show \
       --policy-name service \
       --name {YourIoTHubName} \
       --output table

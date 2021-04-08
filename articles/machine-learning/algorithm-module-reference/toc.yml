@@ -27,9 +27,7 @@
   - name: Convert to Dataset
     href: convert-to-dataset.md
   - name: Convert to Indicator Values
-    href: convert-to-indicator-values.md  
-  - name: Clean Missing Data
-    href: clean-missing-data.md
+    href: convert-to-indicator-values.md
   - name: Edit Metadata
     href: edit-metadata.md
   - name: Group Data into Bins

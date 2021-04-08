@@ -10,7 +10,7 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 09/03/2020
+ms.date: 01/27/2021
 ---
 # Quickstart: Create an Azure SQL Database single database
 
@@ -64,6 +64,8 @@ To create a single database in the Azure portal this quickstart starts at the Az
   
 
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
+1. Optionally, enable [Azure Defender for SQL](../database/azure-defender-for-sql.md).
+1. Optionally, set the [maintenance window](../database/maintenance-window.md) so planned maintenance is performed at the best time for your database.
 1. Select **Review + create** at the bottom of the page:
 
    ![Additional settings tab](./media/single-database-create-quickstart/additional-settings.png)

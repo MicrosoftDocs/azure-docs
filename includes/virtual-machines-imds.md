@@ -10,8 +10,6 @@ ms.reviewer: azmetadatadev
 ms.custom: references_regions
 ---
 
-# Azure Instance Metadata Service (IMDS)
-
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see the [Endpoint Categories Summary](#endpoint-categories).
 
@@ -38,13 +36,13 @@ Here's sample code to retrieve all metadata for an instance. To access a specifi
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### [Linux](#tab/linux/)
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | jq
 ```
 
 ---
@@ -74,7 +72,7 @@ Any request that does not meet **both** of these requirements will be rejected b
 IMDS is **not** intended to be used behind a proxy and doing so is unsupported. Most HTTP clients provide an option for you to disable proxies on your requests, and this functionality must be utilized when communicating with IMDS. Consult your client's documentation for details.
 
 > [!IMPORTANT]
-> Even if you don't know of any proxy configuration in your environment, **you still must override any default client proxy settings**. Proxy configurations can be automatically discovered, and failing to bypass such configurations exposes you to outrage risks should the machine's configuration be changed in the future.
+> Even if you don't know of any proxy configuration in your environment, **you still must override any default client proxy settings**. Proxy configurations can be automatically discovered, and failing to bypass such configurations exposes you to outage risks should the machine's configuration be changed in the future.
 
 ## Rate limiting
 
@@ -192,7 +190,7 @@ To access a non-default response format, specify the requested format as a query
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 #### [Linux](#tab/linux/)
@@ -244,9 +242,7 @@ When you don't specify a version, you get an error with a list of the newest sup
 - 2020-07-15
 - 2020-09-01
 - 2020-10-01
-
-> [!NOTE]
-> Version 2020-10-01 is currently being rolled out and may not yet be available in every region.
+- 2020-12-01
 
 ### Swagger
 
@@ -269,6 +265,7 @@ The IMDS API contains multiple endpoint categories representing different data s
 | `/metadata/attested` | See [Attested Data](#attested-data) | 2018-10-01
 | `/metadata/identity` | See [Managed Identity via IMDS](#managed-identity) | 2018-02-01
 | `/metadata/instance` | See [Instance Metadata](#instance-metadata) | 2017-04-02
+| `/metadata/loadbalancer` | See [Retrieve Load Balancer metadata via IMDS](#load-balancer-metadata) | 2020-10-01
 | `/metadata/scheduledevents` | See [Scheduled Events via IMDS](#scheduled-events) | 2017-08-01
 | `/metadata/versions` | See [Versions](#versions) | N/A
 
@@ -332,6 +329,7 @@ Schema breakdown:
 |------|-------------|--------------------|
 | `azEnvironment` | Azure Environment where the VM is running in | 2018-10-01
 | `customData` | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
+| `evictionPolicy` | Sets how a [Spot VM](../articles/virtual-machines/spot-vms.md) will be evicted. | 2020-12-01
 | `isHostCompatibilityLayerVm` | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
 | `licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs | 2020-09-01
 | `location` | Azure Region the VM is running in | 2017-04-02
@@ -343,8 +341,9 @@ Schema breakdown:
 | `osType` | Linux or Windows | 2017-04-02
 | `placementGroupId` | [Placement Group](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
 | `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
-| `platformUpdateDomain` |  [Update domain](../articles/virtual-machines/manage-availability.md) the VM is running in | 2017-04-02
-| `platformFaultDomain` | [Fault domain](../articles/virtual-machines/manage-availability.md) the VM is running in | 2017-04-02
+| `platformUpdateDomain` |  [Update domain](../articles/virtual-machines/availability.md) the VM is running in | 2017-04-02
+| `platformFaultDomain` | [Fault domain](../articles/virtual-machines/availability.md) the VM is running in | 2017-04-02
+| `priority` | Priority of the VM. Refer to [Spot VMs](../articles/virtual-machines/spot-vms.md) for more information | 2020-12-01
 | `provider` | Provider of the VM | 2018-10-01
 | `publicKeys` | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
 | `publisher` | Publisher of the VM image | 2017-04-02
@@ -419,13 +418,6 @@ Data | Description |
 | `ipv6.ipAddress` | Local IPv6 address of the VM | 2017-04-02
 | `macAddress` | VM mac address | 2017-04-02
 
-**VM tags**
-
-VM tags are included the instance API under instance/compute/tags endpoint.
-Tags may have been applied to your Azure VM to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
-
-The `tags` field is a string with the tags delimited by semicolons. This output can be a problem if semicolons are used in the tags themselves. If a parser is written to programmatically extract the tags, you should rely on the `tagsList` field. The `tagsList` field is a JSON array with no delimiters, and consequently, easier to parse.
-
 
 #### Sample 1: Tracking VM running on Azure
 
@@ -436,7 +428,7 @@ As a service provider, you may require to track the number of VMs running your s
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"| ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 #### [Linux](#tab/linux/)
@@ -465,7 +457,7 @@ You can query this data directly via IMDS.
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
 #### [Linux](#tab/linux/)
@@ -482,7 +474,98 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 0
 ```
 
-#### Sample 3: Get more information about the VM during support case
+#### Sample 3: Get VM tags
+
+VM tags are included the instance API under instance/compute/tags endpoint.
+Tags may have been applied to your Azure VM to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
+
+**Request**
+
+#### [Windows](#tab/windows/)
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2017-08-01&format=text"
+```
+
+#### [Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
+```
+
+---
+
+**Response**
+
+```
+Department:IT;ReferenceNumber:123456;TestStatus:Pending
+```
+
+The `tags` field is a string with the tags delimited by semicolons. This output can be a problem if semicolons are used in the tags themselves. If a parser is written to programmatically extract the tags, you should rely on the `tagsList` field. The `tagsList` field is a JSON array with no delimiters, and consequently, easier to parse. The tagsList assigned to a VM can be retrieved by using the request below.
+
+**Request**
+
+#### [Windows](#tab/windows/)
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | ConvertTo-Json -Depth 64
+```
+
+#### [Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | jq
+```
+
+---
+
+**Response**
+
+#### [Windows](#tab/windows/)
+
+```json
+{
+    "value":  [
+                  {
+                      "name":  "Department",
+                      "value":  "IT"
+                  },
+                  {
+                      "name":  "ReferenceNumber",
+                      "value":  "123456"
+                  },
+                  {
+                      "name":  "TestStatus",
+                      "value":  "Pending"
+                  }
+              ],
+    "Count":  3
+}
+```
+
+#### [Linux](#tab/linux/)
+
+```json
+[
+  {
+    "name": "Department",
+    "value": "IT"
+  },
+  {
+    "name": "ReferenceNumber",
+    "value": "123456"
+  },
+  {
+    "name": "TestStatus",
+    "value": "Pending"
+  }
+]
+```
+
+---
+
+
+#### Sample 4: Get more information about the VM during support case
 
 As a service provider, you may get a support call where you would like to know more information about the VM. Asking the customer to share the compute metadata can provide basic information for the support professional to know about the kind of VM on Azure.
 
@@ -491,7 +574,7 @@ As a service provider, you may get a support call where you would like to know m
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### [Linux](#tab/linux/)
@@ -507,6 +590,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
 
+#### [Windows](#tab/windows/)
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
@@ -514,13 +598,13 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "licenseType":  "Windows_Client",
     "location": "westus",
     "name": "examplevmname",
-    "offer": "Windows",
+    "offer": "WindowsServer",
     "osProfile": {
         "adminUsername": "admin",
         "computerName": "examplevmname",
         "disablePasswordAuthentication": "true"
     },
-    "osType": "linux",
+    "osType": "Windows",
     "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
     "plan": {
         "name": "planName",
@@ -545,7 +629,108 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
         "secureBootEnabled": "true",
         "virtualTpmEnabled": "false"
     },
-    "sku": "Windows-Server-2012-R2-Datacenter",
+    "sku": "2019-Datacenter",
+    "storageProfile": {
+        "dataDisks": [{
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+                "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+        }],
+        "imageReference": {
+            "id": "",
+            "offer": "WindowsServer",
+            "publisher": "MicrosoftWindowsServer",
+            "sku": "2019-Datacenter",
+            "version": "latest"
+        },
+        "osDisk": {
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "diskSizeGB": "30",
+            "diffDiskSettings": {
+                "option": "Local"
+            },
+            "encryptionSettings": {
+                "enabled": "false"
+            },
+            "image": {
+                "uri": ""
+            },
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampleosdiskname",
+            "osType": "Windows",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+        }
+    },
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "baz:bash;foo:bar",
+    "version": "15.05.22",
+    "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+    "vmScaleSetName": "crpteste9vflji9",
+    "vmSize": "Standard_A3",
+    "zone": ""
+}
+```
+
+#### [Linux](#tab/linux/)
+```json
+{
+    "azEnvironment": "AZUREPUBLICCLOUD",
+    "isHostCompatibilityLayerVm": "true",
+    "licenseType":  "Windows_Client",
+    "location": "westus",
+    "name": "examplevmname",
+    "offer": "UbuntuServer",
+    "osProfile": {
+        "adminUsername": "admin",
+        "computerName": "examplevmname",
+        "disablePasswordAuthentication": "true"
+    },
+    "osType": "Linux",
+    "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+    "plan": {
+        "name": "planName",
+        "product": "planProduct",
+        "publisher": "planPublisher"
+    },
+    "platformFaultDomain": "36",
+    "platformUpdateDomain": "42",
+    "publicKeys": [{
+            "keyData": "ssh-rsa 0",
+            "path": "/home/user/.ssh/authorized_keys0"
+        },
+        {
+            "keyData": "ssh-rsa 1",
+            "path": "/home/user/.ssh/authorized_keys1"
+        }
+    ],
+    "publisher": "Canonical",
+    "resourceGroupName": "macikgo-test-may-23",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+    "securityProfile": {
+        "secureBootEnabled": "true",
+        "virtualTpmEnabled": "false"
+    },
+    "sku": "18.04-LTS",
     "storageProfile": {
         "dataDisks": [{
             "caching": "None",
@@ -590,7 +775,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "storageAccountType": "Standard_LRS"
             },
             "name": "exampleosdiskname",
-            "osType": "Linux",
+            "osType": "linux",
             "vhd": {
                 "uri": ""
             },
@@ -607,7 +792,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 }
 ```
 
-#### Sample 4: Get the Azure Environment where the VM is running
+---
+
+#### Sample 5: Get the Azure Environment where the VM is running
 
 Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample shows you how you can achieve this behavior.
 
@@ -616,7 +803,7 @@ Azure has various sovereign clouds like [Azure Government](https://azure.microso
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 #### [Linux](#tab/linux/)
@@ -643,14 +830,14 @@ The cloud and the values of the Azure environment are listed here.
 | [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | AzureGermanCloud
 
 
-#### Sample 5: Retrieve network information
+#### Sample 6: Retrieve network information
 
 **Request**
 
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
 ```
 
 #### [Linux](#tab/linux/)
@@ -690,12 +877,12 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 }
 ```
 
-#### Sample 6: Retrieve public IP address
+#### Sample 7: Retrieve public IP address
 
 #### [Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### [Linux](#tab/linux/)
@@ -789,7 +976,7 @@ Vendors in Azure Marketplace want to ensure that their software is licensed to r
 
 ```powershell
 # Get the signature
-$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
 # Decode the signature
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```
@@ -910,8 +1097,12 @@ You can then request tokens for managed identities from IMDS. Use these tokens t
 
 For detailed steps to enable this feature, see [Acquire an access token](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
+## Load Balancer Metadata
+When you place virtual machine or virtual machine set instances behind an Azure Standard Load Balancer, you can use IMDS to retrieve metadata related to the load balancer and the instances. For more information, see [Retrieve load balancer information](../articles/load-balancer/instance-metadata-service-load-balancer.md).
+
 ## Scheduled events
 You can obtain the status of the scheduled events by using IMDS. Then the user can specify a set of actions to run upon these events. For more information, see [Scheduled events for Linux](../articles/virtual-machines/linux/scheduled-events.md) or [Scheduled events for Windows](../articles/virtual-machines/windows/scheduled-events.md).
+
 
 ## Sample code in different languages
 
@@ -946,174 +1137,168 @@ If there is a data element not found or a malformed request, the Instance Metada
 
 ## Frequently asked questions
 
-**I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?**
+- I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
+  - IMDS requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to IMDS.
 
-IMDS requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to IMDS.
+- Why am I not getting compute information for my VM?
+  - Currently, IMDS only supports instances created with Azure Resource Manager.
 
-**Why am I not getting compute information for my VM?**
+- I created my VM through Azure Resource Manager some time ago. Why am I not seeing compute metadata information?
+  - If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
 
-Currently, IMDS only supports instances created with Azure Resource Manager.
+- Why am I not seeing all data populated for a new version?
+  - If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
 
-**I created my VM through Azure Resource Manager some time ago. Why am I not seeing compute metadata information?**
+- Why am I getting the error `500 Internal Server Error` or `410 Resource Gone`?
+  - Retry your request. For more information, see [Transient fault handling](/azure/architecture/best-practices/transient-faults). If the problem persists, create a support issue in the Azure portal for the VM.
 
-If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
+- Would this work for virtual machine scale set instances?
+  - Yes, IMDS is available for virtual machine scale set instances.
 
-**Why am I not seeing all data populated for a new version?**
+- I updated my tags in virtual machine scale sets, but they don't appear in the instances (unlike single instance VMs). Am I doing something wrong?
+  - Currently tags for virtual machine scale sets only show to the VM on a reboot, reimage, or disk change to the instance.
 
-If you created your VM after September 2016, add a [tag](../articles/azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
+- Why am I am not seeing the SKU information for my VM in `instance/compute` details?
+  - For custom images created from Azure Marketplace, Azure platform doesn't retain the SKU information for the custom image and the details for any VMs created from the custom image. This is by design and hence not surfaced in the VM `instance/compute` details.
 
-**Why am I getting the error `500 Internal Server Error` or `410 Resource Gone`?**
+- Why is my request timed out for my call to the service?
+  - Metadata calls must be made from the primary IP address assigned to the primary network card of the VM. Additionally, if you've changed your routes, there must be a route for the 169.254.169.254/32 address in your VM's local routing table.
 
-Retry your request. For more information, see [Transient fault handling](/azure/architecture/best-practices/transient-faults). If the problem persists, create a support issue in the Azure portal for the VM.
+    ### [Windows](#tab/windows/)
 
-**Would this work for virtual machine scale set instances?**
+    1. Dump your local routing table and look for the IMDS entry. For example:
+        ```console
+        > route print
+        IPv4 Route Table
+        ===========================================================================
+        Active Routes:
+        Network Destination        Netmask          Gateway       Interface  Metric
+                0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+                127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+                127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+        127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+            168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
+        169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
+        ... (continues) ...
+        ```
+    1. Verify that a route exists for `169.254.169.254`, and note the corresponding network interface (for example, `172.16.69.7`).
+    1. Dump the interface configuration and find the interface that corresponds to the one referenced in the routing table, noting the MAC (physical) address.
+        ```console
+        > ipconfig /all
+        ... (continues) ...
+        Ethernet adapter Ethernet:
 
-Yes, IMDS is available for virtual machine scale set instances.
+        Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
+        Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
+        Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
+        DHCP Enabled. . . . . . . . . . . : Yes
+        Autoconfiguration Enabled . . . . : Yes
+        Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
+        IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        ... (continues) ...
+        ```
+    1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC and IP by looking at the network configuration in the Azure portal, or by looking it up with the Azure CLI. Note the private IPs (and the MAC address if you're using the CLI). Here's a PowerShell CLI example:
+        ```powershell
+        $ResourceGroup = '<Resource_Group>'
+        $VmName = '<VM_Name>'
+        $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
+        foreach($NicName in $NicNames)
+        {
+            $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+            Write-Host $NicName, $Nic.primary, $Nic.macAddress
+        }
+        # Output: wintest767 True 00-0D-3A-E5-1C-C0
+        ```
+    1. If they don't match, update the routing table so that the primary NIC and IP are targeted.
 
-**I updated my tags in virtual machine scale sets, but they don't appear in the instances (unlike single instance VMs). Am I doing something wrong?**
+    ### [Linux](#tab/linux/)
 
-Currently tags for virtual machine scale sets only show to the VM on a reboot, reimage, or disk change to the instance.
+    1. Dump your local routing table with a command such as `netstat -r` and look for the IMDS entry (e.g.):
+        ```console
+        ~$ netstat -r
+        Kernel IP routing table
+        Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+        default         _gateway        0.0.0.0         UG        0 0          0 eth0
+        168.63.129.16   _gateway        255.255.255.255 UGH       0 0          0 eth0
+        169.254.169.254 _gateway        255.255.255.255 UGH       0 0          0 eth0
+        172.16.69.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0
+        ```
+    1. Verify that a route exists for `169.254.169.254`, and note the corresponding network interface (e.g. `eth0`).
+    1. Dump the interface configuration for the corresponding interface in the routing table (note the exact name of the configuration file may vary)
+        ```console
+        ~$ cat /etc/netplan/50-cloud-init.yaml
+        network:
+        ethernets:
+            eth0:
+                dhcp4: true
+                dhcp4-overrides:
+                    route-metric: 100
+                dhcp6: false
+                match:
+                    macaddress: 00:0d:3a:e4:c7:2e
+                set-name: eth0
+        version: 2
+        ```
+    1. If you are using a dynamic IP, note the MAC address. If you are using a static IP, you may note the listed IP(s) and/or the MAC address.
+    1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC and IP by looking at the network configuration in the Azure portal, or by looking it up with the Azure CLI. Note the private IPs (and the MAC address if you're using the CLI). Here's a PowerShell CLI example:
+        ```powershell
+        $ResourceGroup = '<Resource_Group>'
+        $VmName = '<VM_Name>'
+        $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
+        foreach($NicName in $NicNames)
+        {
+            $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+            Write-Host $NicName, $Nic.primary, $Nic.macAddress
+        }
+        # Output: ipexample606 True 00-0D-3A-E4-C7-2E
+        ```
+    1. If they do not match, update the routing table such that the primary NIC/IP are targeted.
 
-**Why is my request timed out for my call to the service?**
+    ---
 
-Metadata calls must be made from the primary IP address assigned to the primary network card of the VM. Additionally, if you've changed your routes, there must be a route for the 169.254.169.254/32 address in your VM's local routing table.
+- Failover clustering in Windows Server
+  - When you're querying IMDS with failover clustering, it's sometimes necessary to add a route to the routing table. Here's how:
 
-#### [Windows](#tab/windows/)
+    1. Open a command prompt with administrator privileges.
 
-1. Dump your local routing table and look for the IMDS entry. For example:
-    ```console
-    > route print
+    1. Run the following command, and note the address of the Interface for Network Destination (`0.0.0.0`) in the IPv4 Route Table.
+
+    ```bat
+    route print
+    ```
+
+    > [!NOTE]
+    > The following example output is from a Windows Server VM with failover cluster enabled. For simplicity, the output contains only the IPv4 Route Table.
+
+    ```
     IPv4 Route Table
     ===========================================================================
     Active Routes:
     Network Destination        Netmask          Gateway       Interface  Metric
-              0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+            0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
+            10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
+            10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
+            10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
+            10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
             127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
             127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-      127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-        168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
-      169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
-    ... (continues) ...
+    127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+        169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
+        169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
+    169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
+            224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+            224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
+    255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+    255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
+    255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
     ```
-1. Verify that a route exists for `169.254.169.254`, and note the corresponding network interface (for example, `172.16.69.7`).
-1. Dump the interface configuration and find the interface that corresponds to the one referenced in the routing table, noting the MAC (physical) address.
-    ```console
-    > ipconfig /all
-    ... (continues) ...
-    Ethernet adapter Ethernet:
 
-       Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
-       Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
-       Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
-       DHCP Enabled. . . . . . . . . . . : Yes
-       Autoconfiguration Enabled . . . . : Yes
-       Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
-       IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
-       Subnet Mask . . . . . . . . . . . : 255.255.255.0
-    ... (continues) ...
+    Run the following command and use the address of the Interface for Network Destination (`0.0.0.0`), which is (`10.0.1.10`) in this example.
+
+    ```bat
+    route add 169.254.169.254/32 10.0.1.10 metric 1 -p
     ```
-1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC and IP by looking at the network configuration in the Azure portal, or by looking it up with the Azure CLI. Note the private IPs (and the MAC address if you're using the CLI). Here's a PowerShell CLI example:
-    ```powershell
-    $ResourceGroup = '<Resource_Group>'
-    $VmName = '<VM_Name>'
-    $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
-    foreach($NicName in $NicNames)
-    {
-        $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
-        Write-Host $NicName, $Nic.primary, $Nic.macAddress
-    }
-    # Output: wintest767 True 00-0D-3A-E5-1C-C0
-    ```
-1. If they don't match, update the routing table so that the primary NIC and IP are targeted.
-
-#### [Linux](#tab/linux/)
-
- 1. Dump your local routing table with a command such as `netstat -r` and look for the IMDS entry (e.g.):
-    ```console
-    ~$ netstat -r
-    Kernel IP routing table
-    Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
-    default         _gateway        0.0.0.0         UG        0 0          0 eth0
-    168.63.129.16   _gateway        255.255.255.255 UGH       0 0          0 eth0
-    169.254.169.254 _gateway        255.255.255.255 UGH       0 0          0 eth0
-    172.16.69.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0
-    ```
-1. Verify that a route exists for `169.254.169.254`, and note the corresponding network interface (e.g. `eth0`).
-1. Dump the interface configuration for the corresponding interface in the routing table (note the exact name of the configuration file may vary)
-    ```console
-    ~$ cat /etc/netplan/50-cloud-init.yaml
-    network:
-    ethernets:
-        eth0:
-            dhcp4: true
-            dhcp4-overrides:
-                route-metric: 100
-            dhcp6: false
-            match:
-                macaddress: 00:0d:3a:e4:c7:2e
-            set-name: eth0
-    version: 2
-    ```
-1. If you are using a dynamic IP, note the MAC address. If you are using a static IP, you may note the listed IP(s) and/or the MAC address.
-1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC and IP by looking at the network configuration in the Azure portal, or by looking it up with the Azure CLI. Note the private IPs (and the MAC address if you're using the CLI). Here's a PowerShell CLI example:
-    ```powershell
-    $ResourceGroup = '<Resource_Group>'
-    $VmName = '<VM_Name>'
-    $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
-    foreach($NicName in $NicNames)
-    {
-    	$Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
-    	Write-Host $NicName, $Nic.primary, $Nic.macAddress
-    }
-    # Output: ipexample606 True 00-0D-3A-E4-C7-2E
-    ```
-1. If they do not match, update the routing table such that the primary NIC/IP are targeted.
-
----
-
-**Failover clustering in Windows Server**
-
-When you're querying IMDS with failover clustering, it's sometimes necessary to add a route to the routing table. Here's how:
-
-1. Open a command prompt with administrator privileges.
-
-1. Run the following command, and note the address of the Interface for Network Destination (`0.0.0.0`) in the IPv4 Route Table.
-
-```bat
-route print
-```
-
-> [!NOTE]
-> The following example output is from a Windows Server VM with failover cluster enabled. For simplicity, the output contains only the IPv4 Route Table.
-
-```
-IPv4 Route Table
-===========================================================================
-Active Routes:
-Network Destination        Netmask          Gateway       Interface  Metric
-          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
-         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
-        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
-        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
-        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
-    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
-  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
-        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
-        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
-  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
-  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
-```
-
-Run the following command and use the address of the Interface for Network Destination (`0.0.0.0`), which is (`10.0.1.10`) in this example.
-
-```bat
-route add 169.254.169.254/32 10.0.1.10 metric 1 -p
-```
 
 ## Support
 
@@ -1121,12 +1306,12 @@ If you aren't able to get a metadata response after multiple attempts, you can c
 
 ## Product feedback
 
-You can provide product feedback and ideas to our user feedback channel under Virtual Machines > Instance Metadata Service here: https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627
+You can provide product feedback and ideas to our user feedback channel under Virtual Machines > Instance Metadata Service [here](https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627)
 
 ## Next steps
 
-[Acquire an access token for the VM](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
+- [Acquire an access token for the VM](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
 
-[Scheduled events for Linux](../articles/virtual-machines/linux/scheduled-events.md)
+- [Scheduled events for Linux](../articles/virtual-machines/linux/scheduled-events.md)
 
-[Scheduled events for Windows](../articles/virtual-machines/windows/scheduled-events.md)
+- [Scheduled events for Windows](../articles/virtual-machines/windows/scheduled-events.md)

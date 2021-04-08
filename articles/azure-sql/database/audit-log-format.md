@@ -37,7 +37,7 @@ Audit events are written to the namespace and event hub that was defined during 
 
 ### Log Analytics
 
-Audit events are written to Log Analytics workspace defined during auditing configuration, to the `AzureDiagnostics` table with the category `SQLSecurityAuditEvents`. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](../../azure-monitor/log-query/log-query-overview.md).
+Audit events are written to Log Analytics workspace defined during auditing configuration, to the `AzureDiagnostics` table with the category `SQLSecurityAuditEvents`. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](../../azure-monitor/logs/log-query-overview.md).
 
 ## <a id="subheading-1"></a>Audit log fields
 

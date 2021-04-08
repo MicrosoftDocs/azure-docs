@@ -12,12 +12,9 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 # Host a static website in Azure Storage
 
-You can serve static content (HTML, CSS, JavaScript, and image files) directly from a container in an Azure Storage GPv2 account. To learn more, see [Static website hosting in Azure Storage](storage-blob-static-website.md).
+You can serve static content (HTML, CSS, JavaScript, and image files) directly from a container in a [general-purpose V2](../common/storage-account-create.md) or [BlockBlobStorage](storage-blob-create-account-block-blob.md) account. To learn more, see [Static website hosting in Azure Storage](storage-blob-static-website.md).
 
 This article shows you how to enable static website hosting by using the Azure portal, the Azure CLI, or PowerShell.
-
-> [!NOTE]
-> Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
 
 ## Enable static website hosting
 
@@ -49,9 +46,9 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 <a id="cli"></a>
 
-You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](/cli/azure/?view=azure-cli-latest).
+You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](/cli/azure/).
 
-1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest), or if you've [installed](/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
+1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
 2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
 

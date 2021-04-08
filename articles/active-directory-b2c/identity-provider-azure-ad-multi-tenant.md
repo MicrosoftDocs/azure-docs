@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -36,7 +36,7 @@ This article shows you how to enable sign-in for users using the multi-tenant en
 
 ## Register an application
 
-To enable sign-in for users with an Azure AD account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+To enable sign-in for users with an Azure AD account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -52,6 +52,8 @@ To enable sign-in for users with an Azure AD account in Azure Active Directory B
     ```
 
     For example, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
+
+    If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-domain-name` with your custom domain, and `your-tenant-name` with the name of your tenant.
 
 1. Select **Register**. Record the **Application (client) ID** for use in a later step.
 1. Select **Certificates & secrets**, and then select **New client secret**.
@@ -180,9 +182,18 @@ Perform these steps for each Azure AD tenant that should be used to sign in:
 </OrchestrationStep>
 ```
 
-[!INCLUDE [active-directory-b2c-create-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+
+## Test your custom policy
+
+1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **Common AAD** to sign in with Azure AD account.
 
 To test the multi-tenant sign-in capability, perform the last two steps using the credentials for a user that exists another Azure AD tenant. Copy the **Run now endpoint** and open it in a private browser window, for example, Incognito Mode in Google Chrome or an InPrivate window in Microsoft Edge. Opening in a private browser window allows you to test the full user journey by not using any currently cached Azure AD credentials.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ## Next steps
 

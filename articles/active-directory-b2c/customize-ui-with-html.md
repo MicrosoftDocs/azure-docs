@@ -1,7 +1,7 @@
 ---
-title: Customize the user interface
+title: Customize the user interface with HTML templates
 titleSuffix: Azure AD B2C
-description: Learn how to customize the user interface for your applications that use Azure Active Directory B2C.
+description: Learn how to customize the user interface with HTML templates for your applications that use Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -9,21 +9,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 03/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Customize the user interface in Azure Active Directory B2C
+# Customize the user interface with HTML templates in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Branding and customizing the user interface that Azure Active Directory B2C (Azure AD B2C) displays to your customers helps provide a seamless user experience in your application. These experiences include signing up, signing in, profile editing, and password resetting. This article introduces the methods of user interface (UI) customization. 
 
 > [!TIP]
-> If you want to modify only the banner logo, background image, and background color of your user flow pages, you can try the [Company branding](company-branding.md) feature.
+> If you want to modify only the banner logo, background image, and background color of your user flow pages, you can try the [Company branding](customize-ui.md) feature.
 
 ## Custom HTML and CSS overview
 
@@ -359,31 +359,44 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 You can find sample templates for UI customization here:
 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
+git clone https://github.com/azure-ad-b2c/html-templates
 ```
 
 This project contains the following templates:
-- [Ocean Blue](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/ocean_blue)
-- [Slate Gray](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/slate_gray)
+- [Ocean Blue](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/AzureBlue)
+- [Slate Gray](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/MSA)
+- [Classic](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/classic)
+- [Template resources](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/src)
 
 To use the sample:
 
-1. Clone the repo on your local machine. Choose a template folder `/ocean_blue` or `/slate_gray`.
-1. Upload all the files under the template folder and the `/assets` folder, to Blob storage as described in the previous sections.
-1. Next, open each `\*.html` file in the root of either `/ocean_blue` or `/slate_gray`, replace all instances of relative URLs with the URLs of the css, images, and fonts files you uploaded in step 2. For example:
+1. Clone the repo on your local machine. Choose a template folder `/AzureBlue`, `/MSA`, or `/classic`.
+1. Upload all the files under the template folder and the `/src` folder, to Blob storage as described in the previous sections.
+1. Next, open each `\*.html` file in the template folder. Then replace all instances of `https://login.microsoftonline.com` URLs, with the URL you uploaded in step 2. For example:
+    
+    From:
     ```html
-    <link href="./css/assets.css" rel="stylesheet" type="text/css" />
+    https://login.microsoftonline.com/templates/src/fonts/segoeui.WOFF
     ```
 
-    To
+    To:
     ```html
-    <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
+    https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
+    
 1. Save the `\*.html` files and upload them to Blob storage.
 1. Now modify the policy, pointing to your HTML file, as mentioned previously.
 1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the \*.html files.
 
+## Use company branding assets in custom HTML
+
+To use [company branding](customize-ui.md#configure-company-branding) assets in a custom HTML, add the following tags outside the `<div id="api">` tag. The image source is replaced with that of the background image and banner logo.
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
 ## Next steps
 
 Learn how to enable [client-side JavaScript code](javascript-and-page-layout.md).
-

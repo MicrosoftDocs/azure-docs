@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 01/28/2021
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with TLS termination so I can secure my application traffic.
 ---
@@ -102,7 +102,7 @@ Export-PfxCertificate `
    > [!NOTE]
    > For the Application Gateway v2 SKU, you can only choose **Public** frontend IP configuration. Private frontend IP configuration is currently not enabled for this v2 SKU.
 
-2. Choose **Create new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
+2. Choose **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 
    ![Create new application gateway: frontends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
@@ -112,7 +112,7 @@ Export-PfxCertificate `
 
 The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
-1. On the **Backends** tab, select **+Add a backend pool**.
+1. On the **Backends** tab, select **Add a backend pool**.
 
 2. In the **Add a backend pool** window that opens, enter the following values to create an empty backend pool:
 
@@ -129,7 +129,7 @@ The backend pool is used to route requests to the backend servers that serve the
 
 On the **Configuration** tab, you'll connect the frontend and backend pool you created using a routing rule.
 
-1. Select **Add a rule** in the **Routing rules** column.
+1. Select **Add a routing rule** in the **Routing rules** column.
 
 2. In the **Add a routing rule** window that opens, enter *myRoutingRule* for the **Rule name**.
 
@@ -140,11 +140,12 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
     - **Protocol**: Select **HTTPS**.
     - **Port**: Verify 443 is entered for the port.
 
-   Under **HTTPS Certificate**:
+   Under **HTTPS Settings**:
 
+   - **Choose a certificate** - Select **Upload a certificate**.
    - **PFX certificate file** - Browse to and select the c:\appgwcert.pfx file that you create earlier.
    - **Certificate name** - Type *mycert1* for the name of the certificate.
-   - **Password** - Type your password.
+   - **Password** - Type the password you used to create the certificate.
   
         Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
@@ -152,7 +153,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 4. On the **Backend targets** tab, select **myBackendPool** for the **Backend target**.
 
-5. For the **HTTP setting**, select **Create new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. In the **Add an HTTP setting** window that opens, enter *myHTTPSetting* for the **HTTP setting name**. Accept the default values for the other settings in the **Add an HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
+5. For the **HTTP setting**, select **Add new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. In the **Add a HTTP setting** window that opens, enter *myHTTPSetting* for the **HTTP setting name**. Accept the default values for the other settings in the **Add a HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
    :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Create new application gateway: HTTP setting":::
 
@@ -187,14 +188,14 @@ To do this, you'll:
 
     - **Resource group**: Select **myResourceGroupAG** for the resource group name.
     - **Virtual machine name**: Enter *myVM* for the name of the virtual machine.
-    - **Username**: Enter *azureuser* for the administrator user name.
+    - **Username**: Enter a name for the administrator user name.
     - **Password**: Enter a password for the administrator account.
 1. Accept the other defaults and then select **Next: Disks**.  
 2. Accept the **Disks** tab defaults and then select **Next: Networking**.
 3. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.
 
    Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
-1. On the **Management** tab, set **Boot diagnostics** to **Off**. Accept the other defaults and then select **Review + create**.
+1. On the **Management** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
 2. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
 3. Wait for the deployment to complete before continuing.
 
@@ -206,7 +207,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
     ![Install custom extension](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-2. Run the following command to install IIS on the virtual machine: 
+2. Change the location setting for your environment, and then run the following command to install IIS on the virtual machine: 
 
    ```azurepowershell-interactive
           Set-AzVMExtension `
@@ -217,7 +218,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
             -ExtensionType CustomScriptExtension `
             -TypeHandlerVersion 1.4 `
             -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-            -Location EastUS
+            -Location <location>
    ```
 
 3. Create a second virtual machine and install IIS by using the steps that you previously completed. Use *myVM2* for the virtual machine name and for the **VMName** setting of the **Set-AzVMExtension** cmdlet.
@@ -230,9 +231,11 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 3. Select **myBackendPool**.
 
-4. Under **Targets**, select **Virtual machine** from the drop-down list.
+4. Under **Target type**, select **Virtual machine** from the drop-down list.
 
-5. Under **VIRTUAL MACHINE** and **NETWORK INTERFACES**, select the **myVM** and **myVM2** virtual machines and their associated network interfaces from the drop-down lists.
+5. Under **Target**, select the the network interface under **myVM** from the drop-down list.
+
+6. Repeat to add the network interface for **myVM2**.
 
     ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 

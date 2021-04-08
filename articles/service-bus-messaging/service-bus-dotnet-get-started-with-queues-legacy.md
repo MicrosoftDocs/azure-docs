@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Service Bus queues | Microsoft Docs
 description: In this tutorial, you create .NET Core console applications to send messages to and receive messages from a Service Bus queue.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/01/2020
 ms.custom: devx-track-csharp

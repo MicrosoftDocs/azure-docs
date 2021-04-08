@@ -8,6 +8,7 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
+adobe-target: true
 ---
  
 # What is Azure Machine Learning studio?
@@ -70,31 +71,26 @@ Even if you're an experienced developer, the studio can simplify how you manage 
 
 ## ML Studio (classic) vs Azure Machine Learning studio
 
-Released in 2015, **ML Studio (classic)** was our first drag-and-drop machine learning builder. It is a standalone service that only offers a visual experience. Studio (classic) does not interoperate with Azure Machine Learning.
+Released in 2015, **ML Studio (classic)** was our first drag-and-drop machine learning builder. 
 
-**Azure Machine Learning** is a separate and modernized service that delivers a complete data science platform. It supports both code-first and low-code experiences.
+**ML Studio (classic)** is a standalone service that only offers a visual experience. Studio (classic) does not interoperate with Azure Machine Learning.
+
+**Azure Machine Learning** is a separate, and modernized, service that delivers a complete data science platform. It supports both code-first and low-code experiences.
 
 **Azure Machine Learning studio** is a web portal *in* Azure Machine Learning that contains low-code and no-code options for project authoring and asset management. 
 
-We recommend that new users choose **Azure Machine Learning**, instead of ML Studio (classic), for the latest range of data science tools.
+We recommend that new users choose **Azure Machine Learning**, instead of ML Studio (classic), for the latest range of data science tools. If you are an existing ML Studio (classic) user, consider [migrating to Azure Machine Learning](classic/migrate-overview.md).
+
+Here are some of the benefits of switching to Azure Machine Learning:
+
+- Scalable compute clusters for large-scale training.
+- Enterprise security and governance.
+- Interoperable with popular open-source tools.
+- End-to-end MLOps.
 
 ### Feature comparison
 
-The following table summarizes the key differences between ML Studio (classic) and Azure Machine Learning.
-
-| Feature | ML Studio (classic) | Azure Machine Learning |
-|---| --- | --- |
-| Drag and drop interface | Classic experience | Updated experience - [Azure Machine Learning designer](concept-designer.md)| 
-| Code SDKs | Unsupported | Fully integrated with [Azure Machine Learning Python](/python/api/overview/azure/ml/) and [R](tutorial-1st-r-experiment.md) SDKs |
-| Experiment | Scalable (10-GB training data limit) | Scale with compute target |
-| Training compute targets | Proprietary compute target, CPU support only | Wide range of customizable [training compute targets](concept-compute-target.md#train). Includes GPU and CPU support | 
-| Deployment compute targets | Proprietary web service format, not customizable | Wide range of customizable [deployment compute targets](concept-compute-target.md#deploy). Includes GPU and CPU support |
-| ML Pipeline | Not supported | Build flexible, modular [pipelines](concept-ml-pipelines.md) to automate workflows |
-| MLOps | Basic model management and deployment; CPU only deployments | Entity versioning (model, data, workflows), workflow automation, integration with CICD tooling, CPU and GPU deployments [and more](concept-model-management-and-deployment.md) |
-| Model format | Proprietary format, Studio (classic) only | Multiple supported formats depending on training job type |
-| Automated model training and hyperparameter tuning |  Not supported | [Supported](concept-automated-ml.md). Code-first and no-code options. | 
-| Data drift detection | Not supported | [Supported](how-to-monitor-datasets.md) |
-| Data labeling projects | Not supported | [Supported](how-to-create-labeling-projects.md) |
+[!INCLUDE [aml-compare-classic](../../includes/machine-learning-compare-classic-aml.md)]
 
 ## Troubleshooting
 

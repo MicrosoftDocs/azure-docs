@@ -295,7 +295,7 @@ namespace CosmosDBSamplesV2
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `DocumentClient` instance provided by the Azure Cosmos DB binding to read a list of documents. The `DocumentClient` instance could also be used for write operations.
 
 > [!NOTE]
-> You can also use the [IDocumentClient](/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet&preserve-view=true) interface to make testing easier.
+> You can also use the [IDocumentClient](/dotnet/api/microsoft.azure.documents.idocumentclient) interface to make testing easier.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -1206,24 +1206,24 @@ The Cosmos DB input binding is listed first in the list of bindings found in the
 
 ```json
 {
-  "name": "InputDocumentIn",
-  "type": "cosmosDB",
-  "databaseName": "MyDatabase",
-  "collectionName": "MyCollection",
-  "id" : "{queueTrigger_payload_property}",
-  "partitionKey": "{queueTrigger_payload_property}",
-  "connectionStringSetting": "CosmosDBConnection",
-  "direction": "in"
+  "name": "InputDocumentIn",
+  "type": "cosmosDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "id": "{queueTrigger_payload_property}",
+  "partitionKey": "{queueTrigger_payload_property}",
+  "connectionStringSetting": "CosmosDBConnection",
+  "direction": "in"
 },
 {
-  "name": "InputDocumentOut",
-  "type": "cosmosDB",
-  "databaseName": "MyDatabase",
-  "collectionName": "MyCollection",
-  "createIfNotExists": false,
-  "partitionKey": "{queueTrigger_payload_property}",
-  "connectionStringSetting": "CosmosDBConnection",
-  "direction": "out"
+  "name": "InputDocumentOut",
+  "type": "cosmosDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "createIfNotExists": false,
+  "partitionKey": "{queueTrigger_payload_property}",
+  "connectionStringSetting": "CosmosDBConnection",
+  "direction": "out"
 }
 ```
 

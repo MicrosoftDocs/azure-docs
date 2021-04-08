@@ -14,12 +14,12 @@ ms.date: 01/19/2020
 Microsoft provides support for a wide variety of products and services. Finding the right support team is important to ensure an appropriate and timely response. Consider the following scenarios, which should help you route your query to the appropriate team:
 
 - If you're a publisher and have a question from a customer, ask your customer to request support using the support links in the [Azure portal](https://portal.azure.com/).
-- If you’re a publisher and have detected a security issue with an application running on Azure, see [How to log a security event support ticket](/azure/security/fundamentals/event-support-ticket). Publishers must report suspected security events, including security incidents and vulnerabilities of their Azure Marketplace software and service offerings, at the earliest opportunity.
+- If you’re a publisher and have detected a security issue with an application running on Azure, see [How to log a security event support ticket](../security/fundamentals/event-support-ticket.md). Publishers must report suspected security events, including security incidents and vulnerabilities of their Azure Marketplace software and service offerings, at the earliest opportunity.
 - If you're a publisher and have a question relating to your app or service, review the following support options.
 
 ## Get help or open a support ticket
 
-1. Sign in with your work account. If you have not yet done so, you will need to [create a Partner Center account](partner-center-portal/create-account.md).
+1. Sign in with your work account. If you have not yet done so, you will need to [create a Partner Center account](create-account.md).
 
 1. In the menu on the upper-right of the page, select the **Support** icon. The **Help and support** pane appears on the right side of the page.
 

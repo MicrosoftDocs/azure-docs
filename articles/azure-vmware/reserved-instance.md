@@ -2,7 +2,7 @@
 title: Save costs with Azure VMware Solution reserved instance
 description: Learn how to buy a reserved instance for Azure VMware Solution.
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 02/03/2021
 ---
 
 # Save costs with Azure VMware Solution
@@ -127,3 +127,12 @@ For details about CSP-managed reservations, see [Sell Microsoft Azure reservatio
 You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 CSPs can cancel, exchange, or refund reservations, with certain limitations, purchased for their customer. For more information, see [Manage, cancel, exchange, or refund Microsoft Azure reservations for customers](/partner-center/azure-reservations-manage).
+
+## Next steps
+
+Now that you've covered buying a reserved instance of Azure VMware Solution, you may want to learn about:
+
+- [Creating an Azure VMware Solution assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md).
+- [Managing DHCP for Azure VMware Solution](manage-dhcp.md).
+- [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
+ 

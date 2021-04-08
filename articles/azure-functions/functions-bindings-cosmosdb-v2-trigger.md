@@ -158,7 +158,7 @@ In the _run.ps1_ file, you have access to the document that triggers the functio
 ```powershell
 param($Documents, $TriggerMetadata) 
 
-Write-Host "First document Id modified : $($Documents[0].id)" 
+Write-Host "First document Id modified : $($Documents[0].id)" 
 ```
 
 # [Python](#tab/python)

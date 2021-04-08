@@ -3,7 +3,7 @@ title: Understand password-based single sign-on (SSO) for apps in Azure Active D
 description: Understand password-based single sign-on (SSO) for apps in Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -49,7 +49,7 @@ Using Azure AD as your Identity Provider (IdP) and configuring single sign-on (S
 In the [quickstart series](view-applications-portal.md), you learned how to add an app to your tenant, which lets Azure AD knows it's being used as the Identity Provider (IdP) for the app. Some apps are already pre-configured and they show in the Azure AD gallery. Other apps are not in the gallery and you have to create a generic app and configure it manually. Depending on the app, the password-based SSO option might not be available. If you don't see the Password-based option list on the single sign-on page for the app, then it is not available.
 
 > [!IMPORTANT]
-> The My Apps browser extension is required for password-based SSO. To learn more, see [Plan a My Apps deployment](access-panel-deployment-plan.md).
+> The My Apps browser extension is required for password-based SSO. To learn more, see [Plan a My Apps deployment](my-apps-deployment-plan.md).
 
 The configuration page for password-based SSO is simple. It includes only the URL of the sign-on page that the app uses. This string must be the page that includes the username input field.
 

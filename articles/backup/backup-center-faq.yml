@@ -1,43 +1,43 @@
 ### YamlMime:FAQ
 metadata:
-  title: Backup Center - FAQ
-  description: This article answers frequently asked questions about Backup Center.
+  title: Backup center - FAQ
+  description: This article answers frequently asked questions about Backup center.
   ms.date: 01/12/2021
   ms.topic: conceptual
-title: Backup Center - Frequently asked questions
-summary: This article answers frequently asked questions about Backup Center.
+title: Backup center - Frequently asked questions
+summary: This article answers frequently asked questions about Backup center.
 sections:
   - name: Management
     questions:
-      - question: Can Backup Center be used across tenants? 
+      - question: Can Backup center be used across tenants? 
         answer: |
           Yes, if you're using [Azure Lighthouse](../lighthouse/overview.md) and have delegated access to subscriptions across different tenants, you can use Backup Center as a single pane of glass to manage backups across tenants.
-      - question: Can Backup Center be used to manage both Recovery Services vaults and Backup vaults? 
+      - question: Can Backup center be used to manage both Recovery Services vaults and Backup vaults? 
         answer: |
-          Yes, Backup Center can manage both [Recovery Services vaults](./backup-azure-recovery-services-vault-overview.md) and [Backup vaults](backup-vault-overview.md).
-      - question: Is there a delay before data surfaces in Backup Center? 
+          Yes, Backup center can manage both [Recovery Services vaults](./backup-azure-recovery-services-vault-overview.md) and [Backup vaults](backup-vault-overview.md).
+      - question: Is there a delay before data surfaces in Backup center? 
         answer: |
-          Backup Center is aimed at providing real-time information. There may be a few seconds lag between the time an entity shows up in an individual vault screen, and the time the same entity shows up in Backup Center.
+          Backup center is aimed at providing real-time information. There may be a few seconds lag between the time an entity shows up in an individual vault screen, and the time the same entity shows up in Backup Center.
 
   - name: Configuration
     questions:
-      - question: Do I need to configure anything to see data in Backup Center? 
+      - question: Do I need to configure anything to see data in Backup center? 
         answer: |
-          No. Backup Center comes ready out of the box. However, to view [Backup Reports](./configure-reports.md) under Backup Center, you need to configure reporting for your vaults.
+          No. Backup center comes ready out of the box. However, to view [Backup Reports](./configure-reports.md) under Backup center, you need to configure reporting for your vaults.
 
-      - question: Do I need to have any special permissions to use Backup Center? 
+      - question: Do I need to have any special permissions to use Backup center? 
         answer: |
-          Backup Center as such doesn't need any new permissions. As long as you have the right level of Azure RBAC access for the resources you're managing, you can use Backup Center for these resources. For example, to view information about your backups, you'll need **Reader** access to your vaults. To configure backup and perform other backup-related actions, you'll need **Backup Contributor** or **Backup Operator** roles. Learn more about [Azure roles for Azure Backup](./backup-rbac-rs-vault.md).
+          Backup center as such doesn't need any new permissions. As long as you have the right level of Azure RBAC access for the resources you're managing, you can use Backup Center for these resources. For example, to view information about your backups, you'll need **Reader** access to your vaults. To configure backup and perform other backup-related actions, you'll need **Backup Contributor** or **Backup Operator** roles. Learn more about [Azure roles for Azure Backup](./backup-rbac-rs-vault.md). Note that if you are using Backup Reports under Backup Center, you would need to have read access to the Log Analytics workspaces(s) that your vault(s) are sending data to.
 
   - name: Pricing
     questions:
       - question: Do I need to pay anything extra to use Backup Explorer? 
         answer: |
-          Currently, there are no additional costs (apart from your backup costs) to use Backup Center. However, if you're using [Backup Reports](./configure-reports.md) under Backup Center, there's a [cost involved](https://azure.microsoft.com/pricing/details/monitor/) in using Azure Monitor Logs for Backup Reports.   
+          Currently, there are no additional costs (apart from your backup costs) to use Backup center. However, if you're using [Backup Reports](./configure-reports.md) under Backup Center, there's a [cost involved](https://azure.microsoft.com/pricing/details/monitor/) in using Azure Monitor Logs for Backup Reports.   
 
 additionalContent: |
   ## Next steps
   Read the other FAQs:
 
   - [Common questions about Recovery Services vaults](./backup-azure-backup-faq.md)
-  - [Common questions about Azure VM backups](./backup-azure-vm-backup-faq.md)
+  - [Common questions about Azure VM backups](./backup-azure-vm-backup-faq.yml)

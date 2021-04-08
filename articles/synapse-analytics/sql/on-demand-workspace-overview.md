@@ -69,7 +69,7 @@ Security can be enforced using:
 
 Supported T-SQL:
 
-- Full [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) surface area is supported, including a majority of SQL functions
+- Full [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) surface area is supported, including a majority of SQL functions
 - CETAS - CREATE EXTERNAL TABLE AS SELECT
 - DDL statements related to views and security only
 
@@ -83,7 +83,7 @@ Serverless SQL pool has no local storage, only metadata objects are stored in da
 
 ### Extensions
 
-In order to enable smooth experience for in place querying of data residing in files in data lake, serverless SQL pool extends the existing [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) function by adding following capabilities:
+In order to enable smooth experience for in place querying of data residing in files in data lake, serverless SQL pool extends the existing [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=azure-sqldw-latest&preserve-view=true) function by adding following capabilities:
 
 [Query multiple files or folders](query-data-storage.md#query-multiple-files-or-folders)
 
@@ -107,7 +107,7 @@ Serverless SQL pool offers mechanisms to secure access to your data.
 
 ### Azure Active Directory integration and multi-factor authentication
 
-Serverless SQL pool enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../../azure-sql/database/authentication-aad-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). This capability simplifies permission management and enhances security. Azure Active Directory (Azure AD) supports [multi-factor authentication](../../azure-sql/database/authentication-mfa-ssms-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) to increase data and application security while supporting a single sign-on process.
+Serverless SQL pool enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../../azure-sql/database/authentication-aad-configure.md). This capability simplifies permission management and enhances security. Azure Active Directory (Azure AD) supports [multi-factor authentication](../../azure-sql/database/authentication-mfa-ssms-configure.md) (MFA) to increase data and application security while supporting a single sign-on process.
 
 #### Authentication
 
@@ -119,7 +119,7 @@ Serverless SQL pool authentication refers to how users prove their identity when
 
 - **Azure Active Directory Authentication**:
 
-  This authentication method uses identities managed by Azure Active Directory. For Azure AD users, multi-factor authentication can be enabled. Use Active Directory authentication (integrated security) [whenever possible](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+  This authentication method uses identities managed by Azure Active Directory. For Azure AD users, multi-factor authentication can be enabled. Use Active Directory authentication (integrated security) [whenever possible](/sql/relational-databases/security/choose-an-authentication-mode?view=azure-sqldw-latest&preserve-view=true).
 
 #### Authorization
 

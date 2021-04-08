@@ -1,12 +1,8 @@
 ---
 title: Set up high availability
 description: Increase the resiliency of your Defender for IoT deployment by installing a on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
 ---
 # About high availability
 
@@ -111,7 +107,7 @@ This allows the connection between the primary and secondary appliances for back
 
 ### On the secondary
 
-1. Sign in to the CLI as an Defender for IoT user.
+1. Sign in to the CLI as a Defender for IoT user.
 
 2. Run the following command on the secondary. **Do not run with sudo**:
 

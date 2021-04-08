@@ -24,7 +24,7 @@ This change in behavior applies only to subscriptions and deployments that were 
 
 ## Recommended method of sending email
 
-We recommend you use authenticated SMTP relay services to send email from Azure VMs or from Azure App Service. (These relay services typically connect through TCP port 587 or 443, but they support other ports.) These services are used to maintain IP or domain reputation to minimize the possibility that third-party email providers will reject messages. [SendGrid](https://sendgrid.com/partners/azure/) is one such SMTP relay service, but there are others. You might also have a secure SMTP relay service running on-premises that you can use.
+We recommend you use authenticated SMTP relay services to send email from Azure VMs or from Azure App Service. (These relay services typically connect through TCP port 587, but they support other ports.) These services are used to maintain IP or domain reputation to minimize the possibility that third-party email providers will reject messages. [SendGrid](https://sendgrid.com/partners/azure/) is one such SMTP relay service, but there are others. You might also have a secure SMTP relay service running on-premises that you can use.
 
 Using these email delivery services isn't restricted in Azure, regardless of the subscription type.
 
@@ -73,6 +73,10 @@ For subscriptions of the following types that were created after November 15, 20
 If you want to be able to send email from Azure VMs directly to external email providers (without using an authenticated SMTP relay), you can make a request by opening a support case by using the following issue type: **Technical** > **Virtual Network** > **Connectivity** > **Cannot send email (SMTP/Port 25)**. Be sure to add details about why your deployment has to send mail directly to mail providers instead of using an authenticated relay. Requests will be reviewed and approved at the discretion of Microsoft. Requests will be granted only after additional antifraud checks are completed. 
 
 After a subscription is exempted and the VMs have been stopped and restarted in the Azure portal, all VMs in that subscription are exempted going forward. The exemption applies only to the subscription requested and only to VM traffic that's routed directly to the internet.
+
+## Changing subscription type
+
+If you change subscription type or your Cloud Solution Provider or pay-as-you-go subscription is approved, you must stop, deallocate, and then restart your VM for the new policy to take effect. Similarly, if you have a subscription type that's allowed by default, and then you change to a subscription type that's not allowed, port 25 might then be blocked because of the changes to deployment.
 
 ## Need help? Contact support
 

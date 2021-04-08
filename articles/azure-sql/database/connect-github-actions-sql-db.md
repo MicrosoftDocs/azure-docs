@@ -13,7 +13,7 @@ ms.custom: github-actions-azure
 
 # Use GitHub Actions to connect to Azure SQL Database
 
-Get started with [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) by using a workflow to deploy database updates to [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md). 
+Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md). 
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ The file has two sections:
 
 ## Generate deployment credentials
 
-You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 Replace the placeholders `server-name` with the name of your SQL server hosted on Azure. Replace the `subscription-id` and `resource-group` with the subscription ID and resource group connected to your SQL server.  
 

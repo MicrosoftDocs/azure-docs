@@ -110,7 +110,12 @@ To learn more about costs for serverless SQL pool see [Cost management for serve
 
 You can control costs for a dedicated SQL pool by pausing the resource when it is not is use. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. For more information see [Pause and resume compute in dedicated SQL pool via the Azure portal](./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
-<!-- ### Serverless Apache Spark pool -->
+### Serverless Apache Spark pool
+
+To control costs for your serverless Apache Spark pool, enable the serverless Apache Spark automatic pause feature and set your timeout value accordingly.  When using Synapse Studio for your development, the studio sends a keep alive message to keep the session active which is also configurable, so set a short timeout value for automatic pause.  When you are done, close your session and the Apache Spark pool will automatically pause once the timeout value is reached.
+ 
+During development, create multiple Apache Spark pool definitions of various sizes.  Creating Apache Spark pool definitions are free and you will only be charged for usage.  Apache Spark usage in Azure Synapse is charged per vCore hour and prorated by the minute.  For example, use small pool sizes for code development and validation while using larger pool sizes for performance testing.
+
 
 ### Data integration - pipelines and data flows 
 
