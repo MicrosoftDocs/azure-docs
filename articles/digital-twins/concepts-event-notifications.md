@@ -225,7 +225,7 @@ Here is another example of digital twin data. This one is based on a [model](con
 
 ### Properties
 
-Here are the fields in the body of an relationship change notification.
+Here are the fields in the body of a relationship change notification.
 
 | Name    | Value |
 | --- | --- |
