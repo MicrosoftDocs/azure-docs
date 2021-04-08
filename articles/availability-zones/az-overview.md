@@ -116,12 +116,8 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Virtual Machines: Dv3-Series           | Azure Synapse Analytics                           |     
 > | Virtual Machines: ESv3-Series          | Batch                                             | 
 > | Virtual Machines: Ev3-Series           | Cloud Services: M-series                          | 
-> | Virtual Network                        | Azure Site Recovery                               | 
-> | VPN Gateway                            | Azure Synapse Analytics                           | 
-> |                                        | Batch                                             | 
-> |                                        | Cloud Services : M-series                         | 
-> |                                        | Container Instances                               | 
-> |                                        | Container Registry                                | 
+> | Virtual Network                        | Container Instances                               | 
+> | VPN Gateway                            | Container Registry                                | 
 > |                                        | Data Factory                                      | 
 > |                                        | Event Grid                                        | 
 > |                                        | HDInsight                                         |  
@@ -165,15 +161,15 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Health Bot                                     |
 > | Azure HPC Cache                                      |
 > | Azure Lab Services                                   |
+> | Azure Machine Learning Studio (classic)              |
 > | Azure NetApp Files                                   |
-> | Azure RedHat Openshift                               |
+> | Azure Red Hat OpenShift                              |
 > | Azure SignalR Service                                |
 > | Azure Spring Cloud Service                           |
 > | Azure Time Series Insights                           |
 > | Azure VMware Solution                                |
 > | Azure VMware Solution by CloudSimple                 |
 > | Data Lake Analytics                                  |
-> | Azure Machine Learning Studio (classic)              |
 > | Spatial Anchors                                      |
 > | Storage: Archive Storage                             |
 > | Ultra Disk Storage                                   |
