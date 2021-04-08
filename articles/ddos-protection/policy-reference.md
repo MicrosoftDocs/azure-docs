@@ -11,6 +11,7 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2021
 ms.author: yitoh
 ms.custom: subject-policy-reference
+ms.topic: include
 ---
 
 # Azure Policy built-in definitions for Azure DDoS Protection Standard
