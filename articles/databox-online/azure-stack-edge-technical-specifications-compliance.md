@@ -94,7 +94,7 @@ The following tables list the various enclosure specifications for dimensions an
 
 The following table lists the dimensions of the enclosure in millimeters and inches.
 
-|     Enclosure     |     Millimeters          Inches     |
+|     Enclosure     |     Millimeters    |     Inches     |
 |-------------------|--------------------|----------------|
 |    Height         |    44.45           |    1.75"       |
 |    Width          |    434.1           |    17.09"      |

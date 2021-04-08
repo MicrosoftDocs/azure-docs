@@ -56,7 +56,7 @@ The Azure Stack Edge Pro R device has four network interfaces, PORT1 - PORT4.
 |Specification         |Description                       |
 |----------------------|----------------------------------|
 |Network interfaces    |**2 x 1 GbE RJ45** <br> PORT 1 is used as the management interface for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts to static IP. <br>The other interface, PORT 2, which is user-configurable, can be used for data transfer, and is DHCP by default. |
-|Network interfaces    |**2 x 25 GbE SFP28** <br> These data interfaces, PORT 3 and PORT 4, can be configured as DHCP (default) or static. |            |
+|Network interfaces    |**2 x 25 GbE SFP28** <br> These data interfaces on PORT 3 and PORT 4 can be configured as DHCP (default) or static. |
 
 Your Azure Stack Edge Pro R device has the following network hardware:
 
