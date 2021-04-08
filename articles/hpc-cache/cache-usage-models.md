@@ -77,11 +77,11 @@ If you have questions about the best usage model for your Azure HPC Cache workfl
 
 In some situations, you might need to remount clients if you change a storage target's usage model. This is needed because of the way different usage models handle Network Lock Manager (NLM) requests.
 
-The HPC Cache sits between clients and the back-end storage system. Usually the cache passes NLM requests through to the back-end storage system, but in some situations, the cache itself acknowledges the NLM request and returns a value to the client. In Azure HPC Cache, this only happens when you use the usage model **Read heavy, infrequent writes** (or when you use a standard blob storage target).
+The HPC Cache sits between clients and the back-end storage system. Usually the cache passes NLM requests through to the back-end storage system, but in some situations, the cache itself acknowledges the NLM request and returns a value to the client. In Azure HPC Cache, this only happens when you use the usage model **Read heavy, infrequent writes** (or in a standard blob storage target, which doesn't have configurable usage models).
 
-There is a small risk of file conflict if you change between the **Read heavy, infrequent writes** usage model and a different usage model. There's no way to transfer the current NLM state from the cache to the storage system (or vice versa). So the client's lock status is inaccurate.
+There is a small risk of file conflict if you change between the **Read heavy, infrequent writes** usage model and a different usage model. There's no way to transfer the current NLM state from the cache to the storage system or vice versa. So the client's lock status is inaccurate.
 
-Remounting the clients makes sure that they have an accurate NLM state with the new lock manager.
+Remount the clients to make sure that they have an accurate NLM state with the new lock manager.
 
 If your clients send a NLM request when the usage model or back-end storage does not support it, they will receive an error.
 
