@@ -106,8 +106,8 @@ When the device is activated, you are prompted to save the key file that contain
 - One key recovers the device configuration on the OS volumes.
 - Second key (that was used to configure encryption-at-rest) unlocks the hardware encryption in the data disks.
 
-> [!IMPORTANT]
-> Save the key file in a secure location outside the device itself. If the device doesn't boot up, and you don't have the key, it could potentially result in data loss.
+    > [!IMPORTANT]
+    > Save the key file in a secure location outside the device itself. If the device doesn't boot up, and you don't have the key, it could potentially result in data loss.
 
 - Certain recovery scenarios will prompt you for the key file that you have saved. 
 
@@ -132,7 +132,6 @@ When the device undergoes a hard reset, a secure wipe is performed on the device
 ### Protect data in storage accounts
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
-
 - Rotate and then [sync your storage account keys](azure-stack-edge-gpu-manage-storage-accounts.md) regularly to help protect your storage account from unauthorized users.
 
 ## Manage personal information
