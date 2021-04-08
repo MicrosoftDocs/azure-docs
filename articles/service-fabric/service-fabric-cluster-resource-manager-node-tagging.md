@@ -24,10 +24,10 @@ Required tags can be defined for each service in a Service Fabric cluster. Each 
 
 * **Tags required to run** describes a set of tags which are required for both placement and running of the service. If any of the required running tags gets removed, service will be moved to another node which has those tags specified.
 
-Tags or sets of tags can be either added or removed from one node using usual ways in which you interface with your Service fabric cluster like C#, REST or Powershell.
+Tag or sets of tags can be added, updated or removed from a single node using standard Service Fabric interface mechanisms such as C# APIs, REST APIS or PowerShell commands.
 
 > [!NOTE]
-> Currently Service fabric doesn’t take care of UD/FD issues or other problems that can occur if you don’t properly manage your tags.
+> Service Fabric does not maintain UD/FD distributions when using node tags. Please manage node tags appropriately, so you don't get FD/UD violations due to bad distribution of tags across domains.
 
 ## Enabling dynamic node tags
 In order for this feature to work, you’ll need to enable NodeTaggingEnabled config in PlacementAndLoadBalancing section of cluster manifest either using XML or JSON:
@@ -103,14 +103,14 @@ Creating new service:
 ```posh
 New-ServiceFabricService -ApplicationName fabric:/HelloWorld -ServiceName fabric:/HelloWorld/svc1 -ServiceTypeName HelloWorldStateful -Stateful -PartitionSchemeNamed -PartitionNames @("Seattle","Vancouver") -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -TagsRequiredToRun @("SampleTag1") - TagsRequiredToPlace @("SampleTag2")
 ```
-This command creates a Service Fabric stateful service from the specified application instance with named partitioning scheme and requiring tags “SampleTag1” and “SampleTag2” which will be required on a node, when placing this service and “SampleTag1” will be required for service to keep running. 
+This command creates a Service Fabric stateful service from the specified application instance with named partitioning scheme and requiring tags “SampleTag1” and “SampleTag2” which will be required on a node, when placing this service and “SampleTag1” will be needed for service to keep running. 
 
 Updating existing service:
 
 ```posh
 Update-ServiceFabricService -Stateful -ServiceName fabric:/myapp/test -TagsRequiredToRun @("SampleTag1") -TagsRequiredToPlace @("SampleTag2")
 ```
-This command updates a Service Fabric stateful service requiring tags “SampleTag1” and “SampleTag2” which will be required on a node, when placing this service, and “SampleTag1” will be required for service to keep running.
+This command updates a Service Fabric stateful service requiring tags “SampleTag1” and “SampleTag2” which will be required on a node, when placing this service, and “SampleTag1” will be needed for service to keep running.
 
 ### Using C# APIs
 
