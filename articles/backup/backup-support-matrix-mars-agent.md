@@ -234,7 +234,7 @@ Backups can't be restored to a target machine that's running an earlier version 
 
 Azure Backup supports the following previous versions of MARS agent:
 
-**Version** | **KB Article**
+**Versions** | **KB Articles**
 --- | ---
 [2.0.9145.0](https://download.microsoft.com/download/4/5/E/45EB38B4-2DA7-45FA-92E1-5CA1E23D18D1/MARSAgentInstaller.exe) | 
 [2.0.9151.0](https://download.microsoft.com/download/7/1/7/7177B70A-51E8-434D-BDF2-FA3A09E917D6/MARSAgentInstaller.exe) | 
