@@ -155,9 +155,6 @@ You can call operations directly from the Azure portal. Using the Azure portal i
 
     The back end responds with **200 OK** and some data.
 
-    ![Screenshot that highlights data return.](./media/import-function-app-as-api/test-api-2.png)
-
-
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
 ## Next steps
