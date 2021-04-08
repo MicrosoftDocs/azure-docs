@@ -24,7 +24,7 @@ ms.custom: devx-track-azurepowershell
 # Azure AD PowerShell cmdlets for reporting
 
 > [!NOTE] 
-> These PowerShell cmdlets currently only work with the [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Module. Please note that the preview module is not suggested for production use. 
+> These PowerShell cmdlets currently only work with the [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#directory_auditing) Module. Please note that the preview module is not suggested for production use. 
 
 To install the public preview release, use the following. 
 

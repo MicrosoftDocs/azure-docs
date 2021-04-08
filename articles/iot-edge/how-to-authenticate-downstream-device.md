@@ -12,6 +12,8 @@ services: iot-edge
 
 # Authenticate a downstream device to Azure IoT Hub
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 In a transparent gateway scenario, downstream devices (sometimes called leaf devices or child devices) need identities in IoT Hub like any other device. This article walks through the options for authenticating a downstream device to IoT Hub, and then demonstrates how to declare the gateway connection.
 
 There are three general steps to set up a successful transparent gateway connection. This article covers the second step:
@@ -30,7 +32,7 @@ Complete the steps in [Configure an IoT Edge device to act as a transparent gate
 
 If you're using X.509 authentication, you will generate certificates for your downstream device. Have the same root CA certificate and the certificate generating script that you used for the transparent gateway article available to use again.
 
-This article refers to the *gateway hostname* at several points. The gateway hostname is declared in the **hostname** parameter of the config.yaml file on the IoT Edge gateway device. It's referred to in the connection string of the downstream device. The gateway hostname needs to be resolvable to an IP Address, either using DNS or a host file entry on the downstream device.
+This article refers to the *gateway hostname* at several points. The gateway hostname is declared in the **hostname** parameter of the config file on the IoT Edge gateway device. It's referred to in the connection string of the downstream device. The gateway hostname needs to be resolvable to an IP Address, either using DNS or a host file entry on the downstream device.
 
 ## Register device with IoT Hub
 
@@ -64,9 +66,14 @@ When you create the new device identity, provide the following information:
 
    ![Create device ID with symmetric key auth in portal](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
+   >[!NOTE]
+   >Setting the parent device used to be an optional step for downstream devices that use symmetric key authentication. However, starting with IoT Edge version 1.1.0 every downstream device must be assigned to a parent device.
+   >
+   >You can configure the IoT Edge hub to go back to the previous behavior by setting the environment variable **AuthenticationMode** to the value **CloudAndScope**.
+
 You also can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same operation. The following example uses the [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) command to create a new IoT device with symmetric key authentication and assign a parent device:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
@@ -121,7 +128,7 @@ For X.509 self-signed authentication, sometimes referred to as thumbprint authen
 
 You also can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example uses the [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) command to create a new IoT device with X.509 self-signed authentication and assigns a parent device:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
@@ -165,7 +172,7 @@ This section is based on the instructions detailed in the IoT Hub article [Set u
 
 You also can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example uses the [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) command to create a new IoT device with X.509 CA signed authentication and assigns a parent device:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
@@ -182,23 +189,23 @@ Connection strings for downstream devices need the following components:
 * The authentication method, whether symmetric key or X.509 certificates
   * If using symmetric key authentication provide either the primary or secondary key: `SharedAccessKey={key}`
   * If using X.509 certificate authentication, provide a flag: `x509=true`
-* The gateway device that the device connects through. Provide the **hostname** value from the IoT Edge gateway device's config.yaml file: `GatewayHostName={gateway hostname}`
+* The gateway device that the device connects through. Provide the **hostname** value from the IoT Edge gateway device's config file: `GatewayHostName={gateway hostname}`
 
 All together, a complete connection string looks like:
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
 Or:
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
 Thanks to the parent/child relationship, you can simplify the connection string by calling the gateway directly as the connection host. For example:
 
-```
+```console
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 ```
 

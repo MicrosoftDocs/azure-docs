@@ -4,8 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn about the supported data platforms and tools for the Azure Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
 author: lobrien
 ms.author: laobri

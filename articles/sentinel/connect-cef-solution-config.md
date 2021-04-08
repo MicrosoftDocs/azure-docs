@@ -26,16 +26,25 @@ In this step you will perform the necessary configuration changes on your securi
 If your security solution already has an existing connector, use the connector-specific instructions as follows:
 
 - [AI Vectra Detect](connect-ai-vectra-detect.md)
+- [Akamai Security Events](connect-akamai-security-events.md)
+- [Aruba ClearPass](connect-aruba-clearpass.md)
+- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
 - [Check Point](connect-checkpoint.md)
-- [Cisco](connect-cisco.md)
+- [Cisco ASA](connect-cisco.md)
+- [Citrix WAF](connect-citrix-waf.md)
+- [CyberArk Enterprise Password Vault](connect-cyberark.md)
 - [ExtraHop Reveal(x)](connect-extrahop.md)
-- [F5 ASM](connect-f5.md)  
+- [F5 ASM](connect-f5.md)
 - [Forcepoint products](connect-forcepoint-casb-ngfw.md)
 - [Fortinet](connect-fortinet.md)
 - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
+- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
+- [Thycotic Secret Server](connect-thycotic-secret-server.md)
 - [Trend Micro Deep Security](connect-trend-micro.md)
+- [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
+- [WireX Network Forensics Platform](connect-wirex-systems.md)
 - [Zscaler](connect-zscaler.md)
 ## Configure any other solution
 
@@ -67,5 +76,7 @@ If a connector does not exist for your specific security solution, use the follo
 ## Next steps
 
 In this document, you learned how to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+
+- Learn about [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).

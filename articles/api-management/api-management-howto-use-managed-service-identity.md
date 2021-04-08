@@ -10,7 +10,7 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 03/09/2021
 ms.author: apimpm
 ---
 
@@ -259,6 +259,19 @@ The following example shows an Azure Resource Manager template that contains the
 ### Authenticate to the back end by using an API Management identity
 
 You can use the system-assigned identity to authenticate to the back end through the [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) policy.
+
+### <a name="apim-as-trusted-service"></a>Connect to Azure resources behind IP Firewall using System Assigned Managed Identity
+
+
+API Management is a trusted microsoft service to the following resources. This allows the service to connect to the following resources behind a firewall. After explicitly assigning the appropriate Azure role to the [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) for that resource instance, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
+
+
+|Azure Service | Link|
+|---|---|
+|Azure Storage | [Trusted-access-to-azure-storage](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
+|Azure Service Bus | [Trusted-access-to-azure-service-bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
+|Azure Event Hub | [Trused-access-to-azure-event-hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
+
 
 ## Create a user-assigned managed identity
 

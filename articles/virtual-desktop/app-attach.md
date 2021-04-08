@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Create PowerShell scripts for MSIX app attach (preview)
 
@@ -21,7 +21,7 @@ This topic will walk you through how to set up PowerShell scripts for MSIX app a
 
 ## Install certificates
 
-You must install certificates on all session hosts in the host pool that will host the aps from your MSIX app attach packages.
+You must install certificates on all session hosts in the host pool that will host the apps from your MSIX app attach packages.
 
 If your app uses a certificate that isn't public-trusted or was self-signed, here's how to install it:
 
@@ -33,6 +33,17 @@ If your app uses a certificate that isn't public-trusted or was self-signed, her
 6. Select **Place all certificates in the following store**, then select **Browse**.
 7. When the select certificate store window appears, select **Trusted people**, then select **OK**.
 8. Select **Next** and **Finish**.
+
+## Enable Microsoft Hyper-V
+
+Microsoft Hyper-V must be enabled because the `Mount-VHD` command is needed to stage and `Dismount-VHD` is needed to destage.
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+
+>[!NOTE]
+>This change will require that you restart the virtual machine.
 
 ## Prepare PowerShell scripts for MSIX app attach
 

@@ -44,7 +44,7 @@ Visual Studio provides access to a subset of the app management functions and co
    >
    >
 
-    For more information about connecting to Azure resources from Visual Studio, see [Manage Accounts, Subscriptions, and Administrative Roles](../role-based-access-control/role-assignments-portal.md).
+    For more information about connecting to Azure resources from Visual Studio, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 2. In **Server Explorer**, expand **Azure** and expand **App Service**.
 3. Expand the resource group that includes the app that you created in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md), and then right-click the app node and click **View Settings**.
 
@@ -464,7 +464,7 @@ Any logs that you can monitor in the **Output** window can also be downloaded as
     :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="Screenshot of the .zip file folder structure after the file has been extracted.":::
 
    * Application tracing logs are in *.txt* files in the *LogFiles\Application* folder.
-   * Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.
+   * Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](https://www.iis.net/downloads/community/2010/04/log-parser-22) to view and manipulate these files.
    * Detailed error message logs are in *.html* files in the *LogFiles\DetailedErrors* folder.
 
      (The *deployments* folder is for files created by source control publishing; it doesn't have anything related to Visual Studio publishing. The *Git* folder is for traces related to source control publishing and the log file streaming service.)  
@@ -673,7 +673,7 @@ Also, you don't need to use ASP.NET or `System.Diagnostics` tracing to get strea
 ### Analyzing web server logs
 For more information about analyzing web server logs, see the following resources:
 
-* [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
+* [LogParser](https://www.iis.net/downloads/community/2010/04/log-parser-22)<br/>
   A tool for viewing data in web server logs (*.log* files).
 * [Troubleshooting IIS Performance Issues or Application Errors using LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   An introduction to the Log Parser tool that you can use to analyze web server logs.

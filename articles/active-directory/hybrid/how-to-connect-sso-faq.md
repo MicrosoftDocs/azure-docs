@@ -80,6 +80,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 
    > [!NOTE]
    >You will need both domain administrator and global administrator credentials for the steps below.
+   >If you are not a domain admin and you were assigned permissions by the domain admin, you should call `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
 
    **Step 1. Get list of AD forests where Seamless SSO has been enabled**
 
@@ -101,9 +102,6 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 
    2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSO` computer account in this specific AD forest and updates it in Azure AD.
    
-   >[!NOTE]
-   >If you are not a domain admin and you were assigned permissions by the domain admin, you should call `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
-   
    3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
    
   >[!NOTE]
@@ -123,7 +121,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 
    After completing the wizard, Seamless SSO will be disabled on your tenant. However, you will see a message on screen that reads as follows:
 
-   "Single sign-on is now disabled, but there are additional manual steps to perform in order to complete clean-up. Learn more"
+   "Single sign-on is now disabled, but there are additional manual steps to perform in order to complete clean-up. [Learn more](tshoot-connect-sso.md#step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature)"
 
    To complete the clean-up process, follow steps 2 and 3 on the on-premises server where you are running Azure AD Connect.
 

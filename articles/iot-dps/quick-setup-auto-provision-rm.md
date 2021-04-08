@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure IoT Hub Device Provisioning Service (DPS) us
 description: Azure quickstart - Learn how to create an Azure IoT Hub Device Provisioning Service (DPS) using Azure Resource Manager template (ARM template).
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/03/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -30,6 +30,9 @@ If your environment meets the prerequisites, and you're already familiar with us
 ## Review the template
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-iothub-device-provisioning/).
+
+> [!NOTE]
+> Currently there is no ARM template support for creating enrollments with new DPS resources. This is a common and understood request that is being considered for implementation.
 
 :::code language="json" source="~/quickstart-templates/101-iothub-device-provisioning/azuredeploy.json":::
 
@@ -129,13 +132,13 @@ Sign in to your Azure account and select your subscription.
 
 ## Review deployed resources
 
-1. To verify the deployment, run the following [command to list resources](/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) and look for the new provisioning service and IoT hub in the output:
+1. To verify the deployment, run the following [command to list resources](/cli/azure/resource#az-resource-list) and look for the new provisioning service and IoT hub in the output:
 
     ```azurecli
      az resource list -g "${projectName}rg"
     ```
 
-2. To verify that the hub is already linked to the DPS resource, run the following [DPS extension show command](/cli/azure/iot/dps?view=azure-cli-latest#az_iot_dps_show&preserve-view=true).
+2. To verify that the hub is already linked to the DPS resource, run the following [DPS extension show command](/cli/azure/iot/dps#az_iot_dps_show).
 
     ```azurecli
      az iot dps show --name <Your provisioningServiceName>

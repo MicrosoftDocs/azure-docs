@@ -4,6 +4,7 @@ description: Frequently asked questions about migrating from classic to Azure Re
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
@@ -79,11 +80,11 @@ During migration, the resources transform from classic to Resource Manager. So w
 
 When you move a VM from classic to Resource Manager mode, backups taken prior to migration will not migrate to newly migrated Resource Manager VM. However, if you wish to keep your backups of classic VMs, follow these steps before the migration. 
 
-1. In the Recovery Services vault, go to the **Protected Items** tab and select the VM. 
-2. Click Stop Protection. Leave *Delete associated backup data* option **unchecked**.
+1. In the Recovery Services vault, go to the **Backup Items** blade and select the VM. 
+2. Click Stop Backup. Select "Retain Backup Data" in the dropdown menu..
 
 > [!NOTE]
-> You will be charged backup instance cost till you retain data. Backup copies will be pruned as per retention range. However, last backup copy is always kept until you explicitly delete backup data. It is advised to check your retention range of the Virtual machine and trigger "Delete Backup Data" on the protected item in the vault once the retention range is over. 
+> This option will stop all future backup jobs from protecting your VM. However, Azure Backup service will retain the recovery points that have been backed up.  You'll need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You'll be able to restore the VM if needed. If you decide to resume VM protection, then you can use *Resume backup* option.
 >
 >
 
@@ -121,19 +122,7 @@ This message is received when the VM does not have outbound connectivity to the 
 
 ## Next steps
 
-For Linux:
-
 * [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](./migration-classic-resource-manager-overview.md)
-* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
-* [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md)
-* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-ps.md)
-* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-cli.md)
-* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
-* [Review most common migration errors](migration-classic-resource-manager-errors.md)
-
-For Windows:
-
-* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
 * [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md)
 * [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-ps.md)

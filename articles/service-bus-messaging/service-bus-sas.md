@@ -2,15 +2,15 @@
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 01/19/2021
 ms.custom: devx-track-csharp
 ---
 
 # Service Bus access control with Shared Access Signatures
 
-*Shared Access Signatures* (SAS) are the primary security mechanism for Service Bus messaging. This article discusses SAS, how they work, and how to use them in a platform-agnostic way.
+This article discusses *Shared Access Signatures* (SAS), how they work, and how to use them in a platform-agnostic way.
 
-SAS guards access to Service Bus based on authorization rules. Those are configured either on a namespace, or a messaging entity (relay, queue, or topic). An authorization rule has a name, is associated with specific rights, and carries a pair of cryptographic keys. You use the rule's name and key via the Service Bus SDK or in your own code to generate a SAS token. A client can then pass the token to Service Bus to prove authorization for the requested operation.
+SAS guards access to Service Bus based on authorization rules. Those are configured either on a namespace, or a messaging entity (queue, or topic). An authorization rule has a name, is associated with specific rights, and carries a pair of cryptographic keys. You use the rule's name and key via the Service Bus SDK or in your own code to generate a SAS token. A client can then pass the token to Service Bus to prove authorization for the requested operation.
 
 > [!NOTE]
 > Azure Service Bus supports authorizing access to a Service Bus namespace and its entities using Azure Active Directory (Azure AD). Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store the tokens in your code and risk potential security vulnerabilities.
@@ -36,7 +36,7 @@ For each authorization policy rule, you decide on three pieces of information: *
 The rights conferred by the policy rule can be a combination of:
 
 * 'Send' - Confers the right to send messages to the entity
-* 'Listen' - Confers the right to listen (relay) or receive (queue, subscriptions) and all related message handling
+* 'Listen' - Confers the right to receive (queue, subscriptions) and all related message handling
 * 'Manage' - Confers the right to manage the topology of the namespace, including creating and deleting entities
 
 The 'Manage' right includes the 'Send' and 'Receive' rights.
@@ -50,7 +50,7 @@ When you create a Service Bus namespace, a policy rule named **RootManageSharedA
 ## Best practices when using SAS
 When you use shared access signatures in your applications, you need to be aware of two potential risks:
 
-- If a SAS is leaked, it can be used by anyone who obtains it, which can potentially compromise your Event Hubs resources.
+- If a SAS is leaked, it can be used by anyone who obtains it, which can potentially compromise your Service Bus resources.
 - If a SAS provided to a client application expires and the application is unable to retrieve a new SAS from your service, then application’s functionality may be hindered.
 
 The following recommendations for using shared access signatures can help mitigate these risks:
@@ -77,18 +77,34 @@ Any client that has access to name of an authorization rule name and one of its 
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`** - Token expiry instant. Integer reflecting seconds since the epoch `00:00:00 UTC` on 1 January 1970 (UNIX epoch) when the token expires.
-* **`skn`** - Name of the authorization rule.
-* **`sr`** - URI of the resource being accessed.
-* **`sig`** - Signature.
+- `se` - Token expiry instant. Integer reflecting seconds since the epoch `00:00:00 UTC` on 1 January 1970 (UNIX epoch) when the token expires.
+- `skn` - Name of the authorization rule.
+- `sr` - URL-encoded URI of the resource being accessed.
+- `sig` - URL-encoded HMACSHA256 signature. The hash computation looks similar to the following pseudo code and returns base64 of raw binary output.
 
-The `signature-string` is the SHA-256 hash computed over the resource URI (**scope** as described in the previous section) and the string representation of the token expiry instant, separated by LF.
+    ```
+    urlencode(base64(hmacsha256(urlencode('https://<yournamespace>.servicebus.windows.net/') + "\n" + '<expiry instant>', '<signing key>')))
+    ```
 
-The hash computation looks similar to the following pseudo code and returns a 256-bit/32-byte hash value.
+Here's an example C# code for generating a SAS token:
 
+```csharp
+private static string createToken(string resourceUri, string keyName, string key)
+{
+    TimeSpan sinceEpoch = DateTime.UtcNow - new DateTime(1970, 1, 1);
+    var week = 60 * 60 * 24 * 7;
+    var expiry = Convert.ToString((int)sinceEpoch.TotalSeconds + week);
+    string stringToSign = HttpUtility.UrlEncode(resourceUri) + "\n" + expiry;
+    HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(key));
+    var signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+    var sasToken = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}&skn={3}", HttpUtility.UrlEncode(resourceUri), HttpUtility.UrlEncode(signature), expiry, keyName);
+    return sasToken;
+}
 ```
-SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
-```
+
+> [!IMPORTANT]
+> For examples of generating a SAS token using different programming languages, see [Generate SAS token](/rest/api/eventhub/generate-sas-token). 
+
 
 The token contains the non-hashed values so that the recipient can recompute the hash with the same parameters, verifying that the issuer is in possession of a valid signing key.
 
@@ -100,8 +116,6 @@ The shared access authorization rule used for signing must be configured on the 
 
 A SAS token is valid for all resources prefixed with the `<resourceURI>` used in the `signature-string`.
 
-> [!NOTE]
-> For examples of generating a SAS token using different programming languages, see [Generate SAS token](/rest/api/eventhub/generate-sas-token). 
 
 ## Regenerating keys
 
@@ -111,9 +125,9 @@ If you know or suspect that a key is compromised and you have to revoke the keys
 
 ## Shared Access Signature authentication with Service Bus
 
-The scenarios described as follows include configuration of authorization rules, generation of SAS tokens, and client authorization.
+The scenario described as follows include configuration of authorization rules, generation of SAS tokens, and client authorization.
 
-For a full working sample of a Service Bus application that illustrates the configuration and uses SAS authorization, see [Shared Access Signature authentication with Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). A related sample that illustrates the use of SAS authorization rules configured on namespaces or topics to secure Service Bus subscriptions is available here: [Using Shared Access Signature (SAS) authentication with Service Bus Subscriptions](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+For a sample of a Service Bus application that illustrates the configuration and uses SAS authorization, see [Shared Access Signature authentication with Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
 
 ## Access Shared Access Authorization rules on an entity
 

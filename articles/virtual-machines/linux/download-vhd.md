@@ -2,7 +2,9 @@
 title: Download a Linux VHD from Azure 
 description: Download a Linux VHD using the Azure CLI and the Azure portal.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: cynthn
@@ -43,5 +45,5 @@ To download the VHD file, you need to generate a [shared access signature (SAS)]
 
 ## Next steps
 
-- Learn how to [upload and create a Linux VM from custom disk with the Azure CLI](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-- [Manage Azure disks the Azure CLI](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- Learn how to [upload and create a Linux VM from custom disk with the Azure CLI](upload-vhd.md). 
+- [Manage Azure disks the Azure CLI](tutorial-manage-disks.md).

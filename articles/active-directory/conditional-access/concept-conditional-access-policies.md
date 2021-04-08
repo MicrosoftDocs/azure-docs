@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 03/17/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -103,6 +103,8 @@ The grant control can trigger enforcement of one or more controls.
 - Require Hybrid Azure AD joined device
 - Require approved client app
 - Require app protection policy
+- Require password change
+- Require terms of use
 
 Administrators can choose to require one of the previous controls or all selected controls using the following options. The default for multiple controls is to require all.
 

@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 12/13/2017
+ms.date: 01/04/2021
 ms.author: damendo
 ---
 
@@ -184,6 +184,6 @@ This scenario is an example of how to read entries in NSG flow logs without havi
 
 Visit [Use Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Use Grafana](network-watcher-nsg-grafana.md), and [Use Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) to learn more about ways to view NSG flow logs. An Open Source Azure Function approach to consuming the blobs directly and emitting to various log analytics consumers may be found here: [Azure Network Watcher NSG Flow Logs Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-You can use [Azure Traffic Analytics](./traffic-analytics.md) to get insights on your traffic flows. Traffic Analytics uses [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) to make your traffic flow queryable.
+You can use [Azure Traffic Analytics](./traffic-analytics.md) to get insights on your traffic flows. Traffic Analytics uses [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) to make your traffic flow queryable.
 
 To learn more about storage blobs visit: [Azure Functions Blob storage bindings](../azure-functions/functions-bindings-storage-blob.md)

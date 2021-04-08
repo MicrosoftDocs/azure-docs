@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperf-fy21q3
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -30,11 +31,13 @@ This version of this article completes these steps by running an [**automated de
 
 ## Prerequisites: Download the script
 
-The sample script is written in PowerShell. It is part of the [**Azure Digital Twins end-to-end samples**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download to your machine by navigating to that sample link and selecting the *Download ZIP* button underneath the title.
+The sample script is written in PowerShell. It is part of the [**Azure Digital Twins end-to-end samples**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download to your machine by navigating to that sample link and selecting the *Browse code* button underneath the title. This will take you to the GitHub repo for the samples, which you can download as a *.ZIP* by selecting the *Code* button and *Download ZIP*.
 
-This will download the sample project to your machine as _**Azure_Digital_Twins_end_to_end_samples.zip**_. Navigate to the folder on your machine and unzip it to extract the files.
+:::image type="content" source="media/includes/download-repo-zip.png" alt-text="View of the digital-twins-samples repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/includes/download-repo-zip.png":::
 
-In the unzipped folder, the deployment script is located at _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1**_.
+This will download a *.ZIP* folder to your machine as **digital-twins-samples-master.zip**. Navigate to the folder on your machine and unzip it to extract the files.
+
+In the unzipped folder, the deployment script is located at _digital-twins-samples-master > scripts > **deploy.ps1**_.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -57,7 +60,7 @@ Here are the steps to run the deployment script in Cloud Shell.
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload icon":::
 
-    Navigate to the _**deploy.ps1**_ file on your machine (in _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1**_) and hit "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
+    Navigate to the _**deploy.ps1**_ file on your machine (in _digital-twins-samples-master > scripts > **deploy.ps1**_) and hit "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
 
 4. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window. You can copy the command below (recall that to paste into Cloud Shell, you can use **Ctrl+Shift+V** on Windows and Linux, or **Cmd+Shift+V** on macOS. You can also use the right-click menu).
 
@@ -71,7 +74,8 @@ Here are the steps to run the deployment script in Cloud Shell.
     * For the instance: the *subscription ID* of your Azure subscription to use
     * For the instance: a *location* where you'd like to deploy the instance. To see what regions support Azure Digital Twins, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * For the instance: a *resource group* name. You can use an existing resource group, or enter a new name of one to create.
-    * For the instance: a *name* for your Azure Digital Twins instance. The name of the new instance must be unique within the region for your subscription (meaning that if your subscription has another Azure Digital Twins instance in the region that's already using the name you choose, you'll be asked to pick a different name).
+    * For the instance: a *name* for your Azure Digital Twins instance. If your subscription has another Azure Digital Twins instance in the region that's
+  already using the specified name, you'll be asked to pick a different name.
 
 Here is an excerpt of the output log from the script:
 
@@ -121,7 +125,7 @@ If verification was unsuccessful, you can also redo your own role assignment usi
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
+* [az dt reference](/cli/azure/ext/azure-iot/dt)
 * [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:

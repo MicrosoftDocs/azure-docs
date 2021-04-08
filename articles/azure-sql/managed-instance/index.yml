@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure SQL Managed Instance documentation
-summary: Find documentation about Azure SQL Managed Instance, a managed instance in Azure based on the latest stable version of Microsoft SQL Server.
+summary: Find documentation about Azure SQL Managed Instance, a managed instance in Azure based on the latest stable version of Microsoft SQL Server. 
 
 metadata:
   title: Azure SQL Managed Instance documentation
@@ -24,6 +24,12 @@ landingContent:
   # Card 
   - title: Azure SQL Managed Instance 
     linkLists:
+      - linkListType: whats-new
+        links:
+          - text: What's new? 
+            url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
+          - text: Feedback? Take the survey! 
+            url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456 
       - linkListType: quickstart
         links:
           - text: Create SQL Managed Instance
@@ -34,8 +40,6 @@ landingContent:
             url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
       - linkListType: concept
         links:
-          - text: What's new? 
-            url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
           - text: What is SQL Managed Instance?
             url: sql-managed-instance-paas-overview.md
           - text: Purchasing options
@@ -150,3 +154,23 @@ landingContent:
             url: instance-pools-overview.md
           - text: Configure
             url: instance-pools-configure.md
+
+  # Card 
+  - title: Planned maintenance
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Plan for Azure maintenance events
+            url: ../database/planned-maintenance.md
+          - text: Maintenance window
+            url: ../database/maintenance-window.md
+          - text: Resource health
+            url: ../database/resource-health-to-troubleshoot-connectivity.md
+
+      - linkListType: how-to-guide
+        links:
+          - text: Maintenance window
+            url: ../database/maintenance-window-configure.md
+          - text: Maintenance Window Notifications
+            url: ../database/advance-notifications.md
+ 

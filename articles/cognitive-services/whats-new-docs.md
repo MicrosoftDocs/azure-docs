@@ -1,81 +1,47 @@
 ---
 title: "Cognitive Services: What's new in docs"
-description: "What's new in the Cognitive Services docs for November 1, 2020 through November 30, 2020. "
+description: "What's new in the Cognitive Services docs for February 1, 2020 - February 28, 2020."
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 12/07/2020
+ms.date: 03/08/2021
 ---
 
-# Cognitive Services docs: What's new for November 1, 2020 - November 30, 2020
+# Cognitive Services docs: What's new for February 1, 2021 - February 28, 2021
 
-Welcome to what's new in the Cognitive Services docs from November 1, 2020 through November 30, 2020. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Cognitive Services docs from February 1, 2021 through February 28, 2021. This article lists some of the major changes to docs during this period.
 
 ## Cognitive Services
 
-### Updated articles
+### New articles
 
-- [Quickstart: Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)](cognitive-services-apis-create-account-cli.md)
-- [Cognitive Services development options](cognitive-services-development-options.md)
-- [Azure Cognitive Services support and help options](cognitive-services-support-options.md)
-- [Enable diagnostic logging for Azure Cognitive Services](diagnostic-logging.md)
-- [Natural language support for Azure Cognitive Services](language-support.md)
-- [Azure security baseline for Cognitive Services](security-baseline.md)
+- [Azure Policy Regulatory Compliance controls for Azure Cognitive Services](security-controls-policy.md)
 
 ## Containers
 
+### New articles
+
+- [Azure Cognitive Services containers frequently asked questions (FAQ)](./containers/container-faq.yml)
+
 ### Updated articles
 
-- [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags)
+- [Azure Cognitive Services container image tags and release notes](./containers/container-image-tags.md)
 
 ## Form Recognizer
 
-### New articles
-
-- [Form Recognizer prebuilt invoice model](/azure/cognitive-services/form-recognizer/concept-invoices)
-- [Form Recognizer Layout service](/azure/cognitive-services/form-recognizer/concept-layout)
-- [Quickstart: Extract invoice data using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-invoices)
-
 ### Updated articles
 
-- [Receipt concepts](/azure/cognitive-services/form-recognizer/concept-receipts)
-- [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview)
-- [Train a Form Recognizer model with labels using the sample labeling tool](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
-- [Quickstart: Extract business card data using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards)
-- [What's new in Form Recognizer?](/azure/cognitive-services/form-recognizer/whats-new)
-
-## Metrics Advisor
-
-### New articles
-
-- [Metrics Advisor: what's new in the docs](/azure/cognitive-services/metrics-advisor/whats-new)
-
-### Updated articles
-
-- [Provide anomaly feedback](/azure/cognitive-services/metrics-advisor/how-tos/anomaly-feedback)
-- [Metrics Advisor frequently asked questions](/azure/cognitive-services/metrics-advisor/faq)
-- [Quickstart: Use the client libraries or REST APIs to customize your solution](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library)
-
-## QnA Maker 
-
-### New articles 
-
-* [QnA Maker managed public preview announcement](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575)
-* [Create a new QnA Maker managed service](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v2)
-* [Migrate your existing knowledge base to QnA Maker managed](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/migrate-knowledge-base)
+- [Deploy the sample labeling tool](./form-recognizer/deploy-label-tool.md)
+- [What is Form Recognizer?](./form-recognizer/overview.md)
+- [Train a Form Recognizer model with labels using the sample labeling tool](./form-recognizer/quickstarts/label-tool.md)
 
 ## Text Analytics
 
 ### Updated articles
 
-- [Data and rate limits for the Text Analytics API](/azure/cognitive-services/text-analytics/concepts/data-limits)
-- [How to: Use Text Analytics for health (preview)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health)
-- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
-- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
-- [How to: Sentiment analysis and Opinion Mining](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis)
-- [What's new in the Text Analytics API?](/azure/cognitive-services/text-analytics/whats-new)
-- [Example: Detect language with Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection)
+- [Text Analytics API v3 language support](./text-analytics/language-support.md)
+- [How to call the Text Analytics REST API](./text-analytics/how-tos/text-analytics-how-to-call-api.md)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

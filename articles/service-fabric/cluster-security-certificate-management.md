@@ -103,9 +103,12 @@ As a side note: IETF [RFC 3647](https://tools.ietf.org/html/rfc3647) formally de
 
 We've seen earlier that Azure Key Vault supports automatic certificate rotation: the associate certificate policy defines the point in time, whether by days before expiration or percentage of total lifetime, when the certificate is rotated in the vault. The provisioning agent must be invoked after this point in time, and prior to the expiration of the now-previous certificate, to distribute this new certificate to all of the nodes of the cluster. Service Fabric will assist by raising health warnings when the expiration date of a certificate (and which is currently in use in the cluster) occurs sooner than a predetermined interval. An automatic provisioning agent (i.e. the KeyVault VM extension), configured to observe the vault certificate, will periodically poll the vault, detect the rotation, and retrieve and install the new certificate. Provisioning done via VM/VMSS 'secrets' feature will require an authorized operator to update the VM/VMSS with the versioned KeyVault URI corresponding to the new certificate.
 
-In either case, the rotated certificate is now provisioned to all of the nodes, and we have described the mechanism Service Fabric employs to detect rotations; let us examine what happens next - assuming the rotation applied to the cluster certificate declared by subject common name (all applicable as of the time of this writing, and Service Fabric runtime version 7.1.409):
-  - for new connections within, as well as into the cluster, the Service Fabric runtime will find and select the matching certificate with the farthest expiration date (the 'NotAfter' property of the certificate, often abbreviated as 'na')
+In either case, the rotated certificate is now provisioned to all of the nodes, and we have described the mechanism Service Fabric employs to detect rotations; let us examine what happens next - assuming the rotation applied to the cluster certificate declared by subject common name
+  - for new connections within, as well as into the cluster, the Service Fabric runtime will find and select the most recently issued matching certificate (largest value of the 'NotBefore' property). Note this is a change from previous versions of the Service Fabric runtime.
   - existing connections will be kept alive/allowed to naturally expire or otherwise terminate; an internal handler will have been notified that a new match exists
+
+> [!NOTE] 
+> Prior to version 7.2.445 (7.2 CU4), Service Fabric selected the farthest expiring certificate (the certificate with the farthest 'NotAfter' property)
 
 This translates into the following important observations:
   - The renewal certificate may be ignored if its expiration date is sooner than that of the certificate currently in use.
@@ -128,8 +131,11 @@ We've described mechanisms, restrictions, outlined intricate rules and definitio
 
 The sequence is fully scriptable/automated and allows a user-touch-free initial deployment of a cluster configured for certificate autorollover. Detailed steps are provided below. We'll use a mix of PowerShell cmdlets and fragments of json templates. The same functionality is achievable with all supported means of interacting with Azure.
 
-[!NOTE] This example assumes a certificate exists already in the vault; enrolling and renewing a KeyVault-managed certificate requires prerequisite manual steps as described earlier in this article. For production environments, use KeyVault-managed certificates - a sample script specific to a Microsoft-internal PKI is included below.
-Certificate autorollover only makes sense for CA-issued certificates; using self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, is nonsensical, but still possible for local/developer-hosted deployments, by declaring the issuer thumbprint to be the same as of the leaf certificate.
+> [!NOTE]
+> This example assumes a certificate exists already in the vault; enrolling and renewing a KeyVault-managed certificate requires prerequisite manual steps as described earlier in this article. For production environments, use KeyVault-managed certificates - a sample script specific to a Microsoft-internal PKI is included below.
+
+> [!NOTE]
+> Certificate autorollover only makes sense for CA-issued certificates; using self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, is nonsensical, but still possible for local/developer-hosted deployments, by declaring the issuer thumbprint to be the same as of the leaf certificate.
 
 ### Starting point
 For brevity, we will assume the following starting state:
@@ -416,6 +422,7 @@ The KVVM extension, as a provisioning agent, runs continuously on a predetermine
 You may have noticed the KVVM extension's 'linkOnRenewal' flag, and the fact that it is set to false. We're addressing here in depth the behavior controlled by this flag and its implications on the functioning of a cluster. Note this behavior is specific to Windows.
 
 According to its [definition](../virtual-machines/extensions/key-vault-windows.md#extension-schema):
+
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```
@@ -447,7 +454,7 @@ As it emerged from the json snippets above, a specific sequencing of the operati
 
 To dispose the creation of a managed identity, or to assign it to another resource, the deployment operator must have the required role (ManagedIdentityOperator) in the subscription or the resource group, in addition to the roles required to manage the other resources referenced in the template. 
 
-From a security standpoint, recall that the virtual machine (scale set) is considered a security boundary with regards to its Azure identity. That means that any application hosted on the VM could, in principle, obtain an access token representing the VM - managed identity access tokens are obtained from the unauthenticated IMDS endpoint. If you consider the VM to be a shared, or multi-tenant environment, then perhaps this method of retrieving cluster certificates is not indicated. It is, however, the only provisioning mechanism suitable for certificate autorollover.
+From a security standpoint, recall that the virtual machine (scale set) is considered a security boundary with regard to its Azure identity. That means that any application hosted on the VM could, in principle, obtain an access token representing the VM - managed identity access tokens are obtained from the unauthenticated IMDS endpoint. If you consider the VM to be a shared, or multi-tenant environment, then perhaps this method of retrieving cluster certificates is not indicated. It is, however, the only provisioning mechanism suitable for certificate autorollover.
 
 ## Troubleshooting and frequently asked questions
 

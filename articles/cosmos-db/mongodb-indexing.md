@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 03/02/2021
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
@@ -15,13 +15,23 @@ ms.custom: devx-track-js
 
 Azure Cosmos DB's API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](index-overview.md) that's relevant across all APIs.
 
-## Indexing for MongoDB server version 3.6
+## Indexing for MongoDB server version 3.6 and higher
 
-Azure Cosmos DB's API for MongoDB server version 3.6 automatically indexes the `_id` field, which can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. In Azure Cosmos DB's API for MongoDB, sharding and indexing are separate concepts. You don't have to index your shard key. However, as with any other property in your document, if this property is a common filter in your queries, we recommend indexing the shard key.
+Azure Cosmos DB's API for MongoDB server version 3.6+ automatically indexes the `_id` field, which can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. In Azure Cosmos DB's API for MongoDB, sharding and indexing are separate concepts. You don't have to index your shard key. However, as with any other property in your document, if this property is a common filter in your queries, we recommend indexing the shard key.
 
 To index additional fields, you apply the MongoDB index-management commands. As in MongoDB, Azure Cosmos DB's API for MongoDB automatically indexes the `_id` field only. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
 
 To apply a sort to a query, you must create an index on the fields used in the sort operation.
+
+### Editing indexing policy
+
+We recommend editing your indexing policy in the Data Explorer within the Azure portal.
+. You can add single field and wildcard indexes from the indexing policy editor in the Data Explorer:
+
+:::image type="content" source="./media/mongodb-indexing/indexing-policy-editor.png" alt-text="Indexing policy editor":::
+
+> [!NOTE]
+> You can't create compound indexes using the indexing policy editor in the Data Explorer.
 
 ## Index types
 
@@ -31,11 +41,15 @@ You can create indexes on any single field. The sort order of the single field i
 
 `db.coll.createIndex({name:1})`
 
+You could create the same single field index on `name` in the Azure portal:
+
+:::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Add name index in indexing policy editor":::
+
 One query uses multiple single field indexes where available. You can create up to 500 single field indexes per container.
 
-### Compound indexes (MongoDB server version 3.6)
+### Compound indexes (MongoDB server version 3.6+)
 
-Azure Cosmos DB's API for MongoDB supports compound indexes for accounts that use the version 3.6 wire protocol. You can include up to eight fields in a compound index. Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a single compound index. 
+Azure Cosmos DB's API for MongoDB supports compound indexes for accounts that use the version 3.6 and 4.0 wire protocol. You can include up to eight fields in a compound index. Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a single compound index. 
 
 > [!NOTE]
 > You can't create compound indexes on nested properties or arrays.
@@ -82,30 +96,31 @@ You can use wildcard indexes to support queries against unknown fields. Let's im
 Here is part of an example document in that collection:
 
 ```json
-  "children": [
-     {
-         "firstName": "Henriette Thaulow",
-         "grade": "5"
-     }
-  ]
+"children": [
+   {
+     "firstName": "Henriette Thaulow",
+     "grade": "5"
+   }
+]
 ```
 
 Here's another example, this time with a slightly different set of properties in `children`:
 
 ```json
-  "children": [
-      {
-        "familyName": "Merriam",
-        "givenName": "Jesse",
-        "pets": [
-            { "givenName": "Goofy" },
-            { "givenName": "Shadow" }
-      },
-      {
-        "familyName": "Merriam",
-        "givenName": "John",
-      }
-  ]
+"children": [
+    {
+     "familyName": "Merriam",
+     "givenName": "Jesse",
+     "pets": [
+         { "givenName": "Goofy" },
+         { "givenName": "Shadow" }
+         ]
+   },
+   {
+     "familyName": "Merriam",
+     "givenName": "John",
+   }
+]
 ```
 
 In this collection, documents can have many different possible properties. If you wanted to index all the data in the `children` array, you have two options: create separate indexes for each individual property or create one wildcard index for the entire `children` array.
@@ -120,14 +135,18 @@ The following command creates a wildcard index on any properties within `childre
 
 You can create the following index types using wildcard syntax:
 
-- Single field
-- Geospatial
+* Single field
+* Geospatial
 
 ### Indexing all properties
 
 Here's how you can create a wildcard index on all fields:
 
 `db.coll.createIndex( { "$**" : 1 } )`
+
+You can also create wildcard indexes using the Data Explorer in the Azure portal:
+
+:::image type="content" source="./media/mongodb-indexing/add-wildcard-index.png" alt-text="Add wildcard index in indexing policy editor":::
 
 > [!NOTE]
 > If you are just starting development, we **strongly** recommend starting off with a wildcard index on all fields. This can simplify development and make it easier to optimize queries.
@@ -138,41 +157,45 @@ Documents with many fields may have a high Request Unit (RU) charge for writes a
 
 Wildcard indexes do not support any of the following index types or properties:
 
-- Compound
-- TTL
-- Unique
+* Compound
+* TTL
+* Unique
 
 **Unlike in MongoDB**, in Azure Cosmos DB's API for MongoDB you **can't** use wildcard indexes for:
 
-- Creating a wildcard index that includes multiple specific fields
+* Creating a wildcard index that includes multiple specific fields
 
-`db.coll.createIndex(
-    { "$**" : 1 },
-    { "wildcardProjection " :
-        {
-           "children.givenName" : 1,
-           "children.grade" : 1
-        }
-    }
-)`
+  ```json
+  db.coll.createIndex(
+      { "$**" : 1 },
+      { "wildcardProjection " :
+          {
+             "children.givenName" : 1,
+             "children.grade" : 1
+          }
+      }
+  )
+  ```
 
-- Creating a wildcard index that excludes multiple specific fields
+* Creating a wildcard index that excludes multiple specific fields
 
-`db.coll.createIndex(
-    { "$**" : 1 },
-    { "wildcardProjection" :
-        {
-           "children.givenName" : 0,
-           "children.grade" : 0
-        }
-    }
-)`
+  ```json
+  db.coll.createIndex(
+      { "$**" : 1 },
+      { "wildcardProjection" :
+          {
+             "children.givenName" : 0,
+             "children.grade" : 0
+          }
+      }
+  )
+  ```
 
 As an alternative, you could create multiple wildcard indexes.
 
 ## Index properties
 
-The following operations are common for accounts serving wire protocol version 3.6 and accounts serving earlier versions. You can learn more about [supported indexes and indexed properties](mongodb-feature-support-36.md#indexes-and-index-properties).
+The following operations are common for accounts serving wire protocol version 4.0 and accounts serving earlier versions. You can learn more about [supported indexes and indexed properties](mongodb-feature-support-40.md#indexes-and-index-properties).
 
 ### Unique indexes
 
@@ -186,11 +209,11 @@ The following command creates a unique index on the field `student_id`:
 ```shell
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 1,
+    "numIndexesAfter" : 4
 }
 ```
 
@@ -201,23 +224,23 @@ The following commands create a sharded collection ```coll``` (the shard key is 
 ```shell
 globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { university: "hashed"}});
 {
-        "_t" : "ShardCollectionResponse",
-        "ok" : 1,
-        "collectionsharded" : "test.coll"
+    "_t" : "ShardCollectionResponse",
+    "ok" : 1,
+    "collectionsharded" : "test.coll"
 }
 globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 3,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 3,
+    "numIndexesAfter" : 4
 }
 ```
 
 In the preceding example, omitting the ```"university":1``` clause returns an error with the following message:
 
-```"cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }"```
+*cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }*
 
 ### TTL indexes
 
@@ -236,7 +259,7 @@ The preceding command deletes any documents in the ```db.coll``` collection that
 
 ## Track index progress
 
-Version 3.6 of Azure Cosmos DB's API for MongoDB supports the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about in-progress operations on a database instance. You use the `currentOp` command to track all in-progress operations in native MongoDB. In Azure Cosmos DB's API for MongoDB, this command only supports tracking the index operation.
+Version 3.6+ of Azure Cosmos DB's API for MongoDB support the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about in-progress operations on a database instance. You use the `currentOp` command to track all in-progress operations in native MongoDB. In Azure Cosmos DB's API for MongoDB, this command only supports tracking the index operation.
 
 Here are some examples that show how to use the `currentOp` command to track index progress:
 
@@ -262,7 +285,7 @@ Here are some examples that show how to use the `currentOp` command to track ind
 
 The index progress details show the percentage of progress for the current index operation. Here's an example that shows the output document format for different stages of index progress:
 
-- An index operation on a "foo" collection and "bar" database that is 60 percent complete will have the following output document. The `Inprog[0].progress.total` field shows 100 as the target completion percentage.
+* An index operation on a "foo" collection and "bar" database that is 60 percent complete will have the following output document. The `Inprog[0].progress.total` field shows 100 as the target completion percentage.
 
    ```json
    {
@@ -286,7 +309,7 @@ The index progress details show the percentage of progress for the current index
    }
    ```
 
-- If an index operation has just started on a "foo" collection and "bar" database, the output document might show 0 percent progress until it reaches a measurable level.
+* If an index operation has just started on a "foo" collection and "bar" database, the output document might show 0 percent progress until it reaches a measurable level.
 
    ```json
    {
@@ -310,7 +333,7 @@ The index progress details show the percentage of progress for the current index
    }
    ```
 
-- When the in-progress index operation finishes, the output document shows empty `inprog` operations.
+* When the in-progress index operation finishes, the output document shows empty `inprog` operations.
 
    ```json
    {
@@ -383,26 +406,26 @@ Currently, you can only create unique indexes when the collection contains no do
 
 Available indexing features and defaults are different for Azure Cosmos accounts that are compatible with version 3.2 of the MongoDB wire protocol. You can [check your account's version](mongodb-feature-support-36.md#protocol-support) and [upgrade to version 3.6](mongodb-version-upgrade.md).
 
-If you're using version 3.2, this section outlines key differences with version 3.6.
+If you're using version 3.2, this section outlines key differences with versions 3.6+.
 
 ### Dropping default indexes (version 3.2)
 
-Unlike the 3.6 version of Azure Cosmos DB's API for MongoDB, version 3.2 indexes every property by default. You can use the following command to drop these default indexes for a collection (```coll```):
+Unlike the 3.6+ versions of Azure Cosmos DB's API for MongoDB, version 3.2 indexes every property by default. You can use the following command to drop these default indexes for a collection (```coll```):
 
 ```JavaScript
 > db.coll.dropIndexes()
 { "_t" : "DropIndexesResponse", "ok" : 1, "nIndexesWas" : 3 }
 ```
 
-After dropping the default indexes, you can add more indexes as you would in version 3.6.
+After dropping the default indexes, you can add more indexes as you would in version 3.6+.
 
 ### Compound indexes (version 3.2)
 
-Compound indexes hold references to multiple fields of a document. If you want to create a compound index, [upgrade to version 3.6](mongodb-version-upgrade.md).
+Compound indexes hold references to multiple fields of a document. If you want to create a compound index, [upgrade to version 3.6 or 4.0](mongodb-version-upgrade.md).
 
 ### Wildcard indexes (version 3.2)
 
-If you want to create a wildcard index, [upgrade to version 3.6](mongodb-version-upgrade.md).
+If you want to create a wildcard index, [upgrade to version 4.0 or 3.6](mongodb-version-upgrade.md).
 
 ## Next steps
 

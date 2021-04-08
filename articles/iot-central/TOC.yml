@@ -1,0 +1,348 @@
+- name: Azure IoT Central documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure IoT Central
+    href: core/overview-iot-central.md
+  - name: Tour of the UI
+    href: core/overview-iot-central-tour.md
+  - name: Recent updates
+    items:
+    - name: February 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-february-2021/
+    - name: January 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/
+    - name: November 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-november-2020/
+    - name: October 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-upadates-october-2020/
+    - name: September 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/
+    - name: August 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-august-2020/
+    - name: July 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/
+    - name: June 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-june-2020/
+    - name: June 2020 UI and documentation updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-ui-documenation-updates-june-2020/
+    - name: May 2020 jobs and metrics updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/
+    - name: May 2020 dashboard updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-may-2020-dashboard-updates/
+    - name: April 2020 new features
+      href: https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/
+    - name: April 2020 updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-april-2020-updates/
+    - name: March 2020
+      href: https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: 1. Create a new application
+      href: core/quick-deploy-iot-central.md
+    - name: 2. Add a simulated device
+      href: core/quick-create-simulated-device.md
+    - name: 3. Configure rules and actions
+      href: core/quick-configure-rules.md
+    - name: 4. Monitor your devices
+      href: core/quick-monitor-devices.md
+- name: Tutorials
+  items:
+    - name: Develop and connect devices
+      items:
+      - name: Create and connect a device
+        href: core/tutorial-connect-device.md
+      - name: Create a gateway device template
+        href: core/tutorial-define-gateway-device-type.md
+      - name: Connect an IoT Edge device
+        href: core/tutorial-add-edge-as-leaf-device.md
+    - name: Build integrated solutions
+      items:
+      - name: Create a device group
+        href: core/tutorial-use-device-groups.md
+      - name: Create a rule
+        href: core/tutorial-create-telemetry-rules.md
+      - name: Explore the IoT Central APIs
+        href: /learn/modules/manage-iot-central-apps-with-rest-api/
+    - name: Industry specific solutions
+      items:
+      - name: Retail
+        items:
+        - name: In-store analytics checkout
+          items:
+          - name: 1- Create a retail application
+            href: retail/tutorial-in-store-analytics-create-app.md
+          - name: 2 - Customize the operator dashboard
+            href: retail/tutorial-in-store-analytics-customize-dashboard.md
+          - name: 3 - Export data and visualize insights
+            href: retail/tutorial-in-store-analytics-export-data-visualize-insights.md
+        - name: Create a smart inventory management application
+          href: retail/tutorial-iot-central-smart-inventory-management.md
+        - name:  Create a connected logistics application
+          href: retail/tutorial-iot-central-connected-logistics.md
+        - name: Create a digital distribution center application
+          href: retail/tutorial-iot-central-digital-distribution-center.md 
+        - name: Create a micro-fulfillment center application
+          href: retail/tutorial-micro-fulfillment-center.md 
+        - name: Video analytics - object and motion detection
+          items:
+          - name: 0 - Deploy object and motion detection application
+            href: retail/tutorial-video-analytics-deploy.md
+          - name: 1 - Create a video analytics application
+            items:
+            - name: Object and motion detection (YOLO v3)
+              href: retail/tutorial-video-analytics-create-app-yolo-v3.md
+            - name: Object and motion detection (OpenVINO)
+              href: retail/tutorial-video-analytics-create-app-openvino.md
+          - name: 2 - Configure an IoT Edge device
+            items:
+            - name: Create video analytics device on the edge (Linux VM)
+              href: retail/tutorial-video-analytics-iot-edge-vm.md
+            - name: Create video analytics device on the edge (Intel NUC)
+              href: retail/tutorial-video-analytics-iot-edge-nuc.md
+          - name: 3 -Monitor and manage a video analytics application
+            href: retail/tutorial-video-analytics-manage.md
+          - name: 4 - Modify and build the live video analytics gateway modules
+            href: retail/tutorial-video-analytics-build-module.md
+      - name: Energy
+        items:
+        - name: Create a smart meter monitoring app
+          href: energy/tutorial-smart-meter-app.md 
+        - name: Create a solar panel monitoring app
+          href: energy/tutorial-solar-panel-app.md
+      - name: Government
+        items:
+        - name: Create a connected waste management app
+          href: government/tutorial-connected-waste-management.md
+        - name: Create a water consumption monitoring app
+          href: government/tutorial-water-consumption-monitoring.md 
+        - name: Create a water quality monitoring app
+          href: government/tutorial-water-quality-monitoring.md
+      - name: Healthcare
+        items:
+        - name: Create a continuous patient monitoring app
+          href: healthcare/tutorial-continuous-patient-monitoring.md 
+        - name: Create a health data triage dashboard
+          href: ./healthcare/tutorial-health-data-triage.md
+
+- name: Concepts
+  items:
+    - name: Architecture
+      href: core/concepts-architecture.md
+    - name: Device developer guide
+      href: core/overview-iot-central-developer.md
+    - name: Solution builder guide
+      href: core/overview-iot-central-solution-builder.md
+    - name: Administrator guide
+      href: core/overview-iot-central-admin.md
+    - name: Operator guide
+      href: core/overview-iot-central-operator.md
+    - name: What are application templates?
+      href: core/concepts-app-templates.md
+    - name: Industry specific application templates
+      items:
+      - name: Retail
+        items:
+        - name: Overview
+          href: retail/overview-iot-central-retail.md
+        - name: In-store analytics checkout architecture
+          href: retail/store-analytics-architecture.md
+        - name: Smart inventory management architecture
+          href: retail/architecture-smart-inventory-management.md
+        - name: Connected logistics architecture
+          href: retail/architecture-connected-logistics.md
+        - name: Digital distribution center
+          href: retail/architecture-digital-distribution-center.md
+        - name: Micro-fulfillment center architecture
+          href: retail/architecture-micro-fulfillment-center.md
+        - name: Video analytics - object and motion detection
+          href: retail/architecture-video-analytics.md
+      - name: Energy
+        items:
+        - name: Overview
+          href: energy/overview-iot-central-energy.md
+        - name: Smart meter app architecture
+          href: energy/concept-iot-central-smart-meter-app.md
+        - name: Solar panel app architecture
+          href: energy/concept-iot-central-solar-panel-app.md
+      - name: Government
+        items:
+        - name: Overview
+          href: government/overview-iot-central-government.md
+        - name: Connected waste monitoring architecture
+          href: government/concepts-connectedwastemanagement-architecture.md 
+        - name: Water consumption monitoring architecture
+          href: government/concepts-waterconsumptionmonitoring-architecture.md 
+        - name: Water quality monitoring architecture
+          href: government/concepts-waterqualitymonitoring-architecture.md        
+      - name: Healthcare
+        items:
+        - name: Overview
+          href: healthcare/overview-iot-central-healthcare.md
+        - name: Continuous patient monitoring architecture
+          href: healthcare/concept-continuous-patient-monitoring-architecture.md
+        
+    - name: What are device templates?
+      href: core/concepts-device-templates.md
+    - name: Device connectivity
+      href: core/concepts-get-connected.md
+    - name: Message payloads
+      href: core/concepts-telemetry-properties-commands.md
+    - name: Connect IoT Edge devices
+      href: core/concepts-iot-edge.md
+    - name: Best practices
+      href: core/concepts-best-practices.md
+
+- name: How-to guides
+  items:
+    - name: Develop and connect devices
+      items:
+        - name: Set up a device template
+          href: core/howto-set-up-template.md
+        - name: Version device template
+          href: core/howto-version-device-template.md
+        - name: How to use properties
+          href: core/howto-use-properties.md
+        - name: How to use commands
+          href: core/howto-use-commands.md
+        - name: Connect devices using X.509
+          href: core/how-to-connect-devices-x509.md
+        - name: Monitor device connectivity using Azure CLI
+          href: core/howto-monitor-devices-azure-cli.md
+        - name: Connect devices through an IoT Edge transparent gateway
+          href: core/how-to-connect-iot-edge-transparent-gateway.md
+        - name: Prepare and connect an Azure Sphere DevKit
+          href: core/howto-connect-sphere.md
+        - name: Prepare and connect a RuuviTag device
+          href: core/howto-connect-ruuvi.md
+        - name: Prepare and connect a Rigado Cascade 500
+          href: core/howto-connect-rigado-cascade-500.md
+        - name: Connect other IoT clouds
+          href: core/howto-build-iotc-device-bridge.md
+    - name: Build integrated solutions
+      items:
+        - name: Add tiles to your dashboard
+          href: core/howto-add-tiles-to-your-dashboard.md
+        - name: Configure rules
+          href: core/howto-configure-rules.md
+        - name: Create webhooks on rules
+          href: core/howto-create-webhooks.md
+        - name: Connect Azure Monitor action groups on rules
+          href: core/howto-use-action-groups.md
+        - name: Analyze your device data
+          href: core/howto-create-analytics.md
+        - name: Export data to cloud destinations
+          href: core/howto-export-data.md
+        - name: Export data to cloud destinations (legacy)
+          href: core/howto-export-data-legacy.md
+        - name: Use workflows to integrate with other services
+          href: core/howto-configure-rules-advanced.md
+        - name: Create custom rules
+          href: core/howto-create-custom-rules.md
+        - name: Create custom analytics with Databricks
+          href: core/howto-create-custom-analytics.md
+        - name: Visualize your data in Power BI
+          href: core/howto-connect-powerbi.md
+        - name: Connect your application with Dynamics 365 Field Services
+          href: government/how-to-configure-connected-field-services.md
+    - name: Manage your devices
+      items:
+        - name: Add and remove devices
+          href: core/howto-manage-devices.md
+        - name: Run a job
+          href: core/howto-run-a-job.md
+        - name: Move devices from IoT Hub  
+          href: core/how-to-move-device-to-iot.md
+    - name: Administer your solution
+      items:
+        - name: Change application settings
+          href: core/howto-administer.md
+        - name: Manage users and roles
+          href: core/howto-manage-users-roles.md
+        - name: Manage your bill
+          href: core/howto-view-bill.md
+        - name: Customize application UI
+          href: core/howto-customize-ui.md
+        - name: Export your application
+          href: core/howto-use-app-templates.md
+        - name: Migrate V2 to V3 application
+          href: core/howto-migrate.md
+        - name: Monitor application health
+          href: core/howto-monitor-application-health.md
+        - name: About your application
+          href: core/howto-get-app-info.md
+        - name: Configure and use file uploads
+          href: core/howto-configure-file-uploads.md
+        - name: Roll X.509 certificates
+          href: core/how-to-roll-x509-certificates.md
+        - name: Manage from the Azure portal
+          href: core/howto-manage-iot-central-from-portal.md
+        - name: Manage from Azure CLI
+          href: core/howto-manage-iot-central-from-cli.md
+        - name: Manage from Azure PowerShell
+          href: core/howto-manage-iot-central-from-powershell.md
+        - name: Manage programmatically
+          href: core/howto-manage-iot-central-programmatically.md
+        - name: Manage from CSP portal
+          href: core/howto-create-and-manage-applications-csp.md
+    - name: Personalize your solution
+      items:
+        - name: Create a personal dashboard
+          href: core/howto-create-personal-dashboards.md
+        - name: Manage your personal preferences
+          href: core/howto-manage-preferences.md
+        - name: Toggle live chat
+          href: core/howto-show-hide-chat.md
+    - name: Troubleshoot
+      items:
+      - name: Device connections
+        href: core/troubleshoot-connection.md
+    - name: FAQ
+      href: core/howto-faq.md
+
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
+  - name: IoT Central API reference
+    href: /rest/api/iotcentral/
+- name: Resources
+  items:
+  - name: Code samples
+    href: /samples/browse/?expanded=azure&products=azure-iot-central
+  - name: Support and help options
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+
+  - name: Azure IoT services
+    items:
+    - name: IoT Hub
+      href: ../iot-hub/index.yml
+    - name: IoT Hub Device Provisioning Service
+      href: ../iot-dps/index.yml
+    - name: IoT Edge
+      href: ../iot-edge/index.yml
+    - name: IoT solution accelerators
+      href: ../iot-accelerators/index.yml
+    - name: IoT Plug and Play
+      href: ../iot-pnp/index.yml
+    - name: Azure Maps
+      href: ../azure-maps/index.yml
+    - name: Time Series Insights
+      href: ../time-series-insights/index.yml
+  - name: Azure IoT SDKs
+    items:
+    - name: IoT Service SDKs
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
+    - name: IoT Device SDKs
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
+  - name: Customer data residency
+    href: core/iot-central-customer-data-residency.md
+  - name: Customer data requests
+    href: core/iot-central-customer-data-requests.md
+  - name: Supported browsers
+    href: core/iot-central-supported-browsers.md
+  - name: Azure IoT Central (legacy templates)
+    href: /previous-versions/azure/iot-central/core/overview-iot-central

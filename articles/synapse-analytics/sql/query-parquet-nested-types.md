@@ -19,7 +19,7 @@ Nested types are complex structures that represent objects or arrays. Nested typ
 - Hierarchical [JSON files](query-json-files.md), where you can read a complex JSON document as a single column.
 - Azure Cosmos DB collections (currently under gated public preview), where every document can contain complex nested properties.
 
-Serverless SQL pool formats all nested types as JSON objects and arrays. So you can [extract or modify complex objects by using JSON functions](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) or [parse JSON data by using the OPENJSON function](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+Serverless SQL pool formats all nested types as JSON objects and arrays. So you can [extract or modify complex objects by using JSON functions](/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) or [parse JSON data by using the OPENJSON function](/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
 Here's an example of a query that extracts scalar and object values from the [COVID-19 Open Research Dataset](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) JSON file, which contains nested objects: 
 
@@ -117,7 +117,7 @@ The result is shown in the following table:
 | --- | --- | --- | --- |
 | Supplementary Information An eco-epidemiolo... | Julien	| - Figure S1 : Phylogeny of... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 
-Unlike JSON files, which in most cases return a single column that contains a complex JSON object, Parquet files can have multiple complex columns. You can read the properties of nested columns by using the `JSON_VALUE` function on each column. `OPENROWSET` enables you to directly specify the paths of the nested properties in a `WITH` clause. You can set the paths as the name of a column, or you can add a [JSON path expression](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server) after the column type.
+Unlike JSON files, which in most cases return a single column that contains a complex JSON object, Parquet files can have multiple complex columns. You can read the properties of nested columns by using the `JSON_VALUE` function on each column. `OPENROWSET` enables you to directly specify the paths of the nested properties in a `WITH` clause. You can set the paths as the name of a column, or you can add a [JSON path expression](/sql/relational-databases/json/json-path-expressions-sql-server) after the column type.
 
 The following query reads the structExample.parquet file and shows how to surface elements of a nested column. There are two ways to reference a nested value:
 - By specifying the nested value path expression after the type specification.
@@ -143,7 +143,7 @@ FROM
 
 ## Access elements from repeated columns
 
-The following query reads the justSimpleArray.parquet file and uses [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve a scalar element from within a repeated column, like an array or map:
+The following query reads the justSimpleArray.parquet file and uses [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) to retrieve a scalar element from within a repeated column, like an array or map:
 
 ```sql
 SELECT
@@ -168,7 +168,7 @@ Here's the result:
 
 ## Access sub-objects from complex columns
 
-The following query reads the mapExample.parquet file and uses [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve a non-scalar element from within a repeated column, like an array or map:
+The following query reads the mapExample.parquet file and uses [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest&preserve-view=true) to retrieve a non-scalar element from within a repeated column, like an array or map:
 
 ```sql
 SELECT

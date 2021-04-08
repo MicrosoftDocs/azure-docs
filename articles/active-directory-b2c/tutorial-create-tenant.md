@@ -19,6 +19,8 @@ Before your applications can interact with Azure Active Directory B2C (Azure AD 
 
 > [!NOTE]
 > You can create up to 20 tenants per subscription. This limit helps protect against threats to your resources, such as denial-of-service attacks, and is enforced in both the Azure portal and the underlying tenant creation API. If you need to create more than 20 tenants, please contact [Microsoft Support](support-options.md).
+> 
+> If you want to reuse a tenant name that you previously tried to delete, but you see the error "Already in use by another directory" when you enter the domain name, you'll need to [follow these steps to fully delete the tenant first](./faq.md?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). A role of at least Subscription Administrator is required. After deleting the tenant, you might also need to sign out and sign back in before you can reuse the domain name.
 
 In this article, you learn how to:
 
@@ -64,7 +66,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ![Create tenant form in with example values in Azure portal](media/tutorial-create-tenant/review-and-create-tenant.png)
 
 1. Select **Review + create**.
-1. Review your directory settings. Then select **Create**.
+1. Review your directory settings. Then select **Create**. For [troubleshooting deployment errors](../azure-resource-manager/templates/common-deployment-errors.md).
 
 You can link multiple Azure AD B2C tenants to a single Azure subscription for billing purposes. To link a tenant, you must be an admin in the Azure AD B2C tenant and be assigned at least a Contributor role within the Azure subscription. See [Link an Azure AD B2C tenant to a subscription](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 

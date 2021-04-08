@@ -36,6 +36,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.

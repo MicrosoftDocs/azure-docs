@@ -11,6 +11,8 @@ ms.author: jgol
 # Filter telemetry in your Java web app
 
 > [!IMPORTANT]
+> The approach described in this document is no longer recommended.
+>
 > The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
 
 Filters provide a way to select the telemetry that your [Java web app sends to Application Insights](java-get-started.md). There are some out-of-the-box filters that you can use, and you can also write your own custom filters.
@@ -78,7 +80,7 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
 
 ```
 
-[Inspect the full set of built-in processors](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal).
+[Inspect the full set of built-in processors](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal).
 
 ## Built-in filters
 

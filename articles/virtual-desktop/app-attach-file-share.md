@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Set up a file share for MSIX app attach (preview)
 
@@ -59,6 +59,12 @@ Here are some other things we recommend you do to optimize MSIX app attach perfo
 The setup process for MSIX app attach file share is largely the same as [the setup process for FSLogix profile file shares](create-host-pools-user-profile.md). However, you'll need to assign users different permissions. MSIX app attach requires read-only permissions to access the file share.
 
 If you're storing your MSIX applications in Azure Files, then for your session hosts, you'll need to assign all session host VMs both storage account role-based access control (RBAC) and file share New Technology File System (NTFS) permissions on the share.
+
+| Azure object                      | Required role                                     | Role function                                  |
+|-----------------------------------|--------------------------------------------------|-----------------------------------------------|
+| Session host (VM computer objects)| Storage File Data SMB Share Contributor          | Read and Execute, Read, List folder contents  |
+| Admins on File Share              | Storage File Data SMB Share Elevated Contributor | Full control                                  |
+| Users on File Share               | Storage File Data SMB Share Contributor          | Read and Execute, Read, List folder contents  |
 
 To assign session host VMs permissions for the storage account and file share:
 

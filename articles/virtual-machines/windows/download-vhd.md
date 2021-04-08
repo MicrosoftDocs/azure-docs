@@ -3,7 +3,7 @@ title: Download a Windows VHD from Azure
 description: Download a Windows VHD using the Azure portal.
 author: cynthn
 manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
@@ -22,7 +22,7 @@ If you want to use the VHD as an [image](tutorial-custom-images.md) to create ot
 To use the VHD as an image to create other VMs, generalize the VM.
 
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
-2. [Connect to the VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+2. [Connect to the VM](connect-logon.md). 
 3. On the VM, open the Command Prompt window as an administrator.
 4. Change the directory to *%windir%\system32\sysprep* and run sysprep.exe.
 5. In the System Preparation Tool dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that **Generalize** is selected.
@@ -60,6 +60,6 @@ To download the VHD file, you need to generate a [shared access signature (SAS)]
 
 ## Next steps
 
-- Learn how to [upload a VHD file to Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-- [Create managed disks from unmanaged disks in a storage account](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- [Manage Azure disks with PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Learn how to [upload a VHD file to Azure](upload-generalized-managed.md). 
+- [Create managed disks from unmanaged disks in a storage account](attach-disk-ps.md).
+- [Manage Azure disks with PowerShell](tutorial-manage-data-disk.md).

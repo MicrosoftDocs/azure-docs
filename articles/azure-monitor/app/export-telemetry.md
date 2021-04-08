@@ -2,12 +2,15 @@
 title: Continuous export of telemetry from Application Insights | Microsoft Docs
 description: Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.
 ms.topic: conceptual
-ms.date: 05/26/2020
-
+ms.date: 02/19/2021
+ms.custom: references_regions
 ---
 
 # Export telemetry from Application Insights
 Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there, you can download your data and write whatever code you need to process it.  
+
+> [!IMPORTANT]
+> Continuous export has been deprecated. [Migrate to a workspace-based Application Insights resource](convert-classic-resource.md) to use [diagnostic settings](#diagnostic-settings-based-export) for exporting telemetry.
 
 > [!NOTE]
 > Continuous export is only supported for classic Application Insights resources. [Workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
@@ -17,12 +20,50 @@ Before you set up continuous export, there are some alternatives you might want 
 
 * The Export button at the top of a metrics or search tab lets you transfer tables and charts to an Excel spreadsheet.
 
-* [Analytics](../log-query/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
+* [Analytics](../logs/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
 * If you're looking to [explore your data in Power BI](./export-power-bi.md), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
 * You can also access setup [continuous export via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](./data-retention-privacy.md).
+
+## Supported Regions
+
+Continuous Export is supported in the following regions:
+
+* Southeast Asia
+* Canada Central
+* Central India
+* North Europe
+* UK South
+* Australia East
+* Japan East
+* Korea Central
+* France Central
+* East Asia
+* West US
+* Central US
+* East US 2
+* South Central US
+* West US 2
+* South Africa North
+* North Central US
+* Brazil South
+* Switzerland North
+* Australia Southeast
+* UK West
+* Germany West Central
+* Switzerland West
+* Australia Central 2
+* UAE Central
+* Brazil Southeast
+* Australia Central
+* UAE North
+* Norway East
+* Japan West
+
+> [!NOTE]
+> Applications already configured in **West Europe** and **East US** are supported but onboarding of new applications in those regions is not supported.
 
 ## Continuous Export advanced storage configuration
 

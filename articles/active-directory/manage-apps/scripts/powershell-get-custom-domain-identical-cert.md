@@ -3,7 +3,7 @@ title: PowerShell sample - Application Proxy apps with identical certs
 description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications that are published with the identical certificate.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.reviewer: japere
 ---
 
-# Get all Azure AD Proxy application apps that are published with the identical certificate
+# Get all Application Proxy apps that are published with the identical certificate
 
 This PowerShell script example lists all Azure Active Directory (Azure AD) Application Proxy applications that are published with the identical certificate.
 
@@ -23,7 +23,7 @@ This PowerShell script example lists all Azure Active Directory (Azure AD) Appli
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ## Sample script
 

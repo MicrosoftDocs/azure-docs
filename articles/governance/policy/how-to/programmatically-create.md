@@ -1,7 +1,7 @@
 ---
 title: Programmatically create policies
 description: This article walks you through programmatically creating and managing policies for Azure Policy with Azure CLI, Azure PowerShell, and REST API.
-ms.date: 08/17/2020
+ms.date: 03/16/2021
 ms.topic: how-to
 ---
 # Programmatically create policies
@@ -115,7 +115,7 @@ HTTP requests.
    - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 For more information about managing resource policies using the Resource Manager PowerShell
-module, see [Az.Resources](/powershell/module/az.resources/#policies).
+module, see [Az.Resources](/powershell/module/az.resources/#policy).
 
 ### Create and assign a policy definition using ARMClient
 
@@ -281,7 +281,7 @@ For more information about how you can manage resource policies with Azure CLI, 
 Review the following articles for more information about the commands and queries in this article.
 
 - [Azure REST API Resources](/rest/api/resources/)
-- [Azure PowerShell Modules](/powershell/module/az.resources/#policies)
+- [Azure PowerShell Modules](/powershell/module/az.resources/#policy)
 - [Azure CLI Policy Commands](/cli/azure/policy)
-- [Azure Policy Insights resource provider REST API reference](/rest/api/policy-insights)
+- [Azure Policy resource provider REST API reference](/rest/api/policy)
 - [Organize your resources with Azure management groups](../../management-groups/overview.md).

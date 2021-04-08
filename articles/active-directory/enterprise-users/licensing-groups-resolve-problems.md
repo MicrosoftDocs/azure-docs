@@ -64,7 +64,6 @@ To see which users and groups are consuming licenses, select a product. Under **
 
 Consider the following example. A user has a license for Office 365 Enterprise *E1* assigned directly, with all the plans enabled. The user has been added to a group that has the Office 365 Enterprise *E3* product assigned to it. The E3 product contains service plans that can't overlap with the plans that are included in E1, so the group license assignment fails with the “Conflicting service plans” error. In this example, the conflicting service plans are:
 
-- SharePoint Online (Plan 2) conflicts with SharePoint Online (Plan 1).
 - Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).
 
 To solve this conflict, you need to disable two of the plans. You can disable the E1 license that's directly assigned to the user. Or, you need to modify the entire group license assignment and disable the plans in the E3 license. Alternatively, you might decide to remove the E1 license from the user if it's redundant in the context of the E3 license.
@@ -104,7 +103,7 @@ If you use Exchange Online, some users in your organization might be incorrectly
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
 > For more information about this problem, see ["Proxy address 
-> is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps).
+> is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](/powershell/exchange/connect-to-exchange-online-powershell).
 
 After you resolve any proxy address problems for the affected users, make sure to force license processing on the group to make sure that the licenses can now be applied.
 

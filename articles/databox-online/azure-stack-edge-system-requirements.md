@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 02/05/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro system requirements
 
 This article describes the important system requirements for your Microsoft Azure Stack Edge Pro solution and for the clients connecting to Azure Stack Edge Pro. We recommend that you review the information carefully before you deploy your Azure Stack Edge Pro. You can refer back to this information as necessary during the deployment and subsequent operation.
 
-The system requirements for the Azure Stack Edge Pro include:
+The system requirements for the Azure Stack Edge Pro include: 
 
 - **Software requirements for hosts** - describes the supported platforms, browsers for the local configuration UI, SMB clients, and any additional requirements for the clients that access the device.
 - **Networking requirements for the device** - provides information about any networking requirements for the operation of the physical device.

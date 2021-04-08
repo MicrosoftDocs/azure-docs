@@ -5,7 +5,6 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
@@ -67,15 +66,15 @@ Yes! For more information, see the [scale set zone doc](./virtual-machine-scale-
 
 ### What are best practices for Azure Autoscale?
 
-For best practices for Autoscale, see [Best practices for autoscaling virtual machines](../azure-monitor/platform/autoscale-best-practices.md).
+For best practices for Autoscale, see [Best practices for autoscaling virtual machines](../azure-monitor/autoscale/autoscale-best-practices.md).
 
 ### Where do I find metric names for autoscaling that uses host-based metrics?
 
-For metric names for autoscaling that uses host-based metrics, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+For metric names for autoscaling that uses host-based metrics, see [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ### Are there any examples of autoscaling based on an Azure Service Bus topic and queue length?
 
-Yes. For examples of autoscaling based on an Azure Service Bus topic and queue length, see [Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md).
+Yes. For examples of autoscaling based on an Azure Service Bus topic and queue length, see [Azure Monitor autoscaling common metrics](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
 For a Service Bus queue, use the following JSON:
 
@@ -100,9 +99,9 @@ Replace example values with your resource Uniform Resource Identifiers (URIs).
 
 You can create an autoscale setting on a VM to use host-level metrics or guest OS-based metrics.
 
-For a list of supported metrics, see [Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md).
+For a list of supported metrics, see [Azure Monitor autoscaling common metrics](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
-For a full sample for virtual machine scale sets, see [Advanced autoscale configuration by using Resource Manager templates for virtual machine scale sets](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md).
+For a full sample for virtual machine scale sets, see [Advanced autoscale configuration by using Resource Manager templates for virtual machine scale sets](../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md).
 
 The sample uses the host-level CPU metric and a message count metric.
 
@@ -110,13 +109,13 @@ The sample uses the host-level CPU metric and a message count metric.
 
 ### How do I set alert rules on a virtual machine scale set?
 
-You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quickstart samples](../azure-monitor/samples/powershell-samples.md#create-metric-alerts) and [Azure Monitor cross-platform CLI quickstart samples](../azure-monitor/samples/cli-samples.md#work-with-alerts).
+You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quickstart samples](../azure-monitor/powershell-samples.md#create-metric-alerts) and [Azure Monitor cross-platform CLI quickstart samples](../azure-monitor/cli-samples.md#work-with-alerts).
 
 The TargetResourceId of the virtual machine scale set looks like this:
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-You can choose any VM performance counter as the metric to set an alert for. For more information, see [Guest OS metrics for Resource Manager-based Windows VMs](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) and [Guest OS metrics for Linux VMs](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-linux-vms) in the [Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md) article.
+You can choose any VM performance counter as the metric to set an alert for. For more information, see [Guest OS metrics for Resource Manager-based Windows VMs](../azure-monitor/autoscale/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) and [Guest OS metrics for Linux VMs](../azure-monitor/autoscale/autoscale-common-metrics.md#guest-os-metrics-linux-vms) in the [Azure Monitor autoscaling common metrics](../azure-monitor/autoscale/autoscale-common-metrics.md) article.
 
 ### How do I set up autoscale on a virtual machine scale set by using PowerShell?
 
@@ -300,7 +299,7 @@ If you create a VM and then update your secret in the key vault, the new certifi
 
 To deploy .cer public keys to a virtual machine scale set, you can generate a .pfx file that contains only .cer files. To do this, use `X509ContentType = Pfx`. For example, load the .cer file as an x509Certificate2 object in C# or PowerShell, and then call the method.
 
-For more information, see [X509Certificate.Export Method (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?view=netcore-3.1#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
+For more information, see [X509Certificate.Export Method (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
 
 ### How do I pass in certificates as base64 strings?
 
@@ -511,7 +510,7 @@ If you have two virtual machine scale sets with Azure Load Balancer front-ends, 
 
 IP addresses are selected from a subnet that you specify.
 
-The allocation method of virtual machine scale set IP addresses is always “dynamic,” but that doesn't mean that these IP addresses can change. In this case, "dynamic" only means that you do not specify the IP address in a PUT request. Specify the static set by using the subnet.
+The allocation method of virtual machine scale set IP addresses is always "dynamic," but that doesn't mean that these IP addresses can change. In this case, "dynamic" only means that you do not specify the IP address in a PUT request. Specify the static set by using the subnet.
 
 ### How do I deploy a virtual machine scale set to an existing Azure virtual network?
 
@@ -568,7 +567,7 @@ Yes. You can add the resource IDs for multiple Application Gateway backend addre
 
 ### In what case would I create a virtual machine scale set with fewer than two VMs?
 
-One reason to create a virtual machine scale set with fewer than two VMs would be to use the elastic properties of a virtual machine scale set. For example, you could deploy a virtual machine scale set with zero VMs to define your infrastructure without paying VM running costs. Then, when you are ready to deploy VMs, increase the “capacity” of the virtual machine scale set to the production instance count.
+One reason to create a virtual machine scale set with fewer than two VMs would be to use the elastic properties of a virtual machine scale set. For example, you could deploy a virtual machine scale set with zero VMs to define your infrastructure without paying VM running costs. Then, when you are ready to deploy VMs, increase the "capacity" of the virtual machine scale set to the production instance count.
 
 Another reason you might create a virtual machine scale set with fewer than two VMs is if you're concerned less with availability than in using an availability set with discrete VMs. Virtual machine scale sets give you a way to work with undifferentiated compute units that are fungible. This uniformity is a key differentiator for virtual machine scale sets versus availability sets. Many stateless workloads do not track individual units. If the workload drops, you can scale down to one compute unit, and then scale up to many when the workload increases.
 
@@ -696,7 +695,7 @@ You can set this property to **false**. For small virtual machine scale sets, th
 
 ### What is the difference between deleting a VM in a virtual machine scale set and deallocating the VM? When should I choose one over the other?
 
-The main difference between deleting a VM in a virtual machine scale set and deallocating the VM is that `deallocate` doesn’t delete the virtual hard disks (VHDs). There are storage costs associated with running `stop deallocate`. You might use one or the other for one of the following reasons:
+The main difference between deleting a VM in a virtual machine scale set and deallocating the VM is that `deallocate` doesn't delete the virtual hard disks (VHDs). There are storage costs associated with running `stop deallocate`. You might use one or the other for one of the following reasons:
 
 - You want to stop paying compute costs, but you want to keep the disk state of the VMs.
 - You want to start a set of VMs more quickly than you could scale out a virtual machine scale set.

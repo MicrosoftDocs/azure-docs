@@ -68,4 +68,4 @@ Using [Azure role-based access control (Azure RBAC)](../role-based-access-contro
 
 
 ## Next steps
-- Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../security/fundamentals/overview.md) or [Windows](./tutorial-azure-security.md).
+- Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../security/fundamentals/overview.md) or [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security).

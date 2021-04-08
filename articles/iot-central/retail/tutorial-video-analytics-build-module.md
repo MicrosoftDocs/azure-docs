@@ -20,11 +20,13 @@ The previous tutorials use pre-built images of the modules.
 
 To complete the steps in this tutorial, you need:
 
-* [Node.js](https://nodejs.org/en/download/) v10 or later
-* [Visual Studio Code](https://code.visualstudio.com/Download) with [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) extension installed
-* [Docker](https://www.docker.com/products/docker-desktop) engine
-* An [Azure Container Registry](../../container-registry/index.yml) to host your versions of the modules.
-* An [Azure Media Services](../../media-services/index.yml) account. If you completed the previous tutorials, you can reuse the one you created previously.
+
+> [!div class="checklist"]
+> * [Node.js](https://nodejs.org/en/download/) v10 or later
+> * [Visual Studio Code](https://code.visualstudio.com/Download) with [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) extension installed
+> * [Docker](https://www.docker.com/products/docker-desktop) engine
+> * An [Azure Container Registry](../../container-registry/index.yml) to host your versions of the modules.
+> * An [Azure Media Services](../../media-services/index.yml) account. If you completed the previous tutorials, you can reuse the one you created previously.
 
 ## Clone the repository
 
@@ -68,6 +70,13 @@ Open the local *live-video-analytics* repository folder with VS Code.
 1. Use the VS Code terminal to run the **npm version patch** command. This build script deploys the images to your container registry. The output in the VS Code terminal window shows you if the build is successful.
 
 1. The version of the **LvaEdgeGatewayModule** image increments every time the build completes. You need to use this version in the deployment manifest file.
+
+## Clean up resources
+
+If you've finished with the application, you can remove all the resources you created as follows:
+
+1. In the IoT Central application, navigate to the **Your application** page in the **Administration** section. Then select **Delete**.
+1. In the Azure portal, delete the **lva-rg** resource group.
 
 ## Next steps
 

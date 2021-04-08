@@ -71,7 +71,7 @@ This topic shows how to route outbound traffic through an Azure Firewall, but yo
    | Property | Value | Description |
    |----------|-------|-------------|
    | **Name** | <*network-rule-collection-name*> | The name for your network rule collection |
-   | **Priority** | <*priority-level*> | The order of priority to use for running the rule collection. For more information, see [What are some Azure Firewall concepts](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
+   | **Priority** | <*priority-level*> | The order of priority to use for running the rule collection. For more information, see [What are some Azure Firewall concepts](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts)? |
    | **Action** | **Allow** | The action type to perform for this rule |
    |||
 
@@ -90,9 +90,9 @@ This topic shows how to route outbound traffic through an Azure Firewall, but yo
 
    * [Configure a network rule](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)
    * [Azure Firewall rule processing logic](../firewall/rule-processing.md#network-rules-and-applications-rules)
-   * [Azure Firewall FAQ](../firewall/firewall-faq.md)
+   * [Azure Firewall FAQ](../firewall/firewall-faq.yml)
    * [Azure PowerShell: New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
-   * [Azure CLI: az network firewall network-rule](/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
+   * [Azure CLI: az network firewall network-rule](/cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create)
 
 ## Next steps
 

@@ -1,16 +1,15 @@
 ---
-title: Overview of Azure Stream Analytics Clusters (Preview)
+title: Overview of Azure Stream Analytics Clusters
 description: Learn about single tenant dedicated offering of Stream Analytics Cluster.
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ---
 
-# Overview of Azure Stream Analytics Cluster (Preview)
+# Overview of Azure Stream Analytics Cluster
 
 Azure Stream Analytics Cluster offers a single-tenant deployment for complex and demanding streaming scenarios. At full scale, Stream Analytics clusters can process more than 200 MB/second in real time. Stream Analytics jobs running on dedicated clusters can leverage all the features in the Standard offering and includes support for private link connectivity to your inputs and outputs.
 

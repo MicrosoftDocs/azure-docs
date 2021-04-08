@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/11/2020
+ms.date: 02/05/2021
 ms.author: juliako
 ---
 
@@ -72,7 +72,7 @@ The following list shows the insights you can retrieve from your videos using Vi
 
 * **Audio transcription**: Converts speech to text in 12 languages and allows extensions. Supported languages include English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Arabic, Russian, Portuguese, Hindi, and Korean.
 * **Automatic language detection**: Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Russian, and Portuguese. If the language can't be identified with confidence, Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
-* **Multi-language speech identification and transcription** (preview): Automatically identifies the spoken language in different segments from audio. It sends each segment of the media file to be transcribed and then combines the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
+* **Multi-language speech identification and transcription**: Automatically identifies the spoken language in different segments from audio. It sends each segment of the media file to be transcribed and then combines the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
 * **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
 * **Two channel processing**: Auto detects separate transcript and merges to single timeline.
 * **Noise reduction**: Clears up telephony audio or noisy recordings (based on Skype filters).
@@ -80,7 +80,7 @@ The following list shows the insights you can retrieve from your videos using Vi
 * **Speaker enumeration**: Maps and understands which speaker spoke which words and when. Sixteen speakers can be detected in a single audio-file.
 * **Speaker statistics**: Provides statistics for speakers' speech ratios.
 * **Textual content moderation**: Detects explicit text in the audio transcript.
-* **Audio effects**: Identifies audio effects like hand claps, speech, and silence.
+* **Audio effects** (public preview): Detects the following audio effects in the non-speech segments of the content: Gunshot, Glass shatter, Alarm, Siren, Explosion, Dog Bark, Screaming, Laughter, Crowd reactions (cheering, clapping, and booing) and Silence. Note: the full set of events is available only when choosing ‘Advanced Audio Analysis’ in upload preset, otherwise only ‘Silence’ and ‘Crowd reaction’ will be available.
 * **Emotion detection**: Identifies emotions based on speech (what's being said) and voice tonality (how it's being said). The emotion could be joy, sadness, anger, or fear.
 * **Translation**: Creates translations of the audio transcript to 54 different languages.
 
@@ -111,6 +111,21 @@ You can access Video Indexer capabilities in three ways:
     For more information, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
 
 If you're using the website, the insights are added as metadata and are visible in the portal. If you're using APIs, the insights are available as a JSON file.
+
+## Supported browsers
+
+The following list shows the supported browsers that you can use for the Video Indexer website and for your apps that embed the widgets. The list also shows the minimum supported browser version:
+
+- Edge, version: 16
+- Firefox, version: 54
+- Chrome, version: 58
+- Safari, version: 11
+- Opera, version: 44
+- Opera Mobile, version: 59
+- Android Browser, version: 81
+- Samsung Browser, version: 7
+- Chrome for Android, version: 87
+- Firefox for Android, version: 83
 
 ## Next steps
 

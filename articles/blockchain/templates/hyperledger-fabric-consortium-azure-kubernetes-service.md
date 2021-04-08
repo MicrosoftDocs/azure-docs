@@ -1,9 +1,10 @@
 ---
 title: Deploy Hyperledger Fabric consortium on Azure Kubernetes Service
 description: How to deploy and configure a Hyperledger Fabric consortium network on Azure Kubernetes Service
-ms.date: 08/06/2020
+ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
+ms.custom: contperf-fy21q3
 ---
 
 # Deploy Hyperledger Fabric consortium on Azure Kubernetes Service
@@ -26,34 +27,6 @@ Option | Service model | Common use case
 Solution templates | IaaS | Solution templates are Azure Resource Manager templates that you can use to provision a fully configured blockchain network topology. The templates deploy and configure Microsoft Azure compute, networking, and storage services for a blockchain network type. Solution templates are provided without a service-level agreement. Use the [Microsoft Q&A page](/answers/topics/azure-blockchain-workbench.html) for support.
 [Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service Preview simplifies the formation, management, and governance of consortium blockchain networks. Use Azure Blockchain Service for solutions that require PaaS, consortium management, or contract and transaction privacy.
 [Azure Blockchain Workbench](../workbench/overview.md) | IaaS and PaaS | Azure Blockchain Workbench Preview is a collection of Azure services and capabilities that help you create and deploy blockchain applications to share business processes and data with other organizations. Use Azure Blockchain Workbench for prototyping a blockchain solution or a proof of concept for a blockchain application. Azure Blockchain Workbench is provided without a service-level agreement. Use the [Microsoft Q&A page](/answers/topics/azure-blockchain-workbench.html) for support.
-
-## Hyperledger Fabric consortium architecture
-
-To build a Hyperledger Fabric network on Azure, you need to deploy an ordering service and organization with peer nodes. By using the Hyperledger Fabric on Azure Kubernetes Service solution template, you can create order nodes or peer nodes. You need to deploy the template for each node that you want to create.
-
-The fundamental components that are created as part of the template deployment are:
-
-- **Orderer nodes**: A node that's responsible for transaction ordering in the ledger. Along with other nodes, the ordered nodes form the ordering service of the Hyperledger Fabric network.
-
-- **Peer nodes**: A node that primarily host ledgers and smart contracts, which are fundamental elements of the network.
-
-- **Fabric CA**: The certificate authority (CA) for Hyperledger Fabric. The Fabric CA allows you to initialize and start a server process that hosts the certificate authority. It allows you to manage identities and certificates. Each AKS cluster deployed as part of the template will have a Fabric CA pod by default.
-
-- **CouchDB or LevelDB**: World state databases for the peer nodes. LevelDB is the default state database embedded in the peer node. It stores chaincode data as simple key/value pairs and supports key, key range, and composite key queries only. CouchDB is an optional alternate state database that supports rich queries when chaincode data values are modeled as JSON.
-
-The template on deployment spins up various Azure resources in your subscription. The deployed Azure resources are:
-
-- **AKS cluster**: Azure Kubernetes Service cluster that's configured according to the input parameters provided by the customer. The AKS cluster has various pods configured for running the Hyperledger Fabric network components. The created pods are:
-
-  - **Fabric tools**: Tools that are responsible for configuring the Hyperledger Fabric components.
-  - **Orderer/peer pods**: The nodes of the Hyperledger Fabric network.
-  - **Proxy**: An NGNIX proxy pod through which the client applications can communicate with the AKS cluster.
-  - **Fabric CA**: The pod that runs the Fabric CA.
-- **PostgreSQL**: Database instance that maintains the Fabric CA identities.
-
-- **Key vault**: Instance of the Azure Key Vault service that's deployed to save the Fabric CA credentials and the root certificates provided by the customer. The vault is used in case of template deployment retry, to handle the mechanics of the template.
-- **Managed disk**: Instance of the Azure Managed Disks service that provides a persistent store for the ledger and for the peer node's world state database.
-- **Public IP**: Endpoint of the AKS cluster deployed for communicating with the cluster.
 
 ## Deploy the orderer and peer organization
 
@@ -80,10 +53,10 @@ To get started with the deployment of Hyperledger Fabric network components, go 
     - **Organization name**: Enter the name of the Hyperledger Fabric organization, which is required for various data plane operations. The organization name needs to be unique per deployment.
     - **Fabric network component**: Choose either **Ordering service** or **Peer nodes**, based on the blockchain network component that you want to set up.
     - **Number of nodes**: The following are the two types of nodes:
-        - **Ordering service**: Select the number of nodes to provide fault tolerance to the network. The supported order node count is 3, 5, and 7.
-        - **Peer nodes**: You can choose 1 to 10 nodes based on your requirement.
-    - **Peer node world state database**: Choose between LevelDB and CouchDB. This field is displayed when you choose **Peer nodes** in the **Fabric network component** drop-down list.
-    - **Fabric CA username**: Enter the username that's used for Fabric CA authentication.
+        - **Ordering service**: Nodes responsible for transaction ordering in the ledger. Select the number of nodes to provide fault tolerance to the network. The supported order node count is 3, 5, and 7.
+        - **Peer nodes**: Nodes that host ledgers and smart contracts. You can choose 1 to 10 nodes based on your requirement.
+    - **Peer node world state database**: World state databases for the peer nodes. LevelDB is the default state database embedded in the peer node. It stores chaincode data as simple key/value pairs and supports key, key range, and composite key queries only. CouchDB is an optional alternate state database that supports rich queries when chaincode data values are modeled as JSON. This field is displayed when you choose **Peer nodes** in the **Fabric network component** drop-down list.
+    - **Fabric CA username**: The Fabric certificate authority allows you to initialize and start a server process that hosts the certificate authority. It allows you to manage identities and certificates. Each AKS cluster deployed as part of the template will have a Fabric CA pod by default. Enter the username that's used for Fabric CA authentication.
     - **Fabric CA password**: Enter the password for Fabric CA authentication.
     - **Confirm password**: Confirm the Fabric CA password.
     - **Certificates**: If you want to use your own root certificates to initialize the Fabric CA, then choose the **Upload root certificate for Fabric CA** option. Otherwise, the Fabric CA creates self-signed certificates by default.
@@ -91,17 +64,27 @@ To get started with the deployment of Hyperledger Fabric network components, go 
     - **Root Certificate private key**: Upload the private key of the root certificate. If you have a .pem certificate, which has a combined public and private key, upload it here as well.
 
 
-6. Select the **AKS cluster Settings** tab to define the Azure Kubernetes Service cluster configuration that is the underlying infrastructure on which the Hyperledger Fabric network components will be set up.
+6. Select the **AKS cluster Settings** tab to define the Azure Kubernetes Service cluster configuration. The AKS cluster has various pods configured for running the Hyperledger Fabric network components. The deployed Azure resources are:
+
+    - **Fabric tools**: Tools that are responsible for configuring the Hyperledger Fabric components.
+    - **Orderer/peer pods**: The nodes of the Hyperledger Fabric network.
+    - **Proxy**: An NGNIX proxy pod through which the client applications can communicate with the AKS cluster.
+    - **Fabric CA**: The pod that runs the Fabric CA.
+    - **PostgreSQL**: Database instance that maintains the Fabric CA identities.
+    - **Key vault**: Instance of the Azure Key Vault service that's deployed to save the Fabric CA credentials and the root certificates provided by the customer. The vault is used in case of template deployment retry, to handle the mechanics of the template.
+    - **Managed disk**: Instance of the Azure Managed Disks service that provides a persistent store for the ledger and for the peer node's world state database.
+    - **Public IP**: Endpoint of the AKS cluster deployed for communicating with the cluster.
+
+    Enter the following details: 
 
     ![Screenshot that shows the A K S cluster settings tab.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
-7. Enter the following details:
     - **Kubernetes cluster name**: Change the name of the AKS cluster, if necessary. This field is prepopulated based on the resource prefix that's provided.
     - **Kubernetes version**: Choose the version of Kubernetes that will be deployed on the cluster. Based on the region that you selected on the **Basics** tab, the available supported versions might change.
     - **DNS prefix**: Enter a Domain Name System (DNS) name prefix for the AKS cluster. You'll use DNS to connect to the Kubernetes API when managing containers after you create the cluster.
     - **Node size**: For the size of the Kubernetes node, you can choose from the list of VM stock-keeping units (SKUs) available on Azure. For optimal performance, we recommend Standard DS3 v2.
     - **Node count**: Enter the number of Kubernetes nodes to be deployed in the cluster. We recommend keeping this node count equal to or more than the number of Hyperledger Fabric nodes specified on the **Fabric settings** tab.
-    - **Service principal client ID**: Enter the client ID of an existing service principal or create a new one. A service principal is required for AKS authentication. See the [steps to create a service principal](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
+    - **Service principal client ID**: Enter the client ID of an existing service principal or create a new one. A service principal is required for AKS authentication. See the [steps to create a service principal](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
     - **Service principal client secret**: Enter the client secret of the service principal provided in the client ID for the service principal.
     - **Confirm client secret**: Confirm the client secret for the service principal.
     - **Enable container monitoring**: Choose to enable AKS monitoring, which enables the AKS logs to push to the specified Log Analytics workspace.
@@ -312,7 +295,7 @@ CC_VERSION=<chaincodeVersion>
 # Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
-# CC_PATH contains the path where your chaincode is placed.
+# CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
 # If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode will be instantiated/invoked/queried  
@@ -389,23 +372,35 @@ Pass the query function name and space-separated list of arguments in `<queryF
 
 ## Troubleshoot
 
-Run the following commands to find the version of your template deployment.
+### Find deployed version
 
-Set environment variables according to the resource group where the template has been deployed.
-
-```bash
-
-SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
-AKS_CLUSTER_SUBSCRIPTION=<AKSClusterSubscriptionID>
-AKS_CLUSTER_RESOURCE_GROUP=<AKSClusterResourceGroup>
-AKS_CLUSTER_NAME=<AKSClusterName>
-```
-Run the following command to print the template version.
+Run the following commands to find the version of your template deployment. Set environment variables according to the resource group where the template has been deployed.
 
 ```bash
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
+```
 
+### Patch previous version
+
+If you are facing issues with running chaincode on any deployments of template version below v3.0.0, then follow the below steps to patch your peer nodes with a fix.
+
+Download the peer deployment script.
+
+```bash
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/scripts/patchPeerDeployment.sh -o patchPeerDeployment.sh; chmod 777 patchPeerDeployment.sh
+```
+
+Run the script using the following command replacing the parameters for your peer.
+
+```bash
+source patchPeerDeployment.sh <peerOrgSubscription> <peerOrgResourceGroup> <peerOrgAKSClusterName>
+```
+
+Wait for all your peer nodes to get patched. You can always check the status of your peer nodes, in different instance of the shell using the following command.
+
+```bash
+kubectl get pods -n hlf
 ```
 
 ## Support and feedback

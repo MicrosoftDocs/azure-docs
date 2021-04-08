@@ -3,14 +3,14 @@ title: Microsoft Teams on Windows Virtual Desktop - Azure
 description: How to use Microsoft Teams on Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Use Microsoft Teams on Windows Virtual desktop
 
 >[!IMPORTANT]
->Media optimization for Teams is supported for Microsoft 365 Government (GCC) environments. Media optimization for Teams is not supported for GCC-High or DoD.
+>Media optimization for Teams is supported for Microsoft 365 Government (GCC) and GCC-High environments. Media optimization for Teams is not supported for GCC-High or DoD.
 
 >[!NOTE]
 >Media optimization for Microsoft Teams is only available for the Windows Desktop client on Windows 10 machines. Media optimizations require Windows Desktop client version 1.2.1026.0 or later.
@@ -114,7 +114,7 @@ After installing the WebSocket Service and the Teams desktop app, follow these s
 
 3. Select **Version**.
 
-      If media optimizations loaded, the banner will show you **WVD Media optimized**. If the banner shows you **WVD Media not connected**, quit the Teams app and try again.
+      If media optimizations loaded, the banner will show you **Windows Virtual Desktop Media optimized**. If the banner shows you **Windows Virtual Desktop Media not connected**, quit the Teams app and try again.
 
 4. Select your user profile image, then select **Settings**.
 
@@ -134,18 +134,15 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 
 ### Calls and meetings
 
-- The Teams desktop client in Windows Virtual Desktop environments doesn't support live events. For now, we recommend you join live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead.
+- The Teams desktop client in Windows Virtual Desktop environments doesn't support creating live events, but you can join live events. For now, we recommend you create live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead.
 - Calls or meetings don't currently support application sharing. Desktop sessions support desktop sharing.
 - Give control and take control aren't currently supported.
 - Teams on Windows Virtual Desktop only supports one incoming video input at a time. This means that whenever someone tries to share their screen, their screen will appear instead of the meeting leader's screen.
 - Due to WebRTC limitations, incoming and outgoing video stream resolution is limited to 720p.
 - The Teams app doesn't support HID buttons or LED controls with other devices.
+- New Meeting Experience (NME) is not currently supported in VDI environments.
 
-For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues)
-
-## UserVoice site
-
-Provide feedback for Microsoft Teams on Windows Virtual Desktop on the Teams [UserVoice site](https://microsoftteams.uservoice.com/).
+For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
 
 ## Collect Teams logs
 

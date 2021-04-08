@@ -1,19 +1,8 @@
 ---
 title: "Quickstart: Investigate security alerts"
 description: Understand, drill down, and investigate Defender for IoT security alerts on your IoT devices.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/30/2020
-ms.author: mlottner
 ---
 
 # Quickstart: Investigate security alerts

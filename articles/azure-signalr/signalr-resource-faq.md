@@ -49,7 +49,7 @@ You can configure client-side transports as documented in [ASP.NET Core SignalR 
 You can find details about we calculate these metrics in [Messages and connections in Azure SignalR Service](signalr-concept-messages-and-connections.md).
 
 On the overview pane of Azure SignalR Service resources, we've already chosen the appropriate aggregation type for you. If you go to the metrics pane, you can
-take the aggregation type to [Messages and connections in Azure SignalR Service](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
+take the aggregation type to [Messages and connections in Azure SignalR Service](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
 
 ## What is the meaning of the `Default`, `Serverless`, and `Classic` service modes? How can I choose?
 
@@ -57,13 +57,13 @@ For new applications, only default and serverless mode should be used. The main 
 
 Classic mode is designed for backward compatibility for existing applications so should not be used for new applications.
 
-For more information about service mode in [this doc](concept-service-mode.md).
+For more information about service mode, see [Service mode in Azure SignalR Service](concept-service-mode.md).
 
 ## Can I send message from client in serverless mode?
 
 You can send message from client if you configure upstream in your SignalR instance. Upstream is a set of endpoints that can receive messages and connection events from SignalR service. If no upstream is configured, messages from client will be ignored.
 
-For more information about upstream see [this doc](concept-upstream.md).
+For more information about upstream, see [Upstream settings](concept-upstream.md).
 
 Upstream is currently in public preview.
 

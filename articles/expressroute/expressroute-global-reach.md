@@ -45,6 +45,7 @@ ExpressRoute Global Reach is supported in the following places.
 * New Zealand
 * Norway
 * Singapore
+* South Africa (Johannesburg only)
 * Sweden
 * Switzerland
 * United Kingdom

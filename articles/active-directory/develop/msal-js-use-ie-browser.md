@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 # Known issues on Internet Explorer browsers (MSAL.js)
 
-Microsoft Authentication Library for JavaScript (MSAL.js) is generated for [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) so that it can run in Internet Explorer. There are, however, a few things to know.
+The Microsoft Authentication Library for JavaScript (MSAL.js) is generated for [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) so that it can run in Internet Explorer. There are, however, a few things to know.
 
 ## Run an app in Internet Explorer
 If you intend to use MSAL.js in applications that can run in Internet Explorer, you will need to add a reference to a promise polyfill before referencing the MSAL.js script.
@@ -36,7 +36,7 @@ This is because Internet Explorer does not support JavaScript promises natively.
 Deploying your application to production (for instance in Azure Web apps) normally works fine, provided the end user has accepted popups. We tested it with Internet Explorer 11.
 
 ### Running locally
-If you want to run and debug locally your application running in Internet Explorer, you need to be aware of the following considerations (assume that you want to run your application as *http://localhost:1234*):
+If you want to run and debug locally your application running in Internet Explorer, be aware of the following considerations (assume that you want to run your application as *http://localhost:1234*):
 
 - Internet Explorer has a security mechanism named "protected mode", which prevents MSAL.js from working correctly. Among the symptoms, after you sign in, the page can be redirected to http://localhost:1234/null.
 

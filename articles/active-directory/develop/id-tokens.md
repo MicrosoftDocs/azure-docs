@@ -51,7 +51,7 @@ View this v2.0 sample token in [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1Q
 |-----|--------|-------------|
 |`typ` | String - always "JWT" | Indicates that the token is a JWT token.|
 |`alg` | String | Indicates the algorithm that was used to sign the token. Example: "RS256" |
-|`kid` | String | Thumbprint for the public key used to sign this token. Emitted in both v1.0 and v2.0 `id_tokens`. |
+|`kid` | String | Thumbprint for the public key used to verify this token. Emitted in both v1.0 and v2.0 `id_tokens`. |
 |`x5t` | String | The same (in use and value) as `kid`. However, this is a legacy claim emitted only in v1.0 `id_tokens` for compatibility purposes. |
 
 ### Payload claims
@@ -85,7 +85,7 @@ This list shows the JWT claims that are in most id_tokens by default (except whe
 |`groups:src1`|JSON object | For token requests that are not length limited (see `hasgroups` above) but still too large for the token, a link to the full groups list for the user will be included. For JWTs as a distributed claim, for SAML as a new claim in place of the `groups` claim. <br><br>**Example JWT Value**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> For more info, see [Groups overage claim](#groups-overage-claim).|
 
 > [!NOTE]
-> The v1.0 and v2.0 id_token have differences in the amount of information they will carry as seen from the examples above. The version is based on the endpoint from where it was requested. While existing applications likely use the Azure AD endpoint, new applications should use the v2.0 "Microsoft identity platform" endpoint.
+> The v1.0 and v2.0 id_token have differences in the amount of information they will carry as seen from the examples above. The version is based on the endpoint from where it was requested. While existing applications likely use the Azure AD endpoint, new applications should use the "Microsoft identity platform".
 >
 > - v1.0: Azure AD endpoints: `https://login.microsoftonline.com/common/oauth2/authorize`
 > - v2.0: Microsoft identity Platform endpoints: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`

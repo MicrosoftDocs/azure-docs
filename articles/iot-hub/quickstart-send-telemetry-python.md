@@ -1,5 +1,5 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart (Python) | Microsoft Docs
+title: Quickstart - Send telemetry to Azure IoT Hub quickstart (Python) | Microsoft Docs
 description: In this quickstart, you run a sample Python application to send simulated telemetry to an IoT hub and use a utility to read telemetry from the IoT hub.
 author: wesmc7777
 manager: philmea
@@ -10,7 +10,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: [mvc, mqtt, devx-track-python, 'Role: Cloud Development', devx-track-azurecli]
 ms.date: 06/16/2020
-# As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
+#Customer intent: As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
 # Quickstart: Send telemetry from a device to an IoT hub and read it with a back-end application (Python)
@@ -56,7 +56,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
     ```
 
     Make a note of the device connection string, which looks like:

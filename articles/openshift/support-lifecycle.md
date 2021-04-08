@@ -3,7 +3,7 @@ title: Azure Red Hat OpenShift support lifecycle
 description: Understand the support lifecycle and supported versions for Azure Red Hat OpenShift
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 08/11/2020
 ---
@@ -95,7 +95,7 @@ See the following guide for the [past Red Hat OpenShift Container Platform (upst
 |4.3|January 2020|April 2020| August 2020|
 |4.4|May 2020|July 2020|4.6 GA|
 |4.5|July 2020| November 2020|4.7 GA
-|4.6|October 2020| December 2020|4.8 GA|
+|4.6|October 2020| February 2021|4.8 GA|
 
 ## FAQ
 

@@ -39,7 +39,7 @@ In general, there will be four stages in a graceful shutdown process:
 
     You may have to design a way, like broadcast a closing message to all clients, and then let your clients to decide when to close/reconnect itself.
 
-    Read [ChatSample](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample) for sample usage, which we broadcast a 'exit' message to trigger client close in shutdown hook.
+    Read [ChatSample](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample) for sample usage, which we broadcast a 'exit' message to trigger client close in shutdown hook.
 
     **Mode set to MigrateClients**
 

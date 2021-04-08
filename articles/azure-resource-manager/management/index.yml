@@ -80,7 +80,7 @@ landingContent:
           - text: Java
             url: /java/api/com.microsoft.azure.management.resources
           - text: Python
-            url: /python/api/overview/azure/resources?view=azure-python
+            url: /python/api/overview/azure/resources
 
    # Card
   - title: Track operations

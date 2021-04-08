@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
 ---
@@ -30,7 +30,7 @@ Before using this API, understand:
 * The text-to-speech REST API requires an Authorization header. This means that you need to complete a token exchange to access the service. For more information, see [Authentication](#authentication).
 
 > [!TIP]
-> See the [Azure government documentation](/azure/azure-government/compare-azure-government-global-azure) for government cloud (FairFax) endpoints.
+> See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -55,9 +55,11 @@ The `voices/list` endpoint allows you to get a full list of voices for a specifi
 | Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| South Africa North | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West Central US | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -71,7 +73,10 @@ This table lists required and optional headers for text-to-speech requests.
 
 | Header | Description | Required / Optional |
 |--------|-------------|---------------------|
-| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Required |
+| `Ocp-Apim-Subscription-Key` | Your Speech service subscription key. | Either this header or `Authorization` is required. |
+| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
+
+
 
 ### Request body
 
@@ -85,7 +90,7 @@ This request only requires an authorization header.
 GET /cognitiveservices/voices/list HTTP/1.1
 
 Host: westus.tts.speech.microsoft.com
-Authorization: Bearer [Base64 access_token]
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 ```
 
 ### Sample response
@@ -97,20 +102,7 @@ This response has been truncated to illustrate the structure of a response.
 
 ```json
 [
-  {
-    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
-    "DisplayName": "Hoda",
-    "LocalName": "هدى",
-    "ShortName": "ar-EG-Hoda",
-    "Gender": "Female",
-    "Locale": "ar-EG",
-    "SampleRateHertz": "16000",
-    "VoiceType": "Standard",
-    "Status": "GA"
-  },
 
-...
-      
     {
     "Name": "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)",
     "DisplayName": "Aria",
@@ -130,9 +122,9 @@ This response has been truncated to illustrate the structure of a response.
     "VoiceType": "Neural",
     "Status": "GA"
   },
-  
+
   ...
-    
+
      {
     "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
     "DisplayName": "Orla",
@@ -144,9 +136,9 @@ This response has been truncated to illustrate the structure of a response.
     "VoiceType": "Neural",
     "Status": "Preview"
   },
-  
+
   ...
-    
+
    {
     "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunxiNeural)",
     "DisplayName": "Yunxi",
@@ -171,6 +163,21 @@ This response has been truncated to illustrate the structure of a response.
   },
 
     ...
+
+   {
+    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
+    "DisplayName": "Hoda",
+    "LocalName": "هدى",
+    "ShortName": "ar-EG-Hoda",
+    "Gender": "Female",
+    "Locale": "ar-EG",
+    "SampleRateHertz": "16000",
+    "VoiceType": "Standard",
+    "Status": "GA"
+  },
+
+...
+
 ]
 ```
 
@@ -220,10 +227,13 @@ audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
 raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
 audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
 audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
+raw-48khz-16bit-mono-pcm            riff-48khz-16bit-mono-pcm
+audio-48khz-96kbitrate-mono-mp3     audio-48khz-192kbitrate-mono-mp3
+webm-16khz-16bit-mono-opus          webm-24khz-16bit-mono-opus
 ```
 
 > [!NOTE]
-> If your selected voice and output format have different bit rates, the audio is resampled as necessary. 
+> If your selected voice and output format have different bit rates, the audio is resampled as necessary.
 > ogg-24khz-16bit-mono-opus can be decoded with [opus codec](https://opus-codec.org/downloads/)
 
 ### Request body
@@ -270,5 +280,5 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 ## Next steps
 
 - [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-- [Asynchronous synthesis for long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Asynchronous synthesis for long-form audio](./long-audio-api.md)
 - [Get started with Custom Voice](how-to-custom-voice.md)

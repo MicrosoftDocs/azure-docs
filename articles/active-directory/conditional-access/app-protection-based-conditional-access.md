@@ -31,7 +31,7 @@ In the Conditional Access, these client apps are known to be protected with an a
 > Not all applications are supported as approved applications or support application protection policies. For a list of eligible client apps, see [App protection policy requirement](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
-> "Require one of the selected controls" under grant controls is like an OR clause. This is used within policy to enable users to utilize apps that support either the **Require app protection policy** or **Require approved client app** grant controls. **Require app protection policy** is enforced if an app is supported in both policies. For more information on which apps support the **Require app protection policy** grant control, see [App protection policy requirement](concept-conditional-access-grant.md#require-app-protection-policy).
+> "Require one of the selected controls" under grant controls is like an OR clause. This is used within policy to enable users to utilize apps that support either the **Require app protection policy** or **Require approved client app** grant controls. **Require app protection policy** is enforced when the app supports that grant control. For more information on which apps support the **Require app protection policy** grant control, see [App protection policy requirement](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## Scenario 1: Microsoft 365 apps require approved apps with app protection policies
 
@@ -57,8 +57,8 @@ Organizations must complete the following steps in order to require the use of a
    1. Select **Mobile apps and desktop clients** and deselect everything else.
 1. Under **Access controls** > **Grant**, select the following options:
    - **Require approved client app**
-   - **Require app protection policy (preview)**
-   - **Require all the selected controls**
+   - **Require app protection policy**
+   - **Require one of the selected controls**
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create and enable your policy.
 
@@ -108,8 +108,8 @@ Organizations must complete the following steps in order to require the use of a
    1. Select **Browser** and deselect everything else.
 1. Under **Access controls** > **Grant**, select the following options:
    - **Require approved client app**
-   - **Require app protection policy (preview)**
-   - **Require all the selected controls**
+   - **Require app protection policy**
+   - **Require one of the selected controls**
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create and enable your policy.
 
@@ -141,7 +141,7 @@ Organizations must complete the following three steps in order to require the us
    1. Select **Mobile apps and desktop clients** and deselect everything else.
 1. Under **Access controls** > **Grant**, select the following options:
    - **Require approved client app**
-   - **Require app protection policy (preview)**
+   - **Require app protection policy**
    - **Require one of the selected controls**
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create and enable your policy.

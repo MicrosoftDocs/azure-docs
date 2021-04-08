@@ -20,7 +20,6 @@ You must have the following resource installed:
 
 ## Limitations
 
-* During cluster **upgrade** operations, the managed identity is temporarily unavailable.
 * Tenants move / migrate of managed identity enabled clusters isn't supported.
 * If the cluster has `aad-pod-identity` enabled, Node-Managed Identity (NMI) pods modify the nodes'
   iptables to intercept calls to the Azure Instance Metadata endpoint. This configuration means any
@@ -135,7 +134,7 @@ Update the user-assigned identity:
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Once the system-assigned or user-assigned identities have been updated to managed identity, perform an `az nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
+> Once the system-assigned or user-assigned identities have been updated to managed identity, perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
 
 ## Bring your own control plane MI
 A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as using a custom VNET or outboundType of UDR with a pre-created managed identity.
@@ -210,5 +209,5 @@ A successful cluster creation using your own managed identities contains this us
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az-identity-create&preserve-view=true
-[az-identity-list]: /cli/azure/identity?view=azure-cli-latest#az-identity-list&preserve-view=true
+[az-identity-create]: /cli/azure/identity#az-identity-create
+[az-identity-list]: /cli/azure/identity#az-identity-list

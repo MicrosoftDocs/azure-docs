@@ -51,13 +51,13 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/bingautosuggest
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
     - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-autosuggest/?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-autosuggest/
   - name: Use and display requirements
     href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true

@@ -53,21 +53,12 @@ Here's an example of this message:
         }  
       }  
     ]  
-  },  
-  "applicationProperties": {  
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",  
-    "subject": "/graphInstances/GRAPHINSTANCENAME/processors/md",  
-    "eventType": "Microsoft.Media.Graph.Analytics.Inference",  
-    "eventTime": "2020-04-17T20:26:32.7010000Z",
-    "dataVersion": "1.0"  
-  }  
+  } 
 }  
 ```
 
 In this example: 
 
-* In `applicationProperties`, `subject` references the node in the media graph from which the message was generated. In this case, the message originates from the motion detection processor node.
-* In `applicationProperties`, `eventType` indicates that this event is an analytics event.
 * The `eventTime` value is the time when the event occurred.
 * The `body` value is data about the analytics event. In this case, the event is an inference event, so the body contains `timestamp` and `inferences` data.
 * The `inferences` data indicates that the `type` is `motion`. It has additional data about that `motion` event.

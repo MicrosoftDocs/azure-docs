@@ -3,13 +3,13 @@ title: Azure DDoS Protection Standard reports and flow logs
 description: Learn how to configure reports and flow logs.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
+ms.date: 12/28/2020
 ms.author: yitoh
 
 ---
@@ -35,7 +35,8 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection.md). DDoS Protection Standard must be enabled on the virtual network of the public IP address. 
+- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection.md) and DDoS Protection Standard must be enabled on a virtual network.
+- DDoS monitors public IP addresses assigned to resources within a virtual network. If you don't have any resources with public IP addresses in the virtual network, you must first create a resource with a public IP address. You can monitor the public IP address of all resources deployed through Resource Manager (not classic) listed in [Virtual network for Azure services](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (including Azure Load Balancers where the backend virtual machines are in the virtual network), except for Azure App Service Environments. To continue with this tutorial, you can quickly create a [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine.    
 
 ## Configure DDoS diagnostic logs
 
@@ -43,18 +44,18 @@ If you want to automatically enable diagnostic logging on all public IPs within 
 
 1. Select **All services** on the top, left of the portal.
 2. Enter *Monitor* in the **Filter** box. When **Monitor** appears in the results, select it.
-3. Under **SETTINGS**, select **Diagnostic Settings**.
+3. Under **Settings**, select **Diagnostic Settings**.
 4. Select the **Subscription** and **Resource group** that contain the public IP address you want to log.
-5. Select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for.
-6. Select **Add diagnostic setting**. Under **Category Details**, select as many of the following options you require.
+5. Select **Public IP Address** for **Resource type**, then select the specific public IP address you want to enable logs for.
+6. Select **Add diagnostic setting**. Under **Category Details**, select as many of the following options you require, and then select **Save**.
 
     ![DDoS Diagnostic Settings](./media/ddos-attack-telemetry/ddos-diagnostic-settings.png)
 
 7. Under **Destination details**, select as many of the following options as you require:
 
-    - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive resource logs](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
-    - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream resource logs to an event hub](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
-    - **Send to Log Analytics**: Writes logs to the Azure Monitor service. To learn more about this option, see [Collect logs for use in Azure Monitor logs](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace).
+    - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive resource logs](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
+    - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream resource logs to an event hub](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
+    - **Send to Log Analytics**: Writes logs to the Azure Monitor service. To learn more about this option, see [Collect logs for use in Azure Monitor logs](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace).
 
 ### Log schemas
 
@@ -123,9 +124,9 @@ The following table lists the field names and descriptions:
 
 ## Enable diagnostic logging on all public IPs
 
-This [template](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Enable%20Diagnostic%20Logging/Azure%20Policy) creates an Azure Policy definition to automatically enable diagnostic logging on all public IP logs in a defined scope.
+This [template](https://aka.ms/ddosdiaglogs) creates an Azure Policy definition to automatically enable diagnostic logging on all public IP logs in a defined scope.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FEnable%2520Diagnostic%2520Logging%2FAzure%2520Policy%2FDDoSLogs.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FPolicy%20-%20DDOS%20Enable%20Diagnostic%20Logging%2FAzure%20Policy%2FDDoSLogs.json)
 
 ## View log data in workbooks
 
@@ -137,11 +138,15 @@ You can connect logs to Azure Sentinel, view and analyze your data in workbooks,
 
 ### Azure DDoS Protection Workbook
 
-You can use this Azure Resource Manager (ARM) template to deploy an attack analytics workbook. This workbook allows you to visualize attack data across several filterable panels to easily understand what’s at stake. 
+You can use [this Azure Resource Manager (ARM) template](https://aka.ms/ddosworkbook) to deploy an attack analytics workbook. This workbook allows you to visualize attack data across several filterable panels to easily understand what’s at stake. 
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FWorkbook%20-%20Azure%20DDOS%20monitor%20workbook%2FAzureDDoSWorkbook_ARM.json)
 
 ![DDoS Protection Workbook](./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png)
+
+## Validate and test
+
+To simulate a DDoS attack to validate your logs, see [Validate DDoS detection](test-through-simulations.md).
 
 ## Next steps
 
@@ -151,7 +156,7 @@ In this tutorial, you learned how to:
 - Enable diagnostic logging on all public IPs in a defined scope.
 - View log data in workbooks.
 
-To learn how to test and simulate a DDoS attack, see the simulation testing guide:
+To learn how to configure attack alerts, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Test through simulations](test-through-simulations.md)
+> [View and configure DDoS protection alerts](alerts.md)

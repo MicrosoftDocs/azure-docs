@@ -2,20 +2,20 @@
 title: 'Quickstart: Bulk load data using a single T-SQL statement'
 description: Bulk load data using the COPY statement
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw 
 ms.date: 11/20/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
 
 # Quickstart: Bulk load data using the COPY statement
 
-In this quickstart, you'll bulk load data into your dedicated SQL pool using the simple and flexible [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) for high-throughput data ingestion. The COPY statement is the recommended loading utility as it enables you to seamlessly and flexibly load data by providing functionality to:
+In this quickstart, you'll bulk load data into your dedicated SQL pool using the simple and flexible [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) for high-throughput data ingestion. The COPY statement is the recommended loading utility as it enables you to seamlessly and flexibly load data by providing functionality to:
 
 - Allow lower privileged users to load without needing strict CONTROL permissions on the data warehouse
 - Leverage only a single T-SQL statement without having to create any additional database objects
@@ -133,5 +133,5 @@ GROUP BY r.[request_id]
 
 ## Next steps
 
-- For best practices on data loading, see [Best Practices for Loading Data](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data).
-- For information on how to manage the resources for your data loads, see [Workload Isolation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql). 
+- For best practices on data loading, see [Best Practices for Loading Data](./guidance-for-loading-data.md).
+- For information on how to manage the resources for your data loads, see [Workload Isolation](./quickstart-configure-workload-isolation-tsql.md).

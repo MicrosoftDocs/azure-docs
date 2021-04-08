@@ -1,8 +1,8 @@
 ---
 title: Manage virtual networks - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure portal
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
@@ -29,6 +29,13 @@ To create a flexible server in a virtual network, you need:
     > The virtual network and subnet should be in the same region and subscription as your flexible server.
 
 -  To [delegate a subnet](../../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service) to **Microsoft.DBforPostgreSQL/flexibleServers**. This delegation means that only Azure Database for PostgreSQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet.
+-  Add `Microsoft.Storage` to the service end point for the subnet delegated to Flexible servers. This is done by performing following steps:
+     1. Go to your virtual network page.
+     2. Select the VNET in which you are planning to deploy your flexible server.
+     3. Choose the subnet that is delegated for flexible server.
+     4. On the pull-out screen, under **Service endpoint**, choose `Microsoft.storage` from the drop-down.
+     5. Save the changes.
+
 
 ## Create Azure Database for PostgreSQL - Flexible Server in an already existing virtual network
 

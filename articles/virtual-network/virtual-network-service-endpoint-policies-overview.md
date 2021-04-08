@@ -27,7 +27,7 @@ Virtual network service endpoint policies provide following benefits:
 
 - __Improved security for your Virtual Network traffic to Azure Storage__
 
-  [Azure service tags for network security groups](https://aka.ms/servicetags) allow you to restrict virtual network outbound traffic to specific Azure Storage regions. However, this allows traffic to any account within selected Azure Storage region.
+  [Azure service tags for network security groups](./network-security-groups-overview.md) allow you to restrict virtual network outbound traffic to specific Azure Storage regions. However, this allows traffic to any account within selected Azure Storage region.
   
   Endpoint policies allow you to specify the Azure Storage accounts that are allowed virtual network outbound access and restricts access to all the other storage accounts. This gives much more granular security control for protecting data exfiltration from your virtual network.
 
@@ -105,6 +105,8 @@ No centralized logging is available for service endpoint policies. For service r
   - Ensure the accounts are not **classic storage accounts** with service endpoint policies on the subnet.
 - A managed Azure Service stopped working after applying a Service Endpoint Policy over the subnet
   - Managed services are not supported with service endpoint policies at this time. *Watch this space for updates*.
+- Access to Managed Storage Accounts stopped working after applying a Service Endpoint Policy over the subnet
+  - Managed Storage Accounts are not supported with service endpoint policies. If configured, policies will deny access to all Managed Storage Accounts, by default. If your application needs access to Managed Storage Accounts, endpoint policies should not be used for this traffic.
 
 ## Provisioning
 

@@ -4,7 +4,7 @@ description: Use My Apps collections to Customize My Apps pages for a simpler My
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt

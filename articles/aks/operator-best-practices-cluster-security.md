@@ -90,7 +90,7 @@ metadata:
 spec:
   containers:
   - name: hello
-    image: busybox
+    image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
 ```
 
@@ -100,13 +100,14 @@ Deploy the sample pod using the [kubectl apply][kubectl-apply] command:
 kubectl apply -f aks-apparmor.yaml
 ```
 
-With the pod deployed, use the [kubectl exec][kubectl-exec] command to write to a file. The command can't be executed, as shown in the following example output:
+With the pod deployed, use verify the *hello-apparmor* pod shows as *blocked*:
 
 ```
-$ kubectl exec hello-apparmor touch /tmp/test
+$ kubectl get pods
 
-touch: /tmp/test: Permission denied
-command terminated with exit code 1
+NAME             READY   STATUS    RESTARTS   AGE
+aks-ssh          1/1     Running   0          4m2s
+hello-apparmor   0/1     Blocked   0          50s
 ```
 
 For more information about AppArmor, see [AppArmor profiles in Kubernetes][k8s-apparmor].
@@ -117,12 +118,34 @@ While AppArmor works for any Linux application, [seccomp (*sec*ure *comp*uting)]
 
 To see seccomp in action, create a filter that prevents changing permissions on a file. [SSH][aks-ssh] to an AKS node, then create a seccomp filter named */var/lib/kubelet/seccomp/prevent-chmod* and paste the following content:
 
-```
+```json
 {
   "defaultAction": "SCMP_ACT_ALLOW",
   "syscalls": [
     {
       "name": "chmod",
+      "action": "SCMP_ACT_ERRNO"
+    },
+    {
+      "name": "fchmodat",
+      "action": "SCMP_ACT_ERRNO"
+    },
+    {
+      "name": "chmodat",
+      "action": "SCMP_ACT_ERRNO"
+    }
+  ]
+}
+```
+
+In version 1.19 and later, you need to configure the following:
+
+```json
+{
+  "defaultAction": "SCMP_ACT_ALLOW",
+  "syscalls": [
+    {
+      "names": ["chmod","fchmodat","chmodat"],
       "action": "SCMP_ACT_ERRNO"
     }
   ]
@@ -141,7 +164,30 @@ metadata:
 spec:
   containers:
   - name: chmod
-    image: busybox
+    image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+    command:
+      - "chmod"
+    args:
+     - "777"
+     - /etc/hostname
+  restartPolicy: Never
+```
+
+In version 1.19 and later, you need to configure the following:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: chmod-prevented
+spec:
+  securityContext:
+    seccompProfile:
+      type: Localhost
+      localhostProfile: prevent-chmod
+  containers:
+  - name: chmod
+    image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     command:
       - "chmod"
     args:

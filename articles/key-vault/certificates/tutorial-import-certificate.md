@@ -101,9 +101,9 @@ az keyvault certificate import --file
                                [--tags]
 ```
 
-Learn more about the [parameters](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
+Learn more about the [parameters](/cli/azure/keyvault/certificate#az-keyvault-certificate-import).
 
-After importing the certificate, you can view the certificate using [Certificate show](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
+After importing the certificate, you can view the certificate using [Certificate show](/cli/azure/keyvault/certificate#az-keyvault-certificate-show)
 
 
 ```azurecli
@@ -132,7 +132,7 @@ Import-AzureKeyVaultCertificate
       [<CommonParameters>]
 ```
 
-Learn more about the [parameters](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+Learn more about the [parameters](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?).
 
 
 ## Clean up resources
@@ -151,4 +151,4 @@ In this tutorial, you created a Key Vault and imported a certificate in it. To l
 
 - Read more about [Managing certificate creation in Azure Key Vault](./create-certificate-scenarios.md)
 - See examples of [Importing Certificates Using REST APIs](/rest/api/keyvault/importcertificate/importcertificate)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- Review the [Key Vault security overview](../general/security-overview.md)
