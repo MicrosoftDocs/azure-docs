@@ -56,24 +56,6 @@ For more information about tools available to use for the Discover phase, see [S
 
 After data sources have been discovered, assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Managed Instance to identify migration blockers or compatibility issues. 
 
-
-SQL Managed Instance is designed to provide easy lift and shift migration for the majority of existing applications that use SQL Server. However, you may sometimes require features or capabilities that are not yet supported and the cost of implementing a workaround is too high.
-
-Use [Data Migration Assistant](/sql/dma/dma-overview) to detect potential compatibility issues impacting database functionality on Azure SQL Database. If there are some reported blocking issues, you might need to consider an alternative option, such as [SQL Server on Azure VM](https://azure.microsoft.com/services/virtual-machines/sql-server/). Here are some examples:
-
-- If you require direct access to the operating system or file system, for instance to install third-party or custom agents on the same virtual machine with SQL Server.
-- If you have strict dependency on features that are still not supported, such as FileStream/FileTable, PolyBase, and cross-instance transactions.
-- If you absolutely need to stay at a specific version of SQL Server (2012, for instance).
-- If your compute requirements are much lower than managed instance offers (one vCore, for instance), and database consolidation is not an acceptable option.
-
-If you have resolved all identified migration blockers and are continuing the migration to SQL Managed Instance, note that some of the changes might affect performance of your workload:
-
-- Mandatory full recovery model and regular automated backup schedule might impact performance of your workload or maintenance/ETL actions if you have periodically used simple/bulk-logged model or stopped backups on demand.
-- Different server or database level configurations such as trace flags or compatibility levels.
-- New features that you are using such as Transparent Database Encryption (TDE) or auto-failover groups might impact CPU and IO usage.
-
-SQL Managed Instance guarantees 99.99% availability even in critical scenarios, so overhead caused by these features cannot be disabled. For more information, see [the root causes that might cause different performance on SQL Server and Azure SQL Managed Instance](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
-
 You can use the Data Migration Assistant (version 4.1 and later) to assess databases to get: 
 
 - [Azure target recommendations](/sql/dma/dma-assess-sql-data-estate-to-sqldb)
@@ -153,9 +135,6 @@ The following diagram provides a high-level overview of the process:
 > [!NOTE]
 > The time to take the backup,  upload it to Azure storage, and perform a native restore operation to Azure SQL Managed Instance is based on the size of the database. Factor a sufficient downtime to accommodate the operation for large databases. 
 
-For a quickstart showing how to restore a database backup to a managed instance using a SAS credential, see [Restore from backup to a managed instance](restore-sample-database-quickstart.md).
-
-> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 To migrate using backup and restore, follow these steps: 
 
@@ -200,12 +179,22 @@ After you have successfully completed the migration stage, go through a seri
 
 The post-migration phase is crucial for reconciling any data accuracy issues and verifying completeness, as well as addressing performance issues with the workload. 
 
-## Monitor applications
+### Remediate applications 
 
-Once you have completed the migration to a managed instance, you should track the application behavior and performance of your workload. This process includes the following activities:
+After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this will, in some cases, require changes to the applications.
 
-- [Compare performance of the workload running on the managed instance](sql-server-to-managed-instance-performance-baseline.md#compare-performance) with the [performance baseline that you created on the source SQL Server instance](sql-server-to-managed-instance-performance-baseline.md#create-a-baseline).
-- Continuously [monitor performance of your workload](sql-server-to-managed-instance-performance-baseline.md#monitor-performance) to identify potential issues and improvement.
+### Perform tests
+
+The test approach for database migration consists of the following activities:
+
+1. **Develop validation tests**: To test database migration, you need to use SQL queries. You must create the validation queries to run against both the source and the target databases. Your validation queries should cover the scope you have defined.
+1. **Set up test environment**: The test environment should contain a copy of the source database and the target database. Be sure to isolate the test environment.
+1. **Run validation tests**: Run the validation tests against the source and the target, and then analyze the results.
+1. **Run performance tests**: Run performance test against the source and the target, and then analyze and compare the results.
+
+   > [!NOTE]
+   > For assistance developing and running post-migration validation tests, consider the Data Quality Solution available from the partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
+
 
 
 ## Leverage advanced features 
