@@ -48,10 +48,7 @@ You can extend the example above to extract data on multiple products and add a 
 
 4. Now, in order to to restrict the system to search for the response across a particluar product you would need to pass that product as a strict filter in the generate Answer API.
 
-> [!NOTE] 
-> You can find how to use the GenerateAnswer API [here](../How-To/metadata-generateanswer-usage.md). Remember to set the HTTP header property of Authorization with a value of the string EndpointKey with a trailing space then the endpoint key found on the Settings page.
-
-The GenerateAnswer URL has the following format:
+You can find how to use the GenerateAnswer API [here](../How-To/metadata-generateanswer-usage.md). The GenerateAnswer URL has the following format:
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
