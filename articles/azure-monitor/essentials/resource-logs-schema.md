@@ -2,14 +2,14 @@
 title: Azure Resource Logs supported services and schemas
 description: Understand the supported services and event schema for Azure resource logs.
 ms.topic: reference
-ms.date: 09/01/2020
+ms.date: 04/07/2020
 ---
 
 # Common and service-specific schema for Azure Resource Logs
 
 > [!NOTE]
 > Resource logs were previously known as diagnostic logs. The name was changed in October 2019 as the types of logs gathered by Azure Monitor shifted to include more than just the Azure resource. 
-> Also, the list of resource log categories you could collect used to be listed in this article. They were moved to [Resource log categories](resource-logs-categories.md). 
+> Also, the list of resource log categories you can collect used to be listed in this article. They are now at [Resource log categories](resource-logs-categories.md). 
 
 [Azure Monitor resource logs](../essentials/platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
 
@@ -79,6 +79,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Service Bus |[Azure Service Bus logs](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Job logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Storage | [Blobs](../../storage/blobs/monitor-blob-storage-reference#resource-logs-preview), [Files](../../storage/files/storage-files-monitoring-reference#resource-logs-preview), [Queues](../../storage/queues/monitor-queue-storage-reference#resource-logs-preview),  [Tables](../../storage/tables/monitor-table-storage-reference#resource-logs-preview) |
 | Traffic Manager | [Traffic Manager Log schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Networks | Schema not available. |
 | Virtual Network Gateways | Schema not available. |
