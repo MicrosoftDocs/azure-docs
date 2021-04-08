@@ -1,6 +1,7 @@
 ---
 title: Azure Video Analyzer FAQ - Azure  
 description: This article answers commonly asked questions about Azure Video Analyzer.
+ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 03/26/2021
 ---
@@ -221,7 +222,7 @@ Visual Studio Code supports the Azure IoT Tools extension, with which you can ea
 
 In addition, you can use this extension to edit the module twin for the Azure Video Analyzer edge module to modify the pipeline settings.
 
-For more information, see the [monitoring and logging](monitoring-logging.md) article.
+For more information, see the [monitoring and logging]()<!--monitoring-logging.md--> article.
 
 ## Billing and availability
 
