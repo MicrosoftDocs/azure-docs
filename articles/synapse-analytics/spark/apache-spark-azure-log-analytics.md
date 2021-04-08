@@ -122,14 +122,15 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 
 ### Step 3: Upload your Spark configuration to a Spark pool
 You can upload the configuration file to your Synapse Spark pool in Synapse Studio.
-   - Navigate to your Apache Spark pool in the Azure Synapse Studio (Manage -> Apache Spark pools)
-   - Click the **"..."** button on the right of your Apache Spark pool
-   - Select Apache Spark configuration 
-   - Click **Upload** and choose the **"spark_loganalytics_conf.txt"** created.
-   - Click **Upload** and **Apply**.
 
-    > [!div class="mx-imgBorder"]
-    > ![spark pool configuration](./media/apache-spark-azure-log-analytics/spark-pool-configuration.png)
+   1. Navigate to your Apache Spark pool in the Azure Synapse Studio (Manage -> Apache Spark pools)
+   2. Click the **"..."** button on the right of your Apache Spark pool
+   3. Select Apache Spark configuration 
+   4. Click **Upload** and choose the **"spark_loganalytics_conf.txt"** created.
+   5. Click **Upload** and **Apply**.
+
+      > [!div class="mx-imgBorder"]
+      > ![spark pool configuration](./media/apache-spark-azure-log-analytics/spark-pool-configuration.png)
 
 > [!NOTE] 
 >
@@ -137,12 +138,12 @@ You can upload the configuration file to your Synapse Spark pool in Synapse Stud
 
 ## Submit a Spark application and view the logs and metrics in Azure Log Analytics
 
- 1) You can submit a Spark application to the Spark pool configured in the previous step, using one of the following ways:
+ 1. You can submit a Spark application to the Spark pool configured in the previous step, using one of the following ways:
     - Run a Synapse Studio notebook. 
     - Submit a Synapse Apache Spark batch job through Spark job definition.
     - Run a Pipeline that contains Spark activity.
 
- 2) Go to the specified Azure Log Analytics Workspace, then view the application metrics and logs when the Spark application starts to run.
+ 2. Go to the specified Azure Log Analytics Workspace, then view the application metrics and logs when the Spark application starts to run.
 
 ## Use the Sample Azure Log Analytics Workbook to visualize the metrics and logs
 
