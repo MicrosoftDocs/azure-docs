@@ -32,11 +32,11 @@ This article shows you how you can wrap AI model(s) of your choice within a gRPC
 
 To create a gRPC inference server and implement it as an extension with Azure Video Analyzer, following steps will be used:
 
-### Setup:
+### Setup
 
 Perform the necessary steps to have Azure Video Analyzer  module deployed and working on an IoT Edge device.
 
-### High level Implementation Steps:
+### High level Implementation Steps
 
 1. Choose one of the many languages that are supported by gRPC: C#, C++, Dart, Go, Java, Node, Objective-C, PHP, Python, Ruby.
 1. Implement a gRPC Server that will communicate with Azure Video Analyzer using [the proto3 files](https://github.com/Azure/azure-video-analyzer/tree/master/contracts/grpc).
@@ -51,11 +51,11 @@ Perform the necessary steps to have Azure Video Analyzer  module deployed and wo
         1. Receive inferencing results from the engine, package them back as a media sample and submit back to Azure Video Analyzer using the [inferencing.proto](https://github.com/Azure/azure-video-analyzer/blob/master/contracts/grpc/inferencing.proto) file.
 
             Alternatively, invoke any media transformation function to the media sample.
-1. Deploy the gRPC server implementation. There are two ways of doing this:
+    1. Deploy the gRPC server implementation. There are two ways of doing this:
 
-    1. Deploy as an IoT module co-located with Azure Video Analyzer module
-    1. Deploy as an IoT module to a network accessible node (on premise or on cloud) that can exchange data with the Azure Video Analyzer module.
-1. Configure an Azure Video Analyzer pipeline topology with the Azure Video Analyzer module and point it to the gRPC server.
+        1. Deploy as an IoT module co-located with Azure Video Analyzer module
+        1. Deploy as an IoT module to a network accessible node (on premise or on cloud) that can exchange data with the Azure Video Analyzer module.
+    1. Configure an Azure Video Analyzer pipeline topology with the Azure Video Analyzer module and point it to the gRPC server.
 
 ### Recommendation:
 
