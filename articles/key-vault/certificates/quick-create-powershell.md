@@ -67,7 +67,7 @@ If you receive this error, the account accessing the Azure Key Vault does not ha
 
 Run the following Azure PowerShell command to assign the proper permissions:
 
-```azurepowershell
+```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> -ObjectId <AzureObjectID> -PermissionsToCertificates get,list,update,create
 ```
 
