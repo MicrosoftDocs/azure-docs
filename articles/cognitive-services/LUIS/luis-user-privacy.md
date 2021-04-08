@@ -9,7 +9,7 @@ ms.custom: seodec18, references_regions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/10/2020
+ms.date: 04/08/2020
 
 ---
 
