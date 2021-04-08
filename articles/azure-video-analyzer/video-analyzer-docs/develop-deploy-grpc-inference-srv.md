@@ -1,5 +1,5 @@
 ﻿---
-title: Develop and deploy a gRPC inference server - Azure
+title: Develop and deploy a gRPC inference server - Azure Video Analyzer
 description: This article provides guidance on how to develop and deploy a gRPC inference server to be used with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
@@ -7,12 +7,9 @@ ms.date: 04/01/2021
 
 ---
 
-# Develop and deploy a gRPC inference server
+# How-to Guide: Develop and deploy gRPC inference server
 
-
-## Overview
-
-This article shows you how you can wrap AI model(s) of your choice within a gRPC inference server, so that it can be integrated with Azure Video Analyzer (AVA) via graph extension.
+This article shows you how you can wrap AI model(s) of your choice within a gRPC inference server, so that it can be integrated with Azure Video Analyzer (AVA) via pipeline extension.
 
 ## Suggested pre-reading
 
@@ -307,4 +304,4 @@ At this stage, the deployment of edge modules to your IoT Edge device has starte
 ## Next steps
 
 * Follow the **Prepare to monitor events** steps mentioned in the Analyze live video with your model quickstart to run the sample and interpret the results.
-* Also, check out our sample gRPC topologies: [gRPCExtension](https://github.com/Azure/azure-video-analyzer/blob/master/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/azure-video-analyzer/blob/master/pipelines/live/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension, and [EVROnMotionPlusGrpcExtension](https://github.com/Azure/azure-video-analyzer/blob/master/pipelines/live/topologies/motion-with-grpcExtension/topology.json).
+* Also, check out our sample gRPC topologies: [gRPCExtension](https://github.com/Azure/azure-video-analyzer/blob/master/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/azure-video-analyzer/blob/master/pipelines/live/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension](https://github.com/Azure/azure-video-analyzer/blob/master/pipelines/live/topologies/evr-grpcExtension-assets/topology.json), and [EVROnMotionPlusGrpcExtension](https://github.com/Azure/azure-video-analyzer/blob/master/pipelines/live/topologies/motion-with-grpcExtension/topology.json).
