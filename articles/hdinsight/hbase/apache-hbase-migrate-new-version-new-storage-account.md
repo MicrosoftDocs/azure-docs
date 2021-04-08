@@ -107,13 +107,31 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
      
      For more information, see [Tutorial: Migrate on-premises data to cloud storage with AzCopy](/azure/storage/common/storage-use-azcopy-migrate-on-premises-data).
    
-1. If your source HBase cluster doesn't have the [Accelerated Writes](apache-hbase-accelerated-writes.md) feature, skip this step. For source HBase clusters with Accelerated Writes, back up the WAL dir under HDFS by running the following commands from an SSH session on any of the Zookeeper nodes or worker nodes of the source cluster.
+1. If your source HBase cluster has the [Accelerated Writes](apache-hbase-accelerated-writes.md) feature, back up the WAL directory under HDFS by running the following commands from an SSH session on any of the Zookeeper nodes or worker nodes of the source cluster.
    
    ```bash
    hdfs dfs -mkdir /hbase-wal-backup
    hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup
    ```
    
+1. For source and destination HBase clusters that don't have the Accelerated Writes feature, copy the WAL directory under HDFS using hdfs copy by running the following commands from an SSH session on any of the Zookeeper nodes or worker nodes of the source cluster.
+
+   - If **source and destination clusters are both HDI 4.0 non-Accelerated Writes**, run a command like:
+     
+     ```bash
+     hdfs dfs -Dfs.azure.page.blob.dir=/hbase-wals -Dfs.azure.account.keyprovider.<destination-storageaccountname>.blob.core.windows.net=org.apache.hadoop.fs.azure.SimpleKeyProvider  -Dfs.azure.account.key.<destination-storageaccountname>.blob.core.windows.net='<destination-storageaccount-access-key>' -cp  /hbase-wals/* wasb://<destination-container>@<destination-storageaccountname>.blob.core.windows.net/hbase-wals
+     ```
+     
+   - If the **source cluster is HDI 3.6 non-Accelerated Writes** and the **destination cluster is HDI 4.0 non-Accelerated Writes**, run the following commands:
+     
+     ```bash    
+     hdfs dfs -rm -r wasb://<destination-container>@<destination-storageaccount>.blob.core.windows.net/hbase/hbase-wals/MasterProcWALs
+     
+     hdfs dfs -rm -r wasb://<destination-container>@<destination-storageaccount>.blob.core.windows.net/hbase/hbase-wals/WALs
+     
+     hdfs dfs -Dfs.azure.page.blob.dir=/hbase-wals -Dfs.azure.account.keyprovider.<destination-storage-account>.blob.core.windows.net=org.apache.hadoop.fs.azure.SimpleKeyProvider  -Dfs.azure.account.key.<destination-storage-account>.blob.core.windows.net='<destination-storage-account-access-key>' -cp  /hbase/hbase-wals/* wasb://<destination-container>@<destination-storage-account>.blob.core.windows.net/hbase-wals
+     ```
+     
 1. If neither the source cluster nor the destination cluster has the Accelerated Writes feature, skip this step. Otherwise, do the following steps, depending on whether the source, destination, or both clusters have the Accelerated Writes feature.
    
    > [!NOTE]  

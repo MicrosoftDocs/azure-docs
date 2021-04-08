@@ -80,6 +80,10 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    
    :::image type="content" source="./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png" alt-text="In Ambari, select Services > HDFS > Configs > Advanced > Advanced core-site and change the container name." border="false":::
    
+1. If your cluster has the Accelerated Writes feature, change the `hbase.rootdir` path to point to the container of the original cluster. If your cluster doesn't have Accelerated Writes, skip this step.
+   
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png" alt-text="In Ambari, change the container name for the HBase rootdir." border="true":::
+
 1. Clean the Zookeeper data on the destination cluster by running the following commands in any of the Zookeeper nodes or worker nodes:
    
    ```bash
