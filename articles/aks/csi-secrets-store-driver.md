@@ -24,27 +24,26 @@ The Secrets Store CSI Driver for Kubernetes allows for the integration of variou
 - Mount secrets, keys, and/or certs to a pod using a CSI volume
 - Supports CSI Inline volumes (Kubernetes version v1.15+)
 - Supports mounting multiple secrets store objects as a single volume
-- Supports multiple secrets stores as providers. Multiple providers can run in the same cluster simultaneously.
 - Supports pod portability with the SecretProviderClass CRD
 - Supports windows containers (Kubernetes version v1.18+)
 - Sync with Kubernetes Secrets (Secrets Store CSI Driver v0.0.10+)
 
-## Register the `???` preview feature
+## Register the `AKS-AzureKeyVaultSecretsProvider` preview feature
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-To create an AKS cluster that can use the Secrets Store CSI Driver, you must enable the `???` feature flag on your subscription.
+To create an AKS cluster that can use the Secrets Store CSI Driver, you must enable the `AKS-AzureKeyVaultSecretsProvider` feature flag on your subscription.
 
-Register the `???` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+Register the `AKS-AzureKeyVaultSecretsProvider` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "???"
+az feature register --namespace "Microsoft.ContainerService" --name "AKS-AzureKeyVaultSecretsProvider"
 ```
 
 It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/???')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-AzureKeyVaultSecretsProvider')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
@@ -55,42 +54,93 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Create an AKS cluster with Secrets Store CSI Driver support
 
-To create an AKS cluster with Secrets Store CSI Driver capability, use the [az-aks-create][az-aks-create] command with the `--???` flag:
+> [!NOTE]
+> If you plan to provide access to the cluster via a user-assigned or system-assigned managed identity, enable Azure Active Directory on your cluster with the flag `enable-managed-identity`
+
+To create an AKS cluster with Secrets Store CSI Driver capability, use the [az-aks-create][az-aks-create] command with the addon `azure-keyvault-secrets-provider`:
 
 ```azurecli-interactive
-az aks create -n myAKSCluster -g myResourceGroup --???
+az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider
 ```
 
-get-credentials too
+This will install the Secrets Store CSI Driver and the Azure Key Vault provider on your nodes. Verify by listing all pods from all namespaces and ensuring your output looks similar to this:
 
-## Install a Secrets Store CSI Driver provider
+```bash
+kubectl get pods -n kube-system
 
-The Secrets Store CSI Driver for AKS supports a number of Secrets Store CSI Driver providers. To install, follow the linked instructions for your provider. Keep in mind some providers require additional steps for compatibility when creating an AKS Cluster.
+NAMESPACE     NAME                                     READY   STATUS    RESTARTS   AGE
+kube-system   aks-secrets-store-csi-driver-4vpkj       3/3     Running   2          4m25s
+kube-system   aks-secrets-store-csi-driver-ctjq6       3/3     Running   2          4m21s
+kube-system   aks-secrets-store-csi-driver-tlvlq       3/3     Running   2          4m24s
+kube-system   aks-secrets-store-provider-azure-5p4nb   1/1     Running   0          4m21s
+kube-system   aks-secrets-store-provider-azure-6pqmv   1/1     Running   0          4m24s
+kube-system   aks-secrets-store-provider-azure-f5qlm   1/1     Running   0          4m25s
+```
 
-### Supported Providers
-- [Azure Key Vault][key-vault-provider-install]
-- [HashiCorp Vault][hashicorp-vault-provider-install]
-- [Google Secret Manager][google-secret-manager-provider-install]
+### Enabling auto-rotation
 
-## Create and deploy your own SecretProviderClass object
+To enable auto-rotation of secrets, use the flag `enable-secret-rotation` when creating your cluster:
+
+```azurecli-interactive
+az aks create -n myAKSCluster2 -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-secret-rotation
+```
+
+## Create or use an existing Azure Key Vault
+
+In addition to an AKS cluster, you will need an Azure Key Vault resource containing the secret content. To deploy an Azure Key Vault instance, follow these steps:
+
+1. [Create a key vault][create-key-vault]
+2. [Set a secret in a key vault][set-secret-key-vault]
+
+Take note of the following properties for use in the next section:
+
+- Name of secret object in Key Vault
+- Secret content type (secret, key, cert)
+- Name of Key Vault resource
+- Azure Tenant ID the Subscription belongs to
+
+## Create and apply your own SecretProviderClass object
 
 To use and configure the Secrets Store CSI driver for your AKS cluster, create a SecretProviderClass custom resource.
 
-A SecretProviderClass custom resource has the following components at a minimum:
+Here is an example making use of a service principal to access the key vault:
 
 ```yml
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
 kind: SecretProviderClass
 metadata:
-  name: my-provider
+  name: azure-kvname
 spec:
-  provider: azure                             # accepted provider options: azure or vault or gcp
-  parameters:                                 # provider-specific parameters
+  provider: azure
+  parameters:
+    usePodIdentity: "false"         # [OPTIONAL] if not provided, will default to "false"
+    keyvaultName: "kvname"          # the name of the KeyVault
+    cloudName: ""                   # [OPTIONAL for Azure] if not provided, azure environment will default to AzurePublicCloud
+    objects:  |
+      array:
+        - |
+          objectName: secret1
+          objectType: secret        # object types: secret, key or cert
+          objectVersion: ""         # [OPTIONAL] object versions, default to latest if empty
+        - |
+          objectName: key1
+          objectType: key
+          objectVersion: ""
+    tenantId: "tid"                 # the tenant ID of the KeyVault
 ```
 
-For more details, see a [sample SecretProviderClass][sample-secret-provider-class].
+For more details, see [Create your own SecretProviderClass Object][sample-secret-provider-class]. Be sure to use the values you took note of above.
 
-Additional components or specific values may be required based on your provider. Be sure to follow any instructions from your provider's documentation in the [supported providers section](#supported-providers).
+### Provide identity to access Azure Key Vault
+
+The above example uses a Service Principal, but the Azure Key Vault provider offers four methods of access. Review them and choose the one that best fits your use case. Be aware additional steps may be required depending on the chosen method, such as granting a Service Principal permissions to get secrets from key vault.
+
+- [Service Principal][service-principal-access]
+- [Pod Identity][pod-identity-access]
+- [User-assigned Managed Identity][ua-mi-access]
+- [System-assigned Managed Identity][sa-mi-access]
+
+### Apply the SecretProviderClass to your cluster
 
 Next, deploy the SecretProviderClass you just created. For example:
 
@@ -98,11 +148,9 @@ Next, deploy the SecretProviderClass you just created. For example:
 kubectl apply -f ./new-secretproviderclass.yaml
 ```
 
-## Update your cluster's deployment YAML
+## Update and apply your cluster's deployment YAML
 
-To ensure your cluster is using the new custom resource, update the deployment YAML. For a more comprehensive example, take a look at a [sample deployment][sample-deployment].
-
-Again, your provider may require additional components or specific values. Follow the instructions from your provider's documentation in the [supported providers section](#supported-providers).
+To ensure your cluster is using the new custom resource, update the deployment YAML. For a more comprehensive example, take a look at a [sample deployment][sample-deployment] using Service Principal to access Azure Key Vault. Be sure to follow any additional steps from your chosen method of key vault access.
 
 ```yml
 volumes:
@@ -114,7 +162,7 @@ volumes:
         secretProviderClass: "my-provider"
 ```
 
-Apply the updated deployment to the cluster: 
+Apply the updated deployment to the cluster:
 
 ```bash
 kubectl apply -f ./my-deployment.yaml
@@ -129,15 +177,13 @@ After the pod starts, the mounted content at the volume path specified in your d
 kubectl exec secrets-store-inline -- ls /mnt/secrets-store/
 
 ## print a test secret 'foo' held in secrets-store
-kubectl exec secrets-store-inline -- cat /mnt/secrets-store/foo
+kubectl exec secrets-store-inline -- cat /mnt/secrets-store/secret1
 ```
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
 After learning how to use the CSI Secrets Store Driver with an AKS Cluster, see the following resources:
 
-- [Sync mounted content as a Kubernetes Secret][sync-kube-secret]
-- [Auto rotation of mounted content and synced Kubernetes Secrets][auto-rotate-kube-secret]
 - [Run the Azure Key Vault provider for Secrets Store CSI Driver][key-vault-provider]
 - [Enable CSI drivers for Azure Disks and Azure Files on AKS][csi-storage-drivers]
 
@@ -149,13 +195,15 @@ After learning how to use the CSI Secrets Store Driver with an AKS Cluster, see 
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [key-vault-provider]: ../key-vault/general/key-vault-integrate-kubernetes.md
 [csi-storage-drivers]: ./csi-storage-drivers.md
+[create-key-vault]: ../key-vault/general/quick-create-cli.md
+[set-secret-key-vault]: ../key-vault/secrets/quick-create-portal.md
 
 <!-- External -->
 [kube-csi]: https://kubernetes-csi.github.io/docs/
-[key-vault-provider-install]: https://azure.github.io/secrets-store-csi-driver-provider-azure/
-[hashicorp-vault-provider-install]: https://github.com/hashicorp/vault-csi-provider
-[google-secret-manager-provider-install]: https://github.com/GoogleCloudPlatform/secrets-store-csi-driver-provider-gcp 
-[sample-secret-provider-class]: https://github.com/kubernetes-sigs/secrets-store-csi-driver/blob/master/test/bats/tests/vault/vault_v1alpha1_secretproviderclass.yaml
-[sample-deployment]: https://github.com/kubernetes-sigs/secrets-store-csi-driver/blob/master/test/bats/tests/vault/pod-vault-inline-volume-secretproviderclass.yaml
-[sync-kube-secret]: https://secrets-store-csi-driver.sigs.k8s.io/topics/sync-as-kubernetes-secret.html
-[auto-rotate-kube-secret]: https://secrets-store-csi-driver.sigs.k8s.io/topics/secret-auto-rotation.html
+[key-vault-provider-install]: https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/installation
+[sample-secret-provider-class]: https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/usage/#create-your-own-secretproviderclass-object
+[service-principal-access]: https://azure.github.io/secrets-store-csi-driver-provider-azure/configurations/identity-access-modes/service-principal-mode/
+[pod-identity-access]: https://azure.github.io/secrets-store-csi-driver-provider-azure/configurations/identity-access-modes/pod-identity-mode/l
+[ua-mi-access]: https://azure.github.io/secrets-store-csi-driver-provider-azure/configurations/identity-access-modes/user-assigned-msi-mode/
+[sa-mi-access]: https://azure.github.io/secrets-store-csi-driver-provider-azure/configurations/identity-access-modes/system-assigned-msi-mode/
+[sample-deployment]: https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/examples/service-principal/pod-inline-volume-service-principal.yaml
