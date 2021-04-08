@@ -48,7 +48,8 @@ You can extend the example above to extract data on multiple products and add a 
 ![Screenshot of using metadata](../media/using-metadata.png)
 
 
-> [!NOTE] You can find how to use the GenerateAnswer API [here](../How-To/metadata-generateanswer-usage.md). Remember to set the HTTP header property of Authorization with a value of the string EndpointKey with a trailing space then the endpoint key found on the Settings page.
+> [!NOTE] 
+> You can find how to use the GenerateAnswer API [here](../How-To/metadata-generateanswer-usage.md). Remember to set the HTTP header property of Authorization with a value of the string EndpointKey with a trailing space then the endpoint key found on the Settings page.
 
 The GenerateAnswer URL has the following format:
 ```
