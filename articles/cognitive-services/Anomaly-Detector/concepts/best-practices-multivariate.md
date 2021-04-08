@@ -33,7 +33,7 @@ A recommended missing value threshold is 20%, but a higher threshold might be ac
 
 ### Sliding Window
 
-Multivariate anomaly detection takes a segment of data points of length `slidingWindow` as input and decides if the next data point is an anomaly. The larger the sample length, the more data will be considered for a decision. You should keep two things in mind when choosing a proper value for `slidingWindow`: properties of input data, and the trade-off between training/inference time and potential performance improvement. You may decide how many data points are used as inputs based on whether your data is periodic, and the sampling rate for your data.
+Multivariate anomaly detection takes a segment of data points of length `slidingWindow` as input and decides if the next data point is an anomaly. The larger the sample length, the more data will be considered for a decision. You should keep two things in mind when choosing a proper value for `slidingWindow`: properties of input data, and the trade-off between training/inference time and potential performance improvement. `slidingWindow` consists of an integer between 28 and 2880. You may decide how many data points are used as inputs based on whether your data is periodic, and the sampling rate for your data.
 
 When your data is periodic, you may include 1 - 3 cycles as an input and when your data is sampled at a high frequency (small granularity) like minute-level or second-level data, you may select more data as an input. Another issue is that longer inputs may cause longer training/inference time, and there is no guarantee that more input points will lead to performance gains. Whereas too few data points, may make the model difficult to converge to an optimal solution. For example, it is hard to detect anomalies when the input data only has two points.
 
@@ -79,9 +79,9 @@ timestamp | series1 | series2
 `2020-11-04`| 4 | 4
 `2020-11-05`| 5 | NA
 
-### Fill NA
+### Fill Not Available (NA)
 
-After variables are aligned on timestamp by outer join, there might be some `NA` value in some of the variables. You can specify method to fill this NA value. The options for the `fillNAMethod` are `Linear`, `Previous`, `Subsequent`,  `Zero`, and `Fixed`.
+After variables are aligned on timestamp by outer join, there might be some Not Available (`NA`) value in some of the variables. You can specify method to fill this NA value. The options for the `fillNAMethod` are `Linear`, `Previous`, `Subsequent`,  `Zero`, and `Fixed`.
 
 | Option     | Method                                                                                           |
 | ---------- | -------------------------------------------------------------------------------------------------|
