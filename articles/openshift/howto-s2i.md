@@ -50,7 +50,7 @@ Find out the cluster web console URL by running:
     --query "consoleProfile.url" -o tsv
 ```
 
-You should get a URL similar to this.
+You should get a URL similar to this one.
 
 ```output
 https://console-openshift-console.apps.wzy5hg7x.eastus.aroapp.io/
@@ -60,11 +60,11 @@ Launch the console URL in a browser and login using the `kubeadmin` credentials.
 
 ![Azure Red Hat OpenShift login screen](media/aro4-login-3.png)
 
-Switch to the *Developer* perspective instead of the *Administrator* perspective in the left hand side menu and select `demoproject` in the list of projects. You should then be at the *Topology* page for the project.
+Switch to the *Developer* perspective instead of the *Administrator* perspective in the left-hand side menu and select `demoproject` in the list of projects. You should then be at the *Topology* page for the project.
 
 ![Azure Red Hat OpenShift project topology](media/aro4-projecttopology.png)
 
-As the project is currently empty, no workloads should be found and you will be presented with various options for how you can deploy an application.
+As the project is empty, no workloads should be found and you'll be presented with various options for how you can deploy an application.
 
 ## Deploying using the web console
 
@@ -75,19 +75,19 @@ From the options presented for deploying an application, select *From Git*. This
 > [!NOTE]
 > OpenShift detects that this is a Python project and selects the appropriate builder image.
 
-Scroll down to *Advanced Options* and make sure that **Create a route to the application** is checked. This will create an OpenShift route, a way to expose a service by giving it an externally-reachable hostname.
+Scroll down to *Advanced Options* and make sure that **Create a route to the application** is checked. This action will create an OpenShift route, a way to expose a service by giving it an externally reachable hostname.
 
 ![Azure Red Hat OpenShift project from Git - Route setup](media/aro4-from-git-route.png)
 
-When you are ready, at the bottom of the page click on **Create**. This will create resources to manage the build and deployment of the application. You will then be redirected to the topology overview for the project.
+When you're ready, at the bottom of the page click on **Create**. This will create resources to manage the build and deployment of the application. You'll then be redirected to the topology overview for the project.
 
 ![Azure Red Hat OpenShift project from Git - Topology](media/aro4-demoapp-topology.png)
 
-The topology overview provides a visual representation of the application you have deployed. With this view, you have a more holistic view of your overall application structure.
+The topology overview provides a visual representation of the application you've deployed. With this view, you can see the overall application structure.
 
-The Git icon can be clicked to take you to the Git repository from which the source code for the application was built. The icon shown on the bottom left shows the build status of the application. Clicking this icon will take you to the build details section. If the application has exposed routes, the icon on the top right can be clicked to open the URL for the application route which was created.
+The Git icon can be clicked to take you to the Git repository from which the source code for the application was built. The icon shown on the bottom left shows the build status of the application. Clicking this icon will take you to the build details section. If the application has exposed routes, the icon on the top right can be clicked to open the URL for the application route that was created.
 
-While the application is scaling up or down, starting rollouts and recreating pods, the application representation in the topology view will be animated to give you a realtime view of what's going on.
+While the application is scaling up or down, starting rollouts and recreating pods, the application representation in the topology view will be animated to give you a real-time view of what's going on.
 
 Clicking on the application icon will bring up more details as shown below.
 
@@ -99,21 +99,21 @@ Once the build has started, click on the *View Logs* link shown on the *Resource
 
 ![Azure Red Hat OpenShift project from Git - Build logs](media/aro4-demoapp-buildlogs.png)
 
-This will allow you to monitor the progress of the build as it runs. The builder image, Python in this case, will inject the application source code into the final image before it pushes it to the OpenShift internal image registry. The build will have completely successfully when you see a final message of "Push successful".
+This will allow you to monitor the progress of the build as it runs. The builder image, Python in this case, will inject the application source code into the final image before it pushes it to the OpenShift internal image registry. The build will have completed successfully when you see a final message of "Push successful".
 
 ## Accessing the application
 
 Once the build of the application image has completed, it will be deployed.
 
-Click on *Topology* in the left hand menu bar to return to the topology view for the project. When you created the application using the web console, a *Route* was automatically created for the application and it will be exposed outside of the cluster. The URL which can be used to access the application from a web browser was visible on the *Resources* tab for the application you viewed previously.
+Click on *Topology* in the left-hand menu bar to return to the topology view for the project. When you created the application using the web console, a *Route* was automatically created for the application and it will be exposed outside of the cluster. The URL that can be used to access the application from a web browser was visible on the *Resources* tab for the application you viewed previously.
 
-From the topology view, you can quickly get to the URL for the deployed application by clicking on the icon top right of the ring in the visualization for the application. When the deployment is complete, click on the icon and you should see the application you deployed.
+From the topology view, you can  get to the URL for the deployed application by clicking on the icon top right of the ring. When the deployment is complete, click on the icon and you should see the application you deployed.
 
 ![Azure Red Hat OpenShift project from Git - Browse app](media/aro4-demoapp-browse.png)
 
-## Deploying using the command line
+## Deploying using the command-line
 
-You've learnt how to deploy an application using the web console, now lets deploy the same web application, but this time using the `oc` command line tool.
+You've learnt how to deploy an application using the web console, now lets deploy the same web application, but this time using the `oc` command-line tool.
 
 Run the following command to delete the project and start over:
 
@@ -189,7 +189,7 @@ svc/django-ex - 172.30.200.50:8080
 2 infos identified, use 'oc status --suggest' to see details.
 ```
 
-In order to expose the application outside the OpenShift cluster, you'll need to create a route by running:
+To expose the application outside the OpenShift cluster, you'll need to create a route by running:
 
 ```azurecli-interactive
 oc expose service/django-ex
@@ -207,7 +207,7 @@ Retrieve the URL by running:
 oc get route django-ex
 ```
 
-You should get back the hostname assigned to the route which you can use to browse to the deployed application.
+You should get back the hostname assigned to the route that you can use to browse to the deployed application.
 
 ```output
 NAME        HOST/PORT                                              PATH   SERVICES    PORT       TERMINATION   WILDCARD
@@ -216,9 +216,9 @@ django-ex   django-ex-demoproject.apps.wzy5hg7x.eastus.aroapp.io          django
 
 ## Triggering a new binary build
 
-As you work on the application, you will likely want to make changes and see them deployed. You can easily setup a webhook that will trigger a new build and deployment with every code commit. However, this may not be desirable as sometimes you'd like to see the changes without having to push every code change to the repository.
+As you work on the application, you'll likely want to make changes and see them deployed. You can easily setup a webhook that will trigger a new build and deployment with every code commit. However, this may not be desirable as sometimes you'd like to see the changes without having to push every code change to the repository.
 
-In cases where you are rapidly iterating on changes, you can use what is called a binary build. To demonstrate this, clone the Git repository for the application locally by running:
+In cases where you're rapidly iterating on changes, you can use what is called a binary build. To demonstrate this scenario, clone the Git repository for the application locally by running:
 
 ```azurecli-interactive
 git clone https://github.com/sclorg/django-ex.git
@@ -256,7 +256,7 @@ Start a new build by running the command:
 oc start-build django-ex --from-dir=. --wait
 ```
 
-By passing the `--from-dir=.` flag, the OpenShift command line will upload the source code from the specified directory then initiate the build and deployment process. You should get an output similar to to this, and after a few minutes, the build should be completed.
+By passing the `--from-dir=.` flag, the OpenShift command-line will upload the source code from the specified directory then initiate the build and deployment process. You should get an output similar to the below, and after a few minutes, the build should be completed.
 
 ```output
 Uploading directory "." as binary input for the build ...
@@ -286,5 +286,5 @@ In this guide, you learned how to:
 >
 > * Create a project
 > * Deploy an application from source code using the web console
-> * Deploy an application from source code using the OpenShift command line
-> * Trigger a binary build using the OpenShift command line
+> * Deploy an application from source code using the OpenShift command-line
+> * Trigger a binary build using the OpenShift command-line
