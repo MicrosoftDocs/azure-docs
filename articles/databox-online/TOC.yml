@@ -443,6 +443,11 @@
   - name: Security baseline
     href: security-baseline.md
 
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/databoxedge
+
 - name: Resources
   items:
   - name: Azure Stack Edge Pro C# module samples (.NET)

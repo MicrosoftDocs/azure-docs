@@ -79,13 +79,12 @@
         href: tokens-overview.md
       - name: Request access token
         href: access-tokens.md
-  - name: Policy keys
-    href: policy-keys-overview.md
-  - name: User flow and policy
+  - name: User experience
+    expanded: true
     items:
-    - name: User flows
+    - name: User flows and custom policies
       href: user-flow-overview.md
-    - name: Custom policies
+    - name: Custom policy overview
       href: custom-policy-overview.md
   - name: User accounts
     href: user-overview.md
@@ -93,6 +92,8 @@
     href: user-profile-attributes.md
   - name: Identity Protection and Conditional Access
     href: conditional-access-identity-protection-overview.md
+  - name: Policy keys
+    href: policy-keys-overview.md
 - name: How-to guides
   items:
   - name: App integration
@@ -268,8 +269,6 @@
       href: add-api-connector.md
   - name: Custom policy
     items:
-    - name: Custom policy overview
-      href: custom-policy-trust-frameworks.md
     - name: Get started with custom policies
       href: custom-policy-get-started.md
     - name: Custom email verification
@@ -298,9 +297,8 @@
       - name: Collect logs using Application Insights
         href: troubleshoot-with-application-insights.md
         displayName: troubleshooting, app insights
-      - name: Policy validation
+      - name: Troubleshooting custom policies
         href: troubleshoot-custom-policies.md
-        displayName: troubleshooting
     - name: Reference
       items:
       - name: TrustFrameworkPolicy
