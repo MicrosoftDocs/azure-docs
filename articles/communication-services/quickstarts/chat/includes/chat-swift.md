@@ -208,10 +208,13 @@ let message = SendChatMessageRequest(
     senderDisplayName: "Jack"
 )
 
+var messageId: String?
+
 chatThreadClient.send(message: message) { result, _ in
     switch result {
     case let .success(result):
         print("Message sent, message id: \(result.id)")
+        messageId = result.id
     case .failure:
         print("Failed to send message")
     }
@@ -239,9 +242,9 @@ if let id = messageId {
         semaphore.signal()
     }
     semaphore.wait()
-    } else {
-        print("Cannot send read receipt without a message id")
-    }
+} else {
+    print("Cannot send read receipt without a message id")
+}
 ```
 
 ## Receive chat messages from a chat thread
