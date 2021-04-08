@@ -72,7 +72,10 @@ These code snippets show you how to do the following with the Anomaly Detector c
 
 ## Authenticate the client
 
-To instantiate a new Anomaly Detector client you need to pass the Anomaly Detector subscription key and associated endpoint. We'll also establish a datasource. 
+To instantiate a new Anomaly Detector client you need to pass the Anomaly Detector subscription key and associated endpoint. We'll also establish a datasource.  
+
+To use the Anomaly Detector multivariate APIs, we need to train our own model before using detection. Data used for training is a batch of time series, each time series should be in CSV format with two columns, timestamp and value. All of the time series should be zipped into one zip file and be uploaded to [Azure Blob storage](../../../../storage/blobs/storage-blobs-introduction.md#blobs). By default the file name will be used to represent the variable for the time series. Alternatively, an extra meta.json file can be included in the zip file if you wish the name of the variable to be different from the .zip file name. Once we generate [blob SAS (Shared access signatures) URL](../../../../storage/common/storage-sas-overview.md), we can use the url to the zip file for training.
+
 ```python
 def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None):
     self.sub_key = subscription_key

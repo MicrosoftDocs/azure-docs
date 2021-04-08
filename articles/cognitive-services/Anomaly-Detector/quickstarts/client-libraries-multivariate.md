@@ -5,7 +5,7 @@ description: The Anomaly Detector multivariate offers client libraries to detect
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-zone_pivot_groups: anomaly-detector-quickstart
+zone_pivot_groups: anomaly-detector-quickstart-multivariate
 
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
@@ -31,12 +31,12 @@ keywords: anomaly detection, algorithms
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [JavaScript](../includes/quickstarts/anomaly-detector-client-library-python-multivariate.md)]
+[!INCLUDE [Python](../includes/quickstarts/anomaly-detector-client-library-python-multivariate.md)]
 
 ::: zone-end
 
-::: zone pivot="rest-api"
+::: zone pivot="java"
 
-New Quickstart content goes here.
+[!INCLUDE [Java](../includes/quickstarts/anomaly-detector-client-library-java-multivariate.md)]
 
 ::: zone-end
