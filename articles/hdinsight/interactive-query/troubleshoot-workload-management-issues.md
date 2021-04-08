@@ -1,12 +1,12 @@
 ---
-title: Hive Workload Management Feature
-description: Hive Workload Management Feature
+title: Troubleshoot Hive Workload Management Issues
+description: Troubleshoot Hive Workload Management Issues
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: guptanikhil007
 ms.author: guptan
 ms.reviewer: HDI HiveLLAP Team
-ms.date: 23/03/2021
+ms.date: 04/07/2021
 ---
 
 # Troubleshoot Hive Workload Management Issues

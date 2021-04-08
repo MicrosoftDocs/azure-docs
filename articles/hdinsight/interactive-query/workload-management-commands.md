@@ -1,17 +1,16 @@
 ---
-title: Workload Management Commands
-description: Workload Management Commands
+title: Hive Workload Management Commands
+description: Hive Workload Management Commands
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 author: guptanikhil007
 ms.author: guptan
 ms.reviewer: HDI HiveLLAP Team
-ms.date: 23/03/2021
+ms.date: 04/07/2021
 ---
-# Workload Management Commands
+# Hive Workload Management Commands
 
-### WLM Commands
-----------------------
+### WLM Commands Summary
 
 | Name                         | Brief Description                                                         |
 |------------------------------|---------------------------------------------------------------------------|
@@ -32,17 +31,13 @@ ms.date: 23/03/2021
 | DROP RESOURCE PLAN           | Deletes a resource plan.                                                  |
 | DROP TRIGGER                 | Deletes a trigger from a resource plan.                                   |
 
-
-
 <br> 
 
-
 ### How to create a basic resource plan
-----------------------
 
 ![Resource Plan](./media/hive-workload-management/WLM-ResourcePlan.jpg "Basic Resource Plan")
 
-#### Commands to create the above plan
+#### Commands to create the resource plan
 ```
 # CREATE RESOURCE PLAN
 CREATE RESOURCE PLAN demo_plan;
@@ -62,7 +57,7 @@ CREATE TRIGGER demo_plan.ETLKill  WHEN ELAPSED_TIME > 40000 DO KILL;
 ALTER TRIGGER demo_plan.ETLKill ADD TO POOL etl;
 ```
 
-#### Commands to enable, disable, or drop the plan
+#### Commands to enable, disable, or drop the resource plan
 ```
 # VALIDATE PLAN
 ALTER RESOURCE PLAN demo_plan VALIDATE;

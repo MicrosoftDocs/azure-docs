@@ -2,11 +2,11 @@
 title: Hive Workload Management Feature
 description: Hive Workload Management Feature
 ms.service: hdinsight
-ms.topic: manage
+ms.topic: how-to
 author: guptanikhil007
 ms.author: guptan
 ms.reviewer: HDI HiveLLAP Team
-ms.date: 23/03/2021
+ms.date: 04/07/2021
 ---
 
 # Hive Workload Management Feature
@@ -29,10 +29,10 @@ Create a new yarn queue called `wm` with the help of following [guide](https://d
 Configure the `wm` queue on cluster based on following configurations:
 
 | QueueName   | Capacity | Max Capacity | Priority | Maximum AM Resource |
-|:-----------:|:--------:|:------------:|:--------:|:-------------------:|
-| `default`   | 5%       | 5%           | 0        | 33%                 |
-| `llap`      | 85%      | 100%         | 10       | 33%                 |
-| `wm`       | 10%      | 15%          | 9        | 100%                |
+|-------------|----------|--------------|----------|---------------------|
+| **default** | 5%       | 5%           | 0        | 33%                 |
+| **llap**    | 85%      | 100%         | 10       | 33%                 |
+| **wm**      | 10%      | 15%          | 9        | 100%                |
 
 Confirm if the `wm` queue configuration looks as shown below.
 ![`wm-queue`](./media/hive-workload-management/wm-yarn-queue.png)
