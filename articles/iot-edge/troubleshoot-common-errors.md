@@ -56,14 +56,6 @@ The IoT Edge agent doesn't have permissions to access a module's image.
 
 Make sure that your registry credentials are correctly specified in your deployment manifest.
 
-<!-- <1.2> -->
-::: moniker range=">=iotedge-2020-11"
-
-## Temp
-
-<!-- </1.2> -->
-::: moniker-end
-
 ## Edge Agent module reports 'empty config file' and no modules start on the device
 
 **Observed behavior:**

@@ -287,16 +287,15 @@ If you completed the above steps correctly, you can check your devices are confi
    For the **lower layer device**, the diagnostics image needs to be manually passed in the command:
 
    ```bash
-   sudo iotedge check --diagnostics-image-name $upstream:8000/azureiotedge-diagnostics:1.2.0-rc4
+   sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc4
    ```
 
 On your **top layer device**, expect to see an output with several passing evaluations and at least one warning. The check for the `latest security daemon` will warn you that another IoT Edge version is the latest stable version, because IoT Edge version 1.2 is in public preview. You may see additional warnings about logs policies and, depending on your network, DNS policies.
 
-A sample output of the `iotedge check` is shown below:
+<!-- Add pic after GA -->
+<!-- KEEP! A sample output of the `iotedge check` is shown below: -->
 
-<!-- Update results pic -->
-
-![Sample configuration and connectivity results](./media/tutorial-nested-iot-edge/configuration-and-connectivity-check-results.png)
+<!-- KEEP! ![Sample configuration and connectivity results](./media/tutorial-nested-iot-edge/configuration-and-connectivity-check-results.png) -->
 
 Once you are satisfied your configurations are correct on each device, you are ready to proceed.
 

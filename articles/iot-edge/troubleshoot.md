@@ -45,6 +45,18 @@ The troubleshooting tool runs many checks that are sorted into these three categ
 
 The IoT Edge check tool uses a container to run its diagnostics. The container image, `mcr.microsoft.com/azureiotedge-diagnostics:latest`, is available through the [Microsoft Container Registry](https://github.com/microsoft/containerregistry). If you need to run a check on a device without direct access to the internet, your devices will need access to the container image.
 
+<!-- <1.2> -->
+:::moniker range=">=iotedge-2020-11"
+
+In a scenario using nested IoT Edge devices, you can get access to the diagnostics image on child devices by routing the image pull through the parent devices.
+
+```bash
+sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port_for_api_proxy_module>/azureiotedge-diagnostics:<version>
+```
+
+<!-- </1.2> -->
+:::moniker-end
+
 For information about each of the diagnostic checks this tool runs, including what to do if you get an error or warning, see [IoT Edge troubleshoot checks](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
 ## Gather debug information with 'support-bundle' command
