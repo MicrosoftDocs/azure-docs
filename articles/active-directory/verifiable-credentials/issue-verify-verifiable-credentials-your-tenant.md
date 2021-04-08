@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Issue and verify verifiable credentials using your tenant (preview)
+title: Tutorial - Issue and verify verifiable credentials using your Azure tenant (preview)
 description: Change the Verifiable Credential code sample to work with your Azure tenant
 documentationCenter: ''
 author: barclayn
@@ -15,7 +15,7 @@ ms.reviewer:
 
 ---
 
-# Tutorial: Issue and verify verifiable credentials using your tenant (preview)
+# Tutorial - Issue and verify verifiable credentials using your tenant (preview)
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
@@ -43,7 +43,7 @@ Any identity provider that supports the OpenID Connect protocol is supported. Ex
 
 This tutorial assumes you've already completed the steps in the [previous tutorial](enable-your-tenant-verifiable-credentials.md) and have access to the environment you used.
 
-## Register an App to enable DID Wallets to sign in users
+## Register an app to enable DID wallets to sign in users
 
 To issue a verifiable credential, you need to register an app so Authenticator, or any other verifiable credential wallet, is allowed to sign in users.  
 
@@ -65,7 +65,7 @@ Register an application called 'VC Wallet App' in Azure AD and obtain a client I
 
    ![issuer endpoints](media/issue-verify-verifable-credentials-your-tenant/application-endpoints.png)
 
-## Set up your node app with access to Key Vault
+## Set up your node app with access to Azure Key Vault
 
 To authenticate a user's credential issuance request, the issuer website uses your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website needs a client ID and client secret that can be used to authenticate to Azure Key Vault.
 
@@ -182,7 +182,7 @@ There are a few other values we need to get before we can make the changes one t
 
    ![sign in key identifier](media/issue-verify-verifable-credentials-your-tenant/issuer-signing-key-ion.png)
 
-### DID Document 
+### DID document
 
 1. Open the [DIF ION Network Explorer](https://identity.foundation/ion/explorer/)
 
@@ -222,7 +222,7 @@ Now we have everything we need to make the changes in our sample code.
 
 Now you have everything in place to issue and verify your own Verifiable Credential from your Azure Active Directory tenant with your own keys. 
 
-## Issue and Verify the VC
+## Issue and verify the VC
 
 Follow the same steps we followed in the previous tutorial to issue the verifiable credential and validate it with your app. Once that you successfully complete the verification process you are now ready to continue learning about verifiable credentials.
 
@@ -307,7 +307,7 @@ Now that we've issued the verifiable credential from our own tenant with claims 
     
    ![new permission request](media/enable-your-tenant-verifiable-credentials/new-permission-request.png)
 
-8. You have no successfully verified your credential and the website should display your first and last name from your Azure AD's user account. 
+8. You have now successfully verified your credential and the website should display your first and last name from your Azure AD's user account. 
 
 You have now completing the tutorial and are officially a Verified Credential Expert! Your sample app is using your DID for both issuing and verifying, while writing claims into a verifiable credential from your Azure AD. 
 

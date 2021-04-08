@@ -32,16 +32,16 @@ Fill in the following fields:
 
 1. **Subscription** - Pick any subscription.
 1. **Resource group** - Use any resource group.
-1. **Resource group** - Leave this blank.
-
+1. **Managed Resource group** - Leave this blank.
 
 ## Basics tab > Workspace details
 Fill in the following fields:
 
 1. **Workspace name** - Pick any globally unique name. In this tutorial, we'll use **myworkspace**.
 1. **Region** - Pick any region.
-1. **Select Data Lake Storage Gen 2**
-1. Click the button for **From subscription**.
+
+Under **Select Data Lake Storage Gen 2**:
+
 1. By **Account name**, click **Create New** and name the new storage account **contosolake** or similar as this name must be unique.
 1. By **File system name**, click **Create New** and name it **users**. This will create a storage container called **users**. The workspace will use this storage account as the "primary" storage account to Spark tables and Spark application logs.
 1. Check the "Assign myself the Storage Blob Data Contributor role on the Data Lake Storage Gen2 account" box. 
