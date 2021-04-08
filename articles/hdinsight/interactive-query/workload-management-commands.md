@@ -15,22 +15,24 @@ ms.date: 23/03/2021
 
 | Name                         | Brief Description                                                         |
 |------------------------------|---------------------------------------------------------------------------|
-| ALTER MAPPING                | Changes the routing of queries to a resource pool.                        |
-| ALTER POOL                   | Modifies query pool properties, adds triggers, and removes triggers.      |
-| ALTER RESOURCE PLAN          | Enables, disables, activates, validates, or changes a plan.               |
-| ALTER TRIGGER                | Adds a trigger to or removes a trigger from a resource pool.              |
 | CREATE MAPPING               | Routes queries to a resource pool.                                        |
 | CREATE POOL                  | Creates and adds a query pool for a resource plan.                        |
 | CREATE RESOURCE PLAN         | Creates a resource plan                                                   |
 | CREATE TRIGGER               | Establishes and adds a trigger to a resource plan.                        |
+| SHOW RESOURCE PLAN           | Lists plan contents.                                                      |
+| SHOW RESOURCE PLANS          | Lists all resource plans.                                                 |
+| ALTER MAPPING                | Changes the routing of queries to a resource pool.                        |
+| ALTER POOL                   | Modifies query pool properties, adds triggers, and removes triggers.      |
+| ALTER RESOURCE PLAN          | Enables, disables, activates, validates, or changes a plan.               |
+| ALTER TRIGGER                | Adds a trigger to or removes a trigger from a resource pool.              |
+| REPLACE RESOURCE PLAN WITH   | Replaces the contents of one resource plan with the contents of another.  |
 | DISABLE WORKLOAD MANAGEMENT  | Deactivates the existing resource plan.                                   |
 | DROP MAPPING                 | Removes a mapping from a resource plan.                                   |
 | DROP POOL                    | Removes a query pool from a resource plan.                                |
 | DROP RESOURCE PLAN           | Deletes a resource plan.                                                  |
 | DROP TRIGGER                 | Deletes a trigger from a resource plan.                                   |
-| REPLACE RESOURCE PLAN WITH   | Replaces the contents of one resource plan with the contents of another.  |
-| SHOW RESOURCE PLAN           | Lists plan contents.                                                      |
-| SHOW RESOURCE PLANS          | Lists all resource plans.                                                 |
+
+
 
 <br> 
 
@@ -60,7 +62,7 @@ CREATE TRIGGER demo_plan.ETLKill  WHEN ELAPSED_TIME > 40000 DO KILL;
 ALTER TRIGGER demo_plan.ETLKill ADD TO POOL etl;
 ```
 
-#### Commands to enable, disable or drop the plan
+#### Commands to enable, disable, or drop the plan
 ```
 # VALIDATE PLAN
 ALTER RESOURCE PLAN demo_plan VALIDATE;
@@ -85,5 +87,4 @@ DROP RESOURCE PLAN demo_plan;
 ```
 
 ### References:
-------------------------
 * [Cloudera Hive Workload Management Commands Summary](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/hive-workload-commands/content/hive_workload_management_command_summary.html)
