@@ -36,15 +36,14 @@ Let's say the marketing team at Microsoft wants to build a FAQ bot that answers 
    ![Screenshot of view metadata](../media/view-metadata.png)
 
 
-![Screenshot of update metadata](../media/update-metadata.png)
+   ![Screenshot of update metadata](../media/update-metadata.png)
 
 
 3. In this Knowledgebase, we have QnAs on two products and we would like to distinguish them such that we can search for responses amongst QnAs for the product user is referring to. In order to do that, we can update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and **surface_pen** or **surface_earbuds** as values wherever applicable. 
 
    ![Screenshot of using metadata](../media/using-metadata.png)
 
-
-You can extend the example above to extract data on multiple products and add a different value for each product. At the same time, a single QnA can be assigned multiple metadata key-value pairs to group data in multiple ways. 
+   You can extend the example above to extract data on multiple products and add a different value for each product. At the same time, a single QnA can be assigned multiple   metadata key-value pairs to group data in multiple ways. 
 
 4. Now, in order to to restrict the system to search for the response across a particular product you would need to pass that product as a strict filter in the generate Answer API.
 
