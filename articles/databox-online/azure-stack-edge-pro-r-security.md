@@ -108,8 +108,8 @@ When the device is activated, you are prompted to save the key file that contain
 - A key that unlocks the second layer of encryption.
 - A key that protects the data flowing through the Azure service.
 
-    > [!IMPORTANT]
-    > Save the key file in a secure location outside the device itself. If the device doesn't boot up, and you don't have the key, it could potentially result in data loss.
+> [!IMPORTANT]
+> Save the key file in a secure location outside the device itself. If the device doesn't boot up, and you don't have the key, it could potentially result in data loss.
 
 
 
