@@ -65,10 +65,10 @@ pip install --upgrade azure-ai-anomalydetector
 These code snippets show you how to do the following with the Anomaly Detector client library for Python:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Load a time series data set from a file](#load-time-series-data-from-a-file)
-* [Detect anomalies in the entire data set](#detect-anomalies-in-the-entire-data-set)
-* [Detect the anomaly status of the latest data point](#detect-the-anomaly-status-of-the-latest-data-point)
-* [Detect the change points in the data set](#detect-change-points-in-the-data-set)
+* [Train the model](#train-the-model)
+* [Detect anomalies](#detect-anomalies)
+* [Export model](#export-model)
+* [Delete model](#delete-model)
 
 ## Authenticate the client
 
