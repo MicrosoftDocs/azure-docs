@@ -16,6 +16,9 @@ ms.custom: subject-security-benchmark
 
 This security baseline applies guidance from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview-v1.md) to VPN Gateway. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to VPN Gateway.
 
+> [!NOTE]
+> Controls not applicable to VPN Gateway, or for which the responsibility is Microsoft's, have been excluded. To see how VPN Gateway completely maps to the Azure Security Benchmark, see the [full VPN Gateway security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/vpn-gateway-security-baseline-v1.1.xlsx).
+
 ## Network Security
 
 *For more information, see the [Azure Security Benchmark: Network Security](../security/benchmarks/security-control-network-security.md).*

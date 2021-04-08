@@ -16,6 +16,9 @@ ms.custom: subject-security-benchmark
 
 This security baseline applies guidance from the [Azure Security Benchmark version1.0](overview-v1.md) to Azure Data Explorer. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Data Explorer. 
 
+> [!NOTE]
+> Controls not applicable to Azure Data Explorer, or for which the responsibility is Microsoft's, have been excluded. To see how Azure Data Explorer completely maps to the Azure Security Benchmark, see the [full Azure Data Explorer security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/azure-data-explorer-security-baseline-v1.1.xlsx).
+
 ## Network Security
 
 *For more information, see the [Azure Security Benchmark: Network Security](security-control-network-security.md).*

@@ -16,6 +16,9 @@ ms.custom: subject-security-benchmark
 
 This security baseline applies guidance from the [Azure Security Benchmark version1.0](../../security/benchmarks/overview-v1.md) to Linux Virtual Machines. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Linux Virtual Machines. 
 
+> [!NOTE]
+> Controls not applicable to Linux Virtual Machines, or for which the responsibility is Microsoft's, have been excluded. To see how Linux Virtual Machines completely maps to the Azure Security Benchmark, see the [full Linux Virtual Machines security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/linux-virtual-machines-security-baseline-v1.1.xlsx).
+
 ## Network Security
 
 *For more information, see the [Azure Security Benchmark: Network Security](../../security/benchmarks/security-control-network-security.md).*

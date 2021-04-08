@@ -16,6 +16,9 @@ ms.custom: subject-security-benchmark
 
 This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Azure Security Center. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Security Center. 
 
+> [!NOTE]
+> Controls not applicable to Security Center, or for which the responsibility is Microsoft's, have been excluded. To see how Security Center completely maps to the Azure Security Benchmark, see the [full Security Center security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/security-center-security-baseline-v1.1.xlsx).
+
 ## Network Security
 
 *For more information, see the [Azure Security Benchmark: Network Security](../security/benchmarks/security-control-network-security.md).*
