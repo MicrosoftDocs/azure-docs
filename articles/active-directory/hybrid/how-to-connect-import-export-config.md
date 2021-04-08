@@ -73,7 +73,14 @@ To migrate the settings:
 
      >[!NOTE]
      > If you see a message: “A positional parameter cannot be found that accepts argument **True**.”, as below:
-     This will be addressed in builds in the next build (post 1.6.4.0). 
+     >
+     >
+     >![Screenshot of error](media/how-to-connect-import-export-config/migrate-5.png)
+     >Then edit the MigrateSettings.ps1 file and remove **$true** and run the script:
+     >![Screenshot to edit config](media/how-to-connect-import-export-config/migrate-6.png)
+ 
+
+
 
  3. Run the script as shown here, and save the entire down-level server configuration directory. Copy this directory to the new staging server. You must copy the entire **Exported-ServerConfiguration-*** folder to the new server.
      ![Screenshot that shows script in Windows PowerShell.](media/how-to-connect-import-export-config/migrate-2.png)![Screenshot that shows copying the Exported-ServerConfiguration-* folder.](media/how-to-connect-import-export-config/migrate-3.png)
