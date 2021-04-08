@@ -34,7 +34,7 @@ To connect to your cluster, you'll need the cluster certificate thumbprint. You 
 The following command can be used to query your cluster resource for the cluster certificate thumbprint.
 
 ```powershell
-$serverThumbprint = (Get-AzResource -ResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/managedclusters/mysfcluster).Properties.clusterCertificateThumbprint
+$serverThumbprint = (Get-AzResource -ResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/managedclusters/mysfcluster).Properties.clusterCertificateThumbprints
 ```
 
 With the cluster certificate thumbprint, you're ready to connect to your cluster.
