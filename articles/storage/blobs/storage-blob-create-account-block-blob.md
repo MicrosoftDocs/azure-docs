@@ -6,7 +6,7 @@ services: storage
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 04/07/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
