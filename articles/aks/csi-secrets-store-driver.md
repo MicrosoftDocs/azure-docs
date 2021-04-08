@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Use the Secrets Store CSI Driver for Kubernetes in an Azure Kubernetes Service (AKS) cluster (preview)
 
-The Secrets Store CSI Driver for Kubernetes allows for the integration of various secrets stores with a Kubernetes cluster via a [CSI volume][kube-csi].
+The Secrets Store CSI Driver for Kubernetes allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a [CSI volume][kube-csi].
 
 ## Prerequisites
 
@@ -77,9 +77,9 @@ kube-system   aks-secrets-store-provider-azure-6pqmv   1/1     Running   0      
 kube-system   aks-secrets-store-provider-azure-f5qlm   1/1     Running   0          4m25s
 ```
 
-### Enabling auto-rotation
+### Enabling autorotation
 
-To enable auto-rotation of secrets, use the flag `enable-secret-rotation` when creating your cluster:
+To enable autorotation of secrets, use the flag `enable-secret-rotation` when creating your cluster:
 
 ```azurecli-interactive
 az aks create -n myAKSCluster2 -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-secret-rotation
@@ -129,7 +129,7 @@ spec:
     tenantId: "<tenant-id>"                 # the tenant ID of the KeyVault
 ```
 
-For more details, see [Create your own SecretProviderClass Object][sample-secret-provider-class]. Be sure to use the values you took note of above.
+For more information, see [Create your own SecretProviderClass Object][sample-secret-provider-class]. Be sure to use the values you took note of above.
 
 ## Provide identity to access Azure Key Vault
 
@@ -142,7 +142,7 @@ The example in this article uses a Service Principal, but the Azure Key Vault pr
 
 ### Apply the SecretProviderClass to your cluster
 
-Next, deploy the SecretProviderClass you just created. For example:
+Next, deploy the SecretProviderClass you created. For example:
 
 ```bash
 kubectl apply -f ./new-secretproviderclass.yaml
