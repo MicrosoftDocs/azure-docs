@@ -36,7 +36,7 @@ Reference links:
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure storage account - [create a storage account](../common/storage-account-create.md)
-* Visual Studio with [Mobile Development for .NET workload](/xamarin/get-started/installation/?pivots=windows) installed or [Visual Studio for Mac](/visualstudio/mac/installation?view=vsmac-2019)
+* Visual Studio with [Mobile Development for .NET workload](/xamarin/get-started/installation/?pivots=windows) installed or [Visual Studio for Mac](/visualstudio/mac/installation?view=vsmac-2019&preserve-view=true)
 
 ## Setting up
     

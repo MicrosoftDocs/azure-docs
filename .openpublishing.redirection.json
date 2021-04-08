@@ -1,111 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/iot-accelerators/howto-opc-publisher-configure.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/howto-opc-publisher-run.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-publisher-run",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-deploy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/howto-opc-twin-deploy-modules.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-twin-deploy-modules",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/howto-opc-twin-deploy-existing.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-twin-deploy-existing",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/howto-opc-twin-deploy-dependencies.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-twin-deploy-dependencies",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/howto-opc-vault-manage.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-manage",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/howto-opc-vault-secure-ca.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-secure-ca",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/howto-opc-vault-secure.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-secure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-configure.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connected-factory-configure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-customize.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connected-factory-customize",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-dashboard.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connected-factory-dashboard",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-features.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connected-factory-features",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/iot-accelerators-faq-cf.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-faq-cf",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/quickstart-connected-factory-deploy.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/quickstart-connected-factory-deploy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/overview-opc-vault.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-vault",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/overview-opc-vault-architecture.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-vault-architecture",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/overview-opc-twin.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-twin",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/overview-opc-twin-architecture.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-twin-architecture",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/overview-opc-publisher.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-publisher",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/overview-iot-industrial.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/overview-iot-industrial",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/virtual-machines/linux/tutorial-govern-resources.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-govern-resources",
       "redirect_document_id": false
@@ -128,6 +23,11 @@
     {
       "source_path": "articles/virtual-machines/windows/tutorial-govern-resources.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-govern-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/confidential-computing/how-to-fortanix-enclave-manager.md",
+      "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent",
       "redirect_document_id": false
     },
     {
@@ -851,6 +751,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/create-user-flow.md",
+      "redirect_url": "/azure/active-directory-b2c/add-sign-up-and-sign-in-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/phone-authentication.md",
+      "redirect_url": "/azure/active-directory-b2c/phone-authentication-user-flows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/ropc-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/add-ropc-policy",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/custom-policy-manage-sso-and-token-config.md",
       "redirect_url": "/azure/active-directory-b2c/configure-tokens-custom-policy",
       "redirect_document_id": false
@@ -953,6 +868,11 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/custom-policy-ui-customization-dynamic.md",
       "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/custom-policy-trust-frameworks.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-overview",
       "redirect_document_id": false
     },
     {
@@ -2995,11 +2915,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service/containers/deploy-container-github-action.md",
-      "redirect_url": "/azure/app-service/deploy-container-github-action",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/app-service/app-service-deploy-content-sync.md",
       "redirect_url": "/azure/app-service/deploy-content-sync",
       "redirect_document_id": false
@@ -3012,16 +2927,6 @@
     {
       "source_path_from_root": "/articles/app-service/app-service-continuous-deployment.md",
       "redirect_url": "/azure/app-service/deploy-continuous-deployment",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service/deploy-github-actions.md",
-      "redirect_url": "/azure/app-service/deploy-continuous-deployment",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service/deploy-container-github-action.md",
-      "redirect_url": "/azure/app-service/deploy-ci-cd-custom-container",
       "redirect_document_id": false
     },
     {
@@ -6267,6 +6172,16 @@
     {
       "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-create-function-app-github.md",
       "redirect_url": "/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-runtime-overview.md",
+      "redirect_url": "/azure/azure-functions/functions-kubernetes-keda",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-runtime-install.md",
+      "redirect_url": "/azure/azure-functions/functions-kubernetes-keda",
       "redirect_document_id": false
     },
     {
@@ -13607,6 +13522,11 @@
     {
       "source_path_from_root": "/articles/batch/batch-retry-after-errors.md",
       "redirect_url": "/azure/batch/error-handling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/batch/batch-nodejs-get-started.md",
+      "redirect_url": "/azure/batch/batch-js-get-started",
       "redirect_document_id": false
     },
     {
@@ -23605,6 +23525,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-security-x509-get-started.md",
+      "redirect_url": "/azure/iot-hub/tutorial-x509-scripts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-suite/securing-iot-ground-up.md",
       "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
       "redirect_document_id": false
@@ -24683,6 +24608,16 @@
       "source_path_from_root": "/articles/iot-pnp/concepts-components.md",
       "redirect_url": "/azure/iot-pnp/concepts-modeling-guide",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-pnp/concepts-certification-program.md",
+      "redirect_url": "/azure/certification/program-requirements-pnp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-pnp/howto-certify-device.md",
+      "redirect_url": "/azure/certification/program-requirements-pnp",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/container-instances/container-instances-jenkins.md",
@@ -28871,9 +28806,29 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc",
+      "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/account-migration-from-cpp-to-pc.md",
+      "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-account.md",
+      "redirect_url": "/azure/marketplace/create-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/manage-account.md",
+      "redirect_url": "/azure/marketplace/manage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/company-work-accounts.md",
+      "redirect_url": "/azure/marketplace/company-work-accounts",
+      "redirect_document_id": false
+    },       
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/portal-tour/cpp-insights-page.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
@@ -29066,7 +29021,7 @@
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+      "redirect_url": "/azure/marketplace/create-account",
       "redirect_document_id": true
     },
     {
@@ -29466,7 +29421,7 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/cloud-partner-portal-manage-users.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
+      "redirect_url": "/azure/marketplace/manage-account",
       "redirect_document_id": true
     },
     {
@@ -31160,6 +31115,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/networking/networking-overview.md",
+      "redirect_url": "/azure/networking/fundamentals/networking-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/network-watcher/connection-monitor-preview-create-using-portal.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-portal",
       "redirect_document_id": false
@@ -31703,6 +31663,11 @@
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/search/search-autocomplete-tutorial.md",
+      "redirect_url": "/azure/search/search-add-autocomplete-suggestions",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/search/search-filters-language.md",
@@ -33781,7 +33746,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/spring-cloud/spring-cloud/spring-cloud-overview.md",
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-overview.md",
       "redirect_url": "/azure/spring-cloud/overview",
       "redirect_document_id": false
     },
@@ -33968,7 +33933,7 @@
     },
     {
       "source_path": "articles/spring-cloud/spring-cloud-howto-access-data-plane-azure-ad-rbac.md",
-      "redirect_url": "/azure/spring-cloud/overview",
+      "redirect_url": "/azure/spring-cloud/how-to-access-data-plane-azure-ad-rbac",
       "redirect_document_id": false
     },
     {
@@ -43643,6 +43608,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cloud-services-extended-support/manage-powershell.md",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-model-and-package",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/new-azurermfrontdoorhealthprobesettingobject.md",
       "redirect_url": "/powershell/module/azurerm.frontdoor/new-azurermfrontdoorhealthprobesettingobject",
       "redirect_document_id": false
@@ -46169,12 +46139,12 @@
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-reportviewer.md",
-      "redirect_url": "/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started?view=sql-server-2017",
+      "redirect_url": "/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-report.md",
-      "redirect_url": "/sql/reporting-services/report-server/reporting-services-report-server-native-mode?view=sql-server-2017",
+      "redirect_url": "/sql/reporting-services/report-server/reporting-services-report-server-native-mode",
       "redirect_document_id": false
     },
     {
@@ -46244,7 +46214,7 @@
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi.md",
-      "redirect_url": "/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017",
+      "redirect_url": "/sql/ssdt/download-sql-server-data-tools-ssdt",
       "redirect_document_id": false
     },
     {
@@ -47776,6 +47746,11 @@
       "source_path_from_root": "/articles/cognitive-services/Computer-vision/QuickStarts/ruby-thumb.md",
       "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/ruby/ComputerVision/generate-a-thumbnail",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/concept-recognizing-text.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/overview-ocr",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md",
@@ -51495,6 +51470,21 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/msal-logging.md",
       "redirect_url": "/azure/active-directory/develop/msal-logging-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-modify-supported-accounts.md",
+      "redirect_url": "/azure/active-directory/develop/howto-modify-supported-accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-remove-app.md",
+      "redirect_url": "/azure/active-directory/develop/howto-remove-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-restore-app.md",
+      "redirect_url": "/azure/active-directory/develop/howto-restore-app",
       "redirect_document_id": false
     },
     {
@@ -56703,6 +56693,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-iqnavigatorvms-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/iqnavigatorvms-tutorial",
       "redirect_document_id": true
@@ -59604,7 +59599,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Computer-vision/concept-extracting-text-ocr.md",
-      "redirect_url": "/azure/cognitive-services/Computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/overview-ocr",
       "redirect_document_id": false
     },
     {
@@ -62066,6 +62061,11 @@
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/voice-first-virtual-assistants.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/voice-assistants",
       "redirect_document_id": true
+    },
+    {
+    "source_path_from_root": "/articles/cognitive-services/Speech-Service/quickstarts/intent-recognition.md",
+    "redirect_url": "/azure/cognitive-services/Speech-Service/get-started-intent-recognition",
+    "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
@@ -64939,6 +64939,201 @@
     {
       "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/glossary.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/terminology",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-desktop/partners.md",
+      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?search=Windows%20virtual%20desktop&page=1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/quickstart-dotnet-framework.md",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore?tabs=netframework48",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/animated-characters-recognition-how-to.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/animated-characters-recognition-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/animated-characters-recognition.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/animated-characters-recognition",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/compare-video-indexer-with-media-services-presets.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/concepts-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/concepts-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/connect-to-azure.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/connect-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/considerations-when-use-at-scale.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/considerations-when-use-at-scale",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-brands-model-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-brands-model-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-brands-model-with-api.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-brands-model-with-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-brands-model-with-website.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-brands-model-with-website",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-content-models-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-content-models-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-language-model-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-language-model-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-language-model-with-api.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-language-model-with-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-language-model-with-website.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-language-model-with-website",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-person-model-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-person-model-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-person-model-with-api.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-person-model-with-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-person-model-with-website.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-person-model-with-website",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/faq.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/invite-users.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/invite-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/language-identification-model.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/language-identification-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/live-stream-analysis.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/live-stream-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/logic-apps-connector-tutorial.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/logic-apps-connector-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/manage-account-connected-to-azure.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/manage-account-connected-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/manage-multiple-tenants.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/manage-multiple-tenants",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/multi-language-identification-transcription.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/multi-language-identification-transcription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/regions.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/regions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/release-notes.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/scenes-shots-keyframes.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/scenes-shots-keyframes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/upload-index-videos.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/upload-index-videos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/use-editor-create-project.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/use-editor-create-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-disaster-recovery.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-embed-widgets.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-embed-widgets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-get-started.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-output-json-v2.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-output-json-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-search.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-use-apis.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-use-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-view-edit.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-view-edit",
       "redirect_document_id": false
     }
   ]

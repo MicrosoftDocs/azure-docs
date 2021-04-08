@@ -24,13 +24,23 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About Azure Video Analyzer
+          - text: About Azure Video Analyzer (preview)
             url: overview.md
-
-  # Card
-  - title: About Azure Video Analyzer for media documentation
-    linkLists:
-      - linkListType: overview
+          - text: About Azure Video Analyzer for Media
+            url: ../video-analyzer-for-media-docs/video-indexer-overview.md            
+      - linkListType: concept
         links:
-          - text: About Azure Video Analyzer for media
-            url: ../../media-services/video-indexer/video-indexer-overview.md
+          - text: Pipeline
+            url: ""
+          - text: Video recording 
+            url: ""
+          - text: Video playback
+            url: ""
+          
+  # Card
+  - title: Azure Video Analyzer scenarios
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with Azure Video Analyzer 
+            url: ""

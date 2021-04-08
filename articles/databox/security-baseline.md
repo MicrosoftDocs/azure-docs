@@ -107,7 +107,7 @@ read-only, read-write to a subset of operations.
 
 - [How to configure Azure RBAC for workbooks](../sentinel/quickstart-get-visibility.md)
 
-- [Understand how to set up access control on the order](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+- [Understand how to set up access control on the order](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Responsibility**: Customer
 
@@ -192,7 +192,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 For the Data Box appliance, this is not supported in real time. You can
 review the logs at the end of the job.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -211,7 +211,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 Azure
 Data Box service logs are not written into Log Analytics workspace.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -238,7 +238,7 @@ Data Box service logs are not written into Log Analytics workspace.
 **Guidance**: Soon
 to be available; Customer Lockbox is not yet supported for Azure Data Box. 
 
-- [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [List of Customer Lockbox-supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsibility**: Customer
 
@@ -282,7 +282,7 @@ that sensitive data being transferred is protected.
 
 - [Understand how to get started with Azure Data Box](data-box-quickstart-portal.md)
 
-- [Understand how to set up access control](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+- [Understand how to set up access control](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Responsibility**: Customer
 
@@ -316,7 +316,7 @@ Azure Key Vault.
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to Azure Data Box as well as other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -506,5 +506,5 @@ Microsoft-managed cloud infrastructure, services, and applications.
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

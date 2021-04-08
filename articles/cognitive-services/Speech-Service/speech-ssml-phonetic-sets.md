@@ -229,30 +229,30 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 
 | `sapi` | `ipa` | Example 1 | Example 2 | Example 3 |
 |--|--|--|--|--|
-| b | `b` | **B**ank |  | [<sup>1</sup>](#de-c-1)Pu**b** |  |
+| b | `b` | **B**ank | | [<sup>1</sup>](#de-c-1)Pu**b** | 
 | c | `ç` | **Ch**emie | mögli**ch**st | [<sup>2</sup>](#de-c-2)i**ch** |
-| d | `d` | **d**anken | [<sup>3</sup>](#de-c-3)Len**d**l | [<sup>4</sup>](#de-c-4)Clau**d**e |  |
+| d | `d` | **d**anken | [<sup>3</sup>](#de-c-3)Len**d**l | [<sup>4</sup>](#de-c-4)Clau**d**e | 
 | jh | `ʤ` | **J**eff | gemana**g**t | [<sup>5</sup>](#de-c-5)Chan**g**e |
-| f | `f` | **F**ahrtdauer | angri**ff**slustig | abbruchrei**f** |  |
-| g | `g` | **g**ut |  | [<sup>6</sup>](#de-c-6)Gre**g** |  |
-| h | `h` | **H**ausanbau |  |  |  |
-| y | `j` | **J**od | Reakt**i**on | hu**i** |  |
-| k | `k` | **K**oma | Aspe**k**t | Flec**k** |  |
-| l | `l` | **l**au | ähne**l**n | zuvie**l** |  |
-| m | `m` | **M**ut | A**m**t | Leh**m** |  |
-| n | `n` | **n**un | u**n**d | Huh**n** |  |
-| ng | `ŋ` | [<sup>7</sup>](#de-c-7)**Ng**uyen | Schwa**nk** | R**ing** |  |
-| p | `p` | **P**artner | abru**p**t | Ti**p** |  |
-| pf | `pf` | **Pf**erd | dam**pf**t | To**pf** |  |
-| r | `ʀ`, `r`, `ʁ` | **R**eise | knu**rr**t | Haa**r** |  |
-| s | `s` | [<sup>8</sup>](#de-c-8)**S**taccato | bi**s**t | mie**s** |  |
-| sh | `ʃ` | **Sch**ule | mi**sch**t | lappi**sch** |  |
-| t | `t` | **T**raum | S**t**raße | Mu**t** |  |
-| ts | `ts` | **Z**ug | Ar**z**t | Wit**z** |  |
-| ch | `tʃ` | **Tsch**echien | aufgepu**tsch**t | bundesdeu**tsch** |  |
-| v | `v` | **w**inken | Q**u**alle | [<sup>9</sup>](#de-c-9)Gr**oo**ve |  |
+| f | `f` | **F**ahrtdauer | angri**ff**slustig | abbruchrei**f** |  
+| g | `g` | **g**ut |  [<sup>6</sup>](#de-c-6)Gre**g** |  |
+| h | `h` | **H**ausanbau |  |  | 
+| y | `j` | **J**od | Reakt**i**on | hu**i** | 
+| k | `k` | **K**oma | Aspe**k**t | Flec**k** | 
+| l | `l` | **l**au | ähne**l**n | zuvie**l** | 
+| m | `m` | **M**ut | A**m**t | Leh**m** | 
+| n | `n` | **n**un | u**n**d | Huh**n** | 
+| ng | `ŋ` | [<sup>7</sup>](#de-c-7)**Ng**uyen | Schwa**nk** | R**ing** | 
+| p | `p` | **P**artner | abru**p**t | Ti**p** | 
+| pf | `pf` | **Pf**erd | dam**pf**t | To**pf** |
+| r | `ʀ`, `r`, `ʁ` | **R**eise | knu**rr**t | Haa**r** | 
+| s | `s` | [<sup>8</sup>](#de-c-8)**S**taccato | bi**s**t | mie**s** | 
+| sh | `ʃ` | **Sch**ule | mi**sch**t | lappi**sch** | 
+| t | `t` | **T**raum | S**t**raße | Mu**t** | 
+| ts | `ts` | **Z**ug | Ar**z**t | Wit**z** | 
+| ch | `tʃ` | **Tsch**echien | aufgepu**tsch**t | bundesdeu**tsch** | 
+| v | `v` | **w**inken | Q**u**alle | [<sup>9</sup>](#de-c-9)Gr**oo**ve | 
 | x | [<sup>10</sup>](#de-c-10)`x`,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12)Ba**ch**erach | Ma**ch**t mögli**ch**st | Schma**ch** 'i**ch** |
-| z | `z` | **s**uper |  |  |  |
+| z | `z` | **s**uper |  |  | 
 | zh | `ʒ` | **G**enre | B**re**ezinski | Edvi**g**e |
 
 <a id="de-c-1"></a>
