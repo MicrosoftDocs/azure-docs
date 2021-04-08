@@ -9,11 +9,9 @@ ms.reviewer: HDI HiveLLAP Team
 ms.date: 04/07/2021
 ---
 
-# Hive Workload Management Feature
-Using workload management feature, you can configure who and how the resources are used. The feature also improves the average response time for a user.
-It is a critical need to manage resources in an Interactive Query Cluster especially in a multi-tenant environment. Hive LLAP (low-latency analytical processing) uses workload management to enable users to allocate
-resources to match availability needs and prevent contention for those resources. Workload management improves
-parallel query execution. Workload management also reduces resource starvation often seen in large clusters.
+# Hive Workload Management (WLM) Feature
+In an Interactive Query Cluster, resource management is imperative, especially in a multi-tenant environment. Hive LLAP (low-latency analytical processing) uses workload management to enable users to allocate resources to match availability needs and prevent contention for those resources. <br> 
+Workload Management implements resource pools to provide an interface to control resource usage and access. The WLM resource pools try to improve parallel query execution and provide guaranteed resources. Workload management also provides sufficient help in reducing resource starvation issue often seen in large clusters.
 
 ![`LLAP Architecture/Components`](./media/hive-workload-management/LLAP-architecture.png "LLAP Architecture/Components")
 

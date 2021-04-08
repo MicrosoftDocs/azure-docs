@@ -123,7 +123,7 @@ java.util.concurrent.CancellationException: Task was cancelled.
 ```
 
 ### Known Issues
-1. Spark jobs submitted via [Hive Warehouse Connector (HWC)](https://docs.microsoft.com/en-us/azure/hdinsight/interactive-query/apache-hive-warehouse-connector) can experience intermittent failures if target LLAP cluster has WLM feature enabled. <br>
+1. Spark jobs submitted via [Hive Warehouse Connector (HWC)](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-warehouse-connector) can experience intermittent failures if target LLAP cluster has WLM feature enabled. <br>
 To avoid the above issues, Customer can have two LLAP Clusters, one with WLM enabled and other without WLM.
 The customer then can use HWC to connect their Spark cluster to the LLAP cluster without WLM.
 
