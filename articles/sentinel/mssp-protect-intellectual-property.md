@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2021
+ms.date: 04/08/2021
 ms.author: bagol
 
 ---
@@ -23,7 +23,7 @@ ms.author: bagol
 
 This article describes the methods that managed security service providers (MSSPs) can use to protect intellectual property they've developed in Azure Sentinel, such as Azure Sentinel analytics rules, hunting queries, playbooks, and workbooks.
 
-The method you choose will depend on how each of your customers buy Azure; whether you serve as a [Cloud Solutions Provider (CSP)](#cloud-solutions-providers-csp), or your customer has an [Enterprise Agreement (EA)/Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg) account. The sections below describe each of these methods separately.
+The method you choose will depend on how each of your customers buy Azure; whether you act as a [Cloud Solutions Provider (CSP)](#cloud-solutions-providers-csp), or the customer has an [Enterprise Agreement (EA)/Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg) account. The sections below describe each of these methods separately.
 
 ## Cloud Solutions Providers (CSP)
 
@@ -55,7 +55,9 @@ In this image:
 
 - The users granted with **Owner** access to the CSP subscription are the users in the Admin Agents group, in the MSSP Azure AD tenant.
 - Other groups from the MSSP get access to the customer environment via Azure Lighthouse.
-- Customer access to MSSP intellectual property in Azure Sentinel is managed by Azure RBAC.
+- Customer access to Azure resources is managed by Azure RBAC at the resource group level. 
+
+    This allows MSSPs to hide Azure Sentinel components as needed, like Analytics Rules and Hunting Queries.
 
 The [preceding section in this article](#cloud-solutions-providers-csp) describes examples of how MSSPs can use this setup to hide and protect analytics rules, hunting queries, and selected workbooks and playbooks.
 
@@ -69,26 +71,26 @@ Instead, protect your intellectual property that you've developed in Azure Senti
 
 ### Analytics rules and hunting queries
 
-Analytics rules and hunting queries are both contained within Azure Sentinel, and therefore cannot be separated from the Azure Sentinel resource or workspace.
+Analytics rules and hunting queries are both contained within Azure Sentinel, and therefore cannot be separated from the Azure Sentinel workspace.
 
 Even if a user only has Azure Sentinel Reader permissions, they'll still be able to view the query. In this case, we recommend hosting your Analytics rules and hunting queries in your own MSSP tenant, instead of the customer tenant.
 
 To do this, you'll need a workspace in your own tenant with Azure Sentinel enabled, and you'll also need to see the customer workspace via [Azure Lighthouse](multiple-tenants-service-providers.md).
 
-To ensure that the rule or query can be run in the customer workspace, make sure to specify the workspace where the query is run against. For example, use a workspace statement in your rule as follows:
+To create an analytic rule or hunting query in the MSSP tenant that references data in the customer tenant, you must use the `workspace` statement as follows:
 
 ```kql
 workspace('<customer-workspace>').SecurityEvent
 | where EventID == ‘4625’
 ```
 
-When adding a workspace statement to your analytics rules, consider the following:
+When adding a `workspace` statement to your analytics rules, consider the following:
 
-- **No alerts in the customer workspace**. Rules created in this manner, won’t create alerts or incidents. Both alerts and incidents will exist in your MSSP workspace only.
+- **No alerts in the customer workspace**. Rules created in this manner, won’t create alerts or incidents in the customer workspace. Both alerts and incidents will exist in your MSSP workspace only.
 
 - **Create separate alerts for each customer**. This method also requires that you use separate alerts for each customer and detection, as the workspace statement will be different in each case.
 
-    You can add the customer name to the alert rule name to easily identify the customer when the alert is triggered. Separate alerts may result in a large number of rules, which you might want to manage using scripting, or [Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
+    You can add the customer name to the alert rule name to easily identify the customer where the alert is triggered. Separate alerts may result in a large number of rules, which you might want to manage using scripting, or [Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
 
     For example:
 
@@ -128,7 +130,7 @@ For more information, see [Import Azure Monitor log data into Power BI](/azure/a
 
 You can protect your playbooks as follows, depending on where the  analytic rules that trigger the playbook have been created:
 
-- **Analytics rules created in the MSSP workspace**.  Make sure to create your playbooks in the MSSP workspace, and that you get all incident and alert data from the MSSP workspace. You can attach the playbooks whenever you create a new rule in your workspace.
+- **Analytics rules created in the MSSP workspace**.  Make sure to create your playbooks in the MSSP tenant, and that you get all incident and alert data from the MSSP workspace. You can attach the playbooks whenever you create a new rule in your workspace.
 
     For example:
 
@@ -139,6 +141,10 @@ You can protect your playbooks as follows, depending on where the  analytic rule
     For example:
 
     :::image type="content" source="media/mssp-protect-intellectual-property/rules-in-customer-workspace.png" alt-text="Rules created in the customer workspace.":::
+
+In both cases, if the playbook needs to access the customer’s Azure environment, use a user or service principal that has that access via Lighthouse. 
+
+However, if the playbook needs to access non-Azure resources in the customer’s tenant, such as Azure AD, Office 365, or Microsoft 365 Defender, you'll need to create a service principal with appropriate permissions in the customer tenant, and then add that identity in the playbook.
 ## Next steps
 
 For more information, see:
