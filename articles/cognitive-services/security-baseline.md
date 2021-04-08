@@ -4,7 +4,7 @@ description: The Cognitive Services security baseline provides procedural guidan
 author: msmbaldwin
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -14,17 +14,9 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Cognitive Services
 
-This security
-baseline applies guidance from the [Azure Security Benchmark version
-1.0](../security/benchmarks/overview-v1.md) to Cognitive Services. The Azure Security Benchmark
-provides recommendations on how you can secure your cloud solutions on Azure.
-The content is grouped by the **security controls** defined by the Azure
-Security Benchmark and the related guidance applicable to Cognitive Services. **Controls** not applicable to Cognitive Services have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version1.0](../security/benchmarks/overview-v1.md) to Cognitive Services. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Cognitive Services. **Controls** not applicable to Cognitive Services, or for which the responsibility is Microsoft's, have been excluded.
 
- 
-To see how Cognitive Services completely maps to the Azure
-Security Benchmark, see the [full Cognitive Services security baseline mapping
-file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+To see how Cognitive Services completely maps to the Azure Security Benchmark, see the [full Cognitive Services security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Network Security
 
@@ -263,9 +255,9 @@ Configure diagnostic settings for your Cognitive Services container and send log
 
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Responsibility**: Customer
 
@@ -383,7 +375,7 @@ Customer to maintain inventory of API Management user accounts, reconcile access
 
 - [How to manage user accounts in Azure API Management](../api-management/api-management-howto-create-or-invite-developers.md)
 
-- [How to get list of API Management users](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-4.8.0&amp;preserve-view=true)
+- [How to get list of API Management users](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -546,7 +538,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -632,7 +624,7 @@ In addition, use Azure Resource Graph to query or discover resources within the 
 
 **Guidance**: Define and implement standard security configurations for your Cognitive Services container with Azure Policy. Use Azure Policy aliases in the "Microsoft.CognitiveServices" namespace to create custom policies to audit or enforce the configuration of your Azure Cache for Redis instances.
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -656,9 +648,9 @@ In addition, use Azure Resource Graph to query or discover resources within the 
 
 **Guidance**: If you are using custom Azure Policy definitions or Azure Resource Manager templates for your Cognitive Services containers and related resources, use Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos Documentation](/azure/devops/repos/)
 
 **Responsibility**: Customer
 
@@ -772,7 +764,7 @@ You can also use lifecycle management feature to back up data to the Archive tie
 
 - [Introduction to Azure Automation](../automation/automation-intro.md)
 
-- [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
 **Responsibility**: Customer
 
@@ -784,7 +776,7 @@ You can also use lifecycle management feature to back up data to the Archive tie
 
 - [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md)
 
-- [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Responsibility**: Customer
 
@@ -796,7 +788,7 @@ You can also use lifecycle management feature to back up data to the Archive tie
 
 Use Azure role-based access control to protect customer-managed keys. Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. 
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 

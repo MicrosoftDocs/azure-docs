@@ -18,8 +18,8 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1)
-- Create an active Communication Services resource. [Create a Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
-- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp).
+- Create an active Communication Services resource. [Create a Communication Services resource](../create-communication-resource.md?pivots=platform-azp&tabs=windows).
+- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../access-tokens.md?pivots=programming-language-csharp).
 
 ## Setting up
 ### Create a new Node.js application
@@ -28,9 +28,11 @@ Open your terminal or command window create a new directory for your app, and na
 mkdir calling-quickstart && cd calling-quickstart
 ```
 ### Install the package
-Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 
-This quickstart used Azure Communication Calling Client Library `1.0.0.beta-6`. 
+> [!IMPORTANT]
+> This quickstart uses the Azure Communication Services Calling SDK version `1.0.0.beta-10`. 
+
 
 ```console
 npm install @azure/communication-common --save
@@ -100,7 +102,7 @@ Here's the code:
 Create a file in the root directory of your project called `client.js` to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements.
 
 ```JavaScript
-import { CallClient, CallAgent, Renderer, LocalVideoStream } from "@azure/communication-calling";
+import { CallClient, CallAgent, VideoStreamRenderer, LocalVideoStream } from "@azure/communication-calling";
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
@@ -119,19 +121,19 @@ let rendererRemote;
 ```
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
 | Name      | Description | 
 | :---        |    :----   |
-| CallClient  | The CallClient is the main entry point to the Calling client library.      |
+| CallClient  | The CallClient is the main entry point to the Calling SDK.      |
 | CallAgent  | The CallAgent is used to start and manage calls.        |
 | DeviceManager | The DeviceManager is used to manage media devices.    |
 | AzureCommunicationTokenCredential | The AzureCommunicationTokenCredential class implements the CommunicationTokenCredential interface which is used to instantiate the CallAgent.        |
 
 ## Authenticate the client and access DeviceManager
 
-You need to replace <USER_ACCESS_TOKEN> with a valid user access token for your resource. Refer to the user access token documentation if you don't already have a token available. Using the CallClient, initialize a CallAgent instance with a CommunicationUserCredential which will enable us to make and receive calls. 
-To access the DeviceManager a callAgent instance must first be created. You can then use the `getDeviceManager` method on the `CallClient` instance to get the `DeviceManager`.
+You need to replace <USER_ACCESS_TOKEN> with a valid user access token for your resource. Refer to the user access token documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationUserCredential` which will enable us to make and receive calls. 
+To access the `DeviceManager` a callAgent instance must first be created. You can then use the `getDeviceManager` method on the `CallClient` instance to get the `DeviceManager`.
 
 Add the following code to `client.js`:
 
@@ -150,7 +152,7 @@ init();
 
 Add an event listener to initiate a call when the `callButton` is clicked:
 
-First you have to enumerate local cameras using the deviceManager getCameraList API. In this quickstart we're using the first camera in the collection. Once the desired camera is selected, a LocalVideoStream instance will be constructed and passed within videoOptions as an item within the localVideoStream array to the call method. Once your call connects it will automatically start sending a video stream to the other participant. 
+First you have to enumerate local cameras using the deviceManager `getCameraList` API. In this quickstart we're using the first camera in the collection. Once the desired camera is selected, a LocalVideoStream instance will be constructed and passed within `videoOptions` as an item within the localVideoStream array to the call method. Once your call connects it will automatically start sending a video stream to the other participant. 
 
 ```JavaScript
 callButton.addEventListener("click", async () => {
@@ -175,47 +177,47 @@ callButton.addEventListener("click", async () => {
     callButton.disabled = true;
 });
 ```  
-To render a `LocalVideoStream`, you need to create a new instance of `Renderer`, and then create a new RendererView instance using the asynchronous `createView` method. You may then attach `view.target` to any UI element. 
+To render a `LocalVideoStream`, you need to create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` instance using the asynchronous `createView` method. You may then attach `view.target` to any UI element. 
 
 ```JavaScript
 async function localVideoView() {
-    rendererLocal = new Renderer(localVideoStream);
+    rendererLocal = new VideoStreamRenderer(localVideoStream);
     const view = await rendererLocal.createView();
     document.getElementById("myVideo").appendChild(view.target);
 }
 ```
-All remote participants are available through the `remoteParticipants` collection on a call instance. You need to subscribe to the remote participants of the current call and listen to the event `remoteParticipantsUpdated` to subscribe to added remote participants.
+All remote participants are available through the `remoteParticipants` collection on a call instance. You need to listen to the event `remoteParticipantsUpdated`to be notified when a new remote participant is added into the call. You also need to iterate the `remoteParticipants` collection to subscribe to each of them in order to subscribe to their video streams. 
 
 ```JavaScript
 function subscribeToRemoteParticipantInCall(callInstance) {
-    callInstance.remoteParticipants.forEach( p => {
-        subscribeToRemoteParticipant(p);
-    })
     callInstance.on('remoteParticipantsUpdated', e => {
         e.added.forEach( p => {
-            subscribeToRemoteParticipant(p);
+            subscribeToParticipantVideoStreams(p);
         })
-    });   
+    }); 
+    callInstance.remoteParticipants.forEach( p => {
+        subscribeToParticipantVideoStreams(p);
+    })
 }
 ```
-You can subscribe to the `remoteParticipants` collection of the current call and inspect the `videoStreams` collections to list the streams of each participant. You also need to subscribe to the remoteParticipantsUpdated event to handle added remote participants. 
+You need to subscribe to the `videoStreamsUpdated` event to handle added video streams of remote participants. You can inspect the `videoStreams` collections to list the streams of each participant while going through the `remoteParticipants` collection of the current call.
 
 ```JavaScript
-function subscribeToRemoteParticipant(remoteParticipant) {
-    remoteParticipant.videoStreams.forEach(v => {
-        handleVideoStream(v);
-    });
+function subscribeToParticipantVideoStreams(remoteParticipant) {
     remoteParticipant.on('videoStreamsUpdated', e => {
         e.added.forEach(v => {
             handleVideoStream(v);
         })
+    });
+    remoteParticipant.videoStreams.forEach(v => {
+        handleVideoStream(v);
     });
 }
 ```
 You have to subscribe to a `isAvailableChanged` event to render the `remoteVideoStream`. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. Whenever availability of a remote stream changes you can choose to destroy the whole `Renderer`, a specific `RendererView` or keep them, but this will result in displaying blank video frame.
 ```JavaScript
 function handleVideoStream(remoteVideoStream) {
-    remoteVideoStream.on('availabilityChanged', async () => {
+    remoteVideoStream.on('isAvailableChanged', async () => {
         if (remoteVideoStream.isAvailable) {
             remoteVideoView(remoteVideoStream);
         } else {
@@ -227,11 +229,11 @@ function handleVideoStream(remoteVideoStream) {
     }
 }
 ```
-To render a `RemoteVideoStream`, you need to create a new instance of `Renderer`, and then create a new `RendererView` instance using the asynchronous `createView` method. You may then attach `view.target` to any UI element. 
+To render a `RemoteVideoStream`, you need to create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` instance using the asynchronous `createView` method. You may then attach `view.target` to any UI element. 
 
 ```JavaScript
 async function remoteVideoView(remoteVideoStream) {
-    rendererRemote = new Renderer(remoteVideoStream);
+    rendererRemote = new VideoStreamRenderer(remoteVideoStream);
     const view = await rendererRemote.createView();
     document.getElementById("remoteVideo").appendChild(view.target);
 }
@@ -255,7 +257,7 @@ callAgent.on('incomingCall', async e => {
     const addedCall = await e.incomingCall.accept({videoOptions: {localVideoStreams:[localVideoStream]}});
     call = addedCall;
 
-    subscribeToRemoteParticipantInCall(addedCall);   
+    subscribeToRemoteParticipantInCall(addedCall);  
 });
 ```
 ## End the current call
@@ -326,10 +328,12 @@ You can make an 1:1 outgoing video call by providing a user ID in the text field
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
 
 ## Clean up resources
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md?pivots=platform-azp&tabs=windows#clean-up-resources).
 
 ## Next steps
 For more information, see the following articles:
+
 - Check out our [web calling sample](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample)
-- Learn about [calling client library capabilities](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
+- Learn about [Calling SDK capabilities](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
 - Learn more about [how calling works](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)
+

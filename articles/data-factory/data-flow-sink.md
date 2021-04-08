@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/10/2021
+ms.date: 04/06/2021
 ---
 
 # Sink transformation in mapping data flow
@@ -115,7 +115,35 @@ Below is a video tutorial on how to use database error row handling automaticall
 
 ## Data preview in sink
 
-When fetching a data preview on a debug cluster, no data will be written to your sink. A snapshot of what the data looks like will be returned, but nothing will be written to your destination. To test writing data into your sink, run a pipeline debug from the pipeline canvas.
+When fetching a data preview in debug mode, no data will be written to your sink. A snapshot of what the data looks like will be returned, but nothing will be written to your destination. To test writing data into your sink, run a pipeline debug from the pipeline canvas.
+
+## Data flow script
+
+### Example
+
+Below is an example of a sink transformation and its data flow script:
+
+```
+sink(input(
+		movie as integer,
+		title as string,
+		genres as string,
+		year as integer,
+		Rating as integer
+	),
+	allowSchemaDrift: true,
+	validateSchema: false,
+	deletable:false,
+	insertable:false,
+	updateable:true,
+	upsertable:false,
+	keys:['movie'],
+	format: 'table',
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true,
+	saveOrder: 1,
+	errorHandlingOption: 'stopOnFirstError') ~> sink1
+```
 
 ## Next steps
 

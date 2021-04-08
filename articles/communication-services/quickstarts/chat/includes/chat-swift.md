@@ -12,54 +12,50 @@ ms.custom: include file
 ms.author: mikben
 ---
 
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
+
 ## Prerequisites
 Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Install [Xcode](https://developer.apple.com/xcode/) and [Cocoapods](https://cocoapods.org/), we will be using Xcode to create an iOS application for the quickstart and Cocoapods to install dependencies.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
-- Create **two** ACS Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. In this quickstart we will create a thread with an initial participant and then add a second participant to the thread.
+- Install [Xcode](https://developer.apple.com/xcode/) and [CocoaPods](https://cocoapods.org/). You use Xcode to create an iOS application for the quickstart, and CocoaPods to install dependencies.
+- Create an Azure Communication Services resource. For details, see [Quickstart: Create and manage Communication Services resources](../../create-communication-resource.md). For this quickstart, you need to record your resource endpoint.
+- Create two users in Azure Communication Services, and issue them a [user access token](../../access-tokens.md). Be sure to set the scope to `chat`, and note the `token` string as well as the `userId` string. In this quickstart, you create a thread with an initial participant, and then add a second participant to the thread.
 
 ## Setting up
 
 ### Create a new iOS application
 
-Open Xcode and select `Create a new Xcode project`.
+Open Xcode and select **Create a new Xcode project**. Then select **iOS** as the platform and **App** for the template.
 
-On the next window, select `iOS` as the platform and `App` for the template.
+For the project name, enter **ChatQuickstart**. Then select **Storyboard** as the interface, **UIKit App Delegate** as the life cycle, and **Swift** as the language.
 
-When choosing options enter `ChatQuickstart` as the project name. 
-Select `Storyboard` as the interface, `UIKit App Delegate` as the life cycle, and `Swift` as the language.
-
-Click next and choose the directory where you want the project to be created.
+Select **Next**, and choose the directory where you want the project to be created.
 
 ### Install the libraries
 
-We'll use Cocoapods to install the necessary Communication Services dependencies.
+Use CocoaPods to install the necessary Communication Services dependencies.
 
-From the command line navigate inside the root directory of the `ChatQuickstart` iOS project.
+From the command line, go inside the root directory of the `ChatQuickstart` iOS project. Create a Podfile with the following command: `pod init`.
 
-Create a Podfile:
-`pod init`
+Open the Podfile, and add the following dependencies to the `ChatQuickstart` target:
 
-Open the Podfile and add the following dependencies to the `ChatQuickstart` target:
 ```
 pod 'AzureCommunication', '~> 1.0.0-beta.9'
 pod 'AzureCommunicationChat', '~> 1.0.0-beta.9'
 ```
 
-Install the dependencies, this will also create an Xcode workspace:
-`pod install`
+Install the dependencies with the following command: `pod install`. Note that this also creates an Xcode workspace.
 
-**After running pod install, re-open the project in Xcode by selecting the newly created `.xcworkspace`.**
+After running `pod install`, re-open the project in Xcode by selecting the newly created `.xcworkspace`.
 
-### Setup the placeholders
+### Set up the placeholders
 
-Open the workspace `ChatQuickstart.xcworkspace` in Xcode and then open `ViewController.swift`.
+Open the workspace `ChatQuickstart.xcworkspace` in Xcode, and then open `ViewController.swift`.
 
-In this Quickstart, we will add our code to `viewController`, and view the output in the Xcode console. This quickstart does not address building a UI in iOS. 
+In this quickstart, you add your code to `viewController`, and view the output in the Xcode console. This quickstart doesn't address building a user interface in iOS. 
 
-At the top of `viewController.swift` import the `AzureCommunication` and `AzureCommunicatonChat` libraries:
+At the top of `viewController.swift`, import the `AzureCommunication` and `AzureCommunicatonChat` libraries:
 
 ```
 import AzureCommunication
@@ -96,7 +92,7 @@ override func viewDidLoad() {
     }
 ```
 
-We'll use a semaphore to synchronize our code for demonstration purposes. In following steps, we'll replace the placeholders with sample code using the Azure Communication Services Chat library.
+For demonstration purposes, we'll use a semaphore to synchronize your code. In following steps, you replace the placeholders with sample code by using the Azure Communication Services Chat library.
 
 
 ### Create a chat client
@@ -118,24 +114,24 @@ let endpoint = "<ACS_RESOURCE_ENDPOINT>"
     )
 ```
 
-Replace `<ACS_RESOURCE_ENDPOINT>` with the endpoint of your ACS Resource.
-Replace `<ACCESS_TOKEN>` with a valid ACS access token.
+Replace `<ACS_RESOURCE_ENDPOINT>` with the endpoint of your Azure Communication Services resource. Replace `<ACCESS_TOKEN>` with a valid Communication Services access token.
 
-This quickstart does not cover creating a service tier to manage tokens for your chat application, although it is recommended. See the following documentation for more detail [Chat Architecture](../../../concepts/chat/concepts.md)
+This quickstart doesn't cover creating a service tier to manage tokens for your chat application, but that's recommended. For more information, see the "Chat architecture" section of [Chat concepts](../../../concepts/chat/concepts.md).
 
-Learn more about [User Access Tokens](../../access-tokens.md).
+For more information about user access tokens, see [Quickstart: Create and manage access tokens](../../access-tokens.md).
 
 ## Object model 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for JavaScript.
+
+The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for JavaScript.
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ChatClient | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
-| ChatThreadClient | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts, subscribe chat events. |
+| `ChatClient` | This class is needed for the chat functionality. You instantiate it with your subscription information, and use it to create, get, and delete threads. |
+| `ChatThreadClient` | This class is needed for the chat thread functionality. You obtain an instance via `ChatClient`, and use it to send, receive, update, and delete messages. You can also use it to add, remove, and get users, send typing notifications and read receipts, and subscribe to chat events. |
 
 ## Start a chat thread
 
-Now we will use our `ChatClient` to create a new thread with an initial user.
+Now you use your `ChatClient` to create a new thread with an initial user.
 
 Replace the comment `<CREATE A CHAT THREAD>` with the following code:
 
@@ -166,11 +162,11 @@ semaphore.wait()
 
 Replace `<USER_ID>` with a valid Communication Services user ID.
 
-We're using a semaphore here to wait for the completion handler before continuing. We will use the `threadId` from the response returned to the completion handler in later steps.
+You're using a semaphore here to wait for the completion handler before continuing. In later steps, you'll use the `threadId` from the response returned to the completion handler.
 
 ## Get a chat thread client
 
-Now that we have created a Chat thread we'll obtain a `ChatThreadClient` to perform operations within the thread.
+Now that you've created a chat thread, you can obtain a `ChatThreadClient` to perform operations within the thread.
 
 Replace the comment `<CREATE A CHAT THREAD CLIENT>` with the following code:
 
@@ -200,7 +196,7 @@ chatThreadClient.send(message: message) { result, _ in
 semaphore.wait()
 ```
 
-First we construct the `SendChatMessageRequest` which contains the content and senders display name (also optionally can contain the share history time). The response returned to the completion handler contains the ID of the message that was sent.
+First, you construct the `SendChatMessageRequest`, which contains the content and sender's display name. This request can also contain the share history time, if you want to include it. The response returned to the completion handler contains the ID of the message that was sent.
 
 ## Add a user as a participant to the chat thread
 
@@ -224,9 +220,9 @@ chatThreadClient.add(participants: [user]) { result, _ in
 semaphore.wait()
 ```
 
-Replace `<USER_ID>` with the ACS user ID of the user to be added.
+Replace `<USER_ID>` with the Communication Services user ID of the user to be added.
 
-When adding a participant to a thread, the response returned the completion may contain errors. These errors represent failure to add particular participants.
+When you're adding a participant to a thread, the response returned might contain errors. These errors represent failure to add particular participants.
 
 ## List users in a thread
 
@@ -268,10 +264,9 @@ chatThreadClient
     }
 ```
 
-Replace `<USER ID>` with the the Communication Services user ID of the participant being removed.
+Replace `<USER ID>` with the Communication Services user ID of the participant being removed.
 
 ## Run the code
 
-In Xcode hit the Run button to build and run the project. In the console you can view the output from the code and the logger output from the ChatClient.
-
+In Xcode, select **Run** to build and run the project. In the console, you can view the output from the code and the logger output from the chat client.
 

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
-ms.date: 01/20/2020
+ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
 
 ---
@@ -461,12 +461,13 @@ Here are a few things to be aware of while you use Azure role-based access contr
 - When there are two role assignments to the same Azure Active Directory user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 
 - To deploy your compute resources inside a VNet, you need to explicitly have permissions for the following actions:
-    - `Microsoft.Network/virtualNetworks/join/action` on the VNet resource.
+    - `Microsoft.Network/virtualNetworks/*/read` on the VNet resources.
     - `Microsoft.Network/virtualNetworks/subnet/join/action` on the subnet resource.
     
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking).
 
 - It can sometimes take up to 1 hour for your new role assignments to take effect over cached permissions across the stack.
+- [Conditional access](../role-based-access-control/conditional-access-azure-management.md) is currently not supported with Azure Machine Learning.
 
 ## Next steps
 

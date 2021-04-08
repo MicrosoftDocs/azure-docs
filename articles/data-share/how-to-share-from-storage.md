@@ -172,7 +172,7 @@ Follow the steps in this section to configure a location to receive data.
 
    ![Screenshot showing where to select a target storage account.](./media/map-target.png "Target storage.") 
 
-1. For snapshot-based sharing, if the data provider uses a snapshot schedule to regularly update the data, you can enable the schedule from the **Snapshot Schedule** tab. Select the box next to the snapshot schedule. Then select **Enable**.
+1. For snapshot-based sharing, if the data provider uses a snapshot schedule to regularly update the data, you can enable the schedule from the **Snapshot Schedule** tab. Select the box next to the snapshot schedule. Then select **Enable**. Note that the first scheduled snapshot will start within one minute of the schedule time and subsequent snapshots will start within seconds of the scheduled time.
 
    ![Screenshot showing how to enable a snapshot schedule.](./media/enable-snapshot-schedule.png "Enable snapshot schedule.")
 

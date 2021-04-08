@@ -1,6 +1,6 @@
 ## Add managed identity to your Communication Services solution (JS)
 
-### Install the client library packages
+### Install the SDK packages
 
 ```console
 npm install @azure/communication-identity
@@ -9,9 +9,9 @@ npm install @azure/communication-sms
 npm install @azure/identity
 ```
 
-### Use the client library packages
+### Use the SDK packages
 
-Add the following `import` directives to your code to use the Azure Identity and Azure Storage client libraries.
+Add the following `import` directives to your code to use the Azure Identity and Azure Storage SDKs.
 
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";
@@ -19,9 +19,9 @@ import { CommunicationIdentityClient, CommunicationUserToken } from "@azure/comm
 import { SmsClient, SmsSendRequest } from "@azure/communication-sms";
 ```
 
-The examples below are using the [DefaultAzureCredential](/javascript/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
+The examples below are using the [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential). This credential is suitable for production and development environments.
 
-To register application in the development environment and set up environment variables, see [Authorize access with managed identity](../managed-identity-from-cli.md)  
+To register application in the development environment and set up environment variables, see [Authorize access with managed identity](../managed-identity-from-cli.md)
 
 ### Create an identity and issue a token with Managed Identity
 
@@ -43,16 +43,14 @@ The following code example shows how to create a service client object with mana
 export async function sendSms(resourceEndpoint: string, fromNumber: any, toNumber: any, message: string) {
      let credential = new DefaultAzureCredential();
      const smsClient = new SmsClient(resourceEndpoint, credential);
-     const sendRequest: SmsSendRequest = { 
-          from: fromNumber, 
-          to: [toNumber], 
-          message: message 
+     const sendRequest: SmsSendRequest = {
+          from: fromNumber,
+          to: [toNumber],
+          message: message
      };
-
      const response = await smsClient.send(
-          sendRequest, 
+          sendRequest,
           {} //Optional SendOptions
           );
 }
 ```
-

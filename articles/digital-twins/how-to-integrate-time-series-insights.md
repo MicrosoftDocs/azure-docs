@@ -158,7 +158,7 @@ Next, you'll need to set environment variables in your function app from earlier
 
 ## Create and connect a Time Series Insights instance
 
-Next, you will set up a Time Series Insights instance to receive the data from your second (TSI) event hub. Follow the steps below, and for more details about this process, see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorials-set-up-tsi-environment.md).
+Next, you will set up a Time Series Insights instance to receive the data from your second (TSI) event hub. Follow the steps below, and for more details about this process, see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorial-set-up-environment.md).
 
 1. In the Azure portal, begin creating a Time Series Insights environment. 
     1. Select the **Gen2(L1)** pricing tier.
@@ -174,7 +174,7 @@ Next, you will set up a Time Series Insights instance to receive the data from y
 
 ## Begin sending IoT data to Azure Digital Twins
 
-To begin sending data to Time Series Insights, you will need to start updating the digital twin properties in Azure Digital Twins with changing data values. Use the [az dt twin update](/cli/azure/ext/azure-iot/dt/twin#ext-azure-iot-az-dt-twin-update) command.
+To begin sending data to Time Series Insights, you will need to start updating the digital twin properties in Azure Digital Twins with changing data values. Use the [az dt twin update](/cli/azure/dt/twin#az_dt_twin_update) command.
 
 If you are using the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)) to assist with environment setup, you can begin sending simulated IoT data by running the *DeviceSimulator* project from the sample. The instructions are in the [*Configure and run the simulation*](tutorial-end-to-end.md#configure-and-run-the-simulation) section of the tutorial.
 
@@ -202,7 +202,7 @@ Now, data should be flowing into your Time Series Insights instance, ready to be
 
 The digital twins are stored by default as a flat hierarchy in Time Series Insights, but they can be enriched with model information and a multi-level hierarchy for organization. To learn more about this process, read: 
 
-* [*Tutorial: Define and apply a model*](../time-series-insights/tutorials-set-up-tsi-environment.md#define-and-apply-a-model) 
+* [*Tutorial: Define and apply a model*](../time-series-insights/tutorial-set-up-environment.md#define-and-apply-a-model) 
 
 You can write custom logic to automatically provide this information using the model and graph data already stored in Azure Digital Twins. To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
 

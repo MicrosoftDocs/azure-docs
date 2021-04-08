@@ -1,8 +1,8 @@
 ---
 title: Connect with Managed Identity - Azure Database for PostgreSQL - Single Server
 description: Learn about how to connect and authenticate using Managed Identity for authentication with Azure Database for PostgreSQL
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020

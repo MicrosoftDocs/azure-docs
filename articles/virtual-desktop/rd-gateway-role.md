@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 01/30/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 
 # Deploy the RD Gateway role in Windows Virtual Desktop (preview)

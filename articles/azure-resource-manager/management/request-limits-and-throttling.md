@@ -52,7 +52,7 @@ The Microsoft.Network resource provider applies the following throttle limits:
 
 ### Compute throttling
 
-For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
 
 For checking virtual machine instances within a virtual machine scale set, use the [Virtual Machine Scale Sets operations](/rest/api/compute/virtualmachinescalesetvms). For example, use the [Virtual Machine Scale Set VMs - List](/rest/api/compute/virtualmachinescalesetvms/list) with parameters to check the power state of virtual machine instances. This API reduces the number of requests.
 
@@ -92,7 +92,7 @@ You can determine the number of remaining requests by examining response headers
 | x-ms-ratelimit-remaining-tenant-resource-requests |Tenant scoped resource type requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. Resource Manager adds this value instead of the tenant reads or writes. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |Tenant scoped resource type collection requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. |
 
-The resource provider can also return response headers with information about remaining requests. For information about response headers returned by the Compute resource provider, see [Call rate informational response headers](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
+The resource provider can also return response headers with information about remaining requests. For information about response headers returned by the Compute resource provider, see [Call rate informational response headers](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#call-rate-informational-response-headers).
 
 ## Retrieving the header values
 

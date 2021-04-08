@@ -57,6 +57,9 @@ The following table lists supported third-party vendors and their Syslog or Comm
 |**Host** |Trend Micro |All |CommonSecurityLog | [Syslog Content Mapping - CEF](https://docs.trendmicro.com/en-us/enterprise/control-manager-70/appendices/syslog-mapping-cef.aspx) |
 | | | | | |
 
+> [!NOTE]
+> For more information, see also [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
+> 
 ## Next steps
 
 Learn more supported Azure Sentinel connectors, such as CEF, Syslog, direct, agent, and custom connectors:
