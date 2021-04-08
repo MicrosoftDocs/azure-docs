@@ -28,12 +28,12 @@ Let's say the marketing team at Microsoft wants to build a FAQ bot that answers 
 
 1. You add both of these URLs in the STEP 3 of the Create KB page and click on 'Create your KB'. A new knowledgebase is created after extracting QnA Pairs from these sources. 
 
-![Screenshot of create KB](../media/create-sample-kb.png)
+   ![Screenshot of create KB](../media/create-sample-kb.png)
 
 
 2. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
 
-![Screenshot of view metadata](../media/view-metadata.png)
+   ![Screenshot of view metadata](../media/view-metadata.png)
 
 
 ![Screenshot of update metadata](../media/update-metadata.png)
@@ -41,41 +41,41 @@ Let's say the marketing team at Microsoft wants to build a FAQ bot that answers 
 
 3. In this Knowledgebase, we have QnAs on two products and we would like to distinguish them accordingly. In order to do that, we can update the metadata field for the QnA pairs accordingly. As you can see in the example below, we have added a metadata with **product** as key and **surface_pen** or **surface_earbuds** as values wherever applicable. 
 
-![Screenshot of using metadata](../media/using-metadata.png)
+   ![Screenshot of using metadata](../media/using-metadata.png)
 
 
 You can extend the example above to extract data on multiple products and add a different value for each product. At the same time, a single QnA can be assigned multiple metadata key-value pairs to group data in multiple ways. 
 
 4. Now, in order to to restrict the system to search for the response across a particluar product you would need to pass that product as a strict filter in the generate Answer API.
 
-You can find how to use the GenerateAnswer API [here](../How-To/metadata-generateanswer-usage.md). The GenerateAnswer URL has the following format:
-```
-https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
-```
+    You can find how to use the GenerateAnswer API [here](../How-To/metadata-generateanswer-usage.md). The GenerateAnswer URL has the following format:
+    ```
+    https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
+    ```
 
-In the JSON body for the API call, we have passed *surface_pen* as value for the metadata *product*. So, the system will only look for the response amongst the QnA pairs with the same metadata. 
+    In the JSON body for the API call, we have passed *surface_pen* as value for the metadata *product*. So, the system will only look for the response amongst the QnA pairs with the same metadata. 
 
-```json
-{
-    "question": "change pen tips?",
-    "top": 6,
-    "isTest": true,
-    "scoreThreshold": 30,
-    "rankerType": ""  // values: QuestionOnly
-    "strictFilters": [
+    ```json
     {
-        "name": "product",
-        "value": "surface_pen"
-    }],
-    "userId": "sd53lsY="
-}
-```
+        "question": "change pen tips?",
+        "top": 6,
+        "isTest": true,
+        "scoreThreshold": 30,
+        "rankerType": ""  // values: QuestionOnly
+        "strictFilters": [
+        {
+            "name": "product",
+            "value": "surface_pen"
+        }],
+        "userId": "sd53lsY="
+    }
+    ```
 
-You can obtain metadata value based on user input in the following ways: 
+    You can obtain metadata value based on user input in the following ways: 
 
-* Explicitly take the domain as input from the user through the bot interface. For instance, you can take as input from the user a product category they are interested in before they ask questions. We use [Bot Framework](https://dev.botframework.com/) samples to create a bot for you from the portal. You can edit the Bot code to pass on metadata filter. You can refer the [bot sample](https://github.com/microsoft/BotBuilder-Samples/blob/main/samples/csharp_dotnetcore/49.qnamaker-all-features) to understand the underlying bot structure.
-* Identify domain based on any other input. For instance, in case of an empoloyee FAQ bot, you can identify department from employee id which can then be set as filter for metadata.
-* Extract entity from user query to identify domain to be used for metadata filter. You can use other cognitive services such as [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3-preview) and [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis) for entity extraction.
+    * Explicitly take the domain as input from the user through the bot interface. For instance, you can take as input from the user a product category they are interested in before they ask questions. We use [Bot Framework](https://dev.botframework.com/) samples to create a bot for you from the portal. You can edit the Bot code to pass on metadata filter. You can refer the [bot sample](https://github.com/microsoft/BotBuilder-Samples/blob/main/samples/csharp_dotnetcore/49.qnamaker-all-features) to understand the underlying bot structure.
+    * Identify domain based on any other input. For instance, in case of an empoloyee FAQ bot, you can identify department from employee id which can then be set as filter for metadata.
+    * Extract entity from user query to identify domain to be used for metadata filter. You can use other cognitive services such as [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3-preview) and [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis) for entity extraction.
 
 #### How large can our knowledgebases be? 
 
