@@ -109,7 +109,7 @@ To authenticate using a certificate:
 
 To validate your installation:
 
-1. Making sure the micro agent is running properly with the following command:  
+1. Use the following command to ensure the micro agent is running properly:  
 
     ```azurecli
     systemctl status defender-iot-micro-agent.service
@@ -120,7 +120,7 @@ To validate your installation:
  
 ## Testing the system end-to-end 
 
-You can test the system from end to end by creating a trigger file on the device. The trigger file will cause the baseline scan in the agent to detect the file as a baseline violation. 
+You can test the system from end to end by creating a trigger file on the device. The trigger file will cause a baseline scan in the agent, which will detect the file as a baseline violation.
 
 Create a file on the file system with the following command:
 
@@ -135,7 +135,7 @@ Allow up to one hour for the recommendation to appear in the hub.
 
 ## Micro agent versioning 
 
-Run the following command, to install a specific version of the Defender IoT micro agent:
+To install a specific version of the Defender IoT micro agent, use the following command:
 
 ```azurecli
 sudo apt-get install defender-iot-micro-agent=<version>

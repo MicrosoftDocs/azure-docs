@@ -11,6 +11,8 @@ This article provides an explanation of how to install, and authenticate the Def
 
 ## Prerequisites 
 
+You must install both the Microsoft package, and Edge runtime version 1.2 prior to installing the Defender for IoT micro agent for Edge. 
+
 1. Install, and configure the Microsoft package using the following commands.  
 
     ```azurecli
@@ -33,7 +35,7 @@ This article provides an explanation of how to install, and authenticate the Def
 
     To validate your installation:
 
-    1. Making sure the micro agent is running properly with the following command:  
+    1. Use the following command to ensure the micro agent is running properly:  
     
         ```azurecli
         systemctl status defender-iot-micro-agent.service
@@ -44,7 +46,7 @@ This article provides an explanation of how to install, and authenticate the Def
  
 1. Test the system end-to-end.
 
-    You can test the system from end to end by creating a trigger file on the device. The trigger file will cause the baseline scan in the agent to detect the file as a baseline violation. 
+    You can test the system from end to end by creating a trigger file on the device. The trigger file will cause a baseline scan in the agent, which will detect the file as a baseline violation. 
     
     Create a file on the file system with the following command:
     
@@ -59,7 +61,7 @@ This article provides an explanation of how to install, and authenticate the Def
 
 1. Micro agent version
 
-    Run the following command, to install a specific version of the Defender IoT micro agent: 
+    To install a specific version of the Defender IoT micro agent, use the following command:
     
     ```azurecli
     sudo apt-get install defender-iot-micro-agent=<version>
