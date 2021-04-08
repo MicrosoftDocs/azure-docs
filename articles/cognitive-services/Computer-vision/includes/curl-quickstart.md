@@ -45,7 +45,7 @@ To create and run the sample, do the following steps:
 1. Paste the command from the text editor into the command prompt window, and then run the command.
 
 ```bash
-curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.1/read/analyze?language={string}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/read/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
 ```
 
 The response will include an `Operation-Location` header, whose value is a unique URL. You use this URL to query the results of the Read operation. The URL expires in 48 hours.
@@ -58,7 +58,7 @@ The response will include an `Operation-Location` header, whose value is a uniqu
 1. Paste the command from the text editor into the command prompt window, and then run the command.
 
 ```bash
-curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/vision/v3.1/read/analyzeResults/{operationId}" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{body}" 
+curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/read/analyzeResults/{operationId}" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{body}" 
 ```
 
 ### Examine the response
@@ -68,183 +68,50 @@ A successful response is returned in JSON. The sample application parses and dis
 ```json
 {
   "status": "succeeded",
-  "createdDateTime": "2019-10-03T14:32:04.236Z",
-  "lastUpdatedDateTime": "2019-10-03T14:38:14.852Z",
+  "createdDateTime": "2021-04-08T21:56:17.6819115+00:00",
+  "lastUpdatedDateTime": "2021-04-08T21:56:18.4161316+00:00",
   "analyzeResult": {
-    "version": "v3.0",
+    "version": "3.2",
     "readResults": [
       {
         "page": 1,
-        "language": "en",
-        "angle": 49.59,
-        "width": 600,
-        "height": 400,
+        "angle": 0,
+        "width": 338,
+        "height": 479,
         "unit": "pixel",
         "lines": [
           {
             "boundingBox": [
-              202,
-              618,
-              2047,
-              643,
-              2046,
-              840,
-              200,
-              813
+              25,
+              14,
+              318,
+              14,
+              318,
+              59,
+              25,
+              59
             ],
-            "text": "Our greatest glory is not",
-            "words": [
-              {
-                "boundingBox": [
-                  204,
-                  627,
-                  481,
-                  628,
-                  481,
-                  830,
-                  204,
-                  829
-                ],
-                "text": "Our",
-                "confidence": 0.164
-              },
-              {
-                "boundingBox": [
-                  519,
-                  628,
-                  1057,
-                  630,
-                  1057,
-                  832,
-                  518,
-                  830
-                ],
-                "text": "greatest",
-                "confidence": 0.164
-              },
-              {
-                "boundingBox": [
-                  1114,
-                  630,
-                  1549,
-                  631,
-                  1548,
-                  833,
-                  1114,
-                  832
-                ],
-                "text": "glory",
-                "confidence": 0.164
-              },
-              {
-                "boundingBox": [
-                  1586,
-                  631,
-                  1785,
-                  632,
-                  1784,
-                  834,
-                  1586,
-                  833
-                ],
-                "text": "is",
-                "confidence": 0.164
-              },
-              {
-                "boundingBox": [
-                  1822,
-                  632,
-                  2115,
-                  633,
-                  2115,
-                  835,
-                  1822,
-                  834
-                ],
-                "text": "not",
-                "confidence": 0.164
+            "text": "NOTHING",
+            "appearance": {
+              "style": {
+                "name": "other",
+                "confidence": 0.971
               }
-            ]
-          },
-...
-        ]
-      },
-      {
-        "page": 2,
-        "language": "en",
-        "angle": 1.32,
-        "width": 600,
-        "height": 400,
-        "unit": "pixel",
-        "lines": [
-          {
-            "boundingBox": [
-              1612,
-              903,
-              2744,
-              935,
-              2738,
-              1139,
-              1607,
-              1107
-            ],
-            "text": "in never failing ,",
+            },
             "words": [
               {
                 "boundingBox": [
-                  1611,
-                  934,
-                  1707,
-                  933,
-                  1708,
-                  1147,
-                  1613,
-                  1147
+                  27,
+                  15,
+                  294,
+                  15,
+                  294,
+                  60,
+                  27,
+                  60
                 ],
-                "text": "in",
-                "confidence": 0.164
-              },
-              {
-                "boundingBox": [
-                  1753,
-                  933,
-                  2132,
-                  930,
-                  2133,
-                  1144,
-                  1754,
-                  1146
-                ],
-                "text": "never",
-                "confidence": 0.999
-              },
-              {
-                "boundingBox": [
-                  2162,
-                  930,
-                  2673,
-                  927,
-                  2674,
-                  1140,
-                  2164,
-                  1144
-                ],
-                "text": "failing",
-                "confidence": 0.164
-              },
-              {
-                "boundingBox": [
-                  2703,
-                  926,
-                  2788,
-                  926,
-                  2790,
-                  1139,
-                  2705,
-                  1140
-                ],
-                "text": ",",
-                "confidence": 0.164
+                "text": "NOTHING",
+                "confidence": 0.994
               }
             ]
           }
@@ -253,13 +120,14 @@ A successful response is returned in JSON. The sample application parses and dis
     ]
   }
 }
+
 ```
 
 
 
 ## Next steps
 
-Explore the OCR API in more depth. To rapidly experiment with the API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005/console).
+Explore the OCR API in more depth. To rapidly experiment with the API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005/console).
 
 > [!div class="nextstepaction"]
-> [Explore the OCR API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005)
+> [Explore the OCR API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
