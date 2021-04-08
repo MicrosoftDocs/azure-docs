@@ -9,7 +9,7 @@ ms.date: 05/29/2020
 ms.custom: devx-track-java
 ---
 
-# How to self-diagnose and solve problems in Azure Spring Cloud
+# Self-diagnose and solve problems in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
 
