@@ -278,10 +278,10 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Thai (Thailand) | `th-TH` | Male | `th-TH-NiwatNeural` | General |
 | Turkish (Turkey) | `tr-TR` | Female | `tr-TR-EmelNeural` | General |
 | Turkish (Turkey) | `tr-TR` | Male | `tr-TR-AhmetNeural` | General |
-| Ukrainian (Ukraine) | `uk-UA` | Female | `en-ZA-LeahNeural` <sup>New</sup> | General | 
-| Ukrainian (Ukraine) | `uk-UA` | Male | `en-ZA-LukeNeural` <sup>New</sup> | General | 
-| Urdu (Pakistan) | `ur-PK` | Female | `uk-UA-PolinaNeural` <sup>New</sup> | General | 
-| Urdu (Pakistan) | `ur-PK` | Male | `uk-UA-OstapNeural` <sup>New</sup> | General | 
+| Ukrainian (Ukraine) | `uk-UA` | Female | `uk-UA-PolinaNeural` <sup>New</sup> | General | 
+| Ukrainian (Ukraine) | `uk-UA` | Male | `uk-UA-OstapNeural` <sup>New</sup> | General | 
+| Urdu (Pakistan) | `ur-PK` | Female | `ur-PK-UzmaNeural` <sup>New</sup>  | General | 
+| Urdu (Pakistan) | `ur-PK` | Male | `ur-PK-AsadNeural` <sup>New</sup> | General | 
 | Vietnamese (Vietnam) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | General |
 | Vietnamese (Vietnam) | `vi-VN` | Male | `vi-VN-NamMinhNeural` | General |
 | Welsh (UK) | `cy-GB` | Female | `cy-GB-NiaNeural` <sup>New</sup> | General | 

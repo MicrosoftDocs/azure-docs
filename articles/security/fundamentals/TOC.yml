@@ -69,6 +69,8 @@
     href: steps-secure-identity.md
   - name: Choose passwordless 
     href: ../../active-directory/authentication/concept-authentication-passwordless.md
+  - name: Authentication
+    href: /azure/architecture/framework/security/design-identity-authentication?toc=azure/security/fundamentals/toc.json&bc=azure/security/breadcrumb/toc.json
 
 
 
@@ -97,7 +99,7 @@
     href: virtual-machines-overview.md
   - name: Best practices - IaaS workloads
     href: iaas.md
-  - name: Azure marketplace images
+  - name: Azure Marketplace images
     href: azure-marketplace-images.md
 
 - name: Data security, encryption, and storage
