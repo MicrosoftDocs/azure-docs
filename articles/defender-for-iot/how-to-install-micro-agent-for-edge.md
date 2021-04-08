@@ -11,16 +11,33 @@ This article provides an explanation of how to install, and authenticate the Def
 
 ## Prerequisites 
 
-You must install both the Microsoft package, and Edge runtime version 1.2 prior to installing the Defender for IoT micro agent for Edge. 
+You must add the appropriate Microsoft package repository, and install Edge runtime version 1.2, prior to installing the Defender for IoT micro agent for Edge. 
 
-1. Install, and configure the Microsoft package using the following commands.  
+1. Add the Microsoft package repository.  
+
+    - For Ubuntu 18.04
+    
+        ```azurecli
+        curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+        ```
+
+    - For Ubuntu 20.04
+    
+        ```azurecli
+        curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > ./microsoft-prod.list
+        ```
+
+    - For Debian 9 (both AMD64 and ARM64)
+    
+        ```azurecli
+        https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+        ```
+
+1. Update the list of packages from the repository that you added with the following command:
 
     ```azurecli
-    curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -    
-    sudo apt-get install software-properties-common 
-    sudo apt-add-repository https://packages.microsoft.com/debian/9/multiarch/prod
-    sudo apt-get update 
-    ```    
+    sudo apt-get update
+    ```
 
 1. Install and configure [Edge runtime version 1.2](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true ). 
 
