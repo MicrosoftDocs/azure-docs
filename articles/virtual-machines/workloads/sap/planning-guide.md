@@ -1250,7 +1250,7 @@ Azure Geo-replication works locally on each VHD in a VM and does not replicate t
 ---
 ### Final Deployment
 
-For the final deployment and exact steps, especially with regards to the deployment of the Azure Extension for SAP, refer to the [Deployment Guide][deployment-guide].
+For the final deployment and exact steps, especially the deployment of the Azure Extension for SAP, refer to the [Deployment Guide][deployment-guide].
 
 ## Accessing SAP systems running within Azure VMs
 
