@@ -42,6 +42,7 @@ The **Knowledge center** allows you to do three things:
 1. Click Run. It will run only code you have selected.
 
 ## Loading more NYC Taxi Data
+
 1. Go to the **Knowledge Center**, click **Browse gallery**.
 1. Select the **SQL scripts** tab at the top.
 1. Select **Load the New York Taxicab dataset** Data ingestion sample, click **Continue**.

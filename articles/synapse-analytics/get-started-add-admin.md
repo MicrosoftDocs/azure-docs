@@ -16,38 +16,45 @@ ms.date: 04/02/2021
 
 In this tutorial, you'll learn how to add an administrator to your Synapse workspace. This user will have full control over the workspace.
 
-## Assign the user to the Azure RBAC Owner role at the Synapse workspace level
+## Overview
 
-1. Open the Azure portal.
-1. Navigate to your workspace.
+So far in the get started guide, we've focused on activities *you* do in the workspace. Because you created the workspace in STEP 1, you are an administrator of the Synapse workspace. Now, we will make another user Ryan (`ryan@contoso.com`) an administrator. When we are done, Ryan will be able to do everything you can do in the workspace.
+
+## Azure RBAC: Owner role for the workspace
+
+Assign to `ryan@contoso.com` to Azure RBAC **Owner** role on the workspace.
+
+1. Open the Azure portal and open you Synapse workspace.
 1. On the left side, select **Access Control (IAM)**.
-1. Click **Add > Add role assignment**.
-1. For **Role**, select **Owner**.
-1. Pick the user you want to assign. In this example, we will use `ryan@contoso.com`.
-1. Click Save.
+1. Add `ryan@contoso.com` to the **Owner** role. 
+1. Click **Save**.
  
  
-## Assign the user to the Synapse Administrator role in the Synapse workspace
+## Synapse RBAC: Synapse Administrator role for the workspace
+
+Assign to `ryan@contoso.com` to Synapse RBAC **Synapse Administrator** role on the workspace.
+
 1. Open your workspace in Synapse Studio.
 1. On the left side, click **Manage** to open the Manage hub.
 1. Under **Security**, click **Access control**.
 1. Click **Add**.
-1. Leave **Scope** set to Workspace.
-1. For **Role**, choose **Synapse Administrator**.
-1. Then select the user `ryan@contoso.com`.
+1. Leave **Scope** set to **Workspace**.
+1. Add `ryan@contoso.com` to the **Synapse Administrator** role. 
 1. Then click **Apply**.
  
-## Assign storage permissions on the Workspace's default storage account
-You need to grant access to the Administrator to use that filesystem
+## Azure RBAC: Role assignments on the primary storage account
+
+Assign to `ryan@contoso.com` to **Owner** role on the workspace's primary storage account.
+Assign to `ryan@contoso.com` to **Azure Storage Blob Data Contributor** role on the workspace's primary storage account.
 
 1. Open the workspace's primary storage account in the Azure portal.
 1. On the left side, click **Access Control (IAM)**.
 1. Add `ryan@contoso.com` to the **Owner** role. 
-3. Add `ryan@contoso.com` to the **Azure Storage Blob Data Contributor** role
+1. Add `ryan@contoso.com` to the **Azure Storage Blob Data Contributor** role
 
-## Add the user to the dbowner role for all dedicated SQL pools
+## Dedicated SQL pools: db_owner role
 
-For all dedicated SQL pools, run the following T-SQL script against the corresponding SQL database.
+Assign `ryan@contoso.com` to the **db_owner** on each dedicated SQL pool in the workspace.
 
 ```
 CREATE USER [ryan@contoso.com] FROM EXTERNAL PROVIDER; 

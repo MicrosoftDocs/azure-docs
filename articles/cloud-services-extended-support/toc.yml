@@ -65,10 +65,12 @@
       href: in-place-migration-powershell.md
     - name: Common errors and known issues
       href: in-place-migration-common-errors.md
-  - name: Apply Remote Desktop extension
-    href: enable-rdp.md
-  - name: Apply WAD extension
-    href: enable-wad.md
+  - name: Apply Extensions
+    items:
+    - name: Apply Remote Desktop extension
+      href: enable-rdp.md
+    - name: Apply WAD extension
+      href: enable-wad.md
   - name: Enable alerts
     href: enable-alerts.md
   - name: Configure scaling
@@ -79,6 +81,8 @@
     href: generate-template-portal.md
   - name: Swap two cloud services
     href: swap-cloud-service.md
+  - name: Override SKU details
+    href: override-sku.md
   - name: Troubleshoot
     items:
     - name: Role startup failure

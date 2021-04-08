@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 
 # Create a profile container with Azure Files and Azure AD DS

@@ -48,7 +48,7 @@ The following code examples demonstrate mounting a variety of file shares to a p
 
 ### Azure Files share
 
-Azure Files is the standard Azure cloud file system offering. To learn more about how to get any of the parameters in the mount configuration code sample, see [Use an Azure Files share](../storage/files/storage-how-to-use-files-windows.md).
+Azure Files is the standard Azure cloud file system offering. To learn more about how to get any of the parameters in the mount configuration code sample, see [Use an Azure Files share - SMB](../storage/files/storage-how-to-use-files-windows.md) or [Use an Azure Files share with - NFS](../storage/files/storage-files-how-to-create-nfs-shares.md).
 
 ```csharp
 new PoolAddParameter
