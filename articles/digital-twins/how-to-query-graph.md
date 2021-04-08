@@ -100,9 +100,9 @@ Relationships are pulled into the query scope in the `FROM` clause. Unlike in "c
 Recall that with the Azure Digital Twins [model](concepts-models.md) capabilities, relationships do not exist independently of twins. This means that relationships here can't be queried independently and must be tied to a twin.
 To handle this, the keyword `RELATED` is used in the `JOIN` clause to pull in the set of a certain type of relationship coming from the twin collection. The query must then filter in the `WHERE` clause which specific twin(s) to use in the relationship query (using the twins' `$dtId` values).
 
-The following section gives several examples of what this looks like.
+The following sections give examples of what this looks like.
 
-### Relationship-based query examples
+### Basic relationship query
 
 Here is a sample relationship-based query. This code snippet selects all digital twins with an *ID* property of 'ABC', and all digital twins related to these digital twins via a *contains* relationship.
 
@@ -110,6 +110,18 @@ Here is a sample relationship-based query. This code snippet selects all digital
 
 > [!NOTE]
 > The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.
+
+### Query by the source or target of a relationship
+
+You can use the relationship query structure to identify a digital twin that's the source or the target of a relationship.
+
+For instance, you can start with a source twin and follow its relationships to find the target twins of the relationships. Here is an example of a query that finds the target twins of the *feeds* relationships coming from the twin *source-twin*.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipSource":::
+
+You can also start with the target of the relationship and trace the relationship back to find the source twin. Here's an example of a query that finds the source twin of a *feeds* relationship to the twin *target-twin*.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipTarget":::
 
 ### Query the properties of a relationship
 

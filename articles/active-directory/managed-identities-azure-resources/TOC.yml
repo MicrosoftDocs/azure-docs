@@ -147,7 +147,9 @@
     href: https://golang.org/doc/
 - name: Resources
   items:
-  - name: FAQs and known issues
+  - name: Frequently asked questions
+    href: managed-identities-faq.md
+  - name: Known issues
     href: known-issues.md
   - name: Azure services that support managed identities for Azure resources
     href: services-support-managed-identities.md
