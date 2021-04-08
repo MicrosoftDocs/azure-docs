@@ -199,7 +199,7 @@ sections:
 
   - name: Configuration and setup
     questions:
-      - question: How long does it take to provision the initial 3 nodes in a cluster?
+      - question: How long does it take to provision the initial three nodes in a cluster?
         answer: At the moment, the provisioning can take roughly 3-4 hours.  Adding a single node in existing/same cluster takes between 30 - 45 minutes. 
 
   - name: Nodes/hosts, clusters, and private clouds
