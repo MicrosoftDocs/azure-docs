@@ -15,9 +15,9 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Create a storage account
 
-An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, tables, and disks. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. Data in your Azure storage account is durable and highly available, secure, and massively scalable.
+An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. For more information about Azure storage accounts, see [Storage account overview](storage-account-overview.md).
 
-In this how-to article, you learn to create a storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](/powershell/azure/), [Azure CLI](/cli/azure), or an [Azure Resource Manager template](../../azure-resource-manager/management/overview.md).  
+In this how-to article, you learn to create a storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](/powershell/azure/), [Azure CLI](/cli/azure), or an [Azure Resource Manager template](../../azure-resource-manager/management/overview.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,7 +31,7 @@ None.
 
 # [PowerShell](#tab/azure-powershell)
 
-To create an Azure storage account with PowerShell, make sure you have installed Azure PowerShell module Az version 0.7 or later. For more information, see [Introducing the Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+To create an Azure storage account with PowerShell, make sure you have installed the [Az PowerShell module](https://www.powershellgallery.com/packages/Az), version 0.7 or later. For more information, see [Introducing the Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
 To find your current version, run the following command:
 
@@ -39,7 +39,7 @@ To find your current version, run the following command:
 Get-InstalledModule -Name "Az"
 ```
 
-To install or upgrade Azure PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+To install or upgrade Azure PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 # [Azure CLI](#tab/azure-cli)
 
