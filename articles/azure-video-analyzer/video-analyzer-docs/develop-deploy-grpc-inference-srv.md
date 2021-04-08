@@ -29,9 +29,9 @@ This article shows you how you can wrap AI model(s) of your choice within a gRPC
 
 To create a gRPC inference server and implement it as an extension with Azure Video Analyzer, following steps will be used:
 
-### Setup
+### Setup Azure Video Analyzer module
 
-Perform the necessary steps to have Azure Video Analyzer  module deployed and working on an IoT Edge device.
+Perform the necessary steps to have Azure Video Analyzer module deployed and working on an IoT Edge device.
 
 ### High level Implementation Steps
 
@@ -54,7 +54,7 @@ Perform the necessary steps to have Azure Video Analyzer  module deployed and wo
         1. Deploy as an IoT module to a network accessible node (on premise or on cloud) that can exchange data with the Azure Video Analyzer module.
     1. Configure an Azure Video Analyzer pipeline topology with the Azure Video Analyzer module and point it to the gRPC server.
 
-### Recommendation:
+### Recommendation
 
 When collocating on the same node, `shared memory` can be used for best performance. This requires you to use Linux shared memory capabilities exposed by the programming language/environment.
 
