@@ -4,7 +4,7 @@ description: Describes the different cache usage models and how to choose among 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/01/2021
+ms.date: 04/08/2021
 ms.author: v-erkel
 ---
 
@@ -75,7 +75,7 @@ If you have questions about the best usage model for your Azure HPC Cache workfl
 
 ## Know when to remount clients for NLM
 
-If your client application uses the Network Lock Manager (NLM) protocol, you might need to remount clients if you change a storage target's usage model. This is because of the way different usage models handle NLM requests.
+In some situations, you might need to remount clients if you change a storage target's usage model. This is needed because of the way different usage models handle Network Lock Manager (NLM) requests.
 
 The HPC Cache sits between clients and the back-end storage system. Usually the cache passes NLM requests through to the back-end storage system, but in some situations, the cache itself acknowledges the NLM request and returns a value to the client. In Azure HPC Cache, this only happens when you use the usage model **Read heavy, infrequent writes** (or when you use a standard blob storage target).
 
@@ -83,7 +83,15 @@ There is a small risk of file conflict if you change between the **Read heavy, i
 
 Remounting the clients makes sure that they have an accurate NLM state with the new lock manager.
 
-You can disable NLM when clients mount the cluster by using the option ``-o nolock`` in the ``mount`` command. If your clients send a NLM request when the usage model or back-end storage does not support it, they will receive an error.
+If your clients send a NLM request when the usage model or back-end storage does not support it, they will receive an error.
+
+### Disable NLM at client mount time
+
+It is not always easy to know whether or not your client systems will send NLM requests.
+
+You can disable NLM when clients mount the cluster by using the option ``-o nolock`` in the ``mount`` command.
+
+The exact behavior of the ``nolock`` option depends on the client operating system, so check the mount documentation (man 5 nfs) for your client OS. In most cases, it moves the lock locally to the client. Use caution if your application lock files across multiple clients.
 
 > [!NOTE]
 > ADLS-NFS does not support NLM. You should disable NLM with the mount option above when using an ADLS-NFS storage target.

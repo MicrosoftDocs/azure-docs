@@ -4,7 +4,7 @@ description: Explains how to configure additional settings for the cache like MT
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 04/08/2021
 ms.author: v-erkel
 ---
 
@@ -42,7 +42,7 @@ Learn more about MTU settings in Azure virtual networks by reading [TCP/IP perfo
 
 ## Customize NTP
 
-Your cache uses the Azure-based time server time.microsoft.com by default. If you want your cache to use a different NTP server, specify it in the **NTP configuration** section. Use a fully qualified domain name or an IP address.
+Your cache uses the Azure-based time server time.windows.com by default. If you want your cache to use a different NTP server, specify it in the **NTP configuration** section. Use a fully qualified domain name or an IP address.
 
 ## Set a custom DNS configuration
 
@@ -61,7 +61,7 @@ Check that your DNS configuration can successfully resolve these items before us
 
 * ``*.core.windows.net``
 * Certificate revocation list (CRL) download and online certificate status protocol (OCSP) verification services. A partial list is provided in the [firewall rules item](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) at the end of this [Azure TLS article](../security/fundamentals/tls-certificate-changes.md), but you should consult a Microsoft technical representative to understand all of the requirements.
-* The fully qualified domain name of your NTP server (time.microsoft.com or a custom server)
+* The fully qualified domain name of your NTP server (time.windows.com or a custom server)
 
 If you need to set a custom DNS server for your cache, use the provided fields:
 
