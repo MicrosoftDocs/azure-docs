@@ -55,7 +55,7 @@ az provider register --namespace Microsoft.ContainerService
 ## Create an AKS cluster with Secrets Store CSI Driver support
 
 > [!NOTE]
-> If you plan to provide access to the cluster via a user-assigned or system-assigned managed identity, enable Azure Active Directory on your cluster with the flag `enable-managed-identity`
+> If you plan to provide access to the cluster via a user-assigned or system-assigned managed identity, enable Azure Active Directory on your cluster with the flag `enable-managed-identity`. See [Use managed identities in Azure Kubernetes Service][aks-managed-identity] for more.
 
 To create an AKS cluster with Secrets Store CSI Driver capability, use the [az-aks-create][az-aks-create] command with the addon `azure-keyvault-secrets-provider`:
 
@@ -103,7 +103,7 @@ Take note of the following properties for use in the next section:
 
 To use and configure the Secrets Store CSI driver for your AKS cluster, create a SecretProviderClass custom resource.
 
-Here is an example making use of a service principal to access the key vault:
+Here is an example making use of a Service Principal to access the key vault:
 
 ```yml
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
@@ -115,7 +115,7 @@ spec:
   parameters:
     usePodIdentity: "false"         # [OPTIONAL] if not provided, will default to "false"
     keyvaultName: "kvname"          # the name of the KeyVault
-    cloudName: ""                   # [OPTIONAL for Azure] if not provided, azure environment will default to AzurePublicCloud
+    cloudName: ""                   # [OPTIONAL for Azure] if not provided, azure environment will default to AzurePublicCloud 
     objects:  |
       array:
         - |
@@ -126,14 +126,14 @@ spec:
           objectName: key1
           objectType: key
           objectVersion: ""
-    tenantId: "tid"                 # the tenant ID of the KeyVault
+    tenantId: "<tenant-id>"                 # the tenant ID of the KeyVault
 ```
 
 For more details, see [Create your own SecretProviderClass Object][sample-secret-provider-class]. Be sure to use the values you took note of above.
 
-### Provide identity to access Azure Key Vault
+## Provide identity to access Azure Key Vault
 
-The above example uses a Service Principal, but the Azure Key Vault provider offers four methods of access. Review them and choose the one that best fits your use case. Be aware additional steps may be required depending on the chosen method, such as granting a Service Principal permissions to get secrets from key vault.
+The example in this article uses a Service Principal, but the Azure Key Vault provider offers four methods of access. Review them and choose the one that best fits your use case. Be aware additional steps may be required depending on the chosen method, such as granting the Service Principal permissions to get secrets from key vault.
 
 - [Service Principal][service-principal-access]
 - [Pod Identity][pod-identity-access]
@@ -153,13 +153,25 @@ kubectl apply -f ./new-secretproviderclass.yaml
 To ensure your cluster is using the new custom resource, update the deployment YAML. For a more comprehensive example, take a look at a [sample deployment][sample-deployment] using Service Principal to access Azure Key Vault. Be sure to follow any additional steps from your chosen method of key vault access.
 
 ```yml
-volumes:
-  - name: secrets-store-inline
-    csi:
-      driver: secrets-store.csi.k8s.io
-      readOnly: true
-      volumeAttributes:
-        secretProviderClass: "my-provider"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-secrets-store-inline
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      volumeMounts:
+        - name: secrets-store-inline
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
+  volumes:
+    - name: secrets-store-inline
+      csi:
+        driver: secrets-store.csi.k8s.io
+        readOnly: true
+        volumeAttributes:
+          secretProviderClass: azure-kvname
 ```
 
 Apply the updated deployment to the cluster:
@@ -174,10 +186,10 @@ After the pod starts, the mounted content at the volume path specified in your d
 
 ```Bash
 ## show secrets held in secrets-store
-kubectl exec secrets-store-inline -- ls /mnt/secrets-store/
+kubectl exec nginx-secrets-store-inline -- ls /mnt/secrets-store/
 
-## print a test secret 'foo' held in secrets-store
-kubectl exec secrets-store-inline -- cat /mnt/secrets-store/secret1
+## print a test secret 'secret1' held in secrets-store
+kubectl exec nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
 ```
 
 ## Next steps
@@ -197,6 +209,7 @@ After learning how to use the CSI Secrets Store Driver with an AKS Cluster, see 
 [csi-storage-drivers]: ./csi-storage-drivers.md
 [create-key-vault]: ../key-vault/general/quick-create-cli.md
 [set-secret-key-vault]: ../key-vault/secrets/quick-create-portal.md
+[aks-managed-identity]: ./use-managed-identity.md
 
 <!-- External -->
 [kube-csi]: https://kubernetes-csi.github.io/docs/
