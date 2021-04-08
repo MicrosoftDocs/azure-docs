@@ -51,11 +51,12 @@ In this article, you learn how to:
     ![Logic app](./media/import-logic-app-as-api/select-logic-app-import.png)
 
 1. API Management finds the swagger associated with the selected app, fetches it, and imports it.
-1. Add an API URL suffix. The suffix is a name that identifies this specific API in this API Management instance. It has to be unique in this API Management instance.
+1. Add an API URL suffix. 
+    * The suffix uniquely identifies this specific API in this API Management instance.
 
     ![Logic app](./media/import-logic-app-as-api/create-from-logic-app.png)
 
-1. If you want the API to be published and available to developers, associate it with a product. In this example, the *"Unlimited"* product is used. 
+1. If you want the API to be published and available to developers, Switch to the **Full** view and associate it with a **Product**. We use the *"Unlimited"* product in this example. 
     * You can add your API to a product either during creation or later via the **Settings** tab.
 
 >[!NOTE]
@@ -91,7 +92,7 @@ Operations can be called directly from the Azure portal, which provides a conven
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 >[!NOTE]
->Every Logic App has **manual-invoke** operation. If you want to comprise your API of multiple logic apps, in order not to have collision, you need to rename the function.
+>Every Logic App has **manual-invoke** operation. To comprise your API of multiple logic apps and avoid collision, you need to rename the function.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

@@ -62,14 +62,23 @@ Follow the steps below to create a new API from an Azure Function App.
     ![Screenshot that highlights the Function App you want to import Functions from and the Select button.](./media/import-function-app-as-api/add-04.png)
 
 6. Select the Functions you would like to import and click **Select**.
+    * You can only import Functions based off HTTP trigger with *Anonymous* or *Function* authorization levels.
 
     ![Screenshot that highlights the Functions to import and the Select button.](./media/import-function-app-as-api/add-05.png)
 
-    > [!NOTE]
-    > You can import only Functions that are based off HTTP trigger and have the authorization level setting set to *Anonymous* or *Function*.
+7. Switch to the **Full** view and assign **Product** to your new API. 
+1. If needed, specify other fields during creation or configure them later via the **Settings** tab. 
+    * The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 
-7. Switch to the **Full** view and assign **Product** to your new API. If needed, specify other fields during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
-8. Click **Create**.
+>[!NOTE]
+> Products are associations of one or more APIs offered to developers through the developer portal. First, developers must subscribe to a product to get access to the API. Once subscribed, they get a subscription key for any API in that product. As creator of the API Management instance, you are an administrator and are subscribed to every product by default.
+>
+> Each API Management instance comes with two default sample products:
+> - **Starter**
+> - **Unlimited**
+
+
+1. Click **Create**.
 
 ## <a name="append-azure-function-app-to-api"></a> Append Azure Function App to an existing API
 
@@ -112,10 +121,10 @@ Import of an Azure Function App automatically generates:
 * Host key inside the Function App with the name apim-{*your Azure API Management service instance name*},
 * Named value inside the Azure API Management instance with the name {*your Azure Function App instance name*}-key, which contains the created host key.
 
-For APIs created after April 4th 2019, the host key is passed in HTTP requests from API Management to the Function App in a header. Older APIs pass the host key as [a query parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). This behavior may be changed through the `PATCH Backend` [REST API call](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) on the *Backend* entity associated with the Function App.
+For APIs created after April 4th 2019, the host key is passed in HTTP requests from API Management to the Function App in a header. Older APIs pass the host key as [a query parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). You can change this behavior through the `PATCH Backend` [REST API call](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) on the *Backend* entity associated with the Function App.
 
 > [!WARNING]
-> Removing or changing value of either the Azure Function App host key or Azure API Management named value will break the communication between the services. The values do not sync automatically.
+> Removing or changing either the Azure Function App host key value or the Azure API Management named value will break the communication between the services. The values do not sync automatically.
 >
 > If you need to rotate the host key, make sure the named value in Azure API Management is also modified.
 
@@ -123,19 +132,21 @@ For APIs created after April 4th 2019, the host key is passed in HTTP requests f
 
 1. Navigate to your Azure Function App instance.
 
-2. Select **Function App settings** from the overview.
+    ![Screenshot that highlights selecting your Function app instance.](./media/import-function-app-as-api/keys-01.png)
 
-    ![Screenshot that highlights the Function Apps settings option.](./media/import-function-app-as-api/keys-02-a.png)
+2. In the **Functions** section of the side navigation menu, select **App keys**.
 
-3. The key is located in the **Host Keys** section.
+    ![Screenshot that highlights the Function Apps settings option.](./media/import-function-app-as-api/keys-02.png)
 
-    ![Screenshot that highlights the Host Keys section.](./media/import-function-app-as-api/keys-02-b.png)
+3. Find the keys under the **Host keys** section.
+
+    ![Screenshot that highlights the Host Keys section.](./media/import-function-app-as-api/keys-03.png)
 
 ### Access the named value in Azure API Management
 
 Navigate to your Azure API Management instance and select **Named values** from the menu on the left. The Azure Function App key is stored there.
 
-![Add from Function App](./media/import-function-app-as-api/keys-01.png)
+![Add from Function App](./media/import-function-app-as-api/api-named-value.png)
 
 ## <a name="test-in-azure-portal"></a> Test the new API in the Azure portal
 
