@@ -28,7 +28,7 @@ When you connect your machine to Azure Arc enabled servers, it enables the abili
     > [!NOTE]
     > At this time, enabling Update Management directly from an Arc enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and how to enable for your server.
 
-- Include your non-Azure servers for threat detection and proactively monitor for potential security threats using [Azure Security Center](../../security-center/security-center-introduction.md) or [Azure Defender](../../security-center/azure-defender.md).
+- Include your non-Azure servers for advanced threat detection and proactively monitor for potential security threats using [Azure Security Center](../../security-center/security-center-introduction.md) or [Azure Defender](../../security-center/azure-defender.md).
 
 Log data collected and stored in a Log Analytics workspace from the hybrid machine now contains properties specific to the machine, such as a Resource ID. This can be used to support [resource-context](../../azure-monitor/logs/design-logs-deployment.md#access-mode) log access.
 
