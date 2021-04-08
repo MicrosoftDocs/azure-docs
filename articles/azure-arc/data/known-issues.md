@@ -16,9 +16,40 @@ ms.topic: conceptual
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+## March 2021
+
+### Data controller
+
+- You can create a data controller in direct connect mode with the Azure portal. Deployment with other Azure Arc enabled data services tools are not supported. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
+   - Azure Data Studio
+   - Azure Data CLI (`azdata`)
+   - Kubernetes native tools
+
+   [Deploy Azure Arc data controller | Direct connect mode](deploy-data-controller-direct-mode.md) explains how to create the data controller in the portal. 
+
+### Azure Arc enabled PostgreSQL Hyperscale
+
+- It is not supported to deploy an Azure Arc enabled Postgres Hyperscale server group in an Arc data controller enabled for direct connect mode.
+- Passing  an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
+
 ## February 2021
 
-- Connected cluster mode is disabled
+### Data controller
+
+- Direct connect cluster mode is disabled
+
+### Azure Arc enabled PostgreSQL Hyperscale
+
+- Point in time restore is not supported for now on NFS storage.
+- It is not possible to enable and configure the pg_cron extension at the same time. You need to use two commands for this. One command to enable it and one command to configure it. 
+
+   For example:
+   ```console
+   § azdata arc postgres server edit -n myservergroup --extensions pg_cron 
+   § azdata arc postgres server edit -n myservergroup --engine-settings cron.database_name='postgres'
+   ```
+
+   The first command requires a restart of the server group. So, before executing the second command, make sure the state of the server group has transitioned from updating to ready. If you execute the second command before the restart has completed it will fail. If that is the case, simply wait for a few more moments and execute the second command again.
 
 ## Introduced prior to February 2021
 
@@ -39,13 +70,6 @@ ms.topic: conceptual
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Clear the checkboxes for each zone to specify none.":::
 
-### PostgreSQL
-
-- Azure Arc enabled PostgreSQL Hyperscale returns an inaccurate error message when it cannot restore to the relative point in time you indicate. For example, if you specified a point in time to restore that is older than what your backups contain, the restore will fail with an error message like:
-`ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}`
-When this happens, restart the command after indicating a point in time that is within the range of dates for which you have backups. You will determine this range by listing your backups and by looking at the dates at which they were taken.
-- Point in time restore is supported only across server groups. The target server of a point in time restore operation cannot be the server from which you took the backup. It has to be a different server group. However, full restore is supported to the same server group.
-- A backup-id is required when doing a full restore. By default, if you are not indicating a backup-id the latest backup will be used. This does not work in this release.
 
 ## Next steps
 

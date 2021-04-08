@@ -24,20 +24,6 @@
       "build_entry_point": "docs",
       "template_folder": "_themes",
       "version": 0
-    },
-    {
-      "docset_name": "Partner-Listings",
-      "build_source_folder": "Partner-Listings",
-      "build_output_subfolder": "Partner-Listings",
-      "locale": "en-us",
-      "monikers": [],
-      "moniker_ranges": [],
-      "open_to_public_contributors": true,
-      "type_mapping": {
-        "Conceptual": "Content"
-      },
-      "build_entry_point": "docs",
-      "template_folder": "_themes"
     }
   ],
   "notification_subscribers": [
@@ -393,6 +379,12 @@
       "path_to_root": "azureml-examples-main",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-cli-preview",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "cli-preview",
       "branch_mapping": {}
     },
     {

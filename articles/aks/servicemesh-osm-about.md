@@ -72,6 +72,30 @@ OSM preview limitations for service quotas and limits can be found on the AKS [Q
 > [!WARNING]
 > Do not attempt to install OSM from the binary using `osm install`. This will result in a installation of OSM that is not integrated as an add-on for AKS.
 
+### Register the `AKS-OpenServiceMesh` preview feature
+
+To create an AKS cluster that can use the Open Service Mesh add-on, you must enable the `AKS-OpenServiceMesh` feature flag on your subscription.
+
+Register the `AKS-OpenServiceMesh` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "AKS-OpenServiceMesh"
+```
+
+It takes a few minutes for the status to show _Registered_. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-OpenServiceMesh')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the _Microsoft.ContainerService_ resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## Install Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for a new AKS cluster
 
 For a new AKS cluster deployment scenario, you will start with a brand new deployment of an AKS cluster enabling the OSM add-on at the cluster create operation.
@@ -109,7 +133,7 @@ For an existing AKS cluster scenario, you will enable the OSM add-on to an exist
 
 ### Enable the OSM add-on to existing AKS cluster
 
-To enable the AKS OSM add-on you will need to run the `az aks enable-addons --addons` command passing the parameter `open-service-mesh`
+To enable the AKS OSM add-on, you will need to run the `az aks enable-addons --addons` command passing the parameter `open-service-mesh`
 
 ```azurecli-interactive
 az aks enable-addons --addons open-service-mesh -g <resource group name> -n <AKS cluster name>
@@ -199,7 +223,7 @@ You must have the following resources installed:
 
 ### Create namespaces for the application
 
-In this walkthrough we will be using the OSM bookstore application that has the following Kubernetes services:
+In this walkthrough, we will be using the OSM bookstore application that has the following Kubernetes services:
 
 - bookbuyer
 - bookthief
@@ -597,7 +621,7 @@ Set up a port forward tunnel to the bookbuyer pod and you should now see books b
 
 ### Before you begin
 
-The steps detailed in this walkthrough assume that you have previously enabled the OSM AKS add-on for your AKS cluster. If not, please review the section [Enable Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for an existing AKS cluster](#enable-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-an-existing-aks-cluster) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
+The steps detailed in this walkthrough assume that you have previously enabled the OSM AKS add-on for your AKS cluster. If not, review the section [Enable Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for an existing AKS cluster](#enable-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-an-existing-aks-cluster) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
 
 You must have the following resources installed:
 
@@ -684,7 +708,7 @@ You should see the following output:
 deployment.apps/bookbuyer restarted
 ```
 
-If we take a look at the pods in the namespace again.
+If we take a look at the pods in the namespace again:
 
 ```azurecli-interactive
 kubectl get pod -n bookbuyer
@@ -730,7 +754,7 @@ Containers:
     Host Ports:    0/TCP, 0/TCP, 0/TCP
 ```
 
-Please verify your application is still functional after the Envoy sidecar proxy injection.
+Verify your application is still functional after the Envoy sidecar proxy injection.
 
 ### Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as False
 
@@ -797,7 +821,7 @@ Pod Template:
 
 ```
 
-There are several techniques to update your deployment to add a kubernetes service account. Please review the Kubernetes documentation on [Updating a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment) inline, or [Configure Service Accounts for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/). Once you have updated your deployment spec with the service account, re-deploy (kubectl apply -f your-deployment.yaml) your deployment to the cluster.
+There are several techniques to update your deployment to add a kubernetes service account. Review the Kubernetes documentation on [Updating a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment) inline, or [Configure Service Accounts for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/). Once you have updated your deployment spec with the service account, redeploy (kubectl apply -f your-deployment.yaml) your deployment to the cluster.
 
 #### Deploy the necessary Service Mesh Interface (SMI) Policies
 
@@ -805,7 +829,7 @@ The last step to allowing authorized traffic to flow in the mesh is to deploy th
 
 The [SMI](https://smi-spec.io/) [**Traffic Access Control**](https://github.com/servicemeshinterface/smi-spec/blob/main/apis/traffic-access/v1alpha3/traffic-access.md#traffic-access-control) specification allows users to define the access control policy for their applications. We will focus on the **TrafficTarget** and **HTTPRoutGroup** api resources.
 
-The TrafficTarget resource consist of three main configuration settings destination, rules, and sources. An example TrafficTarget is shown below.
+The TrafficTarget resource consists of three main configuration settings destination, rules, and sources. An example TrafficTarget is shown below.
 
 ```TrafficTarget Example spec
 apiVersion: access.smi-spec.io/v1alpha3
@@ -830,7 +854,7 @@ spec:
     namespace: bookbuyer
 ```
 
-In the above TrafficTarget spec, the `destination` denotes the service account that is configured for the destination source service. Remember the service account that was added to the deployment earlier will be used to authorize access to the deployment it is attached to. The `rules` section , in this particular example, defines the type of HTTP traffic that is allowed over the connection. You can configure fine grain regex patterns for the HTTP headers to be very specific on what traffic is allowed via HTTP. The `sources` section is the service originating communications. This spec reads bookbuyer needs to communicate to the bookstore.
+In the above TrafficTarget spec, the `destination` denotes the service account that is configured for the destination source service. Remember the service account that was added to the deployment earlier will be used to authorize access to the deployment it is attached to. The `rules` section , in this particular example, defines the type of HTTP traffic that is allowed over the connection. You can configure fine grain regex patterns for the HTTP headers to be specific on what traffic is allowed via HTTP. The `sources` section is the service originating communications. This spec reads bookbuyer needs to communicate to the bookstore.
 
 The HTTPRouteGroup resource consists of one or an array of matches of HTTP header information and is a requirement for the TrafficTarget spec. In the example below, you can see that the HTTPRouteGroup is authorizing three HTTP actions, two GET and one POST.
 
@@ -925,7 +949,7 @@ spec:
 EOF
 ```
 
-Please visit the [SMI](https://smi-spec.io/) site for more detailed information on the specification.
+Visit the [SMI](https://smi-spec.io/) site for more detailed information on the specification.
 
 ### Manage the application's namespace with OSM
 
@@ -953,7 +977,7 @@ deployment.apps/azure-vote-front restarted
 deployment.apps/azure-vote-back restarted
 ```
 
-If we view the pods for the `azure-vote` namespace, we will see the **READY** stage of both the `azure-vote-front` adn `azure-vote-back` as 2/2, meaning the Envoy sidecar proxy has been injected alongside the application.
+If we view the pods for the `azure-vote` namespace, we will see the **READY** stage of both the `azure-vote-front` and `azure-vote-back` as 2/2, meaning the Envoy sidecar proxy has been injected alongside the application.
 
 ## Tutorial: Deploy an application managed by Open Service Mesh (OSM) with NGINX ingress
 
@@ -1034,7 +1058,7 @@ namespace/bookwarehouse created
 
 ### Onboard the namespaces to be managed by OSM
 
-When you add the namespaces to the OSM mesh, this will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with your application. Run the following command to onboard the OSM bookstore application namespaces.
+Adding the namespaces to the OSM mesh will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with your application. Run the following command to onboard the OSM bookstore application namespaces.
 
 ```azurecli-interactive
 osm namespace add bookstore bookbuyer bookthief bookwarehouse
@@ -1546,7 +1570,7 @@ You can verify the Azure Application Gateway AKS add-on has been enabled by the 
 az aks list -g osm-aks-rg -o json | jq -r .[].addonProfiles.ingressApplicationGateway.enabled
 ```
 
-This should show the output as `true`.
+This command should show the output as `true`.
 
 #### Peer the two virtual networks together
 
@@ -1679,22 +1703,22 @@ You should see the following output
 
 Both Azure Monitor and Azure Application Insights helps you maximize the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
-The OSM AKS add-on will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. For more information on how to enable and configure these services for the OSM AKS add-on, please visit the [Azure Monitor for OSM](https://aka.ms/azmon/osmpreview) page for more information.
+The OSM AKS add-on will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. For more information on how to enable and configure these services for the OSM AKS add-on, visit the [Azure Monitor for OSM](https://aka.ms/azmon/osmpreview) page for more information.
 
 ## Tutorial: Manually deploy Prometheus, Grafana, and Jaeger to view Open Service Mesh (OSM) metrics for observability
 
 > [!WARNING]
 > The installation of Prometheus, Grafana and Jaeger are provided as general guidance to show how these tools can be utilized to view OSM metric data. The installation guidance is not to be utilized for a production setup. Please refer to each tool's documentation on how best to suit thier installations to your needs. Most notable will be the lack of persistent storage, meaning that all data is lost once a Prometheus Grafana, and/or Jaeger pod(s) are terminated.
 
-Open Service Mesh (OSM) generates detailed metrics related to all traffic within the mesh. These metrics provide insights into the behavior of applications in the mesh helping users to troubleshoot, maintain and analyze their applications.
+Open Service Mesh (OSM) generates detailed metrics related to all traffic within the mesh. These metrics provide insights into the behavior of applications in the mesh helping users to troubleshoot, maintain, and analyze their applications.
 
-As of today OSM collects metrics directly from the sidecar proxies (Envoy). OSM provides rich metrics for incoming and outgoing traffic for all services in the mesh. With these metrics the user can get information about the overall volume of traffic, errors within traffic and the response time for requests.
+As of today OSM collects metrics directly from the sidecar proxies (Envoy). OSM provides rich metrics for incoming and outgoing traffic for all services in the mesh. With these metrics, the user can get information about the overall volume of traffic, errors within traffic and the response time for requests.
 
-OSM uses Prometheus to gather and store consistent traffic metrics and statistics for all applications running in the mesh. Prometheus is an open-source monitoring and alerting toolkit which is commonly used on (but not limited to) Kubernetes and Service Mesh environments.
+OSM uses Prometheus to gather and store consistent traffic metrics and statistics for all applications running in the mesh. Prometheus is an open-source monitoring and alerting toolkit, which is commonly used on (but not limited to) Kubernetes and Service Mesh environments.
 
-Each application that is part of the mesh runs in a Pod which contains an Envoy sidecar that exposes metrics (proxy metrics) in the Prometheus format. Furthermore, every Pod that is a part of the mesh has Prometheus annotations, which makes it possible for the Prometheus server to scrape the application dynamically. This mechanism automatically enables scraping of metrics whenever a new namespace/pod/service is added to the mesh.
+Each application that is part of the mesh runs in a Pod that contains an Envoy sidecar that exposes metrics (proxy metrics) in the Prometheus format. Furthermore, every Pod that is a part of the mesh has Prometheus annotations, which makes it possible for the Prometheus server to scrape the application dynamically. This mechanism automatically enables scraping of metrics whenever a new namespace/pod/service is added to the mesh.
 
-OSM metrics can be viewed with Grafana which is an open-source visualization and analytics software. It allows you to query, visualize, alert on, and explore your metrics.
+OSM metrics can be viewed with Grafana, which is an open-source visualization and analytics software. It allows you to query, visualize, alert on, and explore your metrics.
 
 In this tutorial, you will:
 
@@ -1719,7 +1743,7 @@ helm repo update
 helm install stable prometheus-community/prometheus
 ```
 
-You should see similar output below if the installation was successful. Please make note of the Prometheus server port and cluster DNS name. This information will be used later for to configure Prometheus as a data source for Grafana.
+You should see similar output below if the installation was successful. Make note of the Prometheus server port and cluster DNS name. This information will be used later for to configure Prometheus as a data source for Grafana.
 
 ```Output
 NAME: stable
@@ -1787,7 +1811,7 @@ configmap/osm-config patched
 
 #### Update the Prometheus Configmap
 
-The default installation of Prometheus will container two Kubernetes configmaps. You can view the list of Prometheus configmaps with the following command.
+The default installation of Prometheus will contain two Kubernetes configmaps. You can view the list of Prometheus configmaps with the following command.
 
 ```azurecli-interactive
 kubectl get configmap | grep prometheus
@@ -1798,7 +1822,7 @@ stable-prometheus-alertmanager   1      4h34m
 stable-prometheus-server         5      4h34m
 ```
 
-We will need to replace the prometheus.yml configuration located in the **stable-prometheus-server** configmap with the following OSM configuration. There are several file editing techniques to accomplish this. A simple and safe way to do this will be to export the configmap, create a copy of it for backup, then edit it with an editor such as Visual Studio code.
+We will need to replace the prometheus.yml configuration located in the **stable-prometheus-server** configmap with the following OSM configuration. There are several file editing techniques to accomplish this task. A simple and safe way is to export the configmap, create a copy of it for backup, then edit it with an editor such as Visual Studio code.
 
 > [!NOTE]
 > If you do not have Visual Studio Code installed you can go download and install it [here](https://code.visualstudio.com/Download).
@@ -2070,7 +2094,7 @@ kubectl --namespace <promNamespace> port-forward $PROM_POD_NAME 9090
 
 Open a browser up to `http://localhost:9090/targets`
 
-If you scroll down you should see all the SMI metric endpoints state being **UP** as well as other osm metrics defined as pictured below.
+If you scroll down you should see all the SMI metric endpoints state being **UP** as well as other OSM metrics defined as pictured below.
 
 ![OSM Prometheus Target Metrics UI image](./media/aks-osm-addon/osm-prometheus-smi-metrics-target-scrape.png)
 
@@ -2125,11 +2149,11 @@ OSM Dashboards are available both through:
 - or [online at Grafana.com](https://grafana.com/grafana/dashboards/14145)
 
 To import a dashboard, look for the `+` sign on the left menu and select `import`.
-You can directly import dashboard by their ID on `Grafana.com`. For example, our `OSM Mesh Details` dashboard uses id `14145`, you can use the ID directly on the form and click `import`:
+You can directly import dashboard by their ID on `Grafana.com`. For example, our `OSM Mesh Details` dashboard uses ID `14145`, you can use the ID directly on the form and select `import`:
 
 ![OSM Grafana Dashboard Import Page UI image](./media/aks-osm-addon/osm-grafana-dashboard-import.png)
 
-As soon as you click import, it will bring you automatically to your imported dashboard.
+As soon as you select import, it will bring you automatically to your imported dashboard.
 
 ![OSM Grafana Dashboard Mesh Details Page UI image](./media/aks-osm-addon/osm-grafana-mesh-dashboard-details.png)
 
@@ -2227,13 +2251,13 @@ kubectl port-forward -n jaeger $JAEGER_POD  16686:16686
 http://localhost:16686/
 ```
 
-In the browser, you should see a Service dropdown which allows you to select from the various applications deployed by the bookstore demo. Select a service to view all spans from it. For example, if you select bookbuyer with a Lookback of one hour, you can see its interactions with bookstore-v1 and bookstore-v2 sorted by time.
+In the browser, you should see a Service dropdown, which allows you to select from the various applications deployed by the bookstore demo. Select a service to view all spans from it. For example, if you select bookbuyer with a Lookback of one hour, you can see its interactions with bookstore-v1 and bookstore-v2 sorted by time.
 
 ![OSM Jaeger Tracing Page UI image](./media/aks-osm-addon/osm-jaeger-trace-view-ui.png)
 
-Click on any item to view it in further detail. Select multiple items to compare traces. For example, you can compare the bookbuyer's interactions with bookstore and bookstore-v2 at a particular moment in time.
+Select any item to view it in further detail. Select multiple items to compare traces. For example, you can compare the bookbuyer's interactions with bookstore and bookstore-v2 at a particular moment in time.
 
-You can also click on the System Architecture tab to view a graph of how the various applications have been interacting/communicating. This provides an idea of how traffic is flowing between the applications.
+You can also select the System Architecture tab to view a graph of how the various applications have been interacting/communicating. This provides an idea of how traffic is flowing between the applications.
 
 ![OSM Jaeger System Architecture UI image](./media/aks-osm-addon/osm-jaeger-sys-arc-view-ui.png)
 
@@ -2270,7 +2294,7 @@ osm-controller-b5bd66db-wglzl   0/1     Evicted   0          61m
 osm-controller-b5bd66db-wvl9w   1/1     Running   0          31m
 ```
 
-Even though we had one controller evicted at some point, we have another one which is READY 1/1 and Running with 0 restarts. If the column READY is anything other than 1/1 the service mesh would be in a broken state.
+Even though we had one controller evicted at some point, we have another one that is READY 1/1 and Running with 0 restarts. If the column READY is anything other than 1/1 the service mesh would be in a broken state.
 Column READY with 0/1 indicates the control plane container is crashing - we need to get logs. See Get OSM Controller Logs from Azure Support Center section below. Column READY with a number higher than 1 after the / would indicate that there are sidecars installed. OSM Controller would most likely not work with any sidecars attached to it.
 
 > [!NOTE]
@@ -2432,7 +2456,7 @@ kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq -r '.w
 1845
 ```
 
-This number indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or some number under 1000 it would indicate that the CA Bundle is not correctly provisioned. Without a correct CA Bundle the Validating Webhook would be erroring out and prohibiting the user from making changes to the osm-config ConfigMap in the kube-system namespace.
+This number indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or some number under 1000 it would indicate that the CA Bundle is not correctly provisioned. Without a correct CA Bundle, the Validating Webhook would be erroring out and prohibiting the user from making changes to the osm-config ConfigMap in the kube-system namespace.
 
 A sample error when the CA Bundle is incorrect:
 
@@ -2448,9 +2472,9 @@ kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":
 Error from server (InternalError): Internal error occurred: failed calling webhook "osm-config-webhook.k8s.io": Post https://osm-config-validator.kube-system.svc:9093/validate-webhook?timeout=30s: x509: certificate signed by unknown authority
 ```
 
-Workaround for when the **Validating** Webhook Configuration has a bad certificate:
+Work around for when the **Validating** Webhook Configuration has a bad certificate:
 
-- Option 1 - Restart OSM Controller - this will restart the OSM Controller. On start it will overwrite the CA Bundle of both the Mutating and Validating webhooks.
+- Option 1 - Restart OSM Controller - this will restart the OSM Controller. On start, it will overwrite the CA Bundle of both the Mutating and Validating webhooks.
 
 ```azurecli-interactive
 kubectl rollout restart deployment -n kube-system osm-controller
@@ -2655,3 +2679,6 @@ az aks disable-addons -n <AKS-cluster-name> -g <AKS-resource-group-name> -a open
 <!-- LINKS - internal -->
 
 [kubernetes-service]: concepts-network.md#services
+[az-feature-register]: /cli/azure/feature?view=azure-cli-latest&preserve-view=true#az_feature_register
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest&preserve-view=true#az_feature_list
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest&preserve-view=true#az_provider_register
