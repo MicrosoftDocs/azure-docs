@@ -40,9 +40,14 @@ A user flow lets you determine how users interact with your application when the
 
 ## Prerequisites
 
+::: zone pivot="b2c-user-flow"
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 - [Register your application](tutorial-register-applications.md) in the tenant that you created so that it can communicate with Azure AD B2C.
+::: zone-end
+
 ::: zone pivot="b2c-custom-policy"
+- If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
+- [Register your application](tutorial-register-applications.md) in the tenant that you created so that it can communicate with Azure AD B2C.
 - Complete the steps in [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) to configure a Facebook application. Although a Facebook application is not required for using custom policies, it's used in this walkthrough to demonstrate enabling social login in a custom policy.
 ::: zone-end
 
