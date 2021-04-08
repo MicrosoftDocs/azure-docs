@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 04/08/2021
 ms.author: alkohli
 ---
 # Security and data protection for Azure Stack Edge Pro R and Azure Stack Edge Mini R
@@ -95,17 +95,22 @@ Data on your disks is protected by two layers of encryption:
 > [!NOTE]
 > The OS disk has single layer BitLocker XTS-AES-256 software encryption.
 
-When the device is activated, you are prompted to save a key file that contains recovery keys that help recover the data on the device if the device doesn't boot up. There are two keys in the file:
+Before you activate the device, you are required to configure encryption-at-rest on your device. This is a required setting and until this is successfully configured, you can't activate the device. 
+
+At the factory, once the devices are imaged, the volume level BitLocker encryption is enabled. After you receive the device, you need to configure the encryption-at-rest. The storage pool and volumes are recreated and you can provide BitLocker keys to enable encryption-at-rest and thus create another layer of encryption for your data-at-rest. 
+
+The encryption-at-rest key is a 32 character long Base-64 encoded key that you provide and this key is used to protect the actual encryption key. Microsoft does not have access to this encryption-at-rest key that protects your data. The key is saved in a key file on the **Cloud details** page after the device is activated.
+
+When the device is activated, you are prompted to save the key file that contains recovery keys that help recover the data on the device if the device doesn't boot up. There are two keys in the file:
 
 - One key recovers the device configuration on the OS volumes.
-<!-- - Second key is to unlock the BitLocker on the data disks. -->
-- Second key unlocks the hardware encryption in the data disks.
+- Second key (that was used to configure encryption-at-rest) unlocks the hardware encryption in the data disks.
 
 > [!IMPORTANT]
 > Save the key file in a secure location outside the device itself. If the device doesn't boot up, and you don't have the key, it could potentially result in data loss.
 
 - Certain recovery scenarios will prompt you for the key file that you have saved. 
-<!--- If a node isn't booting up, you will need to perform a node replacement. You will have the option to swap the data disks from the failed node to the new node. For a 4-node device, you won't need a key file. For a 1-node device, you will be prompted to provide a key file.-->
+
 
 #### Restricted access to data
 
