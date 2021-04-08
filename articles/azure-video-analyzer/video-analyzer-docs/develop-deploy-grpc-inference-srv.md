@@ -153,7 +153,7 @@ To understand the details of how gRPC server is developed, let’s go through ou
     1. **Services\MediaGraphExtensionService.cs**: This class is responsible for handling the [protobuf](https://github.com/Azure/azure-video-analyzer/tree/master/contracts/grpc) messages. It will read the frame in the message, invoke the ImageProcessor and write the inference results.
       Now that we have configured and initialized the gRPC server port connections, let’s look into how we can process the incoming gRPC messages.
 
-        * Once a gRPC session is established, the very first message that the gRPC server will receive from the client (Azure Video Analyzer) is a MediaStreamDescriptor which is defined in the [extension.proto](https://github.com/Azure/azure-video-analyzer/blob/master/contracts/grpc/extension.proto) file.
+        1. Once a gRPC session is established, the very first message that the gRPC server will receive from the client (Azure Video Analyzer) is a MediaStreamDescriptor which is defined in the [extension.proto](https://github.com/Azure/azure-video-analyzer/blob/master/contracts/grpc/extension.proto) file.
 
             ```
             message MediaStreamDescriptor {
@@ -169,9 +169,9 @@ To understand the details of how gRPC server is developed, let’s go through ou
               }
             }
             ```
-        * In our server implementation, the method `ProcessMediaStreamDescriptor` will validate the MediaStreamDescriptor’s MediaDescriptor property for a Video file and then will setup the data transfer mode (which is either using shared memory or using embedded frame transfer mode) depending on what you specify in the topology and the deployment template file used.
-        * Upon receiving the message and successfully setting up the data transfer mode, the gRPC server then returns the MediaStreamDescriptor message back to the client as an acknowledgment and thus establishing a connection between the server and the client.
-        * After Azure Video Analyzer receives the acknowledgment, it will start transferring media stream to the gRPC server. In our server implementation, the method `ProcessMediaStream` will process the incoming MediaStreamMessage. The MediaStreamMessage is also defined in the [extension.proto](https://github.com/Azure/azure-video-analyzer/blob/master/contracts/grpc/extension.proto).
+        1. In our server implementation, the method `ProcessMediaStreamDescriptor` will validate the MediaStreamDescriptor’s MediaDescriptor property for a Video file and then will setup the data transfer mode (which is either using shared memory or using embedded frame transfer mode) depending on what you specify in the topology and the deployment template file used.
+        1. Upon receiving the message and successfully setting up the data transfer mode, the gRPC server then returns the MediaStreamDescriptor message back to the client as an acknowledgment and thus establishing a connection between the server and the client.
+        1. After Azure Video Analyzer receives the acknowledgment, it will start transferring media stream to the gRPC server. In our server implementation, the method `ProcessMediaStream` will process the incoming MediaStreamMessage. The MediaStreamMessage is also defined in the [extension.proto](https://github.com/Azure/azure-video-analyzer/blob/master/contracts/grpc/extension.proto).
 
             ```
             message MediaStreamMessage {
@@ -186,7 +186,7 @@ To understand the details of how gRPC server is developed, let’s go through ou
               }
             }
             ```
-        * Depending on the value of `batchSize` in the *appconfig.json*, our server will keep receiving the messages and will store the video frames in a List. Once the batchSize limit is reached, the function will call the function or the file that will process the image. In our case, the method calls a file called **BatchImageProcessor.cs**.
+        1. Depending on the value of `batchSize` in the *appconfig.json*, our server will keep receiving the messages and will store the video frames in a List. Once the batchSize limit is reached, the function will call the function or the file that will process the image. In our case, the method calls a file called **BatchImageProcessor.cs**.
     1. **Processors\BatchImageProcessor.cs**: This class is responsible for processing the image(s). We have used an image classification model in this sample. For every image that will be processed, the algorithm used is the following:
 
         1. Convert the image in a byte array for processing. See method: `GetBytes(Bitmap image)`
@@ -292,11 +292,11 @@ Now that you have created your gRPC extension module, we will now create and dep
 ## Generate and deploy the IoT Edge deployment manifest
 
 The deployment manifest defines what modules are deployed to an edge device and the configuration settings for those modules. Follow these steps to generate a manifest from the template file, and then deploy it to the edge device.
-* This step creates the IoT Edge deployment manifest at *src/edge/config/deployment.grpc.amd64.json*. Right-click that file and select **Create Deployment for Single Device**.
+1. This step creates the IoT Edge deployment manifest at *src/edge/config/deployment.grpc.amd64.json*. Right-click that file and select **Create Deployment for Single Device**.
 
     :::image type="content" source="./media/develop-deploy-grpc-inference-srv/create-deployment-single-device.png" alt-text="Generate and deploy the IoT Edge deployment manifest":::
 
-* Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Hub device, which should be `avasample-iot-edge-device`.
+1. Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Hub device, which should be `avasample-iot-edge-device`.
 At this stage, the deployment of edge modules to your IoT Edge device has started. In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual Studio Code. You should see that a new module got deployed named lvaExtension.
 
 :::image type="content" source="./media/develop-deploy-grpc-inference-srv/devices.png" alt-text="A new module got deployed named avaextension":::
