@@ -279,7 +279,7 @@ For a complete list of Azure Maps REST APIs, see:
 
 To get a list of devices that are Azure certified for IoT, visit:
 
-* [Azure certified devices](https://catalog.azureiotsolutions.com/)
+* [Azure certified devices](https://devicecatalog.azure.com/)
 
 ## Clean up resources
 
