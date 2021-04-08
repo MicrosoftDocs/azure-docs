@@ -125,7 +125,7 @@ console.log(result); // your message ID will be in the result
 # [JavaScript](#tab/javascript)
 
 The Azure Communication Services Calling SDK relies internally on [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging.
-To control log output, please use `setLogLevel` method from `@azure/logger` package.
+Use the `setLogLevel` method from the `@azure/logger` package to configure the log output:
 
 ```javascript
 import { setLogLevel } from '@azure/logger';
