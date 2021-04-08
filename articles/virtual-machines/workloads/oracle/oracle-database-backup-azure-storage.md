@@ -14,6 +14,8 @@ ms.reviewer: dbakevlar
 
 # Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Storage
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This article demonstrates the use of Azure Storage as a media to back up and restore an Oracle database running on an Azure VM. You will back up the database using Oracle RMAN to Azure File storage mounted to the VM using the SMB protocol. Using Azure storage for backup media is extremely cost effective and performant. However, for very large databases, Azure Backup provides a better solution.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
