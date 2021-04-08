@@ -1,7 +1,7 @@
 ---
 title: HDInsight configuration settings reference
 description: Introduce the configuration of HDInsight extension.
-ms.service: HDInsight
+ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.custom: devx-track-python
