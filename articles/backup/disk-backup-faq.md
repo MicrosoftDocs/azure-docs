@@ -69,10 +69,6 @@ Yes, you can restore the disk onto a different subscription than that of the sou
 
 No, point-in-time snapshots of multiple disks attached to a virtual machine isn't supported. For more information, see [Configure backup](backup-managed-disks.md#configure-backup) and to learn more about limitations, refer to the [support matrix](disk-backup-support-matrix.md).
 
-### What are my options to back up disks across multiple subscriptions?
-
-Currently, using the Azure portal to configure backup of disks is limited to a maximum of 20 disks from the same subscription.
-
 ### What is a target resource group?
 
 During a restore operation, you can choose the subscription and a resource group where you want to restore the disk to. Azure Backup will create new disks from the recovery point in the selected resource group. This is referred to as a target resource group. Note that the Backup vault's managed identity requires the role assignment on the target resource group to be able to perform restore operation successfully. For more information, see the [restore documentation](restore-managed-disks.md).

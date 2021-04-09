@@ -16,8 +16,6 @@ zone_pivot_groups: acs-azp-java-net-python-csharp-js
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Get started with Azure Communication Services by using the Azure portal or the Communication Services Phone Numbers Client Library to manage telephone numbers.
-
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/phone-numbers-portal.md)]
 ::: zone-end

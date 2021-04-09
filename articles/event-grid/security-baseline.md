@@ -14,8 +14,7 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Event Grid
 
-This security
-baseline applies guidance from the [Azure Security Benchmark version
+This security baseline applies guidance from the [Azure Security Benchmark version
 1.0](../security/benchmarks/overview-v1.md) to Microsoft Azure Event Grid. The Azure Security Benchmark
 provides recommendations on how you can secure your cloud solutions on Azure.
 The content is grouped by the **security controls** defined by the Azure
@@ -57,7 +56,6 @@ authentication mechanisms supported by Event Grid.
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
 **Guidance**: Use Azure Security Center and follow network protection recommendations to help secure your Event Grid resources in Azure. If using
-
 Azure virtual machines to access your Event Grid resources, enable network security group (NSG) flow logs and send logs into a storage account for traffic audit.
 
 - [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)

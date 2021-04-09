@@ -792,6 +792,16 @@ groups:
   - id: programming-language-python
     title: Python
 # Owner: msangapu
+- id: app-service-ide
+  title: Development experience
+  prompt: Choose a development experience
+  pivots:
+  - id: development-environment-vs
+    title: Visual Studio
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Command line interface
 - id: app-service-platform-windows-linux
   title: App Service platform
   prompt: Choose a hosting platform
@@ -866,6 +876,19 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-plat-azp-azcli-net-ps
+  # Owner: mikben (Azure Communication Services)
+  title: JS and C# pivots
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-azcli
+    title: Azure CLI
+  - id: platform-net
+    title: .NET
+  - id: platform-powershell
+    title: PowerShell
 - id: acs-js-csharp-java-python
   title: Programming languages
   prompt: Choose a programming language
