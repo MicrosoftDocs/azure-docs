@@ -160,7 +160,7 @@ The following sections specify the parameters required for all authentication ty
 
     Sample query:
     
-    ``` mssql
+    ```SQL
     select [TimestampColumn], [DimensionName], [MetricColumnName] from [TableName] where [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd;
     ```
 
