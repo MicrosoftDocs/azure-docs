@@ -37,7 +37,7 @@ Choose built-in user flows if your business requirements can be met by them. Sin
 
 Should you [choose custom policies](../../active-directory-b2c/custom-policy-get-started.md) because of your business requirements, make sure you perform policy-level testing for functional, performance, or scale in addition to application-level testing.
 
-See the article that [compares user flows and custom polices](../../active-directory-b2c/custom-policy-overview.md#comparing-user-flows-and-custom-policies) to help you decide.
+See the article that [compares user flows and custom polices](../../active-directory-b2c/user-flow-overview.md#comparing-user-flows-and-custom-policies) to help you decide.
 
 ## Choose multiple IDPs
 
