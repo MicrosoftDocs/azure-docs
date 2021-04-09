@@ -77,7 +77,7 @@ The following sections specify the parameters required for all authentication ty
 
 * **API Key**: API keys are used by applications outside the browser to access this resource. To get the API key, do the following:
 
-   1. From the Application Insights resource, click API Access.
+   1. From the Application Insights resource, click **API Access**.
 
    2. Click **Create API Key**.
 
@@ -333,16 +333,16 @@ To get **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Registe
     
     * **Managed Identity** : Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. 
     To enable your managed entity, you can refer to following steps:
-    1. Enabling a system-assigned managed identity is a one-click experience. In Auzre portal for your Metrics Advisor workspace, set the status as **on** in **RESOURCE MANAGEMENT > Identity**.
-    2. In Azure portal for your data source, click **set admin** in **Settings > Active Directory admin**, this is to give MI access to specified users, and the suggested role type is: admin / viewer.
-    3. Then you should create a contained user in database. First, start SQL Server Management Studio, in the **Connect to Server** dialog, Enter your **server name** in the Server name field. Then in the Authentication field, select **Active Directory - Universal with MFA support**. In the User name field, enter the name of the Azure AD account that you set as the server administrator, then click **Options**. In the Connect to database field, enter the name of the non-system database you want to configure. Then click **Connect**, and finally complete the sign-in process.
-    4. The last step is to enable MI in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
+      1. Enabling a system-assigned managed identity is a one-click experience. In Auzre portal for your Metrics Advisor workspace, set the status as **on** in **RESOURCE MANAGEMENT > Identity**.
+      2. In Azure portal for your data source, click **set admin** in **Settings > Active Directory admin**, this is to give MI access to specified users, and the suggested role type is: admin / viewer.
+      3. Then you should create a contained user in database. First, start SQL Server Management Studio, in the **Connect to Server** dialog, Enter your **server name** in the Server name field. Then in the Authentication field, select **Active Directory - Universal with MFA support**. In the User name field, enter the name of the Azure AD account that you set as the server administrator, then click **Options**. In the Connect to database field, enter the name of the non-system database you want to configure. Then click **Connect**, and finally complete the sign-in process.
+      4. The last step is to enable MI in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
     
-    ```
-    CREATE USER [MI Name] FROM EXTERNAL PROVIDER
-    ALTER ROLE db_datareader ADD MEMBER [MI Name]
-    ```
-    *The [MI Name] is the workspace name in Metrics Advisor.
+       ```
+       CREATE USER [MI Name] FROM EXTERNAL PROVIDER
+       ALTER ROLE db_datareader ADD MEMBER [MI Name]
+       ```
+       *Note: The [MI Name] is the workspace name in Metrics Advisor.
     
     Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
 
