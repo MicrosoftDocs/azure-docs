@@ -29,7 +29,7 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
 
 A serverless Spark pool is a way of indicating how a user wants to work with Spark. When you start using a pool a Spark session is created if needed. The pool controls how many Spark resources will be used by that session and how long the session will last before it automatically pauses. You pay for spark resources used during that session not for the pool itself. In this way a Spark pool lets you work with Spark, without having to worry managing clusters. This is similar to how a serverless SQL pool works.
 
-## Analyze NYC Taxi data in blob storage using Spark
+## Analyze NYC Taxi data with a Spark pool
 
 1. In Synapse Studio, go to the **Develop** hub
 2. Create a new Notebook with the default language set to **PySpark (Python)**.
