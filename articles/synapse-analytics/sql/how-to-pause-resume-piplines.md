@@ -11,16 +11,16 @@ ms.custom: template-how-to
 
 # Pause and resume dedicated SQL pools with Synapse Pipelines
 
-Pause and resume for dedicated SQL pools can be automated using Synapse Pipelines in Azure Synapse Analytics. Pause and resume are used to save costs for a dedicated SQL pool. This solution can easily be included in an existing data orchestration process. 
+Pause and resume for dedicated SQL pools can be automated using Synapse Pipelines in Azure Synapse Analytics. Pause and resume can be used to save costs for a dedicated SQL pool. This solution can easily be included in an existing data orchestration process. 
 
 The following steps will guide you through setting up automated pause and resume.
 
-1. Setup parameters in your pipeline
-1. Identify the list of dedicated SQL pools in your Synapse workspace
-1. Remove any irrelevant dedicated SQL pools from this list 
+1. Setup parameters in your pipeline.
+1. Identify the list of dedicated SQL pools in your Synapse workspace.
+1. Filter any dedicated SQL pools that you do not want to pause or resume from the list. 
 1. Loop over each dedicated SQL pool and:
-    1. Check the state of the dedicated SQL pool
-    1. Initiate pause or resume
+    1. Check the state of the dedicated SQL pool.
+    1. Initiate pause or resume.
 
 These steps are laid out in a simple pipeline in Synapse:
 
@@ -39,8 +39,8 @@ Synapse Pipelines allow for the automation of pause and resume, but you can exec
 
 ## Prerequisites
 
-- [Azure Synapse workspace](../get-started-create-workspace.md)
-- [Dedicated SQL pool(s)](../get-started-analyze-sql-pool.md)
+- An existing [Azure Synapse workspace](../get-started-create-workspace.md)
+- At least one [Dedicated SQL pool](../get-started-analyze-sql-pool.md)
 - Workspace assigned the contributor role.
 
 ## Pipeline setup steps
@@ -52,18 +52,18 @@ Synapse Pipelines allow for the automation of pause and resume, but you can exec
 
     ![Create a pipeline in Synapse Studio](./media/how-to-pause-resume-pipelines/create-pipeline.png) 
 
-2. The pipeline you''ll created will be parameter driven. Parameters allow you to create a generic pipeline that you can use across multiple subscriptions, resource groups, or dedicated SQL pools. Select the **Parameters** tab near the bottom of the pipeline screen. Create the following parameters:
+2. The pipeline you''ll created will be parameter driven. Parameters allow you to create a generic pipeline that you can use across multiple subscriptions, resource groups, or dedicated SQL pools. Select the **Parameters** tab near the bottom of the pipeline screen. Select **+New** to create each of the following parameters:
 
     
     |Name  |Type  |Default value  |Description|
     |---------|---------|---------|-----------|
     |ResourceGroup    |string        |Synapse          |Name of the resource group for your dedicated SQL pools|
-    |SubscriptionID   |string        |Your Subscription|Subscription ID for your resource group|
+    |SubscriptionID   |string        |<SubscriptionID>|Subscription ID for your resource group|
     |WorkspaceName    |string        |Synapse          |Name of your workspace|
     |SQLPoolName      |string        |SQLPool1         |Name of your dedicated SQL pool|
     |PauseorResume    |string        |Pause            |The desired state at the end of the pipeline run|
 
-    ![Pipeline parameters inputin Synapse Studio.](./media/how-to-pause-resume-pipelines/pipeline-parameters.png)
+    ![Pipeline parameters in Synapse Studio.](./media/how-to-pause-resume-pipelines/pipeline-parameters.png)
 
 3. Set up a **Web** activity, you'll use this activity to identify the list of dedicated SQL pools by calling the dedicated SQL pools - List By Server REST API request. The output is a JSON string that contains a list of thededicated SQL pools in your workspace. The JSON string is passed to the next activity.
     1. Under **Activities** > **General** drag a **Web** activity to the pipeline canvas as the first stage of your pipeline.  
