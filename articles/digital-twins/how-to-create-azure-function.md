@@ -125,25 +125,27 @@ You can use the function app's system-managed identity to give it the **Azure Di
 
 [!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
-The function skeleton from earlier examples requires a bearer token to be passed to it. If the bearer token isn't passed, the function app can't authenticate with Azure Digital Twins. To make sure the bearer token is passed, set up [managed identities](../active-directory/managed-identities-azure-resources/overview.md) permissions so the function app can access Azure Digital Twins. You set up these permissions only once for each function app.
+The function skeleton in earlier examples requires a bearer token to be passed to it. If the bearer token isn't passed, the function app can't authenticate with Azure Digital Twins. 
+
+To make sure the bearer token is passed, set up [managed identities](../active-directory/managed-identities-azure-resources/overview.md) permissions so the function app can access Azure Digital Twins. You set up these permissions only once for each function app.
 
 
-1. Use the following command to see the details of the system-managed identity for the function. Take note of the _principalId_ field in the output.
+1. Use the following command to see the details of the system-managed identity for the function. Take note of the `principalId` field in the output.
 
     ```azurecli-interactive	
     az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
     ```
 
     >[!NOTE]
-    > If the result is empty instead of showing details of an identity, create a new system-managed identity for the function using this command:
+    > If the result is empty instead of showing identity details, create a new system-managed identity for the function by using this command:
     > 
     >```azurecli-interactive	
     >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
     >```
     >
-    > The output will then display details of the identity, including the _principalId_ value required for the next step. 
+    > The output displays details of the identity, including the `principalId` value required for the next step. 
 
-1. Use the _principalId_ value in the following command to assign the function app's identity to the _Azure Digital Twins Data Owner_ role for your Azure Digital Twins instance.
+1. Use the `principalId` value in the following command to assign the function app's identity to the _Azure Digital Twins Data Owner_ role for your Azure Digital Twins instance.
 
     ```azurecli-interactive	
     az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
@@ -151,10 +153,10 @@ The function skeleton from earlier examples requires a bearer token to be passed
 
 ### Configure application settings
 
-Lastly, make the URL of your Azure Digital Twins instance accessible to your function by setting an **environment variable** for it. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+Make the URL of your Azure Digital Twins instance accessible to your function by setting an *environment variable* for it. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 > [!TIP]
-> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *host name*. To see the host name, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
+> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *host name*. To see the host name, along with all the properties of your instance, run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 ```azurecli-interactive	
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
@@ -168,42 +170,48 @@ Complete the following steps in the [Azure portal](https://portal.azure.com/).
 
 [!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
-A system assigned managed identity enables Azure resources to authenticate to cloud services (for example, Azure Key Vault) without storing credentials in code. Once enabled, all necessary permissions can be granted via Azure role-based access control. The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource can only have one system assigned managed identity.
+A system-assigned managed identity enables Azure resources to authenticate to cloud services (for example, Azure Key Vault) without storing credentials in code. After you enable system-assigned managed identity, all necessary permissions can be granted through Azure role-based access control. 
 
-1. In the [Azure portal](https://portal.azure.com/), search for your function app by typing its name into the search bar. Select your app from the results. 
+The life cycle of this type of managed identity is tied to the life cycle of this resource. Additionally, each resource can have only one system-assigned managed identity.
 
-    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal: The function app's name is being searched in the portal search bar and the search result is highlighted.":::
+1. In the [Azure portal](https://portal.azure.com/), search for your function app by typing its name in the search box. Select your app from the results. 
 
-1. On the function app page, select _Identity_ in the navigation bar on the left to work with a managed identity for the function. On the _System assigned_ page, verify that the _Status_ is set to **On** (if it's not, set it now and *Save* the change).
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal. The function app's name is in the portal search bar, and the search result is highlighted.":::
 
-    :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Screenshot of the Azure portal: In the Identity page for the function app, the Status option is set to On." lightbox="media/how-to-create-azure-function/verify-system-managed-identity.png":::
+1. On the function app page, in the menu on the left, select __Identity__ to work with a managed identity for the function. On the __System assigned__ page, verify that the __Status__ is set to **On**. If it's not, set it now and then **Save** the change.
 
-1. Select the _Azure role assignments_ button, which will open up the *Azure role assignments* page.
+    :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Screenshot of the Azure portal. On the Identity page for the function app, the Status option is set to On." lightbox="media/how-to-create-azure-function/verify-system-managed-identity.png":::
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal: A highlight around the Azure role assignments button under Permissions in the Azure Function's Identity page." lightbox="media/how-to-create-azure-function/add-role-assignment-1.png":::
+1. Select __Azure role assignments__.
 
-    Select _+ Add role assignment (Preview)_.
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal. On the Azure Function's Identity page, under Permissions, the button Azure role assignments is highlighted." lightbox="media/how-to-create-azure-function/add-role-assignment-1.png":::
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-2.png" alt-text="Screenshot of the Azure portal: A highlight around + Add role assignment (Preview) in the Azure role assignments page." lightbox="media/how-to-create-azure-function/add-role-assignment-2.png":::
+    Select __+ Add role assignment (Preview)__.
 
-1. On the _Add role assignment (Preview)_ page that opens up, select the following values:
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-2.png" alt-text="Screenshot of the Azure portal. On the Azure role assignments page, the button Add role assignment (Preview) is highlighted." lightbox="media/how-to-create-azure-function/add-role-assignment-2.png":::
 
-    * **Scope**: Resource group
-    * **Subscription**: Select your Azure subscription
-    * **Resource group**: Select your resource group from the dropdown
-    * **Role**: Select _Azure Digital Twins Data Owner_ from the dropdown
+1. On the __Add role assignment (Preview)__ page, select the following values:
 
-    Then, save your details by hitting the _Save_ button.
+    * **Scope**: _Resource group_
+    * **Subscription**: Select your Azure subscription.
+    * **Resource group**: Select your resource group.
+    * **Role**: _Azure Digital Twins Data Owner_
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Screenshot of the Azure portal: Dialog to add a new role assignment (Preview). There are fields for the Scope, Subscription, Resource group, and Role.":::
+    Save the details by selecting __Save__.
+
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Screenshot of the Azure portal, showing how to add a new role assignment. The dialog shows fields for the Scope, Subscription, Resource group, and Role.":::
 
 ### Configure application settings
 
-To make the URL of your Azure Digital Twins instance accessible to your function, you can set an **environment variable** for it. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). Application settings are exposed as environment variables to access the Azure Digital Twins instance. 
+To make the URL of your Azure Digital Twins instance accessible to your function, you can set an *environment variable*. Application settings are exposed as environment variables to allow access to the Azure Digital Twins instance. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
-To set an environment variable with the URL of your instance, first get the URL by finding your Azure Digital Twins instance's host name. Search for your instance in the [Azure portal](https://portal.azure.com) search bar. Then, select _Overview_ on the left navigation bar to view the _Host name_. Copy this value.
+To set an environment variable with the URL of your instance, first find your Azure Digital Twins instance's host name: 
 
-:::image type="content" source="media/how-to-create-azure-function/instance-host-name.png" alt-text="Screenshot of the Azure portal: From the Overview page for the Azure Digital Twins instance, the Host name value is highlighted.":::
+1. Search for your instance in the [Azure portal](https://portal.azure.com). 
+1. In the menu on the left, select __Overview__. 
+1. Copy the __Host name__ value.
+
+    :::image type="content" source="media/how-to-create-azure-function/instance-host-name.png" alt-text="Screenshot of the Azure portal. On the instance's Overview page, the host name value is highlighted.":::
 
 You can now create an application setting with these steps:
 
