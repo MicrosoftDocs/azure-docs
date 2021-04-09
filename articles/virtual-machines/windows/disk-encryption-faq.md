@@ -13,6 +13,8 @@ ms.custom: seodec18
 
 # Azure Disk Encryption for Windows virtual machines FAQ
 
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 This article provides answers to frequently asked questions (FAQ) about Azure Disk Encryption for Windows VMs. For more information about this service, see [Azure Disk Encryption overview](disk-encryption-overview.md).
 
 ## What is Azure Disk Encryption for Windows VMs?

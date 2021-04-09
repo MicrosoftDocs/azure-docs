@@ -4,7 +4,7 @@ description: The Windows Virtual Machines security baseline provides procedural 
 author: msmbaldwin
 ms.service: virtual-machines
 ms.subservice: security
-ms.collection: linux
+ms.collection: windows
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
@@ -15,6 +15,7 @@ ms.custom: subject-security-benchmark
 ---
 
 # Azure security baseline for Windows Virtual Machines
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 The Azure Security Baseline for Windows Virtual Machines contains recommendations that will help you improve the security posture of your deployment.
 
