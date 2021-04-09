@@ -22,7 +22,7 @@ This article provides the detailed resource limits for single databases in Azure
 * For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
 * For more information regarding the different purchasing models, see [Purchasing models and service tiers](purchasing-models.md).
 
-Each read-only replica has its own resources, such as vCores, memory, maximum data IOPS, TempDB size, maximum workers, and maximum sessions. Each read-only replica is subject to the resource limits detailed later in this article.
+Each read-only replica has its own resources, such as vCores, memory, data IOPS, TempDB, workers, and sessions. Each read-only replica is subject to the resource limits detailed later in this article.
 
 You can set the service tier, compute size (service objective), and storage amount for a single database using:
 
