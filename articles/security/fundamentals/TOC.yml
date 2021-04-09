@@ -68,9 +68,9 @@
   - name: Security checklist
     href: steps-secure-identity.md
   - name: Choose passwordless 
-    href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=azure/security/fundamentals/toc.json&bc=azure/security/breadcrumb/toc.json
+    href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Authentication
-    href: /azure/architecture/framework/security/design-identity-authentication?toc=azure/security/fundamentals/toc.json&bc=azure/security/breadcrumb/toc.json
+    href: /azure/architecture/framework/security/design-identity-authentication?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 
 
