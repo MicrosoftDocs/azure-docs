@@ -31,7 +31,7 @@ The pipeline topology shown below enables you to analyze a live video stream usi
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/analyze-live-video/motion-detected-frames.svg" alt-text="Live video analysis using an external inferencing module":::
 
-In this pipeline topology, the video input from the RTSP source is sent to a [HTTP extension processor]()<!--pipeline-topology-concept.md#http-extension-processor)--> node, which sends image frames (in JPEG, BMP, or PNG formats) to an external inference service over REST. The results from the external inference service are retrieved by the HTTP extension node, and relayed to the IoT Edge hub via IoT Hub message sink node. This type of pipeline topology can be used to build solutions for a variety of scenarios, such as understanding the time-series distribution of vehicles at an intersection, understanding the consumer traffic pattern in a retail store, and so on.
+In this pipeline topology, the video input from the RTSP source is sent to an [HTTP extension processor]()<!--pipeline-topology-concept.md#http-extension-processor)--> node, which sends image frames (in JPEG, BMP, or PNG formats) to an external inference service over REST. The results from the external inference service are retrieved by the HTTP extension node, and relayed to the IoT Edge hub via IoT Hub message sink node. This type of pipeline topology can be used to build solutions for a variety of scenarios, such as understanding the time-series distribution of vehicles at an intersection, understanding the consumer traffic pattern in a retail store, and so on.
 
 >[!TIP]
 > You can manage the frame rate within the HTTP extension processor node using the `samplingOptions` field before sending it downstream.
