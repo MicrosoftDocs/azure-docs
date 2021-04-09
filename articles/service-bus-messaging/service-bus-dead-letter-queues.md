@@ -37,7 +37,7 @@ There are several activities in Service Bus that cause messages to get pushed to
 |TTLExpiredException |The message expired and was dead lettered. See the [Time to live](#time-to-live) section for details. |
 |Session ID is null. |Session enabled entity doesn't allow a message whose session identifier is null. |
 |MaxTransferHopCountExceeded | The maximum number of allowed hops when forwarding between queues. Value is set to 4. |
-| MaxDeliveryCountExceededExceptionMessage | Message could not be consumed after maximum delivery attempts. See the [Maximum delivery count](#maximum-delivery-count) section for details. |
+| MaxDeliveryCountExceededExceptionMessage | Message couldn't be consumed after maximum delivery attempts. See the [Maximum delivery count](#maximum-delivery-count) section for details. |
 
 ## Maximum delivery count
 There is a limit on number of attempts to deliver messages for Service Bus queues and subscriptions. The default value is 10. Whenever a message has been delivered under a peek-lock, but has been either explicitly abandoned or the lock has expired, the delivery count on the message is incremented. When the delivery count exceeds the limit, the message is moved to the DLQ. The dead-letter reason for the message in DLQ is set to: MaxDeliveryCountExceeded. This behavior can't be disabled, but you can set the max delivery count to a large number.
@@ -60,8 +60,6 @@ Messages will be sent to the transfer dead-letter queue under the following cond
 - The destination queue or topic is disabled or deleted.
 - The destination queue or topic exceeds the maximum entity size.
 
-To retrieve these dead-lettered messages, you can create a receiver using the [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) utility method.
-
 ## Path to the dead-letter queue
 You can access the dead-letter queue by using the following syntax:
 
@@ -73,7 +71,7 @@ You can access the dead-letter queue by using the following syntax:
 
 ## Next steps
 
-See the following articles for more information about Service Bus queues:
+For more information about Service Bus queues, see the following articles:
 
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [Azure Queues and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
