@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with desknet's NEO | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and desknet's NEO.
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with desknets NEO | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and desknets NEO.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -133,9 +133,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot for SAML authentication link settings section.](./media/desknets-neo-tutorial/saml-authentication.png)
 
-    a. In the **Access URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    a. In the **Access URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
-    b. In the **SP Entity ID** textbox, paste the **Identifier** value which you have copied from the Azure portal.
+    b. In the **SP Entity ID** textbox, paste the **Identifier** value, which you have copied from the Azure portal.
 
     c. Click on **Choose File** to upload the downloaded **Certificate (Base64)** file from the Azure portal into the **x.509 Certificate** textbox.
 
