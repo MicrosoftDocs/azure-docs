@@ -36,7 +36,7 @@ A serverless Spark pool is a way of indicating how a user wants to work with Spa
 3. Create a new code cell and paste the following code into that cell.
     ```py
 %%pyspark
-df = spark.read.load('abfss://users@workspacename.dfs.core.windows.net/NYCTripSmall.parquet', format='parquet')
+df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet', format='parquet')
 display(df.limit(10))
     ```
 1. In the notebook, in the **Attach to** menu, choose the **Spark1** serverless Spark pool that we created earlier.
