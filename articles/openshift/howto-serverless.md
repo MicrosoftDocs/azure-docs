@@ -13,7 +13,7 @@ keywords: aro, openshift, red hat, serverless
 
 In this article, you deploy an application to an Azure Red Hat OpenShift cluster using [OpenShift Serverless](https://www.openshift.com/learn/topics/serverless). OpenShift Serverless helps developers to deploy and run applications that will scale up or scale to zero on-demand, eliminating resource consumption when not in use.
 
-Application code can be packaged in a container along with the appropriate runtimes, and the serverless functionality will start the application containers when they are triggered by an event. Applications can be triggered by a variety of event sources, such as events from your own applications, cloud services from multiple providers, Software as a Service (SaaS) systems and other services.
+Application code can be packaged in a container along with the appropriate runtimes, and the serverless functionality will start the application containers when they are triggered by an event. Applications can be triggered by various event sources, such as events from your own applications, cloud services from multiple providers, Software as a Service (SaaS) systems and other services.
 
 Managing all aspects of deploying any container in a serverless fashion is built directly into the OpenShift interface. Developers can visually identify which events are driving the launch of their containerized applications, with multiple ways to modify the event parameters. OpenShift Serverless applications can be integrated with other OpenShift services, such as OpenShift Pipelines, Service Mesh, and Monitoring, delivering a complete serverless application development and deployment experience.
 
@@ -21,7 +21,7 @@ Managing all aspects of deploying any container in a serverless fashion is built
 
 [!INCLUDE [aro-howto-beforeyoubegin](includes/aro-howto-beforeyoubegin.md)]
 
-### Install the Knative command line tool (kn)
+### Install the Knative command-line tool (kn)
 
 You can download the latest release of the CLI appropriate to your machine from <https://github.com/knative/client/releases/>
 
@@ -78,11 +78,11 @@ In a few minutes, the status page should reflect that the operator is installed 
 
 ## Install Knative Serving
 
-The capability to run any container in a serverless fashion on OpenShift Serverless is possible by using upstream Knative. Knative extends Kubernetes to provide a set of components for deploying, running and managing modern applications using the serverless methodology.
+The capability to run any container in a serverless fashion on OpenShift Serverless is possible by using upstream Knative. Knative extends Kubernetes to provide a set of components for deploying, running, and managing modern applications using the serverless methodology.
 
 ### Create an instance of the Knative Serving
 
-Switch to the `knative-service` namespace by clicking on project drop-down list on the top left, then under *Provided APIs*, click on **Create Instance** in the *Knative Serving* card.
+Switch to the `knative-serving` namespace by clicking on project drop-down list on the top left, then under *Provided APIs*, click on **Create Instance** in the *Knative Serving* card.
 
 ![Click to create Knative Service instance](media/serverless/serverless-createknativeserving.png)
 
@@ -154,7 +154,7 @@ Click the *Open URL* icon in the upper-right corner of the Knative Service panel
 
 ## Forcing a new revision and setting traffic distribution
 
-With each update to the configuration of a service, a new revision for the service is created. The service route points all traffic to the latest ready revision by default. You can change this behavior by defining which revisions gets a portion of the traffic. Knative services allow for traffic mapping, which means that revisions of a service can be mapped to an allocated portion of traffic. Traffic mapping also provides an option to create unique URLs for particular revisions.
+With each update to the configuration of a service, a new revision for the service is created. The service route points all traffic to the latest ready revision by default. You can change this behavior by defining which revision gets a portion of the traffic. Knative services allow for traffic mapping, which means that revisions of a service can be mapped to an allocated portion of traffic. Traffic mapping also provides an option to create unique URLs for particular revisions.
 
 In the *Topology*, click the revision inside your service to view its details. The badges under the Pod ring and at the top of the detail panel should be `(REV)`. In the side panel, within the *Resources* tab, scroll down and click on the configuration associated with your service.
 
@@ -172,9 +172,9 @@ The *Topology* view will now show you how traffic is distributed between the two
 
 ![Review traffic distribution](media/serverless/serverless-trafficdist2.png)
 
-## Using the Knative command line tool (kn)
+## Using the Knative command-line tool (kn)
 
-In the prior steps, you've used the OpenShift web console to create and deploy an application to OpenShift Serverless. Since OpenShift Serverless is running Knative underneath, you can also use the Knative command line tool (kn) to create Knative services.
+In the prior steps, you've used the OpenShift web console to create and deploy an application to OpenShift Serverless. Since OpenShift Serverless is running Knative underneath, you can also use the Knative command-line tool (kn) to create Knative services.
 
 > [!NOTE]
 > If you haven't installed the `kn` CLI already, make sure to follow the steps in the prerequisites section of this article.
@@ -183,7 +183,7 @@ We're going to use a container image that is already built at `quay.io/rhdevelop
 
 ### Deploy a service
 
-To deploy the service run the following command:
+To deploy the service, run the following command:
 
 ```azurecli-interactive
 kn service create greeter \
@@ -279,7 +279,7 @@ kn service update greeter \
    --tag @latest=latest
 ```
 
-You'll get an confirmation similar to the below.
+You'll get a confirmation similar to the below.
 
 ```output
 Updating Service 'greeter' in namespace 'demoserverless':
