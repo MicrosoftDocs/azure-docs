@@ -41,5 +41,5 @@ In the above architecture, streaming events coming from sensor data will be stor
 
 ## Next Steps
 
-- [Quickstarts](./quickstarts/client-libraries-multivariate.md).
-- [Best Practices](./concepts/best-practices-multivariate.md): This article is about recommended patterns to use with the  multivariate APIs.
+- [Quickstarts](../quickstarts/client-libraries-multivariate.md).
+- [Best Practices](../concepts/best-practices-multivariate.md): This article is about recommended patterns to use with the  multivariate APIs.
