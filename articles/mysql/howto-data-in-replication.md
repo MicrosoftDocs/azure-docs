@@ -51,7 +51,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    If your organization has strict security policies and won't allow all IP addresses on the source server to enable communication from Azure to your source server, you can potentially use the command below to determine the IP address of your MySQL server.
 
-   1. Sign in to your Azure Database for MySQL using a tool such as the MySQL command line.
+   1. Sign in to your Azure Database for MySQL server using a tool such as the MySQL command line.
 
    2. Execute the following query.
 
@@ -85,8 +85,8 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    5. Configure your source server's firewall rules to include the previous step's outputted IP address on port 3306.
 
-   > [!NOTE]
-   > This IP address may change due to maintenance/deployment operations. This method of connectivity is only for customers who cannot afford to allow all IP address on 3306 port.
+      > [!NOTE]
+      > This IP address may change due to  maintenance / deployment operations. This method of connectivity is only for customers who cannot afford to allow all IP address on 3306 port.
   
 3. Turn on binary logging.
 
