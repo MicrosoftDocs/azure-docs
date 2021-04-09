@@ -42,6 +42,10 @@ Use multivariate anomaly detection APIs below, if your goal is to detect system 
 
 ![Multiple time series line graphs for variables of: vibration, temperature, pressure, velocity, rotation speed with anomalies highlighted in orange](./media/multivariate_graph.png)
 
+## Region support
+
+The public preview of Anomaly Detector multivariate is currently available in three regions: West US2, East US2, and West Europe.
+
 ## Algorithms
 
 - [Multivariate time series Anomaly Detection via Graph Attention Network](https://arxiv.org/abs/2009.02040)
