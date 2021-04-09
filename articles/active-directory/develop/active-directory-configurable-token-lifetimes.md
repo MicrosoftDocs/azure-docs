@@ -79,8 +79,7 @@ Access, ID, and SAML2 token configuration are affected by the following properti
 
 |Property   |Policy property string    |Affects |Default | Minimum | Maximum |
 |----------|-----------|------------|------------|
-|Access Token Lifetime |AccessTokenLifetime |Access tokens |Varies, depending on the client application requesting the token. For example, continuous access evaluation (CAE) capable clients that negotiate CAE-aware sessions will see a long lived token lifetime (up to 28 hours).  | 10 minutes |28 hours |
-|Access Token Lifetime |AccessTokenLifetime |ID tokens, SAML2 tokens |1 hour | 10 minutes |1 day |
+|Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |<p>Access tokens: varies, depending on the client application requesting the token. For example, continuous access evaluation (CAE) capable clients that negotiate CAE-aware sessions will see a long lived token lifetime (up to 28 hours).</p><p>ID tokens, SAML2 tokens: 1 hour</p>  | 10 minutes |1 day |
 
 ### Refresh and session token lifetime policy properties
 
@@ -109,24 +108,6 @@ For more information about the relationship between application objects and serv
 A token’s validity is evaluated at the time the token is used. The policy with the highest priority on the application that is being accessed takes effect.
 
 All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api/system.timespan) object - D.HH:MM:SS.  So 80 days and 30 minutes would be `80.00:30:00`.  The leading D can be dropped if zero, so 90 minutes would be `00:90:00`.  
-
-### Example scenario
-
-A user wants to access two web applications: Web Application A and Web Application B.
-
-Factors:
-* Both web applications are in the same parent organization.
-* Token Lifetime Policy 1 with a Session Token Max Age of eight hours is set as the parent organization’s default.
-* Web Application A is a regular-use web application and isn’t linked to any policies.
-* Web Application B is used for highly sensitive processes. Its service principal is linked to Token Lifetime Policy 2, which has a Session Token Max Age of 30 minutes.
-
-At 12:00 PM, the user starts a new browser session and tries to access Web Application A. The user is redirected to the Microsoft identity platform and is asked to sign in. This creates a cookie that has a session token in the browser. The user is redirected back to Web Application A with an ID token that allows the user to access the application.
-
-At 12:15 PM, the user tries to access Web Application B. The browser redirects to the Microsoft identity platform, which detects the session cookie. Web Application B’s service principal is linked to Token Lifetime Policy 2, but it's also part of the parent organization, with default Token Lifetime Policy 1. Token Lifetime Policy 2 takes effect because policies linked to service principals have a higher priority than organization default policies. The session token was originally issued within the last 30 minutes, so it is considered valid. The user is redirected back to Web Application B with an ID token that grants them access.
-
-At 1:00 PM, the user tries to access Web Application A. The user is redirected to the Microsoft identity platform. Web Application A is not linked to any policies, but because it is in an organization with default Token Lifetime Policy 1, that policy takes effect. The session cookie that was originally issued within the last eight hours is detected. The user is silently redirected back to Web Application A with a new ID token. The user is not required to authenticate.
-
-Immediately afterward, the user tries to access Web Application B. The user is redirected to the Microsoft identity platform. As before, Token Lifetime Policy 2 takes effect. Because the token was issued more than 30 minutes ago, the user is prompted to reenter their sign-in credentials. A brand-new session token and ID token are issued. The user can then access Web Application B.
 
 ## Cmdlet reference
 
