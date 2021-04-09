@@ -41,7 +41,7 @@ Capacity Unit in Event Hubs Dedicated.
 
 We recommend that you choose at least as many partitions as you expect to
 require in sustained [throughput units
-(TU)](../articles/event-hubs/event-hubs-faq.md#what-are-event-hubs-throughput-units)
+(TU)](../articles/event-hubs/event-hubs-faq.yml#what-are-event-hubs-throughput-units-)
 during the peak load of your application for that particular Event Hub. You
 should calculate with a single partition having a throughput capacity of 1 TU (1
 MByte in, 2 MByte out). You can scale the TUs on your namespace or the capacity
