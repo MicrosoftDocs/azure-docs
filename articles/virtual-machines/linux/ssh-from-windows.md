@@ -45,9 +45,13 @@ You can also install the [Windows Subsystem for Linux](/windows/wsl/about) to co
 
 ## Create an SSH key pair
 
-Create an SSH key pair using the `ssh-keygen` command. Enter a filename, or use the default shown in parenthesis (for example `C:\Users\username/.ssh/id_rsa`).  Enter a passphrase for the file, or leave the passphrase blank if you do not want to use a passphrase. 
+Create an SSH key pair using the `ssh-keygen` command. Enter a filename, or use the default shown in parenthesis (for example `C:\Users\username/.ssh/id_rsa`).  If the SSH key is being used to deploy virtual machines and user authentication it is highly recommended to enter a passphrase during the SSH key creation. There are a few cases where you might need to create SSH keys without passphrases for automatic login but that is usually not recommended for interactive logins.
 
 ```powershell
+ECDSA is recommended for better security and longevity, unless RSA is absolutely required, ECDSA should be the best choice. The main difference to remember is that by default the private and public key filenames will use the id_ecdsa format and not id_rsa.
+
+ssh-keygen -m PEM -t ecdsa -b 521
+
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
