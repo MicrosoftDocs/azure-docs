@@ -158,7 +158,7 @@ If you are seeing issues related to your authentication flow:
 
 ### File upload error codes
 
-Here is a list of common error codes you might experience when a device tries to upload a file to the cloud. Remember that before your device can upload a file, you must configure [device file upload](core/howto-configure-file-uploads.md) on your application first.
+Here is a list of common error codes you might experience when a device tries to upload a file to the cloud. Remember that before your device can upload a file, you must configure [device file upload](howto-configure-file-uploads.md) on your application first.
 
 | Error code | Description | Possible Mitigation |
 | - | - | - |
