@@ -8,11 +8,11 @@ ms.topic: conceptual
 ---
 # Enable and use managed identity for Automation
 
-This topic shows you how to create a managed identity for an Automation Account and how to use it to access other resources. For more details on how managed identity works with Azure automation, see [Managed identities](automation-security-overview.md#managed-identities).
+This topic shows you how to create a managed identity for an Automation Account and how to use it to access other resources. For more on how managed identity works with Azure automation, see [Managed identities](automation-security-overview.md#managed-identities).
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, sign up for a [free Azure account](https://azure.microsoft.com/free/). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
+- An Azure account and subscription. If you don't have a subscription, sign up for a [free Azure account](https://azure.microsoft.com/free/). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
 
 - The latest version of Automation account modules.
 
@@ -20,7 +20,10 @@ This topic shows you how to create a managed identity for an Automation Account 
 
 - A target Azure resource that you want to access. On this resource, you'll add a role for the managed identity, which helps the Automation runbook authenticate access to the target resource.
 
-- If you want to execute hybrid jobs using identity, update the Windows and Linux Hybrid workers to the latest version.
+- If you want to execute hybrid jobs using an identity, update the Windows and Linux Hybrid workers to the latest version. Minimum acceptable versions are:
+
+   - Windows Hybrid Runbook: version 7.3.1125.0 
+   - Linux Hybrid Runbook: version 1.7.4.0
 
 ## Enable system-assigned identity
 
@@ -41,7 +44,7 @@ Your Automation account can now use the system-assigned identity, which is regis
 
 :::image type="content" source="media/managed-identity/managed-identity-object-id.png" alt-text="Managed identity object ID.":::
 
-### Enable system-assigned identity through REST API
+### Enable system-assigned identity through the REST API
 
 You can configure a system-assigned managed identity to the Automation account by using the following REST API call.
 
@@ -63,13 +66,15 @@ Request body
 {
  "name": "automation-account-name",
  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name",
- ..
+ .
+ .
  "identity": {
     "type": "SystemAssigned",
     "principalId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
     "tenantId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"
  },
-..
+.
+.
 }
 ```
 
@@ -80,11 +85,13 @@ Request body
 
 ## Give identity access to Azure resources by obtaining a token
 
-An Automation Account can use its managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens do not represent any specific user of the application. Instead, they represent the application that’s accessing the resource. For example, in this case, the token represents an Automation Account.
-Before you can use your system managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity . To complete this task, assign the appropriate role to that identity on the target Azure resource.
-As an example, Azure Automation identity would require get, recover, wrapKey, UnwrapKey permissions on the Key vault.
+An Automation Account can use its managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens do not represent any specific user of the application. Instead, they represent the application that’s accessing the resource. For example, in this case, the token represents an Automation account.
 
-### You can do it via cmdlets
+Before you can use your system managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity . To complete this task, assign the appropriate role to that identity on the target Azure resource.
+
+As an example, an Azure Automation identity requires **get**, **recover**, **wrapKey**, and **UnwrapKey** permissions on the Key vault.
+
+This cmdlet accomplishes the task.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <Key-Vault-name> -ResourceGroupName <resource-group-name> -ObjectId <automation-object-ID> -PermissionsToSecrets <permissions>
@@ -102,9 +109,9 @@ If you're running a Hybrid job, the Sandbox communicates directly with the job r
 ## Generate an access token without using Azure cmdlets
 
 For HTTP Endpoints make sure of the following.
-- Metadata header must be present and should be equal to “true”.
+- Metadata header must be present and should be set to “true”.
 - The X-Forwarded-For header should not be present. 
-- Resource must be passed along with the request (as a query parameter for a GET request and as form data for a POST request.
+- A resource must be passed along with the request, as a query parameter for a GET request and as form data for a POST request.
 - The secret header should be set to MSISecret for Hybrid Workers. 
 - Content Type for the Post request must be 'application/x-www-form-urlencoded'. 
 
@@ -126,7 +133,9 @@ $body = @{resource='https://management.azure.com/' }
 Invoke-RestMethod $url -Method 'POST' -Headers $headers -ContentType 'application/x-www-form-urlencoded' -Body $body 
 ```
 
-### Sample Runbook to access SQL Database without using Azure cmdlets
+## Sample runbooks using managed identity
+
+### Sample Runbook to access a SQL Database without using Azure cmdlets
 
 ```powershell
 $queryParameter = "?resource=https://database.windows.net/" 
@@ -152,7 +161,7 @@ $command.ExecuteNonQuery()
 $conn.Close()
 ```
 
-### Sample Runbook to access Key vault using Azure cmdlets
+### Sample Runbook to access the Key vault using Azure cmdlets
 
 ```powershell
 Write-Output "Connecting to azure via  Connect-AzureRMAccount -Identity" 
@@ -189,3 +198,13 @@ headers = {
 response = requests.request("GET", endPoint, headers=headers, data=payload) 
 print(response.text) 
 ```
+
+## Known issue
+
+This issue is only applicable if you've enabled Managed Identity, are running Hybrid Jobs on Azure, and are using a virtual machine's system-assigned identities for accessing your resource in runbook.
+
+- If you enable Managed Identities on an Automation account, and the VM is registered as a hybrid runbook worker, then the of automation account identity will be used for the hybrid jobs.
+
+- This also means that your existing job execution may be affected if you have been using the customer-managed keys feature of the automation account and used them to enable managed identity for Automation. If you're also using the VM's managed identity in your runbook for accessing resources.
+
+- These variables will only be overriding for the process executing Runbooks.

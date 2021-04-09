@@ -25,7 +25,7 @@ The managed identity is removed and no longer has access to the target resource.
 
 ## Disable managed identity in Azure Resource Manager template
 
-If you created the automation account managed identity by using an Azure Resource Manager (ARM) template, you can disable MID by setting the identity object's type child property to **None** and re-running the script.
+If you created the automation account managed identity by using an Azure Resource Manager (ARM) template, you can disable managed identity by re-running the script. First, set the type of the identity object's child property to **None**, then run the script again.
 
 ```json
 "identity": { 

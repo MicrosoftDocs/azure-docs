@@ -49,7 +49,7 @@ An Automation account can be granted two types of identities:
 >[!NOTE]
 > We currently support only system-assigned identities for both Cloud and Hybrid jobs. User assigned identities are not supported yet.
 
-For details on using managed identities, SEE THIS RIGHT HERE.
+For details on using managed identities, see [Enable managed identity for Automation](enable-managed-identity-for-automation.md).
 
 ## Run As accounts
 
