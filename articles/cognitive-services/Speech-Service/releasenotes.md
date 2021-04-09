@@ -15,6 +15,12 @@ ms.custom: seodec18
 
 # Speech Service release notes
 
+## Text-to-speech 2021-April release
+
+**Neural TTS is available across 21 regions**
+
+- **Twelve new regions added** - Neural TTS is now available in these new 12 regions: `Japan East`, `Japan West`, `Korea Central`, `North Central US`, `North Europe`, `South Central US`, `Southeast Asia`, `UK South`, `west Central US`, `West Europe`, `West US`, `West US 2`. Check [here](regions.md#text-to-speech) for full list of 21 supported regions.
+
 ## Text-to-speech 2021-March release
 
 **New languages and voices added for neural TTS**
