@@ -326,6 +326,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/front-door-whats-new.md",
+      "redirect_url": "https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/azure-media-player/components-limitations.md",
       "redirect_url": "/articles/load-balancer/concepts",
       "redirect_document_id": false
@@ -741,6 +746,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/custom-policy-get-started.md",
+      "redirect_url": "/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-how-to-enable-billing.md",
       "redirect_url": "/azure/active-directory-b2c/billing",
       "redirect_document_id": true
@@ -868,6 +878,11 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/custom-policy-ui-customization-dynamic.md",
       "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/custom-policy-trust-frameworks.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-policy-overview",
       "redirect_document_id": false
     },
     {
@@ -11145,6 +11160,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/azure-sql/database/connect-query-r.md",
+      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sql-database/sql-database-connect-query-ruby.md",
       "redirect_url": "/azure/azure-sql/database/connect-query-ruby",
       "redirect_document_id": true
@@ -19258,6 +19278,11 @@
       "source_path_from_root": "/articles/lab-services/use-paas-services.md",
       "redirect_url": "/azure/devtest-labs/use-paas-services",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-interpret-event-data.md",
+      "redirect_url": "/azure/digital-twins/concepts-event-notifications",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-integrate-models.md",
@@ -28801,9 +28826,29 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc",
+      "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/account-migration-from-cpp-to-pc.md",
+      "redirect_url": "/azure/marketplace/account-migration-from-cpp-to-pc",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-account.md",
+      "redirect_url": "/azure/marketplace/create-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/manage-account.md",
+      "redirect_url": "/azure/marketplace/manage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/company-work-accounts.md",
+      "redirect_url": "/azure/marketplace/company-work-accounts",
+      "redirect_document_id": false
+    },       
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/portal-tour/cpp-insights-page.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
@@ -28996,7 +29041,7 @@
     },
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+      "redirect_url": "/azure/marketplace/create-account",
       "redirect_document_id": true
     },
     {
@@ -29396,7 +29441,7 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/cloud-partner-portal-manage-users.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
+      "redirect_url": "/azure/marketplace/manage-account",
       "redirect_document_id": true
     },
     {
@@ -62038,6 +62083,11 @@
       "redirect_document_id": true
     },
     {
+    "source_path_from_root": "/articles/cognitive-services/Speech-Service/quickstarts/intent-recognition.md",
+    "redirect_url": "/azure/cognitive-services/Speech-Service/get-started-intent-recognition",
+    "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
       "redirect_url": "/azure/cognitive-services/text-analytics",
       "redirect_document_id": false
@@ -64919,6 +64969,11 @@
     {
       "source_path": "articles/app-service/quickstart-dotnet-framework.md",
       "redirect_url": "/azure/app-service/quickstart-dotnetcore?tabs=netframework48"
+    },
+    {
+      "source_path": "articles/virtual-desktop/rd-gateway-role.md",
+      "redirect_url": "/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role",
+      "redirect_document_id": false
     }
   ]
 }
