@@ -37,11 +37,11 @@ Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/
 
 ## Token lifetime policies for access, SAML, and ID tokens
 
-You can set token lifetime policies for access tokens, SAML tokens, and ID tokens. 
+You can set token lifetime policies for access tokens, SAML tokens, and ID tokens.
 
 ### Access tokens
 
-Clients use access tokens to access a protected resource. An access token can be used only for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime. Adjusting the lifetime of an access token is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled. Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token.  The default is 1 hour - after 1 hour, the client must use the refresh token to (usually silently) acquire a new refresh token and access token.
+Clients use access tokens to access a protected resource. An access token can be used only for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime. Adjusting the lifetime of an access token is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled. Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token.  The default varies, depending on the client application requesting the token. For example, continuous access evaluation (CAE) capable clients that negotiate CAE-aware sessions will see a long lived token lifetime (up to 28 hours). After the token expires, the client must use the refresh token to (usually silently) acquire a new refresh token and access token.
 
 ### SAML tokens
 
