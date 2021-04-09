@@ -43,6 +43,8 @@ For greater control on all maintenance activities including zero-impact and rebo
 
 Live migration is an operation that doesn't require a reboot and that preserves memory for the VM. It causes a pause or freeze, typically lasting no more than 5 seconds. Except for G, M, N, and H series, all infrastructure as a service (IaaS) VMs, are eligible for live migration. Eligible VMs represent more than 90 percent of the IaaS VMs that are deployed to the Azure fleet. 
 
+[!NOTE] You will not recieve a notification in the Azure Portal for Live migration operations that doesn't require a reboot. If you wish to see a list of live migrations that don't require a reboot, please run the query from this link https://docs.microsoft.com/en-us/azure/virtual-machines/windows/scheduled-events#query-for-events.
+
 The Azure platform starts live migration in the following scenarios:
 - Planned maintenance
 - Hardware failure
@@ -51,6 +53,8 @@ The Azure platform starts live migration in the following scenarios:
 Some planned-maintenance scenarios use live migration, and you can use Scheduled Events to know in advance when live migration operations will start.
 
 Live migration can also be used to move VMs when Azure Machine Learning algorithms predict an impending hardware failure or when you want to optimize VM allocations. For more information about predictive modeling that detects instances of degraded hardware, see [Improving Azure VM resiliency with predictive machine learning and live migration](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure). Live-migration notifications appear in the Azure portal in the Monitor and Service Health logs as well as in Scheduled Events if you use these services.
+
+
 
 ## Maintenance that requires a reboot
 
