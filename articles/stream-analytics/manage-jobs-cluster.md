@@ -24,7 +24,7 @@ Only existing Stream Analytics jobs can be added to clusters. Follow the quickst
 
 1. Select the subscription and the Stream Analytics job you want to add to the cluster. Only Stream Analytics jobs that are in the same region as the cluster can be added to the cluster.
 
-   ![Add job to cluster](./media/manage-jobs-cluster/add-job.png)
+   ![Add job to cluster](./media/manage-jobs-cluster/asa-add-job.png)
 
 1. After you have added the job to the cluster, navigate to the job resource and [start the job](start-job.md#azure-portal). The job will then start to run on your cluster.
 
@@ -40,7 +40,7 @@ Stream Analytics jobs must be in a stopped state before it can be removed from t
 
 1. Select the jobs you want to remove from the cluster, and then select **Remove**.
 
-   ![remove job from cluster](./media/manage-jobs-cluster/remove-job.png)
+   ![remove job from cluster](./media/manage-jobs-cluster/asa-remove-job.png)
 
    When a job is removed from a Stream Analytics cluster, it returns to the standard multi-tenant environment.
 
