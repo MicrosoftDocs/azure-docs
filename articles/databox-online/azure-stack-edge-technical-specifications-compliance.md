@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 04/09/2020
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro technical specifications
@@ -21,7 +21,7 @@ The Azure Stack Edge Pro device has the following specifications for compute and
 | Specification           | Value                       |
 |-------------------------|-----------------------------|
 | CPU type                | Intel Xeon Silver 4114 2.2G |
-| CPU: raw                | 2 X 10 core CPU<!--How many vCPUs? See https://ark.intel.com/content/www/us/en/ark/products/123550/intel-xeon-silver-4114-processor-13-75m-cache-2-20-ghz.html.--> |
+| CPU: raw                | 2 X 10 core CPU (40 vCPU)    |
 | CPU: usable             | 32 vCPU                     |
 | Memory type             | 8x 16GB RDIMM               |
 | Memory: raw             | 128 GB RAM                  |

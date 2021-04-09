@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 04/09/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
