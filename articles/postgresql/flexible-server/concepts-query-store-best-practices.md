@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 04/01/2021
 ---
 
-# Best practices for Query Store
+# Best practices for Query Store - Flexible Server
 
 **Applies to:** Azure Database for PostgreSQL - Flex Server versions 11, 12
 
