@@ -140,6 +140,8 @@
     href: ../../azure-monitor/security-baseline.md
   - name: Azure Migrate security baseline
     href: ../../migrate/security-baseline.md
+  - name: Azure Peering Service security baseline
+    href: ../../peering-service/security-baseline.md
   - name: Azure Policy security baseline
     href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
   - name: Azure Private Link security baseline
