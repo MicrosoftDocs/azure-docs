@@ -121,6 +121,9 @@
       href: signin-appauth-ios.md
     - name: Android using App Auth
       href: signin-appauth-android.md
+    - name: Secure API Management API
+      href: secure-api-management.md
+      displayName: apim, api management, migrate, b2clogin.com
   - name: Create a flow
     items:
     - name: Sign-up or sign-in policy
@@ -372,9 +375,6 @@
         href: partner-n8identity.md
       - name: Saviynt 
         href: partner-saviynt.md
-  - name: Secure API Management API
-    href: secure-api-management.md
-    displayName: apim, api management, migrate, b2clogin.com
   - name: Logs and monitoring
     items:
     - name: Audit logs
