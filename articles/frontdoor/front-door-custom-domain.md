@@ -194,6 +194,8 @@ In the preceding steps, you added a custom domain to a Front Door. If you no lon
 
    The custom domain is disassociated from your endpoint.
 
+>[!WARNING]
+> **On 9 April 2021, we're updating Azure Front Door and Content Delivery Network to help prevent dangling DNS entries and the security risks they create.** At that time, we'll start requiring the removal of canonical name (CNAME) records for Azure Front Door and Content Delivery Network resource endpoints from DNS before the resources can be deleted.
 
 ## Next steps
 
