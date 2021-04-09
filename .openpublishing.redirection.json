@@ -19276,7 +19276,7 @@
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-interpret-event-data.md",
-      "redirect_url": "/azure/digital-twins/concepts-notifications",
+      "redirect_url": "/azure/digital-twins/concepts-event-notifications",
       "redirect_document_id": false
     },
     {
