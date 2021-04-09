@@ -160,7 +160,7 @@ If you select the check box, complete the following steps to bring your own data
 
    1. For **Catalog Database Service Tier**, select the service tier for your database server to host SSISDB. Select the Basic, Standard, or Premium tier, or select an elastic pool name.
 
-Select **Test connection** when applicable and if it's successful, select **Next**.
+Select **Test connection** when applicable and if it's successful, select **Continue**.
 
 > [!NOTE]
    > If you use Azure SQL Database server to host SSISDB, your data will be stored in geo-redundant storage for backups by default. If you don't want your data to be replicated in other regions, please follow the instructions to [Configure backup storage redundancy by using PowerShell](../azure-sql/database/automated-backups-overview.md?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
@@ -309,7 +309,7 @@ On the **Connections** pane of **Manage** hub, switch to the **Integration runti
 
 ### Azure SSIS integration runtimes in the portal
 
-1. In the Azure Data Factory UI, switch to the **Manage** tab and then switch to the **Integration Runtimes** tab on the **Connections** pane to view existing integration runtimes in your data factory.
+1. In the Azure Data Factory UI, switch to the **Manage** tab and then switch to the **Integration runtimes** tab on the **Connections** pane to view existing integration runtimes in your data factory.
 
    ![View existing IRs](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
 
