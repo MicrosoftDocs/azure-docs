@@ -21,7 +21,7 @@ The capacity of the cluster can be scaled up and down to match the size of your 
 
 1. In the **Overview** section, select **Scale**. You can see how many SUs are assigned to your cluster. Use the selector to increase or decrease SUs as needed.
 
-   ![scale cluster](./media/scale-cluster/asa-scale-cluster.png)
+   ![scale cluster](./media/scale-cluster/scale-cluster.png)
 
 The scaling operation does not impact any jobs that are currently running.
 
