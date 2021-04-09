@@ -5,7 +5,7 @@ services: service-bus-messaging
 author: clemensv
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 11/24/2020
+ms.date: 04/08/2021
 ms.author: clemensv
 ms.custom: "include file"
 
@@ -19,3 +19,17 @@ The AMQP-over-WebSockets protocol option runs over port TCP 443 just like the HT
 | Java     | [com.microsoft.azure.servicebus.ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings) with [com.microsoft.azure.servicebus.primitives.TransportType.AMQP](/java/api/com.microsoft.azure.servicebus.primitives.transporttype) or [com.microsoft.azure.servicebus.primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype) |
 | Node  | [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions) has a `webSocket` constructor argument. |
 | Python | [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) with [TransportType.Amqp](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) or [TransportType.AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) |
+
+### [.NET](#tab/dotnet)
+ServiceBusConnection.TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype) property with [TransportType.Amqp](/dotnet/api/microsoft.azure.servicebus.transporttype) or [TransportType.AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype)
+
+### [Java](#tab/java)
+[com.microsoft.azure.servicebus.ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings) with [com.microsoft.azure.servicebus.primitives.TransportType.AMQP](/java/api/com.microsoft.azure.servicebus.primitives.transporttype) or [com.microsoft.azure.servicebus.primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype) 
+
+### [Python](#tab/python) 
+[ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) with [TransportType.Amqp](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) or [TransportType.AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType)
+
+### [JavaScript](#tab/javascript)
+[ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions) has a `webSocket` constructor argument. 
+
+---

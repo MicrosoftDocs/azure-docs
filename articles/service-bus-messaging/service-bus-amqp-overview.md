@@ -2,7 +2,7 @@
 title: Overview of AMQP 1.0 in Azure Service Bus
 description: Learn how Azure Service Bus supports Advanced Message Queuing Protocol (AMQP), an open standard protocol.
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 04/08/2021
 ---
 
 # AMQP 1.0 support in Service Bus
