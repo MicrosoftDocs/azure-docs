@@ -42,6 +42,8 @@ The following diagram illustrates the architecture of WSFC virtual nodes on an A
 
 [![Diagram showing the architecture of WSFC virtual nodes on an Azure VMware Solution private cloud.](media/windows-server-failover-cluster/windows-server-failover-architecture.png)](media/windows-server-failover-cluster/windows-server-failover-architecture.png#lightbox)
 
+:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Architecture diagram of Windows Server Failover Cluster virtual nodes on an Azure VMware Solution private cloud." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
+
 ## Supported configurations
 
 Currently, the following configurations are supported:
