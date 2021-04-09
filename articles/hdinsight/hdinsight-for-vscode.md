@@ -486,9 +486,11 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
  ms-toolsai.jupyter >2021.3.684299474 version is not supported on this extension, please using Synapse kernel by sticking to Microsoft Jupyter 2021.3.684299474.
 
  1. Disable auto updating extension.
+
     ![disable auto updating extension](./media/hdinsight-for-vscode/disable-auto-updating-extension.png)
 
 2. Install a selected version of Microsoft Jupyter.
+
     ![selected version of microsoft jupyter](./media/hdinsight-for-vscode/selected-version-of-microsoft-jupyter.png)
 
 3. Install  Microsoft Jupyter version 2021.3.684299474
