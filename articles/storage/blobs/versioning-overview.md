@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
@@ -39,7 +39,7 @@ The following diagram shows how versions are created on write operations, and ho
 
 :::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagram showing how blob versioning works":::
 
-When you delete a blob with versioning enabled, the current version of the blob is deleted. Any previous versions of the blob persist.
+When you delete a blob with versioning enabled, the current version of the blob becomes a previous version, and there is no longer a current version. Any previous versions of the blob persist.
 
 Blob versions are immutable. You cannot modify the content or metadata of an existing blob version.
 
@@ -129,7 +129,7 @@ The following diagram shows how modifying a blob after versioning is disabled cr
 
 ## Blob versioning and soft delete
 
-Microsoft recommends enabling both versioning and blob soft delete for your storage accounts for optimal data protection. Soft delete protects blobs, versions, and snapshots from accidental deletion. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md).
+Microsoft recommends enabling both versioning and blob soft delete for your storage accounts for optimal data protection. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md).
 
 ### Overwriting a blob
 
@@ -137,7 +137,7 @@ If blob versioning and blob soft delete are both enabled for a storage account, 
 
 ### Deleting a blob or version
 
-If both versioning and soft delete are enabled on the storage account, then when you delete a blob, the current version of the blob becomes a previous version, and the current version is deleted. No new version is created and no soft-deleted snapshots are created. The soft delete retention period is not in effect for the deleted blob.
+If versioning and soft delete are both enabled for a storage account, then when you delete a blob, the current version of the blob becomes a previous version. No new version is created and no soft-deleted snapshots are created. The soft delete retention period is not in effect for the deleted blob.
 
 Soft delete offers additional protection for deleting blob versions. When you delete a previous version of the blob, that version is soft-deleted. The soft-deleted version is preserved until the soft delete retention period elapses, at which point it is permanently deleted.
 
