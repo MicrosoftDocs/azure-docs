@@ -141,7 +141,7 @@ To turn the setting back off, use the same endpoint and set
 
 ## PowerShell sample
 
-PowerShell does not have an 'Az' command to perform the above, but as a workaround you can leverage the REST APIs with the PowerShell sample below:
+PowerShell does not have an 'Az' command to set the default management group or set require authorization, but as a workaround you can leverage the REST API with the PowerShell sample below:
 
 ```powershell
 $root_management_group_id = "Enter the ID of root management group"
