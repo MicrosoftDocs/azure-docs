@@ -28,7 +28,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Azure common security attributes
-      href: azure-resource-manager-security-controls.md
+      href: ./security-baseline.md
 - name: How to
   items:
   - name: Move - resource groups/subscriptions
@@ -143,12 +143,6 @@
     - name: Azure PowerShell
       displayName: open,delete,deploy,move,lock,tag
       href: manage-resources-powershell.md
-  - name: EA subscriptions
-    items:
-    - name: Create
-      href: ../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md?toc=/azure/azure-resource-manager/management/toc.json
-    - name: Grant access to create
-      href: ../../cost-management-billing/manage/grant-access-to-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
   - name: Resource providers and types
     href: resource-providers-and-types.md
   - name: Delete resource groups and resources
@@ -176,7 +170,7 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.resources
   - name: Python
-    href: /python/api/overview/azure/resources?view=azure-python
+    href: /python/api/overview/azure/resources
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

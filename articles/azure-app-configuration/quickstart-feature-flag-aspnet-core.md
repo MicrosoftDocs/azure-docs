@@ -205,7 +205,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Open *_Layout.cshtml* in the *Views*\\*Shared* directory. Locate the `<nav>` bar code under `<body>` > `<header>`. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
 
-    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="14-18":::
 
 1. Create a *Views/Beta* directory and an *Index.cshtml* file containing the following markup:
 

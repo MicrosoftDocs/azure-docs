@@ -40,10 +40,10 @@ The following database solutions are supported with backup feature:
 * The Backup and Restore feature requires the App Service plan to be in the **Standard**, **Premium** or **Isolated** tier. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md). **Premium** and **Isolated** tiers allow a greater number of daily back ups than **Standard** tier.
 * You need an Azure storage account and container in the same subscription as the app that you want to back up. For more information on Azure storage accounts, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 * Backups can be up to 10 GB of app and database content. If the backup size exceeds this limit, you get an error.
-* Backups of TLS enabled Azure Database for MySQL is not supported. If a backup is configured, you will get failed backups.
-* Backups of TLS enabled Azure Database for PostgreSQL is not supported. If a backup is configured, you will get failed backups.
+* Backups of TLS enabled Azure Database for MySQL is not supported. If a backup is configured, you will encounter backup failures.
+* Backups of TLS enabled Azure Database for PostgreSQL is not supported. If a backup is configured, you will encounter backup failures.
 * In-app MySQL databases are automatically backed up without any configuration. If you make manually settings for in-app MySQL databases, such as adding connection strings, the backups may not work correctly.
-* Using a firewall enabled storage account as the destination for your backups is not supported. If a backup is configured, you will get failed backups.
+* Using a firewall enabled storage account as the destination for your backups is not supported. If a backup is configured, you will encounter backup failures.
 
 
 <a name="manualbackup"></a>
@@ -77,7 +77,7 @@ The following database solutions are supported with backup feature:
     > [!NOTE]
     > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** page for your app. 
     >
-    > In-app MySQL databases are automatically backed up without any configuration. If you make manually settings for in-app MySQL databases, such as adding connection strings, the backups may not work correctly.
+    > In-app MySQL databases are automatically backed up without any configuration. If you make settings for in-app MySQL databases manually, such as adding connection strings, the backups may not work correctly.
     > 
     > 
 

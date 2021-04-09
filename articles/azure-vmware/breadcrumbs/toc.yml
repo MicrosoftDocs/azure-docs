@@ -1,0 +1,7 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure VMware Solution
+    tocHref: /azure/
+    topicHref: /azure/azure-vmware/index

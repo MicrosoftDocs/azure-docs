@@ -113,4 +113,4 @@ Use the steps in [Add or delete users - Azure Active Directory](../active-direct
 
 ## Next steps
 
-To to your virtual network, you must create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
+Create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).

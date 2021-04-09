@@ -62,7 +62,7 @@ With Azure Sentinel hunting, you can take advantage of the following capabilitie
 
 ## Query language 
 
-Hunting in Azure Sentinel is based on Kusto query language. For more information on the query language and supported operators, see [Query Language Reference](../azure-monitor/log-query/get-started-queries.md).
+Hunting in Azure Sentinel is based on Kusto query language. For more information on the query language and supported operators, see [Query Language Reference](../azure-monitor/logs/get-started-queries.md).
 
 ## Public hunting query GitHub repository
 

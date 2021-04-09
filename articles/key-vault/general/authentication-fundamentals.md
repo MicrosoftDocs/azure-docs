@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 Azure Key Vault allows you to securely store and manage application credentials such as secrets, keys, and certificates in a central and secure cloud repository. Key Vault eliminates the need to store credentials in your applications. Your applications can authenticate to Key Vault at run time to retrieve credentials.
 
-As an administrator, you can tightly control which users and applications can access your key vault and you can limit and audit the operations they perform. This document explains the fundamental concepts of the key vault access model. It will and provide you with an introductory level of knowledge and show you how you can authenticate a user or application to key vault from start to finish.
+As an administrator, you can tightly control which users and applications can access your key vault and you can limit and audit the operations they perform. This document explains the fundamental concepts of the key vault access model. It will provide you with an introductory level of knowledge and show you how you can authenticate a user or application to key vault from start to finish.
 
 ## Required Knowledge
 
@@ -115,7 +115,7 @@ Key Vault role assignments are a set of Azure built-in role assignments that enc
 To learn more about Azure RBAC for Key Vault, see the following documents:
 
 * Azure RBAC for Key Vault [link](./secure-your-key-vault.md#management-plane-and-azure-rbac)
-* Azure RBAC for Key Vault roles (Preview) [link](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview)
+* Azure RBAC for Key Vault roles [link](../../role-based-access-control/built-in-roles.md#key-vault-administrator)
 
 ## Configure Key Vault Firewall
 

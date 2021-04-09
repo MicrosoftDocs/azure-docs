@@ -168,7 +168,7 @@ The steps to deploy your Application Proxy are covered in this [tutorial for add
 
 Publishing applications assumes that you have satisfied all the pre-requisites and that you have several connectors showing as registered and active in the Application Proxy page.
 
-You can also publish applications by using [PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview).
+You can also publish applications by using [PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true).
 
 Below are some best practices to follow when publishing an application:
 
@@ -298,7 +298,7 @@ The connectors and the service take care of all the high availability tasks. You
 
 #### Windows event logs and performance counters
 
-Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs for more information see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#under-the-hood). Follow this [tutorial to configure event log data sources in Azure Monitor](../../azure-monitor/platform/data-sources-windows-events.md).
+Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs for more information see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#under-the-hood). Follow this [tutorial to configure event log data sources in Azure Monitor](../../azure-monitor/agents/data-sources-windows-events.md).
 
 ### Troubleshooting guide and steps
 

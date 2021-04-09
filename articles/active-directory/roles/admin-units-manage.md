@@ -33,7 +33,7 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
     ![Screenshot showing the "Grant admin consent for Graph explorer" link.](./media/admin-units-manage/select-graph-explorer.png)
 
 
-1. Use the preview version of Azure AD PowerShell.
+1. Use [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## Add an administrative unit
 
@@ -53,7 +53,7 @@ You can add an administrative unit by using either the Azure portal or PowerShel
 
 ### Use PowerShell
 
-Install Azure AD PowerShell (preview) before you try to run the following commands:
+Install [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) before you try to run the following commands:
 
 ```powershell
 Connect-AzureAD
@@ -64,10 +64,15 @@ You can modify the values that are enclosed in quotation marks, as required.
 
 ### Use Microsoft Graph
 
+Request
+
 ```http
-Http Request
 POST /administrativeUnits
-Request body
+```
+
+Body
+
+```http
 {
   "displayName": "North America Operations",
   "description": "North America Operations administration"
@@ -89,18 +94,23 @@ In Azure AD, you can remove an administrative unit that you no longer need as a 
 ### Use PowerShell
 
 ```powershell
-$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $adminUnitObj.ObjectId
 ```
 
 You can modify the values that are enclosed in quotation marks, as required for the specific environment.
 
 ### Use the Graph API
 
+Request
+
 ```http
-HTTP request
-DELETE /administrativeUnits/{Admin id}
-Request body
+DELETE /administrativeUnits/{admin-unit-id}
+```
+
+Body
+
+```http
 {}
 ```
 

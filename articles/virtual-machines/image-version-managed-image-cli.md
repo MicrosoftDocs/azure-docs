@@ -3,7 +3,7 @@ title: Clone a managed image to an image version with the Azure CLI
 description: Learn how to clone a managed image to an image version in a Shared Image Gallery using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020

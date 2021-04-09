@@ -51,7 +51,7 @@ Applications that acquire a token for their own identities:
 For developers, the end-to-end experience for this scenario has the following aspects:
 
 - Daemon applications can work only in Azure AD tenants. It wouldn't make sense to build a daemon application that attempts to manipulate Microsoft personal accounts. If you're a line-of-business (LOB) app developer, you'll create your daemon app in your tenant. If you're an ISV, you might want to create a multitenant daemon application. Each tenant admin will need to provide consent.
-- During [application registration](./scenario-daemon-app-registration.md), the reply URI isn't needed. You need to share secrets or certificates or signed assertions with Azure AD. You also need to request application permissions and grant admin consent to use those app permissions.
+- During [application registration](./scenario-daemon-app-registration.md), the reply URI isn't needed. Share secrets or certificates or signed assertions with Azure AD. You also need to request application permissions and grant admin consent to use those app permissions.
 - The [application configuration](./scenario-daemon-app-configuration.md) needs to provide client credentials as shared with Azure AD during the application registration.
 - The [scope](scenario-daemon-acquire-token.md#scopes-to-request) used to acquire a token with the client credentials flow needs to be a static scope.
 

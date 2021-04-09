@@ -68,7 +68,7 @@ New-AzRedisCache
    [-Confirm]
    [<CommonParameters>]
 ```
-For more information on creating a cache instance in PowerShell, see the [Azure PowerShell reference](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache?view=azps-5.2.0). 
+For more information on creating a cache instance in PowerShell, see the [Azure PowerShell reference](/powershell/module/az.rediscache/new-azrediscache). 
 
 ## Create a message endpoint
 
@@ -127,7 +127,7 @@ Import-AzRedisCache
       [-Confirm]
       [<CommonParameters>]
 ```
-For more information on importing in PowerShell, see the [Azure PowerShell reference](https://docs.microsoft.com/powershell/module/az.rediscache/import-azrediscache?view=azps-5.2.0). 
+For more information on importing in PowerShell, see the [Azure PowerShell reference](/powershell/module/az.rediscache/import-azrediscache). 
 
 You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
 

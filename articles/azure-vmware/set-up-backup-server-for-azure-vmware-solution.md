@@ -2,7 +2,7 @@
 title: Set up Azure Backup Server for Azure VMware Solution
 description: Set up your Azure VMware Solution environment to back up virtual machines using Azure Backup Server.
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 02/04/2021
 ---
 
 # Set up Azure Backup Server for Azure VMware Solution
@@ -384,7 +384,7 @@ Azure Backup Server v3 only accepts storage volumes. When you add a volume, Azur
 
 ## Next steps
 
-Continue to the next tutorial to learn how to configure a backup of VMware VMs running on Azure VMware Solution using Azure Backup Server.
+Now that you've covered how to set up Azure Backup Server for Azure VMware Solution, you may want to learn about:
 
-> [!div class="nextstepaction"]
-> [Configure backup of Azure VMware Solution VMs](backup-azure-vmware-solution-virtual-machines.md)
+- [Configuring backups for your Azure VMware Solution VMs](backup-azure-vmware-solution-virtual-machines.md).
+- [Protecting your Azure VMware Solution VMs with Azure Security Center integration](azure-security-integration.md).

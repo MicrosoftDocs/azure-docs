@@ -41,27 +41,27 @@ As we're adding additional integrations, the auto-instrumentation capability mat
 Application monitoring on Azure App Service on Windows is available for [.NET applications](./azure-web-apps.md?tabs=net) .NET and is enabled by default.
 
 #### .NETCore
-Monitoring for [.NETCore applications](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=netcore) can be enabled with one click.
+Monitoring for [.NETCore applications](./azure-web-apps.md?tabs=netcore) can be enabled with one click.
 
 #### Java
-The portal integration for monitoring of Java applications on App Service on Windows is currently unavailable, however, you can add Application Insights [Java 3.0 standalone agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to your application without any code changes before deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
+The portal integration for monitoring of Java applications on App Service on Windows is currently unavailable, however, you can add Application Insights [Java 3.0 standalone agent](./java-in-process-agent.md) to your application without any code changes before deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
 
 #### Node.js
-Monitoring for Node.js applications on Windows cannot currently be enabled from the portal. To monitor Node.js applications, use the [SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs).
+Monitoring for Node.js applications on Windows cannot currently be enabled from the portal. To monitor Node.js applications, use the [SDK](./nodejs.md).
 
 ### Linux
 
 #### .NETCore
-To monitor .NETCore applications running on Linux, use the [SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
+To monitor .NETCore applications running on Linux, use the [SDK](./asp-net-core.md).
 
 #### Java 
-Enabling Java application monitoring for App Service on Linux from portal isn't available, but you can add [Application Insights Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to your app before deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
+Enabling Java application monitoring for App Service on Linux from portal isn't available, but you can add [Application Insights Java 3.0 agent](./java-in-process-agent.md) to your app before deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
 
 #### Node.js
-[Monitoring Node.js applications in App Service on Linux](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=nodejs) is in public preview and can be enabled in Azure portal, available in all regions. 
+[Monitoring Node.js applications in App Service on Linux](./azure-web-apps.md?tabs=nodejs) is in public preview and can be enabled in Azure portal, available in all regions. 
 
 #### Python
-Use the SDK to [monitor your Python app](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python) 
+Use the SDK to [monitor your Python app](./opencensus-python.md) 
 
 ## Azure Functions
 
@@ -73,7 +73,7 @@ Codeless instrumentation of Azure Kubernetes Service is currently available for 
 
 ## Azure Windows VMs and virtual machine scale set
 
-Auto-instrumentation for Azure VMs and virtual machine scale set is available for [.NET](./azure-vm-vmss-apps.md) and [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).  
+Auto-instrumentation for Azure VMs and virtual machine scale set is available for [.NET](./azure-vm-vmss-apps.md) and [Java](./java-in-process-agent.md).  
 
 ## On-premises servers
 You can easily enable monitoring for your [on-premises Windows servers for .NET applications](./status-monitor-v2-overview.md) and for [Java apps](./java-in-process-agent.md).
@@ -85,5 +85,4 @@ The versatile Java standalone agent works on any environment, there's no need to
 
 * [Application Insights Overview](./app-insights-overview.md)
 * [Application map](./app-map.md)
-* [End-to-end performance monitoring](../learn/tutorial-performance.md)
-
+* [End-to-end performance monitoring](../app/tutorial-performance.md)

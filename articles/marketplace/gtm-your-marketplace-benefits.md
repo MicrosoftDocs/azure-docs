@@ -4,7 +4,7 @@ description: Go-To-Market Services - Microsoft resources that publishers can use
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 01/13/2021
+ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
 ---
@@ -29,11 +29,11 @@ For Transact partners, as you grow your billed sales through the commercial mark
 
 The minimum requirement to publish in the online stores is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Each partner is empowered to grow their business through the commercial marketplace as a platform.
 
-You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+You will get support in understanding the resources available to you and in implementing best practices, which you can also [review on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Detailed descriptions of all program benefits can be found in this [Marketplace Rewards program presentation](https://aka.ms/marketplacerewards).
 
-Getting started is easy:
+## Getting started is easy:
 
 1. Publish an offer in either Microsoft AppSource or Azure Marketplace.
 2. Go to [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) in Partner Center and select **Enroll in Marketplace Rewards Program**.
@@ -44,19 +44,17 @@ Getting started is easy:
     1. Provide the contact phone and preferred language for this marketing contact. After you finish entering this information, select **Assign user**.
     1. After you've updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
 
-### Technical benefits
-
-1. You can use your technical benefits to request technical assistance during the presales, design, deployment, and app development phases of your cloud and hybrid solutions. To request assistance, fill in the request form and then select **Submit request**.
-2. How to make use of Azure sponsorship benefits will be shared via an email as you unlock these benefits.
-
->[!NOTE]
->If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps.<br><br>If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at [Help and Support](https://aka.ms/marketplacepublishersupport).
+> [!NOTE]
+> If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps.<br><br>If you cannot determine the owner, or if the owner has left your company, raise a support ticket at [Help and Support](https://aka.ms/marketplacepublishersupport).
 
 The scope of the activities available to you expands as you grow your offerings in the commercial marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
 ## List, trial, and consulting benefits
 
-If you publish a trial or consulting proof of concept, implementation, or workshop, you will be assigned an engagement manager for three months, who will help guide you in a successful go-to-market plan. You can repeat this three-month engagement each time you publish a new offer, to help get each of your new offers started with success.
+Each time you publish on Microsoft AppSource or Azure Marketplace, you will have access to a new set of benefits. Once your offer goes live, go to [Partner Center](https://partner.microsoft.com/dashboard) to activate your eligible marketing, sales, and technical benefits.
+
+> [!IMPORTANT]
+> All Trial and Consulting benefits expire after three months.
 
 The table below summarizes the eligibility requirements for list, trial, and consulting offers:
 
@@ -66,7 +64,7 @@ Detailed descriptions for all these benefits can be found in the [Marketplace Re
 
 ## Marketplace Rewards for transact partners
 
-When you go live with your transactable offer in either Microsoft AppSource or Azure Marketplace, you are able to access additional benefits as you grow your billed sales transactions or seats sold through the commercial marketplace.
+When you go live with your transactable offer in either Microsoft AppSource or Azure Marketplace, you can access additional benefits as you grow your billed sales transactions or seats sold through the commercial marketplace.
 
 >[!NOTE]
 >Seats sold threshold only applies to Microsoft 365 apps (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must have been completed by June 30, 2021.
@@ -75,13 +73,19 @@ These benefits are designed to support you in marketing, sales, and technical ac
 
 All partners who have a live offer get to work with a dedicated engagement manager to choose the highest-value activities for your portfolio of commercial marketplace offers. This engagement is evergreen per offer, meaning you can choose your activities and the timing of these activities to align to the timing of your company's broader marketing and sales strategies.
 
+### Marketing benefits for transact offers
+
 ![Marketing benefits](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+### Sales benefits for transact offers
 
 ![Sales benefits](./media/marketplace-publishers-guide/sales-benefit.png)
 
+### Technical benefits for transact offers
+
 ![Technical benefits](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\* Seats sold threshold applies to Microsoft 365 apps only (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2021.
+Seats sold threshold applies to Microsoft 365 apps only (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2021.
 
 Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 

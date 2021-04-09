@@ -34,6 +34,8 @@ The **optional** settings for a pair include:
 
 ## Add an editorial QnA pair
 
+If you do not have pre-existing content to populate the knowledge base, you can add QnA pairs editorially in the QnA Maker portal.
+
 1. Sign in to the [QnA portal](https://www.qnamaker.ai/), then select the knowledge base to add the QnA pair to.
 1. On the **EDIT** page of the knowledge base, select **Add QnA pair** to add a new QnA pair.
 

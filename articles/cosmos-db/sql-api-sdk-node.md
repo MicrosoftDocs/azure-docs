@@ -35,7 +35,7 @@ ms.custom: devx-track-js
 |Resource  |Link  |
 |---------|---------|
 |Download SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
-|API Documentation  |  [JavaScript SDK reference documentation](/javascript/api/%40azure/cosmos/?preserve-view=true&view=azure-node-latest)
+|API Documentation  |  [JavaScript SDK reference documentation](/javascript/api/%40azure/cosmos/)
 |SDK installation instructions  |  [Installation instructions](https://github.com/Azure/azure-sdk-for-js)
 |Contribute to SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | Samples | [Node.js code samples](sql-api-nodejs-samples.md)

@@ -11,6 +11,11 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 
 # Tutorial: Deploy an application to Service Fabric Mesh using a template
 
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 This tutorial is part one of a series. You'll learn how to deploy an Azure Service Fabric Mesh application using a template.  The application is composed of an ASP.NET web front-end service and an ASP.NET Core Web API back-end service, which are found in Docker Hub.  You pull the two container images from Docker Hub and then push them to your own private registry. You then create an Azure RM template for the application and deploy the application from your container registry to Service Fabric Mesh. When you're finished, you'll have a simple To Do List application running in Service Fabric Mesh.
 
 In part one of the series, you learn how to:

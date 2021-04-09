@@ -8,7 +8,7 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
 
 ---
@@ -74,6 +74,8 @@ In this tutorial, you learn how to:
 
 ## Make your revision current and add a change log entry
 
+### [Portal](#tab/azure-portal)
+
 1. Select the **Revisions** tab from the menu near the top of the page.
 1. Open the context menu (**...**) for **Revision 2**.
 1. Select **Make current**.
@@ -82,6 +84,61 @@ In this tutorial, you learn how to:
 
     :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Revision menu in Revisions window":::
 
+### [Azure CLI](#tab/azure-cli)
+
+To begin using Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Use this procedure to create and update a release.
+
+1. Run the [az apim api list](/cli/azure/apim/api#az_apim_api_list) command to see your API IDs:
+
+   ```azurecli
+   az apim api list --resource-group apim-hello-word-resource-group \
+       --service-name apim-hello-world --output table
+   ```
+
+   The API ID to use in the next command is the `Name` value. The API revision is in the `ApiRevision` column.
+
+1. To create the release, with a release note, run the [az apim api release create](/cli/azure/apim/api/release#az_apim_api_release_create) command:
+
+   ```azurecli
+   az apim api release create --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --api-revision 2 --service-name apim-hello-world \
+       --notes 'Testing revisions. Added new "test" operation.'
+   ```
+
+   The revision that you release becomes the current revision.
+
+1. To see your releases, use the [az apim api release list](/cli/azure/apim/api/release#az_apim_api_release_list) command:
+
+   ```azurecli
+   az apim api release list --resource-group apim-hello-word-resource-group \
+       --api-id echo-api --service-name apim-hello-world --output table
+   ```
+
+   The notes you specify appear in the changelog. You can see them in the output of the previous command.
+
+1. When you create a release, the `--notes` parameter is optional. You can add or change the notes later by using the [az apim api release update](/cli/azure/apim/api/release#az_apim_api_release_update) command:
+
+   ```azurecli
+   az apim api release update --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --release-id 00000000000000000000000000000000 \
+       --service-name apim-hello-world --notes "Revised notes."
+   ```
+
+   Use the value in the `Name` column for the release ID.
+
+You can remove any release by running the [az apim api release delete ](/cli/azure/apim/api/release#az_apim_api_release_delete) command:
+
+```azurecli
+az apim api release delete --resource-group apim-hello-word-resource-group \
+    --api-id demo-conference-api --release-id 00000000000000000000000000000000 
+    --service-name apim-hello-world
+```
+
+---
 
 ## Browse the developer portal to see changes and change log
 

@@ -3,15 +3,15 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/29/2021
+ms.date: 04/08/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
-manager: lizross
+manager: femila
 ms.custom: references_regions
 ---
 # What's new in Windows Virtual Desktop?
 
-Windows Virtual Desktop updates on a regular basis. This article is where you'll find out about:
+Windows Virtual Desktop updates regularly. This article is where you'll find out about:
 
 - The latest updates
 - New features
@@ -30,9 +30,88 @@ Check out these articles to learn about updates for our clients for Windows Virt
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
 
+## Windows Virtual Desktop Agent updates
+
+The Windows Virtual Desktop agent updates at least once per month.
+
+Here's what's changed in the Windows Virtual Desktop Agent:
+
+- Version 1.0.2866.1500: This update was released March 26, 2021 and fixed an issue with the stack health check.
+- Version 1.0.2800.2802: This update was released March 10, 2021 and has general improvements and bug fixes.
+- Version 1.0.2800.2800: This update was released March 2, 2021 and fixed a reverse connection issue.
+- Version 1.0.2800.2700: This update was released February 10, 2021 and has general improvements and bug fixes.
+- Version 1.0.2800.2700: This update was released February 4, 2021 and fixed an access denied orchestration issue.
+
 ## FSLogix updates
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
+
+## March 2021
+
+Here's what changed in March 2021.
+
+### Updates to the Azure portal UI for Windows Virtual Desktop
+
+We've made the following updates to Windows Virtual Desktop for the Azure portal:
+
+- We've enabled new availability options (availability set and zones) for the workflows to create host pools and add VMs.
+- We've fixed an issue where a host with the "Needs assistance" status appeared as unavailable. Now the host will have a warning icon next to it.
+- We've enabled sorting for active sessions.
+- You can now send messages to or sign out specific users on the host details tab.
+- We've changed the maximum session limit field.
+- We've added an OU validation path to the workflow to create a host pool.
+- You can now use the latest version of the Windows 10 image when you create a personal host pool.
+
+### Generation 2 images and Trusted Launch
+
+The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and Windows 10 Enterprise multi-session. These images will let you use Trusted Launch VMs. Learn more about Generation 2 VMs at [Should I create a generation 1 or 2 virtual machine](../virtual-machines/generation-2.md). To learn how to provision Windows Virtual Desktop Trusted Launch VMs, see [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
+
+### FSLogix is now preinstalled on Windows 10 Enterprise multi-session images
+
+Based on customer feedback, we've set up a new version of the Windows 10 Enterprise multi-session image that has an unconfigured version of FSLogix already installed. We hope this makes your Windows Virtual Desktop deployment easier.
+
+### Azure Monitor for Windows Virtual Desktop is now in General Availability
+
+Azure Monitor for Windows Virtual Desktop is now generally available to the public. This feature is an automated service that monitors your deployments and lets you view events, health, and troubleshooting suggestions in a single place. For more information, see [our documentation](azure-monitor.md) or check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861).
+
+### March 2021 updates for Teams on Windows Virtual Desktop
+
+We've made the following updates for Teams on Windows Virtual Desktop:
+
+- We've improved video quality performance on calls and 2x2 mode.
+- We've reduced CPU utilization by 5-10% (depending on CPU generation) by using hardware offload of video processing (XVP).
+- Older machines can now use XVP and hardware decoding to display more incoming video streams smoothly in 2x2 mode.
+- We've updated the WebRTC stack from M74 to M88 for better AV sync performance and fewer transient issues.
+- We've replaced our software H264 encoder with OpenH264 (OSS used in Teams on the web), which increased the video quality of the outgoing camera.
+- We enabled 2x2 mode for Teams Server for the general public on March 30. 2x2 mode shows up to four incoming video streams at the same time.
+
+### Start VM on Connect public preview
+
+The new host pool setting, Start VM on Connect, is now available in public preview. This setting lets you turn on your VMs whenever you need them. If you want to save costs, you'll need to deallocate your VMs by configuring your Azure Compute settings. For more information, check out [our blog post](https://aka.ms/wvdstartvmonconnect) and [our documentation](start-virtual-machine-connect.md).
+
+### Windows Virtual Desktop Specialty certification
+
+We've released a beta version of the AZ-140 exam that will let you prove your expertise in Windows Virtual Desktop in Azure. To learn more, check out [our TechCommunity post](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107).
+
+## February 2021
+
+Here's what changed in February 2021.
+
+### Portal experience
+
+We've improved the Azure portal experience in the following ways:
+
+- Bulk drain mode on hosts in the session host grid tab. 
+- MSIX app attach is now available for public preview.
+- Fixed host pool overview info for dark mode.
+
+### EU metadata storage now in public preview
+
+We're now hosting a public preview of the Europe (EU) geography as a storage option for service metadata in Windows Virtual Desktop. Customers can choose between West or North Europe when they create their service objects. The service objects and metadata for the host pools will be stored in the Azure geography associated with each region. To learn more, read [our blog post announcing the public preview](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/announcing-public-preview-of-windows-virtual-desktop-service/m-p/2143939).
+
+### Teams on Windows Virtual Desktop plugin updates
+
+We've improved video call quality on the Windows Virtual Desktop plugin by addressing the most commonly reported issues, such as when the screen would suddenly go dark or the video and sound desynchronized. These improvements should increase the performance of single-video view with active speaker switching. We also fixed an issue where hardware devices with special characters weren't available in Teams.
 
 ## January 2021
 
@@ -50,7 +129,7 @@ In the Azure Resource Manager nested template, we changed the default value for 
 
 We’ve released FSLogix, version 2009 HF_01 (2.9.7654.46150) to solve issues in the previous release (2.9.7621.30127). We recommend you stop using the previous version and update FSLogix as soon as possible.
 
-For more information, see the release notes in [What's new in FSLogix](/fslogix/whats-new.md#fslogix-apps-2009-hf_01-29765446150).
+For more information, see the release notes in [What's new in FSLogix](/fslogix/whats-new#fslogix-apps-2009-hf_01-29765446150).
 
 ### Azure portal experience improvements
 
@@ -222,7 +301,7 @@ Here's what changed in August 2020:
 
 - Azure Advisor is now a part of Windows Virtual Desktop. When you access Windows Virtual Desktop through the Azure portal, you can see recommendations for optimizing your Windows Virtual Desktop environment. Learn more at [Azure Advisor](azure-advisor.md).
 
-- Azure CLI now supports Windows Virtual Desktop (`az desktopvirtualization`) to help you automate your Windows Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true) for a list of extension commands.
+- Azure CLI now supports Windows Virtual Desktop (`az desktopvirtualization`) to help you automate your Windows Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/ext/desktopvirtualization/) for a list of extension commands.
 
 - We've updated our deployment templates to make them fully compatible with the Windows Virtual Desktop Azure Resource Manager interfaces. You can find the templates on [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
 
@@ -293,7 +372,7 @@ We've added new AzWvd cmdlets to the Azure PowerShell Az Module with this update
 
 To install the module, follow the instructions in [Set up the PowerShell module for Windows Virtual Desktop](powershell-module.md).
 
-You can also see a list of available commands at the [AzWvd PowerShell reference](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true).
+You can also see a list of available commands at the [AzWvd PowerShell reference](/powershell/module/az.desktopvirtualization/#desktopvirtualization).
 
 For more information about the new features, check out [our blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 

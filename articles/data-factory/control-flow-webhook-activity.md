@@ -1,14 +1,10 @@
 ---
 title: Webhook activity in Azure Data Factory 
 description: The webhook activity doesn't continue execution of the pipeline until it validates the attached dataset with certain criteria the user specifies.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ---
@@ -18,6 +14,9 @@ ms.date: 03/25/2019
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A webhook activity can control the execution of pipelines through your custom code. With the webhook activity, customers' code can call an endpoint and pass it a callback URL. The pipeline run waits for the callback invocation before it proceeds to the next activity.
+
+> [!IMPORTANT]
+> WebHook activity now allows you to surface error status and custom messages back to activity and pipeline. Set _reportStatusOnCallBack_ to true, and include _StatusCode_ and _Error_ in callback payload. For more information, see [Additional Notes](#additional-notes) section.
 
 ## Syntax
 
@@ -36,6 +35,7 @@ A webhook activity can control the execution of pipelines through your custom co
             "key": "value"
         },
         "timeout": "00:03:00",
+        "reportStatusOnCallBack": false,
         "authentication": {
             "type": "ClientCertificate",
             "pfx": "****",

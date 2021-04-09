@@ -127,8 +127,8 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 There is a workaround to add latest SharePoint content via API using Azure blob storage, below are the steps: 
 1.  Download the SharePoint files locally. The user calling the API needs to have access to SharePoint. 
-1.  Upload them on the Azure blob stoarge. This will create a secure shared access by [using SAS token.](../../../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works) 
-1. Pass the blob URL generated with the SAS token to the QnA Maker API. To allow the Question Answers extraction from the files, you need to add the suffix file type as '&ext=pdf' or '&ext=doc' at the end of the URL before passing it to QnA Maker API>  
+1.  Upload them on the Azure blob storage. This will create a secure shared access by [using SAS token.](../../../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works) 
+1. Pass the blob URL generated with the SAS token to the QnA Maker API. To allow the Question Answers extraction from the files, you need to add the suffix file type as '&ext=pdf' or '&ext=doc' at the end of the URL before passing it to QnA Maker API.
 
 
 <!--

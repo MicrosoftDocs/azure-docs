@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 03/30/2021
 tags: connectors
 ---
 
 # Connect to SAP systems from Azure Logic Apps
 
-This article explains how you can access your SAP resources from Logic Apps using the [SAP connector](https://docs.microsoft.com/connectors/sap/).
+This article explains how you can access your SAP resources from Logic Apps using the [SAP connector](/connectors/sap/).
 
 ## Prerequisites
 
@@ -25,9 +25,11 @@ This article explains how you can access your SAP resources from Logic Apps usin
 
     * If you're running your logic app in multi-tenant Azure, see the [multi-tenant prerequisites](#multi-tenant-azure-prerequisites).
 
-    * If you're running your logic app in a Premium-level[ integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see the [ISE prerequisites](#ise-prerequisites).
+    * If you're running your logic app in a Premium-level [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see the [ISE prerequisites](#ise-prerequisites).
 
 * An [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Logic Apps. For information about what SAP servers and SAP actions you can use with the connector, see [SAP compatibility](#sap-compatibility).
+
+    * You must configure your SAP server to allow the use of RFC. For more information, see the following SAP note: [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089). 
 
 * Message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the SAP action you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](#send-flat-file-idocs).
 
@@ -122,9 +124,6 @@ The managed SAP connector integrates with SAP systems through your [on-premises 
 ### ISE prerequisites
 
 These prerequisites apply if you're running your logic app in a Premium-level ISE. However, they don't apply to logic apps running in a Developer-level ISE. An ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let logic apps directly access on-premises resources without using on-premises data gateway.
-
-> [!NOTE]
-> While the SAP ISE connector is visible inside of a Developer-level ISE, attempts to install the connector won't succeed.
 
 1. If you don't already have an Azure Storage account with a blob container, create a container using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
@@ -312,32 +311,122 @@ You can use IDocs with a flat file schema if you wrap them in an XML envelope. T
 
 1. For the **Send message to SAP** action, use SAP action URI `http://microsoft.lobservices.sap/2007/03/Idoc/SendIdoc`.
 
-1. Format your input message with an XML envelope. For an example, see the following example message:
+1. Format your input message with an XML envelope. For an example, see the following example XML payload:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<SendIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
-  <idocData>EDI_DC    300                      ORDERS052SAPMSS    LIMSFTABCSWI                                                                                           ED  93AORDERSOLP     VLTRFC    KUMSFTABCSWI                                                                                           13561                       231054476                                                                           20190523085430ORDERSORDERS05          US
-E2EDK01005300                1     E2EDK010050     1       USD                                                                        Z4O14506907554
-E2EDK03   300                2     E2EDK03   0     2   02220190523
-E2EDKA1   300                3     E2EDKA1   0     2   RE                  MSFTASWI
-E2EDKA1   300                4     E2EDKA1   0     2   US                  MSFTASWI
-E2EDKA1   300                5     E2EDKA1   0     2   WE                  MSFTASWILIC
-E2EDKA1   300                6     E2EDKA1   0     2   Z1 KKKKKKK                           ABC YYYYYYYYYYY ZZ                                                                                                                          BBBBBBBBBBBBBBBB 11                                                                                      ttttttttttt                                 6666              US                                                                                                999 999 99 99                                                                                                                SSSSSSS SSS SSSSSS                                                                                                                                SSSSSSS SSS SSSSSS
-E2EDKA1   300                7     E2EDKA1   0     2   Z2 KKKKKKK                           BBBBBBBBBBBBBBBB DDDDDDDD ZZ                                                                                                                EEEEEEEEEEE 86                                                                                           rrrrrrrr                                    8888              US                                                                                                999 999 99 99                                                                                                                NNNNNN NNNNNN                                                                                                                                     NNNNNN NNNNNN
-E2EDK02   300                8     E2EDK02   0     2   901Z
-E2EDK02   300                9     E2EDK02   0     2   90399680096ZZS2002
-E2EDK02   300                10    E2EDK02   0     2   902S
-E2EDKT1   300                11    E2EDKT1   0     2   Z1EME
-E2EDKT2   300                12    E2EDKT2   0     3   xxx@xxx-xx.xx
-E2EDKT1   300                13    E2EDKT1   0     2   Z2EME
-E2EDKT2   300                14    E2EDKT2   0     3   x.xxxxxx@xxxxxxxx-xxxxxxxxxx.xx
-E2EDP01001300                15    E2EDP010010     2   10         1              EA                          999.9
-E2EDP19   300                16    E2EDP19   0     3   00AAAA-11111</idocData>
-</SendIdoc>
+<ReceiveIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/"><idocData>EDI_DC 3000000001017945375750 30INVOIC011BTSVLINV30KUABCABCFPPC LDCA X004010810 4 SAPMSX LSEDI ABCABCFPPC 000d3ae4-723e-1edb-9ca4-cc017365c9fd 20210217054521INVOICINVOIC01ZINVOIC2RE 20210217054520
+E2EDK010013000000001017945375000001E2EDK01001000000010 ABCABC1.00000 0060 INVO9988298128 298.000 298.000 LB Z4LR EN 0005065828 L
+E2EDKA1 3000000001017945375000002E2EDKA1 000000020 RS ABCABCFPPC 0005065828 ABCABCABC ABCABC Inc. Limited Risk Distributor ABCABC 1950 ABCABCABCA Blvd ABCABAABCAB L5N8L9 CA ABCABC E ON V-ABCABC LDCA
+E2EDKA1 3000000001017945375000003E2EDKA1 000000020 AG 0005065828 ABCABCFPPC ABCABC ABCABC ABCABC - FPP ONLY 88 ABCABC Crescent ABCABAABCAB L5R 4A2 CA ABCABC 111 111 1111 E ON ABCABCFPPC EN
+E2EDKA1 3000000001017945375000004E2EDKA1 000000020 RE 0005065828 ABCABCFPPC ABCABC ABCABC ABCABC - FPP ONLY 88 ABCABC Crescent ABCABAABCAB L5R 4A2 CA ABCABC 111 111 1111 E ON ABCABCFPPC EN
+E2EDKA1 3000000001017945375000005E2EDKA1 000000020 RG 0005065828 ABCABCFPPC ABCABC ABCABC ABCABC - FPP ONLY 88 ABCABC Crescent ABCABAABCAB L5R 4A2 CA ABCABC 111 111 1111 E ON ABCABCFPPC EN
+E2EDKA1 3000000001017945375000006E2EDKA1 000000020 WE 0005001847 41 ABCABC ABCABC INC (ABCABC) DC A. ABCABCAB 88 ABCABC CRESCENT ABCABAABCAB L5R 4A2 CA ABCABC 111-111-1111 E ON ABCABCFPPC EN
+E2EDKA1 3000000001017945375000007E2EDKA1 000000020 Z3 0005533050 ABCABCABC ABCABC Inc. ABCA Bank Swift Code -ABCABCABCAB Sort Code - 1950 ABCABCABCA Blvd. Acc No -1111111111 ABCABAABCAB L5N8L9 CA ABCABC E ON ABCABCFPPC EN
+E2EDKA1 3000000001017945375000008E2EDKA1 000000020 BK 1075 ABCABCABC ABCABC Inc 1950 ABCABCABCA Blvd ABCABAABCAB ON L5N 8L9 CA ABCABC (111) 111-1111 (111) 111-1111 ON
+E2EDKA1 3000000001017945375000009E2EDKA1 000000020 CR 1075 CONTACT ABCABCABC 1950 ABCABCABCA Blvd ABCABAABCAB ON L5N 8L9 CA ABCABC (111) 111-1111 (111) 111-1111 ON
+E2EDK02 3000000001017945375000010E2EDK02 000000020 0099988298128 20210217
+E2EDK02 3000000001017945375000011E2EDK02 000000020 00140-N6260-S 20210205
+E2EDK02 3000000001017945375000012E2EDK02 000000020 0026336270425 20210217
+E2EDK02 3000000001017945375000013E2EDK02 000000020 0128026580537 20210224
+E2EDK02 3000000001017945375000014E2EDK02 000000020 01740-N6260-S
+E2EDK02 3000000001017945375000015E2EDK02 000000020 900IAC
+E2EDK02 3000000001017945375000016E2EDK02 000000020 901ZSH
+E2EDK02 3000000001017945375000017E2EDK02 000000020 9078026580537 20210217
+E2EDK03 3000000001017945375000018E2EDK03 000000020 02620210217
+E2EDK03 3000000001017945375000019E2EDK03 000000020 00120210224
+E2EDK03 3000000001017945375000020E2EDK03 000000020 02220210205
+E2EDK03 3000000001017945375000021E2EDK03 000000020 01220210217
+E2EDK03 3000000001017945375000022E2EDK03 000000020 01120210217
+E2EDK03 3000000001017945375000023E2EDK03 000000020 02420210217
+E2EDK03 3000000001017945375000024E2EDK03 000000020 02820210418
+E2EDK03 3000000001017945375000025E2EDK03 000000020 04820210217
+E2EDK17 3000000001017945375000026E2EDK17 000000020 001DDPDelivered Duty Paid
+E2EDK17 3000000001017945375000027E2EDK17 000000020 002DDPdestination
+E2EDK18 3000000001017945375000028E2EDK18 000000020 00160 0 Up to 04/18/2021 without deduction
+E2EDK28 3000000001017945375000029E2EDK28 000000020 CA BOFACATT Bank of ABCABAB ABCABC ABCABAB 50127217 ABCABCABC ABCABC Inc.
+E2EDK28 3000000001017945375000030E2EDK28 000000020 CA 026000082 ABCAbank ABCABC ABCABAB 201456700OLD ABCABCABC ABCABC Inc.
+E2EDK28 3000000001017945375000031E2EDK28 000000020 GB ABCAGB2L ABCAbank N.A ABCABA E14, 5LB GB63ABCA18500803115593 ABCABCABC ABCABC Inc. GB63ABCA18500803115593
+E2EDK28 3000000001017945375000032E2EDK28 000000020 CA 020012328 ABCABANK ABCABC ABCABAB ON M5J 2M3 2014567007 ABCABCABC ABCABC Inc.
+E2EDK28 3000000001017945375000033E2EDK28 000000020 CA 03722010 ABCABABC ABCABABC Bank of Commerce ABCABAABCAB 64-04812 ABCABCABC ABCABC Inc.
+E2EDK28 3000000001017945375000034E2EDK28 000000020 IE IHCC In-House Cash Center IHCC1075 ABCABCABC ABCABC Inc.
+E2EDK28 3000000001017945375000035E2EDK28 000000020 CA 000300002 ABCAB Bank of ABCABC ABCABAB 0021520584OLD ABCABCABC ABCABC Inc.
+E2EDK28 3000000001017945375000036E2EDK28 000000020 US USCC US Cash Center (IHC) city USCC1075 ABCABCABC ABCABC Inc.
+E2EDK29 3000000001017945375000037E2EDK29 000000020 0064848944US A CAD CA ABCABC CA United States US CA A Air Air
+E2EDKT1 3000000001017945375000038E2EDKT1 000000020 ZJ32E EN
+E2EDKT2 3000000001017945375000039E2EDKT2 000038030 GST/HST877845941RT0001 *
+E2EDKT2 3000000001017945375000040E2EDKT2 000038030 QST1021036966TQ0001 *
+E2EDKT1 3000000001017945375000041E2EDKT1 000000020 Z4VL
+E2EDKT2 3000000001017945375000042E2EDKT2 000041030 0.000 *
+E2EDKT1 3000000001017945375000043E2EDKT1 000000020 Z4VH
+E2EDKT2 3000000001017945375000044E2EDKT2 000043030 *
+E2EDK14 3000000001017945375000045E2EDK14 000000020 008LDCA
+E2EDK14 3000000001017945375000046E2EDK14 000000020 00710
+E2EDK14 3000000001017945375000047E2EDK14 000000020 00610
+E2EDK14 3000000001017945375000048E2EDK14 000000020 015Z4F2
+E2EDK14 3000000001017945375000049E2EDK14 000000020 0031075
+E2EDK14 3000000001017945375000050E2EDK14 000000020 021M
+E2EDK14 3000000001017945375000051E2EDK14 000000020 0161075
+E2EDK14 3000000001017945375000052E2EDK14 000000020 962M
+E2EDP010013000000001017945375000053E2EDP01001000000020 000011 2980.000 EA 298.000 LB MOUSE 298.000 Z4TN 4260
+E2EDP02 3000000001017945375000054E2EDP02 000053030 00140-N6260-S 00000120210205 DFUE
+E2EDP02 3000000001017945375000055E2EDP02 000053030 0026336270425 00001120210217
+E2EDP02 3000000001017945375000056E2EDP02 000053030 0168026580537 00001020210224
+E2EDP02 3000000001017945375000057E2EDP02 000053030 9100000 00000120210205 DFUE
+E2EDP02 3000000001017945375000058E2EDP02 000053030 911A 00000120210205 DFUE
+E2EDP02 3000000001017945375000059E2EDP02 000053030 912PP 00000120210205 DFUE
+E2EDP02 3000000001017945375000060E2EDP02 000053030 91300 00000120210205 DFUE
+E2EDP02 3000000001017945375000061E2EDP02 000053030 914CONTACT ABCABCABC 00000120210205 DFUE
+E2EDP02 3000000001017945375000062E2EDP02 000053030 963 00000120210205 DFUE
+E2EDP02 3000000001017945375000063E2EDP02 000053030 965 00000120210205 DFUE
+E2EDP02 3000000001017945375000064E2EDP02 000053030 9666336270425 00000120210205 DFUE
+E2EDP02 3000000001017945375000065E2EDP02 000053030 9078026580537 00001020210205 DFUE
+E2EDP03 3000000001017945375000066E2EDP03 000053030 02920210217
+E2EDP03 3000000001017945375000067E2EDP03 000053030 00120210224
+E2EDP03 3000000001017945375000068E2EDP03 000053030 01120210217
+E2EDP03 3000000001017945375000069E2EDP03 000053030 02520210217
+E2EDP03 3000000001017945375000070E2EDP03 000053030 02720210217
+E2EDP03 3000000001017945375000071E2EDP03 000053030 02320210217
+E2EDP03 3000000001017945375000072E2EDP03 000053030 02220210205
+E2EDP19 3000000001017945375000073E2EDP19 000053030 001418VVZ
+E2EDP19 3000000001017945375000074E2EDP19 000053030 002RJR-00001 AB ABCABCABC Mouse FORBUS BLUETOOTH
+E2EDP19 3000000001017945375000075E2EDP19 000053030 0078471609000
+E2EDP19 3000000001017945375000076E2EDP19 000053030 003889842532685
+E2EDP19 3000000001017945375000077E2EDP19 000053030 011CN
+E2EDP26 3000000001017945375000078E2EDP26 000053030 00459064.20
+E2EDP26 3000000001017945375000079E2EDP26 000053030 00352269.20
+E2EDP26 3000000001017945375000080E2EDP26 000053030 01052269.20
+E2EDP26 3000000001017945375000081E2EDP26 000053030 01152269.20
+E2EDP26 3000000001017945375000082E2EDP26 000053030 0126795.00
+E2EDP26 3000000001017945375000083E2EDP26 000053030 01552269.20
+E2EDP26 3000000001017945375000084E2EDP26 000053030 00117.54
+E2EDP26 3000000001017945375000085E2EDP26 000053030 00252269.20
+E2EDP26 3000000001017945375000086E2EDP26 000053030 940 2980.000
+E2EDP26 3000000001017945375000087E2EDP26 000053030 939 2980.000
+E2EDP05 3000000001017945375000088E2EDP05 000053030 + Z400MS List Price 52269.20 17.54 1 EA CAD 2980
+E2EDP05 3000000001017945375000089E2EDP05 000053030 + XR1 Tax Jur Code Level 6795.00 13.000 52269.20
+E2EDP05 3000000001017945375000090E2EDP05 000053030 + Tax Subtotal1 6795.00 2.28 1 EA CAD 2980
+E2EDP05 3000000001017945375000091E2EDP05 000053030 + Taxable Amount + TaxSubtotal1 59064.20 19.82 1 EA CAD 2980
+E2EDP04 3000000001017945375000092E2EDP04 000053030 CX 13.000 6795.00 7000000000
+E2EDP04 3000000001017945375000093E2EDP04 000053030 CX 0 0 7001500000
+E2EDP04 3000000001017945375000094E2EDP04 000053030 CX 0 0 7001505690
+E2EDP28 3000000001017945375000095E2EDP28 000053030 00648489440000108471609000 CN CN ABCAB ZZ 298.000 298.000 LB US 400 United Stat KY
+E2EDPT1 3000000001017945375000096E2EDPT1 000053030 0001E EN
+E2EDPT2 3000000001017945375000097E2EDPT2 000096040 AB ABCABCABC Mouse forBus Bluetooth EN/XC/XD/XX Hdwr Black For Bsnss *
+E2EDS01 3000000001017945375000098E2EDS01 000000020 0011
+E2EDS01 3000000001017945375000099E2EDS01 000000020 01259064.20 CAD
+E2EDS01 3000000001017945375000100E2EDS01 000000020 0056795.00 CAD
+E2EDS01 3000000001017945375000101E2EDS01 000000020 01159064.20 CAD
+E2EDS01 3000000001017945375000102E2EDS01 000000020 01052269.20 CAD
+E2EDS01 3000000001017945375000103E2EDS01 000000020 94200000 CAD
+E2EDS01 3000000001017945375000104E2EDS01 000000020 9440.00 CAD
+E2EDS01 3000000001017945375000105E2EDS01 000000020 9450.00 CAD
+E2EDS01 3000000001017945375000106E2EDS01 000000020 94659064.20 CAD
+E2EDS01 3000000001017945375000107E2EDS01 000000020 94752269.20 CAD
+E2EDS01 3000000001017945375000108E2EDS01 000000020 EXT
+Z2XSK010003000000001017945375000109Z2XSK01000000108030 Z400 52269.20
+Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
+</idocData></ReceiveIdoc>
 ```
-
-
 
 ### Create HTTP response action
 
@@ -477,6 +566,27 @@ Your logic app is now ready to receive messages from your SAP system.
 > The SAP trigger isn't a polling trigger but is a webhook-based trigger instead. 
 > If you're using the data gateway, the trigger is called from the data gateway only when a message exists, so no polling is necessary.
 
+If you receive a **500 Bad Gateway** error with a message similar to **service 'sapgw00' unknown**, replace your gateway service name in your API connection and trigger configuration with its port number. In the following example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. 
+
+```json
+{
+	"body": {
+		"error": {
+			"code": 500,
+			"source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
+			"clientRequestId": "00000000-0000-0000-0000-000000000000",
+			"message": "BadGateway",
+			"innerError": {
+				"error": {
+					"code": "UnhandledException",
+					"message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
+				}
+			}
+		}
+	}
+}
+```
+
 #### Parameters
 
 Along with simple string and number inputs, the SAP connector accepts the following table parameters (`Type=ITAB` inputs):
@@ -497,18 +607,30 @@ Any SAP action filtering happens at the level of the SAP adapter for your on-pre
 
 If you can't send IDoc packets from SAP to your logic app's trigger, see the Transactional RFC (tRFC) call rejection message in the SAP tRFC dialog box (T-code SM58). In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
 
-* `The RequestContext on the IReplyChannel was closed without a reply being`: Unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
+##### The RequestContext on the IReplyChannel was closed without a reply being sent
 
-  * To acknowledge that your logic app received the IDoc, [add a Response action](../connectors/connectors-native-reqres.md#add-a-response-action) that returns a `200 OK` status code. The IDoc is transported through tRFC, which doesn't allow for a response payload.
+This error message means unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
 
-  * If you need to reject the IDoc instead, respond with any HTTP status code other than `200 OK` so that the SAP Adapter returns an exception back to SAP on your behalf. 
+To acknowledge that your logic app received the IDoc, [add a Response action](../connectors/connectors-native-reqres.md#add-a-response-action) that returns a `200 OK` status code. Leave the body empty and don't change or add to the headers. The IDoc is transported through tRFC, which doesn't allow for a response payload.
 
-* `The segment or group definition E2EDK36001 was not found in the IDoc meta`: Expected failures happen with other errors, such as the failure to generate an IDoc XML payload because its segments are not released by SAP, so the segment type metadata required for conversion is missing. 
+To reject the IDoc instead, respond with any HTTP status code other than `200 OK`. The SAP Adapter then returns an exception back to SAP on your behalf. You should only reject the IDoc to signal transport errors back to SAP, such as a misrouted IDoc that your application can't process. You shouldn't reject an IDoc for application-level errors, such as issues with the data contained in the IDoc. If you delay transport acceptance for application-level validation, you might experience negative performance due to blocking your connection from transporting other IDocs.
 
-  * To have these segments released by SAP, contact the ABAP engineer for your SAP system.
+If you're receiving this error message and experience systemic failures calling Logic Apps, check that you've configured the network settings for your on-premises data gateway service for your specific environment. For example, if your network environment requires the use of a proxy to call Azure endpoints, you need to configure your on-premises data gateway service to use your proxy. For more information, see [Proxy Configuration](/dotnet/framework/network-programming/proxy-configuration).
+
+If you're receiving this error message and experience intermittent failures calling Logic Apps, you might need to increase your retry count and/or retry interval. 
+
+1. Check SAP settings in your on-premises data gateway service configuration file, `Microsoft.PowerBI.EnterpriseGateway.exe.config`. The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` and the timespan format is `HH:mm:ss.ff`. 
+    
+1. Save your changes and restart your on-premises data gateway.
+
+##### The segment or group definition E2EDK36001 was not found in the IDoc meta
+
+This error message means expected failures happen with other errors. For example, the failure to generate an IDoc XML payload because its segments are not released by SAP. As a result, the segment type metadata required for conversion is missing.
+
+To have these segments released by SAP, contact the ABAP engineer for your SAP system.
 ### Asynchronous request-reply for triggers
 
-The SAP connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply.md) for Logic Apps triggers. You can use this pattern to create successful requests that would have otherwise failed with the default synchronous request-reply pattern. 
+The SAP connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply) for Logic Apps triggers. You can use this pattern to create successful requests that would have otherwise failed with the default synchronous request-reply pattern. 
 
 > [!TIP]
 > In logic apps with multiple response actions, all response actions must use the same request-reply pattern. For example, if your logic app uses a switch control with multiple possible response actions, you must configure all the response actions to use the same request-reply pattern, either synchronous or asynchronous. 
@@ -551,14 +673,14 @@ For on-premises data gateway releases from April 2020 and earlier, logs are disa
 
 If you use an [on-premises data gateway for Logic Apps](../logic-apps/logic-apps-gateway-install.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files. 
 
-You can [export all of your gateway's configuration and service logs](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
+You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
 
 > [!NOTE]
 > Extended logging might affect your logic apps' performance when always enabled. It's a best practice to turn off extended log files after you're finished with analyzing and troubleshooting an issue.
 
 #### Capture ETW events
 
-Optionally, advanced users can capture ETW events directly. You can then [consume your data in Azure Diagnostics in Event Hubs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs) or [collect your data to Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs). For more information, see the [best practices for collecting and storing data](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#collecting-and-storing-data). You can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) to work with the resulting ETL files, or you can write your own program. This walkthrough uses PerfView:
+Optionally, advanced users can capture ETW events directly. You can then [consume your data in Azure Diagnostics in Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) or [collect your data to Azure Monitor Logs](../azure-monitor/agents/diagnostics-extension-logs.md). For more information, see the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). You can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) to work with the resulting ETL files, or you can write your own program. This walkthrough uses PerfView:
 
 1. In the PerfView menu, select **Collect** &gt; **Collect** to capture the events.
 
@@ -620,6 +742,14 @@ To send IDocs from SAP to your logic app, you need the following minimum configu
     * For your **RFC Destination**, enter a name.
     
     * On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**. For your **Program ID**, enter a value. In SAP, your logic app's trigger will be registered by using this identifier.
+
+    > [!IMPORTANT]
+    > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** when you configure your logic app and SAP server. Otherwise, you might receive the following errors in the tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
+    >
+    > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
+    > * **Non-ABAP RFC client (partner type) not supported**
+    >
+    > For more information from SAP, see the following notes (login required) <https://launchpad.support.sap.com/#/notes/2399329> and <https://launchpad.support.sap.com/#/notes/353597>.
     
     * On the **Unicode** tab, for **Communication Type with Target System**, select **Unicode**.
 
@@ -731,11 +861,27 @@ You can set up SAP to [send IDocs in packets](https://help.sap.com/viewer/8f3819
 
 Here's an example that shows how to extract individual IDocs from a packet by using the [`xpath()` function](./workflow-definition-language-functions-reference.md#xpath):
 
-1. Before you start, you need a logic app with an SAP trigger. If you don't already have this logic app, follow the previous steps in this topic to [set up a logic app with an SAP trigger](#receive-message-from-sap).
+1. Before you start, you need a logic app with an SAP trigger. If you don't already have this in your logic app, follow the previous steps in this topic to [set up a logic app with an SAP trigger](#receive-message-from-sap).
+
+    > [!IMPORTANT]
+    > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** when you configure your logic app and SAP server. Otherwise, you might receive the following errors in the tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
+    >
+    > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
+    > * **Non-ABAP RFC client (partner type) not supported**
+    >
+    > For more information from SAP, see the following notes (login required) <https://launchpad.support.sap.com/#/notes/2399329> and <https://launchpad.support.sap.com/#/notes/353597>.
 
    For example:
 
    ![Add SAP trigger to logic app](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. [Add a response action to your logic app](../connectors/connectors-native-reqres.md#add-a-response-action) to reply immediately with the status of your SAP request. It's a best practice to add this action immediately after your trigger, to free up the communication channel with your SAP server. Choose one of the following status codes (`statusCode`) to use in your response action:
+
+    * **202 Accepted**, which means the request has been accepted for processing but the processing isn't complete yet.
+
+    * **204 No Content**, which means the server has successfully fulfilled the request and there is no additional content to send in the response payload body. 
+
+    * **200 OK**. This status code always contains a payload, even if the server generates a payload body of zero length. 
 
 1. Get the root namespace from the XML IDoc that your logic app receives from SAP. To extract this namespace from the XML document, add a step that creates a local string variable and stores that namespace by using an `xpath()` expression:
 
@@ -1003,7 +1149,7 @@ The following example is a data record with grouped segments. The record include
 <ns2:E2EDKT1002GRP>
   <ns2:E2EDKT1002>
     <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
-      <NS2:TDID>ZONE</ns2:TDID>
+      <ns2:TDID>ZONE</ns2:TDID>
   </ns2:E2EDKT1002>
   <ns2:E2EDKT2001>
     <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
@@ -1012,6 +1158,7 @@ The following example is a data record with grouped segments. The record include
 </ns2:E2EDKT1002GRP>
 
 ```
+
 
 The recommended method is to create an IDoc identifier for use with tRFC. You can set this transaction identifier, `tid`, using the [Send IDoc operation](/connectors/sap/#send-idoc) in the SAP connector API.
 
@@ -1303,9 +1450,15 @@ If you experience an issue with duplicate IDocs being sent to SAP from your logi
 
 ## Known issues and limitations
 
-Here are the currently known issues and limitations for the managed (non-ISE) SAP connector:
+Here are the currently known issues and limitations for the managed (non-ISE) SAP connector: 
 
-* The SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior. For send scenarios, data gateway clusters are supported.
+* In general, the SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior.
+
+  * For send scenarios, data gateway clusters in failover mode are supported. 
+
+  * Data gateway clusters in load balancing mode aren't supported by stateful SAP actions. These actions include **Create stateful session**, **Commit BAPI transaction**, **Rollback BAPI transaction**, **Close stateful session**, and all actions that specify a **Session ID** value. Stateful communications must remain on the same data gateway cluster node. 
+
+  * For stateful SAP actions, use the data gateway either in non-cluster mode or in a cluster that's set up for failover only.
 
 * The SAP connector currently doesn't support SAP router strings. The on-premises data gateway must exist on the same LAN as the SAP system you want to connect.
 
@@ -1344,7 +1497,7 @@ For detailed examples of how to use the Call BAPI action, see the [XML samples o
 
 ### Send IDoc action
 
-The [Send IDoc (`SendIDoc`)](https://docs.microsoft.com/connectors/sap/#send-idoc-(preview)) action sends the IDoc message to your SAP server.
+The [Send IDoc (`SendIDoc`)](/connectors/sap/) action sends the IDoc message to your SAP server.
 
 You must use the following parameters with your call: 
 

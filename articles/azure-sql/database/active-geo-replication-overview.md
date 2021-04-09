@@ -21,6 +21,9 @@ Active geo-replication is an Azure SQL Database feature that allows you to creat
 > [!NOTE]
 > Active geo-replication is not supported by Azure SQL Managed Instance. For geographic failover of instances of SQL Managed Instance, use [Auto-failover groups](auto-failover-group-overview.md).
 
+> [!NOTE]
+> To migrate SQL databases from Azure Germany using active geo-replication, see [Migrate SQL Database using active geo-replication](../../germany/germany-migration-databases.md#migrate-sql-database-using-active-geo-replication).
+
 Active geo-replication is designed as a business continuity solution that allows the application to perform quick disaster recovery of individual databases in case of a regional disaster or large scale outage. If geo-replication is enabled, the application can initiate failover to a secondary database in a different Azure region. Up to four secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point.
 
 > [!NOTE]
@@ -287,6 +290,9 @@ As discussed previously, active geo-replication can also be managed programmatic
 | [Replication Links - List By Database](/rest/api/sql/replicationlinks/listbydatabase) | Gets all replication links for a given database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
 | [Delete Replication Link](/rest/api/sql/replicationlinks/delete) | Deletes a database replication link. Cannot be done during failover. |
 |  | |
+
+
+
 
 ## Next steps
 

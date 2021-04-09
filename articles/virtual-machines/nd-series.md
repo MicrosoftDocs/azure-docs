@@ -3,7 +3,7 @@ title: ND-series - Azure Virtual Machines
 description: Specifications for the ND-series VMs.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
@@ -19,7 +19,7 @@ The ND-series virtual machines are a new addition to the GPU family designed for
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 Nvidia NVLink Interconnect: Not Supported<br>
 
 > [!IMPORTANT]

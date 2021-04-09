@@ -18,16 +18,16 @@ The web UI lets you monitor device conditions, create rules, and manage millions
 
 This article outlines, for IoT Central:
 
-- The typical personas associated with a project.
+- The typical user roles associated with a project.
 - How to create your application.
 - How to connect your devices to your application
 - How to manage your application.
 - Azure IoT Edge capabilities in IoT Central.
 - How to connect your Azure IoT Edge runtime powered devices to your application.
 
-## Personas
+## User roles
 
-The IoT Central documentation refers to four personas who interact with an IoT Central application:
+The IoT Central documentation refers to four user roles that interact with an IoT Central application:
 
 - A _solution builder_ is responsible for [creating an application](quick-deploy-iot-central.md), [configuring rules and actions](quick-configure-rules.md), [defining integrations with other services](howto-export-data.md), and further customizing the application for operators and device developers.
 - An _operator_ [manages the devices](howto-manage-devices.md) connected to the application.
@@ -151,9 +151,6 @@ Each Azure subscription has default quotas that could impact the scope of your I
 
 Now that you have an overview of IoT Central, here are some suggested next steps:
 
-- Understand the available [Azure technologies and services for creating IoT solutions](../../iot-fundamentals/iot-services-and-technologies.md).
 - If you're a device developer and want to dive into some code, the suggested next step is to [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
-- Learn how to [Connect an Azure IoT Edge device](./tutorial-add-edge-as-leaf-device.md).
-- Learn more about [Azure IoT technologies and services](../../iot-fundamentals/iot-services-and-technologies.md).

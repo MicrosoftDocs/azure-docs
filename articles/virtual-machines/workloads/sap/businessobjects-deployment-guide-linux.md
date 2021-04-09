@@ -8,8 +8,7 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -600,7 +599,7 @@ To reduce the impact of downtime due to one or more events, it is advisable to f
 - Use Managed Disks for VMs in an Availability Set.
 - Configure each application tier into separate Availability Sets.
 
-For more information, check [Manage the availability of Linux virtual machines](../../manage-availability.md)
+For more information, check [Manage the availability of Linux virtual machines](../../availability.md)
 
 #### High availability for CMS database
 

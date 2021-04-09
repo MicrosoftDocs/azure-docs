@@ -22,7 +22,7 @@ This article offers query examples and more detailed instructions for using the 
 
 This article begins with sample queries that illustrate the query language structure and common query operations for digital twins. It then describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
 
-> [!TIP]
+> [!NOTE]
 > If you're running the sample queries below with an API or SDK call, you'll need to condense the query text into a single line.
 
 ## Show all digital twins
@@ -37,8 +37,10 @@ Get digital twins by **properties** (including ID and metadata):
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!TIP]
-> The ID of a digital twin is queried using the metadata field `$dtId`.
+As shown in the query above, the ID of a digital twin is queried using the metadata field `$dtId`.
+
+>[!TIP]
+> If you are using Cloud Shell to run a query with metadata fields that begin with `$`, you should escape the `$` with a backtick to let Cloud Shell know it's not a variable and should be consumed as a literal in the query text.
 
 You can also get twins based on **whether a certain property is defined**. Here is a query that gets twins that have a defined *Location* property:
 
@@ -51,6 +53,10 @@ This can help you to get twins by their *tag* properties, as described in [Add t
 You can also get twins based on the **type of a property**. Here is a query that gets twins whose *Temperature* property is a number:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty3":::
+
+>[!TIP]
+> If a property is of type `Map`, you can use the map keys and values directly in the query, like this:
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty4":::
 
 ## Query by model
 
@@ -89,19 +95,14 @@ Here is a query example specifying a value for all three parameters:
 
 When querying based on digital twins' **relationships**, the Azure Digital Twins query language has a special syntax.
 
-Relationships are pulled into the query scope in the `FROM` clause. An important distinction from "classical" SQL-type languages is that each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal, and is written with an Azure Digital Twins version of `JOIN`.
+Relationships are pulled into the query scope in the `FROM` clause. Unlike in "classical" SQL-type languages, each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal. To traverse across relationships, Azure Digital Twins uses a custom version of `JOIN`.
 
-Recall that with the Azure Digital Twins [model](concepts-models.md) capabilities, relationships do not exist independently of twins. This means the Azure Digital Twins query language's `JOIN` is a little different from the general SQL `JOIN`, as relationships here can't be queried independently and must be tied to a twin.
-To incorporate this difference, the keyword `RELATED` is used in the `JOIN` clause to reference a twin's set of relationships.
+Recall that with the Azure Digital Twins [model](concepts-models.md) capabilities, relationships do not exist independently of twins. This means that relationships here can't be queried independently and must be tied to a twin.
+To handle this, the keyword `RELATED` is used in the `JOIN` clause to pull in the set of a certain type of relationship coming from the twin collection. The query must then filter in the `WHERE` clause which specific twin(s) to use in the relationship query (using the twins' `$dtId` values).
 
-The following section gives several examples of what this looks like.
+The following sections give examples of what this looks like.
 
-> [!TIP]
-> Conceptually, this feature mimics the document-centric functionality of CosmosDB, where `JOIN` can be performed on child objects within a document. CosmosDB uses the `IN` keyword to indicate the `JOIN` is intended to iterate over array elements within the current context document.
-
-### Relationship-based query examples
-
-To get a dataset that includes relationships, use a single `FROM` statement followed by N `JOIN` statements, where the `JOIN` statements express relationships on the result of a previous `FROM` or `JOIN` statement.
+### Basic relationship query
 
 Here is a sample relationship-based query. This code snippet selects all digital twins with an *ID* property of 'ABC', and all digital twins related to these digital twins via a *contains* relationship.
 
@@ -109,6 +110,18 @@ Here is a sample relationship-based query. This code snippet selects all digital
 
 > [!NOTE]
 > The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.
+
+### Query by the source or target of a relationship
+
+You can use the relationship query structure to identify a digital twin that's the source or the target of a relationship.
+
+For instance, you can start with a source twin and follow its relationships to find the target twins of the relationships. Here is an example of a query that finds the target twins of the *feeds* relationships coming from the twin *source-twin*.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipSource":::
+
+You can also start with the target of the relationship and trace the relationship back to find the source twin. Here's an example of a query that finds the source twin of a *feeds* relationship to the twin *target-twin*.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipTarget":::
 
 ### Query the properties of a relationship
 
@@ -123,7 +136,9 @@ In the example above, note how *reportedCondition* is a property of the *service
 
 ### Query with multiple JOINs
 
-Up to five `JOIN`s are supported in a single query. This allows you to traverse multiple levels of relationships at once.
+Up to five `JOIN`s are supported in a single query. This allows you to traverse multiple levels of relationships at once. 
+
+To query on multiple levels of relationships, use a single `FROM` statement followed by N `JOIN` statements, where the `JOIN` statements express relationships on the result of a previous `FROM` or `JOIN` statement.
 
 Here is an example of a multi-join query, which gets all the light bulbs contained in the light panels in rooms 1 and 2.
 
@@ -217,11 +232,16 @@ Once you have decided on a query string, you execute it by making a call to the 
 
 You can call the API directly, or use one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) available for Azure Digital Twins.
 
-The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) call from a client app:
+The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) call from a client app:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-This call returns query results in the form of a [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) object.
+The query used in this call returns a list of digital twins, which the above example represents with [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin) objects. The return type of your data for each query will depend on what terms you specify with the `SELECT` statement:
+* Queries that begin with `SELECT * FROM ...` will return a list of digital twins (which can be serialized as `BasicDigitalTwin` objects, or other custom digital twin types that you may have created).
+* Queries that begin in the format `SELECT <A>, <B>, <C> FROM ...` will return a dictionary with keys `<A>`, `<B>`, and `<C>`.
+* Other formats of `SELECT` statements can be crafted to return custom data. You might consider creating your own classes to handle very customized result sets. 
+
+### Query with paging
 
 Query calls support paging. Here is a complete example using `BasicDigitalTwin` as query result type with error handling and paging:
 

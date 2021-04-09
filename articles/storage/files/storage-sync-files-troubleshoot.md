@@ -69,8 +69,8 @@ To install the Az or AzureRM module on PowerShell 5.1, perform the following ste
 
 1. Type **powershell** from an elevated command prompt and hit enter.
 2. Install the latest Az or AzureRM module by following the documentation:
-    - [Az module (requires .NET 4.7.2)](/powershell/azure/install-az-ps?viewFallbackFrom=azps-1.1.0)
-    - [AzureRM module]( https://go.microsoft.com/fwlink/?linkid=856959)
+    - [Az module (requires .NET 4.7.2)](/powershell/azure/install-az-ps)
+    - [AzureRM module](https://go.microsoft.com/fwlink/?linkid=856959)
 3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
 
 <a id="server-already-registered"></a>**Server Registration displays the following message: "This server is already registered"** 
@@ -108,7 +108,7 @@ This error occurs if the Azure file share is already in use by another cloud end
 If you see this message and the Azure file share currently is not in use by a cloud endpoint, complete the following steps to clear the Azure File Sync metadata on the Azure file share:
 
 > [!Warning]  
-> Deleting the metadata on an Azure file share that is currently in use by a cloud endpoint causes Azure File Sync operations to fail. 
+> Deleting the metadata on an Azure file share that is currently in use by a cloud endpoint causes Azure File Sync operations to fail. If you then use this file share for sync in a different sync group, data loss for files in the old sync group is almost certain.
 
 1. In the Azure portal, go to your Azure file share.  
 2. Right-click the Azure file share, and then select **Edit metadata**.
@@ -206,10 +206,10 @@ On the server that is showing as "Appears offline" in the portal, look at Event 
         - To use TLS cmdlets, see [Configuring TLS Cipher Suite Order by using TLS PowerShell Cmdlets](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
         Azure File Sync currently supports the following cipher suites for TLS 1.2 protocol:  
-        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256  
-        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256  
-        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256  
-        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256  
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256  
 
 - If **GetNextJob completed with status: -2134347764** is logged, the server is unable to communicate with the Azure File Sync service due to an expired or deleted certificate.  
     - Run the following PowerShell command on the server to reset the certificate used for authentication:
@@ -369,7 +369,7 @@ The table below contains all of the unicode characters Azure File Sync does not 
 ### Common sync errors
 <a id="-2147023673"></a>**The sync session was canceled.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (decimal)** | -2147023673 | 
@@ -380,7 +380,7 @@ Sync sessions may fail for various reasons including the server being restarted 
 
 <a id="-2147012889"></a>**A connection with the service could not be established.**    
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80072ee7 |
 | **HRESULT (decimal)** | -2147012889 | 
@@ -391,7 +391,7 @@ Sync sessions may fail for various reasons including the server being restarted 
 
 <a id="-2134376372"></a>**The user request was throttled by the service.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (decimal)** | -2134376372 |
@@ -402,7 +402,7 @@ No action is required; the server will try again. If this error persists for sev
 
 <a id="-2134364043"></a>**Sync is blocked until change detection completes post restore**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c83075 |
 | **HRESULT (decimal)** | -2134364043 |
@@ -413,7 +413,7 @@ No action is required. When a file or file share (cloud endpoint) is restored us
 
 <a id="-2147216747"></a>**Sync failed because the sync database was unloaded.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80041295 |
 | **HRESULT (decimal)** | -2147216747 |
@@ -424,7 +424,7 @@ This error typically occurs when a backup application creates a VSS snapshot and
 
 <a id="-2134364065"></a>**Sync can't access the Azure file share specified in the cloud endpoint.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (decimal)** | -2134364065 |
@@ -440,7 +440,7 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 
 <a id="-2134351804"></a>**Sync failed because the request is not authorized to perform this operation.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c86044 |
 | **HRESULT (decimal)** | -2134351804 |
@@ -456,7 +456,7 @@ This error occurs because the Azure File Sync agent is not authorized to access 
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**The storage account name used could not be resolved.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80C83060 |
 | **HRESULT (decimal)** | -2134364064 |
@@ -473,7 +473,7 @@ This error occurs because the Azure File Sync agent is not authorized to access 
 
 <a id="-2134364022"></a><a id="storage-unknown-error"></a>**An unknown error occurred while accessing the storage account.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8308a |
 | **HRESULT (decimal)** | -2134364022 |
@@ -485,7 +485,7 @@ This error occurs because the Azure File Sync agent is not authorized to access 
 
 <a id="-2134364014"></a>**Sync failed due to storage account locked.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c83092 |
 | **HRESULT (decimal)** | -2134364014 |
@@ -496,7 +496,7 @@ This error occurs because the storage account has a read-only [resource lock](..
 
 <a id="-1906441138"></a>**Sync failed due to a problem with the sync database.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT (decimal)** | -1906441138 |
@@ -507,7 +507,7 @@ This error occurs when there is a problem with the internal database used by Azu
 
 <a id="-2134364053"></a>**The Azure File Sync agent version installed on the server is not supported.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80C8306B |
 | **HRESULT (decimal)** | -2134364053 |
@@ -518,7 +518,7 @@ This error occurs if the Azure File Sync agent version installed on the server i
 
 <a id="-2134351810"></a>**You reached the Azure file share storage limit.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8603e |
 | **HRESULT (decimal)** | -2134351810 |
@@ -544,7 +544,7 @@ If the share is full and a quota is not set, one possible way of fixing this iss
 
 <a id="-2134351824"></a>**The Azure file share cannot be found.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c86030 |
 | **HRESULT (decimal)** | -2134351824 |
@@ -560,7 +560,7 @@ If the Azure file share was deleted, you need to create a new file share and the
 
 <a id="-2134364042"></a>**Sync is paused while this Azure subscription is suspended.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80C83076 |
 | **HRESULT (decimal)** | -2134364042 |
@@ -571,7 +571,7 @@ This error occurs when the Azure subscription is suspended. Sync will be reenabl
 
 <a id="-2134375618"></a>**The storage account has a firewall or virtual networks configured.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8033e |
 | **HRESULT (decimal)** | -2134375618 |
@@ -582,7 +582,7 @@ This error occurs when the Azure file share is inaccessible because of a storage
 
 <a id="-2134375911"></a>**Sync failed due to a problem with the sync database.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (decimal)** | -2134375911 |
@@ -598,7 +598,7 @@ If this error persists for longer than a few hours, create a support request and
 
 <a id="-2146762487"></a>**The server failed to establish a secure connection. The cloud service received an unexpected certificate.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x800b0109 |
 | **HRESULT (decimal)** | -2146762487 |
@@ -623,7 +623,7 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 
 <a id="-2147012894"></a>**A connection with the service could not be established.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80072ee2 |
 | **HRESULT (decimal)** | -2147012894 |
@@ -634,7 +634,7 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 
 <a id="-2134375680"></a>**Sync failed due to a problem with authentication.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c80300 |
 | **HRESULT (decimal)** | -2134375680 |
@@ -645,7 +645,7 @@ This error typically occurs because the server time is incorrect. If the server 
 
 <a id="-2134364040"></a>**Sync failed due to certificate expiration.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c83078 |
 | **HRESULT (decimal)** | -2134364040 |
@@ -669,7 +669,7 @@ If the client authentication certificate is expired, perform the following steps
 
 <a id="-2134375896"></a>**Sync failed due to authentication certificate not found.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c80228 |
 | **HRESULT (decimal)** | -2134375896 |
@@ -689,7 +689,7 @@ To resolve this issue, perform the following steps:
 
 <a id="-2134364039"></a>**Sync failed due to authentication identity not found.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c83079 |
 | **HRESULT (decimal)** | -2134364039 |
@@ -700,14 +700,14 @@ This error occurs because the server endpoint deletion failed and the endpoint i
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**The volume where the server endpoint is located is low on disk space.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x8e5e0211 |
 | **HRESULT (decimal)** | -1906441711 |
 | **Error string** | JET_errLogDiskFull |
 | **Remediation required** | Yes |
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (decimal)** | -2134375654 |
@@ -718,7 +718,7 @@ This error occurs because the volume has filled up. This error commonly occurs b
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a>**The service is not yet ready to sync with this server endpoint.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (decimal)** | -2134364145 |
@@ -729,21 +729,21 @@ This error occurs because the cloud endpoint was created with content already ex
 
 <a id="-2134375877"></a><a id="-2134375908"></a><a id="-2134375853"></a>**Sync failed due to problems with many individual files.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8023b |
 | **HRESULT (decimal)** | -2134375877 |
 | **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Remediation required** | Yes |
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
 | **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Remediation required** | Yes |
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (decimal)** | -2134375853 |
@@ -757,7 +757,7 @@ Sync sessions fail with one of these errors when there are many files that are f
 
 <a id="-2134376423"></a>**Sync failed due to a problem with the server endpoint path.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c80019 |
 | **HRESULT (decimal)** | -2134376423 |
@@ -768,7 +768,7 @@ Ensure the path exists, is on a local NTFS volume, and is not a reparse point or
 
 <a id="-2134375817"></a>**Sync failed because the filter driver version is not compatible with the agent version**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80C80277 |
 | **HRESULT (decimal)** | -2134375817 |
@@ -779,7 +779,7 @@ This error occurs because the Cloud Tiering filter driver (StorageSync.sys) vers
 
 <a id="-2134376373"></a>**The service is currently unavailable.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (decimal)** | -2134376373 |
@@ -790,7 +790,7 @@ This error occurs because the Azure File Sync service is unavailable. This error
 
 <a id="-2146233088"></a>**Sync failed due to an exception.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80131500 |
 | **HRESULT (decimal)** | -2146233088 |
@@ -801,7 +801,7 @@ This error occurs because sync failed due to an exception. If the error persists
 
 <a id="-2134364045"></a>**Sync failed because the storage account has failed over to another region.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c83073 |
 | **HRESULT (decimal)** | -2134364045 |
@@ -812,7 +812,7 @@ This error occurs because the storage account has failed over to another region.
 
 <a id="-2134375922"></a>**Sync failed due to a transient problem with the sync database.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (decimal)** | -2134375922 |
@@ -823,7 +823,7 @@ This error occurs because of an internal problem with the sync database. This er
 
 <a id="-2134364024"></a>**Sync failed due to change in Azure Active Directory tenant**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c83088 |
 | **HRESULT (decimal)** | -2134364024 | 
@@ -836,7 +836,7 @@ Once you have the latest agent version, you must give the Microsoft.StorageSync 
 
 <a id="-2134364010"></a>**Sync failed due to firewall and virtual network exception not configured**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c83096 |
 | **HRESULT (decimal)** | -2134364010 | 
@@ -847,7 +847,7 @@ This error occurs if the firewall and virtual network settings are enabled on th
 
 <a id="-2147024891"></a>**Sync failed because permissions on the System Volume Information folder are incorrect.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80070005 |
 | **HRESULT (decimal)** | -2147024891 |
@@ -866,7 +866,7 @@ To resolve this issue, perform the following steps:
 
 <a id="-2134375810"></a>**Sync failed because the Azure file share was deleted and recreated.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8027e |
 | **HRESULT (decimal)** | -2134375810 |
@@ -885,7 +885,7 @@ To resolve this issue, delete and recreate the sync group by performing the foll
 
 <a id="-2145844941"></a>**Sync failed because the HTTP request was redirected**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80190133 |
 | **HRESULT (decimal)** | -2145844941 |
@@ -896,7 +896,7 @@ This error occurs because Azure File Sync does not support HTTP redirection (3xx
 
 <a id="-2134364027"></a>**A timeout occurred during offline data transfer, but it is still in progress.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c83085 |
 | **HRESULT (decimal)** | -2134364027 |
@@ -907,7 +907,7 @@ This error occurs when a data ingestion operation exceeds the timeout. This erro
 
 <a id="-2134375814"></a>**Sync failed because the server endpoint path cannot be found on the server.**  
 
-| | |
+| Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8027a |
 | **HRESULT (decimal)** | -2134375814 |

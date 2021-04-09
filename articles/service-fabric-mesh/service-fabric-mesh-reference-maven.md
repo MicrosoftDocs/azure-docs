@@ -10,6 +10,11 @@ ms.custom: devx-track-java
 
 # Maven Plugin for Service Fabric Mesh
 
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 ## Prerequisites
 
 - Java SDK

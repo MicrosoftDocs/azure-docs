@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 01/18/2021
+ms.date: 02/09/2021
 ms.author: chmutali
 ---
 
@@ -447,6 +447,21 @@ Let's say you want to retrieve *Provisioning Groups* assigned to a worker. This 
 To get this data set as part of the *Get_Workers* response, use the following XPATH: 
 
 `wd:Worker/wd:Worker_Data/wd:Account_Provisioning_Data/wd:Provisioning_Group_Assignment_Data[wd:Status='Assigned']/wd:Provisioning_Group/text()`
+
+## Handling different HR scenarios
+
+### Retrieving international job assignments and secondary job details
+
+By default, the Workday connector retrieves attributes associated with the worker's primary job. The connector also supports retrieving *Additional Job Data* associated with international job assignments or secondary jobs. 
+
+Use the steps below to retrieve attributes associated with international job assignments: 
+
+1. Set the Workday connection URL uses Workday Web Service API version 30.0 or above. Accordingly set the [correct XPATH values](workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30) in your Workday provisioning app. 
+1. Use the selector `@wd:Primary_Job=0` on the `Worker_Job_Data` node to retrieve the correct attribute. 
+   * **Example 1:** To get `SecondaryBusinessTitle` use the XPATH `wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=0]/wd:Position_Data/wd:Business_Title/text()`
+   * **Example 2:** To get `SecondaryBusinessLocation` use the XPATH `wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=0]/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Location_Reference/@wd:Descriptor`
+
+ 
 
 ## Next steps
 

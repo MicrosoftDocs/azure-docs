@@ -1,6 +1,6 @@
 ---
 title: How to use azure/service-bus queues in JavaScript
-description: Learn how to write a JavaScript program that uses the latest preview version of @azure/service-bus package to send messages to and receive messages from a Service Bus queue.
+description: Learn how to write a JavaScript program that uses the latest version of @azure/service-bus package to send messages to and receive messages from a Service Bus queue.
 author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
@@ -200,6 +200,7 @@ Select the queue on this **Overview** page to navigate to the **Service Bus Queu
 ## Next steps
 See the following documentation and samples: 
 
-- [Azure Service Bus client library for JS](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
-- [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). The **javascript** folder has JavaScript samples and the **typescript** has TypeScript samples. 
-- [azure-servicebus reference documentation](/javascript/api/overview/azure/service-bus)
+- [Azure Service Bus client library for JavaScript](https://www.npmjs.com/package/@azure/service-bus)
+- [JavaScript samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [TypeScript samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [API reference documentation](/javascript/api/overview/azure/service-bus)

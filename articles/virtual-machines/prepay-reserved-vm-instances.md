@@ -4,7 +4,7 @@ description: Learn how to buy Azure Reserved Virtual Machine Instances to save o
 author: vikramdesai01
 manager: vikramdesai01
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017

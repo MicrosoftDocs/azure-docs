@@ -45,9 +45,9 @@ To enable compatibility, follow these steps:
 
    :::image type="content" source="media/storage-migrate-to-ultradisk/additional-disks-settings-azure-portal.png" alt-text="Select additional settings for Disks under Settings in the Azure portal":::
 
-1. Select **Yes** to **Enable Ultra Disk compatibility**. 
+1. Select **Yes** to **Enable Ultra disk compatibility**. 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Screenshot that shows the Yes option.":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/enable-ultra-disks-existing-vm.png" alt-text="Screenshot that shows the Yes option.":::
 
 1. Select **Save**. 
 

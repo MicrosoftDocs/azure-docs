@@ -83,37 +83,37 @@ Computer Vision supports Impact Level 5 workloads in Azure Government with no ex
 
 The Azure Cognitive Services Content Moderator service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in the Content Moderator service by [using customer-managed keys in Azure Key Vault](../cognitive-services/content-moderator/content-moderator-encryption-of-data-at-rest.md).
+- Configure encryption at rest of content in the Content Moderator service by [using customer-managed keys in Azure Key Vault](../cognitive-services/content-moderator/encrypt-data-at-rest.md).
 
 ### [Cognitive Services: Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)
 
 Custom Vision supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services Custom Vision [using customer-managed keys in Azure Key Vault](../cognitive-services/custom-vision-service/custom-vision-encryption-of-data-at-rest.md#customer-managed-keys-with-azure-key-vault)
+- Configure encryption at rest of content in Cognitive Services Custom Vision [using customer-managed keys in Azure Key Vault](../cognitive-services/custom-vision-service/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault)
 
 ### [Cognitive Services: Face](https://azure.microsoft.com/services/cognitive-services/face/)
 
 The Cognitive Services Face service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](../cognitive-services/face/face-encryption-of-data-at-rest.md).
+- Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](../cognitive-services/face/encrypt-data-at-rest.md).
 
 ### [Cognitive Services: Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
 
 The Cognitive Services Language Understanding service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](../cognitive-services/luis/luis-encryption-of-data-at-rest.md).
+- Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](../cognitive-services/luis/encrypt-data-at-rest.md).
 
 ### [Cognitive Services: Personalizer](https://azure.microsoft.com/services/cognitive-services/personalizer/)
 
 Personalizer supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services Personalizer [using customer-managed keys in Azure Key Vault](../cognitive-services/personalizer/personalizer-encryption-of-data-at-rest.md)
+- Configure encryption at rest of content in Cognitive Services Personalizer [using customer-managed keys in Azure Key Vault](../cognitive-services/personalizer/encrypt-data-at-rest.md)
 
 ### [Cognitive Services: QnA Maker](https://azure.microsoft.com/services/cognitive-services/qna-maker/)
 
 Cognitive Services QnA Maker supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services QnA Maker [using customer-managed keys in Azure Key Vault](../cognitive-services/qnamaker/qna-maker-encryption-of-data-at-rest.md)
+- Configure encryption at rest of content in Cognitive Services QnA Maker [using customer-managed keys in Azure Key Vault](../cognitive-services/qnamaker/encrypt-data-at-rest.md)
 
 ### [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
 
@@ -123,7 +123,7 @@ The Cognitive Services Text Analytics service supports Impact Level 5 workloads 
 
 The Cognitive Services Translator service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in the Translator service by [using customer-managed keys in Azure Key Vault](../cognitive-services/translator/translator-encryption-of-data-at-rest.md).
+- Configure encryption at rest of content in the Translator service by [using customer-managed keys in Azure Key Vault](../cognitive-services/translator/encrypt-data-at-rest.md).
 
 ### [Cognitive Services: Speech Services](https://azure.microsoft.com/services/cognitive-services/speech-services/)
 
@@ -307,7 +307,7 @@ For Databases services availability in Azure Government, see [Products available
 
 Azure API for FHIR supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](../healthcare-apis/bring-your-own-key.md)
+- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](../healthcare-apis/fhir/customer-managed-key.md)
 
 ### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 
@@ -502,11 +502,11 @@ Azure Cloud Shell supports Impact Level 5 workloads in Azure Government with no 
 
 <a name="log-analytics"></a>
 
-### [Log Analytics](../azure-monitor/platform/data-platform-logs.md)
+### [Log Analytics](../azure-monitor/logs/data-platform-logs.md)
 
-Log Analytics is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/platform/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
+Log Analytics is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/logs/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
-Log Analytics may also be used to ingest additional customer-provided logs. These logs may include data ingested as part of operating Azure Security Center or Azure Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/platform/customer-managed-keys.md).
+Log Analytics may also be used to ingest additional customer-provided logs. These logs may include data ingested as part of operating Azure Security Center or Azure Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/logs/customer-managed-keys.md).
 
 ### [Microsoft Intune](/intune/what-is-intune)
 

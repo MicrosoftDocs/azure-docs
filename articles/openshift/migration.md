@@ -3,7 +3,7 @@ title: Migrate from an Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
 description: Migrate from an Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: migration, aro, openshift, red hat
@@ -96,13 +96,13 @@ For information on configuring these storage types, see [Configuring persistent 
 
 Azure Red Hat OpenShift 4 can build images from your source code, deploy them, and manage their lifecycle. To enable this, Azure Red Hat OpenShift provides 4 an [internal, integrated container image registry](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html) that can be deployed in your Azure Red Hat OpenShift environment to locally manage images.
 
-If you're using external registries such as [Azure Container Registry](../container-registry/index.yml), [Red Hat Quay registries](ttps://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-quay-overview_registry-options), or an [authentication enabled Red Hat registry](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options), follow steps to supply credentials to the cluster to allow the cluster to access the repositories.
+If you're using external registries such as [Azure Container Registry](../container-registry/index.yml), [Red Hat Quay registries](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-quay-overview_registry-options), or an [authentication enabled Red Hat registry](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options), follow steps to supply credentials to the cluster to allow the cluster to access the repositories.
 
 ### Monitoring
 
 Azure Red Hat OpenShift includes a pre-configured, pre-installed, and self-updating monitoring stack that is based on the Prometheus open source project and its wider eco-system. It provides monitoring of cluster components and includes a set of alerts to immediately notify the cluster administrator about any occurring problems and a set of Grafana dashboards. The cluster monitoring stack is only supported for monitoring Azure Red Hat OpenShift clusters. For more information, see [Cluster monitoring for Azure Red Hat OpenShift](https://docs.openshift.com/container-platform/4.6/monitoring/understanding-the-monitoring-stack.html).
 
-If you have been using [Azure Monitor for Containers for Azure Red Hat OpenShift 3.11](../azure-monitor/insights/container-insights-azure-redhat-setup.md), you can also enable Azure Monitor for Containers for [Azure Red Hat OpenShift 4 clusters](../azure-monitor/insights/container-insights-azure-redhat4-setup.md) and continue using the same Log Analytics workspace.
+If you have been using [Azure Monitor for Containers for Azure Red Hat OpenShift 3.11](../azure-monitor/containers/container-insights-azure-redhat-setup.md), you can also enable Azure Monitor for Containers for [Azure Red Hat OpenShift 4 clusters](../azure-monitor/containers/container-insights-azure-redhat4-setup.md) and continue using the same Log Analytics workspace.
 
 ## Move your DNS or load-balancer configuration to the new cluster
 

@@ -10,7 +10,7 @@ services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
 
-# As a device builder, I need to know what is IoT Plug and Play, so I can understand how it can help me build and market my IoT devices.
+#Customer intent: As a device builder, I need to know what is IoT Plug and Play, so I can understand how it can help me build and market my IoT devices.
 ---
 
 # What is IoT Plug and Play?
@@ -42,11 +42,13 @@ IoT Plug and Play is useful for two types of developers:
 
 ## Use IoT Plug and Play devices
 
-As a solution builder, you can develop a cloud-hosted IoT solution that uses IoT Plug and Play devices. Use [IoT Hub](../iot-hub/about-iot-hub.md) - a managed cloud service, that acts as a message hub for secure, bi-directional communication between your IoT application and your devices.
+As a solution builder, you can use [IoT Central](../iot-central/core/overview-iot-central.md) or [IoT Hub](../iot-hub/about-iot-hub.md) to develop a cloud-hosted IoT solution that uses IoT Plug and Play devices.
 
-When you connect an IoT Plug and Play device to an IoT hub, you can use the [Azure IoT explorer](./howto-use-iot-explorer.md) tool to view the telemetry, properties, and commands defined in the interfaces that compose the model.
+The web UI in IoT Central lets you monitor device conditions, create rules, and manage millions of devices and their data throughout their life cycle. IoT Plug and Play devices connect directly to an IoT Central application where you can use customizable dashboards to monitor and control your devices. You can also use device templates in the IoT Central web UI to create and edit DTDL models.
 
-If you have existing sensors attached to a Windows or Linux gateway, you can use [IoT Plug and Play bridge](./concepts-iot-pnp-bridge.md), to connect these sensors and create IoT Plug and Play devices without the need to write device software/firmware (for [supported protocols](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors) ).
+IoT Hub - a managed cloud service - acts as a message hub for secure, bi-directional communication between your IoT application and your devices. When you connect an IoT Plug and Play device to an IoT hub, you can use the [Azure IoT explorer](./howto-use-iot-explorer.md) tool to view the telemetry, properties, and commands defined in the DTDL model.
+
+If you have existing sensors attached to a Windows or Linux gateway, you can use [IoT Plug and Play bridge](./concepts-iot-pnp-bridge.md), to connect these sensors and create IoT Plug and Play devices without the need to write device software/firmware (for [supported protocols](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors)).
 
 ## Develop an IoT device application
 
@@ -63,7 +65,7 @@ As a device builder, you can develop an IoT hardware product that supports IoT P
 
 ## Device certification
 
-The [IoT Plug and Play device certification program](howto-certify-device.md) verifies that a device meets the IoT Plug and Play certification requirements. You can add a certified device to the public [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog).
+The [IoT Plug and Play device certification program](../certification/program-requirements-pnp.md) verifies that a device meets the IoT Plug and Play certification requirements. You can add a certified device to the public [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog).
 
 ## Next steps
 

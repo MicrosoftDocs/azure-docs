@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with templates"
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a policy assignment to identify non-compliant resources.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
 ---
@@ -31,7 +31,8 @@ In this quickstart, you create a policy assignment and assign a built-in policy 
 _Audit VMs that do not use managed disks_. For a partial list of available built-in policies, see
 [Azure Policy samples](./samples/index.md).
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
+The template used in this quickstart is from
+[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 
 :::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json":::
 

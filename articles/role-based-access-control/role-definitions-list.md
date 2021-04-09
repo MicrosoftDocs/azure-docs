@@ -2,19 +2,13 @@
 title: List Azure role definitions - Azure RBAC
 description: Learn how to list Azure built-in and custom roles using Azure portal, Azure PowerShell, Azure CLI, or REST API.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 03/26/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ---
 
 # List Azure role definitions
@@ -29,6 +23,10 @@ To see the list of administrator roles for Azure Active Directory, see [Administ
 
 Follow these steps to list all roles in the Azure portal.
 
+If you are interested in viewing an updated roles experience, check out the **Roles (Preview)** tab, which is currently in public preview. The **Roles (Preview)** tab displays the same list of roles as the **Roles** tab with some additional features. You can use either roles tab to work with your roles, however, if you create or delete custom roles, you might need to manually refresh the page to see the latest changes.
+
+#### [Roles](#tab/roles/)
+
 1. In the Azure portal, click **All services** and then select any scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
 1. Click the specific resource.
@@ -39,7 +37,29 @@ Follow these steps to list all roles in the Azure portal.
 
    You can see the number of users and groups that are assigned to each role at the current scope.
 
-   ![Roles list](./media/role-definitions-list/roles-list.png)
+   ![Roles list](./media/role-definitions-list/roles-list-current.png)
+
+#### [Roles (Preview)](#tab/roles-preview/)
+
+1. In the Azure portal, click **All services** and then select any scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+
+1. Click the specific resource.
+
+1. Click **Access control (IAM)**.
+
+1. Click the **Roles (Preview)** tab to see a list of all the built-in and custom roles.
+
+   ![Roles list using preview experience](./media/role-definitions-list/roles-list.png)
+
+1. To see the permissions for a particular role, in the **Details** column, click the **View** link.
+
+    A permissions pane appears.
+
+1. Click the **Permissions** tab to view and search the permissions for the selected role.
+
+   ![Role permissions using preview experience](./media/role-definitions-list/role-permissions.png)
+
+---
 
 ## Azure PowerShell
 
@@ -475,4 +495,4 @@ The following shows an example of the output:
 - [Azure built-in roles](built-in-roles.md)
 - [Azure custom roles](custom-roles.md)
 - [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
-- [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.md)

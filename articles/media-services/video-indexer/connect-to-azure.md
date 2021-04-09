@@ -190,15 +190,15 @@ To automate the creation of the account is a two steps process:
 1. Use Azure Resource Manager to create an Azure Media Services account + Azure AD application.
 
     See an example of the [Media Services account creation template](https://github.com/Azure-Samples/media-services-v3-arm-templates).
-1. Call [Create-Account with the Media Services and Azure AD application](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
+1. Call [Create-Account with the Media Services and Azure AD application](https://videoindexer.ai.azure.us/account/login?source=apim).
 
 ## Video Indexer in Azure Government
 
 ### Prerequisites for connecting to Azure Government
 
--	An Azure subscription in [Azure Government](https://docs.microsoft.com/azure/azure-government/).
+-	An Azure subscription in [Azure Government](../../azure-government/index.yml).
 - An Azure AD account in Azure Government.
-- All pre-requirements of permissions and resources as described above in [Prerequisites for connecting to Azure](#prerequisites-for-connecting-to-azure).
+- All pre-requirements of permissions and resources as described above in [Prerequisites for connecting to Azure](#prerequisites-for-connecting-to-azure). Make sure to check [Additional prerequisites for automatic flow](#additional-prerequisites-for-automatic-flow) and [Additional prerequisites for manual flow](#additional-prerequisites-for-manual-flow).
 
 ### Create new account via the Azure Government portal
 
@@ -217,7 +217,7 @@ To create a paid account via the Video Indexer portal:
     
 ### Create new account via the API on Azure Government
 
-To create a paid account in Azure Government, follow the instructions in [Create-Paid-Account](https://api-portal.videoindexer.ai.azure.us/docs/services/Operations/operations/Create-Paid-Account). This API end point only includes Government cloud regions.
+To create a paid account in Azure Government, follow the instructions in [Create-Paid-Account](). This API end point only includes Government cloud regions.
 
 ### Limitations of Video Indexer on Azure Government
 

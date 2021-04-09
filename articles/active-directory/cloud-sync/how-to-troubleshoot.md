@@ -116,7 +116,7 @@ You might get an error message when you install the cloud provisioning agent.
 
 This problem is typically caused by the agent being unable to execute the PowerShell registration scripts due to local PowerShell execution policies.
 
-To resolve this problem, change the PowerShell execution policies on the server. You need to have Machine and User policies set as *Undefined* or *RemoteSigned*. If they're set as *Unrestricted*, you'll see this error. For more information, see [PowerShell execution policies](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+To resolve this problem, change the PowerShell execution policies on the server. You need to have Machine and User policies set as *Undefined* or *RemoteSigned*. If they're set as *Unrestricted*, you'll see this error. For more information, see [PowerShell execution policies](/powershell/module/microsoft.powershell.core/about/about_execution_policies). 
 
 ### Log files
 
@@ -160,7 +160,7 @@ Cloud sync monitors the health of your configuration and places unhealthy object
 
 By selecting the status, you can see additional information about the quarantine. You can also obtain the error code and message.
 
-![Quarantine status information](media/how-to-troubleshoot/quarantine-2.png)
+![Screenshot that shows additional information about the quarantine.](media/how-to-troubleshoot/quarantine-2.png)
 
 Right clicking on the status will bring up additional options:
     
@@ -168,7 +168,7 @@ Right clicking on the status will bring up additional options:
    - view agent
    - clear quarantine
 
-![Quarantine status information](media/how-to-troubleshoot/quarantine-4.png)
+![Screenshot that shows the right-click menu options.](media/how-to-troubleshoot/quarantine-4.png)
 
 
 ### Resolve a quarantine
@@ -182,7 +182,7 @@ To clear the watermark and run a delta sync on the provisioning job once you hav
 
 You should see an notice that the quarantine is clearing.
 
-![Quarantine status information](media/how-to-troubleshoot/quarantine-5.png)
+![Screenshot that shows the notice that the quarantine is clearing.](media/how-to-troubleshoot/quarantine-5.png)
 
 Then you should see the status on your agent as healthy.
 

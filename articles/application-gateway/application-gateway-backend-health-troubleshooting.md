@@ -21,7 +21,7 @@ successfully, Application Gateway resumes forwarding the requests.
 ### How to check backend health
 
 To check the health of your backend pool, you can use the
-**Backend Health** page on the Azure portal. Or, you can use [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health), or [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
+**Backend Health** page on the Azure portal. Or, you can use [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), [CLI](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health), or [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 The status retrieved by any of these methods can be any one of the following:
 
@@ -133,9 +133,9 @@ this message is displayed, it suggests that Application Gateway couldn't success
 
 1.  If the domain is private or internal, try to resolve it from a VM in the same virtual network. If you can resolve it, restart
     Application Gateway and check again. To restart Application Gateway, you need to
-    [stop](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0)
+    [stop](/powershell/module/azurerm.network/stop-azurermapplicationgateway)
     and
-    [start](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0)
+    [start](/powershell/module/azurerm.network/start-azurermapplicationgateway)
     by using the PowerShell commands described in these linked resources.
 
 #### TCP connect error
@@ -204,12 +204,12 @@ here:
 
 | **Error** | **Actions** |
 | --- | --- |
-| Probe status code mismatch: Received 401 | Check whether the backend server requires authentication. Application Gateway probes can't pass credentials for authentication. Either allow \"HTTP 401\" in a probe status code match or probe to a path where the server doesn't require authentication. | |
-| Probe status code mismatch: Received 403 | Access forbidden. Check whether access to the path is allowed on the backend server. | |
-| Probe status code mismatch: Received 404 | Page not found. Check whether the host name path is accessible on the backend server. Change the host name or path parameter to an accessible value. | |
-| Probe status code mismatch: Received 405 | The probe requests for Application Gateway use the HTTP GET method. Check whether your server allows this method. | |
-| Probe status code mismatch: Received 500 | Internal server error. Check the backend server's health and whether the services are running. | |
-| Probe status code mismatch: Received 503 | Service unavailable. Check the backend server's health and whether the services are running. | |
+| Probe status code mismatch: Received 401 | Check whether the backend server requires authentication. Application Gateway probes can't pass credentials for authentication. Either allow \"HTTP 401\" in a probe status code match or probe to a path where the server doesn't require authentication. |
+| Probe status code mismatch: Received 403 | Access forbidden. Check whether access to the path is allowed on the backend server. |
+| Probe status code mismatch: Received 404 | Page not found. Check whether the host name path is accessible on the backend server. Change the host name or path parameter to an accessible value. |
+| Probe status code mismatch: Received 405 | The probe requests for Application Gateway use the HTTP GET method. Check whether your server allows this method. |
+| Probe status code mismatch: Received 500 | Internal server error. Check the backend server's health and whether the services are running. |
+| Probe status code mismatch: Received 503 | Service unavailable. Check the backend server's health and whether the services are running. |
 
 Or, if you think the response is legitimate and you want Application Gateway to accept other status codes as Healthy, you can create a custom probe. This approach is useful in situations where the backend website needs authentication. Because the probe requests don't carry any user credentials, they will fail, and an HTTP 401 status code will be returned by the backend server.
 

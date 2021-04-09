@@ -62,7 +62,7 @@ For a logic app template, you primarily work with these template objects:
 |-----------|-------------|
 | `parameters` | Declares the [template parameters](../azure-resource-manager/templates/template-syntax.md#parameters) for accepting the values to use when creating and customizing resources for deployment in Azure. For example, these parameters accept the values for your logic app's name and location, connections, and other resources necessary for deployment. You can store these parameter values in a [parameters file](#template-parameter-files), which is described later in this topic. For general details, see [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#parameters). |
 | `resources` | Defines the [resources](../azure-resource-manager/templates/template-syntax.md#resources) to create or update and deploy to an Azure resource group, such as your logic app, connections, Azure storage accounts, and so on. For general details, see [Resources - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#resources). |
-||||
+|||
 
 Your logic app template uses this file name format:
 
@@ -81,7 +81,7 @@ A logic app template has multiple `parameters` objects that exist at different l
 * Connections that your logic uses to access other services and systems through [managed connectors](../connectors/apis-list.md)
 * Other resources that your logic app needs for deployment
 
-  For example, if your logic app uses an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for business-to-business (B2B) scenarios, the template's top-level `parameters` object declares the parameter that accepts the resource ID for that integration account.
+  For example, if your logic app uses an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for business-to-business (B2B) scenarios, the template's top level `parameters` object declares the parameter that accepts the resource ID for that integration account.
 
 Here is the general structure and syntax for a parameter definition, which is fully described by [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#parameters):
 
@@ -202,7 +202,7 @@ Here is the structure inside the parameters file, which includes a key vault ref
       "<secured-parameter-name>": {
          "reference": {
             "keyVault": {
-               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/Microsoft.KeyVault/vaults/<key-vault-name>",
+               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/Microsoft.KeyVault/vaults/<key-vault-name>"
             },
             "secretName: "<secret-name>"
          }
@@ -625,7 +625,7 @@ When your logic app creates and uses connections to other services and system by
 }
 ```
 
-Connection resource definitions reference the template's top-level parameters for their values, which means you can provide these values at deployment by using a parameters file. Make sure that connections use the same Azure resource group and location as your logic app.
+Connection resource definitions reference the template's top-level parameters for their values so you can provide these values at deployment by using a parameters file. Make sure that connections use the same Azure resource group and location as your logic app.
 
 Here is an example resource definition for an Office 365 Outlook connection and the corresponding template parameters:
 
@@ -744,12 +744,12 @@ This example shows the interactions between your logic app's resource definition
                      }
                   }
                }
-            },
-            <other-logic-app-resource-information>,
-            "dependsOn": [
-               "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
-            ]
-         }
+            }
+         },
+         <other-logic-app-resource-information>,
+         "dependsOn": [
+            "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
+         ]
          // End logic app resource definition
       },
       // Office 365 Outlook API connection resource definition
@@ -980,7 +980,7 @@ Some connections support using an Azure Active Directory (Azure AD) [service pri
 
 **Template parameter definitions**
 
-The template's top-level `parameters` object declares these parameters for the example connection:
+The template's top level `parameters` object declares these parameters for the example connection:
 
 ```json
 {

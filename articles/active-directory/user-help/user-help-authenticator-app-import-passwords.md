@@ -35,21 +35,21 @@ Google Chrome users on Android and Apple phones can import their passwords direc
 
 1. Tap the ![Google Chrome ellipsis menu](./media/user-help-authenticator-app-import-passwords/ellipsis-chrome.png) at the top right for Android phones or at bottom right for iOS devices, and then tap **Settings.**
 
-   &nbsp; | &nbsp;
+   Platform | Link
    ---------- | --------
    Android | ![Google Chrome Settings menu location](./media/user-help-authenticator-app-import-passwords/android-settings-menu.png)
    iOS | ![Google Chrome Settings menu icon](./media/user-help-authenticator-app-import-passwords/apple-settings-menu.png)
 
 1. In **Settings**, open **Passwords**.
 
-   &nbsp; | &nbsp;
+   Platform | Link
    ---------- | --------
    Android | ![Andoid Chrome Passwords command location](./media/user-help-authenticator-app-import-passwords/android-passwords-location.png)
    iOS | ![Apple Chrome Passwords command location](./media/user-help-authenticator-app-import-passwords/apple-passwords-location.png)
 
 1. On Android devices, tap the ![Google Chrome ellipsis menu](./media/user-help-authenticator-app-import-passwords/ellipsis-chrome.png) at the top right for Android phones, or at bottom right for iOS devices, and then tap **Export passwords**.
 
-   &nbsp; | &nbsp;
+   Platform | Link
    ---------- | --------
    Android | ![Android Chrome Export passwords location](./media/user-help-authenticator-app-import-passwords/android-export-passwords-location.png)
    iOS | ![Apple Chrome Export passwords location](./media/user-help-authenticator-app-import-passwords/apple-export-passwords-location.png)
@@ -58,7 +58,7 @@ Google Chrome users on Android and Apple phones can import their passwords direc
 
 1. After the passwords are exported, Chrome prompts you to choose which app you're importing into. Select **Authenticator** to start importing passwords.You’ll be informed about import status when it’s complete.
 
-   &nbsp; | &nbsp;
+   Platform | Link
    ---------- | --------
    Android | ![Android Chrome import passwords location](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
    iOS | ![Apple Chrome import passwords location](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -101,7 +101,7 @@ Firefox allows exporting of passwords from the desktop browser only, so ensure t
 
       1. Transfer the exported CSV file on your Android or iOS phone using a preferred and safe way, and then download it. Next, share the CSV file with Authenticator app to start the import.
 
-         &nbsp; | &nbsp;
+         Platform | Link
          ---------- | --------
          Android | ![Android Chrome import passwords location](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Apple Chrome import passwords location](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -130,7 +130,7 @@ LastPass supports export passwords from a desktop browser only, so ensure you ha
 
       1. Transfer the exported CSV file on your smartphone using a preferred and safe way, and then download it. Then share the CSV file with Authenticator app to start the import.
 
-         &nbsp; | &nbsp;
+         Platform | Link
          ---------- | --------
          Android | ![Android LastPass import passwords location](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Apple LastPass import passwords location](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -149,7 +149,7 @@ Bitwarden supports export passwords from a desktop browser only, so ensure you h
 
       1. Transfer the exported CSV file on your smartphone using a preferred and safe way, and then download it. Then share the CSV file with Authenticator app to start the import.
 
-         &nbsp; | &nbsp;
+         Platform | Link
          ---------- | --------
          Android | ![Android Bitwarden import passwords location](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Apple Bitwarden import passwords location](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -182,7 +182,7 @@ Roboform allows exporting of passwords from its desktop app only, so ensure you 
 
       1. Transfer the exported CSV file on your smartphone using a preferred and safe way, and then download it. Then share the CSV file with Authenticator app to start the import.
 
-         &nbsp; | &nbsp;
+         Platform | Link
          ---------- | --------
          Android | ![Android Roboform import passwords location](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Apple Roboform import passwords location](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -205,7 +205,7 @@ If steps to import passwords from your password manager aren't listed in this ar
 
       1. Transfer the exported CSV file on your smartphone using a preferred and safe way, and then download it. Then share the CSV file with Authenticator app to start the import.
 
-         &nbsp; | &nbsp;
+         Platform | Link
          ---------- | --------
          Android | ![Android CSV import passwords location](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Apple CSV import passwords location](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)

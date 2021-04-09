@@ -172,5 +172,6 @@ Here are some example license scenarios to help you determine the number of lice
 
 ## Next steps
 
-- [Tutorial: Create your first access package](entitlement-management-access-package-first.md)
+- If you are interested in using the Azure portal to manage access to resources, see [Tutorial: Manage access to resources - Azure portal](entitlement-management-access-package-first.md).
+- if you are interested in using Microsoft Graph to manage access to resources, see [Tutorial: manage access to resources - Microsoft Graph](/graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json)
 - [Common scenarios](entitlement-management-scenarios.md)

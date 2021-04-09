@@ -1,14 +1,10 @@
 ---
 title: Discover and explore data in ADF using Purview
 description: Learn how to discover, explore data in Azure Data Factory using Purview
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
 ---
@@ -42,7 +38,7 @@ To discover data registered and scanned by Azure Purview, you can use the Search
 ### Actions that you can perform over datasets with Data Factory resources 
 You can directly create Linked Service, Dataset, or dataflow over the data you search by Azure Purview.
 
-:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Screenshot for performing over datasets.":::
+:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Screenshot that shows how you can directly create Linked Service, Dataset, or dataflow over the data you search by Azure Purview.":::
 
 ##  Next steps 
 

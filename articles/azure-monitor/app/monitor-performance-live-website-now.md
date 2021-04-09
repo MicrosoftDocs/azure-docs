@@ -89,7 +89,7 @@ These are some steps that you can perform to confirm that your installation was 
 
 - Confirm that the applicationInsights.config file is present in the target app directory and contains your ikey.
 
-- If you suspect that data is missing, you can run a query in [Analytics](../log-query/log-analytics-tutorial.md) to list all the cloud roles currently sending telemetry.
+- If you suspect that data is missing, you can run a query in [Analytics](../logs/log-analytics-tutorial.md) to list all the cloud roles currently sending telemetry.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -317,9 +317,9 @@ For applications already instrumented at compile time:
 
 View your telemetry:
 
-* [Explore metrics](../platform/metrics-charts.md) to monitor performance and usage
+* [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
-* [Analytics](../log-query/log-query-overview.md) for more advanced queries
+* [Analytics](../logs/log-query-overview.md) for more advanced queries
 
 Add more telemetry:
 

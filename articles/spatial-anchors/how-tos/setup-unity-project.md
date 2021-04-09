@@ -6,7 +6,7 @@ manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
 ms.author: parkerra
-ms.date: 2/3/2021
+ms.date: 03/30/2021
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ---
@@ -15,18 +15,18 @@ ms.service: azure-spatial-anchors
 
 This guide will show you how to get started with the Azure Spatial Anchors SDK in your Unity project.
 
-## Requirements
+## Project requirements
 
-Azure Spatial Anchors currently supports Unity 2019.4 (LTS) with the following configurations.
-
-* Unity 2019.4 with AR Foundation 3.1 is supported in Azure Spatial Anchors 2.4.0+.
+[!INCLUDE [Unity Project Requirements](../../../includes/spatial-anchors-unity-project-requirements.md)]
 
 ## Configuring a project
 
-### Download packages
+Before including the Azure Spatial Anchors SDK in your Unity project, be sure to install the [required](#project-requirements) packages through the Unity Package Manager.
+
+### Download ASA packages
 [!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
 
-### Import packages
+### Import ASA packages
 [!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
 ### Android only: Configure the mainTemplate.gradle file
