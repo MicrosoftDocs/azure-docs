@@ -770,6 +770,9 @@ This section describes how you can test your setup. Every test assumes that you 
 Before you start the test, make sure that Pacemaker does not have any failed action (via crm_mon -r), there are no unexpected location constraints (for example leftovers of a migration test) and that HANA is sync state, for example with SAPHanaSR-showAttr:
 
 <pre><code>hn1-db-0:~ # SAPHanaSR-showAttr
+Sites    srHook
+----------------
+SITE2    SOK
 
 Global cib-time
 --------------------------------
@@ -783,7 +786,7 @@ hn1-db-1 DEMOTED     30          online     logreplay nws-hana-vm-0 4:S:master1:
 
 You can migrate the SAP HANA master node by executing the following command:
 
-<pre><code>crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
+<pre><code>crm resource move msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b> force
 </code></pre>
 
 If you set `AUTOMATED_REGISTER="false"`, this sequence of commands should migrate the SAP HANA master node and the group that contains the virtual IP address to hn1-db-1.
@@ -822,7 +825,7 @@ The migration creates location constraints that need to be deleted again:
 
 <pre><code># Switch back to root and clean up the failed state
 exit
-hn1-db-0:~ # crm resource unmigrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+hn1-db-0:~ # crm resource clear msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
 </code></pre>
 
 You also need to clean up the state of the secondary node resource:
