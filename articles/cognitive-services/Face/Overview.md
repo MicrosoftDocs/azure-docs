@@ -49,7 +49,7 @@ The Verify API builds on Detection and addresses the question, “Are these two 
 
 ## Face identification
 
-The Identify API also starts with Detection and answers the question, “Can this detected face be matched to any enrolled face in a database?” Because it's like face recogniton search, is also called “one-to-many” matching. Candidate matches are returned based on how closely the probe template with the detected face matches each of the enrolled templates.
+The Identify API also starts with Detection and answers the question, “Can this detected face be matched to any enrolled face in a database?” Because it's like face recognition search, is also called “one-to-many” matching. Candidate matches are returned based on how closely the probe template with the detected face matches each of the enrolled templates.
 
 The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 
