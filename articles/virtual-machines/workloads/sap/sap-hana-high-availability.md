@@ -501,7 +501,7 @@ This is important step to optimize the integration in the cluster and improve th
 1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
 
    > [!TIP]
-   > Verify that package SAPHanaSR is at least version 0.153 to be able to use the SAPHanaSR Python hook functionality.     
+   > Verify that package SAPHanaSR is at least version 0.153 to be able to use the SAPHanaSR Python hook functionality.       
    > The python hook can only be implemented for HANA 2.0.        
 
    1. Prepare the hook as `root`.  
