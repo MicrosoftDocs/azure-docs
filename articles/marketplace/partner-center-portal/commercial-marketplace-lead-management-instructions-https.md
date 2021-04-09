@@ -127,7 +127,7 @@ This article explains how to create a new flow in Power Automate to generate the
     ```
 
 >[!NOTE]
->At this point in the configuration, you can select to either connect to a CRM system or configure an email notification. Follow the remaining instructions based on your choice.
+>At this point in the configuration, you can select to either connect to a CRM system, or configure an email notification. Follow the remaining instructions based on your choice.
 
 ### Connect to a CRM system
 
