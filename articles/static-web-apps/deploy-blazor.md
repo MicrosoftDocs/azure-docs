@@ -136,4 +136,5 @@ If you're not going to continue to use this application, you can delete the Azur
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Authentication and authorization](./authentication-authorization.md)
+> [!div class="nextstepaction"]
+> [Authentication and authorization](./authentication-authorization.md)

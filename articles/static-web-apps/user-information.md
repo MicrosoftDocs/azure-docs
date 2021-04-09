@@ -144,4 +144,5 @@ In a C# function, the user information is available from the `x-ms-client-princi
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Configure app settings](application-settings.md)
+> [!div class="nextstepaction"]
+> [Configure app settings](application-settings.md)

@@ -199,6 +199,7 @@ See the [Quotas article](quotas.md) for general restrictions and limitations.
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Access user authentication and authorization data](user-information.md)
+> [!div class="nextstepaction"]
+> [Access user authentication and authorization data](user-information.md)
 
 <sup>1</sup> Pending external certification.
