@@ -13,7 +13,7 @@ ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ---
 
-# Predictive Maintenance Solution with Anomaly Detector multivariate
+# Predictive maintenance solution with Anomaly Detector multivariate
 
 Many different industries need predictive maintenance solutions to reduce risks and gain actionable insights through processing data from their equipment. Predictive maintenance evaluates the condition of equipment by performing online monitoring. The goal is to perform maintenance before the equipment degrades or breaks down.
 
@@ -27,7 +27,7 @@ Here, we provide a reference architecture for a predictive maintenance solution 
 
 ## Reference architecture
 
-![image info](../media/multivariate-architecture/multivariate-architecture.png)
+![Architectural diagram that starts at sensor data being collected at the edge with a piece of industrial equipment and tracks the processing/analysis pipeline to an end output of an incident alert being generated after Anomaly Detector runs.](../media/multivariate-architecture/multivariate-architecture.png)
 
 In the above architecture, streaming events coming from sensor data will be stored in Azure Data Lake and then processed by a data transforming module to be converted into a time-series format. Meanwhile, the streaming event will trigger real-time detection with the trained model. In general, there will be a module to manage the multivariate model life cycle, like *Bridge Service* in this architecture.
 
@@ -39,7 +39,7 @@ In the above architecture, streaming events coming from sensor data will be stor
 
 **Incident Alerting** The detection results can be queried with result IDs. Each result contains severity of each anomaly, and contribution rank. Contribution rank can be used to understand why this anomaly happened, and which signal caused this incident. Different thresholds can be set on the severity to generate alerts and notifications to be sent to field engineers to conduct maintenance work.
 
-## Next Steps
+## Next steps
 
 - [Quickstarts](../quickstarts/client-libraries-multivariate.md).
 - [Best Practices](../concepts/best-practices-multivariate.md): This article is about recommended patterns to use with the  multivariate APIs.
