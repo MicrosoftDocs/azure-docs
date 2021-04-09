@@ -44,7 +44,7 @@ Data-in Replication is only supported in General Purpose and Memory Optimized pr
 - Each table must have a primary key.
 - The source server should use the MySQL InnoDB engine.
 - User must have permissions to configure binary logging and create new users on the source server.
-- If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mysql.az_replication_change_master` or `mysql.az_replication_change_master_with_gtid` stored procedure. Refer to the following [examples](./howto-data-in-replication.md#4-link-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
+- If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mysql.az_replication_change_master` or `mysql.az_replication_change_master_with_gtid` stored procedure. Refer to the following [examples](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
 - Ensure that the source server's IP address has been added to the Azure Database for MySQL replica server's firewall rules. Update firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md).
 - Ensure that the machine hosting the source server allows both inbound and outbound traffic on port 3306.
 - Ensure that the source server has a **public IP address**, that DNS is publicly accessible, or that the source server has a fully qualified domain name (FQDN).
