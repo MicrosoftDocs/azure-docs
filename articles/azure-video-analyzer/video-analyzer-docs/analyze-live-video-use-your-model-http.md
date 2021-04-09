@@ -16,11 +16,6 @@ The quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated l
 
 ## Prerequisites
 
-* An Azure account that includes an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
-
-> [!NOTE]
-> You will need an Azure subscription with at least a Contributor role. If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/analyze-live-video-use-your-model-http/csharp/prerequisites.md)]
 ::: zone-end
@@ -28,9 +23,6 @@ The quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated l
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/analyze-live-video-use-your-model-http/python/prerequisites.md)]
 ::: zone-end
-
-> [!TIP]
-> If you run into issues with Azure resources that get created, please view our [troubleshooting guide]() <!--TODO: add a link once the topic is staged --> to resolve some commonly encountered issues.
 
 ## Review the sample video
 
@@ -89,12 +81,10 @@ In this quickstart, you will:
     > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: <br/>
     > 
     > `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>.`
-    
-1. Right-click *src/edge/config/deployment.yolov3.amd64.json* and select **Create Deployment for Single Device**.
+    1. Right-click *src/edge/config/deployment.yolov3.amd64.json* and select **Create Deployment for Single Device**.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Create Deployment for Single Device":::
- 
 1. When you're prompted to select an IoT Hub device, select **ava-sample-iot-edge-device**.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
 
@@ -111,7 +101,6 @@ In this quickstart, you will:
     chown -R lvalvaedgeuser:localusergroup /home/lvaedgeuser/samples/  
     ```
     * The yolov3 module, which is the YoloV3 object detection model that applies computer vision to the images and returns multiple classes of object types
-
 
         > [!div class="mx-imgBorder"]
         > :::image type="content" source="./media/analyze-live-video-use-your-model-http/object-detection-model.png" alt-text= "YoloV3 object detection model":::
