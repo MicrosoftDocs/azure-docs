@@ -87,7 +87,7 @@
   - name: Dangling DNS and subdomain takeover
     href: subdomain-takeover.md
   - name: Secure hybrid network architecture
-    href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
+    href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 - name: IaaS security
   items:
@@ -129,7 +129,7 @@
     - name: Security checklist
       href: database-security-checklist.md
   - name: Storage security guide
-    href: ../../storage/blobs/security-recommendations.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
+    href: ../../storage/blobs/security-recommendations.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Customer Lockbox
     href: customer-lockbox-overview.md
   - name: Security baseline for Customer Lockbox
