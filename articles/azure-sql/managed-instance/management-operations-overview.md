@@ -65,14 +65,14 @@ The following tables summarize operations and typical overall durations, based o
 |Operation  |Long-running segment  |Estimated duration  |
 |---------|---------|---------|
 |Instance property change (admin password, Azure AD login, Azure Hybrid Benefit flag)|N/A|Up to 1 minute.|
-|Instance storage scaling up/down (General Purpose service tier)|Attaching database files<sup>1</sup>|99% of operations finish in 5 minutes.|
+|Instance storage scaling up/down (General Purpose service tier)|No long-running segment<sup>1</sup>|99% of operations finish in 5 minutes.|
 |Instance storage scaling up/down (Business Critical service tier)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB/hour).|
 |Instance compute (vCores) scaling up and down (General Purpose)|- Virtual cluster resizing<br>- Attaching database files|90% of operations finish in 2.5 hours.|
 |Instance compute (vCores) scaling up and down (Business Critical)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB/hour).|
 |Instance service tier change (General Purpose to Business Critical and vice versa)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB/hour).|
 | | | 
 
-<sup>1</sup> Scaling General Purpose managed instance storage will not cause a failover at the end of operation.
+<sup>1</sup> Scaling General Purpose managed instance storage will not cause a failover at the end of operation. In this case operation consists of updating meta data and propagating response for submitted request.
 
 **Category: Delete**
 
