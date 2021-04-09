@@ -189,7 +189,7 @@ If validation fails, then the portal indicates which settings need to be modifie
 
 # [PowerShell](#tab/azure-powershell)
 
-To create a general-purpose v2 storage account with PowerShell, first create a new resource group with PowerShell using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
+To create a general-purpose v2 storage account with PowerShell, first create a new resource group by calling the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
 
 ```azurepowershell-interactive
 $resourceGroup = "<resource-group>"
@@ -217,7 +217,7 @@ To enable a hierarchical namespace for the storage account in order to use [Azur
 
 The following table shows which values to use for the `-SkuName` and `-Kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
-| To create this type of storage account… | With one of these supported redundancy configurations… | Specify this value for the -Kind parameter | Specify one of these values for the -SkuName parameter | Supports hierarchical namespace |
+| Type of storage account | Supported redundancy configurations | Value for the -Kind parameter | Possible values for the -SkuName parameter | Supports hierarchical namespace |
 |--|--|--|--|--|
 | Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
 | Premium block blob | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
@@ -228,7 +228,7 @@ The following table shows which values to use for the `-SkuName` and `-Kind` par
 
 # [Azure CLI](#tab/azure-cli)
 
-To create an Azure storage account with PowerShell, first,create a new resource group with Azure CLI using the [az group create](/cli/azure/group#az_group_create) command.
+To create a general-purpose v2 storage account with Azure CLI, first create a new resource group by calling the [az group create](/cli/azure/group#az_group_create) command.
 
 ```azurecli-interactive
 az group create \
@@ -255,11 +255,11 @@ az storage account create \
   --kind StorageV2
 ```
 
-To enable a hierarchical namespace for the storage account in order to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `--enable-hierarchical-namespace true` parameter on the call to the **az storage account create** command.
+To enable a hierarchical namespace for the storage account in order to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `--enable-hierarchical-namespace true` parameter on the call to the **az storage account create** command. Creating a hierarchical namespace requires Azure CLI version 2.0.79 or later.
 
 The following table shows which values to use for the `-sku` and `-kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
-| To create this type of storage account… | With one of these supported redundancy configurations… | Specify this value for the -kind parameter | Specify one of these values for the -sku parameter | Supports hierarchical namespace |
+| Type of storage account | Supported redundancy configurations | Value for the -kind parameter | Possible values for the -sku parameter | Supports hierarchical namespace |
 |--|--|--|--|--|
 | Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
 | Premium block blob | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
@@ -267,7 +267,6 @@ The following table shows which values to use for the `-sku` and `-kind` paramet
 | Premium page blob | LRS | StorageV2 | Premium_LRS | No |
 | Legacy standard general-purpose v1 | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 | Legacy blob storage | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
-
 
 # [Template](#tab/template)
 
