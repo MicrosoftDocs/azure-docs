@@ -123,41 +123,41 @@ When you deploy an ExpressRoute gateway, Azure manages the compute and functions
 * Frequency of routes changed
 * Number of VMs in the virtual network  
 
-It's highly recommended you set alerts for each of these metrics so that you could be aware of when your gateway is seeing performance issue.
+It's highly recommended you set alerts for each of these metrics so that you are aware of when your gateway could be seeing performance issues.
 
 ### CPU Utilization - Split Instance
 
-You can view the CPU utilization of each gateway instances. The CPU utilization may spike briefly during routine host maintenances but prolong high CPU utilization could indicate your gateway is reaching a performance bottleneck. Increasing the size of the ExpressRoute gateway could resolve this issue. Set an alert for 80% CPU usage that last longer than 30 minutes.
+You can view the CPU utilization of each gateway instances. The CPU utilization may spike briefly during routine host maintenances but prolong high CPU utilization could indicate your gateway is reaching a performance bottleneck. Increasing the size of the ExpressRoute gateway may resolve this issue. Set an alert for a CPU utilization percentage that last over a certain period of time.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="Screenshot of CPU utilization - split metrics.":::
 
 ### Packets Per Second - Split by Instance
 
-This metric captures the number of inbound packets traversing the ExpressRoute gateway. You should expect to see data here if your gateway is receiving traffic from another peer (on-premises or another virtual network) connected to the ExpressRoute circuit. Set an alert for zero packets per second over a period of your choice to be notify when your gateway is no longer receiving traffic.
+This metric captures the number of inbound packets traversing the ExpressRoute gateway. You should expect to see a consistent stream of data here if your gateway is receiving traffic from your on-premises network. Set an alert for when the number of packets per second drops below a threshold indicating that your gateway is no longer receiving traffic.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="Screenshot of packets per second - split metrics.":::
 
 ### Count of Routes Advertised to Peer - Split by Instance
 
-This metric is the count for the number of routes (virtual network address spaces) the ExpressRoute gateway is advertising to the circuit. The address spaces include the virtual networks connected using virtual network peering that uses the ExpressRoute gateway. The number of routes should remain consistent unless changes are done to the virtual network address spaces. Set an alert for when the number of advertised routes drop below the number of virtual network address spaces you're aware of. 
+This metric is the count for the number of routes the ExpressRoute gateway is advertising to the circuit. The address spaces may include virtual networks that are connected using VNet peering and uses remote ExpressRoute gateway. You should expect the number of routes to remain consistent unless there are frequent changes to the virtual network address spaces. Set an alert for when the number of advertised routes drop below the threshold for the number of virtual network address spaces you're aware of.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="Screenshot of count of routes advertised to peer.":::
 
 ### Count of Routes Learned from Peer - Split by Instance
 
-This metric shows the number of routes the ExpressRoute gateway is learning from peers connected to the ExpressRoute circuit. These routes can be either from another virtual network connected to the same circuit or learned from on-premises. The number of routes should remain consistent unless the number of routes advertised from on-premises or peered virtual network changes frequently. Set an alert for when the number of learned routes drop below a certain threshold. A common scenario is during gateway maintenance the number of routes learned can temporarily drop to zero.
+This metric shows the number of routes the ExpressRoute gateway is learning from peers connected to the ExpressRoute circuit. These routes can be either from another virtual network connected to the same circuit or learned from on-premises. Set an alert for when the number of learned routes drop below a certain threshold. This could indicate either the gateway is seeing a performance problem or remote peers are no longer advertising routes to the ExpressRoute circuit. 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-learned-from-peer.png" alt-text="Screenshot of count of routes learned from peer.":::
 
 ### Frequency of Routes change - Split by Instance
 
-This metric shows the frequency of routes being being learned from or advertised to remote peers. You should expect the frequency of routes change to be zero for the most part unless there are frequent changes to the routes in your network. Set an alert for frequency great than zero to be aware when there is a change in your network routes.
+This metric shows the frequency of routes being being learned from or advertised to remote peers. A high frequency in routes change could indicate a performance problem on the ExpressRoute gateway where scaling the gateway SKU up may resolve the problem. Set an alert for a frequency threshold to be aware of when your ExpressRoute gateway is seeing abnormal route changes.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/frequency-of-routes-changed.png" alt-text="Screenshot of frequency of routes changed metric.":::
 
 ### Number of VMs in the Virtual Network
 
-This metric shows the number of virtual machines that are using the ExpressRoute gateway. The number of virtual machines include VMs from remote virtual networks that uses the same ExpressRoute gateway through virtual network peering. Set an alert for this metric if the number of VMs is above a certain threshold that could affect the gateway performance. 
+This metric shows the number of virtual machines that are using the ExpressRoute gateway. The number of virtual machines may include VMs from peered virtual networks that uses the same ExpressRoute gateway. Set an alert for this metric if the number of VMs goes above a certain threshold that could affect the gateway performance. 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Screenshot of number of virtual machines in the virtual network metric.":::
 
