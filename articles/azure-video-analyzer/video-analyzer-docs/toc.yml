@@ -26,6 +26,8 @@
     href: continuous-video-recording.md
   - name: Record video for playback
     href: video-recording.md    
+  - name: Analyze live videos
+    href: analyze-live-video.md
 - name: How-to guides
   items:
   - name: Develop and deploy gRPC inference server
