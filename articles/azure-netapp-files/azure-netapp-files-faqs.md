@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 04/06/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -86,10 +86,6 @@ For the complete list of Azure NetApp Files permissions, see Azure resource prov
 Azure NetApp Files is an Azure native service. All PUT, POST, and DELETE APIs against Azure NetApp Files are logged. For example, the logs show activities such as who created the snapshot, who modified the volume, and so on.
 
 For the complete list of API operations, see [Azure NetApp Files REST API](/rest/api/netapp/).
-
-### How do I audit file access on Azure NetApp Files NFS (v3 and v4.1) volumes?
-
-You can configure audit logs on the client side. All read, write, and attribute changes are logged. 
 
 ### Can I use Azure policies with Azure NetApp Files?
 
