@@ -21,62 +21,66 @@ You can specify the lifetime of an access, SAML, or ID token issued by Microsoft
 In this section, we walk through a common policy scenario that can help you impose new rules for token lifetime. In the example, you learn how to create a policy that requires users to authenticate more frequently in your web app.
 
 ## Get started
-To get started, do the following steps:
 
-1. Download the latest [Azure AD PowerShell Module Public Preview release](https://www.powershellgallery.com/packages/AzureADPreview).
-1. Run the `Connect` command to sign in to your Azure AD admin account. Run this command each time you start a new session.
+To get started, download the latest [Azure AD PowerShell Module Public Preview release](https://www.powershellgallery.com/packages/AzureADPreview).
 
-    ```powershell
-    Connect-AzureAD -Confirm
-    ```
+Next, run the `Connect` command to sign in to your Azure AD admin account. Run this command each time you start a new session.
 
-1. To see all policies that have been created in your organization, run the [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet.  Any results with defined property values that differ from the defaults listed above are in scope of the retirement.
-
-    ```powershell
-    Get-AzureADPolicy -All $true
-    ```
-
-1. To see which apps and service principals are linked to a specific policy you identified run the following [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) cmdlet by replacing **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** with any of your policy IDs. Then you can decide whether to configure Conditional Access sign-in frequency or remain with the Azure AD defaults.
-
-    ```powershell
-    Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
-    ```
-
-If your tenant has policies which define custom values for the refresh and session token configuration properties, Microsoft recommends you update those policies to values that reflect the defaults described above. If no changes are made, Azure AD will automatically honor the default values.
+```powershell
+Connect-AzureAD -Confirm
+```
 
 ## Create a policy for web sign-in
 
-In this example, you create a policy that requires users to authenticate more frequently in your web app. This policy sets the lifetime of the access/ID tokens and the max age of a multi-factor session token to the service principal of your web app.
+In this example, you create a policy that requires users to authenticate more frequently in your web app. This policy sets the lifetime of the access/ID tokens to the service principal of your web app.
 
 1. Create a token lifetime policy.
 
-    This policy, for web sign-in, sets the access/ID token lifetime and the max single-factor session token age to two hours.
+    This policy, for web sign-in, sets the access/ID token lifetime to two hours.
 
-    1. To create the policy, run the [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
+    To create the policy, run the [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
 
-        ```powershell
-        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
-        ```
+    ```powershell
+    $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+    ```
 
-    1. To see your new policy, and to get the policy **ObjectId**, run the [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
+    To see your new policy, and to get the policy **ObjectId**, run the [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
 
-        ```powershell
-        Get-AzureADPolicy -Id $policy.Id
-        ```
+    ```powershell
+    Get-AzureADPolicy -Id $policy.Id
+    ```
 
 1. Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal.
 
-    1. Use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet to see all your organization's service principals or a single service principal.
-        ```powershell
-        # Get ID of the service principal
-        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
-        ```
+    Use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet to see all your organization's service principals or a single service principal.
 
-    1. When you have the service principal, run the [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
-        ```powershell
-        # Assign policy to a service principal
-        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
-        ```
+    ```powershell
+    # Get ID of the service principal
+    $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
+    ```
+
+    When you have the service principal, run the [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet:
+
+    ```powershell
+    # Assign policy to a service principal
+    Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+    ```
+
+## View existing policies in a tenant
+
+To see all policies that have been created in your organization, run the [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet.  Any results with defined property values that differ from the defaults listed above are in scope of the retirement.
+
+```powershell
+Get-AzureADPolicy -All $true
+```
+
+To see which apps and service principals are linked to a specific policy you identified run the following [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) cmdlet by replacing **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** with any of your policy IDs. Then you can decide whether to configure Conditional Access sign-in frequency or remain with the Azure AD defaults.
+
+```powershell
+Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
+```
+
+If your tenant has policies which define custom values for the refresh and session token configuration properties, Microsoft recommends you update those policies to values that reflect the defaults described above. If no changes are made, Azure AD will automatically honor the default values.
 
 ## Next steps
 Learn about [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure AD Conditional Access.
