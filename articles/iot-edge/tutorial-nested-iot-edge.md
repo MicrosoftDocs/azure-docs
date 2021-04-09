@@ -222,7 +222,7 @@ To configure the IoT Edge runtime, you need to apply the configuration bundles c
 
 If you completed the above steps correctly, you can check your devices are configured correctly.
 
-1. Run the configuration and connectivity checks on your devices. For the **top layer device**:
+   Run the configuration and connectivity checks on your devices. For the **top layer device**:
 
    ```bash
    sudo iotedge check

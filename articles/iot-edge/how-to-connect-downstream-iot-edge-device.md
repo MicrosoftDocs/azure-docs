@@ -407,7 +407,7 @@ The API proxy module was designed to be customized to handle most common gateway
 
    This deployment file configures the API proxy module to listen on port 443. To prevent port binding collisions, the file configures the edgeHub module to not listen on port 443. Instead, the API proxy module will route any edgeHub traffic on port 443.
 
-   Enter the following command to create a deployment to an IoT Edge device:
+1. Enter the following command to create a deployment to an IoT Edge device:
 
    ```bash
    az iot edge set-modules --device-id <device_id> --hub-name <iot_hub_name> --content ./<deployment_file_name>.json
