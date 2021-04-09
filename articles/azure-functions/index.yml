@@ -19,10 +19,6 @@ landingContent:
         links:
           - text: What is Azure Functions?
             url: functions-overview.md
-      - linkListType: get-started
-        links:
-          - text: Getting started
-            url: functions-get-started.md
       - linkListType: concept
         links:
           - text: Hosting options
@@ -39,6 +35,10 @@ landingContent:
             url: https://azure.microsoft.com/resources/videos/build-2019-where-should-i-host-my-code-choosing-between-kubernetes-containers-and-serverless/
   - title: Create your first function
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Getting started
+            url: functions-get-started.md
       - linkListType: quickstart
         links:
           - text: C# (.NET Core 3.1)
