@@ -60,6 +60,16 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 * Open your Synapse workspace in the [Azure portal](https://portal.azure.com), in the **Overview** section of the Synapse workspace, select **Open** in the Open Synapse Studio box.
 * Go to the `https://web.azuresynapse.net` and sign in to your workspace.
 
+## Place sample data into the primary storage account
+We are going to use a small 100K row sample dataset of NYX Taxi Cab data for many examples in this getting started guide. We begin by placing it in the primary storage account you created for the workspace.
+
+* Download this file to your computer: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
+* In Synapse Studiio, navigate to the the Data Hub. 
+* Click **Linked**.
+* Under the category **Azure Data Lake Storae Gen2** you'll see an item with a name like **myworkspace ( Primary - contosolake )**
+* Click on the container named **users (Primary)**
+* Click **Upload** and select the `NYCTripSmall.parquet` file you downloaded
+
 ## Next steps
 
 > [!div class="nextstepaction"]
