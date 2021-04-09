@@ -56,6 +56,15 @@ Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernet
   | *mscrl.microsoft.com* | HTTPS:80 | Required Microsoft Certificate Chain Paths. |
   | *crl.microsoft.com* | HTTPS:80 | Required Microsoft Certificate Chain Paths. |
   | *crl3.digicert.com* | HTTPS:80 | 3rd Party SSL Certificate Chain Paths. |
+  
+## Azure Spring Cloud optional FQDN for third party APM (Application Performance Management).
+
+Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernetesService** to simplify the following configurations.
+
+  | Destination FQDN | Port | Use                                                          |
+  | ---------------- | ---- | ------------------------------------------------------------ |
+  | collector*.newrelic.com | TCP:443/80 | Required networks of New Relic APM agents from US region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
+  | collector*.eu01.nr-data.net | TCP:443/80 | Required networks of New Relic APM agents from EU region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
 
 ## See also
 * [Access your application in a private network](access-app-virtual-network.md)
