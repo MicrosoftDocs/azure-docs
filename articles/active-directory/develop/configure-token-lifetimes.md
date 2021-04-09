@@ -82,5 +82,22 @@ Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
 
 If your tenant has policies which define custom values for the refresh and session token configuration properties, Microsoft recommends you update those policies to values that reflect the defaults described above. If no changes are made, Azure AD will automatically honor the default values.
 
+### Troubleshooting
+Some users have reported a `Get-AzureADPolicy : The term 'Get-AzureADPolicy' is not recognized` error after running the `Get-AzureADPolicy` cmdlet. As a workaround, run the following to uninstall/re-install the AzureAD module and then install the AzureADPreview module:
+
+```powershell
+# Uninstall the AzureAD Module
+UnInstall-Module AzureAD
+
+# Re-install the AzureAD Module
+Install-Module AzureAD
+
+# Install the AzureAD Preview Module adding the -AllowClobber
+Install-Module AzureADPreview -AllowClobber
+
+Connect-AzureAD
+Get-AzureADPolicy -All $true
+```
+
 ## Next steps
 Learn about [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure AD Conditional Access.
