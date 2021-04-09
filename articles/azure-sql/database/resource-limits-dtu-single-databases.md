@@ -10,7 +10,7 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 03/20/2019
+ms.date: 04/09/2021
 ---
 # Resource limits for single databases using the DTU purchasing model - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -22,7 +22,7 @@ This article provides the detailed resource limits for Azure SQL Database single
 * For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
 * For more information regarding the different purchasing models, see [Purchasing models and service tiers](purchasing-models.md).
 
-For service objectives supporting more than one replica, resource limits such as storage, concurrent DTUs, maximum workers, and maximum sessions apply to each replica. A replica is a copy of the database with its own allocation of resources up to these limits.
+Each read-only replica has its own resources, and is subject to the resource limits detailed later in this article.
 
 
 ## Single database: Storage sizes and compute sizes

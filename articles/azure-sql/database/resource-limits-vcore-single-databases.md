@@ -10,7 +10,7 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 03/23/2021
+ms.date: 04/09/2021
 ---
 # Resource limits for single databases using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,8 +30,7 @@ You can set the service tier, compute size (service objective), and storage amou
 * [Azure CLI](single-database-manage.md#the-azure-cli)
 * [REST API](single-database-manage.md#rest-api)
 
-
-For service objectives supporting more than one replica, resource limits such as vCores, memory, maximum data IOPS and log rate, TempDB size, maximum workers, and maximum sessions apply to each replica. A replica is a copy of the database with its own allocation of resources up to these limits.
+Each read-only replica has its own resources, and is subject to the resource limits detailed later in this article.
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale a single database](single-database-scale.md).

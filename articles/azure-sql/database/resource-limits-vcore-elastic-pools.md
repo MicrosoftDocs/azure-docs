@@ -10,7 +10,7 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 03/23/2021
+ms.date: 04/09/2021
 ---
 # Resource limits for elastic pools using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +38,7 @@ You can set the service tier, compute size (service objective), and storage amou
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale an elastic pool](elastic-pool-scale.md).
 
-For service objectives supporting more than one replica, resource limits such as vCores, memory, maximum data IOPS and log rate, TempDB size, maximum workers, and maximum sessions apply to each replica. A replica is a copy of the elastic pool with its own allocation of resources up to these limits.
+Each read-only replica has its own resources, and is subject to the resource limits detailed later in this article.
 
 ## General purpose - provisioned compute - Gen4
 

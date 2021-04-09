@@ -10,7 +10,7 @@ ms.topic: reference
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
-ms.date: 03/30/2021
+ms.date: 04/09/2021
 ---
 # Resources limits for elastic pools using the DTU purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -22,7 +22,7 @@ This article provides the detailed resource limits for databases in Azure SQL Da
 * For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
 * For more information regarding the different purchasing models, see [Purchasing models and service tiers](purchasing-models.md).
 
-For service objectives supporting more than one replica, resource limits such as storage, concurrent DTUs, maximum workers, and maximum sessions apply to each replica. A replica is a copy of the elastic pool with its own allocation of resources up to these limits.
+Each read-only replica has its own resources, and is subject to the resource limits detailed later in this article.
 
 ## Elastic pool: Storage sizes and compute sizes
 

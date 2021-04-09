@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 02/22/2021
+ms.date: 04/09/2021
 ---
 # Scale single database resources in Azure SQL Database
 
