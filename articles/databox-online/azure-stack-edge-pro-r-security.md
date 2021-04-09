@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/08/2021
+ms.date: 04/09/2021
 ms.author: alkohli
 ---
 # Security and data protection for Azure Stack Edge Pro R and Azure Stack Edge Mini R
@@ -103,9 +103,9 @@ The encryption-at-rest key is a 32 character long Base-64 encoded key that you p
 
 When the device is activated, you are prompted to save the key file that contains recovery keys that help recover the data on the device if the device doesn't boot up. Certain recovery scenarios will prompt you for the key file that you have saved. The key file has the following recovery keys:
 
-- A key that helps recover the device configuration on the OS volumes.
+- A key that unlocks the first layer of encryption.
 - A key that unlocks the hardware encryption in the data disks.
-- A key that unlocks the second layer of encryption.
+- A key that helps recover the device configuration on the OS volumes.
 - A key that protects the data flowing through the Azure service.
 
 > [!IMPORTANT]
