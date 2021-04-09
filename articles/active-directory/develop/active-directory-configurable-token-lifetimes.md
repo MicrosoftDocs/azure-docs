@@ -75,7 +75,7 @@ For an example, see [Create a policy for web sign-in](configure-token-lifetimes.
 You can not set token lifetime policies for refresh tokens and session tokens.
 
 > [!IMPORTANT]
-> As of January 30, 2021 you can not configure refresh and session token lifetimes. Azure Active Directory no longer honors refresh and session token configuration in existing policies.  New tokens issued after existing tokens have expired are now set to the [default configuration](#configurable-token-lifetime-properties-after-the-retirement). You can still configure access, SAML, and ID token lifetimes after the refresh and session token configuration retirement.
+> As of January 30, 2021 you can not configure refresh and session token lifetimes. Azure Active Directory no longer honors refresh and session token configuration in existing policies.  New tokens issued after existing tokens have expired are now set to the [default configuration](#configurable-token-lifetime-properties). You can still configure access, SAML, and ID token lifetimes after the refresh and session token configuration retirement.
 >
 > Existing token’s lifetime will not be changed. After they expire, a new token will be issued based on the default value.
 >
@@ -107,7 +107,7 @@ You can create and then assign a token lifetime policy to a specific application
 * If a policy is explicitly assigned to the service principal, it is enforced.
 * If no policy is explicitly assigned to the service principal, a policy explicitly assigned to the parent organization of the service principal is enforced.
 * If no policy is explicitly assigned to the service principal or to the organization, the policy assigned to the application is enforced.
-* If no policy has been assigned to the service principal, the organization, or the application object, the default values are enforced. (See the table in [Configurable token lifetime properties](#configurable-token-lifetime-properties-after-the-retirement).)
+* If no policy has been assigned to the service principal, the organization, or the application object, the default values are enforced. (See the table in [Configurable token lifetime properties](#configurable-token-lifetime-properties).)
 
 For more information about the relationship between application objects and service principal objects, see [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).
 
