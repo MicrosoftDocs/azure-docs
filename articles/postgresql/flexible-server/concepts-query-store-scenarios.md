@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/01/2021
 ---
-# Usage scenarios for Query Store
+# Usage scenarios for Query Store - Flexible Server
 
 **Applies to:** Azure Database for PostgreSQL - Single Server versions 11, 12
 
