@@ -38,7 +38,7 @@ The following chart shows how requests are handled locally.
 :::image type="content" source="media/local-development/cli-conceptual.png" alt-text="Azure Static Web App CLI request and response flow":::
 
 > [!IMPORTANT]
-> Navigate to [http://localhost:4280](http://localhost:4280) to access the application served by the CLI.
+> Navigate to `http://localhost:4280` to access the application served by the CLI.
 
 - **Requests** made to port `4280` are forwarded to the appropriate server depending on the type of request.
 
@@ -74,7 +74,7 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
     `swa start`
 
-1. Navigate to [http://localhost:4280](http://localhost:4280) to view the app in the browser.
+1. Navigate to http://localhost:4280 to view the app in the browser.
 
 ### Other ways to start the CLI
 
