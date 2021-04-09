@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/02/2021
+ms.date: 04/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -20,14 +20,23 @@ This article contains the usage constraints and other service limits for the Azu
 
 ## End user/consumption related limits
 
-The following end-user related service limits apply to all authentication and authorization protocols supported by Azure AD B2C, including SAML, Open ID Connect, OAuth2, and ROPC.
+The following end-user related service limits apply to all authentication requests to Azure AD B2C. Below illustrates the peak token issuances per journey type.
 
-|Category |Limit    |
+|Journey Type      | Limit    |
 |---------|---------|
-|Number of requests per IP address per Azure AD B2C tenant       |6,000/5min          |
-|Total number of requests per Azure AD B2C tenant     |12,000/min          |
+|Sign in  | 12,000/min |
+|Sign up  | 7,680/min |
+|Password reset  | 12,000/min|
+|Profile edit  | 12,000/min|
 
-The number of requests can vary depending on the number of directory reads and writes that occur during the Azure AD B2C user journey. For example, a simple sign-in journey that reads from the directory consists of 1 request. If the sign-in journey must also update the directory, this operation is counted as an additional request.
+When multiple journey type's are in use, they contribute to the overall limits below.
+
+|Category     | Limit    |
+|---------|---------|
+|Number of requests per IP address per Azure AD B2C tenant     |1,200/min          |
+|Total number of requests per Azure AD B2C tenant   |12,000/min          |
+
+As an example, when performing Sign Up at a rate of 7,000/min, you will be able to perform Sign In's at a rate of 5,000/min for a total token issuance rate of 12,000/min, assuming all authentications are coming from a different client IP address.
 
 ## Azure AD B2C configuration limits
 
