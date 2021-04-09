@@ -274,7 +274,7 @@ Read the following articles:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Features and terminology in Azure Event Hubs](event-hubs-features.md)
-- [Event Hubs FAQ](event-hubs-faq.md)
+- [Event Hubs FAQ](event-hubs-faq.yml)
 
 
 <!-- Links -->
