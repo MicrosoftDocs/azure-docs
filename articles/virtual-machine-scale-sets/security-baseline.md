@@ -381,7 +381,7 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 **Guidance**: While Azure Active Directory (Azure AD) is the recommended method to administrate user access, Azure Virtual Machines may have local accounts. Both local and domain accounts should be reviewed and managed, normally with a minimum footprint. In addition, leverage Azure Privileged Identity Management for administrative accounts used to access the virtual machines resources.
 
-- [Information for Local Accounts is available at](https://docs.microsoft.com/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role)
+- [Information for Local Accounts](https://docs.microsoft.com/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role)
 
 - [Information on Privileged Identity Manager](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
@@ -915,7 +915,7 @@ Currently Adaptive Application controls are not available for Virtual Machine Sc
 
 ### 7.2: Establish secure operating system configurations
 
-**Guidance**: Use Azure Security Center recommendation [Remediate Vulnerabilities in Security Configurations on your Virtual Machines] to maintain security configurations on all compute resources.
+**Guidance**: Use Azure Security Center recommendation Remediate Vulnerabilities in Security Configurations on your Virtual Machines to maintain security configurations on all compute resources.
 
 - [How to monitor Azure Security Center recommendations](../security-center/security-center-recommendations.md)
 
