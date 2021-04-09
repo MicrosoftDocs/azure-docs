@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 03/27/2021
 
 ---
-# Analyzing live video without any recording
+# Analyzing live videos without any recording
 
 ## Suggested pre-reading 
 
@@ -14,12 +14,12 @@ ms.date: 03/27/2021
 
 ## Overview  
 
-You can use a pipeline topology to analyze live video, without recording any portions of the video to a file or an asset. The pipeline topologies shown below are similar to the ones in the article on [Event-Based Video Recording](event-based-video-recording-concept.md), but without a video sink node or file sink node.
+You can use a pipeline topology to analyze live video, without recording any portions of the video to a file or an asset. The pipeline topologies shown below are similar to the ones in the article on [Event-Based Video Recording]()<!--event-based-video-recording-concept.md-->, but without a video sink node or file sink node.
 
 ### Motion detection
 
 <!-- <<TODOL: github paths are placeholders and need to be finalized>>-->
-The pipeline topology shown below consists of a [RTSP source]()<!--pipeline-topology-concept.md#rtsp-source)--> node, a [motion detection processor](pipeline-topology-concept.md#motion-detection-processor) node, and an [IoT Hub message sink]()<!--pipeline-topology-concept.md#iot-hub-message-sink) --> node. The JSON representation of the graph topology of such a [pipeline topology can be found here]()<!--https://github.com/Azure/azure-video-analyzer/blob/master/pipeline-topologies/live/motion-detection/topology.json)-->. This topology enables you to detect motion in the incoming live video stream and relay the motion events to other apps and services via the IoT Hub message sink node. The external apps or services can trigger an alert or send a notification to appropriate personnel.
+The pipeline topology shown below consists of a [RTSP source]()<!--pipeline-topology-concept.md#rtsp-source)--> node, a [motion detection processor]()<!--pipeline-topology-concept.md#motion-detection-processor)--> node, and an [IoT Hub message sink]()<!--pipeline-topology-concept.md#iot-hub-message-sink) --> node. The JSON representation of the graph topology of such a [pipeline topology can be found here]()<!--https://github.com/Azure/azure-video-analyzer/blob/master/pipeline-topologies/live/motion-detection/topology.json)-->. This topology enables you to detect motion in the incoming live video stream and relay the motion events to other apps and services via the IoT Hub message sink node. The external apps or services can trigger an alert or send a notification to appropriate personnel.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Live video analysis using motion detection":::
