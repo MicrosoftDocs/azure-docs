@@ -20,37 +20,25 @@ Azure Disk Backup is integrated into Backup Center, which provides a **single un
 Azure Disk backup is an agentless and crash consistent solution that uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md) and offers the following advantages:
 
 - More frequent and quick backups without interrupting the virtual machine.
-
 - Doesn't affect the performance of the production application.
-
 - No security concerns since it doesn't require running custom scripts or installing agents.
-
 - A cost-effective solution to back up specific disks when compared to backing up entire virtual machine.
 
 Azure Disk backup solution is useful in the following scenarios:
 
 - Need for frequent backups per day without application being quiescent.
-
 - Apps running in a  cluster scenario: both Windows Server Failover Cluster and Linux clusters are writing to shared disks.
-
 - Specific need for agentless backup because of security or performance concerns on the application.
-
 - Application consistent backup of VM isn't feasible since line-of-business apps don't support Volume Shadow Copy Service (VSS).
 
 Consider Azure Disk Backup in scenarios where:
 
 - A mission-critical application is running on an Azure Virtual machine that demands multiple backups per day to meet the recovery point objective, but without impacting the production environment or application performance.
-
 - Your organization or industry regulation restricts installing agents because of security concerns.
-
 - Executing custom pre or post scripts and invoking freeze and thaw on Linux virtual machines to get application-consistent backup puts undue overhead on production workload availability.
-
 - Containerized applications running on Azure Kubernetes Service (AKS cluster) are using managed disks as persistent storage. Today, you must back up the managed disk via automation scripts that are hard to manage.
-
 - A managed disk is holding critical business data, used as a file-share, or contains database backup files, and you want to optimize backup cost by not investing in Azure VM backup.
-
 - You have many Linux and Windows single-disk virtual machines (that is, a virtual machine with just an OS disk and no data disks attached) that host web server, state-less machines, or serves as a staging environment with application configuration settings, and you need a cost efficient backup solution to protect the OS disk. For example, to trigger a quick on-demand backup before upgrading or patching the virtual machine.
-
 - A virtual machine is running an OS configuration that is unsupported by Azure VM backup solution (for example, Windows 2008 32-bit Server).
 
 ## How the backup and restore process works
@@ -77,4 +65,4 @@ Azure Backup offers a snapshot lifecycle management solution for protecting Azur
 
 ## Next steps
 
-- [Azure Disk Backup support matrix](disk-backup-support-matrix.md)
+[Azure Disk Backup support matrix](disk-backup-support-matrix.md)
