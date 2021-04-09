@@ -388,8 +388,8 @@ To get **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Registe
 
     Sample query:
     
-    ``` mssql
-    SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TABLE] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd    
+    ```SQL
+    SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd    
     ```
     
 ## <span id="table">Azure Table Storage</span>
@@ -502,7 +502,7 @@ Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-que
 
     Sample query:
 
-    ``` PostgreSQL
+    ```SQL
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
     Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-query.md) for more specific examples.
