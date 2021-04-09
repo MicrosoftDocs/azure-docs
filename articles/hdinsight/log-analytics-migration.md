@@ -154,15 +154,15 @@ Refer to the [mapping table](#appendix-1-table-mapping) between the old table/sc
 
 We also improved the out-of-box dashboards both at the cluster-level. There's a button on the top right of every graph that allows you to see the underlying query that produces the information. The graph is a great way to familiarize yourself with how the new tables can be queried effectively. You can access the out-of-box dashboards by following the instructions that you'll find in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections.
 
-### Use an HDInsight workload-specific monitoring dashboard
+### Use an HDInsight at-scale monitoring dashboard
 
 If you're using the out-of-box monitoring dashboard for HDInsight clusters like HDInsight Spark Monitoring and HDInsight Interactive Monitoring, we're working to provide you the same capabilities on the Azure Monitor portal.
 
-You'll see that there's an HDInsight option in Azure Monitor.
+You'll see that there's an HDInsight clusters option in Azure Monitor.
 
    :::image type="content" source="./media/log-analytics-migration/hdinsight-azure-monitor.png" alt-text="Screenshot that shows the HDInsight option in Azure Monitor." border="false":::
 
-The HDInsight Monitor portal provides you the capability of monitoring multiple HDInsight clusters in one place. We organize the clusters based on the workload type, so you see types like Spark, HBase, and Hive. Instead of going to multiple dashboards, now you can monitor all your HDInsight clusters in this view.
+The Azure Monitor portal's Insights Hub provides you the capability of monitoring multiple HDInsight clusters in one place. We organize the clusters based on the workload type, so you see types like Spark, HBase, and Hive. Instead of going to multiple dashboards, now you can monitor all your HDInsight clusters in this view.
 
 > [!NOTE]
 > For more information, see the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections in this article.
