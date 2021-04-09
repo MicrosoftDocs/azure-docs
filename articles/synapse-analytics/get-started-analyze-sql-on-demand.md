@@ -30,14 +30,14 @@ In this section, you'll use a serverless SQL pool to analyze NYC Taxi data in an
 1. Create a new SQL script.
 1. Paste the following code into the script.
 
-    ```sql
+    ```
     SELECT
-        TOP 100 *
+        TOP 100 *
     FROM
         OPENROWSET(
-            BULK     'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-            FORMAT = 'parquet'
-        ) AS [result];
+                BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
+            FORMAT='PARQUET'
+        ) AS [result]
     ```
 1. Click **Run**
 
