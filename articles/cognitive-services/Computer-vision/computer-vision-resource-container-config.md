@@ -57,11 +57,11 @@ This setting can be found in the following place:
 
 * Azure portal: **Cognitive Services** Overview, labeled `Endpoint`
 
-Remember to add the `vision/v1.0` routing to the endpoint URI as shown in the following table. 
+Remember to add the `vision/<version>` routing to the endpoint URI as shown in the following table. 
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v3.2` |
 
 ## Eula setting
 
