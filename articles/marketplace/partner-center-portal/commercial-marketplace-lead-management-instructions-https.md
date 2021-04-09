@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 03/30/2020
+ms.date: 04/09/2021
 ---
 
 # Use an HTTPS endpoint to manage commercial marketplace leads
@@ -28,11 +28,11 @@ This article explains how to create a new flow in Power Automate to generate the
 
 1. Under **+ New**, select **+ Instant cloud flow**.
 
-    ![My flows + Automated--from blank](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
+    ![My flows + Automated--from blank](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png)
 
 1. Name your flow, and then under **Choose how to trigger this flow**, select **When a HTTP request is received**.
 
-    ![Build an automated flow window Skip button](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
+    ![Build an automated flow window Skip button](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-pick-request-trigger.png)
 
 1. Click the flow step to expand it.
 
