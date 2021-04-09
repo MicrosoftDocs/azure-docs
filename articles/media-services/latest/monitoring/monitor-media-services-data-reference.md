@@ -18,11 +18,15 @@ This article covers the data that is useful for monitoring Media Services. For m
 
 Metrics are collected at regular intervals whether or not the value changes. They're useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic.
 
+
 Media Services supports monitoring metrics for the following resources:
 
-- [General](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservices)
-- [Live Event](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesliveevents)
-- [Streaming Endpoint](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesstreamingendpoints), which are relevant to the [Streaming Endpoints REST API](/rest/api/media/streamingendpoints).
+|Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
+|-------|-----|
+| Media Services general | [General](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservices) |
+| Live Events | [Microsoft.Media/mediaservices/liveEvents](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesliveevents) 
+| Streaming Endpoints | [Microsoft.Media/mediaservices/streamingEndpoints](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesstreamingendpoints), which are relevant to the [Streaming Endpoints REST API](/rest/api/media/streamingendpoints). 
+
 
 You should also review [account quotas and limits](../limits-quotas-constraints-reference.md).
 
@@ -32,6 +36,10 @@ You should also review [account quotas and limits](../limits-quotas-constraints-
 For more information on what metric dimensions are, see [Multi-dimensional metrics](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 <!--**PLACEHOLDER** for dimensions table.-->
+OutputFormat, 
+HttpStatusCode, 
+ErrorCode, 
+TrackName
 
 ## Resource logs
 
@@ -40,7 +48,7 @@ For more information on what metric dimensions are, see [Multi-dimensional metri
 Resource logs provide rich and frequent data about the operation of an Azure resource. For more information, see [How to collect and consume log data from your Azure resources](../../../azure-monitor/essentials/platform-logs-overview.md).
 
 Media Services supports the following resource logs:
-[Media Services](/azure/azure-monitor/essentials/resource-logs-categories#microsoftmediamediaservices)
+[Microsoft.Media/mediaservices](/azure/azure-monitor/essentials/resource-logs-categories#microsoftmediamediaservices)
 
 ## Schemas
 
