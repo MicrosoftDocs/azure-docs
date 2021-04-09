@@ -64,7 +64,7 @@ To create a hierarchy of IoT Edge devices, you will need:
    ```bash
    az deployment group create \
     --resource-group <REPLACE_WITH_YOUR_RESOURCE_GROUP> \
-    --template-uri "https://raw.githubusercontent.com/ebertrams/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
     --parameters dnsLabelPrefix='<REPLACE_WITH_UNIQUE_DNS_FOR_VIRTUAL_MACHINE>' \
     --parameters adminUsername='azureuser' \
     --parameters authenticationType='sshPublicKey' \
