@@ -163,7 +163,7 @@ sections:
           No, Azure AD Connect does not support a pure IPv6 environment.
           
       - question: |
-          I have a multi-forest environment and the network between the two forests is using NAT (Network Address Translation). Is using Azure AD Connect between these two forests supported?**</br>
+          I have a multi-forest environment and the network between the two forests is using NAT (Network Address Translation). Is using Azure AD Connect between these two forests supported?
         answer: |
           No, using Azure AD Connect over NAT is not supported. 
           
@@ -236,7 +236,7 @@ sections:
           No. This option does not retrieve all configuration settings, and it should not be used. Instead, use the wizard to create the base configuration on the second server, and use the sync rule editor to generate PowerShell scripts to move any custom rule between servers. For more information, see [Swing migration](how-to-upgrade-previous-version.md#swing-migration).
           
       - question: |
-          Can passwords be cached for the Azure sign-in page, and can this caching be prevented because it contains a password input element with the *autocomplete = "false"* attribute?  
+          Can passwords be cached for the Azure sign-in page, and can this caching be prevented because it contains a password input element with the autocomplete = "false" attribute?  
         answer: |
           Currently, modifying the HTML attributes of the **Password** field, including the autocomplete tag, is not supported. We are currently working on a feature that allows for custom JavaScript, which lets you add any attribute to the **Password** field.
 
