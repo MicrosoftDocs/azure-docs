@@ -19,12 +19,12 @@ This article provides more information on the latest releases and updates to the
 
 ## Service Fabric 8.0
 
-We are excited to announce that 8.0 release of the Service Fabric runtime has started rolling out to the various Azure regions along with tooling and SDK updates. The updates for .NET SDK, Java SDK and Service Fabric runtimes are available through Web Platform Installer, NuGet packages and Maven repositories.
+We are excited to announce that 8.0 release of the Service Fabric runtime has started rolling out to the various Azure regions along with tooling and SDK updates. The updates for .NET SDK, Java SDK and Service Fabric runtime are available through Web Platform Installer, NuGet packages and Maven repositories.
 
 ### Key Announcements
 
 - **General Availability** of support for .NET 5 for Windows
-- **General Availability** of [Stateless NodeTypes](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-stateless-node-types)
+- **General Availability** of [Stateless NodeTypes](./service-fabric-stateless-node-types)
 - Ability to move stateless service instances
 - Ability to add parameterized DefaultLoad in the application manifest
 - For singleton replica upgrades - ability to have some of the cluster level settings to be defined at an application level
