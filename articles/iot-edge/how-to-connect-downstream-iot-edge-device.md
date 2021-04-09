@@ -150,13 +150,13 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 
 1. Find the **Trust bundle cert** section. Uncomment and update the `trust_bundle_cert` parameter with the file URI to the root CA certificate on your device.
 
-1. While this feature is in public preview, you need to configure your IoT Edge device to use the public preview version of the IoT Edge agent when it starts up.
+1. Verify your IoT Edge device will use the correct version of the IoT Edge agent when it starts up.
 
-   Find the **Default Edge Agent** section and update the image value to the public preview image:
+   Find the **Default Edge Agent** section and verify the image value is IoT Edge version 1.2. If not, update it:
 
    ```toml
    [agent.config]
-   image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4"
+   image: "mcr.microsoft.com/azureiotedge-agent:1.2"
    ```
 
 1. Find the **Edge CA certificate** section in the config file. Uncomment the lines in this section and provide the file URI paths for the certificate and key files on the IoT Edge device.
@@ -188,24 +188,6 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 
    >[!TIP]
    >The IoT Edge check tool uses a container to perform some of the diagnostics check. If you want to use this tool on downstream IoT Edge devices, make sure they can access `mcr.microsoft.com/azureiotedge-diagnostics:latest`, or have the container image in your private container registry.
-
-<!-- Remove for GA -->
-<!-- Remove rc4 for GA -->
-
-## Configure runtime modules for public preview
-
-While this feature is in public preview, you need to configure your IoT Edge device to use the public preview versions of the IoT Edge runtime modules. The previous section provides steps for configuring edgeAgent at startup. You also need to configure the runtime modules in deployments for your device.
-
-1. Configure the edgeHub module to use the public preview image: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`.
-
-1. Configure the following environment variables for the edgeHub module:
-
-   | Name | Value |
-   | - | - |
-   | `experimentalFeatures__enabled` | `true` |
-   | `experimentalFeatures__nestedEdgeEnabled` | `true` |
-
-1. Configure the edgeAgent module to use the public preview image: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`.
 
 ## Network isolate downstream devices
 
@@ -363,7 +345,7 @@ The API proxy module was designed to be customized to handle most common gateway
                        },
                        "IoTEdgeAPIProxy": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-api-proxy",
+                               "image": "mcr.microsoft.com/azureiotedge-api-proxy:1.0",
                                "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"443/tcp\": [{\"HostPort\":\"443\"}]}}}"
                            },
                            "type": "docker",
@@ -390,14 +372,14 @@ The API proxy module was designed to be customized to handle most common gateway
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4",
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4",
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -443,7 +425,7 @@ Before discussing the required proxy module for IoT Edge devices in gateway hier
 
 If your lower layer devices can't connect to the cloud, but you want them to pull module images as usual, then the top layer device of the gateway hierarchy must be configured to handle these requests. The top layer device needs to run a Docker **registry** module that is mapped to your container registry. Then, configure the API proxy module to route container requests to it. Those details are discussed in the earlier sections of this article. In this configuration, the lower layer devices should not point to cloud container registries, but to the registry running in the top layer.
 
-For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:latest`, lower layer devices should call `$upstream:443/azureiotedge-api-proxy:latest`.
+For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:1.0`, lower layer devices should call `$upstream:443/azureiotedge-api-proxy:1.0`.
 
 The **$upstream** parameter points to the parent of a lower layer device, so the request will route through all the layers until it reaches the top layer which has a proxy environment routing container requests to the registry module. The `:443` port in this example should be replaced with whichever port the API proxy module on the parent device is listening on.
 
@@ -465,7 +447,7 @@ name = "edgeAgent"
 type = "docker"
 
 [agent.config]
-image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc4"
+image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2"
 ```
 
 If you are using a local container registry, or providing the container images manually on the device, update the config file accordingly.

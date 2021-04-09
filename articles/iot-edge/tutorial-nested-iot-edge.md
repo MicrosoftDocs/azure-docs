@@ -59,14 +59,12 @@ To create a hierarchy of IoT Edge devices, you will need:
   * To see your current versions of the Azure CLI modules and extensions, run [az version](/cli/azure/reference-index?#az_version).
 * A Linux device to configure as an IoT Edge device for each device in your hierarchy. This tutorial uses two devices. If you don't have devices available, you can create Azure virtual machines for each device in your hierarchy using the command below.
 
-   Replace the placeholder text in the following command and run it twice, once for each virtual machine. Each virtual machine needs a unique name and a unique DNS prefix. The DNS prefix must conform to the following regular expression: `[a-z][a-z0-9-]{1,61}[a-z0-9]`.
-
-<!-- Update template-uri for GA -->
+   Replace the placeholder text in the following command and run it twice, once for each virtual machine. Each virtual machine needs a unique DNS prefix, which will also serve as its name. The DNS prefix must conform to the following regular expression: `[a-z][a-z0-9-]{1,61}[a-z0-9]`.
 
 ```bash
 az deployment group create \
  --resource-group <REPLACE_WITH_YOUR_RESOURCE_GROUP> \
- --template-uri "https://raw.githubusercontent.com/ebertrams/iotedge-vm-deploy/1.2.0-bugbash/edgeDeploy.json" \
+ --template-uri "https://raw.githubusercontent.com/ebertrams/iotedge-vm-deploy/1.2.0 /edgeDeploy.json" \
  --parameters dnsLabelPrefix='<REPLACE_WITH_UNIQUE_DNS_FOR_VIRTUAL_MACHINE>' \
  --parameters adminUsername='azureuser' \
  --parameters authenticationType='sshPublicKey' \
@@ -132,59 +130,14 @@ To use the `iotedge-config` tool to create and configure your hierarchy, follow 
 
    This will create the `iotedge_config_cli_release` folder in your tutorial directory.
 
-   The template file used to create your device hierarchy is the `iotedge_config_cli.yaml` file found in `~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial`. In the same directory, `deploymentLowerLayer.json` is a JSON deployment file containing instructions for which modules to deploy to your **lower layer device**. The `deploymentTopLayer.json` file is the same, but for your **top layer device**, as the modules deployed to each device are not the same. The `device_config.toml` file is a template for IoT Edge device configurations and will be used to automatically generate the configuration bundles for the devices in your hierarchy.
-
-   <!-- Remove for GA -->
-   **FOR INTERNAL USE**
-   While using the release candidate images for 1.2.0, it is necessary to set experimental flags for the Edge Hub in the deployment files.
-
-   ```bash
-   code ~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial/deploymentTopLayer.json
-   ```
-
-   Replace the `"env": {},` section under `"edgeHub"` under `"modules"` with the following:
-
-   ```json
-   "env": {
-      "experimentalFeatures__enabled": {
-         "value": "true"
-      },
-      "experimentalFeatures__nestedEdgeEnabled": {
-         "value": "true"
-      }
-   },
-   ```
-
-   Save and close the file:
-
-   `CTRL + S`, `CTRL + Q`
-
-   The same must be done for the lower layer deployment file:
-
-   ```bash
-   code ~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial/deploymentLowerLayer.json
-   ```
-
-   Replace the `"env": {},` section under `"edgeHub"` under `"modules"` with the following:
-
-   ```json
-   "env": {
-      "experimentalFeatures__enabled": {
-         "value": "true"
-      },
-      "experimentalFeatures__nestedEdgeEnabled": {
-         "value": "true"
-      }
-   },
-   ```
-   <!-- End remove -->
+   The template file used to create your device hierarchy is the `iotedge_config.yaml` file found in `~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial`. In the same directory, `deploymentLowerLayer.json` is a JSON deployment file containing instructions for which modules to deploy to your **lower layer device**. The `deploymentTopLayer.json` file is the same, but for your **top layer device**, as the modules deployed to each device are not the same. The `device_config.toml` file is a template for IoT Edge device configurations and will be used to automatically generate the configuration bundles for the devices in your hierarchy.
 
    If you'd like to take a look at the source code and scripts for the `iotedge-config` tool, check out [the Azure-Samples repository on GitHub](https://github.com/Azure-Samples/iotedge_config_cli).
 
 1. Open the tutorial configuration template and edit it with your information:
 
    ```bash
-   code ~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial/iotedge_config_cli.yaml
+   code ~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial/iotedge_config.yaml
    ```
 
    In the **iothub** section, populate the `iothub_hostname` and `iothub_name` fields with your information. This information can be found on the overview page of your IoT Hub on the Azure portal.
@@ -198,8 +151,6 @@ To use the `iotedge-config` tool to create and configure your hierarchy, follow 
    You can also manually register IoT Edge devices in your IoT Hub through the Azure portal or Azure Cloud Shell. To learn how, see [the guide on how to register an IoT Edge device](how-to-register-device.md).
 
    You can define the parent-child relationships manually as well. See the [create a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy) section of the how-to guide to learn more.
-
-   <!-- Update hierarchy-config-sample.png when GA (1.2.0-rc4 image name no longer applicable) -->
 
    ![The edgedevices section of the configuration file allows you to define your hierarchy](./media/tutorial-nested-iot-edge/hierarchy-config-sample.png)
 
@@ -217,7 +168,7 @@ To use the `iotedge-config` tool to create and configure your hierarchy, follow 
 
    ```bash
    cd ~/nestedIotEdgeTutorial/iotedge_config_cli_release
-   ./iotedge_config --config ~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial/iotedge_config_cli.yaml --output ~/nestedIotEdgeTutorial/iotedge_config_cli_release/outputs -f
+   ./iotedge_config --config ~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial/iotedge_config.yaml --output ~/nestedIotEdgeTutorial/iotedge_config_cli_release/outputs -f
    ```
 
    With the `--output` flag, the tool creates the device certificates, certificate bundles, and a log file in a directory of your choice. With the `-f` flag set, the tool will automatically look for existing IoT Edge devices in your IoT Hub and remove them, to avoid errors and keep your hub clean.
@@ -277,17 +228,10 @@ If you completed the above steps correctly, you can check your devices are confi
    sudo iotedge check
    ```
 
-   <!-- Remove for GA -->
-   **FOR INTERNAL USE**
-   ```bash
-   sudo iotedge check --diagnostics-image-name mcr.microsoft.com/azureiotedge-diagnostics:1.2.0-rc4
-   ```
-   <!-- End remove -->
-
    For the **lower layer device**, the diagnostics image needs to be manually passed in the command:
 
    ```bash
-   sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc4
+   sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2
    ```
 
 On your **top layer device**, expect to see an output with several passing evaluations and at least one warning. The check for the `latest security daemon` will warn you that another IoT Edge version is the latest stable version, because IoT Edge version 1.2 is in public preview. You may see additional warnings about logs policies and, depending on your network, DNS policies.

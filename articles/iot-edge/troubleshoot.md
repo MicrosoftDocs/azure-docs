@@ -66,7 +66,7 @@ The IoT Edge check tool uses a container to run its diagnostics. The container i
 In a scenario using nested IoT Edge devices, you can get access to the diagnostics image on child devices by routing the image pull through the parent devices.
 
 ```bash
-sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port_for_api_proxy_module>/azureiotedge-diagnostics:<version>
+sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port_for_api_proxy_module>/azureiotedge-diagnostics:1.2
 ```
 
 <!-- </1.2> -->
