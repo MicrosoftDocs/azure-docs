@@ -1,13 +1,14 @@
 ---
 # Mandatory fields.
-title: Interpret event data
+title: Event notifications
 titleSuffix: Azure Digital Twins
 description: See how to interpret different event types and their different notification messages.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 6/23/2020
-ms.topic: how-to
+ms.date: 4/8/2021
+ms.topic: conceptual
 ms.service: digital-twins
+ms.custom: contperf-fy21q4
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -15,7 +16,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Understand event data
+# Event notifications
 
 Different events in Azure Digital Twins produce **notifications**, which allow the solution backend to be aware when different actions are happening. These are then [routed](concepts-route-events.md) to different locations inside and outside of Azure Digital Twins that can use this information to take action.
 
@@ -49,26 +50,89 @@ Extension attributes on headers will be added as properties on the Event Grid sc
 
 The bodies of notification messages are described here in JSON. Depending on the serialization desired for the message body (such as with JSON, CBOR, Protobuf, etc.), the message body may be serialized differently.
 
-The set of fields that the body contains vary with different notification types. Here are two sample message bodies, to get an idea of what they generally look like and may include.
+The set of fields that the body contains vary with different notification types.
 
-Telemetry message:
+The following sections go into more detail about the different types of notifications emitted by IoT Hub and Azure Digital Twins (or other Azure IoT services). You will read about the things that trigger each notification type, and the set of fields included with each type of notification body.
+
+## Digital twin change notifications
+
+**Digital twin change notifications** are triggered when a digital twin is being updated, like:
+* When property values or metadata changes.
+* When digital twin or component metadata changes. An example of this scenario is changing the model of a digital twin.
+
+### Properties
+
+Here are the fields in the body of a digital twin change notification.
+
+| Name    | Value |
+| --- | --- |
+| `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
+| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net* |
+| `data` | A JSON Patch document describing the update made to the twin. For details, see [Body details](#body-details) below. |
+| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
+| `type` | `Microsoft.DigitalTwins.Twin.Update` |
+| `datacontenttype` | `application/json` |
+| `subject` | ID of the digital twin |
+| `time` | Timestamp for when the operation occurred on the digital twin |
+| `traceparent` | A W3C trace context for the event |
+
+### Body details
+
+Inside the message, the `data` field contains a JSON Patch document containing the update to the digital twin.
+
+For example, say that a digital twin was updated using the following patch.
+
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
+
+The data in the corresponding notification (if synchronously executed by the service, such as Azure Digital Twins updating a digital twin) would have a body like:
 
 ```json
 {
-  "specversion": "1.0",
-  "id": "df5a5992-817b-4e8a-b12c-e0b18d4bf8fb",
-  "type": "microsoft.iot.telemetry",
-  "source": "contoso-adt.api.wus2.digitaltwins.azure.net/digitaltwins/room1",
-  "data": {
-    "Temperature": 10
-  },
-  "dataschema": "dtmi:example:com:floor4;2",
-  "datacontenttype": "application/json",
-  "traceparent": "00-7e3081c6d3edfb4eaf7d3244b2036baa-23d762f4d9f81741-01"
-}
+    "modelId": "dtmi:example:com:floor4;2",
+    "patch": [
+      {
+        "value": 40,
+        "path": "/Temperature",
+        "op": "replace"
+      },
+      {
+        "value": 30,
+        "path": "/comp1/prop1",
+        "op": "add"
+      }
+    ]
+  }
 ```
 
-Lifecycle notification message:
+This is the information that will go in the `data` field of the lifecycle notification message.
+
+## Digital twin lifecycle notifications
+
+All [digital twins](concepts-twins-graph.md) emit notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not. This is because of **lifecycle notifications**, which are about the digital twin itself.
+
+Lifecycle notifications are triggered when:
+* A digital twin is created
+* A digital twin is deleted
+
+### Properties
+
+Here are the fields in the body of a lifecycle notification.
+
+| Name | Value |
+| --- | --- |
+| `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event. |
+| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net* |
+| `data` | The data of the twin experiencing the lifecycle event. For details, see [Body details](#body-details-1) below. |
+| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
+| `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
+| `datacontenttype` | `application/json` |
+| `subject` | ID of the digital twin |
+| `time` | Timestamp for when the operation occurred on the twin |
+| `traceparent` | A W3C trace context for the event |
+
+### Body details
+
+Here is an example of a lifecycle notification message: 
 
 ```json
 {
@@ -90,87 +154,11 @@ Lifecycle notification message:
 }
 ```
 
-The following sections go into more detail about the different types of notifications emitted by IoT Hub and Azure Digital Twins (or other Azure IoT services). You will read about the things that trigger each notification type, and the set of fields included with each type of notification body.
+Inside the message, the `data` field contains the data of the affected digital twin, represented in JSON format. The schema for this is *Digital Twins Resource 7.1*.
 
-## Digital twin change notifications
+For creation events, the `data` payload reflects the state of the twin after the resource is created, so it should include all system generated-elements just like a `GET` call.
 
-**Digital twin change notifications** are triggered when a digital twin is being updated, like:
-* When property values or metadata changes.
-* When digital twin or component metadata changes. An example of this scenario is changing the model of a digital twin.
-
-### Properties
-
-Here are the fields in the body of a digital twin change notification.
-
-| Name    | Value |
-| --- | --- |
-| `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
-| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net*
-| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
-| `type` | `Microsoft.DigitalTwins.Twin.Update` |
-| `datacontenttype` | `application/json` |
-| `subject` | ID of the digital twin |
-| `time` | Timestamp for when the operation occurred on the digital twin |
-| `traceparent` | A W3C trace context for the event |
-
-### Body details
-
-The body for the `Twin.Update` notification is a JSON Patch document containing the update to the digital twin.
-
-For example, say that a digital twin was updated using the following patch.
-
-:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
-
-The corresponding notification (if synchronously executed by the service, such as Azure Digital Twins updating a digital twin) would have a body like:
-
-```json
-{
-    "modelId": "dtmi:example:com:floor4;2",
-    "patch": [
-      {
-        "value": 40,
-        "path": "/Temperature",
-        "op": "replace"
-      },
-      {
-        "value": 30,
-        "path": "/comp1/prop1",
-        "op": "add"
-      }
-    ]
-  }
-```
-
-## Digital twin lifecycle notifications
-
-All [digital twins](concepts-twins-graph.md) emit notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not. This is because of **lifecycle notifications**, which are about the digital twin itself.
-
-Lifecycle notifications are triggered when:
-* A digital twin is created
-* A digital twin is deleted
-
-### Properties
-
-Here are the fields in the body of a lifecycle notification.
-
-| Name | Value |
-| --- | --- |
-| `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event. |
-| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
-| `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
-| `datacontenttype` | `application/json` |
-| `subject` | ID of the digital twin |
-| `time` | Timestamp for when the operation occurred on the twin |
-| `traceparent` | A W3C trace context for the event |
-
-### Body details
-
-The body is the affected digital twin, represented in JSON format. The schema for this is *Digital Twins Resource 7.1*.
-
-For creation events, the payload reflects the state of the twin after the resource is created, so it should include all system generated-elements just like a `GET` call.
-
-Here is an example of a body for an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) device, with components and no top-level properties. Properties that do not make sense for devices (such as reported properties) should be omitted.
+Here is an example of a the data for an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) device, with components and no top-level properties. Properties that do not make sense for devices (such as reported properties) should be omitted. This is the information that will go in the `data` field of the lifecycle notification message.
 
 ```json
 {
@@ -203,7 +191,7 @@ Here is an example of a body for an [IoT Plug and Play (PnP)](../iot-pnp/overvie
 }
 ```
 
-Here is another example of a digital twin. This one is based on a [model](concepts-models.md), and does not support components:
+Here is another example of digital twin data. This one is based on a [model](concepts-models.md), and does not support components:
 
 ```json
 {
@@ -237,26 +225,25 @@ Here is another example of a digital twin. This one is based on a [model](concep
 
 ### Properties
 
-Here are the fields in the body of an edge change notification.
+Here are the fields in the body of a relationship change notification.
 
 | Name    | Value |
 | --- | --- |
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
 | `source` | Name of the Azure Digital Twins instance, like *mydigitaltwins.westus2.azuredigitaltwins.net* |
+| `data` | The payload of the relationship that was changed. For details, see [Body details](#body-details-2) below. |
 | `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
-| `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
-|`datacontenttype`| `application/json` |
+| `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete` |
+| `datacontenttype` | `application/json` |
 | `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipID>` |
 | `time` | Timestamp for when the operation occurred on the relationship |
 | `traceparent` | A W3C trace context for the event |
 
 ### Body details
 
-The body is the payload of a relationship, also in JSON format. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](/rest/api/digital-twins/dataplane/twins). 
+Inside the message, the `data` field contains the payload of a relationship, in JSON format. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](/rest/api/digital-twins/dataplane/twins). 
 
-"Updating a relationship" means properties of the relationship have changed. 
-
-Here is an example of an update relationship notification to update a property:
+Here is an example of the data for an update relationship notification. "Updating a relationship" means properties of the relationship have changed, so the data shows the updated property and its new value. This is the information that will go in the `data` field of the digital twin relationship notification message.
 
 ```json
 {
@@ -271,9 +258,7 @@ Here is an example of an update relationship notification to update a property:
   }
 ```
 
-For `Relationship.Delete`, the body is the same as the `GET` request, and it gets the latest state before deletion.
-
-Here is an example of a create or delete relationship notification:
+Here is an example of the data for a create or delete relationship notification. For `Relationship.Delete`, the body is the same as the `GET` request, and it gets the latest state before deletion.
 
 ```json
 {
@@ -285,10 +270,47 @@ Here is an example of a create or delete relationship notification:
 }
 ```
 
+## Digital twin telemetry messages
+
+**Telemetry messages** are received in Azure Digital Twins from connected devices that collect and send measurements.
+
+### Properties
+
+Here are the fields in the body of a telemetry message.
+
+| Name    | Value |
+| --- | --- |
+| `id` | Identifier of the notification, which is provided by the customer when calling the telemetry API. |
+| `source` | Fully qualified name of the twin that the telemetry event was sent to. Uses the following format: `<yourDigitalTwinInstance>.api.<yourRegion>.digitaltwins.azure.net/<twinId>`. |
+| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
+| `type` | `microsoft.iot.telemetry` |
+| `data` | The telemetry message that has been sent to twins. The payload is unmodified and may not align with the schema of the twin that has been sent the telemetry. |
+| `dataschema` | The data schema is the model ID of the twin or the component that emits the telemetry. For example, `dtmi:example:com:floor4;2`. |
+| `datacontenttype` | `application/json` |
+| `traceparent` | A W3C trace context for the event. |
+
+### Body details
+
+The body contains the telemetry measurement along with some contextual information about the device.
+
+Here is an example telemetry message body: 
+
+```json
+{
+  "specversion": "1.0",
+  "id": "df5a5992-817b-4e8a-b12c-e0b18d4bf8fb",
+  "type": "microsoft.iot.telemetry",
+  "source": "contoso-adt.api.wus2.digitaltwins.azure.net/digitaltwins/room1",
+  "data": {
+    "Temperature": 10
+  },
+  "dataschema": "dtmi:example:com:floor4;2",
+  "datacontenttype": "application/json",
+  "traceparent": "00-7e3081c6d3edfb4eaf7d3244b2036baa-23d762f4d9f81741-01"
+}
+```
+
 ## Next steps
 
-See how to create endpoints and routes to deliver events:
-* [*How-to: Manage endpoints and routes*](how-to-manage-routes-apis-cli.md)
-
-Or, learn more about the Azure Digital Twins APIs and SDK options:
-* [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md)
+Learn about delivering events to different destinations, using endpoints and routes:
+* [*Concepts: Event routes*](concepts-route-events.md)
