@@ -11,7 +11,7 @@
 
 # Custom data and Cloud-Init on Azure Virtual Machines
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 You may need to inject a script or other metadata into a Microsoft Azure virtual machine at provisioning time.  In other clouds, this concept is often referred to as user data.  In Microsoft Azure, we have a similar feature called custom data. 
 
