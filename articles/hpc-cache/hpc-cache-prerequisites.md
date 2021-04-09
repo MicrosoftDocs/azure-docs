@@ -193,6 +193,8 @@ This is a general overview of the steps. These steps might change, so always ref
 
      If you are not the storage account owner, have the owner do this step.
 
+Learn more about using ADLS-NFS storage targets with Azure HPC Cache in [Use NFS-mounted blob storage with Azure HPC Cache](nfs-blob-considerations.md).
+
 ## Set up Azure CLI access (optional)
 
 If you want to create or manage Azure HPC Cache from the Azure command-line interface (Azure CLI), you need to install the CLI software and the hpc-cache extension. Follow the instructions in [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md).
