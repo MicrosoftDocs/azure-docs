@@ -14,14 +14,14 @@
 ::: moniker range="iotedge-2018-06"
 
 **Applies to:** ![yes icon](./media/iot-edge-version/yes-icon.png) IoT Edge 1.1
-**Other versions:** [IoT Edge 1.2(?view=iotedge-2020-11&preserve-view=true)
+**Other versions:** [IoT Edge 1.2](?view=iotedge-2020-11&preserve-view=true)
 
 ::: moniker-end
 
 <!-- 1.2.0 -->
 ::: moniker range="iotedge-2020-11"
 
-**Applies to:** ![yes icon](./media/iot-edge-version/yes-icon.png) IoT Edge 1.2 (preview)
+**Applies to:** ![yes icon](./media/iot-edge-version/yes-icon.png) IoT Edge 1.2
 **Other versions:**  [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true)
 
 ::: moniker-end
