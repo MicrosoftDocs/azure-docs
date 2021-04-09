@@ -69,7 +69,7 @@ To get started with SSPR, complete the following tutorial:
 
 ## Require users to register when they sign in
 
-You can enable the option to require a user to complete the SSPR registration if they sign in to any applications using Azure AD. This workflow includes the following applications:
+You can enable the option to require a user to complete the SSPR registration if they use modern authentication or web browser to sign in to any applications using Azure AD. This workflow includes the following applications:
 
 * Microsoft 365
 * Azure portal
