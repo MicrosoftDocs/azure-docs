@@ -172,7 +172,7 @@ On the **Add package store** pane, complete the following steps.
    1. For **Package store linked service**, select your existing linked service that stores the access information for file system/Azure Files/Azure SQL Managed Instance where your packages are deployed or create a new one by selecting **New**. On the **New linked service** pane, complete the following steps. 
 
       > [!NOTE]
-      > You can use either **Azure File Storage** or **File System** linked services to access Azure Files. If you use **Azure File Storage** linked service, Azure-SSIS IR package store supports only **Basic** (not **Account key** nor **SAS URI**) authentication method for now. To use **Basic** authentication on **Azure File Storage** linked service, you can append `?feature.upgradeAzureFileStorage=false` to the ADF portal URL in your browser. Alternatively, you can use **File System** linked service to access Azure Files instead. 
+      > You can use either **Azure File Storage** or **File System** linked services to access Azure Files. If you use **Azure File Storage** linked service, Azure-SSIS IR package store supports only **Basic** (not **Account key** nor **SAS URI**) authentication method for now. 
 
       ![Deployment settings for linked services](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
 
@@ -183,8 +183,8 @@ On the **Add package store** pane, complete the following steps.
       1. For **Type**, select **Azure File Storage**, **Azure SQL Managed Instance**, or **File System**.
 
       1. You can ignore **Connect via integration runtime**, since we always use your Azure-SSIS IR to fetch the access information for package stores.
-
-      1. If you select **Azure File Storage**,  you can choose **Connection string** or **Azure Key Vault** where it's stored as a secret. If you choose **Connection string**, complete the following steps. 
+      
+      1. If you select **Azure File Storage**,  for **Authentication method**, select **Basic**, and then complete the following steps. 
 
          1. For **Account selection method**, select **From Azure subscription** or **Enter manually**.
          
@@ -197,7 +197,7 @@ On the **Add package store** pane, complete the following steps.
          1. Select **Connection string** or your **Azure Key Vault** where it's stored as a secret.
          
          1. If you select **Connection string**, complete the following steps. 
-             1. For **Account selection method**, if you choose **From Azure subscription**, select the relevant **Azure subscription**, **Server name**, and **Database name**. If you choose Enter manually, complete the following steps. 
+             1. For **Account selection method**, if you choose **From Azure subscription**, select the relevant **Azure subscription**, **Server name**, **Endpoint type** and **Database name**. If you choose **Enter manually**, complete the following steps. 
                 1.  For **Fully qualified domain name**, enter `<server name>.<dns prefix>.database.windows.net` or `<server name>.public.<dns prefix>.database.windows.net,3342` as the private or public endpoint of your Azure SQL Managed Instance, respectively. If you enter the private endpoint, **Test connection** isn't applicable, since ADF UI can't reach it.
 
                 1. For **Database name**, enter `msdb`.
