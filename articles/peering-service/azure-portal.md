@@ -46,7 +46,6 @@ From a browser, go to the Azure portal and sign in with your Azure account.
 1. To create a Peering Service connection, select **Create a resource** > **Peering Service**.
 
     ![Create Peering Service](./media/peering-service-portal/peering-servicecreate.png)
-    ## Comment: Change this image
 
 1. Enter the following details on the **Basics** tab on the **Create a peering service connection** page.
 
@@ -54,8 +53,6 @@ From a browser, go to the Azure portal and sign in with your Azure account.
 1. Select the subscription and the resource group associated with the subscription.
 
    ![Create Peering basic tab](./media/peering-service-portal/peering-servicebasics.png)
-
-    ## Comment: Change this image
 
 1. Enter a **Name** to which the Peering Service instance should be registered.
  
