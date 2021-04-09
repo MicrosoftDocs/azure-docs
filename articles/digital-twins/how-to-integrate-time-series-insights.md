@@ -161,18 +161,21 @@ Also, take note of the following values to use them later to create a Time Serie
 
 ## Create a function
 
-> [!TIP]
-> It is optional to create a function to visualize twin data in the Time Series Insights explorer.
-
 In this section, you'll create an Azure function that will convert twin update events from their original form as JSON Patch documents to JSON objects, containing only updated and added values from your twins.
 
-### Step 1: Add a new function
+### Step 1: Create function app
 
-Inside your function app project created in the [prerequisites](#prerequisites) section, create a new Azure function called *ProcessDTUpdatetoTSI.cs* to update device telemetry events to the Time Series Insights. The function type will be **Event Hub trigger**.
+First, create a new function app project in Visual Studio. For instructions on how to do this, see the [**Create a function app in Visual Studio**](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) section of the *How-to: Set up a function for processing data* article.
+
+Save the function app name to use later to configure app setting for the two event hubs.
+
+### Step 2: Add a new function
+
+Create a new Azure function called *ProcessDTUpdatetoTSI.cs* to update device telemetry events to the Time Series Insights. The function type will be **Event Hub trigger**.
 
 :::image type="content" source="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png" alt-text="Screenshot of Visual Studio to create a new Azure function of type event hub trigger.":::
 
-### Step 2: Fill in function code
+### Step 3: Fill in function code
 
 Add the following packages to your project:
 * [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)
@@ -185,30 +188,35 @@ Replace the code in the *ProcessDTUpdatetoTSI.cs* file with the following code:
 
 Save your function code.
 
-### Step 3: Publish the function app to Azure
+### Step 4: Publish the function app to Azure
 
-Next, **publish** the new Azure function.
-[!INCLUDE [digital-twins-publish-and-configure-function-app.md](../../includes/digital-twins-publish-and-configure-function-app.md)]
+Publish the project with *ProcessDTUpdatetoTSI.cs* function to a function app in Azure.
 
-### Configure twins hub app setting
+For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
 
- Use the twins hub **primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains your connection string:
+### Step 5: Security access for the function app
+
+Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance. For instructions on how to do this, see the section [**Set up security access for the function app**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) of the *How-to: Set up a function for processing data* article.
+
+### Step 6: Configure app setting for the two event hubs
+
+Next, you'll configure app settings for twins hub and time series hub.
+
+Use the twins hub **primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains your connection string:
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<primaryConnectionString-value-from-above>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-twins-hub-primaryConnectionString-value-from-earlier>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-### Configure time series hub app setting
-
- Use the time series hub **primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains your connection string:
+Use the time series hub **primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains your connection string:
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<primaryConnectionString-from above>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-time-series-hub- primaryConnectionString-value-from-earlier>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
 ## Create and connect a Time Series Insights instance
 
-You will set up Time Series Insights instance to receive data from your time series hub. For more details about this process, see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorial-set-up-environment.md). Follow the steps below to create a time series insights.
+In this section, you'll set up Time Series Insights instance to receive data from your time series hub. For more details about this process, see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorial-set-up-environment.md). Follow the steps below to create a time series insights environment.
 
 1. In the [Azure portal](https://portal.azure.com), search for *Time Series Insights environments*, and select the **Add** button. Choose the following options to create the time series environment.
 
@@ -253,7 +261,7 @@ To begin sending data to Time Series Insights, you'll need to start updating the
 Use the following CLI command to update the twin property. If you followed [*How-to: Ingest IoT Hub data*](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) article to create a model and twin, the `twin_id` value will be *thermostat67*. 
 
 ```azurecli-interactive
-    az dt twin update -n <your-azure-digital-twins-instance-name> --twin-id {twin_id} --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
+az dt twin update -n <your-azure-digital-twins-instance-name> --twin-id {twin_id} --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
 ```
 
 **Repeat the command at least 4 more times with different temperature values**, to create several data points that can be observed later in the Time Series Insights environment.
