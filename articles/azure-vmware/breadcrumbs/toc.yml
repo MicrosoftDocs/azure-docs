@@ -5,6 +5,7 @@
   - name: Azure VMware Solution
     tocHref: /azure/
     topicHref: /azure/azure-vmware/index
-     - name: How-to guides
-       tocHref: /azure/site-recovery/
-       topicHref: /azure/azure-vmware/
+    items:
+    - name: How-to guides
+      tocHref: /azure/site-recovery/
+      topicHref: /azure/azure-vmware/
