@@ -392,6 +392,7 @@ To configure a phrase list, you need to add your own phrases when you make the c
 
 If you have multiple phrases to add, call `.addPhrase()` for each phrase to add it to the phrase list. 
 
+
 # [Custom Speech-to-text](#tab/cstt)
 
 The *Custom Speech-to-text* container relies on a custom speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) using the [custom speech portal](https://speech.microsoft.com/customspeech).
