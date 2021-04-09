@@ -338,19 +338,21 @@ To get **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Registe
       3. Then you should create a contained user in database. First, start SQL Server Management Studio, in the **Connect to Server** dialog, Enter your **server name** in the Server name field. Then in the Authentication field, select **Active Directory - Universal with MFA support**. In the User name field, enter the name of the Azure AD account that you set as the server administrator, then click **Options**. In the Connect to database field, enter the name of the non-system database you want to configure. Then click **Connect**, and finally complete the sign-in process.
       4. The last step is to enable MI in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
     
-       ```
-       CREATE USER [MI Name] FROM EXTERNAL PROVIDER
-       ALTER ROLE db_datareader ADD MEMBER [MI Name]
-       ```
-       *Note: The [MI Name] is the workspace name in Metrics Advisor.
-    
-    Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
+          ```
+          CREATE USER [MI Name] FROM EXTERNAL PROVIDER
 
-    Here is an example of connection string: 
-        
-        ```
-        Data Source=<Server>,<Port>;Initial Catalog=<Database>
-        ```
+          ALTER ROLE db_datareader ADD MEMBER [MI Name]
+          ```
+       
+       * Note: The [MI Name] is the workspace name in Metrics Advisor.
+    
+       Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
+
+       Here is an example of connection string: 
+
+       ```
+       Data Source=<Server>,<Port>;Initial Catalog=<Database>
+       ```
     
     * **Azure SQL Connection String**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     You can go through [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principalsto.md) to know about Service Principal and create one. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
