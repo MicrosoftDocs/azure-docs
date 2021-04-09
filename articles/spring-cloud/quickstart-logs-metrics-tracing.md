@@ -166,6 +166,8 @@ To get the logs using Azure Toolkit for IntelliJ:
 
    [ ![Logs Analytics query](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 
+1. To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
+
 ## Metrics
 
 1. Go to the **service | Overview** page and select **Metrics** in the **Monitoring** section. Add your first metric by selecting `system.cpu.usage` for **Metric** and `Avg` for **Aggregation** to see the timeline for overall CPU usage.
