@@ -3,8 +3,6 @@ title: Track objects in a live video with Azure Video Analyzer
 description: This quickstart shows you how to use Azure Video Analyzer on IoT Edge to track objects in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames.
 ms.topic: quickstart
 ms.date: 04/01/2021
-zone_pivot_groups: video-analyzer-programming-languages
-
 ---
 
 # Quickstart: Track objects in a live video
@@ -81,7 +79,7 @@ The deployment.grpcyolov3icpu.template.json refers to the deployment manifest fo
 1. Right-click the src/edge/deployment.grpcyolov3icpu.template.json file and then select Generate IoT Edge Deployment Manifest.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
+    > :::image type="content" source="./media/common-includes/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
 
     The `deployment.grpcyolov3icpu.amd64.json` manifest file is created in the `src/edge/config` folder.
 1. If you completed the Detect motion and emit events quickstart, then skip this step.
@@ -89,7 +87,7 @@ The deployment.grpcyolov3icpu.template.json refers to the deployment manifest fo
     Otherwise, near the AZURE IOT HUB pane in the lower-left corner, select the More actions icon and then select Set IoT Hub Connection String. You can copy the string from the appsettings.json file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the Select IoT hub command.
      
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/set-connection-string.png" alt-text="Set IoT Hub Connection String":::
+    > :::image type="content" source="./media/common-includes/set-connection-string.png" alt-text="Set IoT Hub Connection String":::
 
     > [!NOTE]  
     > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for Built-in endpoints option in the left navigation pane. Click there and look for the Event Hub-compatible endpoint under Event Hub compatible endpoint section. Copy and use the text in the box. The endpoint will look something like this:
@@ -98,7 +96,7 @@ The deployment.grpcyolov3icpu.template.json refers to the deployment manifest fo
 1. Right-click `src/edge/config/deployment.grpcyolov3icpu.amd64.json` and select **Create Deployment for Single Device**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Create Deployment for Single Device":::
+    > :::image type="content" source="./media/common-includes/deployment-single-device.png" alt-text= "Create Deployment for Single Device":::
 1. When you're prompted to select an IoT Hub device, select ava-sample-device.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
 
@@ -117,7 +115,7 @@ The deployment.grpcyolov3icpu.template.json refers to the deployment manifest fo
     * The avaExtension module, which is the YOLOv3 object detection model that uses gRPC as the communication method and applies computer vision to the images and returns multiple classes of object types.
   
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/analyze-live-video-use-your-model-http/object-detection-model.png" alt-text= "YoloV3 object detection model":::
+        > :::image type="content" source="./media/common-includes/object-detection-model.png" alt-text= "YoloV3 object detection model":::
 
 <!-- TODO: Need a new image with avaEdge, avaExtension-->
 
@@ -127,15 +125,15 @@ The deployment.grpcyolov3icpu.template.json refers to the deployment manifest fo
 1. Right-click and select Extension Settings.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/extension-settings.png" alt-text= "VS Extension Settings":::
+    > :::image type="content" source="./media/common-includes/extension-settings.png" alt-text= "VS Extension Settings":::
 1. Search and enable “Show Verbose Message”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/verbose-message.png" alt-text= "Show Verbose Message"::: 
+    > :::image type="content" source="./media/common-includes/verbose-message.png" alt-text= "Show Verbose Message"::: 
 1. Right-click the Live Video Analytics device and select Start Monitoring Built-in Event Endpoint. You need this step to monitor the IoT Hub events in the OUTPUT window of Visual Studio Code.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/monitor-event-endpoint.png" alt-text= "Start Monitoring Built-in Event Endpoint":::
+    > :::image type="content" source="./media/common-includes/monitor-event-endpoint.png" alt-text= "Start Monitoring Built-in Event Endpoint":::
  
     > [!NOTE]  
     > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for Built-in endpoints option in the left navigation pane. Click there and look for the Event Hub-compatible endpoint under Event Hub compatible endpoint section. Copy and use the text in the box. The endpoint will look something like this:
