@@ -326,11 +326,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/load-balancer/whats-new.md",
-      "redirect_url": "https://azure.microsoft.com/updates/?category=networking&query=load%20balancer",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/frontdoor/front-door-whats-new.md",
       "redirect_url": "https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door",
       "redirect_document_id": false
