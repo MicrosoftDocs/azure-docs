@@ -168,7 +168,6 @@ To deploy the template, follow these steps:
       1. Enter the name of the new load balancer rule (for example, **hana-lb**).
       1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
       1. Select **HA Ports**.
-      1. Increase the **idle timeout** to 30 minutes.
       1. Make sure to **enable Floating IP**.
       1. Select **OK**.
 
@@ -501,23 +500,26 @@ This is important step to optimize the integration in the cluster and improve th
 
 1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
 
-> [!TIP]
-> Verify that package SAPHanaSR is at least version 0.153 to be able to use the SAPHanaSR Python hook functionality.   
-> The python hook can only be implemented for HANA 2.0.        
+   > [!TIP]
+   > Verify that package SAPHanaSR is at least version 0.153 to be able to use the SAPHanaSR Python hook functionality.     
+   > The python hook can only be implemented for HANA 2.0.        
 
-   1. Prepare the hook as `root` 
+   1. Prepare the hook as `root`.  
+
     ```bash
      mkdir -p /hana/shared/myHooks
      cp /usr/share/SAPHanaSR/SAPHanaSR.py /hana/shared/myHooks
      chown -R hn1adm:sapsys /hana/shared/myHooks
     ```
 
-   2. Stop HANA on both nodes. Execute as <sid\>adm:
+   2. Stop HANA on both nodes. Execute as <sid\>adm:  
+   
     ```bash
     sapcontrol -nr 03 -function StopSystem
     ```
 
-   3. Adjust `global.ini`
+   3. Adjust `global.ini`.  
+ 
     ```bash
     # add to global.ini
     [ha_dr_provider_SAPHanaSR]
@@ -546,16 +548,14 @@ This is important step to optimize the integration in the cluster and improve th
 4. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
 
     ```bash
-    cdtrace
+     cdtrace
      awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
      { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
 
-     # 2021-03-31 01:02:42.695244 ha_dr_SAPHanaSR SFAIL
-     # 2021-03-31 01:02:58.966856 ha_dr_SAPHanaSR SFAIL
-     # 2021-03-31 01:03:04.453100 ha_dr_SAPHanaSR SFAIL
-     # 2021-03-31 01:03:04.619768 ha_dr_SAPHanaSR SFAIL
-     # 2021-03-31 01:03:04.743444 ha_dr_SAPHanaSR SFAIL
-     # 2021-03-31 01:04:15.062181 ha_dr_SAPHanaSR SOK
     ```
 
 ## Create SAP HANA cluster resources
