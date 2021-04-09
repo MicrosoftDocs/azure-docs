@@ -206,7 +206,6 @@ Image labels can be exported in [COCO format](http://cocodataset.org/#format-dat
 
 ## Next steps
 
-In this tutorial, you labeled images.  Now use your labeled data:
-
 > [!div class="nextstepaction"]
-> [Train a machine learning image recognition model](https://github.com/v-rajagt/azure-docs-pr/blob/master/articles/machine-learning/tutorial-labeling.md).
+> [Train a machine learning image recognition model](/azure/machine-learning/how-to-use-labeled-dataset).
+
