@@ -73,13 +73,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<Gateway IP>/saml-vpn/spPortal/ACS/ID/<Identifier UID>`
+    `https://<GATEWAY_IP>/connect/spPortal/ACS/ID/<IDENTIFIER_UID>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<Gateway IP>/saml-vpn/spPortal/ACS/Login/<Identifier UID>`
+    `https://<GATEWAY_IP>/connect/spPortal/ACS/Login/<IDENTIFIER_UID>`
 
     c. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<GatewayIP>/connect`
+    `https://<GATEWAY_IP>/connect`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Check Point Identity Awareness Client support team](mailto:support@checkpoint.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
