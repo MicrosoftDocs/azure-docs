@@ -263,7 +263,6 @@ sections:
       - question: |
          WebSocket
         answer: |
-        
       - question: |
          Does WebSocket support work for applications other than QlikSense and Remote Desktop Web Client (HTML5)?
         answer: |
