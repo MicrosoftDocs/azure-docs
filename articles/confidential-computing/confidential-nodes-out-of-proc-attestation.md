@@ -50,25 +50,25 @@ The following list describes some of the main benefits of this attestation mode:
 
 ## Confidential workloads
 
-The high-level design follows the model where the quote requestor and quote generation are executed separately, but on the same physical machine. The quote generation will be done in a centralized manner and serves requests for QUOTES from all entities. The interface needs to be properly defined and discoverable for any entity to request quotes.
+The quote requestor and quote generation run separately, but on the same physical machine. Quote generation is centralized, and serves requests for quotes from all entities. For any entity to request quotes, the interface needs to be properly defined and discoverable.
 
-![sgx quote helper aesm](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
+![Diagram showing the relationships among the quote requestor, quote generation, and interface.](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
 
-The above abstract model applies to confidential workload scenario, by taking advantage of already available AESM service. AESM is containerized and deployed as a daemonSet across the Kubernetes cluster. Kubernetes guarantees a single instance of an AESM service container, wrapped in a Pod, to be deployed on each agent node. The new SGX Quote daemonset will have a dependency on the sgx-device-plugin daemonset, since the AESM service container would request EPC memory from sgx-device-plugin for launching QE and PCE enclaves.
+This abstract model applies to the confidential workload scenario, by taking advantage of the AESM service that's already available. AESM is containerized and deployed as a DaemonSet across the Kubernetes cluster. Kubernetes guarantees a single instance of an AESM service container, wrapped in a pod, to be deployed on each agent node. The new Intel SGX quote DaemonSet will have a dependency on the sgx-device-plugin DaemonSet, because the AESM service container requests EPC memory from the sgx-device-plugin for launching QE and PCE enclaves.
 
-Each container needs to opt in to use out-of-proc quote generation by setting the environment variable **SGX_AESM_ADDR=1** during creation. The container should also include the package libsgx-quote-ex that is responsible to direct the request to default Unix domain socket
+Each container needs to opt in to use out-of-process quote generation by setting the environment variable `SGX_AESM_ADDR=1` during creation. The container should also include the package, libsgx-quote-ex, that's responsible to direct the request to the default Unix domain socket.
 
-An application can still use the in-proc attestation as before, but both in-proc and out-of-proc can’t be used simultaneously within an application. The out-of-proc infrastructure is available by default and consumes resources.
+An application can still use the in-process attestation as before, but in-process and out-of-process can’t be used simultaneously within an application. The out-of-process infrastructure is available by default, and consumes resources.
 
-## Sample Implementation
+## Sample implementation
 
-The below docker file is a sample for an Open Enclave-based application. Set the SGX_AESM_ADDR=1 environment variable in the docker file or by set it on the deployment file. Follow the below sample for docker file and deployment yaml details. 
+The following Docker file is a sample for an application based on Open Enclave. Set the `SGX_AESM_ADDR=1` environment variable in the Docker file, or by setting it on the deployment file. The following sample provides details for the Docker file and deployment. 
 
   > [!Note] 
-  > The **libsgx-quote-ex** from Intel needs to be packaged in the application container for out-of-proc attestation to work properly.
+  > For the out-of-process attestation to work properly, the libsgx-quote-ex from Intel needs to be packaged in the application container.
     
 ```yaml
-# Refer to Intel_SGX_Installation_Guide_Linux for detail
+# Refer to Intel_SGX_Installation_Guide_Linux for details
 FROM ubuntu:18.04 as sgx_base
 RUN apt-get update && apt-get install -y \
     wget \
@@ -95,12 +95,12 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /opt/openenclave/share/openenclave/samples/remote_attestation
 RUN . /opt/openenclave/share/openenclave/openenclaverc \
     && make build
-# this sets the flag for out of proc attestation mode. alternatively you can set this flag on the deployment files
+# This sets the flag for out-of-process attestation mode. Alternatively you can set this flag on the deployment files.
 ENV SGX_AESM_ADDR=1 
 
 CMD make run
 ```
-Alternatively, the out-of-proc attestation mode can be set in the deployment yaml file as shown below
+Alternatively, you can set the out-of-process attestation mode in the deployment .yaml file. Here's how:
 
 ```yaml
 apiVersion: batch/v1
@@ -129,16 +129,10 @@ spec:
           path: /var/run/aesmd
 ```
 
-## Next Steps
-[Provision Confidential Nodes (DCsv2-Series) on AKS](./confidential-nodes-aks-get-started.md)
+## Next steps
+
+[Quickstart: Deploy an AKS cluster with confidential computing nodes by using the Azure CLI](./confidential-nodes-aks-get-started.md)
 
 [Quick starter samples confidential containers](https://github.com/Azure-Samples/confidential-container-samples)
 
-[DCsv2 SKU List](../virtual-machines/dcv2-series.md)
-
-<!-- LINKS - external -->
-[Azure Attestation]: ../attestation/index.yml
-
-
-<!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
+[DCsv2 SKUs](../virtual-machines/dcv2-series.md)
