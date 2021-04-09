@@ -4,14 +4,14 @@ description: Provides an overview of the BareMetal Infrastructure on Azure.
 ms.custom: references_regions
 ms.topic: conceptual
 ms.subservice: workloads
-ms.date: 04/06/2021
+ms.date: 04/08/2021
 ---
 
 #  What is BareMetal Infrastructure on Azure?
 
 Microsoft Azure offers a cloud infrastructure with a wide range of integrated cloud services to meet your business needs. In some cases, though, you may need to run services on bare metal servers without a virtualization layer. You may need root access, and control over the operating system (OS). To meet such a need, Azure offers BareMetal Infrastructure for several high-value and mission-critical applications.
 
-BareMetal Infrastructure is made up of dedicated BareMetal instances (compute instances), high-performance and application-appropriate storage (NFS, dNFS, ISCSI, and Fiber Channel), as well as a set of function-specific virtual LANs (VLANs) in an isolated environment. Storage can be shared across BareMetal instances to enable features like scale-out clusters or for creating high availability pairs with STONITH.
+BareMetal Infrastructure is made up of dedicated BareMetal instances (compute instances), high-performance and application-appropriate storage (NFS, ISCSI, and Fiber Channel), as well as a set of function-specific virtual LANs (VLANs) in an isolated environment. Storage can be shared across BareMetal instances to enable features like scale-out clusters or for creating high availability pairs with STONITH.
  
 This environment also has special VLANs you can access if you're running virtual machines (VMs) on one or more Azure Virtual Networks (VNets) in your Azure subscription. The entire environment is represented as a resource group in your Azure subscription.
 
@@ -35,7 +35,7 @@ BareMetal Infrastructure offers these benefits:
     - Up to 1 PB/tenant 
     - IOPS up to 1.2 million/tenant 
     - 40/100-GB network bandwidth
-    - Accessible via NFS, dNFS, ISCSI, and FC
+    - Accessible via NFS, ISCSI, and FC
 - Redundant power, power supplies, NICs, TORs, ports, WANs, storage, and management
 - Hot spares for replacement on a failure (without the need for reconfiguring)
 - Customer coordinated maintenance windows

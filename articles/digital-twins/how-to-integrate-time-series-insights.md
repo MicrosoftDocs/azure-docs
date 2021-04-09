@@ -47,7 +47,11 @@ You will be attaching Time Series Insights to Azure Digital Twins through the pa
 
 ## Create event hub namespace
 
+<<<<<<< HEAD
 Before creating the event hubs, you'll first create an event hub namespace that will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](../event-hubs/event-hubs-create.md). To see what regions support event hubs, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
+=======
+Azure Digital Twins instances can emit [twin change events](concepts-event-notifications.md#digital-twin-change-notifications) whenever a twin's state is updated. In this section, you will be creating an Azure Digital Twins [**event route**](concepts-route-events.md) that will direct these update events to Azure [Event Hubs](../event-hubs/event-hubs-about.md) for further processing.
+>>>>>>> 076a7122eaca6fdd8926e2fce4166cc24133e965
 
 ```azurecli-interactive
 az eventhubs namespace create --name <name-your-event-hubs-namespace> --resource-group <your-resource-group> -l <region>
