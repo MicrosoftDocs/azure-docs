@@ -70,12 +70,29 @@ For an example, see [Create a policy for web sign-in](configure-token-lifetimes.
 > [!NOTE]
 > To ensure the Microsoft Teams Web client works, it is recommended to keep AccessTokenLifetime to greater than 15 minutes for Microsoft Teams.
 
-## Configurable token lifetime properties after the retirement
+## Token lifetime policies for refresh tokens and session tokens
+
+You can not set token lifetime policies for refresh tokens and session tokens.
+
+> [!IMPORTANT]
+> As of January 30, 2021 you can not configure refresh and session token lifetimes. Azure Active Directory no longer honors refresh and session token configuration in existing policies.  New tokens issued after existing tokens have expired are now set to the [default configuration](#configurable-token-lifetime-properties-after-the-retirement). You can still configure access, SAML, and ID token lifetimes after the refresh and session token configuration retirement.
+>
+> Existing token’s lifetime will not be changed. After they expire, a new token will be issued based on the default value.
+>
+> If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, read [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
+
+## Configurable token lifetime properties
+Access, ID, and SAML2 token configuration are affected by the following properties and their respectively set values.
+
+|Property   |Policy property string    |Affects |Default |
+|----------|-----------|------------|------------|
+|Access Token Lifetime |AccessTokenLifetime |Access tokens |Varies, depending on the client application requesting the token. For example, continuous access evaluation (CAE) capable clients that negotiate CAE-aware sessions will see a long lived token lifetime (up to 28 hours).  |
+|Access Token Lifetime |AccessTokenLifetime |ID tokens, SAML2 tokens |1 hour |
+
 Refresh and session token configuration are affected by the following properties and their respectively set values. After the retirement of refresh and session token configuration on January 30, 2021, Azure AD will only honor the default values described below. If you decide not to use Conditional Access to manage sign-in frequency, your refresh and session tokens will be set to the default configuration on that date and you’ll no longer be able to change their lifetimes.  
 
 |Property   |Policy property string    |Affects |Default |
 |----------|-----------|------------|------------|
-|Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |
 |Refresh Token Max Inactive Time |MaxInactiveTime  |Refresh tokens |90 days  |
 |Single-Factor Refresh Token Max Age  |MaxAgeSingleFactor  |Refresh tokens (for any users)  |Until-revoked  |
 |Multi-Factor Refresh Token Max Age  |MaxAgeMultiFactor  |Refresh tokens (for any users) |Until-revoked  |
