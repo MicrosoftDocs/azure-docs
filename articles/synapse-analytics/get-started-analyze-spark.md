@@ -35,13 +35,9 @@ A serverless Spark pool is a way of indicating how a user wants to work with Spa
 2. Create a new Notebook with the default language set to **PySpark (Python)**.
 3. Create a new code cell and paste the following code into that cell.
     ```py
-    %%pyspark
-    from azureml.opendatasets import NycTlcYellow
-
-    data = NycTlcYellow()
-    df = data.to_spark_dataframe()
-    # Display 10 rows
-    display(df.limit(10))
+%%pyspark
+df = spark.read.load('abfss://users@workspacename.dfs.core.windows.net/NYCTripSmall.parquet', format='parquet')
+display(df.limit(10))
     ```
 1. In the notebook, in the **Attach to** menu, choose the **Spark1** serverless Spark pool that we created earlier.
 1. Select **Run** on the cell. Synapse will start a new Spark session to run this cell if needed. If a new Spark session is needed, initially it will take about two seconds to be created. 
