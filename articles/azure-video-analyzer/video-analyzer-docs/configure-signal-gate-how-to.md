@@ -8,13 +8,13 @@ ms.date: 11/3/2020
 
 # Configure a signal gate for event-based video recording
 
-Within a pipeline, a [signal gate processor node](media-graph-concept.md#signal-gate-processor) allows you to forward media from one node to another when the gate is triggered by an event. When it's triggered, the gate opens and lets media flow through for a specified duration. In the absence of events to trigger the gate, the gate closes, and media stops flowing. You can use the signal gate processor for event-based video recording.
+Within a pipeline, a [signal gate processor node]()<!--media-graph-concept.md#signal-gate-processor --> allows you to forward media from one node to another when the gate is triggered by an event. When it's triggered, the gate opens and lets media flow through for a specified duration. In the absence of events to trigger the gate, the gate closes, and media stops flowing. You can use the signal gate processor for event-based video recording.
 
 In this article, you'll learn how to configure a signal gate processor.
 
 ## Suggested prereading
 -	[Pipeline topology]()<!--concept-pipeline -->
--	[Event-based video recording](event-based-video-recording-concept.md)
+-	[Event-based video recording]()<!--event-based-video-recording-concept.md -->
 
 
 ## Problem
@@ -93,7 +93,7 @@ Here's an example of how the **Signal Gate Processor** node section would look i
 "processors":              
 [
 	      {
-	        "@type": "#Microsoft.Media.MediaGraphSignalGateProcessor",
+	        "@type": "#Microsoft.VideoAnalyzer.SignalGateProcessor",
 	        "name": "signalGateProcessor",
 	        "inputs": [
 	          {
@@ -153,7 +153,7 @@ Example diagram:
 
 ## Next steps
 
-Try out the [Event-based video recording tutorial](event-based-video-recording-tutorial.md). Start by editing the [topology.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json). Modify the parameters for the signalgateProcessor node, and then follow the rest of the tutorial. Review the video recordings to analyze the effect of the parameters.
+Try out the [Event-based video recording tutorial]()<!--event-based-video-recording-tutorial.md -->. Start by editing the [topology.json]()<!--https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json -->. Modify the parameters for the signalgateProcessor node, and then follow the rest of the tutorial. Review the video recordings to analyze the effect of the parameters.
 
 
 
