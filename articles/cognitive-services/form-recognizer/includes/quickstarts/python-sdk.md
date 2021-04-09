@@ -7,10 +7,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 03/19/2021
+ms.date: 04/09/2021
 ms.author: lajanuar
 ---
-<!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
@@ -105,7 +104,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 * [Analyze receipts](#analyze-receipts)
 * [Analyze business cards](#analyze-business-cards)
 * [Analyze invoices](#analyze-invoices)
-* [Analyze identification](#analyze-identification-cards)
+* [Analyze identity documents](#analyze-identity-documents)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Train a custom model](#train-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
@@ -240,11 +239,13 @@ This section demonstrates how to analyze and extract common fields from sales in
 
 ---
 
-## Analyze identification
+## Analyze identity documents
 
 #### [v2.1 preview](#tab/preview)
 
-This section demonstrates how to analyze and extract key information from government issued identity documents—Worldwide Passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about invoice analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md). To analyze identity documents from a URL use the `begin_recognize_id_documents_from_url` method.
+This section demonstrates how to analyze and extract key information from government issued identity documents—Worldwide Passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about invoice analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md). 
+
+To analyze identity documents from a URL use the `begin_recognize_id_documents_from_url` method.
 
 :::code language="python" source="~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py" id="snippet_id":::
 

@@ -26,7 +26,7 @@ Use Form Recognizer to:
 * [Analyze receipts](#analyze-receipts)
 * [Analyze business cards](#analyze-business-cards)
 * [Analyze invoices](#analyze-invoices)
-* [Analyze identification](#analyze-identification-cards)
+* [Analyze identity documents](#analyze-identity-documents)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
