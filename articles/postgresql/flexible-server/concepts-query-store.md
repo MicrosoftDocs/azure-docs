@@ -45,12 +45,15 @@ The following options are available for configuring Query Store parameters.
 | pg_qs.max_query_text_length | Sets the maximum query length that can be saved. Longer queries will be truncated. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | Sets the retention period. | 7 | 1 - 30 |
 | pg_qs.track_utility | Sets whether utility commands are tracked | on | on, off |
+
 Use the [Azure portal](howto-configure-server-parameters-using-portal.md) to get or set a different value for a parameter.
+
 ## Views and functions
 View and manage Query Store using the following views and functions. Anyone in the PostgreSQL public role can use these views to see the data in Query Store. These views are only available in the **azure_sys** database.
 Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they will have the same queryId.
 ### query_store.qs_view
 This view returns all the data in Query Store. There is one row for each distinct database ID, user ID, and query ID. 
+
 |**Name**	|**Type** |	**References**	| **Description**|
 |---|---|---|---|
 |runtime_stats_entry_id	|bigint	| |	ID from the runtime_stats_entries table|
