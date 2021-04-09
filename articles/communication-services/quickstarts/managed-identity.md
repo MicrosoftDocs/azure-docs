@@ -20,9 +20,9 @@ This quickstart shows you how to authorize access to the Identity and SMS SDKs f
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-- An active Azure Communication Services resource, see [create a Communication Services resource](../create-communication-resource.md) if you do not have one.
+- An active Azure Communication Services resource, see [create a Communication Services resource](./create-communication-resource.md) if you do not have one.
 - To send an SMS you will need a [Phone Number](./telephony-sms/get-phone-number.md).
-- A setup managed identity for a development environment, see [Authorize access with managed identity](../managed-identity-from-cli.md)
+- A setup managed identity for a development environment, see [Authorize access with managed identity](./managed-identity-from-cli.md)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/managed-identity/managed-identity-net.md)]

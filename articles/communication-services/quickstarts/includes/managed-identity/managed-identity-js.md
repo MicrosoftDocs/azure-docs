@@ -5,7 +5,7 @@
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
 ```console
-mkdir managed-identity-quickstart && cd managed-identity--quickstart
+mkdir managed-identity-quickstart && cd managed-identity-quickstart
 ```
 
 Run `npm init -y` to create a **package.json** file with default settings.
@@ -44,7 +44,7 @@ We'll be using the [DefaultAzureCredential](/javascript/api/@azure/identity/defa
     const credential = new DefaultAzureCredential();
 ```
 
-## Create an identity and issue a token with Managed Identity
+## Create an identity and issue a token with managed identities
 
 Next, we'll write a function which creates a new identity and issues a token for this identity, we'll use this later to test our managed identity setup.
 
@@ -81,7 +81,7 @@ With our functions created we can now write a main function to call them and dem
 async function main() {
     // You can find your endpoint and access key from your resource in the Azure portal
     // e.g. "https://<RESOURCE_NAME>.communication.azure.com";
-    endpoint = "https://<RESOURCE_NAME>.communication.azure.com/"
+    const endpoint = "https://<RESOURCE_NAME>.communication.azure.com/"
 
     
     console.log("Retrieving new Access Token, using Managed Identities");
@@ -128,7 +128,7 @@ async function sendSms(resourceEndpoint, fromNumber, toNumber, message) {
 async function main() {
     // You can find your endpoint and access key from your resource in the Azure portal
     // e.g. "https://<RESOURCE_NAME>.communication.azure.com";
-    endpoint = "https://<RESOURCE_NAME>.communication.azure.com/"
+    const endpoint = "https://<RESOURCE_NAME>.communication.azure.com/"
 
     
     console.log("Retrieving new Access Token, using Managed Identities");

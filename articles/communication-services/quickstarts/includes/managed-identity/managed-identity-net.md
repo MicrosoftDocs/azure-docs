@@ -43,7 +43,7 @@ We'll be using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultaz
      private DefaultAzureCredential credential = new DefaultAzureCredential();
 ```
 
-## Issue a token with Managed Identity
+## Issue a token with managed identities
 
 Now we'll add code which uses the created credential, to issue a VoIP Access Token. We'll call this code later on.
 
@@ -60,9 +60,9 @@ Now we'll add code which uses the created credential, to issue a VoIP Access Tok
      }
 ```
 
-## Send an SMS with Managed Identity
+## Send an SMS with managed identities
 
-As another example of using Managed identities, we'll add this code which uses the same credential to send an SMS.
+As another example of using managed identities, we'll add this code which uses the same credential to send an SMS;
 
 ```csharp
      public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, string message)
