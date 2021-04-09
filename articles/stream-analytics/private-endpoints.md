@@ -35,7 +35,7 @@ In this section, you learn how to create a private endpoint in a Stream Analytic
    |Resource|Select the resource you want to connect to using private endpoint.|
    |Target subresource|The type of subresource for the resource selected above that your private endpoint will be able to access.|
 
-   ![The private endpoint create experience](./media/private-endpoints/create-private-endpoint.png)
+   ![The private endpoint create experience](./media/private-endpoints/asa-managed-pe.png)
 
 1. Approve the connection from the target resource. For example, if you created a private endpoint to an Azure SQL Database instance in the previous step, you should go to this SQL Database instance and see a pending connection that should be approved. It might take a few minutes for connection request to show up.
 
@@ -51,7 +51,7 @@ In this section, you learn how to create a private endpoint in a Stream Analytic
 
 1. Choose the private endpoint you want to delete and select **Delete**.
 
-   ![delete private endpoint](./media/private-endpoints/delete-private-endpoint.png)
+   ![delete private endpoint](./media/private-endpoints/asa-pe-delete.png)
 
 ## Next steps
 
