@@ -219,7 +219,7 @@
     - name: Get started with pass-through authentication
       href: how-to-connect-pta-quick-start.md
     - name: Pass-through authentication FAQ
-      href: how-to-connect-pta-faq.md
+      href: how-to-connect-pta-faq.yml
     - name: Disable PTA with Azure AD Connect "Do not configure"
       href: how-to-connect-pta-disable-do-not-configure.md
   - name: Manage Federation Services

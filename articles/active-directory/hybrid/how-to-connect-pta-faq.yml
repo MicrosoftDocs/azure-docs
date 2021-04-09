@@ -36,9 +36,9 @@ sections:
           Pass-through Authentication is a free feature. You don't need any paid editions of Azure AD to use it.
 
       - question: |
-          Does [Conditional Access](../conditional-access/overview.md) work with Pass-through Authentication?
+          Does Conditional Access work with Pass-through Authentication?
         answer: |
-          Yes. All Conditional Access capabilities, including Azure AD Multi-Factor Authentication, work with Pass-through Authentication.
+          Yes. All [Conditional Access](../conditional-access/overview.md) capabilities, including Azure AD Multi-Factor Authentication, work with Pass-through Authentication.
 
       - question: |
           Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?
@@ -56,7 +56,7 @@ sections:
           When you use Azure AD Connect to switch the sign-in method from password hash synchronization to Pass-through Authentication, Pass-through Authentication becomes the primary sign-in method for your users in managed domains. Please note that all users' password hashes which were previously synchronized by password hash synchronization remain stored on Azure AD.
 
       - question: |
-          Can I install an [Azure AD Application Proxy](../manage-apps/application-proxy.md) connector on the same server as a Pass-through Authentication Agent?
+          Can I install an Azure AD Application Proxy connector on the same server as a Pass-through Authentication Agent?
         answer: |
           Yes. The rebranded versions of the Pass-through Authentication Agent, version 1.5.193.0 or later, support this configuration.
 

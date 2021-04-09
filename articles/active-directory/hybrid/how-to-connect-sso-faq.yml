@@ -36,9 +36,9 @@ sections:
           Seamless SSO is a free feature and you don't need any paid editions of Azure AD to use it.
 
       - question: |
-          Is Seamless SSO available in the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
+          Is Seamless SSO available in the Microsoft Azure Germany cloud and the Microsoft Azure Government cloud?
         answer: |
-          Seamless SSO is available for the Azure Government cloud. For details, view [Hybrid Identity Considerations for Azure Government](./reference-connect-government-cloud.md).
+          Seamless SSO is available for the [Azure Government cloud](https://azure.microsoft.com/features/gov/). For details, view [Hybrid Identity Considerations for Azure Government](./reference-connect-government-cloud.md).
           
       - question: |
           What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?
@@ -68,7 +68,7 @@ sections:
           Yes. Seamless SSO supports `Alternate ID` as the username when configured in Azure AD Connect as shown [here](how-to-connect-install-custom.md). Not all Microsoft 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
           
       - question: |
-          What is the difference between the single sign-on experience provided by [Azure AD Join](../devices/overview.md) and Seamless SSO?
+          What is the difference between the single sign-on experience provided by Azure AD Join and Seamless SSO?
         answer: |
           [Azure AD Join](../devices/overview.md) provides SSO to users if their devices are registered with Azure AD. These devices don't necessarily have to be domain-joined. SSO is provided using *primary refresh tokens* or *PRTs*, and not Kerberos. The user experience is most optimal on Windows 10 devices. SSO happens automatically on the Microsoft Edge browser. It also works on Chrome with the use of a browser extension.
           

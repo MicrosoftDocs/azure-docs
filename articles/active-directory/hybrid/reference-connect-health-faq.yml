@@ -209,7 +209,7 @@ sections:
           ```
           
       - question: |
-          Why does the PowerShell cmdlet <i>Get-MsolDirSyncProvisioningError</i> show less sync errors in the result?
+          Why does the PowerShell cmdlet 'Get-MsolDirSyncProvisioningError' show less sync errors in the result?
         answer: |
           <i>Get-MsolDirSyncProvisioningError</i> will only return DirSync provisioning errors. Besides that, Connect Health portal also shows other sync error types such as export errors. This is consistent with Azure AD Connect delta result. Read more about [Azure AD Connect Sync errors](./tshoot-connect-sync-errors.md).
           
