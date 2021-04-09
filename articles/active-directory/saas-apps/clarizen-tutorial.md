@@ -33,6 +33,9 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Clarizen supports **IDP** initiated SSO.
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Add Clarizen from the gallery
 
 To configure the integration of Clarizen into Azure AD, you need to add Clarizen from the gallery to your list of managed SaaS apps.
@@ -74,9 +77,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Reply URL** text box, type the URL:
     `https://.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
-
-    > [!NOTE]
-    > These are not the real values. You have to use the actual identifier and reply URL. Here we suggest that you use the unique value of a string as the identifier. To get the actual values, contact the [Clarizen support team](https://success.clarizen.com/hc/en-us/requests/new).
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
