@@ -18,6 +18,8 @@ ms.author: kegorman
 
 # Overview of Oracle Applications and solutions on Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This article introduces capabilities to run Oracle solutions using Azure infrastructure. See also detailed introductions to available [WebLogic Server Azure Applications](oracle-weblogic.md), [Oracle VM images](oracle-vm-solutions.md) in the Azure Marketplace and the capability to [interconnect Azure with Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
 
 ## Oracle databases on Azure infrastructure
