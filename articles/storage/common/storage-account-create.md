@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 04/09/2021
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -125,7 +125,7 @@ The following table describes the fields on the **Basics** tab.
 | Project details | Resource group | Required | Create a new resource group for this storage account, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
 | Instance details | Storage account name | Required | Choose a unique name for your storage account. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. |
 | Instance details | Region | Required | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md).<br /><br />Not all regions are supported for all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can have a billing impact. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing). |
-| Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is appropriate for most scenarios.<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>Block blobs [[Learn more...](../blobs/storage-blob-performance-tiers.md)]</li><li>File shares [[Learn more...](../files/storage-files-planning.md#management-concepts)]</li><li>Page blobs [[Learn more...](../blobs/storage-blob-pageblob-overview.md)]</li></ul> |
+| Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](../blobs/storage-blob-performance-tiers.md)</li><li>[File shares](../files/storage-files-planning.md#management-concepts)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul> |
 | Instance details | Redundancy | Required | Select your desired redundancy configuration. Not all redundancy options are available for all types of storage accounts in all regions. For more information about redundancy configurations, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />If you select a geo-redundant configuration (GRS or GZRS), your data is replicated to a data center in a different region. For read access to data in the secondary region, select **Make read access to data available in the event of regional unavailability**. |
 
 The following image shows a standard configuration for a new storage account.
@@ -177,13 +177,23 @@ The following table describes the fields on the **Data protection** tab.
 | Tracking | Enable versioning for blobs | Optional | Blob versioning automatically saves the state of a blob in a previous version when the blob is overwritten. For more information, see [Blob versioning](../blobs/versioning-overview.md).<br /><br />Microsoft recommends enabling blob versioning for optimal data protection for the storage account. |
 | Tracking | Enable blob change feed | Optional | The blob change feed provides transaction logs of all changes to all blobs in your storage account, as well as to their metadata. For more information, see [Change feed support in Azure Blob Storage](../blobs/storage-blob-change-feed.md). |
 
+### Tags tab
+
+On the Tags tab, you can specify Azure Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../../azure-resource-manager/management/tag-resources.md).
+
+### Review + create tab
+
+When you navigate to the **Review + create** tab, Azure runs validation on the storage account settings that you have chosen. If validation passes, you can proceed to create the storage account.
+
+If validation fails, then the portal indicates which settings need to be modified.
+
 # [PowerShell](#tab/azure-powershell)
 
-To create an Azure storage account with PowerShell, first create a new resource group with PowerShell using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
+To create a general-purpose v2 storage account with PowerShell, first create a new resource group with PowerShell using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
 
 ```azurepowershell-interactive
-$resourceGroup = "storage-resource-group"
-$location = "westus"
+$resourceGroup = "<resource-group>"
+$location = "<location>"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
@@ -193,7 +203,7 @@ If you're not sure which region to specify for the `-Location` parameter, you ca
 Get-AzLocation | select Location
 ```
 
-Next, create a general-purpose v2 storage account with read-access geo-redundant storage (RA-GRS) by using the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
+Next, create a standard general-purpose v2 storage account with read-access geo-redundant storage (RA-GRS) by using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
 ```azurepowershell-interactive
 New-AzStorageAccount -ResourceGroupName $resourceGroup `
@@ -203,19 +213,18 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2
 ```
 
-> [!IMPORTANT]
-> If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `-EnableHierarchicalNamespace $True` in this list of parameters.
+To enable a hierarchical namespace for the storage account in order to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `-EnableHierarchicalNamespace $True` parameter on the call to the **New-AzStorageAccount** command.
 
-To create a general-purpose v2 storage account with a different replication option, substitute the desired value in the table below for the **SkuName** parameter.
+The following table shows which values to use for the `-SkuName` and `-Kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
-|Replication option  |SkuName parameter  |
-|---------|---------|
-|Locally redundant storage (LRS) |Standard_LRS |
-|Zone-redundant storage (ZRS) |Standard_ZRS |
-|Geo-redundant storage (GRS) |Standard_GRS |
-|Read-access geo-redundant storage (GRS) |Standard_RAGRS |
-|Geo-zone-redundant storage (GZRS)  |Standard_GZRS |
-|Read-access geo-zone-redundant storage (RA-GZRS)  |Standard_RAGZRS |
+| To create this type of storage account… | With one of these supported redundancy configurations… | Specify this value for the -Kind parameter | Specify one of these values for the -SkuName parameter | Supports hierarchical namespace |
+|--|--|--|--|--|
+| Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
+| Premium block blob | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
+| Premium file share | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
+| Premium page blob | LRS | StorageV2 | Premium_LRS | No |
+| Legacy standard general-purpose v1 | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
+| Legacy blob storage | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -246,19 +255,19 @@ az storage account create \
   --kind StorageV2
 ```
 
-> [!IMPORTANT]
-> If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `--enable-hierarchical-namespace true` in this list of parameters.
+To enable a hierarchical namespace for the storage account in order to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `--enable-hierarchical-namespace true` parameter on the call to the **az storage account create** command.
 
-To create a general-purpose v2 storage account with a different replication option, substitute the desired value in the table below for the **sku** parameter.
+The following table shows which values to use for the `-sku` and `-kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
-|Replication option  |sku parameter  |
-|---------|---------|
-|Locally redundant storage (LRS) |Standard_LRS |
-|Zone-redundant storage (ZRS) |Standard_ZRS |
-|Geo-redundant storage (GRS) |Standard_GRS |
-|Read-access geo-redundant storage (GRS) |Standard_RAGRS |
-|Geo-zone-redundant storage (GZRS)  |Standard_GZRS |
-|Read-access geo-zone-redundant storage (RA-GZRS)  |Standard_RAGZRS |
+| To create this type of storage account… | With one of these supported redundancy configurations… | Specify this value for the -kind parameter | Specify one of these values for the -sku parameter | Supports hierarchical namespace |
+|--|--|--|--|--|
+| Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
+| Premium block blob | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
+| Premium file share | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
+| Premium page blob | LRS | StorageV2 | Premium_LRS | No |
+| Legacy standard general-purpose v1 | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
+| Legacy blob storage | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
+
 
 # [Template](#tab/template)
 

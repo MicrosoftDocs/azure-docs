@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 04/09/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -39,6 +39,8 @@ The following table describes the types of storage accounts recommended by Micro
 
 <sup>4</sup> Storage accounts in a premium performance tier use solid state disks (SSDs) for low latency and high throughput.
 
+Legacy storage accounts are also supported. For more information, see [Legacy storage account types](#legacy-storage-account-types).
+
 ## Storage account endpoints
 
 A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account.
@@ -58,7 +60,9 @@ The following table lists the format of the endpoint for each of the Azure Stora
 | Queue storage | `https://<storage-account>.queue.core.windows.net` |
 | Table storage | `https://<storage-account>.table.core.windows.net` |
 
-Construct the URL for accessing an object in a storage account by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+Construct the URL for accessing an object in a storage account by appending the object's location in the storage account to the endpoint. For example, the URL for a blob will be similar to:
+
+`http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*`
 
 You can also configure your storage account to use a custom domain for blobs. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).  
 
@@ -94,13 +98,13 @@ Azure Storage bills based on your storage account usage. All objects in a storag
 - **Transactions** refer to all read and write operations to Azure Storage.
 - **Data egress** refers to any data transferred out of an Azure region. When the data in your storage account is accessed by an application that isn't running in the same region, you're charged for data egress. For information about using resource groups to group your data and services in the same region to limit egress charges, see [What is an Azure resource group?](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group).
 
-The [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page provides detailed pricing information based on account type, storage capacity, replication, and transactions. The [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
+The [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/) provides detailed pricing information based on account type, storage capacity, replication, and transactions. The [Data Transfers pricing details](https://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## Legacy storage account types
 
-The following table describes the legacy storage account types. These account types are not recommended by Microsoft for most scenarios:
+The following table describes the legacy storage account types. These account types are not recommended by Microsoft, but may be used in certain scenarios:
 
 | Type of legacy storage account | Supported services | Redundancy options | Deployment model | Usage |
 |--|--|--|--|--|
