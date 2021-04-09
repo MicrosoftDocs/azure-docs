@@ -52,6 +52,6 @@ A customer account is created in your tenant before the multi-factor authenticat
 
 ::: zone pivot="b2c-custom-policy"
 
-To enable Multi-Factor Authentication get the custom policy starter packs from GitHub, then update the XML files in the **SocialAndLocalAccountsWithMFA** starter pack with your Azure AD B2C tenant name. The **SocialAndLocalAccountsWithMFA**  enables social, local, and multi-factor authentication options. For more information, see [Get started with custom policies in Active Directory B2C](custom-policy-get-started.md). 
+To enable Multi-Factor Authentication get the custom policy starter packs from GitHub, then update the XML files in the **SocialAndLocalAccountsWithMFA** starter pack with your Azure AD B2C tenant name. The **SocialAndLocalAccountsWithMFA**  enables social, local, and multi-factor authentication options. For more information, see [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). 
 
 ::: zone-end

@@ -281,8 +281,6 @@
       href: add-api-connector.md
   - name: Custom policy
     items:
-    - name: Get started with custom policies
-      href: custom-policy-get-started.md
     - name: Add your own business logic
       items:
       - name: Integrate REST API
