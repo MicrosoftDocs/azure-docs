@@ -55,21 +55,6 @@ The subject confirmation NotOnOrAfter specified in the `<SubjectConfirmationData
 
 ID tokens are passed to websites and native clients. ID tokens contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until their expiry. Usually, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user. You can adjust the lifetime of an ID token to control how often the web application expires the application session, and how often it requires the user to be re-authenticated with the Microsoft identity platform (either silently or interactively).
 
-### Token lifetime policy properties
-
-A token lifetime policy is a type of policy object that contains token lifetime rules. This policy controls how long access, SAML, and ID tokens for this resource are considered valid. If no policy is set, the system enforces the default lifetime value. 
-
-Reducing the Access Token Lifetime property mitigates the risk of an access token or ID token being used by a malicious actor for an extended period of time. (These tokens cannot be revoked.) The trade-off is that performance is adversely affected, because the tokens have to be replaced more often.
-
-For an example, see [Create a policy for web sign-in](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
-
-| Property | Policy property string | Affects | Default | Minimum | Maximum |
-| --- | --- | --- | --- | --- | --- |
-| Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
-
-> [!NOTE]
-> To ensure the Microsoft Teams Web client works, it is recommended to keep AccessTokenLifetime to greater than 15 minutes for Microsoft Teams.
-
 ## Token lifetime policies for refresh tokens and session tokens
 
 You can not set token lifetime policies for refresh tokens and session tokens.
@@ -82,14 +67,24 @@ You can not set token lifetime policies for refresh tokens and session tokens.
 > If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, read [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 ## Configurable token lifetime properties
+A token lifetime policy is a type of policy object that contains token lifetime rules. This policy controls how long access, SAML, and ID tokens for this resource are considered valid. Token lifetime policies cannot be set for refresh and session tokens. If no policy is set, the system enforces the default lifetime value.
+
+### Access, ID, and SAML2 token lifetime policy properties
+
+Reducing the Access Token Lifetime property mitigates the risk of an access token or ID token being used by a malicious actor for an extended period of time. (These tokens cannot be revoked.) The trade-off is that performance is adversely affected, because the tokens have to be replaced more often.
+
+For an example, see [Create a policy for web sign-in](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
+
 Access, ID, and SAML2 token configuration are affected by the following properties and their respectively set values.
 
-|Property   |Policy property string    |Affects |Default |
+|Property   |Policy property string    |Affects |Default | Minimum | Maximum |
 |----------|-----------|------------|------------|
-|Access Token Lifetime |AccessTokenLifetime |Access tokens |Varies, depending on the client application requesting the token. For example, continuous access evaluation (CAE) capable clients that negotiate CAE-aware sessions will see a long lived token lifetime (up to 28 hours).  |
-|Access Token Lifetime |AccessTokenLifetime |ID tokens, SAML2 tokens |1 hour |
+|Access Token Lifetime |AccessTokenLifetime |Access tokens |Varies, depending on the client application requesting the token. For example, continuous access evaluation (CAE) capable clients that negotiate CAE-aware sessions will see a long lived token lifetime (up to 28 hours).  | 10 minutes |28 hours |
+|Access Token Lifetime |AccessTokenLifetime |ID tokens, SAML2 tokens |1 hour | 10 minutes |1 day |
 
-Refresh and session token configuration are affected by the following properties and their respectively set values. After the retirement of refresh and session token configuration on January 30, 2021, Azure AD will only honor the default values described below. If you decide not to use Conditional Access to manage sign-in frequency, your refresh and session tokens will be set to the default configuration on that date and you’ll no longer be able to change their lifetimes.  
+### Refresh and session token lifetime policy properties
+
+Refresh and session token configuration are affected by the following properties and their respectively set values. After the retirement of refresh and session token configuration on January 30, 2021, Azure AD will only honor the default values described below. If you decide not to use [Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md) to manage sign-in frequency, your refresh and session tokens will be set to the default configuration on that date and you’ll no longer be able to change their lifetimes.  
 
 |Property   |Policy property string    |Affects |Default |
 |----------|-----------|------------|------------|
