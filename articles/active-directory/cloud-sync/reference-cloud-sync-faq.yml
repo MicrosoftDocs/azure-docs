@@ -14,9 +14,10 @@ metadata:
   ms.collection: M365-identity-device-management
     
 title: Azure Active Directory Connect cloud sync FAQ
-summary: Read about frequently asked questions for Azure Active Directory (Azure AD) Connect cloud sync.
+summary: |
+  Read about frequently asked questions for Azure Active Directory (Azure AD) Connect cloud sync.
 
-## General installation
+  ## General installation
 
 sections:
   - name: General installation
