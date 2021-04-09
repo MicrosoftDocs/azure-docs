@@ -59,7 +59,7 @@ Alternatively, if you have a specific use case for a centralized firewall, Azure
 
 ### 1.3: Protect critical web applications
 
-**Guidance**: If using your Virtual Machine Scale Set (VMSS) to host web applications, use a network security group (NSG) on the VMSS subnet to limit what network traffic, ports and protocols are allowed to communicate. Follow a least privileged network approach when configuring your NSGs to only allow required traffic to your application.
+**Guidance**: If using your Virtual Machine Scale Set to host web applications, use a network security group (NSG) on the Virtual Machine Scale Set subnet to limit what network traffic, ports and protocols are allowed to communicate. Follow a least privileged network approach when configuring your NSGs to only allow required traffic to your application.
 
 You can also deploy Azure Web Application Firewall (WAF) in front of critical web applications for additional inspection of incoming traffic. Enable Diagnostic Setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics Workspace.
 
@@ -123,7 +123,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 ### 1.7: Manage traffic to web applications
 
-**Guidance**: If using Virtual Machine Scale Set(VMSS) to host web applications, you may deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates. With Azure Application Gateway, you direct your application web traffic to specific resources by assigning listeners to ports, creating rules, and adding resources to a backend pool like VMSS etc.
+**Guidance**: If using Virtual Machine Scale Set to host web applications, you may deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates. With Azure Application Gateway, you direct your application web traffic to specific resources by assigning listeners to ports, creating rules, and adding resources to a backend pool like Virtual Machine Scale Set etc.
 
 - [How to deploy Application Gateway](../application-gateway/quick-create-portal.md)
 
@@ -685,7 +685,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 ### 5.3: Deploy automated patch management solution for third-party software titles
 
-**Guidance**: Azure Virtual Machine Scale Sets (VMSS) can use automatic OS image upgrades. You may use the Azure Desired State Configuration (DSC) extension for underlying virtual machines in the VMSS. DSC is used to configure the VMs as they come online so they are running your desired software.
+**Guidance**: Azure Virtual Machine Scale Sets can use automatic OS image upgrades. You may use the Azure Desired State Configuration (DSC) extension for underlying virtual machines in the Virtual Machine Scale Set. DSC is used to configure the VMs as they come online so they are running your desired software.
 
 - [Using Virtual Machine Scale Sets with the Azure DSC Extension](virtual-machine-scale-sets-dsc.md)
 

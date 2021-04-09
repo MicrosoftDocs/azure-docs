@@ -1070,7 +1070,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 **Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications.
 
-- [How to integrate with Azure-Managed Identities](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
+- [How to integrate with Azure managed Identities](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 - [How to create a Key Vault](../../key-vault/general/quick-create-portal.md)
 
