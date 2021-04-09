@@ -1048,7 +1048,7 @@ You will need a third-party tool for anti-malware protection in Azure Linux Virt
 
 **Guidance**: Create snapshot of the Azure virtual machine scale set instance or managed disk attached to the instance using PowerShell or REST APIs. You can also use Azure Automation to execute the backup scripts at regular intervals.
 
-* [How to take a snapshot of a virtual machine scale set instance and managed disk](./virtual-machine-scale-sets-faq.md#how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance)
+* [How to take a snapshot of a virtual machine scale set instance and managed disk](./virtual-machine-scale-sets-faq.yml#how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance)
 
 * [Introduction to Azure Automation](../automation/automation-intro.md)
 
@@ -1066,7 +1066,7 @@ Enable Azure Backup and target Azure Virtual Machines (VM), as well as the desir
 
 * [Overview of Azure VM backup](../backup/backup-azure-vms-introduction.md)
 
-* [How to take a snapshot of a virtual machine scale set instance and managed disk](./virtual-machine-scale-sets-faq.md#how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance)
+* [How to take a snapshot of a virtual machine scale set instance and managed disk](./virtual-machine-scale-sets-faq.yml#how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance)
 
 * [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
