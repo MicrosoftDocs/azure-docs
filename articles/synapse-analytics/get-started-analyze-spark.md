@@ -55,7 +55,7 @@ A serverless Spark pool is a way of indicating how a user wants to work with Spa
 
 Data is available via the dataframe named **data**. Load it into a Spark database named **nyctaxi**.
 
-1. Add a new to the notebook, and then enter the following code:
+1. Add a new code cell to the notebook, and then enter the following code:
 
     ```py
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")

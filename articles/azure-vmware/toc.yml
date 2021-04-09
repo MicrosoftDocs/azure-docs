@@ -107,7 +107,7 @@
     - name: Deploy VMware Horizon
       href: azure-vmware-solution-horizon.md
     - name: Deploy VMs from the content library
-      href: ./deploy-vm-content-library.md
+      href: deploy-vm-content-library.md
   - name: VMware ecosystem
     items:
     - name: Backup solutions for VMs
@@ -126,16 +126,20 @@
       href: /azure/azure-vmware/faq#general
     - name: Customer communication
       href: /azure/azure-vmware/faq#customer-communication
-    - name: Azure VMware Solution and VMware software
-      href: /azure/azure-vmware/faq#azure-vmware-solution-and-vmware-software
-    - name: Compute, network, storage, and backup
-      href: /azure/azure-vmware/faq#compute,-network,-storage,-and-backup
+    - name: Configuration and setup 
+      href: /azure/azure-vmware/faq#configuration-and-setup
+    - name: VMware software 
+      href: /azure/azure-vmware/faq#vmware-software
+    - name: Compute, backup and disaster recovery
+      href: /azure/azure-vmware/faq#compute,-backup,-and-disaster-recovery
+    - name: Networking and interconnectivity
+      href: /azure/azure-vmware/faq#networking-and-interconnectivity
+    - name: Storage
+      href: /azure/azure-vmware/faq#storage
     - name: Hosts, clusters, and private clouds
       href: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
-    - name: Connectivity
-      href: /azure/azure-vmware/faq#connectivity
-    - name: Accounts and privileges
-      href: /azure/azure-vmware/faq#accounts-and-privileges
+    - name: Identity management
+      href: /azure/azure-vmware/faq#identity-management
     - name: Billing and support
       href: /azure/azure-vmware/faq#billing-and-support
   - name: Videos 
