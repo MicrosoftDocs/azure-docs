@@ -20,29 +20,32 @@ To learn how to create an Azure storage account, see [Create a storage account](
 
 ## Types of storage accounts
 
-Azure Storage offers several types of storage accounts. Each type supports different features and has its own pricing model. Consider these differences before you create a storage account to determine the type of account that is best for your applications. The types of storage accounts are:
+Azure Storage offers several types of storage accounts. Each type supports different features and has its own pricing model. Consider these differences before you create a storage account to determine the type of account that is best for your applications.
 
-- **General-purpose v2 accounts**: Basic storage account type for blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage.
-- **General-purpose v1 accounts**: Legacy account type for blobs, files, queues, and tables. Use general-purpose v2 accounts instead when possible.
-- **BlockBlobStorage accounts**: Storage accounts with premium performance characteristics for block blobs and append blobs. Recommended for scenarios with high transactions rates, or scenarios that use smaller objects or require consistently low storage latency.
-- **FileStorage accounts**: Files-only storage accounts with premium performance characteristics. Recommended for enterprise or high performance scale applications.
-- **BlobStorage accounts**: Legacy Blob-only storage accounts. Use general-purpose v2 accounts instead when possible.
+The following table describes the types of storage accounts recommended by Microsoft for most scenarios:
 
-The following table describes the types of storage accounts, the services they support, and the supported deployment models for each account type:
+| Type of storage account | Supported services | Redundancy options | Deployment model | Usage |
+|--|--|--|--|--|
+| Standard general-purpose v2 | Blob, File, Queue, Table, and Data Lake Storage<sup>1</sup> | LRS/GRS/RA-GRS<br /><br />ZRS/GZRS/RA-GZRS<sup>2</sup> | Resource Manager<sup>3</sup> | Basic storage account type for blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage. |
+| Premium block blob<sup>4</sup> | Block blobs only | LRS<br /><br />ZRS<sup>2</sup> | Resource Manager<sup>3</sup> | Storage accounts with premium performance characteristics for block blobs and append blobs. Recommended for scenarios with high transactions rates, or scenarios that use smaller objects or require consistently low storage latency. [Learn more...](../blobs/storage-blob-performance-tiers.md) |
+| Premium file share<sup>4</sup> | File shares only | LRS<br /><br />ZRS<sup>2</sup> | Resource Manager<sup>3</sup> | Files-only storage accounts with premium performance characteristics. Recommended for enterprise or high performance scale applications. [Learn more...](../files/storage-files-planning.md#management-concepts) |
 
-| Storage account type | Supported services | Redundancy options | Deployment model<sup>1</sup> |
-|--|--|--|--|
-| General-purpose V2 | Blob, File, Queue, Table, Disk, and Data Lake Gen2<sup>2</sup> | LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS<sup>3</sup> | Resource Manager |
-| General-purpose V1 | Blob, File, Queue, Table, and Disk | LRS, GRS, RA-GRS | Resource Manager, Classic |
-| BlockBlobStorage | Blob (block blobs and append blobs only) | LRS, ZRS<sup>3</sup> | Resource Manager |
-| FileStorage | File only | LRS, ZRS<sup>3</sup> | Resource Manager |
-| BlobStorage | Blob (block blobs and append blobs only) | LRS, GRS, RA-GRS | Resource Manager |
+<sup>1</sup> Azure Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Data Lake Storage is only supported on general-purpose V2 storage accounts with a hierarchical namespace enabled. For more information on Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
 
-<sup>1</sup>Using the Azure Resource Manager deployment model is recommended. Storage accounts using the classic deployment model can still be created in some locations, and existing classic accounts continue to be supported. For more information, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../../azure-resource-manager/management/deployment-models.md).
+<sup>2</sup> Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose v2, premium block blob, and premium file share accounts in certain regions. For more information about Azure Storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
-<sup>2</sup>Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Data Lake Storage Gen2 is only supported on General-purpose V2 storage accounts with Hierarchical namespace enabled. For more information on Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
+<sup>3</sup> Azure Resource Manager is the recommended deployment model for Azure resources, including storage accounts. For more information, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
-<sup>3</sup>Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose V2, BlockBlobStorage, and FileStorage accounts in certain regions. For more information about Azure Storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
+<sup>4</sup> Storage accounts in a premium performance tier use solid state disks (SSDs) for low latency and high throughput.
+
+## Naming storage accounts
+
+When naming your storage account, keep these rules in mind:
+
+- Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+- Your storage account name must be unique within Azure. No two storage accounts can have the same name.
+
+
 
 ### Storage account redundancy
 
@@ -108,12 +111,6 @@ A FileStorage account is a specialized storage account used to store and create 
 
 FileStorage accounts offer unique performance dedicated characteristics such as IOPS bursting. For more information on these characteristics, see the [File share storage tiers](../files/storage-files-planning.md#storage-tiers) section of the Files planning guide.
 
-## Naming storage accounts
-
-When naming your storage account, keep these rules in mind:
-
-- Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-- Your storage account name must be unique within Azure. No two storage accounts can have the same name.
 
 ## Performance tiers
 
