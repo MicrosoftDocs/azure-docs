@@ -4,7 +4,7 @@ description: The Microsoft Azure Peering Service security baseline provides proc
 author: msmbaldwin
 ms.service: peering-service
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 04/09/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -14,9 +14,10 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Microsoft Azure Peering Service
 
-This security baseline applies guidance from the [Azure Security Benchmark version 2.0](../security/benchmarks/overview.md) to Microsoft Azure Peering Service. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Microsoft Azure Peering Service. **Controls** not applicable to Microsoft Azure Peering Service, or for which the responsibility is Microsoft's, have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version 2.0](../security/benchmarks/overview.md) to Microsoft Azure Peering Service. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Microsoft Azure Peering Service.
 
-To see how Microsoft Azure Peering Service completely maps to the Azure Security Benchmark, see the [full Microsoft Azure Peering Service security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+> [!NOTE]
+> **Controls** not applicable to Microsoft Azure Peering Service, or for which the responsibility is Microsoft's, have been excluded. To see how Microsoft Azure Peering Service completely maps to the Azure Security Benchmark, see the **[full Microsoft Azure Peering Service security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)**.
 
 ## Network Security
 
@@ -89,9 +90,9 @@ Use single sign-on to manage and secure access to your organization’s data and
 
 **Guidance**: Enable multifactor authentication with Azure Active Directory (Azure AD) and follow Identity and Access Management recommendations from Azure Security Center.
 
-How to enable multifactor authentication in Azure https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+- [How to enable multifactor authentication in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-How to monitor identity and access within Azure Security Center https://docs.microsoft.com/azure/security-center/security-center-identity-access
+- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Responsibility**: Customer
 
@@ -101,9 +102,9 @@ How to monitor identity and access within Azure Security Center https://docs.mic
 
 **Guidance**: Use Privileged Identity Management (PIM) with Azure Active Directory (Azure AD) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. In addition, use Azure AD risk detections to view alerts and reports on risky user behavior.
 
-How to deploy Privileged Identity Management (PIM) https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+- [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-Understand Azure AD risk detections https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection
+- [Understand Azure AD risk detections](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Responsibility**: Customer
 
@@ -263,7 +264,7 @@ Depending on how security team responsibilities are structured, monitoring for s
 
 Security Reader permissions can be applied broadly to an entire tenant (Root Management Group) or scoped to management groups or specific subscriptions. 
 
-Note: Additional permissions might be required to get visibility into workloads and services. 
+Additional permissions might be required to get visibility into workloads and services. 
 
 - [Overview of Security Reader Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader)
 
@@ -409,7 +410,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure resources according to your organization's compliance regulations.
 
-How to set log retention parameters /azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+- [How to set log retention parameters](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
