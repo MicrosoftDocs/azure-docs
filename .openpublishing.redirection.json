@@ -326,6 +326,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/front-door-whats-new.md",
+      "redirect_url": "https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/azure-media-player/components-limitations.md",
       "redirect_url": "/articles/load-balancer/concepts",
       "redirect_document_id": false
@@ -19276,7 +19281,7 @@
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-interpret-event-data.md",
-      "redirect_url": "/azure/digital-twins/concepts-notifications",
+      "redirect_url": "/azure/digital-twins/concepts-event-notifications",
       "redirect_document_id": false
     },
     {
