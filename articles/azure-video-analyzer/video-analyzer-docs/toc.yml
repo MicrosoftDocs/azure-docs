@@ -25,11 +25,13 @@
   - name: Continuous video recording
     href: continuous-video-recording.md
   - name: Record video for playback
-    href: video-recording.md
+    href: video-recording.md    
 - name: How-to guides
   items:
   - name: Develop and deploy gRPC inference server
     href: develop-deploy-grpc-inference-srv.md
+  - name: Manage retention policy
+    href: manage-retention-policy-how-to.md
 - name: Resources
   items:
   - name: Azure roadmap
