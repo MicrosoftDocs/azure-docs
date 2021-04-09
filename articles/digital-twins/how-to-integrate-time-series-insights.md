@@ -32,8 +32,8 @@ You'll need to update twin's information a few times to see that data tracked in
 
 > [!TIP]
 > In this article, the changing digital twin values that are viewed in Time Series Insights are updated manually for simplicity. However, if you'd like to complete this article with live simulated data, you can set up an Azure function that updates digital twins based on IoT telemetry events from a simulated device. For instructions, follow [*How to: Ingest IoT Hub data*](how-to-ingest-iot-hub-data.md), including the final steps to run the device simulator and validate that the data flow works.
-
-Later, look for another TIP to show you where to start running the device simulator and have your Azure functions update the twins automatically, instead of sending manual digital twin update commands.
+>
+> Later, look for another TIP to show you where to start running the device simulator and have your Azure functions update the twins automatically, instead of sending manual digital twin update commands.
 
 
 ## Solution architecture
@@ -145,8 +145,6 @@ az eventhubs eventhub authorization-rule create --rights Listen Send --name <nam
 
 ### Get time series hub connection string
 
-You'll need to set environment variables in your function app from earlier, containing the connection strings for the event hub.
-
 Get the [time series hub connection string](../event-hubs/event-hubs-get-connection-string.md), using the authorization rules you created above for the time series hub:
 
 ```azurecli-interactive
@@ -166,8 +164,6 @@ In this section, you'll create an Azure function that will convert twin update e
 ### Step 1: Create function app
 
 First, create a new function app project in Visual Studio. For instructions on how to do this, see the [**Create a function app in Visual Studio**](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) section of the *How-to: Set up a function for processing data* article.
-
-Save the function app name to use later to configure app setting for the two event hubs.
 
 ### Step 2: Add a new function
 
@@ -190,28 +186,30 @@ Save your function code.
 
 ### Step 4: Publish the function app to Azure
 
-Publish the project with *ProcessDTUpdatetoTSI.cs* function to a function app in Azure.
+Publish the project with the *ProcessDTUpdatetoTSI.cs* function to a function app in Azure.
 
 For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
+
+Save the function app name to use later to configure app settings for the two event hubs.
 
 ### Step 5: Security access for the function app
 
 Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance. For instructions on how to do this, see the section [**Set up security access for the function app**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) of the *How-to: Set up a function for processing data* article.
 
-### Step 6: Configure app setting for the two event hubs
+### Step 6: Configure app settings for the two event hubs
 
-Next, you'll configure app settings for twins hub and time series hub.
+Next, you'll add environment variables in the function app's settings that allow it to access the twins hub and time series hub.
 
-Use the twins hub **primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains your connection string:
+Use the twins hub **primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains the twins hub connection string:
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-twins-hub-primaryConnectionString-value-from-earlier>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-twins-hub-primaryConnectionString>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Use the time series hub **primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains your connection string:
+Use the time series hub **primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains the time series hub connection string:
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-time-series-hub- primaryConnectionString-value-from-earlier>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-time-series-hub-primaryConnectionString>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
 ## Create and connect a Time Series Insights instance
@@ -224,13 +222,10 @@ In this section, you'll set up Time Series Insights instance to receive data fro
         - **Resource group** - Choose your resource group.
     * **Environment name** - Specify a name for your time series environment.
     * **Location** - Choose a location.
-    * **Tier** - **Gen2(L1)** pricing tier.
-    
-    *Time series ID*
-
-    * **Property name** - $dtId (Your time series ID can be up to three values that you will use to search for your data in Time Series Insights. For this tutorial, you can use **$dtId**. Read more about selecting an ID value in [*Best practices for choosing a Time Series ID*](../time-series-insights/how-to-select-tsid.md)).
+    * **Tier** - Choose the **Gen2(L1)** pricing tier.
+    * **Property name** - Enter **$dtId** (Read more about selecting an ID value in [*Best practices for choosing a Time Series ID*](../time-series-insights/how-to-select-tsid.md)).
     * **Storage account name** - Specify a storage account name.
-    * **Enable Warm store** - Leave this field set to *Yes*.
+    * **Enable warm store** - Leave this field set to *Yes*.
 
     You can leave default values for other properties on this page. Select the **Next : Event Source >** button.
 
@@ -241,11 +236,11 @@ In this section, you'll set up Time Series Insights instance to receive data fro
 2. In the *Event Source* tab, choose the following fields:
 
    * **Create an event source?** - Choose *Yes*.
-   * **Source type** - Choose *Event Hub* 
+   * **Source type** - Choose *Event Hub*.
    * **Name** - Specify a name for your event source.
-   * **Subscription** - Choose your Azure subscription
+   * **Subscription** - Choose your Azure subscription.
    * **Event Hub namespace** - Choose the namespace that you created earlier in this article.
-   * **Event Hub name** - Choose the *time series hub* name that you created earlier in this article.
+   * **Event Hub name** - Choose the **time series hub** name that you created earlier in this article.
    * **Event Hub access policy name** - Choose the *time series hub auth rule* that you created earlier in this article.
    * **Event Hub consumer group** - Select *New* and specify a name for your event hub consumer group. Then, select *Add*.
    * **Property name** - Leave this field blank.
@@ -258,10 +253,10 @@ In this section, you'll set up Time Series Insights instance to receive data fro
 
 To begin sending data to Time Series Insights, you'll need to start updating the digital twin properties in Azure Digital Twins with changing data values.
 
-Use the following CLI command to update the twin property. If you followed [*How-to: Ingest IoT Hub data*](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) article to create a model and twin, the `twin_id` value will be *thermostat67*. 
+Use the following CLI command to update the *Temperature* property on the *thermostat67* twin that you added to your instance in the [Prerequisites](#prerequisites) section.
 
 ```azurecli-interactive
-az dt twin update -n <your-azure-digital-twins-instance-name> --twin-id {twin_id} --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
+az dt twin update -n <your-azure-digital-twins-instance-name> --twin-id thermostat67 --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
 ```
 
 **Repeat the command at least 4 more times with different temperature values**, to create several data points that can be observed later in the Time Series Insights environment.
@@ -278,7 +273,7 @@ Now, data should be flowing into your Time Series Insights instance, ready to be
 
     :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Screenshot of the Azure portal to select the Time Series Insights explorer URL in the overview tab of your Time Series Insights environment." lightbox="media/how-to-integrate-time-series-insights/view-environment.png":::
 
-2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select the *thermostat67* twin, choose the property *Temperature*, and hit **Add**. Note that the instance has multiple twins in the below screenshot.
+2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select the *thermostat67* twin, choose the property *Temperature*, and hit **Add**.
 
     :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Screenshot of the Time Series Insights explorer to select thermostat67, select the property temperature, and hit add." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
 
@@ -287,7 +282,7 @@ Now, data should be flowing into your Time Series Insights instance, ready to be
     :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Screenshot of the TSI explorer to view the initial temperature data. It is a line of random values between 68 and 85" lightbox="media/how-to-integrate-time-series-insights/initial-data.png":::
 
 If you allow a simulation to run for much longer, your visualization will look something like this:
-    
+
 :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Screenshot of the TSI explorer where temperature data for each twin is graphed in three parallel lines of different colors." lightbox="media/how-to-integrate-time-series-insights/day-data.png":::
 
 ## Next steps
