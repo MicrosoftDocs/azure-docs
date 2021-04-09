@@ -78,9 +78,6 @@ Identity Protection categorizes risk into three tiers: low, medium, and high. Wh
 
 While Microsoft does not provide specific details about how risk is calculated, we will say that each level brings higher confidence that the user or sign-in is compromised. For example, something like one instance of unfamiliar sign-in properties for a user might not be as threatening as leaked credentials for another user.
 
-### Password hash synchronization
-
-Risk detections like leaked credentials and password spray require the presence of password hashes for detection to occur. For more information about password hash synchronization, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ### Leaked credentials
 
@@ -94,13 +91,12 @@ Microsoft finds leaked credentials in a variety of places, including:
 
 #### Why aren't I seeing any leaked credentials?
 
-Leaked credentials are processed anytime Microsoft finds a new, publicly available batch. Due to the sensitive nature, the leaked credentials are deleted shortly after processing. Only new leaked credentials found after you enable password hash synchronization (PHS) will be processed against your tenant. Verifying against previously found credential pairs is not performed. 
+Leaked credentials are processed anytime Microsoft finds a new, publicly available batch. Due to the sensitive nature, the leaked credentials are deleted shortly after processing. Verifying against previously found credential pairs is not performed. 
 
 #### I haven't seen any leaked credential risk events for quite some time?
 
 If you haven't seen any leaked credential risk events, it's because of the following reasons:
 
-- You don't have PHS enabled for your tenant.
 - Microsoft hasn't found any leaked credential pairs that match your users.
 
 #### How often does Microsoft process new credentials?
