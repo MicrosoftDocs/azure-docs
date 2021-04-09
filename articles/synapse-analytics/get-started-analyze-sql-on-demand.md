@@ -35,7 +35,7 @@ SELECT
     TOP 100 *
 FROM
     OPENROWSET(
-            BULK 'https://workspacename.dfs.core.windows.net/users/NYCTripSmall.parquet',
+            BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
         FORMAT='PARQUET'
     ) AS [result]
     ```
