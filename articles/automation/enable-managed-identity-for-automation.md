@@ -3,7 +3,7 @@ title: Enable and use managed identity for Automation
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/06/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ---
 # Enable and use managed identity for Automation
@@ -89,48 +89,52 @@ An Automation Account can use its managed identity to get tokens to access other
 
 Before you can use your system managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity . To complete this task, assign the appropriate role to that identity on the target Azure resource.
 
-As an example, an Azure Automation identity requires **get**, **recover**, **wrapKey**, and **UnwrapKey** permissions on the Key vault.
-
-This cmdlet accomplishes the task.
+This example shows how to set a role assignment for a subscription.
 
 ```powershell
-Set-AzKeyVaultAccessPolicy -VaultName <Key-Vault-name> -ResourceGroupName <resource-group-name> -ObjectId <automation-object-ID> -PermissionsToSecrets <permissions>
+New-AzRoleAssignment -ObjectId <automation-Identity-object-id> -Scope "/subscriptions/<subscription-id>" -RoleDefinitionName "Contributor" -PermissionsToSecrets <permissions>
 ```
 
-## Authenticate access with managed identity for a cloud job
+## Authenticate access with managed identity
 
-After you enable managed identity for your automation account and give an identity access to the target resource or entity, you can use that identity in runbooks against resources that support managed identity. For identity support using, use the Az cmdlet `Connect-AzAccount -Identity` cmdlet. See [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) in the PowerShell reference.
+After you enable managed identity for your automation account and give an identity access to the target resource or entity, you can use that identity in runbooks against resources that support managed identity. For identity support using, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) in the PowerShell reference.
 
 >[!NOTE]
 >If your organization is still using the deprecated AzureRM cmdlets, you can use `Connect-AzureRMAccount -Identity`.
 
-If you're running a Hybrid job, the Sandbox communicates directly with the job runtime data service (JRDS). A JRDS endpoint is used by the hybrid worker to start/stop runbooks, download the runbooks to the worker, and to send the job log stream back to the Automation service. There is no difference in using cmdlets between Hybrid jobs and Cloud Jobs. However, in the case of a Hybrid job , when trying to fetch an MSI token from REST Endpoint at MSI_ENDPOINT an additional header secret must be set with the value of $MSI_SECRET.
+```powershell
+Connect-AzAccount -Identity
+```
 
 ## Generate an access token without using Azure cmdlets
 
 For HTTP Endpoints make sure of the following.
-- Metadata header must be present and should be set to “true”.
-- The X-Forwarded-For header should not be present. 
+- The metadata header must be present and should be set to “true”.
 - A resource must be passed along with the request, as a query parameter for a GET request and as form data for a POST request.
-- The secret header should be set to MSISecret for Hybrid Workers. 
+- The X-IDENTITY-HEADER should be set to the value of the environment variable IDENTITY_HEADER for Hybrid workers. 
 - Content Type for the Post request must be 'application/x-www-form-urlencoded'. 
 
 ### Sample GET request
 
 ```powershell
 $resource= "?resource=https://management.azure.com/" 
-$url = $env:MSI_ENDPOINT + $ resource 
-Invoke-RestMethod -Uri $url -Method 'GET' -Headers @{"Metadata"="true"} 
+$url = $env:IDENTITY_ENDPOINT + $resource 
+$Headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]" 
+$Headers.Add("X-IDENTITY-HEADER", $env:IDENTITY_HEADER) 
+$Headers.Add("Metadata", "True") 
+$accessToken = Invoke-RestMethod -Uri $url -Method 'GET' -Headers $Headers
+Write-Output $accessToken.access_token
 ```
 
 ### Sample POST request
 ```powershell
-$url = $env:MSI_ENDPOINT  
+$url = $env:IDENTITY_ENDPOINT  
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]" 
-$headers.Add("secret", $env:MSI_SECRET) 
+$headers.Add("X-IDENTITY-HEADER", $env:IDENTITY_HEADER) 
 $headers.Add("Metadata", "True") 
 $body = @{resource='https://management.azure.com/' } 
-Invoke-RestMethod $url -Method 'POST' -Headers $headers -ContentType 'application/x-www-form-urlencoded' -Body $body 
+$accessToken = Invoke-RestMethod $url -Method 'POST' -Headers $headers -ContentType 'application/x-www-form-urlencoded' -Body $body 
+Write-Output $accessToken.access_token
 ```
 
 ## Sample runbooks using managed identity
@@ -139,8 +143,11 @@ Invoke-RestMethod $url -Method 'POST' -Headers $headers -ContentType 'applicatio
 
 ```powershell
 $queryParameter = "?resource=https://database.windows.net/" 
-$url = $env:MSI_ENDPOINT + $queryParameter 
-$content =[System.Text.Encoding]::Default.GetString((Invoke-WebRequest -UseBasicParsing -Uri $url -Method 'GET' -Headers @{"Metadata"="true"}).RawContentStream.ToArray()) | ConvertFrom-Json 
+$url = $env:IDENTITY_ENDPOINT + $queryParameter
+$Headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]" 
+$Headers.Add("X-IDENTITY-HEADER", $env:IDENTITY_HEADER) 
+$Headers.Add("Metadata", "True") 
+$content =[System.Text.Encoding]::Default.GetString((Invoke-WebRequest -UseBasicParsing -Uri $url -Method 'GET' -Headers $Headers).RawContentStream.ToArray()) | ConvertFrom-Json 
 $Token = $content.access_token 
 echo "The managed identities for Azure resources access token is $Token" 
 $SQLServerName = "msiserver"    # Azure SQL logical server name  
@@ -164,11 +171,11 @@ $conn.Close()
 ### Sample Runbook to access the Key vault using Azure cmdlets
 
 ```powershell
-Write-Output "Connecting to azure via  Connect-AzureRMAccount -Identity" 
-Connect-AzureRMAccount -Identity 
-Write-Output "Sucessfully Connected with Autamtion account's Managed Identity" 
+Write-Output "Connecting to azure via  Connect-AzAccount -Identity" 
+Connect-AzAccount -Identity 
+Write-Output "Sucessfully Connected with Automation account's Managed Identity" 
 Write-Output "Trying to fetch value form Key valut using MI, Make sure you have given correct access to Managed Identity" 
-$secret = Get-AzureKeyVaultSecret -VaultName 'MSITestKeyVault' -Name 'KeyName' 
+$secret = Get-AzKeyVaultSecret -VaultName 'MSITestKeyVault' -Name 'KeyName' 
 
 $ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue) 
 try { 
@@ -182,17 +189,15 @@ try {
 ### Sample Python runbook on a Hybrid worker to get a token
  
 ```python
- #!/usr/bin/env python3 
+#!/usr/bin/env python3 
 import os 
 import requests  
 # printing environment variables 
-endPoint = os.getenv('MSI_ENDPOINT')+"?resource=https://management.azure.com/" 
-secret = os.getenv('MSI_SECRET') 
-print(endPoint) 
-print(secret) 
+endPoint = os.getenv('IDENTITY_ENDPOINT')+"?resource=https://management.azure.com/" 
+identityHeader = os.getenv('IDENTITY_HEADER') 
 payload={} 
 headers = { 
-  'secret': secret, 
+  'X-IDENTITY-HEADER': identityHeader, 
   'Metadata': 'True' 
 } 
 response = requests.request("GET", endPoint, headers=headers, data=payload) 
