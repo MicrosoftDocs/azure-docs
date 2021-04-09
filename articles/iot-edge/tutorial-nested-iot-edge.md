@@ -222,13 +222,13 @@ To configure the IoT Edge runtime, you need to apply the configuration bundles c
 
 If you completed the above steps correctly, you can check your devices are configured correctly.
 
-1. Run the configuration and connectivity checks on your devices. For the **top layer device**:
+Run the configuration and connectivity checks on your devices. For the **top layer device**:
 
    ```bash
    sudo iotedge check
    ```
 
-   For the **lower layer device**, the diagnostics image needs to be manually passed in the command:
+For the **lower layer device**, the diagnostics image needs to be manually passed in the command:
 
    ```bash
    sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2
