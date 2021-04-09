@@ -288,7 +288,7 @@ From frame N:
 
 ## Clean up resources
 
-[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources..md)]
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
 
 ## Next steps
 
