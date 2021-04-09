@@ -174,7 +174,7 @@ Smart Lockout assists in locking out bad actors who are trying to guess your use
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
 - [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported with the Pass-through Authentication and which ones are not.
 - [Technical deep dive](how-to-connect-pta-how-it-works.md): Understand how the Pass-through Authentication feature works.
-- [Frequently asked questions](how-to-connect-pta-faq.md): Find answers to frequently asked questions.
+- [Frequently asked questions](how-to-connect-pta-faq.yml): Find answers to frequently asked questions.
 - [Troubleshoot](tshoot-connect-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security deep dive](how-to-connect-pta-security-deep-dive.md): Get technical information on the Pass-through Authentication feature.
 - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.

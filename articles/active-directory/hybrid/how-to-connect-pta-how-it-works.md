@@ -50,7 +50,7 @@ The following diagram illustrates all the components and the steps involved:
 - [Quick Start](how-to-connect-pta-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
 - [Migrate from AD FS to Pass-through Authentication](https://aka.ms/adfstoPTADP) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Configure the Smart Lockout capability on your tenant to protect user accounts.
-- [Frequently Asked Questions](how-to-connect-pta-faq.md): Find answers to frequently asked questions.
+- [Frequently Asked Questions](how-to-connect-pta-faq.yml): Find answers to frequently asked questions.
 - [Troubleshoot](tshoot-connect-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security Deep Dive](how-to-connect-pta-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.
 - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.
