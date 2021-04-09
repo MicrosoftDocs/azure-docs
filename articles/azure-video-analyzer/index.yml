@@ -22,9 +22,13 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
     # Card
-    - title: Azure Video Analyzer documentation
+    - title: Azure Video Analyzer
       itemType: overview
       url: ./video-analyzer-docs/index.yml
+    # Card
+    - title: Azure Video Analyzer concepts 
+      itemType: concept
+      url: ./video-analyzer-docs/pipeline-extension.md   
     # Card
     - title: Azure Video Analyzer for Media documentation
       itemType: overview
