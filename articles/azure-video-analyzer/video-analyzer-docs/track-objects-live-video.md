@@ -46,7 +46,7 @@ In this quickstart, you will:
 
 ### Examine and edit the sample files
 
-TODO: update text below with ARM templates/scripts
+<!-- TODO: update text below with ARM templates/scripts-->
 
 As part of the prerequisites, you downloaded the sample code to a folder. Follow these steps to examine and edit the sample files.
 
