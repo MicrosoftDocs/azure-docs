@@ -50,7 +50,7 @@ The Microsoft.Network resource provider applies the following throttle limits:
 | write / delete (PUT) | 1000 per 5 minutes |
 | read (GET) | 10000 per 5 minutes |
 
-> [NOTE]
+> [!NOTE]
 > **Azure Private DNS** has a throttle limit of 500 read (GET) operations per 5 minutes.
 >
 
