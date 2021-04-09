@@ -77,14 +77,14 @@ For an example, see [Create a policy for web sign-in](configure-token-lifetimes.
 
 Access, ID, and SAML2 token configuration are affected by the following properties and their respectively set values:
 
-- Property: Access Token Lifetime
-- Policy property string: AccessTokenLifetime
-- Affects: Access tokens, ID tokens, SAML2 tokens
-- Default:
+- **Property**: Access Token Lifetime
+- **Policy property string**: AccessTokenLifetime
+- **Affects**: Access tokens, ID tokens, SAML2 tokens
+- **Default**:
     - Access tokens: varies, depending on the client application requesting the token. For example, continuous access evaluation (CAE) capable clients that negotiate CAE-aware sessions will see a long lived token lifetime (up to 28 hours).
     - ID tokens, SAML2 tokens: 1 hour
-- Minimum: 10 minutes
-- Maximum: 1 day
+- **Minimum**: 10 minutes
+- **Maximum**: 1 day
 
 ### Refresh and session token lifetime policy properties
 
