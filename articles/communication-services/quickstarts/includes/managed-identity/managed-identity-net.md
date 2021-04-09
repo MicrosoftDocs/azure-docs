@@ -62,7 +62,7 @@ Now we'll add code which uses the created credential, to issue a VoIP Access Tok
 
 ## Send an SMS with managed identities
 
-As another example of using managed identities, we'll add this code which uses the same credential to send an SMS;
+As another example of using managed identities, we'll add this code which uses the same credential to send an SMS:
 
 ```csharp
      public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, string message)
@@ -81,7 +81,7 @@ As another example of using managed identities, we'll add this code which uses t
 
 ## Write the Main Method
 
-Your `Program.cs` should already have a Main method, let's add some code which will call our previously created code to demonstrate the use of Managed Identities:
+Your `Program.cs` should already have a Main method, let's add some code which will call our previously created code to demonstrate the use of managed identities:
 
 ```csharp
      static void Main(string[] args)
