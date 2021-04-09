@@ -32,7 +32,7 @@ A serverless Spark pool is a way of indicating how a user wants to work with Spa
 ## Analyze NYC Taxi data in blob storage using Spark
 
 1. In Synapse Studio, go to the **Develop** hub
-2. Create a new Notebook with the default language set to **PySpark (Python)**.
+2. Create a new Notebook
 3. Create a new code cell and paste the following code into that cell.
     ```py
     %%pyspark
@@ -44,22 +44,23 @@ A serverless Spark pool is a way of indicating how a user wants to work with Spa
 1. If you just want to see the schema of the dataframe run a cell with the following code:
 
     ```py
+    %%pyspark
     df.printSchema()
     ```
 
 ## Load the NYC Taxi data into the Spark nyctaxi database
 
-Data is available via the dataframe named **data**. Load it into a Spark database named **nyctaxi**.
+Data is available via the dataframe named **df**. Load it into a Spark database named **nyctaxi**.
 
 1. Add a new code cell to the notebook, and then enter the following code:
 
     ```py
+    %%pyspark
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 ## Analyze the NYC Taxi data using Spark and notebooks
 
-1. Return to your notebook.
 1. Create a new code cell and enter the following code. 
 
    ```py
