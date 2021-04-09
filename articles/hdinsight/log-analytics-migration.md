@@ -113,10 +113,11 @@ You can create your own Azure workbooks with custom graphs and visualizations. I
 
 #### At-scale workbooks for new Azure Monitor integrations
 
-Use our new at-scale workbook to get a multi-cluster monitoring experience for your clusters. Our at-scale workbook shows you which of your clusters have the monitoring pipeline enabled. The workbook also gives you a straightforward way to check the health of multiple clusters at once. It contains different views, including one for each cluster type and one for YARN-based clusters. To view this workbook:
+Use our new at-scale workbook to get a multi-cluster monitoring experience for your clusters. Our at-scale workbook shows you which of your clusters have the monitoring pipeline enabled. The workbook also gives you a straightforward way to check the health of multiple clusters at once. To view this workbook:
 
 1. Go to the **Azure Monitor** page in from the Azure portal home page
-2. Once on the **Azure Monitor** page, look at the menu on the left for the section, **Insights**, and select the workbook under the **HDInsight** pane.
+2. Once on the **Azure Monitor** page, select **Insights Hub** under the **Insights** section.
+3. Select **HDInsights Clusters** under the **Analytics** section.
 
    :::image type="content" source="./media/log-analytics-migration/at-scale-workbook.png" alt-text="Screenshot that shows the at-scale workbook." border="false":::
 
@@ -174,7 +175,7 @@ In this way, you can easily do a side-by-side comparison for the queries you're 
 If you're using a cluster created after mid-September 2020, you'll see the new portal experience in your cluster's portal. To enable the new pipeline, you can follow the steps outlined in the [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section. To activate the classic integration on this cluster, go to your cluster's portal page. Select the **Monitor integration** pane in the **Monitoring** section of the menu on the left side of your cluster portal page. Select **Configure Azure Monitor for HDInsight clusters integration (classic)**. A side context appears with a toggle you can use to enable and disable the classic Azure Monitoring integration. 
 
 > [!NOTE]
-> The **Insights** and **Logs** blades only work with the new integration.
+> You won't see any logs or metrics from the classic integration through your Cluster portal's logs and Insights page. Only the new integrations logs and metrics will be present in those locations.
 
    :::image type="content" source="./media/log-analytics-migration/hdinsight-classic-integration.png" alt-text="Screenshot that shows the link to access the classic integration." border="false":::
 
