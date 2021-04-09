@@ -103,5 +103,5 @@ Multivariate Anomaly Detection, as an unsupervised model. The best way to evalua
 
 ## Next Steps:
 
-- [Quickstarts](./quickstarts/client-libraries-multivariate.md).
+- [Quickstarts](../quickstarts/client-libraries-multivariate.md).
 - [Learn about the underlying algorithms that power Anomaly Detector Multivariate](https://arxiv.org/abs/2009.02040)
