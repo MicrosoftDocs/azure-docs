@@ -68,7 +68,7 @@ None.
 
 ---
 
-## Sign in to Azure
+Next, sign in to Azure.
 
 # [Portal](#tab/azure-portal)
 
@@ -100,21 +100,43 @@ N/A
 
 ## Create a storage account
 
-Every storage account must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This article shows how to create a new resource group.
+A storage account is an Azure Resource Manager resource. Azure Resource Manager is the deployment and management service for Azure. For more information about Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
-A **general-purpose v2** storage account provides access to all of the Azure Storage services: blobs, files, queues, tables, and disks. The steps outlined here create a general-purpose v2 storage account, but the steps to create any type of storage account are similar. For more information about types of storage accounts and other storage account settings, see [Azure storage account overview](storage-account-overview.md).
+Every Azure Resource Manager resource, including an Azure storage account, must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This how-to shows how to create a new resource group.
 
 # [Portal](#tab/azure-portal)
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+To create an Azure storage account with the Azure portal, follow these steps:
+
+1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts.
+1. On the **Storage accounts** page, select **New**.
+
+Options for your new storage account are organized into tabs in the **Create a storage account** page. The following sections describe each of the tabs and their options.
+
+### Basics tab
+
+On the **Basics** tab, you will provide the essential information for your storage account. After you complete the **Basics** tab, you can choose to further customize your new storage account by setting options on the other tabs, or you can select **Review + create** to accept the default options and proceed to validate and create the account.
+
+The following table describes the fields on the **Basics** tab.
+
+| Section | Field | Required or optional | Description |
+|--|--|--|--|
+| Project details | Subscription | Required | Select the subscription for the new storage account. |
+| Project details | Resource group | Required | Create a new resource group for this storage account, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
+| Instance details | Storage account name | Required | Choose a unique name for your storage account. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. |
+| Instance details | Region | Required | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md).<br /><br />Not all regions are supported for all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can have a billing impact. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing). |
+| Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is appropriate for most scenarios.<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>Block blobs [[Learn more...](../blobs/storage-blob-performance-tiers.md)]</li><li>File shares [[Learn more...](../files/storage-files-planning.md#management-concepts)]</li><li>Page blobs [[Learn more...](../blobs/storage-blob-pageblob-overview.md)]</li></ul> |
+| Instance details | Redundancy | Required | Select your desired redundancy configuration. Not all redundancy options are available for all types of storage accounts in all regions. For more information about redundancy configurations, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />If you select a geo-redundant configuration (GRS or GZRS), your data is replicated to a data center in a different region. For read access to data in the secondary region, select **Make read access to data available in the event of regional unavailability**. |
+
+The following image shows a standard configuration for a new storage account.
+
+:::image type="content" source="media/storage-account-create/create-account-basics-tab.png" alt-text="Screenshot showing a standard configuration for a new storage account - Basics tab":::
 
 # [PowerShell](#tab/azure-powershell)
 
-First, create a new resource group with PowerShell using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
+To create an Azure storage account with PowerShell, first create a new resource group with PowerShell using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command:
 
-```powershell
-# put resource group in a variable so you can use the same group name going forward,
-# without hard-coding it repeatedly
+```azurepowershell-interactive
 $resourceGroup = "storage-resource-group"
 $location = "westus"
 New-AzResourceGroup -Name $resourceGroup -Location $location
@@ -122,13 +144,13 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 If you're not sure which region to specify for the `-Location` parameter, you can retrieve a list of supported regions for your subscription with the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command:
 
-```powershell
+```azurepowershell-interactive
 Get-AzLocation | select Location
 ```
 
 Next, create a general-purpose v2 storage account with read-access geo-redundant storage (RA-GRS) by using the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
-```powershell
+```azurepowershell-interactive
 New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name <account-name> `
   -Location $location `
@@ -143,40 +165,40 @@ To create a general-purpose v2 storage account with a different replication opti
 
 |Replication option  |SkuName parameter  |
 |---------|---------|
-|Locally redundant storage (LRS)     |Standard_LRS         |
-|Zone-redundant storage (ZRS)     |Standard_ZRS         |
-|Geo-redundant storage (GRS)     |Standard_GRS         |
-|Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
-|Geo-zone-redundant storage (GZRS)    |Standard_GZRS         |
-|Read-access geo-zone-redundant storage (RA-GZRS)    |Standard_RAGZRS         |
+|Locally redundant storage (LRS)   |Standard_LRS   |
+|Zone-redundant storage (ZRS)   |Standard_ZRS   |
+|Geo-redundant storage (GRS)   |Standard_GRS   |
+|Read-access geo-redundant storage (GRS)   |Standard_RAGRS   |
+|Geo-zone-redundant storage (GZRS)  |Standard_GZRS   |
+|Read-access geo-zone-redundant storage (RA-GZRS)  |Standard_RAGZRS   |
 
 # [Azure CLI](#tab/azure-cli)
 
-First, create a new resource group with Azure CLI using the [az group create](/cli/azure/group#az_group_create) command.
+To create an Azure storage account with PowerShell, first,create a new resource group with Azure CLI using the [az group create](/cli/azure/group#az_group_create) command.
 
 ```azurecli-interactive
 az group create \
-    --name storage-resource-group \
-    --location westus
+  --name storage-resource-group \
+  --location westus
 ```
 
 If you're not sure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az_account_list) command.
 
 ```azurecli-interactive
 az account list-locations \
-    --query "[].{Region:name}" \
-    --out table
+  --query "[].{Region:name}" \
+  --out table
 ```
 
 Next, create a general-purpose v2 storage account with read-access geo-redundant storage by using the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
 ```azurecli-interactive
 az storage account create \
-    --name <account-name> \
-    --resource-group storage-resource-group \
-    --location westus \
-    --sku Standard_RAGRS \
-    --kind StorageV2
+  --name <account-name> \
+  --resource-group storage-resource-group \
+  --location westus \
+  --sku Standard_RAGRS \
+  --kind StorageV2
 ```
 
 > [!IMPORTANT]
@@ -186,12 +208,12 @@ To create a general-purpose v2 storage account with a different replication opti
 
 |Replication option  |sku parameter  |
 |---------|---------|
-|Locally redundant storage (LRS)     |Standard_LRS         |
-|Zone-redundant storage (ZRS)     |Standard_ZRS         |
-|Geo-redundant storage (GRS)     |Standard_GRS         |
-|Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
-|Geo-zone-redundant storage (GZRS)    |Standard_GZRS         |
-|Read-access geo-zone-redundant storage (RA-GZRS)    |Standard_RAGZRS         |
+|Locally redundant storage (LRS)   |Standard_LRS   |
+|Zone-redundant storage (ZRS)   |Standard_ZRS   |
+|Geo-redundant storage (GRS)   |Standard_GRS   |
+|Read-access geo-redundant storage (GRS)   |Standard_RAGRS   |
+|Geo-zone-redundant storage (GZRS)  |Standard_GZRS   |
+|Read-access geo-zone-redundant storage (RA-GZRS)  |Standard_RAGZRS   |
 
 # [Template](#tab/template)
 
