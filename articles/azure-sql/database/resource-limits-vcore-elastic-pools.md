@@ -25,6 +25,8 @@ This article provides the detailed resource limits for Azure SQL Database elasti
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
 
+Each read-only replica has its own resources, such as vCores, memory, maximum data IOPS, TempDB size, maximum workers, and maximum sessions. Each read-only replica is subject to the resource limits detailed later in this article.
+
 You can set the service tier, compute size (service objective), and storage amount using:
 
 * [Transact-SQL](elastic-pool-scale.md) via [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
@@ -33,12 +35,8 @@ You can set the service tier, compute size (service objective), and storage amou
 * [Azure CLI](elastic-pool-manage.md#azure-cli)
 * [REST API](elastic-pool-manage.md#rest-api)
 
-
-
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale an elastic pool](elastic-pool-scale.md).
-
-Each read-only replica has its own resources, and is subject to the resource limits detailed later in this article.
 
 ## General purpose - provisioned compute - Gen4
 

@@ -22,7 +22,7 @@ This article provides the detailed resource limits for databases in Azure SQL Da
 * For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
 * For more information regarding the different purchasing models, see [Purchasing models and service tiers](purchasing-models.md).
 
-Each read-only replica has its own resources, and is subject to the resource limits detailed later in this article.
+Each read-only replica has its own resources such as DTUs, maximum workers, and maximum sessions. Each read-only replica is subject to the resource limits detailed later in this article.
 
 ## Elastic pool: Storage sizes and compute sizes
 

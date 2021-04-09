@@ -22,6 +22,8 @@ This article provides the detailed resource limits for single databases in Azure
 * For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
 * For more information regarding the different purchasing models, see [Purchasing models and service tiers](purchasing-models.md).
 
+Each read-only replica has its own resources, such as vCores, memory, maximum data IOPS, TempDB size, maximum workers, and maximum sessions. Each read-only replica is subject to the resource limits detailed later in this article.
+
 You can set the service tier, compute size (service objective), and storage amount for a single database using:
 
 * [Transact-SQL](single-database-manage.md#transact-sql-t-sql) via [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
@@ -29,8 +31,6 @@ You can set the service tier, compute size (service objective), and storage amou
 * [PowerShell](single-database-manage.md#powershell)
 * [Azure CLI](single-database-manage.md#the-azure-cli)
 * [REST API](single-database-manage.md#rest-api)
-
-Each read-only replica has its own resources, and is subject to the resource limits detailed later in this article.
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale a single database](single-database-scale.md).
