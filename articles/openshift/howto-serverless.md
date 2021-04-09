@@ -177,7 +177,7 @@ The *Topology* view will now show you how traffic is distributed between the two
 In the prior steps, you've used the OpenShift web console to create and deploy an application to OpenShift Serverless. Since OpenShift Serverless is running Knative underneath, you can also use the Knative command-line tool (kn) to create Knative services.
 
 > [!NOTE]
-> If you haven't installed the `kn` CLI already, make sure to follow the steps in the prerequisites section of this article.
+> If you haven't installed the `kn` CLI already, make sure to follow the steps in the prerequisites section of this article. Also make sure that you've logged in using the OpenShift command-line tool `oc`.
 
 We're going to use a container image that is already built at `quay.io/rhdevelopers/knative-tutorial-greeter`.
 
