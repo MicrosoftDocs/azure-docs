@@ -118,20 +118,20 @@ Here are the field and property descriptions for API logs.
 | `OperationVersion` | String | The API Version utilized during the event |
 | `Category` | String | The type of resource being emitted |
 | `ResultType` | String | Outcome of the event |
-| `ResultSignature` | String | Http status code for the event |
+| `ResultSignature` | Int | Http status code for the event |
 | `ResultDescription` | String | Additional details about the event |
-| `DurationMs` | String | How long it took to perform the event in milliseconds |
+| `DurationMs` | Int | How long it took to perform the event in milliseconds |
 | `CallerIpAddress` | String | A masked source IP address for the event |
 | `CorrelationId` | Guid | Customer provided unique identifier for the event |
 | `ApplicationId` | Guid | Application ID used in bearer authorization |
 | `Level` | Int | The logging severity of the event |
 | `Location` | String | The region where the event took place |
 | `RequestUri` | Uri | The endpoint utilized during the event |
-| `TraceId` | String | `TraceId`, as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). The ID of the whole trace used to uniquely identify a distributed trace across systems. |
-| `SpanId` | String | `SpanId` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). The ID of this request in the trace. |
-| `ParentId` | String | `ParentId` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). A request without a parent ID is the root of the trace. |
-| `TraceFlags` | String | `TraceFlags` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Controls tracing flags such as sampling, trace level, etc. |
-| `TraceState` | String | `TraceState` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Additional vendor-specific trace identification information to span across different distributed tracing systems. |
+| `TraceId` | String | Globally unique identifier of the trace (32 hex characters) |
+| `SpanId` | String | Unique identifier of current span within the trace (16 hex characters) |
+| `ParentId` | String | Unique identifier of current span within the trace (16 hex characters). A request without a parent ID is the root of the trace. |
+| `TraceFlags` | String | A bit field for controlling tracing options, such as sampling and trace level |
+| `TraceState` | String | Additional vendor-specific trace identification information, to span across different distributed tracing systems |
 
 Below are example JSON bodies for these types of logs.
 
@@ -181,7 +181,7 @@ Below are example JSON bodies for these types of logs.
   "resultType": "Success",
   "resultSignature": "201",
   "resultDescription": "",
-  "durationMs": "80",
+  "durationMs": 80,
   "callerIpAddress": "13.68.244.*",
   "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
   "identity": {
@@ -215,7 +215,7 @@ Below are example JSON bodies for these types of logs.
   "resultType": "Success",
   "resultSignature": "200",
   "resultDescription": "",
-  "durationMs": "314",
+  "durationMs": 314,
   "callerIpAddress": "13.68.244.*",
   "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
   "identity": {
@@ -288,11 +288,11 @@ This is the schema for `ADTEventRoutesOperation` logs specific to the `Microsoft
 | `ApplicationId` | Guid | Application ID used in bearer authorization |
 | `Level` | Int | The logging severity of the event |
 | `Location` | String | The region where the event took place |
-| `TraceId` | String | `TraceId`, as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). The ID of the whole trace used to uniquely identify a distributed trace across systems. |
-| `SpanId` | String | `SpanId` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). The ID of this request in the trace. |
-| `ParentId` | String | `ParentId` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). A request without a parent ID is the root of the trace. |
-| `TraceFlags` | String | `TraceFlags` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Controls tracing flags such as sampling, trace level, etc. |
-| `TraceState` | String | `TraceState` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Additional vendor-specific trace identification information to span across different distributed tracing systems. |
+| `TraceId` | String | Globally unique identifier of the trace (32 hex characters) |
+| `SpanId` | String | Unique identifier of current span within trace (16 hex characters |
+| `ParentId` | String | Unique identifier of current span within trace (16 hex characters). A request without a parent id is the root of the trace |
+| `TraceFlags` | String | A bit field for controlling tracing options. For example, sampling and trace level |
+| `TraceState` | String | Additional vendor-specific trace identification information to span across different distributed tracing systems |
 | `EndpointName` | String | The name of egress endpoint created in Azure Digital Twins |
 
 Below are example JSON bodies for these types of logs.
