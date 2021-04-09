@@ -203,8 +203,8 @@ print(response.text)
 
 This issue is only applicable if you've enabled Managed Identity, are running Hybrid Jobs on Azure, and are using a virtual machine's system-assigned identities for accessing your resource in runbook.
 
-- If you enable Managed Identities on an Automation account, and the VM is registered as a hybrid runbook worker, then the of automation account identity will be used for the hybrid jobs.
+- If you enable Managed Identities on an Automation account, and the VM is registered as a hybrid runbook worker, then the automation account identity will be used for the hybrid jobs.
 
-- This also means that your existing job execution may be affected if you have been using the customer-managed keys feature of the automation account and used them to enable managed identity for Automation. If you're also using the VM's managed identity in your runbook for accessing resources.
+- This also means that your existing job execution may be affected if you have been using the customer-managed keys feature of the automation account and used them to enable managed identity for Automation, and you're also using the VM's managed identity in your runbook for accessing resources.
 
 - These variables will only be overriding for the process executing Runbooks.

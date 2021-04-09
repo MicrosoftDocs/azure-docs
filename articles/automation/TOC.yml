@@ -80,7 +80,7 @@
           href: automation-use-azure-ad.md
         - name: Managed identity
           items:
-            - name: Enable and use managed identity for Automation
+            - name: Enable managed identity for Automation
               href: enable-managed-identity-for-automation.md
             - name: Disable managed identity for Automation
               href: disable-managed-identity-for-automation.md
