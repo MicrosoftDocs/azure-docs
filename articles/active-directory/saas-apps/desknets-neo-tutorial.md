@@ -121,11 +121,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Sign in to your desknet's NEO company site as an administrator.
 
-1. In the **menu**, click on **SAML authentication link settings** icon.
+1. In the menu, click **SAML authentication link settings** icon.
 
     ![Screenshot for SAML authentication link settings.](./media/desknets-neo-tutorial/saml-authentication-icon.png)
 
-1. In the **Common settings**, click on **use** of **SAML Authentication Collaboration**.
+1. In the **Common settings**, click **use** from SAML Authentication Collaboration.
 
     ![Screenshot for SAML authentication use.](./media/desknets-neo-tutorial/saml-authentication-use.png)
 
@@ -137,7 +137,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In the **SP Entity ID** textbox, paste the **Identifier** value, which you have copied from the Azure portal.
 
-    c. Click on **Choose File** to upload the downloaded **Certificate (Base64)** file from the Azure portal into the **x.509 Certificate** textbox.
+    c. Click **Choose File** to upload the downloaded **Certificate (Base64)** file from the Azure portal into the **x.509 Certificate** textbox.
 
     d. Click **change**.
 
@@ -145,19 +145,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Sign in to your desknet's NEO company site as an administrator.
 
-1. In the **menu**, click on **Administrator settings** icon.
+1. In the **menu**, click **Administrator settings** icon.
 
     ![Screenshot for Administrator settings.](./media/desknets-neo-tutorial/administrator-settings.png)
 
-1. Click on **settings** icon and select **User management** in the **Custom settings**.
+1. Click **settings** icon and select **User management** in the **Custom settings**.
 
     ![Screenshot for User management settings.](./media/desknets-neo-tutorial/user-management.png)
 
-1. Click on **Create user information**.
+1. Click **Create user information**.
 
     ![Screenshot for User information button.](./media/desknets-neo-tutorial/create-new-user.png)
 
-1. Fill the required fields in the below page and click on **creation**.
+1. Fill the required fields in the below page and click **creation**.
 
     ![Screenshot for User creation section.](./media/desknets-neo-tutorial/create-new-user-2.png)
 
