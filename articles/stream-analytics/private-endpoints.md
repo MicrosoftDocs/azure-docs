@@ -51,7 +51,7 @@ In this section, you learn how to create a private endpoint in a Stream Analytic
 
 1. Choose the private endpoint you want to delete and select **Delete**.
 
-   ![delete private endpoint](./media/private-endpoints/asa-pe-delete.png)
+   ![delete private endpoint](./media/private-endpoints/delete-private-endpoint.png)
 
 ## Next steps
 
