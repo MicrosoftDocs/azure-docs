@@ -29,9 +29,9 @@ Use this article to find the settings and requirements for connecting different 
 
 ## Create a credential entity to manage your credential in secure
 
-You can create a **Credential entity** to store credential related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the real credentials. It can be created in *Adding data feed page* or *Credential entity page*. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new datafeed, and it will be really convenient when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
+You can create a **credential entity** to store credential related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the real credentials. It can be created in 'Adding data feed' tab or 'Credential entity' tab. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new datafeed, and it will be really convenient when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
 
-1. Click '+' to create a new credential entity in *Adding data feed page* (you can also create one in *Credential entity page*).
+1. Click '+' to create a new credential entity in 'Adding data feed' tab  (you can also create one in 'Credential entity feed' tab ).
 
    ![create credential entity](media/create-credential-entity.png)
  
@@ -105,9 +105,9 @@ The following sections specify the parameters required for all authentication ty
 
     * **Basic** : See [Configure Azure Storage connection strings](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string#configure-a-connection-string-for-an-azure-storage-account) for information on retrieving this string. Also, you can just go to Azure portal for your Azure Blob Storage resource, and find connection string directly in **Settings > Access keys** section.
     
-    * **Managed Identity**: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. Need describe how to enable metrics advisor managed idenetity? 
+    * **Managed Identity**: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. 
     
-    To enable managed identity on metrics advisor, the managed identity name must be the metrics advisor name. You can create managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create. Should add role type: Storage Blob Data Reader.
+    You can create managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create. A suggested role type is: Storage Blob Data Reader.
     
     ![MI blob](media/MI-blob.png)
     
@@ -172,6 +172,7 @@ The following sections specify the parameters required for all authentication ty
     
     * **Basic** : Metrics Advisor supports accessing Azure Data Explorer(Kusto) by using Azure AD application authentication. You will need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database, see detail in [Create an AAD app registration in Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/provision-azure-ad-app) documentation.
         Here is an example of connection string:
+        
         ```
         Data Source=<Server>;Initial Catalog=<Database>;AAD Federated Security=True;Application Client Id=<Application Client Id>;Application Key=<Application Key>;Authority Id=<TenantId>
         ```
@@ -185,6 +186,7 @@ The following sections specify the parameters required for all authentication ty
         Also, you need to **create a credential entity** in Metric Advisor, so that you can choose that entity whe adding data feed for Service Principal authentication type. 
         
         Here is an example of connection string:
+        
         ```
         Data Source=<Server>;Initial Catalog=<Database>
         ```
@@ -197,7 +199,7 @@ The following sections specify the parameters required for all authentication ty
 
     * **Managed Identity**: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
     
-        You can create managed identity in Azure portal for your Azure Data Explorer (Kusto), choose **Persmissions** section, and click **add** to create.
+        You can create managed identity in Azure portal for your Azure Data Explorer (Kusto), choose **Persmissions** section, and click **add** to create. The suggested role type is: admin / viewer.
         
         ![MI kusto](media/MI-kusto.png)
 
@@ -329,8 +331,22 @@ To get **Tenant ID**, **Client ID**, **Client Secret**, please refer to [Registe
         Data Source=<Server>,<Port>;Initial Catalog=<db-name>;User Id=<user-name>;Password=<password>
         ```
     
-    * **Managed Identity** : Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section. It's better to provide a document to describe how to setup Mi on sql. I think user may confuse how to set MI via the link you provided because we are not a VM MI.
-        Here is an example of connection string: 
+    * **Managed Identity** : Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. 
+    To enable your managed entity, you can refer to following steps:
+    1. Enabling a system-assigned managed identity is a one-click experience. In Auzre portal for your Metrics Advisor workspace, set the status as **on** in **RESOURCE MANAGEMENT > Identity**.
+    2. In Azure portal for your data source, click **set admin** in **Settings > Active Directory admin**, this is to give MI access to specified users, and the suggested role type is: admin / viewer.
+    3. Then you should create a contained user in database. First, start SQL Server Management Studio, in the **Connect to Server** dialog, Enter your **server name** in the Server name field. Then in the Authentication field, select **Active Directory - Universal with MFA support**. In the User name field, enter the name of the Azure AD account that you set as the server administrator, then click **Options**. In the Connect to database field, enter the name of the non-system database you want to configure. Then click **Connect**, and finally complete the sign-in process.
+    4. The last step is to enable MI in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
+    
+    ```
+    CREATE USER [MI Name] FROM EXTERNAL PROVIDER
+    ALTER ROLE db_datareader ADD MEMBER [MI Name]
+    ```
+    *The [MI Name] is the workspace name in Metrics Advisor.
+    
+    Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
+
+    Here is an example of connection string: 
         
         ```
         Data Source=<Server>,<Port>;Initial Catalog=<Database>
@@ -455,8 +471,7 @@ Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-que
 
 * **Connection String**: The connection string to access your MongoDB.
 * **Database**: The database to query against.
-* **Query**: A command to get and formulate data into multi-dimensional time series data for ingestion. Query should be executed on db.runCommand(). Link: https://docs.mongodb.com/manual/reference/method/db.runCommand/index.html![image](https://user-images.githubusercontent.com/61769706/114009115-72e39a80-9895-11eb-8b81-6b28cb7381fe.png)
-
+* **Query**: A command to get and formulate data into multi-dimensional time series data for ingestion. We recommend the command is verified on [db.runCommand()](https://docs.mongodb.com/manual/reference/method/db.runCommand/index.html).
 
     Sample query:
 
@@ -496,10 +511,9 @@ Besides, you can read [Tutorial: Write a valid query](tutorial/write-a-valid-que
 > This feature is only used for quick system evaluation focusing on anomaly detection. It only accepts static data from a local CSV and perform anomaly detection on single time series data. However, for full product experience analyzing on multi-dimensional metrics including real-time data ingestion, anomaly notification, root cause analysis, cross-metric incident analysis, please use other supported data sources.
 
 **Requirements on data in CSV:**
-1. Have at least one column, which represents as measures to be analyzed. You can have multiple columns(measures), which will be ingested as different metrics to be monitored.
-2. Timestamp column is optional, if there's no timestamp, Metrics Advisor will use timestamp starting from today 00:00:00(UTC) and map each measure in the row at a one-hour interval. If there is timestamp column in CSV and you want to keep it, please make sure it fall into the [historical data processing window].(Timestamp format : 2021-03-30T00:00:00Z)
-3.  Multi-dimensional metric is not supported in CSV source.
-4. There is no re-ordering or gap-filling happening during data ingestion, please make sure your data in CSV is ordered by timestamp ASC.
+1. Have at least one column, which represents as measures to be analyzed. For better and quicker user experience, we recommend you try a CSV file containing 2 columns : (1) Timestamp column (2) Metric Column. (Timestamp format : 2021-03-30T00:00:00Z, note that the 'seconds' part is best to be ':00Z') And the time granularity between every record should be the same.
+2. Timestamp column is optional, if there's no timestamp, Metrics Advisor will use timestamp starting from today 00:00:00(UTC) and map each measure in the row at a one-hour interval. If there is timestamp column in CSV and you want to keep it, please make sure the data time period follow this rule [historical data processing window].
+3. There is no re-ordering or gap-filling happening during data ingestion, please make sure your data in CSV is ordered by timestamp **ASC**.
  
 ## Next steps
 
