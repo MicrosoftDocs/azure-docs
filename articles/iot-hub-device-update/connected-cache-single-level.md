@@ -71,6 +71,7 @@ In this scenario there is an Azure IoT Edge Gateway that has access to CDN resou
 2. Add the environment variables for the deployment. Below is an example of the environment variables.
 
     **Environment Variables**
+    
     | Name                          | Value                                                                 |
     | ----------------------------- | ----------------------------------------------------------------------| 
     | CACHE_NODE_ID                 | See [environment variable](connected-cache-configure.md) descriptions |
@@ -80,7 +81,7 @@ In this scenario there is an Azure IoT Edge Gateway that has access to CDN resou
     | CACHEABLE_CUSTOM_1_HOST       | Packagerepo.com:80                                                    |
     | CACHEABLE_CUSTOM_1_CANONICAL  | Packagerepo.com                                                       |
     | IS_SUMMARY_ACCESS_UNRESTRICTED| true                                                                  |
-    | UPSTREAM_PROXY                | Your proxy server IP or FQDN                                               |
+    | UPSTREAM_PROXY                | Your proxy server IP or FQDN                                          |
 
 3. Add the container create options for the deployment. There is no difference in MCC container create options from the previous example. Below is an example of the container create options.
 
