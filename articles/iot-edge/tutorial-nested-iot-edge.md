@@ -61,16 +61,16 @@ To create a hierarchy of IoT Edge devices, you will need:
 
    Replace the placeholder text in the following command and run it twice, once for each virtual machine. Each virtual machine needs a unique DNS prefix, which will also serve as its name. The DNS prefix must conform to the following regular expression: `[a-z][a-z0-9-]{1,61}[a-z0-9]`.
 
-```bash
-az deployment group create \
- --resource-group <REPLACE_WITH_YOUR_RESOURCE_GROUP> \
- --template-uri "https://raw.githubusercontent.com/ebertrams/iotedge-vm-deploy/1.2.0 /edgeDeploy.json" \
- --parameters dnsLabelPrefix='<REPLACE_WITH_UNIQUE_DNS_FOR_VIRTUAL_MACHINE>' \
- --parameters adminUsername='azureuser' \
- --parameters authenticationType='sshPublicKey' \
- --parameters adminPasswordOrKey="$(< ~/.ssh/id_rsa.pub)" \
- --query "properties.outputs.[publicFQDN.value, publicSSH.value]" -o tsv
-```
+   ```bash
+   az deployment group create \
+    --resource-group <REPLACE_WITH_YOUR_RESOURCE_GROUP> \
+    --template-uri "https://raw.githubusercontent.com/ebertrams/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
+    --parameters dnsLabelPrefix='<REPLACE_WITH_UNIQUE_DNS_FOR_VIRTUAL_MACHINE>' \
+    --parameters adminUsername='azureuser' \
+    --parameters authenticationType='sshPublicKey' \
+    --parameters adminPasswordOrKey="$(< ~/.ssh/id_rsa.pub)" \
+    --query "properties.outputs.[publicFQDN.value, publicSSH.value]" -o tsv
+   ```
 
    The virtual machine uses SSH keys for authenticating users. If you are unfamiliar with creating and using SSH keys, you can follow [the instructions for SSH public-private key pairs for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
