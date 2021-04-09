@@ -8,7 +8,7 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/08/2020
+ms.date: 03/08/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl, references_regions
 ---
@@ -161,6 +161,10 @@ If this pattern is expected in your time series, you can switch your primary met
   1. Download the model package
   1. Unzip the package
   1. Deploy using the unzipped assets
+
+## Azure Functions application
+  
+  Automated ML does not currently support Azure Functions applications. 
 
 ## Sample notebook failures
 

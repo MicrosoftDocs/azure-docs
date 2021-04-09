@@ -1,9 +1,9 @@
 ---
 title: 'Supported data types - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about the supported data types in Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights

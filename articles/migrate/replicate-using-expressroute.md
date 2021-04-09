@@ -11,10 +11,10 @@ ms.date: 02/22/2021
 
 # Replicate data over ExpressRoute with Azure Migrate: Server Migration
 
-In this article you'll learn how to configure [Azure Migrate: Server Migration](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-migration-tool) to replicate data over an ExpressRoute circuit while migrating servers to Azure.
+In this article you'll learn how to configure [Azure Migrate: Server Migration](./migrate-services-overview.md#azure-migrate-server-migration-tool) to replicate data over an ExpressRoute circuit while migrating servers to Azure.
 
 ## Understand Azure ExpressRoute circuits
-An ExpressRoute (ER) circuit connects your on-premises infrastructure to Microsoft through a connectivity provider. ExpressRoute circuits can be configured to use private peering, Microsoft peering, or both. Review the article on [ExpressRoute circuits and peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#peeringcompare) to learn more about the various peering options available with ExpressRoute.
+An ExpressRoute (ER) circuit connects your on-premises infrastructure to Microsoft through a connectivity provider. ExpressRoute circuits can be configured to use private peering, Microsoft peering, or both. Review the article on [ExpressRoute circuits and peering](../expressroute/expressroute-circuit-peerings.md#peeringcompare) to learn more about the various peering options available with ExpressRoute.
 
 Azure Migrate's server migration tool helps you migrate on-premises servers and servers from other clouds to Azure virtual machines. The tool works by setting up an ongoing replication stream to replicate data from the servers to be migrated to managed disks in your Azure subscription. When you are ready to migrate the servers, the replicated data in Azure is used to migrate the servers.
 
@@ -100,7 +100,7 @@ You can create private endpoints only on a General Purpose v2 (GPv2) storage acc
     > [!Note]
     > The virtual network must contain the ExpressRoute gateway endpoint or must be connected to the virtual network with the ExpressRoute gateway. 
 
-    In the **Private DNS Integration** section, select **Yes** and integrate with a private DNS zone. Selecting **Yes** automatically links the DNS zone to the selected virtual network and adds the DNS records that are required for DNS resolution of new IPs and fully qualified domain names created for the private endpoint. Learn more about [private DNS zones.](https://docs.microsoft.com/azure/dns/private-dns-overview)
+    In the **Private DNS Integration** section, select **Yes** and integrate with a private DNS zone. Selecting **Yes** automatically links the DNS zone to the selected virtual network and adds the DNS records that are required for DNS resolution of new IPs and fully qualified domain names created for the private endpoint. Learn more about [private DNS zones.](../dns/private-dns-overview.md)
 
     ![privatednszone](./media/replicate-using-expressroute/private-dns-zone.png)
 
@@ -140,14 +140,14 @@ If you did not select the option to integrate with a private DNS zone at the tim
     b. In the **Add record set** page, add an entry for the fully qualified domain name and private IP as an A type record.
 
 > [!Important]
-> You may require additional DNS settings to resolve the private IP address of the storage account's private endpoint from the source environment. [Review this article](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#on-premises-workloads-using-a-dns-forwarder) to understand the DNS configuration needed.
+> You may require additional DNS settings to resolve the private IP address of the storage account's private endpoint from the source environment. [Review this article](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) to understand the DNS configuration needed.
 
 ## Replicate data using an ExpressRoute circuit with Microsoft peering
 
 You can use Microsoft peering or an existing public peering domain (deprecated for new ExpressRoute connections) to route your replication traffic through an ExpressRoute circuit as illustrated in the diagram below.
 ![replicationwithmicrosoftpeering](./media/replicate-using-expressroute/replication-with-microsoft-peering.png)
 
-Even with replication data going over the Microsoft peered circuit, you'll still need internet connectivity from the on-premises site for other communication (control plane) with the Azure Migrate service. There are some additional URLs, that are not reachable over ExpressRoute, that the replication appliance / Hyper-V host needs access to orchestrate the replication process. You can review the URL requirements based on the migration scenario, [VMware agentless migrations](https://docs.microsoft.com/azure/migrate/migrate-appliance#public-cloud-urls) or [agent-based migrations](https://docs.microsoft.com/azure/migrate/migrate-replication-appliance).  
+Even with replication data going over the Microsoft peered circuit, you'll still need internet connectivity from the on-premises site for other communication (control plane) with the Azure Migrate service. There are some additional URLs, that are not reachable over ExpressRoute, that the replication appliance / Hyper-V host needs access to orchestrate the replication process. You can review the URL requirements based on the migration scenario, [VMware agentless migrations](./migrate-appliance.md#public-cloud-urls) or [agent-based migrations](./migrate-replication-appliance.md).  
 
 In case you use a proxy at your on-premises site and wish to use ExpressRoute for the replication traffic, you need to configure a proxy bypass for relevant URLs on the on-premises appliance. 
 
@@ -168,7 +168,7 @@ In case you use a proxy at your on-premises site and wish to use ExpressRoute fo
 
 Follow the steps below to configure the Proxy bypass list on the Configuration server and Process servers:
 
-1. [Download PsExec tool](https://docs.microsoft.com/sysinternals/downloads/psexec) to access system user context.
+1. [Download PsExec tool](/sysinternals/downloads/psexec) to access system user context.
 2. Open Internet Explorer in system user context by running the following command line psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 3. Add proxy settings in IE.
 4. In the bypass list, add the Azure storage URL.*.blob.core.windows.net.  
@@ -181,10 +181,10 @@ Additionally, you must advertise routes in the Route Filter for the following BG
 - Regional BGP community for the target Azure region (region for migration)
 - BGP community for Azure Active Directory (12076:5060)
 
-Learn more about [Route Filters](https://docs.microsoft.com/azure/expressroute/how-to-routefilter-portal) and the list of [BGP communities for ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp). 
+Learn more about [Route Filters](../expressroute/how-to-routefilter-portal.md) and the list of [BGP communities for ExpressRoute](../expressroute/expressroute-routing.md#bgp). 
 
 ## Next steps
 
-- Learn more about [ExpressRoute circuits](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings).
-- Learn more about [ExpressRoute routing domains](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#peeringcompare).
-- Learn more about [private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+- Learn more about [ExpressRoute circuits](../expressroute/expressroute-circuit-peerings.md).
+- Learn more about [ExpressRoute routing domains](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
+- Learn more about [private endpoints](../private-link/private-endpoint-overview.md).

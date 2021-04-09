@@ -343,20 +343,6 @@ Just to clarify for the interactive, conversation, and dictation; this is an adv
 
 This can all be verified from the docker logs. We actually dump the line with session and phrase/utterance statistics, and that includes the RTF numbers.
 
-
-<br>
-</details>
-
-<details>
-<summary>
-<b>Is it common to split audio files into chucks for Speech container usage?</b>
-</summary>
-
-My current plan is to take an existing audio file and split it up into 10 second chunks and send those through the container. Is that an acceptable scenario?  Is there a better way to process larger audio files with the container?
-
-**Answer:** Just use the speech SDK and give it the file, it will do the right thing. Why do you need to chunk the file?
-
-
 <br>
 </details>
 

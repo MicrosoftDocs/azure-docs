@@ -353,7 +353,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 In `polls/models.py`, locate the line that begins with `choice_text` and change the `max_length` parameter to 100:
 
 ```python
-# Find this lie of code and set max_length to 100 instead of 200
+# Find this line of code and set max_length to 100 instead of 200
 choice_text = models.CharField(max_length=100)
 ```
 

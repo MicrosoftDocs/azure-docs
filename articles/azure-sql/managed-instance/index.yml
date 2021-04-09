@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure SQL Managed Instance documentation
-summary: Find documentation about Azure SQL Managed Instance, a managed instance in Azure based on the latest stable version of Microsoft SQL Server.
+summary: Find documentation about Azure SQL Managed Instance, a managed instance in Azure based on the latest stable version of Microsoft SQL Server. 
 
 metadata:
   title: Azure SQL Managed Instance documentation
@@ -24,6 +24,12 @@ landingContent:
   # Card 
   - title: Azure SQL Managed Instance 
     linkLists:
+      - linkListType: whats-new
+        links:
+          - text: What's new? 
+            url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
+          - text: Feedback? Take the survey! 
+            url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456 
       - linkListType: quickstart
         links:
           - text: Create SQL Managed Instance
@@ -34,8 +40,6 @@ landingContent:
             url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
       - linkListType: concept
         links:
-          - text: What's new? 
-            url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
           - text: What is SQL Managed Instance?
             url: sql-managed-instance-paas-overview.md
           - text: Purchasing options

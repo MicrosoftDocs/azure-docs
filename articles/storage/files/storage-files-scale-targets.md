@@ -129,7 +129,7 @@ The rate of performance is 20 objects per second. Customers can estimate the tim
 
 **Initial sync of data from Windows Server to Azure File share**:Many Azure File Sync deployments start with an empty Azure file share because all the data is on the Windows Server. In these cases, the initial cloud change enumeration is fast and the majority of time will be spent syncing changes from the Windows Server into the Azure file share(s). 
 
-While sync uploads data to the Azure file share, there is no downtime on the local file server, and administrators can [setup network limits](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-registration#set-azure-file-sync-network-limits) to restrict the amount of bandwidth used for background data upload.
+While sync uploads data to the Azure file share, there is no downtime on the local file server, and administrators can [setup network limits](./storage-sync-files-server-registration.md#set-azure-file-sync-network-limits) to restrict the amount of bandwidth used for background data upload.
 
 Initial sync is typically limited by the initial upload rate of 20 files per second per sync group. Customers can estimate the time to upload all their data to Azure using the following formulae to get time in days:  
 

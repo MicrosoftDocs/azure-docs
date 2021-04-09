@@ -8,6 +8,8 @@
     href: core/overview-iot-central-tour.md
   - name: Recent updates
     items:
+    - name: February 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-february-2021/
     - name: January 2021 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/
     - name: November 2020 new and updated features
@@ -122,7 +124,7 @@
         - name: Create a continuous patient monitoring app
           href: healthcare/tutorial-continuous-patient-monitoring.md 
         - name: Create a health data triage dashboard
-          href: healthcare/howto-health-data-triage.md
+          href: ./healthcare/tutorial-health-data-triage.md
 
 - name: Concepts
   items:
@@ -132,6 +134,10 @@
       href: core/overview-iot-central-developer.md
     - name: Solution builder guide
       href: core/overview-iot-central-solution-builder.md
+    - name: Administrator guide
+      href: core/overview-iot-central-admin.md
+    - name: Operator guide
+      href: core/overview-iot-central-operator.md
     - name: What are application templates?
       href: core/concepts-app-templates.md
     - name: Industry specific application templates

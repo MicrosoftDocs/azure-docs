@@ -139,6 +139,8 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
+    It's strongly recommended to include api-version in the field. Otherwise it could cause unexpected behaviors. 
+    
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
 
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
@@ -436,7 +438,7 @@ To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt
 
 To learn more about planning your IoT Hub deployment, see:
 
-* [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/)
+* [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/)
 * [Support additional protocols](iot-hub-protocol-gateway.md)
 * [Compare with Event Hubs](iot-hub-compare-event-hubs.md)
 * [Scaling, HA, and DR](iot-hub-scaling.md)

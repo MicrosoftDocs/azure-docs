@@ -1,12 +1,8 @@
 ---
 title: Create and manage users
 description: Create and manage users of sensors and the on-premises management console. Users can be assigned the role of administrator, security analyst, or read-only user.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 03/03/2021
 ms.topic: article
-ms.service: azure
 ---
 
 # About Defender for IoT console users
