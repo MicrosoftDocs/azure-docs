@@ -34,7 +34,7 @@ To register a new confidential client application, refer to the steps below.
 
 1. (Optional) Provide a **Redirect URI**. These details can be changed later, but if you know the reply URL of your application, enter it now.
 
- :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png" alt-text="New Confidential Client App Registration.":::
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png" alt-text="New Confidential Client App Registration.":::
 
 1. Select **Register**.
 
@@ -44,7 +44,7 @@ Now that you've registered your application, you must select which API permissio
 
 1. Select **API permissions**.
 
- :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png" alt-text="Confidential client. API Permissions.":::
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png" alt-text="Confidential client. API Permissions.":::
 
 1. Select **Add a permission**.
 
