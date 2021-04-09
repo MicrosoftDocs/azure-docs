@@ -7,7 +7,7 @@ metadata:
   ms.reviewer: adwise
   ms.service: cost-management-billing
   ms.topic: conceptual
-  ms.date: 03/18/2021
+  ms.date: 04/09/2021
   ms.author: banders
     
 title: Azure Cost Management + Billing frequently asked questions (FAQ)
@@ -39,9 +39,38 @@ sections:
       - question: How do I cancel my Azure subscription?
         answer: |
           See [Cancel your Azure subscription](manage/cancel-azure-subscription.md).
-
   - name: Cost Management questions
     questions:
+      - question: How can I see forecasted costs?
+        answer: |
+          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. In the default view, the top chart has the Actual/Amortized cost and forecasted cost sections. The solid color of the chart shows your Actual/Amortized cost. The shaded color shows the forecast cost.
+      - question: How do I view a cost breakdown by Azure service?
+        answer: |
+          In the Azure portal, navigate **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Select **Cost by service** and then group by **Service tier**. Change the view to **Table**.
+      - question: How do I see my invoice costs?
+        answer: |
+          In the Azure portal, navigate to Cost analysis for the scope associated with the invoice that you're analyzing. Select the **Invoice details** view. Invoice details show you the charges as shown on your invoice.
+      - question: How do I view reservation charges?
+        answer: |
+          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Add a filter for **Pricing Model: Reservation**. Under Scope and next to the cost shown, select the down arrow symbol, and then select either **Actual cost** or **Amortized cost** metric.
+      - question: How do I view costs for a tag?
+        answer: |
+          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Select **Group by** for your tag.
+      - question: How do I see costs for my EA enrollment?
+        answer: |
+          In the Azure portal, navigate to **Cost Management + Billing** > Overview. Select the **Breakdown** link.
+      - question: How do I create a budget?
+        answer: |
+          See the [Create and manage Azure budgets](costs/tutorial-acm-create-budgets.md) tutorial.
+      - question: How do I export cost management data?
+        answer: |
+          See the [Create and manage exported data](costs/tutorial-export-acm-data.md) tutorial.
+      - question: How can I charge back costs?
+        answer: |
+          You can allocate costs in Cost Management to see the costs that you distribute to subscriptions, resource groups, or tags in cost analysis. For more information, see the [Create and manage Azure cost allocation rules](costs/allocate-costs.md) article.
+      - question: Can I use Power BI to view costs?
+        answer: |
+          Yes, you use [Power BI Desktop to connect to Cost Management data](/power-bi/connect-data/desktop-connect-azure-cost-management) or you can use the [Cost Management Power BI App for EAs](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
       - question: What are the current limitations with cost allocation in public preview?
         answer: |
           <a name="limitations"></a>Currently, cost allocation is supported in Cost Management by Cost analysis, budgets, and forecast views. Allocated costs are also shown in the subscriptions list and on the Subscriptions overview page.
