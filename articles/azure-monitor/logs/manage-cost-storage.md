@@ -492,7 +492,7 @@ Some suggestions for reducing the volume of logs collected include:
 | Syslog                     | Change [syslog configuration](../agents/data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
 | AzureDiagnostics           | Change [resource log collection](../essentials/diagnostic-settings.md#create-in-azure-portal) to: <br> - Reduce the number of resources send logs to Log Analytics <br> - Collect only required logs |
 | Solution data from computers that don't need the solution | Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers. |
-| Application Insights | Review options for [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
+| Application Insights | Review options for [managing Application Insights data volume](../app/pricing.md#managing-your-data-volume) |
 | [SQL Analytics](../insights/azure-sql.md) | Use [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) to tune the auditing settings. |
 | Azure Sentinel | Review any [Sentinel data sources](../../sentinel/connect-data-sources.md) which you recently enabled as sources of additional data volume. |
 

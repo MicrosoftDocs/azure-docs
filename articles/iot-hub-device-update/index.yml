@@ -49,7 +49,7 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Build, run and modify device update agent
+        - text: Provisioning Device Update for Azure IoT Hub Agent
           url: device-update-agent-provisioning.md
   - title: Get started
     linkLists:

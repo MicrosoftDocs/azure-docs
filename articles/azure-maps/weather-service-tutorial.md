@@ -65,7 +65,6 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast API](/rest/api/maps/weather/getdailyforecast) of the Azure Maps Weather services. This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
 
-
 ```python
 subscription_key = "Your Azure Maps key"
 
