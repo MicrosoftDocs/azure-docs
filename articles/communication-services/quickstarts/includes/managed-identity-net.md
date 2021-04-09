@@ -24,7 +24,7 @@ using Azure.Core;
 For an easy way to jump into using managed identity authentication, see [Authorize access with managed identity](../managed-identity-from-cli.md)
 
 For a more in-depth look on how the DefaultAzureCredential object works and how you can use it in ways that are not specified in this quickstart, see
-[Azure Identity client library for .Net](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
+[Azure Identity client library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
 
 The examples below are using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
 
