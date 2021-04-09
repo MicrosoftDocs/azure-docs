@@ -12,6 +12,8 @@
   items:
   - name: Get started - Azure Video Analyzer
     href: get-started-detect-motion-emit-events.md
+  - name: Track objects in live videos
+    href: track-objects-live-video.md
   - name: Analyze live video
     items:
     - name: with your own model - HTTP
@@ -26,6 +28,8 @@
     href: video-recording.md    
 - name: How-to guides
   items:
+  - name: Develop and deploy gRPC inference server
+    href: develop-deploy-grpc-inference-srv.md
   - name: Manage retention policy
     href: manage-retention-policy-how-to.md
 - name: Resources
