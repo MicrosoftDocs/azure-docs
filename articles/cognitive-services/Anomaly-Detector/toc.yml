@@ -49,6 +49,8 @@
       href: concepts/best-practices-multivariate.md
     - name: Anomaly Detector API best practices (univariate)
       href: concepts/anomaly-detection-best-practices.md
+    - name: Predicative maintenance architecture (multivariate)
+      href: concepts/multivariate-architecture.md
     - name: Troubleshooting multivariate
       href: concepts/troubleshooting.md
     - name: Spectral Residual (SR) and Convolutional Neural Net (CNN) anomaly detection
