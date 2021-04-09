@@ -296,7 +296,7 @@ Now we make modifications to the sample app's issuer code to update it with your
     node app.js
     ```
 
-6. Using a different command prompt run ngrok to set up a URL on 8081
+6. Using a different command prompt run ngrok to set up a URL on 8081. You can install ngrok globally using the [ngrok npm package](https://www.npmjs.com/package/ngrok/).
 
     ```terminal
     ngrok http 8081
