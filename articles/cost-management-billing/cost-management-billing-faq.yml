@@ -40,34 +40,36 @@ sections:
         answer: |
           See [Cancel your Azure subscription](manage/cancel-azure-subscription.md).
 
-  - name: Link a partner ID to Power Apps accounts questions
+  - name: Cost Management questions
     questions:
-      - question: Who should link the partner ID?
+      - question: What are the current limitations with cost allocation in public preview?
         answer: |
-          Any user from the partner organization who works on a customer's Power Apps resources can link the partner ID to the account. Ideally, the association in PAL should be done at the beginning of the project. However, it can be performed whenever you have access in the customer's directory.
-      - question: Can a partner ID be changed after it's linked?
+          <a name="limitations"></a>Currently, cost allocation is supported in Cost Management by Cost analysis, budgets, and forecast views. Allocated costs are also shown in the subscriptions list and on the Subscriptions overview page.
+          
+          The following items are currently unsupported by the cost allocation public preview:
+          
+          - Scheduled [Exports](costs/tutorial-export-acm-data.md)
+          - Data exposed by the [Usage Details](/rest/api/consumption/usagedetails/list) API
+          - Billing subscriptions area
+          - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
+          - [Power BI Desktop connector](/power-bi/connect-data/desktop-connect-azure-cost-management)
+      - question: Are allocated costs factored into budgets and forecast views?
         answer: |
-          Yes. A linked partner ID can be changed, added, or removed. One example for this situation might be when an employee from your company leaves your organization. Another example might be when a project or contract with the customer ends.
-      - question: What if a user has an account in more than one customer tenant?
+          <a name="budgets-forecast"></a>Yes. Allocated costs are factored into and supported by budgets and forecasts. Budget and forecast views show costs allocated to them, as configured by cost allocation rules.
+      - question: If a cost allocation rule is deleted, what happens?
         answer: |
-          The link between the partner ID and the account is done for each customer tenant. Link the partner ID in each customer tenant.
-      - question: Can other partners or customers edit or remove the link to the partner ID?
+          <a name="delete-rule"></a>When a cost allocation rule is deleted, all open and current billing month costs being allocated to the targets are removed. If the cost allocation rule has existed for several months, the historical previous months of allocation data remain as originally set by the allocation rule.
+      - question: Why is an enrollment admin or a billing account admin needed to create cost allocation rules?
         answer: |
-          The link is associated at the user account level. Only you can edit or remove the link to the partner ID. The customer and other partners can't change the link to the partner ID.
-      - question: Which MPN ID should I use if my company has multiple?
+          <a name="why-admin"></a>Cost allocation rules are created at either the enrollment scope (Enterprise Agreement) or the Billing account scope (Microsoft Customer Agreement). Permissions to make changes at these scopes requires billing administrator privileges.
+      - question: Why are cost allocation sources and targets limited to 25 per rule?
         answer: |
-          Be sure to use the **Associated MPN ID** shown in your partner profile. It's usually the local account ID association with your organization.
-      - question: How do I explain PAL to my customer?
+          <a name="source-target-rule-limit"></a>The limit is a preview limitation to ensure good cost allocation performance and scalability. The limits will likely increase or get removed when cost allocation transitions to general availability (GA).
+      - question: What can happen if cost allocation rules (sources/targets) overlap?
         answer: |
-          PAL enables Microsoft to identify and recognize those partners who are helping customers achieve business goals and realize value in the cloud. Customers must first provide a partner access to their Power Apps resource. Once access is granted, the partner's Microsoft Partner Network ID (MPN ID) is associated. This association helps Microsoft understand service providers and to refine the tools and programs needed to best support customers.
-      - question: What data does PAL collect?
-        answer: |
-          The PAL association to existing credentials provides no new customer data to Microsoft. It provides the information to Microsoft where a partner is actively involved in a customer's Power Apps environments. Microsoft can attribute usage and influence from customer environment to partner organization based on the account's permissions (Power Apps role) and scope (tenant, Resource Group, Resource) provided to the partner by customer.
-      - question: Does PAL association affect the security of a customer's Power Apps environment?
-        answer: |
-          PAL association only adds partner's MPN ID to the credential already provisioned. It doesn't alter any permissions (Power Apps role) or provide extra Power Apps service data to the partner or Microsoft.
+          <a name="rule-overlap"></a>Rules that have either overlapping sources or overlapping targets aren't recommended. Cost Allocation rules are applied in order by their creation date, so if any cost allocation rules overlap the allocation rule with the earliest creation date will take precedence.
 
-  - name: Azure Enterprise Agreement (EA) activation questions
+  - name: Azure Enterprise Agreement (EA) and EA portal questions
     questions:
       - question: Why didn't I receive an activation email?
         answer: |
@@ -157,8 +159,6 @@ sections:
         answer: |
           If you have a work or school account under a different tenant, please change the authorization level under enrollment details page to "Work or School Account Cross Tenant" and you will be able to add the account.
 
-  - name: EA portal questions
-    questions:
       - question: I accidentally associated my existing Azure account with Azure EA enrollment. As a result, I lost my monthly credit. Can I get my monthly credit back?
         answer: |
           If you've signed in as an Azure EA account owner with the same credentials as your Visual Studio subscription, you can recover your individual Visual Studio subscription Azure benefit by performing one of the following actions:
@@ -229,8 +229,6 @@ sections:
         answer: |
           Yes, you can use the [Azure Cost Management connector for Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) to create powerful, customized visualizations and reports that help you better understand your Azure spend. If you are on an Enterprise Agreement (EA), you can also utilize the [Azure Cost Management template app](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md). The Azure Cost Management template app comes with premade reports to assist you with monitor costs, service usage trends, and identifying cost optimization options to reduce your expenditures.               Power BI reporting is available for Azure EA direct, partner, and indirect customers who are able to view billing information.
 
-  - name: EA subscription ownership questions
-    questions:
       - question: Can I associate my existing Azure account to Azure EA enrollment?
         answer: |
           Yes. All Azure subscriptions for which you're the account owner will be converted to your Enterprise Agreement. Included are subscriptions that use monthly credit such as Visual Studio, AzurePass, MPN, BizSpark, and more. You will lose monthly credit when converting such subscriptions.
@@ -263,8 +261,7 @@ sections:
       - question: Who can create a subscription?
         answer: |
           To create an enterprise Azure offer type subscription, you must be entitled in the role of account owner on the [EA portal](https://ea.azure.com).
-  - name: EA reports questions
-    questions:
+
       - question: Why does my cost show as $0?
         answer: |
           For **direct enrollment** customers, enterprise administrators can provide account owners and department administrators with access to cost/pricing information on the usage reports. Follow these steps:
@@ -299,10 +296,6 @@ sections:
       - question: Why does my resource rate change every day?
         answer: |
           The resource rate shown in the detailed usage report is a calculated value. It represents the average monthly rate that was charged for the service. The resource rate is calculated from the average of your monthly commitment and your monthly overage charges for a unit of service. The portion of usage charged against your commitment and overage rates change to the day the month closes. Thus, the listed resource rate also changes during the month. The resource rate locks on the fifth day following the end of the month.
-
-
-  - name: Azure Marketplace billing questions
-    questions:
       - question: What changed with Azure Marketplace services and Azure EA Prepayment?
         answer: |
           As of March 1, 2018, some third-party reseller services consume Azure EA Prepayment. Except for Azure reserved VM instances (RIs), services were previously billed outside Azure EA Prepayment and were invoiced separately.
@@ -329,31 +322,30 @@ sections:
         answer: |
           Specific Azure Marketplace offers can use Azure Prepayment funds. See [third-party services that use Azure Prepayment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) for a complete list of products participating in the program.
 
-  - name: Cost Management questions
+  - name: Partner questions
     questions:
-      - question: What are the current limitations with cost allocation in public preview?
+      - question: Who should link the partner ID?
         answer: |
-          <a name="limitations"></a>Currently, cost allocation is supported in Cost Management by Cost analysis, budgets, and forecast views. Allocated costs are also shown in the subscriptions list and on the Subscriptions overview page.
-          
-          The following items are currently unsupported by the cost allocation public preview:
-          
-          - Scheduled [Exports](costs/tutorial-export-acm-data.md)
-          - Data exposed by the [Usage Details](/rest/api/consumption/usagedetails/list) API
-          - Billing subscriptions area
-          - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
-          - [Power BI Desktop connector](/power-bi/connect-data/desktop-connect-azure-cost-management)
-      - question: Are allocated costs factored into budgets and forecast views?
+          Any user from the partner organization who works on a customer's Power Apps resources can link the partner ID to the account. Ideally, the association in PAL should be done at the beginning of the project. However, it can be performed whenever you have access in the customer's directory.
+      - question: Can a partner ID be changed after it's linked?
         answer: |
-          <a name="budgets-forecast"></a>Yes. Allocated costs are factored into and supported by budgets and forecasts. Budget and forecast views show costs allocated to them, as configured by cost allocation rules.
-      - question: If a cost allocation rule is deleted, what happens?
+          Yes. A linked partner ID can be changed, added, or removed. One example for this situation might be when an employee from your company leaves your organization. Another example might be when a project or contract with the customer ends.
+      - question: What if a user has an account in more than one customer tenant?
         answer: |
-          <a name="delete-rule"></a>When a cost allocation rule is deleted, all open and current billing month costs being allocated to the targets are removed. If the cost allocation rule has existed for several months, the historical previous months of allocation data remain as originally set by the allocation rule.
-      - question: Why is an enrollment admin or a billing account admin needed to create cost allocation rules?
+          The link between the partner ID and the account is done for each customer tenant. Link the partner ID in each customer tenant.
+      - question: Can other partners or customers edit or remove the link to the partner ID?
         answer: |
-          <a name="why-admin"></a>Cost allocation rules are created at either the enrollment scope (Enterprise Agreement) or the Billing account scope (Microsoft Customer Agreement). Permissions to make changes at these scopes requires billing administrator privileges.
-      - question: Why are cost allocation sources and targets limited to 25 per rule?
+          The link is associated at the user account level. Only you can edit or remove the link to the partner ID. The customer and other partners can't change the link to the partner ID.
+      - question: Which MPN ID should I use if my company has multiple?
         answer: |
-          <a name="source-target-rule-limit"></a>The limit is a preview limitation to ensure good cost allocation performance and scalability. The limits will likely increase or get removed when cost allocation transitions to general availability (GA).
-      - question: What can happen if cost allocation rules (sources/targets) overlap?
+          Be sure to use the **Associated MPN ID** shown in your partner profile. It's usually the local account ID association with your organization.
+      - question: How do I explain PAL to my customer?
         answer: |
-          <a name="rule-overlap"></a>Rules that have either overlapping sources or overlapping targets aren't recommended. Cost Allocation rules are applied in order by their creation date, so if any cost allocation rules overlap the allocation rule with the earliest creation date will take precedence.
+          PAL enables Microsoft to identify and recognize those partners who are helping customers achieve business goals and realize value in the cloud. Customers must first provide a partner access to their Power Apps resource. Once access is granted, the partner's Microsoft Partner Network ID (MPN ID) is associated. This association helps Microsoft understand service providers and to refine the tools and programs needed to best support customers.
+      - question: What data does PAL collect?
+        answer: |
+          The PAL association to existing credentials provides no new customer data to Microsoft. It provides the information to Microsoft where a partner is actively involved in a customer's Power Apps environments. Microsoft can attribute usage and influence from customer environment to partner organization based on the account's permissions (Power Apps role) and scope (tenant, Resource Group, Resource) provided to the partner by customer.
+      - question: Does PAL association affect the security of a customer's Power Apps environment?
+        answer: |
+          PAL association only adds partner's MPN ID to the credential already provisioned. It doesn't alter any permissions (Power Apps role) or provide extra Power Apps service data to the partner or Microsoft.
+
