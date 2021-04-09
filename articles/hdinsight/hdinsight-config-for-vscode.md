@@ -40,8 +40,8 @@ For general information about working with settings in VS Code, refer to [User a
 | HDInsight Hive › Format: Align Column Definitions In Columns | Unchecked | Should column definition be aligned |
 | HDInsight Hive › Format: Datatype Casing | none | Should data types be formatted as UPPERCASE, lowercase, or none (not formatted) |
 | HDInsight Hive › Format: Keyword Casing | none | Should keywords be formatted as UPPERCASE, lowercase, or none (not formatted) |
-| HDInsight Hive › Format: Place Commas Before Next Statement | Unchecked | Should commas be placed at the beginning of each statement in a list e.g. ', mycolumn2' instead of at the end e.g. 'mycolumn1,'|
-| HDInsight Hive › Format: Place Select Statement References On New Line | Unchecked | Should references to objects in a select statement be split into separate lines? E.g. for 'SELECT C1, C2 FROM T1' both C1 and C2 will be on separate lines
+| HDInsight Hive › Format: Place Commas Before Next Statement | Unchecked | Should commas be placed at the beginning of each statement in a list for example ', mycolumn2' instead of at the end 'mycolumn1,'|
+| HDInsight Hive › Format: Place Select Statement References On New Line | Unchecked | Should references to objects in a select statement be split into separate lines? For example, for 'SELECT C1, C2 FROM T1' both C1 and C2 will be on separate lines
 | HDInsight Hive: Log Debug Info | Unchecked | [Optional] Log debug output to the VS Code console (Help -> Toggle Developer Tools) 
 | HDInsight Hive: Messages Default Open | Checked | True for the messages pane to be open by default; false for closed|
 | HDInsight Hive: Results Font Family | -apple-system,BlinkMacSystemFont,Segoe WPC,Segoe UI,HelveticaNeue-Light,Ubuntu,Droid Sans,sans-serif | Set the font family for the results grid; set to blank to use the editor font |
@@ -55,7 +55,7 @@ For general information about working with settings in VS Code, refer to [User a
 | HDInsight Jupyter: Append Results| Checked | Whether to append the results to results window, else clear and display. |
 | HDInsight Jupyter: Languages | -- | Default settings per language. |
 | HDInsight Jupyter › Log: Verbose | Unchecked | If enable verbose logging |
-| HDInsight Jupyter › Notebook: Startup Args | Can add item | 'jupyter notebook' command-line arguments. Each argument is a separate item in the array. For a full list type 'jupyter notebook --help' in a terminal window. |
+| HDInsight Jupyter › Notebook: Startup Args | Can add item | 'jupyter notebook' command-line arguments. Each argument is a separate item in the array. For a full list type 'jupyter notebook--help' in a terminal window. |
 | HDInsight Jupyter › Notebook: Startup Folder | ${workspaceRoot} |-- |
 | HDInsight Jupyter: Python Extension Enabled | Checked | Use Python-Interactive-Window of ms-python extension when submitting pySpark Interactive jobs. Otherwise, use our own jupyter window |
 | HDInsight Spark.NET: 7z | C:\Program Files\7-Zip | <Path to 7z.exe> |
