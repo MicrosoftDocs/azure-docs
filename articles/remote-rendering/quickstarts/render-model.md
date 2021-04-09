@@ -32,10 +32,7 @@ The following software must be installed:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development**
 * GIT [(download)](https://git-scm.com/downloads)
-* Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
-  * Install these modules in Unity:
-    * **UWP** - Universal Windows Platform Build Support
-    * **IL2CPP** - Windows Build Support (IL2CPP)
+* Unity (see [system requirements](../overview/system-requirements.md#unity) for supported versions)
 
 ## Clone the sample app
 

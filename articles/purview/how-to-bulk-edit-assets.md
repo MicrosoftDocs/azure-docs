@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ---
 
-# How to bulk edit assets to tag glossary terms
+# How to bulk edit assets to annotate classifications, glossary terms and modify contacts
 
-This article describes how to tag multiple glossary terms to a list of selected assets in a single action.
+This article describes how to tag multiple glossary terms, classifications, owners and experts to a list of selected assets in a single action.
 
 ### Add Assets to View selected list using search
 

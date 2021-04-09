@@ -98,7 +98,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.HybridNetwork  | [Private Edge Zones](../../networking/edge-zones-overview.md) |
 | Microsoft.ImportExport | [Azure Import/Export](../../import-export/storage-import-export-service.md) |
-| microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft.Insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
 | Microsoft.Intune | [Azure Monitor](../../azure-monitor/index.yml) |
@@ -150,7 +150,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft.Security | [Security Center](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
-| Microsoft.SerialConsole - [registered](#registration) | [Azure Serial Console for Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft.SerialConsole - [registered](#registration) | [Azure Serial Console for Windows](/troubleshoot/azure/virtual-machines/serial-console-windows) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
