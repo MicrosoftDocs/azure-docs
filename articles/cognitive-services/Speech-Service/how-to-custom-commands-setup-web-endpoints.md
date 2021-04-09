@@ -78,13 +78,16 @@ The following is the general format of an Custom Commands event that is passed t
         "name": "TurnOnOff",
         "parameters": {
           "item": "tv",
-          "SomeOtherParameterName": "on"
+          "value": "on"
         }
       }
     }
     ```
+
 ### Output format of Azure Function
-* The output of the Azure function needs to support the following format:
+
+#### Output consumed by a Custom Commands  application
+In this case you can set the output format must adhere to the following format. Follow [Update a command from a web endpoint](./how-to-custom-commands-update-command-from-web-endpoint.md) for more details.
 
     ```JSON
     {
@@ -101,8 +104,9 @@ The following is the general format of an Custom Commands event that is passed t
     }
     ```
 
-* Example **output** of the Azure Function should like following:
-
+#### Output consumed by a client application
+In this case you can set the output format to suit your client's need.
+* For our DeviceState endpoint, output of the Azure Function is consumed by a client applciation instead of the Custom Commands application. Example **output** of the Azure Function should like following:
     
     ```json
     {
@@ -110,7 +114,9 @@ The following is the general format of an Custom Commands event that is passed t
       "Fan": "off"
     }
     ``` 
+
 *  Also, this output should be written to an external storage, so that you can accordingly maintain the state of devices. The external storage will state will be used in the [Integrate with client application section](#Integrate-with-client-application).
+
 
 ### Host Azure Function
 
