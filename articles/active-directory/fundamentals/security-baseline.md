@@ -46,7 +46,7 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture. 
 
-Note: Azure AD supports external identity that allows users without a Microsoft account to sign in to their applications and resources with their external identity. 
+Azure AD supports external identity that allows users without a Microsoft account to sign in to their applications and resources with their external identity. 
 
 - [Tenancy in Azure Active Directory](../develop/single-and-multi-tenant-apps.md)
 
@@ -93,7 +93,7 @@ For administrator and privileged users, ensure the highest level of the strong a
 
 Azure AD supports Legacy password-based authentication such as Cloud-only accounts (user accounts created directly in Azure AD) that have a baseline password policy or Hybrid accounts (user accounts that come from on-premises Active Directory) that will follow the on-premises password policies. When using password-based authentication, Azure AD provides a password protection capability that prevents users from setting passwords that are easy to guess. Microsoft provides a global list of banned passwords that is updated based on telemetry, and customers can augment the list based on their needs (e.g. branding, cultural references, etc.). This password protection can be used for cloud-only and hybrid accounts.
 
-Note: Authentication based on password credentials alone is susceptible to popular attack methods. For higher security, use strong authentication such as MFA and a strong password policy. For third-party applications and marketplace services that may have default passwords, you should change them upon the service initial setup.
+Authentication based on password credentials alone is susceptible to popular attack methods. For higher security, use strong authentication such as MFA and a strong password policy. For third-party applications and marketplace services that may have default passwords, you should change them upon the service initial setup.
 
  
 - [How to deploy Azure AD MFA](../authentication/howto-mfa-getstarted.md) 
@@ -237,7 +237,7 @@ Alternatively, Microsoft Cloud App Security is a Cloud Access Security Broker (C
 
 - Privileged Role Administrator: Users with this role can manage role assignments in Azure AD, as well as within Azure AD Privileged Identity Management (PIM). In addition, this role allows management of all aspects of PIM and administrative units.
 
-Note: You may have other critical roles that need to be governed if you use custom roles with certain privileged permissions assigned. And you may also want to apply similar controls to the administrator account of critical business assets.
+You may have other critical roles that need to be governed if you use custom roles with certain privileged permissions assigned. And you may also want to apply similar controls to the administrator account of critical business assets.
 
 Azure AD has highly privileged accounts: the users and service principals that are directly or indirectly assigned to, or eligible for, the Global Administrator or Privileged Role Administrator roles, and other highly privileged roles in Azure AD and Azure.
 
@@ -446,7 +446,7 @@ Depending on how security team responsibilities are structured, monitoring for s
 
 Security Reader permissions can be applied broadly to an entire tenant (Root Management Group) or scoped to management groups or specific subscriptions. 
 
-Note: Additional permissions might be required to get visibility into workloads and services. 
+Additional permissions might be required to get visibility into workloads and services. 
 
 - [Overview of Security Reader Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader)
 
