@@ -741,6 +741,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/custom-policy-get-started.md",
+      "redirect_url": "/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-how-to-enable-billing.md",
       "redirect_url": "/azure/active-directory-b2c/billing",
       "redirect_document_id": true
@@ -11150,6 +11155,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/azure-sql/database/connect-query-r.md",
+      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sql-database/sql-database-connect-query-ruby.md",
       "redirect_url": "/azure/azure-sql/database/connect-query-ruby",
       "redirect_document_id": true
@@ -19263,6 +19273,11 @@
       "source_path_from_root": "/articles/lab-services/use-paas-services.md",
       "redirect_url": "/azure/devtest-labs/use-paas-services",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-interpret-event-data.md",
+      "redirect_url": "/azure/digital-twins/concepts-notifications",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-integrate-models.md",
