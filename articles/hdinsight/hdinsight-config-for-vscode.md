@@ -1,22 +1,22 @@
 ---
-title: HDInsight configuration settings reference
-description: Introduce the configuration of HDInsight extension.
+title: Azure HDInsight configuration settings reference
+description: Introduce the configuration of Azure HDInsight extension.
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.custom: devx-track-python
 ---
 
-# HDInsight configuration settings reference
+# Azure HDInsight configuration settings reference
 
 The Spark & Hive tools Extension for Visual Studio Code is highly configurable. This page describes the key settings you can work with.  
 
 For general information about working with settings in VS Code, refer to [User and workspace settings](https://code.visualstudio.com/docs/getstarted/settings), and the [Variables reference](https://code.visualstudio.com/docs/editor/variables-reference) for information about predefined variable support.
 
-## How to open the HDInsight configuration
+## Open the Azure HDInsight configuration
 
 1. Open a folder first to create workspace settings.
-2. Press **Ctrl + Shift + P**, or navigit to **View** -> **Command  Palette...** to show all commands.
+2. Press **Ctrl + Shift + P**, or navigate to **View** -> **Command  Palette...** to show all commands.
 3. Search **Set Configuration**.
 4. Expand **Extensions** in the left directory, and select **HDInsight configuration**.
 
@@ -73,3 +73,8 @@ For general information about working with settings in VS Code, refer to [User a
 | Synapse Spark pool Job Submission: Livy Conf | -- | Livy Configuration. POST/batches
 | Synapse Spark pool Job Submission: Synapse Spark Pool Cluster Conf | -- | Synapse Spark Pool Configuration |
 
+
+## Next steps
+
+- For information about Azure HDInsight for VSCode, see [Spark & Hive for Visual Studio Code Tools](https://docs.microsoft.com/sql/big-data-cluster/spark-hive-tools-vscode).
+- For a video that demonstrates using Spark & Hive for Visual Studio Code, see [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).
