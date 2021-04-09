@@ -93,7 +93,7 @@
 - name: Concepts
   items:
   - name: Common questions about Site Recovery
-    href: site-recovery-faq.md
+    href: site-recovery-faq.yml
   - name: About Azure VM disaster recovery
     items:
     - name: Azure to Azure architecture
