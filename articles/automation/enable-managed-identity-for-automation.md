@@ -99,12 +99,12 @@ New-AzRoleAssignment -ObjectId <automation-Identity-object-id> -Scope "/subscrip
 
 After you enable managed identity for your automation account and give an identity access to the target resource or entity, you can use that identity in runbooks against resources that support managed identity. For identity support using, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) in the PowerShell reference.
 
->[!NOTE]
->If your organization is still using the deprecated AzureRM cmdlets, you can use `Connect-AzureRMAccount -Identity`.
-
 ```powershell
 Connect-AzAccount -Identity
 ```
+
+>[!NOTE]
+>If your organization is still using the deprecated AzureRM cmdlets, you can use `Connect-AzureRMAccount -Identity`.
 
 ## Generate an access token without using Azure cmdlets
 
@@ -139,7 +139,7 @@ Write-Output $accessToken.access_token
 
 ## Sample runbooks using managed identity
 
-### Sample Runbook to access a SQL Database without using Azure cmdlets
+### Sample runbook to access a SQL database without using Azure cmdlets
 
 ```powershell
 $queryParameter = "?resource=https://database.windows.net/" 
@@ -168,13 +168,13 @@ $command.ExecuteNonQuery()
 $conn.Close()
 ```
 
-### Sample Runbook to access the Key vault using Azure cmdlets
+### Sample runbook to access a key vault using Azure cmdlets
 
 ```powershell
 Write-Output "Connecting to azure via  Connect-AzAccount -Identity" 
 Connect-AzAccount -Identity 
-Write-Output "Sucessfully Connected with Automation account's Managed Identity" 
-Write-Output "Trying to fetch value form Key valut using MI, Make sure you have given correct access to Managed Identity" 
+Write-Output "Successfully connected with Automation account's Managed Identity" 
+Write-Output "Trying to fetch value from key vault using MI. Make sure you have given correct access to Managed Identity" 
 $secret = Get-AzKeyVaultSecret -VaultName 'MSITestKeyVault' -Name 'KeyName' 
 
 $ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue) 
@@ -186,7 +186,7 @@ try {
 }
 ```
 
-### Sample Python runbook on a Hybrid worker to get a token
+### Sample Python runbook on a hybrid worker to get a token
  
 ```python
 #!/usr/bin/env python3 
