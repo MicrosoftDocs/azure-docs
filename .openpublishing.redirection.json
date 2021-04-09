@@ -741,6 +741,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/custom-policy-get-started.md",
+      "redirect_url": "/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-how-to-enable-billing.md",
       "redirect_url": "/azure/active-directory-b2c/billing",
       "redirect_document_id": true
@@ -19271,7 +19276,7 @@
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-interpret-event-data.md",
-      "redirect_url": "/azure/digital-twins/concepts-notifications",
+      "redirect_url": "/azure/digital-twins/concepts-event-notifications",
       "redirect_document_id": false
     },
     {
