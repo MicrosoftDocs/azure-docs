@@ -182,7 +182,7 @@ If you're using a cluster created after mid-September 2020, you'll see the new p
 
    :::image type="content" source="./media/log-analytics-migration/hdinsight-classic-integration.png" alt-text="Screenshot that shows the link to access the classic integration." border="false":::
 
-Creating new clusters with classic Azure Monitor integration is available after July 1, 2021.
+Creating new clusters with classic Azure Monitor integration is not available after July 1, 2021.
 
 ## Release and support timeline
 
