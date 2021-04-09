@@ -487,11 +487,11 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 
  1. Disable auto updating extension.
 
-    ![disable auto updating extension](./media/hdinsight-for-vscode/disable-auto-updating-extension.png)
+      ![disable auto updating extension](./media/hdinsight-for-vscode/disable-auto-updating-extension.png)
 
 2. Install a selected version of Microsoft Jupyter.
 
-    ![selected version of microsoft jupyter](./media/hdinsight-for-vscode/selected-version-of-microsoft-jupyter.png)
+      ![selected version of microsoft jupyter](./media/hdinsight-for-vscode/selected-version-of-microsoft-jupyter.png)
 
 3. Install  Microsoft Jupyter version 2021.3.684299474
 
