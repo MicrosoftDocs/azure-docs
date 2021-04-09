@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.service: hdinsight
 ms.custom:
   - subject-armqs
-  - mode-api
+  - mode-arm
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark cluster and query some data.
 ---
 
