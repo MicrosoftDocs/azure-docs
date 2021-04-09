@@ -35,11 +35,11 @@ Setting up system-assigned identities for Automation can be done one of two ways
 
 1. On the Automation Account menu, under **Account Settings**, select **Identity**. Set the **System assigned** switch to **On** and press **Save**. When you're prompted to confirm, select **Yes**.
 
-:::image type="content" source="media/managed-identities/managed-identity-on.png" alt-text="Enabling system-assigned identity in Azure portal.":::
+:::image type="content" source="media/managed-identity/managed-identity-on.png" alt-text="Enabling system-assigned identity in Azure portal.":::
 
 Your Automation account can now use the system-assigned identity, which is registered with Azure Active Directory (Azure AD) and is represented by an object ID.
 
-:::image type="content" source="media/managed-identities/managed-identity-object-id.png" alt-text="Managed identity object ID.":::
+:::image type="content" source="media/managed-identity/managed-identity-object-id.png" alt-text="Managed identity object ID.":::
 
 ### Enable system-assigned identity through REST API
 
