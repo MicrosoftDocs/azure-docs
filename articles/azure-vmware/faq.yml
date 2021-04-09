@@ -140,7 +140,12 @@ sections:
         answer: Currently, the only supported method for VMware HCX is through ExpressRoute.
 
       - question: How do I connect a workload VM to the internet or an Azure service endpoint?
-        answer: In the Azure portal, enable internet connectivity for a private cloud. With NSX-T manager, create an NSX-T T1 router and a logical switch. You then use vCenter to deploy a VM on the network segment defined by the logical switch. That VM will have network access to the internet and Azure services.
+        answer: |
+          In the Azure portal, enable internet connectivity for a private cloud. With NSX-T manager, create an NSX-T T1 router and a logical switch. You then use vCenter to deploy a VM on the network segment defined by the logical switch. That VM will have network access to the internet and Azure services.
+          
+          > [!NOTE]
+          > A T0 router is created and configured as part of a private cloud deployment.
+          > Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
 
       - question: Do I need to restrict access from the internet to VMs on logical networks in a private cloud?
         answer: No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](public-ip-usage.md) option in your Azure portal for your Azure VMware Solution private cloud.
@@ -238,7 +243,7 @@ sections:
         answer: No, administrator access to ESXi is restricted to meet the security requirements of the solution.
 
       - question: What privileges and permissions will I have in vCenter?
-        answer: You'll have CloudAdmin group privileges. For more information, see [Access and Identity Concepts](concepts-identity.md).
+        answer: You'll have CloudAdmin role privileges. For more information, see [Access and Identity Concepts](concepts-identity.md).
           
       - question: What privileges and permissions will I have on the NSX-T manager?
         answer: |
