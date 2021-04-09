@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/27/2021
+ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -89,7 +89,7 @@ For more information on how to restore soft-deleted objects, see [Manage and res
 
 ## Blob soft delete and versioning
 
-If blob versioning and blob soft delete are both enabled for a storage account, then overwriting a blob automatically creates a new version. The new version is not soft-deleted and is not removed when the soft-delete retention period expires. No soft-deleted snapshots are created. When you delete a blob, the current version of the blob becomes a previous version, and the current version is deleted. No new version is created and no soft-deleted snapshots are created.
+If blob versioning and blob soft delete are both enabled for a storage account, then overwriting a blob automatically creates a new version. The new version is not soft-deleted and is not removed when the soft-delete retention period expires. No soft-deleted snapshots are created. When you delete a blob, the current version of the blob becomes a previous version, and there is no longer a current version. No new version is created and no soft-deleted snapshots are created.
 
 Enabling soft delete and versioning together protects blob versions from deletion. When soft delete is enabled, deleting a version creates a soft-deleted version. You can use the **Undelete Blob** operation to restore soft-deleted versions during the soft delete retention period. The **Undelete Blob** operation always restores all soft-deleted versions of the blob. It is not possible to restore only a single soft-deleted version.
 
