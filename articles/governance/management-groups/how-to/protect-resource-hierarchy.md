@@ -158,7 +158,7 @@ $token = (Get-AzAccessToken).Token
 $headers = @{"Authorization"= "Bearer $token"; "Content-Type"= "application/json"}
 $uri = "https://management.azure.com/providers/Microsoft.Management/managementGroups/$root_management_group_id/settings/default?api-version=2020-02-01"
 
-Invoke-RestMethod -Headers $headers -Method PUT -Uri $uri -Body $body
+Invoke-RestMethod -Method PUT -Uri $uri -Headers $headers -Body $body
 ```
 
 ## Next steps
