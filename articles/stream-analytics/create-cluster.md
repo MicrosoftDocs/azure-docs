@@ -26,7 +26,7 @@ In this section, you create a Stream Analytics cluster resource.
 
 1. Select **Create a resource**. In the *Search the Marketplace* search box, type and select **Stream Analytics cluster**. Then select **Add**.
 
-   :::image type="content" source="./media/create-cluster/asa-cluster-search.png" alt-text="Stream Analytics cluster search result.":::
+   :::image type="content" source="./media/create-cluster/search-result.png" alt-text="Stream Analytics cluster search result.":::
 
 1. On the **Create Stream Analytics cluster** page, enter the basic settings for your new cluster.
 
