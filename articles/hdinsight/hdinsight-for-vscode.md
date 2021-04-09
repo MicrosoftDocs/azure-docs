@@ -260,7 +260,7 @@ The tool also supports the **Spark SQL** query:
 
 > [!NOTE]
 >
-> [ms-toolsai.jupyter >2021.3.684299474 version is not supported on this extension](#known-issue) is a known issue. Please using Synapse kernel by sticking to Microsoft Jupyter 2021.3.684299474.
+> [ms-toolsai.jupyter >2021.3.684299474 version is not supported on this extension](#known-issues) is a known issue. Please using Synapse kernel by sticking to Microsoft Jupyter 2021.3.684299474.
 
 ## Submit PySpark batch job
 
