@@ -1,5 +1,5 @@
 ---
-title: Configure data-in replication - Azure Database for MySQL
+title: Configure Data-in Replication - Azure Database for MySQL
 description: This article describes how to set up Data-in Replication for Azure Database for MySQL.
 author: savjani
 ms.author: pariks
