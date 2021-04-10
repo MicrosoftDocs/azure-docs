@@ -1,6 +1,7 @@
 ---
 title: "Azure Monitor docs: What's new for March 2021"
 description: "What's new in the Azure Monitor docs for March 2021."
+ms.topic: conceptual
 ms.date: 04/10/2021
 ---
 
@@ -8,6 +9,15 @@ ms.date: 04/10/2021
 
 Welcome to what's new in the Azure Monitor docs from March 1, 2021 through March 31, 2021. This article lists some of the major changes to docs during this period.
 
+## General
+
+**Updated articles**
+
+- [Azure Monitor Frequently Asked Questions](faq.md)
+- [Azure Monitor for existing Operations Manager customers](azure-monitor-operations-manager.md)
+- [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md)
+- [Deploy Azure Monitor](deploy.md)
+   
 ## Agents
 
 **Updated articles**
@@ -75,15 +85,6 @@ Welcome to what's new in the Azure Monitor docs from March 1, 2021 through March
 - [Application Insights log-based metrics](/azure/azure-monitoressentials/app-insights-metrics.md)
 - [Getting started with Azure Metrics Explorer](/azure/azure-monitoressentials/metrics-getting-started.md)
 
-## General
-
-**Updated articles**
-
-- [Azure Monitor Frequently Asked Questions](faq.md)
-- [Azure Monitor docs: What's new for February 1, 2021 - February 28, 2021](whats-new.md)
-- [Azure Monitor for existing Operations Manager customers](azure-monitor-operations-manager.md)
-- [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md)
-- [Deploy Azure Monitor](deploy.md)
 
 ## Insights
 
