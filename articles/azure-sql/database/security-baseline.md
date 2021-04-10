@@ -248,7 +248,7 @@ In addition, you can stream Azure SQL diagnostics telemetry into Azure SQL Analy
 
 **Guidance**: Azure Active Directory (Azure AD) does not have the concept of default passwords. When provisioning an Azure SQL Database instance, it is recommended that you choose to integrate authentication with Azure AD.
 
-- [How to configure and manage Azure AD authentication with Azure SQL](/azure/sql-database/azure-sql/database/authentication-aad-configure)
+- [How to configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
 
 **Responsibility**: Customer
 
