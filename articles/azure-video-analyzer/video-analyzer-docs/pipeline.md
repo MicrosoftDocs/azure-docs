@@ -14,9 +14,9 @@ A video analyzer pipeline lets you define where input data should be captured fr
 
 A video analyzer pipeline supports different types of nodes
 
-* Source nodes enable capturing of data into the pipeline. Data refers to audio, video, and/or metadata.
-* Processor nodes enable processing of media within the pipeline.
-* Sink nodes enable delivering the results to services and apps outside the pipeline.
+* **Source nodes** enable capturing of data into the pipeline. Data refers to audio, video, and/or metadata.
+* **Processor nodes** enable processing of media within the pipeline.
+* **Sink nodes** enable delivering the results to services and apps outside the pipeline.
 
 ## Suggested pre-reading
 
