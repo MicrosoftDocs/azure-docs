@@ -20,7 +20,7 @@ Azure HDInsight enabled integration with Log Analytics in 2017. HDInsight custom
 - Customers want an out-of-box dashboard to easily monitor the KPI of their HDInsight clusters.
 - Customers must jump to Log Analytics to run simple queries.
 
-## Solution Overview
+## Solution overview
 
 Considering customer feedback, the Azure HDInsight team invested in integration with Azure Monitor. This integration enables:
 
@@ -108,7 +108,7 @@ You can enter your own queries in the Logs query editor. Queries used on the old
 
 Insights are cluster-specific visualization dashboards made using [Azure Workbooks](../azure-monitor/platform/workbooks-overview.md). These dashboards give you detailed graphs and visualizations of how your cluster is running. The dashboards have sections for each cluster type, YARN, system metrics, and component logs. You can access your cluster's dashboard by visiting your cluster's page in the portal, scrolling down to the **Monitoring** section, and selecting the **Insights** pane. The dashboard loads automatically if you've enabled the new integration. Allow a few seconds for the graphs to load as they query the logs.
 
-:::image type="content" source="./media/log-analytics-migration/visualization-dashboard.png" alt-text="Screenshot that shows the visualization dashboard." border="false":::
+:::image type="content" source="./media/log-analytics-migration/visualization-dashboard.png" lightbox="./media/log-analytics-migration/visualization-dashboard.png" alt-text="Screenshot that shows the visualization dashboard." border="false":::
 
 #### Custom Azure workbooks
 
@@ -122,7 +122,7 @@ Use our new at-scale workbook to get a multi-cluster monitoring experience for y
 2. Once on the **Azure Monitor** page, select **Insights Hub** under the **Insights** section.
 3. Select **HDInsights Clusters** under the **Analytics** section.
 
-   :::image type="content" source="./media/log-analytics-migration/at-scale-workbook.png" alt-text="Screenshot that shows the at-scale workbook." border="false":::
+   :::image type="content" source="./media/log-analytics-migration/at-scale-workbook.png" lightbox="./media/log-analytics-migration/at-scale-workbook.png" alt-text="Screenshot that shows the at-scale workbook." border="false":::
 
 #### Alerts
 
@@ -130,7 +130,7 @@ You can add custom alerts to your clusters and workspaces in the Log query edito
 
 :::image type="content" source="./media/log-analytics-migration/new-rule-alert.png" alt-text="Screenshot that shows the new rule alert." border="false":::
 
-## Migrating from Azure Monitor Classic to the new Azure Monitor Integration
+## Migrate to the new Azure Monitor Integration
 
 If you're using the classic Azure Monitor integration, you need to make some adjustments to the new table formats after you switch to the new Azure Monitor integration.
 
@@ -160,7 +160,7 @@ If you're using the out-of-box monitoring dashboard for HDInsight clusters like 
 
 You'll see that there's an HDInsight clusters option in Azure Monitor.
 
-   :::image type="content" source="./media/log-analytics-migration/hdinsight-azure-monitor.png" alt-text="Screenshot that shows the HDInsight option in Azure Monitor." border="false":::
+   :::image type="content" source="./media/log-analytics-migration/hdinsight-azure-monitor.png" lightbox="./media/log-analytics-migration/hdinsight-azure-monitor.png" alt-text="Screenshot that shows the HDInsight option in Azure Monitor." border="false":::
 
 The Azure Monitor portal's Insights Hub provides you the capability of monitoring multiple HDInsight clusters in one place. We organize the clusters based on the workload type, so you see types like Spark, HBase, and Hive. Instead of going to multiple dashboards, now you can monitor all your HDInsight clusters in this view.
 
