@@ -268,8 +268,8 @@ Steps:
 
 1. In the right context pane that opens, enter the following:<br>
 
-   - **Role:** Reader<br>
-   - **Assign access to:** Choose the **User, group, or service principal** option.<br>
+   - **Role:** Choose the **Reader** role in the drop-down list.<br>
+   - **Assign access to:** Choose the **User, group, or service principal** option in the drop-down list.<br>
    - **Select:** Enter the Backup vault name to which you want to back up this server and its databases.<br>
 
     ![Select role](./media/backup-azure-database-postgresql/select-role-and-enter-backup-vault-name.png)
