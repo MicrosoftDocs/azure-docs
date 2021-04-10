@@ -142,9 +142,9 @@ In this quickstart, you will:
     }
     --------------------------------------------------------------------------
     Executing operation WaitForInput
-    ```
 
     Press Enter to continue
+    ```    
     
     The **TERMINAL** window shows the next set of direct method calls:
     
@@ -178,9 +178,7 @@ In this quickstart, you will:
     * A call to livePipelineActivate that starts the graph instance and the flow of video.
     * A second call to livePipelineList that shows that the graph instance is in the running state.
     
-    The output in the **TERMINAL** window pauses at a **Press Enter to continue** prompt.
-    Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
-    
+1. The output in the **TERMINAL** window pauses at a **Press Enter to continue** prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Azure Video Analyzer module is sending to the IoT hub. The following section of this quickstart discusses these messages.
 1. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline, return to the **TERMINAL** window and select Enter.
     
@@ -190,7 +188,7 @@ In this quickstart, you will:
     * A call to livePipelineDelete deletes the instance.
     * A call to pipelineTopologyDelete deletes the topology.
     * A final call to pipelineTopologyList shows that the list is empty.
-
+    
 ### Interpret results
 
 When you run the live pipeline, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
@@ -228,7 +226,9 @@ In this message, notice these details:
 ### Inference event
 
 The HTTP extension processor node receives inference results from the yolov3 module. It then emits the results through the IoT Hub sink node as inference events.
+
 In these events, the type is set to entity to indicate it's an entity, such as a car or truck. The eventTime value is the UTC time when the object was detected.
+
 In the following example, two cars were detected in the same video frame, with varying levels of confidence.
 
 ```
@@ -324,7 +324,7 @@ In the messages, notice the following details:
 
 ## Clean up resources
 
-If you intend to try other quickstarts, keep the resources you created. Otherwise, go to the Azure portal, go to your resource groups, select the resource group where you ran this quickstart, and delete all the resources.
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
 
 ## Next steps
 

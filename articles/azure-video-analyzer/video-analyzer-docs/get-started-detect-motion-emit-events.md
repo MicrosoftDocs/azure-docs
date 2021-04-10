@@ -10,6 +10,7 @@ ms.date: 04/01/2021
 # Quickstart: Get started – Azure Video Analyzer
 
 This quickstart walks you through the steps to get started with Azure Video Analyzer. It uses an Azure VM as an IoT Edge device. It also uses a simulated live video stream.
+
 After completing the setup steps, you'll be able to run a simulated live video stream through a pipeline that detects and reports any motion in that stream. The following diagram graphically represents that pipeline.
 
 > [!div class="mx-imgBorder"]
@@ -91,7 +92,7 @@ This command deploys the following modules to the edge device, which is the Linu
 * Azure Video Analyzer (module name avaEdge)
 * Real-Time Streaming Protocol (RTSP) simulator (module name rtspsim)
 
-The RTSP simulator module simulates a live video stream by using a video file that was copied to your edge device when you ran the Live Video Analytics resources setup script.
+The RTSP simulator module simulates a live video stream by using a video file that was copied to your edge device when you ran the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup).
 
 Now the modules are deployed, but no pipelines are active.
 
@@ -115,21 +116,22 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 
 > [!NOTE]
 > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`
+
 If the connection succeeds, the list of edge devices appears. You should see at least one device named **lva-sample-device**. You can now manage your IoT Edge devices and interact with Azure IoT Hub through the context menu. To view the modules deployed on the edge device, under **lva-sample-device**, expand the **Modules** node.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/get-started-detect-motion-emit-events/modules-node.png" alt-text="Expand the Modules node":::
 
 > [!TIP]
-> If you have manually deployed Azure Video Analyzer yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
+> If you have [manually deployed Azure Video Analyzer]()<!--add link--> yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
 
 ## Use direct method calls
 
-You can use the module to analyze live video streams by invoking direct methods. For more information, see Direct methods for Azure Video Analyzer.
+You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](<!--add a link-->).
 
 ### Invoke topologyList
 
-To enumerate all of the pipelines  in the module:
+To enumerate all of the [pipelines]()<!-- add a link-->  in the module:
 
 1. In the Visual Studio Code, right-click the **avaEdge** module and select **Invoke Module Direct Method**.
 1. In the box that appears, enter topologyList.
@@ -685,7 +687,7 @@ Try the following next steps:
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the resources you created in this quickstart.
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
 
 ## Next steps
 
