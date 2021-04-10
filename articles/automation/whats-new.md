@@ -69,7 +69,7 @@ Two new scripts have been added to the [azureautomation GitHub repository](https
 
 **Type:** New feature
 
-See [Use a webhook from an ARM template](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks#use-a-webhook-from-an-arm-template) for more details.
+See [Use a webhook from an ARM template](https://docs.microsoft.com/azure/automation/automation-webhooks#use-a-webhook-from-an-arm-template) for more details.
 
 ### Azure Update Management now supports Centos 8.x, Red Hat Enterprise Linux Server 8.x, and SUSE Linux Enterprise Server 15
 
