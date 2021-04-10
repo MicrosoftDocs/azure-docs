@@ -122,21 +122,21 @@
       href: sap-hana-scale-out-standby-netapp-files-rhel.md
   - name: SAP HANA database backup with Azure Backup
     items:
-   	- name: SAP HANA database backup in Azure VMs
+    - name: SAP HANA database backup in Azure VMs
       href: ../../../backup/sap-hana-db-about.md
-  	- name: Back up SAP HANA databases in Azure VMs
+    - name: Back up SAP HANA databases in Azure VMs
       href: ../../../backup/backup-azure-sap-hana-database.md
-  	- name: Restore SAP HANA databases on Azure VMs
+    - name: Restore SAP HANA databases on Azure VMs
       href: ../../../backup/sap-hana-db-restore.md
-  	- name: Manage and monitor
+    - name: Manage and monitor
       href: ../../../backup/sap-hana-db-manage.md
-  	- name: Support matrix for backup of SAP HANA databases
+    - name: Support matrix for backup of SAP HANA databases
       href: ../../../backup/sap-hana-backup-support-matrix.md
-  	- name: FAQ – Back up SAP HANA databases on Azure VMs
+    - name: FAQ – Back up SAP HANA databases on Azure VMs
       href: ../../../backup/sap-hana-faq-backup-azure-vm.md
-  	- name: Troubleshoot backup of SAP HANA databases on Azure
+    - name: Troubleshoot backup of SAP HANA databases on Azure
       href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md
-  	- name: Tutorial: Back up SAP HANA databases in an Azure VM
+    - name: Tutorial: Back up SAP HANA databases in an Azure VM
       href: ../../../backup/tutorial-backup-sap-hana-db.md
 - name: SAP NetWeaver and Business One on Azure Virtual Machines
   items:
