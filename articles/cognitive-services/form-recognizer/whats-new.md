@@ -82,7 +82,7 @@ begin_recognize_id_documents
 ```
 
 
-For a list of field values, _see_ [Fields extracted](form-recognizer/concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
+For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
 
 2. **New field values added to the `FieldValueType `enum**:
 
