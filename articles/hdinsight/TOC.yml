@@ -176,6 +176,8 @@
         href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-data-migration.md
       - name: Best practices - security and DevOps
         href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-security-devops.md
+      - name: HDInsight cluster migration
+        href: ./log-analytics-migration.md
     - name: Manage
       items:
       - name: Manage clusters using the Apache Ambari web UI
