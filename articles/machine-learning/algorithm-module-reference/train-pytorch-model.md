@@ -43,7 +43,9 @@ Currently, **Train PyTorch Model** module supports both single node and distribu
 
 7.  For **Learning rate**, specify a value for the *learning rate*. Learning rate controls the size of the step that is used in optimizer like sgd each time the model is tested and corrected.
 
-    By making the rate smaller, you test the model more often, with the risk that you might get stuck in a local plateau. By making the rate larger, you can converge faster, at the risk of overshooting the true minima. by default 0.1. Polynomial learning rate decay is applied and can help result in a better performing model.
+    By making the rate smaller, you test the model more often, with the risk that you might get stuck in a local plateau. By making the rate larger, you can converge faster, at the risk of overshooting the true minima. by default 0.001. Polynomial learning rate decay is applied and can help result in a better performing model.
+    > [!NOTE]
+    > If train loss becomes nan during training, which may be caused by too large learning rate, decreasing learning rate may help.
 
 8.  For **Random seed**, optionally type an integer value to use as the seed. Using a seed is recommended if you want to ensure reproducibility of the experiment across runs.
 
@@ -73,16 +75,16 @@ Click on this module 'Metrics' tab and see training metric graphs, such as 'Trai
 ### How to enable distributed training
 
 To enable distributed training for **Train PyTorch Model** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)** is supported for distributed training.
-
-
+> [!NOTE]
+> **Multiple GPUs** are required to activate distributed training because NCCL backend Train PyTorch Model module uses needs cuda.
 
 1. Select the module and open the right panel. Expand the **Run settings** section.
 
     ![Screenshot showing how to set distributed training in runsetting](./media/module/distributed-training-runsetting.png)
 
-1. Make sure you have select AML compute for the compute target.
+2. Make sure you have select AML compute for the compute target.
 
-1. In **Resource layout** section, you need to set the following values:
+3. In **Resource layout** section, you need to set the following values:
 
     - **Node count** : Number of nodes in the compute target used for training. It should be **less than or equal to** the **Maximum number of nodes** your compute cluster. By default it is 1, which means single node job.
 
