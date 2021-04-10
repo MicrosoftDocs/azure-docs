@@ -4,15 +4,9 @@ description: In this tutorial, you learn how to use the Azure CLI to secure a Li
 services: virtual-machines
 documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
@@ -22,6 +16,9 @@ ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Secure a web server on a Linux virtual machine in Azure with TLS/SSL certificates stored in Key Vault
+
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 To secure web servers, a Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), certificate can be used to encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Linux virtual machines (VMs) in Azure. In this tutorial you learn how to:
 
 > [!div class="checklist"]
