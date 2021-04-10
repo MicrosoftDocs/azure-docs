@@ -12,6 +12,8 @@ ms.collection: linux
 
 # Troubleshoot Azure Image Builder Service
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article helps you troubleshoot and resolve common issues you may encounter when using Azure Image Builder Service.
 
 AIB failures can happen in 2 areas:

@@ -11,4 +11,7 @@ ms.author: rogarana
 
 ---
 # Back up Azure unmanaged Virtual Machine disks with incremental snapshots
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

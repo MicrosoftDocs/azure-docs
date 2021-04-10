@@ -1,14 +1,16 @@
 ---
 title: Common Azure CLI commands 
 description: Learn some of the common Azure CLI commands to get you started managing your VMs in Azure Resource Manager mode
-author: RicksterCDN
+author: cynthn
 ms.service: virtual-machines
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2017
-ms.author: rclaus
+ms.author: cynthn
 
 ---
 # Common Azure CLI commands for managing Azure resources
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 The Azure CLI allows you to create and manage your Azure resources on macOS, Linux, and Windows. This article details some of the most common commands to create and manage virtual machines (VMs).
 

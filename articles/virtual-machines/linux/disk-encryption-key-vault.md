@@ -14,6 +14,8 @@ ms.custom: seodec18
 
 # Creating and configuring a key vault for Azure Disk Encryption
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/general/overview.md) and [Secure your key vault](../../key-vault/general/secure-your-key-vault.md). 
 
 > [!WARNING]

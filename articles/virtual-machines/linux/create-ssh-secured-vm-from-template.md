@@ -11,6 +11,8 @@ ms.author: cynthn
 ---
 # How to create a Linux virtual machine with Azure Resource Manager templates
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Learn how to create a Linux virtual machine (VM) by using an Azure Resource Manager template and the Azure CLI from the Azure Cloud shell. To create a Windows virtual machine, see [Create a Windows virtual machine from a Resource Manager template](../windows/ps-template.md).
 
 An alternative is to deploy the template from the Azure portal. To open the template in the portal, select the **Deploy to Azure** button.
