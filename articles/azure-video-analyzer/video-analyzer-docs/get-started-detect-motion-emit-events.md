@@ -127,7 +127,7 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 
 ## Use direct method calls
 
-You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer](<!--add a link-->).
+You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Azure Video Analyzer]()<!--add a link-->.
 
 ### Invoke topologyList
 
