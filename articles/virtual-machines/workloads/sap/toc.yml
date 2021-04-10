@@ -138,7 +138,7 @@
       href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md
     - name: Tutorial: Back up SAP HANA databases in an Azure VM
       href: ../../../backup/tutorial-backup-sap-hana-db.md
-- name: SAP NetWeaver and Business One on Azure Virtual Machines
+- name: SAP NetWeaver, S/4HANA and Business One on Azure Virtual Machines
   items:
   - name: SAP workload planning and deployment checklist
     href: sap-deployment-checklist.md
