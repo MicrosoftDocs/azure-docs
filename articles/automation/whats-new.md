@@ -69,7 +69,7 @@ Two new scripts have been added to the [azureautomation GitHub repository](https
 
 **Type:** New feature
 
-See [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks) for more details.
+See [Use a webhook from an ARM template](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks#use-a-webhook-from-an-arm-template) for more details.
 
 ### Azure Update Management now supports Centos 8.x, Red Hat Enterprise Linux Server 8.x, and SUSE Linux Enterprise Server 15
 
@@ -81,7 +81,7 @@ See the [full list](https://docs.microsoft.com/azure/azure-monitor/agents/agents
 
 **Type:** New feature
 
-All regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing BCDR. Only for the Brazil and Southeast Asia region, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. See [Geo-replication in Azure Automation](https://docs.microsoft.com/azure/automation/automation-managing-data#geo-replication-in-azure-automation) for more details.
+In all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing Business Continuity and Disaster Recovery (BCDR). For the Brazil and Southeast Asia regions only, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. See [Geo-replication in Azure Automation](https://docs.microsoft.com/azure/automation/automation-managing-data#geo-replication-in-azure-automation) for more details.
 
 ## February 2021
 
