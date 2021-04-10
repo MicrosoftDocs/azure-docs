@@ -33,31 +33,31 @@ Azure Automation has added 5 new built-in policies:
 - Configure private endpoint connections on Azure Automation accounts
 - Private endpoint connections on Automation Accounts should be enabled.
 
-See the [policy reference](https://docs.microsoft.com/en-us/azure/automation/policy-reference) article for more details.
+See the [policy reference](https://docs.microsoft.com/azure/automation/policy-reference) article for more details.
 
 ### Support for Automation and State Configuration declared GA in South India
 
 **Type:** New feature
 
-Use Process Automation and State configuration capabilities in South India. Read the [announcement](https://azure.microsoft.com/en-us/updates/azure-automation-in-south-india-region/) for more information.
+Use Process Automation and State configuration capabilities in South India. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-in-south-india-region/) for more information.
 
 ### Support for Automation and State Configuration declared GA in UK West
 
 **Type:** New feature
 
-Use Process Automation and State configuration capabilities in UK West. For more information, read [announcement](https://azure.microsoft.com/en-us/updates/azure-automation-in-uk-west-region/).
+Use Process Automation and State configuration capabilities in UK West. For more information, read [announcement](https://azure.microsoft.com/updates/azure-automation-in-uk-west-region/).
 
 ### Support for Automation and State Configuration declared GA in UAE Central
 
 **Type:** New feature
 
-Use Process Automation and State configuration capabilities in UAE Central. Read the [announcement](https://azure.microsoft.com/en-us/updates/azure-automation-in-uae-central-region/) for more information.
+Use Process Automation and State configuration capabilities in UAE Central. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-in-uae-central-region/) for more information.
 
 ### Support for Automation and State Configuration available in Australia Central 2 , Norway West and France South
 
 **Type:** New feature
 
-See more information on the [Data residency page](https://azure.microsoft.com/en-us/global-infrastructure/data-residency/) by selecting the geography for each region.
+See more information on the [Data residency page](https://azure.microsoft.com/global-infrastructure/data-residency/) by selecting the geography for each region.
 
 ### New scripts added for installing Hybrid worker on Windows and Linux
 
@@ -65,23 +65,23 @@ See more information on the [Data residency page](https://azure.microsoft.com/en
 
 Two new scripts have been added to the [azureautomation GitHub repository](https://nam06.safelinks.protection.outlook.com/?url=https://github.com/azureautomation/&data=04%7c01%7cjaspkaur%40microsoft.com%7cefca6a0a96b444783d0408d8d8934532%7c72f988bf86f141af91ab2d7cd011db47%7c1%7c0%7c637497474872386508%7cUnknown%7cTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7c1000&sdata=xnVJ2iAWe779/oMIMg%2BQyAY9p/%2BO7B7uSjaubOjbO08%3D&reserved=0) addressing one of Azure Automation's key scenarios of setting up a hybrid worker on either a Windows or a Linux machine. The script creates a new VM or uses an existing one, creates a Log Analytics (LA) workspace, installs the Microsoft Monitoring Agent, and registers the machine to LA workspace. The Windows script is name **Create Automation Windows HybridWorker** and the Linux script is **Create Automation Linux HybridWorker**.
 
-### Azure Automation runbook can be invoked through an ARM template webhook.
+### Azure Automation runbook can be invoked through an Azure Resource Manager (ARM) template webhook
 
 **Type:** New feature
 
-See [Start a runbook from a webhook](https://docs.microsoft.com/en-us/azure/automation/automation-webhooks) for more details.
+See [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks) for more details.
 
 ### Azure Update Management now supports Centos 8.x, Red Hat Enterprise Linux Server 8.x, and SUSE Linux Enterprise Server 15
 
 **Type:** New feature
 
-See the [full list](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview#linux) of supported Linux operating systems for more details.
+See the [full list](https://docs.microsoft.com/azure/azure-monitor/agents/agents-overview#linux) of supported Linux operating systems for more details.
 
 ### In-region data residency support for Brazil South and South East Asia 
 
 **Type:** New feature
 
-All regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing BCDR. Only for the Brazil and Southeast Asia region, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. See [Geo-replication in Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-managing-data#geo-replication-in-azure-automation) for more details.
+All regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing BCDR. Only for the Brazil and Southeast Asia region, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. See [Geo-replication in Azure Automation](https://docs.microsoft.com/azure/automation/automation-managing-data#geo-replication-in-azure-automation) for more details.
 
 ## February 2021
 
@@ -121,7 +121,7 @@ The script is available for download from our [GitHub repository](https://github
 
 **Type.** New feature
 
-The Hybrid Runbook Worker feature supports CentOS 8.x, REHL 8.x, and SLES 15 distributions for only process automation on Hybrid Runbook Workers.  See [Supported operating systems](automation-linux-hrw-install.md#supported-linux-operating-systems) for updates to the documentation to reflect these changes.
+The Hybrid Runbook Worker feature supports CentOS 8.x, REHL 8.x, and SLES 15 distributions for only process automation on Hybrid Runbook Workers. See [Supported operating systems](automation-linux-hrw-install.md#supported-linux-operating-systems) for updates to the documentation to reflect these changes.
 
 ### Update Management and Change Tracking availability in Australia East, East Asia, West US and Central US regions
 
@@ -132,7 +132,7 @@ Automation account, Change Tracking and Inventory, and Update Management are ava
 ### Introduced public preview of Python 3 runbooks in US Government cloud
 
 **Type:** New feature
-Azure Automation introduces public preview support of Python 3 cloud and hybrid runbook execution in US Government cloud regions.  For more information, see the [announcement](https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
+Azure Automation introduces public preview support of Python 3 cloud and hybrid runbook execution in US Government cloud regions. For more information, see the [announcement](https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
 
 ### Azure Automation runbooks moved from TechNet Script Center to GitHub
 
@@ -310,7 +310,7 @@ Azure Automation Hybrid Runbook Worker can be used in Azure Government to suppor
 
 **Type:** New feature
 
-Automation support of service tags allow or deny the traffic for the Automation service, for a subset of scenarios. To learn more, see the [documentation](automation-hybrid-runbook-worker.md#service-tags).
+Automation support of service tags allows or denies the traffic for the Automation service, for a subset of scenarios. To learn more, see the [documentation](automation-hybrid-runbook-worker.md#service-tags).
 
 ### Enable TLS 1.2 support for Azure Automation service
 
