@@ -494,9 +494,9 @@ The steps in this section use the following prefixes:
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
-## Implement Python hook SAPHanaSR
+## Implement the Python system replication hook SAPHanaSR
 
-This is important step to optimize the integration in the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.    
+This is important step to optimize the integration with the cluster and improve the detection when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.    
 
 1. **[A]** Install the HANA "system replication hook". The hook needs to be installed on both HANA DB nodes.           
 
@@ -518,7 +518,7 @@ This is important step to optimize the integration in the cluster and improve th
     sapcontrol -nr 03 -function StopSystem
     ```
 
-   3. Adjust `global.ini`.  
+   3. Adjust `global.ini` on each cluster node.  
  
     ```bash
     # add to global.ini
@@ -538,6 +538,7 @@ This is important step to optimize the integration in the cluster and improve th
     hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
     EOF
     ```
+For more details on the implementation of the SAP HANA system replication hook see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html#_set_up_sap_hana_hadr_providers).  
 
 3. **[A]** Start SAP HANA on both nodes. Execute as <sid\>adm.  
 
