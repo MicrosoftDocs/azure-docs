@@ -37,7 +37,7 @@ landingContent:
             url: ../fundamentals/platform.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   # Card
-  - title: Migrate to the cloud
+  - title: Securely migrate to the cloud
     linkLists:
       - linkListType: overview
         links:
@@ -49,3 +49,51 @@ landingContent:
             url: /azure/architecture/framework/security/security-principles?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
           - text: Migrate secure workloads
             url: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+
+  # Card
+  - title: Secure and protect your resources
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Security best practices
+            url: ../fundamentals/best-practices-and-patterns.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Security controls and baselines
+            url: ../benchmarks/introduction.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - linkListType: concept
+        links:
+          - text: Identity management
+            url: ../fundamentals/identity-management-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Network security
+            url: ../fundamentals/network-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Data security and encryption
+            url: ../fundamentals/encryption-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Database security
+            url: ../../azure-sql/database/security-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Storage security
+            url: ../../storage/blobs/security-recommendations.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Key and secret management
+            url: /azure/architecture/framework/security/design-storage-keys?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Microsoft Antimalware
+            url: ../fundamentals/antimalware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+
+  # Card
+  - title: Detect threats
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Threat protection
+            url: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Threat analysis
+            url: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+
+  # Card
+  - title: Investigate threats and respond
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure logging
+            url: ../fundamentals/log-audit.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Review and audit
+            url: /azure/architecture/framework/security/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Identity and network risks
+            url: /azure/architecture/framework/security/monitor-identity-network?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
