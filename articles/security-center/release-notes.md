@@ -25,12 +25,11 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 Updates in April include:
 - [Recently pulled container registry images are now rescanned weekly (General Availability)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
-- [Four new recommendations related to guest configuration (preview)](#four-new-recommendations-related-to-guest-configuration-preview)
 - [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
-- [11 Azure Defender alerts deprecated](#11-azure-defender-alerts-deprecated)
+- [Four new recommendations related to guest configuration (preview)](#four-new-recommendations-related-to-guest-configuration-preview)
 - [CMK recommendations moved to best practices security control](#cmk-recommendations-moved-to-best-practices-security-control)
+- [11 Azure Defender alerts deprecated](#11-azure-defender-alerts-deprecated)
 - [Two recommendations from "Apply system updates" security control were deprecated](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
-
 
 ### Recently pulled container registry images are now rescanned weekly (General Availability)
 
@@ -41,23 +40,6 @@ New vulnerabilities are discovered every day. With this update, container images
 Scanning is charged on a per image basis, so there's no additional charge for these rescans.
 
 Learn more about this scanner in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md).
-
-
-### Four new recommendations related to guest configuration (preview)
-
-Azure's [Guest Configuration extension](../governance/policy/concepts/guest-configuration.md) reports to Security Center to help ensure your virtual machines' in-guest settings are hardened. The extension isn't required for Arc enabled servers because it's included in the Arc Connected Machine agent. The extension requires a system-managed identity on the machine.
-
-We've added four new recommendations to Security Center to make the most of this extension.
-
-- Two recommendations prompt you to install the extension and its required system-managed identity:
-    - **Guest Configuration extension should be installed on your machines**
-    - **Virtual machines' Guest Configuration extension should be deployed with system-assigned managed identity**
-
-- When the extension is installed and running, it'll begin auditing your machines and you'll be prompted to harden settings such as configuration of the operating system and environment settings. These two recommendations will prompt you to harden your Windows and Linux machines as described:
-    - **Windows Defender Exploit Guard should be enabled on your machines**
-    - **Authentication to Linux machines should require SSH keys**
-
-Learn more in [Understand Azure Policy's Guest Configuration](../governance/policy/concepts/guest-configuration.md).
 
 
 ### Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (preview)
@@ -80,6 +62,21 @@ Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi
 
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
+### Four new recommendations related to guest configuration (preview)
+
+Azure's [Guest Configuration extension](../governance/policy/concepts/guest-configuration.md) reports to Security Center to help ensure your virtual machines' in-guest settings are hardened. The extension isn't required for Arc enabled servers because it's included in the Arc Connected Machine agent. The extension requires a system-managed identity on the machine.
+
+We've added four new recommendations to Security Center to make the most of this extension.
+
+- Two recommendations prompt you to install the extension and its required system-managed identity:
+    - **Guest Configuration extension should be installed on your machines**
+    - **Virtual machines' Guest Configuration extension should be deployed with system-assigned managed identity**
+
+- When the extension is installed and running, it'll begin auditing your machines and you'll be prompted to harden settings such as configuration of the operating system and environment settings. These two recommendations will prompt you to harden your Windows and Linux machines as described:
+    - **Windows Defender Exploit Guard should be enabled on your machines**
+    - **Authentication to Linux machines should require SSH keys**
+
+Learn more in [Understand Azure Policy's Guest Configuration](../governance/policy/concepts/guest-configuration.md).
 
 ### CMK recommendations moved to best practices security control
 
