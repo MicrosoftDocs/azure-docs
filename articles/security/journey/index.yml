@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Security journey documentation
-summary: Find guidance for each phase of the security journey.
+title: Cloud security journey documentation
+summary: Find guidance for each phase of the security journey in the cloud.
 
 metadata:
   title: Azure security journey documentation
@@ -25,7 +25,27 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Shared responsibility
+          - text: Shared responsibility in the cloud
             url: ../fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-          - text: End-to-end security
+          - text: End-to-end security services
             url: ../fundamentals/end-to-end.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - linkListType: concept
+        links:
+          - text: How Microsoft secures the Azure infrastructure
+            url: ../fundamentals/infrastructure.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Azure platform security and integrity
+            url: ../fundamentals/platform.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+
+  # Card
+  - title: Migrate to the cloud
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Implement security across your business
+            url: /azure/cloud-adoption-framework/get-started/security?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - linkListType: concept
+        links:
+          - text: Design a secure architecture
+            url: /azure/architecture/framework/security/security-principles?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Migrate secure workloads
+            url: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
