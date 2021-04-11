@@ -23,7 +23,7 @@ There are two methods to query data that is stored in multiple workspace and app
 ## Cross-resource query limits 
 
 * The number of Application Insights resources and Log Analytics workspaces that you can include in a single query is limited to 100.
-* Cross-resource query is not supported in View Designer. You can Author a query in Log Analytics and pin it to Azure dashboard to [visualize a log query](../visualize/tutorial-logs-dashboards.md) or include in [Workbooks](../visualize/workbooks-overview).
+* Cross-resource query is not supported in View Designer. You can Author a query in Log Analytics and pin it to Azure dashboard to [visualize a log query](../visualize/tutorial-logs-dashboards.md) or include in [Workbooks](../visualize/workbooks-overview.md).
 * Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
 
 
@@ -42,7 +42,7 @@ Identifying a workspace can be accomplished one of several ways:
 
     `workspace("contosoretail-it").Update | count`
 
-* Qualified name - is the “full name” of the workspace, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
+* Qualified name - is the "full name" of the workspace, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
 
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
