@@ -21,9 +21,10 @@
   - name: Security
     tocHref: /azure/active-directory/
     topicHref: /azure/Security/index
-  - name: Fundamentals
-     tocHref: /azure/active-directory/authentication/
-     topicHref: /azure/security/fundamentals/index
+    items:
+    - name: Fundamentals
+      tocHref: /azure/active-directory/authentication
+      topicHref: /azure/security/fundamentals/index
 
 - name: Azure
   tocHref: /azure/
@@ -32,6 +33,7 @@
   - name: Security
     tocHref: /azure/architecture/
     topicHref: /azure/Security/index
-  - name: Fundamentals
-     tocHref: /azure/architecture/framework/security/
-     topicHref: /azure/security/fundamentals/index
+    items:
+    - name: Fundamentals
+      tocHref: /azure/architecture/framework/security
+      topicHref: /azure/security/fundamentals/index
