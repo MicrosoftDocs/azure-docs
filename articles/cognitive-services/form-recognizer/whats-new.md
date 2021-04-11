@@ -21,64 +21,140 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 ## April 2021
 <!-- markdownlint-disable MD029 -->
 
-### SDK update
+### SDK updates
 
-### Breaking changes
+### **C#**
 
-1. The client defaults to the latest supported service version, which currently is **2.1-preview.3**.  
-1. `StartRecognizeCustomForms` now throws a `RequestFailedException` when an invalid file is passed.
 
-#### **C#**
+#### Breaking changes
+
+1. The client defaults to the latest supported service version, which currently is **2.1-preview.3**.
+
+1. `StartRecognizeCustomForms()` now throws a `RequestFailedException()` when an invalid file is passed.
+
+#### Updates
 
  1. **New methods to recognize data from identity documents**:
 
 **Recognize ID documents from a URI**
 
 ```console
-StartRecognizeIdDocumentsFromUriAsync
+StartRecognizeIdDocumentsFromUriAsync(<sourceUri>)
 ```
 
 **Recognize ID documents from a given file**
 
 ```console
-StartRecognizeIdDocumentsAsync
+StartRecognizeIdDocumentsAsync(<sourcePath>)
 ```
 
-2. Expanded the set of document languages that can be provided to the `StartRecognizeContent` method.
+2. Expanded the set of document languages that can be provided to the `StartRecognizeContent()` method.
 
 3. **New property `Pages`  supported by the following methods**:
 
-`RecognizeBusinessCardsOptions`  
-`RecognizeCustomFormsOptions`  
-`RecognizeInvoicesOptions`  
-`RecognizeReceiptsOptions`  
+`RecognizeBusinessCardsOptions()`
+`RecognizeCustomFormsOptions()`
+`RecognizeInvoicesOptions()`
+`RecognizeReceiptsOptions()`
 
 The `Pages` property allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
 
 4. **New property `ReadingOrder` supported for the following methods**:
 
-* `RecognizeContentOptions`
+* `RecognizeContentOptions()`
 
 The `ReadingOrder` property is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
-#### **Java**
+### **Java**
 
-#### **JavaScript**
+#### Updates
 
-#### **Python**
+1. **New methods to recognize data from identity documents**:
+
+**Recognize ID documents from a URI**
+
+```console
+beginRecognizeIdDocumentsFromUrl(<sourceURL>)
+```
+
+**Recognize ID documents from a given file**
+
+```console
+beginRecognizeIdDocuments(<sourcePath>)
+```
+2. **Bitmap Image file (.bmp) support for custom forms and training methods in the `FormContentType` enum**:
+
+* `image/bmp`
+
+3. **New property `Pages`  supported by the following methods**:
+
+`RecognizeBusinessCardsOptions()`
+`RecognizeCustomFormOptions()`
+`RecognizeInvoicesOptions()`
+`RecognizeReceiptsOptions()`
+
+The `Pages` property allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
+
+
+4. **Bitmap Image file (.bmp) support for custom forms and training methods in the `FormContentType` enum**:
+
+* `image/bmp`
+
+
+5. **New keyword argument `ReadingOrder` supported for the following methods**:
+
+* `beginRecognizeContent()` / `beginRecognizeContentFromUrl()`
+
+The `ReadingOrder` keyword argument is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
+
+6. The client defaults to the latest supported service version, which currently is **2.1-preview.3**.
+
+
+### **JavaScript**
+
+1. **New methods to recognize data from identity documents**:
+
+**Recognize ID documents from a URL**
+```console
+beginRecognizeIdDocumentsFromUrl(<sourceURL>)
+```
+
+**Recognize ID documents from a given file**
+```console
+beginRecognizeIdDocuments(<sourcePath>)
+```
+2. **New field values added to the [FieldValue interface]()**:
+* `gender`—possible values are `M` `F` or `X`.
+* `country`—possible values follow [ISO alpha-3](https://www.iso.org/obp/ui/#search) three-letter country code string.
+
+3.  **New option `pages` supported by all form recognition methods (custom forms and all prebuilt models). The argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
+
+1.  Added support for a readingOrder option to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
+
+1. Split `FormField` into several different interfaces. This should not cause any API compatibility issues except in certain edge cases (undefined valueType).
+
+1. Migrated to the 2.1-preview.3 Form Recognizer service endpoint for all REST API calls.
+
+
+
+
+
+### **Python**
+
+#### Updates
 
 1. **New methods to recognize data from identity documents**:
 
 **Recognize ID documents from a URL**
 
 ```console
-begin_recognize_id_documents_from_url
+begin_recognize_id_documents_from_url(<sourceURL>)
 ```
 
 **Recognize ID documents from a given file**
 
 ```console
-begin_recognize_id_documents
+begin_recognize_id_documents(<sourcePath>)
 ```
 
 
@@ -95,16 +171,16 @@ For a list of field values, _see_ [Fields extracted](concept-identification-card
 
  4. **New keyword argument `pages`  supported by the following methods**:
 
-* `begin_recognize_receipts`  / `begin_recognize_receipts_from_url`  
-* `begin_recognize_business_cards` / `begin_recognize_business_cards_from_url`
-* `begin_recognize_invoices` / `begin_recognize_invoices_from_url`
-* `begin_recognize_content` / `begin_recognize_content_from_url`
+* `begin_recognize_receipts()`  / `begin_recognize_receipts_from_url()`
+* `begin_recognize_business_cards()`/ `begin_recognize_business_cards_from_url()`
+* `begin_recognize_invoices()`/ `begin_recognize_invoices_from_url()`
+* `begin_recognize_content()`/ `begin_recognize_content_from_url()`
 
 The `pages` keyword argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
 
 5. **New keyword argument `readingOrder` supported for the following methods**:
 
-* `begin_recognize_content` / `begin_recognize_content_from_url`
+* `begin_recognize_content()`/ `begin_recognize_content_from_url()`
 
 The `readingOrder` keyword argument is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
@@ -145,7 +221,7 @@ The `readingOrder` keyword argument is an optional parameter that allows you to 
 
 ### New features
 
-**Form Recognizer v2.1 public preview 2 is now available.** v2.1-preview.2 has been released, including the following features: 
+**Form Recognizer v2.1 public preview 2 is now available.** v2.1-preview.2 has been released, including the following features:
 
 - **New prebuilt invoice model** - The new prebuilt Invoice model enables customers to take invoices in various formats and return structured data to automate the invoice processing. It combines our powerful Optical Character Recognition (OCR) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts key text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, amount due, tax amount, ship to, and bill to.
 
@@ -153,11 +229,11 @@ The `readingOrder` keyword argument is an optional parameter that allows you to 
 
   :::image type="content" source="./media/invoice-example.jpg" alt-text="invoice example" lightbox="./media/invoice-example.jpg":::
 
-- **Enhanced table extraction** - Form Recognizer now provides enhanced table extraction, which combines our powerful Optical Character Recognition (OCR) capabilities with a deep learning table extraction model. Form Recognizer can extract data from tables, including complex tables with merged columns, rows, no borders and more. 
- 
+- **Enhanced table extraction** - Form Recognizer now provides enhanced table extraction, which combines our powerful Optical Character Recognition (OCR) capabilities with a deep learning table extraction model. Form Recognizer can extract data from tables, including complex tables with merged columns, rows, no borders and more.
+
   :::image type="content" source="./media/tables-example.jpg" alt-text="tables example" lightbox="./media/tables-example.jpg":::
 
- 
+
   > [Learn more about Layout extraction](concept-layout.md)
 
 - **Client library update** - The latest versions of the [client libraries](quickstarts/client-library.md) for .NET, Python, Java, and JavaScript support the Form Recognizer 2.1 API.
@@ -169,7 +245,7 @@ The `readingOrder` keyword argument is an optional parameter that allows you to 
   > [Try out the Form Recognizer Sample Tool](https://fott-preview.azurewebsites.net/)
 
   ![FOTT example](./media/ui-preview.jpg)
-  
+
 - **Feedback Loop** - When Analyzing files via the sample labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
 - **Auto Label Documents** - Automatically labels additional documents based on previous labeled documents in the project.
 
@@ -177,12 +253,12 @@ The `readingOrder` keyword argument is an optional parameter that allows you to 
 
 ### New features
 
-**Form Recognizer v2.1 public preview is now available.** V2.1-preview.1 has been released, including the following features: 
+**Form Recognizer v2.1 public preview is now available.** V2.1-preview.1 has been released, including the following features:
 
 
-- **REST API reference is available** - View the [v2.1-preview.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
+- **REST API reference is available** - View the [v2.1-preview.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 - **New languages supported In addition to English**, the following [languages](language-support.md) are now supported: for `Layout` and `Train Custom Model`: English (`en`), Chinese (Simplified) (`zh-Hans`), Dutch (`nl`), French (`fr`), German (`de`), Italian (`it`), Portuguese (`pt`) and Spanish (`es`).
-- **Checkbox / Selection Mark detection** – Form Recognizer supports detection and extraction of selection marks such as check boxes and radio buttons. Selection Marks are extracted in `Layout` and you can now also label and train in `Train Custom Model` - _Train with Labels_ to extract key value pairs for selection marks. 
+- **Checkbox / Selection Mark detection** – Form Recognizer supports detection and extraction of selection marks such as check boxes and radio buttons. Selection Marks are extracted in `Layout` and you can now also label and train in `Train Custom Model` - _Train with Labels_ to extract key value pairs for selection marks.
 - **Model Compose** - allows multiple models to be composed and called with a single model ID. When a you submit a document to be analyzed with a composed model ID, a classification step is first performed to route it to the correct custom model. Model Compose is available for `Train Custom Model` - _Train with labels_.
 - **Model name** - add a friendly name to your custom models for easier management and tracking.
 - **[New pre-built model for Business Cards](concept-business-cards.md)** for extracting common fields in English, language business cards.
@@ -191,12 +267,12 @@ The `readingOrder` keyword argument is an optional parameter that allows you to 
 
 **v2.0** includes the following update:
 
-- The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScript have entered General Availability. 
+- The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScript have entered General Availability.
 
-**New samples** are available on GitHub. 
+**New samples** are available on GitHub.
 
-- The [Knowledge Extraction Recipes - Forms Playbook](https://github.com/microsoft/knowledge-extraction-recipes-forms) collects best practices from real Form Recognizer customer engagements and provides usable code samples, checklists, and sample pipelines used in developing these projects. 
-- The [sample labeling tool](https://github.com/microsoft/OCR-Form-Tools) has been updated to support the new v2.1 functionality. See this [quickstart](quickstarts/label-tool.md) for getting started with the tool. 
+- The [Knowledge Extraction Recipes - Forms Playbook](https://github.com/microsoft/knowledge-extraction-recipes-forms) collects best practices from real Form Recognizer customer engagements and provides usable code samples, checklists, and sample pipelines used in developing these projects.
+- The [sample labeling tool](https://github.com/microsoft/OCR-Form-Tools) has been updated to support the new v2.1 functionality. See this [quickstart](quickstarts/label-tool.md) for getting started with the tool.
 - The [Intelligent Kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) Form Recognizer sample shows how to integrate `Analyze Receipt` and `Train Custom Model` - _Train without Labels_.
 
 ## July 2020
@@ -204,12 +280,12 @@ The `readingOrder` keyword argument is an optional parameter that allows you to 
 ### New features
 <!-- markdownlint-disable MD004 -->
 * **v2.0 reference available** - View the [v2.0 API Reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) and the updated SDKs for [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme), [Python](/python/api/overview/azure/), [Java](/java/api/overview/azure/ai-formrecognizer-readme), and [JavaScript](/javascript/api/overview/azure/).
-* **Table enhancements and Extraction enhancements** - includes accuracy improvements and table extractions enhancements, specifically, the capability to learn tables headers and structures in _custom train without labels_. 
+* **Table enhancements and Extraction enhancements** - includes accuracy improvements and table extractions enhancements, specifically, the capability to learn tables headers and structures in _custom train without labels_.
 
 * **Currency support** - Detection and extraction of global currency symbols.
 * **Azure Gov** - Form Recognizer is now also available in Azure Gov.
-* **Enhanced security features**: 
-  * **Bring your own key** - Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys, also known as bring your own key (BYOK)](./encrypt-data-at-rest.md), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.  
+* **Enhanced security features**:
+  * **Bring your own key** - Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys, also known as bring your own key (BYOK)](./encrypt-data-at-rest.md), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
   * **Private endpoints** – Enables you on a virtual network to [securely access data over a Private Link.](../../private-link/private-link-overview.md)
 
 ## June 2020
@@ -228,7 +304,7 @@ The `readingOrder` keyword argument is an optional parameter that allows you to 
 
 ### New features
 
-* **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0 (preview) release. Use the links below to get started with your language of choice: 
+* **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0 (preview) release. Use the links below to get started with your language of choice:
   * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
   * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme)
   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
@@ -239,7 +315,7 @@ The `readingOrder` keyword argument is an optional parameter that allows you to 
 * **Copy Custom Model** You can now copy models between regions and subscriptions using the new Copy Custom Model feature. Before invoking the Copy Custom Model API, you must first obtain authorization to copy into the target resource by calling the Copy Authorization operation against the target resource endpoint.
 
   * [Generate a copy authorization](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModelAuthorization) REST API
-  * [Copy a custom model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModel) REST API 
+  * [Copy a custom model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModel) REST API
 
 ### Security improvements
 
@@ -255,7 +331,7 @@ The `readingOrder` keyword argument is an optional parameter that allows you to 
     * default, `no-whitespaces`, `alphanumeric`
   * `number`
     * default, `currency`
-  * `date` 
+  * `date`
     * default, `dmy`, `mdy`, `ymd`
   * `time`
   * `integer`
@@ -277,8 +353,8 @@ The `readingOrder` keyword argument is an optional parameter that allows you to 
 
 ### Extraction enhancements
 
-This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text. 
- 
+This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text.
+
 ### Sample labeling tool is now open-source
 
 The Form Recognizer sample labeling tool is now available as an open-source project. You can integrate it within your solutions and make customer-specific changes to meet your needs.
@@ -291,7 +367,7 @@ TLS 1.2 is now enforced for all HTTP requests to this service. For more informat
 
 ## January 2020
 
-This release introduces the Form Recognizer 2.0 (preview). In the sections below, you'll find more information about new features, enhancements, and changes. 
+This release introduces the Form Recognizer 2.0 (preview). In the sections below, you'll find more information about new features, enhancements, and changes.
 
 ### New features
 
