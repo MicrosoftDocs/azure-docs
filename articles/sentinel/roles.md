@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/21/2021
+ms.date: 04/11/2021
 ms.author: yelevin
 
 ---
@@ -76,7 +76,7 @@ In assigning Azure Sentinel-specific Azure roles, you may come across other Azur
 
 For example, a user who is assigned the **Azure Sentinel Reader** role, but not the **Azure Sentinel Contributor** role, will still be able to edit items in Azure Sentinel if assigned the Azure-level **Contributor** role. Therefore, if you want to grant permissions to a user only in Azure Sentinel, you should carefully remove this user’s prior permissions, making sure you do not break any needed access to another resource.
 
-## Azure Senitnel roles and allowed actions
+## Azure Sentinel roles and allowed actions
 
 The following table summarizes the Azure Sentinel roles and their allowed actions in Azure Sentinel.
 
