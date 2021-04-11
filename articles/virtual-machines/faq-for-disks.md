@@ -12,6 +12,8 @@ ms.subservice: disks
 
 # Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 This article answers some frequently asked questions about Azure Managed Disks and Azure Premium SSD disks.
 
 ## Managed Disks

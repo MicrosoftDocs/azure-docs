@@ -12,6 +12,8 @@ ms.custom: references_regions
 
 # Share an Azure managed disk
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 [!INCLUDE [virtual-machines-disks-shared](../../includes/virtual-machines-disks-shared.md)]
 
 ## Next steps

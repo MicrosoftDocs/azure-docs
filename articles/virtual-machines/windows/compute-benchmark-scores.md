@@ -12,6 +12,9 @@ ms.reviewer: davberg
 
 ---
 # Compute benchmark scores for Windows VMs
+
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 The following SPECInt benchmark scores show compute performance for select Azure VMs running Windows Server. Compute benchmark scores are also available for [Linux VMs](../linux/compute-benchmark-scores.md).
 
 
