@@ -23,7 +23,7 @@ A video analyzer pipeline supports different types of nodes
 * Azure Video Analyzer on IoT Edge overview
 * Azure Video Analyzer on IoT Edge terminology
 
-## Pipeline Topologies
+## Pipeline topologies
 
 A pipeline topology enables you to define what nodes are in the pipeline, how they are connected, with parameters as placeholders for values. As an example, if you want to record videos from multiple IP cameras, you can define a topology consisting of an RTSP source node and a video sink. 
 
@@ -39,7 +39,7 @@ The lifecycle of a video analyzer pipeline is represented in the diagram below
 Here is a pipeline topology.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/pipeline/topology.png" alt-text="A pipeline topology":::
+> :::image type="content" source="./media/pipeline/topology.png" alt-text="A pipeline topology" lightbox="./media/pipeline/topology.png":::
 
 You start with [creating the pipeline topology]()<!--TODO: Add link-->. Once the topology is defined, you can create pipelines by providing values for the parameters. Upon successful creation a pipeline starts in the “Inactive” state. Upon activation, a pipeline enters the “Activating” state and then “Active” state. 
 
