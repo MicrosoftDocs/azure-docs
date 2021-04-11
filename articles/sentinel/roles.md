@@ -30,8 +30,6 @@ Use Azure RBAC to create and assign roles within your security operations team t
 
 ### Azure Sentinel-specific roles
 
-There are three dedicated built-in Azure Sentinel roles.
-
 **All Azure Sentinel built-in roles grant read access to the data in your Azure Sentinel workspace.**
 
 - [Azure Sentinel Reader](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) can view data, incidents, workbooks, and other Azure Sentinel resources.
