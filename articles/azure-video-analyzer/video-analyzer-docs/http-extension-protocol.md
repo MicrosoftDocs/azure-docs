@@ -27,7 +27,7 @@ Requests from Live Video Analytics module to your HTTP server would be as follow
 |POST|https://hostname/optional-path?optional-query|
 |Accept|application/json|
 |Authorization|	Basic, Digest, Bearer (through custom header support)|
-|Content-Type|	image/jpeg<br/>image/png<br/>image/bmp<br/>|image/x-raw|
+|Content-Type|	image/jpeg<br/>image/png<br/>image/bmp<br/>image/x-raw|
 |Content-Length Body length, in bytes	||
 |User-Agent	|Azure Media Services|
 |Body|	Image bytes, binary encoded in one of the supported content types.|
