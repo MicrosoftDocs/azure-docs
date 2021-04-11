@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2021
+ms.date: 04/11/2021
 ms.author: bagol
 
 ---
@@ -42,7 +42,7 @@ For example:
 Even with granting access at the resource group level, customers will still have access to log data for the resources they can access, such as logs from a VM, even without access to Azure Sentinel. For more information, see [Manage access to Azure Sentinel data by resource](resource-context-rbac.md).
 
 > [!TIP]
-> If you need to provide your customers with access to the entire subscription, see [Enterprise Agreements (EA) / Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg).
+> If you need to provide your customers with access to the entire subscription, you may want to see the guidance in [Enterprise Agreements (EA) / Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg).
 >
 
 ### Sample Azure Sentinel CSP architecture
@@ -58,8 +58,6 @@ In this image:
 - Customer access to Azure resources is managed by Azure RBAC at the resource group level. 
 
     This allows MSSPs to hide Azure Sentinel components as needed, like Analytics Rules and Hunting Queries.
-
-The [preceding section in this article](#cloud-solutions-providers-csp) describes examples of how MSSPs can use this setup to hide and protect analytics rules, hunting queries, and selected workbooks and playbooks.
 
 For more information, also see the [Azure Lighthouse documentation](/azure/lighthouse/concepts/cloud-solution-provider).
 
@@ -88,7 +86,7 @@ When adding a `workspace` statement to your analytics rules, consider the follow
 
 - **No alerts in the customer workspace**. Rules created in this manner, won’t create alerts or incidents in the customer workspace. Both alerts and incidents will exist in your MSSP workspace only.
 
-- **Create separate alerts for each customer**. This method also requires that you use separate alerts for each customer and detection, as the workspace statement will be different in each case.
+- **Create separate alerts for each customer**. When you use this method, we also recommend that you use separate alert rules for each customer and detection, as the workspace statement will be different in each case.
 
     You can add the customer name to the alert rule name to easily identify the customer where the alert is triggered. Separate alerts may result in a large number of rules, which you might want to manage using scripting, or [Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
 
@@ -126,6 +124,7 @@ Exporting your workbook to Power BI:
 - **Enables scheduling**. Configure Power BI to send emails periodically that contain a snapshot of the dashboard for that time.
 
 For more information, see [Import Azure Monitor log data into Power BI](/azure/azure-monitor/visualize/powerbi).
+
 ### Playbooks
 
 You can protect your playbooks as follows, depending on where the  analytic rules that trigger the playbook have been created:
@@ -142,9 +141,15 @@ You can protect your playbooks as follows, depending on where the  analytic rule
 
     :::image type="content" source="media/mssp-protect-intellectual-property/rules-in-customer-workspace.png" alt-text="Rules created in the customer workspace.":::
 
-In both cases, if the playbook needs to access the customer’s Azure environment, use a user or service principal that has that access via Lighthouse. 
+In both cases, if the playbook needs to access the customer’s Azure environment, use a user or service principal that has that access via Lighthouse.
 
 However, if the playbook needs to access non-Azure resources in the customer’s tenant, such as Azure AD, Office 365, or Microsoft 365 Defender, you'll need to create a service principal with appropriate permissions in the customer tenant, and then add that identity in the playbook.
+
+> [!NOTE]
+> Regardless of where your automation rules are created, you must set permissions on the resource group where the playbooks live.
+> For more information, see [Permissions for automation rules to run playbooks](automate-incident-handling-with-automation-rules.md#permissions-for-automation-rules-to-run-playbooks).
+>
+
 ## Next steps
 
 For more information, see:
