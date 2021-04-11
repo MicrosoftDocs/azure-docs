@@ -28,7 +28,7 @@
     href: continuous-video-recording.md
   - name: Record video for playback
     href: video-recording.md    
-  - name: Analyze live videos
+  - name: Analyze live videos without recording
     href: analyze-live-video.md
 - name: How-to guides
   items:
@@ -36,6 +36,10 @@
     href: develop-deploy-grpc-inference-srv.md
   - name: Manage retention policy
     href: manage-retention-policy-how-to.md
+- name: Reference
+  items:
+  - name: gRPC extension protocol
+    href: grpc-extension-protocol.md
 - name: Resources
   items:
   - name: Azure roadmap
