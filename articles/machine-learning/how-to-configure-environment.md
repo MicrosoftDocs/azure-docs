@@ -8,7 +8,7 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 11/16/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
 ---
@@ -129,7 +129,12 @@ To use Visual Studio Code for development:
 1. Install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Install the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md) (preview).
 
-Once you have the Visual Studio Code extension installed, you can manage your [Azure Machine Learning resources](how-to-manage-resources-vscode.md), [run and debug experiments](how-to-debug-visual-studio-code.md), and [deploy trained models](tutorial-train-deploy-image-classification-model-vscode.md).
+Once you have the Visual Studio Code extension installed, use it to:
+
+* [Manage your Azure Machine Learning resources](how-to-manage-resources-vscode.md)
+* [Connect to an Azure Machine Learning compute instance](how-to-set-up-vs-code-remote.md)
+* [Run and debug experiments](how-to-debug-visual-studio-code.md)
+* [Deploy trained models](tutorial-train-deploy-image-classification-model-vscode.md).
 
 ## <a id="compute-instance"></a>Azure Machine Learning compute instance
 
@@ -146,7 +151,7 @@ To learn more about compute instances, including how to install packages, see [C
 
 In addition to a Jupyter Notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](how-to-run-jupyter-notebooks.md).
 
-You can also use the Azure Machine Learning Visual Studio Code extension to [configure an Azure Machine Learning compute instance as a remote Jupyter Notebook server](how-to-set-up-vs-code-remote.md#configure-compute-instance-as-remote-notebook-server).
+You can also use the Azure Machine Learning Visual Studio Code extension to [connect to a remote compute instance using VS Code](how-to-set-up-vs-code-remote.md).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
