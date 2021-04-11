@@ -55,7 +55,7 @@ In this image:
 
 - The users granted with **Owner** access to the CSP subscription are the users in the Admin Agents group, in the MSSP Azure AD tenant.
 - Other groups from the MSSP get access to the customer environment via Azure Lighthouse.
-- Customer access to Azure resources is managed by Azure RBAC at the resource group level. 
+- Customer access to Azure resources is managed by Azure RBAC at the resource group level.
 
     This allows MSSPs to hide Azure Sentinel components as needed, like Analytics Rules and Hunting Queries.
 
