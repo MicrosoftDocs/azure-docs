@@ -10,7 +10,7 @@ ms.date: 04/11/2021
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
-Each Inference object regardless of using HTTP based contract or gRPC based contract follows the object model described in this topic.
+Each Inference object regardless of using HTTP-based contract or gRPC based contract follows the object model described in this topic.
 
 ## Object model
 
@@ -20,7 +20,7 @@ Each Inference object regardless of using HTTP based contract or gRPC based cont
  
 |Type Definition|Description|
 |---|---|
-|Tag|Tag or label associated with the result.Alng with tagging, you even get the confidence value associated with the tag.|
+|Tag|Tag or label associated with the result. Along with tagging, you also get the confidence value associated with the tag.|
 |Attribute|Additional attributes associated with the result. You can add new attributes that you receive from the inferencing engine along with the confidence value.|
 |Attribute List|List of	Optional attributes.|
 |Rectangle|Rectangular region relative to the image top left corner. The required properties will be "length", "width", height" and "top edge distance from the origin".|
