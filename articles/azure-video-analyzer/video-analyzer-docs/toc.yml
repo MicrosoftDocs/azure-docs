@@ -14,6 +14,8 @@
     href: get-started-detect-motion-emit-events.md
   - name: Track objects in live videos
     href: track-objects-live-video.md
+  - name: Detect motion, record video on edge devices
+    href: detect-motion-record-video-edge-devices.md
   - name: Analyze live video
     items:
     - name: with your own model - HTTP
