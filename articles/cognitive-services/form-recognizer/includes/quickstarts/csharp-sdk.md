@@ -301,7 +301,7 @@ Total: '1203.39', with confidence '0.774'
 
 ## Analyze business cards
 
-#### [v2.1 preview](#tab/preview)
+####  [v2.1 preview](#tab/preview)
 
 This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md).
 
