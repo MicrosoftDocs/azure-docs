@@ -34,7 +34,7 @@ For all of these services, we will auto-onboard, auto-configure, monitor for dri
 |Log Analytics Workspace    |Azure Monitor stores log data in a Log Analytics workspace, which is an Azure resource and a container where data is collected, aggregated, and serves as an administrative boundary. Learn [more](../azure-monitor/logs/design-logs-deployment.md).    |Azure VM Best Practices – Production, Azure VM Best Practices – Dev/Test    |No    |
 
 
-<sup>1</sup> Configuration profiles are available when you are enabling Automanage. Learn [more](automanage-virtual-machines.md#configuration-profiles). You can also adjust the default settings of the configuration profile and set your own preferences within the best practices constraints.
+<sup>1</sup> Configuration profiles are available when you are enabling Automanage. Learn [more](automanage-virtual-machines.md). You can also adjust the default settings of the configuration profile and set your own preferences within the best practices constraints.
 
 
 ## Next steps

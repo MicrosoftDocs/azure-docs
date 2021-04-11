@@ -14,7 +14,7 @@ ms.custom: security-benchmark
 
 Asset Management covers controls to ensure security visibility and governance over Azure resources. This includes recommendations on permissions for security personnel, security access to asset inventory, and managing approvals for services and resources (inventory, track, and correct).
 
-To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Network Security](../../governance/policy/samples/azure-security-benchmark#asset-management)
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Network Security](../../governance/policy/samples/azure-security-benchmark.md#asset-management)
 
 ## AM-1: Ensure security team has visibility into risks for assets
 
@@ -150,7 +150,7 @@ You can also use a third-party solution to discover and identify unapproved soft
 
 - [Understand Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md)
 
-- [How to control PowerShell script execution in Windows environments](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [How to control PowerShell script execution in Windows environments](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Responsibility**: Customer
 

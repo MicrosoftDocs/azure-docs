@@ -55,7 +55,10 @@ The estimated latency to change the service tier, scale the compute size of a si
 > Additionally, for Standard (S2-S12) and General Purpose databases, latency for moving a database in/out of an elastic pool or between elastic pools will be proportional to database size if the database is using Premium File Share ([PFS](../../storage/files/storage-files-introduction.md)) storage.
 >
 > To determine if a database is using PFS storage, execute the following query in the context of the database. If the value in the AccountType column is `PremiumFileStorage` or `PremiumFileStorage-ZRS`, the database is using PFS storage.
- 
+
+[!NOTE]
+ The zone redundant property will remain the same by default when scaling from the Business Critical to the General Purpose tier. Latency for this downgrade when zone redundancy is enabled as well as latency for switching to zone redundancy for the General Purpose tier will be proportional to database size.
+
 ```sql
 SELECT s.file_id,
        s.type_desc,
@@ -106,7 +109,7 @@ else {
 - When downgrading a database with [geo-replication](active-geo-replication-configure-portal.md) enabled, downgrade its primary databases to the desired service tier and compute size before downgrading the secondary database (general guidance for best performance). When downgrading to a different edition, it's a requirement that the primary database is downgraded first.
 - The restore service offerings are different for the various service tiers. If you're downgrading to the **Basic** tier, there's a lower backup retention period. See [Azure SQL Database Backups](automated-backups-overview.md).
 - The new properties for the database aren't applied until the changes are complete.
-- When data copying is required to scale a database (see [Latency](#latency)) when changing the service tier, high resource utilization concurrent to the scaling operation may cause longer scaling times. With [Accelerated Database Recovery (ADR)](/sql/relational-databases/accelerated-database-recovery-concepts.md), rollback of long running transactions is not a significant source of delay, but high concurrent resource usage may leave less compute, storage, and network bandwidth resources for scaling, particularly for smaller compute sizes.
+- When data copying is required to scale a database (see [Latency](#latency)) when changing the service tier, high resource utilization concurrent to the scaling operation may cause longer scaling times. With [Accelerated Database Recovery (ADR)](/sql/relational-databases/accelerated-database-recovery-concepts), rollback of long running transactions is not a significant source of delay, but high concurrent resource usage may leave less compute, storage, and network bandwidth resources for scaling, particularly for smaller compute sizes.
 
 ## Billing
 

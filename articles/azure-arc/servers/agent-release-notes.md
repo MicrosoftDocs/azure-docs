@@ -2,7 +2,7 @@
 title: What's new with Azure Arc enabled servers agent
 description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 03/15/2021
 ---
 
 # What's new with Azure Arc enabled servers agent
@@ -13,13 +13,27 @@ The Azure Arc enabled servers Connected Machine agent receives improvements on a
 - Known issues
 - Bug fixes
 
+## March 2021
+
+Version 1.4
+
+## New feature
+
+- Added support for private endpoints.
+- Expanded list of exit codes for azcmagent.
+- Agent configuration parameters can now be read from a file with the --config parameter.
+
+## Fixed
+
+Network endpoint checks are now faster.
+
 ## December 2020
 
 Version: 1.3
 
 ### New feature
 
-Added support for Windows Server 2008 R2
+Added support for Windows Server 2008 R2.
 
 ### Fixed
 
@@ -42,7 +56,7 @@ Version: 1.1
 - Fixed proxy script to handle alternate GC daemon unit file location.
 - GuestConfig agent reliability changes.
 - GuestConfig agent support for US Gov Virginia region.
-- GuestConfig agent extension report messages to be more verbose in case of failures.
+- GuestConfig agent extension report messages to be more verbose if there is a failure.
 
 ## September 2020
 

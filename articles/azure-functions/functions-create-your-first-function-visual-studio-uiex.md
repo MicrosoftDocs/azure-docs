@@ -21,8 +21,9 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 ![Install Visual Studio with the Azure development workload](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
+<br/>
 <details>
-<summary>Use an Azure Functions project instead</summary>
+<summary><strong>Use an Azure Functions project instead</strong></summary>
 If you want to create an <abbr title="A logical container for one or more individual functions that can be deployed and managed together.">Azure Functions project</abbr> by using Visual Studio 2017 instead, you must first install the [latest Azure Functions tools](functions-develop-vs.md#check-your-tools-version).
 </details>
 
@@ -36,13 +37,13 @@ If you want to create an <abbr title="A logical container for one or more indivi
 
 1. Provide the following information for the **Create a new Azure Functions application** settings:
 
-    + Select **<abbr title=" This value creates a function project that uses the version 3.x runtime of Azure Functions, which supports .NET Core 3.x. Azure Functions 1.x supports the .NET Framework. For more information, see [Azure Functions runtime versions overview](functions-versions.md).">Azure Functions v3 (.NET Core)</abbr>** from the Functions runtime dropdown
+    + Select **<abbr title=" This value creates a function project that uses the version 3.x runtime of Azure Functions, which supports .NET Core 3.x. Azure Functions 1.x supports the .NET Framework.">Azure Functions v3 (.NET Core)</abbr>** from the Functions runtime dropdown. (For more information, see [Azure Functions runtime versions overview](functions-versions.md).)
     
     + Select **<abbr title="This value creates a function triggered by an HTTP request.">HTTP trigger</abbr>** as the function template.
     
-    + Select **<abbr="Because an Azure Function requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string.">Storage emulator</abbr>** from the Storage account dropdown.
+    + Select **<abbr title="Because an Azure Function requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string.">Storage emulator</abbr>** from the Storage account dropdown.
         
-    + Select **Anonymous** from the <abbr title="The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](functions-bindings-http-webhook.md).">Authorization level</abbr> dropdown
+    + Select **Anonymous** from the <abbr title="The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function.">Authorization level</abbr> dropdown. (For more information about keys and authorization, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](functions-bindings-http-webhook.md).)
 
     + Select **Create**
         
@@ -71,8 +72,9 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 1. To stop debugging, press <kbd>Shift</kbd>+<kbd>F5</kbd> in Visual Studio.
 
+<br/>
 <details>
-<summary>Troubleshooting</summary>
+<summary><strong>Troubleshooting</strong></summary>
  You might need to enable a firewall exception so that the tools can handle HTTP requests. Authorization levels are never enforced when you run a function locally.
 </details>
 
@@ -96,7 +98,7 @@ The `FunctionName` method attribute sets the name of the function, which by defa
     
     + **Select** an existing <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr> from the drop-down list or choose **New** to create a new resource group.
     
-    + **Select** <abbr title="When you publish your project to a function app that runs in a [Consumption plan](consumption-plan.md), you pay only for executions of your functions app. Other hosting plans incur higher costs.">Consumption</abbr> in the Play Type drop-down
+    + **Select** <abbr title="When you publish your project to a function app that runs in a Consumption plan, you pay only for executions of your functions app. Other hosting plans incur higher costs.">Consumption</abbr> in the Play Type drop-down. (For more information, see [Consumption plan](consumption-plan.md).)
     
     + **Select** an  <abbr title="A geographical reference to a specific Azure datacenter in which resources are allocated.See [regions](https://azure.microsoft.com/regions/) for a list of available regions.">location</abbr> from the drop-down.
     
@@ -110,8 +112,9 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
     :::image type="content" source="../../includes/media/functions-vstools-publish/functions-visual-studio-publish-profile-step-4.png" alt-text="Finish profile creation":::
 
+    <br/>
     <details>
-    <summary>What does this setting do?</summary>
+    <summary><strong>What does this setting do?</strong></summary>
     When using **Run from package file**, your function app is deployed using [Zip Deploy](functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](run-functions-from-deployment-package.md) mode enabled. This is the recommended deployment method for your functions project, since it results in better performance.    
     </details>   
 
@@ -121,14 +124,14 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 1. On the Publish page, review the root URL of the function app.
 
-1. In the Publish tab, choose **Manage in <abbr title="Cloud Explorer lets you use Visual Studio to view the contents of the site, start and stop the function app, and browse directly to function app resources on Azure and in the Azure portal.">Cloud Explorer</>**.
+1. In the Publish tab, choose **Manage in <abbr title="Cloud Explorer lets you use Visual Studio to view the contents of the site, start and stop the function app, and browse directly to function app resources on Azure and in the Azure portal.">Cloud Explorer</abbr>**.
     
     :::image type="content" source="../../includes/media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Publish success message":::
     
 
 ## 6. Test your function in Azure
 
-1. In Cloud Explorer, your new function app should be selected. If not, expand your subscription > **App Services**, and select your new function app.
+1. In Cloud Explorer, your new function app should be selected. If not, expand your subscription, expand **App Services**, and select your new function app.
 
 1. Right-click the function app and choose **Open in Browser**. This opens the root of your function app in your default web browser and displays the page that indicates your function app is running. 
 
@@ -148,7 +151,7 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 Delete the function app and its resources to avoid incurring any further costs.
 
-1. In the Cloud Explorer, expand your subscription > **App Services**, right-click your function app, and choose **Open in Portal**. 
+1. In the Cloud Explorer, expand your subscription, expand **App Services**, right-click your function app, and choose **Open in Portal**. 
 
 1. In the function app page, select the **Overview** tab and then select the link under **Resource group**.
 

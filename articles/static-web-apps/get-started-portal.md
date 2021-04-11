@@ -110,9 +110,9 @@ If you're not going to continue to use this application, you can delete the Azur
 
 1. Open the [Azure portal](https://portal.azure.com)
 1. Search for **my-first-web-static-app** from the top search bar
-1. Select on the app name
-1. Select on the **Delete** button
-1. Select **Yes** to confirm the delete action
+1. Select the app name
+1. Select the **Delete** button
+1. Select **Yes** to confirm the delete action (this action may take a few moments to complete)
 
 ## Next steps
 

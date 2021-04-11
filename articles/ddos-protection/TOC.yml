@@ -50,9 +50,9 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/network/ddos-protection?view=azure-cli-latest
+    href: /cli/azure/network/ddos-protection
   - name: Azure PowerShell
-    href: /powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0
+    href: /powershell/module/Az.Network/New-AzDdosProtectionPlan
   - name: .NET
     href: /dotnet/api/
   - name: Java

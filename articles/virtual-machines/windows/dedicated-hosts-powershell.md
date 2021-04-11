@@ -21,7 +21,6 @@ Make sure that you have installed Azure PowerShell version 2.8.0 or later, and y
 
 ## Limitations
 
-- Virtual machine scale sets are not currently supported on dedicated hosts.
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
 ## Create a host group

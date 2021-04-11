@@ -64,17 +64,17 @@ Below is a high-level diagram of the components and benefits of protecting your 
 ## FAQ for Azure Container Registry image scanning
 
 ### How does Security Center scan an image?
-The image is pulled from the registry. It's then run in an isolated sandbox with the Qualys scanner that extracts a list of known vulnerabilities.
+Security Center pulls the image from the registry and runs it in an isolated sandbox with the Qualys scanner. The scanner extracts a list of known vulnerabilities.
 
-Security Center filters and classifies findings from the scanner. When an image is healthy, Security Center marks it as such. Security Center generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Security Center reduces the potential for unwanted informational alerts.
+Security Center filters and classifies findings from the scanner. When an image is healthy, Security Center marks it as such. Security Center generates security recommendations only for images that have issues to be resolved. By only notifying you when there are problems, Security Center reduces the potential for unwanted informational alerts.
 
 ### Can I get the scan results via REST API?
 Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
 
 ### What registry types are scanned? What types are billed?
-For a list of the types of container registries supported by Azure Defender for container registries, see [Availability](defender-for-container-registries-usage.md#availability).
+For a list of the types of container registries supported by Azure Defender for container registries, see [Availability](#availability).
 
-If you connect unsupported registries to your Azure subscription, they won't be scanned and you won't be billed for them.
+If you connect unsupported registries to your Azure subscription, Azure Defender won't scan them and won't bill you for them.
 
 ### Can I customize the findings from the vulnerability scanner?
 Yes. If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.

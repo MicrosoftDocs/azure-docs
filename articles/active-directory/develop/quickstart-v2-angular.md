@@ -100,15 +100,31 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >|Enter_the_Redirect_Uri_Here|Replace with **http://localhost:4200**.|
 >|cacheLocation  | (Optional) Set the browser storage for the authentication state. The default is **sessionStorage**.   |
 >|storeAuthStateInCookie  | (Optional) Identify the library that stores the authentication request state. This state is required to validate the authentication flows in the browser cookies. This cookie is set for Internet Explorer and Edge to accommodate those two browsers. For more details, see the [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+>
+> To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 
-For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
+> For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
 
-You can find the source code for the MSAL.js library in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
+> You can find the source code for the MSAL.js library in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
 
->[!div class="sxs-lookup" renderon="portal"]
->#### Step 3: Run the project
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 3: Your app is configured and ready to run
+> We have configured your project with values of your app's properties.
+
+> [!div renderon="docs"]
+>
+> Scroll down in the same file and update the `graphMeEndpoint`. 
+> - Replace the string `Enter_the_Graph_Endpoint_Herev1.0/me` with `https://graph.microsoft.com/v1.0/me`
+> - `Enter_the_Graph_Endpoint_Herev1.0/me` is the endpoint that API calls will be made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information, see the [documentation](https://docs.microsoft.com/graph/deployments).
+>
+>
+> ```javascript
+>      protectedResourceMap: [
+>        ['Enter_the_Graph_Endpoint_Herev1.0/me', ['user.read']]
+>      ],
+> ```
+>
+>
 
 >[!div renderon="docs"]
 >#### Step 4: Run the project

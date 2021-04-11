@@ -22,7 +22,7 @@ The following quotas exist for Azure Static Web Apps Preview.
 | Overage bandwidth           | Unavailable      |
 | Apps per Azure subscription | 10               |
 | App size                    | 250 MB           |
-| Pre-production environments | 1                |
+| Pre-production environments | 3                |
 | Custom domains              | 1                |
 | Authorization<br><br>With custom roles and routing rules | Max 25 end-users invited and assigned roles |
 | Azure Functions             | Available        |

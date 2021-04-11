@@ -121,7 +121,7 @@ To run pipelines and perform system tasks, Synapse requires that the workspace m
 
 ## STEP 5: Grant Synapse administrators the Azure Contributor role on the workspace 
 
-To create SQL pools, Apache Spark pools and Integration runtimes, users must have at least Azure Contributor access to the workspace. The contributor role also allows these users to manage the resources, including pausing and scaling.
+To create SQL pools, Apache Spark pools and Integration runtimes, users must have at least Azure Contributor role at the workspace. The contributor role also allows these users to manage the resources, including pausing and scaling. If you are using Azure portal or Synapse Studio to create SQL pools, Apache Spark pools and Integration runtimes, then you need Azure Contributor role at the resource group level. 
 
 - Open the Azure portal
 - Locate the workspace, `workspace1`

@@ -1,12 +1,8 @@
 ---
 title: Onboard and manage sensors and subscriptions in the Defender for IoT portal
 description: Learn how to onboard, view, and manage sensors in the Defender for IoT portal.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 2/18/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Onboard and manage sensors and subscriptions in the Defender for IoT portal

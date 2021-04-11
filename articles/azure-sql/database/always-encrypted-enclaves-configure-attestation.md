@@ -61,10 +61,14 @@ authorizationrules
 
 The above policy verifies:
 
-- The enclave inside Azure SQL Database doesn't support debugging (which would reduce the level of protection the enclave provides).
-- The product ID of the library inside the enclave is the product ID assigned to Always Encrypted with secure enclaves (4639).
-- The version ID (svn) of the library is greater than 0.
+- The enclave inside Azure SQL Database doesn't support debugging. 
+  > Enclaves can be loaded with debugging disabled or enabled. Debugging support is designed to allow developers to troubleshoot the code running in an enclave. In a production system, debugging could enable an administrator to examine the content of the enclave, which would reduce the level of protection the enclave provides. The recommended policy disables debugging to ensure that if a malicious admin tries to turn on debugging support by taking over the enclave machine, attestation will fail. 
+- The product ID of the enclave matches the product ID assigned to Always Encrypted with secure enclaves.
+  > Each enclave has a unique product ID that differentiates the enclave from other enclaves. The product ID assigned to the Always Encrypted enclave is 4639. 
+- The security version number (SVN) of the library is greater than 0.
+  > The SVN allows Microsoft to respond to potential security bugs identified in the enclave code. In case a security issue is dicovered and fixed, Microsoft will deploy a new version of the enclave with a new (incremented) SVN. The above recommended policy will be updated to reflect the new SVN. By updating your policy to match the recommended policy you can ensure that if a malicious administrator tries to load an older and insecure enclave, attestation will fail.
 - The library in the enclave has been signed using the Microsoft signing key (the value of the x-ms-sgx-mrsigner claim is the hash of the signing key).
+  > One of the main goals of attestation is to convince clients that the binary running in the enclave is the binary that is supposed to run. Attestation policies provide two mechanisms for this purpose. One is the **mrenclave** claim which is the hash of the binary that is supposed to run in an enclave. The problem with the **mrenclave** is that the binary hash changes even with trivial changes to the code, which makes it hard to rev the code running in the enclave. Hence, we recommend the use of the **mrsigner**, which is a hash of a key that is used to sign the enclave binary. When Microsoft revs the enclave, the **mrsigner** stays the same as long as the signing key does not change. In this way, it becomes feasible to deploy updated binaries without breaking customers’ applications. 
 
 > [!IMPORTANT]
 > An attestation provider gets created with the default policy for Intel SGX enclaves, which does not validate the code running inside the enclave. Microsoft strongly advises you set the above recommended policy, and not use the default policy, for Always Encrypted with secure enclaves.

@@ -411,16 +411,11 @@
     displayName: samples, policies, definitions
     href: ./policy-reference.md
 - name: Resources
+- name: Instances
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=compute
-  - name: Pricing
-    items:
-    - name: Linux
-      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/
-    - name: Windows
-      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-vm-scale-set
+    - name: Purchasing options
+      items:
+    - name: Azure Hybrid Benefit
+      items:
+      - name: Linux
+        href: azure-hybrid-benefit-linux.md

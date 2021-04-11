@@ -3,18 +3,12 @@ title: Dynamic packaging in Azure Media Services v3
 description: This article gives an overview of dynamic packaging in Azure Media Services.
 author: myoungerman
 manager: femila
-editor: ''
 services: media-services
-documentationcenter: ''
-
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020 
 ms.author: inhenkel
-
 ---
 
 # Dynamic packaging in Media Services v3
@@ -24,9 +18,6 @@ ms.author: inhenkel
 Microsoft Azure Media Services can be used to encode many media source file formats. It delivers them via different streaming protocols, with or without content protection, to reach all major devices (like iOS and Android devices). These clients understand different protocols. For example, iOS requires streams to be delivered in HTTP Live Streaming (HLS) format and Android devices support HLS as well as MPEG DASH.
 
 In Media Services, a [streaming endpoint](streaming-endpoint-concept.md) (origin) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app. It uses one of the common streaming media protocols mentioned in the following section. *Dynamic packaging* is a feature that comes standard on all streaming endpoints.
-
-> [!NOTE]
-> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [live events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, transforms and jobs), use the [REST API](/rest/api/media/), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## To prepare your source files for delivery
 
@@ -41,7 +32,7 @@ To make videos in the encoded asset available to clients for playback, you have 
 
 As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
 
-If you plan to protect your content by using Media Services dynamic encryption, see [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types).
+If you plan to protect your content by using Media Services dynamic encryption, see [Streaming protocols and encryption types](drm-content-protection-concept.md#streaming-protocols-and-encryption-types).
 
 ### HLS protocol
 
@@ -49,9 +40,9 @@ Your streaming client can specify the following HLS formats:
 
 |Protocol|Example|
 |---|---|
-|HLS V4	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
-|HLS V3	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
+|HLS V4	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
+|HLS V3	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
 
 > [!NOTE]
 > Previous guidelines from Apple recommended that the fallback for low bandwidth networks was to provide an audio-only stream.  At present, the Media Services encoder automatically generates an audio-only track.  Apple guidelines now state that the audio-only track should *not* be included, especially for Apple TV distribution.  In order to prevent the player from defaulting to an audio-only track, we suggest using the “audio-only=false” tag in the URL which removes audio-only rendition in HLS, or simply use HLS-V3. For example, `http://host/locator/asset.ism/manifest(format=m3u8-aapl,audio-only=false)`.
@@ -62,8 +53,8 @@ Your streaming client can specify the following MPEG-DASH formats:
 
 |Protocol|Example|
 |---|---|
-|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` ||
-|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` ||
+|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 
 ### Smooth Streaming protocol
 
@@ -71,7 +62,7 @@ Your streaming client can specify the following Smooth Streaming formats:
 
 |Protocol|Notes/examples| 
 |---|---|
-|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
+|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 |Smooth Streaming 2.0 (legacy manifest)|By default, Smooth Streaming manifest format contains the repeat tag (r-tag). However, some players do not support the `r-tag`. Clients with these players can use a format that disables the r-tag:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
 
 > [!NOTE]
@@ -115,7 +106,7 @@ Here's a common workflow for live streaming with *dynamic packaging*:
 1. Get the preview URL and use it to verify that the input from the encoder is being received.
 1. Create a new asset.
 1. Create a live output and use the asset name that you created.<br />The live output archives the stream into the asset.
-1. Create a streaming locator with the built-in streaming policy types.<br />If you intend to encrypt your content, review [Content protection overview](content-protection-overview.md).
+1. Create a streaming locator with the built-in streaming policy types.<br />If you intend to encrypt your content, review [Content protection overview](drm-content-protection-concept.md).
 1. List the paths on the streaming locator to get the URLs to use.
 1. Get the host name for the streaming endpoint you want to stream from.
 1. Build URLs that target different formats (HLS, MPEG-DASH, and Smooth Streaming). The *streaming endpoint* takes care of serving the correct manifest and requests for the different formats.
@@ -312,7 +303,7 @@ To control the number of tracks, formats, bitrates, and presentation time window
 
 ## Dynamic encryption
 
-You can use *dynamic encryption* to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM licenses to authorized clients. For more information, see [dynamic encryption](content-protection-overview.md).
+You can use *dynamic encryption* to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM licenses to authorized clients. For more information, see [dynamic encryption](drm-content-protection-concept.md).
 
 > [!NOTE]
 > Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.

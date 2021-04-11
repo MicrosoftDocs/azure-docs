@@ -37,7 +37,7 @@
     - name: Authentication and authorization
       href: relay-authentication-and-authorization.md
     - name: Built-in security controls
-      href: service-bus-relay-security-controls.md
+      href: ../service-bus-messaging/security-baseline.md
     - name: Network security
       href: network-security.md      
   - name: Hybrid Connections protocol

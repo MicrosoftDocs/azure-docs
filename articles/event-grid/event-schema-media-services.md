@@ -1107,7 +1107,7 @@ An event has the following top-level data:
 
 ## Next steps
 
-[Register for job state change events](../media-services/latest/job-state-events-cli-how-to.md)
+[Register for job state change events](../media-services/latest/monitoring/job-state-events-cli-how-to.md)
 
 ## See also
 

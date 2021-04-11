@@ -3,7 +3,7 @@ title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
 description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/18/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ---
 
@@ -43,7 +43,7 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
 * Red Hat Enterprise Linux Server 5, 6, 7, and 8
 * Debian GNU/Linux 6, 7, and 8
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, and 18.04 LTS
-* SUSE Linux Enterprise Server 12 and 15
+* SUSE Linux Enterprise Server 12 and 15 (SUSE did not release versions numbered 13 or 14)
 
 > [!IMPORTANT]
 > Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/overview.md#supported-operating-systems).
@@ -61,7 +61,7 @@ The minimum requirements for a Linux system and user Hybrid Runbook Worker are:
 |Glibc |GNU C Library| 2.5-12 |
 |Openssl| OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported)|
 |Curl | cURL web client | 7.15.5|
-|Python-ctypes | Python 2.x is required |
+|Python-ctypes | Python 2.x or Python 3.x are required |
 |PAM | Pluggable Authentication Modules|
 | **Optional package** | **Description** | **Minimum version**|
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it. | 6.0.0 |
@@ -85,13 +85,16 @@ Linux Hybrid Runbook Workers support a limited set of runbook types in Azure Aut
 
 |Runbook type | Supported |
 |-------------|-----------|
-|Python 2 |Yes |
-|PowerShell |Yes<sup>1</sup> |
+|Python 3 (preview)|Yes, required for these distros only: SUSE LES 15, RHEL 8 and CentOS 8|
+|Python 2 |Yes, for any distro that doesn't require Python 3<sup>1</sup> |
+|PowerShell |Yes<sup>2</sup> |
 |PowerShell Workflow |No |
 |Graphical |No |
 |Graphical PowerShell Workflow |No |
 
-<sup>1</sup>PowerShell runbooks require PowerShell Core to be installed on the Linux machine. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it.
+<sup>1</sup>See [Supported Linux operating systems](#supported-linux-operating-systems).
+
+<sup>2</sup>PowerShell runbooks require PowerShell Core to be installed on the Linux machine. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it.
 
 ### Network configuration
 

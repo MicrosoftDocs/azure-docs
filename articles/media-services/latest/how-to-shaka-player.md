@@ -147,4 +147,4 @@ For more information, see [Shaka player DRM protection documentation](https://sh
 ## Next steps
 
 * [Use the Azure Media Player](../azure-media-player/azure-media-player-overview.md)
-* [Quickstart: Encrypt content](encrypt-content-quickstart.md)
+* [Quickstart: Encrypt content](drm-encrypt-content-how-to.md)

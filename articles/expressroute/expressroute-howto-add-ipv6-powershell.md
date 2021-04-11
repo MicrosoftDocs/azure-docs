@@ -3,10 +3,9 @@ title: 'Azure ExpressRoute: Add IPv6 support using Azure PowerShell'
 description: Learn how to add IPv6 support to connect to Azure deployments using Azure PowerShell.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 2/9/2021
+ms.date: 03/02/2021
 ms.author: duau
 ---
 
@@ -15,7 +14,7 @@ ms.author: duau
 This article describes how to add IPv6 support to connect via ExpressRoute to your resources in Azure using Azure PowerShell.
 
 > [!Note]
-> This feature is currently available for preview in [Azure regions with Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region#azure-regions-with-availability-zones). Your ExpressRoute circuit can therefore be created using any peering location, but the IPv6-based deployments it connects to must be in a region with Availability Zones.
+> This feature is currently available for preview in [Azure regions with Availability Zones](../availability-zones/az-region.md#azure-regions-with-availability-zones). Your ExpressRoute circuit can therefore be created using any peering location, but the IPv6-based deployments it connects to must be in a region with Availability Zones.
 
 ## Working with Azure PowerShell
 
@@ -42,7 +41,7 @@ Your request will then be approved by the ExpressRoute team within 2-3 business 
 
 ## Add IPv6 Private Peering to your ExpressRoute circuit
 
-1. [Create an ExpressRoute circuit](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-arm) or use an existing circuit. Retrieve the circuit by running the **Get-AzExpressRouteCircuit** command:
+1. [Create an ExpressRoute circuit](./expressroute-howto-circuit-arm.md) or use an existing circuit. Retrieve the circuit by running the **Get-AzExpressRouteCircuit** command:
 
     ```azurepowershell-interactive
     $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -56,8 +55,8 @@ Your request will then be approved by the ExpressRoute team within 2-3 business 
 
 3. Add an IPv6 Private Peering to your existing IPv4 Private Peering configuration. Provide a pair of /126 IPv6 subnets that you own for your primary link and secondary links. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router.
 
-> [!Note]
-> The peer ASN and VlanId should match those in your IPv4 Private Peering configuration.
+    > [!Note]
+    > The peer ASN and VlanId should match those in your IPv4 Private Peering configuration.
 
     ```azurepowershell-interactive
     Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6
@@ -146,7 +145,7 @@ Follow the steps below if you have an existing environment of Azure resources in
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
 
-4. If you have an existing zone-redundant gateway, run the following to enable IPv6 connectivity. Otherwise, [create the virtual network gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager) using a zone-redundant SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ).
+4. If you have an existing zone-redundant gateway, run the following to enable IPv6 connectivity. Otherwise, [create the virtual network gateway](./expressroute-howto-add-gateway-resource-manager.md) using a zone-redundant SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ).
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -157,13 +156,13 @@ Follow the steps below if you have an existing environment of Azure resources in
 
 Follow the steps below if you plan to connect to a new set of Azure resources in a region with Availability Zones using your IPv6 Private Peering.
 
-1. Create a dual-stack virtual network with both IPv4 and IPv6 address space. For more information, see [Create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal#create-a-virtual-network).
+1. Create a dual-stack virtual network with both IPv4 and IPv6 address space. For more information, see [Create a virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network).
 
-2. [Create the dual-stack gateway subnet](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway).
+2. [Create the dual-stack gateway subnet](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
 
-3. [Create the virtual network gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) using a zone-redundant SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ). If you plan to use FastPath, use ErGw3AZ.
+3. [Create the virtual network gateway](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) using a zone-redundant SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ). If you plan to use FastPath, use ErGw3AZ (note that this is only available for circuits using ExpressRoute Direct).
 
-4. [Link your virtual network to your ExpressRoute circuit](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm).
+4. [Link your virtual network to your ExpressRoute circuit](./expressroute-howto-linkvnet-arm.md).
 
 ## Limitations
 While IPv6 support is available for connections to deployments in regions with Availability Zones, it does not support the following use cases:
@@ -171,6 +170,10 @@ While IPv6 support is available for connections to deployments in regions with A
 * Connections to deployments in Azure via a non-AZ ExpressRoute gateway SKU
 * Connections to deployments in non-AZ regions
 * Global Reach connections between ExpressRoute circuits
+* Use of ExpressRoute with virtual WAN
+* FastPath with non-ExpressRoute Direct circuits
+* FastPath with circuits in the following peering locations: Dubai
+* Coexistence with VPN Gateway
 
 ## Next steps
 

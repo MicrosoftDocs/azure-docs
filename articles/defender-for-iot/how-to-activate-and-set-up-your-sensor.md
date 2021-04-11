@@ -1,12 +1,8 @@
 ---
 title: Activate and set up your sensor
 description: This article describes how to sign in and activate a sensor console.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Activate and set up your sensor
@@ -209,9 +205,9 @@ You access console tools from the side menu.
 |----|---|---|
 | Support | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contact [Microsoft Support](https://support.microsoft.com/) for help. |
 
-### See also
+## See also
 
-[Onboard a sensor](getting-started.md#4-onboard-a-sensor)
+[Onboard a sensor](getting-started.md#onboard-a-sensor)
 
 [Manage sensor activation files](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
 

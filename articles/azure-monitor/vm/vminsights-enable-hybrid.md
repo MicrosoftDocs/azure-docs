@@ -1,7 +1,6 @@
 ---
 title: Enable Azure Monitor for a hybrid environment
 description: This article describes how you enable VM insights for a hybrid cloud environment that contains one or more virtual machines.
-ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

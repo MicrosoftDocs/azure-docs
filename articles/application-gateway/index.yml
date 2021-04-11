@@ -84,7 +84,7 @@ landingContent:
             url: ingress-controller-overview.md
       - linkListType: tutorial
         links:
-          - text: Create an Ingress Controller AKS Add-On for AKS 
+          - text: Deploy an Ingress Controller AKS Add-On for AKS 
             url: tutorial-ingress-controller-add-on-new.md
 
 # Card

@@ -30,7 +30,7 @@ Follow this guide to view your Azure Percept DK's vision model inference telemet
 
 1. Connect your IoT Hub to Azure IoT Explorer:
 
-    1. Go to the [Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home).
+    1. Go to the [Azure portal](https://portal.azure.com).
 
     1. Select **All resources**.
 
@@ -65,5 +65,4 @@ Follow this guide to view your Azure Percept DK's vision model inference telemet
     1. Click **Start** to view telemetry events from the device.
 
 ## Next steps
-
-Learn how to view your [Azure Percept DK video stream](how-to-view-video-stream.md).
+Learn how to view your [Azure Percept DK video stream](./how-to-view-video-stream.md).

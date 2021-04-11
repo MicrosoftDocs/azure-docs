@@ -1,7 +1,6 @@
 ---
 title: Enable VM insights guest health (preview)
 description: Describes how to enable VM insights guest health in your subscription and how to onboard VMs.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -17,6 +16,7 @@ VM insights guest health allows you to view the health of a virtual machine as d
 VM insights guest health has the following limitations in public preview:
 
 - Only Azure virtual machines are currently supported. Azure Arc for servers is not currently supported.
+- Network proxies aren't currently supported.
 
 
 ## Supported operating systems

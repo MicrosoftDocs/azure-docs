@@ -29,7 +29,7 @@ When creating custom presets, the following considerations apply:
 
 ## Prerequisites 
 
-- [Create a Media Services account](./create-account-howto.md). <br/>Make sure to remember the resource group name and the Media Services account name. 
+- [Create a Media Services account](./account-create-how-to.md). <br/>Make sure to remember the resource group name and the Media Services account name. 
 - [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).<br/>Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## Define a custom preset

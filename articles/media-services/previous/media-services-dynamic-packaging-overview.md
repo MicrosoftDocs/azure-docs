@@ -1,20 +1,18 @@
 ---
 title: Azure Media Services dynamic packaging overview | Microsoft Docs
 description: This articles gives an overview of Microsoft Azure Media Services dynamic packaging.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Dynamic packaging
 

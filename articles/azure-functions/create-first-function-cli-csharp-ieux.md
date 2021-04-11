@@ -10,7 +10,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 # Quickstart: Create a C# function in Azure from the command line
 
 > [!div class="op_single_selector" title1="Select your function language: "]
-> - [C#](create-first-function-cli-csharp-uiex.md)
+> - [C#](create-first-function-cli-csharp-ieux.md)
 > - [Java](create-first-function-cli-java.md)
 > - [JavaScript](create-first-function-cli-node.md)
 > - [PowerShell](create-first-function-cli-powershell.md)

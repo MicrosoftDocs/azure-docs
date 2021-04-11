@@ -3,7 +3,7 @@ title: Scale session hosts Azure Automation - Azure
 description: How to automatically scale Windows Virtual Desktop session hosts with Azure Automation.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -46,6 +46,9 @@ However, the tool also has the following limitations:
 - This solution applies only to pooled multi-session session host VMs.
 - This solution manages VMs in any region, but can only be used in the same subscription as your Azure Automation account and Azure Logic App.
 - The maximum runtime of a job in the runbook is 3 hours. If starting or stopping the VMs in the host pool takes longer than that, the job will fail. For more details, see [Shared resources](../automation/automation-runbook-execution.md#fair-share).
+- At least one VM or session host needs to be turned on for the scaling algorithm to work properly.
+- The scaling tool doesn't support scaling based on CPU or memory.
+- Scaling only works with existing hosts in the host pool. The scaling tool doesn't support scaling new session hosts.
 
 >[!NOTE]
 >The scaling tool controls the load balancing mode of the host pool it's currently scaling. The tool uses breadth-first load balancing mode for both peak and off-peak hours.

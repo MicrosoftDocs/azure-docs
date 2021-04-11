@@ -68,4 +68,4 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
 ## Next steps
 
-Learn about [Private Link service with Azure Web App](../../app-service/networking/private-endpoint).
+Learn about [Private Link service with Azure Web App](../../app-service/networking/private-endpoint.md).

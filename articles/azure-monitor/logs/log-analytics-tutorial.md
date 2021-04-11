@@ -1,7 +1,6 @@
 ---
 title: "Log Analytics tutorial"
 description: Learn from this tutorial how to use features of Log Analytics in Azure Monitor to build a run a log query and analyze its results in the Azure portal.
-ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
@@ -69,7 +68,7 @@ A **where** statement is added to the query with the value you selected. The res
 ## Time range
 All tables in a Log Analytics workspace have a column called **TimeGenerated** which is the time that the record was created. All queries have a time range that limits the results to records with a **TimeGenerated** value within that range. The time range can either be set in the query or with the selector at the top of the screen.
 
-By default, the query will return records form the last 24 hours. Select the **Time range** dropdown and change it to **7 days**. Click **Run** again to return the results. You can see that results are returned, but we have a message here that we're not seeing all of the results. This is because Log Analytics can return a maximum of 10,000 records, and our query returned more records than that. 
+By default, the query will return records form the last 24 hours. Select the **Time range** dropdown and change it to **7 days**. Click **Run** again to return the results. You can see that results are returned, but we have a message here that we're not seeing all of the results. This is because Log Analytics can return a maximum of 30,000 records, and our query returned more records than that. 
 
 [![Time range](media/log-analytics-tutorial/query-results-max.png)](media/log-analytics-tutorial/query-results-max.png#lightbox)
 

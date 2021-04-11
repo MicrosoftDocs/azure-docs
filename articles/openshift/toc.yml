@@ -28,6 +28,8 @@
           href: dns-forwarding.md
     - name: Storage
       items:
+        - name: Encrypt PVCs with customer-managed key (preview)
+          href: howto-encrypt-data-disks.md
         - name: Create an Azure Files Storageclass
           href: howto-create-a-storageclass.md
         - name: Use the built-in container registry

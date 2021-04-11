@@ -7,7 +7,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date:  10//2021
+ms.date:  02/19/2021
 ---
 
 # Lookup transformation in mapping data flow

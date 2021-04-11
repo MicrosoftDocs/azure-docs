@@ -39,7 +39,7 @@ Click the image to view it full size.
 
 [![Diagram showing a decision tree that is designed to help you choose a predefined Streaming Policy for your scenario.](./media/streaming-policy/large.png)](./media/streaming-policy/large.png#lightbox)
 
-If encrypting your content, you need to create a [Content Key Policy](content-key-policy-concept.md), the **Content Key Policy** is not needed for clear streaming or downloading. 
+If encrypting your content, you need to create a [Content Key Policy](drm-content-key-policy-concept.md), the **Content Key Policy** is not needed for clear streaming or downloading. 
 
 If you have special requirements (for example, if you want to specify different protocols, need to use a custom key delivery service, or need to use a clear audio track), you can [create](/rest/api/media/streamingpolicies/create) a custom Streaming Policy. 
 
@@ -83,5 +83,5 @@ See [Filtering, ordering, paging of Media Services entities](entities-overview.m
 ## Next steps
 
 * [Stream a file](stream-files-dotnet-quickstart.md)
-* [Use AES-128 dynamic encryption and the key delivery service](protect-with-aes128.md)
-* [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)
+* [Use AES-128 dynamic encryption and the key delivery service](drm-playready-license-template-concept.md)
+* [Use DRM dynamic encryption and license delivery service](drm-protect-with-drm-tutorial.md)

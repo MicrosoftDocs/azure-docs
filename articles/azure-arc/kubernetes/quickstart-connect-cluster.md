@@ -5,7 +5,7 @@ author: mgoedtel
 ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
-ms.date: 02/24/2021
+ms.date: 03/03/2021
 ms.custom: template-quickstart
 keywords: "Kubernetes, Arc, Azure, cluster"
 ---
@@ -233,4 +233,4 @@ az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 
 Advance to the next article to learn how to deploy configurations to your connected Kubernetes cluster using GitOps.
 > [!div class="nextstepaction"]
-> [Deploy configurations using Gitops](use-gitops-connected-cluster.md)
+> [Deploy configurations using Gitops](tutorial-use-gitops-connected-cluster.md)

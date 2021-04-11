@@ -21,7 +21,6 @@ You'll learn how to:
 > [!div class="checklist"]
 > * Create and side-load a HoloLens application
 > * Detect an object and visualize its model
-> * Capture runtime diagnostics
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -33,7 +32,7 @@ To complete this quickstart, make sure you have:
 * A Windows machine with the following installed:
   * <a href="https://git-scm.com" target="_blank">Git for Windows</a>
   * <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component
-* A HoloLens 2 device that is up to date and has [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio#enabling-developer-mode) enabled.
+* A HoloLens 2 device that is up to date and has [developer mode](/windows/mixed-reality/using-visual-studio#enabling-developer-mode) enabled.
   * To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
 
 ## Open the sample project
@@ -62,7 +61,7 @@ To launch and debug the app, select **Debug > Start debugging**. To stop the app
 
 ## Ingest object model and detect its instance
 
-You'll need to create an object model to run the sample app. Assume you've already got either a CAD or scanned 3D mesh model of an object in your space. Refer to [Quickstart: Ingesting a 3D Model](./get-started-model-ingestion.md) on how to create a model.
+You'll need to create an object model to run the sample app. Assume you've already got either a CAD or scanned 3D mesh model of an object in your space. Refer to [Quickstart: Ingesting a 3D Model](./get-started-model-conversion.md) on how to create a model.
 
 Download that model, **chair.ou** in our case, to your computer. Then, from the HoloLens device portal, select **System > File explorer > LocalAppData > AoaSampleApp > LocalState** and select **Browse...**. Then select your model file, **chair.ou** for example, and select **Upload**. You should then see the model file in the local cache.
 
@@ -84,7 +83,7 @@ The app aligns a 3D model to its physical counterpart closely. A user can air ta
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingesting a 3D Model](./get-started-model-ingestion.md)
+> [Quickstart: Ingesting a 3D Model](./get-started-model-conversion.md)
 
 > [!div class="nextstepaction"]
 > [Concepts: SDK overview](../concepts/sdk-overview.md)

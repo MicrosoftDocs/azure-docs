@@ -34,7 +34,7 @@ This article gives an overview of some of the main features of Azure Purview.
 
 The following list summarizes the main features of **Home page**. Each number in the list corresponds to a highlighted number in the preceding screenshot.
 
-1. Friendly name of the catalog. You can set catalog name in **Management Center** > **Account information*.
+1. Friendly name of the catalog. You can set catalog name in **Management Center** > **Account information**.
 
 2. Catalog analytics shows the number of:
     - Users, groups, and applications

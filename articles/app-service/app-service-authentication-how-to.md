@@ -2,7 +2,7 @@
 title: Advanced usage of AuthN/AuthZ
 description: Learn to customize the authentication and authorization feature in App Service for different scenarios, and get user claims and different tokens.
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 03/29/2021
 ms.custom: seodec18, devx-track-azurecli
 ---
 
@@ -13,10 +13,9 @@ This article shows you how to customize the built-in [authentication and authori
 To get started quickly, see one of the following tutorials:
 
 * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md)
-* [How to configure your app to use Azure Active Directory login](configure-authentication-provider-aad.md)
+* [How to configure your app to use Microsoft Identity Platform login](configure-authentication-provider-aad.md)
 * [How to configure your app to use Facebook login](configure-authentication-provider-facebook.md)
 * [How to configure your app to use Google login](configure-authentication-provider-google.md)
-* [How to configure your app to use Microsoft Account login](configure-authentication-provider-microsoft.md)
 * [How to configure your app to use Twitter login](configure-authentication-provider-twitter.md)
 * [How to configure your app to login using an OpenID Connect provider (Preview)](configure-authentication-provider-openid-connect.md)
 * [How to configure your app to login using an Sign in with Apple (Preview)](configure-authentication-provider-apple.md)
@@ -32,8 +31,7 @@ In **Action to take when request is not authenticated**, select **Allow Anonymou
 In the sign-in page, or the navigation bar, or any other location of your app, add a sign-in link to each of the providers you enabled (`/.auth/login/<provider>`). For example:
 
 ```html
-<a href="/.auth/login/aad">Log in with Azure AD</a>
-<a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
+<a href="/.auth/login/aad">Log in with the Microsoft Identity Platform</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
@@ -154,7 +152,6 @@ From your server code, the provider-specific tokens are injected into the reques
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Facebook Token | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
 | Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
-| Microsoft Account | `X-MS-TOKEN-MICROSOFTACCOUNT-ACCESS-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-EXPIRES-ON` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-AUTHENTICATION-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-REFRESH-TOKEN` |
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
@@ -170,7 +167,6 @@ When your provider's access token (not the [session token](#extend-session-token
 - **Google**: Append an `access_type=offline` query string parameter to your `/.auth/login/google` API call. If using the Mobile Apps SDK, you can add the parameter to one of the `LogicAsync` overloads (see [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Doesn't provide refresh tokens. Long-lived tokens expire in 60 days (see [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
 - **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/authentication/faq)).
-- **Microsoft Account**: When [configuring Microsoft Account Authentication Settings](configure-authentication-provider-microsoft.md), select the `wl.offline_access` scope.
 - **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
     1. At the top of the page, select **Read/Write**.
     2. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app\_name>_** > **config** > **authsettings**. 
@@ -275,14 +271,26 @@ The identity provider may provide certain turn-key authorization. For example:
 
 If either of the other levels don't provide the authorization you need, or if your platform or identity provider isn't supported, you must write custom code to authorize users based on the [user claims](#access-user-claims).
 
-## Updating the configuration version (preview)
+## Updating the configuration version
 
-There are two versions of the management API for the Authentication / Authorization feature. The preview V2 version is required for the "Authentication (preview)" experience in the Azure portal. An app already using the V1 API can upgrade to the V2 version once a few changes have been made. Specifically, secret configuration must be moved to slot-sticky application settings. Configuration of the Microsoft Account provider is also not supported in V2 presently.
+There are two versions of the management API for the Authentication / Authorization feature. The V2 version is required for the "Authentication" experience in the Azure portal. An app already using the V1 API can upgrade to the V2 version once a few changes have been made. Specifically, secret configuration must be moved to slot-sticky application settings. This can be done automatically from the "Authentication" section of the portal for your app.
 
 > [!WARNING]
-> Migration to the V2 preview will disable management of the App Service Authentication / Authorization feature for your application through some clients, such as its existing experience in the Azure portal, Azure CLI, and Azure PowerShell. This cannot be reversed. During the preview, migration of production workloads is not encouraged or supported. You should only follow the steps in this section for test applications.
+> Migration to V2 will disable management of the App Service Authentication / Authorization feature for your application through some clients, such as its existing experience in the Azure portal, Azure CLI, and Azure PowerShell. This cannot be reversed.
 
-### Moving secrets to application settings
+The V2 API does not support creation or editing of Microsoft Account as a distinct provider as was done in V1. Rather, it leverages the converged [Microsoft Identity Platform](../active-directory/develop/v2-overview.md) to sign-in users with both Azure AD and personal Microsoft accounts. When switching to the V2 API, the V1 Azure Active Directory configuration is used to configure the Microsoft Identity Platform provider. The V1 Microsoft Account provider will be carried forward in the migration process and continue to operate as normal, but it is recommended that you move to the newer Microsoft Identity Platform model. See [Support for Microsoft Account provider registrations](#support-for-microsoft-account-provider-registrations) to learn more.
+
+The automated migration process will move provider secrets into application settings and then convert the rest of the configuration into the new format. To use the automatic migration:
+
+1. Navigate to your app in the portal and select the **Authentication** menu option.
+1. If the app is configured using the V1 model, you will see an **Upgrade** button.
+1. Review the description in the confirmation prompt. If you are ready to perform the migration, click **Upgrade** in the prompt.
+
+### Manually managing the migration
+
+The following steps will allow you to manually migrate the application to the V2 API if you do not wish to use the automatic version mentioned above.
+
+#### Moving secrets to application settings
 
 1. Get your existing configuration by using the V1 API:
 
@@ -346,7 +354,7 @@ There are two versions of the management API for the Authentication / Authorizat
            "allowedExternalRedirectUrls": null,
            "defaultProvider": "AzureActiveDirectory",
            "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
-           "clientSecret": null,
+           "clientSecret": "",
            "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
            "clientSecretCertificateThumbprint": null,
            "issuer": "https://sts.windows.net/0b2ef922-672a-4707-9643-9a5726eec524/",
@@ -392,9 +400,7 @@ There are two versions of the management API for the Authentication / Authorizat
 
 You have now migrated the app to store identity provider secrets as application settings.
 
-### Support for Microsoft account registrations
-
-The V2 API does not currently support Microsoft Account as a distinct provider. Rather, it leverages the converged [Microsoft Identity Platform](../active-directory/develop/v2-overview.md) to sign-in users with personal Microsoft accounts. When switching to the V2 API, the V1 Azure Active Directory configuration is used to configure the Microsoft Identity Platform provider.
+#### Support for Microsoft Account provider registrations
 
 If your existing configuration contains a Microsoft Account provider and does not contain an Azure Active Directory provider, you can switch the configuration over to the Azure Active Directory provider and then perform the migration. To do this:
 
@@ -408,12 +414,10 @@ If your existing configuration contains a Microsoft Account provider and does no
 1. At this point, you have successfully copied the configuration over, but the existing Microsoft Account provider configuration remains. Before you remove it, make sure that all parts of your app reference the Azure Active Directory provider through login links, etc. Verify that all parts of your app work as expected.
 1. Once you have validated that things work against the AAD Azure Active Directory provider, you may remove the Microsoft Account provider configuration.
 
-Some apps may already have separate registrations for Azure Active Directory and Microsoft Account. Those apps cannot be migrated at this time. 
-
 > [!WARNING]
 > It is possible to converge the two registrations by modifying the [supported account types](../active-directory/develop/supported-accounts-validation.md) for the AAD app registration. However, this would force a new consent prompt for Microsoft Account users, and those users' identity claims may be different in structure, `sub` notably changing values since a new App ID is being used. This approach is not recommended unless thoroughly understood. You should instead wait for support for the two registrations in the V2 API surface.
 
-### Switching to V2
+#### Switching to V2
 
 Once the above steps have been performed, navigate to the app in the Azure portal. Select the "Authentication (preview)" section. 
 
@@ -643,7 +647,7 @@ You can view the current version of the platform authentication middleware eithe
 
 ##### From the Azure CLI
 
-Using the Azure CLI, view the current middleware version with the [az webapp auth show](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-show) command.
+Using the Azure CLI, view the current middleware version with the [az webapp auth show](/cli/azure/webapp/auth#az-webapp-auth-show) command.
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -674,7 +678,7 @@ You can also hit /.auth/version endpoint on an app also to view the current midd
 
 #### Update the current runtime version
 
-Using the Azure CLI, you can update the `runtimeVersion` setting in the app with the [az webapp auth update](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-update) command.
+Using the Azure CLI, you can update the `runtimeVersion` setting in the app with the [az webapp auth update](/cli/azure/webapp/auth#az-webapp-auth-update) command.
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \

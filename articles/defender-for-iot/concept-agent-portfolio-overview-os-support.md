@@ -1,12 +1,8 @@
 ---
 title: Agent portfolio overview and OS support (Preview)
 description: Azure Defender for IoT provides a large portfolio of agents based on the device type. 
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
-ms.service: azure
 ---
 
 # Agent portfolio overview and OS support (Preview)

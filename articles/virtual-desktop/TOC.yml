@@ -36,7 +36,7 @@
         href: connect-ios.md
       - name: Connect with the Microsoft Store client
         href: connect-microsoft-store.md
-      - name: Connect with Linux devices
+      - name: Connect with thin clients
         href: linux-overview.md
   - name: Configure device redirections
     href: configure-device-redirections.md
@@ -128,6 +128,12 @@
     href: key-distribution-center-proxy.md
   - name: Set up the RD Gateway role
     href: rd-gateway-role.md
+  - name: Start VM on Connect
+    items:
+    - name: Set up Start VM on Connect
+      href: start-virtual-machine-connect.md
+    - name: Start VM on Connect FAQ
+      href: start-virtual-machine-connect-faq.md
 - name: Concepts
   items:
   - name: Built-in roles
@@ -160,8 +166,6 @@
     href: fslogix-containers-azure-files.md
   - name: Storage options for FSLogix profile containers
     href: store-fslogix-profile.md
-  - name: Partner integrations
-    href: partners.md
   - name: Windows Virtual Desktop FAQ
     href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
@@ -210,12 +214,14 @@
     href: security-guide.md
   - name: Linux support
     href: linux-overview.md
+  - name: Estimate Azure Monitor costs
+    href: azure-monitor-costs.md
   - name: Supported RDP file settings
     href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Azure command-line interface (CLI)
-    href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+    href: /cli/azure/ext/desktopvirtualization/
   - name: Azure example scenarios
     href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
   - name: Email discovery
@@ -223,7 +229,7 @@
 - name: Resources
   items:
   - name: PowerShell
-    href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+    href: /powershell/module/az.desktopvirtualization/#desktopvirtualization
   - name: REST API reference
     href: /rest/api/desktopvirtualization/
   - name: Experience estimator
@@ -242,3 +248,5 @@
     href: https://aka.ms/wvdroadmap
   - name: Azure Resource Manager templates
     href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates
+  - name: Azure compliance offerings
+    href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/

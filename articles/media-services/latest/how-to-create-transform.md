@@ -27,7 +27,7 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 ## Prerequisites
 
-[Create a Media Services account](./create-account-howto.md).
+[Create a Media Services account](./account-create-how-to.md).
 
 ## [CLI](#tab/cli/)
 

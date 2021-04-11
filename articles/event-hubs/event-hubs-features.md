@@ -2,7 +2,7 @@
 title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
 ms.topic: article
-ms.date: 02/19/2021
+ms.date: 03/15/2021
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -48,6 +48,29 @@ Published events are removed from an Event Hub based on a configurable, timed-ba
 - For Event Hubs **Standard**, the maximum retention period is **7 days**. 
 - For Event Hubs **Dedicated**, the maximum retention period is **90 days**.
 - If you change the retention period, it applies to all messages including messages that are already in the event hub. 
+
+Event Hubs retains events for a configured retention time that applies across
+all partitions. Events are automatically removed when the retention period has
+been reached. If you specify a retention period of one day, the event will
+become unavailable exactly 24 hours after it has been accepted. You cannot
+explicitly delete events. 
+
+If you need to archive events beyond the allowed
+retention period, you can have them [automatically stored in Azure Storage or
+Azure Data Lake by turning on the Event Hubs Capture
+feature](event-hubs-capture-overview.md), and if you need
+to search or analyze such deep archives, you can [easily import them into Azure
+Synapse](store-captured-data-data-warehouse.md) or other
+similar stores and analytics platforms. 
+
+The reason for Event Hubs' limit on data retention based on time is to prevent
+large volumes of historic customer data getting trapped in a deep store that is
+only indexed by a timestamp and only allows for sequential access. The
+architectural philosophy here is that historic data needs richer indexing and
+more direct access than the real-time eventing interface that Event Hubs or
+Kafka provide. Event stream engines are not well suited to play the role of data
+lakes or long-term archives for event sourcing. 
+ 
 
 > [!NOTE]
 > Event Hubs is a real-time event stream engine and is not designed to be used instead of a database and/or as a 
@@ -163,7 +186,7 @@ For more information about Event Hubs, visit the following links:
     - [.NET](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)

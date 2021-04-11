@@ -219,7 +219,7 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 
     Replace `<app-name>` with the name used earlier in the `az webapp up` command.
 
-    You can alternately connect to an SSH session with the [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) command. On Windows, this command requires the Azure CLI 2.18.0 or higher.
+    You can alternately connect to an SSH session with the [`az webapp ssh`](/cli/azure/webapp#az_webapp_ssh) command. On Windows, this command requires the Azure CLI 2.18.0 or higher.
 
     If you cannot connect to the SSH session, then the app itself has failed to start. [Check the diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you haven't created the necessary app settings in the previous section, the logs will indicate `KeyError: 'DBNAME'`.
 
@@ -353,7 +353,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 In `polls/models.py`, locate the line that begins with `choice_text` and change the `max_length` parameter to 100:
 
 ```python
-# Find this lie of code and set max_length to 100 instead of 200
+# Find this line of code and set max_length to 100 instead of 200
 choice_text = models.CharField(max_length=100)
 ```
 

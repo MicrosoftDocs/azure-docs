@@ -2,7 +2,7 @@
 title: Event filtering for Azure Event Grid
 description: Describes how to filter events when creating an Azure Event Grid subscription.
 ms.topic: conceptual
-ms.date: 02/26/2021
+ms.date: 03/04/2021
 ---
 
 # Understand event filtering for Event Grid subscriptions
@@ -53,13 +53,27 @@ To filter by values in the data fields and specify the comparison operator, use 
 * values - The value or values to compare to the key.
 
 ## Key
-Key is the field in the event data that you're using for filtering. It can be a number, boolean, string, or an array. For events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `data.key1`).
+Key is the field in the event data that you're using for filtering. It can be one of the following types:
+
+- Number
+- Boolean
+- String
+- Array. You need to set the `enableAdvancedFilteringOnArrays` property to true to use this feature. Currently, the Azure portal doesn't support enabling this feature. 
+
+    ```json
+    "filter":
+    {
+        "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
+        "subjectEndsWith": ".jpg",
+        "enableAdvancedFilteringOnArrays": true
+    }
+    ```
+
+For events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `data.key1`).
 
 For events in **Cloud Events schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`).
 
-For **custom input schema**, use the event data fields (like `data.key1`).
-
-To access fields in the data section, use the `.` (dot) notation. For example, `data.sitename`, `data.appEventTypeDetail.action` to access `sitename` or `action` for the following sample event.
+For **custom input schema**, use the event data fields (like `data.key1`). To access fields in the data section, use the `.` (dot) notation. For example, `data.sitename`, `data.appEventTypeDetail.action` to access `sitename` or `action` for the following sample event.
 
 ```json
 	"data": {
@@ -75,10 +89,8 @@ To access fields in the data section, use the `.` (dot) notation. For example, `
 	},
 ```
 
-
 ## Values
 The values can be: number, string, boolean, or array
-
 
 ## Operators
 
@@ -338,6 +350,7 @@ FOR_EACH filter IN (a, b, c)
         IF key CONTAINS filter
             FAIL_MATCH
 ```
+See [Limitations](#limitations) section for current limitation of this operator.
 
 ## StringBeginsWith
 The **StringBeginsWith** operator evaluates to true if the **key** value **begins with** any of the specified **filter** values. In the following example, it checks whether the value of the `key1` attribute in the `data` section begins with `event` or `grid`. For example, `event hubs` begins with `event`.  
@@ -617,6 +630,7 @@ Advanced filtering has the following limitations:
 * 5 advanced filters and 25 filter values across all the filters per event grid subscription
 * 512 characters per string value
 * Five values for **in** and **not in** operators
+* The `StringNotContains` operator is currently not available in the portal.
 * Keys with **`.` (dot)** character in them. For example: `http://schemas.microsoft.com/claims/authnclassreference` or `john.doe@contoso.com`. Currently, there's no support for escape characters in keys. 
 
 The same key can be used in more than one filter.

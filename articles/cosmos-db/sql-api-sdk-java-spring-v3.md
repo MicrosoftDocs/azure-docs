@@ -6,8 +6,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 02/28/2021
-ms.author: anfeldma
+ms.date: 03/15/2021
+ms.author: kuthapar
 ms.custom: devx-track-java
 ---
 
@@ -35,7 +35,13 @@ ms.custom: devx-track-java
 
 The Spring Data Azure Cosmos DB version 3 for Core (SQL) allows developers to use Azure Cosmos DB in Spring applications. Spring Data Azure Cosmos DB exposes the Spring Data interface for manipulating databases and collections, working with documents, and issuing queries. Both Sync and Async (Reactive) APIs are supported in the same Maven artifact. 
 
-Spring Data Azure Cosmos DB has a dependency on the Spring Data framework. The Azure Cosmos DB SDK team releases Maven artifacts for Spring Data versions 2.2 and 2.3.
+> [!IMPORTANT]
+> Spring Data Azure Cosmos DB has a dependency on the Spring Data framework.
+> 
+> azure-spring-data-cosmos versions from 3.0.0 to 3.4.0 support Spring Data versions 2.2 and 2.3.
+> 
+> azure-spring-data-cosmos versions 3.5.0 and above support Spring Data versions 2.4.3 and above.
+>
 
 The [Spring Framework](https://spring.io/projects/spring-framework) is a programming and configuration model that streamlines Java application development. Spring streamlines the "plumbing" of applications by using dependency injection. Many developers like Spring because it makes building and testing applications more straightforward. [Spring Boot](https://spring.io/projects/spring-boot) extends this handling of the plumbing with an eye toward web application and microservices development. [Spring Data](https://spring.io/projects/spring-data) is a programming model and framework for accessing datastores like Azure Cosmos DB from the context of a Spring or Spring Boot application. 
 
@@ -54,7 +60,7 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 
 ## Get started fast
 
-  Get up and running with Spring Data Azure Cosmos DB by following our [Spring Boot Starter guide](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). The Spring Boot Starter approach is the recommended way to get started using the Spring Data Azure Cosmos DB connector.
+  Get up and running with Spring Data Azure Cosmos DB by following our [Spring Boot Starter guide](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). The Spring Boot Starter approach is the recommended way to get started using the Spring Data Azure Cosmos DB connector.
 
   Alternatively, you can add the Spring Data Azure Cosmos DB dependency to your `pom.xml` file as shown below:
 

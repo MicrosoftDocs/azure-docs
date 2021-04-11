@@ -9,7 +9,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -85,7 +85,3 @@ Review the naming conventions that are applied to Media Services V3 resources. A
 | Live event standby mode <!--new row --> | There was no standby mode for V2. | Stand-by mode is a new v3 feature that helps manage hot pools of Live Events. Customers can now start a Live Event in stand-by mode at lower cost before transitioning it to the running state. This improves channel start times and reduces costs of operating hot pools for faster start ups. |
 | Live event billing <!--new row --> | <!-- empty-->| Live events billing is based on Live Channel meters. |
 | Live outputs <!--new row --> | Programs had to be started after creation. | Live Outputs start on creation and stop when deleted. |
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

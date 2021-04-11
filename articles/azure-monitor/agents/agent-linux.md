@@ -1,7 +1,6 @@
 ---
 title: Install Log Analytics agent on Linux computers
 description: This article describes how to connect Linux computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Linux.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -38,7 +37,7 @@ Starting with versions released after August 2018, we are making the following c
 * Versions that have passed their manufacturer's end-of-support date are not supported.
 * Only support VM images; containers, even those derived from official distro publishers' images, are not supported.
 * New versions of AMI are not supported.  
-* Only versions that run SSL 1.x by default are supported.
+* Only versions that run OpenSSL 1.x by default are supported.
 
 >[!NOTE]
 >If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
@@ -47,7 +46,7 @@ Starting with versions released after August 2018, we are making the following c
 
 Starting from Agent version 1.13.27, the Linux Agent will support both Python 2 and 3. We always recommend using the latest agent. 
 
-If you are using an older version of the agent, you must have the Virtual Machine use python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+If you are using an older version of the agent, you must have the Virtual Machine use Python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
@@ -88,7 +87,7 @@ The following table highlights the packages required for [supported Linux distro
 |Glibc |    GNU C Library | 2.5-12 
 |Openssl    | OpenSSL Libraries | 1.0.x or 1.1.x |
 |Curl | cURL web client | 7.15.5 |
-|Python | | 2.6+ or 3.3+
+|Python | | 2.7 or 3.6+
 |Python-ctypes | | 
 |PAM | Pluggable Authentication Modules | | 
 

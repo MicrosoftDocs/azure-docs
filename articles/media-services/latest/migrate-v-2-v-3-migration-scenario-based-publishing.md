@@ -7,7 +7,7 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -25,7 +25,7 @@ Major changes to the way content is published in v3 API. The new publishing mode
 
 ## Packaging and delivery in v3
 
-1. Create [Content Key Policies](content-key-policy-concept.md).
+1. Create [Content Key Policies](drm-content-key-policy-concept.md).
 1. Create [Streaming Locators](streaming-locators-concept.md).
 1. Get the [Streaming paths](create-streaming-locator-build-url.md) 
     1. Configure it for a [DASH](dynamic-packaging-overview.md#mpeg-dash-protocol) or [HLS](dynamic-packaging-overview.md#hls-protocol) player.
@@ -57,7 +57,3 @@ See publishing concepts, tutorials and how to guides below for specific steps.
 ## Samples
 
 You can also [compare the V2 and V3 code in the code samples](migrate-v-2-v-3-migration-samples.md).
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

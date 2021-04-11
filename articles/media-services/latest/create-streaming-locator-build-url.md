@@ -166,4 +166,4 @@ See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/A
 
 ## Next steps
 
-[Protect your content with DRM](protect-with-drm.md).
+[Protect your content with DRM](drm-protect-with-drm-tutorial.md).

@@ -11,7 +11,14 @@ services: iot-edge
 ---
 # Create and provision an IoT Edge device with a TPM on Linux
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 This article shows how to test auto-provisioning on a Linux IoT Edge device using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices with the [Device Provisioning Service](../iot-dps/index.yml). If you're unfamiliar with the process of auto-provisioning, review the [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) overview before continuing.
+
+:::moniker range=">=iotedge-2020-11"
+> [!NOTE]
+> Currently, automatic provisioning using TPM authentication is not supported in IoT Edge version 1.2.
+:::moniker-end
 
 The tasks are as follows:
 

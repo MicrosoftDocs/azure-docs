@@ -96,7 +96,7 @@ The service principal or managed identity must have permission to get metadata f
     ```
 
     > [!Note]
-    > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
+    > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
     
 ##### Add service principal to key vault and Purview's credential
 
@@ -153,7 +153,8 @@ On the **Register sources (Azure SQL Database)** screen, do the following:
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
 > [!NOTE]
-> Deleting your scan does not delete your assets from previous Azure SQL Database scans.
+> * Deleting your scan does not delete your assets from previous Azure SQL Database scans.
+> * The asset will no longer be updated with schema changes if your source table be changed and rescan the source table after editing the description in the schema tab of Purview.
 
 ## Next steps
 

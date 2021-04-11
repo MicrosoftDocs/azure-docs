@@ -2,7 +2,7 @@
 title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template) and Bicep file.
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 03/03/2021
 ---
 
 # Parameters in ARM templates
@@ -11,7 +11,7 @@ This article describes how to define and use parameters in your Azure Resource M
 
 Resource Manager resolves parameter values before starting the deployment operations. Wherever the parameter is used in the template, Resource Manager replaces it with the resolved value.
 
-Each parameter must be set to one of the [data types](template-syntax.md#data-types).
+Each parameter must be set to one of the [data types](data-types.md).
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
@@ -210,6 +210,8 @@ You can use another parameter value to build a default value. The following temp
 param siteName string = 'site${uniqueString(resourceGroup().id)}'
 param hostingPlanName string = '${siteName}-plan'
 ```
+
+---
 
 ## Length constraints
 

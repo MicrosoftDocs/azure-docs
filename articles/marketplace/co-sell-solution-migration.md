@@ -6,7 +6,8 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/07/2020
+ms.reviewer: stmummer
+ms.date: 3/04/2021
 ---
 
 # Migration of co-sell solutions from OCP GTM to the commercial marketplace
@@ -132,7 +133,7 @@ For detailed instructions on the information you need to provide before your off
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="The offer overview setup tabs in Partner Center.":::
 
-3. Some of the Microsoft seller-facing details were copied over from the OCP GTM solution. Complete the remaining required information in the **Co-sell with Microsoft** tab to make your offer co-sell ready. When complete, select **Review and publish**. For more information, see [How to submit co-sell materials in partner center](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center).
+3. Some of the Microsoft seller-facing details were copied over from the OCP GTM solution. Complete the remaining required information in the **Co-sell with Microsoft** tab to make your offer co-sell ready. When complete, select **Review and publish**. For more information, see [Configure co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md).
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="The offer co-sell tab in Partner Center.":::
 
@@ -150,5 +151,5 @@ For detailed instructions on the information you need to provide before your off
 ## Next steps
 
 - [Resell through CSP Partners](cloud-solution-providers.md)
-- [How to submit co-sell materials in partner center](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
+- [Configure co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md)
 - View these [FAQs](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)

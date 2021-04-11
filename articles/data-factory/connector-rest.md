@@ -4,7 +4,7 @@ description: Learn how to copy data from a cloud or on-premises REST source to s
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 03/16/2021
 ms.author: jingwang
 ---
 # Copy data from and to a REST endpoint by using Azure Data Factory
@@ -51,7 +51,8 @@ The following properties are supported for the REST linked service:
 | type | The **type** property must be set to **RestService**. | Yes |
 | url | The base URL of the REST service. | Yes |
 | enableServerCertificateValidation | Whether to validate server-side TLS/SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
-| authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal**, and **ManagedServiceIdentity**. Refer to corresponding sections below on more properties and examples respectively. | Yes |
+| authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal**, and **ManagedServiceIdentity**. User-based OAuth isn't supported. You can additionally configure authentication headers in `authHeader` property. Refer to corresponding sections below on more properties and examples respectively.| Yes |
+| authHeaders | Additional HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as “Anonymous” and specify API key in the header. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, this property uses the default Azure Integration Runtime. |No |
 
 ### Use basic authentication
@@ -144,6 +145,35 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Using authentication headers
+
+In addition, you can configure request headers for authentication along with the built-in authentication types.
+
+**Example: Using API key authentication**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "x-api-key": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -459,7 +489,7 @@ The template defines two parameters:
 5. Select **Web** activity. In **Settings**, specify the corresponding **URL**, **Method**, **Headers**, and **Body** to retrieve OAuth bearer token from the login API of the service that you want to copy data from. The placeholder in the template showcases a sample of Azure Active Directory (AAD) OAuth. Note AAD authentication is natively supported by REST connector, here is just an example for OAuth flow. 
 
     | Property | Description |
-    |:--- |:--- |:--- |
+    |:--- |:--- |
     | URL |Specify the url to retrieve OAuth bearer token from. for example, in the sample here it's https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Method | The HTTP method. Allowed values are **Post** and **Get**. | 
     | Headers | Header is user-defined, which references one header name in the HTTP request. | 
@@ -470,7 +500,7 @@ The template defines two parameters:
 6. In **Copy data** activity, select *Source* tab, you could see that the bearer token (access_token)  retrieved from previous step would be passed to Copy data activity as **Authorization** under Additional headers. Confirm settings for following properties before starting a pipeline run.
 
     | Property | Description |
-    |:--- |:--- |:--- | 
+    |:--- |:--- |
     | Request method | The HTTP method. Allowed values are **Get** (default) and **Post**. | 
     | Additional headers | Additional HTTP request headers.| 
 

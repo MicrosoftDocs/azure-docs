@@ -25,7 +25,7 @@ This article shows how to create a basic audio transform.  The basic mode was ad
 
 ## Prerequisites
 
-Follow the steps in [Create a Media Services account](./create-account-howto.md) to create the needed Media Services account and resource group to create an asset.
+Follow the steps in [Create a Media Services account](./account-create-how-to.md) to create the needed Media Services account and resource group to create an asset.
 
 ## Methods
 

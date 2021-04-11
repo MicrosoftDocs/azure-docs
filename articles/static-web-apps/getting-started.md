@@ -21,6 +21,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 - [Azure](https://portal.azure.com) account
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Azure Static Web Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps)
+- [Install Git](https://www.git-scm.com/downloads)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 

@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure Arkose Labs with Azure Active Directory B2C
 
-In this tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [Arkose Labs](https://www.arkoselabs.com/). Arkose Labs help organizations against bot attacks, account takeover attacks, and fraudulent account openings.  
+In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [Arkose Labs](https://www.arkoselabs.com/). Arkose Labs help organizations against bot attacks, account takeover attacks, and fraudulent account openings.  
 
 ## Prerequisites
 
@@ -77,13 +77,13 @@ To create a custom attribute, follow these steps:
 
 5. Select **Create**
 
-Learn more about [custom attributes](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-custom-attributes?pivots=b2c-user-flow).
+Learn more about [custom attributes](./user-flow-custom-attributes.md?pivots=b2c-user-flow).
 
 ### Part 2 - Create a user flow
 
 The user flow can be either for **sign-up** and **sign in** or just **sign-up**. The Arkose Labs user flow will only be shown during sign-up.
 
-1. See the [instructions](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) to create a user flow. If using an existing user flow, it must be of the **Recommended (next-generation preview)** version type.
+1. See the [instructions](./tutorial-create-user-flows.md) to create a user flow. If using an existing user flow, it must be of the **Recommended (next-generation preview)** version type.
 
 2. In the user flow settings, go to **User attributes** and select the **ArkoseSessionToken** claim.
 
@@ -105,7 +105,7 @@ Follow the steps mentioned to use the custom HTML and JavaScript for your user f
 
 1. Modify [selfAsserted.html](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose/blob/main/Assets/selfAsserted.html) file so that `<ARKOSE_PUBLIC_KEY>` matches the value you generated for the client-side validation, and used to load the Arkose Labs script for your account.
 
-2. Host the HTML page on a Cross-origin Resource Sharing (CORS) enabled web endpoint. [Create an Azure blob storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal) and [configure CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
+2. Host the HTML page on a Cross-origin Resource Sharing (CORS) enabled web endpoint. [Create an Azure blob storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) and [configure CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
 
   >[!NOTE]
   >If you have your own custom HTML, copy and paste the `<script>` elements onto your HTML page.
@@ -128,7 +128,7 @@ Follow the steps mentioned to use the custom HTML and JavaScript for your user f
 
    ![image showing page layouts](media/partner-arkose-labs/page-layouts.png)
 
-4. From your user flow, go to **Properties** and select **Enable JavaScript** enforcing page layout (preview). See this [article](https://docs.microsoft.com/azure/active-directory-b2c/javascript-and-page-layout?pivots=b2c-user-flow) to learn more.
+4. From your user flow, go to **Properties** and select **Enable JavaScript** enforcing page layout (preview). See this [article](./javascript-and-page-layout.md?pivots=b2c-user-flow) to learn more.
 
 ### Part 4 - Create and deploy your API
 
@@ -153,7 +153,7 @@ To redeploy the local instance during testing, repeat steps 1 to 4.
 
 This sample protects the web API endpoint using [HTTP Basic authentication](https://tools.ietf.org/html/rfc7617).
 
-Username and password are stored as environment variables and  not as part of the repository. See [local.settings.json](https://docs.microsoft.com/azure/azure-functions/functions-run-local?tabs=macos%2Ccsharp%2Cbash#local-settings-file) file for more information.
+Username and password are stored as environment variables and  not as part of the repository. See [local.settings.json](../azure-functions/functions-run-local.md?tabs=macos%2ccsharp%2cbash#local-settings-file) file for more information.
 
 1. Create a local.settings.json file in your root folder
 
@@ -182,18 +182,18 @@ The `<B2C_EXTENSIONS_APP_ID>` is the application ID of the app used by Azure AD 
 
 #### Deploy the application to the web
 
-1. Follow the steps mentioned in [this](https://docs.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-04) guide to deploy your Azure Function to the cloud. Copy the endpoint web URL of your Azure Function.
+1. Follow the steps mentioned in [this](/azure/javascript/tutorial-vscode-serverless-node-04) guide to deploy your Azure Function to the cloud. Copy the endpoint web URL of your Azure Function.
 
-2. Once deployed, select the **Upload settings** option. It will upload your environment variables onto the [Application settings](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code?tabs=csharp#application-settings-in-azure) of the App service. These application settings can also be configured or [managed via the Azure portal.](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings)
+2. Once deployed, select the **Upload settings** option. It will upload your environment variables onto the [Application settings](../azure-functions/functions-develop-vs-code.md?tabs=csharp#application-settings-in-azure) of the App service. These application settings can also be configured or [managed via the Azure portal.](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
 
-See [this article](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code?tabs=csharp#republish-project-files) to learn more about Visual Studio Code development for Azure Functions.
+See [this article](../azure-functions/functions-develop-vs-code.md?tabs=csharp#republish-project-files) to learn more about Visual Studio Code development for Azure Functions.
 
 #### Configure and enable the API connector
 
-[Create an API connector](https://docs.microsoft.com/azure/active-directory-b2c/add-api-connector) and enable it for your user flow. 
+[Create an API connector](./add-api-connector.md) and enable it for your user flow. 
 Your API connector configuration should look like:
 
-![Image shows search by app id](media/partner-arkose-labs/configure-api-connector.png)
+![Image shows how to configure api connector](media/partner-arkose-labs/configure-api-connector.png)
 
 - **Endpoint URL** - is the Function URL you copied earlier while you deployed Azure Function.
 
@@ -229,6 +229,6 @@ To enable the API connector, in the **API connector** settings for your user flo
 
 - [Sample codes](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose) for Azure AD B2C sign-up user flow
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

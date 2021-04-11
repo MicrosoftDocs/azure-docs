@@ -27,7 +27,7 @@ This article shows you how to connect to the Azure Media Services v3 node.js SDK
 - An installation of Visual Studio Code.
 - Install [Node.js](https://nodejs.org/en/download/).
 - Install [Typescript](https://www.typescriptlang.org/download).
-- [Create a Media Services account](./create-account-howto.md). Be sure to remember the resource group name and the Media Services account name.
+- [Create a Media Services account](./account-create-how-to.md). Be sure to remember the resource group name and the Media Services account name.
 - Create a service principal for your application. See [access APIs](./access-api-howto.md).<br/>**Pro tip!** Keep this window open or copy everything in the JSON tab to Notepad. 
 - Make sure to get the latest version of the [AzureMediaServices SDK for JavaScript](https://www.npmjs.com/package/@azure/arm-mediaservices).
 
@@ -219,13 +219,13 @@ The following samples are available in the [repository](https://github.com/Azure
 
 ## See also
 
-- [Reference documentation for Azure Media Services modules for Node.js](https://docs.microsoft.com/javascript/api/overview/azure/media-services?view=azure-node-latest)
-- [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Reference documentation for Azure Media Services modules for Node.js](/javascript/api/overview/azure/media-services)
+- [Azure for JavaScript & Node.js developers](/azure/developer/javascript/)
 - [Media Services source code in the @azure/azure-sdk-for-js Git Hub repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
-- [Azure Package Documentation for Node.js developers](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+- [Azure Package Documentation for Node.js developers](/javascript/api/overview/azure/)
 - [Media Services concepts](concepts-overview.md)
 - [npm install @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
-- [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Azure for JavaScript & Node.js developers](/azure/developer/javascript/)
 - [Media Services source code in the @azure/azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## Next steps

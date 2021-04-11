@@ -2,7 +2,7 @@
 title: "Upgrading Azure Arc enabled Kubernetes agents"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
@@ -79,6 +79,6 @@ One minor version of Azure Arc enabled Kubernetes agents is released approximate
 
 ## Next steps
 
-* [Connect a cluster to Azure Arc](./connect-cluster.md)
-* [Create configurations on your Arc enabled Kubernetes cluster](./use-gitops-connected-cluster.md)
-* [Use Azure Policy to apply configurations at scale](./use-azure-policy.md)
+* Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md).
+* Already have a Kubernetes cluster connected Azure Arc? [Create configurations on your Arc enabled Kubernetes cluster](./tutorial-use-gitops-connected-cluster.md).
+* Learn how to [use Azure Policy to apply configurations at scale](./use-azure-policy.md).

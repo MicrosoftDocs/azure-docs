@@ -6,6 +6,7 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
+ms.custom: synapse-cosmos-db
 
 ---
 
@@ -29,6 +30,10 @@ When planning to configure a multi-region Azure Cosmos DB account with analytica
 ### Can I choose to enable Azure Synapse Link for only certain region and not all regions in a multi-region account set-up?
 
 When Azure Synapse Link is enabled for a multi-region account, the analytical store is created in all regions. The underlying data is optimized for throughput and transactional consistency in the transactional store.
+
+### Is analytical store supported in all Azure Cosmos DB regions?
+
+Yes.
 
 ### Is backup and restore supported for Azure Synapse Link enabled accounts?
 
@@ -161,6 +166,10 @@ Currently, this feature is not available.
 ### Can I do Spark structured streaming from analytical store?
 
 Currently Spark structured streaming support for Azure Cosmos DB is implemented using the change feed functionality of the transactional store and it’s not yet supported from analytical store.
+
+### Is streaming supported?
+
+We do not support streaming of data from the analytical store.
 
 ## Azure Synapse Studio
 

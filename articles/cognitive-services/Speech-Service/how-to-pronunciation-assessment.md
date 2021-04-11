@@ -23,7 +23,7 @@ With pronunciation assessment, language learners can practice, get instant feedb
 In this article, you'll learn how to set up `PronunciationAssessmentConfig` and retrieve the `PronunciationAssessmentResult` using the speech SDK.
 
 > [!NOTE]
-> The pronunciation assessment feature is currently only available in regions `westus`, `eastasia` and `centralindia`, and only supports language `en-US`.
+> The pronunciation assessment feature only supports language `en-US` currently.
 
 ## Pronunciation assessment with the Speech SDK
 
@@ -135,8 +135,8 @@ pronunciationAssessmentConfig.applyTo(speechRecognizer);
 
 speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) => {
         var pronunciationAssessmentResult = SpeechSDK.PronunciationAssessmentResult.fromResult(result);
-        var pronunciationScore = pronResult.pronunciationScore;
-        var wordLevelResult = pronResult.detailResult.Words;
+        var pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
+        var wordLevelResult = pronunciationAssessmentResult.detailResult.Words;
 },
 {});
 ```

@@ -45,9 +45,10 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### Administrators aren't using their privileged roles
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | Users that have been assigned privileged roles they don't need increases the chance of an attack. It is also easier for attackers to remain unnoticed in accounts that are not actively being used. |
 | **How to fix?** | Review the users in the list and remove them from privileged roles that they do not need. |
 | **Prevention** | Assign privileged roles only to users who have a business justification. </br>Schedule regular [access reviews](pim-how-to-start-security-review.md) to verify that users still need their access. |
@@ -57,9 +58,10 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### Roles don't require multi-factor authentication for activation
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | Without multi-factor authentication, compromised users can activate privileged roles. |
 | **How to fix?** | Review the list of roles and [require multi-factor authentication](pim-how-to-change-default-settings.md) for every role. |
 | **Prevention** | [Require MFA](pim-how-to-change-default-settings.md) for every role.  |
@@ -67,17 +69,19 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### The organization doesn't have Azure AD Premium P2
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | The current Azure AD organization does not have Azure AD Premium P2. |
 | **How to fix?** | Review information about [Azure AD editions](../fundamentals/active-directory-whatis.md). Upgrade to Azure AD Premium P2. |
 
 ### Potential stale accounts in a privileged role
 
-| | |
+Severity: **Medium**
+
+| | Description |
 | --- | --- |
-| **Severity** | Medium |
 | **Why do I get this alert?** | Accounts in a privileged role have not changed their password in the past 90 days. These accounts might be service or shared accounts that aren't being maintained and are vulnerable to attackers. |
 | **How to fix?** | Review the accounts in the list. If they no longer need access, remove them from their privileged roles. |
 | **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password. </br>Regularly review accounts with privileged roles using [access reviews](pim-how-to-start-security-review.md) and remove role assignments that are no longer needed. |
@@ -86,9 +90,10 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### Roles are being assigned outside of Privileged Identity Management
 
-| | |
+Severity: **High**
+
+| | Description |
 | --- | --- |
-| **Severity** | High |
 | **Why do I get this alert?** | Privileged role assignments made outside of Privileged Identity Management are not properly monitored and may indicate an active attack. |
 | **How to fix?** | Review the users in the list and remove them from privileged roles assigned outside of Privileged Identity Management. |
 | **Prevention** | Investigate where users are being assigned privileged roles outside of Privileged Identity Management and prohibit future assignments from there. |
@@ -96,9 +101,10 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### There are too many global administrators
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | Global administrator is the highest privileged role. If a Global Administrator is compromised, the attacker gains access to all of their permissions, which puts your whole system at risk. |
 | **How to fix?** | Review the users in the list and remove any that do not absolutely need the Global administrator role. </br>Assign lower privileged roles to these users instead. |
 | **Prevention** | Assign users the least privileged role they need. |
@@ -109,9 +115,10 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### Roles are being activated too frequently
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | Multiple activations to the same privileged role by the same user is a sign of an attack. |
 | **How to fix?** | Review the users in the list and ensure that the [activation duration](pim-how-to-change-default-settings.md) for their privileged role is set long enough for them to perform their tasks. |
 | **Prevention** | Ensure that the [activation duration](pim-how-to-change-default-settings.md) for privileged roles is set long enough for users to perform their tasks.</br>[Require multi-factor authentication](pim-how-to-change-default-settings.md) for privileged roles that have accounts shared by multiple administrators. |
@@ -144,9 +151,10 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### Administrators aren't using their privileged roles
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | Users that have been assigned privileged roles they don't need increases the chance of an attack. It is also easier for attackers to remain unnoticed in accounts that are not actively being used. |
 | **How to fix?** | Review the users in the list and remove them from privileged roles that they do not need. |
 | **Prevention** | Assign privileged roles only to users who have a business justification. </br>Schedule regular [access reviews](pim-how-to-start-security-review.md) to verify that users still need their access. |
@@ -156,9 +164,10 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### Roles don't require multi-factor authentication for activation
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | Without multi-factor authentication, compromised users can activate privileged roles. |
 | **How to fix?** | Review the list of roles and [require multi-factor authentication](pim-how-to-change-default-settings.md) for every role. |
 | **Prevention** | [Require MFA](pim-how-to-change-default-settings.md) for every role.  |
@@ -166,17 +175,19 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### The organization doesn't have Azure AD Premium P2
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | The current Azure AD organization does not have Azure AD Premium P2. |
 | **How to fix?** | Review information about [Azure AD editions](../fundamentals/active-directory-whatis.md). Upgrade to Azure AD Premium P2. |
 
 ### Potential stale accounts in a privileged role
 
-| | |
+Severity: **Medium**
+
+| | Description |
 | --- | --- |
-| **Severity** | Medium |
 | **Why do I get this alert?** | Accounts in a privileged role have not changed their password in the past 90 days. These accounts might be service or shared accounts that aren't being maintained and are vulnerable to attackers. |
 | **How to fix?** | Review the accounts in the list. If they no longer need access, remove them from their privileged roles. |
 | **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password. </br>Regularly review accounts with privileged roles using [access reviews](pim-how-to-start-security-review.md) and remove role assignments that are no longer needed. |
@@ -185,9 +196,10 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### Roles are being assigned outside of Privileged Identity Management
 
-| | |
+Severity: **High**
+
+| | Description |
 | --- | --- |
-| **Severity** | High |
 | **Why do I get this alert?** | Privileged role assignments made outside of Privileged Identity Management are not properly monitored and may indicate an active attack. |
 | **How to fix?** | Review the users in the list and remove them from privileged roles assigned outside of Privileged Identity Management. |
 | **Prevention** | Investigate where users are being assigned privileged roles outside of Privileged Identity Management and prohibit future assignments from there. |
@@ -195,9 +207,10 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### There are too many global administrators
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | Global administrator is the highest privileged role. If a Global Administrator is compromised, the attacker gains access to all of their permissions, which puts your whole system at risk. |
 | **How to fix?** | Review the users in the list and remove any that do not absolutely need the Global administrator role. </br>Assign lower privileged roles to these users instead. |
 | **Prevention** | Assign users the least privileged role they need. |
@@ -208,9 +221,10 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### Roles are being activated too frequently
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | Multiple activations to the same privileged role by the same user is a sign of an attack. |
 | **How to fix?** | Review the users in the list and ensure that the [activation duration](pim-how-to-change-default-settings.md) for their privileged role is set long enough for them to perform their tasks. |
 | **Prevention** | Ensure that the [activation duration](pim-how-to-change-default-settings.md) for privileged roles is set long enough for users to perform their tasks.</br>[Require multi-factor authentication](pim-how-to-change-default-settings.md) for privileged roles that have accounts shared by multiple administrators. |

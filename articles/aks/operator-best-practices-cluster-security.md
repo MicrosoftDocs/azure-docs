@@ -90,7 +90,7 @@ metadata:
 spec:
   containers:
   - name: hello
-    image: busybox
+    image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
 ```
 
@@ -100,13 +100,14 @@ Deploy the sample pod using the [kubectl apply][kubectl-apply] command:
 kubectl apply -f aks-apparmor.yaml
 ```
 
-With the pod deployed, use the [kubectl exec][kubectl-exec] command to write to a file. The command can't be executed, as shown in the following example output:
+With the pod deployed, use verify the *hello-apparmor* pod shows as *blocked*:
 
 ```
-$ kubectl exec hello-apparmor touch /tmp/test
+$ kubectl get pods
 
-touch: /tmp/test: Permission denied
-command terminated with exit code 1
+NAME             READY   STATUS    RESTARTS   AGE
+aks-ssh          1/1     Running   0          4m2s
+hello-apparmor   0/1     Blocked   0          50s
 ```
 
 For more information about AppArmor, see [AppArmor profiles in Kubernetes][k8s-apparmor].
@@ -141,7 +142,7 @@ metadata:
 spec:
   containers:
   - name: chmod
-    image: busybox
+    image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     command:
       - "chmod"
     args:

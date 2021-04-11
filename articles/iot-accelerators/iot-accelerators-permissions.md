@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 
-# As a developer or IT Pro, I want to deploy and manage a solution accelerator from a web site to quickly get a demo or production environment up and running
+#Customer intent: As a developer or IT Pro, I want to deploy and manage a solution accelerator from a web site to quickly get a demo or production environment up and running.
 ---
 
 # Use the azureiotsolutions.com site to deploy your solution accelerator

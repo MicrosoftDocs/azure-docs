@@ -84,7 +84,7 @@ Sign into the Azure portal [here](https://aka.ms/AzureAutomanagePreview) to crea
 1. Fill out the **Basics** tab with your VM details.
 
 > [!NOTE]
-> Check the Automanage [supported regions](automanage-virtual-machines#supported-regions) and the Automanage supported [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions) and [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions).
+> Check the Automanage [supported regions](automanage-virtual-machines.md#supported-regions) and the Automanage supported [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions) and [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions).
 
 2. Browse to the **Management** tab and choose your **Automanage Environment**.
 

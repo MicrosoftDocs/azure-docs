@@ -14,7 +14,7 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Add a self-service sign-up user flow to an app (Preview)
+# Add a self-service sign-up user flow to an app
 
 > [!NOTE]
 > Some of the features mentioned in this article are public preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

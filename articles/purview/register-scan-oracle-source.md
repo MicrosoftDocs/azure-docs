@@ -22,7 +22,7 @@ The Oracle source supports **Full scan** to extract metadata from an Oracle data
     runtime](https://www.microsoft.com/download/details.aspx?id=39717).
     For more information, see [Create and configure a self-hosted
     integration
-    runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Make sure [JDK
     11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
@@ -34,7 +34,7 @@ The Oracle source supports **Full scan** to extract metadata from an Oracle data
     have it installed, download it from
     [here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-4.  You will have to manually download an Oracle JDBC driver named 'oracle.jdbc.driver.OracleDriver\' on your virtual machine where self-hosted integration runtime is running.
+4.  You will have to manually download an Oracle JDBC driver from [here](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) on your virtual machine where self-hosted integration runtime is running.
 
     > [!Note] 
     > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
@@ -113,7 +113,7 @@ On the **Register sources (Oracle)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) to create a self-hosted integration runtime.
+1.  In the Management Center, click on Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
 
 2.  Navigate to **Sources**.
 

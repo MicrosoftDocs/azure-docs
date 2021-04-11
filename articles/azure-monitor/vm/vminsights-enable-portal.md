@@ -1,7 +1,6 @@
 ---
 title: Enable Azure Monitor for single virtual machine or virtual machine scale set in the Azure portal
 description: Learn how to enable VM insights on a single Azure virtual machine or virtual machine scale set using the Azure portal.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

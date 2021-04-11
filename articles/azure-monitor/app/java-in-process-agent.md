@@ -327,3 +327,28 @@ import com.microsoft.applicationinsights.web.internal.ThreadContext;
 RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
 requestTelemetry.setName("myname");
 ```
+
+### Get the request telemetry id and the operation id using the 2.x SDK
+
+> [!NOTE]
+> This feature is only in 3.0.3-BETA and later
+
+Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+and get the request telemetry id and the operation id in your code:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+String requestId = requestTelemetry.getId();
+String operationId = requestTelemetry.getContext().getOperation().getId();
+```

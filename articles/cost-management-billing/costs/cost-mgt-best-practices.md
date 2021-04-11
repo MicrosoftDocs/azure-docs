@@ -86,7 +86,7 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 #### [Free](https://azure.microsoft.com/free/)
 
 - 12 months of popular free services
-- $200 in credit to explore services for 30 days
+- 200 USD credit in your billing currency to explore services for 30 days
 - 25+ services are always free
 
 #### [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p)

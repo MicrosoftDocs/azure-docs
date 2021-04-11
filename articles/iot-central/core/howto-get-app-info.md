@@ -28,7 +28,7 @@ To get information about your IoT Central application:
 
 1. The **About your app** page shows information about your application:  
 
-    :::image type="content" source="media/howto-get-app-info/about-your-app.png" alt-text="About your app screenshot":::
+    :::image type="content" source="media/howto-get-app-info/about-your-app2.png" alt-text="About your app screenshot":::
 
     Use the **Copy info** button to copy the information to the clipboard.
 

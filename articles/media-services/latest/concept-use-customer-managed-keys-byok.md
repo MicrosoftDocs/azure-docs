@@ -46,4 +46,4 @@ Media Services automatically supports double encryption. For data at rest, the f
 
 ## Next steps
 
-[Protect your content with Media Services dynamic encryption](content-protection-overview.md)
+[Protect your content with Media Services dynamic encryption](drm-content-protection-concept.md)

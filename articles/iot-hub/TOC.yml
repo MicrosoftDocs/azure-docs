@@ -84,6 +84,22 @@
       href: tutorial-firmware-update.md
     - name: Test device connectivity
       href: tutorial-connectivity.md
+    - name: Using X.509 certificates
+      items:
+        - name: Introduction
+          href: tutorial-x509-introduction.md
+        - name: Certificate fields
+          href: tutorial-x509-certificates.md
+        - name: Using the supplied scripts
+          href: tutorial-x509-scripts.md
+        - name: Using OpenSSL
+          href: tutorial-x509-openssl.md
+        - name: Creating self-signed certificates
+          href: tutorial-x509-self-sign.md
+        - name: Proving possession
+          href: tutorial-x509-prove-possession.md
+        - name: Testing authentication
+          href: tutorial-x509-test-certificate.md
 - name: Concepts
   items:
     - name: TLS support
@@ -175,8 +191,6 @@
               href: iot-hub-mqtt-5-reference.md
         - name: AMQP support
           href: iot-hub-amqp-support.md
-        - name: Glossary
-          href: iot-hub-devguide-glossary.md
     - name: Security
       items:
         - name: Security baseline
@@ -321,8 +335,6 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: Use Azure CLI
               href: iot-hub-configure-file-upload-cli.md
-        - name: Secure your hub with an X.509 certificate
-          href: iot-hub-security-x509-get-started.md
         - name: Upgrade an IoT hub
           href: iot-hub-upgrade.md
         - name: Configure IP filtering
@@ -352,13 +364,13 @@
     - name: Deploy updates
       items:
         - name: Create a device update account
-          href: /iot-hub-device-update/create-device-update-account.md
+          href: ../iot-hub-device-update/create-device-update-account.md
         - name: Import an update
-          href: /iot-hub-device-update/import-update.md
+          href: ../iot-hub-device-update/import-update.md
         - name: Create an update group
-          href: /iot-hub-device-update/create-update-group.md
+          href: ../iot-hub-device-update/create-update-group.md
         - name: Deploy an update
-          href: /iot-hub-device-update/deploy-update.md
+          href: ../iot-hub-device-update/deploy-update.md
     - name: Use real devices
       items:
         - name: Use an online simulator
@@ -496,7 +508,9 @@
 - name: Resources
   items:
     - name: Support and help options
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+    - name: IoT Glossary
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Azure IoT services
       items:
       - name: IoT Hub

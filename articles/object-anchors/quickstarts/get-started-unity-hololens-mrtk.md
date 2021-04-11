@@ -6,7 +6,7 @@ manager: virivera
 services: azure-object-anchors
 
 ms.author: crtreasu
-ms.date: 02/02/2021
+ms.date: 03/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
@@ -38,9 +38,12 @@ In Unity, open the `quickstarts/apps/unity/mrtk` project.
 
 [!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
 
-[!INCLUDE [Unity build and run](../../../includes/object-anchors-quickstart-unity-build-run.md)]
+[!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
 
-[!INCLUDE [Unity build sample scene](../../../includes/object-anchors-quickstart-unity-build-sample-scene.md)]
+When a "TMP Importer" dialog prompts you to import TextMesh Pro resources, select "Import TMP Essentials" to do so.
+:::image type="content" source="./media/textmesh-pro-importer-dialog.png" alt-text="Import TextMesh Pro resources":::
+
+[!INCLUDE [Unity build sample scene 2](../../../includes/object-anchors-quickstart-unity-build-sample-scene-2.md)]
 
 [!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 

@@ -1,7 +1,6 @@
 ---
 title: Enable VM insights by using Azure Policy
 description: Describes how you enable VM insights for multiple Azure virtual machines or virtual machine scale sets using Azure Policy.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -15,7 +14,7 @@ This article explains how to enable VM insights for Azure virtual machines or hy
 If you're not familiar with Azure Policy, get a brief introduction at [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md).
 
 > [!NOTE]
-> To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md#azure-monitor-for-vms).
+> To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md#vm-insights).
 
 ## Prerequisites
 - [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md).

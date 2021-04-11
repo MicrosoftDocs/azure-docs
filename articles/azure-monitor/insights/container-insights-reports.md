@@ -2,14 +2,14 @@
 title: Reports in Container insights
 description: Describes reports available to analyze data collected by Container insights.
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/02/2021
 ---
 
 # Reports in Container insights
 Reports in Container insights are recommended out-of-the-box [Azure workbooks](../visualize/workbooks-overview.md). This article describes the different reports that are available and how to access them.
 
 ## Viewing reports
-From the **Azure Monitor** menu in the Azure portal, select **Containers**. Select **Insights** in the **Monitoring** section, choose a particular cluster, and then select the **Reports (preview)** page. 
+From the **Azure Monitor** menu in the Azure portal, select **Containers**. Select **Insights** in the **Monitoring** section, choose a particular cluster, and then select the **Reports** page. 
 
 [![Reports page](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 

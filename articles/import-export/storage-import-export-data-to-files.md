@@ -5,10 +5,10 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
 # Use Azure Import/Export service to import data to Azure Files
 
@@ -29,23 +29,22 @@ Before you create an import job to transfer data into Azure Files, carefully rev
     - The account must be valid, should have balance, and must have return shipping capabilities.
     - Generate a tracking number for the export job.
     - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
-    - If you do not have a carrier account, go to:
+    - If you don't have a carrier account, go to:
         - [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
         - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
-
 
 
 ## Step 1: Prepare the drives
 
 This step generates a journal file. The journal file stores basic information such as drive serial number, encryption key, and storage account details.
 
-Perform the following steps to prepare the drives.
+Do the following steps to prepare the drives.
 
 1. Connect our disk drives to the Windows system via SATA connectors.
 2. Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
-3. Modify the *dataset.csv* file in the root folder where the tool resides. Depending on whether you want to import a file or folder or both, add entries in the *dataset.csv* file similar to the following examples.
+3. Modify the *dataset.csv* file in the root folder where the tool is. Depending on whether you want to import a file or folder or both, add entries in the *dataset.csv* file similar to the following examples.
 
-   - **To import a file**: In the following example, the data to copy resides in the F: drive. Your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, it is created in the Azure Storage account. Folder structure is maintained.
+   - **To import a file**: In the following example, the data to copy is on the F: drive. Your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, it's created in the Azure Storage account. Folder structure is maintained.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -68,7 +67,7 @@ Perform the following steps to prepare the drives.
      Learn more about [preparing the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).
 
 
-4. Modify the *driveset.csv* file in the root folder where the tool resides. Add entries in the *driveset.csv* file similar to the following examples. The driveset file has the list of disks and corresponding drive letters so that the tool can correctly pick the list of disks to be prepared.
+4. Modify the *driveset.csv* file in the root folder where the tool is. Add entries in the *driveset.csv* file similar to the following examples. The driveset file has the list of disks and corresponding drive letters so that the tool can correctly pick the list of disks to be prepared.
 
     This example assumes that two disks are attached and basic NTFS volumes G:\ and H:\ are created. H:\is not encrypted while G: is already encrypted. The tool formats and encrypts the disk that hosts H:\ only (and not G:\).
 
@@ -100,7 +99,7 @@ Perform the following steps to prepare the drives.
     .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
     ```
 
-6. A journal file with name you provided with `/j:` parameter, is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files are not processed.
+6. A journal file with name you provided with `/j:` parameter, is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files aren't processed.
 
     > [!IMPORTANT]
     > - Do not modify the data on the disk drives or the journal file after completing disk preparation.
@@ -111,7 +110,7 @@ For additional samples, go to [Samples for journal files](#samples-for-journal-f
 
 ### [Portal](#tab/azure-portal)
 
-Perform the following steps to create an import job in the Azure portal.
+Do the following steps to create an import job in the Azure portal.
 1. Log on to https://portal.azure.com/.
 2. Search for **import/export jobs**.
 
@@ -123,39 +122,50 @@ Perform the following steps to create an import job in the Azure portal.
 
 4. In **Basics**:
 
-    - Select **Import into Azure**.
-    - Enter a descriptive name for the import job. Use this name to track your jobs while they are in progress and once they are completed.
-        -  This name may contain only lowercase letters, numbers, hyphens, and underscores.
-        -  The name must start with a letter, and may not contain spaces.
-    - Select a subscription.
-    - Select a resource group.
+   1. Select a subscription.
+   1. Select a resource group, or select **Create new** and create a new one.
+   1. Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
+       * The name may contain only lowercase letters, numbers, and hyphens.
+       * The name must start with a letter, and may not contain spaces.
+   1. Select **Import into Azure**.
 
-        ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+    ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
-3. In **Job details**:
+   Select **Next: Job details >** to proceed.
 
-    - Upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives).
-    - Select the storage account that the data will be imported into.
-    - The dropoff location is automatically populated based on the region of the storage account selected.
+5. In **Job details**:
 
-       ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
+   1. Upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives).
+   1. Select the destination Azure region for the order.
+   1. Select the storage account for the import.
 
-4. In **Return shipping info**:
+      The dropoff location is automatically populated based on the region of the storage account selected.
 
-    - Select the carrier from the drop-down list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
-    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete.
-    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
+   1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.
+
+
+   ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
+
+   Select **Next: Shipping >** to proceed.
+
+4. In **Shipping**:
+
+    1. Select the carrier from the drop-down list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information about the carrier you plan to use.
+    1. Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete.
+    1. Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
 
         > [!TIP]
         > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
-       ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
+    ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
+   Select **Review + create** to proceed.
 
-5. In the **Summary**:
+5. In the order summary:
 
-    - Provide the Azure datacenter shipping address for shipping disks back to Azure. Ensure that the job name and the full address are mentioned on the shipping label.
-    - Click **OK** to complete import job creation.
+   1. Review the **Terms**, and then select "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then performed.
+   1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
+   1. Select **Create**.
 
         ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
@@ -348,13 +358,13 @@ Install-Module -Name Az.ImportExport
 
 ## Step 5: Verify data upload to Azure
 
-Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Delete the on-premises data only after you have verified that upload was successful.
+Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Delete the on-premises data only after you verify that upload was successful.
 
 ## Samples for journal files
 
 To **add more drives**, create a new driveset file and run the command as below.
 
-For subsequent copy sessions to the different disk drives than specified in *InitialDriveset .csv* file, specify a new driveset *.csv* file and provide it as a value to the parameter `AdditionalDriveSet`. Use the **same journal file** name and provide a **new session ID**. The format of AdditionalDriveset CSV file is same as InitialDriveSet format.
+For subsequent copy sessions to disk drives other than those specified in the *InitialDriveset .csv* file, specify a new driveset *.csv* file and provide it as a value to the parameter `AdditionalDriveSet`. Use the **same journal file** name and provide a **new session ID**. The format of AdditionalDriveset CSV file is same as InitialDriveSet format.
 
 ```cmd
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>

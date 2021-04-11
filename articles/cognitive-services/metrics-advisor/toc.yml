@@ -40,7 +40,7 @@
   - name: Metrics Advisor API
     href: https://go.microsoft.com/fwlink/?linkid=2141634
   - name: Azure CLI reference 
-    href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    href: /cli/azure/cognitiveservices#az_cognitiveservices_list
   - name: PowerShell reference
     href: /powershell/module/azurerm.cognitiveservices/
 - name: Resources

@@ -24,6 +24,9 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 This quickstart uses MSAL Angular v2 with the authorization code flow. For a similar quickstart that uses MSAL Angular 1.x with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](./quickstart-v2-angular.md).
 
+> [!IMPORTANT]
+> MSAL Angular v2 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+
 ## Prerequisites
 
 * Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -111,12 +114,18 @@ This quickstart uses MSAL Angular v2 with the authorization code flow. For a sim
 > Modify the values in the `auth` section as described here:
 >
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
+>
+>    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
 > - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com/`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` is set to one of the following:
 >   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
+>
+>    To find the value of the **Directory (tenant) ID**, go to the app registration's **Overview** page in the Azure portal.
 >   - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
 >   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`. **For this quickstart**, use `common`.
 >   - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
+>
+>    To find the value of **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
 > - `Enter_the_Redirect_Uri_Here` is `http://localhost:4200/`.
 >
 > The `authority` value in your *app.module.ts* should be similar to the following if you're using the main (global) Azure cloud:
@@ -125,8 +134,6 @@ This quickstart uses MSAL Angular v2 with the authorization code flow. For a sim
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run

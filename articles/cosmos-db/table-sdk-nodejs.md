@@ -21,7 +21,7 @@ ms.author: akshanka
 > * [Python](table-sdk-python.md)
  
 
-|   |   |
+|   | Links  |
 |---|---|
 |**SDK download**|[NPM](https://www.npmjs.com/package/azure-storage)|
 |**API documentation**|[Node.js API reference documentation](https://azure.github.io/azure-storage-node/)|

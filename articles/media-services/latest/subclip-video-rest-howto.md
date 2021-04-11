@@ -24,7 +24,7 @@ The REST example in this topic creates a job that trims a video as it submits an
 
 To complete the steps described in this topic, you have to:
 
-- [Create an Azure Media Services account](./create-account-howto.md).
+- [Create an Azure Media Services account](./account-create-how-to.md).
 - [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).
     
     Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 

@@ -23,7 +23,7 @@ You can use Azure Media Services to [stream](terminology.md#streaming) the asset
 
 ## Streaming policy 
 
-Azure Media Services offers you different methods to secure your video streams, as discussed in [Protect your content with Media Services dynamic encryption](../latest/content-protection-overview.md) article. At a high level, options for content protection are:
+Azure Media Services offers you different methods to secure your video streams, as discussed in [Protect your content with Media Services dynamic encryption](../latest/drm-content-protection-concept.md) article. At a high level, options for content protection are:
 
 * **In-the-clear streaming** – where no encryption is applied during streaming.
 * **Use Advanced Encryption Standard (AES-128)** – and implement a method to deliver the keys for decrypting the video only to authenticated viewers.

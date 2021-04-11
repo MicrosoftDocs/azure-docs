@@ -25,10 +25,12 @@
     href: tutorial-restrict-network-access-to-resources.md
   - name: Connect virtual networks
     href: tutorial-connect-virtual-networks-portal.md
-  - name: Create NAT gateway
-    href: quickstart-create-nat-gateway-portal.md
   - name: Create and validate NAT gateway
-    href: tutorial-create-validate-nat-gateway-portal.md
+    href: tutorial-create-nat-gateway-portal.md
+  - name: Integrate NAT gateway public load balancer
+    href: tutorial-nat-gateway-load-balancer-public-portal.md
+  - name: Integrate NAT gateway internal load balancer
+    href: tutorial-nat-gateway-load-balancer-internal-portal.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -412,17 +414,13 @@
         href: move-across-regions-publicip-powershell.md
   - name: NAT
     items:
-    - name: Create NAT gateway - PowerShell
-      href: quickstart-create-nat-gateway-powershell.md
-    - name: Create NAT gateway - CLI
-      href: quickstart-create-nat-gateway-cli.md
+    - name: Create and validate NAT gateway - PowerShell
+      href: tutorial-create-nat-gateway-powershell.md
+    - name: Create and validate NAT gateway - CLI
+      href: tutorial-create-nat-gateway-cli.md
     - name: Create NAT gateway - ARM template
       displayname: Resource Manager
       href: quickstart-create-nat-gateway-template.md
-    - name: Create and validate NAT gateway - PowerShell
-      href: tutorial-create-validate-nat-gateway-powershell.md
-    - name: Create and validate NAT gateway - CLI
-      href: tutorial-create-validate-nat-gateway-cli.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot virtual network peering issues

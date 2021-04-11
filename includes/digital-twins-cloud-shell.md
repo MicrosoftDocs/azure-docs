@@ -22,9 +22,11 @@ If this is the first time you've used this subscription with Azure Digital Twins
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-Next you'll add the [**Microsoft Azure IoT Extension for Azure CLI**](/cli/azure/ext/azure-iot/iot?preserve-view=true&view=azure-cli-latest) to your Cloud Shell, to enable commands for interacting with Azure Digital Twins and other IoT services. 
+Next you'll add the [**Microsoft Azure IoT Extension for Azure CLI**](/cli/azure/ext/azure-iot/iot) to your Cloud Shell, to enable commands for interacting with Azure Digital Twins and other IoT services. Run this command to make sure you have the latest version of the extension:
 
-[!INCLUDE [digital-twins-cloud-shell-extensions.md](digital-twins-cloud-shell-extensions.md)]
+```azurecli-interactive
+az extension add --upgrade -n azure-iot
+```
 
 Now you are ready to work with Azure Digital Twins in the Cloud Shell.
 

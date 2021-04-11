@@ -159,4 +159,4 @@ keySystems: {...
 ## Next steps
 
 - [Use the Azure Media Player](../azure-media-player/azure-media-player-overview.md)  
-- [Quickstart: Encrypt content](encrypt-content-quickstart.md)
+- [Quickstart: Encrypt content](drm-encrypt-content-how-to.md)

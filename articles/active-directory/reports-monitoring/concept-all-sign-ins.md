@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/23/2020
+ms.date: 03/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -121,7 +121,12 @@ Each tab in the sign-ins blade shows the default columns below. Some tabs have a
 
 Interactive user sign-ins are sign-ins where a user provides an authentication factor to Azure AD or interacts directly with Azure AD or a helper app, such as the Microsoft Authenticator app. The factors users provide include passwords, responses to MFA challenges, biometric factors, or QR codes that a user provides to Azure AD or to a helper app.
 
-This report also includes federated sign-ins from identity providers that are federated to Azure AD.  
+> [!NOTE]
+> This report also includes federated sign-ins from identity providers that are federated to Azure AD.  
+
+
+
+Note: The interactive user sign-ins report used to contain some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins were non interactive, they were included in the interactive user sign-ins report for additional visibility. Once the non-interactive user sign-ins report entered public preview in November 2020, those non-interactive sign-in event logs were moved to the non-interactive user sign in report for increased accuracy. 
 
 
 **Report size:** small <br> 

@@ -25,9 +25,9 @@ Azure Security Center provides health assessments of [supported](security-center
 
 ## Windows Defender
 
-* Security Center recommends you **"Install endpoint protection solutions on virtual machine"** when [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) runs and the result is **AMServiceEnabled: False**
+* Security Center recommends you **"Install endpoint protection solutions on virtual machine"** when [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) runs and the result is **AMServiceEnabled: False**
 
-* Security Center recommends you **"Resolve endpoint protection health issues on your machines"** when [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) runs and any of the following occurs:
+* Security Center recommends you **"Resolve endpoint protection health issues on your machines"** when [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) runs and any of the following occurs:
 
   * Any of the following properties are false:
 

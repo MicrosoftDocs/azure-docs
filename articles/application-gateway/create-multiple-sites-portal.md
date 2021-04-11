@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 02/23/2021
+ms.date: 03/19/2021
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can host multiple sites.
 ---
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Create backend pools with the backend servers
 > * Create backend listeners
 > * Create routing rules
-> * Create a CNAME record in your domain
+> * Edit Hosts file for name resolution
 
 :::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Multi-site Application Gateway":::
 
@@ -208,9 +208,9 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 Wait for the deployment to complete before proceeding to the next step.
 
-## Edit your hosts file
+## Edit your hosts file for name resolution
 
-After the application gateway is created with its public IP address, you can get the IP address and use it to edit your hosts file to resolve `www.contoso.com` and `www.fabrikam.com` 
+After the application gateway is created with its public IP address, you can get the IP address and use it to edit your hosts file to resolve `www.contoso.com` and `www.fabrikam.com`. In a production environment, you could create a `CNAME` in DNS for name resolution.
 
 1. Click **All resources**, and then click **myAGPublicIPAddress**.
 

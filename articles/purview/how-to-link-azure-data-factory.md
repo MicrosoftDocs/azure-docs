@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
+ms.date: 03/24/2021
 ---
 # How to connect Azure Data Factory and Azure Purview
 
@@ -67,7 +67,7 @@ Follow the steps below to connect an existing Data Factory accounts to your Purv
 
 When a Purview user registers an Data Factory to which they have access to, the following happens in the backend:
 
-1. The **Data Factory MSI** gets added to Purview RBAC role: **Purview Data Curator**.
+1. The **Data Factory managed identity** gets added to Purview RBAC role: **Purview Data Curator**.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Screenshot showing Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
      
@@ -82,76 +82,97 @@ To remove a data factory connection, do the following:
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
-## Configure a self-hosted IR to collect lineage from on-prem SQL
+## Configure a Self-hosted Integration Runtime to collect lineage
 
-Lineage for the Data Factory Copy activity is available for on-premises SQL databases. If you're running self-hosted integration runtime for the data movement with Azure Data Factory and want to capture lineage in Azure Purview, ensure the version is 4.8.7418.1 or later. For more information about self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
+Lineage for the Data Factory Copy activity is available for on-premises data stores like SQL databases. If you're running self-hosted integration runtime for the data movement with Azure Data Factory and want to capture lineage in Azure Purview, ensure the version is 5.0 or later. For more information about self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
 ## Supported Azure Data Factory activities
 
 Azure Purview captures runtime lineage from the following Azure Data Factory activities:
 
-- Copy Data
-- Data Flow
-- Execute SSIS Package
+- [Copy Data](../data-factory/copy-activity-overview.md)
+- [Data Flow](../data-factory/concepts-data-flow-overview.md)
+- [Execute SSIS Package](../data-factory/how-to-invoke-ssis-package-ssis-activity.md)
 
 > [!IMPORTANT]
 > Azure Purview drops lineage if the source or destination uses an unsupported data storage system.
 
 The integration between Data Factory and Purview supports only a subset of the data systems that Data Factory supports, as described in the following sections.
 
-### Data Factory Copy Data support
+### Data Factory Copy activity support
 
-| Data storage system | Supported as source | 
+| Data store | Supported | 
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Yes | 
-| ADLS Gen2 | Yes | 
-| Azure Blob | Yes |
-| Azure Cosmos DB (SQL API) | Yes | 
-| Azure Cosmos DB (Mongo API) | Yes |
+| Azure Blob Storage | Yes |
 | Azure Cognitive Search | Yes | 
-| Azure Data Explorer | Yes | 
+| Azure Cosmos DB (SQL API) \* | Yes | 
+| Azure Cosmos DB's API for MongoDB \* | Yes |
+| Azure Data Explorer \* | Yes | 
+| Azure Data Lake Storage Gen1 | Yes | 
+| Azure Data Lake Storage Gen2 | Yes | 
 | Azure Database for Maria DB \* | Yes | 
-| Azure Database for MYSQL \* | Yes | 
+| Azure Database for MySQL \* | Yes | 
 | Azure Database for PostgreSQL \* | Yes |
 | Azure File Storage | Yes | 
-| Azure Table Storage | Yes |
 | Azure SQL Database \* | Yes | 
-| Azure SQL MI \* | Yes | 
-| Azure Synapse Analytics(formerly SQL DW) \* | Yes | 
-| SQL Server On-prem  \* | Yes | 
+| Azure SQL Managed Instance \* | Yes | 
+| Azure Synapse Analytics \* | Yes | 
+| Azure Table Storage | Yes |
 | Amazon S3 | Yes | 
-| Teradata | Yes | 
-| SAP Table connector | Yes |
-| SAP ECC | Yes | 
-| Hive | Yes | 
+| Hive \* | Yes | 
+| SAP ECC \* | Yes |
+| SAP Table | Yes |
+| SQL Server \* | Yes | 
+| Teradata \* | Yes |
+
+*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 > [!Note]
 > The lineage feature has certain performance overhead in Data Factory copy activity. For those who setup data factory connections in Purview, you may observe certain copy jobs taking longer to complete. Mostly the impact is none to negligible. Please contact support with time comparison if the copy jobs take significantly longer to finish than usual.
 
+#### Known limitations on copy activity lineage
+
+Currently, if you use the following copy activity features, the lineage is not yet supported:
+
+- Copy data into Azure Data Lake Storage Gen1 using Binary format.
+- Copy data into Azure Synapse Analytics using PolyBase or COPY statement.
+- Compression setting for Binary, delimited text, Excel, JSON, and XML files.
+- Source partition options for Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, and SAP Table.
+- Source partition discovery option for file-based stores.
+- Copy data to file-based sink with setting of max rows per file.
+- Add additional columns during copy.
+
+In additional to lineage, the data asset schema (shown in Asset -> Schema tab) is reported for the following connectors:
+
+- CSV and Parquet files on Azure Blob, Azure File Storage, ADLS Gen1, ADLS Gen2, and Amazon S3
+- Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
+
 ### Data Factory Data Flow support
 
-| Data storage system | Supported |
+| Data store | Supported |
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Yes |
-| ADLS Gen2 | Yes |
-| Azure Blob | Yes |
+| Azure Blob Storage | Yes |
+| Azure Data Lake Storage Gen1 | Yes |
+| Azure Data Lake Storage Gen2 | Yes |
 | Azure SQL Database \* | Yes |
-| Azure Synapse Analytics(formerly SQL DW) \* | Yes |
+| Azure Synapse Analytics \* | Yes |
+
+*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 ### Data Factory Execute SSIS Package support
 
-| Data storage system | Supported |
+| Data store | Supported |
 | ------------------- | ------------------- |
-| Azure Blob | Yes |
-| ADLS Gen1 | Yes |
-| ADLS Gen2 | Yes |
-| Azure SQL Database \* | Yes |
-| Azure SQL MI \*| Yes |
-| Azure Synapse Analytics(formerly SQL DW) \* | Yes |
-| SQL Server On-prem \* | Yes |
+| Azure Blob Storage | Yes |
+| Azure Data Lake Storage Gen1 | Yes |
+| Azure Data Lake Storage Gen2 | Yes |
 | Azure File Storage | Yes |
+| Azure SQL Database \* | Yes |
+| Azure SQL Managed Instance \*| Yes |
+| Azure Synapse Analytics \* | Yes |
+| SQL Server \* | Yes |
 
-*\* For SQL (Azure and on-premises) scenarios, Azure Purview doesn't support stored procedures or scripts for lineage or scanning. Lineage is limited to table and view sources only.*
+*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 > [!Note]
 > Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
@@ -166,7 +187,7 @@ Some additional ways of finding information in the lineage view, include the fol
 
 - In the **Lineage** tab, hover on shapes to preview additional information about the asset in the tooltip .
 - Select the node or edge to see the asset type it belongs or to switch assets.
-- Columns of a dataset are displayed in the left side of the **Lineage** tab. For more information about column-level lineage, see [Column-level lineage](catalog-lineage-user-guide.md#column-level-lineage).
+- Columns of a dataset are displayed in the left side of the **Lineage** tab. For more information about column-level lineage, see [Dataset column lineage](catalog-lineage-user-guide.md#dataset-column-lineage).
 
 ### Data lineage for 1:1 operations
 
