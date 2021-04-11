@@ -1,5 +1,5 @@
 ---
-title: gRPC extension protocol 
+title: gRPC extension protocol - Azure
 description: Azure Video Analyzer allows you to extend the pipeline processing capabilities through a pipeline extension node. If you use the gRPC extension processor as the extension node, then the communication between Video Analyzer module and your AI or CV module is over gRPC based, highly performant structured protocol.
 ms.topic: reference
 ms.date: 03/30/2021
