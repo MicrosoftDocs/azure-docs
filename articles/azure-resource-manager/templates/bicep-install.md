@@ -91,7 +91,7 @@ az bicep upgrade
 To install a specific version:
 
 ```bash
-az bicep install --version v0.3.126
+az bicep install --version v0.3.255
 ```
 
 > [!IMPORTANT]
@@ -156,7 +156,7 @@ bicep --help
 brew tap azure/bicep
 
 # Install the tool
-brew install azure/bicep
+brew install bicep
 ```
 
 ##### macOS manual install
