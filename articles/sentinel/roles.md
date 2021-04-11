@@ -64,7 +64,7 @@ Users with particular job requirements may need to be assigned additional roles 
 
 - **Creating and deleting workbooks**
 
-    For a user to create and delete an Azure Sentinel workbook, the user will also need to be assigned with the Azure Monitor role of [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor). This role is not necessary for using workbooks, but only for creating and deleting.
+    For a user to create and delete an Azure Sentinel workbook, the user will also need to be assigned with the Azure Monitor role of [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor). This role is not necessary for *using* workbooks, but only for creating and deleting.
 
 ### Other roles you might see assigned
 
@@ -84,7 +84,7 @@ The following table summarizes the Azure Sentinel roles and their allowed action
 |---|---|---|---|---|
 | Azure Sentinel Reader | -- | -- | -- | &#10003; |
 | Azure Sentinel Responder | -- | -- | &#10003; | &#10003; |
-| Azure Sentinel Contributor | -- | -- | &#10003; | &#10003; |
+| Azure Sentinel Contributor | -- | &#10003; | &#10003; | &#10003; |
 | Azure Sentinel Contributor + Logic App Contributor | &#10003; | &#10003; | &#10003; | &#10003; |
 
 ## Custom roles and advanced Azure RBAC
