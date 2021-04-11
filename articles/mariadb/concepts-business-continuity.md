@@ -40,7 +40,7 @@ You can use the service's backups to recover a server from various disruptive ev
 You can perform a point-in-time-restore to create a copy of your server to a known good point in time. This point in time must be within the backup retention period you have configured for your server. After the data is restored to the new server, you can either replace the original server with the newly restored server or copy the needed data from the restored server into the original server.
 
 > [!IMPORTANT]
-> Deleted servers can be restored only within **five days** of deletion after which the backups are deleted. The database backup can be accessed and restored only from the Azure subscription hosting the server. To restore a dropped server, refer [documented steps](howto-restore-dropped-server.md). To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../azure-resource-manager/management/lock-resources.md).
+> Deleted servers cannot be restored. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../azure-resource-manager/management/lock-resources.md).
 
 ## Recover from an Azure regional data center outage
 
