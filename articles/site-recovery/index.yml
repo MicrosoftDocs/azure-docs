@@ -48,6 +48,8 @@ landingContent:
             url: ./azure-to-azure-move-overview.md
       - linkListType: how-to-guide
         links:
+          - text: Zone to zone disaster recovery
+            url: ./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
           - text: Networking for Azure VM disaster recovery
             url: ./azure-to-azure-about-networking.md
           - text: Disaster recovery after migration to Azure

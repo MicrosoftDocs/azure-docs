@@ -6,16 +6,18 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: bobazile
-ms.date: 02/09/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
 
 # Telephony concepts
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
 
-Azure Communication Services Calling client libraries can be used to add telephony and PSTN to your applications. This page summarizes key telephony concepts and capabilities. See the [calling library](../../quickstarts/voice-video-calling/calling-client-samples.md) to learn more about specific client library languages and capabilities.
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
+Azure Communication Services Calling SDKs can be used to add telephony and PSTN to your applications. This page summarizes key telephony concepts and capabilities. See the [calling library](../../quickstarts/voice-video-calling/calling-client-samples.md) to learn more about specific SDK languages and capabilities.
 
 ## Overview of telephony
 Whenever your users interact with a traditional telephone number, calls are facilitated by PSTN (Public Switched Telephone Network) voice calling. To make and receive PSTN calls, you need to add telephony capabilities to your Azure Communication Services resource. In this case, signaling and media use a combination of IP-based and PSTN-based technologies to connect your users. Communication Services provides two discrete ways to reach the PSTN network: Azure Cloud Calling and SIP interface.

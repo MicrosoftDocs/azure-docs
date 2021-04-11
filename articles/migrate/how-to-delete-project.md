@@ -23,7 +23,7 @@ Before you delete a project:
     - The workspace isn't automatically deleted. Delete it manually.
     - Verify what a workspace is used for before you delete it. The same Log Analytics workspace can be used for multiple scenarios.
     - Before you delete the project, you can find a link to the workspace in **Azure Migrate - Servers** > **Azure Migrate - Server Assessment**, under **OMS Workspace**.
-    - To delete a workspace after deleting a project, find the workspace in the relevant resource group, and follow [these instructions](../azure-monitor/platform/delete-workspace.md).
+    - To delete a workspace after deleting a project, find the workspace in the relevant resource group, and follow [these instructions](../azure-monitor/logs/delete-workspace.md).
 
 
 ## Delete a project

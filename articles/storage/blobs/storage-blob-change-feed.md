@@ -62,14 +62,11 @@ Here's a few things to keep in mind when you enable the change feed.
 Enable change feed on your storage account by using Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com/), select your storage account.
+1. Navigate to the **Data protection** option under **Blob service**.
+1. Under **Tracking**, select **Turn on blob change feed**.
+1. Choose the **Save** button to confirm your data protection settings.
 
-2. Navigate to the **Data Protection** option under **Blob Service**.
-
-3. Click **Enabled** under **Blob change feed**.
-
-4. Choose the **Save** button to confirm your **Data Protection** settings.
-
-    ![Screenshot that shows the data protection settings.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
+    :::image type="content" source="media/storage-blob-change-feed/change-feed-enable-portal.png" alt-text="Screenshot showing how to enable change feed in Azure portal":::
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -263,7 +260,7 @@ For a description of each property, see [Azure Event Grid event schema for Blob 
 
 - Change event records where the `eventType` has a value of `Control` are internal system records and don't reflect a change to objects in your account. You can safely ignore those records.
 
-- Values in the `storageDiagnonstics` property bag are for internal use only and not designed for use by your application. Your applications shouldn't have a contractual dependency on that data. You can safely ignore those properties.
+- Values in the `storageDiagnostics` property bag are for internal use only and not designed for use by your application. Your applications shouldn't have a contractual dependency on that data. You can safely ignore those properties.
 
 - The time represented by the segment is **approximate** with bounds of 15 minutes. So to ensure consumption of all records within a specified time, consume the consecutive previous and next hour segment.
 

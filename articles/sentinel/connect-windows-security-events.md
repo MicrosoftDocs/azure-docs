@@ -52,7 +52,7 @@ To collect your Windows security events in Azure Sentinel:
 
 1. Verify that you have the appropriate permissions as described under the **Prerequisites** section on the connector page.
 
-1. Download and install the [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) (also known as the Microsoft Monitoring Agent or MMA) on the machines for which you want to stream security events into Azure Sentinel.
+1. Download and install the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) (also known as the Microsoft Monitoring Agent or MMA) on the machines for which you want to stream security events into Azure Sentinel.
 
     For Azure Virtual Machines:
     
@@ -69,9 +69,9 @@ To collect your Windows security events in Azure Sentinel:
     >
     > To allow Windows systems without the necessary internet connectivity to still stream events to Azure Sentinel, download and install the **OMS Gateway** on a separate machine, using the link on the lower right, to act as a proxy.  You will still need to install the Log Analytics agent on each Windows system whose events you want to collect.
     >
-    > For more information on this scenario, see the [**Log Analytics gateway** documentation](../azure-monitor/platform/gateway.md).
+    > For more information on this scenario, see the [**Log Analytics gateway** documentation](../azure-monitor/agents/gateway.md).
 
-    For additional installation options and further details, see the [**Log Analytics agent** documentation](../azure-monitor/platform/agent-windows.md).
+    For additional installation options and further details, see the [**Log Analytics agent** documentation](../azure-monitor/agents/agent-windows.md).
 
 1. Select which event set ([All, Common, or Minimal](#event-sets)) you want to stream.
 

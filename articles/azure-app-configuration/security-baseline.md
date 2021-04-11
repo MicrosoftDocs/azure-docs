@@ -384,7 +384,7 @@ App Configuration supports storing configuration of multiple applications in one
 
 - [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -601,9 +601,9 @@ For more information, see the following references:
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your App Configuration resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource. For App Configuration, activity logs are only available on the control plane and are surfaced by the Azure Resource Manager (ARM). Customer facing data plane logging for App Configuration is currently not supported. Azure resource logs are also not available to be configured.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -617,7 +617,7 @@ Ensure you are integrating Azure activity logs into your central logging. Ingest
 
 In addition, enable and onboard data to Azure Sentinel or a third-party SIEM. Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -631,9 +631,9 @@ In addition, enable and onboard data to Azure Sentinel or a third-party SIEM. Ma
 
 In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations.
 
-- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Storing resource logs in an Azure Storage Account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Storing resource logs in an Azure Storage Account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center monitoring**: Not applicable
 

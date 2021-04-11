@@ -3,7 +3,7 @@ title: Create a Python 3 runbook (preview) in Azure Automation
 description: This article teaches you to create, test, and publish a simple Python 3 runbook (preview).
 services: automation
 ms.subservice: process-automation
-ms.date: 12/22/2020
+ms.date: 02/16/2021
 ms.topic: tutorial
 ---
 
@@ -34,7 +34,7 @@ To complete this tutorial, you need the following:
    * If you have both Python 2 and Python 3 installed and you want to run both types of runbooks, then you need to configure the following environmental variables:
 
      * Python 2 - Create a new environmental variable called `PYTHON_2_PATH` and specify the installation folder. For example, if the installation folder is `C:\Python27`, then this path needs to be added to the variable.
-     
+
      * Python 3 - Create a new environmental variable called `PYTHON_3_PATH` and specify the installation folder. For example, if the installation folder is `C:\Python3`, then this path needs to be added to the variable.
 
 ## Create a new runbook
@@ -124,23 +124,17 @@ To do this, the script has to authenticate using the credentials from your Autom
 
 2. Add the following code to authenticate to Azure:
 
-   ```python
-   import os
-   from azure.mgmt.compute import ComputeManagementClient
-   import azure.mgmt.resource 
-   import automationassets 
-   
-   def get_automation_runas_credential(runas_connection): 
+    ```python
     from OpenSSL import crypto 
     import binascii 
     from msrestazure import azure_active_directory 
     import adal 
-    
+
     # Get the Azure Automation RunAs service principal certificate 
     cert = automationassets.get_automation_certificate("AzureRunAsCertificate") 
     pks12_cert = crypto.load_pkcs12(cert) 
     pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM,pks12_cert.get_privatekey()) 
-
+    
     # Get run as connection information for the Azure Automation service principal 
     application_id = runas_connection["ApplicationId"] 
     thumbprint = runas_connection["CertificateThumbprint"] 
@@ -151,17 +145,13 @@ To do this, the script has to authenticate using the credentials from your Autom
     authority_url = ("https://login.microsoftonline.com/"+tenant_id) 
     context = adal.AuthenticationContext(authority_url) 
     return azure_active_directory.AdalAuthentication( 
-        lambda: context.acquire_token_with_client_certificate( 
-                resource, 
-                application_id, 
-                pem_pkey, 
-                thumbprint) 
+      lambda: context.acquire_token_with_client_certificate( 
+          resource, 
+          application_id, 
+          pem_pkey, 
+          thumbprint) 
     ) 
-    
-   # Authenticate to Azure using the Azure Automation RunAs service principal 
-   runas_connection = automationassets.get_automation_connection("AzureRunAsConnection") 
-   azure_credential = get_automation_runas_credential(runas_connection) 
-   ```
+    ```
 
 ## Add code to create Python Compute client and start the VM
 

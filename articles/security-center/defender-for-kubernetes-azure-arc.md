@@ -1,284 +1,345 @@
 ---
-title: Benefits of Azure Defender for Arc enabled Kubernetes
-description: Learn how to secure your Arc enabled Kubernetes clusters with Azure Defender for Kubernetes
-services: security-center
+title: Protect hybrid and multi-cloud Kubernetes deployments with Azure Defender for Kubernetes
+description: Use Azure Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 04/06/2021
 ms.author: memildin
-
 ---
 
-# Azure Defender for Arc enabled Kubernetes
+# Defend Azure Arc enabled Kubernetes clusters running in on-premises and multi-cloud environments
+
+The **Azure Defender for Kubernetes clusters extension** can defend your on-premises clusters with the same threat detection capabilities offered for Azure Kubernetes Service clusters. Enable [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md) on your clusters and deploy the extension as described on this page. 
+
+The extension can also protect Kubernetes clusters on other cloud providers, although not on their managed Kubernetes services.
+
+> [!TIP]
+> We've put some sample files to help with the installation process in [Installation examples on GitHub](https://aka.ms/kubernetes-extension-installation-examples).
 
 ## Availability
 
-|Aspect|Details|
-|----|:----|
-|Release state:|**Preview**|
-|Required roles and permissions:|**Security admin** can dismiss alerts<br>**Security reader** can view findings|
-|Supported Kubernetes distributions:|[Kubernetes](https://kubernetes.io/docs/home/)<br>[AKS Engine](https://github.com/Azure/aks-engine)<br>[OpenShift (version 4 and higher)](https://github.com/openshift/kubernetes)|
-|||
-
-## Description
-
-Azure Defender for Kubernetes is expanding its support from Azure Kubernetes Service to *any* Kubernetes cluster, leveraging Azure Arc for Kubernetes.
-
-This preview brings the management layer threat detection capabilities that Azure Security Center offers today (through Azure Defender for Kubernetes) to Arc connected Kubernetes clusters.
-
-
-- [Azure Security Center enabled on your designated subscription](https://docs.microsoft.com/azure/security-center/security-center-get-started#enable-security-center-on-your-azure-subscription).
-
+| Aspect | Details |
+|--------|---------|
+| Release state | **Preview**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
+| Required roles and permissions | [Security admin](../role-based-access-control/built-in-roles.md#security-admin) can dismiss alerts<br>[Security reader](../role-based-access-control/built-in-roles.md#security-reader) can view findings |
+| Pricing | Requires [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md) |
+| Supported Kubernetes distributions | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer) |
+| Limitations | Azure Arc enabled Kubernetes and the Azure Defender extension **don't support** managed Kubernetes offerings like Google Kubernetes Engine and Elastic Kubernetes Service. [Azure Defender is natively available for Azure Kubernetes Service (AKS)](defender-for-kubernetes-introduction.md) and doesn't require connecting the cluster to Azure Arc. |
+| Environments and regions | Availability for this extension is the same as [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md)|
 
 ## Architecture overview
 
-Azure Defender for Kubernetes' ability to monitor and provide threat protection capabilities relies on an Azure Arc extension. The extension collects Kubernetes audit logs data from all control plane (master) nodes in the cluster and sends them to the Azure Defender for Kubernetes backend in the cloud for further analysis. The extension is registered with a Log Analytics workspace that's used as a data pipeline. The audit log data isn't stored in the Log Analytics workspace.
+For all Kubernetes clusters other than AKS, you'll need to connect your cluster to Azure Arc. Once connected, Azure Defender for Kubernetes can be deployed on [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md) resources as a [cluster extension](../azure-arc/kubernetes/extensions.md).
 
-This is a high-level diagram outlining the interaction between Azure Defender for Kubernetes and the Azure Arc-enabled Kubernetes cluster:
+The extension components collect Kubernetes audit logs data from all control plane nodes in the cluster and send them to the Azure Defender for Kubernetes backend in the cloud for further analysis. The extension is registered with a Log Analytics workspace used as a data pipeline, but the audit log data isn't stored in the Log Analytics workspace.
 
-:::image type="content" source="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png" alt-text="A high-level architecture diagram outlining the interaction between Azure Defender for Kubernetes and an Azure Arc enabled Kubernetes clusters.":::
+This diagram shows the interaction between Azure Defender for Kubernetes and the Azure Arc enabled Kubernetes cluster:
 
-## Get started
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png" alt-text="A high-level architecture diagram outlining the interaction between Azure Defender for Kubernetes and an Azure Arc enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png":::
 
-> [!IMPORTANT]
-> The instructions in this section use Azure CLI and should be run from a Linux machine (or [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl/install-win10)) that has the kubeconfig of your Arc connected cluster.
+## Prerequisites
 
-### Step 1 - Prepare the environment
+- Azure Defender for Kubernetes is [enabled on your subscription](enable-azure-defender.md)
+- Your Kubernetes cluster is [connected to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
+- You've met the pre-requisites listed under the [generic cluster extensions documentation](../azure-arc/kubernetes/extensions.md#prerequisites).
 
-1. Using the following command, verify that you have version 2.12.0 (or newer) of Azure CLI:
+## Deploy the Azure Defender extension
 
-    ``az -v``
+You can deploy the Azure Defender extension using a range of methods. For detailed steps, select the relevant tab.
 
-    If you don't have Azure CLI, or need to upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+### [**Azure portal**](#tab/k8s-deploy-asc)
 
-1. As mentioned in the prerequisites, you'll need a Kubernetes cluster. If you need to set one up, do so at this stage.
+### Use the "Quick fix" option from the Security Center recommendation
 
-1. To verify that your control plane (master) nodes are labelled "node-role.kubernetes.io/master" (this is the Kubernetes default), run the following command on your control plane (master) nodes:
+A dedicated recommendation in Azure Security Center provides:
 
-    ``kubectl get nodes --show-labels``
+- **Visibility** about which of your clusters has the Defender for Kubernetes extension deployed
+- **A "Quick fix" option** to deploy it to those clusters without the extension
 
-    > [!NOTE]
-    > To label your control plane (master) node, run the following command:
-    >
-    > ``kubectl label node <NODE-NAME> node-role.kubernetes.io/master``
+1. From Azure Security Center's recommendations page, open the **Enable Azure Defender** security control.
 
-1. Optionally, if you're using a proxy or firewall verify that port 443 is enabled for outbound communication. This is required for the Azure Arc extension to communicate with the Azure Defender service backend.
+1. Use the filter to find the recommendation named **Azure Arc enabled Kubernetes clusters should have Azure Defender's extension installed**.
 
-1. To establish the required configuration and settings for the Azure Arc extension, run the following commands:
-
-    ``az login``
-
-    ``az account set --subscription <subscription-id>``
-
-    ``wget -O- https://azuredefenderforarc.blob.core.windows.net/azuredefenderforarc/InstallAzureDefenderExtension.Prerequisites.sh | bash``
-
-1. If your cluster is already connected to Arc (public preview version), [disconnect it](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#delete-a-connected-cluster) before continuing.
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
     > [!TIP]
-    > This Azure Defender preview requires a private preview version of Azure Arc to support extension installation. Therefore, the cluster must be connected with the version established by the script downloaded in the previous instruction.
+    > Notice the Quick Fix icon in the actions column
 
-1. Connect your Kubernetes cluster to Arc as described in [Connect an Azure Arc-enabled Kubernetes cluster](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#before-you-begin).
+1. Select the extension to see the details of the healthy and unhealthy resources - clusters with and without the extension.
+
+1. From the unhealthy resources list, select a cluster and select **Remediate** to open the pane with the remediation options.
+
+1. Select the relevant Log Analytics workspace and select **Remediate x resource**.
+
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="Deploy Azure Defender extension for Azure Arc with Security Center's quick fix option.":::
 
 
-### Step 2 - Default installation of the Arc extension for Azure Defender
+### [**Azure CLI**](#tab/k8s-deploy-cli)
 
-For the default deployment of this extension to your Kubernetes cluster, follow the instructions in this section.
+### Use Azure CLI to deploy the Azure Defender extension
 
-If you want to change any defaults, for example to configure a proxy endpoint or a dedicated Log Analytics workspace, use the [Advanced installation](#advanced-installation) procedure.
+1. Log in to Azure:
 
-1. To deploy the extension:
+    ```azurecli
+    az login
+    az account set --subscription <your-subscription-id>
+    ```
 
-    - For a Kubernetes or AKS-Engine cluster, run the following command: ``az k8s-extension create --cluster-type connectedClusters --cluster-name <your-cluster-name> --resource-group <your-rg> --extension-type microsoft.azuredefender.kubernetes --name microsoft.azuredefender.kubernetes``
+    > [!IMPORTANT]
+    > Ensure that you use the same subscription ID for ``<your-subscription-id>`` as the one that was used when connecting your cluster to Azure Arc.
 
-    - For an OpenShift cluster, run the following command: ``az k8s-extension create --cluster-type connectedClusters --cluster-name <your-cluster-name> --resource-group <your-rg> --extension-type microsoft.azuredefender.kubernetes --name microsoft.azuredefender.kubernetes --configuration-settings Azure.Cluster.kubernetesDistro="openshift"``
+1. Run the following command to deploy the extension on top of your Azure Arc enabled Kubernetes cluster:
+
+    ```azurecli
+    az k8s-extension create --name microsoft.azuredefender.kubernetes --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group> --extension-type microsoft.azuredefender.kubernetes
+    ```
+
+    A description of all the supported configuration settings on the Azure Defender extension type is given below:
+
+    | Property | Description |
+    |----------|-------------|
+    | logAnalyticsWorkspaceResourceID | **Optional**. Full resource ID of your own Log Analytics workspace.<br>When not provided, the default workspace of the region will be used.<br><br>To get the full resource ID, run the following command to display the list of workspaces in your subscriptions in the default JSON format:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>The Log Analytics workspace resource ID has the following syntax:<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces) |
+    | auditLogPath |**Optional**. The full path to the audit log files.<br>When not provided, the default path ``/var/log/kube-apiserver/audit.log`` will be used.<br>For AKS Engine, the standard path is ``/var/log/kubeaudit/audit.log`` |
+
+    The below command shows an example usage of all optional fields:
+
+    ```azurecli
+    az k8s-extension create --name microsoft.azuredefender.kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-rg> --extension-type microsoft.azuredefender.kubernetes --configuration-settings logAnalyticsWorkspaceResourceID=<log-analytics-workspace-resource-id> auditLogPath=<your-auditlog-path>
+    ```
+
+### [**Resource Manager**](#tab/k8s-deploy-resource-manager)
+
+### Use Azure Resource Manager to deploy the Azure Defender extension
+
+To use Azure Resource Manager to deploy the Azure Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces).
+
+You can use the **azure-defender-extension-arm-template.json** Resource Manager template from Security Center's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
+
+> [!TIP]
+> If you're new to Resource Manager templates, start here: [What are Azure Resource Manager templates?](../azure-resource-manager/templates/overview.md)
+
+### [**REST API**](#tab/k8s-deploy-api)
+
+### Use REST API to deploy the Azure Defender extension 
+
+To use the REST API to deploy the Azure Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces).
+
+> [!TIP]
+> The simplest way to use the API to deploy the Azure Defender extension is with the supplied **Postman Collection JSON** example from Security Center's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
+- To modify the Postman Collection JSON, or to manually deploy the extension with the REST API, run the following PUT command:
+
+    ```rest
+    PUT https://management.azure.com/subscriptions/{{Subscription Id}}/resourcegroups/{{Resource Group}}/providers/Microsoft.Kubernetes/connectedClusters/{{Cluster Name}}/providers/Microsoft.KubernetesConfiguration/extensions/microsoft.azuredefender.kubernetes?api-version=2020-07-01-preview
+    ```
 
     Where:
 
-    - **your-cluster-name** - Your Arc connected cluster name
-    - **your-rg** - Your Arc connected cluster resource group
+    | Name            | In   | Required | Type   | Description                                  |
+    |-----------------|------|----------|--------|----------------------------------------------|
+    | Subscription ID | path | True     | string | Your Azure Arc enabled Kubernetes resource's subscription ID |
+    | Resource Group  | path | True     | string | Name of the resource group containing your Azure Arc enabled Kubernetes resource |
+    | Cluster Name    | path | True     | string | Name of your Azure Arc enabled Kubernetes resource  |
 
-    If you want to specify advanced options like a proxy endpoint or details of your own Log Analytics workspace, see [Advanced installation](#advanced-installation).
 
-    > [!IMPORTANT]
-    > The process may take a few minutes to complete, so we recommend waiting before moving on to installation verification.
+    For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
 
-1. To verify that the installation was successful:
+    ```az account get-access-token --subscription <your-subscription-id>```
+    Use the following structure for the body of your message:
+    ```json
+    { 
+    "properties": { 
+        "extensionType": "microsoft.azuredefender.kubernetes",
+    "con    figurationSettings": { 
+            "logAnalytics.workspaceId":"YOUR-WORKSPACE-ID"
+        // ,    "auditLogPath":"PATH/TO/AUDITLOG"
+        },
+        "configurationProtectedSettings": {
+            "logAnalytics.key":"YOUR-WORKSPACE-KEY"
+        }
+        }
+    } 
+    ```
 
-    1. Run the following command and under "extensionType": "microsoft.azuredefender.kubernetes", look for "installState": "Installed" (it might show "installState": "pending" for the first few minutes):
+    Description of the properties is given below:
 
-        ``az k8s-extension show --cluster-type connectedClusters --cluster-name <your-cluster-name> --resource-group <your-rg> --name microsoft.azuredefender.kubernetes``
+    | Property | Description | 
+    | -------- | ----------- |
+    | logAnalytics.workspaceId | Workspace ID of the Log Analytics resource |
+    | logAnalytics.key         | Key of the Log Analytics resource | 
+    | auditLogPath             | **Optional**. The full path to the audit log files. The default value is ``/var/log/kube-apiserver/audit.log`` |
 
-    1. Run the following command and check that a pod called "azuredefender-XXXXX" is running:
+---
 
-        ``kubectl get pods -n azuredefender``
+## Verify the deployment
 
-### Advanced installation
+To verify that your cluster has the Azure Defender extension installed on it, follow the steps in one of the tabs below:
 
-For a simple installation using the default options, follow the instructions in [Step 2 - Default installation of the Arc extension for Azure Defender](#step-2---default-installation-of-the-arc-extension-for-azure-defender). To configure advanced options like a proxy endpoint or details of your own Log Analytics workspace, use the instructions below.
+### [**Azure portal - Security Center**](#tab/k8s-verify-asc)
 
-1. To provide runtime threat protection capabilities, the extension collects [Kubernetes audit logs](https://kubernetes.io/docs/tasks/debug-application-cluster/audit/) from your cluster. To validate you Kubernetes audit logs are configured correctly:
+### Use Security Center recommendation to verify the status of your extension
 
-    - If you haven't enabled audit logs, they'll automatically be enabled during the installation of the Azure Arc extension. When audit logs are automatically enabled in your cluster, a backup of the kube-apiserver.yaml file is generated to provide you with a rollback option. The backup will be saved at ``/var/log/kube-apiserver.yaml.backup``.
+1. From Azure Security Center's recommendations page, open the  **Enable Azure Defender** security control.
 
-    - If you've already enabled audit logs, use this policy file to verify that you're collecting the necessary events for the Arc extension for Azure Defender for Kubernetes: [audit_policy.yaml](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/Defender%20for%20Kubernetes/audit-policy.yaml).
+1. Select the recommendation named **Azure Arc enabled Kubernetes clusters should have Azure Defender's extension installed**.
 
-    - When audit logs are already enabled on your cluster, your cluster's audit configuration and settings won't be modified during the installation of the extension.
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+
+1. Check that the cluster on which you deployed the extension is listed as **Healthy**.
+
+
+### [**Azure portal - Azure Arc**](#tab/k8s-verify-arc)
+
+### Use the Azure Arc pages to verify the status of your extension
+
+1. From the Azure portal, open **Azure Arc**.
+1. From the infrastructure list, select **Kubernetes clusters** and then select the specific cluster.
+1. Open the extensions page. The extensions on the cluster are listed. Check the **Install status** column to confirm that the Azure Defender extension was installed correctly.
+
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-installed-clusters-page.png" alt-text="Azure Arc page for checking the status of all installed extensions on a Kubernetes cluster." lightbox="media/defender-for-kubernetes-azure-arc/extension-installed-clusters-page.png":::
+
+1. For more details, select the extension.
+
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-details-page.png" alt-text="Full details of an Azure Arc extension on a Kubernetes cluster.":::
+
+
+### [**Azure CLI**](#tab/k8s-verify-cli)
+
+### Use Azure CLI to verify that the extension is deployed
+
+1. Run the following command on Azure CLI:
+
+    ```azurecli
+    az k8s-extension show --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-rg> --name microsoft.azuredefender.kubernetes
+    ```
+
+1. In the response, look for "extensionType": "microsoft.azuredefender.kubernetes" and "installState": "Installed".
 
     > [!NOTE]
-    > In OpenShift and AKS Engine based clusters, audit logs are enabled by default. For both of these systems the audit configuration and settings won't be modified.
+    > It might show "installState": "Pending" for the first few minutes.
+    
+1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that a pod called "azuredefender-XXXXX" is in 'Running' state:
+    
+    ```console
+    kubectl get pods -n azuredefender
+    ```
 
-1. Optionally, configure a dedicated Log Analytics workspace:
+### [**REST API**](#tab/k8s-verify-api)
 
-    Log Analytics workspaces provide a robust and secure data pipeline. Security data collected from your cluster is sent by the extension to the Azure defender for Kubernetes service in Azure for analysis. The transfer utilizes a Log analytics workspace.
+### Use the REST API to verify that the extension is deployed
 
-    > [!IMPORTANT]
-    > The data collected will **not** be stored in this workspace **nor will you be charged for it**.
+To confirm a successful deployment, or to validate the status of your extension at any time:
 
-    - To use your own workspace, enter the full Azure resource ID during the installation of the Azure Defender for Kubernetes Azure Arc extension. To get the full resource ID, run the following command to display the list of workspaces in your subscriptions in the default JSON format:
+1. Run the following GET command:
 
-        ``az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json``
+    ```rest
+    GET https://management.azure.com/subscriptions/{{Subscription Id}}/resourcegroups/{{Resource Group}}/providers/Microsoft.Kubernetes/connectedClusters/{{Cluster Name}}/providers/Microsoft.KubernetesConfiguration/extensions/microsoft.azuredefender.kubernetes?api-version=2020-07-01-preview
+    ```
 
-        In the output, find the designated workspace name, and then copy the full resource ID of that Log Analytics workspace. Keep it available for use when running the ``create`` command below.
+1. In the response, look in "extensionType": "microsoft.azuredefender.kubernetes" for "installState": "Installed".
 
-    - You can create a new workspace using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-workspace), [PowerShell](https://docs.microsoft.com/azure/azure-monitor/scripts/powershell-sample-create-workspace?toc=/powershell/module/toc.json), or the [Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
-
-    - If you don't supply details of your own workspace, the Arc extension will connect to the default Log Analytics workspace of your resource group’s region. If one doesn’t exist in the region, it will be created (at no additional cost).
-
-1. Optionally, configure a proxy endpoint:
-
-    You can configure the extension to communicate through your outbound HTTP/HTTPS proxy server. Both anonymous and basic authentication (username/password) are supported. At this time, certificate based auth proxy servers are not supported.
-
-    The proxy configuration uses the syntax ``protocol://user:password@proxyhost:port`` and is entered in the ``create`` command in the next instruction below.
-
-    > [!IMPORTANT]
-    > If your proxy server does not require authentication, you still need to specify a pseudo username/password. This can be any username or password.
-
-    |Property|Description|
-    |----|:----|
-    | Protocol | http or https |
-    | user | Optional username for proxy authentication |
-    | password | Optional password for proxy authentication |
-    | proxyhost | Address or FQDN of the proxy server |
-    | port | Optional port number for the proxy server |
-    |||
-
-    For example: ``http://user01:password@proxy01.contoso.com:3128``
-
-    If you specify the protocol as **http**, the HTTP requests are created using SSL/TLS secure connection. Your proxy server must support SSL/TLS protocols.
-
-1. To deploy the Azure Arc extension (consult the table for details of the properties):
-
-    ``az k8s-extension create --cluster-type connectedClusters --cluster-name <your-cluster-name> --resource-group <your-rg> --extension-type microsoft.azuredefender.kubernetes --name microsoft.azuredefender.kubernetes --configuration-settings logAnalyticsWorkspaceResourceID=<log-analytics-workspace-resource-id> auditLogPath=<your-auditlog-path> Azure.Cluster.kubernetesDistro=<your-kubernetes-distribution> --configuration-protected-settings proxyEndpoint=<your-proxy-endpoint>``
-
-    |Property|Description|
-    |----|:----|
-    |cluster-name|Your Arc connected cluster name.|
-    |resource-group|Your Arc connected cluster resource group.|
-    |logAnalyticsWorkspaceResourceID|**Optional**. Full resource ID of your own Log Analytics workspace. When not provided, the default workspace of the region will be used.|
-    |proxyEndpoint|**Optional**. The proxy endpoint configuration value with the following syntax:<br>protocol://user:password@proxyhost:port as described in the previous instruction.<br><br>**proxyEndpoint** is only allowed in **--configuration-protected-settings** since it can have credentials in it. Unlike configuration settings, configuration protected settings are NOT returned in GET and LIST responses, and thus not exposed after they are set during the creation of extension.|
-    |auditLogPath|**Optional**. The full path to the audit log files. The default value is ``/var/log/kube-apiserver/audit`` as the auto enablement of audit logs configures this path.|
-    |Azure.Cluster.kubernetesDistro|**Optional**. If your Arc connected cluster is OpenShift, specify "OpenShift". Otherwise, this property is ignored.|
-    |||
-
-    > [!IMPORTANT]
-    > The process may take a few minutes to complete, so we recommend waiting before moving on to installation verification.
-
-1. To verify that the installation was successful:
-
-    1. Run the following command and under "extensionType": "microsoft.azuredefender.kubernetes", look for "installState": "Installed" (it might show "installState": "pending" for the first few minutes):
-
-        ``az k8s-extension show --cluster-type connectedClusters --cluster-name <your-cluster-name> --resource-group <your-rg> --name microsoft.azuredefender.kubernetes``
-
-    1. Run the following command and check that a pod called "azuredefender-XXXXX" is running:
-
-        ``kubectl get pods -n azuredefender``
+    > [!TIP]
+    > It might show "installState": "Pending" for the first few minutes.
+    
+1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that a pod called "azuredefender-XXXXX" is in 'Running' state:
+    
+    ```console
+    kubectl get pods -n azuredefender
+    ```
+---
 
 ## Simulate security alerts from Azure Defender for Kubernetes
 
-A full list of supported alerts is available in the [Reference table for all security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster). You can simulate security alerts using the instructions below.
+A full list of supported alerts is available in the [reference table of all security alerts in Azure Security Center](alerts-reference.md#alerts-akscluster).
 
 1. To simulate an Azure Defender alert, run the following command:
 
-    ``kubectl get pods --namespace=asc-alerttest-662jfi039n``
+    ```console
+    kubectl get pods --namespace=asc-alerttest-662jfi039n
+    ```
 
     The expected response is "No resource found".
 
     Within 30 minutes, Azure Defender will detect this activity and trigger a security alert.
 
-1. To optionally simulate malicious-like deployment, run the following command:
+1. In the Azure portal, open Azure Security Center's security alerts page and look for the alert on the relevant resource:
 
-    ``kubectl create -f https://azuredefenderforarc.blob.core.windows.net/azuredefenderforarc/AzureDefender-Trigger-K8S-Alerts.yaml``
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png" alt-text="Sample alert from Azure Defender for Kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png":::
 
-    Within 30 minutes, Azure Defender will detect this activity and trigger a security alert.
+## Removing the Azure Defender extension
 
-    > [!TIP]
-    > To delete this deployment after your tests, run the following command:
-    > 
-    > ``kubectl delete -f https://azuredefenderforarc.blob.core.windows.net/azuredefenderforarc/AzureDefender-Trigger-K8S-Alerts.yaml``
+You can remove the extension using Azure portal, Azure CLI, or REST API as explained in the tabs below.
 
-1. In the Azure portal, open Azure Security Center's security alerts page:
+### [**Azure portal - Arc**](#tab/k8s-remove-arc)
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png" alt-text="Sample alert from Azure Defender for Kubernetes.":::
+### Use Azure portal to remove the extension
 
-    > [!TIP]
-    > This screenshot shows the recently released security alerts experience. Try it out!
+1. From the Azure portal, open Azure Arc.
+1. From the infrastructure list, select **Kubernetes clusters** and then select the specific cluster.
+1. Open the extensions page. The extensions on the cluster are listed.
+1. Select the cluster and select **Uninstall**.
 
-## Uninstall the Arc extension
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png" alt-text="Removing an extension from your Arc enabled Kubernetes cluster." lightbox="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png":::
 
-1. To remove the Azure Defender for Kubernetes Arc extension with Azure CLI, run the following commands on your Arc enabled Kubernetes cluster:
+### [**Azure CLI**](#tab/k8s-remove-cli)
 
-    ``az login``
+### Use Azure CLI to remove the Azure Defender extension
 
-    ``az account set --subscription <subscription-id>``
+1. Remove the Azure Defender for Kubernetes Arc extension with the following commands:
 
-    ``az k8s-extension delete --cluster-type connectedClusters --cluster-name <your-cluster-name> --resource-group <your-rg> --name microsoft.azuredefender.kubernetes --yes``
+    ```azurecli
+    az login
+    az account set --subscription <subscription-id>
+    az k8s-extension delete --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-rg> --name microsoft.azuredefender.kubernetes --yes
+    ```
 
-    > [!IMPORTANT]
-    > The uninstallation process might take a few minutes to complete. We recommend you wait before you try to verify that it was successful.
+    Removing the extension may take a few minutes. We recommend you wait before you try to verify that it was successful.
 
 1. To verify that the extension was successfully removed, run the following commands:
 
-    ``az k8s-extension show --cluster-type connectedClusters --cluster-name <your-cluster-name> --resource-group <your-rg> --name microsoft.azuredefender.kubernetes``
+    ```azurecli
+    az k8s-extension show --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-rg> --name microsoft.azuredefender.kubernetes
+    ```
 
-    Verify the extension does not exist - there should be no delay.
+    There should be no delay in the extension resource getting deleted from Azure Resource Manager. After that, validate that there are no pods called "azuredefender-XXXXX" on the cluster by running the following command with the `kubeconfig` file pointed to your cluster: 
 
-    ``kubectl get pods -n azuredefender``
+    ```console
+    kubectl get pods -n azuredefender
+    ```
 
-    Validate that there are no pods called "azuredefender-XXXXX". It might take a few minutes for the pods to be deleted.
+    It might take a few minutes for the pods to be deleted.
 
-## Feedback
+### [**REST API**](#tab/k8s-remove-api)
 
-Please share your feedback, specifically in the areas below. You can submit your feedback via this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR29qPXYA7fJFpXjPCSwLwsNUQjA1R0FaTFBUMzRNODJBRUVGN1hQTkZGWS4u) or directly to the key contacts below.
+### Use REST API to remove the Azure Defender extension 
 
-### Participant Information
+To remove the extension using the REST API, run the following DELETE command:
 
-1. Please supply your name
-1. Organization
-1. Email address (If you are open to being contacted about your feedback)
-1. Your role within the organization
+```rest
+DELETE https://management.azure.com/subscriptions/{{Subscription Id}}/resourcegroups/{{Resource Group}}/providers/Microsoft.Kubernetes/connectedClusters/{{Cluster Name}}/providers/Microsoft.KubernetesConfiguration/extensions/microsoft.azuredefender.kubernetes?api-version=2020-07-01-preview
+```
 
-### Feature feedback questions
+| Name            | In   | Required | Type   | Description                                           |
+|-----------------|------|----------|--------|-------------------------------------------------------|
+| Subscription ID | path | True     | string | Your Arc enabled Kubernetes cluster's subscription ID |
+| Resource Group  | path | True     | string | Your Arc enabled Kubernetes cluster's resource group  |
+| Cluster Name    | path | True     | string | Your Arc enabled Kubernetes cluster's name            |
 
-1. On which Kubernetes distribution did you test this private preview (e.g. OpenShift, AKS-Engine, Kubernetes)? Are there other Kubernetes distributions your organization might be interested in protecting with Azure Defender for Kubernetes?
-1. Is your Arc enabled Kubernetes behind a proxy service? If yes, which authentication method does the proxy service use (none, basic authentication, or certificate)?
-1. How important is an Azure native security offering for the Arc enabled Kubernetes solution?
-1. Which hybrid-cloud container security solution are you currently using for threat prevention, detection, and response?
-1. Did you have audit log enabled on your Arc enabled Kubernetes cluster before this preview?
-1. Were the steps and instruction of this preview clear and easy to understand? Did you run into any issues or errors during the preview?
-1. Did you get additional alerts during the preview time? Were they helpful/accurate? Would you like to see any adjustments to these alerts?
-1. What would you like to see in future release of "Azure Defender for Arc enabled Kubernetes"?
-1. Any other feedback you would like to give?
+For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
 
-## Key contacts
+```azurecli
+az account get-access-token --subscription <your-subscription-id>
+```
 
-Feature PM: Maya Herskovic [mahersko@microsoft.com](mailto:mahersko@microsoft.com)
+The request may take several minutes to complete.
 
-Private Preview PM: Gili Ben Zvi | [gibenzvi@microsoft.com](mailto:gibenzvi@microsoft.com)
+---
 
-Thank you! Your participation is a vital part of our Cloud + AI Security product development process.
+## Next steps
 
-Microsoft respects your privacy. Review our online [Privacy statement](https://privacy.microsoft.com/privacystatement). Microsoft Corporation, One Microsoft Way, Redmond, WA, USA 98052.
+This page explained how to deploy the Azure Defender extension for Azure Arc enabled Kubernetes clusters. Learn more about Azure Defender and Azure Security Center's container security features in the following pages:
 
-At any point you may opt-out of the program by filling out [this form](https://aka.ms/OptOut_PrivatePreviewProgram).
+- [Container security in Security Center](container-security.md)
+- [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+- [Protect your Kubernetes workloads](kubernetes-workload-protections.md)

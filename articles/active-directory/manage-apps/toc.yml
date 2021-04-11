@@ -34,8 +34,52 @@
       href: application-proxy-add-on-premises-application.md
   - name: Samples
     items: 
-    - name: Azure PowerShell samples for Application Proxy
-      href: application-proxy-powershell-samples.md
+    - name: App Management PowerShell samples
+      items:
+      - name: Overview of App Management samples
+        href: app-management-powershell-samples.md
+      - name: Export secrets and certs (app registrations)
+        href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+      - name: Export secrets and certs (enterprise apps)
+        href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
+      - name: Export expiring secrets and certs
+        href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+      - name: Export secrets and certs expiring beyond required date
+        href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
+    - name: App Proxy PowerShell samples
+      items:
+      - name: Overview of App Proxy samples
+        href: application-proxy-powershell-samples.md
+      - name: List basic info about apps
+        href: ./scripts/powershell-get-all-app-proxy-apps-basic.md
+      - name: List extended info about apps
+        href: ./scripts/powershell-get-all-app-proxy-apps-extended.md
+      - name: List apps by connector group
+        href: ./scripts/powershell-get-all-app-proxy-apps-by-connector-group.md
+      - name: List apps with token lifetime policy
+        href: ./scripts/powershell-get-all-app-proxy-apps-with-policy.md
+      - name: List connector groups and connectors
+        href: ./scripts/powershell-get-all-connectors.md
+      - name: Move apps between connector groups
+        href: ./scripts/powershell-move-all-apps-to-connector-group.md
+      - name: List users and groups assigned to app
+        href: ./scripts/powershell-display-users-group-of-app.md
+      - name: Assign user to an app
+        href: ./scripts/powershell-assign-user-to-app.md
+      - name: Assign group to an app
+        href: ./scripts/powershell-assign-group-to-app.md
+      - name: List apps using default domains
+        href: ./scripts/powershell-get-all-default-domain-apps.md
+      - name: List apps using wildcard publishing
+        href: ./scripts/powershell-get-all-wildcard-apps.md
+      - name: List all custom domains and certs
+        href: ./scripts/powershell-get-all-custom-domains-and-certs.md
+      - name: List apps without certs
+        href: ./scripts/powershell-get-all-custom-domain-no-cert.md
+      - name: List apps with identical certs
+        href: ./scripts/powershell-get-custom-domain-identical-cert.md
+      - name: Replace identical certs
+        href: ./scripts/powershell-get-custom-domain-replace-cert.md
   - name: Concepts
     expanded: true
     items: 
@@ -47,8 +91,6 @@
       items:
       - name: Get started with app integration
         href: plan-an-application-integration.md
-      - name: Plan for apps not listed in the gallery
-        href: non-gallery-apps.md
       - name: Plan a My Apps deployment
         href: my-apps-deployment-plan.md
     - name: Single sign-on
@@ -150,8 +192,10 @@
         href: disable-user-sign-in-portal.md
       - name: Configure self-service app assignment
         href: manage-self-service-access.md
-      - name: Home Realm Discovery
+      - name: Force auto-acceleration through Home Realm Discovery policy
         href: configure-authentication-for-federated-users-portal.md
+      - name: Prevent sign-in auto-acceleration using Home Realm Discovery policy
+        href: prevent-domain-hints-with-home-realm-discovery.md
     - name: Migrate identity management to Azure AD
       items:
       - name: Migration resources
@@ -212,8 +256,10 @@
           href: application-proxy-integrate-with-microsoft-cloud-application-security.md
         - name: Integrate with Remote Desktop
           href: application-proxy-integrate-with-remote-desktop-services.md
-        - name: Integrate with SharePoint
+        - name: Integrate with SharePoint (Kerberos)
           href: application-proxy-integrate-with-sharepoint-server.md
+        - name: Integrate with SharePoint (SAML)
+          href: application-proxy-integrate-with-sharepoint-server-saml.md
         - name: Integrate with Teams
           href: application-proxy-integrate-with-teams.md
         - name: Integrate with Tableau
@@ -222,8 +268,6 @@
           href: application-proxy-qlik.md
     - name: Troubleshoot
       items:
-      - name: Troubleshoot adding apps
-        href: troubleshoot-adding-apps.md
       - name: Troubleshoot password-based single sign-on
         href: troubleshoot-password-based-sso.md
       - name: Troubleshoot SAML-based single sign-on
@@ -242,8 +286,6 @@
           href: application-sign-in-problem-application-error.md
         - name: Problem signing into a Microsoft app
           href: application-sign-in-problem-first-party-microsoft.md
-        - name: Problem with single sign-on
-          href: application-sign-in-problem-federated-sso-gallery.md
       - name: Troubleshoot on-premises apps
         items:
         - name: Application Proxy troubleshooting
@@ -278,8 +320,10 @@
           href: application-proxy-understand-cors-issues.md
   - name: Reference
     items:
-    - name: Application Proxy FAQ
+    - name: App Proxy FAQ
       href: application-proxy-faq.md
+    - name: App Management certificates FAQ
+      href: application-management-certs-faq.md
     - name: Application Proxy version history
       href: application-proxy-release-version-history.md
     - name: Reasons apps appear in Enterprise Applications

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure SQL documentation 
-summary: "Find documentation about the Azure SQL family of SQL Server database engine products in the cloud: Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VM. "
+summary: "Find documentation about the Azure SQL family of SQL Server database engine products in the cloud: Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VM."
 
 metadata:
   title: Azure SQL documentation
@@ -26,14 +26,18 @@ landingContent:
   # Card 
   - title: Azure SQL Database
     linkLists:
-      - linkListType: overview
+      - linkListType: whats-new
         links:
           - text: What's new? 
             url: database/doc-changes-updates-release-notes.md?tabs=single-database
+          - text: Feedback? Take the survey! 
+            url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456 
+      - linkListType: overview
+        links:
           - text: What is SQL Database?
             url: database/sql-database-paas-overview.md
           - text: What are elastic pools? 
-            url: database/elastic-pool-overview.md 
+            url: database/elastic-pool-overview.md
       - linkListType: quickstart
         links:
           - text: Create SQL Database
@@ -61,6 +65,12 @@ landingContent:
   # Card 
   - title: Azure SQL Managed Instance
     linkLists:
+      - linkListType: whats-new
+        links:
+          - text: What's new? 
+            url: database/doc-changes-updates-release-notes.md?tabs=managed-instance
+          - text: Feedback? Take the survey! 
+            url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456 
       - linkListType: overview
         links:
           - text: What's new? 

@@ -6,7 +6,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: bobazile
-ms.date: 02/09/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -27,7 +27,7 @@ The infrastructure requirements for the supported SBCs, domains, and other netwo
 |Session Border Controller (SBC)|A supported SBC. For more information, see [Supported SBCs](#supported-session-border-controllers-sbcs).|
 |Telephony trunks connected to the SBC|One or more telephony trunks connected to the SBC. On one end, the SBC connects to the Azure Communication Service via SIP Interface. The SBC can also connect to third-party telephony entities, such as PBXs, Analog Telephony Adapters, and so on. Any PSTN connectivity option connected to the SBC will work. (For configuration of the PSTN trunks to the SBC, please refer to the SBC vendors or trunk providers.)|
 |Azure subscription|An Azure subscription that you use to create ACS resource, and the configuration and connection to the SBC.|
-|Communication Services Access Token|To make calls, you need a valid Access Token with `voip` scope. See [Access Tokens](https://docs.microsoft.com/azure/communication-services/concepts/identity-model#access-tokens)|
+|Communication Services Access Token|To make calls, you need a valid Access Token with `voip` scope. See [Access Tokens](../identity-model.md#access-tokens)|
 |Public IP address for the SBC|A public IP address that can be used to connect to the SBC. Based on the type of SBC, the SBC can use NAT.|
 |Fully Qualified Domain Name (FQDN) for the SBC|A FQDN for the SBC, where the domain portion of the FQDN does not match registered domains in your Microsoft 365 or Office 365 organization. For more information, see [SBC domain names](#sbc-domain-names).|
 |Public DNS entry for the SBC |A public DNS entry mapping the SBC FQDN to the public IP Address. |
@@ -155,12 +155,12 @@ The port range of the Media Processors is shown in the following table:
 
 ## Media traffic: Media processors geography
 
-The media traffic flows via components called media processors. Media processors are placed in the same datacenters as SIP proxies. Also, there are additional media processors to optimize media flow. For example, we do not have a SIP proxy component now in Australia (SIP flows via Singapore or Hong Kong) but we do have the media processor locally in Australia. The need for the media processors locally is dictated by the latency which we experience by sending traffic long-distance, for example from Australia to Singapore or Hong Kong. While latency in the example of traffic flowing from Australia to Hong Kong or Singapore is acceptable to preserve good call quality for SIP traffic, for real-time media traffic it is not.
+The media traffic flows via components called media processors. Media processors are placed in the same datacenters as SIP proxies. Also, there are additional media processors to optimize media flow. For example, we do not have a SIP proxy component now in Australia (SIP flows via Singapore or Hong Kong SAR) but we do have the media processor locally in Australia. The need for the media processors locally is dictated by the latency which we experience by sending traffic long-distance, for example from Australia to Singapore or Hong Kong SAR. While latency in the example of traffic flowing from Australia to Hong Kong SAR or Singapore is acceptable to preserve good call quality for SIP traffic, for real-time media traffic it is not.
 
 Locations where both SIP proxy and media processor components deployed:
 - US (two in US West and US East datacenters)
 - Europe (Amsterdam and Dublin datacenters)
-- Asia (Singapore and Hong Kong datacenters)
+- Asia (Singapore and Hong Kong SAR datacenters)
 - Australia (AU East and Southeast datacenters)
 
 Locations where only media processors are deployed (SIP flows via the closest datacenter listed above):
@@ -184,7 +184,7 @@ On the leg between the Cloud Media Processor and ACS SDK app either SILK or G.72
 
 ## Supported Session Border Controllers (SBCs)
 
-Certification is in progress. Meanwhile, customers can use [Teams Certified Session Border Controllers](https://docs.microsoft.com/MicrosoftTeams/direct-routing-border-controllers). 
+Certification is in progress. Meanwhile, customers can use [Teams Certified Session Border Controllers](/MicrosoftTeams/direct-routing-border-controllers). 
 
 ## Next steps
 

@@ -59,7 +59,7 @@ Once the failover operation for the IoT hub completes, all operations from the d
 >
 > - If you use Azure Functions or Azure Stream Analytics to connect the built-in Events endpoint, you might need to perform a **Restart**. This is because during failover previous offsets are no longer valid.
 >
-> - When routing to storage, we recommend listing the blobs or files and then iterating over them, to ensure all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a Microsoft-initiated failover or manual failover. You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) for the list of files. To learn more, see [Azure Storage as a routing endpoint](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> - When routing to storage, we recommend listing the blobs or files and then iterating over them, to ensure all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a Microsoft-initiated failover or manual failover. You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/filesystem/listpaths) for the list of files. To learn more, see [Azure Storage as a routing endpoint](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## Microsoft-initiated failover
 

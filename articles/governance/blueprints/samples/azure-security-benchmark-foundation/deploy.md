@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Security Benchmark Foundation blueprint sample
 description: Deploy steps for the Azure Security Benchmark Foundation blueprint sample including blueprint artifact parameter details.
-ms.date: 02/12/2020
+ms.date: 03/12/2021
 ms.topic: sample
 ---
 # Deploy the Azure Security Benchmark Foundation blueprint sample
@@ -113,6 +113,11 @@ to make each deployment of the copy of the blueprint sample unique.
      - **Network Watcher name**: Name for the Network Watcher resource
      - **Network Watcher resource group name**: Name for the Network Watcher resource group
      - **Enable DDoS protection**: Enter 'true' or 'false' to specify whether or not DDoS Protection is enabled in the virtual network
+     
+    > [!NOTE] 
+    > If Network Watcher is already enabled, it's recommended that you use the existing
+    > Network Watcher resource group. You must also provide the location for the existing Network
+    > Watcher resource group for the artifact parameter **Network Watcher resource group location**.
 
    - Artifact parameters
 
@@ -160,10 +165,16 @@ The following table provides a list of the blueprint parameters:
 |Azure Virtual Network spoke template|Resource Manager template|Subnet address names (optional)|Array of subnet names to deploy to the spoke virtual network; for example, "subnet1","subnet2"|
 |Azure Virtual Network spoke template|Resource Manager template|Subnet address prefixes (optional)|Array of IP address prefixes for optional subnets for the spoke virtual network; for example, "10.0.7.0/24","10.0.8.0/24"|
 |Azure Virtual Network spoke template|Resource Manager template|Deploy spoke|Enter 'true' or 'false' to specify whether the assignment deploys the spoke components of the architecture|
-|Network Watcher resource group|Resource group|Resource group name|Locked - Uses Network Watcher resource group name|
-|Network Watcher resource group|Resource group|Resource group location|Locked - Uses hub location|
 |Azure Network Watcher template|Resource Manager template|Network Watcher location|Location for the Network Watcher resource|
-|Azure Network Watcher template|Resource Manager template|Network Watcher resource group location|Location of the Network Watcher resource group|
+|Azure Network Watcher template|Resource Manager template|Network Watcher resource group location|If Network Watcher is already enabled, this parameter value **must** match the location of the existing Network Watcher resource group.|
+
+## Troubleshooting
+
+If you encounter the error `The resource group 'NetworkWatcherRG' failed to deploy due to the
+following error: Invalid resource group location '{location}'. The Resource group already exists in
+location '{location}'.`, check that the blueprint parameter **Network Watcher resource group name**
+specifies the existing Network Watcher resource group name and that the artifact parameter **Network
+Watcher resource group location** specifies the existing Network Watcher resource group location.
 
 ## Next steps
 

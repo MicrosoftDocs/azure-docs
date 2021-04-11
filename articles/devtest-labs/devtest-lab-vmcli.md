@@ -148,4 +148,4 @@ az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group s
 ```
 
 ## Next steps
-See the following content: [Azure CLI documentation for Azure DevTest Labs](/cli/azure/lab?view=azure-cli-latest). 
+See the following content: [Azure CLI documentation for Azure DevTest Labs](/cli/azure/lab). 

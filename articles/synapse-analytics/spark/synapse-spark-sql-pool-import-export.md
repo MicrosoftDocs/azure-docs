@@ -105,7 +105,7 @@ df.write.synapsesql("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 SQL pool external table
 
-To write to a dedicated SQL pool external table, an EXTERNAL DATA SOURCE and an EXTERNAL FILE FORMAT must exist on the dedicated SQL pool.  For more information, read [creating an external data source](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) and [external file formats](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) in dedicated SQL pool.  Below are examples for creating an external data source and external file formats in dedicated SQL pool.
+To write to a dedicated SQL pool external table, an EXTERNAL DATA SOURCE and an EXTERNAL FILE FORMAT must exist on the dedicated SQL pool.  For more information, read [creating an external data source](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) and [external file formats](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) in dedicated SQL pool.  Below are examples for creating an external data source and external file formats in dedicated SQL pool.
 
 ```sql
 --For an external table, you need to pre-create the data source and file format in dedicated SQL pool using SQL queries:

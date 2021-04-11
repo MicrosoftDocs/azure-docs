@@ -117,9 +117,6 @@ For custom handlers, set `FUNCTIONS_WORKER_RUNTIME` to `Custom` in *local.settin
 }
 ```
 
-> [!NOTE]
-> `Custom` may not be recognized as a valid runtime on the Linux Premium or App Service plans. If that is your deployment target, set `FUNCTIONS_WORKER_RUNTIME` to an empty string.
-
 ### Function metadata
 
 When used with a custom handler, the *function.json* contents are no different from how you would define a function under any other context. The only requirement is that *function.json* files must be in a folder named to match the function name.

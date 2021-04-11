@@ -18,6 +18,9 @@ ms.date: 06/09/2020
 
 You can use Azure Database Migration Service to migrate databases from an RDS MySQL instance to [Azure Database for MySQL](../mysql/index.yml) while the source database remains online during migration. In other words, migration can be achieved with minimal downtime to the application. In this tutorial, you migrate the **Employees** sample database from an instance of RDS MySQL to Azure Database for MySQL by using the online migration activity in Azure Database Migration Service.
 
+> [!IMPORTANT]
+> The “RDS MySQL to Azure Database for MySQL” online migration scenario is being replaced with a parallelized, highly performant offline migration scenario on June 1, 2021. For online migrations, you can use this new offering together with [data-in replication](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication). Alternatively, use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with data-in replication for online migrations. 
+
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
@@ -52,8 +55,8 @@ To complete this tutorial, you need to:
 * Download and install the [MySQL **Employees** sample database](https://dev.mysql.com/doc/employee/en/employees-installation.html).
 * Create an instance of [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md).
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
-* Ensure that your virtual network Network Security Group rules don't block the following outbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, and 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* Configure your [Windows Firewall](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules) (or your Linux firewall) to allow for database engine access. For MySQL server, allow port 3306 for connectivity.
+* Ensure that your virtual network Network Security Group rules don't block the outbound port 443 of ServiceTag for ServiceBus, Storage and AzureMonitor. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Configure your [Windows Firewall](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (or your Linux firewall) to allow for database engine access. For MySQL server, allow port 3306 for connectivity.
 
 > [!NOTE]
 > Azure Database for MySQL only supports InnoDB tables. To convert MyISAM tables to InnoDB, please see the article [Converting Tables from MyISAM to InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) .

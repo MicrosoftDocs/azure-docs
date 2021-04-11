@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 12/8/2020
+ms.date: 2/22/2021
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,11 +97,11 @@ Note that when CPU utilization is low, active cache utilization can remain high 
 
 The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned databases. When the database is busy, the cache is allowed to grow unconstrained up to the max memory limit.
 
-## Auto-pause and auto-resume
+## Auto-pausing and auto-resuming
 
-### Auto-pause
+### Auto-pausing
 
-Auto-pause is triggered if all of the following conditions are true for the duration of the auto-pause delay:
+Auto-pausing is triggered if all of the following conditions are true for the duration of the auto-pause delay:
 
 - Number sessions = 0
 - CPU = 0 for user workload running in the user pool

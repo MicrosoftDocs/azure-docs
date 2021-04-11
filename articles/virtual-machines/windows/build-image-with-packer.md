@@ -4,6 +4,7 @@ description: Learn how to use Packer and PowerShell to create images of virtual 
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/05/2020

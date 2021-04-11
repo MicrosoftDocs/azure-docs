@@ -2,7 +2,7 @@
 title: Manage Azure portal settings and preferences
 description: You can change Azure portal default settings to meet your own preferences. Settings include inactive session timeout, default view, menu mode, contrast, theme, notifications, and language and regional formats
 keywords: settings, timeout, language, regional
-ms.date: 08/05/2020
+ms.date: 03/15/2021
 ms.topic: how-to
 ---
 
@@ -66,7 +66,7 @@ To read all notifications received during your current session, select **Notific
 
 ![Screenshot showing Azure portal global header with notifications highlighted](./media/set-preferences/read-notifications.png)
 
-If you want to read notifications from previous sessions, look for events in the Activity log. For more information, see [View the Activity log](../azure-monitor/platform/activity-log.md#view-the-activity-log). 
+If you want to read notifications from previous sessions, look for events in the Activity log. For more information, see [View the Activity log](../azure-monitor/essentials/activity-log.md#view-the-activity-log). 
 
 ## Change the inactivity timeout setting
 

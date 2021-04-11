@@ -2,8 +2,8 @@
 title: Resize a Windows VM in Azure 
 description: Change the VM size used for an Azure virtual machine.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: sizes
+ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020

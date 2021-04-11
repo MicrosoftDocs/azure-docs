@@ -6,7 +6,8 @@ ms.author: danis
 ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ---
 
 # Azure Image Builder Service DevOps Task
@@ -16,7 +17,7 @@ This article shows you how to use an Azure DevOps task to inject build artifacts
 ## DevOps Task versions
 There are two Azure VM Image Builder (AIB) DevOps Tasks:
 
-* ['Stable' AIB Task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), this allows us to put in the latest updates and features, allow customers to test them, before we promote it to the 'stable' task, approximately 1 week later. 
+* ['Stable' AIB Task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), this is the latest stable build that has been tested, and telemetry shows no issues. 
 
 
 * ['Unstable' AIB Task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary), this allows us to put in the latest updates and features, allow customers to test them, before we promote it to the 'stable' task. If there are no reported issues, and our telemetry shows no issues, approximately 1 week later, we will promote the task code to 'stable'. 

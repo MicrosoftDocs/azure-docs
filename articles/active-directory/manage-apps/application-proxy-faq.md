@@ -33,6 +33,21 @@ Make sure you have at least an Azure AD Premium P1 or P2 license and an Azure AD
 
 ## Connector configuration
 
+### Why is my connector still using an older version and not auto-upgraded to latest version?
+
+This may be due to either the updater service not working correctly or if there are no new updates available that the service can install.
+
+The updater service is healthy if it’s running and there are no errors recorded in the event log (Applications and Services logs -> Microsoft -> AadApplicationProxy -> Updater -> Admin). 
+
+> [!IMPORTANT]
+> Only major versions are released for auto-upgrade. We recommend updating your connector manually only if it's necessary. For example, you cannot wait for a major release, because you must fix a known problem or you want to use a new feature. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Azure AD Application Proxy: Version release history](application-proxy-release-version-history.md).
+
+To manually upgrade a connector:
+
+-  Download the latest version of the connector. (You will find it under Application Proxy on the Azure Portal. You can also find the link at [Azure AD Application Proxy: Version release history](application-proxy-release-version-history.md).
+-	The installer restarts the Azure AD Application Proxy Connector services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
+-	Run the installer. The upgrade process is quick and does not require providing any credentials and the connector will not be re-registered.
+
 ### Can Application Proxy Connector services run in a different user context than the default?
 
 No, this scenario isn't supported. The default settings are:

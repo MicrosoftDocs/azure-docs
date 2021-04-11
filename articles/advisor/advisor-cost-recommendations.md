@@ -17,7 +17,7 @@ Although certain application scenarios can result in low utilization by design, 
 The recommended actions are shut down or resize, specific to the resource being evaluated.
 
 The advanced evaluation model in Advisor considers shutting down virtual machines when all of these statements are true: 
-- P95th of the maximum of maximum value of CPU utilization is less than 3%. 
+- P95th of the maximum value of CPU utilization is less than 3%. 
 - Network utilization is less than 2% over a seven-day period.
 - Memory pressure is lower than the threshold values
 

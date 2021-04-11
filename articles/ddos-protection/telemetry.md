@@ -3,7 +3,7 @@ title: View and configure DDoS protection telemetry for Azure DDoS Protection St
 description: Learn how to view and configure DDoS protection telemetry for Azure DDoS Protection Standard.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to:
 > [!NOTE]
 > While multiple options for **Aggregation** are displayed on Azure portal, only the aggregation types listed in the table below are supported for each metric. We apologize for this confusion and we are working to resolve it.
 
-The following [metrics](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses) are available for Azure DDoS Protection Standard. These metrics are also exportable via diagnostic settings (see [View and configure DDoS diagnostic logging](diagnostic-logging.md)).
+The following [metrics](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkpublicipaddresses) are available for Azure DDoS Protection Standard. These metrics are also exportable via diagnostic settings (see [View and configure DDoS diagnostic logging](diagnostic-logging.md)).
 
 
 | Metric | Metric Display Name | Unit | Aggregation Type | Description |
@@ -65,7 +65,7 @@ The following [metrics](../azure-monitor/platform/metrics-supported.md#microsoft
 
 ## View DDoS protection telemetry
 
-Telemetry for an attack is provided through Azure Monitor in real time. The telemetry is available only for the duration that a public IP address is under mitigation. You don't see telemetry before or after an attack is mitigated.
+Telemetry for an attack is provided through Azure Monitor in real time. Telemetry is available only when a public IP address has been under mitigation. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to your DDoS Protection Plan.
 2. Under **Monitoring**, select **Metrics**.

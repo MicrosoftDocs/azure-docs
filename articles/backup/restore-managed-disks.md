@@ -5,12 +5,7 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ---
 
-# Restore Azure Managed Disks (in preview)
-
->[!IMPORTANT]
->Azure Disk Backup is in preview without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For region availability, see the [support matrix](disk-backup-support-matrix.md).
->
->[Fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) to sign-up for the preview.
+# Restore Azure Managed Disks
 
 This article explains how to restore [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) from a restore point created by Azure Backup.
 
@@ -61,7 +56,7 @@ The following pre-requisites are required to perform a restore operation:
     >
     >During scheduled backups or an on-demand backup operation, Azure Backup stores the disk incremental snapshots in the Snapshot Resource Group provided during configuring backup of the disk. Azure Backup uses these incremental snapshots during the restore operation. If the snapshots are deleted or moved from the Snapshot Resource Group or if the Backup vault role assignments are revoked on the Snapshot Resource Group, the restore operation will fail.
 
-1. If the disk to be restored is encrypted with [customer-managed keys (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) or using [double encryption using platform-managed keys and customer-managed keys](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), then assign the **Reader** role permission to the Backup Vault’s managed identity on the **Disk Encryption Set** resource.
+1. If the disk to be restored is encrypted with [customer-managed keys (CMK)](../virtual-machines/disks-enable-customer-managed-keys-portal.md) or using [double encryption using platform-managed keys and customer-managed keys](../virtual-machines/disks-enable-double-encryption-at-rest-portal.md), then assign the **Reader** role permission to the Backup Vault’s managed identity on the **Disk Encryption Set** resource.
 
 Once the prerequisites are met, follow these steps to perform the restore operation.
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 03/08/2021
 
 ms.author: justinha
 author: justinha
@@ -23,7 +23,7 @@ This article details the different ways that self-service password reset can be 
 
 ## Compare editions and features
 
-SSPR is licensed per user. To maintain compliance, organizations are required to assign the appropriate license to their users.
+SSPR requires a license only for the tenant. 
 
 The following table outlines the different SSPR scenarios for password change, reset, or on-premises writeback, and which SKUs provide the feature.
 
@@ -43,12 +43,6 @@ For additional licensing information, including costs, see the following pages:
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
 * [Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
-
-## Enable group or user-based licensing
-
-Azure AD supports group-based licensing. Administrators can assign licenses in bulk to a group of users, rather than assigning them one at a time. For more information, see [Assign, verify, and resolve problems with licenses](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
-
-Some Microsoft services aren't available in all locations. Before a license can be assigned to a user, the administrator must specify the **Usage location** property on the user. Assignment of licenses can be done under the **User** > **Profile** > **Settings** section in the Azure portal. *When you use group license assignment, any users without a usage location specified inherit the location of the directory.*
 
 ## Next steps
 

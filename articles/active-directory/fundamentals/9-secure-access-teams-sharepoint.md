@@ -85,7 +85,7 @@ To learn more about managing external access in Teams, see the following resourc
 
 * [Manage external access in Microsoft Teams](/microsoftteams/manage-external-access)
 
-* [Microsoft 365 identity models and Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
+* [Microsoft 365 identity models and Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity)
 
 * [Identity models and authentication for Microsoft Teams](/MicrosoftTeams/identify-models-authentication)
 

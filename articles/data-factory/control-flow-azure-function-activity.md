@@ -3,7 +3,7 @@ title: Azure Function Activity in Azure Data Factory
 description: Learn how to use the Azure Function activity to run an Azure Function in a Data Factory pipeline
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/09/2019
@@ -37,7 +37,7 @@ The return type of the Azure function has to be a valid `JObject`. (Keep in mind
 | linked service | The Azure Function linked service for the corresponding Azure Function App  | Linked service reference | yes |
 | function name  | Name of the function in the Azure Function App that this activity calls | String | yes |
 | method  | REST API method for the function call | String Supported Types: "GET", "POST", "PUT"   | yes |
-| header  | Headers that are sent to the request. For example, to set the language and type on a request: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | String (or expression with resultType of string) | No |
+| header  | Headers that are sent to the request. For example, to set the language and type on a request: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | String (or expression with resultType of string) | No |
 | body  | body that is sent along with the request to the function api method  | String (or expression with resultType of string) or object.   | Required for PUT/POST methods |
 |   |   |   | |
 
