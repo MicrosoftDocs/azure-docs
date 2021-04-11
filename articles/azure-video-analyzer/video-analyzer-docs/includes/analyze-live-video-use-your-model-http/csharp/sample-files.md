@@ -23,6 +23,6 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
         * Invokes direct methods to clean up resources.
 1. Edit the **operations.json** file:
 
-    * Change the link to the pipelineTopology:<br/> `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/httpExtension/topology.json"`
+    * Change the link to the pipelineTopology:<br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/httpExtension/topology.json"`
     * Under livePipelineSet, edit the name of the graph topology to match the value in the preceding link:<br/> `"pipelineTopologyName" : "InferencingWithHttpExtension"`       
     * Under PipelineTopologyDelete, edit the name:<br/> `"name": "InferencingWithHttpExtension"`

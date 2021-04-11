@@ -18,10 +18,14 @@
     href: detect-motion-record-video-edge-devices.md
   - name: Analyze live video
     items:
-    - name: with your own model - HTTP
+    - name: with your own HTTP model
       href: analyze-live-video-use-your-model-http.md
+    - name: with your own gRPC model
+      html: analyze-live-video-use-your-model-grpc.md
 - name: Concepts
   items:
+  - name: Pipeline
+    href: pipeline.md
   - name: Pipeline extension
     href: pipeline-extension.md
   - name: Continuous video recording
@@ -36,8 +40,10 @@
     href: develop-deploy-grpc-inference-srv.md
   - name: Manage retention policy
     href: manage-retention-policy-how-to.md
-- name: Reference
+- name: Reference 
   items:
+  - name: HTTP extension protocol 
+    href: http-extension-protocol.md
   - name: gRPC extension protocol
     href: grpc-extension-protocol.md
 - name: Resources
