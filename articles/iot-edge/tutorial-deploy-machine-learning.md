@@ -15,7 +15,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Use Azure Notebooks to develop a machine learning module and deploy it to a Linux device running Azure IoT Edge.
+Use Azure Notebooks to develop a machine learning module and deploy it to a device running Azure IoT Edge with Linux containers.
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Azure Machine Learning module that predicts when a device fails based on simulated machine temperature data. For more information about Azure Machine Learning on IoT Edge, see [Azure Machine Learning documentation](../machine-learning/how-to-deploy-and-where.md).
 
 >[!NOTE]

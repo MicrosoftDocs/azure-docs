@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/19/2021
+ms.date: 03/22/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -29,12 +29,14 @@ There are secondary use cases for customer usage attribution outside of the comm
 
 ## Commercial marketplace Azure apps
 
-Tracking Azure usage from Azure apps published to the commercial marketplace is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure app's plan](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
+Tracking Azure usage from Azure apps published to the commercial marketplace is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure app's plan](./create-new-azure-apps-offer-solution.md#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
 
 If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#use-resource-manager-apis) to pass it to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center on your plan's Technical Configuration page. 
 
 > [!NOTE]
-> For existing Azure apps, a one-time migration was performed in March 2021 to update the tracking IDs in each plan's technical configuration. Usage from past deployments of those offers will remain tracked in Microsoft systems.
+> For existing Azure apps, a one-time migration began in March 2021 to update the tracking IDs in each plan's technical configuration. Usage from past deployments of those offers will remain tracked in Microsoft systems.
+>
+>As you update your offers, you no longer need to add the **Microsoft.Resources/deployments** resource type in your main template file.
 
 ## Other use cases 
 

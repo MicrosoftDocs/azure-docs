@@ -65,7 +65,7 @@ App Service has [built-in continuous delivery](deploy-continuous-deployment.md) 
 
 ### Use GitHub Actions
 
-You can also automate your container deployment [with GitHub Actions](deploy-container-github-action.md).  The workflow file below will build and tag the container with the commit ID, push it to a container registry, and update the specified site slot with the new image tag.
+You can also automate your container deployment [with GitHub Actions](./deploy-ci-cd-custom-container.md).  The workflow file below will build and tag the container with the commit ID, push it to a container registry, and update the specified site slot with the new image tag.
 
 ```yaml
 name: Build and deploy a container image to Azure Web Apps

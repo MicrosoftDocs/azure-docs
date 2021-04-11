@@ -7,7 +7,7 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 03/22/2021
 ms.custom: devx-track-csharp
 ---
 # Monitor and debug with metrics in Azure Cosmos DB

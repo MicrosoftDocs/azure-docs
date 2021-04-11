@@ -709,7 +709,7 @@ The example defines the UpdatePlayReadyConfigurationXMLFile method that you can 
 ```
 
 ## Using Static Encryption to Protect HLSv3 with AES-128
-If you want to encrypt your HLS with AES-128, you have a choice of using dynamic encryption (the recommended option) or static encryption (as shown in this section). If you decide to use dynamic encryption, see [Using AES-128 Dynamic Encryption and Key Delivery Service](media-services-protect-with-aes128.md).
+If you want to encrypt your HLS with AES-128, you have a choice of using dynamic encryption (the recommended option) or static encryption (as shown in this section). If you decide to use dynamic encryption, see [Using AES-128 Dynamic Encryption and Key Delivery Service](media-services-playready-license-template-overview.md).
 
 > [!NOTE]
 > In order to convert your content into HLS, you must first convert/encode your content into Smooth Streaming.

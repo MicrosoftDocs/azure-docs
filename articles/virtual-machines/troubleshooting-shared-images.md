@@ -48,7 +48,7 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: You've tried to delete a gallery that contains at least one existing image definition. A gallery must be empty before it can be deleted.  
 **Workaround**: Delete all image definitions inside the gallery and then proceed to delete the gallery. If the image definition contains image versions, you must delete the image versions before you delete the image definitions.
 
-**Message**: *The gallery name '<galleryName\>' is not unique within the subscription '<subscriptionId>'. Please pick another gallery name.*  
+**Message**: *The gallery name '<galleryName\>' is not unique within the subscription '<subscriptionID>'. Please pick another gallery name.*  
 **Cause**: You have an existing gallery with the same name and have tried to create another gallery with the same name.  
 **Workaround**: Choose a different name for the gallery.
 
@@ -123,7 +123,7 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: You've tried to delete an image definition that contains image versions. An image definition must be empty before it can be deleted.  
 **Workaround**: Delete all image versions inside the image definition and then proceed to delete the image definition.
 
-**Message**: *Cannot bind parameter <property\>. Cannot convert value <value\> to type <propertyType\>. Unable to match the identifier name <value\> to a valid enumerator name. Specify one of the following enumerator names and try again: <choice1\>, <choice2\>, …*  
+**Message**: *Cannot bind parameter <property\>. Cannot convert value <value\> to type <propertyType\>. Unable to match the identifier name <value\> to a valid enumerator name. Specify one of the following enumerator names and try again: <choice\_1\>, <choice\_2\>, …*  
 **Cause**: The property has a restricted list of possible values, and <value\> is not one of them.  
 **Workaround**: Choose one of the possible <choice\> values.
 
@@ -181,7 +181,7 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: When you're creating an image version by using a list of disks and/or disk snapshots, two or more disks or disk snapshots have the same resource ID.  
 **Workaround**: Remove or change any duplicate disk source IDs.
 
-**Message**: *Property id <resourceID\> at path 'properties.storageProfile.<diskImages\>.source.id' is invalid. Expect fully qualified resource Id that start with '/subscriptions/{subscriptionId}' or '/providers/{resourceProviderNamespace}/'.*  
+**Message**: *Property id <resourceID\> at path 'properties.storageProfile.<diskImages\>.source.id' is invalid. Expect fully qualified resource Id that start with '/subscriptions/<subscriptionID>' or '/providers/<resourceProviderNamespace>/'.*  
 **Cause**: The <resourceID\> value is incorrectly formatted.  
 **Workaround**: Check that the resource ID is correct.
 
@@ -257,12 +257,12 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: The resource ID of the source might be incorrect.  
 **Workaround**: Ensure that the resource ID of the source is correct.
 
-**Message**: *A disk encryption set is required for disk 'galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId' in target region '<Region\_1\>' since disk encryption set '<diskEncryptionSetID\>' is used for the corresponding disk in region '<Region\_2\>'*  
-**Cause**: Encryption has been used on the OS disk in <Region\_2\>, but not in <Region\_1\>.  
+**Message**: *A disk encryption set is required for disk 'galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId' in target region '<region\_1\>' since disk encryption set '<diskEncryptionSetID\>' is used for the corresponding disk in region '<region\_2\>'*  
+**Cause**: Encryption has been used on the OS disk in <region\_2\>, but not in <region\_1\>.  
 **Workaround**: If you're using encryption on the OS disk, use encryption in all regions.
 
-**Message**: *A disk encryption set is required for disk 'LUN <number\>' in target region '<Region\_1\>' since disk encryption set '<diskEncryptionSetID\>' is used for the corresponding disk in region '<Region\_2\>'*  
-**Cause**: Encryption has been used on the data disk at LUN <number\> in <Region\_2\>, but not in <Region\_1\>.  
+**Message**: *A disk encryption set is required for disk 'LUN <number\>' in target region '<region\_1\>' since disk encryption set '<diskEncryptionSetID\>' is used for the corresponding disk in region '<region\_2\>'*  
+**Cause**: Encryption has been used on the data disk at LUN <number\> in <region\_2\>, but not in <region\_1\>.  
 **Workaround**: If you're using encryption on a data disk, use encryption in all regions.
 
 **Message**: *An invalid lun [<number\>] was specified in encryption.dataDiskImages. The lun must be one of the following values ['0,9'].*  
@@ -299,7 +299,7 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: The image definition you used to deploy the virtual machine does not contain any image versions that are included in latest.  
 **Workaround**: Ensure that there is at least one image version that has 'Exclude from latest' set to False. 
 
-**Message**: *The client has permission to perform action 'Microsoft.Compute/galleries/images/versions/read' on scope <resourceID\>, however the current tenant <tenantId1\> is not authorized to access linked subscription <subscriptionId2\>.*  
+**Message**: *The client has permission to perform action 'Microsoft.Compute/galleries/images/versions/read' on scope <resourceID\>, however the current tenant <tenantID\> is not authorized to access linked subscription <subscriptionID\>.*  
 **Cause**: The virtual machine or scale set was created through a SIG image in another tenant. You've tried to make a change to the virtual machine or scale set, but you don't have access to the subscription that owns the image.  
 **Workaround**: Contact the owner of the subscription of the image version to grant read access to the image version.
 
@@ -323,12 +323,17 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: The current source image for the scale set is a generalized source image, but it's being updated with a source image that is specialized. The current source image and the new source image for a scale set must be of the same state.  
 **Workaround**: To update the scale set, use a generalized image version.
 
-**Message**: *Disk encryption set <diskEncryptionSetId\> in shared image gallery <versionId\> belongs to subscription <subscriptionId1\> and cannot be used with resource '' in subscription <subscriptionId2\>*  
+**Message**: *Disk encryption set <diskEncryptionSetID\> in shared image gallery <versionID\> belongs to subscription <subscriptionID\_1\> and cannot be used with resource '' in subscription <subscriptionID\_2\>*  
 **Cause**: The disk encryption set used to encrypt the image version resides in a different subscription than the subscription to host the image version.  
 **Workaround**: Use the same subscription for the image version and disk encryption set.
 
 **Message**: *The VM or virtual machine scale set creation takes a long time.*  
 **Workaround**: Verify that the **OSType** of the image version that you're trying to create the VM or virtual machine scale set from has the same **OSType** of the source that you used to create the image version. 
+
+**Message**: *The resource with id <vmID\> has a different plan ['{\"name\":\"<name>\",\"publisher\":\"<publisher>\",\"product\":\"<product>\",\"promotionCode\":\"<promotionCode>\"}'] than the parent gallery image plan ['null'].*  
+**Cause**: The parent image definition for the image version being deployed does not have a purchase plan information.  
+**Workaround**: Create an image definition with the same purchase plan details from the error message and create the image version within the image definition.
+
 
 ## Creating a disk from an image version ##
 

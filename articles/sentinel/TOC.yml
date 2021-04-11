@@ -291,6 +291,8 @@
   items:
   - name: Top Azure Sentinel workbooks
     href: top-workbooks.md
+  - name: Azure CLI
+    href: /cli/azure/ext/sentinel/sentinel
   - name: Azure RBAC roles
     items:
     - name: All Azure roles
@@ -320,9 +322,11 @@
     - name: Kusto Query Language quick reference
       href: /azure/data-explorer/kql-quick-reference
     - name: Azure Monitor log query optimizations
-      href: /azure/azure-monitor/logs/query-optimization
+      href: ../azure-monitor/logs/query-optimization.md
   - name: UEBA enrichments
     href: ueba-enrichments.md
+  - name: CEF log field mapping
+    href: cef-name-mapping.md
 - name: Resources
   items:
   - name: Useful resources
@@ -333,4 +337,3 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
-

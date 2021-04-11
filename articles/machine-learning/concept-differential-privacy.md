@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom:  responsible-ml
-#intent: As a data scientist, I want to know what differential privacy is and how I can implement a differentially private systems.
+#Customer intent: As a data scientist, I want to know what differential privacy is and how I can implement a differentially private systems.
 ---
 
 # What is differential privacy in machine learning (preview)

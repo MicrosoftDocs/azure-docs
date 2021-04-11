@@ -1,27 +1,33 @@
 ## Add managed identity to your Communication Services solution (.NET)
 
-### Install the client library packages
+### Install the SDK packages
 
 ```console
-dotnet add package Azure.Communication.Identity  --version 1.0.0-beta.5
-dotnet add package Azure.Communication.Sms  --version 1.0.0-beta.4
+dotnet add package Azure.Communication.Identity  --version 1.0.0
+dotnet add package Azure.Communication.Sms --version 1.0.0
+dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
 dotnet add package Azure.Identity
 ```
 
-### Use the client library packages
+### Use the SDK packages
 
-Add the following `using` directives to your code to use the Azure Identity and Azure Storage client libraries.
+Add the following `using` directives to your code to use the Azure Identity and Azure Storage SDKs.
 
 ```csharp
 using Azure.Identity;
 using Azure.Communication.Identity;
+using Azure.Communication.PhoneNumbers;
 using Azure.Communication.Sms;
 using Azure.Core;
 ```
 
+For an easy way to jump into using managed identity authentication, see [Authorize access with managed identity](../managed-identity-from-cli.md)
+
+For a more in-depth look on how the DefaultAzureCredential object works and how you can use it in ways that are not specified in this quickstart, see
+[Azure Identity client library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
+
 The examples below are using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
 
-`AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object. To create a registered application in the development environment and set up environment variables, see [Authorize access with managed identity](../managed-identity-from-cli.md).
 
 ### Create an identity and issue a token with Managed Identity
 
@@ -33,17 +39,31 @@ Then, use the client to issue a token for a new user:
      public Response<AccessToken> CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
      {
           TokenCredential credential = new DefaultAzureCredential();
-
-          // You can find your endpoint and access key from your resource in the Azure portal
-          // "https://<RESOURCE_NAME>.communication.azure.com";
-
           var client = new CommunicationIdentityClient(resourceEndpoint, credential);
+
           var identityResponse = client.CreateUser();
           var identity = identityResponse.Value;
 
           var tokenResponse = client.GetToken(identity, scopes: new[] { CommunicationTokenScope.VoIP });
 
           return tokenResponse;
+     }
+```
+### List all your purchased phone numbers
+
+The following code example shows how to create a phone number service client with Azure managed identity, then use the client to retrieve all of the purchased phone numbers the resource has:
+
+```csharp
+     public void ListPhoneNumbers(Uri resourceEndpoint)
+     {
+          TokenCredential credential = new DefaultAzureCredential();
+          var client = new PhoneNumbersClient(resourceEndpoint, credential);
+
+          var purchasedPhoneNumbers = client.GetPurchasedPhoneNumbersAsync();
+          await foreach (var purchasedPhoneNumber in purchasedPhoneNumbers)
+          {
+               Console.WriteLine($"Phone number: {purchasedPhoneNumber.PhoneNumber}, country code: {purchasedPhoneNumber.CountryCode}");
+          }
      }
 ```
 
@@ -55,18 +75,16 @@ The following code example shows how to create an SMS service client object with
      public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, string message)
      {
           TokenCredential credential = new DefaultAzureCredential();
-          // You can find your endpoint and access key from your resource in the Azure portal
-          // "https://<RESOURCE_NAME>.communication.azure.com";
 
           SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
+
           SmsSendResult sendResult = smsClient.Send(
-               from: from,
-               to: to,
-               message: message,
+               from,
+               to,
+               message,
                new SmsSendOptions(enableDeliveryReport: true) // optional
           );
 
           return sendResult;
       }
 ```
-
