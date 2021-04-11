@@ -324,9 +324,16 @@ The returned value is a collection of **RecognizedForm** objects: one for each i
 
 This section demonstrates how to analyze and extract key information from government issued identity documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about identity document analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
 
-To analyze identity documents from a URI use the `beginRecognizeIdDocumentsFromUriAsync` method.
+To analyze identity documents from a URI use the `beginRecognizeIdDocumentsFromUrl` method.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_call)]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizerQuickstart-preview.cs?name="snippet_id_call":::
+
+> [!TIP]
+> You can also analyze local identity document images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **beginRecognizeIdDocuments**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
+
+The following code processes the identity document at the given URI and prints the major fields and values to the console.
+
+:::code language="java" source=~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizerQuickstart-preview.cs?name="snippet_id_print":::
 
 ## Train a custom model
 
