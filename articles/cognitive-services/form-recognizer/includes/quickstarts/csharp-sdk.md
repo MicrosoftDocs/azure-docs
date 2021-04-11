@@ -320,6 +320,7 @@ The following code processes the business card at the given URI and prints the m
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
+
 ---
 
 ## Analyze invoices
