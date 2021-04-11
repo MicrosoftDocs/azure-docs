@@ -68,8 +68,6 @@ Users with particular job requirements may need to be assigned additional roles 
 
     For a user to create and delete an Azure Sentinel workbook, the user will also need to be assigned with the Azure Monitor role of [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor). This role is not necessary for using workbooks, but only for creating and deleting.
 
-For a side-by-side comparison, see the [table below](#roles-and-allowed-actions).
-
 ### Other roles you might see assigned
 
 In assigning Azure Sentinel-specific Azure roles, you may come across other Azure and Log Analytics Azure roles that may have been assigned to users for other purposes. You should be aware that these roles grant a wider set of permissions that includes access to your Azure Sentinel workspace and other resources:
@@ -80,7 +78,7 @@ In assigning Azure Sentinel-specific Azure roles, you may come across other Azur
 
 For example, a user who is assigned the **Azure Sentinel Reader** role, but not the **Azure Sentinel Contributor** role, will still be able to edit items in Azure Sentinel if assigned the Azure-level **Contributor** role. Therefore, if you want to grant permissions to a user only in Azure Sentinel, you should carefully remove this user’s prior permissions, making sure you do not break any needed access to another resource.
 
-## Roles and allowed actions
+## Azure Senitnel roles and allowed actions
 
 The following table summarizes the Azure Sentinel roles and their allowed actions in Azure Sentinel.
 
