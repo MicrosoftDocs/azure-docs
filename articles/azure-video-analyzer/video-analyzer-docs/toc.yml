@@ -16,8 +16,10 @@
     href: track-objects-live-video.md
   - name: Analyze live video
     items:
-    - name: with your own model - HTTP
+    - name: with your own HTTP model
       href: analyze-live-video-use-your-model-http.md
+    - name: with your own gRPC model
+      html: analyze-live-video-use-your-model-grpc.md
 - name: Concepts
   items:
   - name: Pipeline extension
