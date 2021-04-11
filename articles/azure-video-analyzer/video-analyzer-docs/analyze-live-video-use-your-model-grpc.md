@@ -39,9 +39,9 @@ In this quickstart, you'll use Azure Video Analyzer to detect objects such as ve
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/analyze-live-video-use-your-model-grpc/overview.png" alt-text="gRPC overview":::
  
-This diagram shows how the signals flow in this quickstart. An [edge module]() simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source node]() pulls the video feed from this server and sends video frames to the [motion detection processor]() node. This processor will detect motion and upon detection will push video frames to the [gRPC extension processor]() node.
+This diagram shows how the signals flow in this quickstart. An [edge module]()<!--add link--> simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source node]()<!--add link--> pulls the video feed from this server and sends video frames to the [motion detection processor]()<!--add link--> node. This processor will detect motion and upon detection will push video frames to the [gRPC extension processor]()<!--add link--> node.
 
-The gRPC extension node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over gRPC to another edge module that runs an AI model behind a gRPC endpoint over a [shared memory](https://en.wikipedia.org/wiki/Shared_memory). In this example, that edge module is built by using the [YOLOv3]() model, which can detect many types of objects. The gRPC extension processor node gathers the detection results and publishes events to the [IoT Hub sink]() node. The node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11#iot-edge-hub).
+The gRPC extension node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over gRPC to another edge module that runs an AI model behind a gRPC endpoint over a [shared memory](https://en.wikipedia.org/wiki/Shared_memory). In this example, that edge module is built by using the [YOLOv3]()<!--add link--> model, which can detect many types of objects. The gRPC extension processor node gathers the detection results and publishes events to the [IoT Hub sink]()<!--add link--> node. The node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
 
 In this quickstart, you will:
 
@@ -68,7 +68,7 @@ In this quickstart, you will:
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/analyze-live-video-use-your-model-grpc/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
 1. The *deployment.grpcyolov3icpu.amd64.json* manifest file is created in the src/edge/config folder.
-1. If you completed the [Detect motion and emit events]() quickstart, then skip this step.
+1. If you completed the [Detect motion and emit events]()<!--add link--> quickstart, then skip this step.
 1. Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
      
     > [!div class="mx-imgBorder"]
@@ -323,7 +323,7 @@ In the messages, notice the following details:
 * Try running different media graph topologies using gRPC protocol.
 * Build and run sample Azure Video Analyzer (AVA) extensions 
 
-    * Sample YOLOv3 model
-    * Sample YOLOv4 model
+    * [Sample YOLOv3 model]()<!--add link-->
+    * [Sample YOLOv4 model]()<!--add link-->
     
 
