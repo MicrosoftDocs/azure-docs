@@ -417,4 +417,4 @@ The best scenario is to let in flight data modification transactions complete pr
 
 ## Next steps
 
-See [Transactions in dedicated SQL pool](develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other best practices, see [Dedicated SQL pool best practices](best-practices-sql-pool.md).
+See [Transactions in dedicated SQL pool](develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other best practices, see [Dedicated SQL pool best practices](best-practices-dedicated-sql-pool.md).

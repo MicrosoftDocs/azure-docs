@@ -44,7 +44,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://docs.microsoft.com/en-us/samples/browse/?products=azure-stream-analytics
+    href: /samples/browse/?products=azure-stream-analytics
 - name: Concepts
   items:
   - name: End-to-end solution patterns
@@ -316,13 +316,13 @@
         href: external-error-codes.md
       - name: Internal errors
         href: internal-error-codes.md
-  - name: Integrate with machine learnings
+  - name: Integrate with Machine Learning
     items:
     - name: Sentiment analysis with ML models
       href: stream-analytics-machine-learning-integration-tutorial.md
     - name: Anomaly detection
       href: stream-analytics-machine-learning-anomaly-detection.md
-    - name: Use REST APIs
+    - name: Use ML REST APIs
       href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
   - name: Debug using job diagram
     href: stream-analytics-job-diagram-with-metrics.md

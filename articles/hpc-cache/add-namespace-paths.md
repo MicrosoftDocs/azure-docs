@@ -26,6 +26,8 @@ You can sort the table columns to better understand your cache's aggregated name
 
 You must create at least one namespace path before clients can access the storage target. (Read [Mount the Azure HPC Cache](hpc-cache-mount.md) for more about client access.)
 
+If you recently added a storage target or customized an access policy, it might take a minute or two before you can create a namespace path.
+
 ### Blob namespace paths
 
 An Azure Blob storage target can have only one namespace path.

@@ -1,12 +1,8 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 03/14/2021
 ms.topic: article
-ms.service: azure
 ---
 # Troubleshoot the sensor and on-premises management console
 

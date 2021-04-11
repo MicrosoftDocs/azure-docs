@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.date: 11/06/2020
 ms.author: jlian
 ms.custom: [amqp, mqtt]
-# As a developer or operator for Azure IoT Hub, I want to resolve 401003 IoTHubUnauthorized errors.
+#Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 401003 IoTHubUnauthorized errors.
 ---
 
 # 401003 IoTHubUnauthorized

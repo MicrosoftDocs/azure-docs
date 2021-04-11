@@ -11,7 +11,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
-Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
+# Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
 ---
 
 
@@ -25,6 +25,8 @@ This document will cover the following topics:
 + Basic Key Vault metrics to monitor
 + How to configure metrics and create a dashboard
 + How to create alerts at specified thresholds
+
+Azure Monitor for Key Vault combines both logs and metrics to provide a global monitoring solution. [Learn more about Azure Monitor for Key Vault here](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview#introduction-to-azure-monitor-for-key-vault)
 
 ## Basic Key Vault metrics to monitor
 

@@ -10,7 +10,7 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 
-# As an IT Pro, I want to try out a cloud-based solution to understand how I can monitor and manage my industrial IoT devices. 
+#Customer intent: As an IT Pro, I want to try out a cloud-based solution to understand how I can monitor and manage my industrial IoT devices.
 ---
 
 # Quickstart: Try a cloud-based solution to manage my industrial IoT devices

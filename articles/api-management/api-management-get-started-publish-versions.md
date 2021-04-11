@@ -101,7 +101,7 @@ az apim api versionset list --resource-group apim-hello-word-resource-group \
 
 When the Azure portal creates a version set for you, it assigns an alphanumeric name, which appears in the **Name** column of the list. Use this name in other Azure CLI commands.
 
-To see details about a version set, run the [az apim api versionset show](/api/versionset#az_apim_api_versionset_show) command:
+To see details about a version set, run the [az apim api versionset show](/cli/azure/apim/api/versionset#az_apim_api_versionset_show) command:
 
 ```azurecli
 az apim api versionset show --resource-group apim-hello-word-resource-group \

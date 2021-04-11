@@ -72,13 +72,13 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Troubleshoot SSH issues
-            url: ./troubleshooting/troubleshoot-ssh-connection.md
+            url: /troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection
           - text: Troubleshoot RDP issues
-            url: ./troubleshooting/rdp.md
+            url: /troubleshoot/azure/virtual-machines/rdp
           - text: Linux VM not booting 
-            url: ./troubleshooting/boot-error-troubleshoot-linux.md
+            url: /troubleshoot/azure/virtual-machines/boot-error-troubleshoot-linux
           - text: Windows VM not booting
-            url: ./troubleshooting/boot-error-troubleshoot.md
+            url: /troubleshoot/azure/virtual-machines/boot-error-troubleshoot
           - text: Microsoft Q&A
             url: /answers/topics/azure-virtual-machines.html
 
