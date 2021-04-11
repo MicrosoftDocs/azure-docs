@@ -120,11 +120,11 @@ Remove-AzSqlDatabase -ResourceGroupName "MyResourceGroup" -ServerName "MyServer"
 ```azurecli
 az sql db delete -g MyResourceGroup -s MyServer -n WideWorldImporters_NR
 ```
+---
 
 > [!NOTE]
 > Named replicas will also be removed when the primary replica from which they have been created is deleted.
 
----
 ### Frequently Asked Questions
 #### Can a named replica be used as a failover target?
 No, named replicas cannot be used as failover targets. Use HA replicas for that purpose.
