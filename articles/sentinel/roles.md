@@ -80,13 +80,15 @@ For example, a user who is assigned the **Azure Sentinel Reader** role, but not 
 
 The following table summarizes the Azure Sentinel roles and their allowed actions in Azure Sentinel.
 
-| Role | Create and run playbooks| Create and edit analytic rules and other Azure Sentinel resources | Manage incidents (dismiss, assign, etc.) | View data, incidents, workbooks, and other Azure Sentinel resources |
+| Role | Create and run playbooks| Create and edit analytic rules and other Azure Sentinel resources [*](#workbooks) | Manage incidents (dismiss, assign, etc.) | View data, incidents, workbooks, and other Azure Sentinel resources |
 |---|---|---|---|---|
 | Azure Sentinel Reader | -- | -- | -- | &#10003; |
 | Azure Sentinel Responder | -- | -- | &#10003; | &#10003; |
 | Azure Sentinel Contributor | -- | &#10003; | &#10003; | &#10003; |
 | Azure Sentinel Contributor + Logic App Contributor | &#10003; | &#10003; | &#10003; | &#10003; |
+| | | | | |
 
+<a name=workbooks></a>* Creating and deleting workbooks requires the additional [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor) role. For more information, see [Additional roles and permissions](#additional-roles-and-permissions).
 ## Custom roles and advanced Azure RBAC
 
 - **Custom roles**. In addition to, or instead of, using Azure built-in roles, you can create Azure custom roles for Azure Sentinel. Azure custom roles for Azure Sentinel are created the same way you create other [Azure custom roles](../role-based-access-control/custom-roles-rest.md#create-a-custom-role), based on [specific permissions to Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) and to [Azure Log Analytics resources](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
