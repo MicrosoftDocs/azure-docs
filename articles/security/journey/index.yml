@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Cloud security journey documentation
-summary: Find guidance for each phase of the security journey in the cloud.
+summary: Whether you're considering a move to the cloud or have already migrated to the cloud, here you'll find guidance for every phase of your cloud security journey.
 
 metadata:
   title: Azure security journey documentation
@@ -67,14 +67,10 @@ landingContent:
             url: ../fundamentals/network-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
           - text: Data security and encryption
             url: ../fundamentals/encryption-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-          - text: Database security
-            url: ../../azure-sql/database/security-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-          - text: Storage security
-            url: ../../storage/blobs/security-recommendations.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-          - text: Key and secret management
-            url: /azure/architecture/framework/security/design-storage-keys?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
           - text: Microsoft Antimalware
             url: ../fundamentals/antimalware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: Virtual machine security
+            url: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   # Card
   - title: Detect threats
