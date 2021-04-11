@@ -82,14 +82,13 @@ For example, a user who is assigned the **Azure Sentinel Reader** role, but not 
 
 ## Roles and allowed actions
 
-The following table summarizes the roles and allowed actions in Azure Sentinel. 
+The following table summarizes the Azure Sentinel roles and their allowed actions in Azure Sentinel.
 
-| Role | Create and run playbooks| Create and edit workbooks, analytic rules, and other Azure Sentinel resources | Manage incidents (dismiss, assign, etc.) | View data, incidents, workbooks, and other Azure Sentinel resources |
+| Role | Create and run playbooks| Create and edit analytic rules and other Azure Sentinel resources | Manage incidents (dismiss, assign, etc.) | View data, incidents, workbooks, and other Azure Sentinel resources |
 |---|---|---|---|---|
 | Azure Sentinel Reader | -- | -- | -- | &#10003; |
 | Azure Sentinel Responder | -- | -- | &#10003; | &#10003; |
 | Azure Sentinel Contributor | -- | -- | &#10003; | &#10003; |
-| Azure Monitoring Contributor |--  | &#10003; | --| -- |
 | Azure Sentinel Contributor + Logic App Contributor | &#10003; | &#10003; | &#10003; | &#10003; |
 
 ## Custom roles and advanced Azure RBAC
