@@ -22,7 +22,7 @@ In a single session: The client sends a media stream descriptor followed by vide
 It is highly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per the [inference metadata schema object model]()<!--add a link-->. This will better ensure interoperability with other components and possible future capabilities added to the Azure Video Analyzer module.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/grpc-extension-protocol/ava-module.png" alt-text="Azure Video Analyzer module":::
+> :::image type="content" source="./media/grpc-extension-protocol/ava-module.png" alt-text="Azure Video Analyzer module" lightbox="./media/grpc-extension-protocol/ava-module.png":::
 
 ## Implementing gRPC protocol
 
@@ -162,7 +162,7 @@ This section defines the gRPC contract that defines data flow.
 ### Protocol messages
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/grpc-extension-protocol/contract-definitions.png" alt-text="Video Analyzer protocol messages":::
+> :::image type="content" source="./media/grpc-extension-protocol/contract-definitions.png" alt-text="Video Analyzer protocol messages"  lightbox="./media/grpc-extension-protocol/contract-definitions.png":::
 
 ### Client authentication
 
