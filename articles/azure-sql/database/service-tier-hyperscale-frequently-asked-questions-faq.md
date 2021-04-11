@@ -45,7 +45,7 @@ The vCore-based service tiers are differentiated based on database availability 
 | **Storage size** | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **IOPS** | Single database | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
 | **IOPS** | SQL Managed Instance | Depends on file size | N/A | 1375 IOPS/vCore |
-|**Availability**|All|1 replica, no Read Scale-out, no local cache | Multiple replicas, up to 4 HA Replicas, partial local cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
+|**Availability**|All|1 replica, no read scale-out, no local cache | Multiple replicas, up to 4 HA Replicas, partial local cache | 3 replicas, 1 read scale-out, zone-redundant HA, full local storage |
 |**Backups**|All|RA-GRS, 7-35 day retention (7 days by default)| RA-GRS, 7 day retention, constant time point-in-time recovery (PITR) | RA-GRS, 7-35 day retention (7 days by default) |
 
 \* Elastic pools are not supported in the Hyperscale service tier
@@ -58,7 +58,7 @@ The Hyperscale service tier is intended for customers who have large on-premises
 - Fast database backups regardless of database size (backups are based on storage snapshots)
 - Fast database restores regardless of database size (restores are from storage snapshots)
 - Higher log throughput regardless of database size and the number of vCores
-- Read Scale-out using one or more read-only replicas, used for read offloading and as hot standbys.
+- Read scale-out using one or more read-only replicas, used for read offloading and as hot standbys.
 - Rapid scale up of compute, in constant time, to be more powerful to accommodate the heavy workload and then scale down, in constant time. This is similar to scaling up and down between a P6 and a P11, for example, but much faster as this is not a size of data operation.
 
 ### What regions currently support Hyperscale
@@ -101,7 +101,7 @@ On the primary replica, the default transaction isolation level is RCSI (Read Co
 
 ### Can I bring my on-premises or IaaS SQL Server license to Hyperscale
 
-Yes, [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) is available for Hyperscale. Every SQL Server Standard core can map to 1 Hyperscale vCores. Every SQL Server Enterprise core can map to 4 Hyperscale vCores. You don’t need a SQL license for secondary replicas. The Azure Hybrid Benefit price will be automatically applied to read Scale-out replicas.
+Yes, [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) is available for Hyperscale. Every SQL Server Standard core can map to 1 Hyperscale vCores. Every SQL Server Enterprise core can map to 4 Hyperscale vCores. You don’t need a SQL license for secondary replicas. The Azure Hybrid Benefit price will be automatically applied to read scale-out replicas.
 
 ### What kind of workloads is Hyperscale designed for
 
@@ -126,7 +126,7 @@ Yes, by creating named replicas. More info here: [Hyperscale Secondary Replicas]
 
 ### How many replicas are supported
 
-Hyperscale provide three different types of replicas. All details are available here: [Hyperscale Secondary Replicas](service-tier-hyperscale-replicas.md).
+Hyperscale provides three different types of replicas. All details are available here: [Hyperscale Secondary Replicas](service-tier-hyperscale-replicas.md).
 
 ### For high availability, do I need to provision additional compute replicas
 
@@ -345,7 +345,7 @@ No. Only the primary compute replica accepts read/write requests. Secondary comp
 
 ## Read scale-out questions
 
-Full details on scale-out options and frequently asked questions are available: here [Hyperscale Secondary Replicas](service-tier-hyperscale-replicas.md).
+Full details on scale-out options and frequently asked questions are available here: [Hyperscale Secondary Replicas](service-tier-hyperscale-replicas.md).
 
 
 ## Next steps

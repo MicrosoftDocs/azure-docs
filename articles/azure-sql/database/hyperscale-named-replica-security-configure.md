@@ -13,11 +13,11 @@ ms.date: 3/29/2021
 # Configure Security to allow isolated access to Azure SQL Database Hyperscale Named Replicas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article describes the authentication requirements to configure an Azure SQL Hyperscale [named replica](service-tier-hyperscale-replicas.md) so that a user will be allowed to access to specific replicas only. This scenario allows complete isolation of named replica from the primary - as the named replica will be running using its own compute node - and it is useful whenever an isolated read only access to an Azure SQL Hyperscale database is needed. Isolated, in this context, means that CPU and memory are not shared between the primary and the named replica, and queries running on the named replica will not take any lock or use any compute resource of the primary or of any other replica.
+This article describes the authentication requirements to configure an Azure SQL Hyperscale [named replica](service-tier-hyperscale-replicas.md) so that a user will be allowed access to specific replicas only. This scenario allows complete isolation of named replica from the primary - as the named replica will be running using its own compute node - and it is useful whenever isolated read only access to an Azure SQL Hyperscale database is needed. Isolated, in this context, means that CPU and memory are not shared between the primary and the named replica, and queries running on the named replica will not use any compute resource of the primary or of any other replica.
 
 ## Create a new login on the master database
 
-In the `master` database on the logical server hosting the primary database, execute the following: create a new login that will be used to manage access to the primary and the named replica:
+In the `master` database on the logical server hosting the primary database, execute the following to create a new login that will be used to manage access to the primary and the named replica:
 
 ```sql
 create login [third-party-login] with password = 'Just4STRONG_PAZzW0rd!';
@@ -29,7 +29,7 @@ Now get the SID from the `sys.sql_logins` system view:
 select [sid] from sys.sql_logins where name = 'third-party-login'
 ```
 
-And as last action disable the login. This will prevent this login to access the any database in the server
+And as last action disable the login. This will prevent this login from accessing the any database in the server
 
 ```sql
 alter login [third-party-login] disable
@@ -59,7 +59,7 @@ Using, for example, AZ CLI:
 az sql server create -g MyResourceGroup -n MyPrimaryServer -l MyLocation --admin-user MyAdminUser --admin-password MyStrongADM1NPassw0rd!
 ```
 
-Make sure the region you chose is the same where the primary server also is. Then create a named replica, for example with AZ CLI:
+Make sure the region you choose is the same where the primary server also is. Then create a named replica, for example with AZ CLI:
 
 ```azurecli
 az sql db replica create -g MyResourceGroup -n WideWorldImporters -s MyPrimaryServer --secondary-type Named --partner-database WideWorldImporters_NR --partner-server MySecondaryServer
@@ -67,7 +67,7 @@ az sql db replica create -g MyResourceGroup -n WideWorldImporters -s MyPrimarySe
 
 ## Create login in the named replica
 
-Connect to the `master` database on the logical server hosting the named replica. Add the login using the SID got from the primary replica:
+Connect to the `master` database on the logical server hosting the named replica. Add the login using the SID retrieved from the primary replica:
 
 ```sql
 create login [third-party-login] with password = 'Just4STRONG_PAZzW0rd!', sid = 0x0...1234;
@@ -102,7 +102,7 @@ and connection will succeed without errors.
 
 Once you have setup security in this way, you can use the regular `grant`, `deny` and `revoke` commands to manage access to resources. Remember to use these commands on the primary replica: their effect will be applied also to all named replicas, allowing you to decide who can access what, as it would happen normally. 
 
-Remember that by default a newly created user has a very minimal set of permission granted (for example they cannot access any user table), so if you want to allow `third-party-user` to access a table, you need to explicitly grant this permission:
+Remember that by default a newly created user has a very minimal set of permissions granted (for example they cannot access any user table), so if you want to allow `third-party-user` to access a table, you need to explicitly grant this permission:
 
 ```sql
 grant select on [Application].[Cities] to [third-party-user]

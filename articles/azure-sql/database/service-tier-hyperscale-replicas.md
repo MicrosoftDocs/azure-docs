@@ -37,11 +37,11 @@ In Hyperscale databases, the ApplicationIntent argument in the connection string
 Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
-Given that for a given Hyperscale database all HA replicas are identical in their resource capacity, if more than one secondary replica is present, the read-intent workload is distributed across all available HA secondaries. When where are multiple HA replica, keep in mind that each one could have different data latency with respect to data changes made on the primary. Each HA replica uses the same data as the primary on the same set of page servers. Local caches on each HA replica reflect the changes made on the primary via the transaction log service, which forwards log records from the primary replica to HA replicas. As a result, depending on the workload being processed by an HA replica, application of log records may happen at different speeds and thus different replicas could have different data latency relative to the primary replica.
+Given that for a given Hyperscale database all HA replicas are identical in their resource capacity, if more than one secondary replica is present, the read-intent workload is distributed across all available HA secondaries. When there are multiple HA replica, keep in mind that each one could have different data latency with respect to data changes made on the primary. Each HA replica uses the same data as the primary on the same set of page servers. Local caches on each HA replica reflect the changes made on the primary via the transaction log service, which forwards log records from the primary replica to HA replicas. As a result, depending on the workload being processed by an HA replica, application of log records may happen at different speeds and thus different replicas could have different data latency relative to the primary replica.
 
-## Named Replica (in Preview)
+## Named replica (in Preview)
 
-A named replica, just like an HA replica, uses the same page servers as the primary replica. Similarly to HA replicas, there is no data copy needed to add a Named Replica. The difference from HA replicas is that named replicas: 
+A named replica, just like an HA replica, uses the same page servers as the primary replica. Similar to HA replicas, there is no data copy needed to add a named replica. The difference from HA replicas is that named replicas: 
 
 - appear as regular (read-only) Azure SQL databases in the portal and in API (CLI, PowerShell, T-SQL) calls 
 - can have database name different from the primary replica, and optionally be located on a different logical server (as long as it is in the same region as the primary replica) 
@@ -56,7 +56,7 @@ The main goal of named replicas is to allow massive OLTP read scale-out scenario
 
 Aside from the main scenarios listed above, named replicas offer flexibility and elasticity to also satisfy many other use cases:
 - [Access Isolation](hyperscale-named-replica-security-configure.md): grant a login access to a named replica only and deny it from accessing the primary replica or other named replicas.
-- Workload Dependent Service Objective: as a named replica can have its own Service Level Objective, it is possible to use different named replicas for different workloads and use cases. For example, one named replica could be used to serve PowerBI requests, while another can be used to serve data to Apache Spark for Data Science tasks. Each one can have independent service level objective and scale independently.
+- Workload Dependent Service Objective: as a named replica can have its own service level objective, it is possible to use different named replicas for different workloads and use cases. For example, one named replica could be used to serve PowerBI requests, while another can be used to serve data to Apache Spark for Data Science tasks. Each one can have an independent service level objective and scale independently.
 - Workload Dependent Routing: with up to 30 named replicas, it is possible to use named replicas in groups so that an application can be isolated from another. For example, a group of 4 named replicas could be used to serve requests coming from mobile applications, while another group of 2 named replicas can be used to serve requests coming from a web application. This approach would allow a very fine-grained tuning of performance and costs for each group.
 
 The following example creates named replica `WideWorldImporters_NR` for database `WideWorldImporters` with service level objective HS_Gen5_4. Both use the same logical server `MyServer`. If you prefer to use REST API directly, this is also possible: [Databases - Create A Database As Named Replica Secondary](https://docs.microsoft.com/rest/api/sql/2020-11-01-preview/databases/createorupdate#creates-a-database-as-named-replica-secondary).
@@ -112,7 +112,6 @@ To remove a named replica, you drop it just like you would do with a regular dat
 ```sql
 DROP DATABASE [WideWorldImporters_NR]
 ```
-
 # [PowerShell](#tab/azure-powershell)
 ```azurepowershell
 Remove-AzSqlDatabase -ResourceGroupName "MyResourceGroup" -ServerName "MyServer" -DatabaseName "WideWorldImporters_NR"
@@ -122,19 +121,22 @@ Remove-AzSqlDatabase -ResourceGroupName "MyResourceGroup" -ServerName "MyServer"
 az sql db delete -g MyResourceGroup -s MyServer -n WideWorldImporters_NR
 ```
 
+> [!NOTE]
+> Named replicas will also be removed when the primary replica from which they have been created is deleted.
+
 ---
 ### Frequently Asked Questions
 #### Can a named replica be used as a failover target?
 No, named replicas cannot be used as failover targets. Use HA replicas for that purpose.
 
 #### How can I distribute the read-only workload across my named replicas?
-Since every named replica may have a different service level objective and thus be used for different use cases, there is no built-in way to direct read-only traffic sent to the primary to the related named replicas. For example, you may have 8 named replicas, and you may want to direct OLTP workload only to named replicas 1 to 4, while all the Power BI analytical workloads will use named replicas 5 and 6 and the data science workload will use replica 7 and 8. Depending on which tool or programming language you use, strategies to distribute such workload may vary. One example of creating a workload routing solution to allow a REST backend to scale out is here: [OLTP scale-out sample](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout)
+Since every named replica may have a different service level objective and thus be used for different use cases, there is no built-in way to direct read-only traffic sent to the primary to the related named replicas. For example, you may have 8 named replicas, and you may want to direct OLTP workload only to named replicas 1 to 4, while all the Power BI analytical workloads will use named replicas 5 and 6 and the data science workload will use replicas 7 and 8. Depending on which tool or programming language you use, strategies to distribute such workload may vary. One example of creating a workload routing solution to allow a REST backend to scale out is here: [OLTP scale-out sample](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout)
 
-#### Can a named replica be a region different from the region of the primary replica?
+#### Can a named replica be in a region different from the region of the primary replica?
 No, as named replicas use the same page servers of the primary replica, they must be in the same region.
 
 #### Can a named replica impact availability or performance of the primary replica?
-A named replica cannot impact the availability of the primary replica. For what concern performances under normal circumstances it is unlikely, but it can happen if you there are extremely intensive workloads running. Just like an HA replica, a named replica is kept in sync with the primary via the transaction log service. If a named replica, for any reason, is not able to consume the transaction log fast enough, it will start to ask to the primary replica to slow down (throttle) its log generation, so that it can catch up. While this will not impact primary's availability, it will impact its performances. To avoid this situation, make sure that your named replicas have enough free resources – mainly CPU – so that they can process the transaction log without delay. For example, if the primary is processing a lot of data changes, it is recommended to have the named replica with at least the same Service Level Objective of the primary, to avoid bottlenecking the CPU on the replicas and thus forcing the primary to slow down.
+A named replica cannot impact the availability of the primary replica. Named replicas, under normal circumstances, are unlikely to impact primary's performances, but it can happen if there are extremely intensive workloads running. Just like an HA replica, a named replica is kept in sync with the primary via the transaction log service. If a named replica, for any reason, is not able to consume the transaction log fast enough, it will start to ask to the primary replica to slow down (throttle) its log generation, so that it can catch up. While this will not impact primary's availability, it will impact its performances. To avoid this situation, make sure that your named replicas have enough free resources – mainly CPU – so that they can process the transaction log without delay. For example, if the primary is processing a lot of data changes, it is recommended to have the named replica with at least the same Service Level Objective of the primary, to avoid bottlenecking the CPU on the replicas and thus forcing the primary to slow down.
 
 #### What happens to named replicas if the primary replica is unavailable, for example because of planned maintenance?
 Named replicas will still be available for read-only access, as usual.
@@ -148,7 +150,7 @@ SELECT @@SERVERNAME, DB_NAME(), DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 The result is `READ_ONLY` if you are connected to a read-only secondary replica, and `READ_WRITE` if you are connected to the primary replica. Note that the database context must be set to the name of the Hyperscale database, not to the `master` database.
 
-### Can I add create any object or indexes on my secondary compute replicas
+### Can I create any object or indexes on my secondary compute replicas?
 No. Hyperscale databases have shared storage, meaning that all compute replicas see the same tables, indexes, and views. If you want additional indexes optimized for reads on secondary, you must add them on the primary.
 
 You can still create and use temporary tables to store temporary data.
