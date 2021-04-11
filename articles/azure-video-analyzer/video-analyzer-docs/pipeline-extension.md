@@ -76,4 +76,4 @@ For advanced users, you can check out some of our [Jupyter notebook](https://git
 
 ## Next steps 
 
-check out some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Azure Video Analyzer.
+Check out some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Azure Video Analyzer.
