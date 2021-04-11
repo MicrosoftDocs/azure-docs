@@ -2,7 +2,7 @@
 title: Action rules for Azure Monitor alerts
 description: Understanding what action rules in Azure Monitor are and how to configure and manage them.
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 04/08/2021
 
 ---
 
