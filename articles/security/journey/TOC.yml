@@ -1,0 +1,16 @@
+- name: Journey Documentation
+  href: index.yml
+
+- name: Understand cloud security advantages
+  items:
+  - name: Security advantages
+    href: ../fundamentals/overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Shared responsibility in the cloud
+    href: ../fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Identity as the security perimeter
+    href: ../fundamentals/paas-deployments.md#adopt-a-policy-of-identity-as-the-primary-security-perimeter?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+
+- name: Explore Azure security
+  items:
+  - name: End-to-end security
+    href: ../fundamentals/end-to-end.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json

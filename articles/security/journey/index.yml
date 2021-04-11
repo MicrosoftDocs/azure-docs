@@ -1,0 +1,31 @@
+### YamlMime:Landing
+
+title: Security journey documentation
+summary: Find guidance for each phase of the security journey.
+
+metadata:
+  title: Azure security journey documentation
+  description: Find guidance for each phase of the security journey in Azure.
+  services: security
+  ms.service: security
+  ms.subservice: journey
+  ms.topic: landing-page
+  author: TerryLanfear
+  ms.author: terrylan
+  manager: rkarlin
+  ms.date: 04/11/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Understand security advantages
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Shared responsibility
+            url: ../fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          - text: End-to-end security
+            url: ../fundamentals/end-to-end.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
