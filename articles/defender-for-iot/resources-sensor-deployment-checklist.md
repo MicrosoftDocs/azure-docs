@@ -1,19 +1,17 @@
 ---
 title: Azure Defender for IoT pre-deployment checklist
-description: This article has a checklist, and other information you that is useful when preparing your site, prior to Defender for IoT deployment.
+description: This article provides information, and a checklist that should be used prior to deployment when preparing your site.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 03/17/2021
+ms.date: 4/11/2021
 ms.topic: checklist
 ms.service: defender-for-iot
 ---
 
 # Pre-deployment checklist overview
 
-This article has a checklist, and other information you that is useful when preparing your site, prior to Defender for IoT deployment.
-
-Use the information in this article to help ensure a smooth and successful onboarding.
+This article provides information, and a checklist that should be used prior to deployment when preparing your site to ensure a successful onboarding.
 
 - The Defender for IoT physical sensor should connect to managed switches that see the industrial communications between layers 1 and 2 (in some cases also layer 3).
 - The sensor listens on a switch Mirror port (SPAN port) or a TAP.
@@ -21,17 +19,17 @@ Use the information in this article to help ensure a smooth and successful onboa
 
 ## Checklist
 
-An overview of an industrial network diagram will allow site engineers to define the proper location for Azure Defender for IoT equipment.
+Having an overview of an industrial network diagram, will allow the site engineers to define the proper location for Azure Defender for IoT equipment.
 
 ### 1. Global network diagram
 
-Provide a global network diagram of the industrial OT environment
+The global network diagram provides a diagram of the industrial OT environment
 
 :::image type="content" source="media/resources-sensor-deployment-checklist/ICS-purdue-model.png" alt-text="This is where the Azure Defender for IoT sensor fits in, in the setup":::
 
 :::image type="content" source="media/resources-sensor-deployment-checklist/backbone-switch.png" alt-text="This is where the Azure Defender for IoT sensor fits in, in the purdue model":::
 
-Note: Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch. 
+Note: The Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch. 
 
 ### 2. Committed devices
 
