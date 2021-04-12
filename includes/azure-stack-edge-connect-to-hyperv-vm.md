@@ -12,7 +12,7 @@ To finish building your virtual machine, you need to start the virtual machine a
 
     ![Select VM and start it](./media/azure-stack-edge-connect-to-hyperv-vm/connect-virtual-machine-01.png)
 
-2. The VM state is **Running**. Select the VM, and then right-click and select **Connect**.
+2. When the VM state is **Running**, select the VM, and then right-click and select **Connect**.
 
     ![Connect to VM](./media/azure-stack-edge-connect-to-hyperv-vm/connect-virtual-machine-02.png)
 
