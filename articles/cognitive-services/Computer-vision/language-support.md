@@ -41,7 +41,7 @@ Computer Vision's OCR APIs support several languages. They do not require you to
 |Danish | `da` |✔ | |✔ |
 |Dutch | `nl` |✔ |✔ |✔ |
 |English | `en` |✔ |✔ |✔ |
-|Estonian  |`crh`| | |✔ |
+|Estonian  |`et`| | |✔ |
 |Fijian |`fj`| | |✔ |
 |Filipino  |`fil`| | |✔ |
 |Finnish | `fi` |✔ | |✔ |
