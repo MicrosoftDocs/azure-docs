@@ -58,7 +58,7 @@ For large multi-page documents, use the `pages` query parameter to specify page 
 
 The second step is to call [Get Read Results](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d9869604be85dee480c8750) operation. This operation takes as input the operation ID that was created by the Read operation. 
 
-`https://{endpoint}/vision/v3.2/read/analyzeResults/{operationId}
+`https://{endpoint}/vision/v3.2/read/analyzeResults/{operationId}`
 
 It returns a JSON response that contains a **status** field with the following possible values. 
 
