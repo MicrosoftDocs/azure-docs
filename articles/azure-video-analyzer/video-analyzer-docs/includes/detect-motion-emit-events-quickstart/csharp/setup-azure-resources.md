@@ -19,7 +19,7 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
-<!-- Provide new link to the new ARM deployment experience -->  
+
     Upon successful completion of the script, you should see all of the required resources in your subscription. A total of 12 resources will be setup by the script:
     1. **Virtual machine** - This is a virtual machine that will act as your edge device.
     1. **Disk** - This is a storage disk that is attached to the virtual machine to store media and artifacts.
