@@ -35,6 +35,7 @@
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
+<<<<<<< Updated upstream
         - name: Migrate from v2.0 to v3.0
           href: migrate-v2-to-v3.md
         - name: Assess pronunciation
@@ -59,6 +60,14 @@
               href: how-to-custom-speech-human-labeled-transcriptions.md
             - name: Model and Endpoint Lifecycle
               href: how-to-custom-speech-model-and-endpoint-lifecycle.md
+=======
+        - name: Assess pronunciation
+          href: how-to-pronunciation-assessment.md
+        - name: Monitor and control service connectivity
+          href: how-to-control-connections.md
+        - name: Migrate from v2.0 to v3.0 
+          href: migrate-v2-to-v3.md
+>>>>>>> Stashed changes
     - name: Tutorials
       items:
         - name: Improve accuracy with tenant models
