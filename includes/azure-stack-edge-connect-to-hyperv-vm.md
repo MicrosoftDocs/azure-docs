@@ -3,10 +3,9 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 04/11/2021
+ms.date: 04/12/2021
 ---
 
-To finish building your virtual machine, you need to start the virtual machine and walk through the operating system installation.
 
 1. In **Hyper-V Manager**, in the scope pane, right-click the VM to open the context menu, and then select **Start**. 
 
