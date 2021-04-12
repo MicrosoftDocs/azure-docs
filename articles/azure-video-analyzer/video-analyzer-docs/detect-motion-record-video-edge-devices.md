@@ -85,7 +85,7 @@ Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubow
 1. Right-click and select Extension Settings.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/vscode-common-screenshots/extension-settings.png" alt-text= "Show Verbose Message"::: <!--change path to common-->
+    > :::image type="content" source="./media/vscode-common-screenshots/extension-settings.png" alt-text= "Extension settings"::: <!--change path to common-->
 1. Search and enable “Show Verbose Message”.
 
     > [!div class="mx-imgBorder"]
@@ -255,5 +255,5 @@ If you intend to try the other quickstarts, then keep the resources you created.
 * Review additional challenges for advanced users:
     
     * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.
-    * Use an AMD64 or x64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11). Then follow the instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux?view=iotedge-2020-11) register the device with Azure IoT Hub.
+    * Use an AMD64 or x64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true). Then follow the instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux?view=iotedge-2020-11&preserve-view=true) register the device with Azure IoT Hub.
     
