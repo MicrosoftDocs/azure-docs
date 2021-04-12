@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 5 blueprint sample overview
 description: Overview of the DoD Impact Level 5 sample. This blueprint sample helps customers assess specific DoD Impact Level 5 controls.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Overview of the DoD Impact Level 5 blueprint sample

@@ -27,9 +27,6 @@ Automanage supports the following Linux distributions and versions:
 - Ubuntu 16.04 and 18.04
 - SLES 12 (SP3-SP5 only)
 
->[!NOTE]
-> Ensure that Python 3 is installed on your SLES 15 machines
-
 ## Participating services
 
 >[!NOTE]
