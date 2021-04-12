@@ -46,7 +46,7 @@ You can use the environment you create in this tutorial for testing or for getti
    - For certificate validation, unblock the following URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, and **www\.microsoft.com:80**. Since these URLs are used for certificate validation with other Microsoft products you may already have these URLs unblocked.
 
 ## Install the Azure AD Connect provisioning agent
-1. Sign in to the domain joined server.  If you are using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be DC1.
+1. Sign in to the domain joined server.  If you are using the  [Basic A D and Azure environment](tutorial-basic-ad-azure.md) tutorial, it would be DC1.
 2. Sign in to the Azure portal using cloud-only global admin credentials.
 3. On the left, select **Azure Active Directory**, click **Azure AD Connect**, and in the center select **Manage cloud sync**.
 
@@ -56,7 +56,7 @@ You can use the environment you create in this tutorial for testing or for getti
 5. Run the Azure AD Connect provisioning agent.
 6. On the splash screen, **Accept** the licensing terms and click **Install**.
 
-   ![Screenshot that shows the "Microsoft Azure AD Connect Provisioning Agent Package" splash screen.](media/how-to-install/install-1.png)
+   ![Screenshot that shows the "Microsoft Azure A D Connect Provisioning Agent Package" splash screen.](media/how-to-install/install-1.png)
 
 7. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  Note that if you have IE enhanced security enabled this will block the sign-in.  If this is the case, close the installation, disable IE enhanced security in Server Manager, and click the **AAD Connect Provisioning Agent Wizard** to restart the installation.
 8. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account should not have password change requirements. If the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.
@@ -83,7 +83,7 @@ To verify the agent is being seen by Azure follow these steps:
 ![Azure portal](media/how-to-install/install-6.png)</br>
 
 3.  On the **Azure AD Connect cloud sync** screen click **Review all agents**.
-![Azure AD Provisioning](media/how-to-install/install-7.png)</br>
+![Azure A D Provisioning](media/how-to-install/install-7.png)</br>
  
 4. On the **On-premises provisioning agents screen** you will see the agents you have installed.  Verify that the agent in question is there and is marked **active**.
 ![Provisioning agents](media/how-to-install/verify-1.png)</br>
@@ -105,11 +105,11 @@ To verify that the agent is running follow these steps:
 4.  Select **Manage cloud sync**
 ![Screenshot showing "Manage cloud sync" link.](media/how-to-configure/manage-1.png)
 5.  Click **New Configuration**
-![Screenshot of Azure AD Connect cloud sync screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure-1.png)
+![Screenshot of Azure A D Connect cloud sync screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure-1.png)
 7.  On the configuration screen, enter a **Notification email**, move the selector to **Enable** and click **Save**.
 ![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/how-to-configure/configure-2.png)
 1.  The configuration status should now be **Healthy**.
-![Screenshot of Azure AD Connect cloud sync screen showing Healthy status.](media/how-to-configure/manage-4.png)
+![Screenshot of Azure A D Connect cloud sync screen showing Healthy status.](media/how-to-configure/manage-4.png)
 
 ## Verify users are created and synchronization is occurring
 You will now verify that the users that you had in your on-premises directory have been synchronized and now exist in your Azure AD tenant.  Be aware that this may take a few hours to complete.  To verify users are synchronized do the following.
