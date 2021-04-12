@@ -87,7 +87,7 @@ Just like for HA replicas, even though the primary, HA, and named replicas share
 
 ### Modifying a named replica
 
-You can define the service level objective of a named replica when you create it, via the `ALTER DATABASE` command or in any other supported ways (AZ CLI, PowerShell, REST API). If you need to change the service level objective after the named replica has been created, you can do it using the regular `ALTER DATABASE…MODIFY` command on the named replica itself. For example, if `WideWorldImporters_NR` is the named replica of `WideWorldImporters` database, you can do it as shown below (it will take up to a minute max).
+You can define the service level objective of a named replica when you create it, via the `ALTER DATABASE` command or in any other supported ways (AZ CLI, PowerShell, REST API). If you need to change the service level objective after the named replica has been created, you can do it using the regular `ALTER DATABASE…MODIFY` command on the named replica itself. For example, if `WideWorldImporters_NR` is the named replica of `WideWorldImporters` database, you can do it as shown below. In most cases, a named replica will be created in about a minute.
 
 # [T-SQL](#tab/tsql)
 ```sql
