@@ -10,39 +10,24 @@ ms.subservice: files
 ---
 
 # What is Azure File Sync?
- Azure File Sync is a service that allows you to cache a number of Azure file shares on an on-premises Windows Server or cloud VM. 
+Azure File Sync extends your on-premises Windows Server or cloud VM by enabling you to sync file shares to Azure. These files will be stored in Azure file shares in the cloud. Azure file shares can be used in two ways: they can be directly mounted via SMB or NFS, or cached on-premises using Azure File Sync. Caching Azure file shares on-premises enables bottomless storage while maintaining a seamless end-user experience.
 
-Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Azure file shares can be mounted concurrently by cloud or on-premises deployments. Azure Files SMB file shares are accessible from Windows, Linux, and macOS clients. Azure Files NFS file shares are accessible from Linux or macOS clients. Additionally, Azure Files SMB file shares can be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
-
-
-## Why Azure Files is useful
+## Benefits of Azure File Sync
 Azure file shares can be used to:
 
-* **Replace or supplement on-premises file servers**:  
-    Azure Files can be used to completely replace or supplement traditional on-premises file servers or NAS devices. Popular operating systems such as Windows, macOS, and Linux can directly mount Azure file shares wherever they are in the world. Azure File SMB file shares can also be replicated with Azure File Sync to Windows Servers, either on-premises or in the cloud, for performance and distributed caching of the data where it's being used. With the recent release of [Azure Files AD Authentication](storage-files-active-directory-overview.md), Azure File SMB file shares can continue to work with AD hosted on-premises for access control. 
+### Cloud tiering
+Cloud tiering, a feature of Azure File Sync, helps reduce your ever-growing storage footprint while maintaining your fast on-premises performance. With cloud tiering enabled, your most frequently accessed files are cached on your local server and your least frequently accessed files are tiered to the cloud. These tiered files can be recalled quickly on-demand, making the user experience seamless while enabling admins to cut down on costs as you only need to store a fraction of your data on-premises. For more details about cloud tiering, see [Cloud tiering overview link]. 
 
-* **"Lift and shift" applications**:  
-    Azure Files makes it easy to "lift and shift" applications to the cloud that expect a file share to store file application or user data. Azure Files enables both the "classic" lift and shift scenario, where both the application and its data are moved to Azure, and the "hybrid" lift and shift scenario, where the application data is moved to Azure Files, and the application continues to run on-premises. 
+### Multi-site access and sync
+Azure File Sync solves complicated distributed access scenarios. For each of your offices, regardless of where they are located, you can provision a local Windows Server as part of your Azure File Sync deployment. Changes made to the server in one office will automatically sync to the servers in all other offices.
 
-* **Simplify cloud development**:  
-    Azure Files can also be used in numerous ways to simplify new cloud development projects. For example:
-    * **Shared application settings**:  
-        A common pattern for distributed applications is to have configuration files in a centralized location where they can be accessed from many application instances. Application instances can load their configuration through the File REST API, and humans can access them as needed by mounting the SMB share locally.
+Additionally, with the release of Azure Files AD Authentication, Azure Files SMB shares can continue to work with AD hosted on-premises for access control. 
 
-    * **Diagnostic share**:  
-        An Azure file share is a convenient place for cloud applications to write their logs, metrics, and crash dumps. Logs can be written by the application instances via the File REST API, and developers can access them by mounting the file share on their local machine. This enables great flexibility, as developers can embrace cloud development without having to abandon any existing tooling they know and love.
+### Business continuity and disaster recovery
+Azure File Sync enables business continuity and disaster recovery. Because Azure contains resilient copies of your data, you can quickly recover from a data center disaster. To replace a local Windows Server that is part of an Azure File Sync deployment, all you need to do is provision another Windows Server, install the Azure File Sync agent on it, and then add it to your Azure File Sync deployment. Azure File Sync will then download your file namespace prior to the data so that your server can be up and running quickly.  
 
-    * **Dev/Test/Debug**:  
-        When developers or administrators are working on VMs in the cloud, they often need a set of tools or utilities. Copying such utilities and tools to each VM can be a time consuming exercise. By mounting an Azure file share locally on the VMs, a developer and administrator can quickly access their tools and utilities, no copying required.
-* **Containerization**:  
-    Azure file shares can be used as persistent volumes for stateful containers. Containers deliver "build once, run anywhere" capabilities that enable developers to accelerate innovation. For the containers that access raw data at every start, a shared file system is required to allow these containers to access the file system no matter which instance they run on.
-
-## Key benefits
-* **Shared access**. Azure file shares support the industry standard SMB and NFS protocols, meaning you can seamlessly replace your on-premises file shares with Azure file shares without worrying about application compatibility. Being able to share a file system across multiple machines, applications/instances is a significant advantage with Azure Files for applications that need shareability. 
-* **Fully managed**. Azure file shares can be created without the need to manage hardware or an OS. This means you don't have to deal with patching the server OS with critical security upgrades or replacing faulty hard disks.
-* **Scripting and tooling**. PowerShell cmdlets and Azure CLI  can be used to create, mount, and manage Azure file shares as part of the administration of Azure applications. You can create and manage Azure file shares using Azure portal and Azure Storage Explorer. 
-* **Resiliency**. Azure Files has been built from the ground up to be always available. Replacing on-premises file shares with Azure Files means you no longer have to wake up to deal with local power outages or network issues. 
-* **Familiar programmability**. Applications running in Azure can access data in the share via file [system I/O APIs](/dotnet/api/system.io.file). Developers can therefore leverage their existing code and skills to migrate existing applications. In addition to System IO APIs, you can use [Azure Storage Client Libraries](/previous-versions/azure/dn261237(v=azure.100)) or the [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api).
+## Cloud-side backup
+Reduce your on-premises backup spending by taking centralized backups in the cloud using Azure Backup. Azure Backup automates the backup process by scheduling your backups as well as managing their retention. Azure Backup also integrates with your on-premises servers, so when you restore to the cloud, these changes are automatically downloaded on your Windows Servers.  
 
 ## Next Steps
 * [Learn about the available file share protocols](storage-files-compare-protocols.md)
