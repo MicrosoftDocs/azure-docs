@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/17/2021
+ms.date: 04/09/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -79,6 +79,9 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 
 ## Change Log
+- 04/07/2021: Clarified support for SQL Server multi-instance and multi-database support in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md)
+- 04/07/2021: Added information related to secondary IP addresses in [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)
+- 04/07/2021: added support for Oracle DBMS support on ANF in [Azure Storage types for SAP workload](./planning-guide-storage.md)
 - 03/17/2021: Change in [HA for SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md), [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) and [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) to add instructions for HANA Active/Read-enabled system replication in Pacemaker cluster
 - 03/15/2021: Change in [SAP ASCS/SCS instance with WSFC and file share](./sap-high-availability-guide-wsfc-file-share.md),[Install SAP ASCS/SCS instance with WSFC and file share](./sap-high-availability-installation-wsfc-file-share.md) and [SAP ASCS/SCS multi-SID with WSFC and file share](./sap-ascs-ha-multi-sid-wsfc-file-share.md) to clarify that the SAP ASCS/SCS instances and the SOFS share must be deployed in separate clusters
 - 03/03/2021: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to add a cautionary statement that elevated privileges are required for the the user running SWPM, during the installation of the SAP system
