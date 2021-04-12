@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 04/08/2021
+ms.date: 04/12/2021
 ms.custom: contperf-fy21q1,contperfq1
 ---
 
@@ -118,17 +118,21 @@ Convolutional neural networks have been used in areas such as video recognition,
 
 ### Generative adversarial network (GAN)
 
-Generative adversarial networks are generative models trained to create realistic content such as images. It is made up of two networks known as generator and discriminator. Both networks are trained simultaneously. During training, the generator uses random noise to create new synthetic data that closely resembles real data. The discriminator takes the output from the generator as input and uses real data to determine whether the generated content is real or synthetic. Each network is competing with each other, where the generator is trying to generate synthetic content that is indistinguishable from real content and the discriminator is trying to correctly classify inputs as real or synthetic. The output is then used to update the weights of both networks to help them better achieve their respective goals.
+Generative adversarial networks are generative models trained to create realistic content such as images. It is made up of two networks known as generator and discriminator. Both networks are trained simultaneously. During training, the generator uses random noise to create new synthetic data that closely resembles real data. The discriminator takes the output from the generator as input and uses real data to determine whether the generated content is real or synthetic. Each network is competing with each other. The generator is trying to generate synthetic content that is indistinguishable from real content and the discriminator is trying to correctly classify inputs as real or synthetic. The output is then used to update the weights of both networks to help them better achieve their respective goals.
 
 Generative adversarial networks are used to solve problems like image to image translation and age progression.
 
 ### Transformers
 
-Transformers are a model architecture that is suited for solving problems containing sequences such as text or time-series data. They consist of encoder and decoder layers. What makes transformers different from other architectures containing encoders and decoders are the attention sub-layers. Attention is the idea of focusing on specific inputs based on the importance of their context in relation to other inputs in a sequence. For example, when summarizing a news article, not all sentences are relevant to describe the main idea. In some cases summarization be done in a single sentence, the headline.
+Transformers are a model architecture that is suited for solving problems containing sequences such as text or time-series data. They consist of [encoder and decoder layers](https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)#Encoder). The encoder takes an input and maps it to a numerical representation containing information such as context. The decoder uses information from the encoder to produce an output such as translated text. What makes transformers different from other architectures containing encoders and decoders are the attention sub-layers. Attention is the idea of focusing on specific parts of an input based on the importance of their context in relation to other inputs in a sequence. For example, when summarizing a news article, not all sentences are relevant to describe the main idea. By focusing on key words throughout the article, summarization can be done in a single sentence, the headline.
 
 Transformers have been used to solve natural language processing problems such as translation, text generation, question answering, and text summarization.
 
-Some well known implementations of transformers are Bidirectional Encoder Representations from Transformers (BERT), Generative Pre-trained Transformer 2 (GPT-2), and Generative Pre-trained Transformer 3 (GPT-3).
+Some well known implementations of transformers are:
+
+- Bidirectional Encoder Representations from Transformers (BERT)
+- Generative Pre-trained Transformer 2 (GPT-2)
+- Generative Pre-trained Transformer 3 (GPT-3).
 
 ## Next steps
 
