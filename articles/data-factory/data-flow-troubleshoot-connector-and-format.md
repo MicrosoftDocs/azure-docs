@@ -18,7 +18,7 @@ This article explores troubleshooting methods related to connector and format fo
 
 ## CosmosDB & JSON
 
-### Support customized schema in the source
+### Support customized schemas in the source
 
 #### Symptoms
 When you want to use ADF dataflow to move or transfer data from CosmosDB/JSON into other data stores, some columns of the source data may be missed. 
@@ -33,17 +33,17 @@ In order to solve up the known issue/limitation, a feature named "support custom
 
     1. Use the dataflow source **Debug Settings** to have **Import projection** with sample files/tables to get the complete schema. You can follow the steps in the following picture:<br/>
         ![Picture 8.1](./media/data-flow-troubleshoot-connector-and-format/customized-schame-option-1-1.png)<br/>
-        1. Select **Debug settings** in the data flow canvas.
-	    1. In the pop-up pane, select **Sample table** under **cosmosSource** tab. 
-	    1. Enter the name of your table in the **Table** block.
-        1. Select **Save** to save your settings.
-        1. Select **Import projection**.<br/>  
+         1. Select **Debug settings** in the data flow canvas.
+	     1. In the pop-up pane, select **Sample table** under **cosmosSource** tab. 
+	     1. Enter the name of your table in the **Table** block.
+         1. Select **Save** to save your settings.
+         1. Select **Import projection**.<br/>  
     
     1. Change the **Debug Settings** back to use the source dataset for the remaining data movement/transformation. You can move on with the steps in the following picture:<br/>
         ![Picture 8.2](./media/data-flow-troubleshoot-connector-and-format/customized-schame-option-1-2.png) <br/>   
-        1. Select **Debug settings** in the data flow canvas.
-	    1. In the pop-up pane, select **Source dataset** under **cosmosSource** tab.
-        1. Select **Save** to save your settings.<br/>
+         1. Select **Debug settings** in the data flow canvas.
+         1. In the pop-up pane, select **Source dataset** under **cosmosSource** tab.
+         1. Select **Save** to save your settings.<br/>
     
     Afterwards, the ADF dataflow runtime will honor and use the customized schema to read data from the original data store. <br/>
 
