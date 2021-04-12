@@ -16,9 +16,9 @@ ms.date: 12/31/2020
 
 In this tutorial, you'll learn how to integrate pipelines and activities using Synapse Studio. 
 
-## Overview
+## Create a pipeline and add a notebook activity
 
-You can integrate a wide variety of tasks in Azure Synapse.
+
 
 1. In Synapse Studio, go to the **Integrate** hub.
 1. Select **+** > **Pipeline** to create a new pipeline. Click on the new pipeline object to open the Pipeline designer.
