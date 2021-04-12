@@ -47,7 +47,7 @@ Use [az vm update](/cli/azure/vm#az-vm-update) with the full resource ID of the 
 az vm update \
    -g myResourceGroup \
    -n myVM \
-   --os-disk /subscriptions/<subscription ID>/resourceGroups/swap/providers/Microsoft.Compute/disks/myDisk 
+   --os-disk /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/myDisk 
    ```
    
 Restart the VM using [az vm start](/cli/azure/vm).
