@@ -110,11 +110,11 @@ In this quickstart, you will:
 1. Right-click and select **Extension Settings**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/extension-settings.png" alt-text= "VS Extension Settings":::
+    > :::image type="content" source="./media/vscode-common-screenshots/extension-settings.png" alt-text= "VS Extension Settings":::
 1. Search and enable **Show Verbose Message**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/verbose-message.png" alt-text= "Show Verbose Message":::
+    > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Show Verbose Message":::
 1. Right-click the Azure Video Analyzer device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
 
     > [!div class="mx-imgBorder"]

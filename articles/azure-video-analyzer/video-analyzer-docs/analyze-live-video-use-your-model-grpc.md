@@ -326,7 +326,7 @@ In the messages, notice the following details:
 * Try running different media graph topologies using gRPC protocol.
 * Build and run sample Azure Video Analyzer (AVA) extensions 
 
-    * [Sample YOLOv3 model]()<!--add link-->
-    * [Sample YOLOv4 model]()<!--add link-->
+    * [Sample YOLOv3 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/readme.md)
+    * [Sample YOLOv4 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov4/yolov4-grpc-icpu-onnx/readme.md)
     
 
