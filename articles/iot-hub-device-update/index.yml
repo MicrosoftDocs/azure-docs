@@ -27,6 +27,8 @@ landingContent:
       links:
           - text: Create a device update account
             url: create-device-update-account.md
+          - text: Provisioning Device Update for Azure IoT Hub Agent
+            url: device-update-agent-provisioning.md
           - text: Import an update
             url: import-update.md
           - text: Create an update group
@@ -49,7 +51,7 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Provisioning Device Update for Azure IoT Hub Agent
+        - text: How to build and run Device Update Agent
           url: device-update-agent-provisioning.md
   - title: Get started
     linkLists:
