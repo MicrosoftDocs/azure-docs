@@ -96,7 +96,7 @@ The **peek-lock** mode tells the broker that the receiving client wants to settl
 
 When a message is locked, other clients receiving from the same queue or subscription can take on locks and retrieve the next available messages not under active lock. When the lock on a message is explicitly released or when the lock expires, the message pops back up at or near the front of the retrieval order for redelivery.
 
-When the message is repeatedly released by receivers or they let the lock elapse for a defined number of times ([Max Delivery Count](service-bus-dead-letter-queues.md#exceeding-maxdeliverycount), the message is automatically removed from the queue or subscription and placed into the associated dead-letter queue.
+When the message is repeatedly released by receivers or they let the lock elapse for a defined number of times ([Max Delivery Count](service-bus-dead-letter-queues.md#maximum-delivery-count)), the message is automatically removed from the queue or subscription and placed into the associated dead-letter queue.
 
 The receiving client initiates settlement of a received message with a positive acknowledgment when it calls the `Complete` API for the message. It indicates to the broker that the message has been successfully processed and the message is removed from the queue or subscription. The broker replies to the receiver's settlement intent with a reply that indicates whether the settlement could be performed.
 
