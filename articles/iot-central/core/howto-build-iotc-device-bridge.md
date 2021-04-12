@@ -38,7 +38,7 @@ The function app is the core piece of the device bridge. It receives HTTP POST r
 
 The function app transforms the data into a format accepted by IoT Central and forwards it using the device provisioning service and device client APIs:
 
-:::image type="content" source="media/howto-build-iotc-device-bridge/azfunctions.png" alt-text="Screenshot of Azure functions screenshot.":::
+:::image type="content" source="media/howto-build-iotc-device-bridge/azure-function.png" alt-text="Screenshot of Azure functions screenshot.":::
 
 If your IoT Central application recognizes the device ID in the forwarded message, the telemetry from the device appears in IoT Central. If the device ID isn't recognized by your IoT Central application, the function app attempts to register a new device with the device ID. The new device appears as an **Unassociated device** on the **Devices** page in your IoT Central application. From the **Devices** page, you can associate the new device with a device template and then view the telemetry.
 
@@ -73,7 +73,7 @@ After the deployment is completed, you need to install the NPM packages the func
 
 1. The function is now ready to use. External systems can use HTTP POST requests to send device data through the device bridge into your IoT Central application. To get the function URL, navigate to **Functions > IoTCIntegration > Code + Test > Get function URL**:
 
-    :::image type="content" source="media/howto-build-iotc-device-bridge/getFunctionUrl.png" alt-text="Screenshot of Get Function URL.":::
+    :::image type="content" source="media/howto-build-iotc-device-bridge/get-function-url.png" alt-text="Screenshot of Get Function URL.":::
 
 Messages bodies sent to the device bridge must have the following format:
 
@@ -121,7 +121,7 @@ The Function App runs on a [consumption plan](https://azure.microsoft.com/pricin
 
 To use a dedicated App Service Plan instead of a consumption plan, edit the custom template before deploying. Select  **Edit template**.
 
-:::image type="content" source="media/howto-build-iotc-device-bridge/editTemplate.png" alt-text="Screenshot of Edit Template.":::
+:::image type="content" source="media/howto-build-iotc-device-bridge/edit-template.png" alt-text="Screenshot of Edit Template.":::
 
 Replace the following segment:
 
