@@ -140,7 +140,7 @@ For the complete list of participating Azure services and if they support prefer
 
 The Automanage Account is the security context or the identity under which the automated operations occur. Typically, the Automanage Account option is unnecessary for you to select, but if there was a delegation scenario where you wanted to divide the automated management of your resources (perhaps between two system administrators), the Automanage Account option in the enablement flow allows you to define an Azure identity for each of those administrators.
 
-To learn more about the Automanage account and how to create one, click [here](./automanage-account.md).
+To learn more about the Automanage account and how to create one, visit the [Automanage Account document](./automanage-account.md).
 
 ## Status of VMs
 
