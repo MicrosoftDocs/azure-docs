@@ -16,6 +16,14 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+Computer Vision/ Image Analysis API v3.2 GA
+
+* Improved image tagging model: analyzes visual content and generates relevant tags based on objects, actions and content displayed in the image. This is available through the [Tag Image API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f200). 
+* Updated content moderation model: detects presence of adult content and provides flags to filter images containing adult, racy and gory visual content. This is available through the [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).
+
+See the Image Analysis [how-to guide](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) and [overview](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/overview-image-analysis) to learn more.
+
+
 ## March 2021
 
 ### Computer Vision 3.2 Public Preview update
