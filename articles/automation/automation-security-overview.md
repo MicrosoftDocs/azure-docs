@@ -38,7 +38,7 @@ Here are some of the benefits of using managed identities:
 
 - You don’t have to renew the certificate used by the Automation Run As account.
 
-- You don’t have to handle the Run As connection object in your runbook code. The end user can access resources via a managed identity of an Automation account from a runbook without worrying about creating Certificates, connections, RunAsAccounts, etc.
+- You don't have to specify the Run As connection object in your runbook code. You can access resources using your Automation account's managed identity from a runbook without creating certificates, connections, Run As accounts, etc.
 
 An Automation account can be granted two types of identities:
 
@@ -47,7 +47,7 @@ An Automation account can be granted two types of identities:
 - A user-assigned identity is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities.
 
 >[!NOTE]
-> We currently support only system-assigned identities for both Cloud and Hybrid jobs. User assigned identities are not supported yet.
+> User assigned identities are not supported yet.
 
 For details on using managed identities, see [Enable managed identity for Automation](enable-managed-identity-for-automation.md).
 
