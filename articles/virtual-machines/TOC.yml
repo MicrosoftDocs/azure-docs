@@ -430,6 +430,10 @@
         href: ./extensions/features-windows.md
       - name: Windows VM Agent
         href: ./extensions/agent-windows.md
+    - name: Azure Backup for SQL Server
+      items:
+      - name: Azure Backup for SQL Server
+        href: ./extensions/backup-azure-sql-server-running-azure-vm.md
     - name: Azure Disk Encryption
       items:
       - name: Linux
@@ -438,10 +442,6 @@
       - name: Windows
         displayName: Azure Disk Encryption, ADE
         href: ./extensions/azure-disk-enc-windows.md
-    - name: Azure Backup for SQL Server
-      items:
-      - name: Azure Backup for SQL Server
-        href: ./extensions/backup-azure-sql-server-running-azure-vm.md
     - name: Azure Key Vault
       items:
       - name: Linux
@@ -451,7 +451,7 @@
         displayName: Azure Key Vault, key vault, encryption
         href: ./extensions/key-vault-windows.md
     - name: Azure Policy Guest Configuration
-      href: ./extensions/guestconfiguration.md
+      href: ./extensions/guest-configuration.md
     - name: Custom Script
       items:
       - name: Linux - version 2
