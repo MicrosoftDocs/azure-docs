@@ -1,7 +1,7 @@
 ---
 title: Restrict egress traffic in Azure Red Hat OpenShift (ARO)
 description: Learn what ports and addresses are required to control egress traffic in Azure Red Hat OpenShift (ARO)
-author: jim-zimmerman
+author: sakthi-vetrivel
 ms.author: jzim
 ms.service: azure-redhat-openshift
 ms.topic: article
@@ -9,11 +9,11 @@ ms.date: 04/09/2021
 ---
 # Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster (preview)
 
-This article provides the necessary details that allow you to secure outbound traffic from your Azure Red Hat OpenShift cluster (ARO). It contains the cluster requirements for a base ARO deployment, and additional requirements for optional Red Hat and 3rd party components. [An example will be provided at the end on how to configure these requirements with Azure Firewall](#private-ARO-cluster-setup). You can apply this information to Azure Firewall or to any outbound restriction method or appliance.
+This article provides the necessary details that allow you to secure outbound traffic from your Azure Red Hat OpenShift cluster (ARO). It contains the cluster requirements for a base ARO deployment, and additional requirements for optional Red Hat and 3rd party components. [An example will be provided at the end on how to configure these requirements with Azure Firewall](#private-aro-cluster-setup). You can apply this information to Azure Firewall or to any outbound restriction method or appliance.
 
 ## Before you begin
 
-This article assumes that you are creating a new cluster. If you need a basic ARO cluster, see the [ARO quickstart](https://docs.microsoft.com/en-us/azure/openshift/tutorial-create-cluster)
+This article assumes that you are creating a new cluster. If you need a basic ARO cluster, see the [ARO quickstart](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster)
 
 > [!IMPORTANT]
 > ARO preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. ARO previews are partially covered by customer support on a best-effort basis.
@@ -74,7 +74,7 @@ In OpenShift Container Platform, customers can opt out of reporting health and u
 
 - **`mirror.openshift.com`**: This one is required in the VDI environment or your laptop to access mirrored installation content and images and required in the cluster to download platform release signatures, used by the cluster to know what images to pull from quay.io.
 - **`storage.googleapis.com/openshift-release`**: Alternative site to download platform release signatures, used by the cluster to know what images to pull from quay.io.
-- **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL): When whitelisting domains, this is use in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console.
+- **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL): When allowlisting domains, this is use in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console.
 - **`api.openshift.com`**: Required  by the cluster to check if there are available updates before download the image signatures.
 - **`registry.access.redhat.com`**: Required in your VDI or laptop environment to download dev images when using the ODO CLI tool (alternative CLI tool for developers who do not understand K8S). https://docs.openshift.com/container-platform/4.6/cli_reference/developer_cli_odo/understanding-odo.html
 
@@ -92,7 +92,7 @@ In OpenShift Container Platform, customers can opt out of reporting health and u
 
 ### Azure Monitor for containers
 
-There are two options to provide access to Azure Monitor for containers, you may allow the Azure Monitor [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) **or** provide access to the required FQDN/Application Rules.  Here are the [instructions](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-azure-redhat4-setup) on how to add Azure Monitor to your existing ARO cluster.
+There are two options to provide access to Azure Monitor for containers, you may allow the Azure Monitor [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) **or** provide access to the required FQDN/Application Rules.  Here are the [instructions](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-azure-redhat4-setup) on how to add Azure Monitor to your existing ARO cluster.
 
 #### Required network rules
 
@@ -114,7 +114,7 @@ The following FQDN / application rules are required for ARO clusters that have t
 | **`*.monitoring.azure.com`** | **`HTTPS:443`** | This endpoint is used to send metrics data to Azure Monitor. |
 
 
-# Private ARO cluster setup
+## Private ARO cluster setup
 The goal is to secure ARO cluster by routing Egress traffic through an Azure Firewall
 ### Before:
 ![Before](media/concepts-networking/aroprivate.png)
