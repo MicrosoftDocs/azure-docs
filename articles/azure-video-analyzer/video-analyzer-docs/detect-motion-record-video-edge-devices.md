@@ -237,7 +237,7 @@ To play the MP4 clip:
 
 If you intend to try the other quickstarts, then keep the resources you created. Otherwise, in the Azure portal, go to your resource groups, select the resource group where you ran this quickstart, and then delete all of the resources.
 
-# Next steps
+## Next steps
 
 * Follow the Run Azure Video Analyzer with your own model quickstart to apply AI to live video feeds.
 * Review additional challenges for advanced users:
