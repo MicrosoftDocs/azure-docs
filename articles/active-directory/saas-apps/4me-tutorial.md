@@ -71,7 +71,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+	a. In the **Sign on URL** text box, type a URL using one of the following patterns:
 
 	| Environment| URL|
 	|---|---|
@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| QA| `https://<SUBDOMAIN>.4me.qa`|
 	| | |
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    b. In the **Identifier (Entity ID)** text box, type a URL using one of the following patterns:
 
 	| Environment| URL|
 	|---|---|
