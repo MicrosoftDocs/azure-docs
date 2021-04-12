@@ -36,11 +36,11 @@ Edit the *CacheSecrets.config* file and add the following contents:
 
 ```xml
 <appSettings>
-    <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
+    <add key="CacheConnection" value="<host-name>,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
 </appSettings>
 ```
 
-Replace `<cache-name>` with your cache host name.
+Replace `<host-name>` with your cache host name.
 
 Replace `<access-key>` with the primary key for your cache.
 
