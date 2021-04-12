@@ -29,7 +29,7 @@ When you set up the Azure resources, a short video of highway traffic is copied 
 
 Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the highway intersection sample video](https://www.videolan.org/vlc/) to start playback. You see the footage of many vehicles moving in highway traffic.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
 
 Complete the following steps to use Azure Video Analyzer on IoT Edge to detect the motion of the car and record a video clip starting around the 5-second mark.
 
