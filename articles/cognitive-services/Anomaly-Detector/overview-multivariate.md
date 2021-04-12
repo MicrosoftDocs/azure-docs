@@ -40,7 +40,7 @@ Use multivariate anomaly detection APIs below, if your goal is to detect system 
 - `DELETE /anomalydetector/v1.1-preview/multivariate/models/{modelId}`
 - `GET /anomalydetector/v1.1-preview/multivariate/models/{modelId}/export`
 
-![Multiple time series line graphs for variables of: vibration, temperature, pressure, velocity, rotation speed with anomalies highlighted in orange](./media/multivariate_graph.png)
+![Multiple time series line graphs for variables of: vibration, temperature, pressure, velocity, rotation speed with anomalies highlighted in orange](./media/multivariate-graph.png)
 
 ## Region support
 

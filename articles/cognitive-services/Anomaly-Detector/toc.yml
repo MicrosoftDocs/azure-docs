@@ -52,7 +52,7 @@
     - name: Predicative maintenance architecture (multivariate)
       href: concepts/multivariate-architecture.md
     - name: Troubleshooting multivariate
-      href: concepts/troubleshooting.md
+      href: concepts/troubleshoot.md
     - name: Spectral Residual (SR) and Convolutional Neural Net (CNN) anomaly detection
       href: https://arxiv.org/abs/1906.03821
     - name: Multivariate time-series anomaly detection via graph attention network
