@@ -217,7 +217,7 @@
         displayName: query store, performance, optimize, recommendations
       - name: Azure Advisor recommendations
         href: concepts-azure-advisor-recommendations.md
-      - name: App Development
+    - name: App Development
       items:
       - name: Best practices
         href: application-best-practices.md
