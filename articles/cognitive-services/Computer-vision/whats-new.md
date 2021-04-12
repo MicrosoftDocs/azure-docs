@@ -23,7 +23,7 @@ The Computer Vision API v3.2 is now generally available with the following updat
 * Image analysis...
 * Spatial analysis...
 * [OCR (Read) for 73 languages](./language-support.md#optical-character-recognition-ocr) including Simplified and Traditional Chinese, Japanese, Korean, and Latin languages.
-* [OCR (Read)](./overview-ocr) also available as a [Distroless container](./computer-vision-how-to-install-containers.md?tabs=version-3-2) for on-premise deployment.
+* [OCR (Read)](./overview-ocr.md) also available as a [Distroless container](./computer-vision-how-to-install-containers.md?tabs=version-3-2) for on-premise deployment.
 
 > [!div class="nextstepaction"]
 > [See Computer Vision v3.2 GA](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
