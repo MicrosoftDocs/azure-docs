@@ -238,7 +238,7 @@
   - name: Checklist 
     href: /azure/architecture/framework/security/monitor?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
-- name: Optimize
+- name: Optimize security investments
   items:
   - name: Governance, risk, compliance
     href: /azure/architecture/framework/security/governance?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json

@@ -21,7 +21,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Understand security advantages
+  - title: About Azure security
     linkLists:
       - linkListType: overview
         links:
@@ -37,7 +37,7 @@ landingContent:
             url: ../fundamentals/platform.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   # Card
-  - title: Securely migrate to the cloud
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
@@ -51,7 +51,7 @@ landingContent:
             url: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   # Card
-  - title: Secure and protect your resources
+  - title: Secure your cloud workloads
     linkLists:
       - linkListType: overview
         links:
@@ -73,7 +73,7 @@ landingContent:
             url: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   # Card
-  - title: Detect threats
+  - title: Mitigate threats
     linkLists:
       - linkListType: concept
         links:
@@ -83,7 +83,7 @@ landingContent:
             url: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   # Card
-  - title: Investigate threats and respond
+  - title: Know what's happening in your environment
     linkLists:
       - linkListType: concept
         links:
