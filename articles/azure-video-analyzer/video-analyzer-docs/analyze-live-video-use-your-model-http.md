@@ -68,7 +68,7 @@ In this quickstart, you will:
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
  
-1. The deployment.yolov3.amd64.json manifest file is created in the src/edge/config folder.
+1. The *deployment.yolov3.amd64.json* manifest file is created in the *src/edge/config* folder.
 1. If you completed the [Detect motion and emit events]()<!--TODO: add a link once the topic is staged --> quickstart, then skip this step.
 
     Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).

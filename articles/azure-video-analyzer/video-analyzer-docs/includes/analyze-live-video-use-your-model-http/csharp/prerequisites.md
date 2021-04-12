@@ -13,7 +13,7 @@ ms.author: juliako
     > You will need an Azure subscription with at least a Contributor role. If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
-    
+
     > [!TIP]
     > When installing Azure IoT Tools, you might be prompted to install Docker. Feel free to ignore the prompt.    
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
