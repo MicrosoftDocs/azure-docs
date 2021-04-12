@@ -36,13 +36,24 @@ The Windows Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Windows Virtual Desktop Agent:
 
-- Version 1.0.2990.800: This update will be released in April 2021, and has updates to the agent error messages, adds an exception for non Windows 7 agents being installed on Windows 7 VMs, and has updated heartbeat service logic.
-- Version 1.0.2944.1400: This update was released April 7, 2021 and placed hyperlinks in the event viewer logs for agent errors to the corresponding part of the agent troubleshooting guide, and added an additional exception for better error handling.
-- Version 1.0.2866.1500: This update was released March 26, 2021 and fixed an issue with the stack health check.
-- Version 1.0.2800.2802: This update was released March 10, 2021 and has general improvements and bug fixes.
-- Version 1.0.2800.2800: This update was released March 2, 2021 and fixed a reverse connection issue.
-- Version 1.0.2800.2700: This update was released February 10, 2021 and has general improvements and bug fixes.
-- Version 1.0.2800.2700: This update was released February 4, 2021 and fixed an access denied orchestration issue.
+- Version 1.0.2990.800: This update will be released in April 2021, and has the following changes:
+    - Has updates to the agent error messages.
+    - Adds an exception for non-Windows 7 agents being installed on Windows 7 VMs.
+    - Has updated heartbeat service logic.
+- Version 1.0.2944.1400: This update was released April 7, 2021 and has the following changes:
+    - Placed hyperlinks in the event viewer logs for agent errors to the corresponding part of the agent troubleshooting guide.
+    - Added an additional exception for better error handling.
+    - Added the WVDAgentUrlTool.exe that allows customers to check which of the required URLs are accessible or not.
+- Version 1.0.2866.1500: This update was released March 26, 2021 and has the following changes:
+    - Fixed an issue with the stack health check.
+- Version 1.0.2800.2802: This update was released March 10, 2021 and and has the following changes:
+    - General improvements and bug fixes.
+- Version 1.0.2800.2800: This update was released March 2, 2021 and and has the following changes:
+    - Fixed a reverse connection issue.
+- Version 1.0.2800.2700: This update was released February 10, 2021 and and has the following changes:
+    - General improvements and bug fixes.
+- Version 1.0.2800.2700: This update was released February 4, 2021 and has the following changes:
+    - Fixed an access denied orchestration issue.
 
 ## FSLogix updates
 
