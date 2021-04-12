@@ -70,7 +70,7 @@ conceptualContent:
         - url: ./fundamentals/network-best-practices.md
           itemType: concept
           text: Network security
-        - url: ./fundamentals/paas-deployments
+        - url: ./fundamentals/paas-deployments.md
           itemType: concept
           text: Securing PaaS deployments
       footerLink:
