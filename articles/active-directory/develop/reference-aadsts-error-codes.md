@@ -119,7 +119,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS50055 | InvalidPasswordExpiredPassword - The password is expired. |
 | AADSTS50056 | Invalid or null password -Password does not exist in store for this user. |
 | AADSTS50057 | UserDisabled - The user account is disabled. The account has been disabled by an administrator. |
-| AADSTS50058 | UserInformationNotProvided - This means that a user is not signed in. This is a common error that's expected when a user is unauthenticated and has not yet signed in.</br>If this error is encouraged in an SSO context where the user has previously signed in, this means that the SSO session was either not found or invalid.</br>This error may be returned to the application if prompt=none is specified. |
+| AADSTS50058 | UserInformationNotProvided - This means that a user is not signed in. This is a common error that's expected when a user is unauthenticated and has not yet signed in.</br>If this error is encountered in an SSO context where the user has previously signed in, this means that the SSO session was either not found or invalid.</br>This error may be returned to the application if prompt=none is specified. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - Tenant-identifying information was not found in either the request or implied by any provided credentials. The user can contact the tenant admin to help resolve the issue. |
 | AADSTS50061 | SignoutInvalidRequest - The sign-out request is invalid. |
 | AADSTS50064 | CredentialAuthenticationError - Credential validation on username or password has failed. |
