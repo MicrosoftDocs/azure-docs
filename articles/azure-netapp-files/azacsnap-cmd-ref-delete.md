@@ -32,11 +32,11 @@ It is possible to delete volume snapshots and database catalog entries with the 
 
 The `-c delete` command has the following options:
 
-- `--delete hana` when used with the options `--hanasid <SID>` and `--hanabackupid <HANA backup id>` will delete entries from the SAP HANA backup catalog matching the criteria.
+- `--delete hana` when used with the options `--dbsid <SID>` and `--hanabackupid <HANA backup id>` will delete entries from the SAP HANA backup catalog matching the criteria.
 
 - `--delete storage` when used with the option `--snapshot <snapshot name>` will delete the snapshot from the back-end storage system.
 
-- `--delete sync` when used with options `--hanasid <SID>` and `--hanabackupid <HANA backup id>` gets the storage snapshot name from the backup catalog for the `<HANA backup id>`, and then deletes the entry in the backup catalog _and_ the snapshot from any of the volumes containing the named snapshot.
+- `--delete sync` when used with options `--dbsid <SID>` and `--hanabackupid <HANA backup id>` gets the storage snapshot name from the backup catalog for the `<HANA backup id>`, and then deletes the entry in the backup catalog _and_ the snapshot from any of the volumes containing the named snapshot.
 
 - `--delete sync` when used with `--snapshot <snapshot name>` will check for any entries in the backup catalog for the `<snapshot name>`, gets the SAP HANA backup ID and deletes both the entry in the backup catalog _and_ the snapshot from any of the volumes containing the named snapshot.
 
@@ -47,7 +47,7 @@ The `-c delete` command has the following options:
 ### Delete a snapshot using `sync` option`
 
 ```bash
-azacsnap -c delete --delete sync --hanasid H80 --hanabackupid 157979797979
+azacsnap -c delete --delete sync --dbsid H80 --hanabackupid 157979797979
 ```
 
 > [!NOTE]
@@ -67,7 +67,7 @@ and the snapshot from any of the volumes containing the named snapshot.
 ### Delete a snapshot using `hana` option`
 
 ```bash
-azacsnap -c delete --delete hana --hanasid H80 --hanabackupid 157979797979
+azacsnap -c delete --delete hana --dbsid H80 --hanabackupid 157979797979
 ```
 
 > [!NOTE]

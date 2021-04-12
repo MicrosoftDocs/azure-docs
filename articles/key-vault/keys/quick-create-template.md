@@ -16,9 +16,12 @@ ms.author: sebansal
 
 ---
 
-# Quickstart: Create an Azure key vault and a key by using ARM template (Preview)
+# Quickstart: Create an Azure key vault and a key by using ARM template 
 
 [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a key vault and a key.
+
+> [!NOTE]
+> This feature is not available for Azure Government.
 
 ## Prerequisites
 

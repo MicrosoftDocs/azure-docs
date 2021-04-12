@@ -78,6 +78,9 @@
   - name: CIS Microsoft Azure Foundations Benchmark v1.1.0
     displayName: standards, cis
     href: ./samples/cis-azure-1-1-0.md
+  - name: CMMC Level 3
+    displayName: standards, cmmc
+    href: ./samples/cmmc-l3.md
   - name: DoD Impact Level 4
     items:
     - name: Overview
