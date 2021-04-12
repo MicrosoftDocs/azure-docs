@@ -40,6 +40,8 @@ landingContent:
             url: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
           - text: Veeam getting started guide
             url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+          - text: DobiProtect getting started guide
+            url: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
    # Card
   - title: Container solution partners
     linkLists:
