@@ -20,6 +20,10 @@
       href: analyze-live-video-use-your-model-http.md
     - name: with your own gRPC model
       html: analyze-live-video-use-your-model-grpc.md
+- name: Tutorials
+  items:
+  - name: Continuous video recording and playback
+    href: continuous-video-recording-tutorial.md
 - name: Concepts
   items:
   - name: Pipeline
