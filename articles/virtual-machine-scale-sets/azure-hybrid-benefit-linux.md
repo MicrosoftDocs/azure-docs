@@ -17,6 +17,8 @@ ms.author: mathapli
 
 # Azure Hybrid Benefit for Linux virtual machine scale set (Public Preview)
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Uniform scale sets
+
 **Azure Hybrid Benefit for Linux virtual machine scale set is in public preview now**. AHB benefit can help you reduce the cost of running your RHEL and SLES [virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
 
 With this benefit, you pay for only the infrastructure cost of your scale set. The benefit is available for all RHEL and SLES Marketplace pay-as-you-go (PAYG) images.
