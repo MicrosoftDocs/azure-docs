@@ -29,7 +29,7 @@ If your organization uses a public IP address range for private networks, Azure 
 
 ## Configure SNAT private IP address ranges for firewalls associated with Firewall Policy
 
-Azure Firewalls associated with Firewall Policy has supported  SNAT private ranges since the 2020-11-01 API version. Currently, you can use a template to update the SNAT private range on the Firewall Policy. The following sample configures the firewall to **not** SNAT network traffic:
+Azure Firewalls associated with a Firewall Policy have supported SNAT private ranges since the 2020-11-01 API version. Currently, you can use a template to update the SNAT private range on the Firewall Policy. The following sample configures the firewall to **not** SNAT network traffic:
 
 ```json
 { 
