@@ -68,6 +68,8 @@
     href: ../../application-gateway/security-baseline.md
   - name: Automation security baseline
     href: ../../automation/security-baseline.md
+  - name: Azure Active Directory security baseline
+    href: ../../active-directory/fundamentals/security-baseline.md
   - name: Azure Advisor security baseline
     href: ../../advisor/security-baseline.md
   - name: Azure App Configuration security baseline
@@ -138,6 +140,8 @@
     href: ../../azure-monitor/security-baseline.md
   - name: Azure Migrate security baseline
     href: ../../migrate/security-baseline.md
+  - name: Azure Peering Service security baseline
+    href: ../../peering-service/security-baseline.md
   - name: Azure Policy security baseline
     href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
   - name: Azure Private Link security baseline

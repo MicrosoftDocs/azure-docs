@@ -14,7 +14,7 @@ ms.date: 03/19/2021
 # Migration guide: MySQL to Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your MySQL database to an Azure SQL database by using [SQL Server Migration](https://azure.microsoft.com/migration/migration-journey) Assistant for MySQL (SSMA for MySQL). 
+In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your MySQL database to an Azure SQL database by using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant for MySQL (SSMA for MySQL). 
 
 For other migration guides, see [Azure Database Migration Guide](https://docs.microsoft.com/data-migration). 
 
