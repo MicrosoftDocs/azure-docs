@@ -32,6 +32,11 @@ Once it is visible, you will see that the **Knowledge center** allows you to do 
 
 ## Exploring: Use samples immediately
 
+There are three items in this section:
+* Explore sample data with Spark
+* Query data with SQL
+* Create external table with SQL
+
 1. In the **Knowledge center**, click **Use samples immediately**.
 1. Select **Query data with SQL**.
 1. Click **Use sample**.
