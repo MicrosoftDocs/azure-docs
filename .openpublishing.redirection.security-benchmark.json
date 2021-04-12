@@ -1,6 +1,10 @@
 {
   "redirections": [
-
+    {
+        "source_path_from_root": "/articles/security/benchmarks/index.yml",
+        "redirect_url": "/security/benchmark/azure",
+        "redirect_document_id": false
+    },
     {
         "source_path_from_root": "/articles/security/benchmarks/introduction.md",
         "redirect_url": "/security/benchmark/azure/introduction.",
