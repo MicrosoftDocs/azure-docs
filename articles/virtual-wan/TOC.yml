@@ -71,6 +71,8 @@
       href: scenario-route-through-nvas-custom.md
     - name: Azure Firewall - custom
       href: scenario-route-between-vnets-firewall.md
+    - name: Application Gateway and backend pools
+      href: scenario-secured-hub-app-gateway.md
   - name: Monitoring
     items:
     - name: About Azure Monitor Insights for Virtual WAN
