@@ -64,7 +64,7 @@ Follow these steps to deploy the ARM template:
 1. Provide the values for machineName, automanageAccountName, and configurationProfileAssignment when prompted
 1. You are done!
 
-As with any ARM template, it is possible to factor out the parameters into a separate azuredeploy.parameters.json file and use that as an argument.
+As with any ARM template, it is possible to factor out the parameters into a separate `azuredeploy.parameters.json` file and use that as an argument when deploying.
 
 ## Next steps
 Learn more about Automanage for [Linux](./automanage-linux.md) and [Windows](./automanage-windows-server.md)
