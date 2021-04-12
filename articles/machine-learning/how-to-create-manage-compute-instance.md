@@ -170,7 +170,11 @@ Once you store the script, refer to it during creation of your compute instance:
     1. Select **+New** to create a new compute instance.
     1. [Fill out the form](how-to-create-attach-compute-studio.md).
     1. On the second page of the form, open **Show advanced settings**
-    1. Browse to the shell script you saved.  Add command arguments as needed.
+    1. Turn on **Provision with setup script**
+    1. Browse to the shell script you saved.  Or upload a script from your computer.
+    1. Add command arguments as needed.
+    
+    :::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provision with a setup script in the studio":::
 
 * In a Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance), add `setupScripts`. For example:
 
