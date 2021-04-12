@@ -41,7 +41,7 @@ When using this architecture, a Video Indexer account is created for each tenant
 * Harder to manage due to multiple Video Indexer (and associated Media Services) accounts per tenant.
 
 > [!TIP]
-> Create an admin user for your system in [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/) and use the Authorization API to provide your tenants the relevant [account access token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token).
+> Create an admin user for your system in [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/) and use the Authorization API to provide your tenants the relevant [account access token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token).
 
 ## Single Video Indexer account for all users
 
@@ -51,7 +51,7 @@ When using this architecture, the customer is responsible for tenants isolation.
 
 With this option, customization models (Person, Language, and Brands) can be shared or isolated between tenants by filtering the models by tenant.
 
-When [uploading videos](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?), you can specify a different partition attribute per tenant. This will allow isolation in the [search API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). By specifying the partition attribute in the search API you will only get results of the specified partition. 
+When [uploading videos](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video), you can specify a different partition attribute per tenant. This will allow isolation in the [search API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Search-Videos). By specifying the partition attribute in the search API you will only get results of the specified partition. 
 
 ### Considerations
 
