@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 04/12/2021
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -11,10 +11,12 @@ By default, you can deploy up to 800 instances of a resource type in each resour
 
 For some resource types, you need to contact support to have the 800 instance limit removed. Those resource types are noted in this article.
 
+
 ## Microsoft.AlertsManagement
 
+* resourceHealthAlertRules
 * smartDetectorAlertRules
- 
+
 ## Microsoft.Automation
 
 * automationAccounts
@@ -30,17 +32,6 @@ For some resource types, you need to contact support to have the 800 instance li
 ## Microsoft.BotService
 
 * botServices - By default, limited to 800 instances. That limit can be increased by contacting support.
-
-## Microsoft.Compute
-
-* disks
-* galleries
-* galleries/images
-* galleries/images/versions
-* images
-* snapshots
-* virtualMachineScaleSets - By default, limited to 800 instances. That limit can be increased by contacting support.
-* virtualMachines
 
 ## Microsoft.ContainerInstance
 
@@ -74,12 +65,17 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * flexibleServers
 * serverGroups
+* serverGroupsv2
 * servers
 * serversv2
 
 ## Microsoft.DevTestLab
 
-* schedules
+
+## Microsoft.EdgeOrder
+
+* orderCollections
+* orders
 
 ## Microsoft.EnterpriseKnowledgeGraph
 
@@ -106,7 +102,7 @@ For some resource types, you need to contact support to have the 800 instance li
 ## Microsoft.HybridCompute
 
 * machines - supports up to 5,000 instances
-* extensions - supports an unlimited number of VM extension instances
+* machines/extensions - supports an unlimited number of VM extension instances
 
 ## microsoft.insights
 
@@ -128,6 +124,7 @@ For some resource types, you need to contact support to have the 800 instance li
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/volumeGroups
 
 ## Microsoft.Network
 
@@ -178,6 +175,7 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Microsoft.PowerBIDedicated
 
+* autoScaleVCores - By default, limited to 800 instances. That limit can be increased by contacting support.
 * capacities - By default, limited to 800 instances. That limit can be increased by contacting support.
 
 ## Microsoft.Relay
