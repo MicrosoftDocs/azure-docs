@@ -290,8 +290,6 @@
   items:
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?category=storage
-  - name: Azure File Sync release notes
-    href: storage-files-release-notes.md
   - name: Azure Files on Microsoft Q&A
     href: /answers/topics/azure-files.html
   - name: Azure Files on Stack Overflow
