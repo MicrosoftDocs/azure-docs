@@ -67,8 +67,7 @@ In this quickstart, you will:
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
- 
-    The deployment.yolov3.amd64.json manifest file is created in the src/edge/config folder.
+1. The *deployment.yolov3.amd64.json* manifest file is created in the *src/edge/config* folder.
 1. If you completed the [Detect motion and emit events]()<!--TODO: add a link once the topic is staged --> quickstart, then skip this step.
 
     Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
@@ -110,11 +109,11 @@ In this quickstart, you will:
 1. Right-click and select **Extension Settings**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/extension-settings.png" alt-text= "VS Extension Settings":::
+    > :::image type="content" source="./media/vscode-common-screenshots/extension-settings.png" alt-text= "VS Extension Settings":::
 1. Search and enable **Show Verbose Message**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/verbose-message.png" alt-text= "Show Verbose Message":::
+    > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Show Verbose Message":::
 1. Right-click the Azure Video Analyzer device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
 
     > [!div class="mx-imgBorder"]
@@ -144,8 +143,7 @@ In this quickstart, you will:
 
     Press Enter to continue
     ```    
-    
-    The **TERMINAL** window shows the next set of direct method calls:
+1. The **TERMINAL** window shows the next set of direct method calls:
     
     * A call to pipelineTopologySet that uses the preceding topologyUrl.
     * A call to livePipelineSet that uses the following body:
@@ -176,7 +174,6 @@ In this quickstart, you will:
         ```
     * A call to livePipelineActivate that starts the graph instance and the flow of video.
     * A second call to livePipelineList that shows that the graph instance is in the running state.
-    
 1. The output in the **TERMINAL** window pauses at a **Press Enter to continue** prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Azure Video Analyzer module is sending to the IoT hub. The following section of this quickstart discusses these messages.
 1. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline, return to the **TERMINAL** window and select Enter.
