@@ -192,9 +192,7 @@
       href: marketplace-dynamics-365.md
     - name: Create a Dynamics 365 offer
       items:
-      - name: Create a Dynamics 365 for Operations offer
-        href: partner-center-portal/create-new-operations-offer.md
-      - name: Create a Dynamics 365 for Operations offer
+      - name: Create an Operations offer
         items: 
         - name: Create the offer
           href: d365-operations-offer-setup.md
@@ -210,8 +208,10 @@
           href: d365-operations-supplemental-content.md
         - name: Functional validation
           href: d365-operations-validation.md
-      - name: Create a Dynamics 365 Business Central offer
+      - name: Create a Business Central offer
         href: partner-center-portal/create-new-business-central-offer.md
+      - name: Create a Customer Engagement and Power Apps offer
+        href: partner-center-portal/create-new-customer-engagement-offer.md
   - name: IoT Edge module offers
     items:
     - name: Plan an IoT Edge module offer
