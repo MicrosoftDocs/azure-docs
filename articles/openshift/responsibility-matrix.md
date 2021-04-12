@@ -9,15 +9,13 @@ ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli, RACI, support
 ---
 
-# Azure Red Hat OpenShift Responsibilities
+# Overview of responsibilities for Azure Red Hat OpenShift
 
 This document outlines the responsibilities of Microsoft, Red Hat, and customers for Azure Red Hat OpenShift clusters. For more information about Azure Red Hat OpenShift and its components, see the Azure Red Hat OpenShift Service Definition.
 
-# Overview of responsibilities for Azure Red Hat OpenShift 
-
 While Microsoft and Red Hat manage the Azure Red Hat OpenShift service, the customer shares responsibility for the functionality of their cluster. While Azure Red Hat OpenShift clusters are hosted on Azure resources in customer Azure subscriptions, they are accessed remotely. Underlying platform and data security is owned by Microsoft and Red Hat.
 
-
+## Overview
 <table>
   <tr>
    <td><strong>Resource</strong>
@@ -205,13 +203,11 @@ While Microsoft and Red Hat manage the Azure Red Hat OpenShift service, the cust
 Table 1. Responsibilities by resource
 
 
-# Tasks for shared responsibilities by area 
+## Tasks for shared responsibilities by area 
 
-
-## Incident and operations management 
+### Incident and operations management 
 
 The customer and Microsoft and Red Hat share responsibility for the monitoring and maintenance of an Azure Red Hat OpenShift cluster. The customer is responsible for incident and operations management of [customer application data](#customer-data-and-customer-applications) and any custom networking the customer may have configured.
-
 
 <table>
   <tr>
@@ -268,7 +264,7 @@ The customer and Microsoft and Red Hat share responsibility for the monitoring a
 Table 2. Shared responsibilities for incident and operations management
 
 
-## Change management
+### Change management
 
 Microsoft and Red Hat are responsible for enabling changes to the cluster infrastructure and services that the customer will control, as well as maintaining versions available for the master nodes, infrastructure services, and worker nodes. The customer is responsible for initiating infrastructure changes and installing and maintaining optional services and networking configurations on the cluster, as well as all changes to customer data and customer applications.
 
@@ -432,7 +428,7 @@ Microsoft and Red Hat are responsible for enabling changes to the cluster infras
 Table 3. Shared responsibilities for change management
 
 
-## Identity and Access management 
+### Identity and Access Management 
 
 Identity and Access management includes all responsibilities for ensuring that only proper individuals have access to cluster, application, and infrastructure resources. This includes tasks such as providing access control mechanisms, authentication, authorization, and managing access to resources.
 
@@ -532,7 +528,7 @@ Identity and Access management includes all responsibilities for ensuring that o
 Table 4. Shared responsibilities for identity and access management
 
 
-## Security and regulation compliance 
+### Security and regulation compliance 
 
 Security and compliance includes any responsibilities and controls that ensure compliance with relevant laws, policies, and regulations.
 
@@ -592,10 +588,10 @@ Security and compliance includes any responsibilities and controls that ensure c
 Table 5. Shared responsibilities for security and regulation compliance
 
 
-# Customer responsibilities when using Azure Red Hat OpenShift 
+## Customer responsibilities when using Azure Red Hat OpenShift 
 
 
-## Customer Data and Customer Applications
+### Customer data and applications
 
 The customer is responsible for the applications, workloads, and data that they deploy to Azure Red Hat OpenShift. However, Microsoft and Red Hat provide various tools to help the customer manage data and applications on the platform.
 
