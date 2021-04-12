@@ -1,6 +1,6 @@
 ---
-title: Restore a dropped Azure Database for MySQL server
-description: This article describes how to restore a dropped server in Azure Database for MySQL using the Azure portal.
+title: Restore a deleted Azure Database for MySQL server
+description: This article describes how to restore a deleted server in Azure Database for MySQL using the Azure portal.
 author: savjani
 ms.author: pariks
 ms.service: mysql
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/09/2020
 ---
 
-# Restore a dropped Azure Database for MySQL server
+# Restore a deleted Azure Database for MySQL server
 
-When a server is dropped, the database server backup can be retained up to five days in the service. The database backup can be accessed and restored only from the Azure subscription where the server originally resided. The following recommended steps can be followed to recover a dropped MySQL server resource within 5 days from the time of server deletion. The recommended steps will work only if the backup for the server is still available and not deleted from the system. 
+When a server is deleted, the database server backup can be retained up to five days in the service. The database backup can be accessed and restored only from the Azure subscription where the server originally resided. The following recommended steps can be followed to recover a deleted MySQL server resource within 5 days from the time of server deletion. The recommended steps will work only if the backup for the server is still available and not deleted from the system. 
 
 ## Pre-requisites
-To restore a dropped Azure Database for MySQL server, you need following:
+To restore a deleted Azure Database for MySQL server, you need following:
 - Azure Subscription name hosting the original server
 - Location where the server was created
 
@@ -59,5 +59,5 @@ To restore a dropped Azure Database for MySQL server, you need following:
    - **Operation** =  Update MySQL Server Create
 
 ## Next steps
-- If you are trying to restore a server within five days, and still receive an error after accurately following the steps discussed earlier, open a support incident for assistance. If you are trying to restore a dropped server after five days, an error is expected since the backup file cannot be found. Do not open a support ticket in this scenario. The support team cannot provide any assistance if the backup is deleted from the system. 
+- If you are trying to restore a server within five days, and still receive an error after accurately following the steps discussed earlier, open a support incident for assistance. If you are trying to restore a deleted server after five days, an error is expected since the backup file cannot be found. Do not open a support ticket in this scenario. The support team cannot provide any assistance if the backup is deleted from the system. 
 - To prevent accidental deletion of servers, we highly recommend using [Resource Locks](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/preventing-the-disaster-of-accidental-deletion-for-your-mysql/ba-p/825222).
