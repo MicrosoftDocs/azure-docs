@@ -25,12 +25,12 @@ You can submit messages to a queue or topic for delayed processing; for example,
 
 Scheduled messages do not materialize in the queue until the defined enqueue time. Before that time, scheduled messages can be canceled. Cancellation deletes the message.
 
-You can schedule messages either by setting the `Scheduled​Enqueue​Time​Utc` property when sending a message through the regular send path or explicitly use the dedicated API to schedule the message. The latter immediately returns the scheduled message's **SequenceNumber**, which you can later use to cancel the scheduled message if needed. Scheduled messages and their sequence numbers can also be discovered using [message browsing](message-browsing.md). Below are the names of the dedicated schedule API in different clients.
+```suggestion
+You can schedule messages using any of our clients in two ways:
+- Use the regular send API, but set the `Scheduled​Enqueue​Time​Utc` property on the message before sending.
+- Use the schedule message API, pass both the normal message and the scheduled time. This will return the scheduled message's **SequenceNumber**, which you can later use to cancel the scheduled message if needed. 
 
-- `ScheduleMessageAsync` in .NET clients
-- `scheduleMessage` in Java and JavaScript clients
-- `schedule_message` in Python clients
-
+Scheduled messages and their sequence numbers can also be discovered using [message browsing](message-browsing.md).
 
 The **SequenceNumber** for a scheduled message is only valid while the message is in this state. As the message transitions to the active state, the message is appended to the queue as if had been enqueued at the current instant, which includes assigning a new **SequenceNumber**.
 
