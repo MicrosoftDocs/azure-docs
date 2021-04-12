@@ -120,7 +120,7 @@ Convolutional neural networks have been used in areas such as video recognition,
 
 Generative adversarial networks are generative models trained to create realistic content such as images. It is made up of two networks known as generator and discriminator. Both networks are trained simultaneously. During training, the generator uses random noise to create new synthetic data that closely resembles real data. The discriminator takes the output from the generator as input and uses real data to determine whether the generated content is real or synthetic. Each network is competing with each other, where the generator is trying to generate synthetic content that is indistinguishable from real content and the discriminator is trying to correctly classify inputs as real or synthetic. The output is then used to update the weights of both networks to help them better achieve their respective goals.
 
-Generative adversarial networks are used to solve problems like image to image translation, age progression.
+Generative adversarial networks are used to solve problems like image to image translation and age progression.
 
 ### Transformers
 
