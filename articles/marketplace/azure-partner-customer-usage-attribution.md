@@ -12,7 +12,7 @@ ms.custom: devx-track-terraform
 
 # Azure customer usage attribution
 
-Customer usage attribution associates usage from Azure resources in customer subscriptions created while deploying your IP with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure Application offers in the commercial marketplace](#commercial-marketplace-azure-apps), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs. Customer usage attribution isn’t applicable to [Azure virtual machine offers in the commercial marketplace](./azure-vm-create). There is nothing a marketplace publisher needs to do for virtual machine offers to ensure their Azure consumption is tracked in end-customer subscriptions.
+Customer usage attribution associates usage from Azure resources in customer subscriptions created while deploying your IP with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure Application offers in the commercial marketplace](#commercial-marketplace-azure-apps), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs. Customer usage attribution isn’t applicable to [Azure virtual machine offers in the commercial marketplace](./azure-vm-create.md). There is nothing a marketplace publisher needs to do for virtual machine offers to ensure their Azure consumption is tracked in end-customer subscriptions.
 
 Customer usage attribution supports three deployment options:
 
