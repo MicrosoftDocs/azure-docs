@@ -35,7 +35,9 @@ In the portal, you can enable sessions while creating an entity (queue or subscr
 > [!IMPORTANT]
 > When Sessions are enabled on a queue or a subscription, the client applications can ***no longer*** send/receive regular messages. All messages must be sent as part of a session (by setting the session id) and received by accepting the session.
 
-The APIs for sessions exist on queue and subscription clients. There's an imperative model that controls when sessions and messages are received, and a handler-based model that hides the complexity of managing the receive loop.
+The APIs for sessions exist on queue and subscription clients. There's an imperative model that controls when sessions and messages are received, and a handler-based model that hides the complexity of managing the receive loop. 
+
+For samples, use links in the [Next steps](#next-steps) section. 
 
 ### Session features
 
@@ -43,7 +45,7 @@ Sessions provide concurrent de-multiplexing of interleaved message streams while
 
 ![A diagram showing how the Sessions feature preserves ordered delivery.][1]
 
-A session receiver is created by a client accepting a session. When the session is accepted and held by a client, the client holds an exclusive lock on all messages with that session's ID in the queue or subscription. It will also hold exclusive locks on all messages with the session ID that will arrive later.
+A session receiver is created by a client accepting a session. When the session is accepted and held by a client, the client holds an exclusive lock on all messages with that session's **session ID** in the queue or subscription. It will also hold exclusive locks on all messages with the **session ID** that will arrive later.
 
 The lock is released when you call the close related methods on the receiver or when the lock expires. There are methods on the receiver to renew the locks as well. Instead, you can use the automatic lock renewal feature where you can specify the time duration for which you want to keep getting the lock renewed. The session lock should be treated like an exclusive lock on a file, meaning that the application should close the session as soon as it no longer needs it and/or doesn't expect any further messages.
 

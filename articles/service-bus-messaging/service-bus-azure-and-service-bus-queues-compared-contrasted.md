@@ -34,7 +34,7 @@ As a solution architect/developer, **you should consider using Service Bus queue
 * Your solution needs to receive messages without having to poll the queue. With Service Bus, you can achieve it by using a long-polling receive operation using the TCP-based protocols that Service Bus supports.
 * Your solution requires the queue to provide a guaranteed first-in-first-out (FIFO) ordered delivery.
 * Your solution needs to support automatic duplicate detection.
-* You want your application to process messages as parallel long-running streams (messages are associated with a stream using the session ID property on the message). In this model, each node in the consuming application competes for streams, as opposed to messages. When a stream is given to a consuming node, the node can examine the state of the application stream state using transactions.
+* You want your application to process messages as parallel long-running streams (messages are associated with a stream using the **session ID** property on the message). In this model, each node in the consuming application competes for streams, as opposed to messages. When a stream is given to a consuming node, the node can examine the state of the application stream state using transactions.
 * Your solution requires transactional behavior and atomicity when sending or receiving multiple messages from a queue.
 * Your application handles messages that can exceed 64 KB but won't likely approach the 256-KB limit.
 * You deal with a requirement to provide a role-based access model to the queues, and different rights/permissions for senders and receivers. For more information, see the following articles:
@@ -58,10 +58,10 @@ This section compares some of the fundamental queuing capabilities provided by S
 | Delivery guarantee |**At-Least-Once** |**At-Least-Once** (using PeekLock receive mode. It's the default) <br/><br/>**At-Most-Once** (using ReceiveAndDelete receive mode) <br/> <br/> Learn more about various [Receive modes](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Atomic operation support |**No** |**Yes**<br/><br/> |
 | Receive behavior |**Non-blocking**<br/><br/>(completes immediately if no new message is found) |**Blocking with or without a timeout**<br/><br/>(offers long polling, or the ["Comet technique"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(through the use of .NET managed API only) |
-| Push-style API |**No** |**Yes**<br/><br/>Our .NET, Java, JavaScript, and Python SDKs provide push-style API. |
+| Push-style API |**No** |**Yes**<br/><br/>Our .NET, Java, JavaScript, Python, and Go SDKs provide push-style API. |
 | Receive mode |**Peek & Lease** |**Peek & Lock**<br/><br/>**Receive & Delete** |
 | Exclusive access mode |**Lease-based** |**Lock-based** |
-| Lease/Lock duration |**30 seconds (default)**<br/><br/>**7 days (maximum)** (You can renew or release a message lease using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API.) |**30 seconds (default)**<br/><br/>You can renew the message lock for the same lock duration each time manually or make use of the automatic lock renewal feature where the client manages lock renewal for you. |
+| Lease/Lock duration |**30 seconds (default)**<br/><br/>**7 days (maximum)** (You can renew or release a message lease using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API.) |**30 seconds (default)**<br/><br/>You can renew the message lock for the same lock duration each time manually or use the automatic lock renewal feature where the client manages lock renewal for you. |
 | Lease/Lock precision |**Message level**<br/><br/>Each message can have a different timeout value, which you can then update as needed while processing the message, by using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API. |**Queue level**<br/><br/>(each queue has a lock precision applied to all of its messages, but the lock can be renewed as described in the previous row) |
 | Batched receive |**Yes**<br/><br/>(explicitly specifying message count when retrieving messages, up to a maximum of 32 messages) |**Yes**<br/><br/>(implicitly enabling a pre-fetch property or explicitly through the use of transactions) |
 | Batched send |**No** |**Yes**<br/><br/>(through the use of transactions or client-side batching) |
@@ -78,7 +78,7 @@ This section compares some of the fundamental queuing capabilities provided by S
 * Service Bus queues provide support for local transactions in the context of a single queue.
 * The **Receive and Delete** mode supported by Service Bus provides the ability to reduce the messaging operation count (and associated cost) in exchange for lowered delivery assurance.
 * Storage queues provide leases with the ability to extend the leases for messages. This feature allows the worker processes to maintain short leases on messages. So, if a worker crashes, the message can be quickly processed again by another worker. Also, a worker can extend the lease on a message if it needs to process it longer than the current lease time.
-* Storage queues offer a visibility timeout that you can set upon the enqueuing or dequeuing of a message. Also, you can update a message with different lease values at run-time, and update different values across messages in the same queue. Service Bus lock timeouts are defined in the queue metadata. However, you can renew the message lock for the pre-defined lock duration manually or make use of the automatic lock renewal feature where the client manages lock renewal for you.
+* Storage queues offer a visibility timeout that you can set upon the enqueuing or dequeuing of a message. Also, you can update a message with different lease values at run-time, and update different values across messages in the same queue. Service Bus lock timeouts are defined in the queue metadata. However, you can renew the message lock for the pre-defined lock duration manually or use the automatic lock renewal feature where the client manages lock renewal for you.
 * The maximum timeout for a blocking receive operation in Service Bus queues is 24 days. However, REST-based timeouts have a maximum value of 55 seconds.
 * Client-side batching provided by Service Bus enables a queue client to batch multiple messages into a single send operation. Batching is only available for asynchronous send operations.
 * Features such as the 200-TB ceiling of Storage queues (more when you virtualize accounts) and unlimited queues make it an ideal platform for SaaS providers.
@@ -96,7 +96,7 @@ This section compares advanced capabilities provided by Storage queues and Servi
 | In-place update |**Yes** |**Yes** |
 | Server-side transaction log |**Yes** |**No** |
 | Storage metrics |**Yes**<br/><br/>**Minute Metrics** provides real-time metrics for availability, TPS, API call counts, error counts, and more. They're all in real time, aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Yes**<br/><br/>For information about metrics supported by Azure Service Bus, see [Message metrics](service-bus-metrics-azure-monitor.md#message-metrics). |
-| State management |**No** |**Yes** (Active, Disabled, SendDisabled, ReceiveDisabled) |
+| State management |**No** |**Yes** (Active, Disabled, SendDisabled, ReceiveDisabled. For details on these states, see [Queue status](entity-suspend.md#queue-status)) |
 | Message autoforwarding |**No** |**Yes** |
 | Purge queue function |**Yes** |**No** |
 | Message groups |**No** |**Yes**<br/><br/>(through the use of messaging sessions) |
