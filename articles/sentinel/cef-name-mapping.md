@@ -216,9 +216,9 @@ The following table maps CEF key and CommonSecurityLog names for the *timestamp*
 |     flexDate1Label    |     FlexDate1Label    |
 | | |
 
-### Custom long data fields
+### Custom integer data fields
 
-The following table maps CEF key and CommonSecurityLog names for the *long data fields* available for custom data.
+The following table maps CEF key and CommonSecurityLog names for the *integer* fields available for custom data.
 
 |CEF key name  |CommonSecurityLog name  |
 |---------|---------|
@@ -232,6 +232,8 @@ The following table maps CEF key and CommonSecurityLog names for the *long data 
 
 The following **CommonSecurityLog** fields are added by Azure Sentinel to enrich the original events received from the source devices, and don't have mappings in CEF keys:
 
+### Threat intelligence fields
+
 |CommonSecurityLog field name  |Description  |
 |---------|---------|
 |   **IndicatorThreatType**  |  The [MaliciousIP](#MaliciousIP) threat type, according to the threat intelligence feed.       |
@@ -239,15 +241,21 @@ The following **CommonSecurityLog** fields are added by Azure Sentinel to enrich
 |  **MaliciousIPCountry**   | The [MaliciousIP](#MaliciousIP) country, according to the geographic information at the time of the record ingestion.        |
 | **MaliciousIPLatitude**    |   The [MaliciousIP](#MaliciousIP) longitude, according to the geographic information at the time of the record ingestion.      |
 | **MaliciousIPLongitude**    |  The [MaliciousIP](#MaliciousIP) longitude, according to the geographic information at the time of the record ingestion.       |
-|**OriginalLogSeverity**     |  Always empty, supported for integration with CiscoASA. <br>For details about log severity values, see the [LogSeverity](#logseverity) field.       |
-|**RemoteIP**     |     The remote IP address. <br>This value is based on [CommunicationDirection](#communicationdirection) field, if possible.     |
-|**RemotePort**     |   The remote port. <br>This value is based on [CommunicationDirection](#communicationdirection) field, if possible.      |
 | **ReportReferenceLink**    |    Link to the threat intelligence report.     |
-|**SimplifiedDeviceAction**     |   Simplifies the [DeviceAction](#deviceaction) value to a static set of values, while keeping the original value in the [DeviceAction](#deviceaction) field. <br>For example:  `Denied` > `Deny`.      |
-|**SourceSystem**     | Always defined as **OpsManager**.        |
 |  **ThreatConfidence**   |   The [MaliciousIP](#MaliciousIP) threat confidence, according to the threat intelligence feed.      |
 | **ThreatDescription**    |   The [MaliciousIP](#MaliciousIP) threat description, according to the threat intelligence feed.      |
 | **ThreatSeverity** | The threat severity for the [MaliciousIP](#MaliciousIP), according to the threat intelligence feed at the time of the record ingestion. |
+|     |         |
+
+### Additional enrichment fields
+
+|CommonSecurityLog field name  |Description  |
+|---------|---------|
+|**OriginalLogSeverity**     |  Always empty, supported for integration with CiscoASA. <br>For details about log severity values, see the [LogSeverity](#logseverity) field.       |
+|**RemoteIP**     |     The remote IP address. <br>This value is based on [CommunicationDirection](#communicationdirection) field, if possible.     |
+|**RemotePort**     |   The remote port. <br>This value is based on [CommunicationDirection](#communicationdirection) field, if possible.      |
+|**SimplifiedDeviceAction**     |   Simplifies the [DeviceAction](#deviceaction) value to a static set of values, while keeping the original value in the [DeviceAction](#deviceaction) field. <br>For example:  `Denied` > `Deny`.      |
+|**SourceSystem**     | Always defined as **OpsManager**.        |
 |     |         |
 
 ## Next steps
