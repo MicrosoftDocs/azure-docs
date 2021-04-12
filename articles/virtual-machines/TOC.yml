@@ -458,6 +458,8 @@
       - name: Windows
         displayName: Custom Script, extension
         href: ./extensions/custom-script-windows.md
+    - name: Guest Configuration
+      href: ./extensions/guestconfiguration.md
     - name: IaaS antimalware for Windows
       href: ./extensions/iaas-antimalware-windows.md
     - name: VM snapshot
