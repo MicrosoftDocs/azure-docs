@@ -5,8 +5,8 @@ services: api-management
 author: vladvino
 
 ms.service: api-management
-ms.topic: article
-ms.date: 04/01/2021
+ms.topic: how-to
+ms.date: 04/12/2021
 ms.author: apimpm
 ms.custom: references_regions
 ---
@@ -40,14 +40,14 @@ To perform the steps described in this article, you must have:
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
 
-2. Choose your API Management instance.
+1. Choose your API Management instance.
 
-3. Select **Virtual network**.
-4. Configure the API Management instance to be deployed inside a Virtual network.
+1. Select **Virtual network**.
+1. Configure the API Management instance to be deployed inside a Virtual network.
 
     :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Select virtual network in Azure portal.":::
     
-5. Select the desired access type:
+1. Select the desired access type:
 
     * **Off**: This is the default. API Management is not deployed into a virtual network.
 
@@ -59,17 +59,18 @@ To perform the steps described in this article, you must have:
 
         ![Private peering][api-management-vnet-private]
 
-6. If you selected **External** or **Internal**, you will see a list of all locations (regions) where your API Management service is provisioned. Choose a **Location**, and then pick its **Virtual network** and **Subnet**. The virtual network list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are set up in the region you are configuring.
+1. If you selected **External** or **Internal**, you will see a list of all locations (regions) where your API Management service is provisioned. Choose a **Location**, and then pick its **Virtual network**, **Subnet**, and **IP address**. The virtual network list is populated with Resource Manager virtual networks available in your Azure subscriptions that are set up in the region you are configuring.
+
+
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Virtual network settings in the portal.":::
 
     > [!IMPORTANT]
     > * When your client uses **API version 2020-12-01 or earlier** to deploy an Azure API Management instance in a Resource Manager VNET, the service must be in a dedicated subnet that contains no resources except Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
     > * When your client uses **API version 2021-01-01-preview or later** to deploy an Azure API Management instance in a virtual network, only a Resource Manager virtual network is supported. Additionally, the subnet used may contain other resources. You don't have to use a subnet dedicated to API Management instances. 
 
-    Then select **Apply**. The **Virtual network** page of your API Management instance is updated with your new virtual network and subnet choices.
+1. Select **Apply**. The **Virtual network** page of your API Management instance is updated with your new virtual network and subnet choices.
 
-    Continue configuring virtual network settings for the remaining locations of your API Management instance.
-
-    :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Virtual network settings in the portal.":::
+1. Continue configuring virtual network settings for the remaining locations of your API Management instance.
 
 7. In the top navigation bar, select **Save**, and then select **Apply network configuration**.
 
@@ -98,9 +99,6 @@ You can also enable virtual network connectivity by using the following methods.
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
 
 * Azure PowerShell cmdlets - [Create](/powershell/module/az.apimanagement/new-azapimanagement) or [update](/powershell/module/az.apimanagement/update-azapimanagementregion) an API Management instance in a virtual network
-
-* Azure CLI commands - [Create](/cli/azure/apim#az_apim_create) or [update](/cli/azure/apim#az_apim_update) an API Management instance in a virtual network
-
 
 ## <a name="connect-vnet"> </a>Connect to a web service hosted within a virtual Network
 After your API Management service is connected to the VNET, accessing backend services within it is no different than accessing public services. Just type in the local IP address or the host name (if a DNS server is configured for the VNET) of your web service into the **Web service URL** field when creating a new API or editing an existing one.
