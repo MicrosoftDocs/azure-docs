@@ -180,11 +180,21 @@ First receipt:
 
 ## Analyze business cards
 
-This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md). To analyze business cards from a URL, use the `.beginRecognizeBusinessCardsFromURL` method.
+This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md). 
+
+To analyze business cards from a URL, use the `beginRecognizeBusinessCardsFromURL` method.
 
 ## Analyze invoices
 
+This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md). 
+
+To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method.
+
 ## Analyze identity documents
+
+This section demonstrates how to analyze and extract key information from government issued identity documents—Worldwide Passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about invoice analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
+
+To analyze identity documents from a URL use the `beginRecognizeIdDocumentsFromUrl` method.
 
 ## Train a custom model
 
