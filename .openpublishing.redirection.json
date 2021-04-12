@@ -28120,6 +28120,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/machine-learning/how-to-label-images.md",
+      "redirect_url": "/azure/machine-learning/how-to-label-data",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/how-to-use-parallel-run-step.md",
       "redirect_url": "/azure/machine-learning/tutorial-pipeline-batch-scoring-classification",
       "redirect_document_id": false
