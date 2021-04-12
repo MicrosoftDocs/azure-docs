@@ -243,7 +243,15 @@ To view the interpretability dashboard in the studio:
 [Learn more about model explanations in automated ML](how-to-machine-learning-interpretability-automl.md).
 
 > [!NOTE]
-> The ForecastTCN model is not currently supported by automated ML explanations and other forecasting models may have limited access to interpretability tools.
+> Interpretability, best model explanation, is not available for Auto ML forecasting experiments that recommend the following algorithms as the best model or ensemble: 
+> * TCNForecaster
+> * AutoArima
+> * ExponentialSmoothing
+> * Prophet
+> * Average 
+> * Naive
+> * Seasonal Average 
+> * Seasonal Naive
 
 ## Next steps
 * Try the [automated machine learning model explanation sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
