@@ -24,7 +24,7 @@ This article explores troubleshooting methods related to connector and format fo
 When you want to use ADF dataflow to move or transfer data from CosmosDB/JSON into other data stores, some columns of the source data may be missed. 
 
 #### Cause 
-For the schema free connectors (the column number, column name and column data type of each row can be different when comparing with others), currently, Azure Data Factory uses sample rows (for example, top 100 or 1000 rows data) to infer the schema, and the inferred result will be used as a schema to read data. So if your data stores has extra columns that don't appear in sample rows, the data of these extra columns cannot be read, moved or transferred into sink data stores.
+For the schema free connectors (the column number, column name and column data type of each row can be different when comparing with others), currently, Azure Data Factory (ADF) uses sample rows (for example, top 100 or 1000 rows data) to infer the schema, and the inferred result will be used as a schema to read data. So if your data stores has extra columns that don't appear in sample rows, the data of these extra columns cannot be read, moved or transferred into sink data stores.
 
 #### Recommendation
 In order to solve up the known issue/limitation, a feature named "support customized schema in schema free connectivity" was enabled in ADF dataflow. You can feel free to specify additional/missing columns which could be missing in schema-infer-result in the dataflow source projection to read the data, and you can apply one of the following options to set the customized schema. Usually, **Option-1** is more preferred.
