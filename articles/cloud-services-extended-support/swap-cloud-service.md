@@ -26,7 +26,7 @@ You must make a cloud service swappable with another cloud service when you depl
         }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > You can't swap between an Azure Cloud Services (classic) deployment and an Azure Cloud Services (extended support) deployment.
 
 ## Azure portal
@@ -88,13 +88,13 @@ Review these answers to common questions about deployment swaps in Azure Cloud S
 You must meet two key prerequisites for a successful deployment swap in Azure Cloud Services (extended support):
 
 * If you want to use a static or reserved IP address for one of the swappable cloud services, the other cloud service must also use a reserved IP address. Otherwise, the swap fails.
-* All instances of your roles must be running for the swap to succeed. You can check the status of your instances in **Overview** for the newly deployed cloud service in the Azure portal. Alternatively, you can use the `Get-AzRole` command in Windows PowerShell.
+* All instances of your roles must be running for the swap to succeed. You can check the status of your instances in **Overview** for the newly deployed cloud service in the Azure portal. You can also use the `Get-AzRole` command in Windows PowerShell.
 
 Guest OS updates and service healing operations also can cause deployment swaps to fail. For more information, see [Troubleshoot cloud service deployment problems](../cloud-services/cloud-services-troubleshoot-deployment-problems.md).
 
 ### Can I make a VIP swap in parallel with another mutating operation?
 
-No. A VIP swap is a networking-only change that needs to finish before any other compute operation is initiated on a cloud service. Starting an update, delete, or autoscale operation for a cloud service while a VIP swap is in progress, or triggering a VIP swap while another compute operation is in progress, might put the cloud service in a state of unrecoverable error.
+No. A VIP swap is a networking-only change that must finish before any other compute operation is started on a cloud service. Starting an update, delete, or autoscale operation for a cloud service while a VIP swap is in progress, or triggering a VIP swap while another compute operation is in progress, might put the cloud service in a state of unrecoverable error.
 
 ### Does a swap incur downtime for my application? How should I handle it?
 
@@ -102,10 +102,10 @@ As described in the preceding section, a cloud service swap typically is fast be
 
 ## Next steps 
 
-- Review [deployment prerequisites](deploy-prerequisite.md) for Azure Cloud Services (extended support).
-- Review [frequently asked questions](faq.md) for Azure Cloud Services (extended support).
-- Deploy an Azure Cloud Services (extended support) cloud service by using one of these options:
-  - [Azure portal](deploy-portal.md)
-  - [PowerShell](deploy-powershell.md)
-  - [ARM template](deploy-template.md)
-  - [Visual Studio](deploy-visual-studio.md)
+* Review [deployment prerequisites](deploy-prerequisite.md) for Azure Cloud Services (extended support).
+* Review [frequently asked questions](faq.md) for Azure Cloud Services (extended support).
+* Deploy an Azure Cloud Services (extended support) cloud service by using one of these options:
+  * [Azure portal](deploy-portal.md)
+  * [PowerShell](deploy-powershell.md)
+  * [ARM template](deploy-template.md)
+  * [Visual Studio](deploy-visual-studio.md)
