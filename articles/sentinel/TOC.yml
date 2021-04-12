@@ -35,6 +35,8 @@
       href: roles.md
     - name: Manage access by resource
       href: resource-context-rbac.md
+    - name: Protect MSSP intellectual property
+      href: mssp-protect-intellectual-property.md
   - name: Advanced multistage attack detection
     href: fusion.md
   - name: Automation (SOAR)
