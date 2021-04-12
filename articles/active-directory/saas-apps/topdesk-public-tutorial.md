@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Expand the **Login Settings** menu, and then click **General**.
    
-    ![General](./media/topdesk-public-tutorial/general.png "General")
+    ![General Settings](./media/topdesk-public-tutorial/general.png "General Settings")
 
 5. In the **Public** section of the **SAML login** configuration section, perform the following steps:
    
