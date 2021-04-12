@@ -134,7 +134,7 @@ az monitor log-analytics workspace data-export list --resource-group "RG_NAME" -
 
 ### Export custom data
 
-For custom data that is not supported by Log Analytics auto-export, you can use Logic App or other solutions to move your data. You can refer to the [Exporting Log Analytics Data to Blob Store](https://www.borninthecloud.com/exporting-log-analytics-data-to-blob-store/?preview=true) blog and script.
+For custom data that is not supported by Log Analytics auto-export, you can use Logic App or other solutions to move your data. You can refer to the [Exporting Log Analytics Data to Blob Store](https://techcommunity.microsoft.com/t5/azure-monitor/log-analytics-data-export-preview/ba-p/1783530) blog and script.
 
 ### Correlate with data outside of Azure Sentinel
 
