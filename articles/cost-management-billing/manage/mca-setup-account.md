@@ -101,7 +101,7 @@ Open the migration that you were presented previously, or open the link that you
 
 The following image shows and example of the Prepare your enterprise agreement enrollments for transition window.
 
-:::image type="content" source="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition.png" alt-text="Screenshot showing the Set up your billing account page - Prepare your Enterprise Agreement enrollments for transition." lightbox="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition.png" :::
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition.png" alt-text="Screenshot showing the Set up your billing account page - Prepare your Enterprise Agreement enrollments for transition ready for selections." lightbox="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition.png" :::
 
 Next, select the source enrollment to transition. Then select the billing account and billing profile. If validation passes without any problems similar to the following screen, select **Continue** to proceed.
 
