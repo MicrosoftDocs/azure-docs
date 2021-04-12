@@ -92,7 +92,7 @@ The upside of this mode is that the receiver does not need to take further actio
 
 ### PeekLock
 
-The **peek-lock** mode tells the broker that the receiving client wants to settle received messages explicitly. The message is made available for the receiver to process, while held under an exclusive lock in the service so that other, competing receivers cannot see it. The duration of the lock is initially defined at the queue or subscription level and can be extended by the client owning the lock, via the [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) operation.
+The **peek-lock** mode tells the broker that the receiving client wants to settle received messages explicitly. The message is made available for the receiver to process, while held under an exclusive lock in the service so that other, competing receivers cannot see it. The duration of the lock is initially defined at the queue or subscription level and can be extended by the client owning the lock. For details about renewing locks, see the [Renew locks](#renew-locks) section in this article. 
 
 When a message is locked, other clients receiving from the same queue or subscription can take on locks and retrieve the next available messages not under active lock. When the lock on a message is explicitly released or when the lock expires, the message pops back up at or near the front of the retrieval order for redelivery.
 
@@ -119,6 +119,9 @@ The typical mechanism for identifying duplicate message deliveries is by checkin
 >   * Changing properties on the entity (Queue, Topic, Subscription) while holding the lock.
 >
 > When the lock is lost, Azure Service Bus will generate a LockLostException which will be surfaced on the client application code. In this case, the client's default retry logic should automatically kick in and retry the operation.
+
+## Renew locks
+The default value for the lock duration is **30 seconds**. You can specify a different value for the lock duration at the queue or subscription level. The client owning the lock can renew the message lock by using methods on the receiver object. Instead, you can use the automatic lock-renewal feature where you can specify the time duration for which you want to keep getting the lock renewed. 
 
 ## Next steps
 - A special case of settlement is deferral. See the [Message deferral](message-deferral.md) for details. 

@@ -58,7 +58,7 @@ This section compares some of the fundamental queuing capabilities provided by S
 | Delivery guarantee |**At-Least-Once** |**At-Least-Once** (using PeekLock receive mode. It's the default) <br/><br/>**At-Most-Once** (using ReceiveAndDelete receive mode) <br/> <br/> Learn more about various [Receive modes](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Atomic operation support |**No** |**Yes**<br/><br/> |
 | Receive behavior |**Non-blocking**<br/><br/>(completes immediately if no new message is found) |**Blocking with or without a timeout**<br/><br/>(offers long polling, or the ["Comet technique"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(through the use of .NET managed API only) |
-| Push-style API |**No** |**Yes**<br/><br/>Our .NET, Java, JavaScript, Python, and Go SDKs provide push-style API. |
+| Push-style API |**No** |**Yes**<br/><br/>Our .NET, Java, JavaScript, and Go SDKs provide push-style API. |
 | Receive mode |**Peek & Lease** |**Peek & Lock**<br/><br/>**Receive & Delete** |
 | Exclusive access mode |**Lease-based** |**Lock-based** |
 | Lease/Lock duration |**30 seconds (default)**<br/><br/>**7 days (maximum)** (You can renew or release a message lease using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API.) |**30 seconds (default)**<br/><br/>You can renew the message lock for the same lock duration each time manually or use the automatic lock renewal feature where the client manages lock renewal for you. |
