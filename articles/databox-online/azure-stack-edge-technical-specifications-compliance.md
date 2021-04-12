@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/09/2020
+ms.date: 04/12/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro technical specifications
@@ -18,14 +18,14 @@ The hardware components of your Microsoft Azure Stack Edge Pro device adhere to 
 
 The Azure Stack Edge Pro device has the following specifications for compute and memory:
 
-| Specification           | Value                       |
-|-------------------------|-----------------------------|
-| CPU type                | Intel Xeon Silver 4114 2.2G |
-| CPU: raw                | 2 X 10 core CPU (40 vCPU)    |
-| CPU: usable             | 32 vCPU                     |
-| Memory type             | 8x 16GB RDIMM               |
-| Memory: raw             | 128 GB RAM                  |
-| Memory: usable          | 102 GB RAM                  |
+| Specification           | Value                        |
+|-------------------------|------------------------------|
+| CPU type                | Intel Xeon Silver 4114 2.2 G |
+| CPU: raw                | 2 X 10-core CPU, 40 vCPU     |
+| CPU: usable             | 32 vCPU                      |
+| Memory type             | 8 x 16 GB RDIMM              |
+| Memory: raw             | 128 GB RAM                   |
+| Memory: usable          | 102 GB RAM                   |
 
 
 ## FPGA specifications

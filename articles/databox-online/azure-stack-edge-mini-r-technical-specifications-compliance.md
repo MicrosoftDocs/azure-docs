@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 04/12/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
@@ -19,14 +19,14 @@ The hardware components of your Microsoft Azure Stack Edge Mini R device adhere 
 
 The Azure Stack Edge Mini R device has the following specifications for compute and memory:
 
-| Specification           | Value                 |
-|-------------------------|-----------------------|
-| CPU type                | Intel Xeon-D 1577     |
-| CPU: raw                | 16-core CPU, 32 vCPUs |
-| CPU: usable             | 24 vCPUs              |
-| Memory type             | 16GB 2400MT/s SODIMM  |
-| Memory: raw             | 48 GB RAM (2400 MT/s) |
-| Memory: usable          | 32 GB RAM             |
+| Specification           | Value                  |
+|-------------------------|------------------------|
+| CPU type                | Intel Xeon-D 1577      |
+| CPU: raw                | 16-core CPU, 32 vCPUs  |
+| CPU: usable             | 24 vCPUs               |
+| Memory type             | 16 GB 2400 MT/s SODIMM |
+| Memory: raw             | 48 GB RAM              |
+| Memory: usable          | 32 GB RAM              |
 
 
 ## Compute acceleration specifications

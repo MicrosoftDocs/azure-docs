@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 04/12/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro R technical specifications
@@ -19,14 +19,14 @@ The hardware components of your Azure Stack Edge Pro R device adhere to the tech
 
 The Azure Stack Edge Pro R device has the following specifications for compute and memory:
 
-| Specification  | Value                                                                       |
-|----------------|-----------------------------------------------------------------------------|
-| CPU type       | 2 X Intel Xeon Silver 4114 CPU                                              |
-| CPU: raw       | 20 physical cores (10 per CPU)<br>40 logical cores (vCPUs) (20 per CPU)     |
-| CPU: usable    | 32 vCPUs                                                                    |
-| Memory type    | Dell Compatible 16GB RDIMM, 2666MT/s, Dual rank                             |
-| Memory: raw    | 256 GB RAM (2666 MT/s)                                                      |
-| Memory: usable | 230 GB RAM                                                                  |
+| Specification  | Value                                             |
+|----------------|---------------------------------------------------|
+| CPU type       | 2 X Intel Xeon Silver 4114 CPU                    |
+| CPU: raw       | 20-core CPU, 40 vCPUs                             |
+| CPU: usable    | 32 vCPUs                                          |
+| Memory type    | Dell Compatible 16 GB RDIMM, 2666 MT/s, Dual rank |
+| Memory: raw    | 256 GB RAM                                        |
+| Memory: usable | 230 GB RAM                                        |
 
 ## Compute acceleration specifications
 
