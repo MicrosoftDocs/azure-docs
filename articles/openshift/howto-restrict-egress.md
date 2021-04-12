@@ -38,7 +38,8 @@ The following FQDN / application rules are required:
 | **`*.servicebus.windows.net`** | **HTTPS:443** | This is used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s). |
 | **`*.table.core.windows.net`** | **HTTPS:443** | This is used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s). |
 
-**Note:** For many customers exposing *.blob, *.table and other large address spaces creates a potential data exfiltration concern. You may want to consider using the [OpenShift Egress Firewall](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/configuring-egress-firewall.html) to protect applications deployed in the cluster from reaching these destinations and use Azure Private Link for specific application needs.
+> [!NOTE] 
+> For many customers exposing *.blob, *.table and other large address spaces creates a potential data exfiltration concern. You may want to consider using the [OpenShift Egress Firewall](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/configuring-egress-firewall.html) to protect applications deployed in the cluster from reaching these destinations and use Azure Private Link for specific application needs.
 
 ---
 
@@ -117,9 +118,9 @@ The following FQDN / application rules are required for ARO clusters that have t
 ## Private ARO cluster setup
 The goal is to secure ARO cluster by routing Egress traffic through an Azure Firewall
 ### Before:
-![Before](media/concepts-networking/aroprivate.png)
+![Before](media/concepts-networking/aro-private.png)
 ### After:
-![After](media/concepts-networking/arofw.png)
+![After](media/concepts-networking/aro-fw.png)
 
 ## Create a private ARO cluster
 
