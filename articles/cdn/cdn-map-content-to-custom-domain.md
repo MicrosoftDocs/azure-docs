@@ -241,7 +241,7 @@ After you've completed the registration of your custom domain, verify that the c
 
 If you no longer want to associate your endpoint with a custom domain, remove the custom domain by doing the following steps:
  
-1. Go to your DNS provider, delete the CNAME record for the custom domain or update the CNAME record for the custom domain to a non Azure CDN endpoint.
+1. Go to your DNS provider, delete the CNAME record for the custom domain, or update the CNAME record for the custom domain to a non-Azure CDN endpoint.
 
     > [!Important]
     > To prevent dangling DNS entries and the security risks they create, starting from April 9th 2021, Azure CDN requires removal of the CNAME records to Azure CDN endpoints before the resources can be deleted. Resources include Azure CDN custom domains, Azure CDN profiles/endpoints or Azure resource groups that has Azure CDN custom domain(s) enabled.
@@ -256,7 +256,7 @@ If you no longer want to associate your endpoint with a custom domain, remove th
 
 If you no longer want to associate your endpoint with a custom domain, remove the custom domain by doing the following steps:
 
-1. Go to your DNS provider, delete the CNAME record for the custom domain or update the CNAME record for the custom domain to a non Azure CDN endpoint.
+1. Go to your DNS provider, delete the CNAME record for the custom domain, or update the CNAME record for the custom domain to a non-Azure CDN endpoint.
 
     > [!Important]
     > To prevent dangling DNS entries and the security risks they create, starting from April 9th 2021, Azure CDN requires removal of the CNAME records to Azure CDN endpoints before the resources can be deleted. Resources include Azure CDN custom domains, Azure CDN profiles/endpoints or Azure resource groups that has Azure CDN custom domain(s) enabled.
@@ -268,18 +268,17 @@ If you no longer want to associate your endpoint with a custom domain, remove th
     * Replace **myCDN** with your CDN profile name.
     * Replace **myResourceGroupCDN** with your resource group name.
 
-
-```azurepowershell-interactive
-    $parameters = @{
-        CustomDomainName = 'www.contoso.com'
-        EndPointName = 'myendpoint8675'
-        ProfileName = 'myCDN'
-        ResourceGroupName = 'myResourceGroupCDN'
-    }
-    Remove-AzCdnCustomDomain @parameters
-```
-
+    ```azurepowershell-interactive
+        $parameters = @{
+            CustomDomainName = 'www.contoso.com'
+            EndPointName = 'myendpoint8675'
+            ProfileName = 'myCDN'
+            ResourceGroupName = 'myResourceGroupCDN'
+        }
+        Remove-AzCdnCustomDomain @parameters
+    ```
 ---
+
 ## Next steps
 
 In this tutorial, you learned how to:
