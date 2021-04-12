@@ -77,7 +77,7 @@ When you select a sink transformation icon in your map, the slide-in panel on th
 
 * Write stage duration: The time to write the data to a staging location for Synapse SQL
 * Table operation SQL duration: The time spent moving data from temp tables to target table
-* Pre SQL duration & Post SQL duration: The eime spent running pre/post SQL commands
+* Pre SQL duration & Post SQL duration: The time spent running pre/post SQL commands
 * Pre commands duration & post commands duration: The time spent running any pre/post operations for file based source/sinks. For example move or delete files after processing.
 * Merge duration: The time spent merging the file, merge files are used for file based sinks when writing to single file or when "File name as column data" is used. If significant time is spent in this metric, you should avoid using these options.
   
