@@ -185,7 +185,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Hendrix Corporation](https://www.hendrixcorp.com/)|
 |[Hewlett Packard Enterprise](https://www.hpe.com)|
 |[Hiscomp](http://www.hiscompllc.com/)|
-|[Hitachi Vantara](https://www.hitachivantarafederal.com/rean-cloud/)|
+|[Hitachi Vantara](https://www.hitachivantarafederal.com/services/cloud-services/)|
 |[HTS Voice & Data Systems, Inc.](https://www.hts-tx.com/)|
 |[HumanTouch LLC](https://www.humantouchllc.com/)|
 |[Hyertek Inc.](https://www.hyertek.com)|

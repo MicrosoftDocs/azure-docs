@@ -22,27 +22,30 @@ So far in the get started guide, we've focused on activities *you* do in the wor
 
 ## Azure RBAC: Owner role for the workspace
 
+Assign to `ryan@contoso.com` to Azure RBAC **Owner** role on the workspace.
+
 1. Open the Azure portal and open you Synapse workspace.
 1. On the left side, select **Access Control (IAM)**.
 1. Add `ryan@contoso.com` to the **Owner** role. 
-1. Click Save.
+1. Click **Save**.
  
  
 ## Synapse RBAC: Synapse Administrator role for the workspace
+
+Assign to `ryan@contoso.com` to Synapse RBAC **Synapse Administrator** role on the workspace.
 
 1. Open your workspace in Synapse Studio.
 1. On the left side, click **Manage** to open the Manage hub.
 1. Under **Security**, click **Access control**.
 1. Click **Add**.
-1. Leave **Scope** set to Workspace.
-1. For **Role**, choose **Synapse Administrator**.
-1. Then select the user `ryan@contoso.com`.
+1. Leave **Scope** set to **Workspace**.
+1. Add `ryan@contoso.com` to the **Synapse Administrator** role. 
 1. Then click **Apply**.
  
-## Azure RBAC: Role assignements on the primary storage account
+## Azure RBAC: Role assignments on the primary storage account
 
-Assign to `ryan@contoso.com` to **Owner** role.
-Assign to `ryan@contoso.com` to **Azure Storage Blob Data Contributor** role.
+Assign to `ryan@contoso.com` to **Owner** role on the workspace's primary storage account.
+Assign to `ryan@contoso.com` to **Azure Storage Blob Data Contributor** role on the workspace's primary storage account.
 
 1. Open the workspace's primary storage account in the Azure portal.
 1. On the left side, click **Access Control (IAM)**.
@@ -51,7 +54,7 @@ Assign to `ryan@contoso.com` to **Azure Storage Blob Data Contributor** role.
 
 ## Dedicated SQL pools: db_owner role
 
-Assign `ryan@contoso.com` to the **db_owner** on each dedicated SQL pool.
+Assign `ryan@contoso.com` to the **db_owner** on each dedicated SQL pool in the workspace.
 
 ```
 CREATE USER [ryan@contoso.com] FROM EXTERNAL PROVIDER; 
