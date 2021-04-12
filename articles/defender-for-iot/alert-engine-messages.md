@@ -4,14 +4,14 @@ description: Review Defender for IoT Alert descriptions.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 03/29/2021
+ms.date: 4/8/2021
 ms.topic: how-to
 ms.service: azure
 ---
 
 # Alert types and descriptions
 
-This article describes all opf the alert types, that may be generated from the Defender for IoT engines. Alerts appear in the Alerts window, which allows you to manage the alert event. 
+This article describes all of the alert types, that may be generated from the Defender for IoT engines. Alerts appear in the Alerts window, which allows you to manage the alert event. 
 
 ## Policy engine alerts
 
