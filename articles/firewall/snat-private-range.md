@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 04/12/2021
 ms.author: victorh
 ---
 
@@ -27,13 +27,39 @@ If your organization uses a public IP address range for private networks, Azure 
 > [!IMPORTANT]
 > If you want to specify your own private IP address ranges, and keep the default IANA RFC 1918 address ranges, make sure your custom list still includes the IANA RFC 1918 range. 
 
+## Configure SNAT private IP address ranges for firewalls associated with Firewall Policy
+
+Azure Firewalls associated with Firewall Policy has supported  SNAT private ranges since the 2020-11-01 API version. Currently, you can use a template to update the SNAT private range on the Firewall Policy. The following sample configures the firewall to **not** SNAT network traffic:
+
+```json
+{ 
+
+            "type": "Microsoft.Network/firewallPolicies", 
+            "apiVersion": "2020-11-01", 
+            "name": "[parameters('firewallPolicies_DatabasePolicy_name')]", 
+            "location": "eastus", 
+            "properties": { 
+                "sku": { 
+                    "tier": "Standard" 
+                }, 
+                "snat": { 
+                    "privateRanges": [ 
+                        "255.255.255.255/32" 
+                    ] 
+                } 
+            } 
+```
+
 ## Configure SNAT private IP address ranges - Azure PowerShell
 
 You can use Azure PowerShell to specify private IP address ranges for the firewall.
 
+> [!NOTE]
+> The firewall `PrivateRange` property is ignored for firewalls associated with a Firewall Policy. You must use the `SNAT` property in Firewall Policy as described in [Configure SNAT private IP address ranges for firewalls associated with Firewall Policy](#configure-snat-private-ip-address-ranges-for-firewalls-associated-with-firewall-policy).
+
 ### New firewall
 
-For a new firewall, the Azure PowerShell cmdlet is:
+For a new firewall using classic rules, the Azure PowerShell cmdlet is:
 
 ```azurepowershell
 $azFw = @{
@@ -67,7 +93,10 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## Configure SNAT private IP address ranges - Azure CLI
 
-You can use Azure CLI to specify private IP address ranges for the firewall.
+You can use Azure CLI to specify private IP address ranges for the firewall. 
+
+> [!NOTE]
+> This works for firewalls with classic rules. Firewalls associated with a Firewall Policy must use the `SNAT` property in Firewall Policy as described in [Configure SNAT private IP address ranges for firewalls associated with Firewall Policy](#configure-snat-private-ip-address-ranges-for-firewalls-associated-with-firewall-policy).
 
 ### New firewall
 
