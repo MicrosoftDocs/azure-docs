@@ -250,7 +250,7 @@ This section provides troubleshooting information for backing up Azure PostgreSQ
 
 ### UserErrorMSIMissingPermissions
 
-Give Backup Vault MSI **Read** access on the PG server you want to back up or restore:
+Give Backup Vault MSI **Read** access on the PG server you want to back up or restore.
 
 To establish secure connection to the PostgreSQL database, Azure Backup uses the [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) authentication model. This means that the backup vault will have access to only those resources that have been explicitly granted permission by the user.
 
