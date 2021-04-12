@@ -21,7 +21,7 @@ Follow the steps below to onboard a machine to Automanage Best Practices. The AR
 * You must have the **Contributor** role on the resource group containing the machines you want to onboard to Automanage
 
 ## ARM template overview
-The following ARM template will onboard your specified machine onto Azure Automanage Best Practices. Details on the ARM template and steps on how to deploy are located in the section below, [ARM deployment](#arm-deployment)
+The following ARM template will onboard your specified machine onto Azure Automanage Best Practices. Details on the ARM template and steps on how to deploy are located in the ARM template deployment section [below](#arm-template-deployment).
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
