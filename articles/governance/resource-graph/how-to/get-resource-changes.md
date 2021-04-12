@@ -1,7 +1,7 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed, get a list of the properties that changed, and evaluate the diffs.
-ms.date: 01/27/2021
+ms.date: 03/31/2021
 ms.topic: how-to
 ---
 # Get resource changes
@@ -163,6 +163,11 @@ Each detected change event for the **resourceId** has the following properties:
 - **changeType** - Describes the type of change detected for the entire change record between the
   **beforeSnapshot** and **afterSnapshot**. Values are: _Create_, _Update_, and _Delete_. The
   **propertyChanges** property array is only included when **changeType** is _Update_.
+
+  > [!IMPORTANT]
+  > _Create_ is only available on resources that previously existed and were deleted within the last
+  > 14 days.
+
 - **propertyChanges** - This array of properties details all of the resource properties that were
   updated between the **beforeSnapshot** and the **afterSnapshot**:
   - **propertyName** - The name of the resource property that was altered.

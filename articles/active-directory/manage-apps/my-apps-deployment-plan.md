@@ -69,31 +69,19 @@ Administrators can configure:
 
 ## Plan consent configuration
 
-There are two types of consent: user consent and consent for apps accessing data.
-
-![Screen shot of consent configuration](./media/my-apps-deployment-plan/my-apps-consent.png)
-
 ### User consent for applications 
 
-Users or administrators must consent to any application’s terms of use and privacy policies. You must decide if users or only administrators can consent to applications. **We recommend that if your business rules allow, you use administrator consent to maintain control of the applications in your tenant**.
+Before a user can sign in to an application and the application can access your organization's data, a user or an admin must grant the application permissions. You can configure whether user consent is allowed, and under which conditions. **Microsoft recommends you only allow user consent for applications from verified publishers.**
 
-To use administrator consent, you must be a global administrator of the organization, and the applications must be either:
-
-* Registered in your organization.
-
-* Registered in another Azure AD organization and previously consented to by at least one user.
-
-If you want to allow users to consent, you must decide if you want them to consent to any app, or only under specific circumstances.
-
-For more information, see [Configure the way end users consent to an application in Azure Active Directory.](../manage-apps/configure-user-consent.md)
+For more information, see [Configure how end-users consent to applications](../manage-apps/configure-user-consent.md)
 
 ### Group owner consent for apps accessing data
 
-Determine if owners of the Azure AD security groups or M365 groups are able to consent to applications to access data for the groups they own. You can disallow, allow all group owners, or allow only a subset of group owners.
+Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. See [Resource-specific consent in Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) to learn more. 
+
+You can configure whether you'd like to allow or disable this feature.
 
 For more information, see [Configure group consent permissions](../manage-apps/configure-user-consent-groups.md).
-
-Then, configure your [User and group owner consent settings](https://portal.azure.com/) in the Azure portal.
 
 ### Plan communications
 

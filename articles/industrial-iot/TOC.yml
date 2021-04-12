@@ -41,3 +41,25 @@
     href: https://github.com/Azure/Industrial-IoT
   - name: IIoT Platform GitHub repository
     href: https://github.com/Azure/iot-edge-opc-publisher
+  - name: Support and help options
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
+  - name: Azure IoT services
+    items:
+    - name: IoT Hub
+      href: ../iot-hub/index.yml
+    - name: IoT Hub Device Provisioning Service
+      href: ../iot-dps/index.yml
+    - name: IoT Central
+      href: /microsoft-iot-central/
+    - name: IoT Edge
+      href: ../iot-edge/index.yml
+    - name: IoT solution accelerators
+      href: ./index.yml
+    - name: IoT Plug and Play
+      href: ../iot-pnp/index.yml
+    - name: Azure Maps
+      href: ../azure-maps/index.yml
+    - name: Time Series Insights
+      href: ../time-series-insights/index.yml

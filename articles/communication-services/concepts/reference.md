@@ -13,8 +13,7 @@ ms.service: azure-communication-services
 ---
 # Reference documentation overview
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include-android-ios.md)]
 
 The following table details the available Communication Services packages along with corresponding reference documentation:
 

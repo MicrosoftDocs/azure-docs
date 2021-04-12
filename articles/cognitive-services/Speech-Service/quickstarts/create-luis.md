@@ -61,4 +61,4 @@ On the **Keys and Endpoint settings** page:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Recognize Intents](~/articles/cognitive-services/Speech-Service/quickstarts/intent-recognition.md)
+> [Recognize Intents](~/articles/cognitive-services/Speech-Service/get-started-intent-recognition.md)

@@ -13,7 +13,7 @@ ms.service: iot-edge
 monikerRange: ">=iotedge-2020-11"
 ---
 
-# Publish and subscribe with Azure IoT Edge
+# Publish and subscribe with Azure IoT Edge (preview)
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
@@ -426,9 +426,9 @@ Below is an example of an IoT Edge MQTT bridge configuration that republishes al
 				},
 				{
 					"direction": "out",
-					"topic": "",
-					"inPrefix": "/local/telemetry",
-					"outPrefix": "/remote/messages"
+					"topic": "#",
+					"inPrefix": "/local/telemetry/",
+					"outPrefix": "/remote/messages/"
 				}
 			]
 		}]

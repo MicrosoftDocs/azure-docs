@@ -14,9 +14,6 @@ This article describes how to discover installed software inventory, and SQL Ser
 
 Performing software inventory helps identify and tailor a migration path to Azure for your workloads. Software inventory uses the Azure Migrate appliance to perform discovery, using server credentials. It is completely agentless- no agents are installed on the servers to collect this data.
 
-> [!NOTE]
-> Software inventory is currently in preview for servers running in VMware environment only, and is limited to discovery only. Currently we do not offer applications-based assessment.<br/> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
-
 ## Before you start
 
 - Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.

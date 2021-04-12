@@ -72,7 +72,7 @@ We'll now proceed to install Azure Communication Services libraries.
 
 We'll use the `Identity` library to generate `User Access Tokens`.
 
-Use the `npm install` command to install the Azure Communication Services Identity client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Identity SDK for JavaScript.
 
 ```console
 
