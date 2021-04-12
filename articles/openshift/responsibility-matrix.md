@@ -30,7 +30,7 @@ While Microsoft and Red Hat manage the Azure Red Hat OpenShift service, the cust
    </td>
   </tr>
   <tr>
-   <td><a href="#customer-data-and-customer-applications">Customer data</a>
+   <td><a href="#customer-data-and-applications">Customer data</a>
    </td>
    <td>Customer
    </td>
@@ -42,7 +42,7 @@ While Microsoft and Red Hat manage the Azure Red Hat OpenShift service, the cust
    </td>
   </tr>
   <tr>
-   <td><a href="#customer-data-and-customer-applications">Customer applications</a>
+   <td><a href="#customer-data-and-applications">Customer applications</a>
    </td>
    <td>Customer
    </td>
@@ -54,7 +54,7 @@ While Microsoft and Red Hat manage the Azure Red Hat OpenShift service, the cust
    </td>
   </tr>
   <tr>
-   <td><a href="#customer-data-and-customer-applications">Developer services </a>
+   <td><a href="#customer-data-and-applications">Developer services </a>
    </td>
    <td>Customer
    </td>
@@ -207,7 +207,7 @@ Table 1. Responsibilities by resource
 
 ### Incident and operations management 
 
-The customer and Microsoft and Red Hat share responsibility for the monitoring and maintenance of an Azure Red Hat OpenShift cluster. The customer is responsible for incident and operations management of [customer application data](#customer-data-and-customer-applications) and any custom networking the customer may have configured.
+The customer and Microsoft and Red Hat share responsibility for the monitoring and maintenance of an Azure Red Hat OpenShift cluster. The customer is responsible for incident and operations management of [customer application data](#customer-data-and-applications) and any custom networking the customer may have configured.
 
 <table>
   <tr>
