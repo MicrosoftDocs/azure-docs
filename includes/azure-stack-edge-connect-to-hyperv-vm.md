@@ -18,6 +18,6 @@ To finish building your virtual machine, you need to start the virtual machine a
 
 3. The virtual machine boots into setup, and you can walk through the installation like you would on a physical computer.
  
-   ![Configure the operating system of the VM](./media/azure-stack-edge-connect-to-hyperv-vm/connect-virtual-machine-03.png)<!--To verify or reshoot, create a real VM using the ISO from 03/31 sync.-->
+   ![Configure the operating system of the VM](./media/azure-stack-edge-connect-to-hyperv-vm/connect-virtual-machine-03.png)<!--Reshot. How best to generalize client name?-->
 
 <!--Compare with the Hyper-V VM steps in https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/create-virtual-machine#complete-the-operating-system-deployment. Should licensing be raised as an issue in the Azure Stack Edge version?-->
