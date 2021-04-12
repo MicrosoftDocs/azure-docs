@@ -68,6 +68,30 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 **A**: Yes. Azure Spatial Anchors has a diagnostics mode that developers can choose to opt into through the Azure Spatial Anchors API. This is useful, for example, if you encounter an environment where you are unable to create and locate anchors predictably. We may ask if you can submit a diagnostics report containing information that helps us debug. For more information see [Logging and diagnostics in Azure Spatial Anchors](./concepts/logging-diagnostics.md).
 
+## Legal FAQs
+
+**Q: What terms and conditions apply when using ASA in my app?**
+
+**A:** Needs a better host: https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/2.9.0/License
+
+### I want to release an app that includes ASA:
+**Q: Do I need to agree to any additional terms?**
+
+**A:** dunno lol
+
+**Q: Do I have to disclose the use of ASA in my application to my users?**
+
+**A:** dunno lol
+
+**Q: Do my users need to agree to any specific terms?**
+
+**A:** dunno lol
+
+**Q: What is the recommended interface to notify my users?**
+
+**A:** dunno lol
+<!-- //https://developers.google.com/ar/distribute/privacy-requirements-->
+
 ## Availability and Pricing FAQs
 
 **Q: Do you provide an SLA?**
