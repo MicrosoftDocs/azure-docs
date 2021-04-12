@@ -24,7 +24,7 @@ The Azure Stack Edge Pro device has the following specifications for compute and
 | CPU: raw                | 20 total cores, 40 total vCPUs    |
 | CPU: usable             | 32 vCPUs                          |
 | Memory type             | 8 x 16 GB RDIMM                   |
-| Memory: raw             | 128 GB RAM                        |
+| Memory: raw             | 128 GB RAM (8 x 16 GB)           |
 | Memory: usable          | 102 GB RAM                        |
 
 
