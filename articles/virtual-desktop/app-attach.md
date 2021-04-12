@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Create PowerShell scripts for MSIX app attach (preview)
 
@@ -21,7 +21,7 @@ This topic will walk you through how to set up PowerShell scripts for MSIX app a
 
 ## Install certificates
 
-You must install certificates on all session hosts in the host pool that will host the aps from your MSIX app attach packages.
+You must install certificates on all session hosts in the host pool that will host the apps from your MSIX app attach packages.
 
 If your app uses a certificate that isn't public-trusted or was self-signed, here's how to install it:
 

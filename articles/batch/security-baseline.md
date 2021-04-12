@@ -147,7 +147,7 @@ detect changes for network resources related to your Azure Batch pools.
 Create alerts within Azure Monitor that will trigger when changes to 
 critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log) 
 
 - [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -523,7 +523,7 @@ Configure Diagnostic Settings for Storage Accounts associated with Azure Batch P
 
 - [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [How to enable additional logging/auditing for an Azure Storage Account](../storage/common/storage-monitor-storage-account.md)
+- [How to enable additional logging/auditing for an Azure Storage Account](../storage/common/manage-storage-analytics-logs.md)
 
 **Azure Security Center monitoring**: Yes
 

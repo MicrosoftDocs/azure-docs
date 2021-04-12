@@ -57,7 +57,7 @@ The following is an example of a properly constructed membership rule with a sin
 user.department -eq "Sales"
 ```
 
-Parentheses are optional for a single expression. The total length of the body of your membership rule cannot exceed 2048 characters.
+Parentheses are optional for a single expression. The total length of the body of your membership rule cannot exceed 3072 characters.
 
 ## Constructing the body of a membership rule
 
@@ -272,6 +272,14 @@ The following expression selects all users who have any service plan that is ass
 
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+#### Example 3
+
+The following expression selects all users who have no asigned service plan:
+
+```
+user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
 ```
 
 ### Using the underscore (\_) syntax

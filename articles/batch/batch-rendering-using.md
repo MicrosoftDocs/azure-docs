@@ -3,11 +3,14 @@ title: Using rendering capabilities
 description: How to use Azure Batch rendering capabilities. Try using the Batch Explorer application, either directly or invoked from a client application plug-in.
 author: mscurrell
 ms.author: markscu
-ms.date: 03/05/2020
+ms.date: 03/12/2020
 ms.topic: how-to
 ---
 
 # Using Azure Batch rendering
+
+> [!IMPORTANT]
+> The rendering VM images and pay-for-use licensing have been [deprecated and will be retired on 29 February 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). To use Batch for rendering, [a custom VM image and standard application licensing should be used.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 There are several ways to use Azure Batch rendering:
 

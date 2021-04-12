@@ -5,13 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.subservice: alerts
 ---
 # Create a log alert with a Resource Manager template
 
-Log alerts allow users to use a [Log Analytics](../log-query/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](../platform/action-groups.md). [Learn more about functionality and terminology of log alerts](../platform/alerts-unified-log.md).
+Log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](./alerts-unified-log.md).
 
-This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure [log alerts](../platform/alerts-unified-log.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Log alerts are created in the `Microsoft.Insights/scheduledQueryRules` resource provider. See API reference for [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
+This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure [log alerts](./alerts-unified-log.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Log alerts are created in the `Microsoft.Insights/scheduledQueryRules` resource provider. See API reference for [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
 
 The basic steps are as follows:
 
@@ -20,15 +19,15 @@ The basic steps are as follows:
 4. Deploy the template using any deployment method.
 
 > [!NOTE]
-> Log data from a [Log Analytics workspace](../log-query/log-analytics-tutorial.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](../platform/alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](../platform/alerts-metric-logs.md).
+> Log data from a [Log Analytics workspace](../logs/log-analytics-tutorial.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](./alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](./alerts-metric-logs.md).
 
 > [!NOTE]
-> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](../platform/api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
+> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](./api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
 
 ## Simple template (up to API version 2018-04-16)
 
-[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template based on [number of results log alert](../platform/alerts-unified-log.md#count-of-the-results-table-rows) (sample data set as variables):
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template based on [number of results log alert](./alerts-unified-log.md#count-of-the-results-table-rows) (sample data set as variables):
 
 ```json
 {
@@ -103,7 +102,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
 
 ## Template with cross-resource query (up to API version 2018-04-16)
 
-[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template based on [metric measurement](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) that queries [cross-resources](../log-query/cross-workspace-query.md) (sample data set as variables):
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template based on [metric measurement](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) that queries [cross-resources](../logs/cross-workspace-query.md) (sample data set as variables):
 
 ```json
 {
@@ -426,7 +425,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
 
 ## Next steps
 
-* Learn about [log alerts](../platform/alerts-unified-log.md)
-* Learn about [managing log alerts](../platform/alerts-log.md)
-* Understand [webhook actions for log alerts](../platform/alerts-log-webhook.md)
-* Learn more about [log queries](../log-query/log-query-overview.md).
+* Learn about [log alerts](./alerts-unified-log.md)
+* Learn about [managing log alerts](./alerts-log.md)
+* Understand [webhook actions for log alerts](./alerts-log-webhook.md)
+* Learn more about [log queries](../logs/log-query-overview.md).

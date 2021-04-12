@@ -4,7 +4,6 @@ description: Common issues, errors, and resolutions for log alert rules in Azure
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 09/22/2020
 
 ---
@@ -12,7 +11,7 @@ ms.date: 09/22/2020
 
 This article shows you how to resolve common issues with log alerts in Azure Monitor. It also provides solutions to common problems with the functionality and configuration of log alerts.
 
-Log alerts allow users to use a [Log Analytics](../log-query/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](../platform/action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
+Log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
 
 > [!NOTE]
 > This article doesn't consider cases where the Azure portal shows an alert rule triggered and a notification is not performed by an associated action group. For such cases, see the details on troubleshooting [here](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
@@ -21,7 +20,7 @@ Log alerts allow users to use a [Log Analytics](../log-query/log-analytics-tutor
 
 ### Data ingestion time for logs
 
-Azure Monitor processes terabytes of customers' logs from across the world, which can cause [logs ingestion latency](../platform/data-ingestion-time.md).
+Azure Monitor processes terabytes of customers' logs from across the world, which can cause [logs ingestion latency](../logs/data-ingestion-time.md).
 
 Logs are semi-structured data and inherently more latent than metrics. If you're experiencing more than 4-minutes delay in fired alerts, you should consider using [metric alerts](alerts-metric-overview.md). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
 
@@ -55,7 +54,7 @@ A configured [log alert rule in Azure Monitor](./alerts-log.md) might be trigger
 
 ### Alert triggered by partial data
 
-Azure Monitor processes terabytes of customers' logs from across the world, which can cause [logs ingestion latency](../platform/data-ingestion-time.md).
+Azure Monitor processes terabytes of customers' logs from across the world, which can cause [logs ingestion latency](../logs/data-ingestion-time.md).
 
 Logs are semi-structured data and inherently more latent than metrics. If you're experiencing many misfires in fired alerts, you should consider using [metric alerts](alerts-metric-overview.md). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
 
@@ -82,7 +81,7 @@ SecurityEvent
 
 There's no need to add alerting logic to the query and doing that may even cause issues. In the above example, if you include `count` in your query, it will always result in the value 1, since the alert service will do `count` of `count`.
 
-The optimized query is what the log alert service runs. You can run the modified query in Log Analytics [portal](../log-query/log-query-overview.md) or [API](/rest/api/loganalytics/).
+The optimized query is what the log alert service runs. You can run the modified query in Log Analytics [portal](../logs/log-query-overview.md) or [API](/rest/api/loganalytics/).
 
 For workspaces and Application Insights, it's called **Query to be executed** in the condition pane. In all other resource types, select **See final alert Query** in the condition tab.
 
@@ -103,7 +102,7 @@ Azure Monitor will disable the log alert after a week if it fails continuously.
 When a log alert rule is created, the query is validated for correct syntax. But sometimes, the query provided in the log alert rule can start to fail. Some common reasons are:
 
 - Rules were created via the API and validation was skipped by the user.
-- The query [runs on multiple resources](../log-query/cross-workspace-query.md) and one or more of the resources was deleted or moved.
+- The query [runs on multiple resources](../logs/cross-workspace-query.md) and one or more of the resources was deleted or moved.
 - The [query fails](https://dev.loganalytics.io/documentation/Using-the-API/Errors) because:
     - The logging solution wasn't [deployed to the workspace](../insights/solutions.md#install-a-monitoring-solution), so tables aren't created.
     - Data stopped flowing to a table in the query for over 30 days.
@@ -214,5 +213,5 @@ If query fails for seven days continuously, Azure Monitor will disable the log a
 ## Next steps
 
 - Learn about [log alerts in Azure](./alerts-unified-log.md).
-- Learn more about [configuring log alerts](../log-query/log-query-overview.md).
-- Learn more about [log queries](../log-query/log-query-overview.md).
+- Learn more about [configuring log alerts](../logs/log-query-overview.md).
+- Learn more about [log queries](../logs/log-query-overview.md).

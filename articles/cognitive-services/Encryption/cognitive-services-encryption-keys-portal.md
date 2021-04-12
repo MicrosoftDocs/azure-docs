@@ -17,8 +17,8 @@ The process to enable Customer-Managed Keys with Azure Key Vault for Cognitive S
 
 ## Vision
 
-* [Custom Vision encryption of data at rest](../Custom-Vision-Service/encrypt-data-at-rest.md)
-* [Face Services encryption of data at rest](../Face/encrypt-data-at-rest.md)
+* [Custom Vision encryption of data at rest](../custom-vision-service/encrypt-data-at-rest.md)
+* [Face Services encryption of data at rest](../face/encrypt-data-at-rest.md)
 * [Form Recognizer encryption of data at rest](../form-recognizer/encrypt-data-at-rest.md)
 
 ## Language

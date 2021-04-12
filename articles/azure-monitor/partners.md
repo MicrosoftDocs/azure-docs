@@ -1,9 +1,8 @@
 ---
 title: Partners who integrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
-ms.subservice: 
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 02/19/2021
 
 ---
 
@@ -98,6 +97,8 @@ Through this unified experience, you will be able to:
 -	Get unified billing for the Datadog service through Azure subscription invoicing.
 
 Sign up for the [Public Preview](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) of the new Datadog integration with Azure.  Public preview will be available on Azure Marketplace starting October 2020.
+
+Subscribe to the preview of "Datadog integration with Azure" available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
 
 If you are still using the previous manually configured integration, see the [documentation on the DataDog website](https://docs.datadoghq.com/integrations/azure/).
 
@@ -287,8 +288,7 @@ With Site24x7 Azure Monitoring, you will be able to:
 * Monitor your complete Microsoft ecosphere including SQL, Exchange, Active Directory, Office 365, IIS, and Hyper-V applications.
 * Integrate seamlessly with third party services like Microsoft Teams, PagerDuty, Zapier, and more.
 
-[Site 24X7 documentation](https://www.site24x7.com/)
-
+[Site24X7 documentation](https://www.site24x7.com/azure/?utm_source=microsoft-partner-page&utm_medium=webpage&utm_campaign=ms-partner)
 
 ## SolarWinds
 

@@ -14,7 +14,7 @@ Azure Monitor supports distributed tracing, metric collection, and logging of Py
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/release/python-370/), although other versions will likely work with minor changes. The SDK only supports Python v2.7 and v3.4-v3.7.
+- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/release/python-370/), although other versions will likely work with minor changes. The SDK only supports Python versions 2.7 and 3.6+.
 - Create an Application Insights [resource](./create-new-resource.md). You'll be assigned your own instrumentation key (ikey) for your resource.
 
 ## Instrument with OpenCensus Python SDK for Azure Monitor
@@ -216,6 +216,15 @@ For details on how to modify tracked telemetry before it's sent to Azure Monitor
 
 ### Metrics
 
+OpenCensus.stats supports 4 aggregation methods but provides partial support for Azure Monitor:
+
+- **Count:** The count of the number of measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
+- **Sum:** A sum up of the measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
+- **LastValue:** Keeps the last recorded value, drops everything else.
+- **Distribution:** Histogram distribution of the measurement points. This method is **NOT supported by the Azure Exporter**.
+
+### Count Aggregation example
+
 1. First, let's generate some local metric data. We'll create a simple metric to track the number of times the user selects the **Enter** key.
 
     ```python
@@ -315,7 +324,7 @@ For details on how to modify tracked telemetry before it's sent to Azure Monitor
         main()
     ```
 
-1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. You can find the data under `customMetrics`.
+1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The value is cumulative, can only increase and resets to 0 on restart. You can find the data under `customMetrics`, but `customMetrics` properties valueCount, valueSum, valueMin, valueMax, and valueStdDev are not effectively used.
 
 #### Performance counters
 

@@ -12,7 +12,7 @@ Enabling monitoring for your .NET or Java based web applications running on [Azu
 
 This article walks you through enabling Application Insights monitoring using the Application Insights Agent and provides preliminary guidance for automating the process for large-scale deployments.
 > [!IMPORTANT]
-> **Java** based applications running on Azure VMs and VMSS are monitored with **[Application Insights Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)**, which is generally available.
+> **Java** based applications running on Azure VMs and VMSS are monitored with **[Application Insights Java 3.0 agent](./java-in-process-agent.md)**, which is generally available.
 
 > [!IMPORTANT]
 > Azure Application Insights Agent for ASP.NET applications running on **Azure VMs and VMSS** is currently in public preview. For monitoring your ASP.Net applications running **on-premises**, use the [Azure Application Insights Agent for on-premises servers](./status-monitor-v2-overview.md), which is generally available and fully supported.
@@ -38,7 +38,7 @@ There are two ways to enable application monitoring for Azure virtual machines a
   * The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the .NET SDK. See [Dependency auto-collection](./auto-collect-dependencies.md#net) to learn more.
         
 #### Java
-  * For Java, **[Application Insights Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)** is the recommended approach. The most popular libraries and frameworks, as well as logs and dependencies are [auto-collected](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#auto-collected-requests-dependencies-logs-and-metrics), with a multitude of [additional configurations](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config)
+  * For Java, **[Application Insights Java 3.0 agent](./java-in-process-agent.md)** is the recommended approach. The most popular libraries and frameworks, as well as logs and dependencies are [auto-collected](./java-in-process-agent.md#auto-collected-requests-dependencies-logs-and-metrics), with a multitude of [additional configurations](./java-standalone-config.md)
 
 ### Code-based via SDK
     
@@ -51,19 +51,19 @@ There are two ways to enable application monitoring for Azure virtual machines a
     > For .NET apps only - if both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this check out the [troubleshooting section](#troubleshooting) below.
 
 #### .NET Core
-To monitor .NET Core applications, use the [SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 
+To monitor .NET Core applications, use the [SDK](./asp-net-core.md) 
 
 #### Java 
 
-If you need additional custom telemetry for Java applications, see what [is available](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#send-custom-telemetry-from-your-application), add [custom dimensions](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#custom-dimensions), or use [telemetry processors](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-telemetry-processors). 
+If you need additional custom telemetry for Java applications, see what [is available](./java-in-process-agent.md#send-custom-telemetry-from-your-application), add [custom dimensions](./java-standalone-config.md#custom-dimensions), or use [telemetry processors](./java-standalone-telemetry-processors.md). 
 
 #### Node.js
 
-To instrument your Node.js application, use the [SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs).
+To instrument your Node.js application, use the [SDK](./nodejs.md).
 
 #### Python
 
-To monitor Python apps, use the [SDK](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+To monitor Python apps, use the [SDK](./opencensus-python.md).
 
 ## Manage Application Insights Agent for .NET applications on Azure virtual machines using PowerShell
 

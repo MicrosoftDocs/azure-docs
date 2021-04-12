@@ -78,7 +78,7 @@ Within Azure Monitor, set your Log Analytics Workspace retention period accordin
 
 - [Change the data retention period in Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [How to configure retention policy for Azure Storage account logs](../../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 ## 2.6: Monitor and review Logs
 
@@ -120,9 +120,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 Enable antimalware event collection for Azure Virtual Machines and Cloud Services.
 
-- [How to configure Microsoft Antimalware for Virtual Machines](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
+- [How to configure Microsoft Antimalware for Virtual Machines](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension)
 
-- [How to configure Microsoft Antimalware for Cloud Services](/powershell/module/servicemanagement/azure.service/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
+- [How to configure Microsoft Antimalware for Cloud Services](/powershell/module/servicemanagement/azure.service/set-azureserviceantimalwareextension)
 
 - [Understand Microsoft Antimalware](../fundamentals/antimalware.md)
 

@@ -1,7 +1,7 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
-ms.date: 01/27/2021
+ms.date: 03/23/2021
 ms.topic: sample
 ---
 # Advanced Resource Graph query samples
@@ -25,7 +25,6 @@ We'll walk through the following advanced queries:
 - [List all extensions installed on a virtual machine](#join-vmextension)
 - [Find storage accounts with a specific tag on the resource group](#join-findstoragetag)
 - [Combine results from two queries into a single result](#unionresults)
-- [Include the tenant and subscription names with DisplayNames](#displaynames)
 - [Summarize virtual machine by the power states extended property](#vm-powerstate)
 - [Count of non-compliant Guest Configuration assignments](#count-gcnoncompliant)
 - [Query details of Guest Configuration assignment reports](#query-gcreports)
@@ -594,35 +593,6 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.us</a>
 - Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.cn</a>
-
----
-
-## <a name="displaynames"></a>Include the tenant and subscription names with DisplayNames
-
-This query uses the **Include** parameter with option _DisplayNames_ to add
-**subscriptionDisplayName** and **tenantDisplayName** to the results. This parameter is only
-available for Azure CLI and Azure PowerShell.
-
-```azurecli-interactive
-az graph query -q "limit 1" --include displayNames
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "limit 1" -Include DisplayNames
-```
-
-An alternative to getting the subscription name is to use the `join` operator and connect to the
-**ResourceContainers** table and the `Microsoft.Resources/subscriptions` type. `join` works in Azure
-CLI, Azure PowerShell, portal, and all supported SDK. For an example, see
-[Sample - Key vault with subscription name](#join).
-
-> [!NOTE]
-> If the query doesn't use **project** to specify the returned properties,
-> **subscriptionDisplayName** and **tenantDisplayName** are automatically included in the results.
-> If the query does use **project**, each of the _DisplayName_ fields must be explicitly included in
-> the **project** or they won't be returned in the results, even when the **Include** parameter is
-> used. The **Include** parameter doesn't work with
-> [tables](../concepts/query-language.md#resource-graph-tables).
 
 ---
 

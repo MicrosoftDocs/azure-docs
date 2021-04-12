@@ -27,9 +27,6 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 > [!NOTE]
 > ASP.NET Core 3.1 requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later.
 
-> [!IMPORTANT]
-> The following versions of ASP.NET Core are supported: ASP.NET Core 2.1 and 3.1. Versions 2.0, 2.2, and 3.0 have been retired and are no longer supported.
-
 ## Prerequisites
 
 - A functioning ASP.NET Core application. If you need to create an ASP.NET Core application, follow this [ASP.NET Core tutorial](/aspnet/core/getting-started/).

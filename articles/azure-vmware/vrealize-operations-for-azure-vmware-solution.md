@@ -32,7 +32,7 @@ Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#pre
 ## On-premises vRealize Operations managing Azure VMware Solution deployment
 Most customers have an existing on-premise deployment of vRealize Operations to manage one or more on-premise vCenters domains. When they provision an Azure VMware Solution private cloud, they connect their on-premises environment with their private cloud using an Azure ExpressRoute or a Layer 3 VPN solution.  
 
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="On-premises vRealize Operations managing Azure VMware Solution deployment"  border="false":::
+:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="On-premises vRealize Operations managing Azure VMware Solution deployment" border="false":::
 
 To extend the vRealize Operations capabilities to the Azure VMware Solution private cloud, you create an adapter [instance for the private cloud resources](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.config.doc/GUID-640AD750-301E-4D36-8293-1BFEB67E2600.html). It collects data from the Azure VMware Solution private cloud and brings it into on-premises vRealize Operations. The on-premises vRealize Operations Manager instance can directly connect to the vCenter and NSX-T manager on Azure VMware Solution. Optionally, you can deploy a vRealize Operations Remote Collector on the Azure VMware Solution private cloud. The collector compresses and encrypts the data collected from the private cloud before it's sent over the ExpressRoute or VPN network to the vRealize Operations Manager running on-premise. 
 
@@ -56,7 +56,7 @@ Once the instance has been deployed, you can configure vRealize Operations to co
 
 ## Known limitations
 
-- The **cloudadmin\@vsphere.local** user in Azure VMware Solution has [limited privileges](concepts-role-based-access-control.md).  Virtual machines (VMs) on Azure VMware Solution doesn't support in-guest memory collection using VMware tools.  Active and consumed memory utilization continues to work in this case.
+- The **cloudadmin\@vsphere.local** user in Azure VMware Solution has [limited privileges](concepts-identity.md).  Virtual machines (VMs) on Azure VMware Solution doesn't support in-guest memory collection using VMware tools.  Active and consumed memory utilization continues to work in this case.
 - Workload optimization for host-based business intent doesn't work because Azure VMware Solutions manage cluster configurations, including DRS settings.
 - Workload optimization for the cross-cluster placement within the SDDC using the cluster-based business intent is fully supported with vRealize Operations Manager 8.0  and onwards. However, workload optimization isn't aware of resource pools and places the VMs at the cluster level. A user can manually correct it in the Azure VMware Solution vCenter Server interface.
 - You can't sign in to vRealize Operations Manager using your Azure VMware Solution vCenter Server credentials. 

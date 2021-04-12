@@ -92,6 +92,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , PARSER_VERSION = 'parser_version' ]
 [ , HEADER_ROW = { TRUE | FALSE } ]
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
+[ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
 ```
 
 ## Arguments
@@ -234,6 +235,10 @@ DATAFILETYPE = { 'char' | 'widechar' }
 
 Specifies encoding: char is used for UTF8, widechar is used for UTF16 files.
 
+CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
+
+Specifies the code page of the data in the data file. The default value is 65001 (UTF-8 encoding). See more details about this option [here](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&preserve-view=true#codepage).
+
 ## Fast delimited text parsing
 
 There are two delimited text parser versions you can use. CSV parser version 1.0 is default and feature rich while parser version 2.0 is built for performance. Performance improvement in parser 2.0 comes from advanced parsing techniques and multi-threading. Difference in speed will be bigger as the file size grows.
@@ -297,19 +302,19 @@ The following example reads CSV file that contains header row without specifying
 
 ```sql
 SELECT 
-	*
+    *
 FROM OPENROWSET(
     BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
     FORMAT = 'CSV',
     PARSER_VERSION = '2.0',
-	HEADER_ROW = TRUE) as [r]
+    HEADER_ROW = TRUE) as [r]
 ```
 
 The following example reads CSV file that doesn't contain header row without specifying column names and data types: 
 
 ```sql
 SELECT 
-	*
+    *
 FROM OPENROWSET(
     BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
     FORMAT = 'CSV',
@@ -336,7 +341,7 @@ The following example returns only two columns with ordinal numbers 1 and 4 from
 
 ```sql
 SELECT 
-	* 
+    * 
 FROM OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
         FORMAT = 'CSV',
@@ -361,8 +366,8 @@ FROM
         FORMAT='PARQUET'
     )
 WITH (
-	[stateName] VARCHAR (50),
-	[population] bigint
+    [stateName] VARCHAR (50),
+    [population] bigint
 ) AS [r]
 ```
 
@@ -379,15 +384,15 @@ FROM
         FORMAT='PARQUET'
     )
 WITH (
-	--lax path mode samples
-	[stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
-	[stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
-	[COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
-	[countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+    --lax path mode samples
+    [stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+    [stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+    [COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+    [countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
 
-	--strict path mode samples
-	[population] bigint 'strict $.population' -- this one works as column name casing is valid
-	--,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+    --strict path mode samples
+    [population] bigint 'strict $.population' -- this one works as column name casing is valid
+    --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
 )
 AS [r]
 ```

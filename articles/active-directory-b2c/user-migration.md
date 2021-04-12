@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 03/11/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -38,14 +38,14 @@ Use the seamless migration flow if plaintext passwords in the old identity provi
 - The password is stored in a one-way encrypted format, such as with a hash function.
 - The password is stored by the legacy identity provider in a way that you can't access. For example, when the identity provider validates credentials by calling a web service.
 
-The seamless migration flow still requires pre migration of user accounts, but then uses a [custom policy](custom-policy-get-started.md) to query a [REST API](custom-policy-rest-api-intro.md) (which you create) to set each users' password at first sign-in.
+The seamless migration flow still requires pre migration of user accounts, but then uses a [custom policy](user-flow-overview.md) to query a [REST API](custom-policy-rest-api-intro.md) (which you create) to set each users' password at first sign-in.
 
 The seamless migration flow thus has two phases: *pre migration* and *set credentials*.
 
 ### Phase 1: Pre migration
 
 1. Your migration application reads the user accounts from the old identity provider.
-1. The migration application creates corresponding user accounts in your Azure AD B2C directory, but *does not set passwords*.
+1. The migration application creates corresponding user accounts in your Azure AD B2C directory, but *set random passwords* you generate.
 
 ### Phase 2: Set credentials
 

@@ -139,5 +139,5 @@ To turn a larger template into multiple sub-templates:
 6. You can then change the group step to load from template and set the template ID field to the workbook/template you created in step 5. To work with workbooks IDs, the source needs to be a shared workbook resource ID. Press *Load* and the content of that group will now be loaded from that sub-template instead of saved inside this outer workbook.
 
 ## Next steps
-- [Workbooks Overview](../platform/workbooks-overview.md)
+- [Workbooks Overview](./workbooks-overview.md)
 - [Using JSONPath with Workbooks](workbooks-jsonpath.md)

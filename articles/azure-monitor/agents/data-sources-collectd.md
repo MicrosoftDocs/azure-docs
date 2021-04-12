@@ -1,7 +1,6 @@
 ---
 title: Collect data from CollectD in Azure Monitor | Microsoft Docs
 description: CollectD is an open source Linux daemon that periodically collects data from applications and system level information.  This article provides information on collecting data from CollectD in Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -128,5 +127,5 @@ To maintain a familiar model between infrastructure metrics already collected by
 | `values[]` | CounterValue |
 
 ## Next steps
-* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
-* Use [Custom Fields](../platform/custom-fields.md) to parse data from syslog records into individual fields.
+* Learn about [log queries](../logs/log-query-overview.md) to analyze the data collected from data sources and solutions. 
+* Use [Custom Fields](../logs/custom-fields.md) to parse data from syslog records into individual fields.

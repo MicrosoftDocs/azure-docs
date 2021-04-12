@@ -3,7 +3,7 @@ title: List, update, and delete image resources using the Azure CLI
 description: List, update, and delete image resources in your shared image gallery using Azure CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020

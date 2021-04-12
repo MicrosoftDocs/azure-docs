@@ -98,6 +98,16 @@ Below data sources are supported to connect through private link from ADF Manage
 - Southeast Asia
 - Australia East
 - Australia Southeast
+- Norway East
+- Japan East
+- Japan West
+- Korea Central
+- Brazil South
+- France Central
+- Switzerland North
+- UK West
+- Canada East
+- Canada Central
 
 ### Outbound communications through public endpoint from ADF Managed Virtual Network
 - Only port 443 is opened for outbound communications.
@@ -106,6 +116,8 @@ Below data sources are supported to connect through private link from ADF Manage
 ### Linked Service creation of Azure Key Vault 
 - When you create a Linked Service for Azure Key Vault, there is no Azure Integration Runtime reference. So you can't create Private Endpoint during Linked Service creation of Azure Key Vault. But when you create Linked Service for data stores which references Azure Key Vault Linked Service and this Linked Service references Azure Integration Runtime with Managed Virtual Network enabled, then you are able to create a Private Endpoint for the Azure Key Vault Linked Service during the creation. 
 - **Test connection** operation for Linked Service of Azure Key Vault only validates the URL format, but doesn't do any network operation.
+- The column **Using private endpoint** is always shown as blank even if you create Private Endpoint for Azure Key Vault.
+![Private Endpoint for AKV](./media/managed-vnet/akv-pe.png)
 
 ## Next steps
 

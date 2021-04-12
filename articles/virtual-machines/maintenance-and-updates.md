@@ -18,7 +18,7 @@ Updates rarely affect the hosted VMs. When updates do have an effect, Azure choo
 - If the update doesn't require a reboot, the VM is paused while the host is updated, or the VM is live-migrated to an already updated host. 
 - If maintenance requires a reboot, you're notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance yourself, at a time that works for you. The self-maintenance window is typically 35 days unless the maintenance is urgent. Azure is investing in technologies to reduce the number of cases in which planned platform maintenance requires the VMs to be rebooted. For instructions on managing planned maintenance, see Handling planned maintenance notifications using the Azure [CLI](maintenance-notifications-cli.md), [PowerShell](maintenance-notifications-powershell.md) or [portal](maintenance-notifications-portal.md).
 
-This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of VMs for Windows](./manage-availability.md) or the corresponding article for [Linux](./manage-availability.md).
+This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of VMs for Windows](./availability.md) or the corresponding article for [Linux](./availability.md).
 
 Within a VM, you can get notifications about upcoming maintenance by [using Scheduled Events for Windows](./windows/scheduled-events.md) or for [Linux](./linux/scheduled-events.md).
 
@@ -82,7 +82,7 @@ Within an availability set, individual VMs are spread across up to 20 update dom
 
 Virtual machine *scale sets* are an Azure compute resource that you can use to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across UDs, like VMs in an availability set. As with availability sets, when you use scale sets, only one UD is updated at any given time during scheduled maintenance.
 
-For more information about setting up your VMs for high availability, see [Manage the availability of your VMs for Windows](./manage-availability.md) or the corresponding article for [Linux](./manage-availability.md).
+For more information about setting up your VMs for high availability, see [Manage the availability of your VMs for Windows](./availability.md) or the corresponding article for [Linux](./availability.md).
 
 #### Availability zones
 

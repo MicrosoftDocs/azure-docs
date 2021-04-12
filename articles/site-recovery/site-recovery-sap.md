@@ -162,5 +162,5 @@ For more information, see [Test failover to Azure in Site Recovery](site-recover
 For more information, see [Failover in Site Recovery](site-recovery-failover.md).
 
 ## Next steps
-* Learn more about building a disaster recovery solution for SAP NetWeaver deployments by using Site Recovery. See the downloadable white paper [SAP NetWeaver: Building a Disaster Recovery Solution with Site Recovery](https://aka.ms/asr_sap). The white paper discusses recommendations for various SAP architectures. You can see supported applications and VM types for SAP on Azure. There are also plan options for testing your disaster recovery solution.
+* Learn more about building a disaster recovery solution for SAP NetWeaver deployments by using Site Recovery. See the downloadable white paper [SAP NetWeaver: Building a Disaster Recovery Solution with Site Recovery](/samples/browse/?redirectedfrom=TechNet-Gallery). The white paper discusses recommendations for various SAP architectures. You can see supported applications and VM types for SAP on Azure. There are also plan options for testing your disaster recovery solution.
 * Learn more about [replicating other workloads](site-recovery-workload.md) by using Site Recovery.

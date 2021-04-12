@@ -1,7 +1,6 @@
 ---
 title: Computer groups in Azure Monitor log queries | Microsoft Docs
 description: Computer groups in Azure Monitor allow you to scope log queries to a particular set of computers.  This article describes the different methods you can use to create computer groups and how to use them in a log query.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -10,7 +9,7 @@ ms.date: 02/05/2019
 ---
 
 # Computer groups in Azure Monitor log queries
-Computer groups in Azure Monitor allow you to scope [log queries](../log-query/log-query-overview.md) to a particular set of computers.  Each group is populated with computers either using a query that you define or by importing groups from different sources.  When the group is included in a log query, the results are limited to records that match the computers in the group.
+Computer groups in Azure Monitor allow you to scope [log queries](./log-query-overview.md) to a particular set of computers.  Each group is populated with computers either using a query that you define or by importing groups from different sources.  When the group is included in a log query, the results are limited to records that match the computers in the group.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -131,5 +130,4 @@ A record is created in the Log Analytics workspace for each computer group membe
 | `TimeGenerated` |Date and time the computer group was created or updated. |
 
 ## Next steps
-* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  
-
+* Learn about [log queries](./log-query-overview.md) to analyze the data collected from data sources and solutions.

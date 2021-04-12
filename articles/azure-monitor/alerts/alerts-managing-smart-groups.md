@@ -2,14 +2,13 @@
 title: Manage smart groups
 description: Managing Smart Groups created over your alert instances
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 09/24/2018
 
 ---
 
 # Manage smart groups
 
-[Smart groups](../platform/alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) use machine learning algorithms to group together alerts on the basis of co-occurrence or similarity, so that the user can now manage smart groups instead of having to manage each alert individually. This article will walk you through how to access and use smart groups in Azure Monitor.
+[Smart groups](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) use machine learning algorithms to group together alerts on the basis of co-occurrence or similarity, so that the user can now manage smart groups instead of having to manage each alert individually. This article will walk you through how to access and use smart groups in Azure Monitor.
 
 1. To see the Smart Groups created for your alert instances you can either:
 

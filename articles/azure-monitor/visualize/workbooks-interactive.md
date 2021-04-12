@@ -184,5 +184,5 @@ While the default behavior is to export a parameter as text, if you know that th
 
 ## Next steps
 
-* [Get started](../platform/workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](../platform/workbooks-access-control.md) and share access to your workbook resources.
+* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
+* [Control](./workbooks-access-control.md) and share access to your workbook resources.

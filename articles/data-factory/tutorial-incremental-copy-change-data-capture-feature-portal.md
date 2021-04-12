@@ -5,10 +5,12 @@ ms.author: nihurt
 author: hurtn
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/04/2020
+ms.date: 02/18/2021
 ---
 
 # Incrementally load data from Azure SQL Managed Instance to Azure Storage using change data capture (CDC)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on **change data capture (CDC)** information in the source Azure SQL Managed Instance database to an Azure blob storage.  
 

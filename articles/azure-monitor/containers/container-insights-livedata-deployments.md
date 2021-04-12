@@ -1,6 +1,6 @@
 ---
-title: View Azure Monitor for containers Deployments (preview) | Microsoft Docs
-description: This article describes the real-time view of Kubernetes Deployments without using kubectl in Azure Monitor for containers.
+title: View Container insights Deployments (preview) | Microsoft Docs
+description: This article describes the real-time view of Kubernetes Deployments without using kubectl in Container insights.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
@@ -8,7 +8,7 @@ ms.custom: references_regions
 
 # How to view Deployments (preview) in real-time
 
-With Azure Monitor for containers, the view Deployments (preview) feature emulates direct access to Kubernetes Deployment objects in real time by exposing the `kubeclt get deployments` and `kubectl describe deployment {your deployment}` commands.
+With Container insights, the view Deployments (preview) feature emulates direct access to Kubernetes Deployment objects in real time by exposing the `kubeclt get deployments` and `kubectl describe deployment {your deployment}` commands.
 
 >[!NOTE]
 >AKS clusters enabled as [private clusters](https://azure.microsoft.com/updates/aks-private-cluster/) are not supported with this feature. This feature relies on directly accessing the Kubernetes API through a proxy server from your browser. Enabling networking security to block the Kubernetes API from this proxy will block this traffic.
@@ -51,7 +51,7 @@ When you select a deployment from the list, a property pane automatically displa
 
 While you review deployment details, you can see container logs and events in real time. Select the **Show live console** and the Live Data (preview) console pane will appear below the deployments data grid where you can view live log data in a continuous stream. If the fetch status indicator shows a green check mark, which is on the far right of the pane, it means data can be retrieved and it begins streaming to your console.
 
-You can also filter by namespace or cluster level events. To learn more about the viewing data real-time in the console, see [View Live Data (preview) with Azure Monitor for containers](container-insights-livedata-overview.md).
+You can also filter by namespace or cluster level events. To learn more about the viewing data real-time in the console, see [View Live Data (preview) with Container insights](container-insights-livedata-overview.md).
 
 ![Deployments view live data in the console](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
 

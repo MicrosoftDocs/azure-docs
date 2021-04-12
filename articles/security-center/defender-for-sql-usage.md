@@ -1,6 +1,6 @@
 ---
-title: How to use Azure Defender for SQL
-description: Learn how to use Azure Security Center's optional Azure Defender for SQL plan
+title: How to set up Azure Defender for SQL
+description: Learn how to enable Azure Security Center's optional Azure Defender for SQL plan
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,7 +15,7 @@ ms.date: 02/11/2021
 ms.author: memildin
 ---
 
-# Azure Defender for SQL servers on machines 
+# Enable Azure Defender for SQL servers on machines 
 
 This Azure Defender plan detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
@@ -26,7 +26,7 @@ You'll see alerts when there are suspicious database activities, potential vulne
 |Aspect|Details|
 |----|:----|
 |Release state:|General Availability (GA)|
-|Pricing:|**Azure Defender for SQL servers on machines** is billed as shown on [the pricing page](security-center-pricing.md)|
+|Pricing:|**Azure Defender for SQL servers on machines** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Protected SQL versions:|Azure SQL Server (all versions covered by Microsoft support)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
 |||
@@ -35,15 +35,14 @@ You'll see alerts when there are suspicious database activities, potential vulne
 
 To enable this plan:
 
-* Provision the Log Analytics agent on your SQL server's host. This provides the connection to Azure.
+[Step 1. Provision the Log Analytics agent on your SQL server's host:](#step-1-provision-the-log-analytics-agent-on-your-sql-servers-host)
 
-* Enable the optional plan in Security Center's pricing and settings page.
+[Step 2. Enable the optional plan in Security Center's pricing and settings page:](#step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page)
 
-Both of these are described below.
 
 ### Step 1. Provision the Log Analytics agent on your SQL server's host:
 
-- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [enable auto provisioning of the Log Analytics agent <a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack VMs](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
+- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [enable auto provisioning of the Log Analytics agent <a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack Hub VMs](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
 - **SQL Server on Azure Arc** - If your SQL Server is managed by [Azure Arc](../azure-arc/index.yml) enabled servers, you can deploy the Log Analytics agent using the Security Center recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”. Alternatively, you can follow the installation methods described in the [Azure Arc documentation](../azure-arc/servers/manage-vm-extensions.md).
 
 - **SQL Server on-prem** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you have two options for connecting it to Azure:
@@ -57,7 +56,7 @@ Both of these are described below.
 
 1. From Security Center's menu, open the **Pricing & settings** page.
 
-    - If you're using **Azure Security Center's default workspace** (named “defaultworkspace-[your subscription id]-[region]”), select the relevant **subscription**.
+    - If you're using **Azure Security Center's default workspace** (named “defaultworkspace-[your subscription ID]-[region]”), select the relevant **subscription**.
 
     - If you're using **a non-default workspace**, select the relevant **workspace** (enter the workspace's name in the filter if necessary):
 
@@ -76,31 +75,6 @@ Both of these are described below.
 1. Optionally, configure email notification for security alerts. 
     You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. For more information, see [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
 
-
-
-## Explore vulnerability assessment reports
-
-The vulnerability assessment service scans your databases once a week. The scans run on the same day of the week on which you enabled the service.
-
-The vulnerability assessment dashboard provides an overview of your assessment results across all your databases, along with a summary of healthy and unhealthy databases, and an overall summary of failing checks according to risk distribution.
-
-You can view the vulnerability assessment results directly from Security Center.
-
-1. From Security Center's sidebar, open the **Recommendations** page and select the recommendation **Vulnerabilities on your SQL servers on machines should be remediated (Preview)**. For more information, see [Security Center Recommendations](security-center-recommendations.md). 
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png" alt-text="Vulnerability Assessment findings on your SQL servers on machines should be remediated (Preview)":::
-
-    The detailed view for this recommendation appears.
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Detailed view for the recommendation":::
-
-1. For more details, drill down:
-
-    * For an overview of scanned resources (databases) and the list of security checks that were tested, select the server of interest.
-
-    * For an overview of the vulnerabilities grouped by a specific SQL database, select the database of interest.
-
-    In each view, the security checks are sorted by **Severity**. Click a specific security check to see a details pane with a **Description**, how to **Remediate** it, and other related information such as **Impact** or **Benchmark**.
 
 ## Azure Defender for SQL alerts
 Alerts are generated by unusual and potentially harmful attempts to access or exploit SQL machines. These events can trigger alerts shown in the [alerts reference page](alerts-reference.md#alerts-sql-db-and-warehouse).

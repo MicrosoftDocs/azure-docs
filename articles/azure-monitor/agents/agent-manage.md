@@ -160,7 +160,7 @@ The following steps demonstrate how to reconfigure the Linux agent if you decide
 The agent service does not need to be restarted in order for the changes to take effect.
 
 ## Update proxy settings
-To configure the agent to communicate to the service through a proxy server or [Log Analytics gateway](../platform/gateway.md) after deployment, use one of the following methods to complete this task.
+To configure the agent to communicate to the service through a proxy server or [Log Analytics gateway](./gateway.md) after deployment, use one of the following methods to complete this task.
 
 ### Windows agent
 
