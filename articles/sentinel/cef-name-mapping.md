@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 04/05/2021
+ms.date: 04/12/2021
 ---
 
 # CEF and CommonSecurityLog field mapping
@@ -138,7 +138,7 @@ The following tables map the names of CEF keys and CommonSecurityLog fields that
 
 ### Custom IPv6 address fields
 
-The following table maps CEF key and CommonSecurityLog names for the IPv6 address fields available for custom data.
+The following table maps CEF key and CommonSecurityLog names for the *IPv6* address fields available for custom data.
 
 |CEF key name  |CommonSecurityLog name  |
 |---------|---------|
@@ -162,7 +162,7 @@ The following table maps CEF key and CommonSecurityLog names for the IPv6 addres
 
 ### Custom number fields
 
-The following table maps CEF key and CommonSecurityLog names for the number fields available for custom data.
+The following table maps CEF key and CommonSecurityLog names for the *number* fields available for custom data.
 
 |CEF key name  |CommonSecurityLog name  |
 |---------|---------|
@@ -176,7 +176,7 @@ The following table maps CEF key and CommonSecurityLog names for the number fiel
 
 ### Custom string fields
 
-The following table maps CEF key and CommonSecurityLog names for the string fields available for custom data.
+The following table maps CEF key and CommonSecurityLog names for the *string* fields available for custom data.
 
 |CEF key name  |CommonSecurityLog name  |
 |---------|---------|
@@ -204,7 +204,7 @@ The following table maps CEF key and CommonSecurityLog names for the string fiel
 
 ### Custom timestamp fields
 
-The following table maps CEF key and CommonSecurityLog names for the timestamp fields available for custom data.
+The following table maps CEF key and CommonSecurityLog names for the *timestamp* fields available for custom data.
 
 |CEF key name  |CommonSecurityLog name  |
 |---------|---------|
@@ -216,9 +216,9 @@ The following table maps CEF key and CommonSecurityLog names for the timestamp f
 |     flexDate1Label    |     FlexDate1Label    |
 | | |
 
-### Custom timestamp fields
+### Custom long data fields
 
-The following table maps CEF key and CommonSecurityLog names for the long data fields available for custom data.
+The following table maps CEF key and CommonSecurityLog names for the *long data fields* available for custom data.
 
 |CEF key name  |CommonSecurityLog name  |
 |---------|---------|
