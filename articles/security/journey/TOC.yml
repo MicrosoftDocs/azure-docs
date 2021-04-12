@@ -1,4 +1,4 @@
-- name: Security Journey Documentation
+- name: Security journey documentation
   href: index.yml
 
 - name: Understand cloud security advantages
@@ -180,7 +180,7 @@
       href: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Best practices - IaaS workloads
       href: ../fundamentals/iaas.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - name: Azure marketplace images
+    - name: Azure Marketplace images
       href: ../fundamentals/azure-marketplace-images.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   - name: Application
