@@ -82,13 +82,13 @@ az vm extension set  --publisher Microsoft.GuestConfiguration --name Configurati
 
 To deploy the extension for Linux:
 
-```
+```powershell
 Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforLinux' -Name 'AzurePolicyforLinux' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM'
 ```
 
 To deploy the extension for Windows:
 
-```
+```powershell
 Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM'
 ```
 
@@ -177,7 +177,8 @@ and
 properties are each managed per-configuration rather than on the VM extension.
 
 ## Next steps
-  For more information about Azure Policy Guest Configuration, see [Understand Azure Policy's Guest Configuration](../../governance/policy/concepts/guest-configuration.md)
+
+* For more information about Azure Policy Guest Configuration, see [Understand Azure Policy's Guest Configuration](../../governance/policy/concepts/guest-configuration.md)
 * For more information about how the Linux Agent and extensions work, see [Azure VM extensions and features for Linux](features-linux.md).
 * For more information about how the Windows Guest Agent and extensions work, see [Azure VM extensions and features for Windows](features-windows.md).  
 * To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent Overview](agent-windows.md).  
