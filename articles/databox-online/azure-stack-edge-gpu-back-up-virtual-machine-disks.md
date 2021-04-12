@@ -1,6 +1,6 @@
 ---
 title: Back up VM disks on Azure Stack Edge Pro GPU device via PowerShell
-description: Describes how to create linux or Windows VM images to use with your Azure Stack Edge Pro GPU device.
+description: Describes how to back up data on virtual machine disks running on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
