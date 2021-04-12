@@ -18,10 +18,10 @@
     href: detect-motion-record-video-edge-devices.md
   - name: Analyze live video
     items:
-    - name: with your own HTTP model
-      href: analyze-live-video-use-your-model-http.md
     - name: with your own gRPC model
       html: analyze-live-video-use-your-model-grpc.md
+    - name: with your own HTTP model
+      href: analyze-live-video-use-your-model-http.md
 - name: Concepts
   items:
   - name: Pipeline
@@ -33,7 +33,7 @@
   - name: Record video for playback
     href: video-recording.md    
   - name: Analyze live videos without recording
-    href: analyze-live-video.md
+    href: analyze-live-video-without-recording.md
 - name: How-to guides
   items:
   - name: Develop and deploy gRPC inference server
