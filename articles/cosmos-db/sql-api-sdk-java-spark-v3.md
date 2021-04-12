@@ -51,9 +51,9 @@ https://github.com/Azure/azure-sdk-for-java/issues/new
 - [Catalog API](https://github.com/Azure/azure-sdk-for-java/blob/feature/cosmos/spark30/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/catalog-api.md)
 - [Configuration Parameter Reference](https://github.com/Azure/azure-sdk-for-java/blob/feature/cosmos/spark30/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md)
 
-## Version Compatibility
+## Version compatibility
 
-| Connector     | Spark         | Minimum Java Version | Supported Scala Versions |
+| Connector     | Spark         | Minimum Java version | Supported Scala versions |
 | ------------- | ------------- | -------------------- | -----------------------  |
 | 4.0.0-beta.1  | 3.1.1         |        8             | 2.12                     |
 
@@ -76,3 +76,7 @@ If you encounter any bug, please file an issue [here](https://github.com/Azure/a
 To suggest a new feature or changes that could be made, file an issue the same way you would for a bug.
 
 [!INCLUDE[Changelog](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos-spark_3-1_2-12/CHANGELOG.md)]
+
+## Next steps
+
+Review our [quickstart guide for working with Azure Cosmos DB Spark 3 OLTP connector](create-sql-api-spark.md).
