@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2021
+ms.date: 04/12/2021
 ms.author: yelevin
 
 ---
@@ -33,33 +33,41 @@ To view all the out-of-the-box detections, go to **Analytics** and then **Rule t
 
    :::image type="content" source="media/tutorial-detect-built-in/view-oob-detections.png" alt-text="Use built-in detections to find threats with Azure Sentinel":::
 
-The following template types are available:
+The following sections describe the types of out-of-the box templates available:
 
-- **Microsoft security**
-   
-   Microsoft security templates automatically create Azure Sentinel incidents from the alerts generated in other Microsoft security solutions, in real time. You can use Microsoft security rules as a template to create new rules with similar logic. For more information about security rules, see [Automatically create incidents from Microsoft security alerts](create-incidents-from-alerts.md).
+### Microsoft security
 
-- **Fusion** 
+Microsoft security templates automatically create Azure Sentinel incidents from the alerts generated in other Microsoft security solutions, in real time. You can use Microsoft security rules as a template to create new rules with similar logic. 
 
-    Based on Fusion technology, advanced multistage attack detection in Azure Sentinel uses scalable machine learning algorithms that can correlate many low-fidelity alerts and events across multiple products into high-fidelity and actionable incidents. Fusion is enabled by default. Because the logic is hidden and therefore not customizable, you can only create one rule with this template.
+For more information about security rules, see [Automatically create incidents from Microsoft security alerts](create-incidents-from-alerts.md).
 
-    > [!IMPORTANT]
-    > Some of the detections in the Fusion rule template are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-    >
-    > To see which detections are in preview, see [Advanced multistage attack detection in Azure Sentinel](fusion.md).
+### Fusion
 
-- **Machine learning behavioral analytics**
+Based on Fusion technology, advanced multistage attack detection in Azure Sentinel uses scalable machine learning algorithms that can correlate many low-fidelity alerts and events across multiple products into high-fidelity and actionable incidents. Fusion is enabled by default. Because the logic is hidden and therefore not customizable, you can only create one rule with this template.
 
-    These templates are based on proprietary Microsoft machine learning algorithms, so you cannot see the internal logic of how they work and when they run. Because the logic is hidden and therefore not customizable, you can only create one rule with each template of this type.
+> [!IMPORTANT]
+> Some of the detections in the Fusion rule template are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> To see which detections are in preview, see [Advanced multistage attack detection in Azure Sentinel](fusion.md).
 
-    > [!IMPORTANT]
-    > - The machine learning behavioral analytics rule templates are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-    >
-    > - By creating and enabling any rules based on the ML behavior analytics templates, **you give Microsoft permission to copy ingested data outside of your Azure Sentinel workspace's geography** as necessary for processing by the machine learning engines and models.
+### Machine learning behavioral analytics
 
-- **Scheduled**
+These templates are based on proprietary Microsoft machine learning algorithms, so you cannot see the internal logic of how they work and when they run. Because the logic is hidden and therefore not customizable, you can only create one rule with each template of this type.
 
-    Scheduled analytics rules are based on built-in queries written by Microsoft security experts. You can see the query logic and make changes to it. You can use the scheduled rules template and customize the query logic and scheduling settings to create new rules.
+> [!IMPORTANT]
+> - The machine learning behavioral analytics rule templates are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> - By creating and enabling any rules based on the ML behavior analytics templates, **you give Microsoft permission to copy ingested data outside of your Azure Sentinel workspace's geography** as necessary for processing by the machine learning engines and models.
+
+### Scheduled
+
+Scheduled analytics rules are based on built-in queries written by Microsoft security experts. You can see the query logic and make changes to it. You can use the scheduled rules template and customize the query logic and scheduling settings to create new rules.
+
+> [!TIP]
+> Rule scheduling options include configuring the rule to run every specified number of minutes, hours, or days, with the clock starting when you enable the rule.
+>
+> We recommend being mindful of when you enable a new or edited analytics rule to ensure that the rules will get the new stack of incidents in time. For example, you might want to run a rule in synch with when your SOC analysts being their workday, and enable the rules then.
+>
 
 ## Use out-of-the-box detections
 
