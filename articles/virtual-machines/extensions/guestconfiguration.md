@@ -44,7 +44,7 @@ TCP port 443, or if a connection is provided through private networking.
 To learn more about private networking, see the following articles:
 
 - [Guest Configuration, communicate over private link in Azure](../../governance/policy/concepts/guest-configuration.md#communicate-over-private-link-in-azure)
-- [Use private endpoints for Azure Storage](../../storage/common/storage-private-endpoints)
+- [Use private endpoints for Azure Storage](../../storage/common/storage-private-endpoints.md)
 
 ## How can I install the extension?
 
@@ -163,7 +163,7 @@ resource "azurerm_virtual_machine_extension" "gc" {
 }
 ```
 
-# Settings
+## Settings
 
 There's no need to include any settings or protected-settings properties on the extension.
 All such information is retrieved by the agent from
