@@ -49,7 +49,7 @@
       href: concepts/best-practices-multivariate.md
     - name: Anomaly Detector API best practices (univariate)
       href: concepts/anomaly-detection-best-practices.md
-    - name: Predicative maintenance architecture (multivariate)
+    - name: Predictive maintenance architecture (multivariate)
       href: concepts/multivariate-architecture.md
     - name: Troubleshooting multivariate
       href: concepts/troubleshoot.md
