@@ -221,8 +221,7 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
     print_item(dsOut)
 ```
  > [!NOTE] 
-    > The To pass parameters to the pipeline, add them to the json string params_for_pipeline shown below in the format **{ “ParameterName1” : “ParameterValue1” }** for each of the parameters needed in the pipeline. 
-    > To pass parameters to a dataflow, create a pipeline parameter to hold the parameter name/value, and then consume the pipeline parameter in the dataflow parameter in the format **@pipeline().parameters.parametername.**
+ > The To pass parameters to the pipeline, add them to the json string params_for_pipeline shown below in the format **{ “ParameterName1” : “ParameterValue1” }** for each of the parameters needed in the pipeline. To pass parameters to a dataflow, create a pipeline parameter to hold the parameter name/value, and then consume the pipeline parameter in the dataflow parameter in the format **@pipeline().parameters.parametername.**
 
 
 ## Create a pipeline
