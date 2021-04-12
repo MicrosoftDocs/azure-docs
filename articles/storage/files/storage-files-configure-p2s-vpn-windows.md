@@ -290,7 +290,11 @@ Remove-Item -Path $vpnTemp -Recurse
 Now that you have set up your Point-to-Site VPN, you can use it to mount the Azure file share on the computers you setup via PowerShell. The following example will mount the share, list the root directory of the share to prove the share is actually mounted, and the unmount the share. Unfortunately, it is not possible to mount the share persistently over PowerShell remoting. To mount persistently, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). 
 
 ```PowerShell
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
 $myShareToMount = "<file-share>"
+
+
 
 $storageAccountKeys = Get-AzStorageAccountKey `
     -ResourceGroupName $resourceGroupName `
