@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 04/12/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -22,9 +22,9 @@ This article answers frequently asked questions (FAQs) about Azure NetApp Files.
 
 ## Networking FAQs
 
-### Does the NFS data path go over the Internet?  
+### Does the data path for NFS or SMB go over the Internet?  
 
-No. The NFS data path does not go over the Internet. Azure NetApp Files is an Azure native service that is deployed into the Azure Virtual Network (VNet) where the service is available. Azure NetApp Files uses a delegated subnet and provisions a network interface directly on the VNet. 
+No. The data path for NFS or SMB does not go over the Internet. Azure NetApp Files is an Azure native service that is deployed into the Azure Virtual Network (VNet) where the service is available. Azure NetApp Files uses a delegated subnet and provisions a network interface directly on the VNet. 
 
 See [Guidelines for Azure NetApp Files network planning](./azure-netapp-files-network-topologies.md) for details.  
 
@@ -77,7 +77,21 @@ No, currently you cannot apply Network Security Groups to the delegated subnet o
 
 ### Can I use Azure RBAC with Azure NetApp Files?
 
-Yes, Azure NetApp Files supports Azure RBAC features.
+Yes, Azure NetApp Files supports Azure RBAC features. Along with the built-in Azure roles, you can [create custom roles](../role-based-access-control/custom-roles.md) for Azure NetApp Files. 
+
+For the complete list of Azure NetApp Files permissions, see Azure resource provider operations for [`Microsoft.NetApp`](../role-based-access-control/resource-provider-operations.md#microsoftnetapp).
+
+### Are Azure Activity Logs supported on Azure NetApp Files?
+
+Azure NetApp Files is an Azure native service. All PUT, POST, and DELETE APIs against Azure NetApp Files are logged. For example, the logs show activities such as who created the snapshot, who modified the volume, and so on.
+
+For the complete list of API operations, see [Azure NetApp Files REST API](/rest/api/netapp/).
+
+### Can I use Azure policies with Azure NetApp Files?
+
+Yes, you can create [custom Azure policies](../governance/policy/tutorials/create-custom-policy-definition.md). 
+
+However, you cannot create Azure policies (custom naming policies) on the Azure NetApp Files interface. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
 
 ## Performance FAQs
 

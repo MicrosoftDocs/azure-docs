@@ -496,16 +496,15 @@ Disk details | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesPerSec,
 
 Here's the Linux server performance data that the appliance collects and sends to Azure.
 
-**Data** | **Commands**
---- | ---
-CPU usage | cat /proc/stat/| grep 'cpu' /proc/stat
-Memory usage | free \| grep Mem \| awk '{print $3/$2 * 100.0}'
-NIC count | lshw -class network \| grep eth[0-60] \| wc -l
-Data received per NIC | cat /sys/class/net/eth$nic/statistics/rx_bytes
-Data transmitted per NIC | cat /sys/class/net/eth$nic/statistics/tx_bytes
-Disk count | fdisk -l \| egrep 'Disk.*bytes' \| awk '{print $2}' \| cut -f1 -d ':'
-Disk details | cat /proc/diskstats
-
+| **Data** | **Commands** |
+| --- | --- |
+| CPU usage | cat /proc/stat/ \| grep 'cpu' /proc/stat |
+| Memory usage | free \| grep Mem \| awk '{print $3/$2 * 100.0}' |
+| NIC count | lshw -class network \| grep eth[0-60] \| wc -l |
+| Data received per NIC | cat /sys/class/net/eth$nic/statistics/rx_bytes |
+| Data transmitted per NIC | cat /sys/class/net/eth$nic/statistics/tx_bytes |
+| Disk count | fdisk -l \| egrep 'Disk.\*bytes' \| awk '{print $2}' \| cut -f1 -d ':' |
+| Disk details | cat /proc/diskstats |
 
 ## Appliance upgrades
 

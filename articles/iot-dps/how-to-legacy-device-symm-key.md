@@ -25,6 +25,16 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 > [!NOTE]
 > The sample used in this article is written in C. There is also a [C# device provisioning symmetric key sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) available. To use this sample, download or clone the [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) repository and follow the in-line instructions in the sample code. You can follow the instructions in this article to create a symmetric key enrollment group using the portal and to find the ID Scope and enrollment group primary and secondary keys needed to run the sample. You can also create individual enrollments using the sample.
 
+## Prerequisites
+
+* Completion of the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart.
+
+The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
+
+* Latest version of [Git](https://git-scm.com/download/) installed.
+
 ## Overview
 
 A unique registration ID will be defined for each device based on information that identifies that device. For example, the MAC address or a serial number.
@@ -35,16 +45,6 @@ The device code demonstrated in this article will follow the same pattern as the
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
-## Prerequisites
-
-* Completion of the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart.
-
-The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
-
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
-
-* Latest version of [Git](https://git-scm.com/download/) installed.
 
 ## Prepare an Azure IoT C SDK development environment
 
@@ -280,6 +280,15 @@ Be aware that this leaves the derived device key included as part of the image f
 
 ## Next steps
 
-* To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
-* [Quickstart: Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md)
-* To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md)
+* To learn more about Reprovisioning, see
+
+> [!div class="nextstepaction"]
+> [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md)
+
+* To learn more about Deprovisioning, see
+
+> [!div class="nextstepaction"]
+> [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md)

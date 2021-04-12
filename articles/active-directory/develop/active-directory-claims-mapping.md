@@ -299,7 +299,7 @@ The ID element identifies which property on the source provides the value for th
 | User | streetaddress | Street Address |
 | User | postalcode | Postal Code |
 | User | preferredlanguage | Preferred Language |
-| User | onpremisesuserprincipalname | On-premises UPN |*
+| User | onpremisesuserprincipalname | On-premises UPN |
 | User | mailnickname | Mail Nickname |
 | User | extensionattribute1 | Extension Attribute 1 |
 | User | extensionattribute2 | Extension Attribute 2 |
