@@ -29,9 +29,9 @@ For the schema free connectors whose the column number, column name and column d
 #### Recommendation
 In order to solve up the known issue/limitation, a feature named "support customized schema in schema free connectivity" was enabled in ADF dataflow. You can feel free to specify additional/missing columns (which could be missing in schema-infer-result) in the dataflow source projection to read the data, and you can apply one of following options to set the customized schema. Usually, **Option-1** is more preferred: 
 
-- **Option-1**: Compared with original source data that may be one large file, table or container that contains millions of rows with complex schemas, you can create one temporary table/container with few rows that all the columns that you want to read are included, then move on to the following operation: 
+- **Option-1**: Compared with the original source data that may be one large file, table or container that contains millions of rows with complex schemas, you can create a temporary table/container with a few rows that contain all the columns you want to read, and then move on to the following operation: 
 
-    1. Use the dataflow source **Debug Settings** to have **Import projection** with sample files/tables to get the fully schema. You can follow the steps in the following picture:<br/>
+    1. Use the dataflow source **Debug Settings** to have **Import projection** with sample files/tables to get the complete schema. You can follow the steps in the following picture:<br/>
         ![Picture 8.1](./media/data-flow-troubleshoot-connector-and-format/customized-schame-option-1-1.png)<br/>
         1. Select **Debug settings** in the data flow canvas.
 	    1. In the pop-up pane, select **Sample table** under **cosmosSource** tab. 
@@ -39,7 +39,7 @@ In order to solve up the known issue/limitation, a feature named "support custom
         1. Select **Save** to save your settings.
         1. Select **Import projection**.<br/>  
     
-    1. Change the **Debug Settings** back to use the source dataset to have remaining data movement/transformation. You can move on with the steps in the following picture:<br/>
+    1. Change the **Debug Settings** back to use the source dataset for the remaining data movement/transformation. You can move on with the steps in the following picture:<br/>
         ![Picture 8.2](./media/data-flow-troubleshoot-connector-and-format/customized-schame-option-1-2.png) <br/>   
         1. Select **Debug settings** in the data flow canvas.
 	    1. In the pop-up pane, select **Source dataset** under **cosmosSource** tab.
