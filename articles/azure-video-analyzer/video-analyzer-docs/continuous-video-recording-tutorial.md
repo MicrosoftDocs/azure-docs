@@ -7,7 +7,7 @@ ms.date: 04/01/2021
 ---
 # Tutorial: Continuous video recording and playback
 
-In this tutorial, you'll learn how to use Azure Video Analyzer to perform [continuous video recording](continuous-video-recording-concept.md) (CVR) to the cloud and stream any portion of that video. This capability is useful for scenarios such as safety and compliance where there's a need to maintain an archive of the footage from a camera for days or weeks. 
+In this tutorial, you'll learn how to use Azure Video Analyzer to perform [continuous video recording](continuous-video-recording.md) (CVR) to the cloud and stream any portion of that video. This capability is useful for scenarios such as safety and compliance where there's a need to maintain an archive of the footage from a camera for days or weeks. 
 
 In this tutorial you will:
 
@@ -60,7 +60,8 @@ As explained in [this](pipeline.md) article, a video analyzer pipeline lets you 
  To accomplish CVR, you need to capture the video from an RTSP-capable camera and continuously record it to a [video resource](terminology.md#video). This diagram shows a graphical representation of that pipeline. 
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="Video Analyzer pipeline for CVR":::
+> :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Video Analyzer pipeline for CVR":::
+<!-- ./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg -->
 
 In this tutorial, you'll use one edge module built using the [Live555 Media Server]()<!--https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/sources/rtspsim-live555--> to simulate an RTSP camera. Inside the pipeline, you'll use an [RTSP source](pipeline.md#rtsp-source) node to get the live feed and send that video to the [video sink node](pipeline.md#video-sink), which records the video to your Video Analyzer account. The video that will be used in this tutorial is [a highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv).
 <iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
@@ -170,11 +171,11 @@ When you use the Azure Video Analyzer on IoT Edge module to record the live vide
 1. Right click and select **Extension Settings**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::<!--TODO: replace this -->
+    > :::image type="content" source="./media/get-started-detect-motion-emit-events/extensions-settings.png" alt-text="Extension Settings":::<!--TODO: replace this with ./media/run-program/extensions-tab.png-->
 1. Search and enable “Show Verbose Message”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::<!--TODO: replace this -->
+    > :::image type="content" source="./media/get-started-detect-motion-emit-events/verbose-message.png" alt-text="Show Verbose Message":::<!--TODO: replace this -->
 1. Go to src/cloud-to-device-console-app/operations.json.
 1. Under the **pipelineTopologySet** node, edit the following:
 
