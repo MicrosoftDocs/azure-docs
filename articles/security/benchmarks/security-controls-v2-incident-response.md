@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Incident Response
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 002/22/2021
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -14,7 +14,7 @@ ms.custom: security-benchmark
 
 Incident Response covers controls in the incident response life cycle - preparation, detection and analysis, containment, and post-incident activities. This includes using Azure services such as Azure Security Center and Sentinel to automate the incident response process.
 
-To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Incident Response](../../governance/policy/samples/azure-security-benchmark#incident-response)
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Incident Response](../../governance/policy/samples/azure-security-benchmark.md#incident-response)
 
 ## IR-1: Preparation – update incident response process for Azure
 

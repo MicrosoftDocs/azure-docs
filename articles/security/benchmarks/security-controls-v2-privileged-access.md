@@ -14,7 +14,7 @@ ms.custom: security-benchmark
 
 Privileged Access covers controls to protect privileged access to your Azure tenant and resources. This includes a range of controls to protect your administrative model, administrative accounts, and privileged access workstations against deliberate and inadvertent risk.
 
-To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Privileged Access](../../governance/policy/samples/azure-security-benchmark#privileged-access)
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Privileged Access](../../governance/policy/samples/azure-security-benchmark.md#privileged-access)
 
 ## PA-1: Protect and limit highly privileged users
 
@@ -158,8 +158,6 @@ Use Azure AD entitlement management features to automate access request workflow
 Secured, isolated workstations are critically important for the security of sensitive roles like administrator, developer, and critical service operator. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access. 
 
 - [Understand privileged access workstations](/security/compass/privileged-access-deployment)
-
-- [Deploy a privileged access workstation](../../active-directory/devices/howto-azure-managed-workstation)
 
 **Responsibility**: Customer
 

@@ -1,7 +1,6 @@
 ---
 title: Optimize your Active Directory environment with Azure Monitor | Microsoft Docs
 description: You can use the Active Directory Health Check solution to assess the risk and health of your environments on a regular interval.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

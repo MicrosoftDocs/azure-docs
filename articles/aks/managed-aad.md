@@ -15,11 +15,12 @@ AKS-managed Azure AD integration is designed to simplify the Azure AD integratio
 
 Cluster administrators can configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership. Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][open-id-connect].
 
-Learn more about the Azure AD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-active-directory-integration).
+Learn more about the Azure AD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-ad-integration).
 
 ## Limitations 
 
 * AKS-managed Azure AD integration can't be disabled
+* Changing a AKS-managed Azure AD integrated cluster to legacy AAD is not supported
 * non-Kubernetes RBAC enabled clusters aren't supported for AKS-managed Azure AD integration
 * Changing the Azure AD tenant associated with AKS-managed Azure AD integration isn't supported
 
@@ -30,7 +31,7 @@ Learn more about the Azure AD integration flow on the [Azure Active Directory in
 * If you are using [helm](https://github.com/helm/helm), minimum version of helm 3.3.
 
 > [!Important]
-> You must use Kubectl with a minimum version of 1.18.1 or kubelogin. If you don't use the correct version, you will notice authentication issues.
+> You must use Kubectl with a minimum version of 1.18.1 or kubelogin. The difference between the minor versions of Kubernetes and kubectl should not be more than 1 version. If you don't use the correct version, you will notice authentication issues.
 
 To install kubectl and kubelogin, use the following commands:
 
@@ -303,15 +304,15 @@ Make sure the admin of the security group has given your account an *Active* ass
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[aad-pricing]: /azure/pricing/details/active-directory
+[aad-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 
 <!-- LINKS - Internal -->
 [aad-conditional-access]: ../active-directory/conditional-access/overview.md
 [azure-rbac-integration]: manage-azure-rbac.md
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show

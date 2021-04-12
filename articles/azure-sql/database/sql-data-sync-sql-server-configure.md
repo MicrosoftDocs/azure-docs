@@ -58,7 +58,7 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
    | **Use private link** | Choose a service managed private endpoint to establish a secure connection between the sync service and the hub database. |
 
    > [!NOTE]
-   > Microsoft recommends to create a new, empty database for use as the **Sync Metadata Database**. Data Sync creates tables in this database and runs a frequent workload. This database is shared as the **Sync Metadata Database** for all sync groups in a selected region and subscription. You can't change the database or its name without removing all sync groups and sync agents in the region.
+   > Microsoft recommends to create a new, empty database for use as the **Sync Metadata Database**. Data Sync creates tables in this database and runs a frequent workload. This database is shared as the **Sync Metadata Database** for all sync groups in a selected region and subscription. You can't change the database or its name without removing all sync groups and sync agents in the region. Additionally, an Elastic jobs database cannot be used as the SQL Data Sync Metadata database and vice versa.  
 
    Select **OK** and wait for the sync group to be created and deployed.
    

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 02/12/2021
+ms.date: 03/08/2021
 
 ms.author: mimart
 author: msmimart
@@ -80,6 +80,7 @@ Yes. Multi-factor authentication and consumer email accounts are both supported 
 ### Do you support password reset for Azure AD B2B collaboration users?
 If your Azure AD tenant is the home directory for a user, you can [reset the user's password](../fundamentals/active-directory-users-reset-password-azure-portal.md) from the Azure portal. But you can't directly reset a password for a guest user who signs in with an account that's managed by another Azure AD directory or external identity provider. Only the guest user or an administrator in the user’s home directory can reset the password. Here are some examples of how password reset works for guest users:
  
+* Guest users in an Azure AD tenant that are marked "Guest" (UserType==Guest) cannot register for SSPR through [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). These type of guest user can only perform SSPR through [https://aka.ms/sspr](https://aka.ms/sspr). 
 * Guest users who sign in with a Microsoft account (for example guestuser@live.com) can reset their own passwords using Microsoft account self-service password reset (SSPR). See [How to reset your Microsoft account password](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Guest users who sign in with a Google account or another external identity provider can reset their own passwords using their identity provider’s SSPR method. For example, a guest user with the Google account guestuser@gmail.com can reset their password by following the instructions in [Change or reset your password](https://support.google.com/accounts/answer/41078).
 * If the identity tenant is a just-in-time (JIT) or "viral" tenant (meaning it's a separate, unmanaged Azure tenant), only the guest user can reset their password. Sometimes an organization will [take over management of viral tenants](../enterprise-users/domains-admin-takeover.md) that are created when employees use their work email addresses to sign up for services. After the organization takes over a viral tenant, only an administrator in that organization can reset the user's password or enable SSPR. If necessary, as the inviting organization, you can remove the guest user account from your directory and resend an invitation.

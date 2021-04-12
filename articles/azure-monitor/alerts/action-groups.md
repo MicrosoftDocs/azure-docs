@@ -3,9 +3,8 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 04/07/2021
 ms.author: dukek
-ms.subservice: alerts
 ---
 # Create and manage action groups in the Azure portal
 An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements. 
@@ -144,7 +143,7 @@ If you are not receiving Notifications on your *primary email*, then you can try
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
 ### Function
-Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md).
+Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md). To handle a request, your endpoint must handle the HTTP POST verb.
 
 You may have a limited number of Function actions in an Action Group.
 
@@ -157,12 +156,10 @@ You may have a limited number of ITSM actions in an Action Group.
 You may have a limited number of Logic App actions in an Action Group.
 
 ### Secure Webhook
+The Action Groups Secure Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
 
 > [!NOTE]
 > Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
-> User should be the **owner** of webhook service principal in order to make sure security is not violated. As any azure customer can access all object IDs through portal, without checking the owner, anyone can add the secure webhook to their own action group for azure monitor alert notification which violate security.
-
-The Action Groups Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
 
 1. Create an Azure AD Application for your protected web API. See [Protected web API: App registration](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
     - Configure your protected API to be [called by a daemon app](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
@@ -170,7 +167,7 @@ The Action Groups Webhook action enables you to take advantage of Azure Active D
 2. Enable Action Groups to use your Azure AD Application.
 
     > [!NOTE]
-    > You must be a member of the [Azure AD Application Administrator role](../../active-directory/roles/permissions-reference.md#available-roles) to execute this script.
+    > You must be a member of the [Azure AD Application Administrator role](../../active-directory/roles/permissions-reference.md#all-roles) to execute this script.
     
     - Modify the PowerShell script's Connect-AzureAD call to use your Azure AD Tenant ID.
     - Modify the PowerShell script's variable $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application.
@@ -245,7 +242,7 @@ else
     
 New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $actionGroupsSP.ObjectId -PrincipalId $actionGroupsSP.ObjectId
     
-Write-Host "My Azure AD Application ($myApp.ObjectId): " + $myApp.ObjectId
+Write-Host "My Azure AD Application (ObjectId): " + $myApp.ObjectId
 Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```

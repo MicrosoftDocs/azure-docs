@@ -82,7 +82,7 @@ In this section, you create a function app and related resources in your Azure s
 
 1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app...** button.
 
-    ![Publish your project to Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    
 
 1. Provide the following information at the prompts:
 

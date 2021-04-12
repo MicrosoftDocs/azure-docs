@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 ms.date: 08/12/2020
-ms.author: anfeldma
+ms.author: rosouz
 ms.custom: devx-track-python
 ---
 # Azure Cosmos DB Python SDK for SQL API: Release notes and resources
@@ -32,17 +32,26 @@ ms.custom: devx-track-python
 > * [Bulk executor - .NET  v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| Page| Link |
 |---|---|
 |**Download SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API documentation**|[Python API reference documentation](/python/api/azure-cosmos/?preserve-view=true&view=azure-python)|
+|**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Get started**|[Get started with the Python SDK](create-sql-api-python.md)|
-|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.5.3+](https://www.python.org/downloads/)|
+|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.6+](https://www.python.org/downloads/)|
 
 ## Release history
 
-### 4.1.0 (2020-08-10)
+## 4.2.0
+
+**Bug fixes**
+- Fixed bug where continuation token is not honored when query_iterable is used to get results by page.
+- Fixed bug where resource tokens not being honored for document reads and deletes. 
+
+**New features**
+- Added support for passing `partitionKey` while querying Change-Feed.
+
+## 4.1.0
 
 - Added deprecation warning for "lazy" indexing mode. The backend no longer allows creating containers with this mode and will set them to consistent instead.
 
@@ -50,13 +59,14 @@ ms.custom: devx-track-python
 - Added the ability to set the analytical storage TTL when creating a new container.
 
 **Bug fixes**
-- Fixed support for dicts as inputs for get_client APIs.
+- Fixed support for `dicts` as inputs for get_client APIs.
 - Fixed Python 2/3 compatibility in query iterators.
-- Fixed type hint error (Issue #12570).
-- Fixed bug where options headers were not added to upsert_item function. Issue #11791 - thank you @aalapatirvbd.
-- Fixed error raised when a non string ID is used in an item. It now raises TypeError rather than AttributeError (Issue #11793).
+- Fixed type hint error.
+- Fixed bug where options headers were not added to upsert_item function. 
+- Fixed error raised when a non-string ID is used in an item. It now raises TypeError rather than AttributeError.
 
-### 4.0.0
+
+## 4.0.0
 
 * Stable release.
 * Added HttpLoggingPolicy to pipeline to enable passing in a custom logger for request and response headers.
@@ -74,8 +84,8 @@ ms.custom: devx-track-python
 * Added query Distinct, Offset, and Limit support.
 * Default document query execution context now used for
 
-  * ChangeFeed queries
-  * single partition queries (partitionkey, partitionKeyRangeId is present in options)
+  * Change Feed queries
+  * single partition queries (`partitionkey`, `partitionKeyRangeId` is present in options)
   * Non-document queries
 
 * Errors out for aggregates on multiple partitions, with enable cross partition query set to true, but no "value" keyword present
@@ -321,6 +331,8 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [4.2.0](#420) |Oct 09, 2020 |--- |
+| [4.1.0](#410) |Aug 10, 2020 |--- |
 | [4.0.0](#400) |May 20, 2020 |--- |
 | [3.0.2](#302) |Nov 15, 2018 |--- |
 | [3.0.1](#301) |Oct 04, 2018 |--- |

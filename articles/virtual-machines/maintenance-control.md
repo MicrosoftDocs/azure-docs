@@ -3,6 +3,7 @@ title: Overview of Maintenance control for Azure virtual machines using the Azur
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/19/2020

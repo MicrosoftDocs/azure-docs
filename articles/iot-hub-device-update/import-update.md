@@ -1,7 +1,7 @@
 ---
 title: How to import a new update | Microsoft Docs
 description: How-To guide for importing a new update into IoT Hub Device Update for IoT Hub.
-author: andbrown
+author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
@@ -9,14 +9,14 @@ ms.service: iot-hub-device-update
 ---
 
 # Import New Update
-Learn how to import a new update into Device Update for IoT Hub.
+Learn how to import a new update into Device Update for IoT Hub. If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md).
 
 ## Prerequisites
 
-* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). It is recommended that you use a S1 (Standard) tier or above for your IoT Hub. 
+* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). 
 * An IoT device (or simulator) provisioned for Device Update within IoT Hub.
    * If using a real device, you’ll need an update image file for image update, or [APT Manifest file](device-update-apt-manifest.md) for package update.
-* [PowerShell 5](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) or later.
+* [PowerShell 5](/powershell/scripting/install/installing-powershell) or later (includes Linux, macOS and Windows installs)
 * Supported browsers:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome
@@ -28,10 +28,9 @@ Learn how to import a new update into Device Update for IoT Hub.
 
 1. Ensure that your update image file or APT Manifest file is located in a directory accessible from PowerShell.
 
-2. Clone [Device Update for IoT Hub repository](https://github.com/azure/iot-hub-device-update), or download it as a .zip file to
-a location accessible from PowerShell (once the zip file is downloaded, right click for `Properties` > `General` tab > check `Unblock` in the `Security` section to avoid PowerShell security warning prompts).
+2. Create a text file named **AduUpdate.psm1** in the directory where your update image file or APT Manifest file is located. Then open the [AduUpdate.psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) PowerShell cmdlet, copy the contents to your text file, and then save the text file.
 
-3. In PowerShell, navigate to `tools/AduCmdlets` directory and run:
+3. In PowerShell, navigate to the directory where you created your PowerShell cmdlet from step 2. Use the Copy option below and then paste into PowerShell to run the commands:
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -49,32 +48,19 @@ a location accessible from PowerShell (once the zip file is downloaded, right cl
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    For quick reference, here are some example values for the above parameters. For full documentation, see the full import manifest schema below.
+    For quick reference, here are some example values for the above parameters. You can also view the complete [import manifest schema](import-schema.md) for more details.
 
     | Parameter | Description |
     | --------- | ----------- |
-    | deviceManufacturer | Manufacturer of the device the update is compatible with, for example, Contoso
-    | deviceModel | Model of the device the update is compatible with, for example, Toaster
-    | updateProvider | Provider part of update identity, for example, Fabrikam
-    | updateName | Name part of update identity, for example, ImageUpdate
-    | updateVersion | Update version, for example, 2.0
+    | deviceManufacturer | Manufacturer of the device the update is compatible with, for example, Contoso. Must match _manufacturer_ [device property](./device-update-plug-and-play.md#device-properties).
+    | deviceModel | Model of the device the update is compatible with, for example, Toaster. Must match _model_ [device property](./device-update-plug-and-play.md#device-properties).
+    | updateProvider | Entity who is creating or directly responsible for the update. It will often be a company name.
+    | updateName | Identifier for a class of updates. The class can be anything you choose. It will often be a device or model name.
+    | updateVersion | Version number distinguishing this update from others that have the same Provider and Name. Does not have match a version of an individual software component on the device (but can if you choose).
     | updateType | <ul><li>Specify `microsoft/swupdate:1` for image update</li><li>Specify `microsoft/apt:1` for package update</li></ul>
-    | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify recommended value for `microsoft/apt:1` update type.
+    | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify **name-version**, where _name_ is the name of the APT Manifest and _version_ is the version of the APT Manifest. For example, contoso-iot-edge-1.0.0.0.
     | updateFilePath(s) | Path to the update file(s) on your computer
 
-    Full import manifest schema
-
-    | Name | Type | Description | Restrictions |
-    | --------- | --------- | --------- | --------- |
-    | UpdateId | `UpdateId` object | Update identity. |
-    | UpdateType | string | Update type: <ul><li>Specify `microsoft/apt:1` when performing a package-based update using reference agent.</li><li>Specify `microsoft/swupdate:1` when performing an image-based update using reference agent.</li><li>Specify `microsoft/simulator:1` when using sample agent simulator.</li><li>Specify a custom type if developing a custom agent.</li></ul> | <ul><li>Format: `{provider}/{type}:{typeVersion}`</li><li>Maximum of 32 characters total</li></ul> |
-    | InstalledCriteria | string | String interpreted by the agent to determine whether the update was applied successfully:  <ul><li>Specify **value** of SWVersion for update type `microsoft/swupdate:1`.</li><li>Specify `{name}-{version}` for update type `microsoft/apt:1`, of which name and version are obtained from the APT file.</li><li>Specify hash of the update file for update type `microsoft/simulator:1`.</li><li>Specify a custom string if developing a custom agent.</li></ul> | Maximum of 64 characters |
-    | Compatibility | Array of `CompatibilityInfo` objects | Compatibility information of device compatible with this update. | Maximum of 10 items |
-    | CreatedDateTime | date/time | Date and time at which the update was created. | Delimited ISO 8601 date and time format, in UTC |
-    | ManifestVersion | string | Import manifest schema version. Specify `2.0`, which will be compatible with `urn:azureiot:AzureDeviceUpdateCore:1` interface and `urn:azureiot:AzureDeviceUpdateCore:4` interface.</li></ul> | Must be `2.0` |
-    | Files | Array of `File` objects | Update payload files | Maximum of 5 files |
-
-Note: All fields are required.
 
 ## Review Generated Import Manifest
 
@@ -120,6 +106,9 @@ Example:
 ```
 
 ## Import update
+
+[!NOTE]
+The instructions below show how to import an update via the Azure portal UI. You can also use the [Device Update for IoT Hub APIs](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) to import an update. 
 
 1. Log in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
 

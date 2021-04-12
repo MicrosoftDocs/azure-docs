@@ -17,7 +17,7 @@ The Metrics pane shows the default set of performance counters.
 
 ![Performance counters reported in Application Insights](./media/performance-counters/performance-counters.png)
 
-The current default counters that are configured to be collected for ASP.NET/ASP.NET Core web applications are:
+The current default counters that are configured to be collected for ASP.NET web applications are:
 - % Process\\Processor Time
 - % Process\\Processor Time Normalized
 - Memory\\Available Bytes
@@ -27,6 +27,14 @@ The current default counters that are configured to be collected for ASP.NET/ASP
 - Process\\Private Bytes
 - Process\\IO Data Bytes/sec
 - ASP.NET Applications\\Requests In Application Queue
+- Processor(_Total)\\% Processor Time
+
+The current default counters that are configured to be collected for ASP.NET Core web applications are:
+- % Process\\Processor Time
+- % Process\\Processor Time Normalized
+- Memory\\Available Bytes
+- Process\\Private Bytes
+- Process\\IO Data Bytes/sec
 - Processor(_Total)\\% Processor Time
 
 ## Add counters

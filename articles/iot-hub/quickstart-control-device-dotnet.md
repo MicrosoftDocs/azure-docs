@@ -10,7 +10,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: [mvc, mqtt, 'Role: Cloud Development', devx-track-azurecli]
 ms.date: 03/04/2020
-# As a developer new to IoT Hub, I need to see how to use a service application to control a device connected to the hub.
+#Customer intent: As a developer new to IoT Hub, I need to see how to use a service application to control a device connected to the hub.
 ---
 
 # Quickstart: Control a device connected to an IoT hub (.NET)

@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
-ms.subservice: logs
 ---
 
 # Azure Activity log
@@ -24,6 +23,11 @@ You can access the Activity log from most menus in the Azure portal. The menu th
 ![View Activity Log](./media/activity-log/view-activity-log.png)
 
 For a description of Activity log categories see [Azure Activity Log event schema](activity-log-schema.md#categories).
+
+## Download the Activity log
+Select **Download as CSV** to download the events in the current view.
+
+![Download Activity log](media/activity-log/download-activity-log.png)
 
 ### View change history
 

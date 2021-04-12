@@ -2,7 +2,7 @@
 title: Create Bicep files - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources
 author: mumian
-ms.date: 03/02/2021
+ms.date: 04/12/2021
 ms.topic: quickstart
 ms.author: jgao
 
@@ -12,9 +12,11 @@ ms.author: jgao
 
 # Quickstart: Create Bicep files with Visual Studio Code
 
-The Bicep extension for Visual Studio Code provides language support and resource autocompletion. These tools help create and validate [Bicep](https://github.com/azure/bicep) files. In this quickstart, you use the extension to create a Bicep file from scratch. While doing so you experience the extensions capabilities such as validation, and completions.
+The Bicep extension for Visual Studio Code provides language support and resource autocompletion. These tools help create and validate [Bicep](./bicep-overview.md) files. In this quickstart, you use the extension to create a Bicep file from scratch. While doing so you experience the extensions capabilities such as validation, and completions.
 
-To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also need either the latest [Azure CLI](/cli/azure/?view=azure-cli-latest&preserve-view=true) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az?view=azps-3.7.0&preserve-view=true) installed and authenticated.
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
+To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also need either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az) installed and authenticated.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -47,6 +49,10 @@ The resource declaration has four components:
 - **symbolic name** (stg): Symbolic name is an identifier for referencing the resource throughout your bicep file. It is not what the name of the resource will be when it's deployed. The name of the resource is defined by the **name** property.  See the fourth component in this list.
 - **resource type** (Microsoft.Storage/storageAccounts@2019-06-01): It is composed of the resource provider (Microsoft.Storage), resource type (storageAccounts), and apiVersion (2019-06-01). Each resource provider publishes its own API versions, so this value is specific to the type. You can find more types and apiVersions for various Azure resources from [ARM template reference](/azure/templates/).
 - **properties** (everything inside = {...}): Specify the properties for the resource type. Every resource has a `name` property. Most resources also have a `location` property, which sets the region where the resource is deployed. The other properties vary by resource type and API version.
+
+For more information, see [Bicep structure](./bicep-file.md).
+
+There is a comment for the name property.  Use `//` for single-line comments or `/* ... */` for multi-line comments
 
 ## Completion and validation
 
@@ -122,4 +128,4 @@ Remove-AzResourceGroup -Name arm-vscode
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Beginner tutorials](./template-tutorial-create-first-template.md)
+> [Beginner Bicep tutorials](./bicep-tutorial-create-first-bicep.md)

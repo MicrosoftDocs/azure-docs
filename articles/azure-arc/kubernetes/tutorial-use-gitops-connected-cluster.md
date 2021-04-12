@@ -16,16 +16,23 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc ena
 > [!div class="checklist"]
 > * Create a configuration on an Azure Arc enabled Kubernetes cluster using an example Git repository.
 > * Validate that the configuration was successfully created.
-> * Apply configuration form a private Git repository.
+> * Apply configuration from a private Git repository.
 > * Validate the Kubernetes configuration.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An existing Azure Arc enabled Kubernetes connected cluster.
     - If you haven't connected a cluster yet, walk through our [Connect an Azure Arc enabled Kubernetes cluster quickstart](quickstart-connect-cluster.md).
 - An understanding of the benefits and architecture of this feature. Read more in [Configurations and GitOps - Azure Arc enabled Kubernetes article](conceptual-configurations.md).
+- Install the `k8s-configuration` Azure CLI extension of version >= 1.0.0:
+  
+  ```azurecli
+  az extension add --name k8s-configuration
+  ```
+
+    >[!TIP]
+    > If the `k8s-configuration` extension is already installed, you can update it to the latest version using the following command - `az extension update --name k8s-configuration`
 
 ## Create a configuration
 
@@ -137,7 +144,7 @@ Just like private keys, you can provide your known_hosts content directly or in 
 >[!NOTE]
 >* Helm operator chart version 1.2.0+ supports the HTTPS Helm release private auth.
 >* HTTPS Helm release is not supported for AKS managed clusters.
->* If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./connect-cluster.md#connect-using-an-outbound-proxy-server).
+>* If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
 
 
 ## Additional Parameters
@@ -148,7 +155,7 @@ Customize the configuration with the following optional parameters:
 | ------------- | ------------- |
 | `--enable-helm-operator`| Switch to enable support for Helm chart deployments. |
 | `--helm-operator-params` | Chart values for Helm operator (if enabled). For example, `--set helm.versions=v3`. |
-| `--helm-operator-version` | Chart version for Helm operator (if enabled). Use version 1.2.0+. Default: '1.2.0'. |
+| `--helm-operator-chart-version` | Chart version for Helm operator (if enabled). Use version 1.2.0+. Default: '1.2.0'. |
 | `--operator-namespace` | Name for the operator namespace. Default: 'default'. Max: 23 characters. |
 | `--operator-params` | Parameters for operator. Must be given within single quotes. For example, ```--operator-params='--git-readonly --sync-garbage-collection --git-branch=main'``` 
 
@@ -354,6 +361,6 @@ az k8s-configuration delete --name cluster-config --cluster-name AzureArcTest1 -
 
 ## Next steps
 
-Advance to the next article to learn how to use Helm with configurations.
+Advance to the next tutorial to learn how to implement CI/CD with GitOps.
 > [!div class="nextstepaction"]
-> [Use Helm with configurations](./use-gitops-with-helm.md)
+> [Implement CI/CD with GitOps](./tutorial-gitops-ci-cd.md)

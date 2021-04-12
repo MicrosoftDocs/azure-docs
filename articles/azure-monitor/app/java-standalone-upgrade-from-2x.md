@@ -52,76 +52,12 @@ In the 2.x SDK, the operation names were prefixed by the http method (`GET`, `PO
 
 :::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-prefixed-by-http-method.png" alt-text="Operation names prefixed by http method":::
 
-The snippet below configures 3 telemetry processors that combine to replicate the previous behavior.
-The telemetry processors perform the following actions (in order):
+Starting in 3.0.3, you can bring back this 2.x behavior using
 
-1. The first telemetry processor is a span processor (has type `span`),
-   which means it applies to `requests` and `dependencies`.
-
-   It will match any span that has an attribute named `http.method` and has a span name that begins with `/`.
-
-   Then it will extract that span name into an attribute named `tempName`.
-
-2. The second telemetry processor is also a span processor.
-
-   It will match any span that has an attribute named `tempName`.
-
-   Then it will update the span name by concatenating the two attributes `http.method` and `tempName`,
-   separated by a space.
-
-3. The last telemetry processor is an attribute processor (has type `attribute`),
-   which means it applies to all telemetry which has attributes
-   (currently `requests`, `dependencies` and `traces`).
-
-   It will match any telemetry that has an attribute named `tempName`.
-
-   Then it will delete the attribute named `tempName`, so that it won't be reported as a custom dimension.
-
-```
+```json
 {
   "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "include": {
-          "matchType": "regexp",
-          "attributes": [
-            { "key": "http.method", "value": "" }
-          ],
-          "spanNames": [ "^/" ]
-        },
-        "name": {
-          "toAttributes": {
-            "rules": [ "^(?<tempName>.*)$" ]
-          }
-        }
-      },
-      {
-        "type": "span",
-        "include": {
-          "matchType": "strict",
-          "attributes": [
-            { "key": "tempName" }
-          ]
-        },
-        "name": {
-          "fromAttributes": [ "http.method", "tempName" ],
-          "separator": " "
-        }
-      },
-      {
-        "type": "attribute",
-        "include": {
-          "matchType": "strict",
-          "attributes": [
-            { "key": "tempName" }
-          ]
-        },
-        "actions": [
-          { "key": "tempName", "action": "delete" }
-        ]
-      }
-    ]
+    "httpMethodInOperationName": true
   }
 }
 ```
@@ -239,11 +175,24 @@ techniques as above to replicate the previous behavior.
 Previously in the 2.x SDK, the operation name from the request telemetry was also set on the dependency telemetry.
 Application Insights Java 3.0 no longer populates operation name on dependency telemetry.
 If you want to see the operation name for the request that is the parent of the dependency telemetry,
-you can write a Logs (Kusto) query to join from the dependency table to the request table.
+you can write a Logs (Kusto) query to join from the dependency table to the request table, e.g.
+
+```
+let start = datetime('...');
+let end = datetime('...');
+dependencies
+| where timestamp between (start .. end)
+| project timestamp, type, name, operation_Id
+| join (requests
+    | where timestamp between (start .. end)
+    | project operation_Name, operation_Id)
+    on $left.operation_Id == $right.operation_Id
+| summarize count() by operation_Name, type, name
+```
 
 ## 2.x SDK logging appenders
 
-The 3.0 agent [auto-collects logging](./java-standalone-config#auto-collected-logging)
+The 3.0 agent [auto-collects logging](./java-standalone-config.md#auto-collected-logging)
 without the need for configuring any logging appenders.
 If you are using 2.x SDK logging appenders, those can be removed, as they will be suppressed by the 3.0 agent anyways.
 

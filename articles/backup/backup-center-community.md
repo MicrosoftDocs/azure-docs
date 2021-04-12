@@ -1,13 +1,13 @@
 ---
-title: Access community resources using Backup Center
-description: Use Backup Center to access sample templates, scripts, and feature requests
+title: Access community resources using Backup center
+description: Use Backup center to access sample templates, scripts, and feature requests
 ms.topic: conceptual
 ms.date: 02/18/2021
 ---
 
-# Access community resources using Backup Center
+# Access community resources using Backup center
 
-You can use Backup Center to access various community resources useful for a backup admin or operator.
+You can use Backup center to access various community resources useful for a backup admin or operator.
 
 ## Using Community Hub
 
@@ -21,8 +21,8 @@ Some of the resources available via the Community Hub are:
 
 - **Feature Requests**: You can navigate to UserVoice and file feature requests.
 
-- **Samples for automated deployments**: Using the Community Hub, you can discover sample Azure Resource Manager(ARM) templates and Azure Policies that you can use out of the box. You can also find sample PowerShell Scripts, CLI commands, and MSDB scripts.
+- **Samples for automated deployments**: Using the Community Hub, you can discover sample Azure Resource Manager(ARM) templates and Azure Policies that you can use out of the box. You can also find sample PowerShell Scripts, CLI commands, and Microsoft Database Backup scripts.
 
 ## Next Steps
 
-- [Learn More about Backup Center](backup-center-overview.md)
+- [Learn More about Backup center](backup-center-overview.md)

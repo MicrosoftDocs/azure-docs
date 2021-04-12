@@ -1,7 +1,6 @@
 ---
 title: Designing your Azure Monitor Logs deployment | Microsoft Docs
 description: This article describes the considerations and recommendations for customers preparing to deploy a workspace in Azure Monitor.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -83,9 +82,9 @@ Users have two options for accessing the data:
 
     > [!NOTE]
     > Logs are available for resource-context queries only if they were properly associated with the relevant resource. Currently, the following resources have limitations:
-    > - Computers outside of Azure
+    > - Computers outside of Azure - Supported for resource-context only via [Azure Arc for Servers](../../azure-arc/servers/index.yml)
     > - Service Fabric
-    > - Application Insights
+    > - Application Insights - Supported for resource-context only when using [Workspace-based Application Insights resource](../app/create-workspace-resource.md)
     >
     > You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](./log-standard-columns.md#_resourceid) property, then data is available to resource-centric queries.
 

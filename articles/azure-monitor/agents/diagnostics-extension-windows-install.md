@@ -4,7 +4,6 @@ description: Learn about installing and configuring the Windows diagnostics exte
 services: azure-monitor
 author: bwren
 
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren 

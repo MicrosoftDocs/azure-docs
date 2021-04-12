@@ -90,12 +90,12 @@ To create and run a new scan, do the following:
     1. You can select a **credential at the parent level** as MSI or a particular service principal type credential, which you can choose to use for all the resource types under the subscription or resource group
     1. You can also specifically **select the resource type and apply a different credential** for that resource type
     1. Each credential will be considered as the method of authentication for all the resources under a particular type
-    1. You must set the chosen credential on the resources in order to successfully scan them as described in this [section](#Setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) above
+    1. You must set the chosen credential on the resources in order to successfully scan them as described in this [section](#setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) above
 1. Within each type you can select to either scan all the resources or a subset of them by name.
     1. If you leave the option as **all** then future resources of that type will also be scanned in future scan runs
     1. If you select specific storage accounts or SQL databases, then future resources created of that type within this subscription or resource group will not be included for scans, unless the scan is explicitly edited in the future
  
-1.	Click **Continue** to proceed. We will test access to check if you have applied the Purview MSI as a reader on the subscription or resource group. If an error message is thrown, follow instructions [here](#Setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group)
+1.	Click **Continue** to proceed. We will test access to check if you have applied the Purview MSI as a reader on the subscription or resource group. If an error message is thrown, follow instructions [here](#setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group)
 
 1.	Select **scan rule sets** for each resource type chosen in the previous step. You can also create scan rule sets inline.
   :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-scan-rule-set.png" alt-text="Azure multiple scan rule set selection":::

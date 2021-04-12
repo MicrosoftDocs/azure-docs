@@ -4,8 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/21/2021
-ms.subservice: alerts
+ms.date: 04/12/2021
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
 
@@ -86,9 +85,10 @@ If you’re looking to alert on a specific metric but can’t see it when creati
 If you're looking to alert on [specific dimension values of a metric](./alerts-metric-overview.md#using-dimensions), but cannot find these values, note the following:
 
 1. It might take a few minutes for the dimension values to appear under the **Dimension values** list
-1. The displayed dimension values are based on metric data collected in the last day
-1. If the dimension value isn’t yet emitted or isn't shown, you can use the 'Add custom value' option to add a custom dimension value
-1. If you’d like to alert on all possible values of a dimension (including future values), choose the 'Select all current and future values' option
+2. The displayed dimension values are based on metric data collected in the last day
+3. If the dimension value isn’t yet emitted or isn't shown, you can use the 'Add custom value' option to add a custom dimension value
+4. If you’d like to alert on all possible values of a dimension (including future values), choose the 'Select all current and future values' option
+5. Custom metrics dimensions of Application Insights resources are turned off by default. To turn on the collection of dimensions for these custom metrics, see [here](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 ## Metric alert rules still defined on a deleted resource 
 
@@ -133,11 +133,9 @@ To avoid having the deployment fail when trying to validate the custom metric’
 ## Export the Azure Resource Manager template of a metric alert rule via the Azure portal
 
 Exporting the Resource Manager template of a metric alert rule helps you understand its JSON syntax and properties, and can be used to automate future deployments.
-1. Navigate to the **Resource Groups** section in the portal, and select the resource group containing the rule.
-2. In the Overview section, check the **Show hidden types** checkbox.
-3. In the **Type** filter, select *microsoft.insights/metricalerts*.
-4. Select the relevant alert rule to view its details.
-5. Under **Settings**, select **Export template**.
+1. In the Azure portal, open the alert rule to view its details.
+2. Click **Properties**.
+3. Under **Automation**, select **Export template**.
 
 ## Metric alert rules quota too small
 

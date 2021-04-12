@@ -3,19 +3,17 @@ title: Licensing Microsoft&reg; Smooth Streaming Client Porting Kit
 description: Learn about how to licensing the Microsoft&reg; Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
-author: xpouyat
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 3/10/2021
 ms.author: xpouyat
-
 ---
 # Licensing Microsoft&reg; Smooth Streaming Client Porting Kit
 
@@ -131,7 +129,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Mega Fame Electronics Co. Limited
 * MIRC Electronics Limited
 * MOKA INTERNATIONAL LIMITED
-* Nintendo Co., Ltd.
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Panasonic Corporation
 * Qingdao Haier Optronics Co., Ltd.
@@ -145,7 +142,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
 * Sky CP Ltd
-* Sky Deutschland Fernsehen GmbH & Co. KG
 * SMARDTV GLOBAL SAS
 * SoftAtHome
 * Sony Corporation

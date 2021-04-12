@@ -1,11 +1,10 @@
 ---
 title: Collect Syslog data sources with Log Analytics agent in Azure Monitor
 description: Syslog is an event logging protocol that is common to Linux. This article describes how to configure collection of Syslog messages in Log Analytics and details of the records they create.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
+ms.date: 02/26/2021
 
 ---
 
@@ -44,11 +43,11 @@ For any other facility, [configure a Custom Logs data source](data-sources-custo
 The Log Analytics agent for Linux will only collect events with the facilities and severities that are specified in its configuration. You can configure Syslog through the Azure portal or by managing configuration files on your Linux agents.
 
 ### Configure Syslog in the Azure portal
-Configure Syslog from the [Data menu in Advanced Settings](../agents/agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace. This configuration is delivered to the configuration file on each Linux agent.
+Configure Syslog from the [Agent configuration menu](../agents/agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace. This configuration is delivered to the configuration file on each Linux agent.
 
-You can add a new facility by first selecting the option **Apply below configuration to my machines** and then typing in its name and clicking **+**. For each facility, only messages with the selected severities will be collected.  Check the severities for the particular facility that you want to collect. You cannot provide any additional criteria to filter messages.
+You can add a new facility by clicking **Add facility**. For each facility, only messages with the selected severities will be collected.  Check the severities for the particular facility that you want to collect. You cannot provide any additional criteria to filter messages.
 
-![Configure Syslog](media/data-sources-syslog/configure.png)
+[![Configure Syslog](media/data-sources-syslog/configure.png)](media/data-sources-syslog/configure.png#lightbox)
 
 By default, all configuration changes are automatically pushed to all agents. If you want to configure Syslog manually on each Linux agent, then uncheck the box *Apply below configuration to my machines*.
 

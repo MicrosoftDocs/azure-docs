@@ -13,7 +13,12 @@ ms.custom: amqp, devx-track-azurecli
 
 # Tutorial: Configure an Azure IoT Edge device
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 In this article, we configure an Azure virtual machine running Linux to be an Azure IoT Edge device that acts as a transparent gateway. A transparent gateway configuration allows devices to connect to Azure IoT Hub through the gateway without knowing that the gateway exists. At the same time, a user interacting with the devices in IoT Hub is unaware of the intermediate gateway device. Ultimately, we'll add edge analytics to our system by adding IoT Edge modules to the transparent gateway.
+
+>[!NOTE]
+>The concepts in this tutorial apply to all versions of IoT Edge, but the sample device that you create to try out the scenario runs IoT Edge version 1.1.
 
 The steps in this article are typically performed by a cloud developer.
 

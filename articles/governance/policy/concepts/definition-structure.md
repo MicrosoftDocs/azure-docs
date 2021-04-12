@@ -212,7 +212,7 @@ A parameter has the following properties that are used in the policy definition:
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given.
   Required when updating an existing policy definition that is assigned.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
-  assignment.
+  assignment. Allowed value comparisons are case-sensitive. 
 
 As an example, you could define a policy definition to limit the locations where resources can be
 deployed. A parameter for that policy definition could be **allowedLocations**. This parameter would

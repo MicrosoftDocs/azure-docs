@@ -23,7 +23,7 @@ A keyword is a word or short phrase used to activate a voice assistant. For exam
 
 1. Click **change** next to **Custom Keyword** on the demo page.
 
-    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="Screenshot of hospitality demo window.":::
 
     If you do not have the demo page open, navigate to the device page (see below) and click **Test your voice assistant** under **Actions** to access the demo.
 
@@ -35,17 +35,17 @@ A keyword is a word or short phrase used to activate a voice assistant. For exam
 
 1. On the overview page of the [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819), click on **Devices** on the left menu pane.
 
-    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="Screenshot of Azure Percept Studio overview page with Devices highlighted.":::
 
 1. Select the device to which your voice assistant application was deployed.
 
 1. Open the **Speech** tab.
 
-    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="Screenshot of the edge device page with the Speech tab highlighted.":::
 
 1. Click **Change** next to **Keyword**.
 
-    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="Screenshot of the available speech solution actions.":::
 
 1. Select one of the available keywords and click **Save** to apply changes.
 
@@ -55,7 +55,7 @@ A keyword is a word or short phrase used to activate a voice assistant. For exam
 
 With [Speech Studio](https://speech.microsoft.com/), you can create a custom keyword for your voice assistant. It takes up to 30 minutes to train a basic custom keyword model.
 
-Follow the [Speech Studio documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) for guidance on creating a custom keyword. Once configured, your new keyword will be available in the Project Santa Cruz portal for use with your voice assistant application.
+Follow the [Speech Studio documentation](../cognitive-services/speech-service/custom-keyword-basics.md) for guidance on creating a custom keyword. Once configured, your new keyword will be available in the Project Santa Cruz portal for use with your voice assistant application.
 
 ## Commands configuration
 
@@ -83,7 +83,7 @@ Custom commands make it easy to build rich voice commanding apps optimized for v
 
 With [Speech Studio](https://speech.microsoft.com/), you can create custom commands for your voice assistant to execute.
 
-Follow the [Speech Studio documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-custom-commands-application) for guidance on creating custom commands. Once configured, your new commands will be available in Azure Percept Studio for use with your voice assistant application.
+Follow the [Speech Studio documentation](../cognitive-services/speech-service/quickstart-custom-commands-application.md) for guidance on creating custom commands. Once configured, your new commands will be available in Azure Percept Studio for use with your voice assistant application.
 
 ## Next steps
 

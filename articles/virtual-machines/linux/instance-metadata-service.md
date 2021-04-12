@@ -13,4 +13,6 @@ ms.author: sukumari
 ms.reviewer: azmetadatadev
 ---
 
+# Azure Instance Metadata Service (Linux)
+
 [!INCLUDE [virtual-machines-imds](../../../includes/virtual-machines-imds.md)]

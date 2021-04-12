@@ -69,8 +69,6 @@ Downstream devices can connect to an IoT Edge gateway device through multiple cu
 
 :::image type="content" source="media/concepts-iot-edge/gateway-two-modules-transparent.png" alt-text="Diagram of connecting using multiple custom modules" border="false":::
 
-<!-- To do: add link to how to configure gateway article? -->
-
 ## IoT Edge devices and IoT Central
 
 IoT Edge devices can use *shared access signature* tokens or X.509 certificates to authenticate with IoT Central. You can manually register your IoT Edge devices in IoT Central before they connect for the first time, or use the Device Provisioning Service to handle the registration. To learn more, see [Get connected to Azure IoT Central](concepts-get-connected.md).
@@ -81,6 +79,20 @@ IoT Central uses [device templates](concepts-device-templates.md) to define how 
 * The commands a device responds to so that IoT Central can display a UI for an operator to use to call the commands.
 
 An IoT Edge device can send telemetry, synchronize property values, and respond to commands in the same way as a standard device. So, an IoT Edge device needs a device template in IoT Central.
+
+### IoT Edge device templates
+
+IoT Central device templates use models to describe the capabilities of devices. The following diagram shows the structure of the model for an IoT Edge device:
+
+:::image type="content" source="media/concepts-iot-edge/iot-edge-model.png" alt-text="Structure of model for IoT Edge device connected to IoT Central" border="false":::
+
+IoT Central models an IoT Edge device as follows:
+
+* Every IoT Edge device template has a capability model.
+* For every custom module listed in the deployment manifest, a module  capability model is generated.
+* A relationship is established between each module capability model and a device model.
+* A module capability model implements one or more module interfaces.
+* Each module interface contains telemetry, properties, and commands.
 
 ### IoT Edge deployment manifests and IoT Central device templates
 
@@ -266,7 +278,7 @@ You can also install the IoT Edge runtime in the following environments:
 
 If you selected an IoT Edge device to be a gateway device, you can add downstream relationships to device models for devices you want to connect to the gateway device.
 
-<!-- TODO - add link to Edge Gateway how-to -->
+To learn more, see [How to connect devices through an IoT Edge transparent gateway](how-to-connect-iot-edge-transparent-gateway.md).
 
 ## Next steps
 

@@ -1,7 +1,6 @@
 ---
 title: FAQs - Network Performance Monitor solution in Azure | Microsoft Docs
 description: This article captures the frequently asked questions about Network Performance Monitor in Azure. Network Performance Monitor (NPM) helps you monitor the performance of your networks in near real time and detect and locate network performance bottlenecks.
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
@@ -92,9 +91,6 @@ If a hop is red, it signifies that it is part of at-least one unhealthy path. NP
 
 ### How does fault localization in Performance Monitor work?
 NPM uses a probabilistic mechanism to assign fault-probabilities to each network path, network segment, and the constituent network hops based on the number of unhealthy paths they are a part of. As the network segments and hops become part of more number of unhealthy paths, the fault-probability associated with them increases. This algorithm works best when you have many nodes with NPM agent connected to each other as this increases the data points for calculating the fault-probabilities.
-
-### How can I create alerts in NPM?
-Currently, creating alerts from the NPM UI is failing due to a known issue. Please [create alerts manually](../alerts/alerts-log.md).
 
 ### What are the default Log Analytics queries for alerts
 Performance monitor query

@@ -49,7 +49,7 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 | An Azure subscription |To create a key vault in Azure Key Vault, you need an Azure subscription. [Sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/). |
 | A Key Vault Premium SKU to import HSM-protected keys |For more information about the service tiers and capabilities in Azure Key Vault, see [Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/). |
 | An HSM from the supported HSMs list and a BYOK tool and instructions provided by your HSM vendor | You must have permissions for an HSM and basic knowledge of how to use your HSM. See [Supported HSMs](#supported-hsms). |
-| Azure CLI version 2.1.0 or later | See [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).|
+| Azure CLI version 2.1.0 or later | See [Install the Azure CLI](/cli/azure/install-azure-cli).|
 
 ## Supported HSMs
 
@@ -98,7 +98,7 @@ The KEK must be:
 > [!NOTE]
 > The KEK must have 'import' as the only allowed key operation. 'import' is mutually exclusive with all other key operations.
 
-Use the [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-create) command to create a KEK that has key operations set to `import`. Record the key identifier (`kid`) that's returned from the following command. (You will use the `kid` value in [Step 3](#step-3-generate-and-prepare-your-key-for-transfer).)
+Use the [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) command to create a KEK that has key operations set to `import`. Record the key identifier (`kid`) that's returned from the following command. (You will use the `kid` value in [Step 3](#step-3-generate-and-prepare-your-key-for-transfer).)
 
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
@@ -106,7 +106,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 
 ### Step 2: Download the KEK public key
 
-Use [az keyvault key download](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-download) to download the KEK public key to a .pem file. The target key you import is encrypted by using the KEK public key.
+Use [az keyvault key download](/cli/azure/keyvault/key#az-keyvault-key-download) to download the KEK public key to a .pem file. The target key you import is encrypted by using the KEK public key.
 
 ```azurecli
 az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
@@ -127,7 +127,7 @@ Transfer the BYOK file to your connected computer.
 
 ### Step 4: Transfer your key to Azure Key Vault
 
-To complete the key import, transfer the key transfer package (a BYOK file) from your disconnected computer to the internet-connected computer. Use the [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-import) command to upload the BYOK file to the Key Vault HSM.
+To complete the key import, transfer the key transfer package (a BYOK file) from your disconnected computer to the internet-connected computer. Use the [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) command to upload the BYOK file to the Key Vault HSM.
 
 To import an RSA key use following command. Parameter --kty is optional and defaults to 'RSA-HSM'.
 ```azurecli

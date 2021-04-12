@@ -84,6 +84,9 @@ For web pages, Application Insights JavaScript SDK automatically collects AJAX c
 
 ## Advanced SQL tracking to get full SQL Query
 
+> [!NOTE]
+> Azure Functions requires separate settings to enable SQL text collection, see [configure monitoring for Azure Functions](../../azure-functions/configure-monitoring.md) to learn more.
+
 For SQL calls, the name of the server and database is always collected and stored as name of the collected `DependencyTelemetry`. There's an additional field called 'data', which can contain the full SQL query text.
 
 For ASP.NET Core applications, It is now required to opt-in to SQL Text collection by using

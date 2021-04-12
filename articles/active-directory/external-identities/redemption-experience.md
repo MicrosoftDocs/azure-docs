@@ -7,12 +7,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisol
 
 ms.collection: M365-identity-device-management
 ---
@@ -34,6 +33,7 @@ Guest users can now sign in to your multi-tenant or Microsoft first-party apps t
 ![Common endpoint sign-in](media/redemption-experience/common-endpoint-flow-small.png)
 
 The user is then redirected to your tenanted endpoint, where they can either sign in with their email address or select an identity provider you've configured.
+
 ## Redemption through a direct link
 
 As an alternative to the invitation email or an application's common URL, you can give a guest a direct link to your app or portal. You first need to add the guest user to your directory via the [Azure portal](./b2b-quickstart-add-guest-users-portal.md) or [PowerShell](./b2b-quickstart-invite-powershell.md). Then you can use any of the [customizable ways to deploy applications to users](../manage-apps/end-user-experiences.md), including direct sign-on links. When a guest uses a direct link instead of the invitation email, they’ll still be guided through the first-time consent experience.
@@ -64,7 +64,7 @@ When a user clicks the **Accept invitation** link in an [invitation email](invit
 
 ![Screenshot showing the redemption flow diagram](media/redemption-experience/invitation-redemption-flow.png)
 
-**If the user’s User principle name (UPN) matches with both an existing Azure AD and personal MSA account, the user will be prompted to choose which account they want to redeem with.*
+**If the user’s User Principal Name (UPN) matches with both an existing Azure AD and personal MSA account, the user will be prompted to choose which account they want to redeem with.*
 
 1. Azure AD performs user-based discovery to determine if the user exists in an [existing Azure AD tenant](./what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal).
 
@@ -72,7 +72,7 @@ When a user clicks the **Accept invitation** link in an [invitation email](invit
 
 3. If an admin has enabled [Google federation](./google-federation.md), Azure AD checks if the user’s domain suffix is gmail.com or googlemail.com and redirects the user to Google.
 
-4. The redemption process checks if the user has an existing personal [Microsoft account (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create).
+4. The redemption process checks if the user has an existing personal [Microsoft account (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) for just-in-time (JIT) redemptions, but not for invitation email link redemption. If the user already has an existing MSA, they'll sign in with their existing MSA.
 
 5. Once the user’s **home directory** is identified, the user is sent to the corresponding identity provider to sign in.  
 

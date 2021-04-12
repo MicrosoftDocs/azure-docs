@@ -5,7 +5,7 @@ author: craigktreasure
 manager: virivera
 
 ms.author: crtreasu
-ms.date: 02/02/2021
+ms.date: 03/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
@@ -37,9 +37,9 @@ In Unity, open the `quickstarts/apps/unity/basic` project.
 
 [!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
 
-[!INCLUDE [Unity build and run](../../../includes/object-anchors-quickstart-unity-build-run.md)]
+[!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
 
-[!INCLUDE [Unity build sample scene](../../../includes/object-anchors-quickstart-unity-build-sample-scene.md)]
+[!INCLUDE [Unity build sample scene 2](../../../includes/object-anchors-quickstart-unity-build-sample-scene-2.md)]
 
 [!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 
@@ -54,22 +54,6 @@ Turn on the device, select **All Apps**, then locate and start the app. After th
 The app looks for objects in the current field of view and then tracks them once detected. An instance will be removed when it's 6 meters away from the user's location. The debug text shows details about an instance, like ID, updated timestamp and surface coverage ratio.
 
 [!INCLUDE [Unity troubleshooting](../../../includes/object-anchors-quickstart-unity-troubleshooting.md)]
-
-### Capturing diagnostics
-
-If you're still not able to find the issue, you can capture diagnostics and send it to us.
-
-Similar to uploading a model, upload an empty file named `debug` to the `LocalState` folder.
-
-:::image type="content" source="./media/portal-upload-debug.png" alt-text="Portal Upload Debug":::
-
-Restart the app to begin recording diagnostics. Try to detect your object again. Then, close the app to stop the recording.
-
-The diagnostics `.zip` file will be located in the `TempState` folder named using a timestamp.
-
-In Windows Device Portal, navigate to your application's `TempState` folder and download the `.zip` file. Send the `.zip` file to us.
-
-:::image type="content" source="./media/portal-debug-diagnostics.png" alt-text="capture diagnostics":::
 
 ## Next steps
 

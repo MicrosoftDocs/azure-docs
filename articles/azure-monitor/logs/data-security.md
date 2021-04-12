@@ -1,7 +1,6 @@
 ---
 title: Log Analytics data security | Microsoft Docs
 description: Learn about how Log Analytics protects your privacy and secures your data.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -100,7 +99,7 @@ Log Analytics has an incident management process that all Microsoft services adh
   * Operators working on the Microsoft Azure service have addition training obligations surrounding their access to sensitive systems hosting customer data.
   * Microsoft security response personnel receive specialized training for their roles
 
-If loss of any customer data occurs, we notify each customer within one day. However, customer data loss has never occurred with the service. 
+While very rare, Microsoft will notify each customer within one day if significant loss of any customer data occurs. 
 
 For more information about how Microsoft responds to security incidents, see [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
 

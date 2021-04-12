@@ -3,7 +3,7 @@ title: Enable host-based encryption on Azure Kubernetes Service (AKS)
 description: Learn how to configure a host-based encryption in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 01/27/2021
+ms.date: 03/03/2021
 
 ---
 
@@ -22,6 +22,20 @@ This feature can only be set at cluster creation or node pool creation time.
 ### Prerequisites
 
 - Ensure you have the `aks-preview` CLI extension v0.4.73 or higher version installed.
+- Ensure you have the `EnableEncryptionAtHostPreview` feature flag under `Microsoft.ContainerService` enabled.
+
+You must enable the feature for your subscription before you use the EncryptionAtHost property for your Azure Kubernetes Service cluster. Please follow the steps below to enable the feature for your subscription:
+
+1. Execute the following command to register the feature for your subscription
+
+```azurecli-interactive
+Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
+```
+2. Please check that the registration state is Registered (takes a few minutes) using the command below before trying out the feature.
+
+```azurecli-interactive
+Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
+```
 
 ### Install aks-preview CLI extension
 
@@ -37,7 +51,7 @@ az extension update --name aks-preview
 
 ### Limitations
 
-- Can only be enabled on new node pools or new clusters.
+- Can only be enabled on new node pools.
 - Can only be enabled in [Azure regions][supported-regions] that support server-side encryption of Azure managed disks and only with specific [supported VM sizes][supported-sizes].
 - Requires an AKS cluster and node pool based on Virtual Machine Scale Sets(VMSS) as *VM set type*.
 

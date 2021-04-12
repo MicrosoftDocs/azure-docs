@@ -11,7 +11,8 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 02/16/2021
+ms.custom: references_regions
+ms.date: 03/30/2021
 ms.author: juliako
 ---
 
@@ -25,6 +26,34 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## March 2021
+
+### Audio analysis 
+
+Audio analysis is available now in additional new bundle of audio features at different price point. The new **Basic Audio** analysis preset provides a low-cost option to only extract speech transcription, translation and format output captions and subtitles. The **Basic Audio** preset will produce two separate meters on your bill, including a line for transcription and a separate line for caption and subtitle formatting. More information on the pricing, see the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.
+
+The newly added bundle is available when indexing or re-indexing your file by choosing the **Advanced option** -> **Basic Audio** preset (under the **Video + audio indexing** drop-down box).
+
+### New developer portal 
+
+Video Indexer has a new [Developer Portal](https://api-portal.videoindexer.ai/), try out the new Video Indexer APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Video Indexer tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Video Indexer FAQs](faq.md), [User Voice](https://feedback.azure.com/forums/932041-cognitive-services?category_id=399016) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples. 
+ 
+### Advanced customization capabilities for insight widget 
+
+SDK is now available to embed Video Indexer's insights widget in your own service and customize its style and data. The SDK supports the standard Video Indexer insights widget and a fully customizable insights widget. Code sample is available in [Video Indexer GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets/widget-customization). With this advanced customization capabilities, solution developer can apply custom styling and bring customer’s own AI data and present that in the insight widget (with or without Video Indexer insights). 
+
+### Video Indexer deployed in the US North Central , US West and Canada Central 
+
+You can now create a Video Indexer paid account in the US North Central, US West and Canada Central regions
+ 
+### New source languages support for speech-to-text (STT), translation and search 
+
+Video Indexer now support STT, translation and search in Danish ('da-DK'), Norwegian('nb-NO'), Swedish('sv-SE'), Finnish('fi-FI'), Canadian French ('fr-CA'), Thai('th-TH'), Arabic ('ar-BH', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-S', and 'ar-SY'), and Turkish('tr-TR'). Those languages are available in both API and Video Indexer website. 
+ 
+### Search by Topic in Video Indexer Website 
+
+You can now use the search feature, at the top of  the [Video Indexer website](https://www.videoindexer.ai/account/login) page, to search for videos with specific topics. 
 
 ## February 2021
 

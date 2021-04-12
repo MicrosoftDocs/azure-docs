@@ -1,7 +1,6 @@
 ---
 title: How to chart performance with VM insights
 description: Performance is a feature of the VM insights that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

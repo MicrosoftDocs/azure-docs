@@ -66,7 +66,7 @@ To complete this tutorial, you need to:
 
   * Install and run the CLI locally. CLI 2.0 is the command-line tool for managing Azure resources.
 
-       To download the CLI, follow the instructions in the article [Install Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest). The article also lists the platforms that support CLI 2.0.
+       To download the CLI, follow the instructions in the article [Install Azure CLI 2.0](/cli/azure/install-azure-cli). The article also lists the platforms that support CLI 2.0.
 
        To set up Windows Subsystem for Linux (WSL), follow the instructions in the [Windows 10 Installation Guide](/windows/wsl/install-win10)
 

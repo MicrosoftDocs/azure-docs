@@ -5,7 +5,6 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.subservice: alerts
 ---
 # Upgrade to the current Log Alerts API from legacy Log Analytics Alert API
 
@@ -52,7 +51,7 @@ With request body containing the below JSON:
 Here is an example of using [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool, that simplifies invoking the above API call:
 
 ```powershell
-$switchJSON = '{"scheduledQueryRulesEnabled": "true"}'
+$switchJSON = '{"scheduledQueryRulesEnabled": true}'
 armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
 ```
 

@@ -13,7 +13,9 @@ ms.service: iot-edge
 monikerRange: ">=iotedge-2020-11"
 ---
 
-# Publish and subscribe with Azure IoT Edge
+# Publish and subscribe with Azure IoT Edge (preview)
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This article shows you how to connect to this broker, publish and subscribe to messages over user-defined topics, and use IoT Hub messaging primitives. The IoT Edge MQTT broker is built-in the IoT Edge hub. For more information, see [the brokering capabilities of the IoT Edge hub](iot-edge-runtime.md).
 
@@ -424,9 +426,9 @@ Below is an example of an IoT Edge MQTT bridge configuration that republishes al
 				},
 				{
 					"direction": "out",
-					"topic": "",
-					"inPrefix": "/local/telemetry",
-					"outPrefix": "/remote/messages"
+					"topic": "#",
+					"inPrefix": "/local/telemetry/",
+					"outPrefix": "/remote/messages/"
 				}
 			]
 		}]
