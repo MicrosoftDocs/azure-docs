@@ -3,7 +3,7 @@ title: Azure Advisor for MariaDB
 description: Learn about Azure Advisor recommendations for MariaDB.
 author: alau-ms
 ms.author: alau
-ms.service: MariaDB
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/12/2021
 ---
