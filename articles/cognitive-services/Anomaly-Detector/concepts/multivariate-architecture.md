@@ -27,7 +27,7 @@ Here, we provide a reference architecture for a predictive maintenance solution 
 
 ## Reference architecture
 
-![Architectural diagram that starts at sensor data being collected at the edge with a piece of industrial equipment and tracks the processing/analysis pipeline to an end output of an incident alert being generated after Anomaly Detector runs.](../media/multivariate-architecture/multivariate-architecture.png)(../media/multivariate-architecture/multivariate-architecture.png#lightbox)
+[ ![Architectural diagram that starts at sensor data being collected at the edge with a piece of industrial equipment and tracks the processing/analysis pipeline to an end output of an incident alert being generated after Anomaly Detector runs.](../media/multivariate-architecture/multivariate-architecture.png) ](../media/multivariate-architecture/multivariate-architecture.png#lightbox)
 
 In the above architecture, streaming events coming from sensor data will be stored in Azure Data Lake and then processed by a data transforming module to be converted into a time-series format. Meanwhile, the streaming event will trigger real-time detection with the trained model. In general, there will be a module to manage the multivariate model life cycle, like *Bridge Service* in this architecture.
 
