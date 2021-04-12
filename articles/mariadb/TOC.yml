@@ -201,6 +201,8 @@
     href: concepts-query-performance-insight.md
   - name: Performance Recommendations
     href: concepts-performance-recommendations.md
+  - name: Azure Advisor recommendations
+    href: concepts-azure-advisor-recommendations.md
 - name: Replication
   items:
   - name: Data-in replication
