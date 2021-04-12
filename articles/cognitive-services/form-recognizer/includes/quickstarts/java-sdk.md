@@ -326,14 +326,14 @@ This section demonstrates how to analyze and extract key information from govern
 
 To analyze identity documents from a URI use the `beginRecognizeIdDocumentsFromUrl` method.
 
-:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizerQuickstart-preview.cs" id="snippet_id_call":::
+:::code language="java" source="~/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_call":::
 
 > [!TIP]
 > You can also analyze local identity document images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **beginRecognizeIdDocuments**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
 
 The following code processes the identity document at the given URI and prints the major fields and values to the console.
 
-:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizerQuickstart-preview.cs" id="snippet_id_print":::
+:::code language="java" source="~/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_print":::
 
 ## Train a custom model
 

@@ -180,7 +180,7 @@ First receipt:
 
 ## Analyze business cards
 
-This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md). To analyze business cards from a URL, use the `begin_recognize_business_cards_from_url` method.
+This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md). To analyze business cards from a URL, use the `.beginRecognizeBusinessCardsFromURL` method.
 
 ## Analyze invoices
 
