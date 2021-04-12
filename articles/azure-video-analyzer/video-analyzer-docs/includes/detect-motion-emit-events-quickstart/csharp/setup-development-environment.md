@@ -13,7 +13,6 @@
         "moduleId" : "avaEdge"  
     }
     ```
-<!-- Above I assume we will rename the sample devices to ava-sample-device?-->
 1. Go to the *src/edge* folder and create a file named *.env*.
 1. Copy the contents of the */clouddrive/ava-sample/edge-deployment/.env* file. The text should look like the following code.
 
