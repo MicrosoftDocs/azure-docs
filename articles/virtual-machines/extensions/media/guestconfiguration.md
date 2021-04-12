@@ -32,7 +32,7 @@ The identity requirement on a virtual machine is met if the following property i
 ### Operating Systems
 
 Support for the Guest Configuration extension is the same as operating system support
-[documented for the end to end solution](../..//governance/policy/concepts/guest-configuration.md#supported-client-types).
+[documented for the end to end solution](../../governance/policy/concepts/guest-configuration.md#supported-client-types).
 
 ### Internet connectivity
 
@@ -43,7 +43,7 @@ The machine can connect using outbound HTTPS over
 TCP port 443, or if a connection is provided through private networking.
 To learn more about private networking, see the following articles:
 
-- [Guest Configuration, communicate over private link in Azure](.././governance/policy/concepts/guest-configuration#communicate-over-private-link-in-azure)
+- [Guest Configuration, communicate over private link in Azure](../../governance/policy/concepts/guest-configuration.md#communicate-over-private-link-in-azure)
 - [Use private endpoints for Azure Storage](../../storage/common/storage-private-endpoints)
 
 ## How can I install the extension?
@@ -167,12 +167,12 @@ resource "azurerm_virtual_machine_extension" "gc" {
 
 There's no need to include any settings or protected-settings properties on the extension.
 All such information is retrieved by the agent from
-[Guest Configuration assignment](../../../rest/api/guestconfiguration/guestconfigurationassignments.md)
+[Guest Configuration assignment](/rest/api/guestconfiguration/guestconfigurationassignments)
 resources. For example, the
-[ConfigurationUri](../../../rest/api/guestconfiguration/guestconfigurationassignments/createorupdate.md#guestconfigurationnavigation),
-[Mode](../../../rest/api/guestconfiguration/guestconfigurationassignments/createorupdate.md#configurationmode),
+[ConfigurationUri](/rest/api/guestconfiguration/guestconfigurationassignments/createorupdate#guestconfigurationnavigation),
+[Mode](/rest/api/guestconfiguration/guestconfigurationassignments/createorupdate#configurationmode),
 and
-[ConfigurationSetting](../../../rest/api/guestconfiguration/guestconfigurationassignments/createorupdate.md#configurationsetting)
+[ConfigurationSetting](/rest/api/guestconfiguration/guestconfigurationassignments/createorupdate#configurationsetting)
 properties are each managed per-configuration rather than on the VM extension.
 
 ## Next steps
