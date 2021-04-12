@@ -1,6 +1,6 @@
 ---
-title: Configure Windows Virtual Desktop Drain Mode - Azure
-description: How to configure and use Drain Mode in Windows Virtual Desktop.
+title: Set Windows Virtual Desktop drain mode - Azure
+description: How to configure and use drain mode in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,41 +11,37 @@ ms.author: helohr
 manager: femila
 ---
 
-# Configure Drain Mode
+# Set drain mode
 
-This feature is useful when performing maintenance (e.g.) applying patches to the session host which may need restarts that would interrupt the user experience. When troubleshooting issues, you might want to apply drain mode to isolate the host. In this state the session host will no longer accept new user sessions. Those connections may be redirected to another session host in the pool when available. Any existing connection will continue working until the user logs off or the administrator terminates the session. The setting can be applied to both pooled and personal desktops.
-
-While the respective session hosts are in drain mode the administrator can still remotely connect to the server without going through the service.
+You can turn on drain mode to isolate a session host to apply patches and perform maintenance without disrupting user sessions. When isolated, the session host won't accept new user sessions. Any new connections will be redirected to another available session host. Existing connections in the session host will continue working until the user signs out or the administrator ends the session. Administrators can also remotely connect to the server without going through the Windows Virtual Desktop service while the session host is in drain mode. You can apply this setting to both pooled and personal desktops.
 
 ## Set drain mode using the Azure portal
 
-In the Azure Portal:
+To turn on drain mode in the Azure portal:
 
-1. Navigate to the host pool you want to apply the setting.
+1. Open the Azure portal and go to the host pool you want to isolate.
 
-2. Select Session Hosts in the navigation menu.
+2. In the navigation menu, select **Session hosts**.
 
-3. Next select the hosts you want to turn on drain mode for and click “Turn drain mode on”.
+3. Next, select the hosts you want to turn on drain mode for, then select **Turn drain mode on**.
 
-![Graphical user interface, text, application Description automatically generated](media/2801754989ea070ce80ac71eed276bad.png)
-
-Similarly, to disable/ turn off drain mode, select hosts and click "Turn drain mode off".
+4. To turn off drain mode, select the host pools that have drain mode turned on, then select **Turn drain mode off**.
 
 ## Set drain mode using PowerShell
 
-Use the AllowNewSessions parameter part of the [Update-AzWvdSessionhostCmdlet](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost?view=azps-5.4.0#code-try-2).
+You can set drain mode in Powershell with the *AllowNewSessions* parameter, which is part of the [Update-AzWvdSessionhostCmdlet](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost?view=azps-5.4.0#code-try-2) command.
 
-Enable drain mode:
+Run this cmdlet to enable drain mode:
 
 ```powershell
 Update-AzWvdSessionHost -ResourceGroupName <resourceGroupName> -HostPoolName <hostpoolname> -Name <hostname> -AllowNewSession:$False
 ```
 
-To disable drain mode:
+Run this cmdlet to disable drain mode:
 
 ```powershell
 Update-AzWvdSessionHost -ResourceGroupName <resourceGroupName> -HostPoolName <hostpoolname> -Name <hostname> -AllowNewSession:$True
 ```
 
 >[!IMPORTANT]
->You will need to repeat the command for every Session host you want to apply the setting.
+>You'll need to run this command for every session host you're applying the setting to.
