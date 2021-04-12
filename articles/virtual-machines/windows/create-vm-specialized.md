@@ -13,6 +13,8 @@ ms.author: cynthn
 ---
 # Create a Windows VM from a specialized disk by using PowerShell
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 Create a new VM by attaching a specialized managed disk as the OS disk. A specialized disk is a copy of a virtual hard disk (VHD) from an existing VM that contains the user accounts, applications, and other state data from your original VM. 
 
 You have several options:

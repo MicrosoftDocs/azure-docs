@@ -11,6 +11,9 @@ ms.author: cynthn
 
 ---
 # How to open ports to a virtual machine with the Azure portal
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 

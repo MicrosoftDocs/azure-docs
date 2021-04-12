@@ -6,11 +6,13 @@ ms.author: rogarana
 ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
-ms.tgt_pltfrm: linux
 ms.subservice: disks
+ms.collection: windows
 ---
 
 # Upload a VHD to Azure or copy a managed disk to another region - Azure PowerShell
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 

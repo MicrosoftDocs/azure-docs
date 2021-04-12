@@ -14,6 +14,8 @@ ms.custom: devx-track-azurecli
 
 # Create a VM using a specialized image version with the Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
+
 Create a VM from a [specialized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM from a generalized image version](vm-generalized-image-version-cli.md).
 
 Replace resource names as needed in this example. 

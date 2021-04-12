@@ -9,9 +9,11 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to 
 ms.custom: devx-track-azurecli
-manager: carmonm
+
 ---
 # Run PowerShell scripts in your Windows VM by using Run Command
+
+**Applies to:** VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 The Run Command feature uses the virtual machine (VM) agent to run PowerShell scripts within an Azure Windows VM. You can use these scripts for general machine or application management. They can help you to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 

@@ -12,6 +12,8 @@ ms.author: vikancha
 
 # FPGA optimized virtual machine sizes
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 FPGA optimized VM sizes are specialized virtual machines available with single or multiple FPGAs. These sizes are designed for compute-intensive workloads. This article provides information about the number and type of FPGAs, vCPUs, data disks, and NICs. Storage throughput and network bandwidth are also included for each size in this grouping.
 
 - The [NP-series](np-series.md) sizes are optimized for workloads including machine learning inference, video transcoding, and database search & analytics. The NP-series are powered by Xilinx U250 accelerators.

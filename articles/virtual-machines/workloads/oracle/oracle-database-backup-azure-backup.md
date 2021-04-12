@@ -14,6 +14,8 @@ ms.reviewer: dbakevlar
 
 # Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This article demonstrates the use of Azure Backup to take disk snapshots of the VM disks, which include the database files and fast recovery area. Using Azure Backup you can take full disk snapshots suitable as backups, which are stored in [Recovery Services Vault](../../../backup/backup-azure-recovery-services-vault-overview.md).  Azure Backup also provides application-consistent backups, which ensure additional fixes aren't required to restore the data. Restoring application-consistent data reduces the restoration time, allowing you to quickly return to a running state.
 
 > [!div class="checklist"]
