@@ -22,12 +22,9 @@ Typically, however, an application has a clear notion of where a set of related 
 
 You enable the feature by setting the [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) property on the queue or subscription via Azure Resource Manager, or by setting the flag in the portal. It's required before you attempt to use the related API operations.
 
-In the portal, you can enable sessions while creating an entity (queue or subscription) as shown in the following example. 
+In the portal, you can enable sessions while creating an entity (queue or subscription) as shown in the following examples. 
 
-**Queue:**
 :::image type="content" source="./media/message-sessions/queue-sessions.png" alt-text="Enable session at the time of the queue creation":::
-
-**Subscription:**
 
 :::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Enable session at the time of the subscription creation":::
 
