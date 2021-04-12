@@ -27,7 +27,7 @@ When you want to use ADF dataflow to move or transfer data from CosmosDB/JSON in
 For the schema free connectors whose the column number, column name and column data type of each row can be differently compared with others, currently, Azure Data Factory uses sample rows (for example, top 100 or 1000 rows data) to infer the schema, and the inferred result will be used as the schema to read data. So if your data store has extra columns that don't appear in sample rows, the data of these extra columns cannot be read, moved or transferred into sink data stores.
 
 #### Recommendation
-In order to solve up the known issue/limitation, a feature named "support customized schema in schema free connectivity" was enabled in ADF dataflow. You can feel free to specify additional/missing columns (which could be missing in schema-infer-result) in the dataflow source projection to read the data, and you can apply one of following options to set the customized schema. Usually, **Option-1** is more preferred: 
+In order to solve up the known issue/limitation, a feature named "support customized schema in schema free connectivity" was enabled in ADF dataflow. You can feel free to specify additional/missing columns (which could be missing in schema-infer-result) in the dataflow source projection to read the data, and you can apply one of following options to set the customized schema. Usually, **Option-1** is more preferred.
 
 - **Option-1**: Compared with the original source data that may be one large file, table or container that contains millions of rows with complex schemas, you can create a temporary table/container with a few rows that contain all the columns you want to read, and then move on to the following operation: 
 
@@ -35,7 +35,7 @@ In order to solve up the known issue/limitation, a feature named "support custom
         ![Picture 8.1](./media/data-flow-troubleshoot-connector-and-format/customized-schame-option-1-1.png)<br/>
          1. Select **Debug settings** in the data flow canvas.
 	     1. In the pop-up pane, select **Sample table** under **cosmosSource** tab. 
-	     1. Enter the name of your table in the **Table** block.
+         1. Enter the name of your table in the **Table** block.
          1. Select **Save** to save your settings.
          1. Select **Import projection**.<br/>  
     
