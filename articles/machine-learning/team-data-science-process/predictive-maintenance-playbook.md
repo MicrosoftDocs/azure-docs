@@ -451,16 +451,16 @@ Microsoft Azure offers learning paths for the foundational concepts behind PdM t
 
 | Training resource  | Availability |
 |:-------------------|--------------|
-| [Microsoft Docs:  Data Scientist Role](https://docs.microsoft.com/en-us/learn/roles/data-scientist) | Public |
-| [Microsoft Docs:  AI Engineer Role](https://docs.microsoft.com/en-us/learn/roles/ai-engineer) | Public |
-| [Microsoft Docs:  Data Engineer Role](https://docs.microsoft.com/en-us/learn/roles/data-engineer) | Public |
-| [Microsoft AI School](https://www.microsoft.com/en-us/ai/ai-school) | Public |
+| [Microsoft Docs:  Data Scientist Role](https://docs.microsoft.com/learn/roles/data-scientist) | Public |
+| [Microsoft Docs:  AI Engineer Role](https://docs.microsoft.com/learn/roles/ai-engineer) | Public |
+| [Microsoft Docs:  Data Engineer Role](https://docs.microsoft.com/learn/roles/data-engineer) | Public |
+| [Microsoft AI School](https://www.microsoft.com/ai/ai-school) | Public |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Public |
 | [Microsoft: Playlists on YouTube for Artificial Intelligence and Analytics](https://www.youtube.com/c/MicrosoftAzure/playlists?view=50&sort=dd&shelf_id=7) | Public |
 | [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Public |
-| [AI Platform Overview](https://azure.microsoft.com/en-us/overview/ai-platform/) | Public |
-| [AI Lab](https://www.microsoft.com/en-us/ai/ai-lab) | Public |
-| [Microsoft AI](https://www.microsoft.com/en-us/AI) | Public |
+| [AI Platform Overview](https://azure.microsoft.com/overview/ai-platform/) | Public |
+| [AI Lab](https://www.microsoft.com/ai/ai-lab) | Public |
+| [Microsoft AI](https://www.microsoft.com/AI) | Public |
 | [Microsoft Partner Network](https://partner.microsoft.com/training/training-center) | Partners |
 
 In addition, free MOOCS (massive open online courses) on AI are offered online by academic  institutions like Stanford and MIT, and other educational companies.
