@@ -27,13 +27,14 @@ A single message may match the condition on multiple routing queries, in which c
 
 ## Endpoints and routing
 
-An IoT hub has a default [built-in endpoint](iot-hub-devguide-messages-read-builtin.md). You can create custom endpoints to route messages to by linking other services in your subscription to the hub. IoT Hub currently supports Azure Storage containers, Event Hubs, Service Bus queues, and Service Bus topics as custom endpoints.
+An IoT hub has a default [built-in endpoint](iot-hub-devguide-messages-read-builtin.md). You can create custom endpoints to route messages to by linking other services in the subscriptions you own to the hub. IoT Hub currently supports Azure Storage containers, Event Hubs, Service Bus queues, and Service Bus topics as custom endpoints.
 
 When you use routing and custom endpoints, messages are only delivered to the built-in endpoint if they don't match any query. To deliver messages to the built-in endpoint as well as to a custom endpoint, add a route that sends messages to the built-in **events** endpoint.
 
 > [!NOTE]
 > * IoT Hub only supports writing data to Azure Storage containers as blobs.
 > * Service Bus queues and topics with **Sessions** or **Duplicate Detection** enabled are not supported as custom endpoints.
+> * Through the Azure Portal you can only create custom routing endpoints to Azure resources in the same subscription as your hub. Creating custom endpoints to resources in other subscriptions you own is supported, but these must be configured via an alternate mechanism to the Azure Portal.
 
 For more information about creating custom endpoints in IoT Hub, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).
 
