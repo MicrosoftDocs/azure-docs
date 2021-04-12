@@ -303,7 +303,7 @@ If your data flows execute in parallel, its recommended to not enable the Azure 
 
 ### Execute data flows sequentially
 
-If you execute your data flow activities in sequence, it is recommended that you set a TTL in the Azure IR configuration. ADF will reuse the compute resources resulting in a faster cluster start up time. Each activity will still be isolated receive a new Spark context for each execution. To reduce the time between sequential activies even more, set the "quick re-use" checkbox on the Azure IR to tell ADF to re-use the existing cluster.
+If you execute your data flow activities in sequence, it is recommended that you set a TTL in the Azure IR configuration. ADF will reuse the compute resources resulting in a faster cluster start up time. Each activity will still be isolated receive a new Spark context for each execution. To reduce the time between sequential activities even more, set the "quick re-use" checkbox on the Azure IR to tell ADF to re-use the existing cluster.
 
 > [!NOTE]
 > Quick re-use of existing clusters is a feature in the Azure Integration Runtime that is currently in public preview
