@@ -180,6 +180,8 @@ First receipt:
 
 ## Analyze business cards
 
+
+
 ## Analyze invoices
 
 ## Analyze identity documents
