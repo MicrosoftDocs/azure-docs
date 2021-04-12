@@ -32,8 +32,6 @@
   - name: Versioning policy
     href: concepts-version-policy.md
     displayName: version, postgresql
-  - name: Performance recommendations
-    href: concepts-azure-advisor-recommendations.md
   - name: Known issues & limitations
     href: concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql 
@@ -216,8 +214,10 @@
         displayName: query store, performance, optimize, insights
       - name: Performance recommendations
         href: concepts-performance-recommendations.md
-        displayName: query store, performance, optimize, recommendations
-    - name: App Development
+        displayName: query store, performance, optimize, recommendations- 
+        name: Azure Advisor recommendations
+        href: concepts-azure-advisor-recommendations.md
+      - name: App Development
       items:
       - name: Best practices
         href: application-best-practices.md
