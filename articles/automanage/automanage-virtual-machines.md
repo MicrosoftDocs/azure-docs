@@ -101,7 +101,7 @@ A direct link to the policy is [here](https://portal.azure.com/#blade/Microsoft_
 1. Click the **Assign** button when viewing the policy definition
 1. Select the scope at which you want to apply the policy (can be management group, subscription, or resource group)
 1. Under **Parameters**, specify parameters for the Automanage account, Configuration profile, and Effect (the effect should usually be DeployIfNotExists)
-    1. If you don't have an Automanage account, you will have to [create one](#create-an-automanage-account).
+    1. If you don't have an Automanage account, you will have to [create one](./automanage-account.md).
 1. Under **Remediation**, check the "Click a remediation task" checkbox. This will perform onboarding to Automanage.
 1. Click **Review + create** and ensure that all settings look good.
 1. Click **Create**.
