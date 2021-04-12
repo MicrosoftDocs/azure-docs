@@ -23,6 +23,7 @@ You must make a cloud service swappable with another cloud service when you depl
  "SwappableCloudService": {
               "id": "[concat(variables('swappableResourcePrefix'), 'Microsoft.Compute/cloudServices/', parameters('cloudServicesToBeSwappedWith'))]"
             },
+        }
 ```
 
 > [!NOTE] 
@@ -75,6 +76,7 @@ POST https://management.azure.com/subscriptions/subId/providers/Microsoft.Networ
     }
   ]
  }
+}
 ```
 
 ## Common questions about swapping deployments
