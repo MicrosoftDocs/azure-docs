@@ -29,15 +29,15 @@ The purpose of this article is to ensure you're prepared for a successful deploy
 
 ## Prerequisites
 
-* Up-and-running Kubernetes clusters. If you don't have one, you can create a cluster using one of these options:
-    * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
-    * Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
-    * Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)* An up-and-running Kubernetes cluster. If you don't have one, you can create a cluster using one of these options:
+* An existing Kubernetes cluster. If you don't have one, you can create a cluster using one of these options:
+    - [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
+    - Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
+    - Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
 
-Your machines have connectivity from your on-premises network or other cloud environment to resources in Azure, either directly or through a proxy server. More details can be found under [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements).
+* Your machines have connectivity from your on-premises network or other cloud environment to resources in Azure, either directly or through a proxy server. More details can be found under [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements).
 
 * A `kubeconfig` file pointing to the cluster you want to connect to Azure Arc.
-* 'Read' and 'Write' permissions for the user or service principal connecting creating the Azure Arc enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
+* 'Read' and 'Write' permissions for the user or service principal creating the Azure Arc enabled Kubernetes resource type of `Microsoft.Kubernetes/connectedClusters`.
 
 ## Pilot
 
@@ -45,14 +45,14 @@ Before deploying to all production clusters, start by evaluating this deployment
 
 Establish a formal plan describing the scope and details of the pilot. The following sample plan should help you get started.
 
-Goals - Describes the business and technical drivers that led to the decision that a pilot is necessary.
-Selection criteria - Specifies the criteria used to select which aspects of the solution will be demonstrated via a pilot.
-Scope - Covers solution components, expected schedule, duration of the pilot, and number of clusters to target.
-Success criteria and metrics - Define the pilot's success criteria and specific measures used to determine level of success.
-Training plan - Describes the plan for training system engineers, administrators, etc. who are new to Azure and it services during the pilot.
-Transition plan - Describes the strategy and criteria used to guide transition from pilot to production.
-Rollback - Describes the procedures for rolling back a pilot to pre-deployment state.
-Risks - List all identified risks for conducting the pilot and associated with production deployment.
+* **Goals** - Describes the business and technical drivers that led to the decision that a pilot is necessary.
+* **Selection criteria** - Specifies the criteria used to select which aspects of the solution will be demonstrated via a pilot.
+* **Scope** - Covers solution components, expected schedule, duration of the pilot, and number of clusters to target.
+* **Success criteria and metrics** - Define the pilot's success criteria and specific measures used to determine level of success.
+* **Training plan** - Describes the plan for training system engineers, administrators, etc. who are new to Azure and it services during the pilot.
+* **Transition plan** - Describes the strategy and criteria used to guide transition from pilot to production.
+* **Rollback** - Describes the procedures for rolling back a pilot to pre-deployment state.
+* **Risks** - List all identified risks for conducting the pilot and associated with production deployment.
 
 ## Phase 1: Build a foundation
 
