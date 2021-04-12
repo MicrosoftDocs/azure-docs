@@ -3,15 +3,15 @@ title: Tutorial - Add custom domain to your Azure Front Door configuration
 description: In this tutorial, you learn how to onboard a custom domain to Azure Front Door.
 services: frontdoor
 documentationcenter: ''
-author: duongau
+author: jessie-jyy
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2020
-ms.author: duau
+ms.date: 04/12/2021
+ms.author: yuajia
 #Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
 ---
 
@@ -188,9 +188,14 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
 In the preceding steps, you added a custom domain to a Front Door. If you no longer want to associate your Front Door with a custom domain, you can remove the custom domain by performing these steps:
  
-1. In your Front Door designer, select the custom domain that you want to remove.
+1. Go to your DNS provider, delete the CNAME record for the custom domain or update the CNAME record for the custom domain to a non Front Door endpoint.
 
-2. Click Delete from the context menu for the custom domain.  
+    > [!Important]
+    > To prevent dangling DNS entries and the security risks they create, starting from April 9th 2021, Azure Front Door requires removal of the CNAME records to Front Door endpoints before the resources can be deleted. Resources include Front Door custom domains, Front Door endpoints or Azure resource groups that has Front Door custom domain(s) enabled.
+
+2. In your Front Door designer, select the custom domain that you want to remove.
+
+3. Click Delete from the context menu for the custom domain.  
 
    The custom domain is disassociated from your endpoint.
 
