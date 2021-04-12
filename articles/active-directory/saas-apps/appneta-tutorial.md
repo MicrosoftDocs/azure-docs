@@ -62,8 +62,8 @@ To configure and test Azure AD SSO with AppNeta Performance Manager, perform the
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure AppNeta Performance Manager SSO](#configure-appneta-performance-monitor-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create AppNeta Performance Manager test user](#create-appneta-performance-monitor-test-user)** - to have a counterpart of B.Simon in AppNeta Performance Manager that is linked to the Azure AD representation of user.
+1. **[Configure AppNeta Performance Manager SSO](#configure-appneta-performance-manager-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create AppNeta Performance Manager test user](#create-appneta-performance-manager-test-user)** - to have a counterpart of B.Simon in AppNeta Performance Manager that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
