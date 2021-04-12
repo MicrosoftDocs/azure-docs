@@ -119,6 +119,8 @@
       href: support-policies-v4.md
     - name: Support lifecycle for ARO 4 
       href: support-lifecycle.md
+    - name: Responsibility matrix
+      href: responsibility-matrix.md
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Red Hat OpenShift 4 documentation
