@@ -401,7 +401,12 @@ creating a batch of runs is more efficient than creating them one by one.
 
 Child runs can also be submitted from a parent run. This allows you to create hierarchies of parent and child runs. You can't create a parentless child run: even if the parent run does nothing but launch child runs, it's still necessary to create the hierarchy. The statuses of all runs are independent: a parent can be in the `"Completed"` successful state even if one or more child runs were canceled or failed.  
 
-You may wish your child runs to use a different run configuration than the parent run. For instance, you might use a less-powerful, CPU-based configuration for the parent, while using GPU-based configurations for your children. Another common wish is to pass each child different arguments and data. To customize a child run, create a `ScriptRunConfig` object for the child run. The below code:
+You may wish your child runs to use a different run configuration than the parent run. For instance, you might use a less-powerful, CPU-based configuration for the parent, while using GPU-based configurations for your children. Another common wish is to pass each child different arguments and data. To customize a child run, create a `ScriptRunConfig` object for the child run. 
+
+> [!IMPORTANT]
+> To submit a child run from a parent run on a remote compute, you must sign in to the workspace in the parent run code first. By default, the run context object in a remote run does not have credentials to submit child runs. Use a service principal or managed identity credentials to sign in. For more information on authenticating, see [set up authentication](how-to-setup-authentication.md).
+
+The below code:
 
 - Retrieves a compute resource named `"gpu-cluster"` from the workspace `ws`
 - Iterates over different argument values to be passed to the children `ScriptRunConfig` objects
