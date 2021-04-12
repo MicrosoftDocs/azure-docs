@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mikben
-manager: mikben
+author: ddematheu2
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
+ms.author: dademath
 ---
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
@@ -18,7 +18,7 @@ The Azure Communication Services **Group Calling Hero Sample for iOS** demonstra
 
 ## Download code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero).
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-ios-calling-hero/tree/feature/teams_interop).
 
 ## Overview
 
@@ -28,7 +28,7 @@ Here's what the sample looks like:
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
-When you press the "Start new call" button, the iOS application creates a new call and joins it. The application allows you to join an existing Azure Communication Services call by specifying the existing call's ID. You can also join a Teams Meeting by providing the join link found in the Meeting's invite.  (The join link has the following format: `https://teams.microsoft.com/l/meetup-join/`). For more information on Teams Interop, visit the [Teams Interop conceptual documentation](../../concepts/teams-interop.md).
+When you press the "Start new call" button, the iOS application creates a new call and joins it. The application allows you to join an existing Azure Communication Services call by specifying the existing call's ID.
 
 After joining a call, you'll be prompted to give the application permission to access your camera and microphone. You'll also be asked to provide a display name.
 

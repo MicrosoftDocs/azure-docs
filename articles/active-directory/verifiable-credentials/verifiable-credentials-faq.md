@@ -70,6 +70,12 @@ Yes! The following repositories are the open-sourced components of our services.
 3. An [Android SDK for building decentralized identity wallets, on GitHub](https://github.com/microsoft/VerifiableCredential-SDK-Android)
 4. An [iOS SDK for building decentralized identity wallets, on GitHub](https://github.com/microsoft/VerifiableCredential-SDK-iOS)
 
+
+## What are the licensing requirements?
+
+An Azure AD P2 license is required to use the preview of Verifiable Credentials. This is a temporary requirement, as we expect pricing for this service to be billed based on usage. 
+
+
 ## Next steps
 
 - [How to customize your Azure Active Directory Verifiable Credentials](credential-design.md)
