@@ -916,7 +916,7 @@
             - name: Spring Data Connector v3
               href: sql-api-sdk-java-spring-v3.md
             - name: Spark 3 OLTP Connector (Preview)
-              href: sql-api-sdk-java-sparkv3.md              
+              href: sql-api-sdk-java-spark-v3.md              
             - name: Spark 2 OLTP Connector
               href: sql-api-sdk-java-spark.md
             - name: Java bulk executor library v2
