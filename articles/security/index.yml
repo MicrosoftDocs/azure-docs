@@ -26,7 +26,7 @@ highlightedContent:
       itemType: overview
       url: ./fundamentals/end-to-end.md
     - title: Use best practices and recommendations to secure your cloud deployments
-      itemType: concepts
+      itemType: concept
       url: ./benchmarks/introduction.md
 
 
@@ -65,13 +65,13 @@ conceptualContent:
     - title: Security best practices and patterns
       links:
         - url: ./fundamentals/identity-management-best-practices.md
-          itemType: concepts
+          itemType: concept
           text: Identity management
         - url: ./fundamentals/network-best-practices.md
-          itemType: concepts
+          itemType: concept
           text: Network security
         - url: ./fundamentals/paas-deployments
-          itemType: concepts
+          itemType: concept
           text: Securing PaaS deployments
       footerLink:
         url: ./fundamentals/best-practices-and-patterns.md
