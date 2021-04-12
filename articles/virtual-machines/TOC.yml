@@ -234,6 +234,8 @@
         href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
       - name: NP-series
         href: np-series.md
+      - name: FPGA Attestation Service
+        href: field-programmable-gate-arrays-attestation.md
     - name: High performance compute
       items:
       - name: Overview
@@ -1303,6 +1305,8 @@
       href: ./windows/nsg-quickstart-portal.md
   - name: Assign public IP address
     href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+  - name: Use a custom domain name
+    href: custom-domain.md
   - name: Use multiple NICs
     items:
     - name: Linux using CLI

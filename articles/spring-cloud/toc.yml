@@ -93,15 +93,15 @@
           href: how-to-setup-autoscale.md
     - name: Integrate
       items:
-        - name: Bind an app to Azure CosmosDB
+        - name: Azure CosmosDB
           href: how-to-bind-cosmos.md
-        - name: Bind an app to Azure Cache for Redis
+        - name: Azure Cache for Redis
           href: how-to-bind-redis.md
-        - name: Bind an app to Azure MySQL
+        - name: Azure Database for MySQL
           href: how-to-bind-mysql.md
-        - name: Managed identity to connect Azure SQL Database
+        - name: Azure SQL Database with Managed identity
           href: connect-managed-identity-to-azure-sql.md
-        - name: Integrate with Azure Load Balance Solutions
+        - name: Azure Load Balance Solutions
           href: how-to-integrate-azure-load-balancers.md
     - name: Monitor
       items:
@@ -135,6 +135,8 @@
           href: how-to-enable-system-assigned-managed-identity.md
         - name: Create roles and permissions
           href: how-to-permissions.md
+        - name: Enable end-to-end Transport Layer Security
+          href: how-to-enable-end-to-end-tls.md
         - name: Access Config Server and Service Registry
           href: how-to-access-data-plane-azure-ad-rbac.md
     - name: Integrate
@@ -192,7 +194,7 @@
 - name: Reference
   items:
   - name: Azure CLI plugin
-    href: /cli/azure/ext/spring-cloud/spring-cloud
+    href: /cli/azure/spring-cloud
   - name: Azure PowerShell
     href: /powershell/module/az.springcloud
   - name: Resources
