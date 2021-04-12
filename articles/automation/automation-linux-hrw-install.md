@@ -3,7 +3,7 @@ title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
 description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/26/2021
+ms.date: 04/06/2021
 ms.topic: conceptual
 ---
 
@@ -101,6 +101,31 @@ Linux Hybrid Runbook Workers support a limited set of runbook types in Azure Aut
 For networking requirements for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
 
 ## Install a Linux Hybrid Runbook Worker
+
+There are two methods to deploy a Hybrid Runbook Worker. You can import and run a runbook from the Runbook Gallery in the Azure portal, or you can manually run a series of PowerShell commands to accomplish the same task.
+
+### Importing a runbook from the Runbook Gallery
+
+The import procedure is described in detail in [Import runbooks from GitHub with the Azure portal](automation-runbook-gallery.md#import-runbooks-from-github-with-the-azure-portal). The name of the runbook to import is **Create Automation Linux HybridWorker**.
+
+The runbook uses the following parameters.
+
+| Parameter | Status | Description |
+| ------- | ----- | ----------- |
+| `Location` | Mandatory | The location for the Log Analytics workspace. |
+| `ResourceGroupName` | Mandatory | The resource group for your Automation account. |
+| `AccountName` | Mandatory | The Automation account name in which the Hybrid Run Worker will be registered. |
+| `CreateLA` | Mandatory | If true, uses the value of `WorkspaceName` to create a Log Analytics workspace. If false, the value of `WorkspaceName` must refer to an existing workspace. |
+| `LAlocation` | Optional | The location where the Log Analytics workspace will be created, or where it already exists. |
+| `WorkspaceName` | Optional | The name of the Log Analytics workspace to be created or used. |
+| `CreateVM` | Mandatory | If true, use the value of `VMName` as the name of a new VM. If false, use `VMName` to find and register existing VM. |
+| `VMName` | Optional | The name of the virtual machine that's either created or registered, depending on the value of `CreateVM`. |
+| `VMImage` | Optional | The name of the VM image to be created. |
+| `VMlocation` | Optional | Location of the VM that's either created or registered. If this location is not specified, the value of `LAlocation` is used. |
+| `RegisterHW` | Mandatory | If true, register the VM as a hybrid worker. |
+| `WorkerGroupName` | Mandatory | Name of the Hybrid Worker Group. |
+
+### Manually run PowerShell commands
 
 To install and configure a Linux Hybrid Runbook Worker, perform the following steps.
 

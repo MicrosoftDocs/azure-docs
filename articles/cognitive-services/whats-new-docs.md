@@ -23,25 +23,25 @@ Welcome to what's new in the Cognitive Services docs from February 1, 2021 throu
 
 ### New articles
 
-- [Azure Cognitive Services containers frequently asked questions (FAQ)](/azure/cognitive-services/containers/container-faq)
+- [Azure Cognitive Services containers frequently asked questions (FAQ)](./containers/container-faq.yml)
 
 ### Updated articles
 
-- [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags)
+- [Azure Cognitive Services container image tags and release notes](./containers/container-image-tags.md)
 
 ## Form Recognizer
 
 ### Updated articles
 
-- [Deploy the sample labeling tool](/azure/cognitive-services/form-recognizer/deploy-label-tool)
-- [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview)
-- [Train a Form Recognizer model with labels using the sample labeling tool](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+- [Deploy the sample labeling tool](./form-recognizer/deploy-label-tool.md)
+- [What is Form Recognizer?](./form-recognizer/overview.md)
+- [Train a Form Recognizer model with labels using the sample labeling tool](./form-recognizer/quickstarts/label-tool.md)
 
 ## Text Analytics
 
 ### Updated articles
 
-- [Text Analytics API v3 language support](/azure/cognitive-services/text-analytics/language-support)
-- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
+- [Text Analytics API v3 language support](./text-analytics/language-support.md)
+- [How to call the Text Analytics REST API](./text-analytics/how-tos/text-analytics-how-to-call-api.md)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

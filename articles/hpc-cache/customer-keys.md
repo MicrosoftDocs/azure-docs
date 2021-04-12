@@ -17,8 +17,6 @@ You can use Azure Key Vault to control ownership of the keys used to encrypt you
 
 Azure HPC Cache also is protected by [VM host encryption](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) on the managed disks that hold your cached data, even if you add a customer key for the cache disks. Adding a customer-managed key for double encryption gives an extra level of security for customers with high security needs. Read [Server-side encryption of Azure disk storage](../virtual-machines/disk-encryption.md) for details.
 
-<!-- This feature is available only in some of the Azure regions where Azure HPC Cache is available. Refer to the [Region availability](hpc-cache-overview.md#region-availability) list for details. -->
-
 There are three steps to enable customer-managed key encryption for Azure HPC Cache:
 
 1. Set up an Azure Key Vault to store the keys.
@@ -64,14 +62,14 @@ At cache creation time you must specify a vault, key, and key version to use for
 Read the [Azure Key Vault documentation](../key-vault/general/overview.md) for details.
 
 > [!NOTE]
-> The Azure Key Vault must use the same subscription and be in the same region as the Azure HPC Cache. Make sure that the region you choose [supports the customer-managed keys feature](hpc-cache-overview.md#region-availability).
+> The Azure Key Vault must use the same subscription and be in the same region as the Azure HPC Cache. Make sure that the region you choose [supports both products](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault).
 
 ## 2. Create the cache with customer-managed keys enabled
 
 You must specify the encryption key source when you create your Azure HPC Cache. Follow the instructions in [Create an Azure HPC Cache](hpc-cache-create.md), and specify the key vault and key in the **Disk encryption keys** page. You can create a new key vault and key during cache creation.
 
 > [!TIP]
-> If the **Disk encryption keys** page does not appear, make sure that your cache is in one of the supported regions.
+> If the **Disk encryption keys** page does not appear, make sure that your cache is in one of the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault).
 
 The user who creates the cache must have privileges equal to the [Key Vault contributor role](../role-based-access-control/built-in-roles.md#key-vault-contributor) or higher.
 

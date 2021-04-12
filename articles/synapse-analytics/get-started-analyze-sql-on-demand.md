@@ -14,26 +14,29 @@ ms.date: 12/31/2020
 
 # Analyze data with a serverless SQL pool
 
-In this tutorial, you'll learn how to analyze data with serverless SQL pool using data located in Spark databases. 
+In this tutorial, you'll learn how to analyze data with serverless SQL pool. 
 
 ## The Built-in serverless SQL pool
 
-Every workspace comes with a pre-built serverless SQL pool called **Built-in**. This pool can't be deleted. Serverless SQL pools let you use SQL without having to reserve capacity with dedicated SQL pools. Unlike the dedicated SQL pools, billing for a serverless SQL pool is based on the amount of data scanned to run the query, not the number of capacity allocated to the pool.
+Serverless SQL pools let you use SQL without having to reserve capacity. Billing for a serverless SQL pool is based on the amount of data processed to run the query and not the number of nodes used to run the query.
 
-## Analyze NYC Taxi data in blob storage using serverless SQL pool
+Every workspace comes with a pre-configured serverless SQL pool called **Built-in**. 
 
-1. In Synapse Studio go to the **Develop** hub
-2. Create a new SQL script.
-4. Paste the following code into the script.
+## Analyze NYC Taxi data with a serverless SQL pool
+
+
+1. In Synapse Studio, go to the **Develop** hub
+1. Create a new SQL script.
+1. Paste the following code into the script.
 
     ```
     SELECT
-        TOP 100 *
+        TOP 100 *
     FROM
         OPENROWSET(
-            BULK     'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-            FORMAT = 'parquet'
-        ) AS [result];
+                BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
+            FORMAT='PARQUET'
+        ) AS [result]
     ```
 1. Click **Run**
 
