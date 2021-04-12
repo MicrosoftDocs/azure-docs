@@ -92,7 +92,7 @@ Before you can use your system managed identity for authentication, set up acces
 This example shows how to set a role assignment for a subscription.
 
 ```powershell
-New-AzRoleAssignment -ObjectId <automation-Identity-object-id> -Scope "/subscriptions/<subscription-id>" -RoleDefinitionName "Contributor" -PermissionsToSecrets <permissions>
+New-AzRoleAssignment -ObjectId <automation-Identity-object-id> -Scope "/subscriptions/<subscription-id>" -RoleDefinitionName "Contributor"
 ```
 
 ## Authenticate access with managed identity
@@ -150,8 +150,8 @@ $Headers.Add("Metadata", "True")
 $content =[System.Text.Encoding]::Default.GetString((Invoke-WebRequest -UseBasicParsing -Uri $url -Method 'GET' -Headers $Headers).RawContentStream.ToArray()) | ConvertFrom-Json 
 $Token = $content.access_token 
 echo "The managed identities for Azure resources access token is $Token" 
-$SQLServerName = "msiserver"    # Azure SQL logical server name  
-$DatabaseName = "MSIDemo"     # Azure SQL database name 
+$SQLServerName = "<ServerName>"    # Azure SQL logical server name  
+$DatabaseName = "<DBname>"     # Azure SQL database name 
 Write-Host "Create SQL connection string" 
 $conn = New-Object System.Data.SqlClient.SQLConnection  
 $conn.ConnectionString = "Data Source=$SQLServerName.database.windows.net;Initial Catalog=$DatabaseName;Connect Timeout=30" 
@@ -175,7 +175,7 @@ Write-Output "Connecting to azure via  Connect-AzAccount -Identity"
 Connect-AzAccount -Identity 
 Write-Output "Successfully connected with Automation account's Managed Identity" 
 Write-Output "Trying to fetch value from key vault using MI. Make sure you have given correct access to Managed Identity" 
-$secret = Get-AzKeyVaultSecret -VaultName 'MSITestKeyVault' -Name 'KeyName' 
+$secret = Get-AzKeyVaultSecret -VaultName '<KVname>' -Name '<KeyName>' 
 
 $ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue) 
 try { 
