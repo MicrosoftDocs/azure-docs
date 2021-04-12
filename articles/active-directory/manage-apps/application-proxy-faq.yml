@@ -141,7 +141,7 @@ sections:
               The default length is 85 seconds. The "long" setting is 180 seconds. The timeout limit can't be extended.
 
       - question: |
-         Can a service principal manage Application Proxy using Powershell or Microsoft Graph APIs?
+         Can a service principal manage Application Proxy using PowerShell or Microsoft Graph APIs?
         answer: |
               No, this is currently not supported.
 
