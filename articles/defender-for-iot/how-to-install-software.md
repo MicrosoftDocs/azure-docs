@@ -977,6 +977,71 @@ Verify that you can access the console web GUI:
 
    :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to management console.":::
 
+## Install the software on a physical device
+
+To install the software:
+
+1. Select **English**.
+
+1. Select **SENSOR-RELEASE-\<version\> Enterprise**.
+
+   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows version selection.":::   
+
+1. Define the appliance profile and network properties:
+
+   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot that shows the appliance profile.":::   
+
+   | Parameter | Configuration |
+   |--|--|
+   | **Hardware profile** | **enterprise** |
+   | **Management interface** | **eno1** |
+   | **Network parameters ** | **provided by the customer** |
+   |**management network IP address:** | **provided by the customer** |
+   | **subnet mask:** | **provided by the customer** |
+   | **appliance hostname:** | **provided by the customer** |
+   | **DNS:** | **provided by the customer** |
+   | **default gateway IP address:** | **provided by the customer** |
+   | **input interfaces:** |  The system generates the list of input interfaces for you. To mirror the input interfaces, copy all the items presented in the list with a comma separator. You do not have to configure the bridge interface. This option is used for special use cases only. |
+
+    :::image type="content" source="media/how-to-install-software/install-process.jpg" alt-text="Fill in the following answers to each of the posed questions.":::
+
+1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.  
+
+1. Save the appliance ID and passwords. You'll need these credentials to access the platform the first time you use it.
+
+1. Select **Enter** to continue.
+
+### Add a secondary NIC
+
+To enhance security, you can create a second NIC on your on-premises management console. One NIC is dedicated for your users, and can support the configuration of a gateway for routed networks. The second NIC is dedicated to the all attached sensors within an IP address range.
+
+Both network NICs use the user interface (UI) enabled, and all of the features that are supported by the UI will be available on the secondary NIC when routing in not needed. High Availability will run on the secondary NIC.
+
+If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC. 
+
+To deploy the secondary NIC:
+
+1. Use the network reconfigure command:
+    ```bash
+    sudo cyberx-management-network-reconfigure
+    ```
+
+1. Enter the following responses to the following questions:
+
+    | Parameters | Response to enter |
+    |--|--|
+    | **Management Network IP address** | N |
+    | **Subnet mask** | N |
+    | **DNS** | N |
+    | **Default gateway IP Address** | N |
+    | **Sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information see the Installation instructions)**| Y |
+    | **Possible values** | eth1 |
+    | **An IP address for the sensor monitoring interface (accessible by the sensors)** | y |
+    | **A subnet mask for the sensor monitoring interface (accessible by the sensors)** | y |
+    | **Hostname** |  |
+
+    :::image type="content" source="media/how-to-install-software/install-screen-second-nic.png" alt-text="Fill in these answers to deploy the secondary NIC.":::
+
 ## Troubleshooting
 
 ### You can't connect by using a web interface
