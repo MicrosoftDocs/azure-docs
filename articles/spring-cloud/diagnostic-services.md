@@ -105,7 +105,7 @@ There are various methods to view logs and metrics as described under the follow
 > [!NOTE]
 > `==` is case sensitive, but `=~` is not.
 
-To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/).
+To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
 ### Use your storage account
 
