@@ -299,12 +299,12 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: The image definition you used to deploy the virtual machine does not contain any image versions that are included in latest.  
 **Workaround**: Ensure that there is at least one image version that has 'Exclude from latest' set to False. 
 
-**Message**: *The gallery image /subscriptions/<subscriptionID>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<galleryName>/images/<imageName>/versions/<versionNumber> is not available in <region> region. Please contact image owner to replicate to this region, or change your requested region.*  
-**Cause**: The version selected for deployment does not exist or does not have a replica in the indicated region.
+**Message**: *The gallery image /subscriptions/<subscriptionID\>/resourceGroups/<resourceGroup\>/providers/Microsoft.Compute/galleries/<galleryName\>/images/<imageName\>/versions/<versionNumber\> is not available in <region\> region. Please contact image owner to replicate to this region, or change your requested region.*  
+**Cause**: The version selected for deployment does not exist or does not have a replica in the indicated region.  
 **Workaround**: Ensure that the name of the image resource is correct and that there is at least one replica in the indicated region. 
 
-**Message**: *The gallery image /subscriptions/<subscriptionID>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<galleryName>/images/<imageName> is not available in <region> region. Please contact image owner to replicate to this region, or change your requested region.*  
-**Cause**: The image definition selected for deployment does not have any image versions that are included in latest and also in the indicated region.
+**Message**: *The gallery image /subscriptions/<subscriptionID\>/resourceGroups/<resourceGroup\>/providers/Microsoft.Compute/galleries/<galleryName\>/images/<imageName\> is not available in <region\> region. Please contact image owner to replicate to this region, or change your requested region.*  
+**Cause**: The image definition selected for deployment does not have any image versions that are included in latest and also in the indicated region.  
 **Workaround**: Ensure that there is at least one image version in the region that has 'Exclude from latest' set to False. 
 
 **Message**: *The client has permission to perform action 'Microsoft.Compute/galleries/images/versions/read' on scope <resourceID\>, however the current tenant <tenantID\> is not authorized to access linked subscription <subscriptionID\>.*  
