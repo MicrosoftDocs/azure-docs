@@ -118,9 +118,9 @@ The following FQDN / application rules are required for ARO clusters that have t
 ## Private ARO cluster setup
 The goal is to secure ARO cluster by routing Egress traffic through an Azure Firewall
 ### Before:
-![Before](media/concepts-networking/aro-private.png)
+![Before](media/concepts-networking/aro-private.jpg)
 ### After:
-![After](media/concepts-networking/aro-fw.png)
+![After](media/concepts-networking/aro-fw.jpg)
 
 ## Create a private ARO cluster
 
