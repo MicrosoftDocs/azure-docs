@@ -66,4 +66,4 @@ Cloud tiering can be enabled for multiple server endpoints on a single local vol
 
 ## Next steps
 
-* [Monitor cloud tiering](storage-sync-monitor-cloud-tiering.md)
+* [Monitor cloud tiering](file-sync-monitor-cloud-tiering.md)

@@ -20,13 +20,13 @@
   - name: Cloud tiering
     items:
     - name: Cloud tiering overview
-      href: storage-sync-cloud-tiering-overview.md
+      href: file-sync-cloud-tiering-overview.md
     - name: Cloud tiering policies overview
-      href: storage-sync-cloud-tiering-policy.md
+      href: file-sync-cloud-tiering-policy.md
     - name: Choose your cloud tiering policies
-      href: storage-sync-choose-cloud-tiering-policies.md
+      href: file-sync-choose-cloud-tiering-policies.md
     - name: Monitor cloud tiering
-      href: storage-sync-monitor-cloud-tiering.md
+      href: file-sync-monitor-cloud-tiering.md
   - name: Scalability and performance targets
     href: ../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: Prevent accidental data deletion
@@ -92,9 +92,9 @@
     - name: Initiate an account failover
       href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Manage tiered files
-      href: storage-sync-how-to-manage-tiered-files.md
+      href: file-sync-how-to-manage-tiered-files.md
     - name: Move resources to other resource groups, subscriptions and AAD tenants
-      href: storage-sync-resource-move.md
+      href: file-sync-resource-move.md
   - name: Data protection
     items:
     - name: Enable soft delete

@@ -15,7 +15,7 @@ Azure File Sync extends your on-premises Windows Server or cloud VM by enabling 
 ## Benefits of Azure File Sync
 
 ### Cloud tiering
-Cloud tiering helps reduce your local storage footprint while maintaining on-premises performance. With cloud tiering enabled, your most frequently accessed files are cached on your local server and your least frequently accessed files are tiered to the cloud. These tiered files can be recalled quickly on-demand, making the user experience seamless while enabling admins to cut down on costs as you only need to store a fraction of your data on-premises. For more details about cloud tiering, see [Cloud tiering overview link]. 
+Cloud tiering can help reduce the footprint of your local storage while maintaining on-premises performance. With cloud tiering enabled, your most frequently accessed files are cached on your local server and your least frequently accessed files are tiered to the cloud. These tiered files can quickly be recalled on-demand, making the experience seamless while enabling you to cut down on costs as you only need to store a fraction of your data on-premises. For more details about cloud tiering, see [Cloud tiering overview](file-sync-cloud-tiering-overview.md). 
 
 ### Multi-site access and sync
 Azure File Sync solves complicated distributed access scenarios. For each of your offices, regardless of where they are located, you can provision a local Windows Server as part of your Azure File Sync deployment. Changes made to the server in one office will automatically sync to the servers in all other offices.
@@ -29,9 +29,7 @@ Azure File Sync enables business continuity and disaster recovery. Because Azure
 Reduce your on-premises backup spending by taking centralized backups in the cloud using Azure Backup. Azure Backup automates the backup process by scheduling your backups as well as managing their retention. Azure Backup also integrates with your on-premises servers, so when you restore to the cloud, these changes are automatically downloaded on your Windows Servers.  
 
 ## Next Steps
-* [Learn about the available file share protocols](storage-files-compare-protocols.md)
 * [Create Azure file Share](storage-how-to-create-file-share.md)
 * [Connect and mount an SMB share on Windows](storage-how-to-use-files-windows.md)
 * [Connect and mount an SMB share on Linux](storage-how-to-use-files-linux.md)
 * [Connect and mount an SMB share on macOS](storage-how-to-use-files-mac.md)
-* [How to create an NFS share](storage-files-how-to-create-nfs-shares.md)

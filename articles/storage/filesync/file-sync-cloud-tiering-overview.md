@@ -31,7 +31,7 @@ To learn how the volume free space policy affects files initially downloaded whe
 #### Date policy
 With the **date policy**, cool files are tiered to the cloud if they haven't been accessed (that is, read or written to) for x number of days. For example, if you noticed that files that have gone more than 15 days without being accessed are typically archival files, you should set your date policy to 15 days. 
 
-For more examples on how the date policy and volume free space policy work together, see [Choose Azure File Sync cloud tiering policies](storage-sync-choose-cloud-tiering-policies.md).
+For more examples on how the date policy and volume free space policy work together, see [Choose Azure File Sync cloud tiering policies](file-sync-choose-cloud-tiering-policies.md).
 
 ### Windows Server data deduplication
 Data deduplication is supported on volumes that have cloud tiering enabled beginning with Windows Server 2016. For more details, please see [Planning for an Azure File Sync deployment](file-sync-planning.md#data-deduplication).
@@ -103,5 +103,5 @@ It's also possible for a file to be partially tiered (or partially recalled). In
 
 ## Next steps
 
-* [Choose Azure File Sync cloud tiering policies](storage-sync-choose-cloud-tiering-policies.md)
+* [Choose Azure File Sync cloud tiering policies](file-sync-choose-cloud-tiering-policies.md)
 * [Planning for an Azure File Sync deployment](file-sync-planning.md)

@@ -52,7 +52,7 @@ For details on the different types of metrics for Azure File Sync and how to use
 
 For details on how to use metrics, see [Getting started with Azure Metrics Explorer.](../../azure-monitor/essentials/metrics-getting-started.md).
 
-If you would like to change your cloud tiering policy, see [Choose cloud tiering policies](storage-sync-choose-cloud-tiering-policies.md).
+If you would like to change your cloud tiering policy, see [Choose cloud tiering policies](file-sync-choose-cloud-tiering-policies.md).
 
 ## Next steps
 
