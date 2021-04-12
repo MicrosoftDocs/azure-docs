@@ -54,6 +54,7 @@ Automanage only supports VMs located in the following regions:
 * UK South
 * AU East
 * AU Southeast
+* Southeast Asia
 
 ### Required RBAC permissions
 Your account will require slightly different RBAC roles depending on whether you are enabling Automanage with a new Automanage account.
