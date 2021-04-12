@@ -124,8 +124,11 @@ Generative adversarial networks are used to solve problems like image to image t
 
 ### Transformers
 
+Transformers are a model architecture that is suited for solving problems containing sequences such as text or time-series data. They consist of encoder and decoder layers. What makes transformers different from other architectures containing encoders and decoders are the attention sub-layers. Attention is the idea of focusing on specific inputs based on the importance of their context in relation to other inputs in a sequence. For example, when summarizing a news article, not all sentences are relevant to describe the main idea. In some cases summarization be done in a single sentence, the headline.
 
-Transformers are have been used to solve natural language processing problems such as text generation, question answering, and text summarization.
+Transformers have been used to solve natural language processing problems such as translation, text generation, question answering, and text summarization.
+
+Some well known implementations of transformers are Bidirectional Encoder Representations from Transformers (BERT), Generative Pre-trained Transformer 2 (GPT-2), and Generative Pre-trained Transformer 3 (GPT-3).
 
 ## Next steps
 
