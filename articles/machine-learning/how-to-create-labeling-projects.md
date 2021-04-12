@@ -28,8 +28,8 @@ Learn how to create and run projects to label images or label text data in Azure
 Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe", ".jfif", ".bmp", ".tif", ".tiff". Each file is an item to be labeled.
 Text data can be either ".txt" or ".csv" files.
 
-    * For ".txt" files, each file represents one item to be labeled.
-    * For ".csv" files, each row of the file is one item to be labeled.
+* For ".txt" files, each file represents one item to be labeled.
+* For ".csv" files, each row of the file is one item to be labeled.
 
 Azure Machine Learning data labeling is a central place to create, manage, and monitor labeling projects:
 
