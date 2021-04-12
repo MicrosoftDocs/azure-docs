@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2021
+ms.date: 04/12/2021
 ms.author: bagol
 
 ---
@@ -146,7 +146,7 @@ In both cases, if the playbook needs to access the customer’s Azure environmen
 However, if the playbook needs to access non-Azure resources in the customer’s tenant, such as Azure AD, Office 365, or Microsoft 365 Defender, you'll need to create a service principal with appropriate permissions in the customer tenant, and then add that identity in the playbook.
 
 > [!NOTE]
-> Regardless of where your automation rules are created, you must set permissions on the resource group where the playbooks live.
+> If you use automation rules together with your playbooks, you must set the automation rule permissions on the resource group where the playbooks live.
 > For more information, see [Permissions for automation rules to run playbooks](automate-incident-handling-with-automation-rules.md#permissions-for-automation-rules-to-run-playbooks).
 >
 
