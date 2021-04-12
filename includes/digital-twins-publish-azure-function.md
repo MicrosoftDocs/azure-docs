@@ -38,7 +38,7 @@ Then select **Create**.
 
 After the app service is created, the **Functions instance** tab opens. Your new function app appears in the **Function Apps** area beneath your resource group. Select **Finish**.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Screenshot of Visual Studio, showing the Publish Azure function dialog. The Functions instance tab is selected. The new functions app appears under the resource group.:::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Screenshot of Visual Studio, showing the Publish Azure function dialog. The Functions instance tab is selected. The new functions app appears under the resource group.":::
 
 On the **Publish** pane that opens in the main Visual Studio window, check that all the information looks correct. Then select **Publish**.
 
