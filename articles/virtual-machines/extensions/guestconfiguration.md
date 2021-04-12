@@ -13,8 +13,9 @@ ms.date: 04/15/2021
 # Overview
 
 The Guest Configuration extension is a component Azure Policy that performs audit and configuration operations inside virtual machines.
-Policies such as
-["Linux machines should meet requirements for the Azure security baseline"](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd)
+Policies such as security baseline definitions for 
+[Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd)
+and [Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc)
 can't check settings inside machines until the extension is installed.
 
 ## Prerequisites
@@ -64,12 +65,6 @@ new versions of the extension are released.
 
 ### Azure CLI
 
-To deploy the extension for Windows:
-
-```azurecli
-az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforWindows --extension-instance-name AzurePolicyforWindows --resource-group myResourceGroup --vm-name myVM
-```
-
 To deploy the extension for Linux:
 
 
@@ -77,13 +72,13 @@ To deploy the extension for Linux:
 az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforLinux --extension-instance-name AzurePolicyforLinux --resource-group myResourceGroup --vm-name myVM
 ```
 
-### PowerShell
-
 To deploy the extension for Windows:
 
+```azurecli
+az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforWindows --extension-instance-name AzurePolicyforWindows --resource-group myResourceGroup --vm-name myVM
 ```
-Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM'
-```
+
+### PowerShell
 
 To deploy the extension for Linux:
 
@@ -91,29 +86,13 @@ To deploy the extension for Linux:
 Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforLinux' -Name 'AzurePolicyforLinux' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM'
 ```
 
-### Resource Manager template
-
 To deploy the extension for Windows:
 
-```json
-{
-  "type": "Microsoft.Compute/virtualMachines/extensions",
-  "name": "[concat(parameters('VMName'), '/AzurePolicyforWindows')]",
-  "apiVersion": "2019-07-01",
-  "location": "[parameters('location')]",
-  "dependsOn": [
-    "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-  ],
-  "properties": {
-    "publisher": "Microsoft.GuestConfiguration",
-    "type": "ConfigurationforWindows",
-    "typeHandlerVersion": "1.0"
-    "autoUpgradeMinorVersion": true,
-    "settings": {},
-    "protectedSettings": {}
-  }
-}
 ```
+Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM'
+```
+
+### Resource Manager template
 
 To deploy the extension for Linux:
 
@@ -137,19 +116,29 @@ To deploy the extension for Linux:
 }
 ```
 
-### Terraform
-
 To deploy the extension for Windows:
 
-```terraform
-resource "azurerm_virtual_machine_extension" "gc" {
-  name                  = "AzurePolicyforWindows"
-  virtual_machine_id    = "myVMID"
-  publisher             = "Microsoft.GuestConfiguration"
-  type                  = "ConfigurationforWindows"
-  type_handler_version  = "1.0"
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "[concat(parameters('VMName'), '/AzurePolicyforWindows')]",
+  "apiVersion": "2019-07-01",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.GuestConfiguration",
+    "type": "ConfigurationforWindows",
+    "typeHandlerVersion": "1.0"
+    "autoUpgradeMinorVersion": true,
+    "settings": {},
+    "protectedSettings": {}
+  }
 }
 ```
+
+### Terraform
 
 To deploy the extension for Linux:
 
@@ -163,7 +152,19 @@ resource "azurerm_virtual_machine_extension" "gc" {
 }
 ```
 
-# Settings
+To deploy the extension for Windows:
+
+```terraform
+resource "azurerm_virtual_machine_extension" "gc" {
+  name                  = "AzurePolicyforWindows"
+  virtual_machine_id    = "myVMID"
+  publisher             = "Microsoft.GuestConfiguration"
+  type                  = "ConfigurationforWindows"
+  type_handler_version  = "1.0"
+}
+```
+
+## Settings
 
 There's no need to include any settings or protected-settings properties on the extension.
 All such information is retrieved by the agent from
