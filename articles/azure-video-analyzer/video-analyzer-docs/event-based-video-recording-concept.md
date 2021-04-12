@@ -10,7 +10,7 @@ ms.date: 04/07/2021
 
 ## Suggested pre-reading  
 
-* [Continuous video recording](continuous-video-recording-concept.md)
+* [Continuous video recording](continuous-video-recording.md)
 * [Playback of recorded content]()
 * [Media graph concept]()
 
