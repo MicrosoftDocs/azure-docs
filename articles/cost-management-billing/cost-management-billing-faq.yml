@@ -41,6 +41,12 @@ sections:
           See [Cancel your Azure subscription](manage/cancel-azure-subscription.md).
   - name: Cost Management questions
     questions:
+      - question: How can I enable access to view costs?
+        answer: |
+          See [Assign access to Cost Management data](costs/assign-access-acm-data.md).
+      - question: What partner offers are supported by Cost Management?
+        answer: |
+          Cost Management is available for partners whose customers that have an Azure Plan. For more information, see [Get started with Azure Cost Management for partners](costs/get-started-partners.md). Classic CSP isn't support by Cost Management.
       - question: How can I see forecasted costs?
         answer: |
           In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. In the default view, the top chart has the Actual/Amortized cost and forecasted cost sections. The solid color of the chart shows your Actual/Amortized cost. The shaded color shows the forecast cost.
@@ -55,10 +61,13 @@ sections:
           In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Add a filter for **Pricing Model: Reservation**. Under Scope and next to the cost shown, select the down arrow symbol, and then select either **Actual cost** or **Amortized cost** metric.
       - question: How do I view costs for a tag?
         answer: |
-          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Select **Group by** for your tag.
+          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Select **Group by** for your tag. Tags aren't available for: purchases, tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, or classic resources. Some services don't include tags in usage data. For more information, see [Tag support for Azure resources](../azure-resource-manager/management/tag-support.md).
       - question: How do I see costs for my EA enrollment?
         answer: |
           In the Azure portal, navigate to **Cost Management + Billing** > Overview. Select the **Breakdown** link.
+      - question: How can I view my AWS cost in Cost Management?
+        answer: |
+          See [Set up and configure AWS Cost and Usage report integration](costs/aws-integration-set-up-configure.md).
       - question: How do I create a budget?
         answer: |
           See the [Create and manage Azure budgets](costs/tutorial-acm-create-budgets.md) tutorial.
