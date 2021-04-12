@@ -2,7 +2,7 @@
 title: Azure Service Bus message transfers, locks, and settlement
 description: This article provides an overview of Azure Service Bus message transfers, locks, and settlement operations.
 ms.topic: article
-ms.date: 04/11/2021
+ms.date: 04/12/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -10,7 +10,7 @@ ms.custom: devx-track-csharp
 
 The central capability of a message broker such as Service Bus is to accept messages into a queue or topic and hold them available for later retrieval. *Send* is the term that is commonly used for the transfer of a message into the message broker. *Receive* is the term commonly used for the transfer of a message to a retrieving client.
 
-When a client sends a message, it usually wants to know whether the message has been properly transferred to and accepted by the broker or whether some sort of error occurred. This positive or negative acknowledgment settles the client and the broker understanding about the transfer state of the message and is thus referred to as *settlement*.
+When a client sends a message, it usually wants to know whether the message has been properly transferred to and accepted by the broker or whether some sort of error occurred. This positive or negative acknowledgment settles the client and the broker understanding about the transfer state of the message. So, it' referred to as *settlement*.
 
 Likewise, when the broker transfers a message to a client, the broker and client want to establish an understanding of whether the message has been successfully processed and can therefore be removed, or whether the message delivery or processing failed, and thus the message might have to be delivered again.
 
@@ -18,9 +18,9 @@ Likewise, when the broker transfers a message to a client, the broker and client
 
 Using any of the supported Service Bus API clients, send operations into Service Bus are always explicitly settled, meaning that the API operation waits for an acceptance result from Service Bus to arrive, and then completes the send operation.
 
-If the message is rejected by Service Bus, the rejection contains an error indicator and text with a "tracking-id" in it. The rejection also includes information about whether the operation can be retried with any expectation of success. In the client, this information is turned into an exception and raised to the caller of the send operation. If the message has been accepted, the operation silently completes.
+If the message is rejected by Service Bus, the rejection contains an error indicator and text with a **tracking-id** in it. The rejection also includes information about whether the operation can be retried with any expectation of success. In the client, this information is turned into an exception and raised to the caller of the send operation. If the message has been accepted, the operation silently completes.
 
-When using the AMQP protocol, which is the exclusive protocol for the .NET Standard, Java, JavaScript, Python, and Go clients, and [an option for the .NET Framework client](service-bus-amqp-dotnet.md), message transfers and settlements are pipelined and asynchronous, and it is recommended that you use the asynchronous programming model API variants.
+When using the AMQP protocol, which is the exclusive protocol for the .NET Standard, Java, JavaScript, Python, and Go clients, and [an option for the .NET Framework client](service-bus-amqp-dotnet.md), message transfers and settlements are pipelined and asynchronous. We recommend that you use the asynchronous programming model API variants.
 
 A sender can put several messages on the wire in rapid succession without having to wait for each message to be acknowledged, as would otherwise be the case with the SBMP protocol or with HTTP 1.1. Those asynchronous send operations complete as the respective messages are accepted and stored, on partitioned entities or when send operation to different entities overlap. The completions might also occur out of the original send order.
 

@@ -2,7 +2,7 @@
 title: Azure Service Bus message sessions | Microsoft Docs
 description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
 ms.topic: article
-ms.date: 04/1/2021
+ms.date: 04/12/2021
 ---
 
 # Message sessions

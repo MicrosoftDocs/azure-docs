@@ -2,7 +2,7 @@
 title: Compare Azure Storage queues and Service Bus queues
 description: Analyzes differences and similarities between two types of queues offered by Azure.
 ms.topic: article
-ms.date: 11/04/2020
+ms.date: 04/12/2021
 ---
 
 # Storage queues and Service Bus queues - compared and contrasted
@@ -54,17 +54,17 @@ This section compares some of the fundamental queuing capabilities provided by S
 
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
-| Ordering guarantee |**No** <br/><br>For more information, see the first note in the [Additional Information](#additional-information) section.</br> | **Yes - First-In-First-Out (FIFO)**<br/><br>(through the use of [message sessions](message-sessions.md)) |
+| Ordering guarantee |**No** <br/><br>For more information, see the first note in the [Additional Information](#additional-information) section.</br> | **Yes - First-In-First-Out (FIFO)**<br/><br>(by using [message sessions](message-sessions.md)) |
 | Delivery guarantee |**At-Least-Once** |**At-Least-Once** (using PeekLock receive mode. It's the default) <br/><br/>**At-Most-Once** (using ReceiveAndDelete receive mode) <br/> <br/> Learn more about various [Receive modes](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Atomic operation support |**No** |**Yes**<br/><br/> |
-| Receive behavior |**Non-blocking**<br/><br/>(completes immediately if no new message is found) |**Blocking with or without a timeout**<br/><br/>(offers long polling, or the ["Comet technique"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(through the use of .NET managed API only) |
+| Receive behavior |**Non-blocking**<br/><br/>(completes immediately if no new message is found) |**Blocking with or without a timeout**<br/><br/>(offers long polling, or the ["Comet technique"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(using .NET managed API only) |
 | Push-style API |**No** |**Yes**<br/><br/>Our .NET, Java, JavaScript, and Go SDKs provide push-style API. |
 | Receive mode |**Peek & Lease** |**Peek & Lock**<br/><br/>**Receive & Delete** |
 | Exclusive access mode |**Lease-based** |**Lock-based** |
 | Lease/Lock duration |**30 seconds (default)**<br/><br/>**7 days (maximum)** (You can renew or release a message lease using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API.) |**30 seconds (default)**<br/><br/>You can renew the message lock for the same lock duration each time manually or use the automatic lock renewal feature where the client manages lock renewal for you. |
 | Lease/Lock precision |**Message level**<br/><br/>Each message can have a different timeout value, which you can then update as needed while processing the message, by using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API. |**Queue level**<br/><br/>(each queue has a lock precision applied to all of its messages, but the lock can be renewed as described in the previous row) |
-| Batched receive |**Yes**<br/><br/>(explicitly specifying message count when retrieving messages, up to a maximum of 32 messages) |**Yes**<br/><br/>(implicitly enabling a pre-fetch property or explicitly through the use of transactions) |
-| Batched send |**No** |**Yes**<br/><br/>(through the use of transactions or client-side batching) |
+| Batched receive |**Yes**<br/><br/>(explicitly specifying message count when retrieving messages, up to a maximum of 32 messages) |**Yes**<br/><br/>(implicitly enabling a pre-fetch property or explicitly by using transactions) |
+| Batched send |**No** |**Yes**<br/><br/>(by using transactions or client-side batching) |
 
 ### Additional information
 * Messages in Storage queues are typically first-in-first-out, but sometimes they can be out of order. For example, when the visibility-timeout duration of a message expires because a client application crashed while processing a message. When the visibility timeout expires, the message becomes visible again on the queue for another worker to dequeue it. At that point, the newly visible message might be placed in the queue to be dequeued again.
@@ -73,7 +73,7 @@ This section compares some of the fundamental queuing capabilities provided by S
     - Decoupling application components to increase scalability and tolerance for failures
     - Load leveling
     - Building process workflows.
-* Inconsistencies with regard to message handling in the context of Service Bus sessions can be avoided by using session state to store the application's state relative to the progress of handling the session's message sequence, and by using transactions around settling received messages and updating the session state. This kind of consistency feature is sometimes labeled *exactly once processing* in other vendor's products. Any transaction failures will obviously cause messages to be redelivered and that's why the term isn't exactly adequate.
+* Inconsistencies regarding message handling in the context of Service Bus sessions can be avoided by using session state to store the application's state relative to the progress of handling the session's message sequence, and by using transactions around settling received messages and updating the session state. This kind of consistency feature is sometimes labeled *exactly once processing* in other vendor's products. Any transaction failures will obviously cause messages to be redelivered and that's why the term isn't exactly adequate.
 * Storage queues provide a uniform and consistent programming model across queues, tables, and BLOBs – both for developers and for operations teams.
 * Service Bus queues provide support for local transactions in the context of a single queue.
 * The **Receive and Delete** mode supported by Service Bus provides the ability to reduce the messaging operation count (and associated cost) in exchange for lowered delivery assurance.
@@ -99,7 +99,7 @@ This section compares advanced capabilities provided by Storage queues and Servi
 | State management |**No** |**Yes** (Active, Disabled, SendDisabled, ReceiveDisabled. For details on these states, see [Queue status](entity-suspend.md#queue-status)) |
 | Message autoforwarding |**No** |**Yes** |
 | Purge queue function |**Yes** |**No** |
-| Message groups |**No** |**Yes**<br/><br/>(through the use of messaging sessions) |
+| Message groups |**No** |**Yes**<br/><br/>(by using messaging sessions) |
 | Application state per message group |**No** |**Yes** |
 | Duplicate detection |**No** |**Yes**<br/><br/>(configurable on the sender side) |
 | Browsing message groups |**No** |**Yes** |
@@ -108,7 +108,7 @@ This section compares advanced capabilities provided by Storage queues and Servi
 ### Additional information
 * Both queuing technologies enable a message to be scheduled for delivery at a later time.
 * Queue autoforwarding enables thousands of queues to autoforward their messages to a single queue, from which the receiving application consumes the message. You can use this mechanism to achieve security, control flow, and isolate storage between each message publisher.
-* Storage queues provide support for updating message content. You can use this functionality for persisting state information and incremental progress updates into the message so that it can be processed from the last known checkpoint, instead of starting from scratch. With Service Bus queues, you can enable the same scenario through the use of message sessions. For more information, see [Message session state](message-sessions.md#message-session-state).
+* Storage queues provide support for updating message content. You can use this functionality for persisting state information and incremental progress updates into the message so that it can be processed from the last known checkpoint, instead of starting from scratch. With Service Bus queues, you can enable the same scenario by using message sessions. For more information, see [Message session state](message-sessions.md#message-session-state).
 * Service Bus queues support [dead lettering](service-bus-dead-letter-queues.md). It can be useful for isolating messages that meet the following criteria:
     - Messages can't be processed successfully by the receiving application 
     - Messages can't reach their destination because of an expired time-to-live (TTL) property. The TTL value specifies how long a message remains in the queue. With Service Bus, the message will be moved to a special queue called $DeadLetterQueue when the TTL period expires.
@@ -174,7 +174,7 @@ This section discusses the authentication and authorization features supported b
 * The authentication scheme provided by Storage queues involves the use of a symmetric key. This key is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authentication for the Azure Storage Services](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](service-bus-sas.md).
 
 ## Conclusion
-By gaining a deeper understanding of the two technologies, you can make a more informed decision on which queue technology to use, and when. The decision on when to use Storage queues or Service Bus queues clearly depends on a number of factors. These factors may depend heavily on the individual needs of your application and its architecture. 
+By gaining a deeper understanding of the two technologies, you can make a more informed decision on which queue technology to use, and when. The decision on when to use Storage queues or Service Bus queues clearly depends on many factors. These factors may depend heavily on the individual needs of your application and its architecture. 
 
 You may prefer to choose Storage queues for reasons such as the following ones:
 
@@ -182,7 +182,7 @@ You may prefer to choose Storage queues for reasons such as the following ones:
 - If you require basic communication and messaging between services 
 - Need queues that can be larger than 80 GB in size
 
-Service Bus queues provide a number of advanced features such as the following ones. So, they may be a preferred choice if you're building a hybrid application or if your application otherwise requires these features.
+Service Bus queues provide many advanced features such as the following ones. So, they may be a preferred choice if you're building a hybrid application or if your application otherwise requires these features.
 
 - [Sessions](message-sessions.md)
 - [Transactions](service-bus-transactions.md)
