@@ -1,7 +1,7 @@
 ---
 title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
-ms.date: 02/04/2021
+ms.date: 04/12/2021
 ms.topic: sample
 ---
 # Starter Resource Graph query samples
@@ -29,6 +29,7 @@ We'll walk through the following starter queries:
 - [Show unassociated network security groups](#unassociated-nsgs)
 - [Get cost savings summary from Azure Advisor](#advisor-savings)
 - [Count machines in scope of Guest Configuration policies](#count-gcmachines)
+- [List resources licensed for Azure Hybrid Benefit](#list-resources-hybrid-benefit)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
@@ -649,6 +650,38 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 :::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/GuestConfigurationResources%20%7C%20extend%20vmid%20%3D%20split(properties.targetResourceId%2C%22%2F%22)%20%7C%20mvexpand%20properties.latestAssignmentReport.resources%20%7C%20where%20properties_latestAssignmentReport_resources.resourceId%20!%3D%20'Invalid%20assignment%20package.'%20%7C%20project%20machine%20%3D%20tostring(vmid%5B(-1)%5D)%2C%20type%20%3D%20tostring(vmid%5B(-3)%5D)%20%7C%20distinct%20machine%2C%20type%20%7C%20summarize%20count()%20by%20type" target="_blank">portal.azure.com</a>
+
+---
+
+## <a name="list-resources-hybrid-benefit"></a>List resources licensed for Azure Hybrid Benefit
+
+This query lists resources and shows the licenseType (if any), to confirm if <a href="https://azure.microsoft.com/en-us/pricing/hybrid-benefit/" target="_blank">Azure Hybrid Benefit pricing</a> is applied or not. If eligible, Azure Hybrid Benefit licensing can be used on Windows Server VMs, SQL Server VMs, SQL Managed Instance, and SQL Database. You can save up to 85 percent over the standard pay-as-you-go rate by bringing your Windows Server and SQL Server on-premises licenses to Azure.
+
+```kusto
+Resources 
+| where (type =~ 'Microsoft.Compute/virtualMachines' and properties.storageProfile.osDisk.osType =~ "Windows") or type =~ 'Microsoft.Sql/servers/databases' or type =~'Microsoft.Sql/managedInstances' 
+| project type, name, location, resourceGroup, licenseType = tostring(properties.licenseType)
+| union (Resources | where type =~ 'Microsoft.SqlVirtualMachine/SqlVirtualMachines' | project type, name, location, resourceGroup, licenseType = tostring(properties.sqlServerLicenseType))
+
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "Resources | where (type =~ 'Microsoft.Compute/virtualMachines' and properties.storageProfile.osDisk.osType =~ 'Windows') or type =~ 'Microsoft.Sql/servers/databases' or type =~'Microsoft.Sql/managedInstances' | project id, type, name, location, resourceGroup, licenseType = tostring(properties.licenseType) | union (Resources | where type =~ 'Microsoft.SqlVirtualMachine/SqlVirtualMachines' | project id, type, name, location, resourceGroup, licenseType = tostring(properties.sqlServerLicenseType))"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | where (type =~ 'Microsoft.Compute/virtualMachines' and properties.storageProfile.osDisk.osType =~ 'Windows') or type =~ 'Microsoft.Sql/servers/databases' or type =~'Microsoft.Sql/managedInstances' | project id, type, name, location, resourceGroup, licenseType = tostring(properties.licenseType) | union (Resources | where type =~ 'Microsoft.SqlVirtualMachine/SqlVirtualMachines' | project id, type, name, location, resourceGroup, licenseType = tostring(properties.sqlServerLicenseType))"
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20(type%20%3D%7E%20'Microsoft.Compute%2FvirtualMachines'%20and%20properties.storageProfile.osDisk.osType%20%3D%7E%20'Windows')%20or%20type%20%3D%7E%20'Microsoft.Sql%2Fservers%2Fdatabases'%20or%20type%20%3D%7E'Microsoft.Sql%2FmanagedInstances'%20%0D%0A%7C%20project%20id,%20type,%20name,%20location,%20resourceGroup,%20licenseType%20%3D%20tostring(properties.licenseType)%0D%0A%7C%20union%20(Resources%20%7C%20where%20type%20%3D%7E%20'Microsoft.SqlVirtualMachine%2FSqlVirtualMachines'%20%7C%20project%20id,%20type,%20name,%20location,%20resourceGroup,%20licenseType%20%3D%20tostring(properties.sqlServerLicenseType))" target="_blank">portal.azure.com</a>
 
 ---
 
