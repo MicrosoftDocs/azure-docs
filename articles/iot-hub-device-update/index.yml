@@ -52,7 +52,7 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: How to build and run Device Update Agent
-          url: device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent
+          url: device-update-agent-provisioning.md
   - title: Get started
     linkLists:
     - linkListType: tutorial
