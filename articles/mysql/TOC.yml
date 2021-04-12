@@ -376,6 +376,8 @@
        - name: Performance recommendations
          href: concepts-performance-recommendations.md
          displayName:  recommendation
+       - name: Azure Advisor recommendations
+         href: concepts-azure-advisor-recommendations.md
   - name: Best Practices
     items:
        - name: Monitoring best practices
