@@ -263,6 +263,8 @@
         href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
       - name: Create virtual switch 
         href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
+      - name: Back up VM disks 
+        href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
     - name: Manage certificates
       items:
       - name: Requirements
