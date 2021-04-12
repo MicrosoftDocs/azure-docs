@@ -10,13 +10,20 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 02/22/2021
+ms.date: 04/09/2021
 ---
 # Scale single database resources in Azure SQL Database
 
 This article describes how to scale the compute and storage resources available for an Azure SQL Database in the provisioned compute tier. Alternatively, the [serverless compute tier](serverless-tier-overview.md) provides compute autoscaling and bills per second for compute used.
 
-After initially picking the number of vCores or DTUs, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](single-database-manage.md#the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](/rest/api/sql/databases/update).
+After initially picking the number of vCores or DTUs, you can scale a single database up or down dynamically based on actual experience using:
+
+* [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure portal](single-database-manage.md#the-azure-portal)
+* [PowerShell](/powershell/module/az.sql/set-azsqldatabase)
+* [Azure CLI](/cli/azure/sql/db#az-sql-db-update)
+* [REST API](/rest/api/sql/databases/update)
+
 
 The following video shows dynamically changing the service tier and compute size to increase available DTUs for a single database.
 
@@ -119,7 +126,7 @@ You're billed for each hour a database exists using the highest service tier + c
 
 ### vCore-based purchasing model
 
-- Storage can be provisioned up to the data storage max size limit using 1-GB increments. The minimum configurable data storage is 1 GB. See resource limit documentation pages for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md) for data storage max size limits in each service objective.
+- Storage can be provisioned up to the data storage max size limit using 1-GB increments. The minimum configurable data storage is 1 GB. For data storage max size limits in each service objective, see resource limit documentation pages for [Resource limits for single databases using the vCore purchasing model](resource-limits-vcore-single-databases.md) and [Resource limits for single databases using the DTU purchasing model](resource-limits-dtu-single-databases.md).
 - Data storage for a single database can be provisioned by increasing or decreasing its max size using the [Azure portal](https://portal.azure.com), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or [REST API](/rest/api/sql/databases/update). If the max size value is specified in bytes, it must be a multiple of 1 GB (1073741824 bytes).
 - The amount of data that can be stored in the data files of a database is limited by the configured data storage max size. In addition to that storage, Azure SQL Database automatically allocates 30% more storage to be used for the transaction log.
 - Azure SQL Database automatically allocates 32 GB per vCore for the `tempdb` database. `tempdb` is located on the local SSD storage in all service tiers.
