@@ -678,10 +678,10 @@ The following template adds the tags from an object to either a resource group o
 
 To work with tags through the Azure REST API, use:
 
-* [Tags - Create Or Update At Scope](/rest/api/resources/resources/tags/createorupdateatscope) (PUT operation)
-* [Tags - Update At Scope](/rest/api/resources/resources/tags/updateatscope) (PATCH operation)
-* [Tags - Get At Scope](/rest/api/resources/resources/tags/getatscope) (GET operation)
-* [Tags - Delete At Scope](/rest/api/resources/resources/tags/deleteatscope) (DELETE operation)
+* [Tags - Create Or Update At Scope](/rest/api/resources/tags/createorupdateatscope) (PUT operation)
+* [Tags - Update At Scope](/rest/api/resources/tags/updateatscope) (PATCH operation)
+* [Tags - Get At Scope](/rest/api/resources/tags/getatscope) (GET operation)
+* [Tags - Delete At Scope](/rest/api/resources/tags/deleteatscope) (DELETE operation)
 
 ## Inherit tags
 

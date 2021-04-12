@@ -197,7 +197,7 @@ Copy-AzSqlDatabaseLongTermRetentionBackup
 ```
 
 3. **Copy LTR backup of a deleted database**
-Following example shows how to copy LTR backup of a deleted or dropped database from Azure Germany to Azure global. If the target database does not exist, a dummy database ID will be created. 
+Following example shows how to copy LTR backup of a deleted or dropped database from Azure Germany to Azure global. Note that, since this is a backup of a dropped database, the database should exist on the target server when starting the copy operation. 
 
 ```powershell
 # Source Database and target database info
@@ -213,26 +213,6 @@ Copy-AzSqlDatabaseLongTermRetentionBackup
 - TargetServerFullyQualifiedDomainName $targetServerFQDN 
 ```
 
-4. **Get details of a LTR backup copy operation**
-Following command can be used to get details of a given LTR backup. The output will show if there is a copy operation in progress or if a backup storage redundancy change is requested for the database. This will return the OperationId for the copy operation. 
-
-```powershell
-Get-AzSqlDatabaseLongTermRetentionBackup
--BackupName $backupname
--DatabaseName $databasename
--Location $location
-```
-
-5. **Cancel LTR backup copy operation**
-Following command can be used to cancel a LTR backup copy operation. The OperationId can be obtained used the Get-AzSqlDatabaseLongTermRetentionBackup command, as shown above. 
-
-```powershell
-Stop-AzSqlDatabaseActivity 
--ResourceGroupName $sourceRGName
--ServerName $sourceServerName
--DatabaseName $sourceDatabaseName 
--OperationId aaaaaa-9999-4444-8888-44444ccccfff
-```
 
 ### Limitations  
 

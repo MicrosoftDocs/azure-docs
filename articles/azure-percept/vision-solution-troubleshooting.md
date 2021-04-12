@@ -65,17 +65,17 @@ If the runtime status of **azureeyemodule** is not listed as **running**, click 
 
  :::image type="content" source="./media/vision-solution-troubleshooting/firmware-desired-status-stopped.png" alt-text="Module setting configuration screen.":::
 
-### Update TelemetryInterval
+### Update TelemetryIntervalNeuralNetworkMs
 
-If you encounter the following count limitation error, the TelemetryInterval value in the azureeyemodule module twin settings will need to be updated.
+If you encounter the following count limitation error, the TelemetryIntervalNeuralNetworkMs value in the azureeyemodule module twin settings will need to be updated.
 
 |Error Message|
 |------|
 |Total number of messages on IotHub 'xxxxxxxxx' exceeded the allocated quota. Max allowed message count: '8000', current message count: 'xxxx'. Send and Receive operations are blocked for this hub until the next UTC day. Consider increasing the units for this hub to increase the quota.|
 
-TelemetryInterval determines how often to send messages (in milliseconds) from the neural network. Azure subscriptions have a limited number of messages per day, depending on your subscription tier. If you find yourself locked out due to having sent too many messages, increase this to a higher number. 12000 (meaning once every 12 seconds) will give you a nice round 7200 messages per day, which is under the 8000 message limit for the free subscription.
+TelemetryIntervalNeuralNetworkMs determines how often to send messages (in milliseconds) from the neural network. Azure subscriptions have a limited number of messages per day, depending on your subscription tier. If you find yourself locked out due to having sent too many messages, increase this to a higher number. 12000 (meaning once every 12 seconds) will give you a nice round 7200 messages per day, which is under the 8000 message limit for the free subscription.
 
-To update your TelemetryInterval value, follow these steps:
+To update your TelemetryIntervalNeuralNetworkMs value, follow these steps:
 
 1. Log in to the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home) and open **All resources**.
 
@@ -93,7 +93,7 @@ To update your TelemetryInterval value, follow these steps:
 
     :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline.png" alt-text="Screenshot of module twin properties." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
 
-1. Update the **TelemetryInterval** value as desired and click the **Save** icon.
+1. Update the **TelemetryIntervalNeuralNetworkMs** value as desired and click the **Save** icon.
 
 ## View device RTSP video stream
 

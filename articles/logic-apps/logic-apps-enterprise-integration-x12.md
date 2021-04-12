@@ -74,7 +74,6 @@ After you set the agreement properties, you can configure how this agreement ide
 |----------|-------------|
 | **TA1 Expected** | Return a technical acknowledgment (TA1) to the interchange sender. |
 | **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. <p>For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgments. <p>To enable generation of AK2 loops in functional acknowledgments for accepted transaction sets, select **Include AK2 / IK2 Loop**. |
-||||
 
 <a name="inbound-schemas"></a>
 
