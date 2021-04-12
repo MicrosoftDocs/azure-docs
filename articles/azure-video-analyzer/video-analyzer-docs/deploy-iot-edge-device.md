@@ -33,7 +33,8 @@ See [Create custom Azure Resource Manager role]() and assign it to a service pri
 
 ### Set up a premium streaming endpoint
 
-If you intend to use Azure Video Analyzer to record video continuously to the cloud, and subsequently use [query APIs]() before playing it back, then we recommend updating your Media Service to use a [premium streaming endpoint](../latest/stream-streaming-endpoint-concept.md#types).  
+If you intend to use Azure Video Analyzer to record video continuously to the cloud, and subsequently use [query APIs]() before playing it back, then we recommend updating your Media Service to use a [premium streaming endpoint]().
+<!-- Is above still true under AVA? -->  
 
 This is an optional step. You can use this Azure CLI command to do so:
 

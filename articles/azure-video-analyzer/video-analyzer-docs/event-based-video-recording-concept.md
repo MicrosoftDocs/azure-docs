@@ -69,4 +69,4 @@ An enhancement to this example is to use a motion detector processor ahead of th
 
 ## Next steps
 
-[Tutorial: event-based video recording](event-based-video-recording-tutorial.md)
+[Tutorial: event-based video recording]()
