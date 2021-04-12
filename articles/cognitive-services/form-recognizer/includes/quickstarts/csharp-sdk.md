@@ -60,7 +60,7 @@ dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
 ```
 
 > [!NOTE]
-> The Form Recognizer 3.1.0 SDK reflects _API version 2.1 preview.2_. Please use the [**REST API**](../../quickstarts/client-library.md) for _API version 2.1 preview.3_.
+> The Form Recognizer 3.1.0-beta.4 SDK reflects _API version 2.1-preview.3.
 
 #### [v2.0](#tab/ga)
 

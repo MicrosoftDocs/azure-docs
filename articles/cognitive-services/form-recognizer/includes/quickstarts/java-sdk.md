@@ -68,12 +68,12 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.1")
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.3")
 }
 ```
 
 > [!NOTE]
-> The Form Recognizer 3.1.0 SDK reflects _API version 2.1 preview.2_. Please use the [**REST API**](../../quickstarts/client-library.md) for _API version 2.1 preview.3_.
+> The Form Recognizer 3.1.0-beta.3 SDK reflects _API version 2.1-preview.3_. 
 
 #### [v2.0](#tab/ga)
 
@@ -89,12 +89,12 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.3")
 }
 ```
 
 > [!NOTE]
-> The Form Recognizer 3.0.0 SDK reflects API v2.0
+> The Form Recognizer 3.0.0 SDK reflects API v2.1-preview.3
 
 ---
 
@@ -326,14 +326,14 @@ This section demonstrates how to analyze and extract key information from govern
 
 To analyze identity documents from a URI use the `beginRecognizeIdDocumentsFromUrl` method.
 
-:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizerQuickstart-preview.cs?name="snippet_id_call":::
+:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizerQuickstart-preview.cs" name="snippet_id_call":::
 
 > [!TIP]
 > You can also analyze local identity document images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **beginRecognizeIdDocuments**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
 
 The following code processes the identity document at the given URI and prints the major fields and values to the console.
 
-:::code language="java" source=~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizerQuickstart-preview.cs?name="snippet_id_print":::
+:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizerQuickstart-preview.cs" name="snippet_id_print":::
 
 ## Train a custom model
 
