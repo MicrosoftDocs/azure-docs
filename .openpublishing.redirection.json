@@ -49099,12 +49099,12 @@
     },
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-backup-guide.md",
-      "redirect_url": "/articles/backup/sap-hana-db-about",
+      "redirect_url": "/azure/backup/sap-hana-db-about",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-backup-file-level.md",
-      "redirect_url": "/articles/backup/sap-hana-db-about",
+      "redirect_url": "/azure/backup/sap-hana-db-about",
       "redirect_document_id": false
     },
     {
