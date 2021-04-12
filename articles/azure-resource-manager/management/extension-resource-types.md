@@ -65,12 +65,6 @@ An extension resource is a resource that adds to another resource's capabilities
 
 - Microsoft.ChangeAnalysis/changes
 
-## Microsoft.Chaos
-
-- Microsoft.Chaos/chaosProviderConfigurations
-- Microsoft.Chaos/chaosTargets
-- Microsoft.Chaos/experiments
-
 ## Microsoft.Consumption
 
 - Microsoft.Consumption/AggregatedCost
@@ -94,10 +88,6 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.ContainerInstance
 
 - Microsoft.ContainerInstance/serviceAssociationLinks
-
-## Microsoft.Contoso
-
-- Microsoft.Contoso/extensionresourcetype
 
 ## Microsoft.CostManagement
 
@@ -246,10 +236,6 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.SecurityInsights/settings
 - Microsoft.SecurityInsights/threatIntelligence
 - Microsoft.SecurityInsights/watchlists
-
-## Microsoft.SerialConsole.PPE
-
-- Microsoft.SerialConsole.PPE/serialPorts
 
 ## Microsoft.SerialConsole
 
