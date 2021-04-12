@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 04/12/2021
 ms.author: cherylmc
 
 ---
@@ -24,7 +24,7 @@ There are two specific design patterns in this scenario, depending on whether th
 
 In this scenario, the application gateway and backend pools are in the same virtual network peered to a Virtual WAN hub (separate subnets).
 
-:::image type="content" source="./media/routing-scenarios/secured-application-gateway/scenario-1.png" alt-text="Diagram for Scenario 1." lightbox="./media/routing-scenarios/secured-application-gateway/scenario-1.png":::
+:::image type="content" source="./media/routing-scenarios/secured-application-gateway/same-vnet.png" alt-text="Diagram for Scenario 1." lightbox="./media/routing-scenarios/secured-application-gateway/same-vnet.png":::
 
 ### Workflow
 
@@ -53,7 +53,7 @@ Currently, routes that are advertised from the Virtual WAN route table to spoke 
 
 In this scenario, application gateway and backend pools are in different virtual networks that are peered to a Virtual WAN hub.
 
-:::image type="content" source="./media/routing-scenarios/secured-application-gateway/scenario-2.png" alt-text="Diagram for Scenario 2." lightbox="./media/routing-scenarios/secured-application-gateway/scenario-2.png":::
+:::image type="content" source="./media/routing-scenarios/secured-application-gateway/different-vnets.png" alt-text="Diagram for Scenario 2." lightbox="./media/routing-scenarios/secured-application-gateway/different-vnets.png":::
 
 ### Workflow
 
