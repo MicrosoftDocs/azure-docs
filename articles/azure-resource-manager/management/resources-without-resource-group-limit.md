@@ -33,6 +33,17 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * botServices - By default, limited to 800 instances. That limit can be increased by contacting support.
 
+## Microsoft.Compute
+
+* disks
+* galleries
+* galleries/images
+* galleries/images/versions
+* images
+* snapshots
+* virtualMachineScaleSets - By default, limited to 800 instances. That limit can be increased by contacting support.
+* virtualMachines
+
 ## Microsoft.ContainerInstance
 
 * containerGroups
@@ -71,11 +82,7 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Microsoft.DevTestLab
 
-
-## Microsoft.EdgeOrder
-
-* orderCollections
-* orders
+* schedules
 
 ## Microsoft.EnterpriseKnowledgeGraph
 
