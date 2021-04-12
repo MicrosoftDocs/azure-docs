@@ -79,7 +79,7 @@ There are two text project types:
 
 |Project type  |Tagging  |
 |---------|---------|
-| Classification Multi-Class1 | Assign a single tag to the entire text item.     |
+| Classification Multi-Class | Assign a single tag to the entire text item.     |
 | Classification Multi-Label     | Assign one *or more* tags to each text item.         |
 
 To see the project-specific directions, select **Instructions** and go to **View detailed instructions**.
