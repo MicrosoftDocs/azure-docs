@@ -132,7 +132,7 @@ Some well known implementations of transformers are:
 
 - Bidirectional Encoder Representations from Transformers (BERT)
 - Generative Pre-trained Transformer 2 (GPT-2)
-- Generative Pre-trained Transformer 3 (GPT-3).
+- Generative Pre-trained Transformer 3 (GPT-3)
 
 ## Next steps
 
