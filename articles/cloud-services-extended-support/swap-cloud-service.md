@@ -43,11 +43,11 @@ To swap a deployment in the Azure portal:
 1. Select the cloud service you want to update.
 1. In **Overview** for the cloud service, select **Swap**:
 
-   :::image type="content" source="media/swap-cloud-service-1.png" alt-text="Screenshot that shows the swap tab for the cloud service.":::
+   :::image type="content" source="media/swap-cloud-service-portal-swap.png" alt-text="Screenshot that shows the swap tab for the cloud service.":::
 
 1. In the swap confirmation pane, verify the deployment information, and then select **OK** to swap the deployments:
 
-   :::image type="content" source="media/swap-cloud-service-2.png" alt-text="Screenshot that shows confirming the deployment swap information.":::
+   :::image type="content" source="media/swap-cloud-service-portal-confirm.png" alt-text="Screenshot that shows confirming the deployment swap information.":::
 
 Deployments swap quickly because the only thing that changes is the virtual IP address for the cloud service that's deployed.
 
@@ -102,7 +102,7 @@ Guest OS updates and service healing operations might cause a deployment swap to
 
 No. A VIP swap is a networking-only change that must finish before any other compute operation is started on a cloud service. Starting an update, delete, or autoscale operation for a cloud service while a VIP swap is in progress or triggering a VIP swap while another compute operation is in progress might put the cloud service in a state of unrecoverable error.
 
-### Does a swap incur downtime for my application and how should I handle it?
+### Does a swap incur downtime for my application, and how should I handle it?
 
 A cloud service swap usually is fast because it's only a configuration change in the Azure load balancer. In some cases, the swap might take 10 or more seconds and result in transient connection failures. To limit the effect of the swap on users, consider implementing client retry logic.
 
