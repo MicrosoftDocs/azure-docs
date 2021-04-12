@@ -3,7 +3,7 @@ title: Windows Virtual Desktop MSIX app attach portal - Azure
 description: How to set up MSIX app attach for Windows Virtual Desktop using the Azure portal.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
 ---

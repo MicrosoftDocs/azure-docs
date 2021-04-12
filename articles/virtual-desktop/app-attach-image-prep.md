@@ -3,7 +3,7 @@ title: Windows Virtual Desktop prepare MSIX app attach image - Azure
 description: How to create an MSIX app attach image for a Windows Virtual Desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
 ---
